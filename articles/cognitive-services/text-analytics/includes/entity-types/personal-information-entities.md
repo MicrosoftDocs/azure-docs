@@ -6,129 +6,40 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 02/06/2020
+ms.date: 03/30/2020
 ms.author: aahi
 ---
 
-## Personal information entity types:
+## Personal information categories (Preview):
 
-### Person
-Recognize person names in text.
+The following entity categories are returned when [detecting personal information](../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) using NER. This feature is only available in the Text Analytics API v3.0 and v3.1 previews.
 
-Languages:
-* Public preview: `English`
+| Category   | Subcategory | Description                          | Examples                                                    | Starting model version |
+|------------|-------------|--------------------------------------|-------------------------------------------------------------|--------------------------------------|
+| Person     | N/A         | Names of people.                     | Bill Gates, Marie Curie                                     | 2019-10-01                         |
+| PersonType | N/A         | Job types or roles held by a person. | civil engineer, salesperson, chef, librarian, nursing aide | 2020-02-01                         | 
+|Organization  | N/A | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. | Microsoft, NASA | 2019-10-01 | 
+|Organization | Medical | Medical companies and groups | Contoso Pharmaceuticals | 2020-04-01 | 
+|Organization | Stock exchange | Stock exchange groups. | Major stock exchange names and abbreviations. | 2020-04-01 |
+| Organization | Sports | Sports-related organizations. | Popular leagues, clubs, and associations. | 2020-04-01 | 
+| Phone Number | N/A | Phone numbers (US Phone numbers only) | (312) 555-0176 | 2019-10-01 | 
+| Address | N/A | Full addresses. | 1234 Main St. Buffalo, NY 98052 | 2020-04-01 |
+| Email | N/A | Email addresses. | `support@contoso.com` | 2019-10-01 | 
+| URL | N/A | URLs to websites. | `https://www.bing.com` | 2019-10-01 |
+| IP Address | N/A | Network addresses. | `10.0.0.101` | 2019-10-01 | 
+| Quantity | N/A | Numbers and numeric quantities. | | 2019-10-01 | 
+| Quantity | Age | Ages. | 90 day old, 30 years old | 2019-10-01 | 
+| DateTime | N/A | Date and Time entities. | 6:30PM February 4 2012, 4/1/2011 2:45. | 2019-10-01 | 
+| DateTime | Date | Dates in time. | May 2nd 2017, 05/02/2017 | 2019-10-01 |
+| EU GPS Coordinates | N/A | GPS coordinates for locations within the European Union.  | | 2019-10-01 | 
+| ICD-9-CM | N/A | Entities relating to the International Classification of Diseases, Ninth Revision  | | 2020-04-01 |
+| ICD-10-CM | N/A | Entities relating to the International Classification of Diseases, Tenth Revision  | | 2020-04-01 |
 
-| Subtype name | Description                                               | Available starting with model version |
-|--------------|-----------------------------------------------------------|----------------------------------------|
-| N/A          | Recognized names, for example `Bill Gates`, `Marie Curie` | `2020-02-01`                           |
+## Azure information
 
-### Organization  
+This entity category includes identifiable Azure information including authentication information, and connection strings. Available starting with model version `2019-10-01`. Subcategories of this entity are listed below.
 
-Recognize organizations, corporations, agencies, companies, clubs and other groups of people.
-
-Languages: 
-
-* Public preview: `English`
-
-| Subtype name | Description                                                                                       | Available starting with model version|
-|--------------|---------------------------------------------------------------------------------------------------|--------------|
-| N/A          | organizations, for example `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration` | `2020-02-01` |
-
-### Phone Number
-
-Phone numbers (US Phone numbers only). 
-
-Languages:
-
-* Public preview: `English`
-
-| Subtype name | Description                                    | Available starting with model version |
-|--------------|------------------------------------------------|----------------------------------------|
-| N/A          | US phone numbers, for example `(312) 555-0176` | `2020-02-01`                           |
-
-### Email
-
-Email address. 
-
-Languages:
-
-* Public preview: `English`
-
-| Subtype name | Description                                      | Available starting with model version |
-|--------------|--------------------------------------------------|----------------------------------------|
-| N/A          | Email address, for example `support@contoso.com` | `2020-02-01`                           |
-
-### URL
-
-Internet URLs.
-
-Languages:
-
-* Public preview: `English`
-
-| Subtype name | Description                                          | Available starting with model version |
-|--------------|------------------------------------------------------|----------------------------------------|
-| N/A          | URLs to websites, for example `https://www.bing.com` | `2020-02-01`                           |
-
-### IP Address
-
-Internet Protocol Address
-
-Languages:
-
-* Public preview: `English`
-
-| Subtype name | Description                              | Available starting with model version |
-|--------------|------------------------------------------|----------------------------------------|
-| N/A          | Network address for example `10.0.0.101` | `2020-02-01`                           |
-
-### Quantity 
-
-Numeric quantities
-
-Languages:
-
-* Public preview: `English`
-
-| Subtype name | Description                   | Available starting with model version |
-|--------------|-------------------------------|----------------------------------------|
-| Age          | `90 days old`, `30 years old` | `2020-02-01`                           |
-
-### DateTime
-
-Date and Time entities
-
-Languages:
-
-* Public preview: `English`
-
-| Subtype name | Description                   | Available starting with model version |
-|--------------|-------------------------------|----------------------------------------|
-| Date         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
-
-### EU GPS Coordinates
-
- GPS coordinates for locations within the European Union. 
-
-Languages:
-
-* Public preview: `English`
-
-| Subtype name | Description                               | Available starting with model version |
-|--------------|-------------------------------------------|----------------------------------------|
-| N/A          | GPS coordinates within the European Union | `2019-10-01`                           |
-
-### Azure information
-
-Identifiable Azure information including authentication information, and connection strings. 
-
-* Available starting with model version `2019-10-01`.
-
-Languages:
-
-* Public preview: `English`
-
-| Subtype name                          | Description                                                                 |
+| Subcategory                           | Description                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Azure DocumentDB Auth Key             | Authorization key for an Azure DocumentDB server.                           |
 | Azure IAAS Database Connection String | Connection string for an Azure Infrastructure as a service (IaaS) database. |
@@ -137,191 +48,16 @@ Languages:
 | Azure Publish Setting Password        | Password for Azure Publish settings.                                        |
 | Azure Redis Cache Connection String   | Connection string for an Azure Cache for Redis.                             |
 | Azure SAS                             | Connection string for Azure Software as a Service(SAS).                     |
-| Azure Service Bus Connection String   | Connection string for an Azure service bus.                                |
+| Azure Service Bus Connection String   | Connection string for an Azure service bus.                                 |
 | Azure Storage Account Key             | Account key for an Azure storage account.                                   |
 | Azure Storage Account Key (Generic)   | Generic account key for an Azure storage account.                           |
 | SQL Server Connection String          | Connection string for a SQL server.                                         |
 
-### Identification
+## Identification
 
-* Available starting with model version `2019-10-01`.
+> [!NOTE]
+> The following financial and country-specific entities are also returned when [using NER to detect personal health information](../../how-tos/text-analytics-how-to-entity-linking.md).
 
-Languages:
+This entity category includes financial information and official forms of identification. Available starting with model version `2019-10-01`. Subtypes are listed below. 
 
-* Public preview: `English`
-
-#### Financial Account Identification
-
-| Subtype name               | Description                                                                |
-|----------------------------|----------------------------------------------------------------------------|
-| ABA Routing Numbers        | American Banker Association(ABA) transit routing numbers.                  |
-| SWIFT Code                 | SWIFT codes for payment instruction information.                           |
-| Credit Card                | Credit card numbers.                                                       |
-| IBAN Code                  | IBAN codes for payment instruction information.                            |
-
-#### Government and country-specific Identification
-
-The entities below are grouped and listed by country:
-
-Argentina
-* National Identity (DNI) Number
-
-Australia
-* Tax file number 
-* Driver's license ID
-* Passport ID
-* Medical account number
-* bank account numbers (for example checking, savings and debit accounts)
-
-Belgium
-* National number
-
-Brazil
-* Legal Entity Number (CNPJ)
-* CPF number
-* National ID Card (RG)
-
-Canada
-* Passport ID
-* Driver's license ID
-* Health insurance Number
-* Personal health ID Number (PHIN)
-* Social Security Number
-* bank account numbers (for example checking, savings and debit accounts)
-
-Chile
-* Identity card number 
-
-China
-* Identity card number
-* Resident ID card (PRC) number
-
-Croatia
-* ID card number
-* Personal ID (OIB) number
-
-Czech Republic
-* National ID card number
-
-Denmark
-* Personal ID number
-
-European Union (EU)
-* National ID number
-* Passport ID
-* Driver's license ID
-* Social Security Number (SSN) or equivalent ID
-* EU Tax Identification Number (TIN)
-* EU Debit Card Number
-
-Finland
-* National ID number
-* Passport ID
-
-France
-* National ID card (CNI)
-* Social Security number (INSEE)
-* Passport ID
-* Driver's license ID
-
-Germany
-* ID Card number
-* Passport ID
-* Driver's license ID
-
-Greece 
-* National ID card number
-
-Hong Kong
-* ID card (HKID) number
-
-India
-* Permanent Account number (PAN)
-* Unique ID (Aadhaar) Number
-
-Indonesia
-* ID card number (KTP)
-
-Ireland
-* Personal Public Service (PPS) Number
-
-Israel
-* National ID
-* bank account numbers (for example checking, savings and debit accounts)
-
-Italy
-* Driver's license ID
-
-Japan
-* Resident registration number
-* Residence card number
-* Driver's license ID
-* Social Insurance Number (SIN)
-* Passport ID
-* bank account numbers (for example checking, savings and debit accounts)
-
-Malaysia
-* ID card number
-
-Netherlands
-* Citizen's Service (BSN) number
-
-New Zealand
-* Ministry of Health Number
-
-Norway
-* ID card number
-
-Philippines
-* Unified Multi-Purpose ID Number
-
-Poland
-* ID Card number
-* National ID (PESEL)
-* Passport ID
-
-Portugal 
-* Citizen Card Number
-
-Saudi Arabia
-* National ID
-
-Singapore
-* National Registration ID Card (NRIC) number
-
-South Africa
-* ID Number
-* Resident Registration number
-
-South Korea
-* Resident Registration Number
-
-Spain 
-* Social Security Number (SSN)
-
-Sweden
-* National ID
-* Passport ID
-
-Taiwan 
-* National ID
-* Resident Certificate (ARC/TARC) number
-* Passport ID
-
-Thailand
-* Population Identification code
-
-United Kingdom
-* Passport ID
-* Driver's license ID
-* National Insurance number (NINO)
-* National Health Service (NHS) number
-
-United States
-* Social Security Number (SSN)
-* Driver's license ID
-* Passport ID
-* Electoral roll number
-* Individual Tax ID Number (ITIN)
-* Drug Enforcement Agency (DEA) number
-* bank account numbers (for example checking, savings and debit accounts)
+[!INCLUDE [supported identification entities](./identification-entities.md)]

@@ -31,7 +31,7 @@ As part of the [unified Azure SDK release](https://techcommunity.microsoft.com/t
 
 ### Named Entity Recognition v3 public preview
 
-Additional entity types are now available in the Named Entity Recognition (NER) v3 public preview service as we expand the detection of general and personal information entities found in text. This update introduces [model version](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) `2020-02-01`, which includes:
+Additional entity types are now available in the Named Entity Recognition (NER) v3 public preview service as we expand the detection of general and personal information entities found in text. This update introduces [model version](concepts/model-versioning.md) `2020-02-01`, which includes:
 
 * Recognition of the following general entity types (English only):
     * PersonType
@@ -61,7 +61,7 @@ Additional entity types are now available in the Named Entity Recognition (NER) 
 
 * Separate endpoints for [entity recognition](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) and [entity linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
 
-* [Model version](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) `2019-10-01`, which includes:
+* [Model version](concepts/model-versioning.md) `2019-10-01`, which includes:
     * Expanded detection and categorization of entities found in text. 
     * Recognition of the following new entity types:
         * Phone number
@@ -72,7 +72,7 @@ Entity linking supports English and Spanish. NER language support varies by the 
 #### Sentiment Analysis v3 public preview
 
 * A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) for analyzing sentiment.
-* [Model version](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) `2019-10-01`, which includes:
+* [Model version](concepts/model-versioning.md) `2019-10-01`, which includes:
 
     * Significant improvements in the accuracy and detail of the API's text categorization and scoring.
     * Automatic labeling for different sentiments in text.

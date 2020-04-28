@@ -1,7 +1,7 @@
 ---
-title: Supported Types for Named Entity Recognition
+title: Supported Categories for Named Entity Recognition
 titleSuffix: Azure Cognitive Services
-description: Learn about the supported entity types in the Text Analytics API.
+description: Learn about the supported entity categories in the Text Analytics API.
 services: cognitive-services
 author: aahill
 
@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/06/2020
+ms.date: 03/30/2020
 ms.author: aahi
 ---
 
-# Supported Types for Named Entity Recognition Version 3 (Preview)
+# Supported entity categories in Named Entity Recognition v3
 
 The Text Analytics API provides the ability to identify and disambiguate entities found in text. [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) (NER) is the ability to identify different entities in text and categorize them into pre-defined classes.
 
-## Entity types
+## Entity categories
 
 The supported entity types and sub-types (where applicable) are listed below:
 
@@ -25,9 +25,13 @@ The supported entity types and sub-types (where applicable) are listed below:
 
 [!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
 
-#### [Personal information](#tab/personal)
+#### [Personal](#tab/personal)
 
 [!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
+
+#### [Health](#tab/health)
+
+[!INCLUDE [supported entity types - confidential health information](./includes/entity-types/personal-health-entities.md)]
 
 ***
 
