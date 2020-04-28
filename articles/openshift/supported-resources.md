@@ -12,6 +12,10 @@ ms.date: 05/15/2019
 
 This topic lists the Azure regions and virtual machine sizes supported by the Microsoft Azure Red Hat OpenShift 3.11 service.
 
+## Azure regions
+
+See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all) for a current list of regions where you can deploy Azure Red Hat OpenShift clusters.
+
 ## Virtual machine sizes
 
 Here are the supported virtual machine sizes you can specify for the compute nodes in your Azure Red Hat OpenShift cluster.
