@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 02/27/2020
+ms.date: 04/28/2020
 
 ms.custom: seoapril2019
 ---
@@ -1140,11 +1140,13 @@ To configure your model deployment to support CORS, use the `AMLResponse` class 
 The following example sets the `Access-Control-Allow-Origin` header for the response from the entry script:
 
 ```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
 
 def init():
     print("This is init()")
 
+@rawhttp
 def run(request):
     print("This is run()")
     print("Request: [{0}]".format(request))
