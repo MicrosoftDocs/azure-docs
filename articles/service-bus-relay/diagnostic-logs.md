@@ -1,6 +1,6 @@
 ---
 title: Azure Relay - diagnostics logs | Microsoft Docs
-description: This article provides an overview of all the operational and diagnostics logs that are available for Azure Service Bus. 
+description: This article provides an overview of all the operational and diagnostics logs that are available for Azure Relay. 
 services: service-bus-messaging
 author: spelluru
 editor: 
@@ -109,7 +109,7 @@ Here's a sample hybrid connections event in JSON format.
 
 ## Next steps
 
-To learn more about Service Bus, see:
+To learn more about Azure Relay, see:
 
-* [Introduction to Service Bus](service-bus-messaging-overview.md)
-* [Get started with Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Introduction to Azure Relay](relay-what-is.md)
+* [Get started with Relay Hybrid Connections](relay-hybrid-connections-dotnet-get-started.md)
