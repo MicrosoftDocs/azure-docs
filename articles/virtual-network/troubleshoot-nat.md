@@ -96,6 +96,7 @@ The following table can be used a starting point for which tools to use to start
 
 Connectivity issues with [Virtual Network NAT](nat-overview.md) can be caused by several different issues:
 
+* permanent failures due to configuration mistakes.
 * transient or persistent [SNAT exhaustion](#snat-exhaustion) of the NAT gateway,
 * transient failures in the Azure infrastructure, 
 * transient failures in the path between Azure and the public Internet destination, 
