@@ -390,7 +390,7 @@
       href: how-to-debug-parallel-run-step.md
     - name: Iterating and Evolving Machine Learning Pipelines
       displayName: modularizing testing
-      href: concept-pipelines-practices-tips.md
+      href: concept-pipeline-practices-tips.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
