@@ -312,31 +312,31 @@ When you work with HIPAA schemas and the 277 or 837 message types, you need to p
 
 This table lists the schema document version numbers, their message types, and any variants:
 
-| Message type or variant | GS8 document version number | Description |
-|-------------------------|-----------------------------|-------------|
-| 277 | 005010X212 | Health Care Information Status Notification |
-| 837_I | 004010X096A1 <br>005010X223A1 <br>005010X223A2 | Health Care Claim Dental |
-| 837_D | 004010X097A1 <br>005010X224A1 <br>005010X224A2 | Health Care Claim Institutional |
-| 837_P | 004010X098A1 <br>005010X222 <br>005010X222A1 | Health Care Claim Professional |
+| Message type or variant |  Description | GS8 document version number |
+|-------------------------|--------------|-----------------------------|
+| 277 | Health Care Information Status Notification | 005010X212 |
+| 837_I | Health Care Claim Dental | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |
+| 837_D | Health Care Claim Institutional | 004010X097A1 <br>005010X224A1 <br>005010X224A2 |
+| 837_P | Health Care Claim Professional | 004010X098A1 <br>005010X222 <br>005010X222A1 |
 |||
 
 You also need to disable EDI validation for these variant messages types because the version numbers result in an error that the character length is invalid.
 
-Here are the steps to follow:
+To specify these document version numbers and message types, follow these steps:
 
-1. In your HIPAA schema, replace the current message type with the variant message type that matches the document version number.
+1. In your HIPAA schema, replace the current message type with the variant message type for the document version number that you want to use.
 
-   For example, if your document version number is `005010X222A1`, replace `"X12_00501_837"` with `"X12_00501_837_P"`.
+   For example, suppose you want to use document version number `005010X222A1` with the `837` message type. In your schema, replace each `"X12_00501_837"` value with the `"X12_00501_837_P"` value instead.
 
    To update your schema, follow these steps:
 
-   1. In the Azure portal, go to your integration account, find the schema, [download, edit, rename, and upload your revised schema](../logic-apps/logic-apps-enterprise-integration-schemas.md#edit-schemas).
+   1. In the Azure portal, go to your integration account. Find and download your schema. Replace the message type and rename the schema file, and upload your revised schema to your integration account. For more information, see [Edit schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md#edit-schemas).
 
    1. In your your agreement's message settings, select the revised schema.
 
-1. In your agreement's `schemaReferences` object, add another item that has the variant message type that matches your document version number.
+1. In your agreement's `schemaReferences` object, add another entry that specifies the variant message type that matches your document version number.
 
-   For example, suppose you want to use document version number `005010X222A1`. Your agreement has a `schemaReferences` section with these properties and values:
+   For example, suppose you want to use document version number `005010X222A1` for the `837` message type. Your agreement has a `schemaReferences` section with these properties and values:
 
    ```json
    "schemaReferences": [
@@ -348,11 +348,13 @@ Here are the steps to follow:
    ]
    ```
 
-   In this `schemaReferences` section, add another item that has these values:
+   In this `schemaReferences` section, add another entry that has these values:
 
    * `"messageId": "837_P"`
    * `"schemaVersion": "00501"`
    * `"schemaName": "X12_00501_837_P"`
+
+   When you're done, your `schemaReferences` section looks like this:
 
    ```json
    "schemaReferences": [
@@ -369,9 +371,9 @@ Here are the steps to follow:
    ]
    ```
 
-1. Disable EDI validation for this message type by clearing the **EDI Validation** checkbox for each message type or for the **Default** message type, if you're using the default values for all message types.
+1. In your agreement's message settings, disable EDI validation for this message type by clearing the **EDI Validation** checkbox either for each message type or for all message types if you're using the **Default** values.
 
-   ![Validation properties](./media/logic-apps-enterprise-integration-x12/x12-disable-validation.png) 
+   ![Disable validation for all message types or each message type](./media/logic-apps-enterprise-integration-x12/x12-disable-validation.png) 
 
 ## Connector reference
 
