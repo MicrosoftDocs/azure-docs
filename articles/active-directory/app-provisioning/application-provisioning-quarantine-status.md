@@ -54,6 +54,7 @@ There are three ways to check whether an application is in quarantine:
 |**Invalid credentials:** When attempting to authorize access to the target application we received a response from the target application that indicates the credentials provided are invalid.|Please navigate to the admin credentials section of the provisioning configuration UI and authorize access again with valid credentials. If the application is in the gallery, review the application configuration tutorial for any additional steps required.|
 |**Duplicate roles:** Roles imported from certain applications like Salesforce and Zendesk must be unique. |Navigate to the application [manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) in the Azure portal and remove the duplicate role.|
 
+ A Microsoft Graph request to get the status of the provisioning job shows the following reason for quarantine:
 
 - `EncounteredQuarantineException` indicates that invalid credentials were provided. The provisioning service is unable to establish a connection between the source system and the target system.
 
