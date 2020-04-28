@@ -247,7 +247,7 @@ This feature is currently available only for new accounts.
 
 Not currently, but container-level keys are being considered.
 
-## How can I tell if customer-managed keys are enabled on my Azure Cosmos account?
+### How can I tell if customer-managed keys are enabled on my Azure Cosmos account?
 
 You can programmatically fetch the details of your Azure Cosmos account and look for the presence of the `keyVaultKeyUri` property. See above for ways to do that [in PowerShell](#using-powershell) and [using the Azure CLI](#using-azure-cli).
 
