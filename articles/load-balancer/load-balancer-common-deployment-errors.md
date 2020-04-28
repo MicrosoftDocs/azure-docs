@@ -1,12 +1,14 @@
 ---
 title: Troubleshoot common deployment errors
+titleSuffix: Troubleshoot common deployment errors with Azure Load Balancer
 description: Describes how to resolve common errors when you deploy Azure Load Balancers
+services: load-balancer
+documentationcenter: na
 tags: top-support-issue
 author: anavinahar
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-
 ---
 
 # Troubleshoot common Azure deployment errors with Azure Load Balancer
