@@ -1,8 +1,8 @@
 ---
 title: What's New - Language Understanding (LUIS)
 description: This article is regularly updated with news about the Azure Cognitive Services Language Understanding API.
-ms.topic: conceptual
-ms.date: 02/11/2020
+ms.topic: overview
+ms.date: 04/28/2020
 ---
 
 # What's new in Language Understanding
@@ -10,6 +10,13 @@ ms.date: 02/11/2020
 Learn what's new in the service. These items include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
 
 ## Release notes
+
+### May 2020 - //Build
+
+* Preview portal promoted to [current portal](https://www.luis.ai)
+    * N-depth machine-learned entity with new labeling experience
+    * Migration from composite entity to machine-learned entity
+* [Previous](https://previous.luis.ai) portal still available
 
 ### March 2020
 
