@@ -57,7 +57,7 @@ az -v
 ```output
 ...
 Extensions:
-aro                                0.1.0
+aro                                1.0.0
 ...
 ```
 
