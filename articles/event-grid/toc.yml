@@ -149,6 +149,8 @@
       href: event-filtering.md
     - name: Delivery and retry
       href: delivery-and-retry.md
+    - name: Webhook event delivery
+      href: webhook-event-delivery.md
   - name: Disaster recovery
     items:
     - name: Geo disaster recovery
