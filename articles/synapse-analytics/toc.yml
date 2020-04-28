@@ -318,7 +318,7 @@
         href: ./sql-data-warehouse/memory-concurrency-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Resource classes
         href: ./sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-  - Cosmos DB
+  - name: Cosmos DB
     items:
     - name: Csmos DB supported Features
       href: ./cosmos-db-integration/concept-cosmos-db-support.md
