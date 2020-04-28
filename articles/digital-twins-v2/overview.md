@@ -29,15 +29,15 @@ Azure Digital Twins does the hard work of translating a device-centric view of t
 
 Your Azure Digital Twins instance is either managed within the [Azure portal](https://portal.azure.com), or via custom [Azure Digital Twins CLI](how-to-use-cli.md) commands.
 
-## Azure Digital Twins key capabilities
+## Azure Digital Twins capabilities
 
 Here is a summary of what you can do with Azure Digital Twins.
 
 ### Represent your real-world business environment
 
-In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment, as well as the relationships between them, using custom twin types called **models**. You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define models such as "building", "floor", "room", "elevator" and "HVAC system". Models are expressed in terms of persistent state properties, telemetry events, commands, relationships, and components.
+In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment, as well as the relationships between them, using custom twin types called [**models**](concepts-models.md). You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define models such as "building", "floor", "room", "elevator" and "HVAC system". Models are expressed in terms of persistent state properties, telemetry events, commands, relationships, and components.
 
-Once you have defined the vocabulary for your business, you can represent your concrete environment by creating digital twins from the models you previously defined, and connecting them into a graph. For example, using the models described above for a building management solution, you can create a **twin graph** that represents the office building you are in with its many floors, rooms, etc.
+Once you have defined the vocabulary for your business, you can represent your concrete environment by creating digital twins from the models you previously defined, and connecting them into a graph. For example, using the models described above for a building management solution, you can create a [**twin graph**](concepts-twins-graph.md) that represents the office building you are in with its many floors, rooms, etc.
 
 The arrows in the illustration below show different semantic relationships between the digital twins in the representation. For example, the building *contains* three floors, and each floor *contains* several rooms. The building also *is-equipped-with* an HVAC system and an elevator. The HVAC system *cools* specific floors. 
 
@@ -47,7 +47,7 @@ You can think of the models as nouns in a description of your world, and the rel
 
 ### Process incoming data and propagate state through the twin graph
 
-Azure Digital Twins digital representations are meant to be live, up-to-date representations of the state of the real world. To keep digital twins updated, Azure Digital Twins provides a comprehensive event processing system. You can, for example, process events to manage incoming telemetry from devices, state changes within your twin graph, or life-cycle events generated when digital twins are created or modified. Azure Digital Twins can be part of a data processing framework that applies custom code to incoming streams of IoT and business data. 
+Azure Digital Twins digital representations are meant to be live, up-to-date representations of the state of the real world. To keep digital twins updated, Azure Digital Twins provides an event processing system through which you can [**route events**](concepts-route-events.md) to different locations, both within and beyond your Azure Digital Twins instance. You can, for example, process events to manage incoming telemetry from devices, state changes within your twin graph, or life-cycle events generated when digital twins are created or modified. Azure Digital Twins can be part of a data processing framework that applies custom code to incoming streams of IoT and business data. 
 
 Routing data and events through custom code processing allows you to:
 * Compute properties on a digital twin from sensor input (such as aggregating data from temperature, humidity, and noise sensors into a *comfort* property on a "room" twin)
@@ -57,16 +57,16 @@ Routing data and events through custom code processing allows you to:
 
 ### Query the digital representation of your environment to answer business questions
 
-Once you have created a graph of digital twins, you can run queries against the digital twins, their states, and their relationships. Depending on the state information you represented and the sensors you have connected to drive your digital representation, queries might be used to answer a broad range of questions about your environment.
+Once you have created a graph of digital twins, you can use the [**Azure Digital Twins Query Store language**](concepts-query-language.md) to run queries against the digital twins, their states, and their relationships. Depending on the state information you represented and the sensors you have connected to drive your digital representation, queries might be used to answer a broad range of questions about your environment.
 
 Here are some examples of insights you can gather:
 * Which campus contains meeting room 47?
 * Which assembly lines had an average temperature outside the range of 77 and 79 degrees F?
 * Which power station has surplus capacity that is accessible to a particular customer?   
 
-### Manage access
+### Manage access to your instance
 
-Using twin-level access control, you can define the policies for data access in Azure Digital Twins.
+[**Security in Azure Digital Twins**](concepts-security.md) uses role-based access control (RBAC) to allow you to manage your instance at a twin level. You can define the policies for data access, using built-in roles or defining your own.
 
 ### Work with with IoT Hub for device-centric scenarios
 
@@ -100,10 +100,10 @@ The table below lists the functional limits that Azure Digital Twins currently h
 
 ## Next steps
 
-To start learning about the key elements of Azure Digital Twins, visit:
-* [Concepts: Twin models](concepts-models.md)
-* [Concepts: Digital twins and the twin graph](concepts-twins-graph.md)
-* [Concepts: Azure Digital Twins query language](concepts-query-language.md)
-
 If you have worked with the previous preview release of Azure Digital Twins, learn what has changed:
-* [Overview: Differences from Public Preview 1](overview-differences.md)
+* [Overview: Differences from previous release](overview-differences.md)
+
+Or, go ahead and dive into working with Azure Digital Twins in the quickstart:
+
+> [!div class="nextstepaction"]
+> [Quickstart: Get started with Azure Digital Twins](quickstart.md)
