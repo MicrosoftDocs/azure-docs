@@ -322,8 +322,8 @@ Tumbling window triggers are a type of trigger that fires at a periodic time int
 
 For more information about tumbling window triggers and, for examples, see [Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
 
-> [!IMPORTANT]
-> Unlike schedule trigger which is "fire and forget", tumbling window trigger **waits for the pipeline run** to reach a final state (Succeeded, Failed, Cancelled). Based on the final status of the triggered pipeline run the status of trigger run is updated.
+[!NOTE]
+The tumbling window trigger run **waits for the triggered pipeline run** to finish. Its run state reflects the state of the triggered pipeline run (If triggered pipeline run is cancelled, cooresponding tumbling window trigger run is marked cancelled). This is different than the 'fire and forget' behavior of the schedule trigger which is marked successful as long as a pipeline run started.
 
 ## Event-based trigger
 
