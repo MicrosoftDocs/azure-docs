@@ -7,8 +7,7 @@ ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
-ms.date: 04/23/2020
-zone_pivot_groups: user-interface-options
+ms.date: 04/27/2020
 ---
 
 # Quickstart: Create an Azure Database for MySQL server by using the ARM template
