@@ -640,7 +640,7 @@ Can perform common billing related tasks like updating payment information.
 | microsoft.directory/organization/basic/update | Update basic properties on organization in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
-| microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of Office 365 billing. |
+| microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of billing. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -750,7 +750,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 | microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
-| microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of Office 365 billing. |
+| microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of billing. |
 | microsoft.intune/allEntities/allTasks | Manage all aspects of Intune. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | Manage all aspects of Desktop Analytics. |
@@ -1043,7 +1043,7 @@ Can read everything that a Global Administrator can, but not edit anything.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.commerce.billing/allEntities/read    | Read all aspects of Office 365 billing. |
+| microsoft.commerce.billing/allEntities/read    | Read all aspects of billing. |
 | microsoft.directory/administrativeUnits/basic/read    | Read basic properties on administrativeUnits in Azure Active Directory. |
 | microsoft.directory/administrativeUnits/members/read    | Read administrativeUnits.members property in Azure Active Directory. |
 | microsoft.directory/applications/basic/read    | Read basic properties on applications in Azure Active Directory. |
