@@ -90,10 +90,10 @@ Use this action to overwrite the time to live (TTL) value of the endpoint for re
 
 Cache behavior |  Description              
 ---------------|----------------
-Ignore query strings | xxx
-Cache every unique URL | xxx
-Ignore specified query strings | xxx
-Include specified query strings | xxx
+Ignore query strings | Once the asset is cached, all subsequent requests ignore the query strings until the cached asset expires.
+Cache every unique URL | Each request with a unique URL, including the query string, is treated as a unique asset with its own cache.
+Ignore specified query strings | Request URL query strings listed in "Query parameters" setting are ignored for caching.
+Include specified query strings | Request URL query strings listed in "Query parameters" setting are used for caching.
 
 Additional fields |  Description 
 ------------------|---------------
