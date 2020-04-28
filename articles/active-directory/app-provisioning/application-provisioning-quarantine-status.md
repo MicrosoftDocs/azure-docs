@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 04/28/2020
 ms.author: mimart
 ms.reviewer: arvinh
 
@@ -30,7 +30,7 @@ While in quarantine, the frequency of incremental cycles is gradually reduced to
 
 There are three ways to check whether an application is in quarantine:
   
-- In the Azure portal, navigate to **Azure Active Directory** > **Enterprise applications** > &lt;*application name*&gt; > **Provisioning** and scroll to the progress bar at the bottom.  
+- In the Azure portal, navigate to **Azure Active Directory** > **Enterprise applications** > &lt;*application name*&gt; > **Provisioning** and review the progress bar for a quarantine message.   
 
   ![Provisioning status bar showing quarantine status](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
@@ -48,7 +48,12 @@ There are three ways to check whether an application is in quarantine:
 
 ## Why is my application in quarantine?
 
-A Microsoft Graph request to get the status of the provisioning job shows the following reason for quarantine:
+|Description|Recommended Action|
+|---|---|
+|**SCIM Compliance issue:** An HTTP/404 Not Found response was returned rather than the expected HTTP/200 OK response. In this case the Azure AD provisioning service has made a request to the target application and received an unexpected response.|Check the admin credentials section to see if the application requires specifying the tenant URL and ensure that the URL is correct. If you don't see an issue, please contact the application developer to ensure that their service is SCIM compliant. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
+|**Invalid credentials:** When attempting to authorize access to the target application we received a response from the target application that indicates the credentials provided are invalid.|Please navigate to the admin credentials section of the provisioning configuration UI and authorize access again with valid credentials. If the applicaiton is in the gallery, review the application configuraiton tutorial for any additional steps required.|
+|**Duplicate roles:** Roles imported from certain applications like Salesforce and Zendesk must be unique. |Navigate to the application [manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) in the Azure Portal and remove the duplicate role.|
+
 
 - `EncounteredQuarantineException` indicates that invalid credentials were provided. The provisioning service is unable to establish a connection between the source system and the target system.
 
