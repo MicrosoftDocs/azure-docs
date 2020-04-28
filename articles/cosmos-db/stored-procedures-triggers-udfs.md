@@ -62,7 +62,7 @@ Transactions are natively integrated into the Azure Cosmos DB JavaScript program
 Stored procedures and triggers are always executed on the primary replica of an Azure Cosmos container. This feature ensures that reads from stored procedures offer [strong consistency](consistency-levels-tradeoffs.md). Queries using user-defined functions can be executed on the primary or any secondary replica. Stored procedures and triggers are intended to support transactional writes – meanwhile read-only logic is best implemented as application-side logic and queries using the [Azure Cosmos DB SQL API SDKs](sql-api-dotnet-samples.md), will help you saturate the database throughput. 
 
 > [!TIP]
-> Queries executed from inside stored procedure or trigger may not see document changes done by the same script transaction. The query will only see changes done by the time when script transaction is started. This applies both to SQL queries, such as `getContent().getCollection.queryDocuments()`, and integrated language queries, such as `getContext().getCollection().filter()`. 
+> The queries executed within a stored procedure or trigger may not see changes to items made by the same script transaction. This statement applies both to SQL queries, such as `getContent().getCollection.queryDocuments()`, as well as integrated language queries, such as `getContext().getCollection().filter()`.
 
 ## Bounded execution
 
