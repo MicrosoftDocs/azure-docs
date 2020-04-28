@@ -34,7 +34,7 @@ There is no limit to the total number of physical partitions in your container. 
 
 Throughput provisioned for a container is divided evenly among physical partitions. A partition key design that doesn't distribute the throughput requests evenly might create "hot" partitions. Hot partitions might result in rate-limiting and in inefficient use of the provisioned throughput, and higher costs.
 
-You can see your container's physical partitions in the **Storage** section of the **Metrics blade** of the Azure Portal:
+You can see your container's physical partitions in the **Storage** section of the **Metrics blade** of the Azure portal:
 
 [![Viewing number of physical partitions](./media/partition-data/view-partitions-zoomed-out.png) ](./media/partition-data/view-partitions-zoomed-in.png#lightbox)
 
