@@ -16,6 +16,8 @@ ms.date: 05/13/2019
 
 # Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics that's built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). You can use it to interface with your data by using both file system and object storage paradigms.
 
 If you currently use Azure Data Lake Storage Gen1, you can evaluate Azure Data Lake Storage Gen2 by copying data from Data Lake Storage Gen1 to Gen2 by using Azure Data Factory.
@@ -132,7 +134,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 ## Best practices
 
-To assess upgrading from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2 in general, see [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md). The following sections introduce best practices for using Data Factory for a data upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2.
+To assess upgrading from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2 in general, see [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md). The following sections introduce best practices for using Data Factory for a data upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2.
 
 ### Data partition for historical data copy
 
@@ -141,7 +143,7 @@ To assess upgrading from Azure Data Lake Storage Gen1 to Azure Data Lake Storage
 
 Use a proof of concept to verify the end-to-end solution and test the copy throughput in your environment. Major proof-of-concept steps: 
 
-1. Create one Data Factory pipeline with a single copy activity to copy several TBs of data from Data Lake Storage Gen1 to Data Lake Storage Gen2 to get a copy performance baseline. Start with [data integration units (DIUs)](copy-activity-performance.md#data-integration-units) as 128. 
+1. Create one Data Factory pipeline with a single copy activity to copy several TBs of data from Data Lake Storage Gen1 to Data Lake Storage Gen2 to get a copy performance baseline. Start with [data integration units (DIUs)](copy-activity-performance-features.md#data-integration-units) as 128. 
 2. Based on the copy throughput you get in step 1, calculate the estimated time that's required for the entire data migration. 
 3. (Optional) Create a control table and define the file filter to partition the files to be migrated. The way to partition the files is to: 
 

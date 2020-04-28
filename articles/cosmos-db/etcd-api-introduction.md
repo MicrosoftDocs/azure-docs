@@ -46,7 +46,7 @@ As the Kubernetes cluster grows, the etcd API account in Azure Cosmos DB elastic
 
 ### Security & enterprise readiness
 
-When etcd data is stored in Azure Cosmos DB, Kubernetes developers automatically get the [built-in encryption at rest](database-encryption-at-rest.md),  [certifications and compliance](compliance.md), and [backup and restore capabilities](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) supported by Azure Cosmos DB. 
+When etcd data is stored in Azure Cosmos DB, Kubernetes developers automatically get the [built-in encryption at rest](database-encryption-at-rest.md),  [certifications and compliance](compliance.md), and [backup and restore capabilities](online-backup-and-restore.md) supported by Azure Cosmos DB. 
 
 ## Next steps
 

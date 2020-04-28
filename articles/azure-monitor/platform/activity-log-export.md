@@ -13,7 +13,7 @@ ms.subservice: logs
 # Export Azure Activity log to storage or Azure Event Hubs
 
 > [!IMPORTANT]
-> The method for sending the Azure Activity log to Azure Storage and Azure Event Hubs has changed to [diagnostic settings](diagnostic-settings.md). This article describes the legacy method which is in the process of being deprecated. See Update to [Azure Activity log collection and export](diagnostic-settings-legacy.md) for a comparison.
+> The method for sending the Azure Activity log to Azure Storage and Azure Event Hubs has changed to [diagnostic settings](diagnostic-settings.md). This article describes the legacy method which is in the process of being deprecated. See Update to [Collect and analyze Azure Activity log in Azure Monitor](activity-log-collect.md) for a comparison.
 
 
 The [Azure Activity Log](platform-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. In addition to viewing the Activity log in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can create a log profile to archive the Activity log to an Azure storage account or stream it to an Event Hub.

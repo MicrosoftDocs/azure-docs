@@ -9,20 +9,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Extract printed and handwritten text using the Computer Vision 2.0 and 2.1 REST API and JavaScript
+# Quickstart: Extract printed and handwritten text using the Computer Vision REST API and JavaScript
 
-In this quickstart, you will extract printed and/or handwritten text from an image using the Computer Vision REST API. With the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) and [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. The API will determine which recognition model to use for each line of text, so it supports images with both printed and handwritten text.
+In this quickstart, you'll extract printed and/or handwritten text from an image using the Computer Vision REST API. With the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) and [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. The API will determine which recognition model to use for each line of text, so it supports images with both printed and handwritten text.
 
-Compared to Computer Vision 2.0 and 2.1, the Computer Vision 3.0 Public Preview provides:
+This functionality is available in both a v2.1 API and a v3.0 Public Preview API. Compared to v2.1, the 3.0 API has:
 
-* even better accuracy
-* a changed output format
-* confidence score for words
-* support of both Spanish and English languages with the additional language parameter
+* Improved accuracy
+* Confidence scores for words
+* Support for both Spanish and English with the additional `language` parameter
+* A different output format
+
+Select the tab below for the version you're using.
 
 #### [Version 2](#tab/version-2)
 
@@ -40,7 +42,7 @@ Compared to Computer Vision 2.0 and 2.1, the Computer Vision 3.0 Public Preview 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
-You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. Then, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
+You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. Save your subscription key and endpoint URL to a temporary location.
 
 ## Create and run the sample
 
@@ -48,12 +50,12 @@ You must have a subscription key for Computer Vision. You can get a free trial k
 
 To create and run the sample, do the following steps:
 
-1. Copy the following code into a text editor.
+1. Create a file called _get-text.html_, open it in a text editor, and copy the following code into it.
 1. Optionally, replace the value of the `value` attribute for the `inputImage` control with the URL of a different image from which you want to extract text.
-1. Save the code as a file with an `.html` extension. For example, `get-text.html`.
 1. Open a browser window.
 1. In the browser, drag and drop the file into the browser window.
-1. When the webpage is displayed in the browser, choose the **Read image** button.
+1. When the webpage is displayed in the browser, paste your subscription key and endpoint URL into the appropriate input boxes.
+1. Select the **Read image** button.
 
 ```html
 <!DOCTYPE html>
@@ -70,9 +72,8 @@ To create and run the sample, do the following steps:
         // *** Update or verify the following values. ***
         // **********************************************
 
-        let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
-        let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
-        if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
+        var subscriptionKey = document.getElementById("subscriptionKey").value;
+        var endpoint = document.getElementById("endpointUrl").value;
         
         var uriBase = endpoint + "vision/v2.1/read/core/asyncBatchAnalyze";
 
@@ -165,6 +166,13 @@ To create and run the sample, do the following steps:
 <h1>Read text from image:</h1>
 Enter the URL to an image of text, then click
 the <strong>Read image</strong> button.
+<br><br>
+Subscription key: 
+<input type="text" name="subscriptionKey" id="subscriptionKey"
+    value="" /> 
+Endpoint URL:
+<input type="text" name="endpointUrl" id="endpointUrl"
+    value="" />
 <br><br>
 Image to read:
 <input type="text" name="inputImage" id="inputImage"
@@ -773,7 +781,9 @@ A successful response is returned in JSON. The sample webpage parses and display
 
 ## Next steps
 
-Explore a JavaScript application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a JavaScript application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; and detect, categorize, tag, and describe visual features in images. 
 
 > [!div class="nextstepaction"]
 > [Computer Vision API JavaScript Tutorial](../Tutorials/javascript-tutorial.md)
+
+* To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).

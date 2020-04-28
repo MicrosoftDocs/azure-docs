@@ -5,7 +5,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 04/16/2020
 ms.author: dsindona
 ---
 
@@ -190,4 +190,4 @@ Visit the [Azure Marketplace and AppSource Publisher Guide](https://docs.microso
 
 To learn more about marketplace GTM services, see [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
 
-Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) or [Cloud Partner Portal](https://cloudpartner.azure.com/) to create and configure your offer.
+Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create and configure your offer.

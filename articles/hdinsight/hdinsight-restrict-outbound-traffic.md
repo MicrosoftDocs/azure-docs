@@ -6,22 +6,22 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 04/17/2020
 ---
 
 # Configure outbound network traffic for Azure HDInsight clusters using Firewall
 
-This article provides the steps for you to secure outbound traffic from your HDInsight cluster using Azure Firewall. The steps below assume that you're configuring an Azure Firewall for an existing cluster. If you're deploying a new cluster and behind a firewall, create your HDInsight cluster and subnet first and then follow the steps in this guide.
+This article provides the steps for you to secure outbound traffic from your HDInsight cluster using Azure Firewall. The steps below assume you're configuring an Azure Firewall for an existing cluster. If you're deploying a new cluster behind a firewall, create your HDInsight cluster and subnet first. Then follow the steps in this guide.
 
 ## Background
 
-Azure HDInsight clusters are normally deployed in your own virtual network. The cluster has dependencies on services outside of that virtual network that require network access to function properly.
+HDInsight clusters are normally deployed in a virtual network. The cluster has dependencies on services outside of that virtual network.
 
 There are several dependencies that require inbound traffic. The inbound management traffic can't be sent through a firewall device. The source addresses for this traffic are known and are published [here](hdinsight-management-ip-addresses.md). You can also create Network Security Group (NSG) rules with this information to secure inbound traffic to the clusters.
 
-The HDInsight outbound traffic dependencies are almost entirely defined with FQDNs, which don't have static IP addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) can't be used to lock down the outbound traffic from a cluster. The addresses change often enough that one can't set up rules based on the current name resolution and use that to set up NSG rules.
+The HDInsight outbound traffic dependencies are almost entirely defined with FQDNs. Which don't have static IP addresses behind them. The lack of static addresses means Network Security Groups (NSGs) can't lock down outbound traffic from a cluster. The addresses change often enough one can't set up rules based on the current name resolution and use.
 
-The solution to securing outbound addresses is to use a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination or [FQDN tags](../firewall/fqdn-tags.md).
+Secure outbound addresses with a firewall that can control outbound traffic based on domain names. Azure Firewall restricts outbound traffic based on the FQDN of the destination or [FQDN tags](../firewall/fqdn-tags.md).
 
 ## Configuring Azure Firewall with HDInsight
 
@@ -69,7 +69,7 @@ Create an application rule collection that allows the cluster to send and receiv
 
     **Target FQDNs section**
 
-    | Name | Source addresses | Protocol:Port | Target FQDNS | Notes |
+    | Name | Source addresses | `Protocol:Port` | Target FQDNS | Notes |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Allows Windows login activity |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Allows Windows login activity |
@@ -101,14 +101,14 @@ Create the network rules to correctly configure your HDInsight cluster.
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Time service |
     | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | * | If you're using Enterprise Security Package (ESP), then add a network rule in the IP Addresses section that allows communication with AAD-DS for ESP clusters. You can find the IP addresses of the domain controllers on the AAD-DS section in the portal |
-    | Rule_3 | TCP | * | IP Address of your Data Lake Storage account | * | If you're using Azure Data Lake Storage, then you can add a network rule in the IP Addresses section to address an SNI issue with ADLS Gen1 and Gen2. This option will route the traffic to firewall, which might result in higher costs for large data loads but the traffic will be logged and auditable in firewall logs. Determine the IP address for your Data Lake Storage account. You can use a powershell command such as `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` to resolve the FQDN to an IP address.|
+    | Rule_3 | TCP | * | IP Address of your Data Lake Storage account | * | If you're using Azure Data Lake Storage, then you can add a network rule in the IP Addresses section to address an SNI issue with ADLS Gen1 and Gen2. This option will route the traffic to firewall. Which might result in higher costs for large data loads but the traffic will be logged and auditable in firewall logs. Determine the IP address for your Data Lake Storage account. You can use a PowerShell command such as `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` to resolve the FQDN to an IP address.|
     | Rule_4 | TCP | * | * | 12000 | (Optional) If you're using Log Analytics, then create a network rule in the IP Addresses section to enable communication with your Log Analytics workspace. |
 
     **Service Tags section**
 
     | Name | Protocol | Source Addresses | Service Tags | Destination Ports | Notes |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_7 | TCP | * | SQL | 1433 | Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic, unless you configured Service Endpoints for SQL Server on the HDInsight subnet, which will bypass the firewall. |
+    | Rule_7 | TCP | * | SQL | 1433 | Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic. Unless you configured Service Endpoints for SQL Server on the HDInsight subnet, which will bypass the firewall. |
 
    ![Title: Enter application rule collection](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
@@ -148,7 +148,7 @@ Complete the route table configuration:
 
 1. Select **+ Associate**.
 
-1. On the **Associate subnet** screen, select the virtual network that your cluster was created into and the **Subnet** you used for your HDInsight cluster.
+1. On the **Associate subnet** screen, select the virtual network that your cluster was created into. And the **Subnet** you used for your HDInsight cluster.
 
 1. Select **OK**.
 
@@ -166,13 +166,13 @@ If your applications have other dependencies, they need to be added to your Azur
 
 Azure Firewall can send logs to a few different storage systems. For instructions on configuring logging for your firewall, follow the steps in [Tutorial: Monitor Azure Firewall logs and metrics](../firewall/tutorial-diagnostics.md).
 
-Once you've completed the logging setup, if you're logging data to Log Analytics, you can view blocked traffic with a query such as the following:
+Once you've completed the logging setup, if you're using Log Analytics, you can view blocked traffic with a query such as:
 
 ```Kusto
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you aren't aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+Integrating Azure Firewall with Azure Monitor logs is useful when first getting an application working. Especially when you aren't aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
 To learn about the scale limits of Azure Firewall and request increases, see [this](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) document or refer to the [FAQs](../firewall/firewall-faq.md).
 
@@ -180,14 +180,14 @@ To learn about the scale limits of Azure Firewall and request increases, see [th
 
 After having the firewall set up successfully, you can use the internal endpoint (`https://CLUSTERNAME-int.azurehdinsight.net`) to access the Ambari from inside the virtual network.
 
-To use the public endpoint (`https://CLUSTERNAME.azurehdinsight.net`) or ssh endpoint (`CLUSTERNAME-ssh.azurehdinsight.net`), make sure you have the right routes in the route table and NSG rules to avoid the asymmetric routing issue explained [here](../firewall/integrate-lb.md). Specifically in this case, you need to allow the client IP address in the Inbound NSG rules and also add it to the user-defined route table with the next hop set as `internet`. If this isn't set up correctly, you'll see a timeout error.
+To use the public endpoint (`https://CLUSTERNAME.azurehdinsight.net`) or ssh endpoint (`CLUSTERNAME-ssh.azurehdinsight.net`), make sure you have the right routes in the route table and NSG rules to avoid the asymmetric routing issue explained [here](../firewall/integrate-lb.md). Specifically in this case, you need to allow the client IP address in the Inbound NSG rules and also add it to the user-defined route table with the next hop set as `internet`. If the routing isn't set up correctly, you'll see a timeout error.
 
 ## Configure another network virtual appliance
 
 > [!Important]
 > The following information is **only** required if you wish to configure a network virtual appliance (NVA) other than Azure Firewall.
 
-The previous instructions help you configure Azure Firewall for restricting outbound traffic from your HDInsight cluster. Azure Firewall is automatically configured to allow traffic for many of the common important scenarios. If you want to use another network virtual appliance, you'll need to manually configure a number of additional features. Keep the following in mind as you configure your network virtual appliance:
+The previous instructions help you configure Azure Firewall for restricting outbound traffic from your HDInsight cluster. Azure Firewall is automatically configured to allow traffic for many of the common important scenarios. Using another network virtual appliance will require you to configure a number of additional features. Keep the following factors in mind as you configure your network virtual appliance:
 
 * Service Endpoint capable services should be configured with service endpoints.
 * IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic).
@@ -208,7 +208,7 @@ The previous instructions help you configure Azure Firewall for restricting outb
 | **Endpoint** | **Details** |
 |---|---|
 | \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
-| IPs published [here](hdinsight-management-ip-addresses.md) | These are HDInsight service |
+| IPs published [here](hdinsight-management-ip-addresses.md) | These IPs are HDInsight service |
 | AAD-DS private IPs for ESP clusters |
 | \*:16800 for KMS Windows Activation |
 | \*12000 for Log Analytics |
@@ -216,7 +216,7 @@ The previous instructions help you configure Azure Firewall for restricting outb
 #### FQDN HTTP/HTTPS dependencies
 
 > [!Important]
-> The list below only gives a few of the most important FQDNs. You can get the full list of FQDNs for configuring your NVA [in this file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
+> The list below only gives a few of the most important FQDNs. You can get additional FQDNs (mostly Azure Storage and Azure Service Bus) for configuring your NVA [in this file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
 
 | **Endpoint**                                                          |
 |---|

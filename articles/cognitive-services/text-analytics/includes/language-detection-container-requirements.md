@@ -3,12 +3,12 @@ title: Container requirements and recommendations
 titleSuffix: Azure Cognitive Services
 description: Language Detection container requirements
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 08/20/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 | Container | Minimum | Recommended | TPS<br>(Minimum, Maximum)|

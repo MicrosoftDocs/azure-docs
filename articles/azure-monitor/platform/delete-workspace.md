@@ -54,6 +54,17 @@ You can delete a workspace using [PowerShell](https://docs.microsoft.com/powersh
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
 
+### Troubleshooting
+
+You must have 'Log Analytics Contributor' permissions to delete Log Analytics workspace.<br>
+If you get an error message '*This workspace name is already in use*' when creating a workspace, it could be since:
+* The workspace name isn't available and being used by someone in your organization, or by other customer.
+* The workspace was deleted in the last 14 days and its name kept reserved for the soft-delete period. To override the soft-delete and immediately delete your workspace and create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:<br>
+   1. [Recover](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) your workspace.
+   2. [Permanently delete](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) your workspace.
+   3. Create a new workspace using the same workspace name.
+
+
 ## Permanent workspace delete
 The soft-delete method may not fit in some scenarios such as development and testing, where you need to repeat a deployment with the same settings and workspace name. In such cases you can permanently delete your workspace and "override" the soft-delete period. The permanent workspace delete operation releases the workspace name and you can create a new workspace using the same name.
 

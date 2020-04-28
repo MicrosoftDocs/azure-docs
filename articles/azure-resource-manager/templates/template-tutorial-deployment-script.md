@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/23/2020
+ms.date: 04/07/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -44,13 +44,12 @@ To complete this article, you need:
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
   ```
 
-  Use the following PowerShell script to get the ID by providing the resource group name and the identity name.
+  Use the following CLI script to get the ID by providing the resource group name and the identity name.
 
-  ```azurepowershell-interactive
-  $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
-  $idName = Read-Host -Prompt "Enter the name of the managed identity"
-
-  $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
+  ```azurecli-interactive
+  echo "Enter the Resource Group name:" &&
+  read resourceGroupName &&
+  az identity list -g $resourceGroupName
   ```
 
 ## Open a Quickstart template

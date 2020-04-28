@@ -1,6 +1,6 @@
 ---
-title: Encryption of secure assets in automation
-description: Azure automation protects secure assets using multiple levels of encryption. By default, the encryption is done using Microsoft-managed keys. Customers can configure their automation accounts to use customer-managed keys for encryption. This article describes the details of both modes of encryption and how you can switch between the two.
+title: Encrypt secure assets in Azure Automation
+description: Azure Automation protects secure assets using multiple levels of encryption. By default, the encryption is done using Microsoft-managed keys. Customers can configure their automation accounts to use customer-managed keys for encryption. This article describes the details of both modes of encryption and how you can switch between the two.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -11,12 +11,12 @@ ms.topic: conceptual
 manager: kmadnani
 ---
 
-# Secure assets in Azure Automation
+# Encrypt secure assets in Azure Automation
 
 Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are protected in Azure Automation using multiple levels of encryption. 
 Based on the top-level key used for the encryption, there are two models for encryption:
--	Using Microsoft-managed keys
--	Using customer-managed keys
+-    Using Microsoft-managed keys
+-    Using customer-managed keys
 
 ## Microsoft-managed Keys
 
@@ -28,7 +28,7 @@ Each secure asset is encrypted and stored in Azure Automation using a unique key
 
 You can manage encryption of secure assets for your Automation account with your own keys. When you specify a customer-managed key at the level of the Automation account, that key is used to protect and control access to the account encryption key for the Automation account. This in turn is used to encrypt and decrypt all the secure assets. Customer-managed keys offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your secure assets.
 
-Use Azure Key Vault to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys.  For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
+Use Azure Key Vault to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys.  For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
 
 ## Enable customer-managed keys for an Automation account
 
@@ -52,11 +52,11 @@ Before enabling customer-managed keys for an Automation account, you must ensure
  - Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets, and certificates](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 - The Automation account and the key vault can be in different subscriptions, but need to be in the same Azure Active Directory tenant.
 
-### Assign an identity to the automation account
+### Assign an identity to the Automation account
 
-To use customer-managed keys with an Automation account, your Automation account needs to authenticate against the key vault storing customer-managed keys. Azure Automation uses system assigned managed identities to authenticate the account with Azure Key Vault. For more information about managed identities, see [What is managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+To use customer-managed keys with an Automation account, your Automation account needs to authenticate against the key vault storing customer-managed keys. Azure Automation uses system assigned managed identities to authenticate the account with Azure Key Vault. For more information about managed identities, see [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-Configure a system assigned managed identity to the automation account using the following REST API call:
+Configure a system assigned managed identity to the Automation account using the following REST API call:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -129,7 +129,7 @@ Request body:
 
 ### Change the configuration of Automation account to use customer-managed key
 
-Finally, you can switch your Automation account from Microsft-managed keys to customer-managed keys, using the following REST API call:
+Finally, you can switch your Automation account from Microsoft-managed keys to customer-managed keys, using the following REST API call:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -188,10 +188,7 @@ To revoke access to customer-managed keys, use PowerShell or the Azure CLI. For 
 
 ## Next steps
 
-- [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
-
+- [What is Azure Key Vault?](../key-vault/general/overview.md)
 - [Certificate assets in Azure Automation](shared-resources/certificates.md)
-
 - [Credential assets in Azure Automation](shared-resources/credentials.md)
-
 - [Variable assets in Azure Automation](shared-resources/variables.md)

@@ -57,7 +57,7 @@ To configure Raw logs for your Azure CDN from Microsoft profile:
 
 ## Raw logs properties
 
-Azure CDN from Microsoft Service currently provides Raw logs (batched hourly). Raw logs provide individual API requests with each entry having the following schema: 
+Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide individual API requests with each entry having the following schema: 
 
 | Property              | Description                                                                                                                                                                                          |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -83,7 +83,6 @@ Azure CDN from Microsoft Service currently provides Raw logs (batched hourly). R
 
 > [!NOTE]
 > The logs can be viewed under your Log Analytics profile by running a query. A sample query would look like              AzureDiagnostics
-| where OperationName == "Microsoft.Cdn/Profiles/AccessLog/Write"
 | where Category == "AzureCdnAccessLog"
 
 ## Next Steps

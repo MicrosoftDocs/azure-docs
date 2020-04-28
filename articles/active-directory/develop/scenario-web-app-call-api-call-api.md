@@ -2,15 +2,12 @@
 title: Call a web api from a web app - Microsoft identity platform | Azure
 description: Learn how to build a web app that calls web APIs (calling a protected web API)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
@@ -26,7 +23,7 @@ Now that you have a token, you can call a protected web API.
 
 Here's simplified code for the action of the `HomeController`. This code gets a token to call Microsoft Graph. Code has been added to show how to call Microsoft Graph as a REST API. The URL for the Microsoft Graph API is provided in the appsettings.json file and is read in a variable named `webOptions`:
 
-```JSon
+```json
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",

@@ -17,11 +17,26 @@ A private endpoint is a network interface that connects you privately and secure
 
 For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
-> [!NOTE]
+> [!IMPORTANT]
 > This feature is supported only with the **dedicated** tier. For more information about the dedicated tier, see [Overview of Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
 >
 > This feature is currently in **preview**. 
 
+>[!WARNING]
+> Enabling private endpoints can prevent other Azure services from interacting with Event Hubs.
+>
+> Trusted Microsoft services are not supported when Virtual Networks are implemented.
+>
+> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
+> - Azure Monitor (diagnostic setting)
+> - Azure Stream Analytics
+> - Integration with Azure Event Grid
+> - Azure IoT Hub Routes
+> - Azure IoT Device Explorer
+>
+> The following Microsoft services are required to be on a virtual network
+> - Azure Web Apps
+> - Azure Functions
 
 ## Add a private endpoint using Azure portal
 
@@ -147,6 +162,32 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
 (Get-AzResource -ResourceId $namespaceResource.ResourceId -ExpandProperties).Properties
 
 
+```
+
+### Configure the private DNS Zone
+Create a private DNS zone for Event Hubs domain and create an association link with the virtual network:
+
+```azurepowershell-interactive
+$zone = New-AzPrivateDnsZone -ResourceGroupName $rgName `
+                            -Name "privatelink.servicebus.windows.net" 
+ 
+$link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $rgName `
+                                            -ZoneName "privatelink.servicebus.windows.net" `
+                                            -Name "mylink" `
+                                            -VirtualNetworkId $virtualNetwork.Id  
+ 
+$networkInterface = Get-AzResource -ResourceId $privateEndpoint.NetworkInterfaces[0].Id -ApiVersion "2019-04-01" 
+ 
+foreach ($ipconfig in $networkInterface.properties.ipConfigurations) { 
+    foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) { 
+        Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
+        $recordName = $fqdn.split('.',2)[0] 
+        $dnsZone = $fqdn.split('.',2)[1] 
+        New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.servicebus.windows.net"  `
+                                -ResourceGroupName $rgName -Ttl 600 `
+                                -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $ipconfig.properties.privateIPAddress)  
+    } 
+}
 ```
 
 ## Manage private endpoints using Azure portal

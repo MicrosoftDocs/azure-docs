@@ -12,15 +12,13 @@ manager: corywink
 
 # Manage users and roles in your IoT Central application
 
-
-
 This article describes how, as an administrator, you can add, edit, and delete users in your Azure IoT Central application. The article also describes how to manage roles in your Azure IoT Central application.
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically added to the **Administrator** role for that application.
 
 ## Add users
 
-Every user must have a user account before they can sign in and access an Azure IoT Central application. Microsoft Accounts (MSAs) and Azure Active Directory (Azure AD) accounts are supported in Azure IoT Central. Azure Active Directory groups aren't currently supported in Azure IoT Central.
+Every user must have a user account before they can sign in and access an Azure IoT Central application. Microsoft Accounts and Azure Active Directory accounts are supported in Azure IoT Central. Azure Active Directory groups aren't currently supported in Azure IoT Central.
 
 For more information, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
@@ -38,6 +36,8 @@ For more information, see [Microsoft account help](https://support.microsoft.com
 
     > [!NOTE]
     > A user who is in a custom role that grants them the permission to add other users, can only add users to a role with same or fewer permissions than their own role.
+
+If an IoT Central user ID is deleted from Azure Active Directory and then readded, the user won't be able to sign in the IoT Central application. To re-enable access, the IoT Central administrator should delete and readd the user in the application.
 
 ### Edit the roles that are assigned to users
 

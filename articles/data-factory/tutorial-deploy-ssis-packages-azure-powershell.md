@@ -18,6 +18,8 @@ manager: mflasko
 
 # Set up an Azure-SSIS IR in Azure Data Factory by using PowerShell
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This tutorial shows you how to up an Azure-SQL Server Integration Services Integration Runtime (Azure-SSIS IR) in Azure Data Factory. An Azure-SSIS IR supports running packages that are deployed to:
 * An SSIS catalog (SSISDB) that's hosted by an Azure SQL Database server instance or a managed instance (the project deployment model).
 * File systems, file shares, or an Azure Files share (the package deployment model). 

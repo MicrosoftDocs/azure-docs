@@ -28,7 +28,7 @@ The **optional** settings for a set include:
 
 ## Editorially add to knowledge base
 
-If you do not have pre-existing content to populate the knowledge base, you can add QnA sets editorially in the QnA Maker portal. Learn how to update your knowledge base [here](../How-To/edit-knowledge-base.md).
+If you do not have pre-existing content to populate the knowledge base, you can add QnA pairs editorially in the QnA Maker portal. Learn how to update your knowledge base [here](../How-To/edit-knowledge-base.md).
 
 ## Editing your knowledge base locally
 

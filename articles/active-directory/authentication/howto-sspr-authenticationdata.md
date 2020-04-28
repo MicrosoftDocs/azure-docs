@@ -5,7 +5,7 @@ description: Data requirements for Azure AD self-service password reset and how 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/09/2019
 
 ms.author: iainfou

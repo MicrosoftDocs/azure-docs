@@ -1,7 +1,7 @@
 ---
 title: Register in Dev Center | Azure
 description: How to Register in Developer Center (Dev Center).
-author: jm-aditi-ms
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

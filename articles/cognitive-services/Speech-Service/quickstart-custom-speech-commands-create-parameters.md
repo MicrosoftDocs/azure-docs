@@ -87,7 +87,7 @@ Modify the Completion rule that you created in [the previous quickstart](./quick
 1. Edit the Speech Response action to use `OnOff` and `SubjectDevice`:
 
    ```
-   Ok, turning {OnOff} the {SubjectDevice}
+   - Ok, turning {OnOff} the {SubjectDevice}
    ```
 
 ## Try it out

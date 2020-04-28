@@ -85,7 +85,7 @@ You may find the series of values after each parameter a bit cryptic. These para
 Now that the SAS is generated, copy the return value and save it somewhere for use in an upcoming step. If you generated your SAS using a method other than the Azure CLI, you will need to remove the initial `?` if it is present. This character is a URL separator that is already provided in the URL template later in this topic where the SAS is used.
 
 > [!IMPORTANT]
-> In production, always pass SAS tokens using SSL. Also, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage. One approach you may consider is to use a serverless function to generate SAS tokens. The Azure Portal includes function templates that feature the ability to generate a SAS with a JavaScript function.
+> In production, always pass SAS tokens using TLS. Also, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage. One approach you may consider is to use a serverless function to generate SAS tokens. The Azure Portal includes function templates that feature the ability to generate a SAS with a JavaScript function.
 
 ## Implement the HTML page
 

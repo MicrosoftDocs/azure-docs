@@ -40,7 +40,7 @@ Files outside of `$HOME` and machine state are not persisted across sessions. Us
 
 ### Azure drive (Azure:)
 
-PowerShell in Cloud Shell starts you in Azure drive (`Azure:`).
+PowerShell in Cloud Shell provides the Azure drive (`Azure:`). You can switch to the Azure drive with `cd Azure:` and back to your home directory with `cd  ~`.
 The Azure drive enables easy discovery and navigation of Azure resources such as Compute, Network, Storage etc. similar to filesystem navigation.
 You can continue to use the familiar [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure) to manage these resources regardless of the drive you are in.
 Any changes made to the Azure resources, either made directly in Azure portal or through Azure PowerShell cmdlets, are reflected in the Azure drive.  You can run `dir -Force` to refresh your resources.

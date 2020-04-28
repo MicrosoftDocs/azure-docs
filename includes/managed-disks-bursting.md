@@ -5,12 +5,12 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 02/28/2020
+ ms.date: 03/29/2020
  ms.author: rogarana
  ms.custom: include file
 ---
 
-Disk bursting is currently a preview feature for premium SSDs. Bursting is supported on any premium SSD disk sizes <= 512 GiB (P20 or below). These disk sizes support bursting on a best effort basis and utilize a credit system to manage bursting. Credits accumulate in a burst bucket whenever disk traffic is below the provisioned performance target for their disk size, and consume credits when traffic bursts beyond the target. Disk traffic is tracked against both IOPS and bandwidth in the provisioned target. Disk bursting will not bypass virtual machine (VM) size limitations on IOPS or throughput.
+Disk bursting is supported for premium SSDs. Bursting is supported on any premium SSD disk sizes <= 512 GiB (P20 or below). These disk sizes support bursting on a best effort basis and utilize a credit system to manage bursting. Credits accumulate in a burst bucket whenever disk traffic is below the provisioned performance target for their disk size, and consume credits when traffic bursts beyond the target. Disk traffic is tracked against both IOPS and bandwidth in the provisioned target. Disk bursting will not bypass virtual machine (VM) size limitations on IOPS or throughput.
 
 Disk bursting is enabled by default on new deployments of the disk sizes that support it. Existing disk sizes, if they support disk bursting, can enable bursting through either of the following methods:
 
@@ -31,7 +31,7 @@ The disk sizes that provide bursting support along with the burst specifications
 
 ## Regional availability
 
-Currently, disk bursting is only available in the West Central US region.
+Disk bursting is available in all regions in Public Cloud.
 
 ## Disk sizes
 
@@ -41,8 +41,8 @@ Currently, disk bursting is only available in the West Central US region.
 
 To give you a better idea of how this works, here's a few example scenarios:
 
-- One common scenario that can benefit from disk bursting is faster VM boot and application launch on OS disks. Take a Linux VM with an 8 GiB OS image as an example. If we use a P2 disk as the OS disk, the provisioned target is 120 IOPS and 25 MBps. When VM starts, there will be a read spike to the OS disk loading the boot files. With the introduction of bursting, you can read at the max burst speed of 3500 IOPS and 170 MBps, accelerating the load time by at least 6x. After VM boot, the traffic level on the OS disk is usually low, since most data operations by the application will be against the attached data disks. If the traffic is below the provisioned target, you will accumulate credits.
+- One common scenario that can benefit from disk bursting is faster VM boot and application launch on OS disks. Take a Linux VM with an 8 GiB OS image as an example. If we use a P2 disk as the OS disk, the provisioned target is 120 IOPS and 25 MiB. When VM starts, there will be a read spike to the OS disk loading the boot files. With the introduction of bursting, you can read at the max burst speed of 3500 IOPS and 170 MiB, accelerating the load time by at least 6x. After VM boot, the traffic level on the OS disk is usually low, since most data operations by the application will be against the attached data disks. If the traffic is below the provisioned target, you will accumulate credits.
 
 - If you are hosting a Remote Virtual Desktop environment, whenever an active user launches an application like AutoCAD, read traffic to the OS disk significantly increases. In this case, burst traffic will consume accumulated credits, allowing you to go beyond the provisioned target, and launching the application much faster.
 
-- A P1 disk has a provisioned target of 120 IOPS and 25 MBps. If the actual traffic on the disk was 100 IOPS and 20 MBps in the past 1 second interval, then the unused 20 IOs and 5 MB are credited to the burst bucket of the disk. Credits in the burst bucket can later be used when the traffic exceeds the provisioned target, up to the max burst limit. The max burst limit defines the ceiling of disk traffic even if you have burst credits to consume from. In this case, even if you have 10,000 IOs in the credit bucket, a P1 disk cannot issue more than the max burst of 3,500 IO per sec.  
+- A P1 disk has a provisioned target of 120 IOPS and 25 MiB. If the actual traffic on the disk was 100 IOPS and 20 MiB in the past 1 second interval, then the unused 20 IOs and 5 MB are credited to the burst bucket of the disk. Credits in the burst bucket can later be used when the traffic exceeds the provisioned target, up to the max burst limit. The max burst limit defines the ceiling of disk traffic even if you have burst credits to consume from. In this case, even if you have 10,000 IOs in the credit bucket, a P1 disk cannot issue more than the max burst of 3,500 IO per sec.  

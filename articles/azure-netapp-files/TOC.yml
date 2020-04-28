@@ -35,8 +35,14 @@
     href: azure-netapp-files-cost-model.md
   - name: Guidelines for Azure NetApp Files network planning 
     href: azure-netapp-files-network-topologies.md
-  - name: Solution architectures using Azure NetApp Files
-    href: azure-netapp-files-solution-architectures.md
+  - name: Solutions
+    items:
+    - name: Solution architectures using Azure NetApp Files
+      href: azure-netapp-files-solution-architectures.md
+    - name: Benefits of using Azure NetApp Files with Oracle Database
+      href: solutions-benefits-azure-netapp-files-oracle-database.md
+    - name: Benefits of using Azure NetApp Files for electronic design automation
+      href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
   - name: FAQs about Azure NetApp Files
     href: azure-netapp-files-faqs.md
 - name: How-to guides
