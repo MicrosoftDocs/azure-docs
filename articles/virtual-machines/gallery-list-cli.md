@@ -5,39 +5,17 @@
  ms.subservice: imaging
  author: cynthn
  ms.service: virtual-machines
- ms.topic: article
- ms.date: 03/25/2020
+ ms.topic: how-to
+ ms.date: 04/27/2020
  ms.author: cynthn
  #pmcontact: akjosh
 ---
 
-# List Shared Image Gallery information
+# Manage shared image gallery resources
 
-Get the location, status and other information about the available image galleries using [az sig list](/cli/azure/sig#az-sig-list).
+This article shows you how to use the Azure CLI to manage resources in your Shared Image Gallery.
 
-```azurecli-interactive 
-az sig list -o table
-```
 
-List the image definitions in a gallery, including information about OS type and status, using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list).
+[!INCLUDE [virtual-machines-common-gallery-list-cli.md](../../includes/virtual-machines-common-gallery-list-cli.md)]
 
-```azurecli-interactive 
-az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
-```
-
-List the shared image versions in a gallery, using [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list).
-
-```azurecli-interactive
-az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
-```
-
-Get the ID of an image version using [az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show).
-
-```azurecli-interactive
-az sig image-version show \
-   --resource-group myGalleryRG \
-   --gallery-name myGallery \
-   --gallery-image-definition myImageDefinition \
-   --gallery-image-version 1.0.0 \
-   --query "id"
-```
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]

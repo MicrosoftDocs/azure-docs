@@ -37,13 +37,13 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Overview
 
-A [Shared Image Gallery](./linux/shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
+A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
 
 The Shared Image Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
 
 The Shared Image Gallery feature has multiple resource types:
 
-[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../virtual-machines-shared-image-gallery-resources.md)]
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 ## Before you begin
 
@@ -237,7 +237,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 The rest of the process for creating an image in a Shared Image Gallery is the same, with these exceptions:
 
 - When creating the image definition using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create), use `--os-state generalized` to show the that source was generalized.
-- When creating the scale set from the generalized image, don't use the `--specialized` parameter. For more information, see [Create a scale set from a generalized image](instance-generalized-image-version-cli.md).
+- When creating the VM from the generalized image, don't use the `--specialized` parameter. For more information, see [Create a VM from a generalized image](../vm-generalized-image-version-cli.md).
 
 ## Share the gallery
 
