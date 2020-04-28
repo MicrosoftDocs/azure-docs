@@ -116,12 +116,6 @@ To version an interface:
 1. Click **Create**.
 1. Now your interface is in draft mode. You can add or edit capabilities to your interface without breaking existing customizations and views.
 
-> [!NOTE]
-> Standard interfaces published by Azure IoT can not be versioned or edited. These standard interfaces are used for device certification.
-
-> [!NOTE]
-> Once the interface has been published, you can not delete any of it's capabilities even in a draft mode. Capabilities can only be edited or added to the interface in draft mode.
-
 ## Migrate a device across versions
 
 You can create multiple versions of the device template. Over time, you'll have multiple connected devices using these device templates. You can migrate devices from one version of your device template to another. The following steps describe how to migrate a device:
@@ -134,5 +128,7 @@ You can create multiple versions of the device template. Over time, you'll have 
 ![How to migrate a device](media/howto-version-device-template/pick-version.png)
 
 ## Next steps
+
+If you're an operator or solution builder, a suggested next step is to learn [how to manage your devices](./howto-manage-devices.md).
 
 If you're a device developer, a suggested next step is to read about [Azure IoT Edge devices and Azure IoT Central](./concepts-iot-edge.md).
