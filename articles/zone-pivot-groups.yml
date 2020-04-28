@@ -306,17 +306,6 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
-# Owner: mblythe
-- id: user-interface-options
-  title: User interfaces
-  prompt: Choose an interface option
-  pivots:
-  - id: user-interface-azure-portal
-    title: Azure Portal
-  - id: user-interface-azure-cli
-    title: Azure CLI
-  - id: user-interface-azure-powershell
-    title: Azure PowerShell
 - id: programming-languages-set-eighteen
   title: Programming languages
   prompt: Choose a programming language
