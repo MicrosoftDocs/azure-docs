@@ -4,15 +4,11 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 04/28/2020
 ms.author: thweiss
-ROBOTS: noindex, nofollow
 ---
 
 # Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault
-
-> [!NOTE]
-> At this time, you must request access to use this capability. To do so, please contact [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com).
 
 Data stored in your Azure Cosmos account is automatically and seamlessly encrypted with keys managed by Microsoft (**service-managed keys**). Optionally, you can choose to add a second layer of encryption with keys you manage (**customer-managed keys**).
 
@@ -84,7 +80,7 @@ When you create a new Azure Cosmos DB account from the Azure portal, choose **Cu
 
 ![Setting CMK parameters in the Azure portal](./media/how-to-setup-cmk/portal-cosmos-enc.png)
 
-### Using Azure PowerShell
+### <a id="using-powershell"></a> Using Azure PowerShell
 
 When you create a new Azure Cosmos DB account with PowerShell:
 
@@ -113,6 +109,14 @@ $CosmosDBProperties = @{
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2019-12-12" -ResourceGroupName $resourceGroupName `
     -Location $accountLocation -Name $accountName -PropertyObject $CosmosDBProperties
+```
+
+After the account has been created, you can verify that customer-managed keys have been enabled by fetching the URI of the Azure Key Vault key:
+
+```powershell
+Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    | Select-Object -ExpandProperty Properties `
+    | Select-Object -ExpandProperty keyVaultKeyUri
 ```
 
 ### Using an Azure Resource Manager template
@@ -163,7 +167,6 @@ When you create a new Azure Cosmos account through an Azure Resource Manager tem
         }
     ]
 }
-
 ```
 
 Deploy the template with the following PowerShell script:
@@ -182,7 +185,7 @@ New-AzResourceGroupDeployment `
     -keyVaultKeyUri $keyVaultKeyUri
 ```
 
-### Using the Azure CLI
+### <a id="using-azure-cli"></a> Using the Azure CLI
 
 When you create a new Azure Cosmos account through the Azure CLI, pass the URI of the Azure Key Vault key that you copied earlier under the **--key-uri** parameter.
 
@@ -196,6 +199,15 @@ az cosmosdb create \
     -g $resourceGroupName \
     --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
     --key-uri $keyVaultKeyUri
+```
+
+After the account has been created, you can verify that customer-managed keys have been enabled by fetching the URI of the Azure Key Vault key:
+
+```azurecli-interactive
+az cosmosdb show \
+    -n $accountName \
+    -g $resourceGroupName \
+    --query keyVaultKeyUri
 ```
 
 ## Frequently asked questions
@@ -233,6 +245,10 @@ This feature is currently available only for new accounts.
 ### Is there a plan to support finer granularity than account-level keys?
 
 Not currently, but container-level keys are being considered.
+
+## How can I tell if customer-managed keys are enabled on my Azure Cosmos account?
+
+You can programmatically fetch the details of your Azure Cosmos account and look for the presence of the `keyVaultKeyUri` property. See above for ways to do that [in PowerShell](#using-powershell) and [using the Azure CLI](#using-azure-cli).
 
 ### How do customer-managed keys affect a backup?
 
