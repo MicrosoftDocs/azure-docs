@@ -78,7 +78,7 @@ Caching | Enabled, Disabled. See below for additional fields required if enabled
 
 #### URL rewrite
 
-Use this action to rewrite the path of a request that's en route to your origin.
+Use this setting to configure an optional **Custom Forwarding Path** to use when constructing the request to forward to the backend.
 
 Field | Description 
 ------|------------
