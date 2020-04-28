@@ -3,7 +3,7 @@ title: Implement dynamic styling for Creator Indoor Maps | Microsoft Azure Maps
 description: Learn how to Implement dynamic styling for Creator indoor maps 
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/24/2020
+ms.date: 04/28/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ manager: philmea
 
 # Implement dynamic styling for Creator indoor maps
 
-The Azure Maps Creator [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) lets you apply styles based on the dynamic properties of indoor map data features such as meeting rooms or hallways. For example, you can use dynamic styling to render meeting rooms of a facility in a specified color based on occupancy status.  In this article, we'll discuss how to dynamically render indoor map features based on associated dynamic properties (*states*) using the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
+The Azure Maps Creator [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) lets you apply styles based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. In this article, we'll discuss how to dynamically render indoor map features based on associated dynamic properties (*states*) using the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
 
 ## Prerequisites
 
@@ -20,20 +20,20 @@ The Azure Maps Creator [Feature State service](https://docs.microsoft.com/rest/a
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 3. [Enable Creator](how-to-manage-creator.md)
 4. Download the [Sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
-5. [Create an indoor map](tutorial-creator-indoor-maps.md) in order to obtain a `tilesetId` and `statesetId`.
+5. [Create an indoor map](tutorial-creator-indoor-maps.md) to obtain a `tilesetId` and `statesetId`.
 6. Build a web application by following the steps in [How to use the Indoor Map module](how-to-use-indoor-module.md).
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
 ## Implement dynamic styling
 
-Once you complete the prerequisites, you should have a simple web application configured with your subscription key, `tilesetId` and `statesetId`.
+Once you complete the prerequisites, you should have a simple web application configured with your subscription key, `tilesetId`, and `statesetId`.
 
 ### Select features
 
 To implement dynamic styling, a feature, such as a unit, must be identified by a feature `ID`. You'll use the feature `ID` to update the dynamic property or *state* of a specific feature defined in the feature stateset. To view features defined in a dataset, you can use one of the following methods:
 
-* WFS API. Datasets can be queried using the Web Feature Service (WFS) API. WFS follows the Open Geospatial Consortium API Features. The WFS API is helpful when there is a need to query features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a given facility and floor level.
+* WFS API (Web Feature Service). Datasets can be queried using the WFS API. WFS follows the Open Geospatial Consortium API Features. The WFS API is helpful for querying features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a given facility and floor level.
 
 * Implement customized code that allows a user to select features on a map using your web application. In this article, we'll make use of this option.  
 
