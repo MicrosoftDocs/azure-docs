@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/28/2020
 ---
 # Resource functions for ARM templates
 
@@ -22,9 +22,7 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 
 ## extensionResourceId
 
-```json
-extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
-```
+`extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the resource ID for an [extension resource](../management/extension-resource-types.md), which is a resource type that is applied to another resource to add to its capabilities.
 
@@ -102,9 +100,7 @@ The following example returns the resource ID for a resource group lock.
 
 ## list*
 
-```json
-list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
-```
+`list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
 The syntax for this function varies by name of the list operations. Each implementation returns values for the resource type that supports a list operation. The operation name must start with `list`. Some common usages are `listKeys` and `listSecrets`.
 
@@ -350,9 +346,7 @@ To get the SAS token, pass an object for the expiry time. The expiry time must b
 
 ## providers
 
-```json
-providers(providerNamespace, [resourceType])
-```
+`providers(providerNamespace, [resourceType])`
 
 Returns information about a resource provider and its supported resource types. If you don't provide a resource type, the function returns all the supported types for the resource provider.
 
@@ -427,9 +421,7 @@ For the **Microsoft.Web** resource provider and **sites** resource type, the pre
 
 ## reference
 
-```json
-reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
-```
+`reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Returns an object representing a resource's runtime state.
 
@@ -665,9 +657,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ## resourceGroup
 
-```json
-resourceGroup()
-```
+`resourceGroup()`
 
 Returns an object that represents the current resource group.
 
@@ -745,9 +735,7 @@ The preceding example returns an object in the following format:
 
 ## resourceId
 
-```json
-resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
-```
+`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
 
@@ -902,9 +890,7 @@ The output from the preceding example with the default values is:
 
 ## subscription
 
-```json
-subscription()
-```
+`subscription()`
 
 Returns details about the subscription for the current deployment.
 
@@ -945,9 +931,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ## subscriptionResourceId
 
-```json
-subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)
-```
+`subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier for a resource deployed at the subscription level.
 
@@ -1029,9 +1013,7 @@ The following template assigns a built-in role. You can deploy it to either a re
 
 ## tenantResourceId
 
-```json
-tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
-```
+`tenantResourceId(resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the unique identifier for a resource deployed at the tenant level.
 

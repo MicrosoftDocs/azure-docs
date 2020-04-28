@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/16/2020
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
 ---
 
 # Use Apache Ambari to optimize HDInsight cluster configurations
 
-HDInsight provides [Apache Hadoop](./hadoop/apache-hadoop-introduction.md) clusters for large-scale data processing applications. Managing,  monitoring, and optimizing these complex multi-node clusters can be challenging. [Apache Ambari](https://ambari.apache.org/) is a web interface to  manage and monitor HDInsight Linux clusters.  For Windows clusters, use the [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
+HDInsight provides Apache Hadoop clusters for large-scale data processing applications. Managing,  monitoring, and optimizing these complex multi-node clusters can be challenging. Apache Ambari is a web interface to  manage and monitor HDInsight Linux clusters.  For Windows clusters, use the [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 For an introduction to using the Ambari Web UI, see [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 
@@ -63,7 +63,7 @@ The following sections describe configuration options for optimizing overall Apa
 
 ### Set the Hive execution engine
 
-Hive provides two execution engines: [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  and [Apache TEZ](https://tez.apache.org/). Tez is faster than MapReduce. HDInsight Linux clusters have Tez as the default execution engine. To change the execution engine:
+Hive provides two execution engines: Apache Hadoop MapReduce and Apache TEZ. Tez is faster than MapReduce. HDInsight Linux clusters have Tez as the default execution engine. To change the execution engine:
 
 1. In the Hive **Configs** tab, type **execution engine** in the filter box.
 
@@ -94,7 +94,7 @@ These changes  affect all Tez jobs across the server. To get an optimal result, 
 
 ### Tune reducers
 
-[Apache ORC](https://orc.apache.org/) and [Snappy](https://google.github.io/snappy/) both offer high performance. However, Hive may have too few reducers by default, causing bottlenecks.
+Apache ORC and Snappy both offer high performance. However, Hive may have too few reducers by default, causing bottlenecks.
 
 For example, say you have an input data size of 50 GB. That data in ORC format with Snappy compression is 1 GB. Hive estimates the number of reducers needed as:     (number of bytes input to mappers / `hive.exec.reducers.bytes.per.reducer`).
 
@@ -281,7 +281,7 @@ Additional recommendations for optimizing the Hive execution engine:
 
 ## Apache Pig optimization
 
-[Apache Pig](https://pig.apache.org/) properties can be  modified from the Ambari web UI to tune Pig queries. Modifying Pig properties from Ambari directly modifies the Pig properties in the `/etc/pig/2.4.2.0-258.0/pig.properties` file.
+Apache Pig properties can be  modified from the Ambari web UI to tune Pig queries. Modifying Pig properties from Ambari directly modifies the Pig properties in the `/etc/pig/2.4.2.0-258.0/pig.properties` file.
 
 1. To modify Pig properties, navigate to the Pig **Configs** tab, and then expand the **Advanced pig-properties** pane.
 
@@ -332,7 +332,7 @@ Pig generates temporary files during job execution. Compressing the temporary fi
 
 * `pig.tmpfilecompression`: When true, enables temporary file compression. The default value is false.
 
-* `pig.tmpfilecompression.codec`: The compression codec to use for compressing the temporary files. The recommended compression codecs are [LZO](https://www.oberhumer.com/opensource/lzo/) and Snappy for lower CPU use.
+* `pig.tmpfilecompression.codec`: The compression codec to use for compressing the temporary files. The recommended compression codecs are LZO and Snappy for lower CPU use.
 
 ### Enable split combining
 
@@ -348,7 +348,7 @@ The number of reducers is calculated based on the parameter `pig.exec.reducers.b
 
 ## Apache HBase optimization with the Ambari web UI
 
-[Apache HBase](https://hbase.apache.org/) configuration is modified from the **HBase Configs** tab. The following sections describe  some of the important configuration settings that affect HBase performance.
+Apache HBase configuration is modified from the **HBase Configs** tab. The following sections describe  some of the important configuration settings that affect HBase performance.
 
 ### Set HBASE_HEAPSIZE
 
