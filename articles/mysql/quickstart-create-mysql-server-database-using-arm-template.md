@@ -56,52 +56,6 @@ More Azure Database for MySQL template samples can be found in the [quickstart t
 
 ## Deploy the template
 
-# [CLI](#tab/CLI)
-
-Use the following interactive code to create a new Azure Database for MySQL server using the template. The code prompts you for the new server name, the name and location of a new resource group, and an administrator account name and password.
-
-To run the code in Azure Cloud Shell, select **Try it** at the upper corner of any code block.
-
-```azurecli-interactive
-echo "Enter a name for the new Azure Database for MySQL server:" &&
-read serverName &&
-echo "Enter a name for the new resource group where the server will exist:" &&
-read resourceGroupName &&
-echo "Enter an Azure region (for example, centralus) for the resource group:" &&
-read location &&
-echo "Enter the Azure Database for MySQL server's administrator account name:" &&
-read adminUser &&
-echo "Enter the administrator password:" &&
-read adminPassword &&
-params='serverName='$serverName' administratorLogin='$adminUser' administratorLoginPassword='$adminPassword &&
-az group create --name $resourceGroupName --location $location &&
-az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-mysql-with-vnet/azuredeploy.json &&
-echo "Press [ENTER] to continue ..."
-```
-
-# [PowerShell](#tab/PowerShell)
-
-Use the following interactive code to create a new Azure Database for MySQL server using the template. The code prompts you for the new server name, the name and location of a new resource group, and an administrator account name and password.
-
-To run the code in Azure Cloud Shell, select **Try it** at the upper corner of any code block.
-
-```azurepowershell-interactive
-$serverName = Read-Host -Prompt "Enter a name for the new Azure Database for MySQL server"
-$resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group where the server will exist"
-$location = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
-$adminUser = Read-Host -Prompt "Enter the Azure Database for MySQL server's administrator account name"
-$adminPassword = Read-Host -Prompt "Enter the administrator password" -AsSecureString
-
-New-AzResourceGroup -Name $resourceGroupName -Location $location # Use this command when you need to create a new resource group for your deployment
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
-    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-mysql-with-vnet/azuredeploy.json `
-    -serverName $serverName `
-    -administratorLogin $adminUser `
-    -administratorLoginPassword $adminPassword
-
-Read-Host -Prompt "Press [ENTER] to continue ..."
-```
-
 # [Portal](#tab/azure-portal)
 
 Select the following link to deploy the Azure Database for MySQL server template in the Azure portal:
@@ -139,9 +93,73 @@ On the **Deploy Azure Database for MySQL with VNet** page:
 
 6. Select **Purchase**.
 
+# [PowerShell](#tab/PowerShell)
+
+Use the following interactive code to create a new Azure Database for MySQL server using the template. The code prompts you for the new server name, the name and location of a new resource group, and an administrator account name and password.
+
+To run the code in Azure Cloud Shell, select **Try it** at the upper corner of any code block.
+
+```azurepowershell-interactive
+$serverName = Read-Host -Prompt "Enter a name for the new Azure Database for MySQL server"
+$resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group where the server will exist"
+$location = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
+$adminUser = Read-Host -Prompt "Enter the Azure Database for MySQL server's administrator account name"
+$adminPassword = Read-Host -Prompt "Enter the administrator password" -AsSecureString
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location # Use this command when you need to create a new resource group for your deployment
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-mysql-with-vnet/azuredeploy.json `
+    -serverName $serverName `
+    -administratorLogin $adminUser `
+    -administratorLoginPassword $adminPassword
+
+Read-Host -Prompt "Press [ENTER] to continue ..."
+```
+
+# [CLI](#tab/CLI)
+
+Use the following interactive code to create a new Azure Database for MySQL server using the template. The code prompts you for the new server name, the name and location of a new resource group, and an administrator account name and password.
+
+To run the code in Azure Cloud Shell, select **Try it** at the upper corner of any code block.
+
+```azurecli-interactive
+echo "Enter a name for the new Azure Database for MySQL server:" &&
+read serverName &&
+echo "Enter a name for the new resource group where the server will exist:" &&
+read resourceGroupName &&
+echo "Enter an Azure region (for example, centralus) for the resource group:" &&
+read location &&
+echo "Enter the Azure Database for MySQL server's administrator account name:" &&
+read adminUser &&
+echo "Enter the administrator password:" &&
+read adminPassword &&
+params='serverName='$serverName' administratorLogin='$adminUser' administratorLoginPassword='$adminPassword &&
+az group create --name $resourceGroupName --location $location &&
+az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-mysql-with-vnet/azuredeploy.json &&
+echo "Press [ENTER] to continue ..."
+```
+
 ---
 
 ## Review deployed resources
+
+# [Portal](#tab/azure-portal)
+
+Follow these steps to see an overview of your new Azure Database for MySQL server:
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for MySQL servers**.
+
+2. In the database list, select your new server. The **Overview** page for your new Azure Database for MySQL server appears.
+
+# [PowerShell](#tab/PowerShell)
+
+Run the following interactive code to view details about your Azure Database for MySQL server. You'll have to enter the name of the new server.
+
+```azurepowershell-interactive
+$serverName = Read-Host -Prompt "Enter the name of your Azure Database for MySQL server"
+Get-AzResource -ResourceType "Microsoft.DBforMySQL/servers" -Name $serverName | ft
+Write-Host "Press [ENTER] to continue..."
+```
 
 # [CLI](#tab/CLI)
 
@@ -155,46 +173,11 @@ read resourcegroupName &&
 az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForMySQL/servers"
 ```
 
-# [PowerShell](#tab/PowerShell)
-
-Run the following interactive code to view details about your Azure Database for MySQL server. You'll have to enter the name of the new server.
-
-```azurepowershell-interactive
-$serverName = Read-Host -Prompt "Enter the name of your Azure Database for MySQL server"
-Get-AzResource -ResourceType "Microsoft.DBforMySQL/servers" -Name $serverName | ft
-Write-Host "Press [ENTER] to continue..."
-```
-
-# [Portal](#tab/azure-portal)
-
-Follow these steps to see an overview of your new Azure Database for MySQL server:
-
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for MySQL servers**.
-
-2. In the database list, select your new server. The **Overview** page for your new Azure Database for MySQL server appears.
-
 ---
 
 ## Clean up resources
 
 When it's no longer needed, delete the resource group, which deletes the resources in the resource group.
-
-# [CLI](#tab/CLI)
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
-```
-
-# [PowerShell](#tab/PowerShell)
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
-```
 
 # [Portal](#tab/azure-portal)
 
@@ -205,6 +188,23 @@ Write-Host "Press [ENTER] to continue..."
 3. In the **Overview** page of your resource group, select **Delete resource group**.
 
 4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
 
 ---
 
