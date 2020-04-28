@@ -17,13 +17,11 @@ ms.service: digital-twins
 
 # Event routes (preview)
 
-It is often useful for data from Azure Digital Twins to be sent to downstream data services for additional storage or processing. 
+It is often useful for data from Azure Digital Twins to be sent to downstream data services for additional storage or processing. This type of data egress is handled using **event routes**. 
 
-For example...
+Here are some example cases that might involve an event route to move data:
 * A hospital may want to send Azure Digital Twins event data to [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), to record time series data of handwashing-related events for bulk analytics.
-* A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as digital twins in the twin graph, or run powerful queries leveraging their Azure Maps and Azure Digital Twins data together.
-
-Data egress for scenarios like these is handled using **event routes**. 
+* A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as [digital twins](concepts-twins-graph.md) in the twin graph, or run powerful queries leveraging their Azure Maps and Azure Digital Twins data together.
 
 ## About event routes
 
@@ -64,7 +62,7 @@ The endpoint APIs that are available in control plane are:
 * Get endpoint by ID (pass in endpoint ID)
 * Delete endpoint by ID (pass in endpoint ID)
 
-## Create a route
+## Create an event route
  
 Event routes are created in a client application with the following [Azure Digital Twins API](how-to-use-apis-sdks.md) call: 
 
@@ -74,7 +72,7 @@ await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<e
 
 * The `endpoint-ID` identifies an endpoint, such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 
-The event route object passed to `EventRoutes.Add` also takes a **filter** parameter, which can be used to restrict the types of events that follow this route.
+The event route object passed to `EventRoutes.Add` also takes a [**filter** parameter](./how-to-manage-routes.md#filter-events), which can be used to restrict the types of events that follow this route.
 
 Routes can be also created using the [Azure Digital Twins CLI](how-to-use-cli.md).
 

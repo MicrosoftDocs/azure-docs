@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
+ms.custom: hdinsightactive,mvc,seoapr2020
 ms.topic: overview
 ms.date: 04/17/2020
 

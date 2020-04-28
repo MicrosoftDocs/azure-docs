@@ -37,7 +37,7 @@ You can also view example call bodies in the Swagger's accompanying [examples fo
 ## Other languages: Generate an Azure Digital Twins SDK 
 
 To generate an SDK, you will need:
-* [AutoRest](https://github.com/Azure/autorest), version 2.0.4413
+* [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (version 3 isn't currently supported)
 * [Node.js](https://nodejs.org) as a pre-requisite to AutoRest
 * The [Azure Digital Twins OpenAPI (Swagger) file](https://github.com/Azure/azure-digital-twins/blob/private-preview/OpenApiSpec/digitaltwins.json)
 
@@ -197,7 +197,7 @@ try
 
 ## Monitor API metrics
 
-API metrics such as requests, latency and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
+API metrics such as requests, latency, and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
 
 From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's menu to bring up the *Metrics* page.
 

@@ -15,19 +15,19 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# The Azure Digital Twins CLI
+# Use the Azure Digital Twins CLI
 
 In addition to managing your Azure Digital Twins instance in the Azure portal, Azure Digital Twins has a **command-line interface (CLI)** that you can use to perform most major actions with the service, including:
 * Managing an Azure Digital Twins instance
 * Configuring endpoints
-* Configuring role-based access control (RBAC)
-* Managing routes
+* Managing [routes](concepts-route-events.md)
+* Configuring [security](concepts-security.md) via role-based access control (RBAC)
 
 This article provides the CLI commands for these tasks, and other information that you need to use this tool.
 
 You can also view the reference documentation for these commands as part of the [az iot command set](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest).
 
-## Getting started
+## Getting started with the CLI
 
 First, either open an instance of [Azure Cloud Shell](../cloud-shell/overview.md) or [install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -63,7 +63,7 @@ You can now use the Azure Digital Twins CLI commands. Here are some helpful tips
 * Use `az dt -h` to review the top-level commands.
 * All commands have help descriptions and examples. Append `--help` or `-h` to the end of a command or command group to expand these details.
 
-## Azure Digital Twins CLI Command Guide
+## Azure Digital Twins CLI command guide
 
 The following sections describe the commands you can use with the Azure Digital Twins CLI.
 
@@ -171,41 +171,7 @@ Uses:
 
   `az dt endpoint delete --endpoint-name myeh_endpoint -n mydtinstance`
 
-### Configure RBAC
-
-Command group: `az dt rbac`
-
-These commands are used to manage [RBAC](../role-based-access-control/overview.md) assignments for an Azure Digital Twins instance.
-
-#### az dt rbac assign-role
-
-Uses:
-
-* Assign a user Owner role for an Azure Digital Twins instance
-
-  `az dt rbac assign-role --assignee 'coolperson@microsoft.com' --role owner -n mydtinstance`
-
-* Assign a user Reader role for an Azure Digital Twins instance
-
-  `az dt rbac assign-role --assignee 'kindacoolperson@microsoft.com' --role reader -n mydtinstance`
-
-#### az dt rbac list-assignments
-
-Uses:
-
-* List existing role assignments of an Azure Digital Twins instance
-
-  `az dt rbac list-assignments -n mydtinstance`
-
-#### az dt rbac remove-role
-
-Uses:
-
-* Remove an existing role assignment from an Azure Digital Twins instance
-
-  `az dt rbac remove-role --assignee 'notcoolperson@microsoft.com -n mydtinstance`
-
-### Manage Azure Digital Twins routes
+### Manage routes
 
 Command group: `az dt route`
 
@@ -249,6 +215,40 @@ Uses:
 * Delete a target event route from an Azure Digital Twins instance
 
   `az dt route delete --route-name myeh_route -n mydtinstance`
+
+### Configure RBAC
+
+Command group: `az dt rbac`
+
+These commands are used to manage [RBAC](../role-based-access-control/overview.md) assignments for an Azure Digital Twins instance.
+
+#### az dt rbac assign-role
+
+Uses:
+
+* Assign a user Owner role for an Azure Digital Twins instance
+
+  `az dt rbac assign-role --assignee 'coolperson@microsoft.com' --role owner -n mydtinstance`
+
+* Assign a user Reader role for an Azure Digital Twins instance
+
+  `az dt rbac assign-role --assignee 'kindacoolperson@microsoft.com' --role reader -n mydtinstance`
+
+#### az dt rbac list-assignments
+
+Uses:
+
+* List existing role assignments of an Azure Digital Twins instance
+
+  `az dt rbac list-assignments -n mydtinstance`
+
+#### az dt rbac remove-role
+
+Uses:
+
+* Remove an existing role assignment from an Azure Digital Twins instance
+
+  `az dt rbac remove-role --assignee 'notcoolperson@microsoft.com -n mydtinstance`
 
 ## Next steps
 

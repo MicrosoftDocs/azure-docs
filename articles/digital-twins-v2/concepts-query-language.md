@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # About the query language for Azure Digital Twins
 
-Recall that the center of Azure Digital Twins is the **twin graph**, constructed from [digital twins](concepts-twins-graph.md) and relationships. This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language called **Azure Digital Twins Query Store language**.
+Recall that the center of Azure Digital Twins is the [**twin graph**](concepts-twins-graph.md), constructed from **digital twins** and **relationships**. This graph can be queried to get information about the digital twins and relationships it contains. These queries are written in a custom SQL-like query language called **Azure Digital Twins Query Store language**.
 
 To submit a query to the service from a client app, you will use the Azure Digital Twins **Query API**. This lets developers write queries and apply filters to find sets of digital twins in the twin graph, and other information about the Azure Digital Twins scenario.
 
@@ -30,7 +30,7 @@ Here are the operations available in Azure Digital Twins Query Store language:
 * Get twins by digital twins' interfaces.
 * Get twins by relationship properties.
 * Get twins over multiple relationship types (`JOIN` queries). There are limitations on the number of `JOIN`s allowed (one level for public preview).
-* Use custom function `IS_OF_MODEL(twinCollection, twinTypeName)`, which allows filtering based on DTDL twin interfaces or types. It supports inheritance.
+* Use custom function `IS_OF_MODEL(twinCollection, twinTypeName)`, which allows filtering based on the twin's [model](concepts-models.md). It supports inheritance.
 * Use any combination (`AND`, `OR`, `NOT` operator) of the above.
 * Use scalar functions: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTS_WITH`, `ENDS_WITH`.
 * Use query comparison operators: `AND`/`OR`/`NOT`,  `IN`/`NOT IN`, `STARTSWITH`/`ENDSWITH`, `=`, `!=`, `<`, `>`, `<=`, `>=`.

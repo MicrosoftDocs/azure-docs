@@ -37,7 +37,8 @@ Specifically, this Salesforce connector supports:
 - Salesforce Developer, Professional, Enterprise, or Unlimited editions.
 - Copying data from and to Salesforce production, sandbox, and custom domain.
 
-The Salesforce connector is built on top of the Salesforce REST/Bulk API. By default, the connector uses [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) to copy data from Salesforce, and uses [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) to copy data to Salesforce. You can also explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service.
+The Salesforce connector is built on top of the Salesforce REST/Bulk API (The
+connector automatically choose one for better performance). By default, the connector uses [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) to copy data from Salesforce, and uses [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) to copy data to Salesforce. You can also explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service.
 
 ## Prerequisites
 
