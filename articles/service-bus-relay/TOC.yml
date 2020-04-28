@@ -59,10 +59,12 @@
         href: relay-hybrid-connections-dotnet-api-overview.md
       - name: Node
         href: relay-hybrid-connections-node-ws-api-overview.md
-  - name: Manage
+  - name: Manage and monitor
     items:
     - name: Monitor Azure Relay with Azure Monitoring
       href: relay-metrics-azure-monitor.md
+    - name: Set up diagnostic logs
+      href: diagnostic-logs.md
 - name: Reference
   items:
   - name: .NET
