@@ -101,6 +101,43 @@ You should check the value of the [ServicePointManager.DefaultConnectionLimit](h
 ### Queues and topics
 For queues and topics, the timeout is specified either in the [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings) property, as part of the connection string, or through [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). The error message itself might vary, but it always contains the timeout value specified for the current operation. 
 
+## MessageLockLostException
+
+### Cause
+
+The **MessageLockLostException** is thrown when a message is received using the [PeekLock](message-transfers-locks-settlement.md#peeklock) Receive mode and the lock held by the client expires on the service side.
+
+The lock on a message may expire due to various reasons - 
+
+  * The lock timer has expired before it was renewed by the client application.
+  * The client application acquired the lock, saved it to a persistent store and then restarted. Once it restarted, the client application looked at the inflight messages and tried to complete these.
+
+### Resolution
+
+In the event of a **MessageLockLostException**, the client application can no longer process the message. The client application may optionally consider logging the exception for analysis, but *must* dispose off the message.
+
+Since the lock on the message has expired, it would go back on the Queue (or Subscription) and can be processed by the next client application which calls receive.
+
+If the **MaxDeliveryCount** has exceeded then the message may be moved to the **DeadLetterQueue**.
+
+## SessionLockLostException
+
+### Cause
+
+### Resolution
+
+## SocketException
+
+### Cause
+
+### Resolution
+
+## MessagingException
+
+### Cause
+
+### Resolution
+
 ## Next steps
 For the complete Service Bus .NET API reference, see the [Azure .NET API reference](/dotnet/api/overview/azure/service-bus).
 For troubleshooting tips, see the [Troubleshooting guide](service-bus-troubleshooting-guide.md)
