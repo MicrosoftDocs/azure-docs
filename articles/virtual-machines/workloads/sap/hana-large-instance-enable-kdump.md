@@ -41,7 +41,6 @@ Instance(**Type I and Type II**)
 ## Pre-requisites
 
 - Kdump service uses `/var/crash` directory to write dumps, make sure the partition corresponds to this directory has sufficient space to accommodate dumps.
-S
 
 ## Setup details
 
