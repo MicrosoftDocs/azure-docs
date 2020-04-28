@@ -1,8 +1,8 @@
 ---
 title: Deploy container group to Azure virtual network
-description: Learn how to deploy a container group to a new or existing Azure virtual network.
+description: Learn how to deploy a container group to a new or existing Azure virtual network by using the Azure command-line interface.
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 04/27/2020
 ms.author: danlep
 ---
 
@@ -12,15 +12,13 @@ ms.author: danlep
 
 This article shows how to use the [az container create][az-container-create] command in the Azure CLI to deploy container groups to either a new virtual network or an existing virtual network. 
 
-Examples in this article are formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, adjust the line continuation characters accordingly.
-
-For background, see:
-
-* [Virtual network scenarios and resources for Azure Container Instances](container-instances-virtual-network-concepts.md)
-* [Regions and resource availability](container-instances-region-availability.md#availability---virtual-network-deployment) for container group deployments to a virtual network.
+For networking scenarios and limitations, see [Virtual network scenarios and resources for Azure Container Instances](container-instances-virtual-network-concepts.md).
 
 > [!IMPORTANT]
-> Container group deployments to a virtual network are generally available for production workloads only in the following regions: **East US, South Central US, and West US 2**. 
+> Container group deployment to a virtual network is generally available for Linux containers, in most regions where Azure Container Instances is available. For details, see [Regions and resource availability](container-instances-virtual-network-concepts#where-to-deploy). 
+
+Examples in this article are formatted for the Bash shell. If you prefer another shell such as PowerShell or Command Prompt, adjust the line continuation characters accordingly.
+
 
 ## Deploy to new virtual network
 

@@ -2,19 +2,16 @@
 title: Scenarios to use a virtual network
 description: Scenarios, resources, and limitations to deploy container groups to an Azure virtual network.
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 04/27/2020
 ms.author: danlep
 
 ---
 
 # Virtual network scenarios and resources
 
-[Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking for your Azure and on-premises resources. By deploying container groups into an Azure virtual network, your containers can communicate securely with other resources in the virtual network. This article provides background about virtual network scenarios, limitations, and resources.
+[Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking for your Azure and on-premises resources. By deploying container groups into an Azure virtual network, your containers can communicate securely with other resources in the virtual network. 
 
-For deployment information, see:
-
-* [Deploy container instances into an Azure virtual network](container-instances-vnet.md).
-* [Regions and resource availability](container-instances-region-availability.md#availability---virtual-network-deployment) for container group deployments to a virtual network
+This article provides background about virtual network scenarios, limitations, and resources. For deployment examples using the Azure CLI, see [Deploy container instances into an Azure virtual network](container-instances-vnet.md).
 
 ## Scenarios
 
@@ -23,8 +20,10 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 * Direct communication between container groups in the same subnet
 * Send [task-based](container-instances-restart-policy.md) workload output from container instances to a database in the virtual network
 * Retrieve content for container instances from a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) in the virtual network
-* Container communication with on-premises resources through a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)
+* Enable container communication with on-premises resources through a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)
 * Integrate with [Azure Firewall](../firewall/overview.md) to identify outbound traffic originating from the container 
+* Resolve names via the internal Azure DNS for communication with Azure resources in the virtual network, such as virtual machines
+* Use NSG rules to control container access to subnets or other network resources
 
 ## Unsupported networking scenarios 
 
@@ -34,14 +33,20 @@ Container groups deployed into an Azure virtual network enable scenarios like:
   * Global virtual network peering (connecting virtual networks across Azure regions) is not supported
 * **Private link** - Accessing Azure resources at a private endpoint over a private link is not supported
 * **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with a public IP address or a fully qualified domain name
-* **Internal name resolution** - Name resolution for Azure resources in the virtual network via the internal Azure DNS is not supported
 
 ## Other limitations
 
+* Currently, only Linux containers are supported in a container group deployed to a virtual network.
 * To deploy container groups to a subnet, the subnet can't contain other resource types. Remove all existing resources from an existing subnet prior to deploying container groups to it, or create a new subnet.
 * You can't use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
 * You can't enable a [liveness probe](container-instances-liveness-probe.md) or [readiness probe](container-instances-readiness-probe.md) in a container group deployed to a virtual network.
-* Due to the additional networking resources involved, deploying a container group to a virtual network is typically slower than deploying a standard container instance.
+* Due to the additional networking resources involved, deployments to a virtual network are typically slower than deploying a standard container instance.
+
+## Where to deploy
+
+The following regions and maximum resources are available to deploy a container group in an Azure virtual network.
+
+[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## Required network resources
 
