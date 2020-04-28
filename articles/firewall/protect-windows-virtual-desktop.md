@@ -65,6 +65,7 @@ If you want to filter outbound user Internet traffic using an existing on-premis
 You may need to configure additional firewall rules, depending on your requirements:
 
 - NTP server access
+
    By default, virtual machines running Windows connect to time.windows.com over UDP port 123 for time synchronization. Create a network rule to allow this access, or for a time server that you use in your environment.
 
 
