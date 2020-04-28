@@ -1,6 +1,6 @@
 ---
 title: Audit Log Format
-description: Understand how SQL Database audit logs are structured.
+description: Understand how Azure SQL and Azure Synapse audit logs are structured.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -8,7 +8,8 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 01/03/2019
+ms.custom: sqldbrb=1
+ms.date: 04/28/2020
 ---
 # SQL Database Audit Log Format
 

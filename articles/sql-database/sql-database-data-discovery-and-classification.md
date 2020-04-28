@@ -1,22 +1,22 @@
 ---
 title: Data Discovery & Classification 
-description: Data Discovery & Classification for Azure SQL Database and Azure Synapse Analytics
+description: Data Discovery & Classification for Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: sqldbrb=1
 titleSuffix: Azure SQL Database and Azure Synapse
 ms.devlang: 
 ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/21/2020
+ms.date: 04/28/2020
 tags: azure-synapse
 ---
-# Data Discovery & Classification for Azure SQL Database and Azure Synapse Analytics
+# Data Discovery & Classification
 
-Data Discovery & Classification is built into Azure SQL Database. It provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases.
+Data Discovery & Classification is built into Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics. It provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases.
 
 Your most sensitive data might include business, financial, healthcare, or personal information. Discovering and classifying this data can play a pivotal role in your organization's information-protection approach. It can serve as infrastructure for:
 
@@ -24,14 +24,14 @@ Your most sensitive data might include business, financial, healthcare, or perso
 - Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
 - Controlling access to and hardening the security of databases that contain highly sensitive data.
 
-Data Discovery & Classification is part of the [Advanced Data Security](sql-database-advanced-data-security.md) offering, which is a unified package for advanced SQL security capabilities. You can access and manage Data Discovery & Classification via the central **SQL Advanced Data Security** section of the Azure portal.
+Data Discovery & Classification is part of the [Advanced Data Security](sql-database-advanced-data-security.md) offering, which is a unified package for advanced Azure SQL security capabilities. You can access and manage Data Discovery & Classification via the central **SQL Advanced Data Security** section of the Azure portal.
 
 > [!NOTE]
-> This article relates to Azure SQL Database and Azure Synapse Analytics. For simplicity, we use *SQL Database* here to refer to both SQL Database and Azure Synapse. For information about SQL Server (on-premises), see [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999).
+> For information about SQL Server (on-premises), see [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="what-is-dc"></a>What is Data Discovery & Classification?
 
-Data Discovery & Classification introduces a set of advanced services and new SQL Database capabilities. It forms a new information-protection paradigm for SQL Database, aimed at protecting the data and not just the database. The paradigm includes:
+Data Discovery & Classification introduces a set of advanced services and new capabilities in Azure. It forms a new information-protection paradigm for SQL Database, SQL Managed Instance, and Azure Synapse, aimed at protecting the data and not just the database. The paradigm includes:
 
 - **Discovery and recommendations:** The classification engine scans your database and identifies columns that contain potentially sensitive data. It then provides you with an easy way to review and apply recommended classification via the Azure portal.
 
@@ -65,7 +65,10 @@ Learn more about customizing and managing your policy in the [SQL Information Pr
 
 After the organization-wide policy has been defined, you can continue classifying individual databases by using your customized policy.
 
-### Classify your SQL database
+### Classify your database
+
+> [!NOTE]
+> The below example uses Azure SQL Database, but you should select the appropriate product that you want to configure Data Discovery & Classification.
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
@@ -107,13 +110,13 @@ After the organization-wide policy has been defined, you can continue classifyin
 
 ## <a id="audit-sensitive-data"></a>Audit access to sensitive data
 
-An important aspect of the information-protection paradigm is the ability to monitor access to sensitive data. [Azure SQL Database Auditing](sql-database-auditing.md) has been enhanced to include a new field in the audit log called `data_sensitivity_information`. This field logs the sensitivity classifications (labels) of the data that was returned by a query. Here's an example:
+An important aspect of the information-protection paradigm is the ability to monitor access to sensitive data. [Azure SQL Auditing](sql-database-auditing.md) has been enhanced to include a new field in the audit log called `data_sensitivity_information`. This field logs the sensitivity classifications (labels) of the data that was returned by a query. Here's an example:
 
 ![Audit log](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
 ## <a id="permissions"></a>Permissions
 
-These built-in roles can read the data classification of an Azure SQL database:
+These built-in roles can read the data classification of a database:
 
 - Owner
 - Reader
@@ -121,7 +124,7 @@ These built-in roles can read the data classification of an Azure SQL database:
 - SQL Security Manager
 - User Access Administrator
 
-These built-in roles can modify the data classification of an Azure SQL database:
+These built-in roles can modify the data classification of a database:
 
 - Owner
 - Contributor
@@ -170,7 +173,7 @@ You can use PowerShell to manage classifications and recommendations for Azure S
 - [Enable-AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
 - [Disable-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
-#### PowerShell cmdlets for managed instances
+#### PowerShell cmdlets for Managed Instance
 
 - [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
 - [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
@@ -183,5 +186,5 @@ You can use PowerShell to manage classifications and recommendations for Azure S
 ## <a id="next-steps"></a>Next steps
 
 - Learn more about [Advanced Data Security](sql-database-advanced-data-security.md).
-- Consider configuring [Azure SQL Database Auditing](sql-database-auditing.md) for monitoring and auditing access to your classified sensitive data.
+- Consider configuring [Azure SQL Auditing](sql-database-auditing.md) for monitoring and auditing access to your classified sensitive data.
 - For a presentation that includes data discovery and classification, see [Discovering, classifying, labeling & protecting SQL data | Data Exposed](https://www.youtube.com/watch?v=itVi9bkJUNc).
