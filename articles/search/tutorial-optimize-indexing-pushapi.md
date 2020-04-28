@@ -179,6 +179,7 @@ public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min 
         // Pausing 2 seconds to let the search service catch its breath
         Thread.Sleep(2000);
     }
+}
 ```
 
 Because not all documents are the same size (although they are in this sample), we estimate the size of the data we're sending to the search service using the function below. The function converts the object to json and then converts the json to an array of bytes to determine its size:
@@ -282,57 +283,13 @@ do
 } while (true);
 ```
 
-```csharp
-public static async Task IndexData(ISearchIndexClient indexClient, List<Hotel> hotels, int batchSize, int numThreads)
-{
-    int numDocs = hotels.Count;
-    Console.WriteLine("Uploading {0} documents...\n", numDocs.ToString());
-
-    DateTime startTime = DateTime.Now;
-    Console.WriteLine("Started at: {0} \n", startTime);
-    Console.WriteLine("Creating {0} threads...\n", numThreads);
-
-    // Creating a list to hold active tasks
-    List<Task<DocumentIndexResult>> uploadTasks = new List<Task<DocumentIndexResult>>();
-
-    for (int i = 0; i < numDocs; i += batchSize)
-    {
-        List<Hotel> hotelBatch = hotels.GetRange(i, batchSize);
-        var task = ExponentialBackoffAsync(indexClient, hotelBatch, i);
-        uploadTasks.Add(task);
-        Console.WriteLine("Sending a batch of {0} docs starting with doc {1}...\n", batchSize, i);
-
-        // Checking if we've hit the specified number of threads
-        if (uploadTasks.Count >= numThreads)
-        {
-            Task<DocumentIndexResult> firstTaskFinished = await Task.WhenAny(uploadTasks);
-            Console.WriteLine("Finished a thread, kicking off another...");
-            uploadTasks.Remove(firstTaskFinished);
-        }
-    }
-
-    // waiting for remaining results to finish
-    await Task.WhenAll(uploadTasks);
-
-    DateTime endTime = DateTime.Now;
-
-    TimeSpan runningTime = endTime - startTime;
-    Console.WriteLine("\nEnded at: {0} \n", endTime);
-    Console.WriteLine("Upload time total: {0}", runningTime);
-
-    double timePerBatch = Math.Round(runningTime.TotalMilliseconds / (numDocs / batchSize), 4);
-    Console.WriteLine("Upload time per batch: {0} ms", timePerBatch);
-
-    double timePerDoc = Math.Round(runningTime.TotalMilliseconds / numDocs, 4);
-    Console.WriteLine("Upload time per document: {0} ms \n", timePerDoc);
-}
-```
-
 ```cmd
 ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();
 ```
 
 ![Output of index data function](media/tutorial-optimize-data-indexing/index-data-start.png "Output of index data function")
+
+When a batch of documents fails, an error is printed out indicating the failure and that the batch is being retried:
 
 ![Error from index data function](media/tutorial-optimize-data-indexing/index-data-error.png "Output of test batch size function")
 
