@@ -33,12 +33,12 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 * [HB-series](../hb-series.md)
 * [HC-series](../hc-series.md)
 * [Ls-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) and [Lsv2-series](../lsv2-series.md)
-* [Mv2-series](../mv2-series.md)<sup>*</sup>
+* [Mv2-series](../mv2-series.md)<sup>1</sup>
 * [NCv2-series](../ncv2-series.md) and [NCv3-series](../ncv3-series.md)
 * [ND-series](../nd-series.md)
 * [NVv3-series](../nvv3-series.md)
 
-<sup>*</sup> Mv2-series does not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](https://docs.microsoft.com/azure/virtual-machines/mv2-series) for details.
+<sup>1</sup> Mv2-series does not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](https://docs.microsoft.com/azure/virtual-machines/mv2-series) for details.
 
 ## Generation 2 VM images in Azure Marketplace
 
