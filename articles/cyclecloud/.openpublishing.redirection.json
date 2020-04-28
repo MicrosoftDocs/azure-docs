@@ -2,22 +2,22 @@
     "redirections": [
         {
             "source_path": "quickstart-install-cyclecloud.md",
-            "redirect_url": "qs-install-marketplace.md",
+            "redirect_url": "qs-install-marketplace",
             "redirect_document_id": true
         },
         {
             "source_path": "quickstart-create-and-run-cluster.md",
-            "redirect_url": "tutorials/create-cluster.md",
+            "redirect_url": "tutorials/create-cluster",
             "redirect_document_id": true
         },
         {
             "source_path": "quickstart-submit-jobs.md",
-            "redirect_url": "tutorials/submit-jobs.md",
+            "redirect_url": "tutorials/submit-jobs",
             "redirect_document_id": true
         },
         {
             "source_path": "quickstart-clean-up-resources.md",
-            "redirect_url": "tutorials/clean-up.md",
+            "redirect_url": "tutorials/clean-up",
             "redirect_document_id": true
         },
         {
