@@ -25,10 +25,6 @@ Before you get started:
   > [!NOTE]
   > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
-## Support and updates
-
-Updates to the Speech SDK Go package are distributed via
-
 ## Setup your environment
 
 Update the go.mod file with the latest SDK version by adding this line
@@ -39,7 +35,7 @@ require (
 ```
 
 ## Start with some boilerplate code
-1. Replace the contents of your source file (e.g. `quickstart.go`) with the below, which includes:
+Replace the contents of your source file (e.g. `quickstart.go`) with the below, which includes:
 
 - "main" package definition
 - importing the necessary modules from the Speech SDK
@@ -101,17 +97,24 @@ func main() {
 }
 ```
 
-2. Update these fields at the top of the function with your bot subscription information
-```sh
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_BOT_REGION"
-```
+Replace the `YOUR_SUBSCRIPTION_KEY` and `YOUR_BOT_REGION` values with actual values from the Speech resource.
+
+- Navigate to the Azure portal, and open the Speech resource
+- Under the **Keys** on the left, there are two available subscription keys
+    - Use either one as the `YOUR_SUBSCRIPTION_KEY` value replacement
+- Under the **Overview** on the left, note the region and map it to the region identifier
+- Use the Region identifier as the `YOUR_BOT_REGION` value replacement, for example: `"westus"` for **West US**
 
    > [!NOTE]
    > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
    > [!NOTE]
    > For information on configuring your bot, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+
+## Code explanation
+The Speech subscription key and region are required to create a speech configuration object. The configuration object is needed to instantiate a speech recognizer object.
+
+The recognizer instance exposes multiple ways to recognize speech. In this example, speech is continuously recognized. This functionality lets the Speech service know that you're sending many phrases for recognition, and when the program terminates to stop recognizing speech. As results are yielded, the code will write them to the console.
 
 ## Build and run
 You're now set up to build your project and test your custom voice assistant using the Speech service.

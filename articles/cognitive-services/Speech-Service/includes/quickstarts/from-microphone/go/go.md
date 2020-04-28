@@ -21,10 +21,6 @@ Before you get started:
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md)
 > * Make sure that you have access to a microphone for audio capture
 
-## Support and updates
-
-Updates to the Speech SDK Go package are distributed via
-
 ## Setup your environment
 
 Update the go.mod file with the latest SDK version by adding this line
@@ -101,8 +97,21 @@ func main() {
 }
 ```
 
+Replace the `YOUR_SUBSCRIPTION_KEY` and `YOUR_SUBSCRIPTIONKEY_REGION` values with actual values from the Speech resource.
+
+- Navigate to the Azure portal, and open the Speech resource
+- Under the **Keys** on the left, there are two available subscription keys
+    - Use either one as the `YOUR_SUBSCRIPTION_KEY` value replacement
+- Under the **Overview** on the left, note the region and map it to the region identifier
+- Use the Region identifier as the `YOUR_SUBSCRIPTIONKEY_REGION` value replacement, for example: `"westus"` for **West US**
+
+## Code explanation
+The Speech subscription key and region are required to create a speech configuration object. The configuration object is needed to instantiate a speech recognizer object.
+
+The recognizer instance exposes multiple ways to recognize speech. In this example, speech is continuously recognized. This functionality lets the Speech service know that you're sending many phrases for recognition, and when the program terminates to stop recognizing speech. As results are yielded, the code will write them to the console.
+
 ## Build and run
-You're now set up to build your project and test your custom voice assistant using the Speech service.
+You're now set up to build your project and test speech recognition using the Speech service.
 1. Build your project, e.g. **"go build"**
 2. Run the module and speak a phrase or sentence into your device's microphone. Your speech is transmitted to the Speech service and transcribed to text, which appears in the output.
 
