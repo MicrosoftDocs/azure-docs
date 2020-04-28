@@ -452,9 +452,9 @@
     - name: Develop and integrating a SCIM endpoint
       href: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
     - name: Common provisioning scenarios
-      href: articles/active-directory/app-provisioning/scim-graph-scenarios
+      href: /azure/active-directory/app-provisioning/scim-graph-scenarios
     - name: Automate configuration using MS Graph
-      href: articles/active-directory/app-provisioning/application-provisioning-configure-api
+      href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
 - name: How-to guides
   items:
   - name: Authentication
