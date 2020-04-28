@@ -34,7 +34,7 @@ When Automation executes runbook and DSC compilation jobs, it loads the modules 
 
 The following table lists modules that Azure Automation imports by default when you create your Automation account. Automation can import newer versions of these modules. However, you can't remove the original version from your Automation account, even if you delete a newer version. Note that these default modules include several AzureRM modules. 
 
-Automation doesn't import the root Az module automatically into any new or existing Automation accounts. For more about working with these modules, see [Migrating to Az modules](#migrating-to-az-modules).
+Automation doesn't import the root Az module automatically into any new or existing Automation accounts. For more about working with these modules, see [Migrating to Az modules](#migrate-to-az-modules).
 
 > [!NOTE]
 > We don't recommend altering modules and runbooks in Automation accounts that contain the [Start/Stop VMs during off-hours solution in Azure Automation](../automation-solution-vm-management.md).
@@ -215,7 +215,7 @@ Include a synopsis, description, and help URI for every cmdlet in your module. I
 
 ### Connection type
 
-If the module connects to an external service, define a [connection type](#adding-a-connection-type-to-your-module). Each cmdlet in the module should accept a connection object (an instance of that connection type) as a parameter. Users map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet. The following runbook example, based on the example in the previous section, uses a Contoso connection asset called `ContosoConnection`. This asset accesses Contoso resources and returns data from the external service. In this example, the fields are mapped to the `UserName` and `Password` properties of a `PSCredential` object, and then passed to the cmdlet.
+If the module connects to an external service, define a [connection type](#add-a-connection-type-to-your-module). Each cmdlet in the module should accept a connection object (an instance of that connection type) as a parameter. Users map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet. The following runbook example, based on the example in the previous section, uses a Contoso connection asset called `ContosoConnection`. This asset accesses Contoso resources and returns data from the external service. In this example, the fields are mapped to the `UserName` and `Password` properties of a `PSCredential` object, and then passed to the cmdlet.
 
   ```powershell
   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
