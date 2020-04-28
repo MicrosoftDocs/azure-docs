@@ -12,14 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 04/28/2020
 ms.author: shvija
 
 ---
 
 # Azure Event Hubs - Geo-disaster recovery 
-
 When entire Azure regions or datacenters (if no [availability zones](../availability-zones/az-overview.md) are used) experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Event Hubs supports both geo-disaster recovery and geo-replication, at the namespace level. 
 
 > [!NOTE]
@@ -27,7 +25,7 @@ When entire Azure regions or datacenters (if no [availability zones](../availabi
 
 ## Outages and disasters
 
-It's important to note the distinction between "outages" and "disasters." An *outage* is the temporary unavailability of Azure Event Hubs, and can affect some components of the service, such as a messaging store, or even the entire datacenter. However, after the problem is fixed, Event Hubs becomes available again. Typically, an outage does not cause the loss of messages or other data. An example of such an outage might be a power failure in the datacenter. Some outages are only short connection losses due to transient or network issues. 
+It's important to note the distinction between "outages" and "disasters." An **outage** is the temporary unavailability of Azure Event Hubs, and can affect some components of the service, such as a messaging store, or even the entire datacenter. However, after the problem is fixed, Event Hubs becomes available again. Typically, an outage does not cause the loss of messages or other data. An example of such an outage might be a power failure in the datacenter. Some outages are only short connection losses due to transient or network issues. 
 
 A *disaster* is defined as the permanent, or longer-term loss of an Event Hubs cluster, Azure region, or datacenter. The region or datacenter may or may not become available again, or may be down for hours or days. Examples of such disasters are fire, flooding, or earthquake. A disaster that becomes permanent might cause the loss of some messages, events, or other data. However, in most cases there should be no data loss and messages can be recovered once the data center is back up.
 
@@ -132,6 +130,36 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 
 ![3][]
 
+## Private endpoints
+This section provides additional considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Event Hubs in general, see [Integrate Azure Event Hubs with Azure Private Link](private-link-service.md).
+
+### New pairings
+If primary namespace with a private endpoint is paired with secondary namespace without a private endpoint, pairing them will fail. The pairing will succeed only if both primary and secondary namespaces have private endpoints. 
+
+When you try to pair primary namespace with a private endpoint to the secondary namespace, the validation process only checks that the private endpoint exists (boolean check) on the secondary namespace. It doesn't check whether the endpoint works or will work after failover. It's your responsibility to ensure that the secondary namespace with private endpoint will work as expected after failover.
+
+We recommend that you use same configurations on the primary and secondary namespaces and on virtual networks used by them for creating private endpoints. 
+
+### Existing pairings
+If pairing between primary and secondary namespace already exists, private endpoint creation on the primary namespace will fail. Create a private endpoint on the secondary namespace first and then create one for the primary namespace.
+
+Updates for private endpoints are permitted on the secondary namespace in a paired configuration. It must be done first before enabling private endpoints on the primary namespace.
+
+### Virtual networks
+We recommend that you use separate virtual networks when creating private endpoints for primary and secondary namespaces. You need to create private endpoints for both networks on primary and secondary namespaces before you can pair these namespaces. 
+
+Let's say you have two virtual networks: VNET-1, VNET-2 and these primary and second namespaces: EHUBNS-PNS, EHBUNS-SNS. You need to do the following steps: 
+
+- On EHUBNS-PNS, create two private endpoints that use subnets from VNET-1 and VNET-2
+- On EHUBNS-SNS, create two private endpoints that use subnets from VNET-1 and VNET-2 
+
+Advantage of this approach is that failover can happen at the application layer independent of Service Bus namespace. Consider the following scenarios: 
+
+**Application-only failover:** Here, the application won't exist in VNET-1 but will move to VNET-2. As both private endpoints are configured on both VNET-1 and VNET-2 for both primary and secondary namespaces, the application will just work. 
+
+**Event Hubs namespace-only failover**: Here again, since both private endpoints are configured on both virtual networks for both primary and secondary namespaces, the application will just work. 
+
+ 
 ## Next steps
 
 * The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) walks through a simple workflow that creates a geo-pairing and initiates a failover for a disaster recovery scenario.
