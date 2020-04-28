@@ -62,8 +62,6 @@ CycleCloud supports the parameterized configuration of many system services.
 | --------- | ---- | ----------- |
 | node.prevent_metadata_access | Boolean | Prevents users, other than the root user or cyclecloud user from accessing the VM metadata from the node. These access rules are applied in `iptables`. Default: `true`
 | timezone | String | The timezone for a node can be changed by setting this attribute to any valid timezone string, for example `PST`, `EST`. Default: `UTC` |
-| ntp.disabled | Boolean | Opt-out of ntp time service by setting `true`. Default: `false` | 
-| ntp.servers | List (String) | A list of NTP servers to use. Default: `pool.ntp.org` |
 | keepalive.timeout | Integer | The amount of time in seconds to keep a node "alive" if it has not finished installing/configuring software. Default: `14400` (4 hours) |
 | discoverable | Boolean | Whether or not this node can be "discovered" (searched for) by other nodes started by CycleCloud. Default: `false` |
 | autoscale.forced_shutdown_timeout  | Integer   | The amount of time (in minutes) before a forced shutdown occurs if autoscale cannot scale the node down successfully. Default: `15`  |                                                                                             |

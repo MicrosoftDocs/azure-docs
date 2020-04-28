@@ -24,6 +24,7 @@ You can search the log for a specific event or keyword with the search bar locat
 
 Use the drop down menus to select the event log parameters. The page will automatically refresh to show the appropriate information. 
 
+::: moniker range="=cyclecloud-7"
 ## Alerting
 
 Azure CycleCloud can send notifications when various conditions are met on a monitored resource or in CycleCloud itself. These notifications may be viewed in the web interface and optionally may be emailed to one or more recipients.
@@ -105,6 +106,7 @@ Body:
 {% endfor %}
 </ul>
 ```
+::: moniker-end
 
 ## Email Configuration and Logging Levels
 

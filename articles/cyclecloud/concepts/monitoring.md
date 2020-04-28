@@ -19,6 +19,7 @@ When this option is enabled, supported services in each cluster will
 automatically register with CycleCloud, which will configure monitoring for that
 service.
 
+::: moniker range="=cyclecloud-7"
 ## Supported Services
 
 **[Ganglia](http://ganglia.sourceforge.net/)**
@@ -62,3 +63,9 @@ If you are running the Grid Scheduling Edition of CycleCloud, Grid Engine
 monitoring will automatically be configured when a Grid Engine cluster is
 started. The only requirement is that CycleCloud can SSH to the node running the
 qmaster service with the keypair configured for the cluster.
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+## Azure Monitor
+Clusters deployed by CycleCloud can be monitored using the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) service. It's also possible to store log data from CycleCloud clusters to Log Analytics and create custom metrics dashboards. For more information on creating custom metrics dashboards from Log Analytics for your clusters, see the How-to section and the tutorials in the [Azure Monitor documentation](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards).
+::: moniker-end
