@@ -97,7 +97,7 @@ Include specified query strings | xxx
 
 Additional fields |  Description 
 ------------------|---------------
-Dynamic compression | xxx
+Dynamic compression | Front Door can dynamically compress content on the edge, resulting in a smaller and faster response.
 Query parameters | A comma separated list of allowed (or disallowed) parameters to use as a basis for caching.
 Cache duration | Cache expiration duration in Days, Hours, Minutes, Seconds. All values must be Int. 
 
