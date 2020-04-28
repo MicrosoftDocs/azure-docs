@@ -8,7 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/03/2020
+ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -43,6 +43,22 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 >Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
 
+## 1.5.29.0
+
+### Release status
+04/23/2020: Released for download
+
+### Fixed issues
+This hotfix build fixes an issue introduced in build 1.5.20.0 where a tenant administrator with MFA was not able to enable DSSO.
+
+## 1.5.22.0
+
+### Release status
+04/20/2020: Released for download
+
+### Fixed issues
+This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In from AD - Group Join** rule and have not cloned the **In from AD - Group Common** rule.
+
 ## 1.5.20.0
 
 ### Release status
@@ -50,6 +66,16 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 ### Fixed issues
 This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filtering feature enabled and use mS-DS-ConsistencyGuid as the source anchor.
+
+> [!IMPORTANT]
+> If you have cloned the **In from AD - Group Join** sync rule and have not cloned the **In from AD - Group Common** sync rule and plan to upgrade, complete the following steps as part of the upgrade:
+> 1. During Upgrade, uncheck the option **Start the synchronization process when configuration completes**.
+> 2. Edit the cloned join sync rule and add the following two transformations:
+>     - Set direct flow `objectGUID` to `sourceAnchorBinary`.
+>     - Set expression flow `ConvertToBase64([objectGUID])` to `sourceAnchor`.     
+> 3. Enable the scheduler using `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+
+
 
 ## 1.5.18.0
 
@@ -898,8 +924,8 @@ CBool(
 #### Issues fixed
 
 * Following URLs are new WS-Federation endpoints introduced by Azure AD to improve resiliency against authentication outage and will be added to on-premises AD FS replying party trust configuration:
-  * https://ests.login.microsoftonline.com/login.srf
-  * https://stamp2.login.microsoftonline.com/login.srf
+  * https:\//ests.login.microsoftonline.com/login.srf
+  * https:\//stamp2.login.microsoftonline.com/login.srf
   * https://ccs.login.microsoftonline.com/login.srf
   * https://ccs-sdf.login.microsoftonline.com/login.srf
   

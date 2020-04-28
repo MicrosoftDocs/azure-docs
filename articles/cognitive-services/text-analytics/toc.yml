@@ -54,6 +54,8 @@
     href: language-support.md
   - name: Text offsets
     href: concepts/text-offsets.md
+  - name: Data limits
+    href: concepts/data-limits.md
 - name: How-to guides
   items:
    - name: Call the Text Analytics API

@@ -197,13 +197,13 @@ When subscription or Pay-as-You-Go pricing models are selected, Microsoft acts a
 * Customers typically purchase using the Enterprise Agreement or a credit-card enabled pay-as-you-go agreement. The agreement type determines billing, invoicing, collection, and payout timing.
 
 >[!NOTE]
->All reporting and insights for the transact publishing option are available via the Insights section of the Cloud Partner Portal or Analytics section of Partner Center.
+>All reporting and insights for the transact publishing option are available via the Analytics section of Partner Center.
 
 #### Billing questions and support
 
-For more information and legal policies, see the [Publisher Agreement](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) (available in the Cloud Partner Portal).
+For more information and legal policies, see the [Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (available in Partner Center).
 
-To get help on billing questions, please contact [commercial marketplace publisher support](https://aka.ms/marketplacepublishersupport).
+To get help on billing questions, please contact [commercial marketplace publisher support](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## Transact requirements
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 04/14/2020
+ms.date: 04/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
@@ -47,17 +47,18 @@ The following administrator roles are available:
 Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. Note that users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 
 Application Administrators can manage application credentials that allows them to impersonate the application. So, users assigned to  this role can manage application credentials of only those applications that are either not assigned to any Azure AD roles or those assigned to following admin roles only:
+
 * Application Administrator
 * Application Developer
 * Cloud Application Administrator
 * Directory Readers
 
-If an application is assigned to any other role that are not mentioned above, then Application Administrator cannot manage credentials of that application. 
- 
+If an application is assigned to any other role that are not mentioned above, then Application Administrator cannot manage credentials of that application.
+
 This role also grants the ability to _consent_ to delegated permissions and application permissions, with the exception of permissions on the Microsoft Graph API.
 
 > [!IMPORTANT]
-> This exception means that you can still consent to permissions for _other_ apps (e.g. third party apps or apps that you have registered), but not to permissions on Azure AD itself. You can still _request_ these permissions as part of the app registration, but _granting_ (i.e. consenting to) these permissions requires an Azure AD admin. This means that a malicious user cannot easily elevate their permissions, for example by creating and consenting to an app that can write to the entire directory and through that app's permissions elevate themselves to become a global admin.
+> This exception means that you can still consent to permissions for _other_ apps (for example, non-Microsoft apps or apps that you have registered), but not to permissions on Azure AD itself. You can still _request_ these permissions as part of the app registration, but _granting_ (that is, consenting to) these permissions requires an Azure AD admin. This means that a malicious user cannot easily elevate their permissions, for example by creating and consenting to an app that can write to the entire directory and through that app's permissions elevate themselves to become a global admin.
 
 ### [Application Developer](#application-developer-permissions)
 
@@ -65,13 +66,15 @@ Users in this role can create application registrations when the "Users can regi
 
 ### [Authentication Administrator](#authentication-administrator-permissions)
 
-The Authentication administrator role is currently in public preview. Users with this role can set or reset non-password credentials and can update passwords for all users. Authentication Administrators can require users to re-register against existing non-password credential (for example, MFA or FIDO) and revoke **remember MFA on the device**, which prompts for MFA on the next sign-in of users who are non-administrators or assigned the following roles only:
+Users with this role can set or reset non-password credentials for some users and can update passwords for all users. Authentication administrators can require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in. These actions apply only to users who are non-administrators or who are assigned one or more of the following roles:
 
 * Authentication Administrator
 * Directory Readers
 * Guest Inviter
 * Message Center Reader
 * Reports Reader
+
+The [Privileged authentication administrator](#privileged-authentication-administrator) role has permission can force re-registration and multi-factor authentication for all users.
 
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -98,7 +101,7 @@ Users with this role can create and manage B2C User Flows (also called "built-in
 
 ### [B2C User Flow Attribute Administrator](#b2c-user-flow-attribute-administrator-permissions)
 
-Users with this role add or delete custom attributes available to all user flows in the tenant. As such, users with this role can change or add new elements to the end user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
+Users with this role add or delete custom attributes available to all user flows in the tenant. As such, users with this role can change or add new elements to the end-user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
 
 ### [B2C IEF Keyset Administrator](#b2c-ief-keyset-administrator-permissions)
 
@@ -123,6 +126,7 @@ Makes purchases, manages subscriptions, manages support tickets, and monitors se
 Users in this role have the same permissions as the Application Administrator role, excluding the ability to manage application proxy. This role grants the ability to create and manage all aspects of enterprise applications and application registrations. This role also grants the ability to consent to delegated permissions, and application permissions excluding the Microsoft Graph API. Users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 
 Cloud Application Administrators can manage application credentials that allows them to impersonate the application. So, users assigned to  this role can manage application credentials of only those applications that are either not assigned to any Azure AD roles or those assigned to following admin roles only:
+
 * Application Developer
 * Cloud Application Administrator
 * Directory Readers
@@ -207,10 +211,10 @@ Users with this role have global permissions within Microsoft Exchange Online, w
 
 ### [External Identity Provider Administrator](#external-identity-provider-administrator-permissions)
 
-This administrator manages federation between Azure Active Directory tenants and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service ID, assigned key containers). This user can enable the tenant to trust authentications from external identity providers. The resulting impact on end user experiences depends on the type of tenant:
+This administrator manages federation between Azure Active Directory tenants and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service ID, assigned key containers). This user can enable the tenant to trust authentications from external identity providers. The resulting impact on end-user experiences depends on the type of tenant:
 
 * Azure Active Directory tenants for employees and partners: The addition  of a federation (e.g. with Gmail) will immediately impact all guest invitations not yet redeemed. See [Adding Google as an identity provider for B2B guest users](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-* Azure Active Directory B2C tenants: The addition of a federation (for example, with Facebook, or with another Azure AD organization) does not immediately impact end user flows until the identity provider is added as an option in a user flow (also called a built-in policy). See [Configuring a Microsoft account as an identity provider](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) for an example. To change user flows, the limited role of "B2C User Flow Administrator" is required.
+* Azure Active Directory B2C tenants: The addition of a federation (for example, with Facebook, or with another Azure AD organization) does not immediately impact end-user flows until the identity provider is added as an option in a user flow (also called a built-in policy). See [Configuring a Microsoft account as an identity provider](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) for an example. To change user flows, the limited role of "B2C User Flow Administrator" is required.
 
 ### [Global Administrator / Company Administrator](#company-administrator-permissions)
 
@@ -279,7 +283,7 @@ Users in this role can enable, configure and manage services and settings relate
 
 Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
 
-This role can create and manage all security groups. However, Intune Admin does not have admin rights over Office groups. That means the admin cannot update owners or memberships of all Office groups in the tenant. However, he/she can manage the Office group that he creates which comes as a part of his/her end user privileges. So, any Office group (not security group) that he/she creates should be counted against his/her quota of 250.
+This role can create and manage all security groups. However, Intune Admin does not have admin rights over Office groups. That means the admin cannot update owners or memberships of all Office groups in the tenant. However, he/she can manage the Office group that he creates which comes as a part of his/her end-user privileges. So, any Office group (not security group) that he/she creates should be counted against his/her quota of 250.
 
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Intune Service Administrator ". It is "Intune Administrator" in the [Azure portal](https://portal.azure.com).
@@ -345,7 +349,13 @@ Users with this role can register printers and manage printer status in the Micr
 
 ### [Privileged Authentication Administrator](#privileged-authentication-administrator-permissions)
 
-Users with this role can set or reset non-password credentials for all users, including global administrators, and can update passwords for all users. Privileged Authentication Administrators can force users to re-register against existing non-password credential (e.g. MFA, FIDO) and revoke 'remember MFA on the device', prompting for MFA on the next login of all users.
+Users with this role can set or reset non-password credentials for all users, including global administrators, and can update passwords for all users. Privileged Authentication Administrators can force users to re-register against existing non-password credential (such as MFA or FIDO) and revoke 'remember MFA on the device', prompting for MFA on the next sign-in of all users. The [Authentication administrator](#authentication-administrator) role can force re-registration and MFA for only non-admins and users assigned to the following Azure AD roles:
+
+* Authentication Administrator
+* Directory Readers
+* Guest Inviter
+* Message Center Reader
+* Reports Reader
 
 ### [Privileged Role Administrator](#privileged-role-administrator-permissions)
 
@@ -630,7 +640,7 @@ Can perform common billing related tasks like updating payment information.
 | microsoft.directory/organization/basic/update | Update basic properties on organization in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
-| microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of Office 365 billing. |
+| microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of billing. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -740,7 +750,7 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 | microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
-| microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of Office 365 billing. |
+| microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of billing. |
 | microsoft.intune/allEntities/allTasks | Manage all aspects of Intune. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | Manage all aspects of Desktop Analytics. |
@@ -1033,7 +1043,7 @@ Can read everything that a Global Administrator can, but not edit anything.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.commerce.billing/allEntities/read    | Read all aspects of Office 365 billing. |
+| microsoft.commerce.billing/allEntities/read    | Read all aspects of billing. |
 | microsoft.directory/administrativeUnits/basic/read    | Read basic properties on administrativeUnits in Azure Active Directory. |
 | microsoft.directory/administrativeUnits/members/read    | Read administrativeUnits.members property in Azure Active Directory. |
 | microsoft.directory/applications/basic/read    | Read basic properties on applications in Azure Active Directory. |
@@ -1883,8 +1893,6 @@ Guest User | Not shown because it can't be used  | NA
 Lync Service Administrator | Skype for Business administrator | [Reflects current product branding](directory-assign-admin-roles.md#role-template-ids)
 Partner Tier 1 Support | Not shown because it shouldn't be used | [Partner Tier1 Support documentation](directory-assign-admin-roles.md#partner-tier1-support)
 Partner Tier 2 Support | Not shown because it shouldn't be used | [Partner Tier2 Support documentation](directory-assign-admin-roles.md#partner-tier2-support)
-Printer Administrator | Work in progress | Work in progress
-Printer Technician | Work in progress | Work in progress
 Restricted Guest User | Not shown because it can't be used | NA
 User | Not shown because it can't be used | NA
 Workplace Device Join | Deprecated | [Deprecated roles documentation](directory-assign-admin-roles.md#deprecated-roles)
