@@ -19,7 +19,7 @@ In this article, you'll prepare your environment to create Azure Red Hat OpenShi
 > * Setup the prerequisites and create the required virtual network and subnets
 > * Deploy a cluster with a private API server endpoint and a private ingress controller
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Before you begin
 
@@ -57,7 +57,7 @@ az -v
 ```output
 ...
 Extensions:
-aro                                0.1.0
+aro                                1.0.0
 ...
 ```
 
@@ -78,9 +78,9 @@ Next, you will create a virtual network containing two empty subnets.
 1. **Set the following variables.**
 
    ```console
-   LOCATION=eastus        #the location of your cluster
-   RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
-   CLUSTER=aro-cluster        #the name of your cluster
+   LOCATION=eastus                 # the location of your cluster
+   RESOURCEGROUP="v4-$LOCATION"    # the name of the resource group where you want to create your cluster
+   CLUSTER=aro-cluster             # the name of your cluster
    ```
 
 1. **Create a resource group**
