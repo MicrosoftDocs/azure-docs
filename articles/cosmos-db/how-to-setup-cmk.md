@@ -255,6 +255,14 @@ You can programmatically fetch the details of your Azure Cosmos account and look
 
 Azure Cosmos DB takes [regular and automatic backups](./online-backup-and-restore.md) of the data stored in your account. This operation backs up the encrypted data. To use the restored backup, the encryption key that you used at the time of the backup is required. This means that no revocation was made and the version of the key that was used at the time of the backup will still be enabled.
 
+### How do I rotate an encryption key?
+
+Key rotation is performed by creating a new version of the key in Azure Key Vault:
+
+![Create a new key version](./media/how-to-setup-cmk/portal-akv-rot.png)
+
+The previous version can be disabled after 24 hours, or after the [Azure Key Vault audit logs](../key-vault/general/logging.md) don't show activity from Azure Cosmos DB on that version anymore.
+
 ### How do I revoke an encryption key?
 
 Key revocation is done by disabling the latest version of the key:
