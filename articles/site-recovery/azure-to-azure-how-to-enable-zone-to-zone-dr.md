@@ -15,10 +15,9 @@ ms.author: sideeksh
 This article describes how to replicate, failover, and failback Azure virtual machines from one Availability Zone to another within the same Azure region.
 
 >[!NOTE]
-
-> Site Recovery currently does not support Recovery Plans for Zone to Zone Disaster Recovery. This support is coming soon.
-
-> Support for Zone to Zone disaster recovery is currently limited to two regions: Southeast Asia and UK South. Support for other regions that have zones is coming soon. 
+>
+> 1. Site Recovery currently does not support Recovery Plans for Zone to Zone Disaster Recovery. This support is coming soon.
+> 2. Support for Zone to Zone disaster recovery is currently limited to two regions: Southeast Asia and UK South. Support for other regions that have zones is coming soon. 
 
 Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running, during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines, including replication, failover, and failback. In the case of Azure virtual machines, Site Recovery helps with replication, failover, and failback between two Azure regions. It is the recommended Disaster Recovery option to keep your applications up and running in the event of regional outages. It also helps address the compliance needs of your organization when it comes to resiliency against different types of failures.
 
@@ -28,7 +27,7 @@ Availability Zones are a strong High Availability solution. They may be too clos
 
 However, in some cases of a datacenter or zonal outage, Availability Zones may be leveraged for Disaster Recovery as well:
 
-1. Many customers who had a metro Disaster Recovery strategy while hosting applications on premise sometimes look to mimic this strategy once they migrate applications over to Azure. These customers are aware of and acknowledge the fact that metro Disaster Recovery strategy may not work in case of a large-scale physical disaster and accept this risk. For such customers, Zone to Zone Disaster Recovery can be used as a Disaster Recovery option. 
+1. Many customers who had a metro Disaster Recovery strategy while hosting applications on premise sometimes look to mimic this strategy once they migrate applications over to Azure. These customers are aware of and acknowledge the fact that metro Disaster Recovery strategy may not work in case of a large-scale physical disaster and accept this risk. For such customers, Zone to Zone Disaster Recovery can be used as a Disaster Recovery option.
 
 2. Many other customers have complicated networking infrastructure and do not wish to recreate it in a secondary region due to the associated cost and complexity. Zone to Zone Disaster Recovery reduces complexity as it leverages redundant networking concepts across Availability Zones making configuration much simpler. Such customers prefer simplicity and can also use Availability Zones for Disaster Recovery.
 
@@ -92,7 +91,7 @@ Login to the Azure portal.
 
 5. If you want to make changes to the replication settings, click on ‘Next : Advanced settings’.
 
-6. Change the settings away from default wherever appropriate. For users of Azure to Azure DR, this is a familiar portal blade. More details on the options presented on this blade can be found [here] (https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication)
+6. Change the settings away from default wherever appropriate. For users of Azure to Azure DR, this is a familiar portal blade. More details on the options presented on this blade can be found [here](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication)
 
     ![Advanced Settings page](./media/azure-to-azure-how-to-enable-zone-to-zone-dr/zone-to-zone-advanced-settings-blade.png)
 
@@ -101,7 +100,7 @@ Login to the Azure portal.
 ## FAQs
 
 1. How does pricing work for Zone to Zone Disaster Recovery?
-Pricing for Zone to Zone Disaster Recovery is the same as that for Azure to Azure Disaster Recovery. You can find more details on the pricing page [here] (https://azure.microsoft.com/en-in/pricing/details/site-recovery/) and [here] (https://azure.microsoft.com/en-in/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
+Pricing for Zone to Zone Disaster Recovery is the same as that for Azure to Azure Disaster Recovery. You can find more details on the pricing page [here](https://azure.microsoft.com/en-in/pricing/details/site-recovery/) and [here](https://azure.microsoft.com/en-in/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
 
 2. What is the SLA for RTO and RPO?
 The RTO SLA is the same as that for Site Recovery overall. We promise RTO <= 2 hours. There is no defined SLA for RPO.
@@ -110,14 +109,14 @@ The RTO SLA is the same as that for Site Recovery overall. We promise RTO <= 2 h
 The Site Recovery team and Azure capacity management team plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery will deploy to the target zone.
 
 4. Which operating systems are supported?
-Zone to Zone DR supports the same operating systems as Azure to Azure DR. Please refer to the support matrix [here] (https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-support-matrix).
+Zone to Zone DR supports the same operating systems as Azure to Azure DR. Please refer to the support matrix [here](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-support-matrix).
 
 ## Next steps
 
 The steps that need to be followed to run a DR drill, fail over, re-protect, and failback are the same as those to be followed in the Azure to Azure DR scenario.
 
-To perform a DR drill, please follow the steps outlined [here] (https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-dr-drill).
+To perform a DR drill, please follow the steps outlined [here](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-dr-drill).
 
-To perform a fail over and re-protect VMs in the secondary zone, please follow the steps outlined [here] (https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-failover-failback).
+To perform a fail over and re-protect VMs in the secondary zone, please follow the steps outlined [here](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-failover-failback).
 
-To failback to the primary zone, please follow the steps outlined [here] (https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-failback).
+To failback to the primary zone, please follow the steps outlined [here](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-failback).
