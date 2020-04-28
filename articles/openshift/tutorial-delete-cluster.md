@@ -48,7 +48,7 @@ Using these values, delete your cluster:
 az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
-You'll then be prompted to confirm if you want to delete the cluster. After you confirm with `y`, it will take several minutes to delete the cluster. When the command finishes, the entire resource group and all resources inside it - including the cluster - will be deleted.
+You'll then be prompted to confirm if you want to delete the cluster. After you confirm with `y`, it will take several minutes to delete the cluster. When the command finishes, the entire resource group and all resources inside it—including the cluster—will be deleted.
 
 ## Next steps
 
