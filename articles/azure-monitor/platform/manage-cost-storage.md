@@ -29,7 +29,7 @@ In this article we review how you can proactively monitor ingested data volume a
 
 The default pricing for Log Analytics is a **Pay-As-You-Go** model based on data volume ingested and optionally for longer data retention. Data volume is measured as the size of the data that will be stored. Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. The amount of data ingestion can be considerable depending on the following factors: 
 
-  - Number of management solutions enabled and their configuration (e.g. 
+  - Number of management solutions enabled and their configuration
   - Number of VMs monitored
   - Type of data collected from each monitored VM 
   
