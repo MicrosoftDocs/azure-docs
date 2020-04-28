@@ -12,7 +12,7 @@ ms.date: 04/29/2020
 
 # Exchange X12 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 
-To work with X12 messages in Azure Logic Apps, you can use the X12 connector, which provides triggers and actions for managing X12 communication. For information about EDIFACT messages instead, see [Exchange EDIFACT messsages](logic-apps-enterprise-integration-edifact.md).
+To work with X12 messages in Azure Logic Apps, you can use the X12 connector, which provides triggers and actions for managing X12 communication. For information about EDIFACT messages instead, see [Exchange EDIFACT messages](logic-apps-enterprise-integration-edifact.md).
 
 ## Prerequisites
 
