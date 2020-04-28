@@ -54,7 +54,7 @@ Diagnostic Settings now allow Event Grid users to capture and view **publish and
     ![Storage - containers for diagnostic logs](./media/enable-diagnostic-logs-topic/storage-containers.png)
 2. As you navigate through one of the containers, you will end up at a blob in JSON format. The file contains log entries for either a delivery failure or a publish failure. The navigation path represents the **ResourceId** of the event grid topic and the timestamp (minute level) as to when the log entries were emitted. The blob/JSON file, which is downloadable, in the end adheres to the schema described in the next section. 
 
-    ![JSON file in the storage](./media/enable-diagnostic-logs-topic/select-json.png)
+    [ ![JSON file in the storage](./media/enable-diagnostic-logs-topic/select-json.png) ](./media/enable-diagnostic-logs-topic/select-json.png)
 3. You should see content in the JSON file similar to the following example: 
 
     ```json
