@@ -20,24 +20,24 @@ The CloudAdmin and CloudGlobalAdmin privileges are shown in the table below.
 |  Privilege Set           | CloudAdmin | CloudGlobalAdmin | Comment |
 | :---                     |    :---:   |       :---:      |   :--:  |
 |  Alarms                  | A CloudAdmin user has all Alarms privileges for alarms in the Compute-ResourcePool and VMs.     |          --        |  -- |
-|  Auto Deploy	           |  --  |        --        |  Virtustream does host management.  |
-|  Certificates            |  --  |        --       |  Virtustream does certificate management.  |
-|  Content Library         | A CloudAdmin user has privileges to create and use files in a Content Library.    |         Enabled with SSO.         |  Virtustream will distribute files in the Content Library to ESXi hosts.  |
-|  Datacenter              |  --  |        --          |  Virtustream does all data center operations.  |
+|  Auto Deploy	           |  --  |        --        |  Microsoft does host management.  |
+|  Certificates            |  --  |        --       |  Microsoft does certificate management.  |
+|  Content Library         | A CloudAdmin user has privileges to create and use files in a Content Library.    |         Enabled with SSO.         |  Microsoft will distribute files in the Content Library to ESXi hosts.  |
+|  Datacenter              |  --  |        --          |  Microsoft does all data center operations.  |
 |  Datastore               | Datastore.AllocateSpace, Datastore.Browse, Datastore.Config, Datastore.DeleteFile, Datastore.FileManagement, Datastore.UpdateVirtualMachineMetadata     |    --    |   -- |
-|  ESX Agent Manager       |  --  |         --       |  Virtustream does all operations.  |
+|  ESX Agent Manager       |  --  |         --       |  Microsoft does all operations.  |
 |  Folder                  |  A CloudAdmin user has all Folder privileges.     |  --  |  --  |
 |  Global                  |  Global.CancelTask, Global.GlobalTag, Global.Health, Global.LogEvent, Global.ManageCustomFields, Global.ServiceManagers, Global.SetCustomField, Global.SystemTag         |                  |    |
-|  Host                    |  Host.Hbr.HbrManagement      |        --          |  Virtustream does all other Host operations.  |
+|  Host                    |  Host.Hbr.HbrManagement      |        --          |  Microsoft does all other Host operations.  |
 |  InventoryService        |  InventoryService.Tagging      |        --          |  --  |
-|  Network                 |  Network.Assign    |                  |  Virtustream does all other Network operations.  |
-|  Permissions             |  --  |        --       |  Virtustream does all Permissions operations.  |
-|  Profile-driven Storage  |  --  |        --       |  Virtustream does all Profile operations.  |
+|  Network                 |  Network.Assign    |                  |  Microsoft does all other Network operations.  |
+|  Permissions             |  --  |        --       |  Microsoft does all Permissions operations.  |
+|  Profile-driven Storage  |  --  |        --       |  Microsoft does all Profile operations.  |
 |  Resource                |  A CloudAdmin user has all Resource privileges.        |      --       | --   |
 |  Scheduled Task          |  A CloudAdmin user has all ScheduleTask privileges.   |   --   | -- |
-|  Sessions                |  Sessions.GlobalMessage, Sessions.ValidateSession      |   --   |  Virtustream does all other Sessions operations.  |
-|  Storage Views           |  StorageViews.View   |        --          |  Virtustream does all other Storage View operations (Configure Service).  |
-|  Tasks                   |  --  |  --   |  Virtustream manages extensions that manage tasks.  |
+|  Sessions                |  Sessions.GlobalMessage, Sessions.ValidateSession      |   --   |  Microsoft does all other Sessions operations.  |
+|  Storage Views           |  StorageViews.View   |        --          |  Microsoft does all other Storage View operations (Configure Service).  |
+|  Tasks                   |  --  |  --   |  Microsoft manages extensions that manage tasks.  |
 |  vApp                    |  A CloudAdmin user has all vApp privileges.  |  --  |  --  |
 |  Virtual Machine         |  A CloudAdmin user has all VirtualMachine privileges.  |  --  |  --  |
 |  vService                |  A CloudAdmin user has all vService privileges.  |  --  |  --  |

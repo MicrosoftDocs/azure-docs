@@ -7,7 +7,7 @@ ms.date: 05/04/2020
 
 # Azure VMware Solution (AVS) upgrade concepts
 
-One of the key benefits of Azure VMware Solution (AVS) by Virtustream private clouds is that the platform is maintained for you. Platform maintenance includes automated upgrades to a VMware validated software bundle. The upgrades are done regularly, ensuring that you always have the latest validated versions of the software.
+One of the key benefits of Azure VMware Solution (AVS) private clouds is that the platform is maintained for you. Platform maintenance includes automated upgrades to a VMware validated software bundle. The upgrades are done regularly, ensuring that you always have the latest validated versions of the software.
 
 ## AVS private cloud software upgrades
 
