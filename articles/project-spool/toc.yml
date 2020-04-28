@@ -28,6 +28,8 @@
     href: quickstarts/get-started-with-video.md
   - name: Get Started With Messaging
     href: quickstarts/get-started-with-messaging.md
+  - name: Get Started With Provisioning Phone Numbers
+    href: quickstarts/get-started-with-provisioning-phone.md
 - name: Tutorials 
   expanded: true
   items:
