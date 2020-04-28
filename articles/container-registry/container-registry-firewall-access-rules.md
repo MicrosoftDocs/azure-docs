@@ -13,29 +13,29 @@ If instead you want to configure inbound network access to a container registry 
 
 ## About registry endpoints
 
-To pull or push images or other artifacts to an Azure container registry, a client such as a Docker daemon needs to interact over HTTPS with two distinct endpoints.
+To pull or push images or other artifacts to an Azure container registry, a client such as a Docker daemon needs to interact over HTTPS with two distinct endpoints. You need to configure access rules for both endpoints.
 
 * **Registry REST API endpoint** - Authentication and registry management operations are handled through the registry's public REST API endpoint. This endpoint is the login server name of the registry, or an associated IP address range. Example: `myregistry.azurecr.io`
 
 * **Data endpoint** - Azure [allocates blob storage](container-registry-storage.md) in Azure Storage accounts on behalf of each registry to manage the data for container images and other artifacts. When a client accesses image layers in an Azure container registry, it makes requests using a storage account endpoint provided by the registry.
 
-If your registry is [geo-replicated](container-registry-geo-replication.md), a client might need to interact with data endpoints in a specific region or in multiple replicated regions.
+If your registry is [geo-replicated](container-registry-geo-replication.md), a client might need to interact with the data endpoint in a specific region or in multiple replicated regions.
 
 ## Allow access to REST and data endpoints
 
 * **REST endpoint** - Allow access to the fully qualified registry login server name, such as `myregistry.azurecr.io`
-* **Storage (data) endpoint** - Allow access to all Azure blob storage accounts using the wildcard `*.blob.core.windows.net`. More securely, enable access to a [dedicated data endpoint](#configure-dedicated-data-endpoints-(preview)) (preview) in each region where the registry is replicated, such as `myregistry.westeurope.azurecr.io`. 
+* **Storage (data) endpoint** - Allow access to all Azure blob storage accounts using the wildcard `*.blob.core.windows.net`. More securely, enable access to a [dedicated data endpoint](#configure-dedicated-data-endpoints-preview) (preview) in the region where the registry is located or replicated, such as `myregistry.westeurope.azurecr.io`.  Configure data endpoint access rules for all required regions.
 
 ## Configure dedicated data endpoints (preview)
 
 > [!WARNING]
-> If you previously configured client firewall access to the existing `*.blob.core.windows.net` endpoints, switching to dedicated data endpoints will impact client connectivity, causing pull failures. To assure clients have consistent access, add the new data endpoint rules to the client firewall rules. Once completed, enable dedicated data endpoints for your registries using the Azure CLI or other tools.
+> If you previously configured client firewall access to the existing `*.blob.core.windows.net` endpoints, switching to dedicated data endpoints will impact client connectivity, causing pull failures. To ensure clients have consistent access, add the new data endpoint rules to the client firewall rules. Once completed, enable dedicated data endpoints for your registries using the Azure CLI or other tools.
 
 ### Enable data endpoint
 
 To enable data endpoints using the Azure CLI, use Azure CLI version 2.4.0 or higher. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-The following [az acr update][az-acr-update] command enables data endpoints on a registry *myregistry* that's replicated in two regions:
+The following [az acr update][az-acr-update] command enables data endpoints on a registry *myregistry*. For demonstration purpose, the registry is replicated in two regions:
 
 ```azurecli
 az acr update --name myregistry --data-endpoint-enabled
@@ -74,7 +74,7 @@ If your organization has policies to allow access only to specific IP addresses 
 To find the ACR REST endpoint IP ranges for which you need to allow access, search for **AzureContainerRegistry** in the JSON file.
 
 > [!IMPORTANT]
-> IP address ranges for Azure services can change, and updates are published weekly. Download the JSON file regularly, and make necessary updates in your access rules. If your scenario involves configuring network security group rules in an Azure virtual network to access Azure Container Registry, use the **AzureContainerRegistry** [service tag](#allow-access-by-service-tag) instead.
+> IP address ranges for Azure services can change, and updates are published weekly. Download the JSON file regularly, and make necessary updates in your access rules. If your scenario involves configuring network security group rules in an Azure virtual network or you use Azure Firewall, use the **AzureContainerRegistry** [service tag](#allow-access-by-service-tag) instead.
 >
 
 ### REST IP addresses for all regions
