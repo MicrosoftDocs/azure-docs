@@ -76,11 +76,11 @@ If a service offering is not available in a specific region, you can share your 
 | Recommended | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | :heavy_check_mark: | :heavy_check_mark: |
 | Alternate | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | Demand-driven | N/A | :heavy_check_mark: |
 
-### Service categories
+### Services by category
 
-Azure classifies services into three categories: foundational, mainstream, and specialized. Service categories are assigned at general availability. Many services start their lifecycle as a specialized service and as demand and utilization increases may be promoted to mainstream or foundational. This section lists the following services:
+As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and specialized. Service categories are assigned at general availability. Often, services start their lifecycle as a specialized service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists the category for services as foundational, mainstream, or specialized. You should note the following about the table:
 
-- Services that are regional. For information about non-regional services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+- Some services are non-regional. For information and a list of non-regional services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 - Older generation virtual machines are not listed. For more information, see documentation at [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md).
 
 > [!div class="mx-tableFixed"]
