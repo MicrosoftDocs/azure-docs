@@ -72,9 +72,9 @@ The complete workload is a mixture of concurrently running functional and physic
 
 The functional phase consists of initial specifications and a logical design. The physical phase takes place when the logical design is converted to a physical chip. During the sign-off and tape-out phases, final checks are completed, and the design is delivered to a foundry for manufacturing.  
 
-The functional phases include a mixture of sequential and random read and write I/O. The functional phases are metadata intensive, like file stat and access calls. Although metadata operations are effectively without size, the read and write operations range between less than 1 K and 16 K. Most reads are between 4 K and 16 K.  Most writes are 4 K or less.  The physical phases are composed of sequential read and write operations entirely, with a mixture of 32 K and 64 K OP sizes.  
+The functional phase includes a mixture of sequential and random read and write I/O. The functional phase is metadata intensive, like file stat and access calls. Although metadata operations are effectively without size, the read and write operations range between less than 1 K and 16 K. Most reads are between 4 K and 16 K.  Most writes are 4 K or less. The physical phase is composed of sequential read and write operations entirely, with a mixture of 32 K and 64 K OP sizes.  
 
-In the graphs above, most of the throughput comes from the sequential physical phases of workload. The I/O comes from the small random and metadata-intensive functional phases. Both phases happen in parallel. 
+In the graphs above, most of the throughput comes from the sequential physical phase of workload. The I/O comes from the small random and metadata-intensive functional phase. Both phases happen in parallel. 
 
 In conclusion, you can pair Azure compute with Azure NetApp Files for EDA design to get scalable bandwidth. 
 
