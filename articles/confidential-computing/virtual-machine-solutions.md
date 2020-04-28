@@ -12,7 +12,7 @@ ms.author: JenCook
 
 # Solutions on Azure virtual machines
 
-This article covers information about deploying Azure confidential computing virtual machines (VMs) running Intel processors backed by [Intel Software Extension Guard](https://software.intel.com/sgx) (Intel SGX). 
+This article covers information about deploying Azure confidential computing virtual machines (VMs) running Intel processors backed by [Intel Software Guard Extension](https://software.intel.com/sgx) (Intel SGX). 
 
 ## Azure confidential computing VM Sizes
 
@@ -143,5 +143,5 @@ Under **properties**, you will also have to reference an image under **storagePr
 
 In this article you learned about the qualifications and configurations needed when creating confidential computing virtual machine. You can now head to the Azure Marketplace to deploy a DCsv2-Series VM.
 
-[!div class=”nextstepaction”]
-[Deploy a DCsv2-Series Virtual Machine in the Azure Marketplace](quick-create-marketplace.md)
+> [!div class="nextstepaction"]
+> [Deploy a DCsv2-Series Virtual Machine in the Azure Marketplace](quick-create-marketplace.md)
