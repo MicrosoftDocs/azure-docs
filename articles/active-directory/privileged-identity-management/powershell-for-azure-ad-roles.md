@@ -44,7 +44,7 @@ This article contains instructions for using Azure Active Directory (Azure AD) P
 
 1. Find the tenant ID for your Azure AD organization by going to **Azure Active Directory** > **Properties** > **Directory ID**. In the cmdlets section, use this ID whenever you need to supply the resourceId.
 
-    ![Find the organization ID in the properties for the Azure AD organization](./media/powershell-for-azure-ad-roles/organization-id-for-Azure-ad-org.png)
+    ![Find the organization ID in the properties for the Azure AD organization](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
 > The following sections are simple examples that can help get you up and running. You can find more detailed documentation regarding the following cmdlets at https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management. However, you will need to replace "azureResources" in the providerID parameter with "aadRoles". You will also need to remember to use the organization ID for your Azure AD organization as the resourceId parameter.
