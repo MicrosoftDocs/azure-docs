@@ -32,7 +32,7 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 
 The following resource is defined in the template:
 
-* **[Microsoft.ContainerInstance/containerGroups](/azure/templates/microsoft.containerinstance/containergroups)**: create an Azure container group. In this template, the group consists of a single container instance running a Linux web app.
+* **[Microsoft.ContainerInstance/containerGroups](/azure/templates/microsoft.containerinstance/containergroups)**: create an Azure container group. This template defines a group consisting of a single container instance.
 
 More Azure Container Instances template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance&pageNumber=1&sort=Popular).
 
@@ -67,9 +67,11 @@ Use the Azure portal or a tool such as the Azure CLI to review the properties of
 1. In the portal, search for Container Instances, and select the container instance you created.
 
 1. On the **Overview** page, note the **IP address** of the instance as well as its **Status**.
+
     ![Instance overview](media/container-instances-quickstart-template/aci-overview.png)
 
 2. Once its status is *Running*, navigate to the IP address in your browser. 
+
     ![App deployed using Azure Container Instances viewed in browser](media/container-instances-quickstart-template/view-application-running-in-an-azure-container-instance.png)
 
 ### View container logs
