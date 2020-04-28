@@ -1,6 +1,6 @@
 ---
-title: Copy data to and from Azure SQL Database Managed Instance
-description: Learn how to move data to and from Azure SQL Database Managed Instance by using Azure Data Factory.
+title: Copy data to and from Azure SQL Managed instance
+description: Learn how to move data to and from Azure SQL Managed instance by using Azure Data Factory.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -13,55 +13,55 @@ ms.custom: seo-lt-2019
 ms.date: 03/12/2020
 ---
 
-# Copy data to and from Azure SQL Database Managed Instance by using Azure Data Factory
+# Copy data to and from Azure SQL Managed instance by using Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the copy activity in Azure Data Factory to copy data to and from Azure SQL Database Managed Instance. It builds on the [Copy activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
+This article outlines how to use the copy activity in Azure Data Factory to copy data to and from Azure SQL Managed instance. It builds on the [Copy activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 ## Supported capabilities
 
-This Azure SQL Database Managed Instance connector is supported for the following activities:
+This Azure SQL Managed instance connector is supported for the following activities:
 
 - [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
 
-You can copy data from Azure SQL Database Managed Instance to any supported sink data store. You also can copy data from any supported source data store to the managed instance. For a list of data stores that are supported as sources and sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from Azure SQL Managed instance to any supported sink data store. You also can copy data from any supported source data store to the SQL Managed instance. For a list of data stores that are supported as sources and sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this Azure SQL Database Managed Instance connector supports:
+Specifically, this Azure SQL Managed instance connector supports:
 
 - Copying data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieving data by using a SQL query or a stored procedure.
 - As a sink, appending data to a destination table or invoking a stored procedure with custom logic during copy.
 
 >[!NOTE]
->Azure SQL Database Managed Instance [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver via a self-hosted integration runtime. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current) with ODBC driver download and connection string configurations.
+>Azure SQL Managed instance [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver via a self-hosted integration runtime. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current) with ODBC driver download and connection string configurations.
 
 ## Prerequisites
 
-To access the Azure SQL Database Managed Instance [public endpoint](../sql-database/sql-database-managed-instance-public-endpoint-securely.md), you can use an Azure Data Factory managed Azure integration runtime. Make sure that you enable the public endpoint and also allow public endpoint traffic on the network security group so that Azure Data Factory can connect to your database. For more information, see [this guidance](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
+To access the Azure SQL Managed instance [public endpoint](../sql-database/sql-database-managed-instance-public-endpoint-securely.md), you can use an Azure Data Factory managed Azure integration runtime. Make sure that you enable the public endpoint and also allow public endpoint traffic on the network security group so that Azure Data Factory can connect to your database. For more information, see [this guidance](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
-To access the Azure SQL Database Managed Instance private endpoint, set up a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) that can access the database. If you provision the self-hosted integration runtime in the same virtual network as your managed instance, make sure that your integration runtime machine is in a different subnet than your managed instance. If you provision your self-hosted integration runtime in a different virtual network than your managed instance, you can use either a virtual network peering or a virtual network to virtual network connection. For more information, see [Connect your application to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+To access the Azure SQL Managed instance private endpoint, set up a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) that can access the database. If you provision the self-hosted integration runtime in the same virtual network as your SQL Managed instance, make sure that your integration runtime machine is in a different subnet than your SQL Managed instance. If you provision your self-hosted integration runtime in a different virtual network than your SQL Managed instance, you can use either a virtual network peering or a virtual network to virtual network connection. For more information, see [Connect your application to Azure SQL Managed instance](../sql-database/sql-database-managed-instance-connect-app.md).
 
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Azure Data Factory entities specific to the Azure SQL Database Managed Instance connector.
+The following sections provide details about properties that are used to define Azure Data Factory entities specific to the Azure SQL Managed instance connector.
 
 ## Linked service properties
 
-The following properties are supported for the Azure SQL Database Managed Instance linked service:
+The following properties are supported for the Azure SQL Managed instance linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AzureSqlMI**. | Yes |
-| connectionString |This property specifies the **connectionString** information that's needed to connect to the managed instance by using SQL authentication. For more information, see the following examples. <br/>The default port is 1433. If you're using Azure SQL Database Managed Instance with a public endpoint, explicitly specify port 3342.<br> You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| connectionString |This property specifies the **connectionString** information that's needed to connect to the SQL Managed instance by using SQL authentication. For more information, see the following examples. <br/>The default port is 1433. If you're using Azure SQL Managed instance with a public endpoint, explicitly specify port 3342.<br> You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes, when you use Azure AD authentication with a service principal |
 | servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Azure Data Factory or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal |
 | tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal |
-| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use a self-hosted integration runtime or an Azure integration runtime if your managed instance has a public endpoint and allows Azure Data Factory to access it. If not specified, the default Azure integration runtime is used. |Yes |
+| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use a self-hosted integration runtime or an Azure integration runtime if your SQL Managed instance has a public endpoint and allows Azure Data Factory to access it. If not specified, the default Azure integration runtime is used. |Yes |
 
 For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
 
@@ -127,7 +127,7 @@ To use a service principal-based Azure AD application token authentication, foll
     - Application key
     - Tenant ID
 
-3. [Create logins](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) for the Azure Data Factory managed identity. In SQL Server Management Studio (SSMS), connect to your Managed Instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
+3. [Create logins](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) for the Azure Data Factory managed identity. In SQL Server Management Studio (SSMS), connect to your SQL Managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
 
     ```sql
     CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
@@ -145,7 +145,7 @@ To use a service principal-based Azure AD application token authentication, foll
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
     ```
 
-6. Configure an Azure SQL Database Managed Instance linked service in Azure Data Factory.
+6. Configure an Azure SQL Managed instance linked service in Azure Data Factory.
 
 **Example: use service principal authentication**
 
@@ -173,13 +173,13 @@ To use a service principal-based Azure AD application token authentication, foll
 
 ### <a name="managed-identity"></a> Managed identities for Azure resources authentication
 
-A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the specific data factory. You can use this managed identity for Azure SQL Database Managed Instance authentication. The designated factory can access and copy data from or to your database by using this identity.
+A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the specific data factory. You can use this managed identity for Azure SQL Managed instance authentication. The designated factory can access and copy data from or to your database by using this identity.
 
 To use managed identity authentication, follow these steps.
 
 1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](../sql-database/sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
-2. [Create logins](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) for the Azure Data Factory managed identity. In SQL Server Management Studio (SSMS), connect to your Managed Instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
+2. [Create logins](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) for the Azure Data Factory managed identity. In SQL Server Management Studio (SSMS), connect to your SQL Managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
 
     ```sql
     CREATE LOGIN [your Data Factory name] FROM EXTERNAL PROVIDER
@@ -197,7 +197,7 @@ To use managed identity authentication, follow these steps.
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your Data Factory name]
     ```
 
-5. Configure an Azure SQL Database Managed Instance linked service in Azure Data Factory.
+5. Configure an Azure SQL Managed instance linked service in Azure Data Factory.
 
 **Example: uses managed identity authentication**
 
@@ -219,9 +219,9 @@ To use managed identity authentication, follow these steps.
 
 ## Dataset properties
 
-For a full list of sections and properties available for use to define datasets, see the datasets article. This section provides a list of properties supported by the Azure SQL Database Managed Instance dataset.
+For a full list of sections and properties available for use to define datasets, see the datasets article. This section provides a list of properties supported by the Azure SQL Managed instance dataset.
 
-To copy data to and from Azure SQL Database Managed Instance, the following properties are supported:
+To copy data to and from Azure SQL Managed instance, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -239,7 +239,7 @@ To copy data to and from Azure SQL Database Managed Instance, the following prop
     {
         "type": "AzureSqlMITable",
         "linkedServiceName": {
-            "referenceName": "<Managed Instance linked service name>",
+            "referenceName": "<SQL Managed instance linked service name>",
             "type": "LinkedServiceReference"
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
@@ -253,11 +253,11 @@ To copy data to and from Azure SQL Database Managed Instance, the following prop
 
 ## Copy activity properties
 
-For a full list of sections and properties available for use to define activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by the Azure SQL Database Managed Instance source and sink.
+For a full list of sections and properties available for use to define activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by the Azure SQL Managed instance source and sink.
 
-### Azure SQL Database Managed Instance as a source
+### Azure SQL Managed instance as a source
 
-To copy data from Azure SQL Database Managed Instance, the following properties are supported in the copy activity source section:
+To copy data from Azure SQL Managed instance, the following properties are supported in the copy activity source section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -269,8 +269,8 @@ To copy data from Azure SQL Database Managed Instance, the following properties 
 
 **Note the following points:**
 
-- If **sqlReaderQuery** is specified for **SqlMISource**, the copy activity runs this query against the managed instance source to get the data. You also can specify a stored procedure by specifying **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
-- If you don't specify either the **sqlReaderQuery** or **sqlReaderStoredProcedureName** property, the columns defined in the "structure" section of the dataset JSON are used to construct a query. The query `select column1, column2 from mytable` runs against the managed instance. If the dataset definition doesn't have "structure," all columns are selected from the table.
+- If **sqlReaderQuery** is specified for **SqlMISource**, the copy activity runs this query against the SQL Managed instance source to get the data. You also can specify a stored procedure by specifying **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
+- If you don't specify either the **sqlReaderQuery** or **sqlReaderStoredProcedureName** property, the columns defined in the "structure" section of the dataset JSON are used to construct a query. The query `select column1, column2 from mytable` runs against the SQL Managed instance. If the dataset definition doesn't have "structure," all columns are selected from the table.
 
 **Example: Use a SQL query**
 
@@ -281,7 +281,7 @@ To copy data from Azure SQL Database Managed Instance, the following properties 
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Managed Instance input dataset name>",
+                "referenceName": "<SQL Managed instance input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -313,7 +313,7 @@ To copy data from Azure SQL Database Managed Instance, the following properties 
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Managed Instance input dataset name>",
+                "referenceName": "<SQL Managed instance input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -359,19 +359,19 @@ END
 GO
 ```
 
-### Azure SQL Database Managed Instance as a sink
+### Azure SQL Managed instance as a sink
 
 > [!TIP]
-> Learn more about the supported write behaviors, configurations, and best practices from [Best practice for loading data into Azure SQL Database Managed Instance](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
+> Learn more about the supported write behaviors, configurations, and best practices from [Best practice for loading data into Azure SQL Managed instance](#best-practice-for-loading-data-into-azure-sql-managed-instance).
 
-To copy data to Azure SQL Database Managed Instance, the following properties are supported in the copy activity sink section:
+To copy data to Azure SQL Managed instance, the following properties are supported in the copy activity sink section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to **SqlMISink**. | Yes |
 | writeBatchSize |Number of rows to insert into the SQL table *per batch*.<br/>Allowed values are integers for the number of rows. By default, Azure Data Factory dynamically determines the appropriate batch size based on the row size.  |No |
 | writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the timespan. An example is “00:30:00,” which is 30 minutes. |No |
-| preCopyScript |This property specifies a SQL query for the copy activity to run before writing data into the managed instance. It's invoked only once per copy run. You can use this property to clean up preloaded data. |No |
+| preCopyScript |This property specifies a SQL query for the copy activity to run before writing data into the SQL Managed instance. It's invoked only once per copy run. You can use this property to clean up preloaded data. |No |
 | sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. <br/>This stored procedure is *invoked per batch*. For operations that run only once and have nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. | No |
 | storedProcedureTableTypeParameterName |The parameter name of the table type specified in the stored procedure.  |No |
 | sqlWriterTableType |The table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No |
@@ -393,7 +393,7 @@ To copy data to Azure SQL Database Managed Instance, the following properties ar
         ],
         "outputs": [
             {
-                "referenceName": "<Managed Instance output dataset name>",
+                "referenceName": "<SQL Managed instance output dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -428,7 +428,7 @@ Learn more details from [Invoke a stored procedure from a SQL MI sink](#invoke-a
         ],
         "outputs": [
             {
-                "referenceName": "<Managed Instance output dataset name>",
+                "referenceName": "<SQL Managed instance output dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -451,9 +451,9 @@ Learn more details from [Invoke a stored procedure from a SQL MI sink](#invoke-a
 ]
 ```
 
-## Best practice for loading data into Azure SQL Database Managed Instance
+## Best practice for loading data into Azure SQL Managed instance
 
-When you copy data into Azure SQL Database Managed Instance, you might require different write behavior:
+When you copy data into Azure SQL Managed instance, you might require different write behavior:
 
 - [Append](#append-data): My source data has only new records.
 - [Upsert](#upsert-data): My source data has both inserts and updates.
@@ -464,7 +464,7 @@ See the respective sections for how to configure in Azure Data Factory and best 
 
 ### Append data
 
-Appending data is the default behavior of this Azure SQL Database Managed Instance sink connector. Azure Data Factory does a bulk insert to write to your table efficiently. You can configure the source and sink accordingly in the copy activity.
+Appending data is the default behavior of this Azure SQL Managed instance sink connector. Azure Data Factory does a bulk insert to write to your table efficiently. You can configure the source and sink accordingly in the copy activity.
 
 ### Upsert data
 
@@ -511,10 +511,10 @@ The steps to write data with custom logic are similar to those described in the 
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invoke a stored procedure from a SQL sink
 
-When you copy data into Azure SQL Database Managed Instance, you also can configure and invoke a user-specified stored procedure with additional parameters. The stored procedure feature takes advantage of [table-valued parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+When you copy data into Azure SQL Managed instance, you also can configure and invoke a user-specified stored procedure with additional parameters. The stored procedure feature takes advantage of [table-valued parameters](https://msdn.microsoft.com/library/bb675163.aspx).
 
 > [!TIP]
-> Invoking a stored procedure processes the data row by row instead of by using a bulk operation, which we don't recommend for large-scale copy. Learn more from [Best practice for loading data into Azure SQL Database Managed Instance](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
+> Invoking a stored procedure processes the data row by row instead of by using a bulk operation, which we don't recommend for large-scale copy. Learn more from [Best practice for loading data into Azure SQL Managed instance](#best-practice-for-loading-data-into-azure-sql-managed-instance).
 
 You can use a stored procedure when built-in copy mechanisms don't serve the purpose. An example is when you want to apply extra processing before the final insertion of source data into the destination table. Some extra processing examples are when you want to merge columns, look up additional values, and insert data into more than one table.
 
@@ -563,11 +563,11 @@ The following sample shows how to use a stored procedure to do an upsert into a 
     }
     ```
 
-## Data type mapping for Azure SQL Database Managed Instance
+## Data type mapping for Azure SQL Managed instance
 
-When data is copied to and from Azure SQL Database Managed Instance, the following mappings are used from Azure SQL Database Managed Instance data types to Azure Data Factory interim data types. To learn how the copy activity maps from the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When data is copied to and from Azure SQL Managed instance, the following mappings are used from Azure SQL Managed instance data types to Azure Data Factory interim data types. To learn how the copy activity maps from the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Azure SQL Database Managed Instance data type | Azure Data Factory interim data type |
+| Azure SQL Managed instance data type | Azure Data Factory interim data type |
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
