@@ -71,7 +71,7 @@ Use this action to forward clients to a new URL. This action also contains sub a
 
 Field | Description 
 ------|------------
-Backend pool | Select the backend pool to forward and serve the request from. This will show all your preconfigured Backend pools currently in your Front door profile. 
+Backend pool | Select the backend pool to override and serve the requests from. This will show all your preconfigured Backend pools currently in your Front Door profile. 
 Forwarding protocol | Match Request, HTTP, HTTPS.
 URL rewrite | Use this action to rewrite the path of a request that's en route to your origin. If enabled, see below for additional fields required
 Caching | Enabled, Disabled. See below for additional fields required if enabled. 
