@@ -14,6 +14,9 @@ ms.date: 12/19/2018
 ---
 
 # Web activity in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+
 Web Activity can be used to call a custom REST endpoint from a Data Factory pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
 
 > [!NOTE]

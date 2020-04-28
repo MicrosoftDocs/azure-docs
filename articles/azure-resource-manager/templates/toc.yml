@@ -40,6 +40,8 @@
       href: ../../key-vault/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Load Balancer
       href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Managed application
+      href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Policy
       href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Service Bus Messaging
@@ -50,6 +52,8 @@
       href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Virtual machine scale sets - Windows
       href: ../../virtual-machine-scale-sets/quick-create-template-windows.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Web Application Firewall
+      href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutorials
   items:
   - name: Beginner templates
@@ -287,7 +291,7 @@
     items:
     - name: All functions
       href: template-functions.md
-    - name: Array and object functions
+    - name: Array functions
       href: template-functions-array.md
     - name: Comparison functions
       href: template-functions-comparison.md
@@ -299,6 +303,8 @@
       href: template-functions-logical.md
     - name: Numeric functions
       href: template-functions-numeric.md
+    - name: Object functions
+      href: template-functions-object.md
     - name: Resource functions
       href: template-functions-resource.md
     - name: String functions

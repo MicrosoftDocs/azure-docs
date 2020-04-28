@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
+ms.custom: mqtt
 ---
 
 # Understand and use device twins in IoT Hub
@@ -53,7 +54,7 @@ A device twin is a JSON document that includes:
 
 * **Reported properties**. Used along with desired properties to synchronize device configuration or conditions. The device app can set reported properties, and the solution back end can read and query them.
 
-* **Device identity properties**. The root of the device twin JSON document contains the read-only properties from the corresponding device identity stored in the [identity registry](iot-hub-devguide-identity-registry.md).
+* **Device identity properties**. The root of the device twin JSON document contains the read-only properties from the corresponding device identity stored in the [identity registry](iot-hub-devguide-identity-registry.md). Properties `connectionStateUpdatedTime` and `generationId` will not be included.
 
 ![Screenshot of device twin properties](./media/iot-hub-devguide-device-twins/twin.png)
 
@@ -193,7 +194,7 @@ The solution back end operates on the device twin using the following atomic ope
 
   - Body
         
-    This section includes all the twin changes in a JSON format. It uses the same format as a patch, with the difference that it can contain all twin sections: tags, properties.reported, properties.desired, and that it contains the “$metadata” elements. For example,
+    This section includes all the twin changes in a JSON format. It uses the same format as a patch, with the difference that it can contain all twin sections: tags, properties.reported, properties.desired, and that it contains the "$metadata" elements. For example,
 
     ```json
     {

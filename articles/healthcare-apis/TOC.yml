@@ -57,11 +57,7 @@
     expanded: false
     items:
     - name: Configure additional Azure API for FHIR settings
-      href: azure-api-for-fhir-additional-settings.md
-    - name: Configure Azure RBAC
-      href: configure-azure-rbac.md
-    - name: Configure Local RBAC
-      href: configure-local-rbac.md
+      href: azure-api-for-fhir-additional-settings.md 
     - name: Configure database settings
       href: configure-database.md
     - name: Configure CORS

@@ -159,7 +159,7 @@ An organization can have multiple publishers associated with a Commercial Market
 
 Another user from the same Azure Active Directory tenant can add a new publisher by following the steps below:
 
-1. Kick off the sign-up flow at [Microsoft Partner Center](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/azureisv).
+1. Kick off the sign-up flow at [Microsoft Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).
 2. Select **Sign in with a work account** and enter your work email address.
 3. Select the **Add Publisher** button.
 4. Choose the MPN ID that you want to associate to the publisher.
