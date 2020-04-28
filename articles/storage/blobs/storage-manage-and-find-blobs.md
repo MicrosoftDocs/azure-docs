@@ -24,6 +24,8 @@ Blob Index lets you:
 
 Consider the scenario where you have millions of blobs in your storage account written and accessed by many different applications. You want to find all related data from a single project, but you aren't sure what is in scope as the data can be spread across multiple containers with different blob naming conventions. However, you know that your applications upload all data with tags based on their respective project and identifying description. Instead of searching through millions of blobs and comparing names and properties, you can simply use `Project = Contoso` as your discovery criteria. Blob Index will filter all containers across your entire storage account to quickly find and return just the set of fifty blobs from `Project = Contoso`. 
 
+To get started with examples on how to use Blob Index, see [Utilize Blob Index to manage and find data](storage-blob-index-how-to.md).
+
 ## Blob Index tags and Data Management
 
 Container and blob name prefixes are one-dimensional categorization for your stored data. Blob Index now allows for multi-dimension categorization for all your [blob data types (Block, Append, or Page)](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) with applied attribute tags. This multi-dimensional categorization is natively indexed and made available for you to quickly query and find your data.
@@ -236,8 +238,6 @@ The following table summarizes the differences between Metadata and Blob Index t
 | **Header response** |	Metadata returned as headers in GetBlob and GetBlobProperties |	TagCount returned in GetBlob or GetBlobProperties; Tags returned only in GetBlobTags and ListBlobs |
 | **Permissions**  |	Read or write permissions to blob data extends to metadata |	Additional permissions are required to read/filter or write tags |
 
-
-
 ## Pricing
 Blob Index pricing is currently in public preview and subject to change for general availability. Customers are charged for the total number of blob index tags within a storage account, averaged over the month. There is no cost for the indexing engine. Requests to SetBlobTags, GetBlobTags, and FindBlobsByTags are charged in accordance to their respective operation types. See [Block Blob pricing to learn more](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -248,6 +248,8 @@ Blob Index is currently available with General Purpose v2 (GPv2) accounts only. 
 In public preview, Blob Index is currently only available in the following select regions:
 - France Central
 - France South
+
+To get started, see [Utilize Blob Index to manage and find data](storage-blob-index-how-to.md).
 
 > [!IMPORTANT]
 > See the conditions section of this article. To enroll in the preview, see the Register your subscription section of this article. You must register your subscription before you can use Blob Index on your storage accounts.
