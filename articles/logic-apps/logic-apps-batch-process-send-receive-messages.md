@@ -50,10 +50,10 @@ Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/prici
 * An email account with any [email provider supported by Azure Logic Apps](../connectors/apis-list.md)
 
   > [!IMPORTANT]
-  > If you want to use the Gmail connector, only G-Suite business accounts can use the Gmail connector 
-  > without restrictions in logic apps. If you have a Gmail consumer account, you can use the Gmail 
-  > connector only with specific Google-approved apps and services. For more information, see 
-  > [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+  > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
+  > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
+  > [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+  > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

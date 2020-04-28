@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Manage your Azure Digital Twins model set
+# Manage Azure Digital Twins models
 
-Azure Digital Twins **DigitalTwinsModels APIs** are APIs used to manage the [models](concepts-models.md) that an Azure Digital Twins instance knows about. Management operations include upload, validation, and retrieval of models authored in [Digital Twins Definition language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). 
+You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinsModels APIs**](how-to-use-apis.md). Management operations include upload, validation, and retrieval of models. 
 
 [!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
 
@@ -62,7 +62,7 @@ Models for Azure Digital Twins are written in DTDL. A patient room in this scena
 > [!NOTE]
 > This is a sample body for a .json file in which a model is defined and saved, to be uploaded as part of a client project. If you are defining a model in the body of an API call, remember to fit the code above into the context of a complete API call body (including *[]* brackets around this section).
 
-This model defines a name and a unique ID for the patient room, and properties to represent visitor count and hand-wash status (these counters will be updated from motion sensors and smart soap dispensers, and will be used together to calculate a *handwash percentage* property). The model also defines a relationship *hasDevices*, which will be used to connect the Room twin to the actual devices.
+This model defines a name and a unique ID for the patient room, and properties to represent visitor count and hand-wash status (these counters will be updated from motion sensors and smart soap dispensers, and will be used together to calculate a *handwash percentage* property). The model also defines a relationship *hasDevices*, which will be used to connect any [digital twins](concepts-twins-graph.md) based on this *Room* model to the actual devices.
 
 Following this method, you can go on to define models for the hospital's wards, zones, or the hospital itself.
 

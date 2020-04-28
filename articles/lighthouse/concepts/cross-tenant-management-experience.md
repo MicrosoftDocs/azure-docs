@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 04/20/2020
+ms.date: 04/24/2020
 ms.topic: conceptual
 ---
 
@@ -123,7 +123,8 @@ Most tasks and services can be performed on delegated resources across managed t
 - Use virtual machine extensions to provide post-deployment configuration and automation tasks on Azure VMs in customer tenants
 - Use boot diagnostics to troubleshoot Azure VMs in customer tenants
 - Access VMs with serial console in customer tenants
-- Note that you can't use Azure Active Directory for remote login to a VM, and you can't integrate a VM with a Key Vault for passwords, secrets or cryptographic keys for disk encryption
+- Integrate VMs with Azure KeyVault for passwords, secrets, or cryptographic keys for disk encryption by using [managed identity through policy](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), ensuring that secrets are stored in a Key Vault in customer tenants
+- Note that you can't use Azure Active Directory for remote login to VMs in customer tenants
 
 Support requests:
 

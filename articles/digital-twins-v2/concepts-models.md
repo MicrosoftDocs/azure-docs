@@ -17,11 +17,11 @@ ms.service: digital-twins
 
 # Understand twin models in Azure Digital Twins
 
-A key characteristic of Azure Digital Twins is the ability to define your own vocabulary and build your twin graph in the self-defined terms of your business. This capability is provided through user-defined **models**.
+A key characteristic of Azure Digital Twins is the ability to define your own vocabulary and build your twin graph in the self-defined terms of your business. This capability is provided through user-defined **models**. You can think of models as the nouns in a description of your world. 
 
-A model is similar to a **class** in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of entity in your environment can do. Models are written using the JSON-based **Digital Twin Definition Language (DTDL)**.  
+A model is similar to a **class** in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of entity in your environment can do. Later, you will use these models to create [**digital twins**](concepts-twins-graph.md) that represent specific entities that meet this type description.
 
-You can think of the models as nouns in a description of your world.
+Models are written using the JSON-based **Digital Twin Definition Language (DTDL)**.  
 
 ## Digital Twin Definition Language (DTDL) for writing models
 
@@ -58,42 +58,49 @@ Twin type models can be written in any text editor. The DTDL language follows JS
 
 ### Example model code
 
-Here is an example of a typical model, written as a DTDL interface: 
+Here is an example of a typical model, written as a DTDL interface. The model describes planets, each with a name, a mass, and a temperature. The planet may have moons as satellites, and it may contain craters.
 
 ```json
-{
+[
+  {
     "@id": "dtmi:com:contoso:Planet;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2",
     "displayName": "Planet",
     "contents": [
-        {
-            "@type": "Property",
-            "name": "name",
-            "schema": "string"
-        },
-        {
-            "@type": "Property",
-            "name": "mass",
-            "schema": "double"
-        },
-        {
-            "@type": "Telemetry",
-            "name": "Temperature",
-            "schema": "double"
-        },
-        {
-            "@type": "Relationship",
-            "name": "satellites",
-            "target": "dtmi:com:contoso:Moon;1"
-        },
-        {
-            "@type": "Component",
-            "name": "deepestCrater",
-            "schema": "dtmi:com:contoso:Crater;1"
-        }
+      {
+        "@type": "Property",
+        "name": "name",
+        "schema": "string"
+      },
+      {
+        "@type": "Property",
+        "name": "mass",
+        "schema": "double"
+      },
+      {
+        "@type": "Telemetry",
+        "name": "Temperature",
+        "schema": "double"
+      },
+      {
+        "@type": "Relationship",
+        "name": "satellites",
+        "target": "dtmi:com:contoso:Moon;1"
+      },
+      {
+        "@type": "Component",
+        "name": "deepestCrater",
+        "schema": "dtmi:com:contoso:Crater;1"
+      }
     ]
-}
+  },
+  {
+    "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
+  }
+]
 ```
 
 The fields of the DTDL document are:
@@ -106,7 +113,10 @@ The fields of the DTDL document are:
 | `displayName` | [optional] Allows you to give the model a friendly name if desired. |
 | `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (*Property*, *Telemetry*, *Command*, *Relationship*, or *Component*) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a *Property*). |
 
-### Schema options
+> [!NOTE]
+> Note that the component interface (*Crater* in this example) is defined in the same array as the interface that uses it (*Planet*). Components must be defined this way in API calls in order for the interface to be found.
+
+### Possible schemas
 
 As per DTDL, the schema for *Property* and *Telemetry* attributes can be of standard primitive types—`integer`, `double`, `string`, and `Boolean`—and other types such as `DateTime` and `Duration`. 
 
@@ -116,60 +126,65 @@ In addition to primitive types, *Property* and *Telemetry* fields can have the f
 * `Map`
 * `Enum`
 
-### Inheritance
+### Model inheritance
 
 Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model *Room*, and specialized variants *ConferenceRoom* and *Gym*. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. 
 
 The following example re-imagines the *Planet* model from the earlier DTDL example as a subtype of a larger *CelestialBody* model. The "parent" model is defined first, and then the "child" model builds on it by using the field `extends`.
 
 ```json
-{
+[
+  {
     "@id": "dtmi:com:contoso:CelestialBody;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2",
     "displayName": "Celestial body",
     "contents": [
-        {
-            "@type": "Property",
-            "name": "name",
-            "schema": "string"
-        },
-        {
-            "@type": "Property",
-            "name": "mass",
-            "schema": "double"
-        },
-        {
-            "@type": "Telemetry",
-            "name": "Temperature",
-            "schema": "double"
-        }
+      {
+        "@type": "Property",
+        "name": "name",
+        "schema": "string"
+      },
+      {
+        "@type": "Property",
+        "name": "mass",
+        "schema": "double"
+      },
+      {
+        "@type": "Telemetry",
+        "name": "temperature",
+        "schema": "double"
+      }
     ]
-},
-{
+  },
+  {
     "@id": "dtmi:com:contoso:Planet;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2",
     "displayName": "Planet",
-    "extends": [
-        "dtmi:com:contoso:CelestialBody;1"
-    ],
+    "extends": "dtmi:com:contoso:CelestialBody;1",
     "contents": [
-        {
-            "@type": "Relationship",
-            "name": "satellites",
-            "target": "dtmi:com:contoso:Moon;1"
-        },
-        {
-            "@type": "Component",
-            "name": "deepestCrater",
-            "schema": "dtmi:com:contoso:Crater;1"
-        }
+      {
+        "@type": "Relationship",
+        "name": "satellites",
+        "target": "dtmi:com:contoso:Moon;1"
+      },
+      {
+        "@type": "Component",
+        "name": "deepestCrater",
+        "schema": "dtmi:com:contoso:Crater;1"
+      }
     ]
-}
+  },
+  {
+    "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
+  }
+]
 ```
 
-In this example, *CelestialBody* contributes a name, a mass, and a telemetry to *Planet*. The `extends` section is structured as an array of interface names (which allows the extending interface to inherit from multiple parent models if desired).
+In this example, *CelestialBody* contributes a name, a mass, and a temperature to *Planet*. The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models if desired).
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 

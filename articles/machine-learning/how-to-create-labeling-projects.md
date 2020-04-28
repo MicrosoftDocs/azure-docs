@@ -6,7 +6,7 @@ author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 03/01/2020
+ms.date: 04/09/2020
 
 ---
 
@@ -164,23 +164,11 @@ Once a machine learning model has been trained on your manually labeled data, th
 
 After the labeling project is initialized, some aspects of the  project are immutable. You can't change the task type or dataset. You *can* modify labels and the URL for the task description. Carefully review the settings before you create the project. After you submit the project, you're returned to the **Data Labeling** homepage, which will show the project as **Initializing**. This page doesn't automatically refresh. So, after a pause,  manually refresh the page to see the project's status as **Created**.
 
-## Manage teams and people
-
-By default, each labeling project that you create gets a new team with you as a member. But teams can also be shared between projects. And projects can have more than one team. To create a team, select **Add team** on the **Teams** page. 
-
-You manage people on the **Labelers** page. Add and remove people by email address. Each labeler has to authenticate through your Microsoft account or Azure Active Directory, if you use it.  
-
-After you add a person, you can assign that person to one or more teams: Go to the **Teams** page, select the team, and then select **Assign people** or **Remove people**.
-
-To send an email to the team, select the team to view the **Team details** page. On this page, select **Email team** to open an email draft with the addresses of everyone on the team.
-
 ## Run and monitor the project
 
 After you initialize the project, Azure will begin running it. Select the project on the main **Data Labeling** page to go to **Project details**. The **Dashboard** tab shows the progress of the labeling task.
 
 On the **Data** tab, you can see your dataset and review labeled data. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
-
-Use the **Team** tab to assign or unassign teams to the project.
 
 To pause or restart the project, select the **Pause**/**Start** button. You can only label data when the project is running.
 

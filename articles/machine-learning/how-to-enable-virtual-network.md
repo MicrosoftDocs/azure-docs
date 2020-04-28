@@ -505,19 +505,7 @@ To use ACI in a virtual network to your workspace, use the following steps:
 
 ## Use Azure Firewall
 
-When using Azure Firewall, you must configure a network rule to allow traffic to and from the following addresses:
-
-- `*.batchai.core.windows.net`
-- `ml.azure.com`
-- `*.azureml.ms`
-- `*.experiments.azureml.net`
-- `*.modelmanagement.azureml.net`
-- `mlworkspace.azure.ai`
-- `*.aether.ms`
-
-When adding the rule, set the __Protocol__ to any, and the ports to `*`.
-
-For more information on configuring a network rule, see [Deploy and configure Azure Firewall](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
+For information on using Azure Machine Learning with Azure Firewall, see [Use Azure Machine Learning workspace behind Azure Firewall](how-to-access-azureml-behind-firewall.md).
 
 ## Use Azure Container Registry
 

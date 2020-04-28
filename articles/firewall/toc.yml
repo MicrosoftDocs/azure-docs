@@ -75,6 +75,8 @@
       href: snat-private-range.md
     - name: Create IP Groups
       href: create-ip-group.md
+    - name: Protect Windows Virtual Desktop
+      href: protect-windows-virtual-desktop.md
 - name: Reference
   items:
   - name: Azure CLI

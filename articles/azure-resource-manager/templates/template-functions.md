@@ -2,7 +2,7 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/27/2020
 ---
 # ARM template functions
 
@@ -20,7 +20,6 @@ Most functions work the same when deployed to a resource group, subscription, ma
 <a id="empty" aria-hidden="true" />
 <a id="first" aria-hidden="true" />
 <a id="intersection" aria-hidden="true" />
-<a id="json" aria-hidden="true" />
 <a id="last" aria-hidden="true" />
 <a id="length" aria-hidden="true" />
 <a id="min" aria-hidden="true" />
@@ -30,19 +29,17 @@ Most functions work the same when deployed to a resource group, subscription, ma
 <a id="take" aria-hidden="true" />
 <a id="union" aria-hidden="true" />
 
-## Array and object functions
+## Array functions
 
-Resource Manager provides several functions for working with arrays and objects.
+Resource Manager provides several functions for working with arrays.
 
 * [array](template-functions-array.md#array)
-* [coalesce](template-functions-array.md#coalesce)
 * [concat](template-functions-array.md#concat)
 * [contains](template-functions-array.md#contains)
 * [createArray](template-functions-array.md#createarray)
 * [empty](template-functions-array.md#empty)
 * [first](template-functions-array.md#first)
 * [intersection](template-functions-array.md#intersection)
-* [json](template-functions-array.md#json)
 * [last](template-functions-array.md#last)
 * [length](template-functions-array.md#length)
 * [min](template-functions-array.md#min)
@@ -129,6 +126,19 @@ Resource Manager provides the following functions for working with integers:
 * [mod](template-functions-numeric.md#mod)
 * [mul](template-functions-numeric.md#mul)
 * [sub](template-functions-numeric.md#sub)
+
+<a id="json" aria-hidden="true" />
+
+## Object functions
+
+Resource Manager provides several functions for working with objects.
+
+* [contains](template-functions-object.md#contains)
+* [empty](template-functions-object.md#empty)
+* [intersection](template-functions-object.md#intersection)
+* [json](template-functions-object.md#json)
+* [length](template-functions-object.md#length)
+* [union](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true" />
 <a id="listkeys" aria-hidden="true" />
