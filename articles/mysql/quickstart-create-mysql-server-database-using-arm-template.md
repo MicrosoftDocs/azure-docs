@@ -32,6 +32,8 @@ Azure Database for MySQL is a managed service that you use to run, manage, and s
 
 An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 
+---
+
 ## Create an Azure Database for MySQL server
 
 You create an Azure Database for MySQL server with a defined set of compute and storage resources. To learn more, see [Azure Database for MySQL pricing tiers](concepts-pricing-tiers.md). You create the server within an [Azure resource group](../azure-resource-manager/management/overview.md).
@@ -137,6 +139,8 @@ On the **Deploy Azure Database for MySQL with VNet** page:
 
 6. Select **Purchase**.
 
+---
+
 ## Review deployed resources
 
 # [CLI](#tab/CLI)
@@ -169,6 +173,8 @@ Follow these steps to see an overview of your new Azure Database for MySQL serve
 
 2. In the database list, select your new server. The **Overview** page for your new Azure Database for MySQL server appears.
 
+---
+
 ## Clean up resources
 
 When it's no longer needed, delete the resource group, which deletes the resources in the resource group.
@@ -199,6 +205,8 @@ Write-Host "Press [ENTER] to continue..."
 3. In the **Overview** page of your resource group, select **Delete resource group**.
 
 4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
+
+---
 
 ## Next steps
 
