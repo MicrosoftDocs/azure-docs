@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "articles/openshift/howto-azure-monitor-v4.md",
+      "redirect_url": "articles/azure-monitor/insights/container-insights-azure-redhat4-setup.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/openshift/tutorial-scale-cluster.md",
+      "redirect_url": "articles/openshift/tutorial-connect-cluster.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/openshift/howto-using-azure-redhat-openshift.md",
+      "redirect_url": "articles/openshift/tutorial-create-cluster.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/create-virtual-network-classic.md",
       "redirect_url": "/previous-versions/azure/virtual-network/create-virtual-network-classic",
       "redirect_document_id": false
