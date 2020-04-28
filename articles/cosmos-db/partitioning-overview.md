@@ -1,11 +1,11 @@
 ---
 title: Partitioning in Azure Cosmos DB
 description: Learn about partitioning in Azure Cosmos DB, best practices when choosing a partition key, and how to manage logical partitions
-author: markjbrown
-ms.author: mjbrown
+author: deborahc
+ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 04/28/2020
 
 ---
 
@@ -58,6 +58,8 @@ If your container could grow to more than a few physical partitions, then you sh
 
 If your container has a property that has a wide range of possible values, it is likely a great partition key choice. One possible example of such a property is the *item ID*. For small read-heavy containers or write-heavy containers of any size, the *item ID* is naturally a great choice for the partition key.
 
+The system property *item ID* is guaranteed to exist in every item in your Cosmos container. You may have other properties in your document that represent a logical id of your item. In many cases, these are also great partition key choices for the same reasons as the *item ID*.
+
 The *item ID* is a great partition key choice for the following reasons:
 
 * There are a wide range of possible values (one unique *item ID* per item).
@@ -67,7 +69,7 @@ The *item ID* is a great partition key choice for the following reasons:
 Some things to consider when selecting the *item ID* as the partition key include:
 
 * If the *item ID* is the partition key, it will become a unique identifier throughout your entire container. You won't be able to have items that have a duplicate *item ID*.
-* If you have a read-heavy container that has a lot of [physical partitions](partition-data.md#physical-partitions), all of your queries will be cross-partition
+* If you have a read-heavy container that has a lot of [physical partitions](partition-data.md#physical-partitions), queries will be more efficient if they have an equality filter with the *item ID*.
 * You can't run stored procedures or triggers across multiple logical partitions.
 
 ## Next steps

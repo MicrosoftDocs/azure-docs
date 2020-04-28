@@ -1,17 +1,17 @@
 ---
 title: Partitioning and horizontal scaling in Azure Cosmos DB
 description: Learn about how partitioning works in Azure Cosmos DB, how to configure partitioning and partition keys, and how to choose the right partition key for your application.
-author: markjbrown
-ms.author: mjbrown
+author: deborahc
+ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 04/28/2020
 
 ---
 
 # Partitioning and horizontal scaling in Azure Cosmos DB
 
-This article explains the difference between logical and physical partitions. It also discusses best practices for partitioning and gives an in-depth view at how horizontal scaling works in Azure Cosmos DB. It's not necessary to understand these internal details to [select your partition key](partitioning-overview.md#choose-partitionkey) but we have covered them so you have clarity for how Azure Cosmos DB works.
+This article explains the relationship between logical and physical partitions. It also discusses best practices for partitioning and gives an in-depth view at how horizontal scaling works in Azure Cosmos DB. It's not necessary to understand these internal details to [select your partition key](partitioning-overview.md#choose-partitionkey) but we have covered them so you have clarity for how Azure Cosmos DB works.
 
 ## Logical partitions
 
@@ -19,13 +19,11 @@ A logical partition consists of a set of items that have the same partition key.
 
 A logical partition also defines the scope of database transactions. You can update items within a logical partition by using a [transaction with snapshot isolation](database-transactions-optimistic-concurrency.md). When new items are added to a container, new logical partitions are transparently created by the system.
 
-In Azure Cosmos DB, a container is the fundamental unit of scalability. Data that's added to the container and the throughput that you provision on the container are automatically (horizontally) partitioned across a set of logical partitions. For more information, see [Create an Azure Cosmos container](how-to-create-container.md).
-
-There is no limit to the number of logical partitions in your container. Each logical partition can store up to 20GB of data. Good partition key choices have a wide range of possible values. For example, in a container where all items contain a `foodGroup`property, the data within the `Beef Products` logical partition can grow up to 20GB. Selecting a partition key with a wide range of possible values ensures that the container is able to scale.
+There is no limit to the number of logical partitions in your container. Each logical partition can store up to 20GB of data. Good partition key choices have a wide range of possible values. For example, in a container where all items contain a `foodGroup`property, the data within the `Beef Products` logical partition can grow up to 20GB. [Selecting a partition key](partitioning-overview.md#choose-partitionkey) with a wide range of possible values ensures that the container is able to scale.
 
 ## Physical partitions
 
-An Azure Cosmos container is scaled by distributing data and throughput across physical partitions. Internally, one or more logical partitions are mapped to a single physical partition. Most small Cosmos containers have many logical partitions but only require a single physical partition. Unlike logical partitions, physical partitions are an internal implementation of the system.
+An Azure Cosmos container is scaled by distributing data and throughput across physical partitions. Internally, one or more logical partitions are mapped to a single physical partition. Most small Cosmos containers have many logical partitions but only require a single physical partition. Unlike logical partitions, physical partitions are an internal implementation of the system and they are entirely managed by Azure Cosmos DB.
 
 The number of physical partitions in your Cosmos container depends on the following:
 
@@ -47,6 +45,8 @@ If we provision a throughput of 18,000 request units per second (RU/s), then eac
 ## Replica sets
 
 Each physical partition consists of a set of replicas, also referred to as a [*replica set*](global-dist-under-the-hood.md). Each replica set hosts an instance of the Azure Cosmos database engine. A replica set makes the data stored within the physical partition durable, highly available, and consistent. Each replica that makes up the physical partition inherits the partition's storage quota. All replicas of a physical partition collectively support the throughput that's allocated to the physical partition. Azure Cosmos DB automatically manages replica sets.
+
+Most small Cosmos containers only require a single physical partition but will still have at least 4 replicas.
 
 The following image shows how logical partitions are mapped to physical partitions that are distributed globally:
 
