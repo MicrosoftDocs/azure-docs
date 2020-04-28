@@ -2873,6 +2873,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/develop/quickstart-v2-javascipt-auth-code.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-v2-javascript-auth-code",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md",
       "redirect_url": "https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop",
       "redirect_document_id": false
@@ -6460,6 +6465,11 @@
     {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-regions.md",
       "redirect_url": "https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/saml-technical-profile.md",
+      "redirect_url": "/azure/active-directory-b2c/saml-identity-provider-technical-profile",
       "redirect_document_id": false
     },
     {
@@ -51949,6 +51959,11 @@
       "source_path": "articles/terraform/index.yml",
       "redirect_url": "/azure/developer/terraform/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-auditing-and-threat-detection-powershell.md",
+      "redirect_url": "/azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell",
+      "redirect_document_id": true
     }
  ]
 }

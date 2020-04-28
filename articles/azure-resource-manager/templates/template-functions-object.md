@@ -106,7 +106,7 @@ Determines if an array, object, or string is empty.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |array, object, or string |The value to check if it is empty. |
+| itemToTest |Yes |array, object, or string |The value to check if it's empty. |
 
 ### Return value
 
@@ -249,13 +249,21 @@ If you need to include a parameter value or variable in the JSON object, use the
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) shows how to use the json function with arrays and objects:
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) shows how to use the json function. Notice that you can either pass in a string that represents the object or use **null** when no value is needed.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "jsonObject1": {
+            "type": "string",
+            "defaultValue": "null"
+        },
+        "jsonObject2": {
+            "type": "string",
+            "defaultValue": "{\"a\": \"b\"}"
+        },
         "testValue": {
             "type": "string",
             "defaultValue": "demo value"
@@ -264,13 +272,13 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
     "resources": [
     ],
     "outputs": {
-        "jsonOutput": {
-            "type": "object",
-            "value": "[json('{\"a\": \"b\"}')]"
-        },
-        "nullOutput": {
+        "jsonOutput1": {
             "type": "bool",
-            "value": "[empty(json('null'))]"
+            "value": "[empty(json(parameters('jsonObject1')))]"
+        },
+        "jsonOutput2": {
+            "type": "object",
+            "value": "[json(parameters('jsonObject2'))]"
         },
         "paramOutput": {
             "type": "object",
@@ -284,8 +292,8 @@ The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| jsonOutput | Object | {"a": "b"} |
-| nullOutput | Boolean | True |
+| jsonOutput1 | Boolean | True |
+| jsonOutput2 | Object | {"a": "b"} |
 | paramOutput | Object | {"a": "demo value"}
 
 ## length
