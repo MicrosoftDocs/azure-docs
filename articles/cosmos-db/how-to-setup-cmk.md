@@ -86,7 +86,7 @@ When you create a new Azure Cosmos DB account with PowerShell:
 
 - Pass the URI of the Azure Key Vault key copied earlier under the **keyVaultKeyUri** property in **PropertyObject**.
 
-- Use **2019-12-12** as the API version.
+- Use **2019-12-12** or later as the API version.
 
 > [!IMPORTANT]
 > You must set the `locations` property explicitly for the account to be successfully created with customer-managed keys.
@@ -114,7 +114,8 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 After the account has been created, you can verify that customer-managed keys have been enabled by fetching the URI of the Azure Key Vault key:
 
 ```powershell
-Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName `
+    -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     | Select-Object -ExpandProperty Properties `
     | Select-Object -ExpandProperty keyVaultKeyUri
 ```
@@ -125,7 +126,7 @@ When you create a new Azure Cosmos account through an Azure Resource Manager tem
 
 - Pass the URI of the Azure Key Vault key that you copied earlier under the **keyVaultKeyUri** property in the **properties** object.
 
-- Use **2019-12-12** as the API version.
+- Use **2019-12-12** or later as the API version.
 
 > [!IMPORTANT]
 > You must set the `locations` property explicitly for the account to be successfully created with customer-managed keys.
