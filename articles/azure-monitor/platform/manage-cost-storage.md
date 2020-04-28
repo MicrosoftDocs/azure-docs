@@ -29,7 +29,7 @@ In this article we review how you can proactively monitor ingested data volume a
 
 The default pricing for Log Analytics is a **Pay-As-You-Go** model based on data volume ingested and optionally for longer data retention. Data volume is measured as the size of the data that will be stored. Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. The amount of data ingestion can be considerable depending on the following factors: 
 
-  - Number of management solutions enabled and their configuration (e.g. 
+  - Number of management solutions enabled and their configuration
   - Number of VMs monitored
   - Type of data collected from each monitored VM 
   
@@ -37,8 +37,13 @@ In addition to the Pay-As-You-Go model, Log Analytics has **Capacity Reservation
 
 In all pricing tiers, the data volume is calculated from a string representation of the data as it is prepared to be stored. Several [properties common to all data types](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) are not included in the calculation of the event size, including `_ResourceId`, `_ItemId`, `_IsBillable` and `_BilledSize`.
 
-Also, note that Some solutions, such as [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/) 
-and [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), have their own pricing model. 
+Also, note that some solutions, such as [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) and [Configuration management](https://azure.microsoft.com/en-us/pricing/details/automation/) have their own pricing models. 
+
+### Dedicated Clusters
+
+Azure Monitor Log Dedicated Clusters are collections of workspaces into a single managed Azure Data Explorer (ADX) cluster to support advanced scenarios such as [Customer-Managed Keys](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/customer-managed-keys).  Dedicated Clusters support only a Capacity Reservation pricing model starting at 1000 GB/day with a 25% discount compared to Pay-As-You-Go pricing. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The cluster Capacity Reservation has a 31-day commitment period after the reservation level is increased. During the commitment period the capacity reservation level cannot be reduced, but it can be increased at any time. Learn more about [creating a Dedicated Clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) and [associating workspaces to it](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
+
+Because the billing for ingested data is done at the cluster level, workspaces associated to a cluster no longer have a pricing tier. The ingested data quantities from each workspace associated to a cluster is aggregated to calculate the daily bill for the cluster. Note that per-node allocations from Azure Security Center are applied at the workspace level prior to this aggregation. Data retention is still billed at the workspace level.  
 
 ## Estimating the costs to manage your environment 
 
@@ -173,7 +178,7 @@ Soon after the daily limit is reached, the collection of billable data types sto
 
 ### Identify what daily data limit to define
 
-Review [Log Analytics Usage and estimated costs](usage-estimated-costs.md) to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won�t be able to monitor your resources after the limit is reached. 
+Review [Log Analytics Usage and estimated costs](usage-estimated-costs.md) to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won?t be able to monitor your resources after the limit is reached. 
 
 ### Set the Daily Cap
 
@@ -181,7 +186,7 @@ The following steps describe how to configure a limit to manage the volume of da
 
 1. From your workspace, select **Usage and estimated costs** from the left pane.
 2. On the **Usage and estimated costs** page for the selected workspace, click **Data volume management** from the top of the page. 
-3. Daily cap is **OFF** by default � click **ON** to enable it, and then set the data volume limit in GB/day.
+3. Daily cap is **OFF** by default ? click **ON** to enable it, and then set the data volume limit in GB/day.
 
     ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
@@ -242,7 +247,7 @@ union withsource = tt *
 ```
 
 > [!TIP]
-> Use these `union withsource = tt *` queries sparingly as scans across data types are expensive to execute. This query replaces the old way of querying per-computer information with the Usage data type.  
+> Use these `union withsource = tt *` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. This query replaces the old way of querying per-computer information with the Usage data type.  
 
 ## Understanding ingested data volume
 
@@ -451,7 +456,7 @@ To facilitate this assessment, the following query can be used to make a recomme
 ```kusto
 // Set these parameters before running query
 let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
-let PerNodePrice = 15.; // Enter your price per node / month 
+let PerNodePrice = 15.; // Enter your montly price per monitored nodes
 let PerGBPrice = 2.30; // Enter your price per GB 
 // ---------------------------------------
 let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
