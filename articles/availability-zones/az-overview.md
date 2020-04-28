@@ -92,55 +92,53 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure Cosmos DB | Automation | Azure Database for MariaDB |
 > | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Azure Dedicated HSM |
 > | Azure ExpressRoute | Azure Analysis Services | Azure Dev Spaces |
-> | Azure SQL Database | Azure Arc | Azure Digital Twins |
-> | Cloud Services | Azure Bastion | Azure Lab Services |
-> | Cloud Services: Av2-Series | Azure Cache for Redis | Azure NetApp Files |
-> | Cloud Services: Dv2-Series | Azure Cognitive Search | Azure Quantum |
-> | Cloud Services: Dv3-Series | Azure Data Explorer | Azure Time Series Insights |
-> | Cloud Services: Ev3-Series | Azure Data Share | Azure VMware Solution by CloudSimple |
-> | Cloud Services: G- Series | Azure Database for MySQL | Cloud Services: A8 - A11 (Compute Intensive) |
-> | Cloud Services: H- Series | Azure Database for PostgreSQL | Cloud Services: G-Series |
-> | Cloud Services: Instance Level IPs | Azure Database Migration Service | Cloud Services: H-Series |
-> | Cloud Services: M-Series | Azure Databricks | Cognitive Services: Anomaly Detector |
-> | Cloud Services: Reserved IP | Azure DDoS Protection | Cognitive Services : Custom Vision |
-> | Disk Storage | Azure DevTest Labs | Cognitive Services : Speaker Recognition |
-> | Event Hubs | Azure Firewall Manager | Data Box Heavy |
-> | Key Vault | Azure Firewall | Data Catalog |
-> | Load balancer | Azure Functions | Data Factory : Data Factory V1 |
-> | Service Bus | Azure HPC Cache | Data Lake Analytics |
-> | Service Fabric | Azure IoT Hub | Machine Learning Studio |
-> | Virtual Machine Scale Sets | Azure Kubernetes Service (AKS) | Microsoft Genomics |
-> | Virtual Machines | Azure Machine Learning | Remote Rendering |
-> | Virtual Machines: Av2-Series | Azure Private Link | Spatial Anchors |
-> | Virtual Machines: Bs-Series | Azure Red Hat OpenShift | StorSimple |
-> | Virtual Machines: DSv2-Series | Azure Site Recovery | Video Indexer |
-> | Virtual Machines: DSv3-Series | Azure Spring Cloud Service | Virtual Machines: A8 - A11 (Compute Intensive) |
-> | Virtual Machines: Dv2-Series | Azure Stack Hub | Virtual Machines: DASv4-Series |
-> | Virtual Machines: Dv3-Series | Azure Stream Analytics | Virtual Machines: DAv4-Series |
-> | Virtual Machines: ESv3-Series | Azure Stream Analytics | Virtual Machines: DCsv2-series |
-> | Virtual Machines: Ev3-Series | Azure Synapse Analytics | Virtual Machines: EASv4-Series |
-> | Virtual Machines: F-Series | Azure SignalR Service | Virtual Machines: EAv4-Series |
-> | Virtual Machines: FS-Series | Batch | Virtual Machines: G-Series |
-> | Virtual Machines: Instance Level IPs | Cloud Services: M-series | Virtual Machines: GS-Series |
-> | Virtual Machines: Reserved IP | Cognitive Services | Virtual Machines: HBv1-Series |
-> | Virtual Network | Cognitive Services: Computer Vision | Virtual Machines: HBv2-Series |
-> | VPN Gateway | Cognitive Services: Content Moderator | Virtual Machines: HCv1-Series |
-> |  | Cognitive Services: Face | Virtual Machines: H-Series |
-> |  | Cognitive Services: Language Understanding | Virtual Machines: LS-Series |
-> |  | Cognitive Services: Speech Services | Virtual Machines: LSv2-Series |
-> |  | Cognitive Services: QnA Maker | Virtual Machines: Mv2 -series |
-> |  | Container Instances | Virtual Machines: NC-Series |
-> |  | Container Registry | Virtual Machines: NCv2-Series |
-> |  | Data Factory | Virtual Machines: NCv3-Series |
-> |  | Event Grid | Virtual Machines: NDs-Series |
-> |  | HDInsight | Virtual Machines: NDv2-Series |
-> |  | Logic Apps | Virtual Machines: NV-Series |
-> |  | Media Services | Virtual Machines: NVv3-Series |
-> |  | Network Watcher | Virtual Machines: NVv4-Series |
-> |  | Notification Hubs | Virtual Machines: SAP HANA on Azure Large Instances |
-> |  | Power BI Embedded | Visual Studio App Center |
-> |  | Premium Blob Storage |  |
-> |  | Premium Files Storage |  |
+> | Azure SQL Database | Azure Bastion | Azure Digital Twins |
+> | Cloud Services | Azure Cache for Redis | Azure Lab Services |
+> | Cloud Services: Av2-Series | Azure Cognitive Search | Azure NetApp Files |
+> | Cloud Services: Dv2-Series | Azure Data Explorer | Azure Quantum |
+> | Cloud Services: Dv3-Series | Azure Data Share | Azure Time Series Insights |
+> | Cloud Services: Ev3-Series | Azure Database for MySQL | Azure VMware Solution by CloudSimple |
+> | Cloud Services: Instance Level IPs | Azure Database for PostgreSQL | Cloud Services: A8 - A11 (Compute Intensive) |
+> | Cloud Services: Reserved IP | Azure Database Migration Service | Cloud Services: G-Series |
+> | Disk Storage | Azure Databricks | Cloud Services: H-Series |
+> | Event Hubs | Azure DDoS Protection | Cognitive Services: Anomaly Detector |
+> | Key Vault | Azure DevTest Labs | Cognitive Services : Custom Vision |
+> | Load balancer | Azure Firewall Manager | Cognitive Services : Speaker Recognition |
+> | Service Bus | Azure Firewall | Data Box Heavy |
+> | Service Fabric | Azure Functions | Data Catalog |
+> | Virtual Machine Scale Sets | Azure HPC Cache | Data Factory : Data Factory V1 |
+> | Virtual Machines | Azure IoT Hub | Data Lake Analytics |
+> | Virtual Machines: Av2-Series | Azure Kubernetes Service (AKS) | Machine Learning Studio |
+> | Virtual Machines: Bs-Series | Azure Machine Learning | Microsoft Genomics |
+> | Virtual Machines: DSv2-Series | Azure Private Link | Remote Rendering |
+> | Virtual Machines: DSv3-Series | Azure Red Hat OpenShift | Spatial Anchors |
+> | Virtual Machines: Dv2-Series | Azure Site Recovery | StorSimple |
+> | Virtual Machines: Dv3-Series | Azure Spring Cloud Service | Video Indexer |
+> | Virtual Machines: ESv3-Series | Azure Stack Hub | Virtual Machines: A8 - A11 (Compute Intensive) |
+> | Virtual Machines: Ev3-Series | Azure Stream Analytics | Virtual Machines: DASv4-Series |
+> | Virtual Machines: F-Series | Azure Synapse Analytics | Virtual Machines: DAv4-Series |
+> | Virtual Machines: FS-Series | Azure SignalR Service | Virtual Machines: DCsv2-series |
+> | Virtual Machines: Instance Level IPs | Batch | Virtual Machines: EASv4-Series |
+> | Virtual Machines: Reserved IP | Cloud Services: M-series | Virtual Machines: EAv4-Series |
+> | Virtual Network | Cognitive Services | Virtual Machines: G-Series |
+> | VPN Gateway | Cognitive Services: Computer Vision | Virtual Machines: GS-Series |
+> |  | Cognitive Services: Content Moderator | Virtual Machines: HBv1-Series |
+> |  | Cognitive Services: Face | Virtual Machines: HBv2-Series |
+> |  | Cognitive Services: Language Understanding | Virtual Machines: HCv1-Series |
+> |  | Cognitive Services: Speech Services | Virtual Machines: H-Series |
+> |  | Cognitive Services: QnA Maker | Virtual Machines: LS-Series |
+> |  | Container Instances | Virtual Machines: LSv2-Series |
+> |  | Container Registry | Virtual Machines: Mv2 -series |
+> |  | Data Factory | Virtual Machines: NC-Series |
+> |  | Event Grid | Virtual Machines: NCv2-Series |
+> |  | HDInsight | Virtual Machines: NCv3-Series |
+> |  | Logic Apps | Virtual Machines: NDs-Series |
+> |  | Media Services | Virtual Machines: NDv2-Series |
+> |  | Network Watcher | Virtual Machines: NV-Series |
+> |  | Notification Hubs | Virtual Machines: NVv3-Series |
+> |  | Power BI Embedded | Virtual Machines: NVv4-Series |
+> |  | Premium Blob Storage | Virtual Machines: SAP HANA on Azure Large Instances |
+> |  | Premium Files Storage | Visual Studio App Center |
 > |  | Storage: Archive Storage |  |
 > |  | Ultra Disk Storage |  |
 > |  | Virtual Machines: Fsv2-Series |  |
