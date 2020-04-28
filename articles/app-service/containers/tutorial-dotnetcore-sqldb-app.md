@@ -95,23 +95,23 @@ az sql server create --name <server-name> --resource-group myResourceGroup --loc
 
 When the SQL Database logical server is created, the Azure CLI shows information similar to the following example:
 
-```json
+<pre>
 {
   "administratorLogin": "sqladmin",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<server-name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/<server-name>",
+  "fullyQualifiedDomainName": "&lt;server-name&gt;.database.windows.net",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/&lt;server-name&gt;",
   "identity": null,
   "kind": "v12.0",
   "location": "westeurope",
-  "name": "<server-name>",
+  "name": "&lt;server-name&gt;",
   "resourceGroup": "myResourceGroup",
   "state": "Ready",
   "tags": null,
   "type": "Microsoft.Sql/servers",
   "version": "12.0"
 }
-```
+</pre>
 
 ### Configure a server firewall rule
 
@@ -218,7 +218,7 @@ git commit -m "connect to SQLDB in Azure"
 
 [!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-```bash
+<pre>
 Counting objects: 98, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (92/92), done.
@@ -240,9 +240,9 @@ remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
-To https://<app-name>.scm.azurewebsites.net/<app-name>.git
+To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
  * [new branch]      master -> master
-```
+</pre>
 
 ### Browse to the Azure app
 

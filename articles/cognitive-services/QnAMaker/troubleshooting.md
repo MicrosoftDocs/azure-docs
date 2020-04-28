@@ -2,7 +2,7 @@
 title: Troubleshooting - QnA Maker
 description: The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 ms.topic: troubleshooting
-ms.date: 02/21/2020
+ms.date: 03/25/2020
 ms.author: diberry
 ---
 # Troubleshooting for QnA Maker
@@ -11,11 +11,22 @@ The curated list of the most frequently asked questions regarding the QnA Maker 
 
 <a name="how-to-get-the-qnamaker-service-hostname"></a>
 
+## Manage predictions
+
+<details>
+<summary><b>How can I improve the throughput performance for query predictions?</b></summary>
+
+**Answer**:
+Throughput performance issues indicate you need to scale up for both your App service and your Cognitive Search. Consider adding a replica to your Cognitive Search to improve performance.
+
+Learn more about [pricing tiers](Concepts/azure-resources.md).
+</details>
+
 <details>
 <summary><b>How to get the QnAMaker service endpoint</b></summary>
 
 **Answer**:
-QnAMaker service endpoint is useful for debugging purposes when you contact QnAMaker Support or UserVoice. The endpoint is a URL in this form: https://your-resource-name.azurewebsites.net.
+QnAMaker service endpoint is useful for debugging purposes when you contact QnAMaker Support or UserVoice. The endpoint is a URL in this form: `https://your-resource-name.azurewebsites.net`.
 
 1. Go to your QnAMaker service (resource group) in the [Azure portal](https://portal.azure.com)
 
@@ -137,7 +148,7 @@ Every edit operation, whether in a table update, test, or setting, needs to be s
 * Files - not supported
 
 #### Answer text in markdown
-Once QnA sets are in the knowledge base, you can edit an answer's markdown text to include links to media available from public URLs.
+Once QnA pairs are in the knowledge base, you can edit an answer's markdown text to include links to media available from public URLs.
 
 
 </details>

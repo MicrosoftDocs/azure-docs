@@ -6,15 +6,22 @@
  ms.author: sngun
  ms.service: cosmos-db
  ms.topic: include
- ms.date: 04/08/2019
+ ms.date: 04/10/2020
  ms.custom: include file
 ---
 
-1. Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB account. Search for and select **Azure Cosmos DB**.
+1. Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB account. At your homepage choose **Create a resource** from the **Azure services** panel.
 
-   ![The Azure portal Databases pane](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+   ![Create a resource](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-resource-1.png)
 
-1. Select **Add**.
+1. Search for and select **Azure Cosmos DB**.
+
+   ![The Azure portal resources drop-down](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-updated-1.png)
+
+1. Select **Create**.
+
+   ![Create Azure Cosmos DB resource](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-account-1.png)
+
 1. On the **Create Azure Cosmos DB Account** page, enter the basic settings for the new Azure Cosmos account. 
 
     |Setting|Value|Description |
@@ -28,8 +35,8 @@
     |Account Type|Production or Non-Production|Select **Production** if the account will be used for a production workload. Select **Non-Production** if the account will be used for non-production, e.g. development, testing, QA, or staging. This is an Azure resource tag setting that tunes the Portal experience but does not affect the underlying Azure Cosmos DB account. You can change this value anytime.|
 
 
-> [!NOTE]
-> You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
+    > [!NOTE]
+    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
    
    ![The new account page for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account-detail.png)
 

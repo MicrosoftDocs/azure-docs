@@ -1,58 +1,60 @@
 ---
-title: Upload a VHD using the Azure CLI
-description: Learn how to upload a vhd to an Azure managed disk and copy a managed disk across regions, using the Azure CLI, via direct upload.
+title: Upload a VHD to Azure or copy a disk across regions - Azure CLI
+description: Learn how to upload a VHD to an Azure managed disk and copy a managed disk across regions, using the Azure CLI, via direct upload.
 services: "virtual-machines,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 03/13/2020
+ms.date: 03/27/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: disks
 ---
 
-# Upload a vhd to Azure using Azure CLI
+# Upload a VHD to Azure or copy a managed disk to another region - Azure CLI
 
-This article explains how to upload a vhd from your local machine to an Azure managed disk. Previously, you had to follow a more involved process that included staging your data in a storage account, and managing that storage account. Now, you no longer need to manage a storage account, or stage data in it to upload a vhd. Instead, you create an empty managed disk, and upload a vhd directly to it. This simplifies uploading on-premises VMs to Azure and enables you to upload a vhd up to 32 TiB directly into a large managed disk.
-
-If you are providing a backup solution for IaaS VMs in Azure, we recommend you use direct upload to restore customer backups to managed disks. If you are uploading a VHD from a machine external to Azure, speeds will depend on your local bandwidth. If you are using an Azure VM, then your bandwidth will be the same as standard HDDs.
-
-Currently, direct upload is supported for standard HDD, standard SSD, and premium SSD managed disks. It is not yet supported for ultra SSDs.
+[!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
 ## Prerequisites
 
 - Download the latest [version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
-- A vhd file, stored locally
-- If you intend to upload a vhd from on-premises: A fixed size vhd that [has been prepared for Azure](../windows/prepare-for-upload-vhd-image.md), stored locally.
+- If you intend to upload a VHD from on-premises: A fixed size VHD that [has been prepared for Azure](../windows/prepare-for-upload-vhd-image.md), stored locally.
 - Or, a managed disk in Azure, if you intend to perform a copy action.
 
-## Create an empty managed disk
+## Getting started
 
-To upload your vhd to Azure, you'll need to create an empty managed disk that is configured for this upload process. Before you create one, there's some additional information you should know about these disks.
+If you'd prefer to upload disks through a GUI, you can do so using Azure Storage Explorer. For details refer to: [Use Azure Storage Explorer to manage Azure managed disks](disks-use-storage-explorer-managed-disks.md)
+
+To upload your VHD to Azure, you'll need to create an empty managed disk that is configured for this upload process. Before you create one, there's some additional information you should know about these disks.
 
 This kind of managed disk has two unique states:
 
 - ReadToUpload, which means the disk is ready to receive an upload but, no [secure access signature](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) has been generated.
 - ActiveUpload, which means that the disk is ready to receive an upload and the SAS has been generated.
 
-While in either of these states, the managed disk will be billed at [standard HDD pricing](https://azure.microsoft.com/pricing/details/managed-disks/), regardless of the actual type of disk. For example, a P10 will be billed as an S10. This will be true until `revoke-access` is called on the managed disk, which is required in order to attach the disk to a VM.
+> [!NOTE]
+> While in either of these states, the managed disk will be billed at [standard HDD pricing](https://azure.microsoft.com/pricing/details/managed-disks/), regardless of the actual type of disk. For example, a P10 will be billed as an S10. This will be true until `revoke-access` is called on the managed disk, which is required in order to attach the disk to a VM.
 
-Before you can create an empty standard HDD for uploading, you'll need to have the file size of the vhd you want to upload, in bytes. To get that, you can use either `wc -c <yourFileName>.vhd` or `ls -al <yourFileName>.vhd`. This value is used when specifying the **--upload-size-bytes** parameter.
+## Create an empty managed disk
+
+Before you can create an empty standard HDD for uploading, you'll need the file size of the VHD you want to upload, in bytes. To get that, you can use either `wc -c <yourFileName>.vhd` or `ls -al <yourFileName>.vhd`. This value is used when specifying the **--upload-size-bytes** parameter.
 
 Create an empty standard HDD for uploading by specifying both the **-–for-upload** parameter and the **--upload-size-bytes** parameter in a [disk create](/cli/azure/disk#az-disk-create) cmdlet:
 
+Replace `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` with values of your choosing. The `--upload-size-bytes` parameter contains an example value of `34359738880`, replace it with a value appropriate for you.
+
 ```azurecli
-az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
+az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
-If you would like to upload either a premium SSD or a standard SSD, replace **standard_lrs** with either **premium_LRS** or **standardssd_lrs**. Ultra SSD is not yet supported.
+If you would like to upload either a premium SSD or a standard SSD, replace **standard_lrs** with either **premium_LRS** or **standardssd_lrs**. Ultra disks are not supported for now.
 
-You have now created an empty managed disk that is configured for the upload process. To upload a vhd to the disk, you'll need a writeable SAS, so that you can reference it as the destination for your upload.
+Now that you've created an empty managed disk that is configured for the upload process, you can upload a VHD to it. To upload a VHD to the disk, you'll need a writeable SAS, so that you can reference it as the destination for your upload.
 
-To generate a writable SAS of your empty managed disk, use the following command:
+To generate a writable SAS of your empty managed disk, replace `<yourdiskname>`and `<yourresourcegroupname>`, then use the following command:
 
 ```azurecli
-az disk grant-access -n mydiskname -g resourcegroupname --access-level Write --duration-in-seconds 86400
+az disk grant-access -n <yourdiskname> -g <yourresourcegroupname> --access-level Write --duration-in-seconds 86400
 ```
 
 Sample returned value:
@@ -63,7 +65,7 @@ Sample returned value:
 }
 ```
 
-## Upload vhd
+## Upload a VHD
 
 Now that you have a SAS for your empty managed disk, you can use it to set your managed disk as the destination for your upload command.
 
@@ -77,8 +79,10 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 
 After the upload is complete, and you no longer need to write any more data to the disk, revoke the SAS. Revoking the SAS will change the state of the managed disk and allow you to attach the disk to a VM.
 
+Replace `<yourdiskname>`and `<yourresourcegroupname>`, then use the following command to make the disk usable:
+
 ```azurecli
-az disk revoke-access -n mydiskname -g resourcegroupname
+az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
 ```
 
 ## Copy a managed disk
@@ -116,5 +120,5 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 ## Next steps
 
-Now that you've successfully uploaded a vhd to a managed disk, you can attach the disk as a [data disk to an existing VM](add-disk.md) or [attach the disk to a VM as an OS disk](upload-vhd.md#create-the-vm), to create a new VM. 
+Now that you've successfully uploaded a VHD to a managed disk, you can attach the disk as a [data disk to an existing VM](add-disk.md) or [attach the disk to a VM as an OS disk](upload-vhd.md#create-the-vm), to create a new VM. 
 

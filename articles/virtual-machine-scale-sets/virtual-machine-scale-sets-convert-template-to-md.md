@@ -2,13 +2,13 @@
 title: Convert a scale set template to use managed disk
 description: Convert an Azure Resource Manager virtual machine scale set template to a managed disk scale set template.
 keywords: virtual machine scale sets
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: bc8c377a-8c3f-45b8-8b2d-acc2d6d0b1e8
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 5/18/2017
-ms.author: manayar
+ms.author: mimckitt
 
 ---
 

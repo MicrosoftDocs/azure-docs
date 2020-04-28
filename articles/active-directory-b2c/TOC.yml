@@ -233,18 +233,16 @@
         href: direct-signin.md
     - name: Add your own business logic
       items:
+      - name: Integrate REST API
+        href: custom-policy-rest-api-intro.md
       - name: Validate user input
         href: custom-policy-rest-api-claims-validation.md
         displayName: rest claims validation, validate
       - name: Obtain additional claims
         href: custom-policy-rest-api-claims-exchange.md
         displayName: rest claims exchange
-      - name: Add your own RESTful API
-        href: rest-api-claims-exchange-dotnet.md
-      - name: Secure RESTful APIs with basic auth
-        href: secure-rest-api-dotnet-basic-auth.md
-      - name: Secure RESTful APIs with certificate auth
-        href: secure-rest-api-dotnet-certificate-auth.md
+      - name: Secure REST API
+        href: secure-rest-api.md
     - name: Define custom attributes
       href: custom-policy-custom-attributes.md
     - name: Troubleshooting
@@ -406,7 +404,7 @@
     href: error-codes.md
   - name: Extensions app
     href: extensions-app.md
-  - name: Identity Experience Framework release notes
+  - name: IEF release notes
     href: custom-policy-developer-notes.md
   - name: Microsoft Graph API operations
     href: microsoft-graph-operations.md

@@ -13,7 +13,7 @@ ms.date: 04/04/2019
 
 We recommend using Application Insights because it collects log, performance, and error data. It automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. It's designed to help you continuously improve performance and usability. You can even use Application Insights during local function app project development. For more information, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
-As the required Application Insights instrumentation is built into Azure Functions, all you need is a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key should be added to your application settings when your function app resource is created in Azure. If your function app doesn't already this key, you can [set it manually](#enable-application-insights-integration).  
+As the required Application Insights instrumentation is built into Azure Functions, all you need is a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key should be added to your application settings when your function app resource is created in Azure. If your function app doesn't already have this key, you can [set it manually](#enable-application-insights-integration).  
 
 ## Application Insights pricing and limits
 
@@ -440,6 +440,8 @@ namespace functionapp0915
 }
 ```
 
+[GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) is the currently recommended API for creating a metric.
+
 ### Version 1.x
 
 ```cs
@@ -527,7 +529,9 @@ Don't set `telemetryClient.Context.Operation.Id`. This global setting causes inc
 
 ## Log custom telemetry in JavaScript functions
 
-Here is a sample code snippet that sends custom telemetry with the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js):
+Here are sample code snippets that sends custom telemetry with the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js):
+
+### Version 2.x and later
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -537,12 +541,39 @@ const client = appInsights.defaultClient;
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
-    client.trackEvent({name: "my custom event", tagOverrides:{"ai.operation.id": context.invocationId}, properties: {customProperty2: "custom property value"}});
-    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:{"ai.operation.id": context.invocationId}});
-    client.trackMetric({name: "custom metric", value: 3, tagOverrides:{"ai.operation.id": context.invocationId}});
-    client.trackTrace({message: "trace message", tagOverrides:{"ai.operation.id": context.invocationId}});
-    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:{"ai.operation.id": context.invocationId}});
-    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:{"ai.operation.id": context.invocationId}});
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+### Version 1.x
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.operationId};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
 
     context.done();
 };

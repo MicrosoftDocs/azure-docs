@@ -43,7 +43,7 @@ By combining these two tools, Security Center becomes your single pane of glass 
     * The server has a workspace to report to and an associated subscription.
     * Security Center's standard tier Log Analytics solution is enabled on the workspace. This solution provides Security Center's Standard tier features for *all* servers and virtual machines reporting to this workspace.
     * Security Center's standard tier pricing for Virtual Machine is enabled on the subscription.
-    * The Microsoft Monitoring Agent (MMA) is installed on the server and configured to report to the selected workspace. If the server already reports to another workspace, it's configured to report to the newly selected workspace as well.
+    * The Log Analytics agent is installed on the server and configured to report to the selected workspace. If the server already reports to another workspace, it's configured to report to the newly selected workspace as well.
 
     > [!NOTE]
     > It may take some time after onboarding for recommendations to appear. In fact, depending on on your server activity you may not receive *any* alerts. To generate test alerts to test your alerts are working correctly, follow the instructions in [the alert validation procedure](security-center-alert-validation.md).

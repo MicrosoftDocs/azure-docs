@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 10/14/2019
+ms.date: 04/02/2020
 ---
 
 # High-availability and Azure SQL Database
@@ -28,7 +28,7 @@ Azure SQL Database runs on the latest stable version of SQL Server Database Engi
 
 ## Basic, Standard, and General Purpose service tier availability
 
-These service tiers leverage the standard availability architecture. The following figure shows four different nodes with the separated compute and storage layers.
+The Basic, Standard, and General Purpose service tiers leverage the standard availability architecture for both serverless and provisioned compute. The following figure shows four different nodes with the separated compute and storage layers.
 
 ![Separation of compute and storage](media/sql-database-high-availability/general-purpose-service-tier.png)
 

@@ -1,12 +1,12 @@
 ---
 title: Automatic OS image upgrades with Azure virtual machine scale sets
 description: Learn how to automatically upgrade the OS image on VM instances in a scale set
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 03/18/2020
-ms.author: manayar
+ms.date: 04/14/2020
+ms.author: mimckitt
 
 ---
 # Azure virtual machine scale set automatic OS image upgrades
@@ -30,7 +30,7 @@ An upgrade works by replacing the OS disk of a VM with a new disk created using 
 
 The upgrade process works as follows:
 1. Before beginning the upgrade process, the orchestrator will ensure that no more than 20% of instances in the entire scale set are unhealthy (for any reason).
-2. The upgrade orchestrator identifies the batch of VM instances to upgrade, with any one batch having a maximum of 20% of the total instance count. For smaller scale sets with 5 or fewer instances, the batch size for an upgrade is one virtual machine instance.
+2. The upgrade orchestrator identifies the batch of VM instances to upgrade, with any one batch having a maximum of 20% of the total instance count, subject to a minimum batch size of one virtual machine.
 3. The OS disk of the selected batch of VM instances is replaced with a new OS disk created from the latest image. All specified extensions and configurations in the scale set model are applied to the upgraded instance.
 4. For scale sets with configured application health probes or Application Health extension, the upgrade waits up to 5 minutes for the instance to become healthy, before moving on to upgrade the next batch. If an instance does not recover its health in 5 minutes after an upgrade, then by default the previous OS disk for the instance is restored.
 5. The upgrade orchestrator also tracks the percentage of instances that become unhealthy post an upgrade. The upgrade will stop if more than 20% of upgraded instances become unhealthy during the upgrade process.
@@ -104,7 +104,7 @@ GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/M
 Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
 
 ```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-10-01`
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-12-01`
 ```
 
 ### Azure PowerShell
@@ -153,7 +153,7 @@ az provider register --namespace Microsoft.Compute
 - The new image version should not be excluded from the latest version for that gallery image. Image versions excluded from the gallery image's latest version are not rolled out to the scale set through automatic OS image upgrade.
 
 > [!NOTE]
->It can take up to 2 hours for a scale set to get the first image rollout after the scale set is configured for automatic OS upgrades. This is a one-time delay per scale set. Subsequent image rollouts are applied to the scale set without this delay.
+>It can take up to 3 hours for a scale set to trigger the first image upgrade rollout after the scale set is configured for automatic OS upgrades. This is a one-time delay per scale set. Subsequent image rollouts are triggered on the scale set within 30 minutes.
 
 
 ## Configure automatic OS image upgrade
@@ -163,7 +163,7 @@ To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePoli
 The following example describes how to set automatic OS upgrades on a scale set model:
 
 ```
-PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2018-10-01`
+PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2019-12-01`
 ```
 
 ```json
@@ -242,7 +242,7 @@ You can check the history of the most recent OS upgrade performed on your scale 
 The following example uses [REST API](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) to check the status for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
 
 ```
-GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2018-10-01`
+GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2019-12-01`
 ```
 
 The GET call returns properties similar to the following example output:
@@ -302,7 +302,7 @@ You can get the available image versions for automatic OS upgrade supported SKUs
 
 ### REST API
 ```
-GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2018-10-01`
+GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2019-12-01`
 ```
 
 ### Azure PowerShell
@@ -327,7 +327,7 @@ For specific cases where you do not want to wait for the orchestrator to apply t
 Use the [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) API call to start a rolling upgrade to move all virtual machine scale set instances to the latest available image OS version. Instances that are already running the latest available OS version are not affected. The following example details how you can start a rolling OS upgrade on a scale set named *myScaleSet* in the resource group named *myResourceGroup*:
 
 ```
-POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2018-10-01`
+POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2019-12-01`
 ```
 
 ### Azure PowerShell

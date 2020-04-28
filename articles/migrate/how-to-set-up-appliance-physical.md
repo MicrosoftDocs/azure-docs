@@ -1,11 +1,9 @@
 ---
 title: Set up an Azure Migrate appliance for physical servers
 description: Learn how to set up an Azure Migrate appliance for physical server assessment.
-author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/19/2019
-ms.author: raynew
+ms.date: 04/15/2020
 ---
 
 
@@ -45,11 +43,24 @@ Download the zipped file for the appliance.
 Check that the zipped file is secure, before you deploy it.
 
 1. On the machine to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the VHD
+2. Run the following command to generate the hash for the zipped file:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  For the latest appliance version, the generated hash should match these [settings](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security).
+    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+3.  Verify hash values:
+ 
+    - For the public cloud (for the latest appliance version):
 
+        **Algorithm** | **Hash value**
+          --- | ---
+          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+
+    - For Azure government (for the latest appliance version):
+
+        **Algorithm** | **Hash value**
+          --- | ---
+          MD5 | f81c155fc4a1409901caea948713913f
 
 
 ## Run the Azure Migrate installer script
@@ -65,23 +76,23 @@ The installer script does the following:
 
 Run the script as follows:
 
-1. Extract the zipped file to a folder on the server that will host the appliance.
+1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a machine on an existing Azure Migrate appliance.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
-    ```
-    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
-    ```
-The script will launch the appliance web application when it finishes successfully.
 
-In case of any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+    - For the public cloud: ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
+    - For Azure Government: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 
-> [!NOTE]
-> Please do not execute the Azure Migrate installer script on an existing Azure Migrate appliance.
+    The script will launch the appliance web application when it finishes successfully.
+
+If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+
+
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to the required [Azure URLs](migrate-appliance.md#url-access).
+Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
 ## Configure the appliance
 
@@ -116,7 +127,7 @@ Set up the appliance for the first time.
 Connect from the appliance to physical servers, and start the discovery.
 
 1. Click **Add Credentials** to specify the account credentials that the appliance will use to discover servers.  
-2. Specify the **Operating System**,  friendly name for the credentials, **Username** and **Password** and click **Add**.
+2. Specify the **Operating System**,  a friendly name for the credentials, and the username and password. Then click **Add**.
 You can add one set of credentials each for Windows and Linux servers.
 4. Click **Add server**, and specify server details- FQDN/IP address and friendly name of credentials (one entry per row) to connect to the server.
 3. Click **Validate**. After validation, the list of servers that can be discovered is shown.

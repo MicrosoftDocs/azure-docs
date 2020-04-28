@@ -2,11 +2,11 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/27/2020
 ---
-# Azure Resource Manager template functions
+# ARM template functions
 
-This article describes all the functions you can use in an Azure Resource Manager template. For information about using functions in your template, see [template syntax](template-expressions.md).
+This article describes all the functions you can use in an Azure Resource Manager (ARM) template. For information about using functions in your template, see [template syntax](template-expressions.md).
 
 To create your own functions, see [User-defined functions](template-syntax.md#functions).
 
@@ -20,7 +20,6 @@ Most functions work the same when deployed to a resource group, subscription, ma
 <a id="empty" aria-hidden="true" />
 <a id="first" aria-hidden="true" />
 <a id="intersection" aria-hidden="true" />
-<a id="json" aria-hidden="true" />
 <a id="last" aria-hidden="true" />
 <a id="length" aria-hidden="true" />
 <a id="min" aria-hidden="true" />
@@ -30,19 +29,17 @@ Most functions work the same when deployed to a resource group, subscription, ma
 <a id="take" aria-hidden="true" />
 <a id="union" aria-hidden="true" />
 
-## Array and object functions
+## Array functions
 
-Resource Manager provides several functions for working with arrays and objects.
+Resource Manager provides several functions for working with arrays.
 
 * [array](template-functions-array.md#array)
-* [coalesce](template-functions-array.md#coalesce)
 * [concat](template-functions-array.md#concat)
 * [contains](template-functions-array.md#contains)
 * [createArray](template-functions-array.md#createarray)
 * [empty](template-functions-array.md#empty)
 * [first](template-functions-array.md#first)
 * [intersection](template-functions-array.md#intersection)
-* [json](template-functions-array.md#json)
 * [last](template-functions-array.md#last)
 * [length](template-functions-array.md#length)
 * [min](template-functions-array.md#min)
@@ -71,6 +68,13 @@ Resource Manager provides several functions for making comparisons in your templ
 <a id="deployment" aria-hidden="true" />
 <a id="parameters" aria-hidden="true" />
 <a id="variables" aria-hidden="true" />
+
+## Date functions
+
+Resource Manager provides the following functions for working with dates.
+
+* [dateTimeAdd](template-functions-date.md#datetimeadd)
+* [utcNow](template-functions-date.md#utcnow)
 
 ## Deployment value functions
 
@@ -122,6 +126,19 @@ Resource Manager provides the following functions for working with integers:
 * [mod](template-functions-numeric.md#mod)
 * [mul](template-functions-numeric.md#mul)
 * [sub](template-functions-numeric.md#sub)
+
+<a id="json" aria-hidden="true" />
+
+## Object functions
+
+Resource Manager provides several functions for working with objects.
+
+* [contains](template-functions-object.md#contains)
+* [empty](template-functions-object.md#empty)
+* [intersection](template-functions-object.md#intersection)
+* [json](template-functions-object.md#json)
+* [length](template-functions-object.md#length)
+* [union](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true" />
 <a id="listkeys" aria-hidden="true" />
@@ -218,11 +235,10 @@ Resource Manager provides the following functions for working with strings:
 * [uri](template-functions-string.md#uri)
 * [uriComponent](template-functions-string.md#uricomponent)
 * [uriComponentToString](template-functions-string.md#uricomponenttostring)
-* [utcNow](template-functions-string.md#utcnow)
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md)
+* For a description of the sections in an ARM template, see [Authoring ARM templates](template-syntax.md)
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md)
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md)
+* To see how to deploy the template you've created, see [Deploy an application with ARM templates](deploy-powershell.md)

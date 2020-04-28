@@ -34,7 +34,7 @@ token=$(az account get-access-token --resource=https://<FHIR ACCOUNT NAME>.azure
 
 ## Use with Azure API for FHIR
 
-```azurecli-interactive
+```console
 curl -X GET --header "Authorization: Bearer $token" https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com/Patient
 ```
 

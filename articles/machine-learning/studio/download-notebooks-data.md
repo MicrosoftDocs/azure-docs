@@ -8,12 +8,12 @@ ms.topic: how-to
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 03/12/2020
+ms.date: 04/15/2020
 ---
 
 # Download Notebooks(preview) data
 
-The Notebooks(preview) feature will be removed on *April 13 2020*. After that date, the Notebooks(preview) tab will disappear and the notebooks data cannot be restored. Download your notebooks data before April 13 2020.
+The Notebooks(preview) feature was removed on *April 13 2020*. The removal of the Notebooks(preview) tab and user notebook files is currently rolling out to Azure regions worldwide.
 
 This article provides step-by-step instructions on how to download Notebooks(preview) data.
 

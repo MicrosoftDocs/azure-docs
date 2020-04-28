@@ -67,8 +67,8 @@ To install the Az or AzureRM module on PowerShell 5.1, perform the following ste
 
 1. Type **powershell** from an elevated command prompt and hit enter.
 2. Install the latest Az or AzureRM module by following the documentation:
-	- [Az module (requires .NET 4.7.2)](https://go.microsoft.com/fwlink/?linkid=2062890)
-	- [AzureRM module]( https://go.microsoft.com/fwlink/?linkid=856959)
+    - [Az module (requires .NET 4.7.2)](https://go.microsoft.com/fwlink/?linkid=2062890)
+    - [AzureRM module]( https://go.microsoft.com/fwlink/?linkid=856959)
 3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
 
 <a id="server-already-registered"></a>**Server Registration displays the following message: "This server is already registered"** 
@@ -146,8 +146,8 @@ This error occurs because Azure File Sync does not support server endpoints on v
 1. Download [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) tool.
 2. Run the following command from an elevated command prompt to launch a command prompt running under the system account: **PsExec.exe -i -s -d cmd**
 3. From the command prompt running under the system account, type the following commands and hit enter:   
-	**cd /d "drive letter:\System Volume Information"**  
-	**compact /u /s**
+    **cd /d "drive letter:\System Volume Information"**  
+    **compact /u /s**
 
 <a id="-2134376345"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134376345 or 0x80C80067)**  
 This error occurs if the server endpoints per server limit is reached. Azure File Sync currently supports up to 30 server endpoints per server. For more information, see 
@@ -179,26 +179,26 @@ Set-AzStorageSyncServerEndpoint `
     -CloudTiering `
     -VolumeFreeSpacePercent 60
 ```
-<a id="server-endpoint-noactivity"></a>**Server endpoint has a health status of “No Activity” or “Pending” and the server state on the registered servers blade is “Appears offline”**  
+<a id="server-endpoint-noactivity"></a>**Server endpoint has a health status of "No Activity" or "Pending" and the server state on the registered servers blade is "Appears offline"**  
 
 This issue can occur if the Storage Sync Monitor process (AzureStorageSyncMonitor.exe) is not running or the server is unable to access the Azure File Sync service.
 
 On the server that is showing as "Appears offline" in the portal, look at Event ID 9301 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer) to determine why the server is unable to access the Azure File Sync service. 
 
 - If **GetNextJob completed with status: 0** is logged, the server can communicate with the Azure File Sync service. 
-	- Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, upgrade to the latest Azure File Sync [agent version](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes). 
+    - Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, upgrade to the latest Azure File Sync [agent version](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes). 
 
 - If **GetNextJob completed with status: -2134347756** is logged, the server is unable to communicate with the Azure File Sync service due to a firewall or proxy. 
-	- If the server is behind a firewall, verify port 443 outbound is allowed. If the firewall restricts traffic to specific domains, confirm the domains listed in the Firewall [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) are accessible.
-	- If the server is behind a proxy, configure the machine-wide or app-specific proxy settings by following the steps in the Proxy [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
-	- Use the Test-StorageSyncNetworkConnectivity cmdlet to check network connectivity to the service endpoints. To learn more, see [Test network connectivity to service endpoints](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).
+    - If the server is behind a firewall, verify port 443 outbound is allowed. If the firewall restricts traffic to specific domains, confirm the domains listed in the Firewall [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) are accessible.
+    - If the server is behind a proxy, configure the machine-wide or app-specific proxy settings by following the steps in the Proxy [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
+    - Use the Test-StorageSyncNetworkConnectivity cmdlet to check network connectivity to the service endpoints. To learn more, see [Test network connectivity to service endpoints](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).
 
 - If **GetNextJob completed with status: -2134347764** is logged, the server is unable to communicate with the Azure File Sync service due to an expired or deleted certificate.  
-	- Run the following PowerShell command on the server to reset the certificate used for authentication:
+    - Run the following PowerShell command on the server to reset the certificate used for authentication:
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-<a id="endpoint-noactivity-sync"></a>**Server endpoint has a health status of “No Activity” and the server state on the registered servers blade is “Online”**  
+<a id="endpoint-noactivity-sync"></a>**Server endpoint has a health status of "No Activity" and the server state on the registered servers blade is "Online"**  
 
 A server endpoint health status of "No Activity" means the server endpoint has not logged sync activity in the past two hours.
 
@@ -207,7 +207,7 @@ To check current sync activity on a server, see [How do I monitor the progress o
 A server endpoint may not log sync activity for several hours due to a bug or insufficient system resources. Verify the latest Azure File Sync [agent version](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes) is installed. If the issue persists, open a support request.
 
 > [!Note]  
-> If the server state on the registered servers blade is “Appears Offline,” perform the steps documented in the [Server endpoint has a health status of “No Activity” or “Pending” and the server state on the registered servers blade is “Appears offline”](#server-endpoint-noactivity) section.
+> If the server state on the registered servers blade is "Appears Offline," perform the steps documented in the [Server endpoint has a health status of "No Activity" or "Pending" and the server state on the registered servers blade is "Appears offline"](#server-endpoint-noactivity) section.
 
 ## Sync
 <a id="afs-change-detection"></a>**If I created a file directly in my Azure file share over SMB or through the portal, how long does it take for the file to sync to servers in the sync group?**  
@@ -285,7 +285,7 @@ Look at the completed sync sessions, which are marked by 9102 events in the tele
 1. On any given server, you want to make sure the latest upload and download sessions completed successfully. To do this, check that the HResult and PerItemErrorCount are 0 for both upload and download (the SyncDirection field indicates if a given session is an upload or download session). Note that if you do not see a recently completed sync session, it is likely a sync session is currently in progress, which is to be expected if you just added or modified a large amount of data.
 2. When a server is fully up-to-date with the cloud and has no changes to sync in either direction, you will see empty sync sessions. These are indicated by upload and download events in which all the Sync* fields (SyncFileCount, SyncDirCount, SyncTombstoneCount, and SyncSizeBytes) are zero, meaning there was nothing to sync. Note that these empty sync sessions may not occur on high-churn servers as there is always something new to sync. If there is no sync activity, they should occur every 30 minutes. 
 3. If all servers are up-to-date with the cloud, meaning their recent upload and download sessions are empty sync sessions, you can say with reasonable certainty that the system as a whole is in sync. 
-	
+    
 Note that if you made changes directly in your Azure file share, Azure File Sync will not detect this change until change enumeration runs, which happens once every 24 hours. It is possible that a server will say it is up-to-date with the cloud when it is in fact missing recent changes made directly in the Azure file share. 
 
 ---
@@ -299,10 +299,10 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 > If the FileSyncErrorsReport.ps1 script returns "There were no file errors found" or does not list per-item errors for the sync group, the cause is either:
 >
 >- Cause 1: The last completed sync session did not have per-item errors. The portal should be updated soon to show 0 Files Not Syncing. 
->	- Check the [Event ID 9102](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) in the Telemetry event log to confirm the PerItemErrorCount is 0. 
+>    - Check the [Event ID 9102](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) in the Telemetry event log to confirm the PerItemErrorCount is 0. 
 >
 >- Cause 2: The ItemResults event log on the server wrapped due to too many per-item errors and the event log no longer contains errors for this sync group.
->	- To prevent this issue, increase the ItemResults event log size. The ItemResults event log can be found under "Applications and Services Logs\Microsoft\FileSync\Agent" in Event Viewer. 
+>    - To prevent this issue, increase the ItemResults event log size. The ItemResults event log can be found under "Applications and Services Logs\Microsoft\FileSync\Agent" in Event Viewer. 
 
 #### Troubleshooting per file/directory sync errors
 **ItemResults log - per-item sync errors**  
@@ -329,7 +329,7 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x8000ffff | -2147418113 | E_UNEXPECTED | The file cannot be synced due to an unexpected error. | If the error persists for several days, please open a support case. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | The file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | The file was changed during sync, so it needs to be synced again. | No action required. |
-| 0x80070017 | -2147024873 | ERROR_CRC | The file cannot be synced due to CRC error. This error can occur if a tiered file was not recalled prior to deleting a server endpoint or if the file is corrupt. | To resolve this issue, see [Tiered files are not accessible on the server after deleting a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) to remove tiered files that are orphaned. If the error continues to occur after removing oprhaned tiered files, run [chkdsk](https://docs.microsoft.com/windows-server/administration/windows-commands/chkdsk) on the volume. |
+| 0x80070017 | -2147024873 | ERROR_CRC | The file cannot be synced due to CRC error. This error can occur if a tiered file was not recalled prior to deleting a server endpoint or if the file is corrupt. | To resolve this issue, see [Tiered files are not accessible on the server after deleting a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) to remove tiered files that are orphaned. If the error continues to occur after removing orphaned tiered files, run [chkdsk](https://docs.microsoft.com/windows-server/administration/windows-commands/chkdsk) on the volume. |
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | The file cannot be synced because the maximum number of conflict files has been reached. Azure File Sync supports 100 conflict files per file. To learn more about file conflicts, see Azure File Sync [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution). | To resolve this issue, reduce the number of conflict files. The file will sync once the number of conflict files is less than 100. |
 
 #### Handling unsupported characters
@@ -346,7 +346,7 @@ The table below contains all of the unicode characters Azure File Sync does not 
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### Common sync errors
-<a id="-2147023673"></a>**The sync session was cancelled.**  
+<a id="-2147023673"></a>**The sync session was canceled.**  
 
 | | |
 |-|-|
@@ -450,7 +450,7 @@ This error occurs because the Azure File Sync agent is not authorized to access 
 2. [Verify the storage account exists.](#troubleshoot-storage-account)
 3. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
-<a id="-2134364022"></a><a id="storage-unknown-error"></a>**An unknown error occured while accessing the storage account.**  
+<a id="-2134364022"></a><a id="storage-unknown-error"></a>**An unknown error occurred while accessing the storage account.**  
 
 | | |
 |-|-|
@@ -584,7 +584,7 @@ If this error persists for longer than a few hours, create a support request and
 | **Error string** | CERT_E_UNTRUSTEDROOT |
 | **Remediation required** | Yes |
 
-This error can happen if your organization is using an SSL terminating proxy or if a malicious entity is intercepting the traffic between your server and the Azure File Sync service. If you are certain that this is expected (because your organization is using an SSL terminating proxy), you skip certificate verification with a registry override.
+This error can happen if your organization is using a TLS terminating proxy or if a malicious entity is intercepting the traffic between your server and the Azure File Sync service. If you are certain that this is expected (because your organization is using a TLS terminating proxy), you skip certificate verification with a registry override.
 
 1. Create the SkipVerifyingPinnedRootCertificate registry value.
 
@@ -598,7 +598,7 @@ This error can happen if your organization is using an SSL terminating proxy or 
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-By setting this registry value, the Azure File Sync agent will accept any locally trusted SSL certificate when transferring data between the server and the cloud service.
+By setting this registry value, the Azure File Sync agent will accept any locally trusted TLS/SSL certificate when transferring data between the server and the cloud service.
 
 <a id="-2147012894"></a>**A connection with the service could not be established.**  
 
@@ -819,7 +819,7 @@ To resolve this issue, perform one of the following options:
 | **Error string** | ECS_E_MGMT_STORAGEACLSBYPASSNOTSET |
 | **Remediation required** | Yes |
 
-This error occurs if the firewall and virtual network settings are enabled on the storage account and the “Allow trusted Microsoft services to access this storage account” exception is not checked. To resolve this issue, follow the steps documented in the [Configure firewall and virtual network settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) section in the deployment guide.
+This error occurs if the firewall and virtual network settings are enabled on the storage account and the "Allow trusted Microsoft services to access this storage account" exception is not checked. To resolve this issue, follow the steps documented in the [Configure firewall and virtual network settings](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) section in the deployment guide.
 
 <a id="-2147024891"></a>**Sync failed because permissions on the System Volume Information folder are incorrect.**  
 
@@ -838,7 +838,7 @@ To resolve this issue, perform the following steps:
 2. Run the following command from an elevated command prompt to launch a command prompt using the system account: **PsExec.exe -i -s -d cmd** 
 3. From the command prompt running under the system account, run the following command to confirm the NT AUTHORITY\SYSTEM account does not have access to the System Volume Information folder: **cacls "drive letter:\system volume information" /T /C**
 4. If the NT AUTHORITY\SYSTEM account does not have access to the System Volume Information folder, run the following command: **cacls  "drive letter:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"**
-	- If step #4 fails with access denied, run the following command to take ownership of the System Volume Information folder and then repeat step #4: **takeown /A /R /F "drive letter:\System Volume Information"**
+    - If step #4 fails with access denied, run the following command to take ownership of the System Volume Information folder and then repeat step #4: **takeown /A /R /F "drive letter:\System Volume Information"**
 
 <a id="-2134375810"></a>**Sync failed because the Azure file share was deleted and recreated.**  
 
@@ -992,11 +992,11 @@ if ($fileShare -eq $null) {
 
     ![A screenshot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
-	If **Microsoft.StorageSync** or **Hybrid File Sync Service** does not appear in the list, perform the following steps:
+    If **Microsoft.StorageSync** or **Hybrid File Sync Service** does not appear in the list, perform the following steps:
 
-	- Click **Add**.
-	- In the **Role** field, select **Reader and Data Access**.
-	- In the **Select** field, type **Microsoft.StorageSync**, select the role and click **Save**.
+    - Click **Add**.
+    - In the **Role** field, select **Reader and Data Access**.
+    - In the **Select** field, type **Microsoft.StorageSync**, select the role and click **Save**.
 
 # [PowerShell](#tab/azure-powershell)
 ```powershell    
@@ -1032,14 +1032,14 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 There are two paths for failures in cloud tiering:
 
 - Files can fail to tier, which means that Azure File Sync unsuccessfully attempts to tier a file to Azure Files.
-- Files can fail to recall, which means that the Azure File Sync file system filter (StorageSync.sys) fails to download data when a user attempts to access a file which has been tiered.
+- Files can fail to recall, which means that the Azure File Sync file system filter (StorageSync.sys) fails to download data when a user attempts to access a file that has been tiered.
 
 There are two main classes of failures that can happen via either failure path:
 
 - Cloud storage failures
     - *Transient storage service availability issues*. For more information, see the [Service Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
     - *Inaccessible Azure file share*. This failure typically happens when you delete the Azure file share when it is still a cloud endpoint in a sync group.
-    - *Inaccessible storage account*. This failure typically happens when you delete the storage account while it still has an Azure file share which is a cloud endpoint in a sync group. 
+    - *Inaccessible storage account*. This failure typically happens when you delete the storage account while it still has an Azure file share that is a cloud endpoint in a sync group. 
 - Server failures 
   - *Azure File Sync file system filter (StorageSync.sys) is not loaded*. In order to respond to tiering/recall requests, the Azure File Sync file system filter must be loaded. The filter not being loaded can happen for several reasons, but the most common reason is that an administrator unloaded it manually. The Azure File Sync file system filter must be loaded at all times for Azure File Sync to properly function.
   - *Missing, corrupt, or otherwise broken reparse point*. A reparse point is a special data structure on a file that consists of two parts:
@@ -1134,7 +1134,7 @@ If files fail to be recalled:
 | 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | The file failed to recall due to authorization failure to the storage account. | To resolve this issue, verify [Azure File Sync has access to the storage account](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
 | 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | The file failed to recall because the Azure file share is not accessible. | Verify the file share exists and is accessible. If the file share was deleted and recreated, perform the steps documented in the [Sync failed because the Azure file share was deleted and recreated](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) section to delete and recreate the sync group. |
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | The file failed to recall due to insufficient system resources. | If the error persists, investigate which application or kernel-mode driver is exhausting system resources. |
-| 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | The file failed to recall due to insuffcient memory. | If the error persists, investigate which application or kernel-mode driver is causing the low memory condition. |
+| 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | The file failed to recall due to insufficient memory. | If the error persists, investigate which application or kernel-mode driver is causing the low memory condition. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | The file failed to recall due to insufficient disk space. | To resolve this issue, free up space on the volume by moving files to a different volume, increase the size of the volume, or force files to tier by using the Invoke-StorageSyncCloudTiering cmdlet. |
 
 ### Tiered files are not accessible on the server after deleting a server endpoint
@@ -1152,7 +1152,7 @@ Restoring access to your tiered files is possible if the following conditions ar
 
 If the above conditions are met, you can restore access to the files on the server by recreating the server endpoint at the same path on the server within the same sync group within 30 days. 
 
-If the above conditions are not met, restoring access is not possible as these tiered files on the server are now orphaned. Please follow the instructions below to remove the orphaned tiered files.
+If the above conditions are not met, restoring access is not possible as these tiered files on the server are now orphaned. Follow the instructions below to remove the orphaned tiered files.
 
 **Notes**
 - When tiered files are not accessible on the server, the full file should still be accessible if you access the Azure file share directly.
@@ -1199,14 +1199,14 @@ $orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
 ```
 **Notes** 
 - Tiered files modified on the server that are not synced to the Azure file share will be deleted.
-- Tiered files which are accessible (not orphan) will not be deleted.
+- Tiered files that are accessible (not orphan) will not be deleted.
 - Non-tiered files will remain on the server.
 
 7. Optional: Recreate the server endpoint if deleted in step 3.
 
 *Option 2: Mount the Azure file share and copy the files locally that are orphaned on the server*
 
-This option doesn’t require removing the server endpoint but requires sufficient disk space to copy the full files locally.
+This option doesn't require removing the server endpoint but requires sufficient disk space to copy the full files locally.
 
 1. [Mount](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) the Azure file share on the Windows Server that has orphaned tiered files.
 2. Run the following PowerShell commands to list orphaned tiered files:
@@ -1228,6 +1228,12 @@ Unintended recalls also might occur in other scenarios, like when you are browsi
 > [!NOTE]
 >Use Event ID 9059 in the Telemetry event log to determine which application(s) is causing recalls. This event provides application recall distribution for a server endpoint and is logged once an hour.
 
+### TLS 1.2 required for Azure File Sync
+
+You can view the TLS settings at your server by looking at the [registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings). 
+
+If you are using a proxy, consult your proxy's documentation and ensure it is configured to use TLS1.2.
+
 ## General troubleshooting
 If you encounter issues with Azure File Sync on a server, start by completing the following steps:
 1. In Event Viewer, review the telemetry, operational and diagnostic event logs.
@@ -1240,8 +1246,8 @@ If you encounter issues with Azure File Sync on a server, start by completing th
 
 If the issue is not resolved, run the AFSDiag tool:
 1. Create a directory where the AFSDiag output will be saved (for example, C:\Output).
-	> [!NOTE]
-	>AFSDiag will delete all content in the output directory prior to collecting logs. Specify an output location which does not contain data.
+    > [!NOTE]
+    >AFSDiag will delete all content in the output directory prior to collecting logs. Specify an output location which does not contain data.
 2. Open an elevated PowerShell window, and then run the following commands (press Enter after each command):
 
     ```powershell

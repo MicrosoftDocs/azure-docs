@@ -115,13 +115,13 @@ The following snippets are all taken from the _app.js_ file.
 - Select the "Tasks" database.
 
   ```javascript
-  const database = await client.databases(databaseId);
+  const database = client.database(databaseId);
   ```
 
 - Select the "Items" container/collection.
 
   ```javascript
-  const container = await database.container(containerId);
+  const container = database.container(containerId);
   ```
 
 - Select all the items in the "Items" container.
@@ -132,7 +132,7 @@ The following snippets are all taken from the _app.js_ file.
     query: "SELECT * from c"
   };
 
-  const { resources: results } = await container.items
+  const { resources: items } = await container.items
     .query(querySpec)
     .fetchAll();
   ```
@@ -149,15 +149,15 @@ The following snippets are all taken from the _app.js_ file.
   const { id, category } = createdItem;
 
   createdItem.isComplete = true;
-  const { resource: itemToUpdate } = await container
+  const { resource: updatedItem } = await container
     .item(id, category)
-    .replace(itemToUpdate);
+    .replace(createdItem);
   ```
 
 - Delete an item
 
   ```javascript
-  const { resource: result } = await this.container.item(id, category).delete();
+  const { resource: result } = await container.item(id, category).delete();
   ```
 
 > [!NOTE]

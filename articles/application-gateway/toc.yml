@@ -40,6 +40,8 @@
     href: resource-manager-template-samples.md
 - name: Concepts
   items:
+  - name: Support for working remotely
+    href: ../networking/working-remotely-support.md?toc=%2fazure%2fapplication-gateway%2ftoc.json
   - name: Basics
     items:
     - name: Application Gateway features
@@ -50,8 +52,8 @@
       href: application-gateway-components.md
     - name: Configuration overview
       href: configuration-overview.md
-  - name: COVID-19 Guidelines
-    href: application-gateway-covid-guidelines.md
+  - name: High traffic support
+    href: high-traffic-support.md
   - name: Autoscaling v2 SKU
     href: application-gateway-autoscaling-zone-redundant.md
   - name: Routing

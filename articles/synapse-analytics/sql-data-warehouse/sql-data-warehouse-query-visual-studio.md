@@ -1,12 +1,12 @@
 ---
 title: Connect with VSTS 
 description: Query Azure Synapse Analytics with Visual Studio.
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice: 
 ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
@@ -18,7 +18,7 @@ ms.custom: seo-lt-2019
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [sqlcmd](../sql/get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
@@ -30,7 +30,7 @@ To use this tutorial, you need:
 
 * An existing SQL pool. To create one, see [Create a SQL pool](create-data-warehouse-portal.md).
 * SSDT for Visual Studio. If you have Visual Studio, you probably already have SSDT for Visual Studio. For installation instructions and options, see [Installing Visual Studio and SSDT](sql-data-warehouse-install-visual-studio.md).
-* The fully qualified SQL server name. To find this information, see [Connect to SQL pool](sql-data-warehouse-connect-overview.md).
+* The fully qualified SQL server name. To find this information, see [Connect to SQL pool](../sql/connect-overview.md).
 
 ## 1. Connect to your SQL pool
 1. Open Visual Studio 2019.

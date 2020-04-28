@@ -12,6 +12,8 @@ ms.date: 03/23/2020
 
 # Lookup transformation in mapping data flow
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Use the lookup transformation to reference data from another source in a data flow stream. The lookup transformation appends columns from matched data to your source data.
 
 A lookup transformation is similar to a left outer join. All rows from the primary stream will exist in the output stream with additional columns from the lookup stream. 
@@ -70,7 +72,7 @@ Enabling broadcasting pushes the entire dataset into memory. For smaller dataset
 ```
 ### Example
 
-![Lookup Transformation](media/data-flow/lookup1.png "Lookup")
+![Lookup Transformation](media/data-flow/lookup-dsl-example.png "Lookup")
 
 The data flow script for the above lookup configuration is in the code snippet below.
 
