@@ -12,7 +12,7 @@ manager: carmonm
 
 # Troubleshoot runbook errors
 
- This article describes the various runbook errors that might occur and how to resolve them.
+ This article describes the various Azure Automation runbook errors that might occur and how to resolve them.
 
 >[!NOTE]
 >This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Azure Automation account, you can update your modules to the latest version by using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
@@ -688,7 +688,7 @@ The Azure sandbox prevents access to all out-of-process COM servers. For example
 
 ## Next steps
 
-If you didn't see your problem here or are unable to solve your issue, use one of the following channels for more support:
+If you didn't see your problem here or are unable to solve your issue, try one of the following channels for more support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects you to the Azure community for answers, support, and experts.
