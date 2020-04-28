@@ -36,7 +36,7 @@ This topic shows you how to configure Azure App Service or Azure Functions to us
 
 1. Go to your application in the [Azure portal].
 1. Select **Settings** > **Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
-1. Under **Authentication Providers**, select **Azure Active Directory**. Select **Advanced** under **Management mode**. Paste in the Application (client) ID and client secret that you obtained earlier. Use **https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0** for the **Issuer Url** field.
+1. Under **Authentication Providers**, select **Azure Active Directory**. Select **Advanced** under **Management mode**. Paste in the Application (client) ID and client secret that you obtained earlier. Use **`https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`** for the **Issuer Url** field.
 1. Select **OK**.
 
    App Service provides authentication, but doesn't restrict authorized access to your site content and APIs. You must authorize users in your app code.

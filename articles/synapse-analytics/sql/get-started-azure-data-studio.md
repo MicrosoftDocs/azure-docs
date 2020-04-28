@@ -56,7 +56,7 @@ To use Azure Active Directory, you need to choose the needed authentication type
 
 ![AAD Authentication](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-This screenshot shows the **Connection Details** for **Windows Authentication**:
+The following screenshot shows the **Connection Details** for **Windows Authentication**:
 
 ![Windows Authentication](./media/get-started-azure-data-studio/3-windows-auth.png)
 
