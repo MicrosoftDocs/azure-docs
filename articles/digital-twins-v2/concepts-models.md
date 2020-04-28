@@ -140,21 +140,21 @@ The following example re-imagines the *Planet* model from the earlier DTDL examp
     "@context": "dtmi:dtdl:context;2",
     "displayName": "Celestial body",
     "contents": [
-        {
-            "@type": "Property",
-            "name": "name",
-            "schema": "string"
-        },
-        {
-            "@type": "Property",
-            "name": "mass",
-            "schema": "double"
-        },
-        {
-            "@type": "Telemetry",
-            "name": "Temperature",
-            "schema": "double"
-        }
+      {
+        "@type": "Property",
+        "name": "name",
+        "schema": "string"
+      },
+      {
+        "@type": "Property",
+        "name": "mass",
+        "schema": "double"
+      },
+      {
+        "@type": "Telemetry",
+        "name": "temperature",
+        "schema": "double"
+      }
     ]
   },
   {
@@ -162,26 +162,29 @@ The following example re-imagines the *Planet* model from the earlier DTDL examp
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2",
     "displayName": "Planet",
-    "extends": [
-        "dtmi:com:contoso:CelestialBody;1"
-    ],
+    "extends": "dtmi:com:contoso:CelestialBody;1",
     "contents": [
-        {
-            "@type": "Relationship",
-            "name": "satellites",
-            "target": "dtmi:com:contoso:Moon;1"
-        },
-        {
-            "@type": "Component",
-            "name": "deepestCrater",
-            "schema": "dtmi:com:contoso:Crater;1"
-        }
+      {
+        "@type": "Relationship",
+        "name": "satellites",
+        "target": "dtmi:com:contoso:Moon;1"
+      },
+      {
+        "@type": "Component",
+        "name": "deepestCrater",
+        "schema": "dtmi:com:contoso:Crater;1"
+      }
     ]
+  },
+  {
+    "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
   }
 ]
 ```
 
-In this example, *CelestialBody* contributes a name, a mass, and a telemetry to *Planet*. The `extends` section is structured as an array of interface names (which allows the extending interface to inherit from multiple parent models if desired).
+In this example, *CelestialBody* contributes a name, a mass, and a temperature to *Planet*. The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models if desired).
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
