@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "articles/openshift/howto-azure-monitor-v4.md",
+      "redirect_url": "articles/azure-monitor/insights/container-insights-azure-redhat4-setup.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/openshift/tutorial-scale-cluster.md",
+      "redirect_url": "articles/openshift/tutorial-connect-cluster.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/openshift/howto-using-azure-redhat-openshift.md",
+      "redirect_url": "articles/openshift/tutorial-create-cluster.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/create-virtual-network-classic.md",
       "redirect_url": "/previous-versions/azure/virtual-network/create-virtual-network-classic",
       "redirect_document_id": false
@@ -590,6 +605,46 @@
     {
       "source_path": "articles/virtual-machines/workloads/oracle/oracle-considerations.md",
       "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/use-case-excel-studio.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/azure-ml-customer-churn-scenario.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/text-analytics-module-tutorial.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/extend-your-experiment-with-r.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/debug-models.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/troubleshooting-creating-ml-workspace.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/basics-infographic-with-algorithm-examples.md",
+      "redirect_url": "/azure/machine-learning/how-to-select-algorithms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/convert-training-experiment-to-scoring-experiment.md",
+      "redirect_url": "/azure/machine-learning/studio/deploy-a-machine-learning-web-service",
       "redirect_document_id": false
     },
     {
@@ -2353,6 +2408,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/provision-throughput-autopilot.md",
+      "redirect_url": "/azure/cosmos-db/provision-throughput-autoscale",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/autopilot-faq.md",
+      "redirect_url": "/azure/cosmos-db/autoscale-faq",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/how-to-custom-synchronization.md",
       "redirect_url": "/azure/cosmos-db/how-to-multi-master",
       "redirect_document_id": true
@@ -2806,6 +2871,11 @@
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-univ.md",
       "redirect_url": "https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/quickstart-v2-javascipt-auth-code.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-v2-javascript-auth-code",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md",
@@ -7370,6 +7440,11 @@
     {
       "source_path": "articles/logic-apps/logic-apps-using-sap-connector-old.md",
       "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-schema-2015-08-01.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-schema-2016-04-01",
       "redirect_document_id": true
     },
     {
@@ -32064,6 +32139,16 @@
     {
       "source_path": "articles/api-management/api-management-howto-add-operations.md",
       "redirect_url": "/azure/api-management/mock-api-responses",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-k8s.md",
+      "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-docker.md",
+      "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-docker",
       "redirect_document_id": false
     },
     {
