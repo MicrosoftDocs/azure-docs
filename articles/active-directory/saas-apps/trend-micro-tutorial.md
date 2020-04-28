@@ -21,10 +21,10 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Trend Micro Web Security (TMWS)
 
-In this tutorial, you'll learn how to integrate Trend Micro Web Security (TMWS) with Azure Active Directory (Azure AD). When you integrate Trend Micro Web Security with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Trend Micro Web Security (TMWS) with Azure Active Directory (Azure AD). When you integrate TMWS with Azure AD, you can:
 
-* Control in Azure AD who has access to Trend Micro Web Security.
-* Enable your users to be automatically signed in to Trend Micro Web Security with their Azure AD accounts.
+* Control in Azure AD who has access to TMWS.
+* Enable your users to be automatically signed in to TMWS with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
@@ -34,18 +34,18 @@ To learn more about SaaS app integration with Azure AD, see [Single sign-on to a
 To get started, you need:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* A Trend Micro Web Security subscription that's enabled for SSO.
+* A TMWS subscription that's enabled for SSO.
 
 ## Scenario description
 
 In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
-* Trend Micro Web Security supports SP-initiated SSO.
-* After you configure Trend Micro Web Security, you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control by using Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* TMWS supports SP-initiated SSO.
+* After you configure TMWS, you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control by using Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## Add Trend Micro Web Security from the gallery
+## Add TMWS from the gallery
 
-To configure the integration of Trend Micro Web Security into Azure AD, you need to add Trend Micro Web Security from the gallery to your list of managed SaaS apps.
+To configure the integration of TMWS into Azure AD, you need to add TMWS from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with either a work or school account or a personal Microsoft account.
 1. In the left pane, select the **Azure Active Directory** service.
@@ -54,17 +54,17 @@ To configure the integration of Trend Micro Web Security into Azure AD, you need
 1. In the **Add from the gallery** section, enter **Trend Micro Web Security (TMWS)** in the search box.
 1. Select **Trend Micro Web Security (TMWS)** in the search results and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD SSO for Trend Micro Web Security
+## Configure and test Azure AD SSO for TMWS
 
-You'll configure and test Azure AD SSO with Trend Micro Web Security by using a test user called B.Simon. For SSO to work, you need to establish a link between an Azure AD user and the related user in Trend Micro Web Security.
+You'll configure and test Azure AD SSO with TMWS by using a test user called B.Simon. For SSO to work, you need to establish a link between an Azure AD user and the related user in TMWS.
 
-You'll complete these basic steps to configure and test Azure AD SSO with Trend Micro Web Security:
+You'll complete these basic steps to configure and test Azure AD SSO with TMWS:
 
 1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable the feature for your users.
     1. [Create an Azure AD user](#create-an-azure-ad-test-user) to test Azure AD single sign-on.
-    1. [Grant the Azure AD test user](#grant-the-azure-ad-test-user-access-to-trend-micro-web-security) access to Trend Micro Web Security.
+    1. [Grant the Azure AD test user](#grant-the-azure-ad-test-user-access-to-TMWS) access to TMWS.
     1. [Configure user and group synchronization settings in Azure AD](#configure-user-and-group-synchronization-settings-in-azure-ad).
-1. [Configure Trend Micro Web Security SSO](#configure-trend-micro-web-security-sso) on the application side.
+1. [Configure TMWS SSO](#configure-TMWS-sso) on the application side.
 1. [Test SSO](#test-sso) to verify the configuration.
 
 ## Configure Azure AD SSO
@@ -90,11 +90,11 @@ Complete these steps to enable Azure AD SSO in the Azure portal.
     > [!NOTE]
     > The identifier value in the previous step isn't the value that you should enter. You need to use the actual identifier. You can get this value in the **Service Provider Settings for the Azure Admin Portal** section on the **Authentication Method** page for Azure AD from **Administration > Directory Services**.
 
-1. Trend Micro Web Security expects the SAML assertions in a specific format, so you need to add custom attribute mappings to your SAML token attributes configuration. This screenshot shows the default attributes:
+1. TMWS expects the SAML assertions in a specific format, so you need to add custom attribute mappings to your SAML token attributes configuration. This screenshot shows the default attributes:
 
     ![Default attributes](common/default-attributes.png)
 
-1. In addition to the attributes in the preceding screenshot, Trend Micro Web Security expects two more attributes to be passed back in the SAML response. These attributes are shown in the following table. The attributes are pre-populated, but you can change them to meet your requirements.
+1. In addition to the attributes in the preceding screenshot, TMWS expects two more attributes to be passed back in the SAML response. These attributes are shown in the following table. The attributes are pre-populated, but you can change them to meet your requirements.
     
     | Name | Source attribute|
     | --------------- | --------- |
@@ -121,9 +121,9 @@ In this section, you'll create a test user called B.Simon in the Azure portal.
    1. Select **Show password**, and then write down the value that's displayed in the **Password** box.
    1. Select **Create**.
 
-### Grant the Azure AD test user access to Trend Micro Web Security
+### Grant the Azure AD test user access to TMWS
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Trend Micro Web Security.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to TMWS.
 
 1. In the Azure portal, select **Enterprise applications**, and then select **All applications**.
 1. In the applications list, select **Trend Micro Web Security (TMWS)**.
@@ -151,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the **Add a client secret screen**, optionally add a description and select an expiration period for the client secret, and then select **Add**. The new client secret appears in the **Client secrets** area.
 
-1. Record the client secret value. Later, you'll enter it into Trend Micro Web Security.
+1. Record the client secret value. Later, you'll enter it into TMWS.
 
 1. Under **Manage**, select **API permissions**. 
 
@@ -166,65 +166,65 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add permissions**. A message appears to confirm that your settings were saved. The new permissions appear in the **API permissions** window.
 
-1. In the **Grant consent** area, select **Grant admin consent for \<your administrator account> (Default Directory)** and then **Yes**. A message appears to confirm that the admin consent for the requested permissions was successfully granted.
+1. In the **Grant consent** area, select **Grant admin consent for \<your administrator account> (Default Directory)**, and then select **Yes**. A message appears to confirm that the admin consent for the requested permissions was granted.
 
-1. Click **Overview**. 
+1. Select **Overview**. 
 
-1. In the right pane that appears, record the Application (client) ID and Directory (tenant) ID. Later, you will type the information into TMWS. You can also click **Custom domain names** under Azure **Active Directory > Manage** and record the domain name in the right pane.
+1. Record the **Application (client) ID** and **Directory (tenant) ID** that you see in the right pane. Later, you'll enter that information into TMWS. You can also select **Custom domain names** under **Azure Active Directory > Manage** and record the domain name that you see in the right pane.
 
-## Configure Trend Micro Web Security SSO
+## Configure TMWS SSO
 
-Complete these steps to configure Trend Micro Web Security SSO on the application side.
+Complete these steps to configure TMWS SSO on the application side.
 
-1. Sign into the TMWS management console, and go to **Administration** > **USERS & AUTHENTICATION** > **Directory Services**.
+1. Sign in to the TMWS management console, and go to **Administration** > **USERS & AUTHENTICATION** > **Directory Services**.
 
-1. Click here on the upper area of the screen.
+1. Select **here** on the upper area of the screen.
 
-1. On the Authentication Method screen that appears, click **Azure AD**.
+1. On the **Authentication Method** page, select **Azure AD**.
 
-1. Click **On** or **Off** to decide whether to allow the AD users of your organization to visit websites through TMWS if their data is not synchronized to TMWS.
+1. Select **On** or **Off** to configure whether to allow Azure AD users in your organization to visit websites through TMWS if their data isn't synchronized to TMWS.
 
     > [!NOTE]
-    > Users not synchronized from Azure AD can be authenticated only through known TMWS gateways or the dedicated port for your organization.
+    > Users who aren't synchronized from Azure AD can be authenticated only through known TMWS gateways or the dedicated port for your organization.
 
-1. On the **Identity Provider Settings** section, perform the following steps:
+1. In the **Identity Provider Settings** section, complete these steps:
 
-    a. In the **Service URL** field, paste the **Login URL** value, which you have copied from Azure portal
+    a. In the **Service URL** box, enter the **Login URL** value that you copied from Azure portal.
 
-    b. In the **Logon name attribute** field, paste the User claim name with the **user.onpremisessamaccountname** source attribute from the Azure portal.
+    b. In the **Logon name attribute** box, enter the **User claim name** with the **user.onpremisessamaccountname** source attribute from the Azure portal.
 
-    c. In the **Public SSL certificate** field, use the downloaded **Certificate (Base64)** from the Azure portal.
+    c. In the **Public SSL certificate** box, use the downloaded **Certificate (Base64)** from the Azure portal.
 
-1. On the **Synchronization Settings** section, perform the following steps:
+1. In the **Synchronization Settings** section, complete these steps:
 
-    a. In the **Tenant** field, use **Directory (tenant) ID** or **Custom domain name** value from the Azure portal.
+    a. In the **Tenant** box, enter the **Directory (tenant) ID** or **Custom domain name** value from the Azure portal.
 
-    b. In the **Application ID** field, **Application (client) ID** value from the Azure portal.
+    b. In the **Application ID** box, enter the **Application (client) ID** value from the Azure portal.
 
-    c. In the **Client secret** field, use **Client secret** from the Azure portal.
+    c. In the **Client secret** box, enter the **Client secret** from the Azure portal.
 
-    d. In the **Synchronization schedule** field, Select to synchronize with Azure AD manually or according to a schedule. If you choose Manually, whenever there are changes to Active Directory user information, remember to go back to the Directory Services screen and perform manual synchronization so that information in TMWS remains current.
+    d. Select **Synchronization schedule** to synchronize with Azure AD manually or according to a schedule. If you select **Manually**, whenever there are changes to Active Directory user information, remember to go back to the **Directory Services** page and perform manual synchronization so that information in TMWS remains current.
 
-    e. Click **Test Connection** to check whether the Azure AD service can be connected successfully. 
+    e. Select **Test Connection** to check whether the Azure AD service can be successfully connected.
     
-    f. Click **Save**.
+    f. Select **Save**.
  
  > [!NOTE]
- > For more information on how to configure Trend Micro Web Security with Azure AD, please refer [this](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration_001/directory-services/azure-active-directo/configuring-azure-ad.aspx) document.
+ > For more information on how to configure TMWS with Azure AD, see [Configuring Azure AD Settings on TMWS](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration_001/directory-services/azure-active-directo/configuring-azure-ad.aspx).
 
 ## Test SSO 
 
-Once you successfully configured the Azure AD service and specified Azure AD as the user authentication method, you can log on to the TMWS proxy server to verify your setup. After the Azure AD logon verifies your account, you can visit the Internet.
+After you configure the Azure AD service and specify Azure AD as the user authentication method, you can sign in to the TMWS proxy server to verify your setup. After the Azure AD sign-in verifies your account, you can visit the internet.
 
 > [!NOTE]
-> TMWS does not support testing single sign-on from the Azure AD portal, under Overview > Single sign-on > Set up Single Sign-on with SAML > Test of your new enterprise application.
+> TMWS doesn't support testing single sign-on from the Azure AD portal, under **Overview** > **Single sign-on** > **Set up Single Sign-on with SAML** > **Test** of your new enterprise application.
 
 1. Clear the browser of all cookies and then restart the browser. 
 
 1. Point your browser to the TMWS proxy server. 
 For details, see [Traffic Forwarding Using PAC Files](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration_001/pac-files/traffic-forwarding-u.aspx#GUID-A4A83827-7A29-4596-B866-01ACCEDCC36B).
 
-1. Visit any Internet website. TMWS will direct you to the TMWS captive portal.
+1. Visit any internet website. TMWS will direct you to the TMWS captive portal.
 
 1. Specify an Active Directory account (format: domain\sAMAccountName or sAMAccountName@domain), or email address, or UPN, and then click **Log On**. TMWS sends you to the Azure AD logon.
 
