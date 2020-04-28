@@ -22,11 +22,11 @@ The following table lists the [monitoring solutions](solutions.md) in Azure prov
 
 Explanations of the columns are as follows:
 
-- **Microsoft monitoring agent** - Agent used on Windows and Linux to run managements pack from Microsoft System Center Operations Manager (SCOM) and monitoring solutions from Azure. In this configuration, the agent is connected directly to Azure Monitor without being connected to an Operations Manager management group. 
+- **Microsoft monitoring agent** - Agent used on Windows and Linux to run managements pack from Microsoft System Center - Operations Manager (OM) and monitoring solutions from Azure. In this configuration, the agent is connected directly to Azure Monitor without being connected to an Operations Manager management group. 
 - **Operations Manager** - Identical agent as Microsoft monitoring agent. In this configuration, it's [connected to an Operations Manager management group](../platform/om-agents.md) that's connected to Azure Monitor. 
 -  **Azure Storage** - Solution collects data from an Azure Storage account. 
 - **Operations Manager required?** - A connected Operations Manager management group is required for data collection by the monitoring solution. 
-- **Operations Manager agent data sent via management group** - If the agent is [connected to an SCOM management group](../platform/om-agents.md), then data is sent to Azure Monitor from the management server. In this case, the agent doesn't need to connect directly to Azure Monitor. If this box isn't selected, then data is sent from the agent directly to Azure Monitor even if the agent is connected to an SCOM management group. It will need to be able to communicate to Azure Monitor through the [Log Analytics gateway](../platform/gateway.md).
+- **Operations Manager agent data sent via management group** - If the agent is [connected to an OM management group](../platform/om-agents.md), then data is sent to Azure Monitor from the management server. In this case, the agent doesn't need to connect directly to Azure Monitor. If this box isn't selected, then data is sent from the agent directly to Azure Monitor even if the agent is connected to an OM management group. It will need to be able to communicate to Azure Monitor through the [Log Analytics gateway](../platform/gateway.md).
 - **Collection frequency** - Specifies the frequency that data is collected by the monitoring solution. 
 
 
