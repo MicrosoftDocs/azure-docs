@@ -122,12 +122,13 @@ To configure properly you would need the following resources:
 - Private DNS zones [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)  with [type A Record](../dns/dns-zones-records.md#record-types)
 - Private endpoint information (FQDN record name and Private IP Address)
 
-The following diagram illustrates the DNS resolution sequence from an on premise network that use a DNS server deployed in Azure, where the resolution is made by an private DNS zone linked to a virtual network.
+The following diagram illustrates the DNS resolution sequence from an on premise network that use a DNS server deployed in Azure,
+where the resolution is made by an private DNS zone linked to a virtual network.
 
 :::image type="content" source="media/private-endpoint-dns/on-premise-using-azure-dns.png" alt-text="on premise using azure dns":::
 
 This configuration can be extended for an on premise network that has already a DNS solution in place. 
-The on premises DNS solution needs to be configured to forward DNS traffic to the Azure DNS via a [conditional forwarder](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) referencing the Custom DNS deployed in Azure.
+The on premises DNS solution needs to be configured to forward DNS traffic to the Azure DNS via a [conditional forwarder](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) referencing the custom DNS deployed in Azure.
 
  > [!NOTE]
 > This scenario is using Azure SQL database recommended Private DNS zone. For other services you can adjust the model using the following reference [Azure services DNS zone configuration](#azure-services-dns-zone-configuration).
@@ -139,7 +140,8 @@ To configure properly you would need the following resources :
 - Virtual network [connected to on premises](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) 
 - Private DNS zones [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)  with [type A Record](../dns/dns-zones-records.md#record-types)
 - Private endpoint information (FQDN record name and Private IP Address)
-The following diagram illustrates the DNS resolution sequence from an on premise network that conditionally forwards DNS traffic to Azure, where the resolution is made by an private DNS zone linked to a virtual network
+
+The following diagram illustrates the DNS resolution sequence from an on premise network that conditionally forwards DNS traffic to Azure,where the resolution is made by an private DNS zone linked to a virtual network
 
  > [!IMPORTANT]
 > The conditional forwarding must be made to the [public DNS zone](#azure-services-dns-zone-configuration) Ex: `database.windows.net` , instead of **privatelink**.database.windows.net
