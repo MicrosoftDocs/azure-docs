@@ -2,117 +2,116 @@
     "redirections": [
         {
             "source_path": "quickstart-install-cyclecloud.md",
-            "redirect_url": "qs-install-marketplace",
+            "redirect_url": "/qs-install-marketplace",
             "redirect_document_id": true
         },
         {
             "source_path": "quickstart-create-and-run-cluster.md",
-            "redirect_url": "tutorials/create-cluster",
+            "redirect_url": "/tutorials/create-cluster",
             "redirect_document_id": true
         },
         {
             "source_path": "quickstart-submit-jobs.md",
-            "redirect_url": "tutorials/submit-jobs",
+            "redirect_url": "/tutorials/submit-jobs",
             "redirect_document_id": true
         },
         {
             "source_path": "quickstart-clean-up-resources.md",
-            "redirect_url": "tutorials/clean-up",
+            "redirect_url": "/tutorials/clean-up",
             "redirect_document_id": true
         },
         {
             "source_path": "clusters.md",
-            "redirect_url": "concepts/clusters.md",
+            "redirect_url": "concepts/clusters",
             "redirect_document_id": true
         },
         {
             "source_path": "monitoring.md",
-            "redirect_url": "concepts/monitoring.md",
+            "redirect_url": "concepts/monitoring",
             "redirect_document_id": true
         },
         {
             "source_path": "autoscale.md",
-            "redirect_url": "how-to/configure-autoscaling.md",
+            "redirect_url": "how-to/configure-autoscaling",
             "redirect_document_id": false
         },
         {
             "source_path": "environments.md",
-            "redirect_url": "how-to/environments.md",
+            "redirect_url": "how-to/environments",
             "redirect_document_id": false
         },
         {
             "source_path": "projects.md",
-            "redirect_url": "how-to/projects.md",
+            "redirect_url": "how-to/projects",
             "redirect_document_id": false
         },
         {
             "source_path": "event-logs.md",
-            "redirect_url": "how-to/monitor-clusters.md",
+            "redirect_url": "how-to/monitor-clusters",
             "redirect_document_id": false
         },
         {
             "source_path": "reports.md",
-            "redirect_url": "concepts/usage-tracking.md",
+            "redirect_url": "concepts/usage-tracking",
             "redirect_document_id": true
         },
         {
             "source_path": "usage.md",
-            "redirect_url": "concepts/usage-tracking.md",
-            "redirect_document_id": true
+            "redirect_url": "concepts/usage-tracking"
         },
         {
             "source_path": "user-management.md",
-            "redirect_url": "concepts/user-management.md",
+            "redirect_url": "concepts/user-management",
             "redirect_document_id": true
         },
         {
             "source_path": "storage-mount-volumes.md",
-            "redirect_url": "how-to/add-disk.md",
+            "redirect_url": "how-to/add-disk",
             "redirect_document_id": true
         },
         {
             "source_path": "backup-and-restore.md",
-            "redirect_url": "how-to/backup-and-restore.md",
+            "redirect_url": "how-to/backup-and-restore",
             "redirect_document_id": true
         },
         {
             "source_path": "cluster-templates.md",
-            "redirect_url": "how-to/cluster-templates.md",
+            "redirect_url": "how-to/cluster-templates",
             "redirect_document_id": true
         },
         {
             "source_path": "configuration.md",
-            "redirect_url": "how-to/configuration.md",
+            "redirect_url": "how-to/configuration",
             "redirect_document_id": true
         },
         {
             "source_path": "connect-to-node.md",
-            "redirect_url": "how-to/connect-to-node.md",
+            "redirect_url": "how-to/connect-to-node",
             "redirect_document_id": true
         },
         {
             "source_path": "custom-images.md",
-            "redirect_url": "how-to/create-custom-image.md",
+            "redirect_url": "how-to/create-custom-image",
             "redirect_document_id": true
         },
         {
             "source_path": "end-cluster.md",
-            "redirect_url": "how-to/terminate-cluster.md",
+            "redirect_url": "how-to/terminate-cluster",
             "redirect_document_id": true
         },
         {
             "source_path": "hb-hc-best-practices.md",
-            "redirect_url": "how-to/hb-hc-best-practices.md",
+            "redirect_url": "how-to/hb-hc-best-practices",
             "redirect_document_id": true
         },
         {
             "source_path": "healthcheck.md",
-            "redirect_url": "how-to/healthcheck.md",
+            "redirect_url": "how-to/healthcheck",
             "redirect_document_id": true
         },
         {
             "source_path": "installation.md",
-            "redirect_url": "how-to/install-manual.md",
+            "redirect_url": "how-to/install-manual",
             "redirect_document_id": true
         },
         {
@@ -122,142 +121,142 @@
         },
         {
             "source_path": "install-jetpack.md",
-            "redirect_url": "how-to/install-jetpack.md",
+            "redirect_url": "how-to/install-jetpack",
             "redirect_document_id": true
         },
         {
             "source_path": "managed-identities.md",
-            "redirect_url": "how-to/managed-identities.md",
+            "redirect_url": "how-to/managed-identities",
             "redirect_document_id": true
         },
         {
             "source_path": "alerts.md",
-            "redirect_url": "how-to/monitor-clusters.md",
+            "redirect_url": "how-to/monitor-clusters",
             "redirect_document_id": true
         },
         {
             "source_path": "attach-storage.md",
-            "redirect_url": "how-to/mount-nfs.md",
+            "redirect_url": "how-to/mount-nfs",
             "redirect_document_id": true
         },
         {
             "source_path": "network-security.md",
-            "redirect_url": "how-to/network-security.md",
+            "redirect_url": "how-to/network-security",
             "redirect_document_id": true
         },
         {
             "source_path": "performance-tuning.md",
-            "redirect_url": "how-to/performance-tuning.md",
+            "redirect_url": "how-to/performance-tuning",
             "redirect_document_id": true
         },
         {
             "source_path": "return-proxy.md",
-            "redirect_url": "how-to/return-proxy.md",
+            "redirect_url": "how-to/return-proxy",
             "redirect_document_id": true
         },
         {
             "source_path": "running-behind-proxy.md",
-            "redirect_url": "how-to/running-behind-proxy.md",
+            "redirect_url": "how-to/running-behind-proxy",
             "redirect_document_id": true
         },
         {
             "source_path": "running-in-locked-down-network.md",
-            "redirect_url": "how-to/running-in-locked-down-network.md",
+            "redirect_url": "how-to/running-in-locked-down-network",
             "redirect_document_id": true
         },
         {
             "source_path": "ssl-configuration.md",
-            "redirect_url": "how-to/ssl-configuration.md",
+            "redirect_url": "how-to/ssl-configuration",
             "redirect_document_id": true
         },
         {
             "source_path": "start-cluster.md",
-            "redirect_url": "how-to/start-cluster.md",
+            "redirect_url": "how-to/start-cluster",
             "redirect_document_id": true
         },
         {
             "source_path": "tag-nodes.md",
-            "redirect_url": "how-to/tag-nodes.md",
+            "redirect_url": "how-to/tag-nodes",
             "redirect_document_id": true
         },
         {
             "source_path": "theming.md",
-            "redirect_url": "how-to/theming.md",
+            "redirect_url": "how-to/theming",
             "redirect_document_id": true
         },
         {
             "source_path": "upgrade-and-migrate.md",
-            "redirect_url": "how-to/upgrade-and-migrate.md",
+            "redirect_url": "how-to/upgrade-and-migrate",
             "redirect_document_id": true
         },
         {
             "source_path": "user-cluster-access.md",
-            "redirect_url": "how-to/user-access.md",
+            "redirect_url": "how-to/user-access",
             "redirect_document_id": true
         },
         {
             "source_path": "user-authentication.md",
-            "redirect_url": "how-to/user-authentication.md",
+            "redirect_url": "how-to/user-authentication",
             "redirect_document_id": true
         },
         {
             "source_path": "storage-nfs-mounts.md",
-            "redirect_url": "how-to/mount-fileserver.md",
+            "redirect_url": "how-to/mount-fileserver",
             "redirect_document_id": true
         },
         {
             "source_path": "storage-blobs.md",
-            "redirect_url": "how-to/storage-blobs.md",
+            "redirect_url": "how-to/storage-blobs",
             "redirect_document_id": true
         },
         {
             "source_path": "container-distribution.md",
-            "redirect_url": "how-to/run-in-container.md",
+            "redirect_url": "how-to/run-in-container",
             "redirect_document_id": true
         },
         {
             "source_path": "container.md",
-            "redirect_url": "how-to/run-in-container.md",
+            "redirect_url": "how-to/run-in-container",
             "redirect_document_id": true
         },
         {
             "source_path": "cluster-references/build-cluster-template.md",
-            "redirect_url": "cluster-references/cluster-reference.md",
+            "redirect_url": "cluster-references/cluster-reference",
             "redirect_document_id": true
         },
         {
             "source_path": "cluster-references/nodes-in-cluster-templates.md ",
-            "redirect_url": "cluster-references/node-nodearray-reference.md",
+            "redirect_url": "cluster-references/node-nodearray-reference",
             "redirect_document_id": true
         },
         {
             "source_path": "cluster-references/cluster-configuration.md",
-            "redirect_url": "cluster-references/configuration-reference.md",
+            "redirect_url": "cluster-references/configuration-reference",
             "redirect_document_id": true
         },
         {
             "source_path": "cluster-references/environment.md",
-            "redirect_url": "cluster-references/environment-reference.md",
+            "redirect_url": "cluster-references/environment-reference",
             "redirect_document_id": true
         },
         {
             "source_path": "cluster-references/input-endpoint.md",
-            "redirect_url": "cluster-references/input-endpoint-reference.md",
+            "redirect_url": "cluster-references/input-endpoint-reference",
             "redirect_document_id": true
         },
         {
             "source_path": "cluster-references/network-interface.md",
-            "redirect_url": "cluster-references/network-interface-reference.md",
+            "redirect_url": "cluster-references/network-interface-reference",
             "redirect_document_id": true
         },
         {
             "source_path": "cluster-references/noderef.md",
-            "redirect_url": "cluster-references/noderef-reference.md",
+            "redirect_url": "cluster-references/noderef-reference",
             "redirect_document_id": true
         },
         {
             "source_path": "cluster-references/node-configuration-reference.md",
-            "redirect_url": "cluster-references/configuration-reference.md",
+            "redirect_url": "cluster-references/configuration-reference",
             "redirect_document_id": true
         }
     ]
