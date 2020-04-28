@@ -4,17 +4,17 @@ description: Azure PowerShell example script to configure auditing and Advanced 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: security
+ms.custom: security, sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: carlrab, vanto
-ms.date: 08/05/2019
+ms.date: 04/28/2020
 ---
 # Use PowerShell to configure SQL Database auditing and Advanced Threat Protection
 
-This PowerShell script example configures SQL Database auditing and Advanced Threat Protection.
+This PowerShell script example configures Azure SQL Database auditing and Advanced Threat Protection.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -41,7 +41,7 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts a single database or elastic pool. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a Azure SQL Database server that hosts a single database or elastic pool. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a single database or elastic pool. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Creates a Storage account. |
 | [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | Sets the auditing policy for a database. |

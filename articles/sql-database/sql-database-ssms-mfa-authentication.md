@@ -1,39 +1,38 @@
 ---
 title: Using Multi-factor AAD authentication
-description: Azure SQL Database and Azure Synapse support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication. 
+description: Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 titleSuffix: Azure SQL Database and Azure Synapse
-ms.custom: seoapril2019
+ms.custom: seoapril2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 02/06/2020
+ms.date: 04/23/2020
 tags: azure-synapse
 ---
 
-# Using Multi-factor AAD authentication with Azure SQL Database and Azure Synapse Analytics (SSMS support for MFA)
-Azure SQL Database and Azure Synapse support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. This article discusses the differences between the various authentication options, and also the limitations associated with using Universal Authentication. 
+# Using Multi-factor AAD authentication
+Azure SQL Database, Azure Managed Instance, and Azure Synapse Analytics support connections from SQL Server Management Studio (SSMS) using *Azure Active Directory - Universal with MFA* authentication. This article discusses the differences between the various authentication options, and also the limitations associated with using Universal Authentication. 
 
 **Download the latest SSMS** - On the client computer, download the latest version of SSMS, from [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). 
 
-
-For all the features discussed in this article, use at least July 2017, version 17.2.  The most recent connection dialog box, should look similar to the following image:
+For all the features discussed in this article, use at least July 2017, version 17.2. The most recent connection dialog box, should look similar to the following image:
  
   ![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "Completes the User name box.")  
 
 ## The five authentication options  
 
 Active Directory Universal Authentication supports the two non-interactive authentication methods:
-    - `Active Directory - Password` authentication
-    - `Active Directory - Integrated` authentication
+    - `Azure Active Directory - Password` authentication
+    - `Azure Active Directory - Integrated` authentication
 
 There are two non-interactive authentication models as well, which can be used in many different applications (ADO.NET, JDCB, ODC, etc.). These two methods never result in pop-up dialog boxes: 
-- `Active Directory - Password` 
-- `Active Directory - Integrated` 
+- `Azure Active Directory - Password` 
+- `Azure Active Directory - Integrated` 
 
 The interactive method that also supports Azure multi-factor authentication (MFA) is: 
 - `Active Directory - Universal with MFA` 
@@ -56,7 +55,7 @@ If you are running SSMS 18.x or later, The AD domain name or tenant ID is no lon
 ### Azure AD business to business support   
 Azure AD users that are supported for Azure AD B2B scenarios as guest users (see [What is Azure B2B collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)) can connect to SQL Database and Azure Synapse only as part of members of a group created in current Azure AD and mapped manually using the Transact-SQL `CREATE USER` statement in a given database. For example, if `steve@gmail.com` is invited to Azure AD `contosotest` (with the Azure AD domain `contosotest.onmicrosoft.com`), an Azure AD group, such as `usergroup` must be created in the Azure AD that contains the `steve@gmail.com` member. Then, this group must be created for a specific  database (that is, MyDatabase) by Azure AD SQL admin or Azure AD DBO  by executing a Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` statement. After the database user is created, then the user `steve@gmail.com` can log in to `MyDatabase` using the SSMS authentication option `Active Directory – Universal with MFA support`. The usergroup, by default, has only the connect permission and any further data access that will need to be granted in the normal way. Note that user `steve@gmail.com` as a guest user must check the box and add the AD domain name `contosotest.onmicrosoft.com` in the SSMS **Connection Property** dialog box. The **AD domain name or tenant ID** option is only supported for the Universal with MFA connection options, otherwise it is greyed out.
 
-## Universal Authentication limitations for SQL Database and Azure Synapse
+## Universal Authentication limitations
 - SSMS and SqlPackage.exe are the only tools currently enabled for MFA through Active Directory Universal Authentication.
 - SSMS version 17.2, supports multi-user concurrent access using Universal Authentication with MFA. Version 17.0 and 17.1, restricts a login for an instance of SSMS using Universal Authentication to a single Azure Active Directory account. To log in as another Azure AD account, you must use another instance of SSMS. (This restriction is limited to Active Directory Universal Authentication; you can log in to different server using Active Directory Password Authentication, Active Directory Integrated Authentication, or SQL Server Authentication).
 - SSMS supports Active Directory Universal Authentication for Object Explorer, Query Editor, and Query Store visualization.

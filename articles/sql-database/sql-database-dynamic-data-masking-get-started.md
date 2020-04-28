@@ -1,30 +1,29 @@
 ---
 title: Dynamic data masking
-description: Dynamic data masking limits sensitive data exposure by masking it to non-privileged users for SQL Database and Azure Synapse
+description: Dynamic data masking limits sensitive data exposure by masking it to non-privileged users for Azure SQL Database, Azure SQL Managed Instance and Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and Azure Synapse
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/06/2020
+ms.date: 04/28/2020
 tags: azure-synpase
 ---
-# Dynamic data masking for Azure SQL Database and Azure Synapse Analytics
+# Dynamic data masking 
 
-SQL Database dynamic data masking limits sensitive data exposure by masking it to non-privileged users. 
+Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics support dynamic data masking. Dynamic data masking limits sensitive data exposure by masking it to non-privileged users. 
 
 Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 
-For example, a service representative at a call center may identify callers by several digits of their credit card number, but those data items should not be fully exposed to the service representative. A masking rule can be defined that masks all but the last four digits of any credit card number in the result set of any query. As another example, an appropriate data mask can be defined to protect personally identifiable information (PII) data, so that a developer can query production environments for troubleshooting purposes without violating compliance regulations.
+For example, a service representative at a call center may identify callers by several digits of their credit card number, but those data items should not be fully exposed to the service representative. A masking rule can be defined that masks all but the last four digits of any credit card number in the result set of any query. As another example, an appropriate data mask can be defined to protect personal data, so that a developer can query production environments for troubleshooting purposes without violating compliance regulations.
 
 ## Dynamic data masking basics
 
-You set up a dynamic data masking policy in the Azure portal by selecting the dynamic data masking operation in your SQL Database configuration blade or settings blade. This feature cannot be set by using portal for Azure Synapse (Please use Powershell or REST API)
+You set up a dynamic data masking policy in the Azure portal by selecting the **Dynamic Data Masking** blade under **Security** in your SQL database configuration pane. This feature cannot be set using portal for Azure Synapse (use PowerShell or REST API) or SQL Managed Instance. For more information, see [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ### Dynamic data masking permissions
 
@@ -32,7 +31,7 @@ Dynamic data masking can be configured by the Azure SQL Database admin, server a
 
 ### Dynamic data masking policy
 
-* **SQL users excluded from masking** - A set of SQL users or AAD identities that get unmasked data in the SQL query results. Users with administrator privileges are always excluded from masking, and see the original data without any mask.
+* **SQL users excluded from masking** - A set of SQL users or Azure AD identities that get unmasked data in the SQL query results. Users with administrator privileges are always excluded from masking, and see the original data without any mask.
 * **Masking rules** - A set of rules that define the designated fields to be masked and the masking function that is used. The designated fields can be defined using a database schema name, table name, and column name.
 * **Masking functions** - A set of methods that control the exposure of data for different scenarios.
 

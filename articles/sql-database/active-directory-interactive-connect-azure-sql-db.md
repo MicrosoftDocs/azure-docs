@@ -4,13 +4,13 @@ description: "C# Code example, with explanations, for connecting to Azure SQL Da
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: active directory
+ms.custom: active directory, sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
-ms.reviewer: GeneMi, vanto
-ms.date: 10/11/2019
+ms.reviewer: vanto
+ms.date: 04/23/2020
 ---
 # Connect to Azure SQL Database with Azure Multi-Factor Authentication
 
@@ -83,11 +83,11 @@ For more information about Azure AD admins and users for Azure SQL Database, see
 
 ### Add a non-admin user to a specific database (optional)
 
-An Azure AD admin for a SQL Database server can run the C# example program. An Azure AD user can run the program if they are in the database. An Azure AD SQL admin or an Azure AD user who exists already in the database and has the `ALTER ANY USER` permission on the database can add a user.
+An Azure AD admin for an Azure SQL Database server can run the C# example program. An Azure AD user can run the program if they are in the database. An Azure AD SQL admin or an Azure AD user who exists already in the database and has the `ALTER ANY USER` permission on the database can add a user.
 
 You can add a user to the database with the SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) command. An example is `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
-For more information, see [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or SQL Data Warehouse](sql-database-aad-authentication.md).
+For more information, see [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or Azure Synapse Analytics](sql-database-aad-authentication.md).
 
 ## New authentication enum value
 
@@ -104,6 +104,9 @@ The C# example relies on the [`System.Data.SqlClient`](https://docs.microsoft.co
 - `SqlAuthenticationMethod.ActiveDirectoryPassword`
 
   Use this value for authentication that requires an Azure AD user name and password. Azure SQL Database does the authentication. This method doesn't support Multi-Factor Authentication.
+
+> [!NOTE]
+> If you are using .NET Core, you will want to use the [Microsoft.Data.SqlClient](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) namespace. For more information, see the following [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/).
 
 ## Set C# parameter values from the Azure portal
 
@@ -128,7 +131,7 @@ Run SSMS from the same computer, in the same building, where you plan to run the
 
 ### Verify Azure Active Directory Multi-Factor Authentication
 
-Run SSMS again, this time with **Authentication** set to **Active Directory - Universal with MFA support**. This option requires SSMS version 17.5 or later.
+Run SSMS again, this time with **Authentication** set to **Azure Active Directory - Universal with MFA**. This option requires SSMS version 17.5 or later.
 
 For more information, see [Configure Multi-Factor Authentication for SSMS and Azure AD](sql-database-ssms-mfa-authentication-configure.md).
 
@@ -136,6 +139,9 @@ For more information, see [Configure Multi-Factor Authentication for SSMS and Az
 > If you are a guest user in the database, you also need to provide the Azure AD domain name for the database: Select **Options** > **AD domain name or tenant ID**. To find the domain name in the Azure portal, select **Azure Active Directory** > **Custom domain names**. In the C# example program, providing a domain name is not necessary.
 
 ## C# code example
+
+> [!NOTE]
+> If you are using .NET Core, you will want to use the [Microsoft.Data.SqlClient](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) namespace. For more information, see the following [blog](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/).
 
 The example C# program relies on the [*Microsoft.IdentityModel.Clients.ActiveDirectory*](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory) DLL assembly.
 
