@@ -24,7 +24,7 @@ You can specify the number of partitions at the time of creating an event hub. I
 
 
 ## Update the partition count
-This section shows you how to update partition count of an event hub in different ways (PowerShell, CLI, etc.).
+This section shows you how to update partition count of an event hub in different ways (PowerShell, CLI, and so on.).
 
 ### PowerShell
 Use the [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub?view=azurermps-6.13.0) PowerShell command to update partitions in an event hub. 
@@ -59,12 +59,6 @@ Update value of the `partitionCount` property in the Resource Manager template a
     }
 ```
 
-### .NET SDK
-Use the `PartitionCount` property of the `EventHub` class in the management SDK to set the new partition count for the event hub. 
-
-If you are using the [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) class of the older Microsoft.ServiceBus.Messaging library, use the [UpdateEventHub](/dotnet/api/microsoft.servicebus.namespacemanager.updateeventhub?view=azure-dotnet#Microsoft_ServiceBus_NamespaceManager_UpdateEventHub_Microsoft_ServiceBus_Messaging_EventHubDescription_) method after specifying the new value for the `PartitionCount` property of the [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription?view=azure-dotnet) object. 
-
-
 ### Apache Kafka
 Use the `AlterTopics` API (for example, via **kafka-topics** CLI tool) to increase the partition count. For details, see [Modifying Kafka topics](http://kafka.apache.org/documentation/#basic_ops_modify_topic). 
 
@@ -76,8 +70,8 @@ When you add a partition to an existing even hub, the event hub client receives 
 ### Sender/producer clients
 Event Hubs provides three sender options:
 
-- **Partition sender** – In this scenario, clients send events directly to a partition. Although partitions are identifiable and events can be sent directly to them, we don't recommend this pattern. Adding partitions doesn't impact this scenario.
-- **Partition key sender** – in this scenario, clients sends the events with a key so that all events belonging to that key end up in the same partition. In this case, service hashes the key and routes to the corresponding partition.
+- **Partition sender** – In this scenario, clients send events directly to a partition. Although partitions are identifiable and events can be sent directly to them, we don't recommend this pattern. Adding partitions doesn't impact this scenario. We recommend that you restart applications so that they can detect newly added partitions. 
+- **Partition key sender** – in this scenario, clients sends the events with a key so that all events belonging to that key end up in the same partition. In this case, service hashes the key and routes to the corresponding partition. The partition count update can cause out-of-order issues due to hashing change. So, if you care about ordering, ensure that your application consumes all events from existing partitions before you increase the partition count.
 - **Round-robin sender (default)** – In this scenario, the Event Hubs service round robins the events across partitions. Event Hubs service is aware of partition count changes and will send to new partitions within seconds of altering partition count.
 
 ### Receiver/consumer clients
@@ -86,13 +80,15 @@ Event Hubs provides direct receivers and an easy consumer library called the [Ev
 - **Direct receivers** – The direct receivers listen to specific partitions. Their runtime behavior isn't affected when partitions are scaled out for an event hub.
 - **Event processor host** – This client doesn't automatically refresh the entity metadata. So, it wouldn't pick up on partition count increase. Recreating an event processor instance will cause an entity metadata fetch, which in turn will create new blobs for the newly added partitions. Pre-existing blobs won't be affected. Restarting all event processor instances is recommended to ensure that all instances are aware of the newly added partitions, and load-balancing is handled correctly among consumers.
 
+    If you're using the old version of .NET SDK ([WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)), the event processor host removes an existing checkpoint upon restart if partition count in the checkpoint doesn't match the partition count fetched from the service. This behavior may have an impact on your application. 
+
 ## Apache Kafka clients
 This section describes how Apache Kafka clients that use the Kafka endpoint of Azure Event Hubs behave when the partition count is updated for an event hub. 
 
 Kafka clients that use Event Hubs with the Apache Kafka protocol behave differently from event hub clients that use AMQP protocol. Kafka clients update their metadata once every `metadata.max.age.ms` milliseconds. You specify this value in the client configurations. The `librdkafka` libraries also use the same configuration. Metadata updates inform the clients of service changes including the partition count increases. For a list of configurations, see [Apache Kafka configurations for Event Hubs](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
 
 ### Sender/producer clients
-Producers always dictate that send requests contain the partition destination for each set of produced records. So, all produce partitioning is done on client-side with producer’s view of broker's metadata. Once the new partitions are added to the producer’s metadata view, they will be available for producer requests.
+Producers always dictate that send requests contain the partition destination for each set of produced records. So, all produce partitioning is done on client-side with producer’s view of broker's metadata. Once the new partitions are added to the producer’s metadata view, they'll be available for producer requests.
 
 ### Consumer/receiver clients
 When a consumer group member performs a metadata refresh and picks up the newly created partitions, that member initiates a group rebalance. Consumer metadata then will be refreshed for all group members, and the new partitions will be assigned by the allotted rebalance leader.
