@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 04/28/2020
 ---
 
-# Use Apprentice mode to train your loop without affecting your existing application
+# Use Apprentice mode to train Personalizer without affecting your existing application
 
 Due to the nature of **real-world** Reinforcement Learning, a Personalizer model can only be trained in a production environment. When deploying a new use case, the Personalizer model is not performing efficiently because it takes time for the model to be sufficiently trained.  **Apprentice mode** is a learning behavior that eases this situation and allows you to gain confidence in the model – without the developer changing any code.
 
 > [!Important]
-> Apprentice mode is only available on the E0 pricing tier. Please see pricing for details. You can select the E0 tier at resource creation or upgrade to E0 from the Subscriptions tab in the Azure portal. If you are on another tier, and upgrade to E0, your existing Personalizer resources will automatically be migrated to the E0 tier.
+> **Public Preview: Apprentice mode** is only available on the E0 pricing tier. Please see pricing for details. You can select the E0 tier at resource creation or upgrade to E0 from the Subscriptions tab in the Azure portal. If you are on another tier, and upgrade to E0, your existing Personalizer resources will automatically be migrated to the E0 tier.
 
 ## What is Apprentice mode?
 

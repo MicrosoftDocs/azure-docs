@@ -19,7 +19,7 @@ Learn what's new in the service. These items may include release notes, videos, 
 
 ### May 2020 - //Build conference
 
-The following were announced as public preview feature
+The following are available in **Public Preview**:
 
  * [Apprentice mode](concept-apprentice-mode.md) as a learning behavior.
 
