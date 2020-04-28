@@ -10,13 +10,16 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
-ms.date: 01/25/2019
+ms.date: 04/28/2020
 ---
 # Replication to SQL Database single and pooled databases
 
 SQL Server replication can be configured to single and pooled databases on a [SQL Database server](sql-database-servers.md) in Azure SQL Database.  
 
-## **Supported Configurations:**
+> [!NOTE]
+> This article describes the use of [transactional replication](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL Database. It is unrelated to [active geo-replication](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication), an Azure SQL Database feature that allows you to create complete readable replicas of individual databases.
+
+## Supported Configurations
   
 - The SQL Server can be an instance of SQL Server running on-premises or an instance of SQL Server running in an Azure virtual machine in the cloud. For more information, see [SQL Server on Azure Virtual Machines overview](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/).  
 - The Azure SQL database must be a push subscriber of a SQL Server publisher.  
