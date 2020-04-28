@@ -154,7 +154,7 @@ Next, you will create a virtual network containing two empty subnets.
     --resource-group $RESOURCEGROUP \
     --vnet-name aro-vnet \
     --name worker-subnet \
-    --address-prefixes 10.0.1.0/23 \
+    --address-prefixes 10.0.2.0/23 \
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
