@@ -96,7 +96,7 @@ Applications use the different authentication flows to sign in users and get tok
 
 Many modern web apps are built as client-side single-page applications. These applications use JavaScript or a framework like Angular, Vue.js, and React.js. These applications run in a web browser.
 
-Authentication characteristics for single-page applications differ from those of traditional server-side web apps. By using the Microsoft identity platform, single-page applications can sign in users and get tokens to access back-end services or web APIs.
+Single-page applications differ from traditional server-side web apps in terms of authentication characteristics. By using the Microsoft identity platform, single-page applications can sign in users and get tokens to access back-end services or web APIs.
 
 ![A single-page application](media/scenarios/spa-app.svg)
 
@@ -185,7 +185,7 @@ You can write such daemon apps that acquire a token for the calling app by using
 
 For more information, see [Daemon application that calls web APIs](scenario-daemon-overview.md).
 
-## Supported authentication flows
+## Scenarios and supported authentication flows
 
 You use authentication flows to implement the application scenarios that are requesting tokens. There isn't a one-to-one mapping between application scenarios and authentication flows.
 
@@ -269,7 +269,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
  </tbody>
 </table>
 
-## Supported platforms and languages
+## Scenarios and supported platforms and languages
 
 Microsoft authentication libraries support multiple platforms:
 
