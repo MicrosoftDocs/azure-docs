@@ -50,7 +50,7 @@ If you must run stateful workloads, use node pool taints and tolerations in  pod
 
 ## Overview of availability zones for AKS clusters
 
-Availability zones are a high-availability offering that protects your applications and data from datacenter failures. Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all zone enabled regions. The physical separation of availability zones within a region protects applications and data from datacenter failures.
+Availability zones are a high-availability offering that protects your applications and data from datacenter failures. Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all zone enabled regions. The physical separation of availability zones within a region protects applications and data from datacenter failures.
 
 For more information, see [What are availability zones in Azure?][az-overview].
 
@@ -83,7 +83,7 @@ az aks create \
 
 It takes a few minutes to create the AKS cluster.
 
-When deciding what zone a new node should belong to, a given AKS node pool will use a [best effort zone balancing offered by underlying Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing). A given AKS node pool is considered "balanced" if each zone has the same number of VMs or +\- 1 VM in all other zones for the scale set.
+When deciding what zone a new node should belong to, a given AKS node pool will use a [best effort zone balancing offered by underlying Azure Virtual Machine Scale Sets][vmss-zone-balancing]. A given AKS node pool is considered "balanced" if each zone has the same number of VMs or +\- 1 VM in all other zones for the scale set.
 
 ## Verify node distribution across zones
 
@@ -180,6 +180,7 @@ This article detailed how to create an AKS cluster that uses availability zones.
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-add
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[vmss-zone-balancing]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
