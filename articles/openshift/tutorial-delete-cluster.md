@@ -35,19 +35,20 @@ If you have access to multiple subscriptions, run `az account set -s {subscripti
 
 ## Delete the cluster
 
-Open a Bash terminal and set the variable CLUSTER_NAME to the name of your cluster:
+In previous tutorials, the following variables were set. 
 
 ```bash
-CLUSTER_NAME=yourclustername
+CLUSTER=yourclustername
+RESOURCE_GROUP=yourresourcegroup
 ```
 
-Now, delete your cluster:
+Using these values, delete your cluster:
 
 ```bash
-az aro delete --resource-group $CLUSTER_NAME --name $CLUSTER_NAME
+az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
-You'll be prompted whether you want to delete the cluster. After you confirm with `y`, it will take several minutes to delete the cluster. When the command finishes, the entire Resource Group and all resources inside it, including the cluster, will be deleted.
+You'll then be prompted to confirm if you want to delete the cluster. After you confirm with `y`, it will take several minutes to delete the cluster. When the command finishes, the entire resource group and all resources inside it—including the cluster—will be deleted.
 
 ## Next steps
 
