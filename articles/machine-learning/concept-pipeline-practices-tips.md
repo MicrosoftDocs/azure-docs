@@ -50,7 +50,7 @@ During active development, you can retrieve `PipelineRun` and `StepRun` metadata
 
 Real-world ML solutions generally involve considerable customization of every step. The raw data often needs to be filtered, transformed, and augmented. The training processes might have several potential architectures and, for deep learning, many possible variations in terms of layer sizes and activation functions. Even with a consistent architecture, hyperparameter search can produce significant wins.
 
-In addition to tools like [AutoML](tk) and [automated hyperparameter search](tk), pipelines can be an important tool for A/B testing solutions. If you have several variants of your pipeline steps, it is easy to generate separate runs trying their variations: 
+In addition to tools like [AutoML](concept-automated-ml.md) and [automated hyperparameter search](how-to-tune-hyperparameters.md), pipelines can be an important tool for A/B testing solutions. If you have several variants of your pipeline steps, it is easy to generate separate runs trying their variations: 
 
 ```python
 data_preparation_variants = [data1, data2, data3]
