@@ -727,7 +727,10 @@
       "redirect_url": "/azure/cognitive-services/personalizer/how-to-manage-model",
       "redirect_document_id": false
     },
-
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-boundaries.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-limits"
+    },
       {
         "source_path": "articles/cognitive-services/LUIS/luis-migration-api-authoring.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-authoring-entities",
@@ -2337,6 +2340,11 @@
     {
       "source_path": "articles/cosmos-db/spark-api-introduction.md",
       "redirect_url": "/azure/cosmos-db/analytics-usecases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/multi-master-benefits.md",
+      "redirect_url": "/azure/cosmos-db/conflict-resolution-policies",
       "redirect_document_id": false
     },
     {
@@ -14099,6 +14107,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-api-overview.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-samples",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-archive-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-capture-overview",
       "redirect_document_id": false
@@ -14159,10 +14172,20 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-dotnet-framework-api-overview.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/event-hubs/event-hubs-dotnet-standard-api-overview.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
@@ -14228,6 +14251,11 @@
       "redirect_url": "/azure/event-hubs/authorize-access-azure-active-directory",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/event-hubs/event-hubs-spark-connector.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-kafka-spark-tutorial",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/event-hubs/event-hubs-tutorial-virtual-networks-firewalls.md",
       "redirect_url": "/azure/event-hubs/event-hubs-service-endpoints",
@@ -17826,6 +17854,11 @@
     {
       "source_path": "articles/sql-data-warehouse/performance-tuning-ordered-cci.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/performance-tuning-ordered-cci",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/synapse-analytics/apache-spark-notebook-create-spark-use-sql.md",
+      "redirect_url": "/azure/synapse-analytics/quickstart-apache-spark-notebook",
       "redirect_document_id": true
     },
     {
@@ -51240,6 +51273,206 @@
     {
       "source_path": "articles/aks/kubernetes-draft.md",
       "redirect_url": "/azure/aks/quickstart-helm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/index.yml",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-android-get-started-offline-data.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-android-get-started-offline-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-android-get-started-push.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-android-get-started-push",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-android-get-started-users.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-android-get-started-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-android-get-started.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-android-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-android-how-to-use-client-library.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-android-how-to-use-client-library",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-auth.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-auth",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-client-and-server-versioning.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-client-and-server-versioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-cordova-get-started-offline-data.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-cordova-get-started-offline-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-cordova-get-started-push.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-cordova-get-started-push",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-cordova-get-started-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-cordova-get-started.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-cordova-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-cordova-how-to-use-client-library.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-cordova-how-to-use-client-library",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-html-how-to-use-client-library.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-html-how-to-use-client-library",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-ios-get-started-offline-data.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-offline-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-ios-get-started-push.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-ios-get-started-users.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-ios-get-started.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-ios-how-to-use-client-library",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-offline-data-sync.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-offline-data-sync",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-value-prop.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-offline-data.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-offline-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-android-get-started-offline-data.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-android-get-started-offline-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-android-get-started-push.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-android-get-started-push",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-android-get-started-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-android-get-started.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-android-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-get-started-offline-data.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started-offline-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-get-started-push.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started-push",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-get-started-users.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-get-started.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started-offline-data.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started-offline-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started-push.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started-push",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started",
       "redirect_document_id": false
     }
   ]

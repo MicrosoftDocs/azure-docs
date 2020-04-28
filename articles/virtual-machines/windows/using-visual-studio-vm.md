@@ -1,19 +1,12 @@
 ---
 title: Using Visual Studio on an Azure virtual machine 
 description: Using Visual Studio on an Azure virtual machine.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cathysull
 manager: cathys
-
-tags: azure-resource-manager
-
 ms.service: virtual-machines-windows
 ms.custom: vs-azure
 ms.workload: azure-vs
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: cathys
 keywords: visualstudio
