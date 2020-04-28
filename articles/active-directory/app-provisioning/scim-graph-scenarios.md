@@ -1,29 +1,23 @@
 ---
-title: Using SCIM, the Microsoft Graph, and the Azure AD provisioning service to provision users and enrich your application with the data it needs | Microsoft Docs
+title: Use SCIM, Microsoft Graph, and Azure AD to provision users and enrich apps with data
 description: Using SCIM and the Microsoft Graph together to provision users and enrich your application with the data it needs .
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/26/2020
 ms.author: mimart
 ms.reviewer: arvinh
 
-ms.collection: M365-identity-device-management
 ---
 
 
 # Using SCIM and Microsoft Graph together to provision users and enrich your application with the data it needs
 
-**Target audience:** This document is targeted towards developers building applications to be integrated with Azure AD. For others looking to use applications already integrated with Azure AD, such as Zoom, ServiceNow, and DropBox, you can skip this and review the application specific [tutorials](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) or review [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
+**Target audience:** This article is targeted towards developers building applications to be integrated with Azure Active Directory (Azure AD). If you're looking to use applications already integrated with Azure AD, such as Zoom, ServiceNow, and DropBox, you can skip this article and review the application specific [tutorials](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) or review [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
 
 **Common scenarios**
 
@@ -44,7 +38,6 @@ Today, IT admins provision users by manually creating user accounts or periodica
 **Recommendation**: 
 * If your customers use various IdPs and you do not want to maintain a sync engine to integrate with each, support a SCIM compliant [/Users](https://aka.ms/scimreferencecode) endpoint. Your customers will be able to easily use this endpoint to integrate with the Azure AD provisioning service and automatically create user accounts when they need access. You can build the endpoint once and it will be compatible with all IdPs. Check out the example request below for how a user would be created using SCIM.
 * If you require user data found on the user object in Azure AD and other data from across Microsoft, consider building a SCIM endpoint for user provisioning and calling into the Microsoft Graph to get the rest of the data. 
-
 
 ```json
 POST /Users
