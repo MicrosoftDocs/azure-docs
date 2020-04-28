@@ -68,7 +68,7 @@ Automation doesn't import the root Az module automatically into any new or exist
 
 ## Az module cmdlets
 
-For Az.Automation, the majority of the cmdlets have the same names as those used for the AzureRM modules, except that the AzureRm prefix has been changed to Az. For a list of Az modules that don't follow this naming convention, see the [list of exceptions](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
+For Az.Automation, the majority of the cmdlets have the same names as those used for the AzureRM modules, except that the *AzureRm* prefix has been changed to *Az*. For a list of Az modules that don't follow this naming convention, see the [list of exceptions](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
 ## Internal cmdlets
 
@@ -87,7 +87,7 @@ The following table defines the internal cmdlets supported by the `Orchestrator.
 |Start-AutomationRunbook|`Start-AutomationRunbook [-Name] <string> [-Parameters <IDictionary>] [-RunOn <string>] [-JobId <guid>] [<CommonParameters>]`|
 |Wait-AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
 
-Note that the internal cmdlets differ in naming from the Az and AzureRM cmdlets. Internal cmdlet names don't contain words like “Azure” or “Az” in the noun, but do use the word *Automation*. We recommend their use over the use of Az or AzureRM cmdlets during runbook execution in an Azure sandbox or on a Windows hybrid worker. They require fewer parameters and run in the context of your job that's already running.
+Note that the internal cmdlets differ in naming from the Az and AzureRM cmdlets. Internal cmdlet names don't contain words like “Azure” or “Az” in the noun, but do use the word *Automation*. We recommend their use over the use of Az or AzureRM cmdlets during runbook execution in an Azure sandbox or on a Windows Hybrid Runbook Worker. They require fewer parameters and run in the context of your job that's already running.
 
 Use Az or AzureRM cmdlets for manipulating Automation resources outside the context of a runbook. 
 
@@ -103,7 +103,7 @@ This section includes considerations to take into account when you're migrating 
 
 #### Use of AzureRM modules and Az modules in the same Automation account
 
- We don't recommend running AzureRM modules and Az modules in the same Automation account. When you're sure you want to migrate from AzureRM to Az, it's best to fully commit to a complete migration. Automation often reuses sandboxes within the Automation account to save on startup times. If you don't make a full module migration, you might start a job that uses only AzureRM modules, and then start another job that uses only Az modules. The sandbox soon crashes, and you receive an error stating that the modules aren’t compatible. This situation results in randomly occurring crashes for any given runbook or configuration. 
+ We don't recommend running AzureRM modules and Az modules in the same Automation account. When you're sure you want to migrate from AzureRM to Az, it's best to fully commit to a complete migration. Automation often reuses sandboxes within the Automation account to save on startup times. If you don't make a full module migration, you might start a job that uses only AzureRM modules, and then start another job that uses only Az modules. The sandbox soon crashes, and you receive an error stating that the modules aren’t compatible. This situation results in randomly occurring crashes for any particular runbook or configuration. 
 
 #### Import of Az modules into the PowerShell session
 
@@ -156,7 +156,7 @@ Follow the considerations in this section when you author a PowerShell module fo
 
 ### Version folder
 
-Don't include a version folder in the **.zip** package for your module. This issue is less of a concern for runbooks, but does cause a problem with the Desired State Configuration (DSC) service. Automation creates the version folder automatically when the module is distributed to nodes managed by DSC. If a version folder exists, you end up with two instances. Here's an example folder structure for a DSC module:
+Don't include a version folder in the **.zip** package for your module. This issue is less of a concern for runbooks, but does cause a problem with the DSC service. Automation creates the version folder automatically when the module is distributed to nodes managed by DSC. If a version folder exists, you end up with two instances. Here's an example folder structure for a DSC module:
 
 ```powershell
 myModule
@@ -336,7 +336,7 @@ To import a module directly from the PowerShell Gallery:
 To import a PowerShell Gallery module directly from your Automation account:
 
 1. Under **Shared Resources**, select **Modules**. 
-2. Select **Browse gallery**, and then search the gallery for a module. 
+2. Select **Browse gallery**, and then search the Gallery for a module. 
 3. Select the module to import, and select **Import**. 
 4. Select **OK** to start the import process.
 
