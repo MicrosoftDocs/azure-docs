@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 04/10/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -93,7 +93,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |prod.warmpath.msftcloudes.com|443|Agent traffic|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows activation|Internet|
-|wvdportalstorageblob.blob.core.windows.net|443|Resource creation in Azure portal|AzureCloud|
+|wvdportalstorageblob.blob.core.windows.net|443|Azure portal support|AzureCloud|
 
 >[!IMPORTANT]
 >We recommend you use the service tags instead of URLs in most cases to prevent service issues. Unblocking these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and don't include URLs for other services like Azure Active Directory.
