@@ -31,7 +31,7 @@ In developing and deploying this app, you'll learn how to
 - Deploy the Azure Web App, which is dedicated isolated with front-end firewall access. 
 - Create and configure an Azure Application Gateway instance with a firewall that uses OWASP Top 10 Ruleset. 
 - Enable encryption of data in transit and at rest by using Azure services. 
-- Set up the Azure policy and security center to evaluate the compliancies. 
+- Set up Azure Policy and security center to evaluate the compliance. 
 
 After you develop and deploy this app, you will have set up the following sample web app along with the configuration and security measures that are described.
 
