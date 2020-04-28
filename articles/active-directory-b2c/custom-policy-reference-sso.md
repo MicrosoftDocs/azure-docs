@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/27/2020
+ms.date: 04/28/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -104,7 +104,7 @@ The following `SM-MFA` technical profile is included in the [custom policy start
 
 ### ExternalLoginSSOSessionProvider
 
-This provider is used to suppress the "choose identity provider" screen, and sign-out from a federated identity provider. It is typically referenced in a technical profile configured for an federated identity provider, such as Facebook, or Azure Active Directory. The following `SM-SocialLogin` technical profile is included in the [custom policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack).
+This provider is used to suppress the "choose identity provider" screen and sign-out from a federated identity provider. It is typically referenced in a technical profile configured for a federated identity provider, such as Facebook, or Azure Active Directory. The following `SM-SocialLogin` technical profile is included in the [custom policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack).
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">

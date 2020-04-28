@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/07/2020
+ms.date: 04/28/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -74,7 +74,7 @@ The CryptographicKeys element contains the following attributes:
 
 ## Session management
 
-To configure the Azure AD B2C sessions between a relying party application, the attribute of the `UseTechnicalProfileForSessionManagement` element, reference to [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider) SSO session.
+To configure the Azure AD B2C sessions between Azure AD B2C and a relying party application, in the attribute of the `UseTechnicalProfileForSessionManagement` element, add a reference to [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider) SSO session.
 
 
 

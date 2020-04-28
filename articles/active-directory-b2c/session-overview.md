@@ -64,17 +64,17 @@ The Azure AD B2C session can be configured with the following scopes:
 - **Tenant** - This setting is the default. Using this setting allows multiple applications and user flows in your B2C tenant to share the same user session. For example, once a user signs into an application, the user can also seamlessly sign into another one upon accessing it.
 - **Application** - This setting allows you to maintain a user session exclusively for an application, independent of other applications. For example, you can use this setting if you want the user to sign in to Contoso Pharmacy regardless of whether the user is already signed into Contoso Groceries.
 - **Policy** - This setting allows you to maintain a user session exclusively for a user flow, independent of the applications using it. For example, if the user has already signed in and completed a multi-factor authentication (MFA) step, the user can be given access to higher-security parts of multiple applications, as long as the session tied to the user flow doesn't expire.
-- **Suppressed** - This setting forces the user to run through the entire user flow upon every execution of the policy.
+- **Disabled** - This setting forces the user to run through the entire user flow upon every execution of the policy.
 
 ### Session life time
 
-The **session life time** is the amount of time the Azure AD B2C session cookie is stored on the user's browser after successful authentication. You can set the session life time to a value between 15 and 720 minutes.
+The **session life time** is the amount of time the Azure AD B2C session cookie is stored on the user's browser after successful authentication. You can set the session life time to a value from 15 to 720 minutes.
 
 ### Keep me signed-in
 
-The **keep me signed-in** feature extends the session life time through the use of a persistent cookie. The session remains active after the user closes and reopens the browser. The session is revoked only when a user signs out. The keep me signed-in feature only applies to sign-in with local accounts.
+The [Keep me signed-in](custom-policy-keep-me-signed-in.md) feature extends the session life time through the use of a persistent cookie. The session remains active after the user closes and reopens the browser. The session is revoked only when a user signs out. The Keep me signed-in feature only applies to sign-in with local accounts.
 
-The keep me signed-in feature takes precedence over the session life time. If the keep me signed-in feature is enabled and the user selects it, this feature dictates when the session will expire. 
+The Keep me signed-in feature takes precedence over the session life time. If the Keep me signed-in feature is enabled and the user selects it, this feature dictates when the session will expire. 
 
 ### Session expiry type
 
@@ -85,29 +85,29 @@ The **session expiry type** indicates how a session is extended by the session l
 
 ## Sign-out
 
-When you want to sign the user out of the application, it isn't enough to clear the application's cookies or otherwise end the session with the user. You must redirect the user to Azure AD B2C to sign out. If you fail to do so, the user might be able to re-authenticate to your applications without entering their credentials again.
+When you want to sign the user out of the application, it isn't enough to clear the application's cookies or otherwise end the session with the user. You must redirect the user to Azure AD B2C to sign out. Otherwise, the user might be able to re-authenticate to your applications without entering their credentials again.
 
 Upon a sign-out request, Azure AD B2C:
 
 1. Invalidates the Azure AD B2C cookie-based session.
-2. Attempts to sign-out from federated identity providers. This currently unconfigurable.
-   1. OpenId Connect - if the well-known configuration end point specifies `end_session_endpoint` location.
-   2. SAML - if the IDP metadata contains the `SingleLogoutService` location.
-3. Optionally, sign-out from other applications. For more information, see the [Single sign-out](#single-sign-out) section.
+1. Attempts to sign out from federated identity providers:
+   - OpenId Connect - If the identity provider well-known configuration endpoint specifies an `end_session_endpoint` location.
+   - SAML - If the identity provider metadata contains the `SingleLogoutService` location.
+1. Optionally, signs-out from other applications. For more information, see the [Single sign-out](#single-sign-out) section.
 
 > [!NOTE]
-> The sign-out clears the user's single sign-on state with Azure AD B2C, but it may not sign the user out of their social identity provider (IDP) session. If the user selects the same IDP during a subsequent sign-in, they may reauthenticated without entering their credentials. If a user wants to sign out of the application, it doesn't necessarily mean they want to sign out of their Facebook account. However, if local accounts are used, the user's session ends properly.
+> The sign-out clears the user's single sign-on state with Azure AD B2C, but it might not sign the user out of their social identity provider session. If the user selects the same identity provider during a subsequent sign-in, they might reauthenticate without entering their credentials. If a user wants to sign out of the application, it doesn't necessarily mean they want to sign out of their Facebook account. However, if local accounts are used, the user's session ends properly.
 
 ### Single sign-out
 
 When you redirect the user to the Azure AD B2C sign-out endpoint (for both OAuth2 and SAML protocols), Azure AD B2C clears the user's session from the browser. However, the user might still be signed in to other applications that use Azure AD B2C for authentication. To enable those applications to sign the user out simultaneously, Azure AD B2C sends an HTTP GET request to the registered `LogoutUrl` of all the applications that the user is currently signed in to.
 
-Applications must respond to this request by clearing any session that identifies the user and returning a `200` response. If you wish to support single sign out in your application, you must implement such a `LogoutUrl` in your application's code. You can set the `LogoutUrl` from the Azure portal:
+Applications must respond to this request by clearing any session that identifies the user and returning a `200` response. If you want to support single sign-out in your application, you must implement a `LogoutUrl` in your application's code. You can set the `LogoutUrl` from the Azure portal:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-2. Choose your Active B2C by clicking on your account in the top right corner of the page.
-3. From the left hand navigation panel, choose **Azure Active B2C**, then choose **App registrations** and select your application.
-4. Click on **Settings**, then **Properties** and find the **Logout URL** text box. 
+1. Choose your Active B2C directory by clicking your account in the top right corner of the page.
+1. From the left hand navigation panel, choose **Azure AD B2C**, select **App registrations**, and then select your application.
+1. Select **Settings**, select **Properties**, and then find the **Logout URL** text box. 
 
 
 ## Next steps
