@@ -17,7 +17,7 @@ ms.date: 04/28/2020
 This article shows you how to implement [dynamic data masking](sql-database-dynamic-data-masking-get-started.md) with the Azure portal. You can also implement dynamic data masking using [Azure SQL Database cmdlets](https://docs.microsoft.com/powershell/module/az.sql/) or the [REST API](https://docs.microsoft.com/rest/api/sql/).
 
 > [!NOTE]
-> This feature cannot be set using portal for Azure Synapse (use Powershell or REST API) or SQL Managed Instance. For more information, see [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
+> This feature cannot be set using portal for Azure Synapse (use PowerShell or REST API) or SQL Managed Instance. For more information, see [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ## Set up dynamic data masking for your database using the Azure portal
 
@@ -25,7 +25,7 @@ This article shows you how to implement [dynamic data masking](sql-database-dyna
 2. Navigate to the settings page of the database that includes the sensitive data you want to mask.
 3. Click the **Dynamic Data Masking** blade under the **Security** section of your SQL database.
 
-  ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/4_ddm_settings_tile.png)
+   ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/4_ddm_settings_tile.png)
 
 4. In the **Dynamic Data Masking** configuration page, you may see some database columns that the recommendations engine has flagged for masking. In order to accept the recommendations, just click **Add Mask** for one or more columns and a mask is created based on the default type for this column. You can change the masking function by clicking on the masking rule and editing the masking field format to a different format of your choice. Be sure to click **Save** to save your settings.
 
