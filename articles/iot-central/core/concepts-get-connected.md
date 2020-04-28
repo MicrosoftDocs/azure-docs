@@ -175,15 +175,20 @@ IoT Central supports the following attestation mechanisms for individual enrollm
 
 - **Trusted Platform Module (TPM) attestation:** A [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) is a type of hardware security module. Using a TPM is one of the most secure ways to connect a device. This article assumes you're using a discrete, firmware, or integrated TPM. Software emulated TPMs are well suited for prototyping or testing, but they don't provide the same level of security as discrete, firmware, or integrated TPMs. Don't use software TPMs in production. To create an individual enrollment that uses a TPM, open the **Device Connection** page, select **Individual enrollment** as the connection method, and **TPM** as the mechanism. Enter the TPM endorsement key and save the device connection information.
 
-## Connect devices with IoT Plug and Play (preview)
+## Automatically associate a device template
 
-One of the key features of IoT Plug and Play (preview) with IoT Central is the ability to associate device templates automatically on device connection. Along with device credentials, devices can now send the **CapabilityModelId** as part of the device registration call. This capability enables IoT Central to discover and associate the device template with the device. The discovery process works as follows:
-
+One of the key features of IoT Central is the ability to associate device templates automatically on device connection. Along with device credentials, devices can send the **CapabilityModelId**( URN for the capability model) as part of the device registration call. This capability enables IoT Central to discover and associate the device template with the device. The discovery process works as follows:
 1. Associates with the device template if it's already published in the IoT Central application.
-1. Fetches from the public repository of published and certified capability models.
+1. For Pre-Certified Plug and Play devices, if the device template is not already published in IoT Central the template is fetched from the public repository.
 
-Below is the format of the additional payload the device would send during the DPS registration call
+Below is the format of the additional payload the device would send during the DPS registration call.
 
+This is the format for devices using non PnP device SDK
+```javascript
+    iotcModelId: '< this is the URN for the capability model>';
+```
+
+This is the format for devices using Public Preview PnP device SDK
 ```javascript
 '__iot:interfaces': {
     CapabilityModelId: <this is the URN for the capability model>
