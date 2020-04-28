@@ -156,9 +156,18 @@ The VM is backed up using the schedule and retention settings in the modified or
 
 ### How do I move a VM backed up by Azure Backup to a different resource group?
 
-1. Temporarily stop the backup, and retain backup data.
-2. Move the VM to the target resource group.
-3. Re-enable backup in the same or new vault.
+1. Temporarily stop the backup and retain backup data.
+2. To move virtual machines configured with Azure Backup, do the following steps:
+
+   1. Find the location of your virtual machine.
+   2. Find a resource group with the following naming pattern: `AzureBackupRG_<location of your VM>_1`. For example, *AzureBackupRG_westus2_1*
+   3. In the Azure portal, check **Show hidden types**.
+   4. Find the resource with type **Microsoft.Compute/restorePointCollections** that has the naming pattern `AzureBackup_<name of your VM that you're trying to move>_###########`.
+   5. Delete this resource. This operation deletes only the instant recovery points, not the backed-up data in the vault.
+   6. After the delete operation is complete, you can move your virtual machine.
+
+3. Move the VM to the target resource group.
+4. Resume the backup.
 
 You can restore the VM from available restore points that were created before the move operation.
 

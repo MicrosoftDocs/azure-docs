@@ -43,3 +43,8 @@ Learn more about the key elements of Azure Digital Twins in the current release:
 * [Concepts: Twin models](concepts-models.md)
 * [Concepts: Digital twins and the twin graph](concepts-twins-graph.md)
 * [Concepts: Azure Digital Twins query language](concepts-query-language.md)
+
+Or, go ahead and dive into working with Azure Digital Twins in the quickstart:
+
+> [!div class="nextstepaction"]
+> [Quickstart: Get started with Azure Digital Twins](quickstart.md)

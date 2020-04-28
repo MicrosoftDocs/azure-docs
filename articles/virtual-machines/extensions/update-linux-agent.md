@@ -26,7 +26,7 @@ To update your [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) on a L
 
 You should always check for a package in the Linux distro repository first. It is possible the package available may not be the latest version, however, enabling autoupdate will ensure the Linux Agent will always get the latest update. Should you have issues installing from the package managers, you should seek support from the distro vendor.
 
-> ![NOTE]
+> [!NOTE]
 > For more information see [Endorsed Linux distributions on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
 
 ## Minimum virtual machine agent support in Azure
