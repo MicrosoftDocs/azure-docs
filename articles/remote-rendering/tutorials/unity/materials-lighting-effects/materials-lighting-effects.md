@@ -23,10 +23,10 @@ In this tutorial, you learn how to:
 
 * This tutorial builds on top of [Tutorial: Manipulating models](..\manipulate-models\manipulate-models.md).
 
-/## Highlighting and outlining
+## Highlighting and outlining
 
-/## Cut planes
+## Cut planes
 
-/## Editing materials
+## Editing materials
 
-/## Lighting / sky box
+## Lighting / sky box

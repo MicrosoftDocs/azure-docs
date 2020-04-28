@@ -262,6 +262,8 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         remove => onCoordinatorStateChange -= value;
     }
 
+    public static AzureSession CurrentSession => instance?.ARRSessionService?.CurrentActiveSession;
+
     private ARRServiceUnity arrSessionService;
 
     private ARRServiceUnity ARRSessionService
@@ -479,7 +481,7 @@ The second stage is to Create or Join a Remote Rendering Session (see [Remote Re
 
 ![ARR stack 2](./media/remote-render-stack-2.png)
 
-The remote session is where our models will be rendered. The `JoinRemoteSession()` method will attempt to join an existing session (if we're the one that created it, tracked with the `LastUsedSessionID` property, or if we've assigning an active session ID to `sessionIDOverride`).\
+The remote session is where our models will be rendered. The `JoinRemoteSession()` method will attempt to join an existing session (if we're the one that created it, tracked with the `LastUsedSessionID` property, or if we've assigned an active session ID to `sessionIDOverride`).\
 If no sessions are available, it will create a new session. Creating a new session is, unfortunately, a time consuming operation. Therefore one should try to create sessions rarely, and reuse them whenever possible (see \[Commercial Ready: Session pooling, scheduling, and best practices](../commercial-ready/commercial-ready.md#session-pooling-scheduling-and-best-practices) for more). `StopRemoteSession()` will end the currently active session. To prevent charges, you should always stop sessions when they are not needed anymore.
 
 Our state machine will now progress to either `ConnectingToNewRemoteSession` or `ConnectingToExistingRemoteSession` depending on available sessions. Both opening an existing session or creating a new session will trigger the `ARRSessionService.OnSessionStatusChanged` event, executing our `OnRemoteSessionStatusChanged` method. Ideally, this will result in advancing the state machine to `RemoteSessionReady`.
@@ -537,8 +539,9 @@ Next the application needs to connect it's local runtime to the remote session.
 
 ![ARR stack 3](./media/remote-render-stack-3.png)
 
-Additionally, the application needs to listen for events about the connection between the runtime and the current session, those state changes are handled in `OnLocalRuntimeStatusChanged`. Replace the `ConnectRuntimeToRemoteSession()` and `DisconnectRuntimeFromRemoteSession()` methods with the completed versions below.\
-Here we will also add the Unity method `LateUpdate` and update the current active session. This allows the current session to send/receive messages and update the frame buffer with the frames received from the remote session.
+Additionally, the application needs to listen for events about the connection between the runtime and the current session, those state changes are handled in `OnLocalRuntimeStatusChanged`. This code will advance our state to `ConnectingToRuntime` and then, once connected, in `OnLocalRuntimeStatusChanged`, the state will be advanced to `RuntimeConnected`. `RuntimeConnected` is the last state the coordinator concerns itself with. It means the application is done with all the common configuration and ready to begin the session specific work of loading and rendering models.
+
+ Replace the `ConnectRuntimeToRemoteSession()` and `DisconnectRuntimeFromRemoteSession()` methods with the completed versions below. Also add the Unity method `LateUpdate` and update the current active session. This allows the current session to send/receive messages and update the frame buffer with the frames received from the remote session.
 
 ```csharp
 /// <summary>
@@ -583,6 +586,9 @@ private void LateUpdate()
 }
 ```
 
+> [!NOTE]
+> Connecting the local runtime to a remote session depends on `Update` being called on the currently active session. If you find your application is never progressing past the `ConnectingToRuntime` state, ensure you're regularly calling `Update` on the active session.
+
 ## Loading a model
 
 Finally, we have all the foundation required to load a model into the remote session and start receiving frames.\
@@ -598,7 +604,7 @@ The `LoadModel` method is designed to accept a model path, progress handler and 
 /// <param name="parent">The parent Transform for this remote entity</param>
 /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
 /// <returns>An awaitable Remote Rendering Entity</returns>
-public async Task<Entity> LoadModel(string modelName, ProgressHandler progress, Transform parent)
+public async Task<Entity> LoadModel(string modelName, Transform parent = null, ProgressHandler progress = null)
 {
     //Create a root object to parent a loaded model to
     var modelEntity = ARRSessionService.CurrentActiveSession.Actions.CreateEntity();
@@ -610,12 +616,20 @@ public async Task<Entity> LoadModel(string modelName, ProgressHandler progress, 
     var sync = modelGameObject.GetComponent<RemoteEntitySyncObject>();
     sync.SyncEveryFrame = true;
 
-    //Parent the new object under the defined parent
-    modelGameObject.transform.SetParent(parent, false);
+    //Parent the new object under the defined parent 
+    if(parent != null)
+        modelGameObject.transform.SetParent(parent, false);
 
 #if UNITY_WSA
-    //Anchor the model in the world
-    modelGameObject.AddComponent<WorldAnchor>();
+    //Anchor the model in the world, prefer anchoring parent if there is one
+    if(parent != null)
+    {
+        parent.gameObject.AddComponent<WorldAnchor>();
+    }
+    else
+    {
+        modelGameObject.AddComponent<WorldAnchor>();
+    }
 #endif
 
     modelEntity.BindToUnityGameObject(modelGameObject);
@@ -623,7 +637,8 @@ public async Task<Entity> LoadModel(string modelName, ProgressHandler progress, 
     //Load a model that will be parented to the entity
     var loadModelParams = new LoadModelFromSASParams(modelName, modelEntity);
     var async = ARRSessionService.CurrentActiveSession.Actions.LoadModelFromSASAsync(loadModelParams);
-    async.ProgressUpdated += progress;
+    if(progress != null)
+        async.ProgressUpdated += progress;
     var result = await async.AsTask();
     return result.Root;
 }
@@ -838,7 +853,7 @@ The application now has everything in place required to load a view a remotely r
 1. Add the *RemoteRenderedModel* script to **TestEngine**.\
  ![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)\
 1. Fill in the `Model Display Name` and the `Model Path` with "*TestModel*" and "*builtin://Engine*" respectively. The 'built in engine path' is a special path that references a test model built into Azure Remote Rendering.\ ![Position object on Z axis](./media/add-model-script.png)
-1. Position the **TestEngine** object in front of the camera, at position **x = 0, y = 0, z = 3**.\
+1. Position the **TestEngine** object in front of the camera, at position **x = 0, y = 1, z = 3**.\
  ![Position object on Z axis](./media/test-model-position.png)
 1. Ensure **AutomaticallyLoad** is turned on.
 1. Press **Play** in the Unity Editor to test the application.

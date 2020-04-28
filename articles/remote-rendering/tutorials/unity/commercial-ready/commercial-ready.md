@@ -22,18 +22,18 @@ In this tutorial, you learn how to:
 
 * This tutorial builds on top of [Tutorial: Refining materials, lighting, and effects](..\materials-lighting-effects\materials-lighting-effects.md).
 
-/## Introduction to Commercial Readiness
+## Introduction to Commercial Readiness
 
-/## Tracking usage for billing
+## Tracking usage for billing
 
-/## Model library
+## Model library
 
-/## Session pooling, scheduling, and best practices
+## Session pooling, scheduling, and best practices
 
-/## Routing strategies for "Standard" or "Premium" tiers of ARR
+## Routing strategies for "Standard" or "Premium" tiers of ARR
 
-/## Optimizing the user experience around session loading time
+## Optimizing the user experience around session loading time
 
-/## Working with Networking Latency
+## Working with Networking Latency
 
-/## Considerations for multiple client sessions for collaboration / sharing
+## Considerations for multiple client sessions for collaboration / sharing

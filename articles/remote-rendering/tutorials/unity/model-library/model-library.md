@@ -21,6 +21,6 @@ In this tutorial, you learn how to:
 
 * This tutorial builds on top of [Tutorial: Refining materials, lighting, and effects](..\materials-lighting-effects\materials-lighting-effects.md).
 
-/## Model Ingestion
+## Model Ingestion
 
-/## Conversion flag setting options
+## Conversion flag setting options

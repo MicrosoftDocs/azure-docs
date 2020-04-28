@@ -21,8 +21,8 @@ In this tutorial, you learn how to:
 
 * This tutorial builds on top of [Tutorial: Refining materials, lighting, and effects](..\materials-lighting-effects\materials-lighting-effects.md).
 
-/## Securing your content in Azure Blob Storage
+## Securing your content in Azure Blob Storage
 
-/## Azure Active Directory (AAD) authentication and ACL
+## Azure Active Directory (AAD) authentication and ACL
 
-/## Device authentication using Windows Hello with iris recognition
+## Device authentication using Windows Hello with iris recognition
