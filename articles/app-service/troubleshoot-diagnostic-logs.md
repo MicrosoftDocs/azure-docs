@@ -34,6 +34,9 @@ This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to 
 
 ## Enable application logging (Windows)
 
+> [!NOTE]
+> Application logging for blob storage can only use storage accounts in the same region as the App Service
+
 To enable application logging for Windows apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
 
 Select **On** for either **Application Logging (Filesystem)** or **Application Logging (Blob)**, or both. 

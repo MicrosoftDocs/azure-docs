@@ -3,13 +3,13 @@ title: "Speech recognition basics - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the Speech SDK to convert speech-to-text. In this article, you'll learn about object construction, supported audio input formats, and configuration options for speech recognition.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/14/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-sixteen
 ---
 

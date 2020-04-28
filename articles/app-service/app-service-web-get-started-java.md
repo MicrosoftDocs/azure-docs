@@ -119,10 +119,10 @@ Once deployment has completed, browse to the deployed application using the foll
 > [Connect to Azure SQL database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
-> [Connect to Azure DB for MySQL with Java](/azure/mysql/connect-java?toc=/azure/java/toc.json)
+> [Connect to Azure DB for MySQL with Java](/azure/mysql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Connect to Azure DB for PostgreSQL with Java](/azure/postgresql/connect-java?toc=/azure/java/toc.json)
+> [Connect to Azure DB for PostgreSQL with Java](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
 > [Azure for Java Developers Resources](/java/azure/)

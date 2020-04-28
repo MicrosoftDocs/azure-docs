@@ -199,6 +199,8 @@
       href: stream-analytics-tools-for-visual-studio-cicd.md
   - name: Visual Studio Code
     items:
+    - name: Complete code with IntelliSense
+      href: vs-code-intellisense.md  
     - name: Test locally with sample data
       href: visual-studio-code-local-run.md
     - name: Test locally with live data
@@ -217,7 +219,7 @@
       href: stream-analytics-troubleshoot-output.md
     - name: Query logic
       href: stream-analytics-troubleshoot-query.md
-    - name: Activity and diagnostic logs
+    - name: Activity and resource logs
       href: stream-analytics-job-diagnostic-logs.md
     - name: Data errors
       href: data-errors.md

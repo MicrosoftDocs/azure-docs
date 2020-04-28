@@ -12,6 +12,8 @@ ms.date: 03/23/2020
 
 # Lookup transformation in mapping data flow
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Use the lookup transformation to reference data from another source in a data flow stream. The lookup transformation appends columns from matched data to your source data.
 
 A lookup transformation is similar to a left outer join. All rows from the primary stream will exist in the output stream with additional columns from the lookup stream. 
@@ -48,11 +50,11 @@ When testing the lookup transformation with data preview in debug mode, use a sm
 
 ## Broadcast optimization
 
-In Azure Data Factory mapping data flows execute in scaled-out Spark environments. If your dataset can fit into worker node memory space, your lookup performance can be optimized by enabling broadcasting.
-
 ![Broadcast Join](media/data-flow/broadcast.png "Broadcast Join")
 
-Enabling broadcasting pushes the entire dataset into memory. For smaller datasets containing only a few thousand rows, broadcasting can greatly improve your lookup performance. For large datasets, this option can lead to an out of memory exception.
+In joins, lookups and exists transformation, if one or both data streams fit into worker node memory, you can optimize performance by enabling **Broadcasting**. By default, the spark engine will automatically decide whether or not to broadcast one side. To manually choose which side to broadcast, select **Fixed**.
+
+It's not recommended to disable broadcasting via the **Off** option unless your joins are running into timeout errors.
 
 ## Data flow script
 
@@ -65,7 +67,7 @@ Enabling broadcasting pushes the entire dataset into memory. For smaller dataset
         multiple: { true | false },
         pickup: { 'first' | 'last' | 'any' },  ## Only required if false is selected for multiple
         { desc | asc }( <sortColumn>, { true | false }), ## Only required if 'first' or 'last' is selected. true/false determines whether to put nulls first
-        broadcast: { 'none' | 'left' | 'right' | 'both' }
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <lookupTransformationName>
 ```
 ### Example
@@ -79,7 +81,7 @@ SQLProducts, DimProd lookup(ProductID == ProductKey,
     multiple: false,
     pickup: 'first',
     asc(ProductKey, true),
-    broadcast: 'none')~> LookupKeys
+    broadcast: 'auto')~> LookupKeys
 ```
 ## 
 Next steps
