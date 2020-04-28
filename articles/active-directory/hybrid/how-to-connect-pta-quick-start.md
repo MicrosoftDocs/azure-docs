@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) Pass-through Authentication allows your users 
 >If you are migrating from AD FS (or other federation technologies) to Pass-through Authentication, we highly recommend that you follow our detailed deployment guide published [here](https://aka.ms/adfstoPTADPDownload).
 
 >[!NOTE]
->If you deploying Pass Through Authentication with the Azure Government cloud, view [Hybrid Identity Considerations for Azure Government](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-government-cloud).
+>If you deploying Pass Through Authentication with the Azure Government cloud, view [Hybrid Identity Considerations for Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
 
 Follow these instructions to deploy Pass-through Authentication on your tenant:
 
