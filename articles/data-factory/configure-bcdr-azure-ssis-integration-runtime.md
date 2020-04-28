@@ -27,6 +27,8 @@ For more info about geo-replication and failover for SQL Database, see [Overview
 ## Azure-SSIS IR failover with Azure SQL Database Managed Instance
 
 ### Prerequisites
+Azure SQL Database Managed Instance uses **database master key (DMK)** to help secure data, credentials, and connection information that is stored in database. To enable the automatic decryption of DMK, a copy of the key is encrypted by using the **server master key (SMK)**. But SMK is not replicated in failover group, so you need to add an additional password on both primary and secondary instances for DMK decryption after failover.
+
 1. Execute below command on the SSISDB on primary instance. This step is adding a new encryption password.
 ```sql
   ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'password'
@@ -41,8 +43,31 @@ For more info about geo-replication and failover for SQL Database, see [Overview
   GO
 ```
 
-### Solution
-When a failover occurs, if you want to use existing Azure-SSIS IR on primary region:
+### Scenario 1 - Azure-SSIS IR is pointing to read-write listener endpoint
+
+If you want Azure-SSIS IR point to read-write listener endpoint, you need to point to primary server endpoint first. After putting SSISDB to failover group, you can change to read-write listener endpoint and restart Azure-SSIS IR.
+
+#### Solution
+When failover occurs, you have to do the following things:
+1. Stop Azure-SSIS IR on primary region.
+
+2. Edit Azure-SSIS IR with new region, VNET and custom setup SAS URI information of secondary instance. As Azure-SSIS IR is pointing to read-write listener and the endpoint is transparent to Azure-SSIS IR, you don't need to edit the endpoint.
+
+```powershell
+  Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                -VNetId "new VNet" `
+                -Subnet "new subnet" `
+                -SetupScriptContainerSasUri "new custom setup SAS URI"
+```
+
+3. Restart Azure-SSIS IR.
+
+### Scenario 2 - Azure-SSIS IR is pointing to primary server endpoint
+
+The scenario is suitable if you still want to use existing Azure-SSIS IR on primary region after failover.
+
+#### Solution
+When failover occurs, you have to do the following things:
 1. Stop Azure-SSIS IR on primary region.
 
 2. Edit Azure-SSIS IR with new region, endpoint and VNET information of secondary instance.
@@ -58,9 +83,12 @@ When a failover occurs, if you want to use existing Azure-SSIS IR on primary reg
 
 3. Restart Azure-SSIS IR.
 
-4. Change the server name in **ConnectionManager** of your SSIS packages with the secondary instance server name, then redeploy these packages and run.
+### Scenario 3 - Attaching an existing SSISDB (SSIS catalog) to a new Azure-SSIS IR
 
-If you want to provision a new Azure-SSIS IR on secondary region:
+This scenario is suitable if you want to provision a new Azure-SSIS IR on secondary region or you want your SSISDB to keep working with a new Azure-SSIS IR in a new region when an ADF or Azure-SSIS IR disaster occurs in current region.
+
+#### Solution
+When failover occurs, you have to do the following things:
 > [!NOTE]
 > Step 4 (creation of IR) needs to be done via PowerShell. Azure portal will report an error stating that SSISDB already exists.
 1. Stop Azure-SSIS IR on primary region.
@@ -102,44 +130,26 @@ If you want to provision a new Azure-SSIS IR on secondary region:
 
   For more info about this PowerShell command, see [Create the Azure-SSIS integration runtime in Azure Data Factory](create-azure-ssis-integration-runtime.md)
 
-5. Change the server name in **ConnectionManager** of your SSIS packages with the secondary instance server name, then redeploy these packages and run.
-
 
 
 ## Azure-SSIS IR failover with Azure SQL Database
 
 ### Scenario 1 - Azure-SSIS IR is pointing to read-write listener endpoint
 
-#### Conditions
-
-This section applies when the following conditions are true:
-
-- The Azure-SSIS IR is pointing to the read-write listener endpoint of the failover group.
-
-  AND
-
-- The SQL Database server is *not* configured with the virtual network service endpoint rule.
+This scenario is suitable Azure-SSIS IR is pointing to the read-write listener endpoint of the failover group and the SQL Database server is *not* configured with the virtual network service endpoint rule.
 
 #### Solution
 
-When failover occurs, it is transparent to the Azure-SSIS IR. The Azure-SSIS IR automatically connects to the new primary of the failover group.
+When failover occurs, it is transparent to the Azure-SSIS IR. The Azure-SSIS IR automatically connects to the new primary of the failover group. 
+If you want to update the region or other information in Azure-SSIS IR, you can stop it, edit and restart.
 
 
 ### Scenario 2 - Azure-SSIS IR is pointing to primary server endpoint
 
-#### Conditions
-
-This section applies when one of the following conditions is true:
-
-- The Azure-SSIS IR is pointing to the primary server endpoint of the failover group. This endpoint changes when failover occurs.
-
-  OR
-
-- The Azure SQL Database server is configured with the virtual network service endpoint rule.
-
+The scenario is suitable if you still want to use existing Azure-SSIS IR on primary region after failover.
 
 #### Solution
-
+When failover occurs, you have to do the following things:
 1. Stop Azure-SSIS IR on primary region.
 
 2. Edit Azure-SSIS IR with new region, endpoint, and VNET information of secondary instance.
@@ -155,12 +165,9 @@ This section applies when one of the following conditions is true:
 
 3. Restart Azure-SSIS IR.
 
-4. Change the server name in **ConnectionManager** of your SSIS packages with the secondary instance server name, then redeploy these packages and run.
-
-
 ### Scenario 3 - Attaching an existing SSISDB (SSIS catalog) to a new Azure-SSIS IR
 
-When an ADF or Azure-SSIS IR disaster occurs in current region, you can make your SSISDB keeps working with a new Azure-SSIS IR in a new region.
+This scenario is suitable if you want to provision a new Azure-SSIS IR on secondary region or you want your SSISDB to keep working with a new Azure-SSIS IR in a new region when an ADF or Azure-SSIS IR disaster occurs in current region.
 
 #### Solution
 
@@ -205,8 +212,6 @@ When an ADF or Azure-SSIS IR disaster occurs in current region, you can make you
 ```
 
   For more info about this PowerShell command, see [Create the Azure-SSIS integration runtime in Azure Data Factory](create-azure-ssis-integration-runtime.md)
-
-5. Change the server name in **ConnectionManager** of your SSIS packages with the secondary instance server name, then redeploy these packages and run.
 
 
 ## Next steps
