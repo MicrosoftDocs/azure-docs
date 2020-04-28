@@ -38,7 +38,7 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 * [ND-series](../nd-series.md)
 * [NVv3-series](../nvv3-series.md)
 
-<sup>*</sup>  Mv2-series does not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](https://docs.microsoft.com/azure/virtual-machines/mv2-series) for details.
+<sup>*</sup> Mv2-series does not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](https://docs.microsoft.com/azure/virtual-machines/mv2-series) for details.
 
 ## Generation 2 VM images in Azure Marketplace
 
@@ -53,8 +53,8 @@ Generation 2 VMs support the following Marketplace images:
 * Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
 * Oracle Linux 7.7, 7.7-CI
 
-[!NOTE]
-Specific Virtual machine sizes like Mv2-Series may only support a subset of these images - please look at the relevant virtual machine size documentation for complete details.
+> [!NOTE]
+> Specific Virtual machine sizes like Mv2-Series may only support a subset of these images - please look at the relevant virtual machine size documentation for complete details.
 
 ## On-premises vs. Azure generation 2 VMs
 
