@@ -1,13 +1,12 @@
 ---
- title: Managed shared image gallery resources using PowerShell
- description: Examples of how to list, update and delete shared image gallery resources using Azure PowerShell.
-  author: cynthn
- ms.service: virtual-machines
- ms.subservice: imaging
- ms.topic: how-to
- ms.date: 04/27/2020
- ms.author: cynthn
-
+title: Managed shared image gallery resources using PowerShell
+description: Examples of how to list, update and delete shared image gallery resources using Azure PowerShell.
+author: cynthn
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.topic: how-to
+ms.date: 04/27/2020
+ms.author: cynthn
 ---
 
 # Manage shared image gallery resources

@@ -6,7 +6,7 @@ ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.topic: tutorial
 ms.workload: infrastructure
-ms.date: 04/17/2020
+ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: mvc
 
@@ -33,13 +33,13 @@ To complete the example in this tutorial, you must have an existing virtual mach
 
 ## Overview
 
-A [Shared Image Gallery](./windows/shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
+A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
 
 The Shared Image Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
 
 The Shared Image Gallery feature has multiple resource types:
 
-[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../virtual-machines-shared-image-gallery-resources.md)]
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 
 ## Launch Azure Cloud Shell
