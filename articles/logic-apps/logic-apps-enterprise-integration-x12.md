@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 04/23/2020
+ms.date: 04/29/2020
 ---
 
 # Exchange X12 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
@@ -26,7 +26,7 @@ To work with X12 messages in Azure Logic Apps, you can use the X12 connector, wh
 
 * The [schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md) to use for XML validation that you've already added to your integration account. If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, see [HIPAA schemas](#hipaa-schemas).
 
-* Before you can use the X12 connector, you must create an X12 [agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md) between your trading partners and store that agreement in your integration account.
+* Before you can use the X12 connector, you must create an X12 [agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md) between your trading partners and store that agreement in your integration account. If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, you need to add a `schemaReferences` section to your agreement. For more information, see [HIPAA schemas](#hipaa-schemas).
 
 <a name="receive-settings"></a>
 
@@ -304,78 +304,74 @@ The **Default** row shows the validation rules that are used for an EDI message 
 
 <a name="hipaa-schemas"></a>
 
-## HIPAA message types 277 and 837
+## HIPAA schemas and message types
 
-When you work with HIPAA schemas and the 277 and 837 message types, you might have to take a few extra steps, based on the [schema document version number (GS8)](#outbound-control-version-number) that you want to use. Otherwise, you get this error message:
+When you work with HIPAA schemas and the 277 or 837 message types, you need to perform a few extra steps. The [document version numbers (GS8)](#outbound-control-version-number) for these message types have more than 9 characters, for example, "005010X222A1". Also, some document version numbers map to variant message types. If you don't reference the correct message type in your schema and in your agreement, you get this error message:
 
 `"The message has an unknown document type and did not resolve to any of the existing schemas configured in the agreement."`
 
-| Message type | Description |
-|--------------|-------------|
-| 277 | Health Care Information Status Notification |
-| 837 | Health Care Claim |
-| 837_D | Health Care Claim Dental |
-| 837_I | Health Care Claim Institutional |
-| 837_P | Health Care Claim Professional |
+This table lists the schema document version numbers, their message types, and any variants:
+
+| Message type or variant | GS8 document version number | Description |
+|-------------------------|-----------------------------|-------------|
+| 277 | 005010X212 | Health Care Information Status Notification |
+| 837_I | 004010X096A1 <br>005010X223A1 <br>005010X223A2 | Health Care Claim Dental |
+| 837_D | 004010X097A1 <br>005010X224A1 <br>005010X224A2 | Health Care Claim Institutional |
+| 837_P | 004010X098A1 <br>005010X222 <br>005010X222A1 | Health Care Claim Professional |
 |||
 
-If the schema document version number (GS8) that you want to use has more than 9 characters, for example, "005010X222A1", your schema needs to specify the message type that matches this special schema document version number. For more information, see [Example - Specify special schemas](#example-special-schema-version-number).
+You also need to disable EDI validation for these variant messages types because the version numbers result in an error that the character length is invalid.
 
-> [!NOTE]
-> If you have to edit your existing schema, save the schema under a different name, 
-> upload the edited schema to your integration account, and select the schema in your message settings.
+Here are the steps to follow:
 
-| Message type | Schema document version number (GS8) |
-|--------------|--------------------------------------|
-| 277 | 005010X212 |
-| 277_A | 005010X214 |
-| 837_I | 004010X096A1 |
-| 837_I | 005010X223A1 |
-| 837_I | 005010X223A2 |
-| 837_D | 004010X097A1 |
-| 837_D | 005010X224A1 |
-| 837_D | 005010X224A2 |
-| 837_P | 004010X098A1 |
-| 837_P | 005010X222 |
-| 837_P | 005010X222A1 |
-|||
+1. In your HIPAA schema, replace the current message type with the variant message type that matches the document version number.
 
-You also have to disable EDI validation because having a document version number that's more than 9 characters is not valid and results in an error that the number length is invalid. You can disable validation for each message type or disable validation for all the message types by using the **Default** values.
+   For example, if your document version number is `005010X222A1`, replace `"X12_00501_837"` with `"X12_00501_837_P"`.
 
-![Validation properties](./media/logic-apps-enterprise-integration-x12/x12-send-settings-validation.png) 
+   To update your schema, follow these steps:
 
-<a name="example-special-schema-version-number"></a>
+   1. In the Azure portal, go to your integration account, find the schema, [download, edit, rename, and upload your revised schema](../logic-apps/logic-apps-enterprise-integration-schemas.md#edit-schemas).
 
-### Example - Specify special schemas
+   1. In your your agreement's message settings, select the revised schema.
 
-Suppose you want to use "005010X222A1" as the schema document version number for the 837 message type, and your schema has a `schemaReferences` section with these properties and values:
+1. In your agreement's `schemaReferences` object, add another item that has the variant message type that matches your document version number.
 
-```json
-"schemaReferences": [
-   {
-      "messageId": "837",
-      "schemaVersion": "00501",
-      "schemaName": "X12_00501_837"
-   }
-]
-```
+   For example, suppose you want to use document version number `005010X222A1`. Your agreement has a `schemaReferences` section with these properties and values:
 
-To use "005010X222A1" as the schema document version number, your schema needs to specify "837_P" as the message type by including another element in the `schemaReferences` section:
+   ```json
+   "schemaReferences": [
+      {
+         "messageId": "837",
+         "schemaVersion": "00501",
+         "schemaName": "X12_00501_837"
+      }
+   ]
+   ```
 
-```json
-"schemaReferences": [
-   {
-      "messageId": "837",
-      "schemaVersion": "00501",
-      "schemaName": "X12_00501_837"
-   },
-   {
-      "messageId": "837_P",
-      "schemaVersion": "00501",
-      "schemaName": "X12_00501_837_P"
-   }
-]
-```
+   In this `schemaReferences` section, add another item that has these values:
+
+   * `"messageId": "837_P"`
+   * `"schemaVersion": "00501"`
+   * `"schemaName": "X12_00501_837_P"`
+
+   ```json
+   "schemaReferences": [
+      {
+         "messageId": "837",
+         "schemaVersion": "00501",
+         "schemaName": "X12_00501_837"
+      },
+      {
+         "messageId": "837_P",
+         "schemaVersion": "00501",
+         "schemaName": "X12_00501_837_P"
+      }
+   ]
+   ```
+
+1. Disable EDI validation for this message type by clearing the **EDI Validation** checkbox for each message type or for the **Default** message type, if you're using the default values for all message types.
+
+   ![Validation properties](./media/logic-apps-enterprise-integration-x12/x12-disable-validation.png) 
 
 ## Connector reference
 
