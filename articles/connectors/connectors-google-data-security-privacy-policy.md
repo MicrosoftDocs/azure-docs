@@ -29,13 +29,13 @@ If you have logic apps that use the Gmail connector, you'll receive an email abo
 
 Under this policy, when you use a Gmail consumer account, you can use the Gmail connector with only specific Google-approved services, which are subject to change. Our engineering teams continue working with Google to add more services to this list. For now, here are the Google-approved triggers, actions, and connectors that you can use in the same logic app workflow with the Gmail connector when you use a Gmail consumer account:
 
-* Logic Apps built-in triggers and actions: Batch, Control, Data Operations, Date Time, Flat File, Liquid, Request, Schedule, Variables, and XML
+* Logic Apps built-in triggers and actions: Batch, Control, Data Operations, Date Time, Flat File, HTTP, Liquid, Request, Schedule, Variables, and XML
 
 * Google services: Gmail, Google Calendar, Google Contacts, Google Drive, Google Sheets, and Google Tasks
 
 * Approved Microsoft services: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive, and SharePoint Online
 
-* Connectors for customer-managed data sources: FTP, HTTP, RSS, SFTP, SMTP, and SQL Server
+* Connectors for customer-managed data sources: FTP, RSS, SFTP, SMTP, and SQL Server
 
 For the most recent information, see the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/).
 
