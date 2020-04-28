@@ -169,11 +169,11 @@ Here are the supported route filters.
 | Filter name | Description | Filter schema | Supported values | 
 | --- | --- | --- | --- |
 | Type | The [type of event](./concepts-route-events.md#types-of-event-messages) flowing through your digital twin instance | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Edge.Create`<br>`Microsoft.DigitalTwins.Edge.Update`<br> `Microsoft.DigitalTwins.Edge.Delete` <br> `microsoft.iot.telemetry`  |
-| Source | Name of Azure Digital Twins instance | `"filter" : "source = '<hostname>'"`|  For notifications: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> For telemetry: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/ digitaltwins/<twinId>`|
+| Source | Name of Azure Digital Twins instance | `"filter" : "source = '<hostname>'"`|  **For notifications:** `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **For telemetry:** `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/ digitaltwins/<twinId>`|
 | Subject | A description of the event in the context of the event source above | `"filter": " subject = '<subject>'"` | **For notifications**, the subject is `<twinid>` <br> or a URI format for subjects, which are uniquely identified by multiple parts or IDs:<br>`<twinid>/relationships/<relationship>/<edgeid>`<br> **For telemetry**, the subject is the component path (if the telemetry is emitted from a twin component), such as `comp1.comp2`. If the telemetry is not emitted from a component, then its subject field is empty. |
 | Content type | Content type of data value | `"filter": "datacontenttype = '<contentType>'"` | `application/json` |
 | Spec version | The version of the event schema you are using | `"filter": "specversion = '<version>'"` | Must be `1.0`. This indicates the CloudEvents schema version 1.0 |
-| Enabled | Allows creating a route with no filtering, or temporarily disabling a route | `"filter" : "<enabled>"` | `true` = route is enabled with no filtering <br> `false` = route is disabled |
+| True / False | Allows creating a route with no filtering, or disabling a route | `"filter" : "<true/false>"` | `true` = route is enabled with no filtering <br> `false` = route is disabled |
 <!--
 | ID | *Not implemented for public preview* | "filter": "id = '…'" | |
 | Schema | *Not implemented for public preview*  | "filter": "dataschema = '…'" | |
