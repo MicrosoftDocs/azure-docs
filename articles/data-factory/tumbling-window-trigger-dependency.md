@@ -81,7 +81,7 @@ The following table provides the list of attributes needed to define a Tumbling 
 | size | Size of the dependency tumbling window. Provide a positive timespan value. This property is optional. | Timespan<br/>(hh:mm:ss) | No  |
 
 > [!NOTE]
-> A tumbling window trigger can depend on a maximum of two other triggers.
+> A tumbling window trigger can depend on a maximum of five other triggers.
 
 ## Tumbling window self-dependency properties
 
