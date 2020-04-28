@@ -10,9 +10,9 @@ ms.date: 06/26/2018
 ---
 
 # Inventory and data collection details for monitoring solutions in Azure
-[Monitoring solutions](solutions.md) leverage services in Azure to provide additional insight into the operation of a particular application or service. Monitoring solutions typically collect log data and provide queries and views to analyze collected data. You can add monitoring solutions to Azure Monitor for any applications and services that you use. They are typically available at no cost but collect data that could invoke usage charges.
+[Monitoring solutions](solutions.md) use services in Azure to gain knowledge of the operation of a particular application or service. Monitoring solutions typically collect log data and provide queries and views to analyze collected data. You can add monitoring solutions to Azure Monitor for any applications and services that you use. They're typically available at no cost but collect data that could invoke usage charges.
 
-This article includes a list of [montioring solutions](solutions.md) available from Microsoft with links to their detailed documentation.  It also provides information on their method and frequency of data collection into Azure Monitor.  You can use the information in this article to identify the different solutions available and to understand the data flow and connection requirements for different monitoring solutions.
+This article includes a list of [monitoring solutions](solutions.md) available from Microsoft with links to their detailed documentation.  It also provides information on their method and frequency of data collection into Azure Monitor.  You can use the information in this article to identify the different solutions available and to understand the data flow and connection requirements for different monitoring solutions.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -22,11 +22,11 @@ The following table lists the [monitoring solutions](solutions.md) in Azure prov
 
 Explanations of the columns are as follows:
 
-- **Microsoft monitoring agent** - Agent used on Windows and Linux to run managements pack from SCOM and monitoring solutions from Azure. In this configuration, the agent is connected directly to Azure Monitor without being connected to an Operations Manager management group. 
+- **Microsoft monitoring agent** - Agent used on Windows and Linux to run managements pack from Microsoft System Center Operations Manager (SCOM) and monitoring solutions from Azure. In this configuration, the agent is connected directly to Azure Monitor without being connected to an Operations Manager management group. 
 - **Operations Manager** - Identical agent as Microsoft monitoring agent. In this configuration, it's [connected to an Operations Manager management group](../platform/om-agents.md) that's connected to Azure Monitor. 
--  **Azure Storage** - Solution collects data from an Azure storage account. 
+-  **Azure Storage** - Solution collects data from an Azure Storage account. 
 - **Operations Manager required?** - A connected Operations Manager management group is required for data collection by the monitoring solution. 
-- **Operations Manager agent data sent via management group** - If the agent is [connected to a SCOM management group](../platform/om-agents.md), then data is sent to Azure Monitor from the management server. In this case, the agent doesn't need to connect directly to Azure Monitor. If this box isn't selected, then data is sent from the agent directly to Azure Monitor even if the agent is connected to a SCOM management group. It will need to be able to communicate to Azure Monitor through the [Log Analytics gateway](../platform/gateway.md).
+- **Operations Manager agent data sent via management group** - If the agent is [connected to an SCOM management group](../platform/om-agents.md), then data is sent to Azure Monitor from the management server. In this case, the agent doesn't need to connect directly to Azure Monitor. If this box isn't selected, then data is sent from the agent directly to Azure Monitor even if the agent is connected to an SCOM management group. It will need to be able to communicate to Azure Monitor through the [Log Analytics gateway](../platform/gateway.md).
 - **Collection frequency** - Specifies the frequency that data is collected by the monitoring solution. 
 
 
@@ -62,7 +62,7 @@ Explanations of the columns are as follows:
 | [SQL Assessment](sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 days |
 | [SurfaceHub](surface-hubs.md) |Windows |&#8226; | | | | |on arrival |
 | [System Center Operations Manager Assessment (Preview)](scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | seven days |
-| [Update Management](../../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |at least 2 times per day and 15 minutes after installing an update |
+| [Update Management](../../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |at least two times per day and 15 minutes after installing an update |
 | [Upgrade Readiness](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2 days |
 | [VMware Monitoring (Deprecated)](vmware.md) | Linux | &#8226; |  |  |  |  | 3 minutes |
 | [Wire Data 2.0 (Preview)](wire-data.md) |Windows (2012 R2 / 8.1 or later) |&#8226; |&#8226; | | | | 1 minute |

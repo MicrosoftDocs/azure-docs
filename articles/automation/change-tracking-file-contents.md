@@ -1,6 +1,6 @@
 ---
 title: Manage Change Tracking and Inventory in Azure Automation
-description: This article tells how to use Change Tracking and Inventory to track software and Windows service changes that occur in your environment.
+description: This article tells how to use Change Tracking and Inventory to track software and Microsoft service changes that occur in your environment.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
@@ -13,14 +13,14 @@ When you add a new file or registry key to track, Azure Automation enables it fo
 
 ## Enable the full Change Tracking and Inventory solution
 
-If you have enabled [Azure Security Center File Integrity Monitoring (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), you can use the full Change Tracking and Inventory solution as described below. You settings are not removed by this process.
+If you have enabled [Azure Security Center File Integrity Monitoring (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), you can use the full Change Tracking and Inventory solution as described below. Your settings are not removed by this process.
 
 > [!NOTE]
 > Enabling the full Change Tracking and Inventory solution might cause additional charges. See [Automation Pricing](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Remove the monitoring solution by navigating to the workspace and locating it in the [list of installed monitoring solutions](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Click on the name of the solution to open its summary page and then click on **Delete**, as detailed in [Remove a monitoring solution](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Re-enable the solution by navigating to the Automation account and selecting **Change tracking** under **Configuration Management**.
+3. To re-enable the solution, navigate to the Automation account and select **Change tracking** under **Configuration Management**.
 4. Choose the Log Analytics workspace and Automation account, confirm your workspace settings, and click **Enable**.
 
 ## <a name="onboard"></a>Onboard machines to Change Tracking and Inventory
@@ -82,11 +82,11 @@ Use the following steps to configure file tracking on Linux computers:
 
 ## Track file contents
 
-File content tracking allows you to view the contents of a file before and after a change that is being tracked with Change Tracking and Inventory. The feature saves the file contents to a storage account after each change occurs. Here are some rules to follow for tracking file contents:
+File content tracking allows you to view the contents of a file before and after a tracked change. The feature saves the file contents to a storage account after each change occurs. Here are some rules to follow for tracking file contents:
 
 * A standard storage account using the Resource Manager deployment model is required for storing file content. 
 
-* Don't use premium and classic deployment model storage accounts. See [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
+* Don't use premium and classic deployment model storage accounts. See [About Azure Storage accounts](../storage/common/storage-create-storage-account.md).
 
 * The storage account that you use can be connected to only one Automation account.
 
@@ -106,7 +106,7 @@ File content tracking allows you to view the contents of a file before and after
 
    ![Set storage account](./media/change-tracking-file-contents/storage-account.png)
 
-6. When file content change tracking is enabled, the storage account and the Shared Access Signature (SAS) URIs are shown. The signatures expire after 365 days, and you can recreate them by clicking **Regenerate**.
+6. Change Tracking and Inventory shows storage account and Shared Access Signature (SAS) URIs when it enables file content change tracking. The signatures expire after 365 days, and you can recreate them by clicking **Regenerate**.
 
    ![List account keys](./media/change-tracking-file-contents/account-keys.png)
 
@@ -147,19 +147,19 @@ You can do various searches against the Azure Monitor logs for change records. W
 
 |Query  |Description  |
 |---------|---------|
-|ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Shows the most recent inventory records for Windows services that were set to Auto but were reported as being Stopped. Results are limited to the most recent record for the specified software name and computer.    |
+|ConfigurationData<br>&#124; where   ConfigDataType == "Microsoft services" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Shows the most recent inventory records for Microsoft services that were set to Auto but were reported as being Stopped. Results are limited to the most recent record for the specified software name and computer.    |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|Shows change records for removed software.|
 
 ## Create alerts on changes
 
-The following example shows that the file **C:\windows\system32\drivers\etc\hosts** has been modified on a machine. This file is important because Windows uses it to resolve host names to IP addresses. This operation takes precedence over DNS, and might result in connectivity issues or the redirection of traffic to malicious or otherwise dangerous websites.
+The following example shows that the file **C:\windows\system32\drivers\etc\hosts** has been modified on a machine. This file is important because Windows uses it to resolve host names to IP addresses. This operation takes precedence over DNS, and might result in connectivity issues. It can also lead to redirection of traffic to malicious or otherwise dangerous websites.
 
 ![A chart showing the hosts file change](./media/change-tracking-file-contents/changes.png)
 
 Let's use this example to discuss the steps for creating alerts on a change.
 
 1. In your Automation account, select **Change tracking** under **Configuration Management**, then select **Log Analytics**. 
-2. In the Logs search, look for content changes to the **hosts** file with the query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. This query looks for changes that include a change of content for files with a fully qualified path containing the word “hosts”. You can also ask for a specific file by changing the path portion to its fully qualified form, for example, using `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`.
+2. In the Logs search, look for content changes to the **hosts** file with the query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. This query looks for a content change for files with a fully qualified path containing the word “hosts”. You can also ask for a specific file by changing the path portion to its fully qualified form, for example, using `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`.
 
 3. After the query returns the desired results, click **New alert rule** in the log search to open the alert creation page. You can also navigate to this page through **Azure Monitor** in the Azure portal. 
 

@@ -1,6 +1,6 @@
 ---
 title: Overview of Change Tracking and Inventory in Azure Automation
-description: Change tracking and inventory helps you identify software and Windows service changes that occur in your environment.
+description: Change Tracking and Inventory helps you identify software and Microsoft service changes that occur in your environment.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
@@ -9,21 +9,21 @@ ms.topic: conceptual
 
 # Overview of Change Tracking and Inventory
 
-This article introduces you to Change Tracking and Inventory in Azure Automation. This feature tracks changes in virtual machines and server infrastructure to help you pinpoint operational and environmental issues with software managed by the Distribution Package Manager. Items that are specifically tracked by Change Tracking and Inventory include: 
+This article introduces you to Change Tracking and Inventory in Azure Automation. This feature tracks changes in virtual machines and server infrastructure to help you pinpoint operational and environmental issues with software managed by the Distribution Package Manager. Items that are tracked by Change Tracking and Inventory include: 
 
 - Windows software
 - Linux software (packages)
 - Windows and Linux files
 - Windows registry keys
-- Windows services
+- Microsoft services
 - Linux daemons
 
-Change Tracking and Inventory obtains its data from the Azure Monitor service in the cloud. Azure sends changes to installed software, Windows services, Windows registry and files, and Linux daemons on monitored servers to Azure Monitor for processing. The cloud service applies logic to the received data, records it, and makes it available. 
+Change Tracking and Inventory obtains its data from the Azure Monitor service in the cloud. Azure sends changes to installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers to Azure Monitor for processing. The cloud service applies logic to the received data, records it, and makes it available. 
 
 > [!NOTE]
 > To track Azure Resource Manager property changes, see the Azure Resource Graph [change history](../governance/resource-graph/how-to/get-resource-changes.md).
 
-Change Tracking and Inventory currentlyy doesn't support the following items:
+Change Tracking and Inventory currently doesn't support the following items:
 
 * Recursion for Windows registry tracking
 * Network filesystems
@@ -98,7 +98,7 @@ You can click on a change or event to bring up its details. The available change
 * Files
 * Registry
 * Software
-* Windows services
+* Microsoft services
 
 You are able to add, modify, or remove each change. In the example below, you can see a change in the startup type of a service from Manual to Auto.
 
@@ -110,13 +110,13 @@ For tracking changes in files on both Windows and Linux, Change Tracking and Inv
 
 ## Tracking of file content changes
 
-Change Tracking and Inventory allows you to view the contents of a Windows or Linux file before and after a file change. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure storage account](../storage/common/storage-create-storage-account.md). When you're tracking the file, you can view its contents before or after a change, inline or side by side. 
+Change Tracking and Inventory allows you to view the contents of a Windows or Linux file before and after a file change. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../storage/common/storage-create-storage-account.md). When you're tracking the file, you can view its contents before or after a change. You can view the contents either inline or side by side. 
 
 ![View changes in a file](./media/change-tracking/view-file-changes.png)
 
 ## Tracking of registry keys
 
-Change Tracking and Inventory allows monitoring of changes to registry keys so that you can pinpoint extensibility points where third-party code and malware can activate. The following table lists preconfigured (but not enabled) registry keys. To track these keys, you must enable each one.
+Change Tracking and Inventory allows monitoring of changes to registry keys. Monitoring allows you to pinpoint extensibility points where third-party code and malware can activate. The following table lists preconfigured (but not enabled) registry keys. To track these keys, you must enable each one.
 
 > [!div class="mx-tdBreakAll"]
 > |Registry Key | Purpose |
@@ -144,16 +144,16 @@ Change Tracking and Inventory allows monitoring of changes to registry keys so t
 Change Tracking and Inventory makes use of [Azure Security Center File Integrity Monitoring (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). While FIM monitors files and registries only, the full Change Tracking and Inventory feature also includes tracking for:
 
 - Software changes
-- Windows services
+- Microsoft services
 - Linux daemons
 
 ## Recursion support
 
-Change Tracking and Inventory supports recursion, which allows you to specify wildcards to simplify tracking across directories. Recursion also provides environment variables to allow you to track files across environments with multiple or dynamic drive names. The following list includes ommon information you should know when configuring recursion:
+Change Tracking and Inventory supports recursion, which allows you to specify wildcards to simplify tracking across directories. Recursion also provides environment variables to allow you to track files across environments with multiple or dynamic drive names. The following list includes Common information you should know when configuring recursion:
 
 * Wildcards are required for tracking multiple files.
 * Wildcards can be used only in the last segment of a path, for example, **c:\folder\\file*** or **/etc/*.conf**.
-* If an environment variable has an invalid path, validation succeeds but the path fails when Change Tracking and Inventory runs.
+* If an environment variable has an invalid path, validation succeeds but the path fails during execution.
 * Avoid general path names when setting the path, as this type of setting can cause too many folders to be traversed.
 
 ## Change Tracking and Inventory data collection
@@ -165,7 +165,7 @@ The next table shows the data collection frequency for the types of changes supp
 | Windows registry | 50 minutes |
 | Windows file | 30 minutes |
 | Linux file | 15 minutes |
-| Windows services | 10 seconds to 30 minutes</br> Default: 30 minutes |
+| Microsoft services | 10 seconds to 30 minutes</br> Default: 30 minutes |
 | Linux daemons | 5 minutes |
 | Windows software | 30 minutes |
 | Linux software | 5 minutes |
@@ -183,29 +183,29 @@ The following table shows the tracked item limits per machine for Change Trackin
 
 The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month. This value is only an approximation and is subject to change based on your environment. It's recommended that you monitor your environment to see the exact usage that you have.
 
-### Windows service data
+### Microsoft service data
 
-The default collection frequency for Windows services is 30 minutes. You can configure the frequency using a slider on the **Windows Services** tab under **Edit Settings**. 
+The default collection frequency for Microsoft services is 30 minutes. You can configure the frequency using a slider on the **Microsoft services** tab under **Edit Settings**. 
 
-![Windows services slider](./media/change-tracking/windowservices.png)
+![Microsoft services slider](./media/change-tracking/windowservices.png)
 
-The Log Analytics agent only tracks changes, which optimizes the agent's performance. Setting a high threshold might miss changes if the service reverts to its original state. Setting the frequency to a smaller value allows you to catch changes that might be missed otherwise.
+To optimize performance, the Log Analytics agent only tracks changes. Setting a high threshold might miss changes if the service reverts to its original state. Setting the frequency to a smaller value allows you to catch changes that might be missed otherwise.
 
 > [!NOTE]
 > While the agent can track changes down to a 10-second interval, the data still takes a few minutes to display in the Azure portal. Changes that occur during the time to display in the portal are still tracked and logged.
 
 ## Support for alerts on configuration state
 
-A key capability of Change Tracking and Inventory is alerting on changes to the configuration state of your hybrid environment. Many useful actions are available to trigger in response to alerts, for example, actions on Azure functions, Automation runbooks, webhooks, and the like. Alerting on changes to the **C:\windows\system32\drivers\etc\hosts** file for a machine is one good application of alerts for Change Tracking and Inventory data. There are many more scenarios for alerting as well, including those defined in the next table. 
+A key capability of Change Tracking and Inventory is alerting on changes to the configuration state of your hybrid environment. Many useful actions are available to trigger in response to alerts, for example, actions on Azure functions, Automation runbooks, webhooks, and the like. Alerting on changes to the **C:\windows\system32\drivers\etc\hosts** file for a machine is one good application of alerts for Change Tracking and Inventory data. There are many more scenarios for alerting as well, including the query scenarios defined in the next table. 
 
 |Query  |Description  |
 |---------|---------|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|Useful for tracking changes to system-critical files.|
 |ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Useful for tracking modifications to key configuration files.|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "WindowsServices" and SvcName contains "w3svc" and SvcState == "Stopped"|Useful for tracking changes to system-critical services.|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|Useful for tracking changes to system-critical services.|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Microsoft services" and SvcName contains "w3svc" and SvcState == "Stopped"|Useful for tracking changes to system-critical services.|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState!= "Running"|Useful for tracking changes to system-critical services.|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|Useful for environments that need locked-down software configurations.|
-|ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion != "8.0.11081.0"|Useful for seeing which machines have outdated or noncompliant software version installed. This query reports the last reported configuration state, but does not report changes.|
+|ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion!= "8.0.11081.0"|Useful for seeing which machines have outdated or noncompliant software version installed. This query reports the last reported configuration state, but doesn't report changes.|
 |ConfigurationChange <br>&#124; where RegistryKey == @"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Useful for tracking changes to crucial antivirus keys.|
 |ConfigurationChange <br>&#124; where RegistryKey contains @"HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Useful for tracking changes to firewall settings.|
 
