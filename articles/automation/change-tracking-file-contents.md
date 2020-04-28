@@ -176,5 +176,5 @@ Let's use this example to discuss the steps for creating alerts on a change.
 ## Next steps
 
 * For basics of Change Tracking and Inventory, see [Overview of Change Tracking and Inventory](change-tracking.md).
-* To troubleshoot changes for an Azure VM, see [Troubleshoot Change Tracking and Inventory issues](../troubleshoot/change-tracking.md).
+* To troubleshoot changes for an Azure VM, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).
 * Use [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
