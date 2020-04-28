@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ---
 
-# Azure Red Hat OpenShift 4 cluster support policy
+# Azure Red Hat OpenShift support policy
 
-This article outlines configuration requirements for Azure Red Hat OpenShift 4 clusters to maintain cluster supportability. In the Azure Red Hat OpenShift 4 service, cluster administrators can modify internal cluster components. Modifications must be made within the policy outlined in this document to maintain support from Microsoft and Red Hat.
+Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cluster's supportability. Azure Red Hat OpenShift 4 allows cluster administrators to make changes to internal cluster components, but not all changes are supported. The support policy below shares what modifications violate the policy and void support from Microsoft and Red Hat.
 
 > [!NOTE]
 > Features marked Technology Preview in OpenShift Container Platform are not supported in Azure Red Hat OpenShift.
@@ -18,13 +18,14 @@ This article outlines configuration requirements for Azure Red Hat OpenShift 4 c
 ## Cluster configuration requirements
 
 * All OpenShift Cluster operators must remain in a managed state. The list of cluster operators can be returned by running `oc get clusteroperators`.
-* The cluster Prometheus and Alertmanager services must not be removed or modified.  Service Alertmanager rules must not be removed.
-* The Azure Red Hat OpenShift service sets the OpenShift cluster version.  It must not be modified.
-* Azure Red Hat OpenShift service logging (mdsd pods) must not be removed or modified.
-* The 'arosvc.azurecr.io' cluster pull secret must not be removed or modified.
+* Don't remove or modify the cluster Prometheus and Alertmanager services.
+* Don't remove Service Alertmanager rules.
+* Don't modify the OpenShift cluster version.
+* Don't remove or modify Azure Red Hat OpenShift service logging (mdsd pods).
+* Don't remove or modify the 'arosvc.azurecr.io' cluster pull secret.
 * All cluster virtual machines must have outbound internet access, at least to the Azure Resource Manager (ARM) and service logging (Geneva) endpoints.
-* The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Service access must not be removed or modified.
-* Non-RHCOS compute nodes are not supported. For example, you cannot use a RHEL compute node.
+* The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Don't remove or modify service access.
+* Non-RHCOS compute nodes aren't supported. For example, you can't use a RHEL compute node.
 
 ## Supported virtual machine sizes
 
