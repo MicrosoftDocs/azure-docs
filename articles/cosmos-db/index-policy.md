@@ -4,7 +4,7 @@ description:  Learn how to configure and change the default indexing policy for 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/28/2020
 ms.author: tisande
 ---
 
@@ -92,6 +92,25 @@ When not specified, these properties will have the following default values:
 
 See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples for including and excluding paths.
 
+## Include/exclude precedence
+
+If your included paths and excluded paths have a conflict, the deeper path takes precedence.
+
+Here's an example:
+
+**Included Path**: `/food/ingredients/nutrition/*`
+**Excluded Path**: `/food/ingredients/*`
+
+In this case, the included path takes precedence over the excluded path because it is more precise. Based on these paths, any data in the `food/ingredients` path or nested within would be excluded from the index. The exception would be data within the included path: `/food/ingredients/nutrition/*`, which would be indexed.
+
+Here are some rules for included and excluded paths precedence in Azure Cosmos DB:
+
+- Deeper paths are more precise than narrower paths. for example: `/a/b/?` is more precise than `/a/?`.
+
+- The `/?` is more precise than `/*`. For example `/a/?` is more precise than `/a/*` so `/a/?` takes precedence.
+
+- The path `/*` must be either an included path or excluded path.
+
 ## Spatial indexes
 
 When you define a spatial path in the indexing policy, you should define which index ```type``` should be applied to that path. Possible types for spatial indexes include:
@@ -109,6 +128,8 @@ Azure Cosmos DB, by default, will not create any spatial indexes. If you would l
 ## Composite indexes
 
 Queries that have an `ORDER BY` clause with two or more properties require a composite index. You can also define a composite index to improve the performance of many equality and range queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) as needed.
+
+Unlike with included or excluded paths, you can't create a path with the `/*` wildcard. Every composite path has an implicit `/?` at the end of the path that you don't need to specify. Composite paths lead to a scalar value and this is the only value that is included in the composite index.
 
 When defining a composite index, you specify:
 
