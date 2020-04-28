@@ -62,6 +62,10 @@
   items:
   - name: Resource Manager templates
     items:
+    - name: Overview
+      href: samples/arm-samples.md
+    - name: Action groups
+      href: samples/arm-action-groups.md
     - name: Agents
       href: samples/arm-agent.md
     - name: Alert rules - logs
