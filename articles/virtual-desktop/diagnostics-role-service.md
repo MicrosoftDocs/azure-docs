@@ -42,8 +42,8 @@ The following table lists common errors your admins might run into.
 |Failed to delete registration key|Registration token couldn't be deleted. Try deleting it again. If it still doesn't work, use PowerShell to check if the token is still there. If it's there, delete it with PowerShell.|
 |Failed to change session host drain mode |Couldn't change drain mode on the VM. Check the VM status. If the VM's unavailable, drain mode can't be changed.|
 |Failed to disconnect user sessions |Couldn't disconnect the user from the VM. Check the VM status. If the VM's unavailable, the user session can't be disconnected. If the VM is available, check the user session status to see if it's disconnected. |
-|Failed to log off all user(s) within the session host |Could not sign off users from the VM. Check the VM status. If unavailable, users can't be signed off. Check user session status to see if they're already signed off. You can force sign out with PowerShell. |
-|Failed to unassign user from application group|Could not unpublish an app group for a user. Check to see if user is available on Azure AD. Check to see if the user is part of a user group that the appgroup is published to. |
+|Failed to log off all user(s) within the session host |Could not sign users out of the VM. Check the VM status. If unavailable, users can't be signed out. Check user session status to see if they're already signed out. You can force sign out with PowerShell. |
+|Failed to unassign user from application group|Could not unpublish an app group for a user. Check to see if user is available on Azure AD. Check to see if the user is part of a user group that the app group is published to. |
 |There was an error retrieving the available locations |Check location of VM used in the create host pool wizard. If image is not available in that location, add image in that location or choose a different VM location. |
 
 ### External connection error codes
