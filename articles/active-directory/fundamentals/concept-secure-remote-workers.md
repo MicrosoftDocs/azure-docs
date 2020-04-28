@@ -1,12 +1,12 @@
 ---
-title: Rapid response to secure identities with Azure Active Directory
+title: Rapidly respond to secure identities with Azure Active Directory
 description: Rapidly respond to threats with Azure AD cloud-based identities
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 04/27/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,7 +15,7 @@ ms.reviewer: davidspo
 
 ms.collection: M365-identity-device-management
 ---
-# Rapid response to secure identities with Azure AD
+# Rapidly respond to secure identities with Azure AD
 
 It can seem daunting trying to secure your workers in today's world, especially when you have to respond rapidly and provide access to many services quickly. This article is meant to provide a concise list of all the actions to take, helping you identify and prioritize which order to deploy the Azure AD features based on the license type you own. Azure AD offers many features and provides many layers of security for your Identities, navigating which feature is relevant can sometimes be overwhelming. Many organizations are already in the cloud or moving quickly to the cloud, this document is intended to allow you to deploy services quickly, with securing your identities as the primary consideration. 
 
