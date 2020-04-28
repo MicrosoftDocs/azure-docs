@@ -43,9 +43,10 @@ If you don't have an Azure subscription, you can get one for free through [Visua
 
 1. Create a new Azure DevOps organization or select an existing organization. 
 
-    a. Choose a name for your project in Azure DevOps. 
+    1. Choose a name for your project in Azure DevOps. 
     
-    b. Select your Azure subscription and location, enter a name for your application, and then select **Done**.  
+    1. Select your Azure subscription and location, enter a name for your application, and then select **Done**.  
+    
     After few minutes, the DevOps Starter dashboard is displayed in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a build runs, and your application deploys to Azure. This dashboard provides visibility into your code repository, your CI/CD pipeline, and your application in Azure.  
         
 2. Select **Browse** to view your running application.
