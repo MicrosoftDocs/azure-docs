@@ -18,13 +18,9 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 
 # Application model
 
-Applications can sign in users themselves or delegate sign-in to an identity provider. See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn about sign-in scenarios supported by Microsoft identity platform.
+Applications can sign in users themselves or delegate sign-in to an identity provider. This topic discusses the steps that are required to register an application with Microsoft identity platform.
 
-A cloud identity provider serves many organizations. To keep users from different organizations separate, Azure AD is partitioned into tenants, with one tenant per organization.
-
-Tenants keep track of users and their associated apps. Microsoft identity platform also supports users that sign in with personal Microsoft accounts.
-
-Azure AD also provides Azure Active Directory B2C so that organizations can sign in users, typically customers, using social identities like a Google account. For more information, see [Azure Active Directory B2C documentation](https://docs.microsoft.com/azure/active-directory-b2c) .
+## Registering an application
 
 For an identity provider to know that a user has access to a particular app, both the user and the application must be registered with the identity provider. When you register your application with Azure AD, you are providing an identity configuration for your application that allows it to integrate with Microsoft identity platform. Registering the app also allows you to:
 
@@ -34,7 +30,7 @@ For an identity provider to know that a user has access to a particular app, bot
 * Define scopes that define access to your web API. Typically, when an app wants to access your API, it will need to request permissions to the scopes you define.
 * Share a secret with Microsoft identity platform that proves the app's identity.  This is relevant in the case where the app is a confidential client application. A confidential client application is an application that can hold credentials securely. They require a trusted backend server to store the credentials.
 
-Once registered, the application will be given a unique identifier that the app shares with Microsoft identity platform when it requests tokens. If the app is a [confidential client application](developer-glossary.md#client-application), it will also share the secret or the public key*-depending on whether certificates or secrets were used.
+Once registered, the application will be given a unique identifier that the app shares with Microsoft identity platform when it requests tokens. If the app is a [confidential client application](developer-glossary.md#client-application), it will also share the secret or the public key-depending on whether certificates or secrets were used.
 
 Microsoft identity platform represents applications using a model that fulfills two main functions:
 
@@ -48,12 +44,14 @@ Microsoft identity platform:
 * Provides infrastructure for implementing app provisioning within the app developer's tenant, and to any other Azure AD tenant
 * Handles user consent during token request time and facilitate the dynamic provisioning of apps across tenants
 
-Consent is the process of a resource owner granting authorization for a client application to access protected resources, under specific permissions, on behalf of the resource owner. Microsoft identity platform:
+**Consent** is the process of a resource owner granting authorization for a client application to access protected resources, under specific permissions, on behalf of the resource owner. Microsoft identity platform:
 
 * Enables users and administrators to dynamically grant or deny consent for the app to access resources on their behalf.
 * Enables administrators to ultimately decide what apps are allowed to do and which users can use specific apps, and how the directory resources are accessed.
 
-In Microsoft identity platform, an [application object](developer-glossary.md#application-object) describes an application. At deployment time, Microsoft identity platform uses the application object as a blueprint to create a [service principal](developer-glossary.md#service-principal-object), which represents a concrete instance of an application within a directory or tenant. The service principal defines what the app can actually do in a specific target directory, who can use it, what resources it has access to, and so on. Microsoft identity platform creates a service principal from an application object through **consent**.
+## Multi-tenant apps
+
+In Microsoft identity platform, an [application object](developer-glossary.md#application-object) describes an application. At deployment time, Microsoft identity platform uses the application object as a blueprint to create a [service principal](developer-glossary.md#service-principal-object), which represents a concrete instance of an application within a directory or tenant. The service principal defines what the app can actually do in a specific target directory, who can use it, what resources it has access to, and so on. Microsoft identity platform creates a service principal from an application object through [consent](developer-glossary.md#consent).
 
 The following diagram shows a simplified Microsoft identity platform provisioning flow driven by consent. It shows two tenants: *A* and *B*.
 
@@ -84,3 +82,4 @@ To learn more about the application model:
 
 * See [How and why applications are added to Azure AD](active-directory-how-applications-are-added.md) for more information on application objects and service principals in Microsoft identity platform.
 * See [Tenancy in Azure Active Directory](single-and-multi-tenant-apps.md) for more information on single-tenant apps and multi-tenant apps.
+* See [Azure Active Directory B2C documentation](https://docs.microsoft.com/azure/active-directory-b2c) for more information on how Azure AD also provides Azure Active Directory B2C so that organizations can sign in users, typically customers, using social identities like a Google account.
