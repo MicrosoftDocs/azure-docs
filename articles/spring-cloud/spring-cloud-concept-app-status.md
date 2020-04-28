@@ -16,9 +16,9 @@ The Azure Spring Cloud UI delivers information about the status of running appli
 ## Apps status
 To view general status of an application type, select **Apps** in the left navigation pane of a resource group. The result displays the status of the deployed app:
 
-* Provisioning status shows the deployment’s provisioning state
-* The running instance shows how many app instances are running/how many app instances are desired. If the app should be stopped, this column shows *stopped*.
-* Registered instance shows how many app instances are registered to eureka/how many app instance are desired. If the app should be stopped, this column shows *stopped*.
+* **Provisioning Status** shows the deployment’s provisioning state
+* **Running instance** shows how many app instances are running/how many app instances are desired. If the app should be stopped, this column shows *stopped*.
+* **Registered Instance** shows how many app instances are registered to eureka/how many app instance are desired. If the app should be stopped, this column shows *stopped*.
 
 
  ![Apps status](media/spring-cloud-concept-app-status/apps-ui-status.png)
