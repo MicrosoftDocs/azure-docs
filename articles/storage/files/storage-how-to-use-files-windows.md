@@ -213,6 +213,7 @@ You can select **Open** to open a particular snapshot.
 
 #### Restore from a previous version
 Select **Restore** to copy the contents of the entire directory recursively at the share snapshot creation time to the original location.
+
  ![Restore button in warning message](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## Securing Windows/Windows Server
