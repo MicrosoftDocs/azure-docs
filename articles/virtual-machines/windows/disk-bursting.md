@@ -1,9 +1,9 @@
 ---
 title: Managed disk bursting
-description: Learn about disk bursting and how it works for Azure premium SSDs.
-author: albecker
-ms.author: albecker
-ms.date: 04/25/2020
+description: Learn about disk bursting for Azure disks and disk bursting for Azure virtual machines
+author: albecker1
+ms.author: albecker1
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
@@ -11,18 +11,20 @@ ms.subservice: disks
 
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
 
-## Availability
-Our bursting feature is currently enabled for our Standard_L8s_v2, Standard_L16s_v2 and Standard_L32s_v2 virtual machines within the [Lsv2-series](../lsv2-series.md) in the following regions:
-- Asia Southeast
-- Australia East
-- Europe North
-- Europe West
-- US Central
-- US East
-- US East 2
-- US West
-- US West 2
+## Virtual Machine level bursting
 
+### Availability
+Our bursting feature is currently enabled for our all virtual machines in the [Lsv2-series](../lsv2-series.md) in all regions that support Lsv2 VMs.
+### Enabling bursting
+The bursting feature is enabled by default for virtual machines that support it.
+
+## Disk level bursting
+### Availability
 Bursting is also available on our [Premium Disks](disks-types.md#premium-ssd) for disk sizes P20 and smaller in all regions.
+### Enabling bursting
+Disk bursting is enabled by default on new deployments of the disk sizes that support it. Existing disk sizes, if they support disk bursting, can enable bursting through either of the following methods: 
+- **Restart the VM** 
+- **Detach and reattach the disk**
+
 
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting-2.md)]
