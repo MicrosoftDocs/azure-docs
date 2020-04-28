@@ -23,7 +23,7 @@ ROBOTS: NOINDEX
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature might change before general availability (GA).
 
 
-This quickstart uses MSAL.js 2.0 with the Authorization Code flow. To use MSAL.js 1.0 with the implicit flow, view [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript)
+This quickstart uses MSAL.js 2.0 with the Authorization Code flow. To use MSAL.js 1.0 with the implicit flow, view [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
 
 In this quickstart, you use a code sample to learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts. A JavaScript SPA can also get an access token to call the Microsoft Graph API or any web API. See [How the sample works](#how-the-sample-works) for an illustration.
 
