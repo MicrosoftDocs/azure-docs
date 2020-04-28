@@ -30,14 +30,14 @@ To view activity logs for your Azure Relay namespace, switch to the **Activity l
 ## Enable diagnostic logs
 Only one category: Hybrid Connections
 
-To enable diagnostics logs, do the following:
+To enable diagnostics logs, do the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure Relay namespace and then, under **Monitoring**, select  **Diagnostic settings**.
 1. On the **Diagnostics settings** page, select **Add diagnostic setting**.  
 
    ![The "Add diagnostic setting" link](./media/diagnostic-logs/add-diagnostic-setting.png)
 
-1. Configure the diagnostics settings by doing the following:
+1. Configure the diagnostics settings by doing the following steps:
     1. In the **Name** box, enter a name for the diagnostics settings.  
     2. Select **HybridConnectionsEvent** for the type of log. It's the only type supported. 
     3. Select one of the following three **destinations** for your diagnostics logs:  
@@ -84,32 +84,32 @@ Here's a sample hybrid connections event in JSON format.
 
 | Operation | Description | 
 | --------- | ----------- | 
-| AuthorizationFailed | |
-| InvalidSasToken | |
-| ListenerAcceptingConnection | |
-| ListenerAcceptingConnectionTimeout | |
-| ListenerAcceptingHttpRequestFailed | |
-| ListenerAcceptingRequestTimeout | |  
-| ListenerClosingFromExpiredToken | | 
-| ListenerRejectedConnection | |
-| ListenerReturningHttpResponse | |  
-| ListenerReturningHttpResponseFailed | | 
- ListenerSentHttpResponse" | | 
-| ListenerUnregistered | | 
-| ListenerUnresponsive | | 
-| MessageSendingToOnPremListener | |
-| MessageSentToOnPremListener | | 
-| NewListenerRegistered | |
-| NewSenderRegistering | | 
-| ProcessingRequestFailed | | 
-| SenderConnectionClosed | |
-| SenderListenerConnectionEstablished | |
-| SenderSentHttpRequest | | 
+| AuthorizationFailed | Authorization failed.|
+| InvalidSasToken | Invalid SAS token. | 
+| ListenerAcceptingConnection | The listener is accepting connection. |
+| ListenerAcceptingConnectionTimeout | The listener accepting connection timed out. |
+| ListenerAcceptingHttpRequestFailed | The listener accepting HTTP request failed. |
+| ListenerAcceptingRequestTimeout | The listener accepting request timed out. |  
+| ListenerClosingFromExpiredToken | The listener is closing because of an expired token. | 
+| ListenerRejectedConnection | The listener rejected connection. |
+| ListenerReturningHttpResponse | The listener returning an HTTP response. |  
+| ListenerReturningHttpResponseFailed | The listener returning an HTTP response failed. | 
+ ListenerSentHttpResponse | The listener sent an HTTP response. | 
+| ListenerUnregistered | The listener is unregistered. | 
+| ListenerUnresponsive | The listener is unresponsive. | 
+| MessageSendingToOnPremListener | Message is being sent to on-premises listener. |
+| MessageSentToOnPremListener | Message is sent to on-premises listener. | 
+| NewListenerRegistered | New listener registered. |
+| NewSenderRegistering | New listener registering. | 
+| ProcessingRequestFailed | The processing request failed. | 
+| SenderConnectionClosed | The sender connection is closed. |
+| SenderListenerConnectionEstablished | The sender and listener established connection. |
+| SenderSentHttpRequest | The sender sent HTTP request. | 
 
 
 ## Next steps
 
 To learn more about Azure Relay, see:
 
-* [Introduction to Azure Relay](relay-what-is.md)
+* [Introduction to Azure Relay](relay-what-is-it.md)
 * [Get started with Relay Hybrid Connections](relay-hybrid-connections-dotnet-get-started.md)
