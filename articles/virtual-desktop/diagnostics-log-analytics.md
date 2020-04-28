@@ -123,9 +123,7 @@ You can access Log Analytics workspaces on the Azure portal or Azure Monitor.
 
 4. Follow the instructions in the logging page to set the scope of your query.  
 
-5. You are ready to query diagnostics. All diagnostics tables have a "WVD" prefix. 
-
-![]()
+5. You are ready to query diagnostics. All diagnostics tables have a "WVD" prefix.
 
 ## Cadence for sending diagnostic events
 
