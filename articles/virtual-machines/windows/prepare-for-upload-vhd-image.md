@@ -28,13 +28,8 @@ For information about the support policy for Azure VMs, see
 > [!NOTE]
 > The instructions in this article apply to:
 >
-> 1. The 64-bit version of Windows Server 2008 R2 and
-> later Windows Server operating systems. For information about running a 32-bit operating system in
-> Azure, see
-> [Support for 32-bit operating systems in Azure VMs](https://support.microsoft.com/help/4021388/).
-> 1. If any Disaster Recovery tool will be used to migrate the workload, like Azure Site Recovery or
-> Azure Migrate, this process is still required on the Guest OS to prepare the image before the
-> migration.
+> - The 64-bit version of Windows Server 2008 R2 and later Windows Server operating systems. For information about running a 32-bit operating system in Azure, see [Support for 32-bit operating systems in Azure VMs](https://support.microsoft.com/help/4021388/).
+> - If any Disaster Recovery tool will be used to migrate the workload, like Azure Site Recovery or Azure Migrate, this process is still required on the Guest OS to prepare the image before the migration.
 
 ## System File Checker
 
@@ -446,6 +441,8 @@ the following updates are installed. To get the latest updates, see the Windows 
 pages: [Windows 10 and Windows Server 2019](https://support.microsoft.com/help/4000825),
 [Windows 8.1 and Windows Server 2012 R2](https://support.microsoft.com/help/4009470) and
 [Windows 7 SP1 and Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
+
+<br />
 
 |        Component        |     Binary     | Windows 7 SP1, Windows Server 2008 R2 SP1 |       Windows 8, Windows Server 2012        | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 |      Windows 10 v1703      | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 | ----------------------- | -------------- | ----------------------------------------- | ------------------------------------------- | ----------------------------------- | ------------------------------------------- | -------------------------- | ------------------------------------------- | ------------------------------------------- |
