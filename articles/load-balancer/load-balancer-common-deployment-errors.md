@@ -2,42 +2,33 @@
 title: Troubleshoot common deployment errors
 description: Describes how to resolve common errors when you deploy Azure Load Balancers
 tags: top-support-issue
+author: anavinahar
 ms.topic: troubleshooting
 ms.date: 04/27/2020
+ms.author: anavin
+
 ---
+
 # Troubleshoot common Azure deployment errors with Azure Load Balancer
 
-This article describes some common Azure deployment errors, and provides information to resolve the errors. I
-If you're looking for information about an error code and that information isn't provided in this article, let us know. At the bottom of this page, you can leave feedback. The feedback is tracked with GitHub Issues.
-
+This article describes some common Azure Load Balancer deployment errors and provides information to resolve the errors. If you're looking for information about an error code and that information isn't provided in this article, let us know. At the bottom of this page, you can leave feedback. The feedback is tracked with GitHub Issues.
 
 ## Error codes
 
-| Error code | Mitigation | More information |
-| ---------- | ---------- | ---------------- |
-|NetworkInterfaceAndLoadBalancerAreInDifferentAvailabilitySets|  | []() 
-|NetworkInterfacesInAvailabilitySetUseMultipleLoadBalancersOfSameType |  | []() |
-|NetworkInterfaceUsesMultipleLoadBalancersOfSameType |  | []() |
-|DifferentSkuLoadBalancersAndPublicIPAddressNotAllowed|  | []() |
-|LoadBalancingNotSupportedForBasicVm|  | []() |
-|DifferentSkuLoadBalancerAndPublicIPAddressNotAllowedInVMSS |  | []() |
-|CannotUseHealthProbeWithoutLoadBalancing |  | []() |
-|RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndIPConfig|  | []() |
-|RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndVmssIPConfig|  | []() |
-|AnotherInternalLoadBalancerExists|  | []() |
-|CannotUseInactiveHealthProbe|  | []() |
-|VMScaleSetCannotUseMultipleLoadBalancersOfSameType|  | []() |
-|MaxAvailabilitySetsInLoadBalancerReached |  | []() |
-| |  | []() |
-| |  | []() |
-| |  | []() |
-| |  | []() |
-| |  | []() |
-| |  | []() |
-| |  | []() |
-| |  | []() |
+| Error code | Details and mitigation |
+| ------- | ---------- | ------------- |
+|DifferentSkuLoadBalancersAndPublicIPAddressNotAllowed| Both Public IP SKU and Load Balancer SKU must match. Ensure Azure Load Balancer and Public IP SKUs match. Standard SKU is recommended for production workloads. Learn more about the [differences in SKUs](/concepts-limitations.md#skus)  |
+|DifferentSkuLoadBalancerAndPublicIPAddressNotAllowedInVMSS | VMSS defaults to Basic Load Balancers when SKU is unspecified or deployed without Standard Public IPs. Re-deploy VMSS with Standard Public IPs on the individual instances to ensure Standard Load Balancer is selected or simply select a Standard LB when deploying VMSS from the Azure Portal. |
+|MaxAvailabilitySetsInLoadBalancerReached | The backend pool of a Load Balancer can contain a maximum of 150 availability sets. If you don't have availability sets explicitly defined for your VMs in the backend pool, each single VM goes into its own Availability Set. So deploying 150 standalone VMs would imply that it would have 150 Availability sets, thus hitting the limit. You can deploy an availability set and add additional VMs to it as a workaround. |
+|RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndIPConfig| You cannot have more than one rule on a given load balancer type (internal, public) with same backend port and protocol referenced by same VMSS. Update your rule to change this duplicate rule creation. |
+|RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndVmssIPConfig| You cannot have more than one rule on a given load balancer type (internal, public) with same backend port and protocol referenced by same VMSS. Update your rule parameters to change this duplicate rule creation. |
+|AnotherInternalLoadBalancerExists| You can have only one Load Balancer of type internal reference the same set of VMs/network interfaces in the backend of the Load Balancer. Update your deployment to ensure you are creating only one Load Balancer of the same type. |
+|CannotUseInactiveHealthProbe| You cannot have a probe that's not used by any rule configured for VMSS health. Ensure that the probe that is set up is being actively used. |
+|VMScaleSetCannotUseMultipleLoadBalancersOfSameType| You cannot have multiple Load Balancers of the same type(internal, public). You can have a maximum of one internal and one public Load Balancer. |
+|VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Basic Load Balancer is not supported for multiple-placement group VMSS's or cross-availability zone VMSS. Use Standard Load Balancer instead|
+| |  |
 
-| |  | []() |
 ## Next steps
 
-*
+* Look through the Azure Load Balancer [SKU comparision table](/concepts-limitations.md#skus)
+* Learn about [Azure Load Balancer limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)

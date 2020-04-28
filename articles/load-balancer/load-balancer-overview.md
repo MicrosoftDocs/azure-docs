@@ -71,22 +71,11 @@ Key scenarios that you can accomplish using Standard Load Balancer include:
 Standard Load Balancer is built on the zero trust network security model at its core. Standard Load Balancer secure by default and is part of your virtual network. The virtual network is a private and isolated network.  This means Standard Load Balancers and Standard Public IP addresses are closed to inbound flows unless opened by Network Security Groups. NSGs are used to explicitly permit and whitelist allowed traffic.  If you do not have an NSG on a subnet or NIC of your virtual machine resource, traffic is not allowed to reach this resource. To learn more about NSGs and how to apply them for your scenario, see [Network Security Groups](../virtual-network/security-overview.md).
 Basic Load Balancer is open to the internet by default.
 
-
 ## Pricing and SLA
 
 For Standard Load Balancer pricing information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
 Basic Load Balancer is offered at no charge.
 See [SLA for Load Balancer](https://aka.ms/lbsla). Basic Load Balancer has no SLA.
-
-## Types of Load Balancer
-
-Internal Load Balancer = ILB
-
-|This is   | Standard  Load Balancer   |Internal Load Balancer|
-|----------|-----------|------------|
-|table     |data       |here        |
-|it doesn't|actually   |have to line up nicely!|
-| SLA | | |
 
 ## Next steps
 
