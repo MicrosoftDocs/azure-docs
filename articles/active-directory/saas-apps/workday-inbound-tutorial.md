@@ -455,11 +455,11 @@ In this step, we establish connectivity with Workday and Active Directory in the
    * **Workday password –** Enter the password of the Workday integration system account
 
    * **Workday Web Services API URL –** Enter the URL to the Workday web services  endpoint for your tenant. This value should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4, where *contoso4* is replaced with your correct tenant name and *wd3-impl* is replaced with the correct environment string.
+        `https://wd3-impl-services1.workday.com/ccx/service/contoso4`, where *contoso4* is replaced with your correct tenant name and *wd3-impl* is replaced with the correct environment string.
 
      > [!NOTE]
      > By default, the app uses Workday Web Services (WWS) v21.1 if no version information is specified in the URL. To use a specific WWS API version, please use the URL format: https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Example: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0 <br>
+     > Example: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0` <br>
      
      > [!NOTE]
      > If you are using a WWS API v30.0 and above, before turning on the provisioning job, please update the **XPATH API expressions** under **Attribute Mapping -> Advanced Options -> Edit attribute list for Workday** referring to the section [Managing your configuration](#managing-your-configuration) and [Workday attribute reference](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
@@ -623,12 +623,12 @@ The following sections describe steps for configuring user provisioning from Wor
    * **Workday password –** Enter the password of the Workday integration system account
 
    * **Workday Web Services API URL –** Enter the URL to the Workday web services  endpoint for your tenant. This value should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4,
+        `https://wd3-impl-services1.workday.com/ccx/service/contoso4`,
         where *contoso4* is replaced with your correct tenant name and  *wd3-impl* is replaced with the correct environment string. If this URL is not known, please work with your Workday integration partner or support representative to determine the correct URL to use.
 
      > [!NOTE]
      > By default, the app uses Workday Web Services v21.1 if no version information is specified in the URL. To use a specific Workday Web Services API version, please use the URL format: https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Example: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+     > Example: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0`
 
 
    * **Notification Email –** Enter your email address, and check the  “send email if failure occurs” checkbox.
@@ -736,7 +736,7 @@ Follow these instructions to configure writeback of user email addresses and use
    * **Admin password –** Enter the password of the Workday integration system account
 
    * **Tenant URL –** Enter the URL to the Workday web services endpoint for your tenant. This value should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources,
+        `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`,
         where *contoso4* is replaced with your correct tenant name and *wd3-impl* is replaced with the correct environment string (if necessary).
 
    * **Notification Email –** Enter your email address, and check the  “send email if failure occurs” checkbox.

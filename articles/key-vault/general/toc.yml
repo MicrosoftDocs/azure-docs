@@ -50,6 +50,8 @@
     href: authentication-requests-and-responses.md
   - name: Azure Key Vault throttling guidance
     href: overview-throttling.md
+  - name: Azure Key Vault availability and redundancy
+    href: disaster-recovery-guidance.md
   - name: Virtual network service endpoints for Azure Key Vault - Azure Key Vault
     href: overview-vnet-service-endpoints.md
 
