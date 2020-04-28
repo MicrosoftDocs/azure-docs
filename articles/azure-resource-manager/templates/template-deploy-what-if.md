@@ -8,7 +8,7 @@ ms.author: jgao
 ---
 # ARM template deployment what-if operation (Preview)
 
-Before deploying an Azure Resource Manager (ARM) template, you might want to preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the template. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed.
+Before deploying an Azure Resource Manager (ARM) template, you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the template. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed.
 
 > [!NOTE]
 > The what-if operation is currently in preview. As a preview release, the results may sometimes show that a resource will change when actually no change will happen. We're working to reduce these issues, but we need your help. Please report these issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
@@ -95,7 +95,7 @@ Resource changes: 1 to modify.
 
 ### Azure PowerShell
 
-To see a preview of the changes before deploying a template, add the `-Whatif` switch parameter to the deployment command.
+To preview changes before deploying a template, add the `-Whatif` switch parameter to the deployment command.
 
 * `New-AzResourceGroupDeployment -Whatif` for resource group deployments
 * `New-AzSubscriptionDeployment -Whatif` and `New-AzDeployment -Whatif` for subscription level deployments
@@ -112,7 +112,7 @@ The preceding commands return a text summary that you can manually inspect. To g
 
 ### Azure CLI
 
-To see a preview of the changes before deploying a template, use `what-if` with the deployment command.
+To preview changes before deploying a template, use `what-if` with the deployment command.
 
 * `az deployment group what-if` for resource group deployments
 * `az deployment sub what-if` for subscription level deployments
@@ -152,7 +152,7 @@ The what-if operation lists six different types of changes:
 
 ## Result format
 
-You can control the level of detail that is returned about the predicted changes. You have two options:
+You control the level of detail that is returned about the predicted changes. You have two options:
 
 * **FullResourcePayloads** - returns a list of resources that will change and details about the properties that will change
 * **ResourceIdOnly** - returns a list of resources that will change
@@ -336,6 +336,8 @@ The what-if operation supports using [deployment mode](deployment-modes.md). Whe
 
 To preview changes before deploying a template, use the `-Confirm` switch parameter with the deployment command. If the changes are as you expected, confirm that you want the deployment to complete.
 
+# [PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroupDeployment `
   -ResourceGroupName ExampleGroup `
@@ -344,6 +346,8 @@ New-AzResourceGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
 ```
 
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az deployment group create \
   --resource-group ExampleGroup \
@@ -351,6 +355,8 @@ az deployment group create \
   --confirm-with-what-if \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
 ```
+
+---
 
 Because no resources are defined in the template and the deployment mode is set to complete, the virtual network will be deleted.
 
@@ -389,4 +395,5 @@ You see the expected changes and can confirm that you want the deployment to run
 
 - If you notice incorrect results from the preview release of what-if, please report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - To deploy templates with Azure PowerShell, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
+- To deploy templates with Azure CLI, see [Deploy resources with ARM templates and Azure CLI](deploy-cli.md).
 - To deploy templates with REST, see [Deploy resources with ARM templates and Resource Manager REST API](deploy-rest.md).
