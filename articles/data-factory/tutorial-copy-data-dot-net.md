@@ -76,7 +76,7 @@ Next, create a sink SQL table:
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Allow Azure services to access SQL server. Ensure that you allow access to Azure services in your Azure SQL server so that the Data Factory service can write data to your Azure SQL server. To verify and turn on this setting, do the following steps:
+2. Allow Azure services to access SQL server. Ensure that you allow access to Azure services in your logical SQL server so that the Data Factory service can write data to your logical SQL server. To verify and turn on this setting, do the following steps:
 
     1. Go to the [Azure portal](https://portal.azure.com) to manage your SQL server. Search for and select **SQL servers**.
 
