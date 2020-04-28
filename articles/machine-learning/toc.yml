@@ -158,6 +158,8 @@
               href: how-to-use-azure-ad-identity.md
             - name: Regenerate storage access keys
               href: how-to-change-storage-access-key.md
+            - name: Use Azure Firewall
+              href: how-to-access-azureml-behind-firewall.md
         - name: Set up authentication
           displayName: authentication, auth, oauth
           href: how-to-setup-authentication.md
