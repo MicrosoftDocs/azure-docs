@@ -26,6 +26,7 @@ You can view two types of logs for Azure Event Hubs:
 * **[Activity logs](../azure-monitor/platform/platform-logs-overview.md)**: These logs have information about operations performed on a job. The logs are always enabled.
 * **[Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md)**: You can configure diagnostic logs for a richer view of everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
 
+
 ## Enable diagnostic logs
 
 Diagnostic logs are disabled by default. To enable diagnostic logs, follow these steps:
@@ -63,7 +64,7 @@ Event Hubs captures diagnostic logs for two categories:
 
 All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following sections.
 
-### Archive logs schema
+## Archive logs schema
 
 Archive log JSON strings include elements listed in the following table:
 
@@ -101,7 +102,7 @@ The following code is an example of an archive log JSON string:
 }
 ```
 
-### Operational logs schema
+## Operational logs schema
 
 Operational log JSON strings include elements listed in the following table:
 
@@ -133,6 +134,72 @@ Example:
    "category": "OperationalLogs"
 }
 ```
+
+## Autoscale logs schema
+Autoscale log JSON includes elements listed in the following table:
+
+| Name | Description |
+| ---- | ----------- | 
+| trackingId | Internal ID, which is used for tracing purposes |
+| resourceId | Internal ID, which contains Azure subscription ID and namespace name |
+| message | Informational message, which provides details about auto-inflate action. The message contains previous and current value of throughput unit for a given namespace and what triggered the inflate of the TU. |
+
+## Kafka coordinator logs schema
+Kafka coordinator log JSON includes elements listed in the following table:
+
+| Name | Description |
+| ---- | ----------- | 
+| requestId | request ID, which is used for tracing purposes |
+| resourceId | Internal ID, which contains Azure subscription ID and namespace name |
+| operationName | Name of the operation that's performed during the group coordination |
+| clientId | Client ID |
+| namespaceName | Namespace name | 
+| subscriptionId | Azure subscription ID |
+| message | Informational message, which provides details about actions performed during the consumer group coordination. |
+
+## Kafka user error logs schema
+Kafka user error log JSON includes elements listed in the following table:
+
+| Name | Description |
+| ---- | ----------- |
+| trackingId | tracking ID, which is used for tracing purposes. |
+| namespaceName | Namespace name |
+| eventhub | Event hub name |
+| partitionId | Partition ID |
+| groupId | Group ID |
+| ClientId | Client ID |
+| resourceId | Internal ID, which contains Azure subscription ID and namespace name |
+| message | Informational message, which provides details about an error |
+
+## Event Hubs virtual network (VNet) connection event schema
+
+Event Hubs virtual network (VNet) connection event JSON includes elements listed in the following table:
+
+| Name | Description |
+| ---  | ----------- | 
+| subscriptionId | Azure subscription ID |
+| namespaceName | Namespace name |
+| ipAddress | IP address of a client connecting to the Event Hubs service |
+| action | Action performed by the Event Hubs service when evaluating connection requests. Supported actions are **AcceptConnection** and **RejectConnection**. |
+| reason | Provides a reason why the action was done |
+| count | Number of occurrences for the given action |
+| resourceId | Internal resource ID, which contains subscription ID and namespace name. |
+
+## Customer-managed key user logs
+Customer-managed key user log JSON includes elements listed in the following table:
+
+| Name | Description |
+| ---- | ----------- | 
+| category | Type of category for a message. It's one of the following values: **error** and **info** |
+| resourceId | Internal resource ID, which includes Azure subscription ID and namespace name |
+| keyVault | Name of the Key Vault resource |
+| key | Name of the Key Vault key. |
+| version | Version of the Key Vault key |
+| operation | The name of an operation performed to serve requests |
+| code | Status code |
+| message | Message, which provides details about an error or informational message |
+
+
 
 ## Next steps
 - [Introduction to Event Hubs](event-hubs-what-is-event-hubs.md)
