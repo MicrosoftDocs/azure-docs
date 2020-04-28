@@ -9,12 +9,11 @@ ms.date: 04/14/2020
 
 These application settings are stored in the [exported](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app and [updated](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the REST APIs. Changing your app version settings resets your app training status to untrained.
 
-Learn [concepts](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) of diacritics and punctuation.
-
 |Setting|Default value|Notes|
 |--|--|--|
-|NormalizePunctuation|True|Removes punctuation.|
-|NormalizeDiacritics|True|Removes diacritics.|
+|NormalizePunctuation|False|Removes punctuation.|
+|NormalizeDiacritics|False|Removes diacritics.|
+|MorphologicalAnalyzer|False|Removes prefixes and suffixes from tokens.|
 
 ## Diacritics normalization
 
@@ -175,4 +174,4 @@ The following punctuation is removed with `NormalizePunctuation` is set to true.
 
 ## Next steps
 
-* Learn [concepts](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) of diacritics and punctuation.
+Learn [concepts](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) of diacritics, punctuation, and morphology.
