@@ -23,7 +23,7 @@ ms.author: shvija
 
 You can view two types of logs for Azure Event Hubs:
 
-* **[Activity logs](../azure-monitor/platform/platform-logs-overview.md)**: These logs have information about operations performed on a job. The logs are always enabled. You can see activity log entries by selecting **Activity log** on the left menu for your event hub namespace in the Azure portal. For example: "Create or Update Namespace", "Create or Update Event Hub".
+* **[Activity logs](../azure-monitor/platform/platform-logs-overview.md)**: These logs have information about operations done on a job. The logs are always enabled. You can see activity log entries by selecting **Activity log** in the left pane for your event hub namespace in the Azure portal. For example: "Create or Update Namespace", "Create or Update Event Hub".
 
     ![Activity log for an Event Hubs namespace](./media/event-hubs-diagnostic-logs/activity-log.png)
 * **[Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md)**: You can configure diagnostic logs for a richer view of everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
@@ -37,7 +37,7 @@ Diagnostic logs are disabled by default. To enable diagnostic logs, follow these
 2. Select **Diagnostics settings** under **Monitoring** in the left pane, and then select **+ Add diagnostic setting**. 
 
     ![Diagnostic settings page - add diagnostic setting](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
-4. In the **Category details** section, select the **types of diagnostic logs** that you want to enable. You will find details about these categories later in this article. 
+4. In the **Category details** section, select the **types of diagnostic logs** that you want to enable. You'll find details about these categories later in this article. 
 5. In the **Destination details** section, set the archive target (destination) that you want; for example, a storage account, an event hub, or a Log Analytics workspace.
 
     ![Add diagnostic settings page](./media/event-hubs-diagnostic-logs/aDD-diagnostic-settings-page.png)
@@ -53,11 +53,11 @@ Event Hubs captures diagnostic logs for the following categories:
 
 - **Archive Logs**: logs related to Event Hubs archives, specifically, logs related to archive errors.
 - **Operational Logs**: information about what is happening during Event Hubs operations, specifically, the operation type, including event hub creation, resources used, and the status of the operation.
-- **Auto scale logs**: information about auto-scaling operations done on an Event Hubs namespace. 
+- **Auto scale logs**: information about autoscaling operations done on an Event Hubs namespace. 
 - **Kafka coordinator logs** - information about Kafka coordinator operations related to Event Hubs. 
 - **Kafka user logs**: information about Kafka user operations related to Event Hubs. 
 - **Event Hubs virtual network (VNet) connection event**: information about Event Hubs virtual network connection events. 
-- **Customer managed key user logs**: information about operations related to customer-managed key. 
+- **Customer-managed key user logs**: information about operations related to customer-managed key. 
 
 
     All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following sections.
@@ -149,11 +149,11 @@ Kafka coordinator log JSON includes elements listed in the following table:
 | ---- | ----------- | 
 | requestId | request ID, which is used for tracing purposes |
 | resourceId | Internal ID, which contains Azure subscription ID and namespace name |
-| operationName | Name of the operation that's performed during the group coordination |
+| operationName | Name of the operation that's done during the group coordination |
 | clientId | Client ID |
 | namespaceName | Namespace name | 
 | subscriptionId | Azure subscription ID |
-| message | Informational message, which provides details about actions performed during the consumer group coordination. |
+| message | Informational message, which provides details about actions done during the consumer group coordination. |
 
 ## Kafka user error logs schema
 Kafka user error log JSON includes elements listed in the following table:
@@ -178,7 +178,7 @@ Event Hubs virtual network (VNet) connection event JSON includes elements listed
 | subscriptionId | Azure subscription ID |
 | namespaceName | Namespace name |
 | ipAddress | IP address of a client connecting to the Event Hubs service |
-| action | Action performed by the Event Hubs service when evaluating connection requests. Supported actions are **AcceptConnection** and **RejectConnection**. |
+| action | Action done by the Event Hubs service when evaluating connection requests. Supported actions are **AcceptConnection** and **RejectConnection**. |
 | reason | Provides a reason why the action was done |
 | count | Number of occurrences for the given action |
 | resourceId | Internal resource ID, which contains subscription ID and namespace name. |
@@ -193,7 +193,7 @@ Customer-managed key user log JSON includes elements listed in the following tab
 | keyVault | Name of the Key Vault resource |
 | key | Name of the Key Vault key. |
 | version | Version of the Key Vault key |
-| operation | The name of an operation performed to serve requests |
+| operation | The name of an operation done to serve requests |
 | code | Status code |
 | message | Message, which provides details about an error or informational message |
 
