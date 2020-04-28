@@ -402,6 +402,9 @@ This command:
 
 ## Query the container's prediction endpoint
 
+> [!NOTE]
+> Use a unique port number if you're running multiple containers.
+
 | Containers | SDK Host URL | Protocol |
 |--|--|--|
 | Speech-to-text and Custom Speech-to-text | `ws://localhost:5000` | WS |
@@ -517,6 +520,8 @@ speech_config.set_service_property(
 }
 ```
 
+---
+
 If you want to completely disable sentiment analysis, add a `false` value to `sentimentanalysis.enabled`.
 
 ```python
@@ -526,8 +531,6 @@ speech_config.set_service_property(
     channel=speechsdk.ServicePropertyChannel.UriQueryParameter
 )
 ```
-
----
 
 ### Text-to-speech or Custom Text-to-speech
 

@@ -54,7 +54,7 @@ Starting with v2.2.0 of the speech-to-text container, the following parameters a
 |`textanalytics.image.args.apikey`| One of the required arguments by **text-analytics** container, which is used to track billing information.| valid apikey||
 |`textanalytics.cpuRequest`| The requested CPU for **text-analytics** container| int| `3000m`|
 |`textanalytics.cpuLimit`| The limited CPU for **text-analytics** container| | `8000m`|
-|`textanalytics.memoryRequest`| The requested memory for **text-analytics** container| | `6Gi`|
+|`textanalytics.memoryRequest`| The requested memory for **text-analytics** container| | `3Gi`|
 |`textanalytics.memoryLimit`| The limited memory for **text-analytics** container| | `8Gi`|
 |`textanalytics.service.sentimentURISuffix`| The sentiment analysis URI suffix, the whole URI is in format "http://`<service>`:`<port>`/`<sentimentURISuffix>`". | | `text/analytics/v3.0-preview/sentiment`|
 |`textanalytics.service.type`| The type of **text-analytics** service in Kubernetes. See [Kubernetes service types](https://kubernetes.io/docs/concepts/services-networking/service/) | valid Kubernetes service type | `LoadBalancer` |
