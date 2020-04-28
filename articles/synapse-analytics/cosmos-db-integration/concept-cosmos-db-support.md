@@ -1,6 +1,6 @@
 ---
-title: Supported features between Synapse and Cosmos DB
-description: Understand the current list of actions supported between Synapse and Cosmos DB
+title: Supported features for Cosmos DB
+description: Understand the current list of actions supported between Azure Synapse Analytics and Cosmos DB
 services: synapse-analytics 
 author: acomet
 ms.service: synapse-analytics 
@@ -11,10 +11,12 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Supported features between Synapse and Cosmos DB
-This article describes what functionalities are currently supported (and not supported) between Synapse and Cosmos DB analytical store. 
+# Supported features between Azure Synapse Analytics and Cosmos DB
 
-## Azure Synapse Analytics support
+This article describes what functionalities are currently supported (and not supported) between Azure Synapse and Cosmos DB analytical store. 
+
+## Azure Synapse support
+
 Here is list of the currently supported features between Azure Synapse and Cosmos DB. 
 
 | Category              | Description |Spark | SQL serverless | SQL provisioned |
@@ -43,3 +45,5 @@ Writing back into a Cosmos DB collection from Spark only happens through the tra
 | **Create view** |Create a view to directly access data in the collection through Synapse and BI tool|X| ✓ |
 
 ## Next steps
+
+[See the Connect to Cosmos DB quickstart](../quickstart-connect-cosmos-db.md)

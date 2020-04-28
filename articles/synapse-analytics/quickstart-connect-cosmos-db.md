@@ -1,6 +1,6 @@
 ---
-title: How to connect a Cosmos DB database to a workspace  
-description: How to connect a Cosmos DB database to a workspace
+title: Connect Cosmos DB to Synapse workspace  
+description: How to connect a Cosmos DB to a Synapse workspace
 services: synapse-analytics 
 author: acomet
 ms.service: synapse-analytics 
@@ -11,15 +11,16 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Connect and access an Azure Cosmos DB database in Azure Synapse Analytics
+# Connect and access an Azure Cosmos DB database (preview) in Azure Synapse Analytics
 
 This article describes how to access an Azure Cosmos database from Azure Synapse Analytics studio.
 
 ## Prerequisites
+
 Before you connect a Cosmos DB account to your workspace, there are a few things that you need.
 
-* Have an existing Cosmos DB account or create a new account following this [quickstart](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account)
-* Have an existing Synapse workspace or create a new workspace following this [quickstart](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) 
+* Existing Cosmos DB account or create a new account following this [quickstart](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account)
+* Existing Synapse workspace or create a new workspace following this [quickstart](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) 
 
 ## Enable Cosmos DB analytical store
 
@@ -42,15 +43,16 @@ The Cosmos DB database, should be visible under the tab **Linked** in the Cosmos
 
 **HTAP collection**:
 
-![HTAP collection](./media/htap-collection.png)
+![HTAP collection](./media/quickstart-connect-cosmos-db/htap-collection.png)
 
 **OLTP only collection**:
 
-![OLTP collection](./media/oltp-collection.png)
+![OLTP collection](./media/quickstart-connect-cosmos-db/oltp-collection.png)
 
 ## Quickly interact with code-generated actions
 
 By right-clicking into a collection, you can use the following gesture that will trigger a Spark or SQL run-time. 
 
 ## Next steps
-* [Learn what is supported between Synapse and Cosmos DB](./concept-cosmosdb-support.md)
+
+* [Learn what is supported between Synapse and Cosmos DB](./cosmos-db-integration/concept-cosmos-db-support.md)
