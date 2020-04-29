@@ -13,7 +13,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 ## Standard_Das_v4
 (12/11/2019 2:28:52 AM pbi 5851281)
 
-| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory (GiB) | Avg Score | Std Dev | Std Dev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_D2as_v4 | AMD EPYC 7452 32-Core Processor | 2 | 1 | 7.8 | 29,726 | 693 | 2.33% | 42 |
 | Standard_D4as_v4 | AMD EPYC 7452 32-Core Processor | 4 | 1 | 15.7 | 59,224 | 1,595 | 2.69% | 42 |
@@ -90,7 +90,8 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | Standard_A8m_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 62.9 | 49,838 | 633 | 1.27% | 182 |
 | Standard_A8m_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 62.9 | 49,123 | 2,483 | 5.05% | 259 |
 
-Note: Av2-series VMs can be deployed on a variety of hardware types and processors (as seen above). Av2-series VMs have CPU performance and memory configurations best suited for entry level workloads like development and test. The size is throttled to offer relatively consistent processor performance for the running instance, regardless of the hardware it is deployed on; however, software that takes advantage of specific newer processor optimizations may see more significant variation across processor types.
+> [!NOTE]
+> Av2-series VMs can be deployed on a variety of hardware types and processors (as seen above). Av2-series VMs have CPU performance and memory configurations best suited for entry level workloads like development and test. The size is throttled to offer relatively consistent processor performance for the running instance, regardless of the hardware it is deployed on; however, software that takes advantage of specific newer processor optimizations may see more significant variation across processor types.
 
 ## B - Burstable
 (3/15/2019 12:27:08 AM pbi 3897709)
@@ -117,9 +118,11 @@ Note: Av2-series VMs can be deployed on a variety of hardware types and processo
 | Standard_B20ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 20 | 1 | 78.6 | 269,561 | 25,095 | 9.31% | 77 |
 | Standard_B20ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 20 | 1 | 78.6 | 274,007 | 3,669 | 1.34% | 70 |
 
-Note: B-Series VMs are for workloads with burstable performance requirements. VM instances accumulate credits when using less than its baseline. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% to meet short CPU burst requirements. Burst time depends on available credits which is a function of VM size and time.  
 
-CoreMark is a  short running test that typically completes within available burst credits.  Therefore the numbers above typically represent the burst performance of the VM, reflecting what the short, bursty, workloads (typical on B-Series) performance will typically see.
+> [!NOTE]
+> B-Series VMs are for workloads with burstable performance requirements. VM instances accumulate credits when using less than its baseline. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% to meet short CPU burst requirements. Burst time depends on available credits which is a function of VM size and time.  
+>
+> CoreMark is a  short running test that typically completes within available burst credits.  Therefore the numbers above typically represent the burst performance of the VM, reflecting what the short, bursty, workloads (typical on B-Series) performance will typically see.
 
 ## DSv3 - General Compute + Premium Storage
 (3/12/2019 6:52:03 PM pbi 3897709)
