@@ -59,7 +59,7 @@ You can create new folders and upload files using the links in toolbar to organi
 
 ## Next steps
 
-- Enable Azure AD users to query files [by assigning **Storage Blob Data Reader** or **Storage Blob Data Contributor** RBAC permissions on Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
+- Enable Azure AD users to query files by assigning [**Storage Blob Data Reader** or **Storage Blob Data Contributor** RBAC permissions on Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
 - [Query files on Azure Storage using SQL on-Demand](sql/on-demand-workspace-overview.md)
 - [Create Apache Spark pool using the Azure portal](quickstart-create-apache-spark-pool.md)
 - [Create Power BI report on files stored on Azure Storage](sql/tutorial-connect-power-bi-desktop.md)
