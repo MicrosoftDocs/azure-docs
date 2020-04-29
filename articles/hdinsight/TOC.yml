@@ -229,6 +229,8 @@
         href: ./troubleshoot-script-action.md
       - name: Resource creation failures
         href: ./troubleshoot-resource-creation-fails.md
+      - name: Troubleshoot Apache Oozie
+        href: ./troubleshoot-oozie.md
   - name: Reference
     items:
     - name: Azure PowerShell
@@ -699,6 +701,8 @@
         href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
       - name: Troubleshoot Apache HBase
         href: ./hbase/apache-troubleshoot-hbase.md
+      - name: REST API to query Apache HBase
+        href: ./hbase/troubleshoot-rest-api.md
 - name: Interactive Query
   items:
   - name: Overview

@@ -1,11 +1,11 @@
 ---
 title: Manage indexing policies in Azure Cosmos DB
 description: Learn how to manage indexing policies, include or exclude a property from indexing, how to define indexing using different Azure Cosmos DB SDKs
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: thweiss
+ms.date: 04/28/2020
+ms.author: tisande
 ---
 
 # Manage indexing policies in Azure Cosmos DB
@@ -132,7 +132,7 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
     }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > It is generally recommended to use an **opt-out** indexing policy to let Azure Cosmos DB proactively index any new property that may be added to your model.
 
 ### Using a spatial index on a specific property path only
@@ -168,6 +168,9 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
 ## Composite indexing policy examples
 
 In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#composite-indexes) on those properties is required. Additionally, composite indexes will have a performance benefit for queries that have a filter and have an ORDER BY clause on different properties.
+
+> [!NOTE]
+> Composite paths have an implicit `/?` since only the scalar value at that path is indexed. The `/*` wildcard is not supported in composite paths. You shouldn't specify `/?` or `/*` in a composite path.
 
 ### Composite index defined for (name asc, age desc):
 
