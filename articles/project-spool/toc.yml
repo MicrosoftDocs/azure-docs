@@ -114,6 +114,8 @@
     href: concepts/fraud-detection.md
   - name: Logging and Diagnostics
     href: concepts/logging-diagnostics.md
+  - name: ACS As An Event Grid Source
+    href: concepts/acs-event-grid.md
 - name: References
   items:
   - name: Client SDK for C#
