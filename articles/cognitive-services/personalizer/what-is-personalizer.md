@@ -70,7 +70,7 @@ Since Personalizer uses collective information in near real-time to return the s
 
     |Resource type| Purpose|
     |--|--|
-    |[Apprentice mode](concept-apprentice-mode.md) `E01`|Train the learning loop without impacting your existing application then deploy to Online learning behavior to a production environment|
+    |[Apprentice mode](concept-apprentice-mode.md) `E0`|Train the personalizer model without impacting your existing application, then deploy to Online learning behavior to a production environment|
     |Standard, `S0`|Online learning behavior in a production environment|
     |Free, `F0`| Try Online learning behavior in a non-production environment|
     
