@@ -138,7 +138,6 @@ import pandas as pd
 import numpy as np 
 import pyarrow as pa
 import pyarrow.parquet as pq
-from sklearn.model_selection import train_test_split
 import argparse
 
 RANDOM_SEED=42
