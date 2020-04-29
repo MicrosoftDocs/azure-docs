@@ -608,6 +608,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/use-case-excel-studio.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/azure-ml-customer-churn-scenario.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/text-analytics-module-tutorial.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/extend-your-experiment-with-r.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/debug-models.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/troubleshooting-creating-ml-workspace.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/basics-infographic-with-algorithm-examples.md",
+      "redirect_url": "/azure/machine-learning/how-to-select-algorithms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/convert-training-experiment-to-scoring-experiment.md",
+      "redirect_url": "/azure/machine-learning/studio/deploy-a-machine-learning-web-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/studio/consume-web-service-with-web-app-template.md",
       "redirect_url": "/azure/machine-learning/studio/consume-web-services",
       "redirect_document_id": false
@@ -2831,6 +2871,11 @@
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-univ.md",
       "redirect_url": "https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/quickstart-v2-javascipt-auth-code.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-v2-javascript-auth-code",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md",
@@ -6420,6 +6465,11 @@
     {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-regions.md",
       "redirect_url": "https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/saml-technical-profile.md",
+      "redirect_url": "/azure/active-directory-b2c/saml-identity-provider-technical-profile",
       "redirect_document_id": false
     },
     {
@@ -51436,6 +51486,121 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/databox-online/data-box-edge-deploy-add-shares.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-add-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-connect-powershell-interface.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-connect-powershell-interface",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-contact-microsoft-support.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-contact-microsoft-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-create-iot-edge-module.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-create-iot-edge-module",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-configure-compute.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-configure-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-configure-compute-advanced.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-configure-compute-advanced",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-connect-setup-activate.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-install.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-prep.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-prep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-extend-compute-access-modules.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-extend-compute-access-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-limits.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-limits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-access-power-connectivity-mode.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-access-power-connectivity-mode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-bandwidth-schedules.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-bandwidth-schedules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-compute.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-shares.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-users.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-monitor.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-overview.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-return-device.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-return-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-security.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-system-requirements.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-system-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-technical-specifications-compliance.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-technical-specifications-compliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-troubleshoot.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-troubleshoot", 
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/aks/kubernetes-draft.md",
       "redirect_url": "/azure/aks/quickstart-helm",
       "redirect_document_id": false
@@ -51904,6 +52069,11 @@
       "source_path": "articles/terraform/index.yml",
       "redirect_url": "/azure/developer/terraform/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-auditing-and-threat-detection-powershell.md",
+      "redirect_url": "/azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell",
+      "redirect_document_id": true
     }
  ]
 }

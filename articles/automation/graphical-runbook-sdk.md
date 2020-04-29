@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 ## Prerequisites
 
-Import the `Microsoft.Azure.Automation.GraphicalRunbook.Model` package into your project.
+Import the `Microsoft.Azure.Management.Automation.GraphicalRunbook.Model` package into your project.
 
 ## Create a runbook object instance
 
