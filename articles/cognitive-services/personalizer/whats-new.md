@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 04/23/2020
 ms.author: diberry
 ---
 # What's new in Personalizer
@@ -16,6 +16,12 @@ ms.author: diberry
 Learn what's new in the service. These items may include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
 
 ## Release notes
+
+### May 2020 - //Build conference
+
+The following are available in **Public Preview**:
+
+ * [Apprentice mode](concept-apprentice-mode.md) as a learning behavior.
 
 ### March 2020
 
