@@ -84,8 +84,8 @@ az appservice plan create --name myAuthAppServicePlan --resource-group myAuthRes
 az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <front-end-app-name> --runtime "DOTNETCORE|LTS" --deployment-local-git --query deploymentLocalGitUrl
 az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <back-end-app-name> --runtime "DOTNETCORE|LTS" --deployment-local-git --query deploymentLocalGitUrl
 # Currently the following commands are required to set the .NET Core version properly
-az webapp config set --resource-group myResourceGroup --name <front-end-app-name> --linux-fx-version "DOTNETCORE|3.1.0"
-az webapp config set --resource-group myResourceGroup --name <back-end-app-name> --linux-fx-version "DOTNETCORE|3.1.0"
+az webapp config set --resource-group myAuthResourceGroup --name <front-end-app-name> --linux-fx-version "DOTNETCORE|3.1"
+az webapp config set --resource-group myAuthResourceGroup --name <back-end-app-name> --linux-fx-version "DOTNETCORE|3.1"
 ```
 
 > [!NOTE]
