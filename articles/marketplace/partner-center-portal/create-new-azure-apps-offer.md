@@ -496,7 +496,7 @@ Set up a demonstration (test drive) that lets customers try your offer before pu
 
 To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](#test-drive) tab. To remove test drive from your offer, clear this check box.
 
-### Technical configuration
+### Test drive technical configuration
 
 Azure Applications inherently use the Azure Resource Manager test drive type. For details, see [Technical configuration for Azure Resource Manager test drive](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer#technical-configuration-for-azure-resource-manager-test-drive).
 
