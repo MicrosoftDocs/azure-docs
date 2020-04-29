@@ -22,11 +22,11 @@ Apprentice mode gives you trust and confidence in the Personalizer service and i
 
 ## Changes to the existing application
 
-Your existing application shouldn't change how it currently selects actions to display or how the application determines the value, **reward** of that action. The only change to the application is the order of the actions sent to Personalizer's Rank API. The action your application currently displays is sent as the _first action_ in the action list. The [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) uses this first action to train your Personalizer model.
+Your existing application shouldn't change how it currently selects actions to display or how the application determines the value, **reward** of that action. The only change to the application might be the order of the actions sent to Personalizer's Rank API. The action your application currently displays is sent as the _first action_ in the action list. The [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) uses this first action to train your Personalizer model.
 
 ### Configure your application to call the Rank API
 
-You need to add calls to the Rank and Reward APIs, in order to add Personalizer to your application.
+In order to add Personalizer to your application, you need to call the Rank and Reward APIs.
 
 1. Add the [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) call after the point in your existing application logic where you determine the list of actions and their features. The first action in the actions list needs to be the action selected by your existing logic.
 
@@ -34,7 +34,7 @@ You need to add calls to the Rank and Reward APIs, in order to add Personalizer 
 
 ### Configure your application to call Reward API
 
-1. Use your existing business logic to calculate the **reward** of the displayed action. The value needs to be in the range from 0 to 1. Send this reward to Personalizer using the [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward). You can delay returning the reward until the full value of the action is known.
+1. Use your existing business logic to calculate the **reward** of the displayed action. The value needs to be in the range from 0 to 1. Send this reward to Personalizer using the [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward). The reward value is not expect immediately and can be delayed over a time period - depending on your business logic.
 
 1. If you don't return the reward within the configured **Reward wait time**, the default reward will be used instead.
 
@@ -54,9 +54,9 @@ Apprentice mode provides the following **evaluation metrics**:
 
 Evaluate the features using an [offline evaluation](how-to-offline-evaluation.md).
 
-## Switch to Online mode
+## Switch behavior to Online mode
 
-When you determine Personalizer is trained with an average of 70-85% rolling average, the model is ready to switch to Online mode.
+When you determine Personalizer is trained with an average of 75-85% rolling average, the model is ready to switch to Online mode.
 
 In the Azure portal for your Personalizer resource, on the **Configuration** page, on the **Learning behavior** tab, select **Return the best action** then select **Save**.
 

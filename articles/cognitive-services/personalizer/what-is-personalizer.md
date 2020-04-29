@@ -66,11 +66,11 @@ Since Personalizer uses collective information in near real-time to return the s
 ## How to design and implement Personalizer for your client application
 
 1. [Design](concepts-features.md) and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
-1. Each [Personalizer Resource](how-to-settings.md) you create is considered 1 Learning Loop. The loop will receive the both the Rank and Reward calls for that content or user experience.
+1. Each [Personalizer Resource](how-to-settings.md) you create is considered one Learning Loop. The loop will receive the both the Rank and Reward calls for that content or user experience.
 
     |Resource type| Purpose|
     |--|--|
-    |[Apprentice mode](concept-apprentice-mode.md) `E01`|Train the learning loop without impacting your existing application then deploy to Online learning behavior to a production environment|
+    |[Apprentice mode](concept-apprentice-mode.md) `E0`|Train the personalizer model without impacting your existing application, then deploy to Online learning behavior to a production environment|
     |Standard, `S0`|Online learning behavior in a production environment|
     |Free, `F0`| Try Online learning behavior in a non-production environment|
     
