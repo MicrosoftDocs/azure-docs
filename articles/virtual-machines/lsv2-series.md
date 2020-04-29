@@ -22,6 +22,8 @@ The Lsv2-series features high throughput, low latency, directly mapped local NVM
 
 ACU: 150-175
 
+Bursting: Supported
+
 Premium Storage: Supported
 
 Premium Storage caching: Not Supported

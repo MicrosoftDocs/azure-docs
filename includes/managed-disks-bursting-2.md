@@ -16,17 +16,17 @@ The following scenarios can benefit greatly from bursting:
 - **Preparedness for traffic spikes** – Web servers and their applications can experience traffic surges at any time. If your web server is backed by VMs or disks using bursting, the servers are better equipped to handle traffic spikes. 
 
 ## Bursting flow
-The bursting credit system applies in the same manner at both the virtual machine level and disk level. Your resource, either a VM or disk, will start with fully stocked credits. These credits will allow you to burst for 30 minutes at the maximum burst rate. Bursting credits accumulate when your resource is running under their provisioned disk storage limits. For all IOPS and MB/s that your resource is using below the provisioned limit you begin to accumulate credits. If your resource has accrued credits to use for bursting and your workload needs the extra performance, your resource can use those credits to go above your provisioned limit to give it the disk IO performance it needs to meet the demand.
+The bursting credit system applies in the same manner at both the virtual machine level and disk level. Your resource, either a VM or disk, will start with fully stocked credits. These credits will allow you to burst for 30 minutes at the maximum burst rate. Bursting credits accumulate when your resource is running under their performance disk storage limits. For all IOPS and MB/s that your resource is using below the performance limit you begin to accumulate credits. If your resource has accrued credits to use for bursting and your workload needs the extra performance, your resource can use those credits to go above your performance limit to give it the disk IO performance it needs to meet the demand.
 
 ![Bursting bucket Diagram](media/managed-disks-bursting/bucket-diagram.jpg)
 
-One thing to note about burst accumulation is that it is different for each resource since it is based on the unused IOPS and MB/s below their provisioned amounts. This means that higher baseline performance products can accrue their bursting amounts faster than lower baseline performing products. For example, a P1 disk idling with no activity will accrue 120 IOPS per second whereas a P20 disk accrues 2,300 IOPS per second while idling with no activity.
+One thing to note about burst accumulation is that it is different for each resource since it is based on the unused IOPS and MB/s below their performance amounts. This means that higher baseline performance products can accrue their bursting amounts faster than lower baseline performing products. For example, a P1 disk idling with no activity will accrue 120 IOPS per second whereas a P20 disk accrues 2,300 IOPS per second while idling with no activity.
 
 ## Bursting states
 There are three states your resource can be in with bursting enabled:
-- **Accruing** – The resource’s IO traffic is using less than the provisioned performance target. Accumulating bursting credits for IOPS and MB/s are done separate from one another. Your resource can be accruing IOPS credits and spending MB/s credits or vice versa.
-- **Bursting** – The resource’s traffic is using more than the provisioned performance target. The burst traffic will independently consume credits from IOPS or bandwidth.
-- **Constant** – The resource’s traffic is exactly at the provisioned performance target.
+- **Accruing** – The resource’s IO traffic is using less than the performance target. Accumulating bursting credits for IOPS and MB/s are done separate from one another. Your resource can be accruing IOPS credits and spending MB/s credits or vice versa.
+- **Bursting** – The resource’s traffic is using more than the performance target. The burst traffic will independently consume credits from IOPS or bandwidth.
+- **Constant** – The resource’s traffic is exactly at the performance target.
 
 ## Examples of bursting
 The following examples show how bursting works with various virtual machine and disk combinations. To make the examples easy to follow, we will focus on MB/s, but the same logic is applied independently to IOPS.
