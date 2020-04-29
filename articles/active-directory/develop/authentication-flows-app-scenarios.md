@@ -54,7 +54,7 @@ However, there are also daemon apps. In these scenarios, applications acquire to
 
 ### Single-page, public client, and confidential client applications
 
-Security tokens can be acquired from multiple types of applications. These applications tend to be separated into the following three categories. Each is used with different libraries and objects.
+Security tokens can be acquired by multiple types of applications. These applications tend to be separated into the following three categories. Each is used with different libraries and objects.
 
 - **Single-page applications**: Also known as SPAs, these are web apps in which tokens are acquired from a JavaScript or TypeScript app running in the browser. Many modern apps have a single-page application at the front end that's primarily written in JavaScript. The application often uses a framework like Angular, React, or Vue. MSAL.js is the only Microsoft authentication library that supports single-page applications.
 
