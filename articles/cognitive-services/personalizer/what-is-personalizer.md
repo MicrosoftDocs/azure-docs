@@ -67,11 +67,13 @@ Since Personalizer uses collective information in near real-time to return the s
 
 1. [Design](concepts-features.md) and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
 1. Each [Personalizer Resource](how-to-settings.md) you create is considered 1 Learning Loop. The loop will receive the both the Rank and Reward calls for that content or user experience.
-    | Resource type| Purpose|
+
+    |Resource type| Purpose|
     |--|--|
     |[Apprentice mode](concept-apprentice-mode.md) `E01`|Train the learning loop without impacting your existing application then deploy to Online learning behavior to a production environment|
     |Standard, `S0`|Online learning behavior in a production environment|
     |Free, `F0`| Try Online learning behavior in a non-production environment|
+    
 1. Add Personalizer to your website or content system:
     1. Add a **Rank** call to Personalizer in your application, website, or system to determine best, single _content_ item before the content is shown to the user.
     1. Display best, single _content_ item, which is the returned _reward action ID_, to user.
