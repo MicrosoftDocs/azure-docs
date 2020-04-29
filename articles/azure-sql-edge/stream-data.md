@@ -55,7 +55,7 @@ The following limitations and restrictions apply to SQL Streaming.
 
 ## Next Steps
 
-[Create a Stream Analytics job in Azure SQL Edge Preview](create-stream-analytics-job)
+[Create a Stream Analytics job in Azure SQL Edge Preview](create-stream-analytics-job.md)
 [Start, Stop, Drop a stream analytics job in Azure SQL Edge Preview]()
 [Viewing metadata associated with stream jobs in Azure SQL Edge Preview]()
 [Create External Stream]()
