@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Monitor websites with Azure Monitor Application Insights'
-description: Provides quickstart instructions setup client/browser-side website monitoring with Azure Monitor Application Insights
+description: In this quickstart, learn how to set up client/browser-side website monitoring with Azure Monitor Application Insights.
 ms.topic: quickstart
 ms.date: 07/15/2019
 
@@ -20,13 +20,13 @@ With Azure Monitor Application Insights, you can easily monitor your website for
 
 ## Enable Application Insights
 
-Application Insights can gather telemetry data from any internet-connected application; running on-premises or in the cloud. Use the following steps to view this data:
+Application Insights can gather telemetry data from any internet-connected application that's running on-premises or in the cloud. Use the following steps to view this data:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select **Create a resource** > **Management tools** > **Application Insights**.
 
    > [!NOTE]
-   >If this is your first time creating an Application Insights resource see [Create an Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+   >If this is your first time creating an Application Insights resource, see [Create an Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 1. When the configuration box appears, use the following table to complete the input fields:
 
     | Settings        | Value           | Description  |
@@ -38,8 +38,8 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 ## Create an HTML file
 
-1. On your local computer, create a file called ``hello_world.html``. For this example, create the file on the root of the C: drive so that it looks like ``C:\hello_world.html``.
-1. Copy and paste the script below into ``hello_world.html``:
+1. On your local computer, create a file called ``hello_world.html``. For this example, create the file on the root of drive C so that it looks like ``C:\hello_world.html``.
+1. Copy and paste the following script into ``hello_world.html``:
 
     ```html
     <!DOCTYPE html>
@@ -49,14 +49,14 @@ Application Insights can gather telemetry data from any internet-connected appli
     </head>
     <body>
     <h1>Azure Monitor Application Insights Hello World!</h1>
-    <p>You can use the Application Insights JavaScript SDK to perform client/browser-side monitoring of your website. To learn about more advanced JavaScript SDK configurations visit the <a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md" title="API Reference">API reference</a>.</p>
+    <p>You can use the Application Insights JavaScript SDK to perform client/browser-side monitoring of your website. To learn about more advanced JavaScript SDK configurations, visit the <a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md" title="API Reference">API reference</a>.</p>
     </body>
     </html>
     ```
 
 ## Configure Application Insights SDK
 
-1. Select **Overview**, select **Essentials**, and then copy your application's **Instrumentation Key**.
+1. Select **Overview** > **Essentials**, and then copy your application's **Instrumentation Key**.
 
    ![New Application Insights resource form](media/website-monitoring/instrumentation-key-001.png)
 
@@ -72,13 +72,15 @@ Application Insights can gather telemetry data from any internet-connected appli
    </script>
    ```
 
-1. Edit ``hello_world.html``, and then add your instrumentation key.
+1. Edit ``hello_world.html`` and add your instrumentation key.
 
 1. Open ``hello_world.html`` in a local browser session. This action creates a single page view. You can refresh your browser to generate multiple test-page views.
 
 ## Monitor your website in the Azure portal
 
-1. Reopen the Application Insights **Overview** page in the Azure portal to view details of your currently running application. The **Overview** page is where you retrieved your instrumentation key. The four default charts on the overview page are scoped to server-side application data. Because we're instrumenting the client/browser-side interactions with the JavaScript SDK, this particular view doesn't apply unless we also have a server-side SDK installed.
+1. Reopen the Application Insights **Overview** page in the Azure portal to view details of your currently running application. The **Overview** page is where you retrieved your instrumentation key.
+
+The four default charts on the overview page are scoped to server-side application data. Because we're instrumenting the client/browser-side interactions with the JavaScript SDK, this particular view doesn't apply unless we also have a server-side SDK installed.
 
 1. Select **Analytics** ![Application Map icon](media/website-monitoring/006.png).  This action opens **Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. To view data related to the client-side browser requests, run the following query:
 
@@ -99,7 +101,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Analytics graph of user requests over a period of time](./media/website-monitoring/analytics-query.png)
 
-1. Go back to the **Overview** page. Under the **Investigate** header, select **Browser**, and then select **Performance**.  Metrics related to the performance of your website display. There's a corresponding view for analyzing failures and exceptions in your website. You can select **Samples** to access the [end-to-end transaction details](../../azure-monitor/app/transaction-diagnostics.md).
+1. Go back to the **Overview** page. Under the **Investigate** header, select **Browser**, and then select **Performance**.  Metrics related to the performance of your website appear. There's a corresponding view for analyzing failures and exceptions in your website. You can select **Samples** to access the [end-to-end transaction details](../../azure-monitor/app/transaction-diagnostics.md).
 
    ![Server metrics graph](./media/website-monitoring/browser-performance.png)
 
@@ -107,7 +109,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
      ![User graph](./media/website-monitoring/usage-users.png)
 
-1. For a more complex website with multiple pages, you can use the [**User Flows**](../../azure-monitor/app/usage-flows.md) tool to track the pathway visitors take through the various parts of your website.
+1. For a more complex website with multiple pages, you can use the [**User Flows**](../../azure-monitor/app/usage-flows.md) tool to track the pathway that visitors take through the various parts of your website.
 
    ![User Flows visualization](./media/website-monitoring/user-flows.png)
 
@@ -118,10 +120,10 @@ To learn more advanced configurations for monitoring websites, see the [JavaScri
 If you plan to continue working with additional quickstarts or tutorials, don't clean up the resources created in this quickstart. Otherwise, use the following steps to delete all resources created by this quickstart in the Azure portal.
 
 > [!NOTE]
-> If you used an existing resource group, the following instructions won't work. Instead, you can just delete the individual Application Insights resource. Note that when you delete a resource group, all underyling resources that are members of that group are deleted too.
+> If you used an existing resource group, the following instructions won't work. Instead, you can just delete the individual Application Insights resource. Keep in mind that when you delete a resource group, all underyling resources that are members of that group are deleted too.
 
-1. In the left menu on the Azure portal, select **Resource groups**, and then select **myResourceGroup** or the name of your temporary resource group.
-1. On your resource group page, select **Delete**, type **myResourceGroup** in the text box, and then select **Delete**.
+1. On the left menu on the Azure portal, select **Resource groups**, and then select **myResourceGroup** or the name of your temporary resource group.
+1. On your resource group page, select **Delete**, enter **myResourceGroup** in the text box, and then select **Delete**.
 
 ## Next steps
 
