@@ -117,7 +117,7 @@ In this section, you'll create a test user called B.Simon in the Azure portal.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** box, enter `B.Simon`.  
-   1. In the **User name** box, enter **\<username>@\<companydomain>.\<extension>**. For example, `B.Simon@contoso.com`.
+   1. In the **User name** box, enter ***username*@*companydomain*.*extension***. For example, `B.Simon@contoso.com`.
    1. Select **Show password**, and then write down the value that's displayed in the **Password** box.
    1. Select **Create**.
 
@@ -166,7 +166,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add permissions**. A message appears to confirm that your settings were saved. The new permissions appear in the **API permissions** window.
 
-1. In the **Grant consent** area, select **Grant admin consent for \<your administrator account> (Default Directory)**, and then select **Yes**. A message appears to confirm that the admin consent for the requested permissions was granted.
+1. In the **Grant consent** area, select **Grant admin consent for *your administrator account* (Default Directory)**, and then select **Yes**. A message appears to confirm that the admin consent for the requested permissions was granted.
 
 1. Select **Overview**. 
 
@@ -226,21 +226,21 @@ For details, see [Traffic Forwarding Using PAC Files](https://docs.trendmicro.co
 
 1. Visit any internet website. TMWS will direct you to the TMWS captive portal.
 
-1. Specify an Active Directory account (format: *domain*\\*sAMAccountName* or *sAMAccountName*@*domain*), or email address, or UPN, and then click **Log On**. TMWS sends you to the Azure AD logon.
+1. Specify an Active Directory account (format: *domain*\\*sAMAccountName* or *sAMAccountName*@*domain*), email address, or UPN, and then select **Log On**. TMWS sends you to the Azure AD sign-in window.
 
-1. On the Azure AD logon, type your AD account credentials. You should successfully log on to TMWS.
+1. In the Azure AD sign-in window, enter your Azure AD account credentials. You should now be signed in to TMWS.
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try Trend Micro Web Security(TMWS) with Azure AD](https://aad.portal.azure.com/)
+- [Try Trend Micro Web Security with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [How to protect Trend Micro Web Security(TMWS) with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect Trend Micro Web Security with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
