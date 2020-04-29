@@ -265,8 +265,8 @@ To delete your logic app from the Azure portal, in Cloud Explorer, open your log
 > If you have thousands of runs, cancellation might take significant time to complete.
 
 > [!NOTE]
-> If you delete and recreate a child logic app, you must then resave its parent logic app. This is because the deleted and recreated child apps will have different metadata.
-> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This applies to parent-child logic apps that use artifacts in integration accounts, call Azure functions, and so on.
+> If you delete and recreate a child logic app, you must resave the parent logic app. The recreated child app will have different metadata.
+> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This behavior applies to parent-child logic apps, for example, those that use artifacts in integration accounts or call Azure functions.
 
 ## Troubleshooting
 
