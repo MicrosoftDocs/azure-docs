@@ -191,9 +191,9 @@ Wall geometry occurs outside the bounds of the level outline.
 
 The following two images show the error in red. The interior wall, shown in red, is outside the yellow level boundary in the first image. In the second image, the exterior wall, also shown in red, is outside the yellow level boundary.
 
-![Interior wall goes outside the level boundary](./media/dwg-conversion-error-codes/interior-wall-outside-level-boundary.png)
+![Interior wall goes outside the level boundary](./media/drawing-conversion-error-codes/interior-wall-outside-level-boundary.png)
 
-![Exterior wall goes outside the level boundary](./media/dwg-conversion-error-codes/exterior-wall-outside-level-boundary.png)
+![Exterior wall goes outside the level boundary](./media/drawing-conversion-error-codes/exterior-wall-outside-level-boundary.png)
 
 To fix `wallOutsideLevel` warnings, expand the level geometry to include all walls. Or, modify walls to fit inside level.
 
@@ -203,7 +203,7 @@ To fix `wallOutsideLevel` warnings, expand the level geometry to include all wal
 
 Unit geometry occurs outside the bounds of the level outline. The image below shows one example. The red segments of the unit are outside the level yellow boundary.
 
-![Unit goes outside the level boundary](./media/dwg-conversion-error-codes/unit-outside-level-boundary.png)
+![Unit goes outside the level boundary](./media/drawing-conversion-error-codes/unit-outside-level-boundary.png)
 
 Expand level geometry to include all units or modify unit to fit inside level.
 
@@ -211,7 +211,7 @@ Expand level geometry to include all units or modify unit to fit inside level.
 
 The Conversion service came across a unit that's partially overlapping on another unit. Below is an example image, the overlaps are highlighted in red. UNIT 136 overlaps CIRC103, UNIT 126, and UNIT 135.
 
-![Unit overlap](./media/dwg-conversion-error-codes/unit-overlap.png)
+![Unit overlap](./media/drawing-conversion-error-codes/unit-overlap.png)
 
 The Conversion service ignores any partially overlapping units. Redraw each partially overlapping unit, so that it doesn't overlap any other units.
 
