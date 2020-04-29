@@ -125,7 +125,7 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ## Debug and troubleshoot in Azure Machine Learning designer (preview)
 
-This section provides an overview of how to troubleshoot  pipelines in the designer. For pipelines created in the designer, you can find the **log files** in either the authoring page, or in the pipeline run detail page.
+This section provides an overview of how to troubleshoot  pipelines in the designer. For pipelines created in the designer, you can find the **70_driver_log** file in either the authoring page, or in the pipeline run detail page.
 
 ### Get logs from the authoring page
 
@@ -133,7 +133,7 @@ When you submit a pipeline run and stay in the authoring page, you can find the 
 
 1. Select a module that has finished running in the authoring canvas.
 1. In the right pane of the module, go to the  **Outputs + logs** tab.
-1. Expand the right pane, and select `70_driver_log.txt` file in browser. You can also download the logs locally.
+1. Expand the right pane, and select the **70_driver_log.txt** to view the file in browser. You can also download logs locally.
 
     ![Expanded output pane in the designer](./media/how-to-debug-pipelines/designer-logs.png)
 
@@ -145,10 +145,10 @@ You can also find the log files for specific runs in the pipeline run detail pag
     ![Pipeline run page](./media/how-to-debug-pipelines/designer-pipelines.png)
 1. Select a module in the preview pane.
 1. In the right pane of the module, go to the  **Outputs + logs** tab.
-1. Expand the right pane to view the `70_driver_log.txt` file in browser, or select the file to download the logs locally.
+1. Expand the right pane to view the **70_driver_log.txt** file in browser, or select the file to download the logs locally.
 
 > [!IMPORTANT]
-> To update a pipeline from the pipeline run details page, you must clone the pipeline to a pipeline draft. A pipeline run is a snapshot of the pipeline. It's similar to a log file, and cannot be altered. 
+> To update a pipeline from the pipeline run details page, you must **clone** the pipeline run to a new pipeline draft. A pipeline run is a snapshot of the pipeline. It's similar to a log file, and cannot be altered. 
 
 ## Debug and troubleshoot in Application Insights
 For more information on using the OpenCensus Python library in this manner, see this guide: [Debug and troubleshoot machine learning pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)
