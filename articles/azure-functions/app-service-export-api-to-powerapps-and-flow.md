@@ -28,7 +28,7 @@ To export the API definition, follow these steps:
 
     From the left menu, under **API**, select **API definition**.
 
-    :::image type="content" source=media/app-service-export-api-to-powerapps-and-flow/api-definition-function.png" alt-text="Azure Functions API definition":::
+    :::image type="content" source="media/app-service-export-api-to-powerapps-and-flow/api-definition-function.png" alt-text="Azure Functions API definition":::
 
 2. The **Export to PowerApps + Microsoft Flow** button should be available (if not, you must first create an OpenAPI definition). Select this button to begin the export process.
 
