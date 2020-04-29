@@ -17,6 +17,10 @@ ms.author: mebeatty
 
 # Configure your Rules Engine 
 
+> [!IMPORTANT]
+> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+>
+
 ## Configure Rules Engine in Azure portal 
 1. Before creating a Rules engine configuration, [create a Front door](quickstart-create-front-door.md).
 
@@ -86,5 +90,8 @@ For more information, a full list of AFD Rules Engine commands can be found [her
 
 ## Next steps
 
+- Learn more about [AFD Rules Engine](front-door-rules-engine.md). 
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
 - Learn [how Front Door works](front-door-routing-architecture.md).
+- Check out more in AFD Rules Engine [CLI reference](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest). 
+- Check out more in AFD Rules Engine [PowerShell reference](https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.8.0). 

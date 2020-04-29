@@ -86,7 +86,7 @@ Custom forwarding path | Define the path to forward the requests to.
 
 #### Caching
 
-Use these settings to control how files are cached for requests that contain query strings and whether to cache your content based on all parameters or on selected parameters. You can use additional settings to overwrite the time to live (TTL) value to control how long contents stay in cache for requests that the rules match conditions specify.
+Use these settings to control how files are cached for requests that contain query strings and whether to cache your content based on all parameters or on selected parameters. You can use additional settings to overwrite the time to live (TTL) value to control how long contents stay in cache for requests that the rules match conditions specify. To force caching as an action, set the caching field to "Enabled." When you do this, this following options appear: 
 
 Cache behavior |  Description              
 ---------------|----------------
