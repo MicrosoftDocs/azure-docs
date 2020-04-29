@@ -130,7 +130,7 @@ Same as with Android applications described above, the `ApnsService` object prov
 - **Payload** - the message's JSON or string payload.
 - **Callback** - the callback function.
 
-For more information the payload format, see The **Notification Content** section of the [UserNotifications guide](https://developer.apple.com/documentation/usernotifications) document.
+For more information the payload format, see The **Notification Content** section of the [UserNotifications guide](https://developer.apple.com/documentation/usernotifications).
 
 The following code uses the `ApnsService` instance exposed by the `NotificationHubService` to send an alert message to all clients:
 
