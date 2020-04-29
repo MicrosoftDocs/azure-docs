@@ -47,16 +47,16 @@ To add users to your site, you generate invitations which allow you to associate
 - Click on the **Invite** button.
 - Select an _Authorization provider_ from the list of options.
 - Add either the user account name or email address of the recipient in the _Invitee details_ box.
-  - For GitHub and Twitter you enter the user account name. For all others, enter the recipient's email address.
+  - For GitHub and Twitter, you enter the user account name. For all others, enter the recipient's email address.
 - Select the domain of your static site from the _Domain_ drop-down.
-- Add a comma separated list of role names in the _Role_ box.
+- Add a comma-separated list of role names in the _Role_ box.
 - Enter the maximum number of hours you want the invitation to remain valid.
   - The maximum possible limit is 7 days, or 168 hours.
 - Click the **Generate** button.
 - Copy the link from the _Invite link_ box.
-- Email the invitation link to the person you are granting access to your app.
+- Email the invitation link to the person you're granting access to your app.
 
-When the user clicks the link in the invitation, they are prompted to login with the corresponding account. Once successfully logged-in, the designated roles are are granted to the user.
+When the user clicks the link in the invitation, they're prompted to login with the corresponding account. Once successfully logged-in, the selected roles are granted to the user.
 
 ### Update role assignments
 
@@ -79,12 +79,12 @@ When the user clicks the link in the invitation, they are prompted to login with
 As you remove a user, keep in mind the following items:
 
 - Removing a user invalidates the permissions for the user.
-- Worldwide propagation may a few minutes.
+- Worldwide propagation may take a few minutes.
 - If the user is added back to the app, the [`userId` changes](user-information.md).
 
 ## System folder
 
-Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related utility APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end-users, consider creating [routing rules](routing.md) to create friendly URLs.
+Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related utility APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end users, consider creating [routing rules](routing.md) to create friendly URLs.
 
 ## Login
 
@@ -108,7 +108,7 @@ For example, to login with GitHub you could include a login link like the follow
 <a href="/.auth/login/github">Login</a>
 ```
 
-If you chose to support more than one provider, then you need to to provide a provider-specific link for each provider on your website.
+If you chose to support more than one provider, then you need to provide a provider-specific link for each provider on your website.
 
 You can use a [route rule](routes.md) to map a default provider to a friendly route like _/login_.
 
@@ -121,7 +121,7 @@ You can use a [route rule](routes.md) to map a default provider to a friendly ro
 
 ## Logout
 
-The `/.auth/logout` route logs users out from the website. You can add a link to your site navigation to allow the user to log out as shown the the following example.
+The `/.auth/logout` route logs users out from the website. You can add a link to your site navigation to allow the user to log out as shown in the following example.
 
 ```html
 <a href="/.auth/logout">Log out</a>
@@ -138,7 +138,7 @@ You can use a [route rule](routes.md) to map a friendly route like _/logout_.
 
 ## Block an authorization provider
 
-In some cases, you may want to restrict some apps from using an authorization provider. For instance, your app may want to standardize only on providers that expose email addresses.
+You may want to restrict your app from using an authorization provider. For instance, your app may want to standardize only on providers that expose email addresses.
 
 To block a provider, [route rules](routes.md) are used to return a 404 when requesting the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
 
