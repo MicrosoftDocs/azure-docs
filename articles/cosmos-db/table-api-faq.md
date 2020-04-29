@@ -12,7 +12,7 @@ ms.author: sngun
 
 The Azure Cosmos DB Table API is available in the [Azure portal](https://portal.azure.com) First you must sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB Table API account to your Azure subscription, and then add tables to your account. You can find the supported languages and associated quick-starts in the [Introduction to Azure Cosmos DB Table API](table-introduction.md).
 
-## Table API in Azure Cosmos DB Vs Azure Table storage
+## <a id="table-api-vs-table-storage"></a>Table API in Azure Cosmos DB Vs Azure Table storage
 
 ### Where is Table API not identical with Azure Table storage behavior?
 
