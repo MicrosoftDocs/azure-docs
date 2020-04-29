@@ -50,6 +50,10 @@ You can view and manage the logic apps that are in your ISE.
 
 1. To remove logic apps that you no longer need in your ISE, select those logic apps, and then select **Delete**. To confirm that you want to delete, select **Yes**.
 
+> [!NOTE]
+> If you delete and recreate a child logic app, you must resave the parent logic app. The recreated child app will have different metadata.
+> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This behavior applies to parent-child logic apps, for example, those that use artifacts in integration accounts or call Azure functions.
+
 <a name="find-api-connections"></a>
 
 ## Manage API connections
@@ -172,10 +176,6 @@ If you change your DNS server or DNS server settings, you have to restart your I
 Before you delete an ISE that you no longer need or an Azure resource group that contains an ISE, check that you have no policies or locks on the Azure resource group that contains these resources or on your Azure virtual network because these items can block deletion.
 
 After you delete your ISE, you might have to wait up to 9 hours before you try to delete your Azure virtual network or subnets.
-
-> [!NOTE]
-> If you delete and recreate a child logic app, you must resave the parent logic app. The recreated child app will have different metadata.
-> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This behavior applies to parent-child logic apps, for example, those that use artifacts in integration accounts or call Azure functions.
 
 ## Next steps
 
