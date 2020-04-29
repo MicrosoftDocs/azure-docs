@@ -10,11 +10,14 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
-ms.date: 01/25/2019
+ms.date: 04/28/2020
 ---
 # Replication to Azure SQL Database 
 
 You can configure an Azure SQL Database as the push subscriber in a one-way transactional or snapshot replication topology.
+
+> [!NOTE]
+> This article describes the use of [transactional replication](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL Database. It is unrelated to [active geo-replication](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication), an Azure SQL Database feature that allows you to create complete readable replicas of individual databases.
 
 ## Supported Configurations
   

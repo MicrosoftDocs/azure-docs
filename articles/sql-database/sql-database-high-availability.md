@@ -29,7 +29,7 @@ SQL Database and SQL Managed Instance both run on the latest stable version of t
 
 ## Basic, Standard, and General Purpose service tier availability
 
-These service tiers leverage the standard availability architecture. The following figure shows four different nodes with the separated compute and storage layers.
+The Basic, Standard, and General Purpose service tiers leverage the standard availability architecture for both serverless and provisioned compute. The following figure shows four different nodes with the separated compute and storage layers.
 
 ![Separation of compute and storage](media/sql-database-high-availability/general-purpose-service-tier.png)
 
@@ -74,7 +74,7 @@ By default, the cluster of nodes for the premium availability model is created i
 Because the zone redundant databases have replicas in different datacenters with some distance between them, the increased network latency may increase the commit time and thus impact the performance of some OLTP workloads. You can always return to the single-zone configuration by disabling the zone redundancy setting. This process is an online operation similar to the regular service tier upgrade. At the end of the process, the database or pool is migrated from a zone redundant ring to a single zone ring or vice versa.
 
 > [!IMPORTANT]
-> Zone redundant databases and elastic pools are currently only supported in the Premium and Business Critical service tiers in select regions. When using the Business Critical tier, zone redundant configuration is only available when the Gen5 compute hardware is selected. For up to date information about the regions that support zone redundant databases, see [Services support by region](../availability-zones/az-overview.md#services-support-by-region).  
+> Zone redundant databases and elastic pools are currently only supported in the Premium and Business Critical service tiers in select regions. When using the Business Critical tier, zone redundant configuration is only available when the Gen5 compute hardware is selected. For up to date information about the regions that support zone redundant databases, see [Services support by region](../availability-zones/az-region.md).  
 > This feature is not available in Managed instance.
 
 The zone redundant version of the high availability architecture is illustrated by the following diagram:
