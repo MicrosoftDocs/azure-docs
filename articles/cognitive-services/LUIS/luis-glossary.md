@@ -143,6 +143,19 @@ An entity that uses text matching to extract data:
 * Regular expression entity
 * Prebuilt entity
 
+### List entity
+
+A [list entity](reference-entity-list.md) represents a fixed, closed set of related words along with their synonyms. List entities are exact matches, unlike machined learned entities.
+
+The entity will be predicted if a word in the list entity is included in the list. For example, if you have a list entity called "size" and you have the words "small, medium, large" in the list, then the size entity will be predicted for all utterances where the words "small", "medium", or "large" are used regardless of the context.
+
+### Regular expression
+
+A [regular expression entity](reference-entity-regular-expression.md) represents a regular expression. Regular expression entities are exact matches, unlike machined learned entities.
+### Prebuilt entity
+
+See Prebuilt model's entry for [prebuilt entity](#prebuilt-entity)
+
 ## Features
 
 In machine learning, a feature is a characteristic that helps the model recognize a particular concept. It is a hint that LUIS can use, but not a hard rule.
@@ -170,12 +183,6 @@ In LUIS, intents within an app are mutually exclusive. This means when you add a
 
 ### Labeling for entities
 In LUIS, you [label](label-entity-example-utterance.md) a word or phrase in an intent's example utterance with an entity as a _positive_ example. Labeling shows the intent what it should predict for that utterance. The labeled utterances are used to train the intent.
-
-## List entity
-
-A [list entity](reference-entity-list.md) represents a fixed, closed set of related words along with their synonyms. List entities are exact matches, unlike machined learned entities.
-
-The entity will be predicted if a word in the list entity is included in the list. For example, if you have a list entity called "size" and you have the words "small, medium, large" in the list, then the size entity will be predicted for all utterances where the words "small", "medium", or "large" are used regardless of the context.
 
 ## LUIS app
 
@@ -217,19 +224,19 @@ A prebuilt intent is an intent LUIS provides for common types of information and
 
 A prediction is a REST request to the Azure LUIS prediction service that takes in new data (user utterance), and applies the trained and published application to that data to determine what intents and entities are found.
 
-## Prediction key
+### Prediction key
 
 The [prediction key](luis-concept-keys.md) (previously known as the subscription key) is the key associated with the LUIS service you created in Azure that authorizes your usage of the prediction endpoint.
 
 This key is not the authoring key. If you have a prediction endpoint key, it should be used for any endpoint requests instead of the authoring key. You can see your current prediction key inside the endpoint URL at the bottom of Azure resources page in LUIS website. It is the value of the subscription-key name/value pair.
 
-## Prediction resource
+### Prediction resource
 
 Your LUIS prediction resource is a manageable item that is available through Azure. The resource is your access to the associated prediction of the Azure service. The resource includes predictions.
 
 The prediction resource has an Azure "kind" of `LUIS`.
 
-## Prediction score
+### Prediction score
 
 The [score](luis-concept-prediction-score.md) is a number from 0 and 1 that is a measure of how confident the system is that a particular input utterance matches a particular intent. A score closer to 1 means the system is very confident about its output and a score closer to 0 means the system is confident that the input does not match a particular output. Scores in the middle mean the system is very unsure of how to make the decision.
 
