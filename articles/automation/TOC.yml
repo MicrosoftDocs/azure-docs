@@ -178,7 +178,7 @@
                   href: automation-onboard-solutions-from-automation-account.md
                 - name: From an Automation runbook
                   href: automation-onboard-solutions.md
-            - name: View contents of tracked files
+            - name: Manage Change Tracking and Inventory
               href: change-tracking-file-contents.md
             - name: Manage inventory collection from VMs
               href: automation-vm-inventory.md
