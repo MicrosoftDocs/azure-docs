@@ -179,7 +179,7 @@ For more information, see [Web API that calls web APIs](scenario-web-api-call-ap
 
 Apps that have long-running processes or that operate without user interaction also need a way to access secure web APIs. Such an app can authenticate and get tokens by using the app's identity. The app proves its identity by using a client secret or certificate.
 
-You can write such daemon apps that acquire a token for the calling app by using the [client credential](https://aka.ms/msal-net-client-credentials) acquisition methods in the MSAL **ConfidentialClientApplication** class. These methods require the calling app to register a secret with Azure AD. The app then shares the secret with the called daemon. Examples of such secrets include application passwords, certificate assertion, and client assertion.
+You can write such daemon apps that acquire a token for the calling app by using the [client credential](https://aka.ms/msal-net-client-credentials) acquisition methods in the MSAL **ConfidentialClientApplication** class. These methods require a client secret that you add to the app registration in Azure AD. The app then shares the secret with the called daemon. Examples of such secrets include application passwords, certificate assertion, and client assertion.
 
 ![A daemon app called by other apps and APIs](media/scenarios/daemon-app.svg)
 
