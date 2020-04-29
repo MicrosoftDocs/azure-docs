@@ -226,7 +226,7 @@ For details, see [Traffic Forwarding Using PAC Files](https://docs.trendmicro.co
 
 1. Visit any internet website. TMWS will direct you to the TMWS captive portal.
 
-1. Specify an Active Directory account (format: \<domain>\\<sAMAccountName> or \<sAMAccountName>@\<domain>), or email address, or UPN, and then click **Log On**. TMWS sends you to the Azure AD logon.
+1. Specify an Active Directory account (format: *domain*\\*sAMAccountName* or *sAMAccountName*@*domain*), or email address, or UPN, and then click **Log On**. TMWS sends you to the Azure AD logon.
 
 1. On the Azure AD logon, type your AD account credentials. You should successfully log on to TMWS.
 
