@@ -18,7 +18,7 @@ The following scenarios can benefit greatly from bursting:
 ## Bursting flow
 The bursting credit system applies in the same manner at both the virtual machine level and disk level. Your resource, either a VM or disk, will start with fully stocked credits. These credits will allow you to burst for 30 minutes at the maximum burst rate. Bursting credits accumulate when your resource is running under their provisioned disk storage limits. For all IOPS and MB/s that your resource is using below the provisioned limit you begin to accumulate credits. If your resource has accrued credits to use for bursting and your workload needs the extra performance, your resource can use those credits to go above your provisioned limit to give it the disk IO performance it needs to meet the demand.
 
-
+![Bursting bucket Diagram](media/managed-disks-bursting/bucket-diagram.jpg)
 
 One thing to note about burst accumulation is that it is different for each resource since it is based on the unused IOPS and MB/s below their provisioned amounts. This means that higher baseline performance products can accrue their bursting amounts faster than lower baseline performing products. For example, a P1 disk idling with no activity will accrue 120 IOPS per second whereas a P20 disk accrues 2,300 IOPS per second while idling with no activity.
 
