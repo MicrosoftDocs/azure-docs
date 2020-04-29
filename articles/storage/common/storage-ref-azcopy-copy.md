@@ -26,6 +26,8 @@ Copies source data to a destination location. The supported directions are:
   - Azure Files (SAS) -> Azure Files (SAS)
   - Azure Files (SAS) -> Azure Blob (SAS or OAuth authentication)
   - AWS S3 (Access Key) -> Azure Block Blob (SAS or OAuth authentication)
+  - HTTP/S Endpoint (SAS or public) -> Azure Blob (SAS or OAuth authentication)
+  - HTTP/S Endpoint (SAS or public) -> Azure Files (SAS)
 
 Please refer to the examples for more information.
 
@@ -162,6 +164,11 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
 
+Copy a single object to Blob Storage from any HTTP/S Endpoint. NOTE: This works with public AWS S3 objects. 
+  
+- azcopy cp "[fully qualified URL object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]" --from-to BlobBlob
+
+
 ## Options
 
 **--backup**                               Activates Windows' SeBackupPrivilege for uploads, or SeRestorePrivilege for downloads, to allow AzCopy to see read all files, regardless of their file system permissions, and to restore all permissions. Requires that the account running AzCopy already has these permissions (e.g. has administrator rights or is a member of the 'Backup Operators' group). All this flag does is activate privileges that the account already has.
@@ -198,7 +205,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 
 **--follow-symlinks**                      Follow symbolic links when uploading from local file system.
 
-**--from-to** string                       Optionally specifies the source destination combination. For Example: LocalBlob, BlobLocal, LocalBlobFS.
+**--from-to** string                       Optionally specifies the source destination combination. For Example: LocalBlob, BlobLocal, LocalBlobFS, BlobBlob.
 
 **-h, --help**                                 help for copy
 
