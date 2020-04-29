@@ -195,7 +195,7 @@ When you create an AKS cluster, a network security group and route table are cre
 
 ## Next steps
 
-With an AKS cluster deployed into your existing virtual network subnet, you can now use the cluster as normal. Get started with [building apps using Azure Dev Spaces][dev-spaces] or [using Draft][use-draft], or [deploy apps using Helm][use-helm].
+With an AKS cluster deployed into your existing virtual network subnet, you can now use the cluster as normal. Get started with [building apps using Azure Dev Spaces][dev-spaces], [deploy existing apps using Helm][use-helm], or [creating new apps using Helm][develop-helm].
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
@@ -213,8 +213,8 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md
-[use-draft]: kubernetes-draft.md
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
