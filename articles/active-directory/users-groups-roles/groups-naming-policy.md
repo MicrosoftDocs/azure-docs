@@ -64,7 +64,7 @@ Blocked word list rules:
 
 ### Roles and permissions
 
-To configure naming policy, one of the folowing roles is required:
+To configure naming policy, one of the following roles is required:
 - Global administrator
 - Group administrator
 - User administrator
