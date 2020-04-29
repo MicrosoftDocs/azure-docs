@@ -113,7 +113,7 @@ See details at [3.0 Public Preview: Configuration Options](https://docs.microsof
 
 ### Metrics
 
-* Micrometer
+* Micrometer (including Spring Boot Actuator metrics)
 * JMX Metrics
 
 ## Sending custom telemetry from your application
