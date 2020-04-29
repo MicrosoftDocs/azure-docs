@@ -320,7 +320,7 @@ This table lists the affected message types, any variants, and the document vers
 | 837_P | Health Care Claim Professional | 004010X098A1 <br>005010X222 <br>005010X222A1 |
 |||
 
-You also need to disable EDI validation for these variant messages types because the version numbers result in an error that the character length is invalid.
+You also need to disable EDI validation when you use these document version numbers because they result in an error that the character length is invalid.
 
 To specify these document version numbers and message types, follow these steps:
 
@@ -371,7 +371,7 @@ To specify these document version numbers and message types, follow these steps:
    ]
    ```
 
-1. In your agreement's message settings, disable EDI validation for this message type by clearing the **EDI Validation** checkbox either for each message type or for all message types if you're using the **Default** values.
+1. In your agreement's message settings, disable EDI validation by clearing the **EDI Validation** checkbox either for each message type or for all message types if you're using the **Default** values.
 
    ![Disable validation for all message types or each message type](./media/logic-apps-enterprise-integration-x12/x12-disable-validation.png) 
 
