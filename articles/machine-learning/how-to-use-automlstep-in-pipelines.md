@@ -40,6 +40,24 @@ A `Pipeline` runs in an `Experiment`. The pipeline `Run` has, for each step, a c
 
 To make things concrete, this article creates a simple pipeline for a classification task. The task is predicting Titanic survival, but we will not be discussing the data or task except in passing. 
 
+In your pipeline definition script, you will also need a number of core classes from the Azure Machine Learning Python SDK for manipulating the workspace and experiments and transferring data. 
+
+```python
+from azureml.core import ComputeTarget, Dataset, Datastore, Experiment, Workspace
+from azureml.core.authentication import InteractiveLoginAuthentication
+from azureml.core.compute import ComputeTarget, AmlCompute
+from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core.runconfig import RunConfiguration
+
+from azureml.pipeline.core import Pipeline, PipelineData, TrainingOutput
+from azureml.pipeline.core.graph import PipelineParameter
+from azureml.pipeline.steps import AutoMLStep, PythonScriptStep
+
+from azureml.train.automl import AutoMLConfig
+
+import os
+```
+
 ## Get started
 
 ### Retrieve initial dataset
