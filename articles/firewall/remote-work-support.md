@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/29/2020
 ms.author: victorh
 ---
 
@@ -15,9 +15,7 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 ## Firewall rules
 
-You can use Azure Firewall to secure your virtual desktop infrastructure (VDI) inbound RDP access to your Azure virtual network using Azure Firewall [DNAT rules](rule-processing.md). Windows Virtual Desktop (WVD) doesn't require you to open any inbound access to your virtual network. However, you must allow a set of outbound network connections for the WVD virtual machines that run in your virtual network. For more information, see [What is Windows Virtual Desktop?](../virtual-desktop/overview.md#requirements)
-
-You can configure this outbound access using Azure Firewall application rules. For more information, see [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md).
+You can use Azure Firewall to secure your virtual desktop infrastructure (VDI) inbound RDP access to your Azure virtual network using Azure Firewall [DNAT rules](rule-processing.md). Windows Virtual Desktop (WVD) doesn't require you to open any inbound access to your virtual network. However, you must allow a set of outbound network connections for the WVD virtual machines that run in your virtual network. For more information, see [Use Azure Firewall to protect Window Virtual Desktop deployments](protect-windows-virtual-desktop.md).
 
 ## Next steps
 
