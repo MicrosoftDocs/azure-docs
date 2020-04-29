@@ -51486,6 +51486,121 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/databox-online/data-box-edge-deploy-add-shares.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-add-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-connect-powershell-interface.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-connect-powershell-interface",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-contact-microsoft-support.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-contact-microsoft-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-create-iot-edge-module.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-create-iot-edge-module",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-configure-compute.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-configure-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-configure-compute-advanced.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-configure-compute-advanced",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-connect-setup-activate.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-install.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-prep.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-prep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-extend-compute-access-modules.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-extend-compute-access-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-limits.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-limits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-access-power-connectivity-mode.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-access-power-connectivity-mode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-bandwidth-schedules.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-bandwidth-schedules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-compute.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-shares.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-users.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-monitor.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-overview.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-return-device.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-return-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-security.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-system-requirements.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-system-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-technical-specifications-compliance.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-technical-specifications-compliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-troubleshoot.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-troubleshoot", 
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/aks/kubernetes-draft.md",
       "redirect_url": "/azure/aks/quickstart-helm",
       "redirect_document_id": false
