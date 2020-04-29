@@ -84,7 +84,7 @@ To get started with ingress traffic, see [HTTP application routing][aks-http-rou
 
 ## Development tooling integration
 
-Kubernetes has a rich ecosystem of development and management tools such as Helm, Draft, and the Kubernetes extension for Visual Studio Code. These tools work seamlessly with AKS.
+Kubernetes has a rich ecosystem of development and management tools such as Helm and the Kubernetes extension for Visual Studio Code. These tools work seamlessly with AKS.
 
 Additionally, Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams. With minimal configuration, you can run and debug containers directly in AKS. To get started, see [Azure Dev Spaces][azure-dev-spaces].
 
