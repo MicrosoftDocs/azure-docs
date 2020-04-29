@@ -101,7 +101,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. Select **Create a Resource** and search for **Static App**.
 
-   ![Create a Static App (Preview) in the portal](./media/static-apps-publish-vuepress/create-in-portal.png)
+   ![Create a Static App (Preview) in the portal](./media/static-web-apps-publish-vuepress/create-in-portal.png)
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 
@@ -113,7 +113,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. For _SKU_, select **Free**.
 
-   ![Details filled out](./media/static-apps-publish-vuepress/basic-app-details.png)
+   ![Details filled out](./media/static-web-apps-publish-vuepress/basic-app-details.png)
 
 1. Click the **Sign in with GitHub** button.
 
@@ -123,7 +123,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. For the _Branch_ select **master**.
 
-   ![Completed GitHub information](./media/static-apps-publish-vuepress/completed-github-info.png)
+   ![Completed GitHub information](./media/static-web-apps-publish-vuepress/completed-github-info.png)
 
 ### Build
 
@@ -131,7 +131,7 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. To configure the settings of the GitHub Action, set the _App location_ to **/** and _App artifact location_ to **.vuepress/dist**. A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
 
-   ![Build Settings](./media/static-apps-publish-vuepress/build-details.png)
+   ![Build Settings](./media/static-web-apps-publish-vuepress/build-details.png)
 
 ### Review and create
 
@@ -143,11 +143,11 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. On the resource screen, click the _URL_ link to open your deployed application.
 
-   ![Deployed application](./media/static-apps-publish-vuepress/deployed-app.png)
+   ![Deployed application](./media/static-web-apps-publish-vuepress/deployed-app.png)
 
 ### Clean up resources
 
-[!INCLUDE [static-web-app-cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
+[!INCLUDE [static-web-apps-cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 
 ## Next steps
 
