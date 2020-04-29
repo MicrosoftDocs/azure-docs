@@ -257,7 +257,7 @@ You can also find the application URL from the Azure Portal:
 
 :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Access static app URL from Azure Portal":::
 
-Or you can directly access your Azure Static Web App at https://calm-ocean-0096b9c04.staticsitescanary.net and check the result on the screen.
+Or you can directly access your Azure Static Web App at https://wonderful-dune-066a94d04.azurestaticapps.net and check the result on the screen.
 
 ## Clean up resources
 
