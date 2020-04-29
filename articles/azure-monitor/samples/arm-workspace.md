@@ -12,6 +12,8 @@ ms.date: 04/22/2020
 # Resource Manager template samples for Azure Monitor workspaces
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
+[!INCLUDE [azure-monitor-samples](../../../../azure-reference-other-pr/includes/azure-monitor-samples.md)]
+
 For more information on Log Analytics workspaces, see [Create a Log Analytics workspace in the Azure portal](../learn/quick-create-workspace.md). For more information on data sources in a Log Analytics workspace, see [Agent data sources in Azure Monitor](../platform/agent-data-sources.md).
 
 ## Create a Log Analytics workspace

@@ -74,8 +74,6 @@
         href: samples/arm-alerts-metric.md
       - name: Action groups
         href: samples/arm-action-groups.md
-    - name: Application Insights
-      href: samples/arm-appinsights.md
     - name: Azure Monitor for Containers
       href: samples/arm-container-insights.md
     - name: Azure Monitor for VMs
