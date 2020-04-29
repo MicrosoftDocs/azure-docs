@@ -33,5 +33,5 @@ This article describes some common Azure Load Balancer deployment errors and pro
 
 ## Next steps
 
-* Look through the Azure Load Balancer [SKU comparision table](/concepts-limitations.md#skus)
+* Look through the Azure Load Balancer [SKU comparison table](/concepts-limitations.md#skus)
 * Learn about [Azure Load Balancer limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)
