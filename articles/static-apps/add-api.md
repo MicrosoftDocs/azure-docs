@@ -46,15 +46,12 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Inside the _my-vanilla-api_ project, create a sub-folder named **api**.
 
-[!NOTE]
+> [!NOTE]
 > You can give this folder any name. We are using `api` as an example.
 
 2. Press **F1** to open the Command Palette
 3. Type **Azure Functions: Create New Project...**
 4. Press **Enter**
-
-:::image type="content" source="media/add-api/create-azure-functions-vscode-0.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
-
 5. Choose **Browse**
 6. Select the **api** folder as the directory for your project workspace
 7. Choose **Select**
@@ -196,7 +193,7 @@ With Core Tools running, use the [Live Server](https://marketplace.visualstudio.
 
 :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
-[!NOTE]
+> [!NOTE]
 > You can use other HTTP servers or proxies to serve the `index.html` file. Accessing the `index.html` from `file:///` will not work.
 
 ### Commit and push your changes to GitHub
@@ -207,8 +204,6 @@ Using Visual Studio Code, commit and push your changes to the remote git reposit
 1. Type **Git: Commit All**
 1. Add a commit message
 1. Type in **Git: push**
-
-:::image type="content" source="media/add-api/vscode-git-1.png" alt-text="Commit and push changes to the remote git repository":::
 
 ## Create static app in the Azure Portal 
 
