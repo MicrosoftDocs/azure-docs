@@ -29,7 +29,7 @@ When you receive errors during runbook execution in Azure Automation, you can us
       * Syntax errors
       * Logic errors
 
-2. **Investigate runbook [error streams](../automation-runbook-output-and-messages#runbook-output).**
+2. **Investigate runbook [error streams](../automation-runbook-output-and-messages.md#runbook-output).**
 
     Look at these streams for specific messages and compare them to the errors documented in this article.
 
@@ -39,11 +39,11 @@ When you receive errors during runbook execution in Azure Automation, you can us
 
 4. **Do if your runbook is suspended or unexpectedly fails.**
 
-    * [Renew the certificate](../manage-runas-account#cert-renewal) if the Run As account has expired.
-    * [Renew the webhook](../automation-webhooks#renew-webhook) if you're trying to use an expired webhook to start the runbook.
-    * [Check job statuses](../automation-runbook-execution#job-statuses) to determine current runbook statuses and some possible causes of the issue.
-    * [Add additional output](../automation-runbook-output-and-messages#message-streams) to the runbook to identify what happens before the runbook is suspended.
-    * [Handle any exceptions](../automation-runbook-execution#handling-exceptions) that are thrown by your job.
+    * [Renew the certificate](../manage-runas-account.md#cert-renewal) if the Run As account has expired.
+    * [Renew the webhook](../automation-webhooks.md#renew-a-webhook) if you're trying to use an expired webhook to start the runbook.
+    * [Check job statuses](../automation-runbook-execution.md#job-statuses) to determine current runbook statuses and some possible causes of the issue.
+    * [Add additional output](../automation-runbook-output-and-messages.md#message-streams) to the runbook to identify what happens before the runbook is suspended.
+    * [Handle any exceptions](../automation-runbook-execution.md#handling-exceptions) that are thrown by your job.
 
 5. **Do if the runbook job or the environment on Hybrid Runbook Worker doesn't respond**.
 
