@@ -844,6 +844,10 @@
         - name: F#
           href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
           maintainContext: true
+      - name: Concepts
+        items:
+        - name: FAQ
+          href: table-api-faq.md     
       - name: How-to guides
         items:
         - name: Build apps with Table API
