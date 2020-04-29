@@ -264,6 +264,10 @@ To delete your logic app from the Azure portal, in Cloud Explorer, open your log
 > When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. 
 > If you have thousands of runs, cancellation might take significant time to complete.
 
+> [!NOTE]
+> If you delete and recreate a child logic app, you must then resave its parent logic app. This is because the deleted and recreated child apps will have different metadata.
+> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This applies to parent-child logic apps that use artifacts in integration accounts, call Azure functions, and so on.
+
 ## Troubleshooting
 
 When you open your logic app project in the Logic Apps Designer, you might not get the option for selecting your Azure subscription. Instead, your logic app opens with an Azure subscription that's not the one you want to use. This behavior happens because after you open a logic app's .json file, Visual Studio caches the first selected subscription for future use. To resolve this problem, try one of these steps:
