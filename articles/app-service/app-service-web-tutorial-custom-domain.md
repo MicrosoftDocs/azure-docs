@@ -103,6 +103,10 @@ You can use either a **CNAME record** or an **A record** to map a custom DNS nam
 ### Map a CNAME record
 
 In the tutorial example, you add a CNAME record for the `www` subdomain (for example, `www.contoso.com`).
+If you have another subdomain then `www` you just replace `www` with your subdomain (for example `sub` if your custom domain is `sub.constoso.com`).
+
+> [!NOTE]
+> Azure first needs to be able to verify your CNAME entry. After the verification of your CNAME record you can change your CNAME to the an A record pointing to your IP.
 
 #### Access DNS records with domain provider
 
