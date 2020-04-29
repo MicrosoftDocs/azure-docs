@@ -86,7 +86,7 @@ Selects a column value by name in the stream. You can pass a optional stream nam
 ___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
-Selects a column value by its relative position(1 based) in the stream. If the position is out of bounds it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...)Computed inputs are not supported but you can use parameter substitutions
+Selects a column value by its relative position(1 based) in the stream. If the position is out of bounds it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...)Computed inputs are not supported but you can use parameter substitutions  
 * ``toString(byPosition(1))``  
 * ``toDecimal(byPosition(2), 10, 2)``  
 * ``toBoolean(byName(4))``  
@@ -95,7 +95,7 @@ Selects a column value by its relative position(1 based) in the stream. If the p
 ___
 ### <code>case</code>
 <code><b>case(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, <i>&lt;false_expression&gt;</i> : any, ...) => any</b></code><br/><br/>
-Based on alternating conditions applies one value or the other. If the number of inputs are even, the other is defaulted to NULL for last condition
+Based on alternating conditions applies one value or the other. If the number of inputs are even, the other is defaulted to NULL for last condition  
 * ``case(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
 * ``case(10 + 20 == 25, 'bojjus', 'do' < 'go', 'gunchus') -> 'gunchus'``  
 * ``isNull(case(10 + 20 == 25, 'bojjus', 'do' > 'go', 'gunchus')) -> true``  
@@ -103,30 +103,30 @@ Based on alternating conditions applies one value or the other. If the number of
 ___
 ### <code>cbrt</code>
 <code><b>cbrt(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculate the cube root of a number
+Calculate the cube root of a number  
 * ``cbrt(8) -> 2.0``  
 ___
 ### <code>ceil</code>
 <code><b>ceil(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Returns the smallest integer not smaller than the number
+Returns the smallest integer not smaller than the number  
 * ``ceil(-0.1) -> 0``  
 ___
 ### <code>coalesce</code>
 <code><b>coalesce(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
-Returns the first not null value from a set of inputs. All inputs should be of the same type
+Returns the first not null value from a set of inputs. All inputs should be of the same type  
 * ``coalesce(10, 20) -> 10``  
 * ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``  
 ___
 ### <code>collect</code>
 <code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
-Collects all values of the expression in the aggregated group into a array. Structures can be collected and transformed to alternate structures during this process. The number of items will be equal to the number of rows in that group and can contain null values. The number of collected items should be small
+Collects all values of the expression in the aggregated group into a array. Structures can be collected and transformed to alternate structures during this process. The number of items will be equal to the number of rows in that group and can contain null values. The number of collected items should be small  
 * ``collect(salesPerson)``
 * ``collect(firstName + lastName))``
 * ``collect(@(name = salesPerson, sales = salesAmount) )``
 ___
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
-Gets all output columns for a stream. You can pass a optional stream name as the second argument.
+Gets all output columns for a stream. You can pass a optional stream name as the second argument.  
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
 ___
