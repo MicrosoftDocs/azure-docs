@@ -12,17 +12,13 @@ ms.subservice: disks
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
 
 ## Virtual Machine level bursting
+VM level bursting support is enabled in all regions in Public Cloud on these supported sizes: 
+- [Lsv2-series](../lsv2-series.md)
 
-### Availability
-Our bursting feature is currently enabled for our all virtual machines in the [Lsv2-series](../lsv2-series.md) in all regions that support Lsv2 VMs.
-### Enabling bursting
-The bursting feature is enabled by default for virtual machines that support it.
+Bursting is enabled by default for virtual machines that support it.
 
 ## Disk level bursting
-### Availability
-Bursting is also available on our [premium SSDs](disks-types.md#premium-ssd) for disk sizes P20 and smaller in all regions.
-### Enabling bursting
-Disk bursting is enabled by default on new deployments of the disk sizes that support it. Existing disk sizes, if they support disk bursting, can enable bursting through either of the following methods: 
+Bursting is also available on our [premium SSDs](disks-types.md#premium-ssd) for disk sizes P20 and smaller in all regions. Disk bursting is enabled by default on new deployments of the disk sizes that support it. Existing disk sizes, if they support disk bursting, can enable bursting through either of the following methods: 
 - **Restart the VM** 
 - **Detach and reattach the disk**
 
