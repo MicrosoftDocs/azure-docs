@@ -1,7 +1,7 @@
 ---
-title: Sync data from Azure SQL Database Edge by using Azure Data Factory | Microsoft Docs
-description: Learn about syncing data between Azure SQL Database Edge and Azure Blob storage
-keywords: sql database edge,sync data from sql database edge, sql database edge data factory
+title: Sync data from Azure SQL Edge by using Azure Data Factory | Microsoft Docs
+description: Learn about syncing data between Azure SQL Edge and Azure Blob storage
+keywords: SQL Edge,sync data from SQL Edge, SQL Edge data factory
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.topic: tutorial
@@ -11,17 +11,17 @@ ms.reviewer: sstein
 ms.date: 11/04/2019
 ---
 
-# Tutorial: Sync data from SQL Database Edge to Azure Blob storage by using Azure Data Factory
+# Tutorial: Sync data from SQL Edge to Azure Blob storage by using Azure Data Factory
 
-In this tutorial, you'll use Azure Data Factory to incrementally sync data to Azure Blob storage from a table in an instance of Azure SQL Database Edge.
+In this tutorial, you'll use Azure Data Factory to incrementally sync data to Azure Blob storage from a table in an instance of Azure SQL Edge.
 
 ## Before you begin
 
-If you haven't already created a database or table in your Azure SQL Database Edge deployment, use one of these methods to create one:
+If you haven't already created a database or table in your Azure SQL Edge deployment, use one of these methods to create one:
 
-* Use [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) or [Azure Data Studio](/sql/azure-data-studio/download/) to connect to SQL Database Edge. Run a SQL script to create the database and table.
-* Create a SQL database and table by using [SQLCMD](/sql/tools/sqlcmd-utility/) by directly connecting to the SQL Database Edge module. For more information, see [Connect to the Database Engine by using sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
-* Use SQLPackage.exe to deploy a DAC package file to the SQL Database Edge container. You can automate this process by specifying the SqlPackage file URI as part of the module's desired properties configuration. You can also directly use the SqlPackage.exe client tool to deploy a DAC package to SQL Database Edge.
+* Use [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) or [Azure Data Studio](/sql/azure-data-studio/download/) to connect to SQL Edge. Run a SQL script to create the database and table.
+* Create a SQL database and table by using [SQLCMD](/sql/tools/sqlcmd-utility/) by directly connecting to the SQL Edge module. For more information, see [Connect to the Database Engine by using sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
+* Use SQLPackage.exe to deploy a DAC package file to the SQL Edge container. You can automate this process by specifying the SqlPackage file URI as part of the module's desired properties configuration. You can also directly use the SqlPackage.exe client tool to deploy a DAC package to SQL Edge.
 
     For information about how to download SqlPackage.exe, see [Download and install sqlpackage](/sql/tools/sqlpackage-download/). Following are some sample commands for SqlPackage.exe. For more information, see the SqlPackage.exe documentation.
 
@@ -41,7 +41,7 @@ If you haven't already created a database or table in your Azure SQL Database Ed
 
 A watermark table is used to store the last timestamp up to which data has already been synchronized with Azure Storage. A Transact-SQL (T-SQL) stored procedure is used to update the watermark table after every sync.
 
-Run these commands on the SQL Database Edge instance:
+Run these commands on the SQL Edge instance:
 
 ```sql
     Create table [dbo].[watermarktable]
@@ -62,7 +62,7 @@ Run these commands on the SQL Database Edge instance:
 
 ## Create a Data Factory pipeline
 
-In this section, you'll create an Azure Data Factory pipeline to sync data to Azure Blob storage from a table in Azure SQL Database Edge.
+In this section, you'll create an Azure Data Factory pipeline to sync data to Azure Blob storage from a table in Azure SQL Edge.
 
 ### Create a data factory by using the Data Factory UI
 
@@ -90,13 +90,13 @@ Create a data factory by following the instructions in [this tutorial](../data-f
 
     1. Under **Name**, enter **SQLDBEdgeLinkedService**.
 
-    2. Under **Server name**, enter your SQL Database Edge server details.
+    2. Under **Server name**, enter your SQL Edge server details.
 
     3. Select your **Database name** from the list.
 
     4. Enter your **User name** and **Password**.
 
-    5. To test the connection to the SQL Database Edge instance, select **Test connection**.
+    5. To test the connection to the SQL Edge instance, select **Test connection**.
 
     6. Select **Create**.
 
@@ -114,7 +114,7 @@ Create a data factory by following the instructions in [this tutorial](../data-f
 
 12. In the properties window for the second Lookup activity, switch to the **Settings** tab and select **New** to create a dataset to point to the source table that contains the new watermark value.
 
-13. In the **New Dataset** window, select **SQL Database Edge instance**, and then select **Continue**.
+13. In the **New Dataset** window, select **SQL Edge instance**, and then select **Continue**.
 
     1. In the **Set properties** window, under **Name**, enter **SourceDataset**. Under **Linked service**, select **SQLDBEdgeLinkedService**.
 
@@ -215,4 +215,4 @@ Create a data factory by following the instructions in [this tutorial](../data-f
 
 ## Next steps
 
-The Azure Data Factory pipeline in this tutorial copies data from a table on a SQL Database Edge instance to a location in Azure Blob storage once every hour. To learn about using Data Factory in other scenarios, see these [tutorials](../data-factory/tutorial-copy-data-portal.md).
+The Azure Data Factory pipeline in this tutorial copies data from a table on a SQL Edge instance to a location in Azure Blob storage once every hour. To learn about using Data Factory in other scenarios, see these [tutorials](../data-factory/tutorial-copy-data-portal.md).

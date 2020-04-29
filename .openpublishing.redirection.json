@@ -51959,6 +51959,41 @@
       "source_path": "articles/sql-database/sql-database-auditing-and-threat-detection-powershell.md",
       "redirect_url": "/azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database-edge/index.yml",
+      "redirect_url": "/azure/azure-sql-edge/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database-edge/deploy-onnx.md",
+      "redirect_url": "/azure/azure-sql-edge/deploy-onnx",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database-edge/deploy-portal.md",
+      "redirect_url": "/azure/azure-sql-edge/deploy-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database-edge/onnx-overview.md",
+      "redirect_url": "/azure/azure-sql-edge/onnx-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database-edge/overview.md",
+      "redirect_url": "/azure/azure-sql-edge/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database-edge/stream-analytics.md",
+      "redirect_url": "/azure/azure-sql-edge/stream-analytics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-database-edge/tutorial-sync-data-factory.md",
+      "redirect_url": "/azure/azure-sql-edge/tutorial-sync-data-factory",
+      "redirect_document_id": true
     }
  ]
 }

@@ -1,7 +1,7 @@
 ---
-title: Deploy and make predictions with ONNX in SQL Database Edge Preview
-description: Learn how to train a model, convert it to ONNX, deploy it to Azure SQL Database Edge Preview, and then run native PREDICT on data using the uploaded ONNX model.
-keywords: deploy sql database edge
+title: Deploy and make predictions with ONNX in SQL Edge Preview
+description: Learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge Preview, and then run native PREDICT on data using the uploaded ONNX model.
+keywords: deploy SQL Edge
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.subservice: machine-learning
@@ -11,15 +11,15 @@ ms.author: davidph
 ms.date: 04/23/2020
 ---
 
-# Deploy and make predictions with an ONNX model in SQL Database Edge Preview
+# Deploy and make predictions with an ONNX model in SQL Edge Preview
 
-In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to Azure SQL Database Edge Preview, and then run native PREDICT on data using the uploaded ONNX model. For more information, see [Machine learning and AI with ONNX in SQL Database Edge Preview](onnx-overview.md).
+In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge Preview, and then run native PREDICT on data using the uploaded ONNX model. For more information, see [Machine learning and AI with ONNX in SQL Edge Preview](onnx-overview.md).
 
 This quickstart is based on **scikit-learn** and uses the [Boston Housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## Before you begin
 
-* If you haven't deployed an Azure SQL Database Edge module, follow the steps of [deploy SQL Database Edge Preview using the Azure portal](deploy-portal.md).
+* If you haven't deployed an Azure SQL Edge module, follow the steps of [deploy SQL Edge Preview using the Azure portal](deploy-portal.md).
 
 * Install [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 
@@ -214,7 +214,7 @@ MSE are equal
 
 ## Insert the ONNX model
 
-Store the model in Azure SQL Database Edge, in a `models` table in a database `onnx`. In the connection string, specify the **server address**, **username**, and **password**.
+Store the model in Azure SQL Edge, in a `models` table in a database `onnx`. In the connection string, specify the **server address**, **username**, and **password**.
 
 ```python
 import pyodbc
@@ -272,7 +272,7 @@ conn.commit()
 
 ## Load the data
 
-Load the data into Azure SQL Database Edge.
+Load the data into Azure SQL Edge.
 
 First, create two tables, **features** and **target**, to store subsets of the Boston housing dataset.
 
@@ -345,7 +345,7 @@ Now you can view the data in the database.
 
 ## Run PREDICT using the ONNX model
 
-With the model in Azure SQL Database Edge, run native PREDICT on the data using the uploaded ONNX model.
+With the model in Azure SQL Edge, run native PREDICT on the data using the uploaded ONNX model.
 
 > [!NOTE]
 > Change the notebook kernel to SQL to run the remaining cell.
@@ -384,4 +384,4 @@ FROM PREDICT(MODEL = @model, DATA = predict_input) WITH (variable1 FLOAT) AS p
 
 ## Next Steps
 
-* [Machine Learning and AI with ONNX in SQL Database Edge](onnx-overview.md)
+* [Machine Learning and AI with ONNX in SQL Edge](onnx-overview.md)
