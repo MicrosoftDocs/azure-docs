@@ -195,7 +195,7 @@ The following table applies to U-SQL.
 
 - **Recommendation**: The job was submitted to Data Lake Analytics, and the script there, both failed. Investigate in Data Lake Analytics. In the portal, go to the Data Lake Analytics account and look for the job by using the Data Factory activity run ID (don't use the pipeline run ID). The job there provides more information about the error, and will help you troubleshoot.
 
-   If the resolution isn't clear, contact the Data Lake Analytics support team and provide the job Universal Resource Locater (URL), which includes your account name and the job ID.
+   If the resolution isn't clear, contact the Data Lake Analytics support team and provide the job Universal Resource Locator (URL), which includes your account name and the job ID.
  
 ## Azure functions
 
@@ -553,7 +553,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
 
-- **Cause**: There was an error when creating the HDI on demand cluster.
+- **Cause**: There was an error when creating the HDI on-demand cluster.
 
 - **Recommendation**: Contact ADF support for further assistance.
 
@@ -563,7 +563,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: There was an internal problem with the service that caused this error.
 
-- **Recommendation**: This could be a transient issue. Retry your job, and if the problem persists, contact the ADF support for further assistance.
+- **Recommendation**: This issue could be transient. Retry your job, and if the problem persists, contact the ADF support for further assistance.
 
 ### Error code: 207
 
@@ -617,7 +617,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: A 502 error often occurs when your Ambari Server process was shut down. You can restart the Ambari Services by rebooting the head node.
 
-    1. Connect to one of your nodes on Hdinsight using SSH.
+    1. Connect to one of your nodes on HDInsight using SSH.
     1. Identify your active head node host by running `ping headnodehost`.
     1. Connect to your active head node as Ambari Server sits on the active head node using SSH. 
     1. Reboot the active head node.
@@ -642,7 +642,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: HDInsight cluster or service has issues.
 
-- **Recommendation**: This error occurs when ADF doesn't receive a response from HDInsight cluster when attempting to request the status of the running job. This might be an issue on the cluster itself, or HDInsight service might have an outage.
+- **Recommendation**: This error occurs when ADF doesn't receive a response from HDInsight cluster when attempting to request the status of the running job. This issue might be on the cluster itself, or HDInsight service might have an outage.
 
    Refer to HDInsight troubleshooting documentation at https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide, or contact their support for further assistance.
 
@@ -660,12 +660,12 @@ The following table applies to Azure Batch.
        1. For more information on alerts and resolutions to alerts, see [Managing and Monitoring a Cluster](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html).
     1. Review your YARN memory. If your YARN memory is high, the processing of your jobs may be delayed. If you do not have enough resources to accommodate your Spark application/job, scale up the cluster to ensure the cluster has enough memory and cores. 
  1. Run a Sample test job.
-    1. If you run the same job on Hdinsight backend, check that it succeeded. For examples of sample runs, see [Run the MapReduce examples included in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
- 1. If the job still failed on HDinsight, check the application logs and information, which to provide to Support:
+    1. If you run the same job on HDInsight backend, check that it succeeded. For examples of sample runs, see [Run the MapReduce examples included in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
+ 1. If the job still failed on HDInsight, check the application logs and information, which to provide to Support:
     1. Check whether the job was submitted to YARN. If the job wasn't submitted to yarn, use `--master yarn`.
     1. If the application finished execution, collect the start time and end time of the YARN Application. If the application didn't complete the execution, collect Start time/Launch time.
     1. Check and collect application log with `yarn logs -applicationId <Insert_Your_Application_ID>`.
-    1. Check and collect the yarn resource manager logs under the `/var/log/hadoop-yarn/yarn` directory.
+    1. Check and collect the yarn Resource Manager logs under the `/var/log/hadoop-yarn/yarn` directory.
     1. If these steps are not enough to resolve the issue, contact Azure HDInsight team for support and provide the above logs and timestamps.
 
 ### Error code: 2303
@@ -682,12 +682,12 @@ The following table applies to Azure Batch.
        1. For more information on alerts and resolutions to alerts, see [Managing and Monitoring a Cluster](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html).
     1. Review your YARN memory. If your YARN memory is high, the processing of your jobs may be delayed. If you do not have enough resources to accommodate your Spark application/job, scale up the cluster to ensure the cluster has enough memory and cores. 
  1. Run a Sample test job.
-    1. If you run the same job on Hdinsight backend, check that it succeeded. For examples of sample runs, see [Run the MapReduce examples included in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
- 1. If the job still failed on HDinsight, check the application logs and information, which to provide to Support:
+    1. If you run the same job on HDInsight backend, check that it succeeded. For examples of sample runs, see [Run the MapReduce examples included in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
+ 1. If the job still failed on HDInsight, check the application logs and information, which to provide to Support:
     1. Check whether the job was submitted to YARN. If the job wasn't submitted to yarn, use `--master yarn`.
     1. If the application finished execution, collect the start time and end time of the YARN Application. If the application didn't complete the execution, collect Start time/Launch time.
     1. Check and collect application log with `yarn logs -applicationId <Insert_Your_Application_ID>`.
-    1. Check and collect the yarn resource manager logs under the `/var/log/hadoop-yarn/yarn` directory.
+    1. Check and collect the yarn Resource Manager logs under the `/var/log/hadoop-yarn/yarn` directory.
     1. If these steps are not enough to resolve the issue, contact Azure HDInsight team for support and provide the above logs and timestamps.
 
 ### Error code: 2304
@@ -704,7 +704,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: The connection information for the HDI cluster is incorrect, the provided user doesn't have permissions to perform the required action, or the HDInsight service has issues responding to requests from ADF.
 
-- **Recommendation**: Verify that the user information is correct, and that the Ambari UI for the HDI cluster can be opened in a browser from the VM where the IR is installed (in the case of a self-hosted IR), or can be opened from any machine (in the case of Azure IR).
+- **Recommendation**: Verify that the user information is correct, and that the Ambari UI for the HDI cluster can be opened in a browser from the VM where the IR is installed (for a self-hosted IR), or can be opened from any machine (for Azure IR).
 
 ### Error code: 2306
 
@@ -868,7 +868,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: The storage linked service properties are not set correctly.
 
-- **Recommendation**: Only full connection strings are supported in the main storage linked service for HDI activities. Verify that you are not using MSI auth or applications.
+- **Recommendation**: Only full connection strings are supported in the main storage linked service for HDI activities. Verify that you are not using MSI authorizations or applications.
 
 ### Error code: 2350
 
@@ -916,7 +916,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `The '%value' provided for commandEnvironment is incorrect. The expected value should be an array of strings where each string has the format CmdEnvVarName=CmdEnvVarValue.`
 
-- **Cause**: The provided for commandEnvironment is incorrect.
+- **Cause**: The provided value for `commandEnvironment` is incorrect.
 
 - **Recommendation**: Verify that the provided value is similar to:
  
@@ -931,7 +931,9 @@ The following table applies to Azure Batch.
 
 - **Message**: `The commandEnvironment already contains a variable named '%variableName;'.`
 
-- **Cause**: Verify that the provided value is similar to:
+- **Cause**: The provided value for `commandEnvironment` is incorrect.
+
+- **Recommendation**: Verify that the provided value is similar to:
  
     ``` \"commandEnvironment\": [
     \"variableName=variableValue\"
@@ -986,7 +988,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: The provided additional storage was not Azure Blob storage.
 
-- **Recommendation**: Provide an Azure Blob storage account as an additional storage for HDInsight on demand linked service.
+- **Recommendation**: Provide an Azure Blob storage account as an additional storage for HDInsight on-demand linked service.
 
 ## Web Activity
 
@@ -994,7 +996,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
 
-- **Cause**: This is a issue is due to either Network connectivity, a DNS failure, a server certificate validation, or a timeout.
+- **Cause**: This issue is due to either Network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
 - **Recommendation**: Validate that the endpoint you are trying to hit is responding to requests. You may use tools like **Fiddler/Postman**.
 
