@@ -44,7 +44,7 @@ In this section, you create a new build pipeline. Configure the pipeline to run 
 >
 >For more information, see [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline).
 
-1. Sign into your Azure DevOps organization (**https:\//dev.azure.com/{your organization}/**) and open the project that contains your IoT Edge solution repository.
+1. Sign in to your Azure DevOps organization (**https:\//dev.azure.com/{your organization}/**) and open the project that contains your IoT Edge solution repository.
 
    For this article, we created a repository called **IoTEdgeRepo**. That repository contains **IoTEdgeSolution** which has the code for a module named **filtermodule**. 
 
@@ -90,11 +90,12 @@ In this section, you create a new build pipeline. Configure the pipeline to run 
    * **Default platform**: Select the appropriate platform for your modules based on your target IoT Edge device. 
    * **Output variables**: The output variables include a reference name that you can use to configure the file path where your deployment.json file will be generated. Set the reference name to something memorable like **edge**. 
 
-   These configurations use the image repository and tag in the `module.json` file to name and tag the module image. The **Build module images** also helps replace the variables with the exact value you defined in the `module.json` file. In VS/VS Code, you are specifying the actual value in a `.env` file. In Azure Pipelines, you set the value in the Pipeline Variables tab. Move to Variables tab and configure the Name and Value as following.
+
+   These configurations use the image repository and tag that are defined in the `module.json` file to name and tag the module image. **Build module images** also helps replace the variables with the exact value you define in the `module.json` file. In Visual Studio or Visual Studio Code, you are specifying the actual value in a `.env` file. In Azure Pipelines, you set the value on the **Pipeline Variables** tab. Select the **Variables** tab and configure the name and value as following:
 
     * **ACR_ADDRESS**: Your Azure Container Registry address. 
 
-    If you have other variables in your project, you can specify the name and value in this tab. The **Build module images** can only recognize the variables are in `${VARIABLE}` flavor, make sure you are using this in your `**/module.json` files.
+    If you have other variables in your project, you can specify the name and value on this tab. **Build module images** recognizes only variables that are in `${VARIABLE}` format. Make sure you use this format in your `**/module.json` files.
     
 7. Select the second **Azure IoT Edge** task to edit it. This task pushes all module images to the container registry that you select.
 
