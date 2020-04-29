@@ -39,7 +39,7 @@ This extension supports the following OSs:
 
 ### Internet connectivity
 
-The Microsoft Azure Extension for NVIDIA GPU Drivers requires that the target VM is connected to the internet and have access.
+The Microsoft Azure Extension for AMD GPU Drivers requires that the target VM is connected to the internet and have access.
 
 ## Extension schema
 
