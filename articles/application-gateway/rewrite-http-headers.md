@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 04/27/2020
 ms.author: absha
 ---
 
