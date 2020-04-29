@@ -14,50 +14,61 @@ ms.service: azure-project-spool
 
 #  Voice
 
-The ACS SDKs and APIs help you make and receive phone calls from within your applications.
+You can use ACS to make and receive calls, analyze call metadata, host conference calls, record calls, and even build call trees. Your calls aren't restricted to plain-old telephone numbers - you can use ACS to call browser clients and mobile apps as well. 
 
-You can use ACS to make and receive calls, analyze call metadata, host conference calls, record calls, and even build call trees. Your calls aren't restricted to plain-old telephone numbers - you can use ACS to call browser clients and mobile apps as well.
+Whether they're on a landline, mobile phone, or laptop, ACS gives your application the code and infrastructure necessary to connect a wide range of devices to one another for real-time voice communications. 
 
-The flow supporting voice calls looks like this:
+The general flow supporting ACS voice looks like this: 
 
-1. Provision an API key
-2. TODO
+1. Provision an API key 
+2. TODO 
 
-Our Voice Quickstarts will help you get started:
+If you want your users to connect with one another using their laptops, tablets, and mobile phones over the internet, you'll want to integrate ACS VoIP into your application. 
 
-- Get Started With Voice
+If you want your users to place and receive calls to and from landlines, mobile phones, and other devices that sit behind a phone number, you'll want to integrate... 
 
-Our Voice Tutorials will help you with more advanced scenarios:
+RE WebRTC (todo) 
 
-- How to make and receive phone calls
-- How to record phone calls
-- How to create a conference call
-- How to capture input from a phone's keypad
-- How to analyze call metadata
+RE PSTN (todo) 
 
-You may want to add video and messaging to your applications as well. These resources will help you get started:
+You may want to add video and chat to your applications as well. These resources will help you get started:
 
 - About Video
-- About Messaging
-- How Voice, Video, and Messaging Relate
+- About Chat
+- How Voice, Video, and Chat Relate
 - Get Started With Video
-- Get Started With Messaging
+- Get Started With Chat
 
 
+### Related Docs: 
 
-### Meta
+#### Conceptuals: 
 
--  Customer intent statements: 
-   - I want to know how to think about "voice" when I'm working with ACS.
+- Phone Numbers 
+- SIP, VOIP, and PSTN 
+- Phone Trees 
+- Call Detail Records 
+- Call Analytics 
+- Spam / Robocall Protection (PSTN) 
 
-- Resources: 
-  - How Twilio handles programmable voice: https://www.twilio.com/docs/voice
+ 
+#### Quickstarts: 
 
-- Discussion:
-  - Do you have any constructive criticism for this initial draft?
-  - Are all of the above-referenced tutorials, quickstarts, and conceptual docs valid?
-  - Is anything missing?
-  - How do we want to describe Spool's voice flow(s) to our customers?
-  - What sample(s) do we want to reference from this doc?
+- Get Started With Voice 
+
+ 
+
+#### Tutorials: 
+
+- How to make and receive phone calls 
+- How to record phone calls 
+- How to create a conference call 
+- How to capture input from a phone's keypad 
+- How to analyze call metadata 
+
+#### Samples: 
+
+TODO 
+
 
 
