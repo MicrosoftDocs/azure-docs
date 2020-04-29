@@ -20,7 +20,11 @@ You can enable or disable blob versioning (preview) for the storage account at a
 
 # [Azure portal](#tab/portal)
 
-???need screenshot here - i have access now, but need grammatical errors in text fixed first
+To enable blob versioning in the Azure portal:
+
+1. Navigate to your storage account in the portal.
+1. Under **Blob service**, choose **Data protection**.
+1. In the **Versioning** section, select **Enabled**.
 
 :::image type="content" source="media/versioning-manage/portal-enable-versioning.png" alt-text="Screenshot showing how to enable blob versioning in Azure portal":::
 

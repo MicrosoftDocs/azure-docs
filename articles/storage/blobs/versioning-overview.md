@@ -14,20 +14,24 @@ ms.subservice: blobs
 
 # Blob versioning (preview)
 
-Blob storage versioning (preview) automatically maintains prior versions of an object and identifies them with timestamps. You can restore a prior version of a blob to recover your data if it is erroneously modified or deleted.
+You can enable Blob storage versioning (preview) to automatically maintain previous versions of an object.  When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted.
 
-After you enable blob versioning for a storage account, blob versions are automatically maintained for every blob in the storage account. Microsoft recommends using blob versioning to maintain prior versions of a blob for superior data protection. Blob snapshots also maintain prior versions of a blob, but they must be maintained manually by your application.
+Blob versioning is enabled on the storage account and applies to all blobs in the storage account. After you enable blob versioning for a storage account, Azure Storage automatically maintains versions for every blob in the storage account.
+
+Microsoft recommends using blob versioning to maintain previous versions of a blob for superior data protection. When possible, use blob versioning instead of blob snapshots to maintain previous versions. Blob snapshots provide similar functionality in that they maintain earlier versions of a blob, but snapshots must be maintained manually by your application.
 
 > [!IMPORTANT]
 > Blob versioning cannot help you to recover from the accidental deletion of a storage account or container. To prevent accidental deletion of the storage account, configure a **CannotDelete** lock on the storage account resource. For more information on locking Azure resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
 
 ## How blob versioning works
 
-When blob versioning is enabled for a storage account, Azure Storage automatically creates a new version of a blob each time that blob is modified or deleted. A version captures a committed blob state at a given point in time.
+A version captures the state of a blob at a given point in time. When blob versioning is enabled for a storage account, Azure Storage automatically creates a new version of a blob each time that blob is modified or deleted.
+
+When you create a blob with versioning enabled, the new blob is the current version of the blob (or the base blob). If you subsequently modify that blob, Azure Storage creates a version that captures the state of the blob before it was modified. The modified blob becomes the new current version. A new version is created each time you modify the blob.
+
+When you delete a blob with versioning enabled, Azure Storage creates a version that captures the state of the blob before it was deleted. The current version of the blob is then deleted, but the blob's versions persist, so that it can be re-created if needed. 
 
 Blob versions are immutable. You cannot modify the content or metadata of an existing blob version.
-
-The most recent write operation creates the current version of the blob. A prior version preserves the state of a blob at an earlier point in time.
 
 ### Version ID
 
