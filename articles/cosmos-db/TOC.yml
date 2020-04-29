@@ -763,6 +763,10 @@
         items:
         - name: 1 - Query data
           href: tutorial-query-graph.md
+      - name: Concepts
+        items:
+        - name: FAQ
+          href: gremlin-api-faq.md
       - name: How-to guides
         items:
         - name: Graph data modeling
