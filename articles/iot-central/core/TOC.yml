@@ -75,6 +75,8 @@
           href: howto-manage-devices.md
         - name: Configure rules
           href: howto-configure-rules.md
+        - name: Configure advanced rules
+          href: howto-configure-rules-advanced.md
         - name: Analyze your device data
           href: howto-create-analytics.md
         - name: Add tiles to your dashboard

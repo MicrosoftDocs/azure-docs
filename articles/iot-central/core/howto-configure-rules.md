@@ -12,8 +12,6 @@ manager: philmea
 
 # Configure rules
 
-
-
 *This article applies to operators, builders, and administrators.*
 
 Rules in IoT Central serve as a customizable response tool that trigger on actively monitored events from connected devices. The following sections describe how rules are evaluated.
@@ -44,7 +42,4 @@ A restriction applies to rules that are applied to IoT Edge modules. Rules on te
 
 ## Next steps
 
-Now that you've learned how to configure a rule in your Azure IoT Central application, you can:
-
-> [!div class="nextstepaction"]
-> [Analyze your data on the fly](howto-create-analytics.md)
+Now that you've learned how to configure a rule in your Azure IoT Central application, you can learn how to [Configure advanced rules](howto-configure-rules-advanced.md) using Power Automate or Azure Logic Apps.
