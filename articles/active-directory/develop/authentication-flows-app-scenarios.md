@@ -31,7 +31,7 @@ Tokens can be acquired from several types of applications, including:
 - Desktop apps
 - Web APIs
 
-Tokens can also be acquired from apps running on devices that don't have a browser or are running on the Internet of Things (IoT).
+Tokens can also be acquired by apps running on devices that don't have a browser or are running on the Internet of Things (IoT).
 
 The following sections describe the categories of applications.
 
