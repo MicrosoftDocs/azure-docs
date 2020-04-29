@@ -1,5 +1,5 @@
 ---
-title: Get Started With Messaging
+title: Get Started With Chat
 description: TODO
 author: mikben    
 manager: jken
@@ -13,7 +13,7 @@ ms.service: azure-project-spool
 ---
 
 
-# Get Started With Messaging
+# Get Started With Chat
 
 This quickstart will teach you how to use Spool to send messages back and forth between two web application clients.
 

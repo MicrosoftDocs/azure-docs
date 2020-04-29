@@ -1,5 +1,5 @@
 ---
-title: Messaging
+title: About Chat
 description: TODO
 author: mikben    
 manager: jken
@@ -12,7 +12,7 @@ ms.service: azure-project-spool
 
 ---
 
-# Messaging
+# About Chat
 
 The ACS SDKs and APIs help you build rich messaging experiences.
 
