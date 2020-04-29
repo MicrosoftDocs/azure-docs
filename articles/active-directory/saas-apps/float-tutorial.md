@@ -80,31 +80,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type any of the following URLs:
+    a. In the **Identifier** text box, type this URL: `https://app.float.com/sso/metadata`.
 
-    | |
-    |--|
-    | `https://app.float.com/sso/metadata`|
-    | `https://app.develop.float.com/sso/metadata`|
-
-    b. In the **Reply URL** text box, type a URL using any one of the following patterns:
-
-    | |
-    |--|
-    | `https://<hostname>.float.com/sso/azuread`|
-    | `https://<hostname>.develop.float.com/sso/azuread`|
+    b. In the **Reply URL** text box, type a URL using the pattern `https://<hostname>.float.com/sso/azuread`.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using any one of the following patterns:
+    In the **Sign-on URL** text box, type a URL in the pattern `https://<hostname>.float.com/login`.
 
-    | |
-    |--|
-    | `https://<hostname>.float.com/login`|
-    | `https://<hostname>.develop.float.com/login`|
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Float Client support team](mailto:support@float.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Float Client support team](mailto:support@float.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Float application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
