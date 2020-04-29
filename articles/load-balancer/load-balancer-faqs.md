@@ -11,7 +11,9 @@ ms.author: errobin
 # Frequently Asked Questions
 
 ## What types of Load Balancer exist?
-Internal load balancers which balance traffic within a VNET and external load balancers which balance traffic to and from an internet connected endpoint. For both these types, Azure offers a Basic SKU and Standard SKU which have differing functional, performance, security and health tracking capabilities.
+Internal load balancers which balance traffic within a VNET and external load balancers which balance traffic to and from an internet connected endpoint. See [Load Balancer Types] (https://docs.microsoft.com/azure/load-balancer/concepts-limitations#load-balancer-types) for more details. 
+
+For both these types, Azure offers a Basic SKU and Standard SKU which have differing functional, performance, security and health tracking capabilities. See our [SKU Comparison] (https://docs.microsoft.com/en-us/azure/load-balancer/concepts-limitations#skus) for more details.
 
  ## How can I upgrade from a Basic Load Balancer to a Standard Load Balancer?
 See the [upgrade from Basic to Standard](upgrade-basic-standard.md) article for an automated script and guidance on upgrading from Basic SKU to Standard SKU.
@@ -24,8 +26,3 @@ See the [list of Azure Load Balancer quickstart templates](https://docs.microsof
 
 ## How are inbound NAT rules different from LB rules?
 NAT rules are used to specify a backend resource to route traffic to. For example, configuring a specific load balancer port to send RDP traffic to a specific VM. Load balancing rules are used to specify a pool of backend resources to route traffic to, balancing the load across each instance. An example of this is routing HTTP requests on port 80 of the load balancer across a pool of web servers.
-
-## How is the load distributed across backend instances?
- 
-## Are there data throughput limits for the Load Balancer?
-There are no hard limits on data throughput. For public load balancers, the recommend ingress rate is 10 Gbps for Standard SKU and XXX Gbps for Basic SKU, with no egress limit. Internal load balancers have no ingress or egress throughput limits. It is important to consider the data throughput of your backend resources in all configurations.
