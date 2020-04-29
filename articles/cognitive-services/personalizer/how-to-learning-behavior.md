@@ -9,9 +9,7 @@ ms.date: 04/29/2020
 
 Apprentice mode gives you trust and confidence in the Personalizer service and its machine learning capabilities, and provides assurance that the service is sent information that can be learned from – without risking online traffic.
 
-## Use an enterprise resource
-
-In order to use Apprentice mode for your Personalizer resource, use the Azure portal to [create the resource](how-to-create-resource.md) in the `E0` pricing tier.  You can upgrade an existing resource to the `E0` pricing tier on the **Pricing tier** page of the Personalizer resource.
+[!INCLUDE [Important Blue Box - Apprentice mode pricing tier](./includes/important-apprentice-mode.md)]
 
 ## Configure Apprentice mode
 
