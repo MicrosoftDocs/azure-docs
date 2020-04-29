@@ -16,19 +16,19 @@ Azure Static Web Apps streamlines the authentication experience by managing auth
 - Azure Active Directory
 - GitHub
 - Facebook
-- Twitter
 - Google
+- Twitter
 
-Authorization is enforced by associating users with roles via a provider-specific [invitations](#invitations). Authorized users are granted access to [routes](routes.md) by rules listed in the _routes.json_ file.
+Provider-specific [invitations](#invitations) associate users with roles, and authorized users are granted access to [routes](routes.md) by rules defined in the _routes.json_ file.
 
 The topics of authentication and authorization significantly overlap with routing concepts. Make sure to read the [routing guide](routes.md) along with this article.
 
 ## Roles
 
-Every user that accesses a static web app belongs to one or more roles. There are two built-in roles that identify users as anonymous or authenticated.
+Every user who accesses a static web app belongs to one or more roles. There are two built-in roles that identify users as anonymous or authenticated.
 
 - **anonymous**: All users automatically belong to the _anonymous_ role.
-- **authenticated**: Any user that is logged in belongs to the _authenticated_ role.
+- **authenticated**: All users who are logged in belong to the _authenticated_ role.
 
 Beyond the built-in roles, you can create new roles in the _routes.json_ file and assign them to users via invitations.
 
@@ -36,7 +36,7 @@ Beyond the built-in roles, you can create new roles in the _routes.json_ file an
 
 ### Add a user to a role
 
-To add users to your site, you generate invitations which allow you to associate users to specific roles. Roles are defined and maintained in the _routes.json_ file.
+To add users to your web site, you generate invitations which allow you to associate users to specific roles. Roles are defined and maintained in the _routes.json_ file.
 
 <a name="invitations" id="invitations"></a>
 
@@ -51,12 +51,12 @@ To add users to your site, you generate invitations which allow you to associate
 - Select the domain of your static site from the _Domain_ drop-down.
 - Add a comma-separated list of role names in the _Role_ box.
 - Enter the maximum number of hours you want the invitation to remain valid.
-  - The maximum possible limit is 7 days, or 168 hours.
+  - The maximum possible limit is 168 hours, which is 7 days.
 - Click the **Generate** button.
 - Copy the link from the _Invite link_ box.
 - Email the invitation link to the person you're granting access to your app.
 
-When the user clicks the link in the invitation, they're prompted to login with the corresponding account. Once successfully logged-in, the selected roles are granted to the user.
+When the user clicks the link in the invitation, they're prompted to login with their corresponding account. Once successfully logged-in, the selected roles are granted to the user.
 
 ### Update role assignments
 
@@ -84,7 +84,7 @@ As you remove a user, keep in mind the following items:
 
 ## System folder
 
-Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related utility APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end users, consider creating [routing rules](routes.md) to create friendly URLs.
+Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end users, consider creating [routing rules](routes.md) to create friendly URLs.
 
 ## Login
 
@@ -97,8 +97,8 @@ Use the following routes to enable logins for a specific authentication provider
 | Authorization provider | Login route             | User details  |
 | ---------------------- | ----------------------- | ------------- |
 | Azure Active Directory | `/.auth/login/aad`      | Email address |
-| Facebook               | `/.auth/login/facebook` | Email address |
 | GitHub                 | `/.auth/login/github`   | Username      |
+| Facebook               | `/.auth/login/facebook` | Email address |
 | Google                 | `/.auth/login/google`   | Email address |
 | Twitter                | `/.auth/login/twitter`  | Username      |
 
