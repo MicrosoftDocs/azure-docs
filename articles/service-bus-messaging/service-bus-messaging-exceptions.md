@@ -43,8 +43,6 @@ The following table lists messaging exception types, and their causes, and notes
 | [MessageNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |Attempt to receive a message with a particular sequence number. This message isn't found. |Make sure the message hasn't been received already. Check the deadletter queue to see if the message has been deadlettered. |Retry doesn't help. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |Client isn't able to establish a connection to Service Bus. |Make sure the supplied host name is correct and the host is reachable. |Retry might help if there are intermittent connectivity issues. |
 | [ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception) |Service isn't able to process the request at this time. |Client can wait for a period of time, then retry the operation. |Client may retry after certain interval. If a retry results in a different exception, check retry behavior of that exception. |
-| [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception) |Lock token associated with the message has expired, or the lock token isn't found. |Dispose the message. |Retry doesn't help. |
-| [SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception) |Lock associated with this session is lost. |Abort the [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) object. |Retry doesn't help. |
 | [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Generic messaging exception that may be thrown in the following cases:<p>An attempt is made to create a [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) using a name or path that belongs to a different entity type (for example, a topic).</p><p>An attempt is made to send a message larger than 256 KB. </p>The server or service encountered an error during processing of the request. See the exception message for details. It's usually a transient exception.</p><p>The request was terminated because the entity is being throttled. Error code: 50001, 50002, 50008. </p> | Check the code and ensure that only serializable objects are used for the message body (or use a custom serializer). <p>Check the documentation for the supported value types of the properties and only use supported types.</p><p> Check the [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) property. If it's **true**, you can retry the operation. </p>| If the exception is due to throttling, wait for a few seconds and retry the operation again. Retry behavior is undefined and might not help in other scenarios.|
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Attempt to create an entity with a name that is already used by another entity in that service namespace. |Delete the existing entity or choose a different name for the entity to be created. |Retry doesn't help. |
 | [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) |The messaging entity has reached its maximum allowable size, or the maximum number of connections to a namespace has been exceeded. |Create space in the entity by receiving messages from the entity or its subqueues. See [QuotaExceededException](#quotaexceededexception). |Retry might help if messages have been removed in the meantime. |
@@ -147,7 +145,22 @@ Since the lock on the session has expired, it would go back on the Queue (or Sub
 
 ### Cause
 
+**MessagingException** is a generic exception that may be thrown for various reasons. Some of the reasons are listed below.
+
+   * An attempt is made to create a **QueueClient** on a **Topic** or a **Subscription**.
+   * The size of the message sent is greater than the limit for the given tier. Read more about the Service Bus [quotas and limits](service-bus-quotas.md).
+   * Specific data plane request (send, receive, complete, abandon) was terminated due to throttling.
+   * Transient issues caused due to service upgrades and restarts.
+
+> [!NOTE]
+> The above list of exceptions is not exhaustive.
+
 ### Resolution
+
+The resolution steps depends on what caused the **MessagingException** to be thrown.
+
+   * For **transient issues** (where ***isTransient*** is set to ***true***) or for **throttling issues**, retrying the operation may resolve it. The default retry policy on the SDK can be leveraged for this.
+   * For other issues, the details in the exception indicate the issue and resolution steps can be deduced from the same.
 
 ## Next steps
 For the complete Service Bus .NET API reference, see the [Azure .NET API reference](/dotnet/api/overview/azure/service-bus).
