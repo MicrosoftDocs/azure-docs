@@ -172,24 +172,25 @@ See how to convert to ONNX format [in this Jupyter notebook example](https://git
 
 The ONNX runtime also supports C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Learn more about [inferencing ONNX models with the ONNX runtime C# API](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
-## <a name="local-remote"></a>Guidance on local vs. remote Azure ML compute targets
+## <a name="local-remote"></a>Guidance on local vs. remote managed ML compute targets
 
-When using Azure Automated ML (with the Python SDK), you choose either a local compute or a remote compute target to train your models. 
+The web interface for automated ML always uses a remote [compute target](concept-compute-target.md).  But when you use the Python SDK, you will choose either a local compute or a remote compute target for automated ML training.
+
 * **Local compute**: Training occurs on your local laptop or VM compute.
-* **Remote compute**: Training occurs on Azure managed compute clusters.
+* **Remote compute**: Training occurs on Machine Learning compute clusters.
 
-More features are available when you use the remote compute, as shown in the table below. However, when you use a remote compute, you'll need to factor in setup time. The internal infrastructure preparation time will add around 1.5 minutes per child run, plus additional minutes for the cluster infrastructure if the VMs are not yet up and running.
+If your scenario is about initial explorations or demos using small data and short trains (i.e. seconds or a couple of minutes per child run), training on your local computer might be a better choice.  There is no setup time, the infrastructure resources (your PC or VM) are directly available. On a remote compute, the start up time for the internal infrastructure will add around 1.5 minutes per child run, plus additional minutes for the cluster infrastructure if the VMs are not yet up and running.
 
-If your scenario is about initial explorations or demos using small data and short trains (i.e. seconds or a couple of minutes per child run), training on your local computer might be a better choice.
+But, if you are training with larger datasets like in production training creating models which need longer trains, remote compute will provide much better end-to-end time performance because `AutoML` will parallelize trains across the cluster's nodes.
 
-But, if you are training with larger datasets like in production training creating models which need longer trains, remote compute will provide much better end-to-end time performance because AutoML will parallelize trains across the cluster's nodes.
+Consider these pros and cons when choosing to use local vs. remote.
 
-| | Best for | Pros (Advantages)  |Cons (Handicaps)  |
+|  | Pros (Advantages)  |Cons (Handicaps)  |
 |---------|---------|---------|---------|
-|Local compute target | Small data,  quick demos     |   No environment setup time, infrastructure resources (your PC or VM) are directly available  |  Subset of features<br/> Can't parallelize runs <br/>Worse for large data. No data streaming while training. <br/>  No DNN-based featurization <br/> Python SDK only |
-|Remote Azure ML compute target| Larger data, production data, production training    |  Full set of features <br/> Parallelize child runs <br/>  Large data support <br/> DNN-based featurization <br/> Dynamic scalability of compute cluster on demand <br/>No-code experience (web UI) also available in Azure ML     |    Start up time for cluster nodes <br/> Start up time for each child run    |
+|**Local compute target** |  <li> No environment start up time   | <li>  Subset of features<li>  Can't parallelize runs <li> Worse for large data. <li>No data streaming while training <li>  No DNN-based featurization <li> Python SDK only |
+|**Remote ML compute clusters**|  <li> Full set of features <li> Parallelize child runs <li>   Large data support<li>  DNN-based featurization <li>  Dynamic scalability of compute cluster on demand <li> No-code experience (web UI) also available  |  <li> Start up time for cluster nodes <li> Start up time for each child run    |
 
-The following table shows a summary of features available on local and remote compute targets.  Some of these features are available only in an Enterprise workspace.
+ More features are available when you use the remote compute, as shown in the table below. Some of these features are available only in an Enterprise workspace.
 
 | Feature                                                    | Remote | Local | Requires <br>Enterprise workspace |
 |------------------------------------------------------------|--------|-------|-------------------------------|
