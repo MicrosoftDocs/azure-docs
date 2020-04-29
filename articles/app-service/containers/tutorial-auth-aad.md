@@ -72,7 +72,7 @@ In this step, you deploy the project to two App Service apps. One is the front-e
 
 ### Configure a deployment user
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user-no-h.md)]
 
 ### Create Azure resources
 
