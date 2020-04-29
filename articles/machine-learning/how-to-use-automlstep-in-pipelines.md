@@ -40,24 +40,6 @@ A `Pipeline` runs in an `Experiment`. The pipeline `Run` has, for each step, a c
 
 To make things concrete, this article creates a simple pipeline for a classification task. The task is predicting Titanic survival, but we will not be discussing the data or task except in passing. 
 
-In your pipeline definition script, you will also need a number of core classes from the Azure Machine Learning Python SDK for manipulating the workspace and experiments and transferring data. 
-
-```python
-from azureml.core import ComputeTarget, Dataset, Datastore, Experiment, Workspace
-from azureml.core.authentication import InteractiveLoginAuthentication
-from azureml.core.compute import ComputeTarget, AmlCompute
-from azureml.core.conda_dependencies import CondaDependencies
-from azureml.core.runconfig import RunConfiguration
-
-from azureml.pipeline.core import Pipeline, PipelineData, TrainingOutput
-from azureml.pipeline.core.graph import PipelineParameter
-from azureml.pipeline.steps import AutoMLStep, PythonScriptStep
-
-from azureml.train.automl import AutoMLConfig
-
-import os
-```
-
 ## Get started
 
 ### Retrieve initial dataset
@@ -122,6 +104,7 @@ The next step is making sure that the remote training run has all the dependenci
 
 ```python
 from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-compute")
@@ -195,7 +178,7 @@ prepped_data_path = PipelineData("titanic_train", datastore).as_dataset()
 dataprep_step = PythonScriptStep(
     name="dataprep", 
     script_name="dataprep.py", 
-    compute_target=compute, 
+    compute_target=compute_target, 
     runconfig=aml_run_config,
     arguments=["--output_path", prepped_data_path],
     inputs=[titanic_ds.as_named_input("titanic_ds")],
@@ -281,7 +264,7 @@ automl_settings = {
 automl_config = AutoMLConfig(task = 'classification',
                              path = '.',
                              debug_log = 'automated_ml_errors.log',
-                             compute_target = compute,
+                             compute_target = compute_target,
                              run_configuration = aml_run_config,
                              featurization = 'auto',
                              X = X,
@@ -303,7 +286,7 @@ The `automl_settings` dictionary is passed to the `AutoMLConfig` constructor as 
 
 - `task` is set to `classification` for this example. Other valid values are `regression` and `forecasting`
 - `path` and `debug_log` describe the path to the project and a local file to which debug information will be written 
-- `compute_target` is the previously defined `compute` that, in this example, is an inexpensive CPU-based compute target. If you are using AutoML's Deep Learning facilities, you would want to change the compute target to be GPU-based
+- `compute_target` is the previously defined `compute_target` that, in this example, is an inexpensive CPU-based machine. If you are using AutoML's Deep Learning facilities, you would want to change the compute target to be GPU-based
 - `featurization` is set to `auto`. More details can be found in the [Data Featurization](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) section of the automated ML configuration document 
 - `X` and `y` are set to the `PipelineOutputTabularDataset` objects made from the outputs of the data preparation step 
 
@@ -357,7 +340,7 @@ register_step = PythonScriptStep(script_name="register_model.py",
                                        allow_reuse=False,
                                        arguments=["--model_name", model_name, "--model_path", model_data],
                                        inputs=[model_data],
-                                       compute_target=compute,
+                                       compute_target=compute_target,
                                        runconfig=aml_run_config)
 ```
 
