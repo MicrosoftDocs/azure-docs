@@ -16,8 +16,9 @@ Azure Automation allows you to import PowerShell modules to enable cmdlets in ru
 
 * [Azure PowerShell Az.Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)
 * [Azure PowerShell AzureRM.Automation](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0)
-* Internal `Orchestrator.AssetManagement.Cmdlets` module for the Log Analytics agent for Windows
 * Other PowerShell modules
+* Internal `Orchestrator.AssetManagement.Cmdlets` module
+* Python 2 modules
 * Custom modules that you create 
 
 When you create an Automation account, Azure Automation imports some modules by default. See [Default modules](#default-modules).
@@ -91,9 +92,13 @@ Note that the internal cmdlets differ in naming from the Az and AzureRM cmdlets.
 
 We recommend that you use Az or AzureRM cmdlets for manipulating Azure Automation resources outside the context of a runbook. 
 
-## Module supporting Get-AutomationPSCredential
+## Orchestrator.AssetManagement.Cmdlets module
 
-The `Get-AutomationPSCredential` cmdlet is part of the module `Orchestrator.AssetManagement.Cmdlets`. This cmdlet returns a `PSCredential` object, which is expected by most PowerShell cmdlets that work with credentials. To find out more about the use of credentials in Azure Automation, see [Credential assets in Azure Automation](credentials.md).
+Azure Automation supports the internal `Orchestrator.AssetManagement.Cmdlets` module for the Log Analytics agent for Windows, installed by default. The `Get-AutomationPSCredential` cmdlet in this module is commonly used in runbooks to retrieve a `PSCredential` object, which is expected by most PowerShell cmdlets that work with credentials. To find out more about the use of credentials in Azure Automation, see [Credential assets in Azure Automation](credentials.md).
+
+## Python modules
+
+You can create Python 2 runbooks in Azure Automation. For Python module information, see [Manage Python 2 packages in Azure Automation](../python-packages.md).
 
 ## Migrating to Az modules
 
@@ -112,7 +117,7 @@ Importing an Az module into your Automation account doesn't automatically import
 * When a runbook invokes a cmdlet from a module
 * When a runbook imports the module explicitly with the [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7) cmdlet
 * When a runbook imports another dependent module
-    
+
 #### Testing for your runbooks and DSC configurations prior to module migration
 
 Be sure to test all runbooks and DSC configurations carefully in a separate Automation account before migrating to the Az modules. 
