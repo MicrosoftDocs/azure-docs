@@ -83,8 +83,8 @@ zone_pivot_groups: programming-languages-set-three
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-**Choose your target environment**
-#### [Linux](#tab/golang-linux)
+
 [!INCLUDE [go-linux](../includes/quickstarts/platform/go-linux.md)]
+
 * * *
 ::: zone-end

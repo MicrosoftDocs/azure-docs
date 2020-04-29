@@ -1,12 +1,6 @@
 ---
-title: 'Quickstart: Speech SDK Go (Linux) platform setup - Speech service'
-titleSuffix: Azure Cognitive Services
-description: Use this guide to set up your platform for Go on Linux with the Speech service SDK.
-services: cognitive-services
 author: glecaros
-manager: nitinme
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
 ms.date: 03/30/2020
 ms.author: gelecaro

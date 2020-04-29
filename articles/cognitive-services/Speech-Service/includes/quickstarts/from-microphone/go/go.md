@@ -1,12 +1,6 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone, go - Speech service'
-titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in Go using the Speech SDK.
-services: cognitive-services
 author: trrwilson
-manager: nitinme
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
@@ -17,8 +11,8 @@ ms.author: trrwilson
 Before you get started:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md)
+> * [Create an Azure Speech resource](../../../../get-started.md)
+> * [Set up your development environment and create an empty project](../../../../quickstarts/setup-platform.md)
 > * Make sure that you have access to a microphone for audio capture
 
 ## Setup your environment
