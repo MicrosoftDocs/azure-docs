@@ -51,7 +51,7 @@ You use rewrite actions to specify the request and response headers that you wan
 
 ## Server variables
 
-Application Gateway uses server variables to store useful information about the server, the connection with the client, and the current request on the connection. Examples of information stored include the client’s IP address and the web browser type. Server variables change dynamically, for example, when a new page loads or when a form is posted. You can use these variables to evaluate rewrite conditions and rewrite headers.
+Application Gateway uses server variables to store useful information about the server, the connection with the client, and the current request on the connection. Examples of information stored include the client’s IP address and the web browser type. Server variables change dynamically, for example, when a new page loads or when a form is posted. You can use these variables to evaluate rewrite conditions and rewrite headers. In order to use the value of server variables to rewrite headers, you will need to specify these variables in the syntax {var_*serverVariable*}
 
 Application gateway supports these server variables:
 
@@ -64,20 +64,21 @@ Application gateway supports these server variables:
 | client_port                | The client port.                                                  |
 | client_tcp_rtt             | Information about the client TCP connection. Available on systems that support the TCP_INFO socket option. |
 | client_user                | When HTTP authentication is used, the user name supplied for authentication. |
-| host                       | In this order of precedence: the host name from the request line, the host name from the Host request header field, or the server name matching a request. |
+| host                       | In this order of precedence: the host name from the request line, the host name from the Host request header field, or the server name matching a request. Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, host value will be is *contoso.com* |
 | cookie_*name*              | The *name* cookie.                                            |
 | http_method                | The method used to make the URL request. For example, GET or POST. |
 | http_status                | The session status. For example, 200, 400, or 403.                       |
 | http_version               | The request protocol. Usually HTTP/1.0, HTTP/1.1, or HTTP/2.0. |
-| query_string               | The list of variable/value pairs that follows the "?" in the requested URL. |
+| query_string               | The list of variable/value pairs that follows the "?" in the requested URL. Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, query_string value will be *id=123&title=fabrikam* |
 | received_bytes             | The length of the request (including the request line, header, and request body). |
 | request_query              | The arguments in the request line.                                |
 | request_scheme             | The request scheme: http or https.                            |
-| request_uri                | The full original request URI (with arguments).                   |
+| request_uri                | The full original request URI (with arguments). Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, request_uri value will be */article.aspx?id=123&title=fabrikam*   |
 | sent_bytes                 | The number of bytes sent to a client.                             |
 | server_port                | The port of the server that accepted a request.                 |
 | ssl_connection_protocol    | The protocol of an established TLS connection.        |
 | ssl_enabled                | “On” if the connection operates in TLS mode. Otherwise, an empty string. |
+| uri_path                   | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. Example: in the request *http://contoso.com:8080/article.aspx?id=123&title=fabrikam*, uri_path value will be */article.aspx*  |
 
 ## Rewrite configuration
 
