@@ -45,7 +45,7 @@ The following procedures deploy a Hello World application using the IntelliJ IDE
     ![Import Project](media/spring-cloud-intellij-howto/import-project-1.png)
 
 ## Deploy to Azure Spring Cloud
-In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app#installation-and-sign-in).
+In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
 
@@ -93,4 +93,4 @@ To get the logs:
 
 ## Next steps
 * [Prepare Spring application for Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
-* [Learn more about Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/java/intellij/)
+* [Learn more about Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/)

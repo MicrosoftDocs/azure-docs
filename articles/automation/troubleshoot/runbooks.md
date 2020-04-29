@@ -69,12 +69,19 @@ If you receive this error after updating one AzureRM or Az module, you should up
 If you're trying to access resources in another subscription, you can follow the steps below to configure permissions.
 
 1. Go to the Automation Run As account and copy the application ID and thumbprint.
-  ![Copy Application ID and Thumbprint](../media/troubleshoot-runbooks/collect-app-id.png)
+
+    ![Copy ID and thumbprint](../media/troubleshoot-runbooks/collect-app-id.png)
+
 1. Go to the subscription's Access Control where the Automation account is NOT hosted, and add a new role assignment.
-  ![Access control](../media/troubleshoot-runbooks/access-control.png)
+
+    ![Access control](../media/troubleshoot-runbooks/access-control.png)
+
 1. Add the application ID collected earlier. Select Contributor permissions.
-  ![Add role assignment](../media/troubleshoot-runbooks/add-role-assignment.png)
+
+    ![Add role assignment](../media/troubleshoot-runbooks/add-role-assignment.png)
+
 1. Copy the name of the subscription.
+
 1. You can now use the following runbook code to test the permissions from your Automation account to the other subscription. Replace `"\<CertificateThumbprint\>"` with the value copied in step 1. Replace `"\<SubscriptionName\>"` with the value copied in step 4.
 
     ```powershell
@@ -160,7 +167,7 @@ Connect-AzAccount : Method 'get_SerializationSettings' in type
 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
 does not have an implementation.
 At line:16 char:1
-+ Connect-AZAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : NotSpecified: (:) [Connect-AzAccount], TypeLoadException
     + FullyQualifiedErrorId : System.TypeLoadException,Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
@@ -168,11 +175,11 @@ At line:16 char:1
 
 ### Cause
 
-This error is caused by using both AzureRM and Az module cmdlets in a runbook. It occurs when you import the Az module before importing the AzureRM module.
+This error is probably caused by using an incomplete migration from AzureRM to Az modules in your runbook. This can cause Azure Automation to start a runbook job using only AzureRM modules, then start another job using only Az modules, leading to a sandbox crash. 
 
 ### Resolution
 
-Az and AzureRM cmdlets can't be imported and used in the same runbook. To learn more about Az cmdlets in Azure Automation, see [Az module support in Azure Automation](../az-modules.md).
+We don't recommend the use of Az and AzureRM cmdlets in the same runbook. To learn more about the correct use of these modules, see [Migrating to Az modules](../shared-resources/modules.md#migrating-to-az-modules).
 
 ## <a name="task-was-cancelled"></a>Scenario: The runbook fails with the error: A task was canceled
 
@@ -355,6 +362,20 @@ To determine what's wrong, take the following steps:
        Start-Sleep -Seconds 30
    }
    ```
+
+## <a name="object-reference-not-set"></a>Scenario: Incorrect object reference on call to Add-AzAccount
+
+### Issue
+
+You receive this error when working with `Add-AzAccount`, which is an alias for the `Connect-AzAccount` cmdlet:
+
+```error
+Add-AzAccount : Object reference not set to an instance of an object
+```
+
+### Cause
+
+This error can occur if the runbook doesn't do the proper steps before calling `Add-AzAccount` to add the Automation account. An example of one of the necessary steps is signing in with a Run As account. For the correct operations to use in your runbook, see [Runbook execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
 
 ## <a name="child-runbook-object"></a>Scenario: Object reference not set to an instance of an object
 
@@ -555,7 +576,7 @@ There are two ways to resolve this error.
 * Instead of using [Start-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job?view=powershell-7), use [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) to start the runbook.
 * Try running the runbook on a Hybrid Runbook Worker.
 
-To learn more about this behavior and other behaviors of Azure Automation runbooks, see [Runbook behavior](../automation-runbook-execution.md#runbook-behavior).
+To learn more about this behavior and other behaviors of Azure Automation runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
 
 ## Scenario: Linux Hybrid Runbook Worker receives a prompt for a password when signing a runbook
 
@@ -598,6 +619,33 @@ $SomeVariable = add-pnplistitem ....
 if ($SomeVariable.someproperty -eq ....
 ```
 
+## Scenario: Invalid status code "Forbidden" when using Key Vault inside a runbook
+
+### Issue
+
+When trying to access Key Vault through an Azure Automation runbook, you get the following error:
+
+```error
+Operation returned an invalid status code 'Forbidden' 
+```
+
+### Cause
+
+Possible causes for this issue:
+
+* Not using a Run As account.
+* Insufficient permissions.
+
+### Resolution
+
+#### Not using Run As account
+
+Follow [Step 5 - Add authentication to manage Azure resources](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) to ensure that you are using a Run As account to access Key Vault. 
+
+#### Insufficient permissions
+
+[Add permissions to Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault. 
+
 ## <a name="other"></a>My problem isn't listed above
 
 The sections below list other common errors and provide supporting documentation to help you resolve your issue.
@@ -616,7 +664,7 @@ For help with passing parameters into webhooks, see [Start a runbook from a webh
 
 ### Issues using Az modules
 
-Using Az modules and AzureRM modules in the same Automation account is not supported. See [Az modules in runbooks](https://docs.microsoft.com/azure/automation/az-modules) for more details.
+Using an incomplete migration of your runbook modules from AzureRM to Az can cause sandbox crashes and runbook failures. See [Using modules in your runbooks](../automation-runbook-execution.md#using-modules-in-your-runbooks).
 
 ### Inconsistent behavior in runbooks
 
@@ -635,10 +683,6 @@ Run As accounts might not have the same permissions against Azure resources as y
 
 For help with passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters-used-when-the-webhook-starts-a-runbook).
 
-### Using Az modules
-
-Using Az modules and AzureRM modules in the same Automation account is not supported. See [Az modules in runbooks](https://docs.microsoft.com/azure/automation/az-modules).
-
 ### Using self-signed certificates
 
 To use self-signed certificates, see [Creating a new certificate](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
@@ -647,8 +691,9 @@ To use self-signed certificates, see [Creating a new certificate](https://docs.m
 
 The Azure sandbox prevents access to all out-of-process COM servers. For example, a sandboxed application or runbook can't call into Windows Management Instrumentation (WMI), or into the Windows Installer service (msiserver.exe). For details about the use of the sandbox, see [Runbook execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
 
-## Recommended Documents
+## Recommended documents
 
+* [Runbook execution in Azure Automation](../automation-runbook-execution.md)
 * [Starting a runbook in Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
 * [Runbook execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 

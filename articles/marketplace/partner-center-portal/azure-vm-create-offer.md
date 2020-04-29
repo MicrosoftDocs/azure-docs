@@ -29,19 +29,19 @@ Publishing to Azure Marketplace has the following benefits:
 
 ### Before you begin
 
-If you haven't done so yet, review the [Virtual machine offer publishing guide](https://aka.ms/Virtualmachineofferpublishingguide) and this Azure virtual machine material:
+If you haven't done so yet, review the [Virtual machine offer publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) and this Azure virtual machine material:
 
 - Quickstart guides
   - [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
   - [GitHub Azure Quickstart templates](https://github.com/azure/azure-quickstart-templates)
 - Tutorials
-  - [Linux VMs](https://aka.ms/LinuxVMtutorial)
-  - [Windows VMs](https://aka.ms/windowsvms)
+  - [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
+  - [Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - Samples
-  - [Azure CLI Samples for Linux VMs](https://aka.ms/linuxclisamples)
-  - [Azure PowerShell for Linux VMs](https://aka.ms/linuxpowershellsamples)
-  - [Azure CLI Samples for Windows VMs](https://aka.ms/windowsclisamples)
-  - [Azure PowerShell for Windows VMs](https://aka.ms/windowspowershellvmsamples)
+  - [Azure CLI Samples for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
+  - [Azure PowerShell for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
+  - [Azure CLI Samples for Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
+  - [Azure PowerShell for Windows VMs](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
 
 ### Fundamentals in technical knowledge
 
@@ -86,7 +86,7 @@ To enable a test drive, select the **Enable a test drive** check box. To remove 
 Additional test drive resources:
 
 - [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Marketing best practices](https://aka.ms/TestDriveMarketingBestPractices)
+- [Marketing best practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Test Drives overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (make sure your pop-up blocker is off).
 
 ### Lead management
@@ -94,12 +94,12 @@ Additional test drive resources:
 When publishing your offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you will enable **Test Drive** (see prior section), otherwise it's optional.
 
 1. Select a lead destination where you want us to send customer leads. Partner Center supports the following CRM systems:
-    - [Dynamics 365](https://aka.ms/Dyn365LeadMgmt) for customer engagement
-    - [Marketo](https://aka.ms/LeadMgmtMarketo)
-    - [Salesforce](https://aka.ms/LeadMgmtSalesforce)
+    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for customer engagement
+    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
-    > If your CRM system isn't listed above, use [Azure Table](https://aka.ms/AzureTableLeadMgmt) or [Https Endpoint](https://aka.ms/LeadMgmtHTTPS) to store customer lead data. Then export the data to your CRM system.
+    > If your CRM system isn't listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data. Then export the data to your CRM system.
 
 2. Connect your offer to the lead destination when publishing in Partner Center.
 3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to deploy the offer yourself in the preview environment.
@@ -250,6 +250,9 @@ Provide contact information for Microsoft to use when there are issues with your
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+
 #### Marketplace logos
 
 Provide PNG files of your offer's logo in the following four pixel sizes:
@@ -269,7 +272,7 @@ Add up to five screenshots that show how your offer works. Each screenshot must 
 
 Add up to five videos that demonstrate your offer. These should be hosted on an external video service. Enter each video's name, web address, and a thumbnail PNG image of the video at 1280 x 720 pixels in size.
 
-For additional marketplace listing resources, see [Best practices for marketplace offer listings](https://aka.ms/LdMgmtOfferListingBestPractices).
+For additional marketplace listing resources, see [Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
 
 Select **Save draft** before continuing.
 
@@ -549,4 +552,4 @@ These examples show how the offer appears in Azure Marketplace.
 
 ## Next step
 
-- [Update an existing offer in the commercial marketplace](https://aka.ms/UpdateOfferCM)
+- [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

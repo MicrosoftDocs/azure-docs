@@ -1,17 +1,10 @@
 ﻿---
 title: Tutorial - High availability for Windows VMs in Azure 
 description: In this tutorial, you learn how to use Azure PowerShell to deploy highly available virtual machines in Availability Sets
-documentationcenter: ''
 services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
