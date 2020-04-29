@@ -56,10 +56,9 @@ public async Task<IActionResult> Profile()
    var content = await response.Content.ReadAsStringAsync();
 
    dynamic me = JsonConvert.DeserializeObject(content);
-   return me;
+   ViewData["Me"] = me;
   }
 
-  ViewData["Me"] = me;
   return View();
 }
 ```

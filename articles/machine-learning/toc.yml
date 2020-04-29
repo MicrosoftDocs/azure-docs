@@ -56,12 +56,10 @@
             - name: Auto-train an ML model
               displayName: automl, automated, auto ml,
               href: tutorial-auto-train-models.md
-        - name: Machine Learning pipelines (advanced)
-          items: 
-            - name: Batch score a classification model
-              displayName: pipelines
-              href: tutorial-pipeline-batch-scoring-classification.md
-        - name: Go from experiment to production
+        - name: Batch score models with pipelines
+          displayName: pipelines
+          href: tutorial-pipeline-batch-scoring-classification.md
+        - name: Prep your code for production
           displayName: mlops, mlopspython, production
           href: tutorial-convert-ml-experiment-to-production.md
     - name: R SDK
