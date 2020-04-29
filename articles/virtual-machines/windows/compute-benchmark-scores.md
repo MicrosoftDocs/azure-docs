@@ -6,7 +6,7 @@ ms.service: virtual-machines-windows
 ms.subservice: sizes
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/09/2018
+ms.date: 04/29/2020
 ms.author: cynthn
 ms.reviewer: davberg
 
@@ -43,6 +43,7 @@ The following SPECInt benchmark scores show compute performance for select Azure
 Note: Av2-series VMs can be deployed on a variety of hardware types and processors (as seen above). Av2-series VMs have CPU performance and memory configurations best suited for entry level workloads like development and test. The size is throttled to offer relatively consistent processor performance for the running instance, regardless of the hardware it is deployed on; however, software that takes advantage of specific newer processor optimizations may see more significant variation across processor types.
 
 ## B - Burstable
+(Updated 2019-10-23 to 2019-11-03 PBI:5604451)
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_B1ms | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 6.3 | 0.2 | 
@@ -54,12 +55,16 @@ Note: Av2-series VMs can be deployed on a variety of hardware types and processo
 | Standard_B4ms | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 43 | 28.3 | 0.7 | 
 | Standard_B8ms | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 3 | 42.0 | 0.0 | 
 | Standard_B8ms | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 25 | 41.4 | 0.9 | 
+| Standard_B12ms | 12 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 or v4 | 19 | 58.9 | 2.3 |
+| Standard_B16ms | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 or v4 | 18 | 75.4 | 2.1 |
+| Standard_B20ms | 20 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 or v4| 2 | 90.6 | 1.3 |
 
 Note: B-Series VMs are for workloads with burstable performance requirements. VM instances accumulate credits when using less than its baseline. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% to meet short CPU burst requirements. Burst time depends on available credits which is a function of VM size and time.  
 
 SPEC Int is a fairly long running test that typically exhausts available burst credits.  Therefore the numbers above are closer to the baseline performance of the VM (although they may reflect some burst time accumulated between runs).  For short, bursty, workloads (typical on B-Series) performance will typically be closer to that of the Ds v3 Series..
 
 ## DSv3 - General Compute + Premium Storage
+(updated 2019-10-23 to 2019-11-03 PBI:5604451)
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 10 | 40.8 | 2.3 | 
@@ -72,9 +77,15 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_D16s_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 38 | 298.2 | 4.4 | 
 | Standard_D32s_v3 | 32 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 24 | 545.8 | 10.5 | 
 | Standard_D32s_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 535.6 | 12.6 | 
+| Standard_D32-8s_v3 | 8 |  | Intel(R) Xeon(R) CPU E5-2673 v3 or v4 | 6 | 166.0 | 8.8 |
+| Standard_D32-16s_v3 | 16 |  | Intel(R) Xeon(R) CPU E5-2673 v3 or v4 | 4 | 300.8 | 6.4 |
+| Standard_D48s_v3 | 48 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 or v4 | 1 | 838.0 | 0.0 |
 | Standard_D64s_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 35 | 1070.6 | 2.4 | 
+| Standard_D64-16s_v3 | 16 |  | Intel(R) Xeon(R) CPU E5-2673 v3 or v4 | 4 | 340.0 | 21.4 |
+| Standard_D64-32s_v3 | 32 |  | Intel(R) Xeon(R) CPU E5-2673 v3 or v4 | 3 | 592.3 | 1.5 |
 
 ## Dv3 - General Compute
+(updated 2019-10-23 to 2019-11-03 PBI:5604451)
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D2_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 10 | 38.6 | 1.8 | 
@@ -87,6 +98,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_D16_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 300.7 | 8.8 | 
 | Standard_D32_v3 | 32 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 24 | 549.3 | 11.1 | 
 | Standard_D32_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 7 | 538.6 | 9.4 | 
+| Standard_D48_v3 | 48 |  |  Intel(R) Xeon(R) CPU E5-2673 v3 or v4 | 3 | 839.7 | 14.4 |
 | Standard_D64_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 1070.6 | 12.4 | 
 
 ## DSv2 - Storage Optimized
