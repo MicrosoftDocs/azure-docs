@@ -2,22 +2,15 @@
 title: Find out when a specific user will be able to access an app
 description: How to find out when a critically important user be able to access an application you have configured for user provisioning with Azure AD
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
-
-ms.collection: M365-identity-device-management
 ---
 
 # Check the status of user provisioning
