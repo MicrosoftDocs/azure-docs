@@ -46,25 +46,27 @@ map.events.add("click", function(e){
     var features = map.layers.getRenderedShapes(e.position, "indoor")
 
     var result = features.reduce(function (ids, feature) {
-        if (feature.layer.id == "indoor_unit_conference") {
+        if (feature.layer.id == "indoor_unit_office") {
             console.log(feature);
         }
     }, []);
 });
 ```
 
-For this exercise, choose two feature `ID` for two units, preferably units categorized as meeting rooms.
+The [Create an indoor map](tutorial-creator-indoor-maps.md) tutorial configured the feature stateset to accept state updates for `occupancy`.
+
+In the next section, we'll set the occupancy *state* of office `UNIT26` to `true`. while office `UNIT27` will be set to `false`.
 
 ### Set occupancy status
 
-The feature stateset in use in the application is configured to accept state updates for occupancy. To update the state of the two features:
+ We'll now update the state of the two offices, `UNIT26` and `UNIT27`:
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Use the [Feature Update States API](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) to update the state. Pass the stateset ID, dataset ID, and feature `ID` for one of the two units. Append your Azure Maps subscription key. Here's the URL of a **POST** request to update the state:
+2. Use the [Feature Update States API](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) to update the state. Pass the stateset ID, dataset ID, and `UNIT26` for one of the two units. Append your Azure Maps subscription key. Here's the URL of a **POST** request to update the state:
 
     ```http
-    https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&datasetID={datasetId}&featureID={feature-ID}&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&datasetID={datasetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **BODY** of the **POST** request, write the following JSON with the feature updates. The update will be saved only if the posted time stamp is after the time stamp used in previous feature state update requests for the same feature `ID`. Pass the "occupied" `keyName` to update its value.
@@ -81,7 +83,7 @@ The feature stateset in use in the application is configured to accept state upd
     }
     ```
 
-4. Redo step 2 and 3 using the other feature `ID`, with the following JSON.
+4. Redo step 2 and 3 using `UNIT27`, with the following JSON.
 
     ``` json
     {
@@ -97,7 +99,7 @@ The feature stateset in use in the application is configured to accept state upd
 
 ### Visualize dynamic styles on a map
 
-The web application you previously opened in a browser should now reflect the updated state of the map features. The feature stateset used in this tutorial defines red for occupied rooms and green for free rooms.
+The web application you previously opened in a browser should now reflect the updated state of the map features. `UNIT27` should appear green and `UNIT26` should appear red.
 
 ![Free room in green and Busy room in red](./media/indoor-map-dynamic-styling/free-room.png)
 
