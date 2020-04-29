@@ -27,6 +27,9 @@ Azure Active Directory (Azure AD) Pass-through Authentication allows your users 
 >[!IMPORTANT]
 >If you are migrating from AD FS (or other federation technologies) to Pass-through Authentication, we highly recommend that you follow our detailed deployment guide published [here](https://aka.ms/adfstoPTADPDownload).
 
+>[!NOTE]
+>If you deploying Pass Through Authentication with the Azure Government cloud, view [Hybrid Identity Considerations for Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
+
 Follow these instructions to deploy Pass-through Authentication on your tenant:
 
 ## Step 1: Check the prerequisites
@@ -69,7 +72,7 @@ Ensure that the following prerequisites are in place.
    - For certificate validation, unblock the following URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, and **www\.microsoft.com:80**. Since these URLs are used for certificate validation with other Microsoft products you may already have these URLs unblocked.
 
 ### Azure Government cloud prerequisite
-Prior to enabling Pass-through Authentication through Azure AD Connect with Step 2, download the latest release of the PTA agent from the Azure portal.  You need to ensure that your agent is versions **x.x.xxx.x** or later.  To verify your agent see [Upgrade authentication agents](how-to-connect-pta-upgrade-preview-authentication-agents.md)
+Prior to enabling Pass-through Authentication through Azure AD Connect with Step 2, download the latest release of the PTA agent from the Azure portal.  You need to ensure that your agent is versions **1.5.1742.0.** or later.  To verify your agent see [Upgrade authentication agents](how-to-connect-pta-upgrade-preview-authentication-agents.md)
 
 After downloading the latest release of the agent, proceed with the below instructions to configure Pass-Through Authentication through Azure AD Connect.
 
