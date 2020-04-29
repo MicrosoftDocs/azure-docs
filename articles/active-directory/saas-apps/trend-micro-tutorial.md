@@ -41,7 +41,7 @@ To get started, you need:
 In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
 * TMWS supports SP-initiated SSO.
-* After you configure TMWS, you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control by using Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* After you configure TMWS, you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. To learn how to enforce session control by using Microsoft Cloud App Security, see [Onboard and deploy Conditional Access App Control for any app](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Add TMWS from the gallery
 
@@ -77,7 +77,7 @@ Complete these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit the Basic SAML Configuration settings](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** section, enter values for the following fields:
+1. In the **Basic SAML Configuration** section, enter values in the following boxes:
 
     a. In the **Identifier (Entity ID)** box, enter a URL in the following pattern:
 
@@ -113,7 +113,7 @@ Complete these steps to enable Azure AD SSO in the Azure portal.
 
 In this section, you'll create a test user called B.Simon in the Azure portal.
 
-1. In the left pane in the Azure portal, select **Azure Active Directory**. Select **Users**, and then select **All users**.
+1. In the left pane of the Azure portal, select **Azure Active Directory**. Select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** box, enter `B.Simon`.  
@@ -131,11 +131,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    ![Select Users and groups](common/users-groups-blade.png)
 
-1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box:
+1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 
     ![Select Add user](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog box, select **B.Simon** in the Users list, and then click the **Select** button at the bottom of the screen.
+1. In the **Users and groups** dialog box, select **B.Simon** in the **Users** list, and then click the **Select** button at the bottom of the screen.
 1. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog box, select **Assign**.
 
@@ -189,7 +189,7 @@ Complete these steps to configure TMWS SSO on the application side.
 
 1. In the **Identity Provider Settings** section, complete these steps:
 
-    a. In the **Service URL** box, enter the **Login URL** value that you copied from Azure portal.
+    a. In the **Service URL** box, enter the **Login URL** value that you copied from the Azure portal.
 
     b. In the **Logon name attribute** box, enter the **User claim name** with the **user.onpremisessamaccountname** source attribute from the Azure portal.
 
