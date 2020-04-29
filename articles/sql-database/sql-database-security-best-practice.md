@@ -98,7 +98,7 @@ Central identity management offers the following benefits:
 - Monitor Azure AD group membership changes using Azure AD audit activity reports. 
 
 - For a SQL Managed Instance, a separate step is required to create Azure AD admin. 
-  - See the article, P[rovision an Azure Active Directory administrator for your SQL Managed Instance](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance). 
+  - See the article, [Provision an Azure Active Directory administrator for your SQL Managed Instance](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance). 
 
 > [!NOTE]
 > - Azure AD authentication is recorded in Azure SQL audit logs, but not in Azure AD sign-in logs.
