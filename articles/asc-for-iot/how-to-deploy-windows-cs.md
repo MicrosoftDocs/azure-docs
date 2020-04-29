@@ -131,9 +131,9 @@ To turn on logging:
      sc.exe start "ASC IoT Agent"
      ```
 
-1. Review the log file for more information about the failure.
+1. Review the log file for more information about the failure. The log file would be present in the working directory where we run the script. 
 
-   Log file location: `%WinDir%/System32/IoTAgentLog.log`
+   Log file location: `.\IoTAgentLog.log`
 
 ## Next steps
 

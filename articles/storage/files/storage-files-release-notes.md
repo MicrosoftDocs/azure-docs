@@ -58,9 +58,6 @@ The following release notes are for version 10.0.0.0 of the Azure File Sync agen
 - Support for moving the Storage Sync Service and/or storage account to a different Azure Active Directory (AAD) tenant
 	- Azure File Sync now supports moving the Storage Sync Service and/or storage account to a different resource group, subscription or Azure AD tenant.
 	
-- Evaluation tool now identifies files or directories that end with a period
-	- The [Evaluation tool](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) has been updated to identify files or directories that end with a period. Files or directories that end with a period are not currently supported by Azure File Sync. To use the updated version of the [Evaluation tool](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet), install the latest version of the [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
- 
 - Miscellaneous performance and reliability improvements
 	- Change detection on the Azure file share may fail if virtual network (VNET) and firewall rules are configured on the storage account.
 	- Reduced memory consumption associated with recall. 

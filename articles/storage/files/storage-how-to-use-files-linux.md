@@ -315,11 +315,6 @@ sudo modprobe cifs
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
 
-## Feedback
-Linux users, we want to hear from you!
-
-The Azure Files for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux. Email [Azure Files Linux Users](mailto:azurefiles@microsoft.com) to join the users' group.
-
 ## Next steps
 See these links for more information about Azure Files:
 
