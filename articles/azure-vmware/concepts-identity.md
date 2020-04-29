@@ -13,7 +13,7 @@ Access and identity management use CloudAdmin group privileges for vCenter and r
 
 ## vCenter access and identity
 
-Privileges in vCenter are provided through the CloudAdmin group. That group can be managed locally in vCenter, or through integration of vCenter LDAP single sign-on with Azure Active Directory. You're provided with the ability to enable that integration when you deploy a private cloud.
+Privileges in vCenter are provided through the CloudAdmin group. That group can be managed locally in vCenter, or through integration of vCenter LDAP single sign-on with Azure Active Directory. You're provided with the ability to enable that integration after you deploy a private cloud.
 
 The CloudAdmin and CloudGlobalAdmin privileges are shown in the table below.
 
@@ -46,7 +46,7 @@ Request elevated vCenter privileges with an SR in the Azure portal.
 
 ## NSX-T Manager access and identity
 
-You access NSX-T Manager using the "administrator" account. That account has full privileges and enables you to create and manage T1 routers, logical switches, and all services. The full privileges in NSX-T also provide you with access to the NSX-T T0 router. A change to the T0 router could result in degraded network performance of a private cloud. To meet support requirements, it's required that you open an SR in the Azure portal to request any changes to your NSX-T T0 router.
+You access NSX-T Manager using the "administrator" account. That account has full privileges and enables you to create and manage T1 routers, logical switches, and all services. The full privileges in NSX-T also provide you with access to the NSX-T T0 router. A change to the T0 router could result in degraded network performance or a loss of access to a private cloud. To meet support requirements, it's required that you open an SR in the Azure portal to request any changes to your NSX-T T0 router.
   
 ## Next steps
 
