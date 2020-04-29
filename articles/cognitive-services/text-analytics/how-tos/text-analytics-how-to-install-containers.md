@@ -15,7 +15,11 @@ ms.author: aahi
 
 # Install and run Text Analytics containers
 
-Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements. The Text Analytics containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, key phrase extraction, and language detection. Entity linking is not currently supported in a container.
+> [!NOTE]
+> * The container for Sentiment Analysis v3 is now Generally Available. Other Text Analytics containers are available as an [ungated public preview](../../cognitive-services-gating-process.md).
+> * Entity linking and NER are not currently available in a container.
+
+Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements. The Text Analytics containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, key phrase extraction, and language detection. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -56,11 +60,7 @@ Container images for Text Analytics are available on the Microsoft Container Reg
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-# [Sentiment Analysis v2](#tab/sentiment-v2)
-
-[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
-
-# [Sentiment Analysis v3](#tab/sentiment-v3)
+# [Sentiment Analysis](#tab/sentiment)
 
 [!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 

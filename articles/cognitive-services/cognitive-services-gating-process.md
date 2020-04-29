@@ -46,7 +46,7 @@ Currently, the services below are offered through the gating process:
 
 | Service                             | Container(s)                                                                  |
 |-------------------------------------|-------------------------------------------------------------------------------|
-| [Anomaly Detector][ad-containers]    | Read                                                                          |
+| [Anomaly Detector][ad-containers]    | Anomaly Detector                                                             |
 | [Computer Vision][cv-containers]    | Read                                                                          |
 | [Face][fa-containers]               | Face                                                                          |
 | [Form Recognizer][fr-containers]    | Form Recognizer                                                               |
@@ -54,7 +54,7 @@ Currently, the services below are offered through the gating process:
 | [Translator Text][tt-containers]    | Translator Text                                                               |
 
 > [!IMPORTANT]
-> If a service or containerized offering is not listed, it's either not available or generally available.
+> If a service or containerized offering is not listed, it's either not gated, or unavailable.
 
 ## Next steps
 

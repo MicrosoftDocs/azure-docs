@@ -35,6 +35,16 @@ ms.author: aahi
 
 <details>
 <summary>
+<b>What is the difference between public preview, and generally available?</b>
+</summary>
+
+**Answer:** As new Azure Cognitive Services offerings are introduced, they are first available as a "gated" public preview, which require an application to access. Once they go into an "ungated" public preview, they are publicly available to access from the Microsoft Container Registry (MCR), or Docker hub. After a container is officially released, it is classified as Generally Available. (GA). See the [gating process](../cognitive-services-gating-process.md) article for more information.
+
+</details>
+
+
+<details>
+<summary>
 <b>Is there any difference between the Cognitive Services cloud and the containers?</b>
 </summary>
 

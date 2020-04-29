@@ -13,6 +13,9 @@ ms.author: aahi
 
 #### Docker pull for the Language Detection container
 
+> [!NOTE]
+> This container uses version 2 of the API.
+
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
 
 For a full description of available tags for the Text Analytics containers, see the [Language Detection](https://go.microsoft.com/fwlink/?linkid=2018759) container on the Docker Hub.

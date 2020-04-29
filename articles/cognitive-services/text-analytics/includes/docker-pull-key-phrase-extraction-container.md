@@ -13,6 +13,9 @@ ms.author: aahi
 
 #### Docker pull for the Key Phrase Extraction container
 
+> [!NOTE]
+> This container uses version 2 of the API.
+
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
 
 For a full description of available tags for the Text Analytics containers, see the [Key Phrase Extraction](https://go.microsoft.com/fwlink/?linkid=2018757) container on the Docker Hub.
