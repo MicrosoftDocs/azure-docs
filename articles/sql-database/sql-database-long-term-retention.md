@@ -86,7 +86,7 @@ To learn how to configure long-term retention using the Azure portal or PowerShe
 
 ## Restore database from LTR backup
 
-To restore a database from the LTR storage, you can select a specific backup based on its timestamp. The database can be restored to any existing server under the same subscription as the original database. To learn how to restore your database from an LTR backup, using the Azure portal, or PowerShell, see [Manage Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md).
+To restore a database from the LTR storage, you can select a specific backup based on its timestamp. The database can be restored to any existing server under the same subscription as the original database. To learn how to restore your database from an LTR backup, using the Azure portal, or PowerShell, see [Manage Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md). In your request, state you would like to be enrolled in the limited public preview of LTR for managed instance.
 
 ## Next steps
 
