@@ -951,7 +951,7 @@ Based on a criteria gets the average of values of a column
 ___
 ### <code>count</code>
 <code><b>count([<i>&lt;value1&gt;</i> : any]) => long</b></code><br/><br/>
-Gets the aggregate count of values. If the optional column(s) is specified, it ignores NULL values in the count
+Gets the aggregate count of values. If the optional column(s) is specified, it ignores NULL values in the count  
 * ``count(custId)``  
 * ``count(custId, custName)``  
 * ``count()``  
@@ -959,205 +959,205 @@ Gets the aggregate count of values. If the optional column(s) is specified, it i
 ___
 ### <code>countDistinct</code>
 <code><b>countDistinct(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => long</b></code><br/><br/>
-Gets the aggregate count of distinct values of a set of columns
+Gets the aggregate count of distinct values of a set of columns  
 * ``countDistinct(custId, custName)``  
 ___
 ### <code>countIf</code>
 <code><b>countIf(<i>&lt;value1&gt;</i> : boolean, [<i>&lt;value2&gt;</i> : any]) => long</b></code><br/><br/>
-Based on a criteria gets the aggregate count of values. If the optional column is specified, it ignores NULL values in the count
+Based on a criteria gets the aggregate count of values. If the optional column is specified, it ignores NULL values in the count  
 * ``countIf(state == 'CA' && commission < 10000, name)``  
 ___
 ### <code>covariancePopulation</code>
 <code><b>covariancePopulation(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Gets the population covariance between two columns
+Gets the population covariance between two columns  
 * ``covariancePopulation(sales, profit)``  
 ___
 ### <code>covariancePopulationIf</code>
 <code><b>covariancePopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number, <i>&lt;value3&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the population covariance of two columns
+Based on a criteria, gets the population covariance of two columns  
 * ``covariancePopulationIf(region == 'West', sales)``  
 ___
 ### <code>covarianceSample</code>
 <code><b>covarianceSample(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Gets the sample covariance of two columns
+Gets the sample covariance of two columns  
 * ``covarianceSample(sales, profit)``  
 ___
 ### <code>covarianceSampleIf</code>
 <code><b>covarianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number, <i>&lt;value3&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the sample covariance of two columns
+Based on a criteria, gets the sample covariance of two columns  
 * ``covarianceSampleIf(region == 'West', sales, profit)``  
 ___
 ### <code>first</code>
 <code><b>first(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
-Gets the first value of a column group. If the second parameter ignoreNulls is omitted, it is assumed false
+Gets the first value of a column group. If the second parameter ignoreNulls is omitted, it is assumed false  
 * ``first(sales)``  
 * ``first(sales, false)``  
 ___
 ### <code>kurtosis</code>
 <code><b>kurtosis(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Gets the kurtosis of a column
+Gets the kurtosis of a column  
 * ``kurtosis(sales)``  
 ___
 ### <code>kurtosisIf</code>
 <code><b>kurtosisIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the kurtosis of a column
+Based on a criteria, gets the kurtosis of a column  
 * ``kurtosisIf(region == 'West', sales)``  
 ___
 ### <code>last</code>
 <code><b>last(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
-Gets the last value of a column group. If the second parameter ignoreNulls is omitted, it is assumed false
+Gets the last value of a column group. If the second parameter ignoreNulls is omitted, it is assumed false  
 * ``last(sales)``  
 * ``last(sales, false)``  
 ___
 ### <code>max</code>
 <code><b>max(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>
-Gets the maximum value of a column
+Gets the maximum value of a column  
 * ``max(sales)``  
 ___
 ### <code>maxIf</code>
 <code><b>maxIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Based on a criteria, gets the maximum value of a column
+Based on a criteria, gets the maximum value of a column  
 * ``maxIf(region == 'West', sales)``  
 ___
 ### <code>mean</code>
 <code><b>mean(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Gets the mean of values of a column. Same as AVG
+Gets the mean of values of a column. Same as AVG  
 * ``mean(sales)``  
 ___
 ### <code>meanIf</code>
 <code><b>meanIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Based on a criteria gets the mean of values of a column. Same as avgIf
+Based on a criteria gets the mean of values of a column. Same as avgIf  
 * ``meanIf(region == 'West', sales)``  
 ___
 ### <code>min</code>
 <code><b>min(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>
-Gets the minimum value of a column
+Gets the minimum value of a column  
 * ``min(sales)``  
 ___
 ### <code>minIf</code>
 <code><b>minIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Based on a criteria, gets the minimum value of a column
+Based on a criteria, gets the minimum value of a column  
 * ``minIf(region == 'West', sales)``  
 ___
 ### <code>skewness</code>
 <code><b>skewness(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Gets the skewness of a column
+Gets the skewness of a column  
 * ``skewness(sales)``  
 ___
 ### <code>skewnessIf</code>
 <code><b>skewnessIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the skewness of a column
+Based on a criteria, gets the skewness of a column  
 * ``skewnessIf(region == 'West', sales)``  
 ___
 ### <code>stddev</code>
 <code><b>stddev(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Gets the standard deviation of a column
+Gets the standard deviation of a column  
 * ``stdDev(sales)``  
 ___
 ### <code>stddevIf</code>
 <code><b>stddevIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the standard deviation of a column
+Based on a criteria, gets the standard deviation of a column  
 * ``stddevIf(region == 'West', sales)``  
 ___
 ### <code>stddevPopulation</code>
 <code><b>stddevPopulation(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Gets the population standard deviation of a column
+Gets the population standard deviation of a column  
 * ``stddevPopulation(sales)``  
 ___
 ### <code>stddevPopulationIf</code>
 <code><b>stddevPopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the population standard deviation of a column
+Based on a criteria, gets the population standard deviation of a column  
 * ``stddevPopulationIf(region == 'West', sales)``  
 ___
 ### <code>stddevSample</code>
 <code><b>stddevSample(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Gets the sample standard deviation of a column
+Gets the sample standard deviation of a column  
 * ``stddevSample(sales)``  
 ___
 ### <code>stddevSampleIf</code>
 <code><b>stddevSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the sample standard deviation of a column
+Based on a criteria, gets the sample standard deviation of a column  
 * ``stddevSampleIf(region == 'West', sales)``  
 ___
 ### <code>sum</code>
 <code><b>sum(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Gets the aggregate sum of a numeric column
+Gets the aggregate sum of a numeric column  
 * ``sum(col)``  
 ___
 ### <code>sumDistinct</code>
 <code><b>sumDistinct(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Gets the aggregate sum of distinct values of a numeric column
+Gets the aggregate sum of distinct values of a numeric column  
 * ``sumDistinct(col)``  
 ___
 ### <code>sumDistinctIf</code>
 <code><b>sumDistinctIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column
+Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column  
 * ``sumDistinctIf(state == 'CA' && commission < 10000, sales)``  
 * ``sumDistinctIf(true, sales)``  
 ___
 ### <code>sumIf</code>
 <code><b>sumIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column
+Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column  
 * ``sumIf(state == 'CA' && commission < 10000, sales)``  
 * ``sumIf(true, sales)``  
 ___
 ### <code>variance</code>
 <code><b>variance(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Gets the variance of a column
+Gets the variance of a column  
 * ``variance(sales)``  
 ___
 ### <code>varianceIf</code>
 <code><b>varianceIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the variance of a column
+Based on a criteria, gets the variance of a column  
 * ``varianceIf(region == 'West', sales)``  
 ___
 ### <code>variancePopulation</code>
 <code><b>variancePopulation(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Gets the population variance of a column
+Gets the population variance of a column  
 * ``variancePopulation(sales)``  
 ___
 ### <code>variancePopulationIf</code>
 <code><b>variancePopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the population variance of a column
+Based on a criteria, gets the population variance of a column  
 * ``variancePopulationIf(region == 'West', sales)``  
 ___
 ### <code>varianceSample</code>
 <code><b>varianceSample(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Gets the unbiased variance of a column
+Gets the unbiased variance of a column  
 * ``varianceSample(sales)``  
 ___
 ### <code>varianceSampleIf</code>
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Based on a criteria, gets the unbiased variance of a column
+Based on a criteria, gets the unbiased variance of a column  
 * ``varianceSampleIf(region == 'West', sales)``  
 ## Window functions
 The following functions are only available in window transformations
 ___
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>
-The CumeDist function computes the position of a value relative to all values in the partition. The result is the number of rows preceding or equal to the current row in the ordering of the partition divided by the total number of rows in the window partition. Any tie values in the  ordering will evaluate to the same position.
+The CumeDist function computes the position of a value relative to all values in the partition. The result is the number of rows preceding or equal to the current row in the ordering of the partition divided by the total number of rows in the window partition. Any tie values in the  ordering will evaluate to the same position.  
 * ``cumeDist()``  
 ___
 ### <code>denseRank</code>
 <code><b>denseRank() => integer</b></code><br/><br/>
-Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will not produce gaps in the sequence. Dense Rank works even when data is not sorted and looks for change in values
+Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will not produce gaps in the sequence. Dense Rank works even when data is not sorted and looks for change in values  
 * ``denseRank()``  
 ___
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Gets the value of the first parameter evaluated n rows before the current row. The second parameter is the number of rows to look back and the default value is 1. If there are not as many rows a value of null is returned unless a default value is specified
+Gets the value of the first parameter evaluated n rows before the current row. The second parameter is the number of rows to look back and the default value is 1. If there are not as many rows a value of null is returned unless a default value is specified  
 * ``lag(amount, 2)``  
 * ``lag(amount, 2000, 100)``  
 ___
 ### <code>lead</code>
 <code><b>lead(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look after&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
-Gets the value of the first parameter evaluated n rows after the current row. The second parameter is the number of rows to look forward and the default value is 1. If there are not as many rows a value of null is returned unless a default value is specified
+Gets the value of the first parameter evaluated n rows after the current row. The second parameter is the number of rows to look forward and the default value is 1. If there are not as many rows a value of null is returned unless a default value is specified  
 * ``lead(amount, 2)``  
 * ``lead(amount, 2000, 100)``  
 ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-The NTile function divides the rows for each window partition into `n` buckets ranging from 1 to at most `n`. Bucket values will differ by at most 1. If the number of rows in the partition does not divide evenly into the number of buckets, then the remainder values are distributed one per bucket, starting with the first bucket. The NTile function is useful for the calculation of tertiles, quartiles, deciles, and other common summary statistics. The function calculates two variables during initialization: The size of a regular bucket will have one extra row added to it. Both variables are based on the size of the current partition. During the calculation process the function keeps track of the current row number, the current bucket number, and the row number at which the bucket will change (bucketThreshold). When the current row number reaches bucket threshold, the bucket value is increased by one and the threshold is increased by the bucket size (plus one extra if the current bucket is padded).
+The NTile function divides the rows for each window partition into `n` buckets ranging from 1 to at most `n`. Bucket values will differ by at most 1. If the number of rows in the partition does not divide evenly into the number of buckets, then the remainder values are distributed one per bucket, starting with the first bucket. The NTile function is useful for the calculation of tertiles, quartiles, deciles, and other common summary statistics. The function calculates two variables during initialization: The size of a regular bucket will have one extra row added to it. Both variables are based on the size of the current partition. During the calculation process the function keeps track of the current row number, the current bucket number, and the row number at which the bucket will change (bucketThreshold). When the current row number reaches bucket threshold, the bucket value is increased by one and the threshold is increased by the bucket size (plus one extra if the current bucket is padded).  
 * ``nTile()``  
 * ``nTile(numOfBuckets)``  
 ___
