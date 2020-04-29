@@ -10,11 +10,10 @@ ms.date: 04/22/2020
 ---
 
 # Resource Manager template samples for Azure Monitor agents
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to deploy and configure the Log Analytics agent and diagnostic extension for virtual machines in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to deploy and configure the [Log Analytics agent](../platform/log-analytics-agent.md) and [diagnostic extension](../platform/diagnostics-extension-overview.md) for virtual machines in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-samples.md)]
 
-For more information on the Log Analytics agent, see [Create a Log Analytics workspace in the Azure portal](../platform/log-analytics-agent.md). For more information on the diagnostic extension, see [Azure Diagnostics extension overview](../platform/diagnostics-extension-overview.md).
 
 ## Windows Log Analytics agent
 The following sample installs the Log Analytics agent on a Windows Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Windows](../../virtual-machines/extensions/oms-windows.md).

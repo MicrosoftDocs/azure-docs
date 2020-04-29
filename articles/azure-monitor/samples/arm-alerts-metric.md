@@ -10,7 +10,8 @@ ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
 
-This article provides samples of using [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to configure [metric alert rules](../platform/alerts-metric-near-real-time.md) in Azure Monitor. 
+This article provides samples of using [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to configure [metric alert rules](../platform/alerts-metric-near-real-time.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+
 
 See [Supported resources for metric alerts in Azure Monitor](../platform/alerts-metric-near-real-time.md) for a list of resources that can be used with metric alert rules. An explanation of the schema and properties for an alert rule is available at [Metric Alerts - Create Or Update](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
 
@@ -18,11 +19,10 @@ See [Supported resources for metric alerts in Azure Monitor](../platform/alerts-
 > Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see [Metric Alert for Logs - Resource Template](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 
-> [!NOTE]
-> While the metric alert could be created in a different resource group to the target resource, you should use the same resource group as your target resource.
 
-To create an alert using a Resource Manager template, you create a resource of type `Microsoft.Insights/metricAlerts` and fill in all related properties.An explanation of the schema and properties for an alert rule is available at [Metric Alerts - Create Or Update](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+## Template references
 
+- [Microsoft.Insights metricAlerts](/azure/templates/microsoft.insights/2018-03-01/metricalerts)
 
 ## Single criteria, static threshold
 The following sample creates a metic alert rule using a single criteria and a static threshold.
@@ -3283,5 +3283,4 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
 
 - [Get other sample templates for Azure Monitor](arm-samples.md).
 - [Learn more about alerts](../platform/alerts-overview.md).
-- [Get a sample to create an action group with Resource Manager template](arm-action-group.md)
-- For the JSON syntax and properties see [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) template reference.
+- [Get a sample to create an action group with Resource Manager template](arm-action-groups.md)

@@ -12,7 +12,8 @@ ms.date: 04/22/2020
 # Resource Manager template samples for Log Analytics agent
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to deploy and configure the Log Analytics agent for virtual machines in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
-For more information on Azure Monitor for VMs, see [What is Azure Monitor for VMs?](../insights/vminsights-overview.md). 
+[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-samples.md)]
+
 
 ## Configure workspace
 The following sample enables Azure Monitor for VMs for a Log Analytics workspace.
@@ -335,5 +336,5 @@ The following sample adds an Azure virtual machine scale set to Azure Monitor fo
 
 ## Next steps
 
-* [Deploy Windows agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-windows.md).
-* [Deploy Linux agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-linux.md).
+* [Get other sample templates for Azure Monitor](arm-samples.md).
+* [Learn more about Azure Monitor for VMs](../insights/vminsights-overview.md).

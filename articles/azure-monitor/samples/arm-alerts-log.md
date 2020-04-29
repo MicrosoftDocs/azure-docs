@@ -14,7 +14,6 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-samples.md)]
 
-For more information on log query alerts, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md).
 
 
 ## Number of results alert rule

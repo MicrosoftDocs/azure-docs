@@ -12,12 +12,15 @@ ms.date: 04/22/2020
 # Resource Manager template samples for Azure Monitor workspaces
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create diagnostic settings for an Azure resource. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
-- For more information on diagnostic settings, see [Overview of log queries in Azure Monitor](../log-query/log-query-overview.md).
+To create a diagnostic setting, add a resource of type <resource namespace>/providers/diagnosticSettings to the template. This article provides examples for two different resource types, but the same pattern can be applied to other resource types. The collection of allowed logs and metrics will vary for each resource type.
+
+[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-samples.md)]
+
 
 ## Diagnostic setting for Azure key vault 
-The following sample adds two log queries to an existing Key vault.
+The following sample adds two log queries to an Azure Key vault.
 
-### Template file0
+### Template file
 
 ```json
 {
@@ -41,7 +44,6 @@ The following sample adds two log queries to an existing Key vault.
         }
 
     },
-    "variables": {},
     "resources": [
         {
           "type": "Microsoft.KeyVault/vaults/providers/diagnosticSettings",
@@ -100,7 +102,7 @@ The following sample adds two log queries to an existing Key vault.
 ```
 
 ## Diagnostic setting for Azure SQL database
-The following sample adds two log queries to an existing Azure SQL database.
+The following sample adds two log queries to an Azure SQL database.
 ### Template file
 
 ```json
@@ -128,7 +130,6 @@ The following sample adds two log queries to an existing Azure SQL database.
         }
 
     },
-    "variables": {},
     "resources": [
         {
           "type": "microsoft.sql/servers/databases/providers/diagnosticSettings",
@@ -232,5 +233,5 @@ The following sample adds two log queries to an existing Azure SQL database.
 
 ## Next steps
 
-* [Deploy Windows agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-windows.md).
-* [Deploy Linux agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-linux.md).
+* [Get other sample templates for Azure Monitor](arm-samples.md).
+* [Learn more about diagnostic settings](../platform/diagnostic-settings.md).

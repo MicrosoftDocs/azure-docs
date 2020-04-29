@@ -10,9 +10,9 @@ ms.date: 04/22/2020
 ---
 
 # Resource Manager template samples for Azure Monitor action groups
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create workbooks in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create [action groups](../platform/action-groups.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
-Workbooks can be complex, so a typical strategy is to create the workbook in the Azure portal and then generate a resource manager template. See details of this method in [Azure Resource Manager template for deploying workbooks](../platform/workbooks-automate.md#azure-resource-manager-template-for-deploying-workbooks).
+[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-samples.md)]
 
 ## Create an action group
 The following sample creates an action group.
@@ -112,5 +112,6 @@ The following sample creates an action group.
 
 ## Next steps
 
-* [Deploy Windows agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-windows.md).
-* [Deploy Linux agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-linux.md).
+* [Get other sample templates for Azure Monitor](arm-samples.md).
+* [Learn more about action groups](../platform/action-groups.md).
+

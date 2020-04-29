@@ -9,13 +9,18 @@ ms.date: 04/22/2020
 
 ---
 
-# Resource Manager template samples for Azure Monitor workspaces
+# Resource Manager template samples for Azure Monitor log queries
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure log queries in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
-For more information on log queries, see [Overview of log queries in Azure Monitor](../log-query/log-query-overview.md).
+[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-samples.md)]
 
-## Add a log query to an existing Log Analytics workspace
-The following sample adds two log queries to an existing Log Analytics workspace.
+
+## Template references
+
+- [Microsoft.OperationalInsights workspaces/savedSearches](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/savedsearches)
+
+## Add a log query to a Log Analytics workspace
+The following sample adds a log query to a Log Analytics workspace.
 
 ### Template file
 
@@ -34,7 +39,7 @@ The following sample adds two log queries to an existing Log Analytics workspace
   "resources": [
     {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2020-03-01-preview",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
@@ -51,27 +56,6 @@ The following sample adds two log queries to an existing Log Analytics workspace
             "category": "VMSS",
             "query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "version": 1
-          }
-        },
-        {
-          "type": "savedSearches",
-          "apiVersion": "2017-04-26-preview",
-          "name": "Cross workspace query",
-            "dependsOn": [
-              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-            ],
-            "properties": {
-              "etag": "*",
-              "displayName": "Failed Logon Events",
-              "category": "Security",
-              "FunctionAlias": "failedlogonsecurityevents",
-              "query": "
-                union withsource=SourceWorkspace
-                workspace('workspace1').SecurityEvent,
-                workspace('workspace2').SecurityEvent,
-                workspace('workspace3').SecurityEvent,
-                | where EventID == 4625",
-              "version": 1
           }
         }
       ]
@@ -98,8 +82,8 @@ The following sample adds two log queries to an existing Log Analytics workspace
 }
 ```
 
-## Add a log query as a function to an existing Log Analytics workspace
-The following sample adds a log query to an existing Log Analytics workspace.
+## Add a log query as a function to a Log Analytics workspace
+The following sample adds a log query as a function to a Log Analytics workspace.
 
 ### Template file
 
@@ -124,7 +108,7 @@ The following sample adds a log query to an existing Log Analytics workspace.
       "resources": [
         {
           "type": "savedSearches",
-          "apiVersion": "2017-04-26-preview",
+          "apiVersion": "2020-03-01-preview",
           "name": "Cross workspace query",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -170,5 +154,6 @@ The following sample adds a log query to an existing Log Analytics workspace.
 
 ## Next steps
 
-* [Deploy Windows agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-windows.md).
-* [Deploy Linux agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-linux.md).
+* [Get other sample templates for Azure Monitor](arm-samples.md).
+* [Learn more about log queries](../log-query/log-query-overview.md).
+* [Learn more about functions](../log-query/functions.md).

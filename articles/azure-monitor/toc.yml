@@ -74,8 +74,6 @@
         href: samples/arm-alerts-metric.md
       - name: Action groups
         href: samples/arm-action-groups.md
-    - name: Azure Monitor for Containers
-      href: samples/arm-container-insights.md
     - name: Azure Monitor for VMs
       href: samples/arm-vminsights.md
     - name: Diagnostic settings
@@ -84,7 +82,7 @@
       href: samples/arm-workspace.md
     - name: Log queries
       href: samples/arm-log-queries.md
-    - name: Workbooks and dashboards
+    - name: Workbooks
       href: samples/arm-workbooks.md
   - name: Azure PowerShell
     href: platform/powershell-samples.md
