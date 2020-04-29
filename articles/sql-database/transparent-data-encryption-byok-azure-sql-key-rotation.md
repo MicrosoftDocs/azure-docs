@@ -1,10 +1,11 @@
 ---
-title: Rotate TDE protector - PowerShell
-description: Learn how to rotate the Transparent Data Encryption (TDE) protector for an Azure SQL server.
+title: Rotate TDE protector (PowerShell & Azure CLI)
+titleSuffix: Azure SQL Database & Azure Synapse Analytics 
+description: Learn how to rotate the Transparent Data Encryption (TDE) protector for a logical SQL server in Azure used by Azure SQL Database and Azure Synapse Analytics using PowerShell and Azure CLI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: jaszymas
@@ -12,21 +13,21 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
 ---
-# Rotate the Transparent Data Encryption (TDE) protector using PowerShell
+# Rotate the Transparent Data Encryption (TDE) protector
 
-This article describes key rotation for an Azure SQL server using a TDE protector from Azure Key Vault. Rotating an Azure SQL server's TDE protector means switching to a new asymmetric key that protects the databases on the server. Key rotation is an online operation and should only take a few seconds to complete, because this only decrypts and re-encrypts the database's data encryption key, not the entire database.
+This article describes key rotation for a [logical SQL server in Azure](sql-database-servers.md) using a TDE protector from Azure Key Vault. Rotating the logical TDE Protector for a logical SQL server means means switching to a new asymmetric key that protects the databases on the server. Key rotation is an online operation and should only take a few seconds to complete, because this only decrypts and re-encrypts the database's data encryption key, not the entire database.
 
 This guide discusses two options to rotate the TDE protector on the server.
 
 > [!NOTE]
-> A paused SQL Data Warehouse must be resumed before key rotations.
+> A paused Azure Synapse Analytics SQL pool must be resumed before key rotations.
 
 > [!IMPORTANT]
 > Do not delete previous versions of the key after a rollover. When keys are rolled over, some data is still encrypted with the previous keys, such as older database backups.
 
 ## Prerequisites
 
-- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Data Warehouse. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-azure-sql.md).
+- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for Azure SQL Database or Azure Synapse Analytics. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-azure-sql.md).
 - You must have Azure PowerShell installed and running.
 - [Recommended but optional] Create the key material for the TDE protector in a hardware security module (HSM) or local key store first, and import the key material to Azure Key Vault. Follow the [instructions for using a hardware security module (HSM) and Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) to learn more.
 
@@ -35,7 +36,7 @@ This guide discusses two options to rotate the TDE protector on the server.
 For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+> The PowerShell Azure Resource Manager (RM) module is still supported, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -83,7 +84,7 @@ az sql server tde-key set --server-key-type AzureKeyVault --kid <keyVaultKeyId> 
 
 * * *
 
-## Useful PowerShell cmdlets
+## Switch TDE protector mode
 
 # [PowerShell](#tab/azure-powershell)
 

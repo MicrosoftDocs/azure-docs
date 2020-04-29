@@ -1,6 +1,6 @@
 ---
-title: Secure a single or pooled database
-description: A tutorial that teaches you the about techniques and features to secure a single or pooled database in Azure SQL Database.
+title: Secure a database
+description: This tutorial teaches you the about techniques and features to secure an Azure SQL Database, whether it's a single database, or pooled. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,9 +9,9 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
-ms.custom: seoapril2019
+ms.custom: seoapril2019 sqldbrb=1
 ---
-# Tutorial: Secure a single or pooled database
+# Tutorial: Secure an Azure SQL Database
 
 In this tutorial you learn how to:
 
@@ -21,7 +21,7 @@ In this tutorial you learn how to:
 > - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
 > - Enable security features, such as advanced data security, auditing, data masking, and encryption
 
-Azure SQL Database secures data in a single or pooled database by allowing you to:
+Azure SQL Database secures data by allowing you to:
 
 - Limit access using firewall rules
 - Use authentication mechanisms that require identity
@@ -29,7 +29,7 @@ Azure SQL Database secures data in a single or pooled database by allowing you t
 - Enable security features
 
 > [!NOTE]
-> An Azure SQL database on a managed instance is secured using network security rules and private endpoints as described in [Azure SQL database managed instance](sql-database-managed-instance-index.yml) and [connectivity architecture](sql-database-managed-instance-connectivity-architecture.md).
+> Azure SQL Managed Instance is secured using network security rules and private endpoints as described in [Azure SQL Managed Instance](sql-database-managed-instance-index.yml) and [connectivity architecture](sql-database-managed-instance-connectivity-architecture.md).
 
 To learn more, see the [Azure SQL Database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](sql-database-security-overview.md) articles.
 
@@ -41,7 +41,7 @@ To learn more, see the [Azure SQL Database security overview](/azure/sql-databas
 To complete the tutorial, make sure you have the following prerequisites:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
-- An Azure SQL server and database
+- A [logical SQL server](sql-database-servers.md) and Azure SQL Database
   - Create them with [Azure portal](sql-database-single-database-get-started.md), [CLI](sql-database-cli-samples.md), or [PowerShell](sql-database-powershell-samples.md)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -57,11 +57,11 @@ SQL databases are protected by firewalls in Azure. By default, all connections t
 Set **Allow access to Azure services** to **OFF** for the most secure configuration. Then, create a [reserved IP (classic deployment)](../virtual-network/virtual-networks-reserved-public-ip.md) for the resource that needs to connect, such as an Azure VM or cloud service, and only allow that IP address access through the firewall. If you're using the [resource manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) deployment model, a dedicated public IP address is required for each resource.
 
 > [!NOTE]
-> SQL Database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you can't connect to the Azure SQL Database server unless your administrator opens port 1433.
+> SQL Database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you can't connect to the logical SQL server unless your administrator opens port 1433.
 
-### Set up SQL Database server firewall rules
+### Set up logical SQL server firewall rules
 
-Server-level IP firewall rules apply to all databases within the same SQL Database server.
+Server-level IP firewall rules apply to all databases within the same logical SQL server.
 
 To set up a server-level firewall rule:
 
@@ -72,7 +72,7 @@ To set up a server-level firewall rule:
     > [!NOTE]
     > Be sure to copy your fully qualified server name (such as *yourserver.database.windows.net*) for use later in the tutorial.
 
-1. On the **Overview** page, select **Set server firewall**. The **Firewall settings** page for the database server opens.
+1. On the **Overview** page, select **Set server firewall**. The **Firewall settings** page for the logical SQL server opens.
 
    1. Select **Add client IP** on the toolbar to add your current IP address to a new firewall rule. The rule can open port 1433 for a single IP address or a range of IP addresses. Select **Save**.
 
@@ -80,7 +80,7 @@ To set up a server-level firewall rule:
 
    1. Select **OK** and close the **Firewall settings** page.
 
-You can now connect to any database in the server with the specified IP address or IP address range.
+You can now connect to any database in the logical SQL server with the specified IP address or IP address range.
 
 ### Setup database firewall rules
 
@@ -191,7 +191,7 @@ Azure Active Directory authentication requires that database users are created a
 
 To add a user with Azure AD authentication:
 
-1. Connect to your Azure SQL server using an Azure AD account with at least the *ALTER ANY USER* permission.
+1. Connect to your logical SQL server in Azure using an Azure AD account with at least the *ALTER ANY USER* permission.
 
 1. In **Object Explorer**, right-click the database and select **New Query**.
 
@@ -206,7 +206,7 @@ To add a user with Azure AD authentication:
 
 ### Secure connection strings
 
-To ensure a secure, encrypted connection between the client application and SQL database, a connection string must be configured to:
+To ensure a secure, encrypted connection between the client application and SQL Database, a connection string must be configured to:
 
 - Request an encrypted connection
 - Not trust the server certificate
@@ -238,7 +238,7 @@ To enable advanced data security:
 
 1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
-1. On the **Overview** page, select the **Server name** link. The database server page will open.
+1. On the **Overview** page, select the **Server name** link. The logical SQL server page will open.
 
 1. On the **SQL server** page, find the **Security** section and select **Advanced Data Security**.
 

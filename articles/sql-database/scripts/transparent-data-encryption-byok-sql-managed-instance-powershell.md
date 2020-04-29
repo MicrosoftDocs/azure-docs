@@ -1,10 +1,11 @@
 ---
-title: "PowerShell: Enable BYOK TDE - Azure SQL Database Managed Instance "
-description: "Learn how to configure an Azure SQL Managed Instance to start using BYOK Transparent Data Encryption (TDE) for encryption-at-rest using PowerShell."
+title: "PowerShell: Enable bring-your-own-key (BYOK) TDE"
+titleSuffix: Azure SQL Managed Instance
+description: "Learn how to configure an Azure SQL Managed Instance to start using bring-your-own-key (BYOK) Transparent Data Encryption (TDE) for encryption-at-rest using PowerShell."
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: MladjoA
@@ -12,13 +13,13 @@ ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 ms.date: 11/05/2019
 ---
-# Manage Transparent Data Encryption in a Managed Instance using your own key from Azure Key Vault
+# Transparent Data Encryption (TDE) in a SQL Managed Instance using your own key from Azure Key Vault
 
 This PowerShell script example configures Transparent Data Encryption (TDE) with customer-managed key for Azure SQL Managed Instance, using a key from Azure Key Vault. This is often referred to as a Bring Your Own Key scenario for TDE. To learn more about the TDE with customer-managed key, see [TDE Bring Your Own Key to Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
 
 ## Prerequisites
 
-- An existing Managed Instance. See [Use PowerShell to create an Azure SQL Database managed instance](sql-database-create-configure-managed-instance-powershell.md).
+- An existing SQL Managed Instance. See [Use PowerShell to create an Azure SQL Managed Instance](sql-database-create-configure-managed-instance-powershell.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -38,4 +39,4 @@ If you are running PowerShell locally, you also need to run `Connect-AzAccount` 
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
+Additional SQL Managed Instance PowerShell script samples can be found in the [Azure SQL Managed Instance PowerShell scripts](../sql-database-powershell-samples.md).
