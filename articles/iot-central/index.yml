@@ -144,4 +144,4 @@ additionalContent:
         url: https://docs.microsoft.com/learn/browse/?products=azure-iot-central
       - title: Recent updates
         summary: See what's new in IoT Central.
-        url: https://azure.microsoft.com/en-us/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
+        url: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central

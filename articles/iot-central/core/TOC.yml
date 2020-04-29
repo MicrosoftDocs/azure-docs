@@ -9,7 +9,7 @@
   - name: Recent updates
     items:
     - name: March 2020
-      href: https://azure.microsoft.com/en-us/updates/azure-iot-central-march-2020-updates/
+      href: https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/
 - name: Quickstarts
   expanded: true
   items:

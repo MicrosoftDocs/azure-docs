@@ -22,7 +22,7 @@ landingContent:
           - text: Tour the UI
             url: overview-iot-central-tour.md
           - text: Recent updates
-            url: https://azure.microsoft.com/en-us/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
+            url: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
       - linkListType: architecture
         links:
           - text: Azure IoT Central architecture
