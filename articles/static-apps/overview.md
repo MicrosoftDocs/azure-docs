@@ -1,9 +1,9 @@
 ---
 title: What is Azure Static Web Apps?
 description: The key features and functionality of Azure Static Web Apps.
-services: azure-functions
+services: static-web-apps
 author: craigshoemaker
-ms.service: azure-functions
+ms.service: static-web-apps
 ms.topic:  overview
 ms.date: 05/08/2020
 ms.author: cshoe
