@@ -9,7 +9,7 @@ ms.date: 05/04/2020
 
 Azure VMware Solution (AVS) provides you with private clouds in Azure. The private clouds contain vSphere clusters, built from dedicated bare-metal Azure infrastructure. You can scale private cloud clusters from 3 to 16 hosts, with the capability to have multiple clusters in a single private cloud. All private clouds are provisioned with vCenter Server, VSAN, vSphere, and NSX-T. You can migrate workloads from your on-premises environments, create or deploy new virtual machines, and consume Azure services from your private clouds.
 
-AVS is a VMware validated solution with on-going validation and testing of enhancements and upgrades. The private cloud infrastructure and software are managed and maintained through Azure, allowing you to focus on developing and running workloads in your private clouds.
+AVS is a VMware validated solution with on-going validation and testing of enhancements and upgrades. The private cloud infrastructure and software are managed and maintained by Microsoft, allowing you to focus on developing and running workloads in your private clouds.
 
 The following diagram shows the adjacency between private clouds and VNets in Azure, Azure services, and on-premises environments. Network access from private clouds to Azure services or VNets provides SLA-driven integration of Azure service endpoints. Private cloud access from on-premises environments uses ExpressRoute Global Reach for a private and secure connection.
 
@@ -17,9 +17,9 @@ The following diagram shows the adjacency between private clouds and VNets in Az
 
 ## Hosts, clusters, and private clouds
 
-AVS private clouds and clusters are built from two types of bare-metal, hyper-converged Azure infrastructure hosts. A general-purpose (GP) host configuration is available for evaluation clusters, and a high-end (HE) host configuration is available for any use case. The high-end hosts have 576-GB RAM and dual Intel 18 core, 2.3-GHz processors. The HE hosts have two vSAN diskgroups with a total 15.36 TB (SSD) raw vSAN capacity tier, and a 3.2 TB (NVMe) vSAN cache tier. General-purpose hosts have 192-GB RAM and dual Intel 10 core, 2.2-GHz processors. The GP hosts have a single vSAN diskgroup with a total 7.68 TB (SSD) raw vSAN capacity tier, and a 1.6 TB (NVMe) vSAN cache tier.
+AVS private clouds and clusters are built from one of two types of bare-metal, hyper-converged Azure infrastructure hosts. A general-purpose (GP) host configuration is available for evaluation clusters, and a high-end (HE) host configuration is available for any use case. The high-end hosts have 576-GB RAM and dual Intel 18 core, 2.3-GHz processors. The HE hosts have two vSAN diskgroups with a total 15.36 TB (SSD) raw vSAN capacity tier, and a 3.2 TB (NVMe) vSAN cache tier. General-purpose hosts have 192-GB RAM and dual Intel 10 core, 2.2-GHz processors. The GP hosts have a single vSAN diskgroup with a total 7.68 TB (SSD) raw vSAN capacity tier, and a 1.6 TB (NVMe) vSAN cache tier.
 
-New private clouds are deployed through the Azure portal. Other deployment options include the Azure CLI, PowerShell, or Azure Resource Manager templates.
+New private clouds are deployed through the Azure portal or Azure CLI.
 
 ## Networking
 
@@ -41,7 +41,7 @@ Regular upgrades of the AVS private cloud and VMware software ensures the latest
 
 ## Monitoring your private cloud
 
-You can use [Logs in Azure Monitor](../azure-monitor/overview.md) to collect logs on your virtual machines running in your AVS private cloud. You are able to [download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) on your AVS private cloud for both Linux and Windows virtual machines just like your other on-premises or Azure virtual machines. You can run the same queries you would normally run on your virtual machines just the same. To learn more about creating queries, see [how to write queries](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
+You can use [Logs in Azure Monitor](../azure-monitor/overview.md) to collect logs on your virtual machines running in your AVS private cloud. You can [download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) on Linux and Windows virtual machines running in your AVS private clouds, using the same queries that you run on your on-premises VMs. You can run the same queries you would normally run on your virtual machines just the same. To learn more about creating queries, see [how to write queries](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
 
 ## Next steps
 

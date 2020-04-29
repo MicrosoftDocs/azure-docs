@@ -7,7 +7,7 @@ ms.date: 05/04/2020
 
 # Networking checklist for Azure VMware Solution (AVS)
 
-Azure VMware Solution offers a VMware private cloud environment, which is accessible for users and applications from on-premises environments and Azure resources. The connectivity is delivered through networking services such as Azure ExpressRoute and VPN connections. These networking services will require some specific network address ranges and firewall ports for enabling the services. This article provides you the information you need to know to properly configure your networking to work with AVS.
+Azure VMware Solution offers a VMware private cloud environment, which is accessible for users and applications from on-premises and Azure-based environments or resources. The connectivity is delivered through networking services such as Azure ExpressRoute and VPN connections and will require some specific network address ranges and firewall ports for enabling the services. This article provides you with the information you need to know to properly configure your networking to work with AVS.
 
 In this tutorial, you learn how about:
 
@@ -17,31 +17,22 @@ In this tutorial, you learn how about:
 
 ## Network connectivity
 
-The AVS private cloud can be connected to your Azure virtual network using Azure ExpressRoute. This high bandwidth, low latency connection allows you to
-access services running in your Azure subscription from your private cloud environment.
+The AVS private cloud is connected to your Azure virtual network using an Azure ExpressRoute connection. This high bandwidth, low latency connection allows you to access services running in your Azure subscription from your private cloud environment.
 
-`Example: 10.10.0.0/22`
+AVS private clouds require a minimum of a `/22` CIDR network address block for subnets, shown below. This network complements your on-premises networks. In order to connect to on-premises environments and virtual networks, this must be a non-overlapping network address block.
 
-This configuration will require a minimum of a `/22` CIDR block for the network dedicated to the private cloud environment. This network complements your on-premises networks. This configuration is broken down into several subnets upon deployment.
+Example `/22` CIDR network address block:  `10.10.0.0/22`
 
-The subnets will be:
-
-1. A gateway subnet (mandatory `/28`)  
-2. Private cloud vSphere and VSAN network (minimum `/24`)
-3. A virtual machine network.
+The subnets:
 
 | Network usage             | Subnet | Example        |
 | ------------------------- | ------ | -------------- |
-| Gateway Subnet            | `/28`    | `10.10.1.0/28`   |
-| VSphere/vSAN Subnet       | `/24`    | `10.10.0.0/24`   |
-| Virtual machine network 1 | `/24`   | `10.10.2.0/24`   |
-| Virtual machine network 2 | `/24`    | `10.10.3.0/24`   |
-| Virtual machine network 3 | `/25`    | `10.10.1.128/25` |
+| Private cloud management            | `/24`    | `10.10.0.0/24`   |
+| vMotion network       | `/24`    | `10.10.1.0/24`   |
+| VM workloads | `/24`   | `10.10.2.0/24`   |
+| ExpressRoute peering | `/24`    | `10.10.3.8/30`   |
 
-### Network Ports required to communicate with the service
-
-> [!NOTE]
-> The following list doesn't include any additional ports required for applications.
+### Network ports required to communicate with the service
 
 Source|Destination|Protocol |Port |Description  |Comment
 ---|-----|:-----:|:-----:|-----|-----
