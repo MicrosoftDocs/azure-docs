@@ -24,10 +24,14 @@ One advantage of Hive is the ability to export metadata to an external database 
 
 ## Migrate from external metastore
 
-### 1. Copy SQL database
+### 1. Run major compaction on ACID tables in HDInsight 3.6
+
+HDInsight 3.6 and HDInsight 4.0 ACID tables understand ACID deltas differently. The only action required before migration is to run 'MAJOR' compaction against each ACID table on the 3.6 cluster. See the [Hive Language Manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact) for details on compaction.
+
+### 2. Copy SQL database
 Create a new copy of your external metastore. If you're using an external metastore, one of the safe and easy ways to make a copy of the metastore is to [restore the Database](../../sql-database/sql-database-recovery-using-backups.md#point-in-time-restore) with a different name using the SQL Database restore function.  See [Use external metadata stores in Azure HDInsight](../hdinsight-use-external-metadata-stores.md) to learn more about attaching an external metastore to an HDInsight cluster.
 
-### 2. Upgrade metastore schema
+### 3. Upgrade metastore schema
 Once the metastore **copy** is complete, run a schema upgrade script in [Script Action](../hdinsight-hadoop-customize-cluster-linux.md) on the existing HDInsight 3.6 cluster to upgrade the new metastore to Hive 3 schema. (This step doesn't require the new metastore to be connected to a cluster.) This allows the database to be attached as HDInsight 4.0 metastore.
 
 Use the values in the table further below. Replace `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` with the appropriate values for the Hive metastore **copy**, separated by spaces. Don't include ".database.windows.net" when specifying the SQL server name.
@@ -48,10 +52,6 @@ You can verify the upgrade by running the following sql query against the databa
 ```sql
 select * from dbo.version
 ```
-
-### 3. Run major compaction on ACID tables in HDInsight 3.6
-
-HDInsight 3.6 and HDInsight 4.0 ACID tables understand ACID deltas differently. The only action required before migration is to run 'MAJOR' compaction against each ACID table on the 3.6 cluster. See the [Hive Language Manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact) for details on compaction.
 
 ### 4. Deploy a new HDInsight 4.0 cluster
 
