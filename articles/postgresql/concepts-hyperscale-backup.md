@@ -52,15 +52,20 @@ creates a new cluster from the original nodes' backups.
 
 ### Point-in-time restore (PITR)
 
-You can restore a cluster to any point in time within the last 35 days. The
-restore process creates a new cluster in the same Azure region, subscription,
-and resource group as the original. The cluster has the original's
-configuration: the same number of nodes, number of vCores, storage size, user
-roles, and server parameters.
-
+You can restore a cluster to any point in time within the last 35 days.
 Point-in-time restore is useful in multiple scenarios. For example, when a user
 accidentally deletes data, drops an important table or database, or if an
 application accidentally overwrites good data with bad data.
+
+The restore process creates a new cluster in the same Azure region,
+subscription, and resource group as the original. The cluster has the
+original's configuration: the same number of nodes, number of vCores, storage
+size, user roles, PostgreSQL version, and version of the Citus extension.
+
+Firewall settings and PostgreSQL server parameters are not preserved from the
+original server group, they are reset to default values. The firewall will
+prevent all connections. You will need to manually adjust these settings after
+restore.
 
 > [!IMPORTANT]
 > You'll need to open a support request to perform point-in-time restore of
@@ -74,7 +79,9 @@ following to get your users and applications back up and running:
 * If the new server is meant to replace the original server, redirect clients
   and client applications to the new server
 * Ensure appropriate server-level firewall and VNet rules are in place for
-  users to connect. These rules aren't copied from the original server.
+  users to connect. These rules aren't copied from the original server group.
+* Adjust PostgreSQL server parameters as needed. The parameters aren't copied
+  from the original server group.
 * Ensure appropriate logins and database level permissions are in place
 * Configure alerts, as appropriate
 
