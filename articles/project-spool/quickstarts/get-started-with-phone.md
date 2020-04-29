@@ -1,5 +1,5 @@
 ---
-title: Get Started With Provisioning Phone Numbers
+title: Get Started With Phone Numbers
 description: TODO
 author: mikben    
 manager: jken
@@ -13,7 +13,7 @@ ms.service: azure-project-spool
 ---
 
 
-# Get Started With Provisioning Phone Numbers
+# Get Started With Phone Numbers
 
 This quickstart will teach you how to provision phone numbers.
 
