@@ -23,9 +23,8 @@ This article provides troubleshooting information to address any issues you come
 
 ### Error in portal states discovery of storage accounts failed
 
+-Check the firewall settings of storage account to ensure that the option of allowing Microsoft Azure Services to access storage account is enabled.
 -If you have a partner subscription (CSP-enabled), ignore the error. If your subscription isn't CSP-enabled, and your storage accounts can't be discovered, contact support.
-
--Check the firewall settings of storage account to ensure that the option of allowing Microsoft Azure Services to access storage account is enabled
 
 ### Selected storage account validation or registration failed
 
