@@ -257,11 +257,6 @@ Add a CNAME record to map a wildcard name to the app's default domain name (`<ap
 
 For the `*.contoso.com` domain example, the CNAME record will map the name `*` to `<app_name>.azurewebsites.net`.
 
-| Record type | Host | Value | Comments |
-| - | - | - |
-| CNAME | `*` | `<app_name>.azurewebsites.net` | The domain mapping itself. |
-| TXT | `asuid.<subdomain>` | [The verification ID you got earlier](#get-domain-verification-id) | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
-
 When the CNAME is added, the DNS records page looks like the following example:
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
