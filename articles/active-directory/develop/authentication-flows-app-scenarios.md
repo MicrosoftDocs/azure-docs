@@ -72,7 +72,7 @@ Security tokens can be acquired by multiple types of applications. These applica
 
 The available authentication flows differ depending on the sign-in audience. Some flows are available only for work or school accounts. Others are available both for work or school accounts and for personal Microsoft accounts.
 
-For more information, see [Supported account types](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types).
+For more information, see [Supported account types](v2-supported-account-types.md#account-type-support-in-authentication-flows).
 
 ## Application scenarios
 
