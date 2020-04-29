@@ -34,7 +34,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 4. Update the system with the latest patches:
    
         # sudo zypper update
-5. Install the Azure Linux Agent from the SLES repository:
+5. Install the Azure Linux Agent from the SLES repository (SLE11-Public-Cloud-Module):
    
         # sudo zypper install python-azure-agent
 6. Check if waagent is set to "on" in chkconfig, and if not, enable it for autostart:
