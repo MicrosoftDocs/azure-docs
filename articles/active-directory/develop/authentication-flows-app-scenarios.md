@@ -134,7 +134,7 @@ Applications running on a device without a browser can still call an API on beha
 
 ![Device code flow](media/scenarios/device-code-flow-app.svg)
 
-Though we don't recommend that you use it, the [username/password flow](https://aka.ms/msal-net-up) is available in public client applications. This flow is still needed in some scenarios like DevOps.
+Though we don't recommend that you use it, the [username/password flow](scenario-desktop-acquire-token.md#username-and-password) is available in public client applications. This flow is still needed in some scenarios like DevOps.
 
 Using the username/password flow constrains your applications. For instance, applications can't sign in a user who needs to use multifactor authentication or the Conditional Access tool in Azure AD. Your applications also don't benefit from single sign-on. Authentication with the username/password flow goes against the principles of modern authentication and is provided only for legacy reasons.
 
