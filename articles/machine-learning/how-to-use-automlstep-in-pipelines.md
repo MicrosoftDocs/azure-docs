@@ -380,9 +380,28 @@ register_step = PythonScriptStep(script_name="register_model.py",
                                        runconfig=aml_run_config)
 ```
 
+## Create and run your automated ML pipeline
+
+Creating and running a pipeline that contains an `AutoMLStep` is no different than a normal pipeline. 
+
+```python
+from azureml.core import Experiment
+
+pipeline = Pipeline(ws, [dataprep_step, train_step, register_step])
+
+experiment = Experiment(workspace=ws, name='titanic_automl')
+
+run = experiment.submit(pipeline, show_output=True)
+run.wait_for_completion()
+```
+
+The code above combines the data preparation, automated ML, and model-registering steps into a `Pipeline` object. It then creates an `Experiment` object. The `Experiment` constructor will retrieve the named experiment if it exists or create it if necessary. It submits the `Pipeline` to the `Experiment`, creating a `Run` object that will asynchronously run the pipeline. The `wait_for_completion()` function blocks until the run completes.
+
 ### Download the results of an automated ML run 
 
-While the `run` object in the model-registering snippet above is from the actively running context, you can also retrieve completed `Run` objects from the `Workspace` by way of an `Experiment` object.
+While the `run` object in the code above is from the actively running context, you can also retrieve completed `Run` objects from the `Workspace` by way of an `Experiment` object.
+
+The workspace contains a complete record of all your experiments and runs. You can either use the portal to find and download the outputs of experiments or use code.
 
 ```python
 # Run on local machine
@@ -403,22 +422,6 @@ Each `Run` object contains `StepRun` objects that contain information about the 
 
 Finally, the actual metrics and model are downloaded to your local machine for further processing.
 
-## Create and run your automated ML pipeline
-
-Creating and running a pipeline that contains an `AutoMLStep` is no different than a normal pipeline. 
-
-```python
-from azureml.core import Experiment
-
-pipeline = Pipeline(ws, [dataprep_step, train_step, register_step])
-
-experiment = Experiment(workspace=ws, name='titanic_automl')
-
-run = experiment.submit(pipeline, show_output=True)
-run.wait_for_completion()
-```
-
-The code above combines the data preparation, automated ML, and model-registering steps into a `Pipeline` object. It then creates an `Experiment` object. The `Experiment` constructor will retrieve the named experiment if it exists or create it if necessary. It submits the `Pipeline` to the `Experiment`, creating a `Run` object that will asynchronously run the pipeline. The `wait_for_completion()` function blocks until the run completes.
 
 ## Next Steps
 
