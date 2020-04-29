@@ -57,7 +57,18 @@ Once linked with Global Reach, the two ExpressRoute circuits will route network 
 
 To enable full connectivity, an Authorization Key and private peering ID for Global Reach can be requested in the Azure portal. You use the key and ID to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your new private cloud. The [tutorial for creating a private cloud](tutorial-create-private-cloud.md) provides you with the procedures for requesting and using the key and ID.
 
-The routing requirements of the solution require you to plan private cloud network address spaces so that you avoid overlaps with other virtual networks and on-premises networks. A /22 network block used for each private cloud needs to be unique across your routing domains. This network block includes management and production networks in the private cloud.
+The routing requirements of the solution require you to plan private cloud network address spaces so that you avoid overlaps with other virtual networks and on-premises networks. AVS private clouds require a minimum of a `/22` CIDR network address block for subnets, shown below. This network complements your on-premises networks. In order to connect to on-premises environments and virtual networks, this must be a non-overlapping network address block.
+
+Example `/22` CIDR network address block:  `10.10.0.0/22`
+
+The subnets:
+
+| Network usage             | Subnet | Example        |
+| ------------------------- | ------ | -------------- |
+| Private cloud management            | `/24`    | `10.10.0.0/24`   |
+| vMotion network       | `/24`    | `10.10.1.0/24`   |
+| VM workloads | `/24`   | `10.10.2.0/24`   |
+| ExpressRoute peering | `/24`    | `10.10.3.8/30`   |
 
 ## Next steps 
 
