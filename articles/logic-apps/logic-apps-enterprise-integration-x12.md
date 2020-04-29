@@ -310,10 +310,10 @@ When you work with HIPAA schemas and the 277 or 837 message types, you need to p
 
 `"The message has an unknown document type and did not resolve to any of the existing schemas configured in the agreement."`
 
-This table lists the schema document version numbers, their message types, and any variants:
+This table lists the affected message types, any variants, and the document version numbers that map to those message types:
 
-| Message type or variant |  Description | GS8 document version number |
-|-------------------------|--------------|-----------------------------|
+| Message type or variant |  Description | Document version number (GS8) |
+|-------------------------|--------------|-------------------------------|
 | 277 | Health Care Information Status Notification | 005010X212 |
 | 837_I | Health Care Claim Dental | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |
 | 837_D | Health Care Claim Institutional | 004010X097A1 <br>005010X224A1 <br>005010X224A2 |
