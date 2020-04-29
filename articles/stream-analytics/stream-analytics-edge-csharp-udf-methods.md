@@ -37,7 +37,7 @@ There are three ways to implement UDFs:
 The format of any UDF package has the path `/UserCustomCode/CLR/*`. Dynamic Link Libraries (DLLs) and resources are copied under the `/UserCustomCode/CLR/*` folder, which helps isolate user DLLs from system and Azure Stream Analytics DLLs. This package path is used for all functions regardless of the method used to employ them.
 
 ## Supported types and mapping
-For Azure Stream Analytics values to be used in C#, they need to be marshaled from one environment to the other. The Marshaling happens for all input parameters of an UDF. Every Azure Stream Analytics type has a coresponding type in C# shown on the table bellow:
+For Azure Stream Analytics values to be used in C#, they need to be marshaled from one environment to the other. Marshaling happens for all input parameters of a UDF. Every Azure Stream Analytics type has a corresponding type in C# shown on the table below:
 
 |**Azure Stream Analytics type** |**C# type** |
 |---------|---------|
