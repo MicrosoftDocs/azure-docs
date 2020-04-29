@@ -1,6 +1,6 @@
 ---
-title: Manage read replicas - Azure PowerShell, REST API - Azure Database for MySQL
-description: Learn how to set up and manage read replicas in Azure Database for MySQL using PowerShell or REST API.
+title: Manage read replicas - Azure PowerShell - Azure Database for MySQL
+description: Learn how to set up and manage read replicas in Azure Database for MySQL using PowerShell.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
