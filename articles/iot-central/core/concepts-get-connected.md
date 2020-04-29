@@ -36,7 +36,7 @@ This article describes the following use cases:
 - [Connect devices at scale using X.509 certificates](#connect-devices-using-x509-certificates) - the recommended approach for production environments.
 - [Connect devices without first registering them](#connect-without-registering-devices)
 - [Connect devices that use DPS individual enrollments](#individual-enrollment-based-device-connectivity)
-- [Connect devices using IoT Plug and Play (preview) features](#connect-devices-with-iot-plug-and-play-preview)
+- [Automatically associate a device with a device template](#automatically-associate-with-a-device-template)
 
 ## Connect a single device
 
@@ -133,7 +133,7 @@ The flow is slightly different depending on whether the devices use SAS tokens o
     On the **Administration > Device connection** page, the **Auto approve** option controls whether you need to manually approve the device before it can start sending data.
 
     > [!NOTE]
-    > To learn how automatically associate a device with a device template, see [Connect devices with IoT Plug and Play (preview)](#connect-devices-with-iot-plug-and-play-preview).
+    > To learn how automatically associate a device with a device template, see [Automatically associate a device with a device template](#automatically-associate-with-a-device-template).
 
 ### Connect devices that use X.509 certificates without registering
 
@@ -150,7 +150,7 @@ The flow is slightly different depending on whether the devices use SAS tokens o
     On the **Administration > Device connection** page, the **Auto approve** option controls whether you need to manually approve the device before it can start sending data.
 
     > [!NOTE]
-    > To learn how automatically associate a device with a device template, see [Connect devices with IoT Plug and Play (preview)](#connect-devices-with-iot-plug-and-play-preview).
+    > To learn how automatically associate a device with a device template, see [Automatically associate a device with a device template](#automatically-associate-with-a-device-template).
 
 ## Individual enrollment-based device connectivity
 
@@ -159,7 +159,7 @@ For customers connecting devices that each have their own authentication credent
 > [!NOTE]
 > When you create an individual enrollment for a device, it takes precedence over the default group enrollment options in your IoT Central application.
 
-### Creating individual enrollments
+### Create individual enrollments
 
 IoT Central supports the following attestation mechanisms for individual enrollments:
 
@@ -175,14 +175,22 @@ IoT Central supports the following attestation mechanisms for individual enrollm
 
 - **Trusted Platform Module (TPM) attestation:** A [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) is a type of hardware security module. Using a TPM is one of the most secure ways to connect a device. This article assumes you're using a discrete, firmware, or integrated TPM. Software emulated TPMs are well suited for prototyping or testing, but they don't provide the same level of security as discrete, firmware, or integrated TPMs. Don't use software TPMs in production. To create an individual enrollment that uses a TPM, open the **Device Connection** page, select **Individual enrollment** as the connection method, and **TPM** as the mechanism. Enter the TPM endorsement key and save the device connection information.
 
-## Connect devices with IoT Plug and Play (preview)
+## Automatically associate with a device template
 
-One of the key features of IoT Plug and Play (preview) with IoT Central is the ability to associate device templates automatically on device connection. Along with device credentials, devices can now send the **CapabilityModelId** as part of the device registration call. This capability enables IoT Central to discover and associate the device template with the device. The discovery process works as follows:
+One of the key features of IoT Central is the ability to associate device templates automatically on device connection. Along with device credentials, devices can send a **CapabilityModelId** as part of the device registration call. The **CapabilityModelID** is a URN that identifies the capability model the device implements. The IoT Central application can use the **CapabilityModelID** to identify the device template to use and then automatically associate the device with the device template. The discovery process works as follows:
 
-1. Associates with the device template if it's already published in the IoT Central application.
-1. Fetches from the public repository of published and certified capability models.
+1. If the device template is already published in the IoT Central application, the device is associated with the device template.
+1. For pre-certified IoT Plug and Play devices, if the device template is not already published in the IoT Central application, the device template is fetched from the public repository.
 
-Below is the format of the additional payload the device would send during the DPS registration call
+The following snippets show the format of the additional payload the device must send during the DPS registration call for automatic association to work.
+
+This is the format for devices that use the generally available device SDK that doesn't support IoT Plug and Play:
+
+```javascript
+    iotcModelId: '< this is the URN for the capability model>';
+```
+
+This is the format for devices using public preview device SDK that does support IoT Plug and Play:
 
 ```javascript
 '__iot:interfaces': {
@@ -191,7 +199,7 @@ Below is the format of the additional payload the device would send during the D
 ```
 
 > [!NOTE]
-> Note that the **Auto approve** option on **Administration > Device connection** must be enabled for devices to automatically connect, discover the device template, and start sending data.
+> The **Auto approve** option on **Administration > Device connection** must be enabled for devices to automatically connect, discover the device template, and start sending data.
 
 ## Device status values
 
