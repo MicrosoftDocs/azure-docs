@@ -122,7 +122,7 @@ The HDInsight 3.6 and 4.0 clusters must use the same Storage Account.
     * For a regular HDInsight cluster, without ESP, simply execute `exporthive_hdi_3_6.sh`.
 
     * For a cluster with ESP, kinit and modify the arguments to beeline:
-    run the following, defining USER and DOMAIN for AAD user with full Hive permissions.
+    run the following, defining USER and DOMAIN for Azure AD user with full Hive permissions.
 
         ```bash
         USER="USER"  # replace USER
