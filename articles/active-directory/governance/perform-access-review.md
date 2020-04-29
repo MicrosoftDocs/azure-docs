@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/28/2020
+ms.date: 04/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -104,7 +104,7 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 ## Perform access review using My Access (Preview)
 
-You can preview the reviewer experience with the updated user interface in My Access two different ways:
+You can preview the reviewer experience with the updated user interface in My Access a couple of different ways:
 
 ### My Apps portal
 
@@ -132,29 +132,30 @@ You can preview the reviewer experience with the updated user interface in My Ac
 
    2. Click the **Start review** link to open the access review.
 
-### If you don't have an email
+### Navigate to My Access directly
 
 You can also view your pending access reviews by using your browser to open My Access.
 
-1. Sign  in to the My Access at https://myaccess.microsoft.com/#/access-reviews
+1. Sign  in to the My Access at https://myaccess.microsoft.com/
 
 2. Select **Access reviews** from the menu on the left side bar to see a list of pending access reviews assigned to you.
 
    ![access reviews in the menu](./media/perform-access-review/access-review-menu.png)
 
-3. Under Groups and Apps you can see:
-    - **Name** The name of the access review.
-    - **Due** The due date for the review. After this date denied users could be removed from the group or app being reviewed. 
-    - **Resource** Users access to the resourced named in this column is being evaluated as part of this access review.
-    - **Progress** The number of users reviewed over the total number of users part of this access review.
+### Approve or deny access for one or more users (Preview)
 
-4. Click on the name of an access review to get started.
- 
-   ![Pending access reviews list for apps and groups](./media/perform-access-review/access-reviews-list-preview.png)
+After you open My Access underGroups and Apps you can see:
+
+- **Name** The name of the access review.
+- **Due** The due date for the review. After this date denied users could be removed from the group or app being reviewed. 
+- **Resource** Users access to the resourced named in this column is being evaluated as part of this access review.
+- **Progress** The number of users reviewed over the total number of users part of this access review.
+
+Click on the name of an access review to get started.
+
+![Pending access reviews list for apps and groups](./media/perform-access-review/access-reviews-list-preview.png)
 
 Once that it opens, you will see the list of users in scope for the access review. If the request is to review your own access, the page will look different. For more information, see [Review access for yourself to groups or applications](review-your-access.md).
-
-### Approve or deny access for one or more users (Preview)
 
 There are two ways that you can approve or deny access:
 
