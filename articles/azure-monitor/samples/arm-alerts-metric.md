@@ -3281,6 +3281,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
 
 ## Next steps
 
-- Read more about [alerts in Azure](../platform/alerts-overview.md)
-- Learn how to [create an action group with Resource Manager templates](../platform/action-groups-create-resource-manager-template.md)
-- For the JSON syntax and properties, see [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) template reference.
+- [Get other sample templates for Azure Monitor](arm-samples.md).
+- [Learn more about alerts](../platform/alerts-overview.md).
+- [Get a sample to create an action group with Resource Manager template](arm-action-group.md)
+- For the JSON syntax and properties see [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) template reference.

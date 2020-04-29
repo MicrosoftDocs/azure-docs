@@ -12,10 +12,12 @@ ms.date: 04/22/2020
 # Resource Manager template samples for Azure Monitor log alert rules
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure log query alerts in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
-- For more information on log queries, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md).
+[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-samples.md)]
+
+For more information on log query alerts, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md).
 
 
-## Number of results rule
+## Number of results alert rule
 The following sample creates a [number of results alert rule](../platform/alerts-unified-log.md#metric-measurement-alert-rules).
 
 ### Notes
@@ -204,5 +206,6 @@ The following sample creates a [metric measurement alert rule](../platform/alert
 
 ## Next steps
 
-* [Deploy Windows agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-windows.md).
-* [Deploy Linux agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-linux.md).
+* [Get other sample templates for Azure Monitor](arm-samples.md).
+* [Learn more about alert rules](../platform/alerts-overview.md).
+

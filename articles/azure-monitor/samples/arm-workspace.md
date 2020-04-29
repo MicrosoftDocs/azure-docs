@@ -12,7 +12,7 @@ ms.date: 04/22/2020
 # Resource Manager template samples for Azure Monitor workspaces
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
-[!INCLUDE [azure-monitor-samples](../../../../azure-reference-other-pr/includes/azure-monitor-samples.md)]
+[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-samples.md)]
 
 For more information on Log Analytics workspaces, see [Create a Log Analytics workspace in the Azure portal](../learn/quick-create-workspace.md). For more information on data sources in a Log Analytics workspace, see [Agent data sources in Azure Monitor](../platform/agent-data-sources.md).
 
@@ -104,7 +104,7 @@ The following sample creates a new empty Log Analytics workspace.
       {
           "type": "Microsoft.OperationalInsights/workspaces",
           "name": "[parameters('workspaceName')]",
-          "apiVersion": "2017-03-15-preview",
+          "apiVersion": "2020-03-01-preview",
           "location": "[parameters('location')]",
           "properties": {
               "sku": {
@@ -169,13 +169,13 @@ The following sample adds collection of [Windows events](../platform/data-source
   "resources": [
   {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2020-03-01-preview",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
         {
           "type": "datasources",
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2020-03-01-preview",
           "name": "WindowsEventsSystem",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -195,7 +195,7 @@ The following sample adds collection of [Windows events](../platform/data-source
         },
         {
           "type": "datasources",
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2020-03-01-preview",
           "name": "WindowsEventsApplication",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -269,14 +269,14 @@ The following sample adds collection of [syslog events](../platform/data-sources
     },
     "resources": [
     {
-        "apiVersion": "2017-03-15-preview",
+        "apiVersion": "2020-03-01-preview",
         "type": "Microsoft.OperationalInsights/workspaces",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
             {
                 "type": "datasources",
-                "apiVersion": "2015-11-01-preview",
+                "apiVersion": "2020-03-01-preview",
                 "name": "SyslogKern",
                 "dependsOn": [
                     "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -314,7 +314,7 @@ The following sample adds collection of [syslog events](../platform/data-sources
             },
             {
                 "type": "datasources",
-                "apiVersion": "2015-11-01-preview",
+                "apiVersion": "2020-03-01-preview",
                 "name": "SyslogDaemon",
                 "dependsOn": [
                     "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -342,7 +342,7 @@ The following sample adds collection of [syslog events](../platform/data-sources
                 }
             },
             {
-                "apiVersion": "2015-11-01-preview",
+                "apiVersion": "2020-03-01-preview",
                 "type": "datasources",
                 "name": "SyslogCollection",
                 "dependsOn": [
@@ -407,13 +407,13 @@ The following sample adds collection of [Windows performance counters](../platfo
     },
     "resources": [
     {
-        "apiVersion": "2017-03-15-preview",
+        "apiVersion": "2020-03-01-preview",
         "type": "Microsoft.OperationalInsights/workspaces",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
           {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "datasources",
             "name": "WindowsPerfMemoryAvailableBytes",
             "dependsOn": [
@@ -428,7 +428,7 @@ The following sample adds collection of [Windows performance counters](../platfo
             }
           },
           {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "datasources",
             "name": "WindowsPerfMemoryPercentageBytes",
             "dependsOn": [
@@ -443,7 +443,7 @@ The following sample adds collection of [Windows performance counters](../platfo
             }
           },
           {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "datasources",
             "name": "WindowsPerfProcessorPercentage",
             "dependsOn": [
@@ -511,13 +511,13 @@ The following sample adds collection of [Linux performance counters](../platform
     },
     "resources": [
     {
-        "apiVersion": "2017-03-15-preview",
+        "apiVersion": "2020-03-01-preview",
         "type": "Microsoft.OperationalInsights/workspaces",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
             {
-                "apiVersion": "2015-11-01-preview",
+                "apiVersion": "2020-03-01-preview",
                 "type": "datasources",
                 "name": "LinuxPerformanceLogicalDisk",
                 "dependsOn": [
@@ -551,7 +551,7 @@ The following sample adds collection of [Linux performance counters](../platform
                 }
             },
             {
-                "apiVersion": "2015-11-01-preview",
+                "apiVersion": "2020-03-01-preview",
                 "type": "datasources",
                 "name": "LinuxPerformanceProcessor",
                 "dependsOn": [
@@ -626,13 +626,13 @@ The following sample adds collection of [custom logs](../platform/data-sources-c
     },
     "resources": [
     {
-        "apiVersion": "2017-03-15-preview",
+        "apiVersion": "2020-03-01-preview",
         "type": "Microsoft.OperationalInsights/workspaces",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
             {
-                "apiVersion": "2015-11-01-preview",
+                "apiVersion": "2020-03-01-preview",
                 "type": "dataSources",
                 "name": "[concat(parameters('workspaceName'), 'armlog_timedelimited')]",
                 "dependsOn": [
@@ -681,7 +681,7 @@ The following sample adds collection of [custom logs](../platform/data-sources-c
                 }
             },
             {
-                "apiVersion": "2015-11-01-preview",
+                "apiVersion": "2020-03-01-preview",
                 "type": "dataSources",
                 "name": "[concat(parameters('workspaceName'), 'armlog_newline')]",
                 "dependsOn": [
@@ -764,12 +764,12 @@ The following sample adds collection of [IIS logs](../platform/data-sources-iis-
     "resources": [
     {
         "type": "Microsoft.OperationalInsights/workspaces",
-        "apiVersion": "2017-03-15-preview",
+        "apiVersion": "2020-03-01-preview",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
             {
-                "apiVersion": "2015-11-01-preview",
+                "apiVersion": "2020-03-01-preview",
                 "type": "datasources",
                 "name": "IISLog",
                 "dependsOn": [
@@ -806,8 +806,8 @@ The following sample adds collection of [IIS logs](../platform/data-sources-iis-
 
 
 
-
 ## Next steps
 
-* [Deploy Windows agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-windows.md).
-* [Deploy Linux agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-linux.md).
+* [Get other sample templates for Azure Monitor](arm-samples.md).
+* [Learn more about Log Analytics workspaces](../learn/quick-create-workspace.md).
+* [Learn more about agent data sources](../platform/agent-data-sources.md).

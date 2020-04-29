@@ -47,7 +47,7 @@ az group deployment create \
 - Application Insights - Coming soon.
 - [Diagnostic settings](arm-diagnostic-settings.md) - Create diagnostic settings to forward logs and metrics from different resource types.
 - [Log queries](arm-log-queries.md) - Create saved log queries in a Log Analytics workspace.
-- [Log Analytics Workspace](arm-workspace) - Create Log Analytics workspace and configure collection of different data sources from Log Analytics agent.
+- [Log Analytics Workspace](arm-workspace.md) - Create Log Analytics workspace and configure collection of different data sources from Log Analytics agent.
 - [Workbooks](arm-workbooks.md) - Create workbooks.
 - [Azure Monitor for containers](arm-container-insights.md) - Onboard containers to Azure Monitor for containers.
 - [Azure Monitor for VMs](arm-vminsights.md) - Onboard virtual machines to Azure Monitor for VMs.

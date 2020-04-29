@@ -1,6 +1,6 @@
 ---
-title: Resource Manager template samples for Log Analytics agent in Azure Monitor
-description: Sample Azure Resource Manager templates to deploy and configure Log Analytics agent in Azure Monitor.
+title: Resource Manager template samples for Azure Monitor agents
+description: Sample Azure Resource Manager templates to deploy and configure Log Analytics agent and diagnostic extension in Azure Monitor.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
@@ -9,17 +9,15 @@ ms.date: 04/22/2020
 
 ---
 
-# Resource Manager template samples for Log Analytics agent
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to deploy and configure the Log Analytics agent for virtual machines in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+# Resource Manager template samples for Azure Monitor agents
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to deploy and configure the Log Analytics agent and diagnostic extension for virtual machines in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
-For more information on the Log Analytics agent, see [Create a Log Analytics workspace in the Azure portal](../platform/log-analytics-agent.md). 
+[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-samples.md)]
+
+For more information on the Log Analytics agent, see [Create a Log Analytics workspace in the Azure portal](../platform/log-analytics-agent.md). For more information on the diagnostic extension, see [Azure Diagnostics extension overview](../platform/diagnostics-extension-overview.md).
 
 ## Windows Log Analytics agent
-The following sample creates a new empty Log Analytics workspace.
-
-### Notes
-
-- Install the Log Analytics agent on a Windows virtual machine by enabling the [Log Analytics virtual machine extension for Windows](../../virtual-machines/extensions/oms-windows.md).
+The following sample installs the Log Analytics agent on a Windows Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Windows](../../virtual-machines/extensions/oms-windows.md).
 
 ### Template file
 
@@ -114,11 +112,7 @@ The following sample creates a new empty Log Analytics workspace.
 
 
 ## Linux Log Analytics agent
-The following sample creates a new empty Log Analytics workspace.
-
-### Notes
-
-- Install the Log Analytics agent on a Windows virtual machine by enabling the [Log Analytics virtual machine extension for Linux](../../virtual-machines/extensions/oms-linux.md).
+The following sample installs the Log Analytics agent on a Linux Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Windows](../../virtual-machines/extensions/oms-linux.md).
 
 ### Template file
 
@@ -213,6 +207,7 @@ The following sample creates a new empty Log Analytics workspace.
 
 
 ## Windows diagnostic extension
+The following sample enables and configures the diagnostic extension on a Windows Azure virtual machine. For details on the configuration, see [Windows diagnostics extension schema](../platform/diagnostics-extension-schema-windows.md).
 
 ### Template file
 
@@ -377,6 +372,7 @@ The following sample creates a new empty Log Analytics workspace.
 ```
 
 ## Linux diagnostic setting
+The following sample enables and configures the diagnostic extension on a Linux Azure virtual machine. For details on the configuration, see [Windows diagnostics extension schema](../../virtual-machines/extensions/diagnostics-linux.md).
 
 ### Template file
 
@@ -597,5 +593,6 @@ The following sample creates a new empty Log Analytics workspace.
 
 ## Next steps
 
-* [Deploy Windows agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-windows.md).
-* [Deploy Linux agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-linux.md).
+* [Get other sample templates for Azure Monitor](arm-samples.md).
+* [Learn more about Log Analytics agent](../platform/log-analytics-agent.md).
+* [Learn more about diagnostic extension](../platform/diagnostics-extension-overview.md).
