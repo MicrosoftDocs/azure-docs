@@ -256,7 +256,7 @@ Add up to 10 Azure subscription IDs manually, or up to 100 if uploading a CSV fi
 ### Connection details
 
 >[!Note]
->Offer-level technical details are optional and only need to be configured if you are publishing a managed app with custom meters authenticating with an Azure AD security token.  For more information, see [authentication strategies](marketplace-metering-service-authentication.md) on the different authentication options.
+>Offer-level technical details are optional and only need to be configured if you are publishing a managed app with custom meters authenticating with an Azure AD security token.  For more information, see [authentication strategies](./marketplace-metering-service-authentication.md) on the different authentication options.
 
 The **connection details** define the technical details (tenant ID, and app ID) used for metered usage, complete this section only if your offer includes a managed application that will emit metering events using the [Marketplace metering service APIs](./marketplace-metering-service-apis.md). Enter the identity that your service will use when emitting metering events.
 
