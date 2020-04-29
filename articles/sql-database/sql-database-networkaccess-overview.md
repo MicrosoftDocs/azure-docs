@@ -87,7 +87,7 @@ start        end
 52.229.17.64 52.229.17.127
 ```
 
-You can use this additional PowerShell scriptto convert all the IP addresses from CIDR to Start and End IP address format.
+You can use this additional PowerShell script to convert all the IP addresses from CIDR to Start and End IP address format.
 
 ```powershell
 PS C:\>foreach( $i in $sql.Properties.AddressPrefixes) {$ip,$cidr= $i.split('/') ; Get-IPrangeStartEnd -ip $ip -cidr $cidr;}                                                                                                                
