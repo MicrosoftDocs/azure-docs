@@ -21,7 +21,7 @@ This article provides information on troubleshooting issues that arise while you
 
 When you receive a compilation or deployment error for configuration, here are a few steps to help you diagnose the issue.
 
-### 1. Ensure that your configuration compiles successfully on the local machine.
+### 1. Ensure that your configuration compiles successfully on the local machine
 
 Azure Automation State Configuration is built on PowerShell Desired State Configuration (DSC). You can find the documentation for the DSC language and syntax in the [PowerShell DSC Docs](https://docs.microsoft.com/powershell/scripting/overview).
 
@@ -31,7 +31,7 @@ By compiling a DSC configuration on your local machine, you can discover and res
    - Syntax errors.
    - Logic errors.
 
-### 2. View DSC logs on your node.
+### 2. View DSC logs on your node
 
 If your configuration compiles successfully, but fails when applied to a node, you can find detailed information in the DSC logs. For information about where to find these logs, see [Where are the DSC Event Logs](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
 
@@ -43,7 +43,7 @@ To install the `xDscDiagnostics` module on your Azure machine, use [Invoke-AzVMR
 
 For information on using **xDscDiagnostics**, see [Using xDscDiagnostics to analyze DSC logs](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). See also [xDscDiagnostics Cmdlets](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
 
-### 3. Ensure that nodes and the Automation workspace have required modules.
+### 3. Ensure that nodes and the Automation workspace have required modules
 
 DSC depends on modules installed on the node. When you use Azure Automation State Configuration, import any required modules into your Automation account by following the steps in [Import Modules](../shared-resources/modules.md#importing-modules). Configurations can also have a dependency on specific versions of modules. For more information, see [Troubleshoot modules](shared-resources.md#modules).
 
@@ -114,19 +114,19 @@ This issue might also be caused by a proxy configuration not allowing access to 
 
 Use the following steps to reregister the failing DSC node.
 
-#### Step 1: Unregister the node.
+#### Step 1: Unregister the node
 
 1. In the Azure portal, go to **Home** > **Automation Accounts** > (your Automation account) > **State configuration (DSC)**.
 1. Select **Nodes**, and select the node having trouble.
 1. Select **Unregister** to unregister the node.
 
-#### Step 2: Uninstall the DSC extension from the node.
+#### Step 2: Uninstall the DSC extension from the node
 
 1. In the Azure portal, go to **Home** > **Virtual Machine** > (failing node) > **Extensions**.
 1. Select **Microsoft.Powershell.DSC**, the PowerShell DSC extension.
 1. Select **Uninstall** to uninstall the extension.
 
-#### Step 3: Remove all bad or expired certificates from the node.
+#### Step 3: Remove all bad or expired certificates from the node
 
 On the failing node from an elevated PowerShell prompt, run these commands:
 
@@ -146,7 +146,7 @@ If (($certs.Count) -gt 0)
 }
 ```
 
-#### Step 4: Reregister the failing node.
+#### Step 4: Reregister the failing node
 
 1. In the Azure portal, go to **Home** > **Automation Accounts** > (your Automation account) > **State configuration (DSC)**.
 1. Select **Nodes**.
@@ -274,7 +274,7 @@ Treat the cross-subscription node as though it's defined for a separate cloud, o
 * Windows: [Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines).
 * Linux: [Physical/virtual Linux machines on-premises, or in a cloud other than Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines).
 
-## <a name="agent-has-a-problem"></a>Scenario: Error message - "Provisioning Failed"
+## <a name="agent-has-a-problem"></a>Scenario: "Provisioning has failed" error message
 
 ### Issue
 
