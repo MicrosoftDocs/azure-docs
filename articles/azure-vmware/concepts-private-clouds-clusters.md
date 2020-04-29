@@ -49,7 +49,7 @@ The current software versions of the VMware software used in AVS private cloud c
 | VCSA / vSphere / ESXi |    6.7 U2    | 
 | ESXi                  |    6.7 U2    | 
 | vSAN                  |    6.7 U2    |
-| NSX-T                 |      2.3     |
+| NSX-T                 |      2.5     |
 
 For any new cluster in a private cloud, the version of software will match what is currently running in the private cloud. For any new private cloud in a customer subscription, the latest version of the software stack is installed.
 
@@ -59,7 +59,10 @@ The general upgrade policies and processes for the AVS platform software is desc
 
 Host maintenance and lifecycle management are done without impact on the capacity or performance of private cloud clusters. Examples of automated host maintenance include firmware upgrades and hardware repair or replacement.
 
-Microsoft is responsible for lifecycle management of NSX-T appliances and bootstrapping network config. As an administrator to your AVS private cloud, you are responsible for NSX-T SDN configuration like network segments, distributed firewall rules, Tier 1 gateways, and load balancers.
+Microsoft is responsible for lifecycle management of NSX-T appliances such as NSX-T Manager and NSX-T Edges. Microsoft is also responsible for bootstrapping network config, such as creating the Tier-0 gateway and enabling North-South Routing. As an administrator to your AVS private cloud, you are responsible for NSX-T SDN configuration like network segments, distributed firewall rules, Tier 1 gateways, and load balancers.
+
+> [!IMPORTANT]
+> An AVS admin must not modify the configuration of NSX-T Edges or Tier-0 Gateway. This may result in a loss of service.
 
 ## Backup and restoration
 
