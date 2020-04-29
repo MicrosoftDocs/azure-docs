@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Edge Preview Demo
-description: Learn about details of features supported by Azure SQL Edge
+title: Azure SQL Edge Preview demo
+description: Learn how to use ONNX in Azure SQL Edge
 keywords: 
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -11,7 +11,7 @@ ms.reviewer: sstein
 ms.date: 04/28/2020
 ---
 
-# ONNX in Azure SQL Edge demo
+# ONNX in Azure SQL Edge Preview demo
 
 In this AzureSQLEdge_Demo demo, we will be predicting iron ore impurities as a % of Silica with ONNX in Azure SQL Edge. Before implementing the demo please ensure, you have an active Azure subscription and you have installed the below prerequisite software.
 
@@ -226,7 +226,7 @@ $deviceConnectionString = az iot hub device-identity show-connection-string --de
 $connString = $deviceConnectionString[1].Substring(23,$deviceConnectionString[1].Length-24)
 $connString
 ```
-Update the connection string in the IoTEdge Config File on the Edge Device. The next commands use Azure CLI for deployments.
+Update the connection string in the Iot Edge config file on the Edge device. The next commands use Azure CLI for deployments.
 ```powershell
 $script = "/etc/iotedge/configedge.sh '" + $connString + "'"
 az vm run-command invoke -g $ResourceGroup -n $EdgeDeviceId  --command-id RunShellScript --script $script
@@ -235,7 +235,7 @@ Create an Azure Machine learning workspace within the Resource Group
 ```powershell
 az ml workspace create -w $MyWorkSpace -g $ResourceGroup
 ```
-## Predict Iron Ore Impurities (% of Silica) with ONNX in SQL Database Edge
+## Predict iron impurities (% of Silica) with ONNX
 The following python code can be collated in Jupyter notebook and run on Azure Data Studio. Before we begin with the experiment, we need to install and import the below packages.
 ```python
 !pip install azureml.core -q

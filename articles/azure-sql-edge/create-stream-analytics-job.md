@@ -1,6 +1,6 @@
 ---
-title: Create a Stream Analytics Job in Azure SQL Edge Preview
-description: Learn about creating Stream Analytics Jobs in Azure SQL Edge Preview
+title: Create a Stream Analytics job in Azure SQL Edge Preview
+description: Learn about creating Stream Analytics jobs in Azure SQL Edge Preview
 keywords: 
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -11,7 +11,7 @@ ms.reviewer: sstein
 ms.date: 04/28/2020
 ---
 
-# Create Stream Analytics Job in Azure SQL Edge Preview
+# Create Stream Analytics job in Azure SQL Edge Preview
 
 This article explains how to create a T-SQL Streaming job in Azure SQL Edge preview. To create a streaming job in SQL Edge, the following steps are needed
 
@@ -26,7 +26,7 @@ T-SQL Streaming makes use of the external data source functionality of SQL Serve
 
 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
 
-[CREATE EXTERNAL STREAM (Transact-SQL)]()
+[CREATE EXTERNAL STREAM (Transact-SQL)](#example-create-an-external-stream-object-sql-database)
 
 Additionally, in case of SQL Edge (or SQL Server, Azure SQL) being used as an output stream, the [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql) T-SQL command is required to define the credentials to access SQL database.
 
@@ -154,7 +154,7 @@ INTO TemperatureAnomalies FROM MyEdgeHubInput2;
 go
 ```
 
-## Start, Stop, drop and monitor Streaming Jobs
+## Start, Stop, drop and monitor Streaming jobs
 
 To start a streaming job in SQL Edge, execute the **sys.sp_start_streaming_job** stored procedure. The stored procedure requires the same of the streaming job to start, as input.
 
@@ -204,6 +204,5 @@ The streaming job can be in any one of the following statuses
 
 ## Next Steps
 
-[Viewing metadata associated with stream  jobs in Azure SQL Edge Preview]()
-
-[Create External Stream]()
+- View metadata associated with streaming jobs in Azure SQL Edge Preview
+- Create an External Stream

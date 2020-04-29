@@ -31,18 +31,18 @@
     href: onnx-overview.md
 - name: Resources
   items:
-  - name: Edge demo
-    href: ase-demo.md
+  - name: ONNX demo
+    href: onnx-demo.md
   - name: Backup and restore
     href: backup-restore.md
   - name: Configure replication
     href: configure-replication.md
   - name: Connect
     href: connect.md
-  - name: Create streaming job
-    href: create-streaming-job.md
-  - name: Data streaming
-    href: data-streaming.md
+  - name: Create Stream Analytics job
+    href: create-stream-analytics-job.md
+  - name: Stream data
+    href: stream-data.md
   - name: Features
     href: features.md
   - name: Track data changes

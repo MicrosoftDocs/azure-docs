@@ -1,5 +1,5 @@
 ---
-title: Configure Replication to Azure SQL Edge Preview
+title: Configure replication to Azure SQL Edge Preview
 description: Learn about configuring replication to Azure SQL Edge
 keywords: 
 services: sql-database-edge
@@ -11,16 +11,16 @@ ms.reviewer: sstein
 ms.date: 04/28/2020
 ---
 
-# Configure Replication to Azure SQL Edge Preview
+# Configure replication to Azure SQL Edge Preview
 
 Azure SQL Edge instance can be configured as the push subscriber for a one-way transactional replication or snapshot replication. Azure SQL Edge instance cannot act as the publisher or the distributor for a transactional replication configuration. Merge Replication, P2P Replication, Oracle Publishing are not supported with Azure SQL Edge.
 
-## **Supported Configurations:**
+## **Supported configurations**:
   
 - Azure SQL Edge instance must be a push subscriber for a publisher.
 - The publisher and the distributor can be either
-    1. An instance of SQL Server running on-premises or an instance of SQL Server running in an Azure virtual machine. For more information, see [SQL Server on Azure Virtual Machines overview](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/). SQL Server instances must be using a version greater than SQL Server 2016.
-    2. An instance of Azure SQL Database Managed Instance. Managed Instance can host publisher, distributor, and subscriber databases. For more information, see [Replication with SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
+   - An instance of SQL Server running on-premises or an instance of SQL Server running in an Azure virtual machine. For more information, see [SQL Server on Azure Virtual Machines overview](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/). SQL Server instances must be using a version greater than SQL Server 2016.
+   - An instance of Azure SQL Database Managed Instance. Managed Instance can host publisher, distributor, and subscriber databases. For more information, see [Replication with SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - The distribution database and the replication agents cannot be placed on an Azure SQL Edge instance.  
 
@@ -82,7 +82,7 @@ Create a publication and a push subscription. For more information, see:
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) by using the Azure SQL Edge server name/IP as the subscriber (for example **myEdgeinstance,1433**) and a database name on the Azure SQL Edge instance as the destination database (for example **AdventureWorks**).  
 
-## See Also  
+## See also  
 
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)

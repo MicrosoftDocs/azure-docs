@@ -1,5 +1,5 @@
 ---
-title: Tracking Data Changes in Azure SQL Edge Preview
+title: Tracking data changes in Azure SQL Edge Preview
 description: Learn about change tracking and change data capture in Azure SQL Edge
 keywords:
 services: sql-database-edge

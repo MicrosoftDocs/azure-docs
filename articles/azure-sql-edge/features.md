@@ -47,9 +47,9 @@ Azure SQL Edge only supports the database engine and does not include support fo
 
 In addition to supporting a subset of SQL Server on Linux features, Azure SQL Edge includes support for the following new features. 
 
-1. SQL Streaming, which is based on the same engine that powers Azure Stream Analytics, provides real-time data streaming capabilities in Azure SQL Edge. 
-2. New T-SQL function call Date_Bucket for Time-Series data Analytics
-3. Machine Learning capabilities through the ONNX runtime, included with the SQL engine.
+- SQL Streaming, which is based on the same engine that powers Azure Stream Analytics, provides real-time data streaming capabilities in Azure SQL Edge. 
+- New T-SQL function call Date_Bucket for Time-Series data analytics.
+- Machine Learning capabilities through the ONNX runtime, included with the SQL engine.
 
 ## SQL Server on Linux features not supported in Azure SQL Edge
 

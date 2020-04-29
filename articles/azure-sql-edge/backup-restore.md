@@ -1,5 +1,5 @@
 ---
-title: Backup and Restore databases in Azure SQL Edge Preview
+title: Backup and restore databases in Azure SQL Edge Preview
 description: Learn about backup and restore capabilities in Azure SQL Edge Preview
 keywords: 
 services: sql-database-edge
@@ -128,7 +128,7 @@ Azure SQL Edge supports backups to both page blobs and block blobs. For more inf
 
 Azure SQL Edge supports restoring from both a local disk, a network location or from an Azure Blob Storage account. For an overview of Restore and Recovery in SQL Server, refer [Restore and Recovery Overview](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server?view=sql-server-ver15). For an overview of the simple recovery model in SQL Server, refer [Complete Database Restores (Simple Recovery Model)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model?view=sql-server-ver15).
 
-### Restore from Local disk
+### Restore from local disk
 
 This example uses the *IronOreSilicaPrediction* backup performed in the previous example for restoration as a new database with a different name.
 

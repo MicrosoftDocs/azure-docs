@@ -1,5 +1,5 @@
 ---
-title: Connect and Query Azure SQL Edge Preview
+title: Connect and query Azure SQL Edge Preview
 description: Learn about connecting and querying Azure SQL Edge Preview
 keywords: 
 services: sql-database-edge
@@ -15,10 +15,10 @@ ms.date: 04/28/2020
 
 After deploying Azure SQL Edge container, you can connect to the SQL database engine from any of the following locations.
 
-1. Inside the container
-2. From another docker container running on the same host.
-3. From the host machine
-4. From any other client machine on the network.
+- Inside the container
+- From another docker container running on the same host.
+- From the host machine
+- From any other client machine on the network.
 
 ## Tools to connect to Azure SQL Edge
 
@@ -31,8 +31,8 @@ Connections to an Azure SQL Edge instance can be made from any of the common too
 
 To connect to an Azure SQL Edge database engine from a network machine, you'll need the following
 
-1. *IP Address or network name of the host machine* - This is the host machine where Azure SQL Edge container is running.
-2. *Azure SQL Edge container host port mapping* - This is the port mapping for the docker container port to a port on the host. Within the container SQL Edge is always mapped to port 1433. This can be changed as part of the Azure SQL Edge deployment. To change the port number, update the "Container Create Options" for the SQL Edge module in Azure IoT Edge. In the example provided below, port 1433 on the container is mapped to port 1600 on the host.
+- *IP Address or network name of the host machine* - This is the host machine where Azure SQL Edge container is running.
+- *Azure SQL Edge container host port mapping* - This is the port mapping for the docker container port to a port on the host. Within the container SQL Edge is always mapped to port 1433. This can be changed as part of the Azure SQL Edge deployment. To change the port number, update the "Container Create Options" for the SQL Edge module in Azure IoT Edge. In the example provided below, port 1433 on the container is mapped to port 1600 on the host.
 
     ```JSON
     {
@@ -46,7 +46,7 @@ To connect to an Azure SQL Edge database engine from a network machine, you'll n
     }
     ```
 
-3. *SA password for the SQL Edge instance* - This is the value specified for the **SA_PASSWORD** environment variable during SQL Edge deployment.
+- *SA password for the SQL Edge instance* - This is the value specified for the **SA_PASSWORD** environment variable during SQL Edge deployment.
 
 ## Connecting to the database engine from within the container
 
@@ -103,13 +103,13 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ```
 
-To connect to an instance of SQL Edge using SQL Server Management Studio running on a Windows machine, refer [SQL Server Management Studio] (https://docs.microsoft.com/sql/linux/sql-server-linux-manage-ssms).
+To connect to an instance of SQL Edge using SQL Server Management Studio running on a Windows machine, refer [SQL Server Management Studio](https://docs.microsoft.com/sql/linux/sql-server-linux-manage-ssms).
 
 To connect to an instance of SQL Edge using Visual Studio Code on a Windows, Mac or Linux machine refer [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode).
 
 To connect to an instance of SQL Edge using Azure Data Studio on Windows, Mac or Linux machine refer [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-server).
 
-## See Also
+## See also
 
 [Connect and Query](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker#connect-and-query)
 
