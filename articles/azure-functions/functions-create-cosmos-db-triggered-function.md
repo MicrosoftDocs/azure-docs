@@ -11,7 +11,7 @@ ms.custom: cc996988-fb4f-47
 
 Learn how to create a function triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](../cosmos-db/serverless-computing-database.md).
 
-![View message in the logs.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
+:::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Azure Cosmos DB code":::
 
 ## Prerequisites
 
@@ -21,6 +21,9 @@ To complete this tutorial:
 
 > [!NOTE]
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+
+## Sign in to Azure
+Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
 ## Create an Azure Cosmos DB account
 
@@ -42,20 +45,21 @@ Next, you create a function in the new function app.
 
 1. On the **New Function** page, enter `cosmos` in the search field and then choose the **Azure Cosmos DB trigger** template.
 
-   ![Functions page in the Azure portal](./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png)
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Functions page in the Azure portal":::
 
-1. Configure the new trigger with the settings as specified in the table below the image.
 
-    ![Create the Azure Cosmos DB triggered function](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
+1. Configure the new trigger with the settings as specified in the following table:
 
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **New Function** | Accept the default name | The name of the function. |
     | **Cosmos DB account connection** | Accept the default new name | Select **New**, the **Database Account** you created earlier, and then **OK**. This action creates an application setting for your account connection. This setting is used by the binding to connection to the database. |
-    | **Database name** | Tasks | Name of database with the container to be monitored. |
-    | **Collection name** | Items | Name of container to be monitored. |
+    | **Database name** | Tasks | Name of the database that includes the collection to be monitored. |
+    | **Collection name** | Items | Name of the collection to be monitored. |
     | **Collection name for leases** | leases | Name of the collection to store the leases. |
-    | **Create lease container if it does not exist** | Yes | Because the container doesn't already exist, so create it. |
+    | **Create lease collection if it does not exist** | Yes | Checks for existence of the lease collection and automatically creates it. |
+
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Create the Azure Cosmos DB triggered function":::
 
 1. Select **Create Function**. 
 
@@ -63,7 +67,7 @@ Next, you create a function in the new function app.
 
 1. To display the template-based function code, select **Code + Test**.
 
-    ![Cosmos DB function template in C#](./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png)
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Cosmos DB function template in C#":::
 
     This function template writes the number of documents and the first document ID to the logs.
 
@@ -102,7 +106,7 @@ After the container specified in the function binding exists, you can test the f
 
 1. Expand the new **Items** container in Data Explorer, choose **Items**, then select **New Item**.
 
-    ![Create an item in Items container](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Create an item in Items container":::
 
 1. Replace the contents of the new item with the following content, then choose **Save**.
 
