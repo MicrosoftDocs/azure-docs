@@ -21,18 +21,18 @@ In Data Factory, use the expression language of the mapping data flow feature to
 ___
 ### <code>abs</code>
 <code><b>abs(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Absolute value of a number.
+Absolute value of a number.  
 * ``abs(-20) -> 20``  
 * ``abs(10) -> 10``  
-___
+___   
 ### <code>acos</code>
 <code><b>acos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates a cosine inverse value
+Calculates a cosine inverse value  
 * ``acos(1) -> 0.0``  
 ___
 ### <code>add</code>
 <code><b>add(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Adds a pair of strings or numbers. Adds a date to a number of days. Adds a duration to a timestamp. Appends one array of similar type to another. Same as the + operator
+Adds a pair of strings or numbers. Adds a date to a number of days. Adds a duration to a timestamp. Appends one array of similar type to another. Same as the + operator  
 * ``add(10, 20) -> 30``  
 * ``10 + 20 -> 30``  
 * ``add('ice', 'cream') -> 'icecream'``  
@@ -44,39 +44,39 @@ Adds a pair of strings or numbers. Adds a date to a number of days. Adds a durat
 ___
 ### <code>addDays</code>
 <code><b>addDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to add&gt;</i> : integral) => datetime</b></code><br/><br/>
-Add days to a date or timestamp. Same as the + operator for date
+Add days to a date or timestamp. Same as the + operator for date  
 * ``addDays(toDate('2016-08-08'), 1) -> toDate('2016-08-09')``  
 ___
 ### <code>addMonths</code>
 <code><b>addMonths(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;months to add&gt;</i> : integral, [<i>&lt;value3&gt;</i> : string]) => datetime</b></code><br/><br/>
-Add months to a date or timestamp. You can optionally pass a timezone
+Add months to a date or timestamp. You can optionally pass a timezone  
 * ``addMonths(toDate('2016-08-31'), 1) -> toDate('2016-09-30')``  
 * ``addMonths(toTimestamp('2016-09-30 10:10:10'), -1) -> toTimestamp('2016-08-31 10:10:10')``  
 ___
 ### <code>and</code>
 <code><b>and(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Logical AND operator. Same as &&
+Logical AND operator. Same as &&  
 * ``and(true, false) -> false``  
 * ``true && false -> false``  
 ___
 ### <code>asin</code>
 <code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates an inverse sine value
+Calculates an inverse sine value  
 * ``asin(0) -> 0.0``  
 ___
 ### <code>atan</code>
 <code><b>atan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates a inverse tangent value
+Calculates a inverse tangent value  
 * ``atan(0) -> 0.0``  
 ___
 ### <code>atan2</code>
 <code><b>atan2(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
-Returns the angle in radians between the positive x-axis of a plane and the point given by the coordinates
+Returns the angle in radians between the positive x-axis of a plane and the point given by the coordinates  
 * ``atan2(0, 0) -> 0.0``  
 ___
 ### <code>byName</code>
 <code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Selects a column value by name in the stream. You can pass a optional stream name as the second argument. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...).  Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions
+Selects a column value by name in the stream. You can pass a optional stream name as the second argument. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...).  Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions  
 * ``toString(byName('parent'))``  
 * ``toLong(byName('income'))``  
 * ``toBoolean(byName('foster'))``  
