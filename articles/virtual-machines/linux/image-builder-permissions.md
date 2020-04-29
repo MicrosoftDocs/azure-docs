@@ -28,40 +28,39 @@ When you register for the Azure Image Builder Service, you grant the service per
 
 Azure Image Builder **does not** have permission to access other resources in other resource groups in the subscription. You need to take explicit actions to allow access to avoid your builds from failing.
 
-To allow Azure Image Builder to create,manage and delete a staging resource group you must register for the service:
+To allow Azure Image Builder to create,manage and delete a staging resource group you must register for the service using a Azure CLI or PowerShell command.
 
-### CLI example
+Using Azure CLI:
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-### PowerShell example
+Using PowerShell:
 
-```PowerShell
+```powershell-interactive
 Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
 ## Privileges
 
-Depending on your scenario, privileges are required for Azure Image Builder. The following sections detail the privileges required for possible scenarios. To grant the required privileges, you can create an Azure custom role definition and assign it to the Azure Image Builder service principal name. For examples showing how to create a custom role definition and assigning it to the Azure Image Builder service principal name, see [Create an Azure role definition](#create-an-azure-role-definition).
+Depending on your scenario, privileges are required for Azure Image Builder. The following sections detail the privileges required for possible scenarios. To grant the required privileges, create an Azure custom role definition and assign it to the Azure Image Builder service principal name. For examples showing how to create and assign an Azure custom role definition, see [Create an Azure role definition](#create-an-azure-role-definition) at the end of the article.
 
 ### Distribute images
 
 For Azure Image Builder to distribute images (Managed Images / Shared Image Gallery), the Azure Image Builder service must be allowed to inject the images into these resource groups, to do this, you need to grant the Azure Image Builder Service Principal Name (SPN) rights on the resource group where the image will be placed. 
 
-You can avoid granting the Azure Image Builder SPN contributor on the resource group to distribute images, but it's SPN will need these these Azure Actions in the distribution resource group:
+You can avoid granting the Azure Image Builder SPN contributor on the resource group to distribute images, but it's service principal name needs the following Azure `Actions` permissions in the distribution resource group:
 
-```bash
-# These privileges are minimum required for image builder 
-# whether you are distributing from Managed Images or Shared Image Gallery
-
+```Actions
 Microsoft.Compute/images/write
 Microsoft.Compute/images/read
 Microsoft.Compute/images/delete
+```
 
-# In addition, if distributing to a shared image gallery you also need:
+If distributing to a shared image gallery, you also need:
 
+```Actions
 Microsoft.Compute/galleries/read
 Microsoft.Compute/galleries/images/read
 Microsoft.Compute/galleries/images/versions/read
@@ -72,11 +71,13 @@ Microsoft.Compute/galleries/images/versions/write
 
 For Azure Image Builder to build images from source custom images (Managed Images / Shared Image Gallery), the Azure Image Builder service must be allowed to read the images into these resource groups, to do this, you need to grant the Azure Image Builder Service Principal Name (SPN) reader rights on the resource group where the image is located. 
 
-```bash
+```Actions
 # to build from an existing custom image
+
 Microsoft.Compute/galleries/read
 
 # to build from an existing SIG version
+
 Microsoft.Compute/galleries/read
 Microsoft.Compute/galleries/images/read
 Microsoft.Compute/galleries/images/versions/read
@@ -88,7 +89,7 @@ Azure Image Builder has the capability to deploy and use an existing VNET in you
 
 You can avoid granting the Azure Image Builder SPN contributor for it to deploy a VM to an existing VNET, but it's SPN will need these Azure Actions on the VNET resource group:
 
-```bash
+```Actions
 Microsoft.Network/virtualNetworks/read
 Microsoft.Network/virtualNetworks/subnets/join/action
 ```
@@ -99,35 +100,43 @@ The following examples create an Azure role definition from the actions describe
 
 The image actions allow read and write. Decide what is appropriate for your environment. For example, create a role to allow Azure Image Builder to read images from resource group *example-rg-1* and write images to resource group *example-rg-2*.
 
-### Example: Use source custom image and distribute a custom image
+### Use and distribute a source custom image example
 
 The following script sets Azure Image Builder service principal name permissions to use a source custom image and distribute a custom image.
 
-Azure CLI
-
-```bash
+```azurecli
 # Set your variables
+
 subscriptionID=<subID>
 imageResourceGroup=<distributionRG>
+```
+Download pre-configured example
 
-# Download pre-configured example
+```azurecli
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+```
 
-# Update the definition
+Update the definition
+
+```azurecli
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" aibRoleImageCreation.json
+```
 
-# Create role definitions
+Create and grant role definitions
+
+```azurecli
 az role definition create --role-definition ./aibRoleImageCreation.json
 
 # Grant role definition to the Azure Image Builder service principal name
+
 az role assignment create \
     --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
     --role "Azure Image Builder Service Image Creation Role" \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
-### Example: Use an existing VNET
+### Use an existing VNET example
 
 Setting Azure Image Builder service principal name permissions to allow it to use an existing VNET
 
