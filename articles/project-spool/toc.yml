@@ -28,7 +28,7 @@
     href: quickstarts/get-started-with-video.md
   - name: Get Started With Messaging
     href: quickstarts/get-started-with-messaging.md
-  - name: Get Started With Provisioning Phone Numbers
+  - name: Get Started With Phone Numbers
     href: quickstarts/get-started-with-phone.md
 - name: Tutorials 
   expanded: true
