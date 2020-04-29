@@ -308,7 +308,7 @@ Runbook jobs that run in Azure sandboxes can't access any device or application 
 
 ## Working with webhooks
 
-External services, for example, Azure DevOps services and GitHub, can start a runbook in Azure Automation. To do this type of startup, the service uses a [webhook](automation-webhooks.md) via a single HTTP request. Use of a webhook allows runbooks to be started without implementation of a full Azure Automation solution. 
+External services, for example, Azure DevOps Services and GitHub, can start a runbook in Azure Automation. To do this type of startup, the service uses a [webhook](automation-webhooks.md) via a single HTTP request. Use of a webhook allows runbooks to be started without implementation of a full Azure Automation solution. 
 
 ## Supporting time-dependent scripts
 
