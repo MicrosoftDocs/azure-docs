@@ -150,5 +150,6 @@ The following diagram illustrates the DNS resolution sequence from an 
 :::image type="content" source="media/private-endpoint-dns/on-premise-forwarding-to-azure.png" alt-text="on premise forwarding to azure dns":::
 
 
+
 ## Next steps
 - [Learn about Private Endpoints](private-endpoint-overview.md)
