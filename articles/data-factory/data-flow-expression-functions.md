@@ -327,176 +327,176 @@ Checks if the value is NOT NULL and returns it else returns the alternate. It te
 ___
 ### <code>in</code>
 <code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
-Checks if an item is in the array
+Checks if an item is in the array  
 * ``in([10, 20, 30], 10) -> true``  
 * ``in(['good', 'kid'], 'bad') -> false``  
 ___
 ### <code>initCap</code>
 <code><b>initCap(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Converts the first letter of every word to uppercase. Words are identified as separated by whitespace
+Converts the first letter of every word to uppercase. Words are identified as separated by whitespace  
 * ``initCap('cool iceCREAM') -> 'Cool Icecream'``  
 ___
 ### <code>instr</code>
 <code><b>instr(<i>&lt;string&gt;</i> : string, <i>&lt;substring to find&gt;</i> : string) => integer</b></code><br/><br/>
-Finds the position(1 based) of the substring within a string. 0 is returned if not found
+Finds the position(1 based) of the substring within a string. 0 is returned if not found  
 * ``instr('dumbo', 'mbo') -> 3``  
 * ``instr('microsoft', 'o') -> 5``  
 * ``instr('good', 'bad') -> 0``  
 ___
 ### <code>isDelete</code>
 <code><b>isDelete([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Checks if the row is marked for delete. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1
+Checks if the row is marked for delete. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1  
 * ``isDelete()``  
 * ``isDelete(1)``  
 ___
 ### <code>isError</code>
 <code><b>isError([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Checks if the row is marked as error. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1
+Checks if the row is marked as error. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1  
 * ``isError()``  
 * ``isError(1)``  
 ___
 ### <code>isIgnore</code>
 <code><b>isIgnore([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Checks if the row is marked to be ignored. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1
+Checks if the row is marked to be ignored. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1  
 * ``isIgnore()``  
 * ``isIgnore(1)``  
 ___
 ### <code>isInsert</code>
 <code><b>isInsert([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Checks if the row is marked for insert. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1
+Checks if the row is marked for insert. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1  
 * ``isInsert()``  
 * ``isInsert(1)``  
 ___
 ### <code>isMatch</code>
 <code><b>isMatch([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Checks if the row is matched at lookup. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1
+Checks if the row is matched at lookup. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1  
 * ``isMatch()``  
 * ``isMatch(1)``  
 ___
 ### <code>isNull</code>
 <code><b>isNull(<i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
-Checks if the value is NULL
+Checks if the value is NULL  
 * ``isNull(NULL()) -> true``  
 * ``isNull('') -> false``  
 ___
 ### <code>isUpdate</code>
 <code><b>isUpdate([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Checks if the row is marked for update. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1
+Checks if the row is marked for update. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1  
 * ``isUpdate()``  
 * ``isUpdate(1)``  
 ___
 ### <code>isUpsert</code>
 <code><b>isUpsert([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
-Checks if the row is marked for insert. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1
+Checks if the row is marked for insert. For transformations taking more than one input stream you can pass the (1-based) index of the stream. The stream index should be either 1 or 2 and the default value is 1  
 * ``isUpsert()``  
 * ``isUpsert(1)``  
 ___
 ### <code>lastDayOfMonth</code>
 <code><b>lastDayOfMonth(<i>&lt;value1&gt;</i> : datetime) => date</b></code><br/><br/>
-Gets the last date of the month given a date
+Gets the last date of the month given a date  
 * ``lastDayOfMonth(toDate('2009-01-12')) -> toDate('2009-01-31')``  
 ___
 ### <code>least</code>
 <code><b>least(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
-Comparison lesser than or equal operator. Same as <= operator
+Comparison lesser than or equal operator. Same as <= operator  
 * ``least(10, 30, 15, 20) -> 10``  
 * ``least(toDate('2010-12-12'), toDate('2011-12-12'), toDate('2000-12-12')) -> toDate('2000-12-12')``  
 ___
 ### <code>left</code>
 <code><b>left(<i>&lt;string to subset&gt;</i> : string, <i>&lt;number of characters&gt;</i> : integral) => string</b></code><br/><br/>
-Extracts a substring start at index 1 with number of characters. Same as SUBSTRING(str, 1, n)
+Extracts a substring start at index 1 with number of characters. Same as SUBSTRING(str, 1, n)  
 * ``left('bojjus', 2) -> 'bo'``  
 * ``left('bojjus', 20) -> 'bojjus'``  
 ___
 ### <code>length</code>
 <code><b>length(<i>&lt;value1&gt;</i> : string) => integer</b></code><br/><br/>
-Returns the length of the string
+Returns the length of the string  
 * ``length('dumbo') -> 5``  
 ___
 ### <code>lesser</code>
 <code><b>lesser(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Comparison less operator. Same as < operator
+Comparison less operator. Same as < operator  
 * ``lesser(12, 24) -> true``  
 * ``('abcd' < 'abc') -> false``  
 * ``(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS') < toTimestamp('2019-02-05 08:21:34.890', 'yyyy-MM-dd HH:mm:ss.SSS')) -> true``  
 ___
 ### <code>lesserOrEqual</code>
 <code><b>lesserOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-Comparison lesser than or equal operator. Same as <= operator
+Comparison lesser than or equal operator. Same as <= operator  
 * ``lesserOrEqual(12, 12) -> true``  
 * ``('dumbo' <= 'dum') -> false``  
 ___
 ### <code>levenshtein</code>
 <code><b>levenshtein(<i>&lt;from string&gt;</i> : string, <i>&lt;to string&gt;</i> : string) => integer</b></code><br/><br/>
-Gets the levenshtein distance between two strings
+Gets the levenshtein distance between two strings  
 * ``levenshtein('boys', 'girls') -> 4``  
 ___
 ### <code>like</code>
 <code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
 The pattern is a string that is matched literally. The exceptions are the following special symbols:  _ matches any one character in the input (similar to . in posix regular expressions)
   % matches zero or more characters in the input (similar to .* in posix regular expressions).
-  The escape character is ''. If an escape character precedes a special symbol or another escape character, the following character is matched literally. It is invalid to escape any other character.
+  The escape character is ''. If an escape character precedes a special symbol or another escape character, the following character is matched literally. It is invalid to escape any other character.  
 * ``like('icecream', 'ice%') -> true``  
 ___
 ### <code>locate</code>
 <code><b>locate(<i>&lt;substring to find&gt;</i> : string, <i>&lt;string&gt;</i> : string, [<i>&lt;from index - 1-based&gt;</i> : integral]) => integer</b></code><br/><br/>
-Finds the position(1 based) of the substring within a string starting a certain position. If the position is omitted it is considered from the beginning of the string. 0 is returned if not found
+Finds the position(1 based) of the substring within a string starting a certain position. If the position is omitted it is considered from the beginning of the string. 0 is returned if not found  
 * ``locate('mbo', 'dumbo') -> 3``  
 * ``locate('o', 'microsoft', 6) -> 7``  
 * ``locate('bad', 'good') -> 0``  
 ___
 ### <code>log</code>
 <code><b>log(<i>&lt;value1&gt;</i> : number, [<i>&lt;value2&gt;</i> : number]) => double</b></code><br/><br/>
-Calculates log value. An optional base can be supplied else a Euler number if used
+Calculates log value. An optional base can be supplied else a Euler number if used  
 * ``log(100, 10) -> 2``  
 ___
 ### <code>log10</code>
 <code><b>log10(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates log value based on 10 base
+Calculates log value based on 10 base  
 * ``log10(100) -> 2``  
 ___
 ### <code>lower</code>
 <code><b>lower(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Lowercases a string
+Lowercases a string  
 * ``lower('GunChus') -> 'gunchus'``  
 ___
 ### <code>lpad</code>
 <code><b>lpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
-Left pads the string by the supplied padding until it is of a certain length. If the string is equal to or greater than the length, then it is trimmed to the length
+Left pads the string by the supplied padding until it is of a certain length. If the string is equal to or greater than the length, then it is trimmed to the length  
 * ``lpad('dumbo', 10, '-') -> '-----dumbo'``  
 * ``lpad('dumbo', 4, '-') -> 'dumb'``  
 * ``lpad('dumbo', 8, '<>') -> '<><dumbo'``  
 ___
 ### <code>ltrim</code>
 <code><b>ltrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
-Left trims a string of leading characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter
+Left trims a string of leading characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter  
 * ``ltrim('  dumbo  ') -> 'dumbo  '``  
 * ``ltrim('!--!du!mbo!', '-!') -> 'du!mbo!'``  
 ___
 ### <code>map</code>
 <code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
-Maps each element of the array to a new element using the provided expression. Map expects a reference to one element in the expression function as #item
+Maps each element of the array to a new element using the provided expression. Map expects a reference to one element in the expression function as #item  
 * ``map([1, 2, 3, 4], #item + 2) -> [3, 4, 5, 6]``  
 * ``map(['a', 'b', 'c', 'd'], #item + '_processed') -> ['a_processed', 'b_processed', 'c_processed', 'd_processed']``  
 ___
 ### <code>mapIndex</code>
 <code><b>mapIndex(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => any</b></code><br/><br/>
-Maps each element of the array to a new element using the provided expression. Map expects a reference to one element in the expression function as #item and a reference to the element index as #index
+Maps each element of the array to a new element using the provided expression. Map expects a reference to one element in the expression function as #item and a reference to the element index as #index  
 * ``mapIndex([1, 2, 3, 4], #item + 2 + #index) -> [4, 6, 8, 10]``  
 ___
 ### <code>md5</code>
 <code><b>md5(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
-Calculates the MD5 digest of set of column of varying primitive datatypes and returns a 32 character hex string. It can be used to calculate a fingerprint for a row
+Calculates the MD5 digest of set of column of varying primitive datatypes and returns a 32 character hex string. It can be used to calculate a fingerprint for a row  
 * ``md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '4ce8a880bd621a1ffad0bca905e1bc5a'``  
 ___
 ### <code>millisecond</code>
 <code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the millisecond value of a date. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
+Gets the millisecond value of a date. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html  
 * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``  
 ___
 ### <code>milliseconds</code>
 <code><b>milliseconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
-Duration in milliseconds for number of milliseconds
+Duration in milliseconds for number of milliseconds  
 * ``milliseconds(2) -> 2L``  
 ___
 ### <code>minus</code>
