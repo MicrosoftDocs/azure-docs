@@ -171,5 +171,5 @@ MOVE 'IronOreSilicaPrediction_log' TO '/var/opt/mssql/data/IronOreSilicaPredicti
 STATS = 10;
 ```
 
-#Next Steps
+
 

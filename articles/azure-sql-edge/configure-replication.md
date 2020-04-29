@@ -39,7 +39,7 @@ To use all the features of Azure SQL Edge, you must be using the latest versions
 - Only push subscriptions to Azure SQL Edge are supported.  
 - Only `@subscriber_type = 0` is supported in **sp_addsubscription** for Azure SQL Edge.  
 - Azure SQL Edge does not support bi-directional, immediate, updatable, or peer to peer replication.
-- Azure SQL Edge only supports a subset of features available in SQL Server or Azure SQL Database Managed Instance, as such an attempt to replicate a database (or objects within the database) which contain one or more unsupported features will result in a failure. For example, attempting to replicate a database which contains objects with spatial data types will result in an error. For more information on features supported by Azure SQL Edge, see [Supported features of Azure SQL Edge](Azure_SQL_Edge_Features.md).
+- Azure SQL Edge only supports a subset of features available in SQL Server or Azure SQL Database Managed Instance, as such an attempt to replicate a database (or objects within the database) which contain one or more unsupported features will result in a failure. For example, attempting to replicate a database which contains objects with spatial data types will result in an error. For more information on features supported by Azure SQL Edge, see [Supported features of Azure SQL Edge](features.md).
 
 ## Scenarios  
 

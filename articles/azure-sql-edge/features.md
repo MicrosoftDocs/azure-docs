@@ -98,7 +98,7 @@ The list below includes the SQL Server 2019 on Linux features that are currently
 | &nbsp; | Distributed Replay |
 | **Manageability** | SQL Server Utility Control Point |
 
-# Next Steps
+## Next Steps
 
 - [Deploy Azure SQL Edge](deploy-portal.md)
 - [Connect to an instance of Azure SQL Edge using SQL Server client tools](connect.md)
