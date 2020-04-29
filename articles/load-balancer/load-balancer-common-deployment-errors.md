@@ -1,11 +1,12 @@
 ---
 title: Troubleshoot common deployment errors
-titleSuffix: Troubleshoot common deployment errors with Azure Load Balancer
+titleSuffix: Troubleshoot common Azure Load Balancer errors
 description: Describes how to resolve common errors when you deploy Azure Load Balancers
 services: load-balancer
 documentationcenter: na
 tags: top-support-issue
 author: anavinahar
+ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
@@ -27,7 +28,7 @@ This article describes some common Azure Load Balancer deployment errors and pro
 |AnotherInternalLoadBalancerExists| You can have only one Load Balancer of type internal reference the same set of VMs/network interfaces in the backend of the Load Balancer. Update your deployment to ensure you are creating only one Load Balancer of the same type. |
 |CannotUseInactiveHealthProbe| You cannot have a probe that's not used by any rule configured for VMSS health. Ensure that the probe that is set up is being actively used. |
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| You cannot have multiple Load Balancers of the same type(internal, public). You can have a maximum of one internal and one public Load Balancer. |
-|VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Basic Load Balancer is not supported for multiple-placement group VMSS's or cross-availability zone VMSS. Use Standard Load Balancer instead|
+|VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Basic Load Balancer is not supported for multiple-placement group VMSS's or cross-availability zone VMSS. Use Standard Load Balancer instead. |
 | |  |
 
 ## Next steps
