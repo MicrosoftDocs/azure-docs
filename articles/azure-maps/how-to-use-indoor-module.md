@@ -19,7 +19,7 @@ The Azure Maps Web SDK includes the *Indoor Maps* module. The  *Indoor Maps* mod
 1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
 2. [Enable Creator](how-to-manage-creator.md)
 3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
-4. Get a `tilesetId` and a `statesetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md).
+4. Get a `tilesetId` and a `stateSetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md).
  You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
 
 ## Embed the Indoor Maps module
@@ -72,31 +72,31 @@ The first thing you must do is create a *map object*. The *map object* will be u
 
 ## Instantiate the Indoor Manager
 
-To load the indoor tilesets and map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *map object* and the corresponding tilesetID. You may optionally include the `statesetId`, if you're using [dynamic map styling](indoor-map-dynamic-styling.md). The code below shows you how to instantiate the indoor manager:
+To load the indoor tilesets and map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *map object* and the corresponding tilesetID. You may optionally include the `stateSetId`, if you're using [dynamic map styling](indoor-map-dynamic-styling.md). The code below shows you how to instantiate the indoor manager:
 
 ```javascript
 const tilesetId = "";
-const statesetId = "";
+const stateSetId = "";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
     tilesetId: "<tilesetId>",
-    statesetId: "<statesetId>" // Optional
+    stateSetId: "<stateSetId>" // Optional
 });
 ```
 
-To enable polling of state data you provide, you must provide the `statesetId` and call `indoorManager.setDynamicStyling(true)`. Polling state data lets you dynamically update the state of dynamic properties or *states*. For example, a feature, such as room, within a tile can have a dynamic property (*state*) called `occupancy`. Your application may wish to poll for any *state* changes to reflect the change inside the visual map. The code below shows you how to enable state polling:
+To enable polling of state data you provide, you must provide the `stateSetId` and call `indoorManager.setDynamicStyling(true)`. Polling state data lets you dynamically update the state of dynamic properties or *states*. For example, a feature, such as room, within a tile can have a dynamic property (*state*) called `occupancy`. Your application may wish to poll for any *state* changes to reflect the change inside the visual map. The code below shows you how to enable state polling:
 
 ```javascript
 
 const tilesetId = "";
-const statesetId = "";
+const stateSetId = "";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
     tilesetId: "<tilesetId>",
-    statesetId: "<statesetId>" // Optional
+    stateSetId: "<stateSetId>" // Optional
 });
 
-if (statesetId.length > 0) {
+if (stateSetId.length > 0) {
     indoorManager.setDynamicStyling(true);
 }
 
@@ -150,7 +150,7 @@ This example shows you how to use the *Indoor Maps* module in your web applicati
     - `style` allows you to set the color of the background. To display a white background, define `style` as "blank".
     - `zoom` allows you to specify the min and max zoom levels for your map.
 
-5. Next, create the *Indoor Manager* module. Assign the *Indoor Maps* `tilesetId`, and optionally add the `statesetId`.
+5. Next, create the *Indoor Manager* module. Assign the *Indoor Maps* `tilesetId`, and optionally add the `stateSetId`.
 
 6. Instantiate the *Indoor Level Picker* control.
 
@@ -189,8 +189,8 @@ Your file should now look similar to the HTML below.
       <div id="map-id"></div>
       <script>
         const subscriptionKey = "<your Azure Maps Primary Subscription Key>";
-        const tilesetId = "<your tile set id>";
-        const statesetId = "<your state set id>";
+        const tilesetId = "<your tilesetId>";
+        const stateSetId = "<your stateSetId>";
 
         const map = new atlas.Map("map-id", {
           //use your facility's location
@@ -208,10 +208,10 @@ Your file should now look similar to the HTML below.
         const indoorManager = new atlas.indoor.IndoorManager(map, {
           levelControl, //level picker
           tilesetId,
-          statesetId, //optional
+          stateSetId, //optional
         });
 
-        if (statesetId.length > 0) {
+        if (stateSetId.length > 0) {
           indoorManager.setDynamicStyling(true);
         }
 
