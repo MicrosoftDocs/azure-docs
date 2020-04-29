@@ -9,7 +9,7 @@ ms.date: 05/04/2020
 
 Network interconnectivity between your Azure VMware Solution (AVS) private clouds and on-premises environments or virtual networks in Azure enables you to access and use your private cloud. A few key networking and interconnectivity concepts that establish the basis of interconnectivity are described in this article.
 
-A useful perspective on interconnectivity is to consider the two types of AVS private cloud implementations: Those implementations with basic Azure-only interconnectivity and those implementations with full on-premises to private cloud interconnectivity.
+A useful perspective on interconnectivity is to consider the two types of AVS private cloud implementations. The implementations with basic Azure-only interconnectivity and the implementations with full on-premises to private cloud interconnectivity.
 
 The use cases for AVS private clouds include:
 - new VMware VM workloads in the cloud
