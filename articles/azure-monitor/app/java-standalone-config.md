@@ -146,11 +146,13 @@ If you have some JMX metrics that you are interested in capturing:
 }
 ```
 
-## Micrometer
+## Micrometer (including metrics from Spring Boot Actuator)
 
-By default, if your application uses [Micrometer](https://micrometer.io), Application Insights 3.0 (starting with Preview.2) now adds itself to the Micrometer global registry and captures Micrometer metrics.
+If your application uses [Micrometer](https://micrometer.io), Application Insights 3.0 (starting with Preview.2) now captures metrics sent to the Micrometer global registry.
 
-If you want to disable this feature:
+If your application uses [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), Application Insights 3.0 (starting with Preview.4) now captures metrics configured by Spring Boot Actuator (which uses Micrometer, but doesn't use the Micrometer global registry).
+
+If you want to disable these features:
 
 ```json
 {
