@@ -1,9 +1,9 @@
 ---
 title: Install and use Azure IoT explorer | Microsoft Docs
-description: Install the Azure IoT explorer tool and use it to interact with the IoT Plug and Play Preview devices connected to my IoT hub.
-author: miagdp
-ms.author: miag
-ms.date: 12/27/2019
+description: Install the Azure IoT explorer tool and use it to interact with the IoT Plug and Play Preview devices connected to IoT hub.
+author: rido-min
+ms.author: rmpablos
+ms.date: 04/29/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Install and use Azure IoT explorer
 
-The Azure IoT explorer is a graphical tool for interacting with and testing your IoT Plug and Play Preview devices. After installing the tool on your local machine, you can use it to connect to a device. You can use the tool to view the telemetry the device is sending, work with device properties, and call commands.
+The Azure IoT explorer is a graphical tool for interacting with and testing your IoT Plug and Play Preview devices. After installing the tool on your local machine, you can use it to connect to a hub. You can use the tool to view the telemetry the devices are sending, work with device properties, and invoke commands.
 
 This article shows you how to:
 
@@ -36,6 +36,9 @@ To use the Azure IoT explorer tool, you need:
 
 Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. Download and install the most recent version of the application.
 
+>[!Important]
+>From version 0.10.18 IoT Explorer only supports the latest PnP release. To use the features available in the previous preview-release you must install version 0.10.17 or lower.
+
 ## Use Azure IoT explorer
 
 For a device, you can either connect your own device, or use one of our sample simulated devices. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/iothub_client/samples) to run the simulated device sample.
@@ -44,13 +47,13 @@ For a device, you can either connect your own device, or use one of our sample s
 
 The first time you run Azure IoT explorer, you're prompted for your IoT hub's connection string. After you add the connection string, select **Connect**. You can use the tool's settings to switch to another IoT hub by updating the connection string.
 
-The model definition for an IoT Plug and Play device is stored in either the public repository, a company repository, or your connected device. By default, the tool looks for your model definition in the public model repository and your connected device. You can add and remove sources, or configure the priority of the sources in **Settings**:
+The model definition for an IoT Plug and Play device is stored in either the public repository, a company repository, or a local folder. By default, the tool looks for your model definition in the public model repository and your connected device. You can add and remove sources, or configure the priority of the sources in **Settings**:
 
 To add a source:
 
 1. Go to **Settings**.
 1. Select **New** and choose your source.
-1. If you're adding your company model repository, provide the connection string.
+1. If you're adding your company model repository, provide the model repository connection string.
 
 To remove a source:
 
@@ -87,17 +90,20 @@ This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, 
 
 ### Digital twin
 
-You can use the tool to a view digital twin instance of the device. For an IoT Plug and Play device, all the interfaces associated with the device capability model are displayed in this section of the tool. Select an interface to expand its corresponding [IoT Plug and Play primitives](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+If the device is connected to hub using a Model Id, the tool will show the tab `IoT Plug and Play components` where users can see the ModelId.
 
-### Interface
+If the ModelId is available in one of the configured sources - Public Repo, Company Repo or Local Folder, the list of components will be displayed. Selecting a component will show the properties, commands and telemetry available.
 
-On the **Interface** page, you can view the JSON definition of the interface.
+
+### Components
+
+On the **Component** page, you can view the non-writable properties , update writable properties, invoke commands and see the telemetry messages produced by this component,
 
 #### Properties
 
-You can view the read-only properties defined in an interface on the **Non-writeable properties** page. You can update the writeable properties defined in an interface on the **Writeable properties** page:
+You can view the read-only properties defined in an interface on the **Properties (non-writable)** tab. You can update the writeable properties defined in an interface on the **Properties (writable)** tab:
 
-1. Go to the **Writable properties** page.
+1. Go to the **Properties (writable)** tab.
 1. Click the property you'd like to update.
 1. Enter the new value for the property.
 1. Preview the payload to be sent to the device.
@@ -107,7 +113,7 @@ After you submit a change, you can track the update status: **synching**, **succ
 
 #### Commands
 
-To send a command to a device, go to the **Commands** page:
+To send a command to a device, go to the **Commands** tab:
 
 1. In the list of commands, expand the command you want to trigger.
 1. Enter any required values for the command.
@@ -116,7 +122,7 @@ To send a command to a device, go to the **Commands** page:
 
 #### Telemetry
 
-To view the telemetry for the selected interface, go to its **Telemetry** page.
+To view the telemetry for the selected interface, go to its **Telemetry** tab.
 
 ## Next steps
 
