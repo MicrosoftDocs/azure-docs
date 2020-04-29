@@ -48,7 +48,7 @@ For Azure Stream Analytics values to be used in C#, they need to be marshaled fr
 |Record | Dictionary\<string, object> |
 |Array | Array\<object> |
 
-The same is true when data needs to be marshaled from C# to Azure Stream Analytics, this happens on the output value of an UDF. The table bellow shows what types are supported:
+The same is true when data needs to be marshaled from C# to Azure Stream Analytics, which happens on the output value of a UDF. The table below shows what types are supported:
 
 |**C# type**  |**Azure Stream Analytics type**  |
 |---------|---------|
