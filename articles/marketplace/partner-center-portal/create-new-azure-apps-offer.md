@@ -253,12 +253,12 @@ Add up to 10 Azure subscription IDs manually, or up to 100 if uploading a CSV fi
 >[!Note]
 >The preview audience differs from a private audience. A preview audience is allowed access to your offer *prior* to being published live in the marketplaces. You may also choose to create a plan and make it available only to a private audience (using the plan Availability tab).  Your preview audience will be able to see and validate all plans, including plans which will be available only to a private audience once your offer is fully published to the marketplace.
 
-### Connection details
+### Technical configuration
 
 >[!Note]
 >Offer-level technical details are optional and only need to be configured if you are publishing a managed app with custom meters authenticating with an Azure AD security token.  For more information, see [authentication strategies](./marketplace-metering-service-authentication.md) on the different authentication options.
 
-The **connection details** define the technical details (tenant ID, and app ID) used for metered usage, complete this section only if your offer includes a managed application that will emit metering events using the [Marketplace metering service APIs](./marketplace-metering-service-apis.md). Enter the identity that your service will use when emitting metering events.
+The **technical configuration** define the technical details (tenant ID, and app ID) used for metered usage, complete this section only if your offer includes a managed application that will emit metering events using the [Marketplace metering service APIs](./marketplace-metering-service-apis.md). Enter the identity that your service will use when emitting metering events.
 
 * **Azure AD tenant ID** (required): Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (for example 50c464d3-4930-494c-963c-1e951d15360e).
 * **Azure AD app ID** (required): You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (for example 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
