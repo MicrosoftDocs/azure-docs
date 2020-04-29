@@ -6,7 +6,7 @@ ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 04/29/2020
 ---
 
 # Create an Azure application offer
@@ -253,6 +253,22 @@ Add up to 10 Azure subscription IDs manually, or up to 100 if uploading a CSV fi
 >[!Note]
 >The preview audience differs from a private audience. A preview audience is allowed access to your offer *prior* to being published live in the marketplaces. You may also choose to create a plan and make it available only to a private audience (using the plan Availability tab).  Your preview audience will be able to see and validate all plans, including plans which will be available only to a private audience once your offer is fully published to the marketplace.
 
+### Connection details
+
+>[!Note]
+>Offer-level technical details are optional and only need to be configured if you are publishing a managed app with custom meters authenticating with an Azure AD security token.  For more information, see [authentication strategies](marketplace-metering-service-authentication.md) on the different authentication options.
+
+The **connection details** define the technical details (tenant ID, and app ID) used for metered usage, complete this section only if your offer includes a managed application that will emit metering events using the [Marketplace metering service APIs](./marketplace-metering-service-apis.md). Enter the identity that your service will use when emitting metering events.
+
+* **Azure AD tenant ID** (required): Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (for example 50c464d3-4930-494c-963c-1e951d15360e).
+* **Azure AD app ID** (required): You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (for example 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
+
+>[!Note]
+>The Azure application ID will be associated to your publisher ID, and can only be re-used within this publisher account.
+
+>[!Note]
+>This configuration is required if you want to use [Batch usage event](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis#batch-usage-event).  In case you want to submit [usage event](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis#usage-event), you can also use the [instance metadata service](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to get the [JSON web token (JWT) bearer token](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app).
+
 ## Plan overview
 
 The **Plan overview** tab enables you to provide different plan options within the same offer. These plans (referred to as SKUs in the Cloud Partner Portal) can differ in terms of plan type (solution template vs. managed application), monetization, or audience.  Configure at least one plan in order to list your offer in the marketplace.
@@ -413,19 +429,6 @@ The **Previously published packages** subtab enables you to view all published v
 ## Technical configuration (managed application plans only)
 
 Managed application plans have additional complexity on the **Technical configuration** tab beyond the **Version** and **Package file** fields described above. 
-
-### Connection details
-
-The **connection details** define the technical details (tenant ID, and app ID) used for metered usage, complete this section only if your offer includes a managed application that will emit metering events using the [Marketplace metering service APIs](./marketplace-metering-service-apis.md). Enter the identity that your service will use when emitting metering events.
-
-* **Azure AD tenant ID** (required): Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (for example 50c464d3-4930-494c-963c-1e951d15360e).
-* **Azure AD app ID** (required): You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (for example 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
-
->[!Note]
->The Azure application ID is associated to your publisher ID, so make sure that the same application ID is used in all your offers.
-
->[!Note]
->This configuration is required if you want to use [Batch usage event](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis#batch-usage-event).  In case you want to submit [usage event](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis#usage-event), you can also use the [instance metadata service](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to get the [JSON web token (JWT) bearer token](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app).
 
 ### Enable just-in-time (JIT) access
 
