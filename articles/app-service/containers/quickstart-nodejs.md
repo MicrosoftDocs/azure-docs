@@ -82,7 +82,7 @@ Next, ensure that the application runs. From the terminal, start the application
 npm start
 ```
 
-Now, open your browser and navigate to [http://localhost:3000](http://localhost:3000), where you should see something like this:
+Now, open your browser and navigate to `http://localhost:3000`, where you should see something like this:
 
 ![Running Express Application](./media/quickstart-nodejs/express.png)
 
