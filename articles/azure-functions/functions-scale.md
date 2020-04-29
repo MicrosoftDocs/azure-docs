@@ -176,3 +176,11 @@ Useful queries and information on how to understand your consumption bill can be
 The following table indicates the limits that apply to function apps when running in the various hosting plans:
 
 [!INCLUDE [functions-limits](../../includes/functions-limits.md)]
+
+## Hosting plans comparison
+
+The following comparison table shows all important aspects to help the decision of Azure Functions App hosting plan choice:
+
+[!INCLUDE [functions-limits](../../includes/functions-hosting-comparison-table.md)]
+
+
