@@ -131,13 +131,48 @@ The baseline Titanic dataset consists of mixed numerical and text data, with som
 - Write the transformed data to the `PipelineData` output paths
 
 ```python
-# dataprep.py
+%%writefile dataprep.py
+from azureml.core import Run
 
 import pandas as pd 
-from azureml.core import Run
 import numpy as np 
+import pyarrow as pa
+import pyarrow.parquet as pq
 from sklearn.model_selection import train_test_split
 import argparse
+
+RANDOM_SEED=42
+
+def prepare_age(df):
+    # Fill in missing Age values from distribution of present Age values 
+    mean = df["Age"].mean()
+    std = df["Age"].std()
+    is_null = df["Age"].isnull().sum()
+    # compute enough (== is_null().sum()) random numbers between the mean, std
+    rand_age = np.random.randint(mean - std, mean + std, size = is_null)
+    # fill NaN values in Age column with random values generated
+    age_slice = df["Age"].copy()
+    age_slice[np.isnan(age_slice)] = rand_age
+    df["Age"] = age_slice
+    df["Age"] = df["Age"].astype(int)
+    
+    # Quantize age into 5 classes
+    df['Age_Group'] = pd.qcut(df['Age'],5, labels=False)
+    df.drop(['Age'], axis=1, inplace=True)
+    return df
+
+def prepare_fare(df):
+    df['Fare'].fillna(0, inplace=True)
+    df['Fare_Group'] = pd.qcut(df['Fare'],5,labels=False)
+    df.drop(['Fare'], axis=1, inplace=True)
+    return df 
+
+def prepare_genders(df):
+    genders = {"male": 0, "female": 1, "unknown": 2}
+    df['Sex'] = df['Sex'].map(genders)
+    df['Sex'].fillna(2, inplace=True)
+    df['Sex'] = df['Sex'].astype(int)
+    return df
 
 def prepare_embarked(df):
     df['Embarked'].replace('', 'U', inplace=True)
@@ -145,9 +180,7 @@ def prepare_embarked(df):
     ports = {"S": 0, "C": 1, "Q": 2, "U": 3}
     df['Embarked'] = df['Embarked'].map(ports)
     return df
-
-# ... Similar prepare_* functions not shown ...
-
+    
 parser = argparse.ArgumentParser()
 parser.add_argument('--output_path', dest='output_path', required=True)
 args = parser.parse_args()
@@ -162,11 +195,15 @@ pq.write_table(pa.Table.from_pandas(df), args.output_path)
 print(f"Wrote test to {args.output_path} and train to {args.output_path}")
 ```
 
-The above code snippet shows how the `Embarked` column is prepared. Empty and not available data is replaced with a `'U'` for "Unknown". Then, the code defines a dictionary that maps a string-based category into an integer. The `map` function applies that transform and replaces the string-based column with an integer-based one. Similar functions to prepare age, fare, and gender data are not shown. tk download notebook link? Or do we not want to take the dependency? tk 
+The above code snippet is a complete, but minimal, example of data preparation for the Titanic data. The snippet starts with a Jupyter "magic command" to output the code to a file. If you are not using a Jupyter notebook, remove that line and create the file manually.
 
-The code parses the input argument, which is the path to which we want to write our data. (These values will be determined by `PipelineData` objects that will be discussed in the next step.) The code retrieves the registered `'titanic_cs'` `Dataset` and calls the various data preparation functions. 
+The various `prepare_` functions in the above snippet modify the relevant column in the input dataset. These functions work on the data once it has been changed into a Pandas `DataFrame` object. In each case, missing data is either filled with representative random data or categorical data indicating "Unknown." Text-based categorical data is mapped to integers. No-longer-needed columns are overwritten or dropped. 
 
-The code uses `mkdirs` to create the directory for the output data file (`args.output_path`) and then writes the datasets as a Parquet file at that destination. 
+After the data preparation functions are defined, the code parses the input argument, which is the path to which we want to write our data. (These values will be determined by `PipelineData` objects that will be discussed in the next step.) The code retrieves the registered `'titanic_cs'` `Dataset`, converts it to a Pandas `DataFrame`, and calls the various data preparation functions. 
+
+Since the `output_path` is fully-qualified, the function `os.makedirs()` is used to prepare the directory structure. At this point, you could use `DataFrame.to_csv()` to write the output data, but Parquet files are somewhat more efficient. This efficiency would probably be irrelevant with such a small dataset, but using the **PyArrow** package's `from_pandas()` and `write_table()` functions are only a few more keystrokes than `to_csv()`.
+
+Parquet files are natively supported by the automated ML step discussed below, so no special processing is required to consume them. 
 
 ### Write the data preparation pipeline step
 
@@ -303,7 +340,7 @@ The last step in a basic ML pipeline is registering the created model. To do so,
 A model is registered in a `Workspace`. You're probably familiar with using `Workspace.from_config()` to log on to your workspace on your local machine, but there's another way to get the workspace from within a running ML pipeline. The `Run.get_context()` retrieves the active `Run`. This `run` object provides access to many important objects, including the `Workspace` used here.
 
 ```python
-# register_model.py
+%%writefile register_model.py
 from azureml.core.model import Model, Dataset
 from azureml.core.run import Run, _OfflineRun
 from azureml.core import Workspace
