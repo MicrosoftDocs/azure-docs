@@ -187,6 +187,7 @@ Follow these steps to ensure that the solution is configured correctly.
 1. Ensure all VMs to be started or stopped have a `sequencestart` or `sequencestop` tag, depending on your situation. These tags need a positive integer as the value. VMs are processed in ascending order based on this value.
 1. Make sure the resource groups for the VMs to be started or stopped are in the `External_Start_ResourceGroupNames` or `External_Stop_ResourceGroupNames` variables, depending on your situation.
 1. Test your changes by executing the `SequencedStartStop_Parent` runbook with the `WHATIF` parameter set to True to preview your changes.
+
 For more information about how to use the solution to start and stop VMs in sequence, see [Start/Stop VMs in sequence](../automation-solution-vm-management.md).
 
 ## <a name="403"></a>Scenario: Start/Stop VMs during off hours job fails with 403 forbidden error

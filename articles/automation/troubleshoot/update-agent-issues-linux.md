@@ -15,7 +15,7 @@ manager: carmonm
 
 There can be many reasons your machine isn't showing up as ready (healthy) in the Azure Automation Update Management solution. In Update Management, you can check the health of a Hybrid Runbook Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline). 
 
-A machine can be in the following three readiness states:
+A machine can be in three readiness states:
 
 * **Ready**: The Hybrid Runbook Worker is deployed and was last seen less than one hour ago.
 * **Disconnected**: The Hybrid Runbook Worker is deployed and was last seen over one hour ago.
