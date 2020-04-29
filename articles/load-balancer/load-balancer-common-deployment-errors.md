@@ -20,7 +20,7 @@ This article describes some common Azure Load Balancer deployment errors and pro
 
 | Error code | Details and mitigation |
 | ------- | ---------- | ------------- |
-|DifferentSkuLoadBalancersAndPublicIPAddressNotAllowed| Both Public IP SKU and Load Balancer SKU must match. Ensure Azure Load Balancer and Public IP SKUs match. Standard SKU is recommended for production workloads. Learn more about the [differences in SKUs](../load-balancer/concepts-limitations.md#skus)  |
+|DifferentSkuLoadBalancersAndPublicIPAddressNotAllowed| Both Public IP SKU and Load Balancer SKU must match. Ensure Azure Load Balancer and Public IP SKUs match. Standard SKU is recommended for production workloads. Learn more about the [differences in SKUs](./concepts-limitations.md#skus)  |
 |DifferentSkuLoadBalancerAndPublicIPAddressNotAllowedInVMSS | VMSS defaults to Basic Load Balancers when SKU is unspecified or deployed without Standard Public IPs. Re-deploy VMSS with Standard Public IPs on the individual instances to ensure Standard Load Balancer is selected or simply select a Standard LB when deploying VMSS from the Azure Portal. |
 |MaxAvailabilitySetsInLoadBalancerReached | The backend pool of a Load Balancer can contain a maximum of 150 availability sets. If you don't have availability sets explicitly defined for your VMs in the backend pool, each single VM goes into its own Availability Set. So deploying 150 standalone VMs would imply that it would have 150 Availability sets, thus hitting the limit. You can deploy an availability set and add additional VMs to it as a workaround. |
 |RulesOfSameLoadBalancerTypeUseSameBackendPortProtocolAndIPConfig| You cannot have more than one rule on a given load balancer type (internal, public) with same backend port and protocol referenced by same VMSS. Update your rule to change this duplicate rule creation. |
@@ -33,5 +33,5 @@ This article describes some common Azure Load Balancer deployment errors and pro
 
 ## Next steps
 
-* Look through the Azure Load Balancer [SKU comparison table](..load-balancer/concepts-limitations.md#skus)
+* Look through the Azure Load Balancer [SKU comparison table](./concepts-limitations.md#skus)
 * Learn about [Azure Load Balancer limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)
