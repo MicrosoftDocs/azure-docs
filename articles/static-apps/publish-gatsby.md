@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Publish a Gatsby site to App Service Static Web Apps"
-description: This tutorial shows you how to deploy a Gatsby application to App Service Static Web Apps.
-services: azure-functions
+title: "Tutorial: Publish a Gatsby site to Azure Static Web Apps"
+description: This tutorial shows you how to deploy a Gatsby application to Azure Static Web Apps.
+services: static-web-apps
 author: aaronpowell
 ms.service: azure-functions
 ms.topic: tutorial
@@ -11,14 +11,14 @@ ms.author: aapowell
 
 # Tutorial: Publish a Gatsby site to App Service Static Web Apps
 
-This article demonstrates how to create and deploy a [Gatsby](https://gatsbyjs.org) web application to [Azure App Service Static Web Apps](overview.md). The final result is a new Static Web App with the associated GitHub Actions that give you control over how the app is built and published.
+This article demonstrates how to create and deploy a [Gatsby](https://gatsbyjs.org) web application to [Azure Static Web Apps](overview.md). The final result is a new Static Web Apps site (with the associated GitHub Actions) that give you control over how the app is built and published.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
 > - Create a Gatsby app
-> - Setup an App Service Static Web App
+> - Setup an Azure Static Web Apps site
 > - Deploy the Gatsby app to Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -79,7 +79,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 
-1. Select **Create a Resource** and search for **Static Web App**.
+1. Select **Create a Resource** and search for **Static Web Apps**.
 
    ![Create a Static Web App (Preview) in the portal](./media/static-web-apps-publish-gatsby/create-in-portal.png)
 
