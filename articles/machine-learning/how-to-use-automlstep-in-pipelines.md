@@ -397,7 +397,9 @@ metrics.get_port_data_reference().download('.')
 model.get_port_data_reference().download('.')
 ```
 
-The above snippet would run on your local machine. First, it logs on to the workspace. It retrieves the `Experiment` named `titanic_automl` and from that `Experiment`, the `Run` in which you are interested. Each `Run` object contains `StepRun` objects that contain information about the individual pipeline step run. The `run` is searched for the `StepRun` object for the `AutoMLStep`. The outputs are retrieved using their default names, which are available even if you do not pass `PipelineData` objects to the `outputs` parameter of the `AutoMLStep`. 
+The above snippet would run on your local machine. First, it logs on to the workspace. It retrieves the `Experiment` named `titanic_automl` and from that `Experiment`, the `Run` in which you are interested. Notice that you'd set the value being compared to `run.id` to that of the run in which you are interested.
+
+Each `Run` object contains `StepRun` objects that contain information about the individual pipeline step run. The `run` is searched for the `StepRun` object for the `AutoMLStep`. The outputs are retrieved using their default names, which are available even if you do not pass `PipelineData` objects to the `outputs` parameter of the `AutoMLStep`. 
 
 Finally, the actual metrics and model are downloaded to your local machine for further processing.
 
