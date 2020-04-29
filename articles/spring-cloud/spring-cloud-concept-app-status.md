@@ -30,14 +30,6 @@ To view general status of an application type, select **Apps** in the left navig
 | Running | The deployment SHOULD be running. |
 | Stopped | The deployment SHOULD be stopped. |
 
-**The Discovery status is reported as one of the following values:**
-
-| Enum | Definition |
-|:--:|:----------------:|
-| Up | The app instance is registered to eureka and ready to receive traffic |
-| OUT_OF_SERVICE | The app instance is registered to Eureka and able to receive traffic. but shuts down for traffic intentionally. |
-| DOWN | The app instance is not registered to Eureka or is registered but not able to receive traffic. |
-
 **The provisioning state is accessible only from the CLI.  It is reported as one of the following values:**
 
 | Enum | Definition |
@@ -69,7 +61,7 @@ To view the status of a specific instance of a deployed app, click the **Name** 
 
 | Enum | Definition |
 |:--:|:----------------:|
-| Up | The app instance is registered to eureka and ready to receive traffic |
+| UP | The app instance is registered to eureka and ready to receive traffic |
 | OUT_OF_SERVICE | The app instance is registered to Eureka and able to receive traffic. but shuts down for traffic intentionally. |
 | DOWN | The app instance is not registered to Eureka or is registered but not able to receive traffic. |
 
