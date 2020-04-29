@@ -484,8 +484,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               "confidence":1,
               "elements":[ 
                 "#/analyzeResult/readResults/0/lines/15/words/0"
-              ],
-              "fieldName":"total"
+              ]
             },
             "invoice #":{ 
               "type":"string",
@@ -505,8 +504,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               "confidence":1,
               "elements":[ 
                 "#/analyzeResult/readResults/0/lines/12/words/0"
-              ],
-              "fieldName":"invoice #"
+              ]
             },
             "vat":{ 
               "type":"string",
@@ -526,8 +524,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               "confidence":0.9839357733726502,
               "elements":[ 
                 "#/analyzeResult/readResults/0/lines/16/words/0"
-              ],
-              "fieldName":"vat"
+              ]
             },
             ...
           }
