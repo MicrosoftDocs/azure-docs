@@ -65,6 +65,8 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Images
+    href: shared-image-galleries.md
   - name: Azure Resource Manager
     href: ../azure-resource-manager/management/overview.md
     maintainContext: true
