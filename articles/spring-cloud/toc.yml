@@ -43,11 +43,7 @@
     - name: Understanding metrics in Azure Spring Cloud
       href: spring-cloud-concept-metrics.md
     - name: Security controls for Azure Spring Cloud Service
-<<<<<<< HEAD
       href: spring-cloud-concept-security-controls.md
-=======
-      href: spring-cloud-concept-security-controls.md      
->>>>>>> f5ae3851f9f1963182f754ac6eed61a54f920358
     - name: Understanding app status in Azure Spring Cloud
       href: spring-cloud-concept-app-status.md
     - name: Plan for disaster recovery
