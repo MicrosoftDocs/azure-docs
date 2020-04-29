@@ -131,7 +131,7 @@ Next, you add configuration settings that the build process uses to build your a
 
 ## Clean up resources
 
-[!INCLUDE [static-web-app-cleanup-resource](../../includes/static-web-app-cleanup-resource.md)]
+[!INCLUDE [static-web-app-cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 
 ## Next steps
 
