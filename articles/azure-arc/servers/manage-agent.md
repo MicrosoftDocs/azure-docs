@@ -273,7 +273,7 @@ $env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","M
 Restart-Service -Name himds
 ```
 
-To configure the agent to stop communicating through a proxy server, the following command removes the proxy server environmental variable:
+To configure the agent to stop communicating through a proxy server, run the following command to removes the proxy server environmental variable and restart the agent service:
 
 ```powershell
 [Environment]::SetEnvironmentVariable("https_proxy",$null,"Machine")
@@ -284,7 +284,18 @@ Restart-Service -Name himds
 
 ### Linux
 
+To set the proxy server, run the following command from the directory you downloaded the agent installation package to:
 
+```bash
+# Reconfigure the connected machine agent and set the proxy server.
+bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+```
+
+To configure the agent to stop communicating through a proxy server, run the following command to remove the proxy configuration:
+
+```bash
+sudo azcmagent_proxy remove
+```
 
 ## Next steps
 
