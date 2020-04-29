@@ -6,15 +6,20 @@ ms.date: 04/27/2020
 ---
 
 # Language understanding glossary of common vocabulary and concepts
-The Language Understanding (LUIS) glossary explains terms that you might encounter as you work with the LUIS API Service.
+The Language Understanding (LUIS) glossary explains terms that you might encounter as you work with the LUIS service.
 
 ## Active version
 
-The active version is the version of your app that is updated when you make changes to the model using the LUIS portal. In the LUIS portal, if you want to make changes to a version that is not the active version, you need to first set that version as active.
+The active version is the [version](luis-how-to-manage-versions.md) of your app that is updated when you make changes to the model using the LUIS portal. In the LUIS portal, if you want to make changes to a version that is not the active version, you need to first set that version as active.
 
 ## Active learning
 
 Active learning is a technique of machine learning in which the machine learned model is used to identify informative new examples to label. In LUIS, active learning refers to adding utterances from the endpoint traffic whose current predictions are unclear to improve your model. Click on "review endpoint utterances", to view utterances to label.
+
+See also:
+* [Conceptual information](luis-concept-review-endpoint-utterances.md)
+* [Tutorial reviewing endpoint utterances](luis-tutorial-review-endpoint-utterances.md)
+* How to improve the LUIS app by [reviewing endpoint utterances](luis-how-to-review-endpoint-utterances)
 
 ## Application (App)
 
@@ -95,7 +100,7 @@ See also:
 
 ## Descriptor
 
-A descriptor is the term formerly used for a machine learning [feature](#feature).
+A descriptor is the term formerly used for a machine learning [feature](#features).
 
 ## Domain
 
@@ -130,6 +135,13 @@ The entity schema is the structure you define for machine learned entities with 
 ### Entity's subentity
 
 A subentity is a child entity of a machine-learned entity.
+
+### Non-machine-learned entity
+
+An entity that uses text matching to extract data:
+* List entity
+* Regular expression entity
+* Prebuilt entity
 
 ## Features
 
@@ -167,7 +179,7 @@ The entity will be predicted if a word in the list entity is included in the lis
 
 ## LUIS app
 
-See the definition for [application (app)](#application-app).
+See the definition for [application (app)](#application).
 
 ## Model
 
@@ -175,7 +187,7 @@ A (machine learned) model is a function that makes a prediction on input data. I
 
 ## Normalized value
 
-You add values to your [list](list-entity) entities. Each of those values can have a list of one or more synonyms. Only the normalized value is returned in the response.
+You add values to your [list](#list-entity) entities. Each of those values can have a list of one or more synonyms. Only the normalized value is returned in the response.
 
 ## Owner
 
