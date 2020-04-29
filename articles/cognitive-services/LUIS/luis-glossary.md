@@ -19,7 +19,7 @@ Active learning is a technique of machine learning in which the machine learned 
 See also:
 * [Conceptual information](luis-concept-review-endpoint-utterances.md)
 * [Tutorial reviewing endpoint utterances](luis-tutorial-review-endpoint-utterances.md)
-* How to improve the LUIS app by [reviewing endpoint utterances](luis-how-to-review-endpoint-utterances)
+* How to improve the LUIS app by [reviewing endpoint utterances](luis-how-to-review-endpoint-utterances.md)
 
 ## Application (App)
 
@@ -179,7 +179,7 @@ The entity will be predicted if a word in the list entity is included in the lis
 
 ## LUIS app
 
-See the definition for [application (app)](#application).
+See the definition for [application (app)](#application-app).
 
 ## Model
 
