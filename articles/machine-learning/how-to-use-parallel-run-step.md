@@ -296,17 +296,21 @@ batch_env.spark.precache_packages = False
 - `run_invocation_timeout`: The `run()` method invocation timeout in seconds. (optional; default value is `60`)
 - `run_max_try`: Max call count for `run()` method against a mini batch in case of failure. A `run()` is failed if there's any system error, an exception, or timed out (optional; default value is `3`). 
 
+You can also use `PipelineParameter` for parameters in `ParallelRunConfig` so that when you resubmit a pipeline run, you can pass in different values. In this example, we use PipelineParameter for `mini_batch_size` and `Process_count_per_node` and we will tune these values when resubmit run later. 
+
 ```python
 from azureml.pipeline.steps import ParallelRunConfig
 
 parallel_run_config = ParallelRunConfig(
     source_directory=scripts_folder,
     entry_script="digit_identification.py",
-    mini_batch_size="5",
+    mini_batch_size=PipelineParameter(name="batch_size_param", default_value="5"),
     error_threshold=10,
     output_action="append_row",
+    append_row_file_name="mnist_outputs.txt",
     environment=batch_env,
     compute_target=compute_target,
+    process_count_per_node=PipelineParameter(name="process_count_param", default_value=2),
     node_count=2)
 ```
 
@@ -327,7 +331,7 @@ from azureml.contrib.pipeline.steps import ParallelRunStep
 parallelrun_step = ParallelRunStep(
     name="batch-mnist",
     parallel_run_config=parallel_run_config,
-    inputs=[named_mnist_ds],
+    inputs=[input_mnist_ds_consumption],
     output=output_dir,
     allow_reuse=True
 )
@@ -364,7 +368,7 @@ RunDetails(pipeline_run).show()
 pipeline_run.wait_for_completion(show_output=True)
 ```
 
-## Resubmit a batch inference pipeline run with a different dataset
+## Resubmit a batch inference pipeline run with a different dataset and parameters
 
 You can resubmit a run with a different dataset without having to create an entirely new experiment. 
 
