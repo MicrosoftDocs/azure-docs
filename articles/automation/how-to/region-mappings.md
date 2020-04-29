@@ -13,7 +13,7 @@ manager: carmonm
 
 # Workspace mappings
 
-In Azure Automation, you can enable the following solutions: "Update Management," "Change Tracking and Inventory," and "Start/Stop VMs during off-hours." When you do so, however, be aware that only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription. This mapping only applies to the Automation account and the Log Analytics workspace. The Log Analytics workspace and Automation account must be in the same subscription, but can be in different resource groups deployed to the same region.
+In Azure Automation, you can enable the following solutions: "Update Management," "Change Tracking and Inventory," and "Start/Stop VMs during off hours." When you do so, however, be aware that only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription. This mapping only applies to the Automation account and the Log Analytics workspace. The Log Analytics workspace and Automation account must be in the same subscription, but can be in different resource groups deployed to the same region.
 
 For further information, see [Log Analytics workspace and Automation account](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
@@ -46,7 +46,7 @@ The following table shows the supported mappings:
 
 ## Unlink a workspace
 
-If you decide that you no longer want to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal. Before proceeding, you first need to remove "Update Management," "Change Tracking and Inventory," and "Start/Stop VMs during off-hours" if you are using them. If you don't remove them, you can't complete the unlinking operation. Review the article for each solution that you're enabling, in order to understand the steps required to remove it.
+If you decide that you no longer want to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal. Before proceeding, you first need to remove "Update Management," "Change Tracking and Inventory," and "Start/Stop VMs during off hours" if you are using them. If you don't remove them, you can't complete the unlinking operation. Review the article for each solution that you're enabling, in order to understand the steps required to remove it.
 
 After you remove them, you can perform the following steps to unlink your Automation account.
 
@@ -64,7 +64,7 @@ After you remove them, you can perform the following steps to unlink your Automa
     * Update schedules: Each has a name that matches an update deployment that you created.
     * Hybrid worker groups created for the solution:  Each has a name similar to  `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`.
 
-5. If you used "Start/Stop VMs during off-hours," you can optionally remove the following items that aren't needed after you remove it.
+5. If you used "Start/Stop VMs during off hours," you can optionally remove the following items that aren't needed after you remove it.
 
     * Start and stop VM runbook schedules
     * Start and stop VM runbooks
@@ -84,6 +84,6 @@ Alternatively, you can unlink your workspace from your Automation account within
     * When [browsing multiple machines](../automation-onboard-solutions-from-browse.md).
     * From a [runbook](../automation-onboard-solutions.md).
 
-* Learn how to start using "Start/Stop VMs during off-hours":
+* Learn how to start using "Start/Stop VMs during off hours":
 
-    * [Start/Stop VMs during off-hours overview](../automation-solution-vm-management.md).
+    * [Start/Stop VMs during off hours overview](../automation-solution-vm-management.md).

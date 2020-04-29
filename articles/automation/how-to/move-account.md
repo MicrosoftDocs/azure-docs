@@ -54,7 +54,7 @@ For this solution, you also need to remove the alert rules created by the soluti
 
 1. In the Azure portal, go to your resource group and select **Monitoring** > **Alerts** > **Manage alert rules**.
 
-![Screenshot of Alerts page, showing selection of Manage alert rules](../media/move-account/alert-rules.png)
+   ![Screenshot of Alerts page, showing selection of Manage alert rules](../media/move-account/alert-rules.png)
 
 2. On the **Rules** page, you should see a list of the alerts configured in that resource group. The solution creates these rules:
 
