@@ -10,8 +10,8 @@ ms.date: 04/27/2020
 ms.author: spelluru
 ---
 
-#  Enable Diagnostic logs for an Azure event grid topics or domains
-Diagnostic Settings now allow Event Grid users to capture and view **publish and delivery failure** Logs in either a Storage account, an event hub or a Log Analytics Workspace. This article provides step-by-step instructions to enable these settings on an Event Grid Topic.
+#  Enable Diagnostic logs for Azure event grid topics or domains
+Diagnostic Settings now allow Event Grid users to capture and view **publish and delivery failure** Logs in either a Storage account, an event hub, or a Log Analytics Workspace. This article provides step-by-step instructions to enable these settings on an Event Grid Topic.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Diagnostic Settings now allow Event Grid users to capture and view **publish and
 ## Steps for enabling diagnostic logs for a topic
 
 > [!NOTE]
-> The following procedure provides step-by-step instructions for enabling diagnostic logs for a topic. Steps for enabling diagnostic logs for a domain are very similar. You navigate to the event grid domain in the Azure portal and follow step 3 onwards.  
+> The following procedure provides step-by-step instructions for enabling diagnostic logs for a topic. Steps for enabling diagnostic logs for a domain are very similar. In step 2, navigate to the event grid **domain** in the Azure portal.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the event grid topic for which you want to enable diagnostic log settings. 
