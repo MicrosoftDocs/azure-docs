@@ -34,7 +34,7 @@ In the Microsoft Azure public cloud, most types of apps can sign in users with a
     
 - If you're writing a business-to-consumer application, you can also sign in users with their social identities, by using Azure Active Directory B2C (Azure AD B2C).
 
-## Variances with authentication flows
+## Account type support in authentication flows
 
 Some account types can't be used with certain authentication flows. For instance, in desktop, UWP, or daemon applications:
 
