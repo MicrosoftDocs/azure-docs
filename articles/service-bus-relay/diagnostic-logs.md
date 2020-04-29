@@ -30,7 +30,7 @@ To view activity logs for your Azure Relay namespace, switch to the **Activity l
 ## Enable diagnostic logs
 
 > [!NOTE]
-> Diagnostic logs are available only for hybrid connections, not for Windows Communication Foundation (WCF() relays.
+> Diagnostic logs are available only for Hybrid Connections, not for Windows Communication Foundation (WCF) Relay.
 
 To enable diagnostics logs, do the following steps:
 
