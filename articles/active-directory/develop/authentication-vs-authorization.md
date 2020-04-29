@@ -1,5 +1,6 @@
 ---
 title: Authentication vs. authorization | Azure
+titleSuffix: Microsoft identity platform
 description: Learn about the basics of authentication and authorization in Microsoft identity platform (v2.0).
 services: active-directory
 author: rwike77

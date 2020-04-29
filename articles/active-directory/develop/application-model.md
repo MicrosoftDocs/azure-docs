@@ -1,5 +1,6 @@
 ---
 title: Application model | Azure
+titleSuffix: Microsoft identity platform
 description: Learn about the process of registering your application so it can integrate with Microsoft identity platform (v2.0).
 services: active-directory
 author: rwike77

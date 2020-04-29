@@ -1,5 +1,6 @@
 ---
 title: App sign-in flow with Microsoft identity platform | Azure
+titleSuffix: Microsoft identity platform
 description: Learn about the sign-in flow of web, desktop, and mobile apps in Microsoft identity platform (v2.0).
 services: active-directory
 author: rwike77
