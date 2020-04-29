@@ -64,7 +64,7 @@ When failover occurs, you have to do the following things:
 
 ### Scenario 2 - Azure-SSIS IR is pointing to primary server endpoint
 
-The scenario is suitable if you still want to use existing Azure-SSIS IR on primary region after failover.
+The scenario is suitable if Azure-SSIS IR is pointing to primary server endpoint.
 
 #### Solution
 When failover occurs, you have to do the following things:
@@ -155,7 +155,8 @@ When failover occurs, you have to do the following things:
 
 ### Scenario 1 - Azure-SSIS IR is pointing to read-write listener endpoint
 
-This scenario is suitable Azure-SSIS IR is pointing to the read-write listener endpoint of the failover group and the SQL Database server is *not* configured with the virtual network service endpoint rule.
+This scenario is suitable Azure-SSIS IR is pointing to the read-write listener endpoint of the failover group and the SQL Database server is *not* configured with the virtual network service endpoint rule. 
+If you want Azure-SSIS IR point to read-write listener endpoint, you need to point to primary server endpoint first. After putting SSISDB to failover group, you can change to read-write listener endpoint and restart Azure-SSIS IR.
 
 #### Solution
 
@@ -165,7 +166,7 @@ If you want to update the region or other information in Azure-SSIS IR, you can 
 
 ### Scenario 2 - Azure-SSIS IR is pointing to primary server endpoint
 
-The scenario is suitable if you still want to use existing Azure-SSIS IR on primary region after failover.
+The scenario is suitable if Azure-SSIS IR is pointing to primary server endpoint.
 
 #### Solution
 When failover occurs, you have to do the following things:
