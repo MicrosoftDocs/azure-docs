@@ -10,7 +10,7 @@ ms.date: 04/28/2020
 
 # Validating data encryption for Azure Database for MySQL
 
-This articles helps you validate that data encryption using customer managed key for Azure Database for MySQL is working as expected.
+This article helps you validate that data encryption using customer managed key for Azure Database for MySQL is working as expected.
 
 ## Check the encryption status
 
@@ -24,27 +24,25 @@ This articles helps you validate that data encryption using customer managed key
   
        After some time (**~15 min**), the Azure Database for MySQL server **Status** should be **Inaccessible**. Any I/O operation done against the server will fail which validates that the server is indeed encrypted with customers key and the key is currently not valid.
     
-        In order to make the server **Available** against, you can revalidate the key. 
+       In order to make the server **Available** against, you can revalidate the key. 
     
     4. Set the status of the key in the Key Vault to **Yes**.
-    4. On the server **Data Encryption** select **Revalidate key**.
-    5. After the revalidation of the key is successful, the server resumes its normal functionality.
+    4. On the server **Data Encryption**, select **Revalidate key**.
+    5. After the revalidation of the key is successful, the server **Status** changes to **Available**.
 
-* On the Azure Portal if can ensure that the encryption key is set this would mean that the data is encrypted using the key used in the Azure portal.
+* On the Azure portal, if you can ensure that the encryption key is set, then data is encrypted using the customers key used in the Azure portal.
 
   ![Access policy overview](media/concepts-data-access-and-security-data-encryption/byokvalidate.png)
 
-  This ensures that the data encryption using the customers key in the Azure key vault is being used.
-
 ### From CLI
 
-* We can use *az cli* command to validate the key resources being used for the Azure Database for MySQL server.
+* We can use *az CLI* command to validate the key resources being used for the Azure Database for MySQL server.
 
     ```azurecli-interactive
    az mysql server key list --name  '<server_name>'  -g '<resource_group_name>'
     ```
 
-    For a server without Data encryption set, this command will results in empty set [].
+    For a server without Data encryption set, this command results in empty set [].
 
 * [Audit Reports](https://servicetrust.microsoft.com) can also be reviewed that provides information about the compliance with data protection standards and regulatory requirements.
 
