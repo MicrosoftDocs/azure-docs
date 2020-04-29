@@ -58,7 +58,7 @@ Apprentice mode provides the following **evaluation metrics**:
 
 Evaluate the features using an [offline evaluation](how-to-offline-evaluation.md).
 
-## Switch to Online mode
+## Switch behavior to Online mode
 
 When you determine Personalizer is trained with an average of 70-85% rolling average, the model is ready to switch to Online mode.
 
