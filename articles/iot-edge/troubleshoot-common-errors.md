@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot - Azure IoT Edge | Microsoft Docs 
-description: Use this article to learn standard diagnostic skills for Azure IoT Edge, like retrieving component status and logs, and resolve common issues
+title: Common errors - Azure IoT Edge | Microsoft Docs 
+description: Use this article to resolve common issues encountered when deploying an IoT Edge solution
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Common issues and resolutions for Azure IoT Edge
 
-Use this article to find steps to resolve common issues encountered when deploying IoT Edge solutions. If you need to learn how to find logs and errors from your IoT Edge device, see [Troubleshoot your IoT Edge device](troubleshoot.md).
+Use this article to find steps to resolve common issues that you may experience when deploying IoT Edge solutions. If you need to learn how to find logs and errors from your IoT Edge device, see [Troubleshoot your IoT Edge device](troubleshoot.md).
 
 ## IoT Edge agent stops after about a minute
 
@@ -76,7 +76,7 @@ Specify the DNS server for your environment in the container engine settings, wh
 }
 ```
 
-The above example sets the DNS server to a publicly accessible DNS service. If the edge device cannot access this IP from its environment, replace it with DNS server address that is accessible.
+The above example sets the DNS server to a publicly accessible DNS service. If the edge device can't access this IP from its environment, replace it with DNS server address that is accessible.
 
 Place `daemon.json` in the right location for your platform:
 
@@ -92,7 +92,7 @@ Restart the container engine for the updates to take effect.
 | Platform | Command |
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
-| Windows (Admin Powershell) | `Restart-Service iotedge-moby -Force` |
+| Windows (Admin PowerShell) | `Restart-Service iotedge-moby -Force` |
 
 **Option 2: Set DNS server in IoT Edge deployment per module**
 
@@ -140,7 +140,7 @@ Some other process on the host machine has bound a port that the edgeHub module 
 
 You can resolve this issue two ways:
 
-If the IoT Edge device is functioning as a gateway device, then you need to find and stop the process that is using port 443, 5671, or 8883. If the error specifies port 443, then the other process is usually a web server.
+If the IoT Edge device is functioning as a gateway device, then you need to find and stop the process that is using port 443, 5671, or 8883. An error for port 443 usually means that the other process is a web server.
 
 If you don't need to use the IoT Edge device as a gateway, then you can remove the port bindings from edgeHub's module create options. You can change the create options in the Azure portal or directly in the deployment.json file.
 
@@ -257,7 +257,7 @@ Windows Registry Editor Version 5.00
 
 **Observed behavior:**
 
-You may encounter stability problems on resource constrained devices like the Raspberry Pi, especially when used as a gateway. Symptoms include out of memory exceptions in the IoT Edge hub module, downstream devices failing to connect, or the device failing to send telemetry messages after a few hours.
+You may experience stability problems on resource constrained devices like the Raspberry Pi, especially when used as a gateway. Symptoms include out of memory exceptions in the IoT Edge hub module, downstream devices failing to connect, or the device failing to send telemetry messages after a few hours.
 
 **Root cause:**
 
@@ -269,7 +269,7 @@ For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to 
 
 In the Azure portal:
 
-In your IoT Hub, select your IoT Edge device and from the device details page and select **Set Modules** > **Runtime Settings**. Create an environment variable for the Edge Hub module called *OptimizeForPerformance* that is set to *false*.
+In your IoT Hub, select your IoT Edge device and from the device details page and select **Set Modules** > **Runtime Settings**. Create an environment variable for the IoT Edge hub module called *OptimizeForPerformance* that is set to *false*.
 
 ![OptimizeForPerformance set to false](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -307,13 +307,13 @@ The IoT Edge daemon enforces process identification for all modules connecting t
 
 As of version 1.0.7, all module processes are authorized to connect. For more information, see the [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
 
-If upgrading to 1.0.7 isn't possible, complete the following steps. Make sure that the same process ID is always used by the custom IoT Edge module to send messages to the edgeHub. For instance, make sure to `ENTRYPOINT` instead of `CMD` command in your Docker file, since `CMD` will lead to one process ID for the module and another process ID for the bash command running the main program whereas `ENTRYPOINT` will lead to a single process ID.
+If upgrading to 1.0.7 isn't possible, complete the following steps. Make sure that the same process ID is always used by the custom IoT Edge module to send messages to the edgeHub. For instance, make sure to `ENTRYPOINT` instead of `CMD` command in your Docker file. The `CMD` command leads to one process ID for the module and another process ID for the bash command running the main program, but `ENTRYPOINT` leads to a single process ID.
 
 ## IoT Edge module deploys successfully then disappears from device
 
 **Observed behavior:**
 
-After setting modules for an IoT Edge device, the modules are deployed successfully but after a few minutes they disappear from the device and from the device details in the Azure portal. Perhaps other modules than the ones defined appear on the device.
+After setting modules for an IoT Edge device, the modules are deployed successfully but after a few minutes they disappear from the device and from the device details in the Azure portal. Other modules than the ones defined might also appear on the device.
 
 **Root cause:**
 
@@ -321,7 +321,7 @@ If an automatic deployment targets a device, it takes priority over manually set
 
 **Resolution:**
 
-Only use one type of deployment mechanism per device, either an automatic deployment or individual device deployments. If you have multiple automatic deployments targeting a device, you can change priority or target descriptions to make sure the correct one applies to a given device. If the automatic deployment targets tags in the device twin, you can update the device twin to no longer match the target description. 
+Only use one type of deployment mechanism per device, either an automatic deployment or individual device deployments. If you have multiple automatic deployments targeting a device, you can change priority or target descriptions to make sure the correct one applies to a given device. You can also update the device twin to no longer match the target description of the automatic deployment.
 
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 

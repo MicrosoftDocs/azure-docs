@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot - Azure IoT Edge | Microsoft Docs 
-description: Use this article to learn standard diagnostic skills for Azure IoT Edge, like retrieving component status and logs, and resolve common issues
+description: Use this article to learn standard diagnostic skills for Azure IoT Edge, like retrieving component status and logs
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -14,7 +14,7 @@ services: iot-edge
 
 If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and diagnostics.
 
-## Run the iotedge 'check' command
+## Run the 'check' command
 
 Your first step when troubleshooting IoT Edge should be to use the `check` command, which runs a collection of configuration and connectivity tests for common issues. The `check` command is available in [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) and later.
 
@@ -32,19 +32,19 @@ On Windows:
 iotedge check
 ```
 
-The troubleshooting tool runs many checks that are sorted into the these three categories:
+The troubleshooting tool runs many checks that are sorted into these three categories:
 
-* Configuration checks: Examines details that could prevent Edge devices from connecting to the cloud, including issues with *config.yaml* and the container engine.
+* Configuration checks: Examines details that could prevent IoT Edge devices from connecting to the cloud, including issues with *config.yaml* and the container engine.
 * Connection checks: Verifies the IoT Edge runtime can access ports on the host device and all the IoT Edge components can connect to the IoT Hub.
 * Production readiness checks: Looks for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
 
 For information about each of the diagnostic checks this tool runs, including what to do if you get an error or warning, see [IoT Edge troubleshoot checks](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 
-## Gather debug information with iotedge 'support-bundle' command
+## Gather debug information with 'support-bundle' command
 
-When you need to gather logs from an IoT Edge device, the most convenient way is to use the `support-bundle` command. By default, this command collects module, IoT Edge Security Manager and container engine logs, 'iotedge check' JSON output and other useful debug information. It compresses them into a single file for easy sharing. The `support-bundle` command is available in [release 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) and later.
+When you need to gather logs from an IoT Edge device, the most convenient way is to use the `support-bundle` command. By default, this command collects module, IoT Edge security manager and container engine logs, `iotedge check` JSON output, and other useful debug information. It compresses them into a single file for easy sharing. The `support-bundle` command is available in [release 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) and later.
 
-Run the `support-bundle` command with the `--since` flag to specify how long from the past you want to get logs. For example `6h` will get logs since the last 6 hours, `6d` since the last 6 days, `6m` since the last 6 minutes and so on. Include the `--help` flag to see a complete list of options.
+Run the `support-bundle` command with the `--since` flag to specify how long from the past you want to get logs. For example `6h` will get logs since the last six hours, `6d` since the last six days, `6m` since the last six minutes and so on. Include the `--help` flag to see a complete list of options.
 
 On Linux:
 
@@ -69,7 +69,7 @@ For instructions on how to update your device, see [Update the IoT Edge security
 
 ## Check the status of the IoT Edge security manager and its logs
 
-The [IoT Edge security manager](iot-edge-security-manager.md) is responsible for operations like initializing the iotedge system at startup and provisioning devices. If IoT Edge isn't starting, the security manager logs may provide useful information.
+The [IoT Edge security manager](iot-edge-security-manager.md) is responsible for operations like initializing the IoT Edge system at startup and provisioning devices. If IoT Edge isn't starting, the security manager logs may provide useful information.
 
 On Linux:
 
@@ -87,7 +87,7 @@ On Linux:
 
 * View more detailed logs of the IoT Edge security manager:
 
-  * Edit the iotedge daemon settings:
+  * Edit the IoT Edge daemon settings:
 
       ```bash
       sudo systemctl edit iotedge.service
