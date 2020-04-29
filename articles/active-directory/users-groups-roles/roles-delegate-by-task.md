@@ -13,7 +13,7 @@ ms.date: 03/03/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-#As an Azure AD administrator, I want to know which role has the least privilege for a given task to make my Azure AD tenant more secure.
+#As an Azure AD administrator, I want to know which role has the least privilege for a given task to make my Azure AD organization more secure.
 
 ms.collection: M365-identity-device-management
 ---
@@ -73,9 +73,9 @@ Configure company properties | Global Administrator |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Passthrough authentication | Hybrid Identity Administrator | 
-Read all configuration | Global reader | Hybrid Identity Administrator |
-Seamless single sign-on | Hybrid Identity Administrator | 
+Passthrough authentication | Global Administrator  | 
+Read all configuration | Global reader | Global Administrator  |
+Seamless single sign-on | Global Administrator  | 
 
 ## Connect Health
 

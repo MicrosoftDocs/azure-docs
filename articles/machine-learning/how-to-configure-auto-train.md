@@ -321,7 +321,8 @@ run = experiment.submit(automl_config, show_output=True)
 >Dependencies are first installed on a new machine.  It may take up to 10 minutes before output is shown.
 >Setting `show_output` to `True` results in output being shown on the console.
 
-### Exit Criteria
+### <a name="exit"></a> Exit criteria
+
 There are a few options you can define to end your experiment.
 1. No Criteria: If you do not define any exit parameters the experiment will continue until no further progress is made on your primary metric.
 1. Exit after a length of time: Using `experiment_timeout_minutes` in your settings allows you to define how long in minutes should an experiment continue in run.

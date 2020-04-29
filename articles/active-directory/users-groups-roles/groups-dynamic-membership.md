@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/27/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -26,7 +26,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 - You can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributes.
 
 > [!NOTE]
-> This feature requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the tenant to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your tenant, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
+> This feature requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the Azure AD organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your organization, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
 > No license is required for devices that are members of a dynamic device group.
 
 ## Rule builder in the Azure portal
@@ -305,20 +305,20 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 The following tips can help you use the rule properly.
 
 - The **Manager ID** is the object ID of the manager. It can be found in the manager's **Profile**.
-- For the rule to work, make sure the **Manager** property is set correctly for users in your tenant. You can check the current value in the user's **Profile**.
+- For the rule to work, make sure the **Manager** property is set correctly for users in your organization. You can check the current value in the user's **Profile**.
 - This rule supports only the manager's direct reports. In other words, you can't create a group with the manager's direct reports *and* their reports.
 - This rule can't be combined with any other membership rules.
 
 ### Create an "All users" rule
 
-You can create a group containing all users within a tenant using a membership rule. When users are added or removed from the tenant in the future, the group's membership is adjusted automatically.
+You can create a group containing all users within an organization using a membership rule. When users are added or removed from the organization in the future, the group's membership is adjusted automatically.
 
 The "All users" rule is constructed using single expression using the -ne operator and the null value. This rule adds B2B guest users as well as member users to the group.
 
 ```
 user.objectId -ne null
 ```
-If you want your group to exclude guest users and include only members of your tenant, you can use the following syntax:
+If you want your group to exclude guest users and include only members of your organization, you can use the following syntax:
 
 ```
 (user.objectId -ne null) -and (user.userType -eq "Member")
@@ -326,7 +326,7 @@ If you want your group to exclude guest users and include only members of your t
 
 ### Create an "All devices" rule
 
-You can create a group containing all devices within a tenant using a membership rule. When devices are added or removed from the tenant in the future, the group's membership is adjusted automatically.
+You can create a group containing all devices within an organization using a membership rule. When devices are added or removed from the organization in the future, the group's membership is adjusted automatically.
 
 The "All Devices" rule is constructed using single expression using the -ne operator and the null value:
 
