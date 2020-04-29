@@ -7,9 +7,9 @@ ms.date: 04/27/2020
 
 # Configure the Personalizer learning behavior
 
-Apprentice mode gives you confidence in the Personalizer service and its machine learning capabilities, and provides metrics that the service is sent information that can be learned from – without risking online traffic.
+Apprentice mode gives you trust and confidence in the Personalizer service and its machine learning capabilities, and provides assurance that the service is sent information that can be learned from – without risking online traffic.
 
-Configure the learning behavior on the **Configuration** page, on the **Learning behavior** tab, in the Azure portal for that Personalizer resource.
+Configure the learning behavior in the Azure portal.
 
 ## Use an enterprise resource
 
@@ -17,39 +17,42 @@ In order to use Apprentice mode for your Personalizer resource, use the Azure po
 
 ## Configure Apprentice mode
 
-In the Azure portal for your Personalizer resource, on the **Configuration** page, on the **Learning behavior** tab, select **Learn as an apprentice** then select **Save**.
+1. Sign in to the Azure portal, for your Personalizer resource.
+
+1. On the **Configuration** page, on the **Learning behavior** tab, select **Learn as an apprentice** then select **Save**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of configuring apprentice mode learning behavior in Azure portal](media/settings/configure-learning-behavior-azure-portal.png)
 
 ## Changes to the existing application
 
-Your existing application shouldn't change how it currently selects actions to display or how the application determines the value, **reward** of that action. The only change to the application is the order of the actions sent to Personalizer's Rank API. The action your application currently displays is sent as the _first action_ in the action list. The Rank API uses this first action to train your Personalizer model.
+Your existing application shouldn't change how it currently selects actions to display or how the application determines the value, **reward** of that action. The only change to the application is the order of the actions sent to Personalizer's Rank API. The action your application currently displays is sent as the _first action_ in the action list. The [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) uses this first action to train your Personalizer model.
 
-## Configure your application to call Rank API
+### Configure your application to call the Rank API
 
 You need to add calls to the Rank and Reward APIs, in order to add Personalizer to your application.
 
-1. Add the Rank API call after the point in your existing application logic where you determine the list of actions and their features. The first action in the actions list should be the action selected by your existing logic.
+1. Add the [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) call after the point in your existing application logic where you determine the list of actions and their features. The first action in the actions list needs to be the action selected by your existing logic.
 
-1. Configure your code to display the action associated with the response's **Reward Action ID**.
+1. Configure your code to display the action associated with the Rank API response's **Reward Action ID**.
 
-    In Apprentice mode, this action is selected by your existing logic, to train your model and not adversely impact your application while the model is training. In Online mode, this action is selected by Personalizer.
+### Configure your application to call Reward API
 
-## Configure your application to call Reward API
-
-1. Use your existing business logic to calculate the **reward** of the displayed action. The value needs to be in the range from 0 to 1. You can delay returning the reward until the full value of the action is known.
+1. Use your existing business logic to calculate the **reward** of the displayed action. The value needs to be in the range from 0 to 1. Send this reward to Personalizer using the [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward). You can delay returning the reward until the full value of the action is known.
 
 1. If you don't return the reward within the configured **Reward wait time**, the default reward will be used instead.
 
 ## Evaluate Apprentice mode
 
-1. In the Azure portal, on the **Evaluations** page for your Personalizer resource, review the **Current learning behavior performance**.
+In the Azure portal, on the **Evaluations** page for your Personalizer resource, review the **Current learning behavior performance**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of reviewing evaluation of apprentice mode learning behavior in Azure portal](media/settings/evaluate-apprentice-mode.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of reviewing evaluation of apprentice mode learning behavior in Azure portal](media/settings/evaluate-apprentice-mode.png)
 
-1. The **Baseline - average reward** value indicates the rewards from your existing application logic. The **Personalizer - average reward** value indicates how the current Personalizer model would perform. The **Rolling average reward over most recent 1000 events** gives you a snapshot of how well the Personalizer model is performing above your baseline.
+Apprentice mode provides the following **evaluation metrics**:
+* **Baseline – average reward**:  Average rewards of the application’s default (baseline).
+* **Personalizer – average reward**: Average of total rewards Personalizer would potentially have reached.
+* **Average rolling reward**: Ratio of Baseline and Personalizer reward – normalized over the most recent 1000 events.
 
 ## Evaluate Apprentice mode features
 
@@ -60,6 +63,8 @@ Evaluate the features using an [offline evaluation](how-to-offline-evaluation.md
 When you determine Personalizer is trained with an average of 70-85% rolling average, the model is ready to switch to Online mode.
 
 In the Azure portal for your Personalizer resource, on the **Configuration** page, on the **Learning behavior** tab, select **Return the best action** then select **Save**.
+
+You do not need to make any changes to the Rank and Reward API calls.
 
 ## Next steps
 
