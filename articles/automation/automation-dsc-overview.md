@@ -1,5 +1,5 @@
 ---
-title: State Configuration overview
+title: Azure Automation State Configuration overview
 description: An overview of Azure Automation State Configuration (DSC), its terms, and known issues
 keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
@@ -130,6 +130,7 @@ Azure ExpressRoute users should note that this file is used to update the Border
 - To get started using DSC in Azure Automation State Configuration, see [Getting started with Azure Automation State Configuration](automation-dsc-getting-started.md).
 - To learn how to onboard nodes, see [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 - To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compiling configurations in Azure Automation State Configuration](automation-dsc-compile.md).
-- For PowerShell cmdlet reference, see [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation).
+- For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
 - To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Continuous deployment using Azure Automation State Configuration and Chocolatey](automation-dsc-cd-chocolatey.md).

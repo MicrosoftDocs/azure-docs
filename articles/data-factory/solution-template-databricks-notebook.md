@@ -15,6 +15,8 @@ ms.date: 03/03/2020
 
 # Transformation with Azure Databricks
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 In this tutorial, you create an end-to-end pipeline that contains the **Validation**, **Copy data**, and **Notebook** activities in Azure Data Factory.
 
 - **Validation** ensures that your source dataset is ready for downstream consumption before you trigger the copy and analytics job.

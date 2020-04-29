@@ -16,23 +16,29 @@ The IoT Plug and Play Preview model repository stores device capability models a
 
 There are three tools you can use to manage the repository:
 
-- The Azure Certified for IoT portal
 - The Azure CLI
+
 - Visual Studio Code
 
-## Model repositories
+- The [Azure Certified for IoT portal](https://aka.ms/ACFI)  
 
-There are two types of model repository for storing device capability models and interfaces:
+## Public and Private models and interfaces
 
-- There is a single _Public repository_ that stores the device capability models and interfaces for devices in the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). This repository also stores [common interfaces](./concepts-common-interfaces.md) and [DCMs and interfaces published by Microsoft Partners](./howto-onboard-portal.md). To learn how to certify a device and add its device capability model to the public repository, see the tutorial [Certify your IoT Plug and Play device](./tutorial-certification-test.md).
-- There are multiple _Company repositories_. A company repository is automatically created for your organization when you [onboard to the Azure Certified for IoT portal](./howto-onboard-portal.md). You can use your company repository to store your device capability models and interfaces during development and test.
+Models and interfaces can be public or private.
 
-## Azure Certified for IoT portal
+Public models and interfaces have been published and are visible to all service principals and users. Some examples of public models are:
 
-In the [Azure Certified for IoT portal](https://preview.catalog.azureiotsolutions.com), you can complete the following tasks:
+- The device capability models and interfaces for devices in the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat).
 
-- [Complete the certification process for your IoT device](./tutorial-certification-test.md).
-- Find IoT Plug and Play device capability models. You can use these models to [quickly build IoT ready devices and integrate them with solutions](./quickstart-connect-pnp-device-solution-node.md).
+- The [common interfaces](./concepts-common-interfaces.md) and DCMs and interfaces published by Microsoft Partners.
+
+Private models and interfaces are maintained by your company. Access to these models and interfaces is controlled with role-based access control (RBAC) both on your organization's tenant and on individual models and interfaces. These controls determine who can create, read, and publish interfaces and models in your organization. You can also grant read access on your private models and interfaces to service principals and external users. Some examples of the use of private models and interfaces are:
+
+- Models and interfaces that your company uses during development and test.
+
+- Models and interfaces that you may choose to expose to only a limited audience of your partners.
+
+To learn more about the model repository and RBAC, see [Understand the IoT Plug and Play Preview model repository](concepts-model-repository.md).
 
 ## Azure CLI
 
@@ -57,4 +63,4 @@ To open the **Model Repository** view in Visual Studio Code.
 
 ## Next steps
 
-The suggested next step is to learn how to [submit an IoT Plug and Play device for certification](tutorial-certification-test.md).
+The suggested next step is to learn how to [Connect to a device in your solution](howto-connect-pnp-device-solution.md).

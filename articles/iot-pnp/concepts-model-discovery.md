@@ -1,8 +1,8 @@
 ---
 title: Implement IoT Plug and Play Preview model discovery | Microsoft Docs
 description: As a solution developer, learn about how you can implement IoT Plug and Play model discovery in your solution.
-author: ChrisGMsft
-ms.author: chrisgre
+author: dominicbetts
+ms.author: dobett
 ms.date: 12/26/2019
 ms.topic: conceptual
 ms.custom: mvc
@@ -64,9 +64,7 @@ When your solution receives a notification for a new device connection, follow t
 1. Read the discovery telemetry message to retrieve the IDs of the capability model and interfaces implemented by the device.
 1. For each ID, read the full JSON file to find the device's capabilities.
 1. Check to see if each interface is present in any caches you've built for storing the JSON files retrieved earlier by your solution.
-1. Then, check if an interface with that ID is present in the public model repository. For more information, see [Public model repository](howto-manage-models.md).
-1. If the interface isn't present in the public model repository, try looking for it in any company model repositories known to your solution. You need a connection string to access a company model repository. For more information, see [Company model repository](howto-manage-models.md).
-1. If you can't find all the interfaces in either the public model repository, or in a company model repository, you can check if the device can provide the interface definition. A device can implement the standard [ModelDefinition](concepts-common-interfaces.md) interface to publish information about how to retrieve interface files with a command.
+1. Then, check if an interface with that ID is present in the model repository. For more information, see [model repository](howto-manage-models.md).
 1. If you found JSON files for each interface implemented by the device, you can enumerate the capabilities of the device. Use the logic you wrote earlier to enable users to interact with the device.
 1. At any time, you can call the digital twins API to retrieve the capability model ID and interface IDs for the device.
 

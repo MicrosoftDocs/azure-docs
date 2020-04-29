@@ -3,7 +3,7 @@ title: Developer guide - IoT Plug and Play Preview | Microsoft Docs
 description: Description of device modeling for IoT Plug and Play developers
 author: rido-min
 ms.author: rmpablos
-ms.date: 04/14/2020
+ms.date: 04/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -11,20 +11,20 @@ services: iot-pnp
 
 # IoT Plug and Play Preview modeling developer guide
 
-IoT Plug and Play Preview lets you build devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications. 
+IoT Plug and Play Preview lets you build devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
 
-To build an IoT Plug and Play device, you create a Model to describe the device using the Digital Twins Definition Language  ([DTDL](https://aka.ms/DTDL)).
+To build an IoT Plug and Play device, you create a _model_ to describe the device using the [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL).
 
-## Device Model
+## Device model
 
-With DTDL, you create a Model to describe the parts of your device. A typical IoT device is made up of:
+With DTDL, you create a model to describe the parts of your device. A typical IoT device is made up of:
 
 - Custom parts, which are the things that make your device unique.
 - Standard parts, which are things that are common to all devices.
 
 These parts are called _components_ in a device model. Components use interfaces to define the details of each part your device implements.
 
-The following example shows the Model for a thermostat device:
+The following example shows the model for a thermostat device:
 
 ```json
 {
@@ -42,13 +42,13 @@ The following example shows the Model for a thermostat device:
       "schema": "dtmi:azureiot:DeviceManagement:DeviceInformation;1"
     }
   ],
-  "@context": "dtmi:dtld:context;2"
+  "@context": "dtmi:dtdl:context;2"
 }
 ```
 
 A model has some required fields:
 
-- `@id`: a unique ID in the form of a DTMI.
+- `@id`: a unique ID in the form of a digital twin model identifier (DTMI).
 - `@type`: declares that this object is an interface.
 - `@context`: specifies the DTDL version used for the capability model.
 - `contents`: lists the interfaces that your device implements.
@@ -59,11 +59,11 @@ Each entry in the list of interfaces in the contents section has a:
 - `name`: the programming name of the component.
 - `schema`: the interface the components implements.
 
-There are additional optional fields you can use to add more details to the model, such as display name and description. 
+There are other optional fields you can use to add more details to the model, such as display name and description.
 
 ## Interfaces
 
-With DTDL, you describe the Model of your device using interfaces. Interfaces describe the _properties_, _telemetry_, and _commands_ a part of your device implements:
+With DTDL, you describe the model of your device using interfaces. An interface describes the _properties_, _telemetry_, and _commands_ a part of your device implements:
 
 - `Properties`. Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on-off state of a coolant pump. Properties can also represent basic device properties, such as the firmware version of the device. You can declare properties as read-only or writable.
 - `Telemetry`. Telemetry fields represent measurements from sensors. Whenever your device takes a sensor measurement, it should send a telemetry event containing the sensor data.
@@ -82,7 +82,7 @@ The following example shows the interface for a thermostat device:
       "schema": "double"
     }
   ],
-  "@context": "dtmi:dtld:context;2"
+  "@context": "dtmi:dtdl:context;2"
 }
 ```
 
@@ -121,13 +121,12 @@ You can use [IoT Hub's custom endpoints and routing rules](../iot-hub/iot-hub-de
 
 ### Commands
 
-A command must execute within 30 seconds by default, and the device must be connected when the command arrives. If the device does respond in time, or the device isn't connected, then the command fails.
-
+A command must execute within 30 seconds by default, and the device must be connected when the command arrives. If the device doesn't respond in time, or the device isn't connected, then the command fails.
 
 ## Register a device
 
-IoT Plug and Play makes it easy to advertise the capabilities of your device. With IoT Plug and Play you must specify the *Model ID* when you establish the connection with the IoT Hub. The ID will be available in the Digital Twin associated to your device, under the `$metadata.$model` property.
- 
+IoT Plug and Play makes it easy to advertise the capabilities of your device. With IoT Plug and Play you must specify the **Model ID** when you establish the connection with the IoT Hub. The ID will be available in the Digital Twin associated to your device, under the `$metadata.$model` property.
+
 This guide shows you how to connect a device and advertise the Model ID using the Azure IoT Device SDK for C.
 
 ```c
