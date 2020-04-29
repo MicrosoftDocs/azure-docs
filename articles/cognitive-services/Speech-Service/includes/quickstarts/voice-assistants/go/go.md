@@ -99,11 +99,11 @@ func main() {
 
 Replace the `YOUR_SUBSCRIPTION_KEY` and `YOUR_BOT_REGION` values with actual values from the Speech resource.
 
-- Navigate to the Azure portal, and open the Speech resource
-- Under the **Keys** on the left, there are two available subscription keys
+- Navigate to the Azure portal, and open your Speech resource
+- Under **Keys and Endpoint** on the left, there are two available subscription keys
     - Use either one as the `YOUR_SUBSCRIPTION_KEY` value replacement
 - Under the **Overview** on the left, note the region and map it to the region identifier
-- Use the Region identifier as the `YOUR_BOT_REGION` value replacement, for example: `"westus"` for **West US**
+    - Use the Region identifier as the `YOUR_BOT_REGION` value replacement, for example: `"westus"` for **West US**
 
    > [!NOTE]
    > Please refer to [the list of supported regions for voice assistants](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
