@@ -697,6 +697,8 @@
           href: mongodb-feature-support-36.md
         - name: Wire protocol support (3.2)
           href: mongodb-feature-support.md
+        - name: FAQ
+          href: mongodb-api-faq.md
       - name: How-to guides
         items:
         - name: Pre-migration guide
