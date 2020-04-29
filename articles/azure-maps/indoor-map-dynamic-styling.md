@@ -99,9 +99,9 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 
 ### Visualize dynamic styles on a map
 
-The web application you previously opened in a browser should now reflect the updated state of the map features. `UNIT27` should appear green and `UNIT26` should appear red.
+The web application you previously opened in a browser should now reflect the updated state of the map features. `UNIT27`(151) should appear green and `UNIT26`(157) should appear red.
 
-![Free room in green and Busy room in red](./media/indoor-map-dynamic-styling/free-room.png)
+![Free room in green and Busy room in red](./media/indoor-map-dynamic-styling/room-state.png)
 
 ## Next steps
 
