@@ -84,7 +84,7 @@ As you remove a user, keep in mind the following items:
 
 ## System folder
 
-Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related utility APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end users, consider creating [routing rules](routing.md) to create friendly URLs.
+Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related utility APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end users, consider creating [routing rules](routes.md) to create friendly URLs.
 
 ## Login
 
