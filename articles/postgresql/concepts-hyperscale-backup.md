@@ -87,8 +87,5 @@ following to get your users and applications back up and running:
 
 ## Next steps
 
-* Learn about [Azure availability
-  zones](/azure/availability-zones/az-overview).
-* Set [suggested
-  alerts](/azure/postgresql/howto-hyperscale-alert-on-metric#suggested-alerts)
-for Hyperscale (Citus) server groups.
+* Learn about [Azure availability zones](/azure/availability-zones/az-overview).
+* Set [suggested alerts](/azure/postgresql/howto-hyperscale-alert-on-metric#suggested-alerts) on Hyperscale (Citus) server groups.
