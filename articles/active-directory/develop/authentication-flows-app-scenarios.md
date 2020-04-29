@@ -62,15 +62,11 @@ Security tokens can be acquired by multiple types of applications. These applica
   - Desktop apps that call web APIs on behalf of signed-in users
   - Mobile apps
   - Apps running on devices that don't have a browser, like those running on IoT
-
-  The MSAL [PublicClientApplication](/dotnet/api/microsoft.identity.client.publicclientapplication) class represents these apps. For more information, see [Public client and confidential client applications](msal-client-applications.md).
-
+  
 - **Confidential client applications**: Apps in this category include:
   - Web apps that call a web API
   - Web APIs that call a web API
   - Daemon apps, even when implemented as a console service like a Linux daemon or a Windows service
-
-  These types of apps use the [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplication) class. For more information, see [Public client and confidential client applications](msal-client-applications.md).
 
 ### Sign-in audience
 
@@ -118,13 +114,13 @@ For more information, see [Web app that signs in users](scenario-web-app-sign-us
 
 ![A web app calling web APIs](media/scenarios/web-app.svg)
 
-To call a web API from a web app on behalf of a user, use the MSAL **ConfidentialClientApplication** class. You use the authorization code flow and store the acquired tokens in the token cache. When needed, MSAL refreshes tokens and the controller silently acquires tokens from the cache.
+To call a web API from a web app on behalf of a user, use the authorization code flow and store the acquired tokens in the token cache. When needed, MSAL refreshes tokens and the controller silently acquires tokens from the cache.
 
 For more information, see [Web app that calls web APIs](scenario-web-app-call-api-overview.md).
 
 ### Desktop app that calls a web API on behalf of a signed-in user
 
-For a desktop app to call a web API that signs in users, use the interactive token-acquisition methods of the MSAL **PublicClientApplication** class. With these interactive methods, you can control the sign-in UI experience. MSAL uses a web browser for this interaction.
+For a desktop app to call a web API that signs in users, use the interactive token-acquisition methods of MSAL. With these interactive methods, you can control the sign-in UI experience. MSAL uses a web browser for this interaction.
 
 ![A desktop app calling a web API](media/scenarios/desktop-app.svg)
 
@@ -144,7 +140,7 @@ For more information, see [Desktop app that calls web APIs](scenario-desktop-ove
 
 ### Mobile app that calls a web API on behalf of an interactive user
 
-Similar to a desktop app, a mobile app calls the interactive token-acquisition methods of the MSAL **PublicClientApplication** class to acquire a token for calling a web API.
+Similar to a desktop app, a mobile app calls the interactive token-acquisition methods of MSAL to acquire a token for calling a web API.
 
 ![A mobile app calling a web API](media/scenarios/mobile-app.svg)
 
@@ -169,7 +165,7 @@ For more information, see [Protected web API](scenario-protected-web-api-overvie
 
 ### Web API that calls another web API on behalf of a user
 
-For your ASP.NET or ASP.NET Core protected web API to call another web API on behalf of a user, your app needs to acquire a token for the downstream web API. To acquire a token, your app calls the **ConfidentialClientApplication** class's [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) method. Such calls are also named *service-to-service* calls. The web APIs that call other web APIs need to provide custom cache serialization.
+For your ASP.NET or ASP.NET Core protected web API to call another web API on behalf of a user, your app needs to acquire a token for the downstream web API. To acquire a token, your app calls the [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) method. Such calls are also named *service-to-service* calls. The web APIs that call other web APIs need to provide custom cache serialization.
 
 ![A web API calling another web API](media/scenarios/web-api.svg)
 
@@ -179,7 +175,7 @@ For more information, see [Web API that calls web APIs](scenario-web-api-call-ap
 
 Apps that have long-running processes or that operate without user interaction also need a way to access secure web APIs. Such an app can authenticate and get tokens by using the app's identity. The app proves its identity by using a client secret or certificate.
 
-You can write such daemon apps that acquire a token for the calling app by using the [client credential](scenario-daemon-acquire-token.md#acquiretokenforclient-api) acquisition methods in the MSAL **ConfidentialClientApplication** class. These methods require a client secret that you add to the app registration in Azure AD. The app then shares the secret with the called daemon. Examples of such secrets include application passwords, certificate assertion, and client assertion.
+You can write such daemon apps that acquire a token for the calling app by using the [client credential](scenario-daemon-acquire-token.md#acquiretokenforclient-api) acquisition methods in MSAL. These methods require a client secret that you add to the app registration in Azure AD. The app then shares the secret with the called daemon. Examples of such secrets include application passwords, certificate assertion, and client assertion.
 
 ![A daemon app called by other apps and APIs](media/scenarios/daemon-app.svg)
 
