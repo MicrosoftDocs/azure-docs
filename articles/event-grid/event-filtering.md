@@ -6,7 +6,7 @@ author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 04/28/2020
 ms.author: spelluru
 ---
 
@@ -93,9 +93,9 @@ If you specify multiple different filters, an **AND** operation is performed, so
 ]
 ```
 
-### Operator
+### Operators
 
-The available operators for numbers are:
+The available operators for **numbers** are:
 
 * NumberGreaterThan
 * NumberGreaterThanOrEquals
@@ -104,9 +104,10 @@ The available operators for numbers are:
 * NumberIn
 * NumberNotIn
 
-The available operator for booleans is: BoolEquals
+The available operator for **booleans** is: 
+- BoolEquals
 
-The available operators for strings are:
+The available operators for **strings** are:
 
 * StringContains
 * StringBeginsWith
@@ -114,7 +115,7 @@ The available operators for strings are:
 * StringIn
 * StringNotIn
 
-All string comparisons are case-insensitve.
+All string comparisons are **not** case sensitive.
 
 ### Key
 
@@ -155,6 +156,100 @@ Advanced filtering has the following limitations:
 * Five values for **in** and **not in** operators
 
 The same key can be used in more than one filter.
+
+### Examples
+
+### StringContains
+
+```json
+"advancedFilters": [{
+    "operatorType": "StringContains",
+    "key": "Subject",
+    "values": [
+        "/providers/microsoft.devtestlab/"
+    ]
+}]
+```
+
+### NumberIn
+
+```json
+
+"advancedFilters": [{
+    "operatorType": "NumberIn",
+    "key": "data.counter",
+    "values": [
+        5,
+        1
+    ]
+}]
+
+```
+
+### NumberNotIn
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberNotIn",
+    "key": "data.counter",
+    "values": [
+        41,
+        0,
+        0
+    ]
+}]
+```
+
+### NumberLessThan
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberLessThan",
+    "key": "data.counter",
+    "value": 100
+}]
+```
+
+### NumberGreaterThan
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberGreaterThan",
+    "key": "data.counter",
+    "value": 20
+}]
+```
+
+### NumberLessThanOrEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberLessThanOrEquals",
+    "key": "data.counter",
+    "value": 100
+}]
+```
+
+### NumberGreaterThanOrEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "NumberGreaterThanOrEquals",
+    "key": "data.counter",
+    "value": 30
+}]
+```
+
+### BoolEquals
+
+```json
+"advancedFilters": [{
+    "operatorType": "BoolEquals",
+    "key": "data.isEnabled",
+    "value": true
+}]
+```
+
 
 ## Next steps
 
