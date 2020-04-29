@@ -122,7 +122,7 @@ Yes Azure CosmosDB supports time series analysis, here is a sample for [time ser
 
 See the Azure Cosmos DB [service quotas](concepts-limits.md) and [throughout limits per container and database](set-throughput.md#comparison-of-models) articles for more information.
 
-## SQL API
+## Frequently asked questions about SQL API
 
 ### How do I start developing against the SQL API?
 
