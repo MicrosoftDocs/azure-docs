@@ -57,6 +57,12 @@ The Cosmos resource provider can be locked down to prevent any changes to resour
     }
 }
 ```
+Simple way to update this seeting is to use Azure CLI. If you are doing an ARM deployment. Those are complete replacements, so if all  values are not included, they will be reset to default. 
+
+```cli
+az cosmosdb update  --name CosmosDBAccountName --resource-group ResourceGroupName  --disable-key-based-metadata-write-access true
+
+```
 
 ## Next steps
 
