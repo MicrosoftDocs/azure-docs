@@ -16,6 +16,11 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 For more information on Log Analytics workspaces, see [Create a Log Analytics workspace in the Azure portal](../learn/quick-create-workspace.md). For more information on data sources in a Log Analytics workspace, see [Agent data sources in Azure Monitor](../platform/agent-data-sources.md).
 
+## Template references
+
+- [Microsoft.OperationalInsights workspaces template reference](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces) 
+- [Microsoft.OperationalInsights workspaces/dataSources template reference](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/datasources)
+
 ## Create a Log Analytics workspace
 The following sample creates a new empty Log Analytics workspace.
 
