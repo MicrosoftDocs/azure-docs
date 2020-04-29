@@ -30,7 +30,7 @@ Your existing application shouldn't change how it currently selects actions to d
 
 ### Configure your application to call the Rank API
 
-You need to add calls to the Rank and Reward APIs, in order to add Personalizer to your application.
+In order to add Personalizer to your application, you need to call the Rank and Reward APIs.
 
 1. Add the [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) call after the point in your existing application logic where you determine the list of actions and their features. The first action in the actions list needs to be the action selected by your existing logic.
 
