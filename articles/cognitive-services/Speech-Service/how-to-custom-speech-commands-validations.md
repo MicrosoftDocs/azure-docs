@@ -12,20 +12,20 @@ ms.date: 10/09/2019
 ms.author: donkim
 ---
 
-# How To: Add validations to Custom Command parameters (Preview)
+# How To: Add validations to Custom Command parameters
 
-In this article, you'll learn how to add validations to parameters and prompt for correction.
+In this article, we will add validations to parameters and prompts for correction.
 
 ## Prerequisites
 
 You must have completed the steps in the following articles:
-
-- [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
-- [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+> [!div class="checklist"]
+> * [Quickstart: Create a Custom Command](./quickstart-custom-speech-commands-create-new.md)
+> * [Quickstart: Create a Custom Command with Parameters](./quickstart-custom-speech-commands-create-parameters.md)
 
 ## Create a SetTemperature Command
 
-To demonstrate validations, let's create a new Command allowing the user to set the temperature.
+To demonstrate validations, let's create a new Command allowing users to set the temperature.
 
 1. Open your previously created Custom Commands application in [Speech Studio](https://speech.microsoft.com/)
 1. Create a new Command **SetTemperature**

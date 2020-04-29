@@ -12,19 +12,19 @@ ms.date: 12/10/2019
 ms.author: anhoang
 ---
 
-# Quickstart: Use Custom Commands with Custom Voice (Preview)
+# Quickstart: Use Custom Commands with Custom Voice
 
-In the [previous article](./quickstart-custom-speech-commands-create-parameters.md), we created a new Custom Commands project to respond to commands with parameters.
+In the [previous article](./quickstart-custom-speech-commands-create-parameters.md), we created a new Custom Commands application to respond to commands with parameters.
 
 In this article, we'll select a custom output voice for the application we created.
 
 ## Select a Custom Voice
 
-1. Open the project [we created previously](./quickstart-custom-speech-commands-create-parameters.md)
-1. Select **Settings** from the left pane
-1. Select **Custom Voice** from the middle pane
-1. Select the desired custom or public voice from the table
-1. Select **Save**
+1. Open the project [we created previously](./quickstart-custom-speech-commands-create-parameters.md).
+1. Click **Settings** from the left pane.
+1. Click **Custom voice** from the middle pane.
+1. Select the desired custom or public voice from the table.
+1. Click **Save**.
 
 > [!div class="mx-imgBorder"]
 > ![Sample Sentences with parameters](media/custom-speech-commands/select-custom-voice.png)
@@ -36,5 +36,5 @@ Now the application will respond in the selected voice, instead of the default v
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
+> [Quickstart: Connect to a Custom Command application with the Speech SDK](./quickstart-custom-speech-commands-speech-sdk.md)
 
