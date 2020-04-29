@@ -42,7 +42,7 @@ Azure Stream Analytics does not keep a record of all functions invocations and r
 
 Any runtime errors are considered fatal and are surfaced through activity and resource logs. It is recommended that your function handles all exceptions and errors and return a valid result to your query. This will prevent your job from going to a [Failed state](job-states.md).  
 
-## Exception Handling
+## Exception handling
 
 Any exception during data processing is considered a catastrophic failure when consuming data in Azure Stream Analytics. User Defined Methods have a higher potential to throw exceptions and cause the processing to stop. To avoid this issue, JavaScript and C# allow developers to use try-catch blocks to catch any exception during code execution, those exceptions can then be logged and treated without causing any system failure. Users are encouraged to always wrap their custom code in a try-catch block to avoid unexpected exceptions being thrown to the processing engine.
 
@@ -52,4 +52,3 @@ Any exception during data processing is considered a catastrophic failure when c
 * [Azure Stream Analytics JavaScript user-defined aggregates](stream-analytics-javascript-user-defined-aggregates.md)
 * [Develop .NET Standard user-defined functions for Azure Stream Analytics jobs](stream-analytics-edge-csharp-udf-methods.md)
 * [Integrate Azure Stream Analytics with Azure Machine Learning](machine-learning-udf.md)
-
