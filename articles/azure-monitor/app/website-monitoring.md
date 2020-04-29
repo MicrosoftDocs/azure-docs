@@ -79,7 +79,6 @@ Application Insights can gather telemetry data from any internet-connected appli
 ## Monitor your website in the Azure portal
 
 1. Reopen the Application Insights **Overview** page in the Azure portal to view details of your currently running application. The **Overview** page is where you retrieved your instrumentation key.
-
 The four default charts on the overview page are scoped to server-side application data. Because we're instrumenting the client/browser-side interactions with the JavaScript SDK, this particular view doesn't apply unless we also have a server-side SDK installed.
 
 1. Select **Analytics** ![Application Map icon](media/website-monitoring/006.png).  This action opens **Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. To view data related to the client-side browser requests, run the following query:
