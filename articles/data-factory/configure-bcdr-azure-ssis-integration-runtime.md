@@ -83,7 +83,26 @@ When failover occurs, you have to do the following things:
 
 3. Restart Azure-SSIS IR.
 
-### Scenario 3 - Attaching an existing SSISDB (SSIS catalog) to a new Azure-SSIS IR
+### Scenario 3 - Azure-SSIS IR is pointing to public endpoint of Azure SQL Database Managed Instance
+
+The scenario is suitable if the Azure-SSIS IR is pointing to public endpoint of Azure SQL Database Managed Instance and it doesn't join to VNET. The only difference between scenario 2 and this scenarios is that you don't need to edit VNET information of Azure-SSIS IR after failover.
+
+#### Solution
+When failover occurs, you have to do the following things:
+1. Stop Azure-SSIS IR on primary region.
+
+2. Edit Azure-SSIS IR with new region and endpoint information of secondary instance.
+
+```powershell
+  Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                -CatalogServerEndpoint "Azure SQL Database server endpoint" `
+                -CatalogAdminCredential "Azure SQL Database server admin credentials" `
+                -SetupScriptContainerSasUri "new custom setup SAS URI"
+```
+
+3. Restart Azure-SSIS IR.
+
+### Scenario 4 - Attaching an existing SSISDB (SSIS catalog) to a new Azure-SSIS IR
 
 This scenario is suitable if you want to provision a new Azure-SSIS IR on secondary region or you want your SSISDB to keep working with a new Azure-SSIS IR in a new region when an ADF or Azure-SSIS IR disaster occurs in current region.
 
