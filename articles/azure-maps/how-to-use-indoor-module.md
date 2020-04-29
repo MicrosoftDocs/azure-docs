@@ -29,21 +29,28 @@ You can install and embed the Azure Maps *Indoor Maps* module in one of two ways
 To use the globally hosted Azure Content Delivery Network version of the Azure Maps *Indoor Maps* module, reference the Indoor Module JavaScript and Style Sheet in the `<head>` element of the HTML file:
 
   ```html
-  <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-  <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css">
   ```
 
  Or, you can download the *Azure Maps Services* module. The *Azure Maps Services* module contains a client library for accessing Azure Maps services. Follow the steps below to install and load the *Indoor Maps* module into your web application.  
   
   1. Install the NPM package. Make sure you use administrator privileges in the console:
 
-        > **npm i azure-maps-rest**
+      ```powershell
+        >npm install azure-maps-control
+        >npm install azure-maps-indoor
+      ```
 
   2. Reference the *Indoor Maps* module JavaScript and Style Sheet in the `<head>` element of the HTML file:
 
       ```html
       <script src="node_modules/azure-maps-rest/dist/atlas-indoor.min.js"></script>
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css">
+
         ```
 
 ## Instantiate the Map object
@@ -138,8 +145,8 @@ This example shows you how to use the *Indoor Maps* module in your web applicati
 
 4. Initialize a *map object*. The *map object* supports the following options:
     - `Subscription key` is your Azure Maps primary subscription key.
-    - `center`  defines a latitude and longitude for your indoor map center location.
-    - `bounds` (optional). You can retrieve your map bounds by calling the [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). The Tileset List API returns the `bbox`, which you can parse and assign for your bounding box values. The `bbox` is the smallest rectangular shape that encloses the tileset map data. You may also change the map 
+    - `center` defines a latitude and longitude for your indoor map center location. Provide a value for `center` if you do not want to provide a value for `bounds`. Format should appear as `center`: [-122.13315, 47.63637].
+    - `bounds` is the smallest rectangular shape that encloses the tileset map data. Set a value for `bounds` if you do not want to set a value for `center`. You can find your map bounds by calling the [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). The Tileset List API returns the `bbox`, which you can parse and assign to `bounds`. Format should appear as `bounds`: [ # , # , # , # ].
     - `style` allows you to set the color of the background. To display a white background, define `style` as "blank".
     - `zoom` allows you to specify the min and max zoom levels for your map.
 
@@ -158,12 +165,10 @@ Your file should now look similar to the HTML below.
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, user-scalable=no" />
       <title>Indoor Maps App</title>
-
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css" />
-
-      <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-      <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
+       <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css">
       <style>
         html,
         body {
