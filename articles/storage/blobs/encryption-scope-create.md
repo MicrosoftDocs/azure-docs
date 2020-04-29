@@ -35,9 +35,11 @@ To create an encryption scope in the Azure portal, follow these steps:
 
     :::image type="content" source="media/encryption-scope-create/create-encryption-scope-customer-managed-key-portal.png" alt-text="Screenshot showing how to create encryption scope in Azure portal":::
 
+For more information on configuring customer-managed keys with Azure Key Vault for Azure Storage encryption, see [Configure customer-managed keys with Azure Key Vault by using the Azure portal](../common/storage-encryption-keys-portal.md).
+
 # [PowerShell](#tab/powershell)
 
-To create an encryption scope with PowerShell, first install the Az.Storage module version [1.13.4-preview](https://www.powershellgallery.com/packages/Az.Storage/1.13.4-preview). Remove any other versions of the Az.Storage module. Use the following command to install the preview module:
+To create an encryption scope with PowerShell, first install the Az.Storage module, version [1.14.1-preview](https://www.powershellgallery.com/packages/Az.Storage/1.14.1-preview). Remove any other versions of the Az.Storage module. Use the following command to install the preview module:
 
 ```powershell
 Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.13.4-preview –AllowPrerelease –AllowClobber –Force
@@ -87,7 +89,18 @@ To view the encryption scopes for a storage account in the Azure portal, navigat
 
 # [PowerShell](#tab/powershell)
 
-???Need PS module
+To list the encryption scopes available for a storage account, call the Get-AzStorageEncryptionScope command. Remember to replace the placeholder values with your own values:
+
+```powershell
+Get-AzStorageEncryptionScope -ResourceGroupName <resource_group> `
+    -StorageAccountName <storage-account>
+```
+
+To list all encryption scopes in a resource group by storage account, use the pipeline syntax as follows:
+
+```powershell
+Get-AzStorageAccount -ResourceGroupName <resource_group> | Get-AzStorageEncryptionScope
+```
 
 # [Azure CLI](#tab/cli)
 
@@ -103,7 +116,7 @@ To disable an encryption scope in the Azure portal, navigate to the **Encryption
 
 # [PowerShell](#tab/powershell)
 
-To disable an encryption scope with PowerShell, call the Update-AzStorageEncryptionScope command and include the `-State` parameter with a value of `disabled`. To re-enable an encryption scope, call the same command with the `-State` parameter set to `enabled`.
+To disable an encryption scope with PowerShell, call the Update-AzStorageEncryptionScope command and include the `-State` parameter with a value of `disabled`, as shown in the following example. To re-enable an encryption scope, call the same command with the `-State` parameter set to `enabled`. Remember to replace the placeholder values with your own values:
 
 ```powershell
 Update-AzStorageEncryptionScope -ResourceGroupName <resource_group> `
