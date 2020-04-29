@@ -11,6 +11,8 @@ Open issues are being discussed in [this document](https://microsoft.sharepoint-
 
 ## Contribute Content
 
+First, ping Mick your **github username** (not email).
+
 Click "edit" on any page within our docs (like this page) to add content:
 
 ![Edit File](./media/edit-click.png)
