@@ -37,7 +37,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## April 2020
 
-### Combined security info registration experience is now GA [579959]
+### Combined security info registration experience is now generally available [579959]
 
 **Type:** New feature
 
@@ -45,7 +45,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 **Product capability:** Identity Security & Protection
 
-The combined registration experience for Multi-Factor Authentication (MFA) and Self-Service Password Reset (SSPR) is now GA. This new registration experience enables users to register for MFA and SSPR in a single, step-by-step process. When you deploy the new experience for your organization, users can register in less time and with fewer hassles. Check out the blog post [here](https://bit.ly/3etiRyQ).
+The combined registration experience for Multi-Factor Authentication (MFA) and Self-Service Password Reset (SSPR) is now generally available. This new registration experience enables users to register for MFA and SSPR in a single, step-by-step process. When you deploy the new experience for your organization, users can register in less time and with fewer hassles. Check out the blog post [here](https://bit.ly/3etiRyQ).
 
 ---
 
@@ -57,11 +57,11 @@ The combined registration experience for Multi-Factor Authentication (MFA) and S
 
 **Product capability:** Identity Security & Protection
 
-Continuous Access Evaluation is a new security feature that enables near real time enforcement of policies on replying parties consuming Azure AD Access Tokens when critical events happen in Azure AD (such as user account deletion). For more details, please read our [blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933) and  [documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation).
+Continuous Access Evaluation is a new security feature that enables near real-time enforcement of policies on replying parties consuming Azure AD Access Tokens when critical events happen in Azure AD (such as user account deletion). For more details, please read our [blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933) and  [documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation).
 
 ---
 
-### Azure AD SMS Sign-in: Firstline Workers can sign in to AAD-backed applications with their phone number and no password [731501]
+### Azure AD SMS Sign-in: Firstline Workers can sign in to Azure AD-backed applications with their phone number and no password [731501]
 
 **Type:** New feature
 
@@ -69,12 +69,7 @@ Continuous Access Evaluation is a new security feature that enables near real ti
 
 **Product capability:** User Authentication
 
-Office is launching a series of mobile-first business apps that cater to non-traditional organizations, and to employees in large organization that don’t use email as their primary communication method. These apps target frontline employees, deskless workers, field agents or retail employees that may not get an email address from their employer, have access to a computer or to IT. 
-This project will let these employees sign in to business applications by entering a phone number and roundtripping a code.
-
-[Admin docs](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-sms-signin)
-
-[End user docs](https://docs.microsoft.com/azure/active-directory/user-help/sms-sign-in-explainer)
+Office is launching a series of mobile-first business apps that cater to non-traditional organizations, and to employees in large organizations that don’t use email as their primary communication method. These apps target frontline employees, deskless workers, field agents, or retail employees that may not get an email address from their employer, have access to a computer, or to IT. This project will let these employees sign in to business applications by entering a phone number and roundtripping a code. For more details, please see our [admin documentation](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-sms-signin) and [end user documentation](https://docs.microsoft.com/azure/active-directory/user-help/sms-sign-in-explainer).
 
 ---
 
@@ -86,9 +81,7 @@ This project will let these employees sign in to business applications by enteri
 
 **Product capability:**
 
-Expands B2B invitation capability to allow existing internal accounts to be invited to use B2B collaboration credentials going forward.  This is done by passing in the user object to the Invite API in addition to the typical parameters like the invited email address.  The user's object ID, UPN, group membership, app assignment, etc remain intact, but going forward they'll use B2B to authenticate with their home tenant credentials rather than the internal credentials they used before the invitation.
-
-Documented here: https://docs.microsoft.com/azure/active-directory/b2b/invite-internal-users
+We're expanding B2B invitation capability to allow existing internal accounts to be invited to use B2B collaboration credentials going forward. This is done by passing the user object to the Invite API in addition to typical parameters like the invited email address. The user's object ID, UPN, group membership, app assignment, etc. remain intact, but going forward they'll use B2B to authenticate with their home tenant credentials rather than the internal credentials they used before the invitation. For details, see the [documentation](https://docs.microsoft.com/azure/active-directory/b2b/invite-internal-users).
 
 ---
 
@@ -100,7 +93,7 @@ Documented here: https://docs.microsoft.com/azure/active-directory/b2b/invite-in
 
 **Product capability:** Identity Security & Protection
 
-[Report-only mode for Azure AD Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only) lets you evaluate the result of a policy without enforcing access controls. You can test report-only policies across your organization and understand their impact before enabling them, making deployment safer and easier. Over the past few months, we’ve seen strong adoption of report-only mode—over 26M users are already in scope of a report-only policy. With the announcement today, new Azure AD Conditional Access policies will be created in report-only mode by default. This means you can monitor the impact of your policies from the moment they’re created. And for those of you who use the MS Graph APIs, you can [manage report-only policies programmatically](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta) as well. 
+[Report-only mode for Azure AD Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only) lets you evaluate the result of a policy without enforcing access controls. You can test report-only policies across your organization and understand their impact before enabling them, making deployment safer and easier. Over the past few months, we’ve seen strong adoption of report-only mode, with over 26M users already in scope of a report-only policy. With this announcement, new Azure AD Conditional Access policies will be created in report-only mode by default. This means you can monitor the impact of your policies from the moment they’re created. And for those of you who use the MS Graph APIs, you can also [manage report-only policies programmatically](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta). 
 
 ---
 
@@ -124,7 +117,7 @@ The [insights and reporting workbook](https://docs.microsoft.com/azure/active-di
 
 **Product capability:** Identity Security & Protection
 
-The new [policy details blade](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access) displays which assignments, conditions, and controls were satisfied by during conditional access policy evaluation. You can access the blade by selecting a row in the Conditional Access or Report-only tabs of the Sign-in details. 
+The new [policy details blade](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access) displays which assignments, conditions, and controls were satisfied during conditional access policy evaluation. You can access the blade by selecting a row in the **Conditional Access** or **Report-only** tabs of the Sign-in details.
 
 ---
 
@@ -136,7 +129,7 @@ The new [policy details blade](https://docs.microsoft.com/azure/active-directory
 
 **Product capability:** 3rd Party Integration
 
-In April 2020 we have added following 31 new applications in our App gallery with Federation support: 
+In April 2020, we've added these 31 new apps with Federation support to the app gallery: 
 
 [SincroPool Apps](https://www.sincropool.com/), [SmartDB](https://hibiki.dreamarts.co.jp/smartdb/trial/), [Float](https://docs.microsoft.com/azure/active-directory/saas-apps/float-tutorial), [LMS365](https://lms.365.systems/), [IWT Procurement Suite](https://docs.microsoft.com/azure/active-directory/saas-apps/iwt-procurement-suite-tutorial), [Lunni](https://lunni.fi/), [EasySSO for Jira](https://docs.microsoft.com/azure/active-directory/saas-apps/easysso-for-jira-tutorial), [Virtual Training Academy](https://vta.c3p.ca/app/en/openid?authenticate_with=microsoft), [Meraki Dashboard](https://docs.microsoft.com/azure/active-directory/saas-apps/meraki-dashboard-tutorial), [Office 365 Mover](https://app.mover.io/login), [Speaker Engage](https://speakerengage.com/login.php), [Honestly](https://docs.microsoft.com/azure/active-directory/saas-apps/honestly-tutorial), [Ally](https://docs.microsoft.com/azure/active-directory/saas-apps/ally-tutorial), [DutyFlow](https://app.dutyflow.nl/), [AlertMedia](https://docs.microsoft.com/azure/active-directory/saas-apps/alertmedia-tutorial), [gr8 People](https://docs.microsoft.com/azure/active-directory/saas-apps/gr8-people-tutorial), [Pendo](https://docs.microsoft.com/azure/active-directory/saas-apps/pendo-tutorial), [HighGround](https://docs.microsoft.com/azure/active-directory/saas-apps/highground-tutorial), [Harmony](https://docs.microsoft.com/azure/active-directory/saas-apps/harmony-tutorial), [Timetabling Solutions](https://docs.microsoft.com/azure/active-directory/saas-apps/timetabling-solutions-tutorial), [SynchroNet CLICK](https://docs.microsoft.com/azure/active-directory/saas-apps/synchronet-click-tutorial), [empower](https://www.made-in-office.com/en/), [Fortes Change Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/fortes-change-cloud-tutorial), [Litmus](https://docs.microsoft.com/azure/active-directory/saas-apps/litmus-tutorial), [GroupTalk](https://recorder.grouptalk.com/), [Frontify](https://docs.microsoft.com/azure/active-directory/saas-apps/frontify-tutorial), [MongoDB Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/mongodb-cloud-tutorial), [TickitLMS Learn](https://docs.microsoft.com/azure/active-directory/saas-apps/tickitlms-learn-tutorial), [COCO](https://hexaware.com/partnerships-and-alliances/digital-transformation-using-microsoft-azure/), [Nitro Productivity Suite](https://docs.microsoft.com/azure/active-directory/saas-apps/nitro-productivity-suite-tutorial) , [Trend Micro Web Security(TMWS)](https://review.docs.microsoft.com/azure/active-directory/saas-apps/trend-micro-tutorial)
 
@@ -144,7 +137,7 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### Microsoft Graph delta query support for oAuth2PermissionGrant available for public preview [691379]
+### Microsoft Graph delta query support for oAuth2PermissionGrant available for Public Preview [691379]
 
 **Type:** New feature
 
@@ -152,7 +145,7 @@ For more information about the apps, see [SaaS application integration with Azur
 
 **Product capability:** Developer Experience
 
-Delta query for oAuth2PermissionGrant is now available in beta! You can now track changes without having to continuously poll Microsoft Graph. https://docs.microsoft.com/graph/api/oAuth2PermissionGrant-delta?view=graph-rest-beta&tabs=http
+Delta query for oAuth2PermissionGrant is available for public preview! You can now track changes without having to continuously poll Microsoft Graph. [Learn more.](https://docs.microsoft.com/graph/api/oAuth2PermissionGrant-delta?view=graph-rest-beta&tabs=http)
 
 ---
 
@@ -164,9 +157,7 @@ Delta query for oAuth2PermissionGrant is now available in beta! You can now trac
 
 **Product capability:** Developer Experience
 
-Delta query for organizational contacts is now available in v1.0! You can now track changes in production apps without having to continuously poll Microsoft Graph.
-
-Replace any existing code that continuously polls orgContact data by delta query to significantly improve performance. https://docs.microsoft.com/graph/api/orgcontact-delta?view=graph-rest-1.0&tabs=http
+Delta query for organizational contacts is generally available! You can now track changes in production apps without having to continuously poll Microsoft Graph. Replace any existing code that continuously polls orgContact data by delta query to significantly improve performance. [Learn more.](https://docs.microsoft.com/graph/api/orgcontact-delta?view=graph-rest-1.0&tabs=http)
 
 ---
 
@@ -178,20 +169,18 @@ Replace any existing code that continuously polls orgContact data by delta query
 
 **Product capability:** Developer Experience
 
-Delta query forapplications is now available in v1.0! You can now track changes in production apps without having to continuously poll Microsoft Graph.
-
-Replace any existing code that continuously polls application data by delta query to significantly improve performance. https://docs.microsoft.com/graph/api/application-delta?view=graph-rest-1.0
+Delta query for applications is generally available! You can now track changes in production apps without having to continuously poll Microsoft Graph. Replace any existing code that continuously polls application data by delta query to significantly improve performance. [Learn more.](https://docs.microsoft.com/graph/api/application-delta?view=graph-rest-1.0)
 
 ---
 
-### Microsoft Graph delta query support for administrative units available in public preview [982019]
+### Microsoft Graph delta query support for administrative units available for Public Preview [982019]
 
 **Type:** New feature
 
 **Service category:** MS Graph
 
 **Product capability:** Developer Experience
-Delta query for administrative units is now available beta! You can now track changes without having to continuously poll Microsoft Graph. https://docs.microsoft.com/graph/api/administrativeunit-delta?view=graph-rest-beta&tabs=http
+Delta query for administrative units is available for public preview! You can now track changes without having to continuously poll Microsoft Graph. [Learn more.](https://docs.microsoft.com/graph/api/administrativeunit-delta?view=graph-rest-beta&tabs=http)
 
 ---
 
@@ -203,7 +192,7 @@ Delta query for administrative units is now available beta! You can now track ch
 
 **Product capability:** Developer Experience
 
-Azure AD is releasing a new set of authentication method Microsoft Graph APIs. These APIs are a key tool to empower administrators to manage their users’ authentication methods. With these APIs, a tenant can programmatically pre-register and manage users for Azure multi-factor authentication (MFA) and self-service password reset (SSPR). These APIs have been one of the most-requested features in the Azure MFA, SSPR, and Microsoft Graph spaces.
+Azure AD is releasing a new set of authentication method Microsoft Graph APIs. These APIs are key tools that empower administrators to manage their users’ authentication methods. With these APIs, a tenant can programmatically pre-register and manage users for Azure multi-factor authentication (MFA) and self-service password reset (SSPR). These APIs have been one of the most-requested features in the Azure MFA, SSPR, and Microsoft Graph spaces.
 
 The newly released APIs give an admin the ability to:
 
@@ -211,9 +200,7 @@ The newly released APIs give an admin the ability to:
 - Reset a user’s password, including syncing to on-premises Active Directory if enabled
 - Turn on and off SMS-sign-in for users enabled for it
 
-These come at an especially welcome time. Due to the COVID-19 pandemic, organizations around the world have shifted to remote work. We’ve heard from our admins that this has created unique complications for getting users registered for MFA and SSPR. Admins don’t want users registering from potentially unsafe locations, and they want users registered as soon as possible to get them protected. These APIs give you the ability to register your users and set them up to do MFA via SMS immediately without requiring them to register themselves from beyond your corporate network and without your users potentially waiting to register for some period of time.
-
-https://docs.microsoft.com/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
+These come at an especially welcome time as organizations around the world have shifted to remote work. We’ve heard from our admins that this has created unique complications for getting users registered for MFA and SSPR. Admins don’t want users registering from potentially unsafe locations, and they want users registered as soon as possible to get them protected. These APIs give you the ability to register your users and set them up for MFA via SMS immediately, without requiring users to register from beyond your corporate network or potentially wait a long time to register. [Learn more.](https://docs.microsoft.com/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)
 
 ---
 
@@ -233,7 +220,7 @@ Using administrative units, a central administrator could:
 - Assign a role with administrative permissions over only Azure AD users in an administrative unit
 - Populate the administrative units with users and groups as needed
 
-For more information, see https://aka.ms/AdminUnitsDocs
+For more information, see [Administrative units management in Azure Active Directory (preview)](https://aka.ms/AdminUnitsDocs).
 
 ---
 
@@ -247,9 +234,7 @@ For more information, see https://aka.ms/AdminUnitsDocs
 
 **Printer Administrator**: Users with this role can register printers and manage all aspects of all printer configurations in the Microsoft Universal Print solution, including the Universal Print Connector settings. They can consent to all delegated print permission requests. Printer Administrators also have access to print reports. 
 
-**Printer Technician**: Users with this role can register printers and manage printer status in the Microsoft Universal Print solution. They can also read all connector information. Key tasks a Printer Technician cannot do are set user permissions on printers and sharing printers.
-
-https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#printer-administrator
+**Printer Technician**: Users with this role can register printers and manage printer status in the Microsoft Universal Print solution. They can also read all connector information. Key tasks a Printer Technician cannot do are set user permissions on printers and sharing printers. [Learn more.](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#printer-administrator)
 
 ---
 
@@ -261,7 +246,7 @@ https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-a
 
 **Product capability:** Access Control
 
-Users in this role can enable, configure and manage services and settings related to enabling hybrid identity in Azure AD. This role grants the ability to configure Azure AD to one of the three supported authentication methods, Password hash synchronization (PHS), Pass-through authentication (PTA) or Federation (AD FS or 3rd party federation provider), and to deploy related on-premises infrastructure to enable them. On-prem infrastructure includes Provisioning and PTA agents. This role grants the ability to enable Seamless Single Sign-On (S-SSO) to enable seamless authentication on non-Windows 10 devices or non-Windows Server 2016 computers. In addition, this role grants the ability to see sign-in logs and access to health and analytics for monitoring and troubleshooting purposes. https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#hybrid-identity-administrator
+Users in this role can enable, configure and manage services and settings related to enabling hybrid identity in Azure AD. This role grants the ability to configure Azure AD to one of the three supported authentication methods&#8212;Password hash synchronization (PHS), Pass-through authentication (PTA) or Federation (AD FS or 3rd party federation provider)&#8212;and to deploy related on-premises infrastructure to enable them. On-premises infrastructure includes Provisioning and PTA agents. This role grants the ability to enable Seamless Single Sign-On (S-SSO) to enable seamless authentication on non-Windows 10 devices or non-Windows Server 2016 computers. In addition, this role grants the ability to see sign-in logs and to access health and analytics for monitoring and troubleshooting purposes. [Learn more.](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#hybrid-identity-administrator)
 
 ---
 
@@ -273,7 +258,7 @@ Users in this role can enable, configure and manage services and settings relate
 
 **Product capability:** Access Control
 
-Users with this role can review network perimeter architecture recommendations from Microsoft that are based on network telemetry from their user locations. Network performance for Office 365 relies on careful enterprise customer network perimeter architecture which is generally user location specific. This role allows for editing of discovered user locations and configuration of network parameters for those locations to facilitate improved telemetry measurements and design recommendations. https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#network-administrator
+Users with this role can review network perimeter architecture recommendations from Microsoft that are based on network telemetry from their user locations. Network performance for Office 365 relies on careful enterprise customer network perimeter architecture, which is generally user location-specific. This role allows for editing of discovered user locations and configuration of network parameters for those locations to facilitate improved telemetry measurements and design recommendations. [Learn more.](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#network-administrator)
 
 ---
 
@@ -285,7 +270,7 @@ Users with this role can review network perimeter architecture recommendations f
 
 **Product capability:** Directory
 
-Now you can perform bulk activities on users and groups in Azure AD by uploading a CSV file in the Azure AD admin portal experience. You can create users, delete users, invite guest users. And you can add and remove members from a group.
+Now you can perform bulk activities on users and groups in Azure AD by uploading a CSV file in the Azure AD admin portal experience. You can create users, delete users, and invite guest users. And you can add and remove members from a group.
 
 You can also download lists of Azure AD resources from the Azure AD admin portal experience. You can download the list of users in the directory, the list of groups in the directory, and the members of a particular group.
 
@@ -306,10 +291,7 @@ For more information, check out the following:
 
 **Product capability:**
 
-My Staff enables Firstline Managers, such as a store manager, to ensure that their staff members are able to access their Azure AD accounts. Instead of relying on a central helpdesk, organizations can delegate common tasks such as resetting passwords or changing phone numbers to a Firstline Manager. With My Staff, a user who can’t access their account can re-gain access in just a couple of clicks – no helpdesk or IT staff required.
-
-https://aka.ms/MyStaffAdminDocs
-https://aka.ms/MyStaffUserDocs
+My Staff enables Firstline Managers, such as a store manager, to ensure that their staff members are able to access their Azure AD accounts. Instead of relying on a central helpdesk, organizations can delegate common tasks, such as resetting passwords or changing phone numbers, to a Firstline Manager. With My Staff, a user who can’t access their account can re-gain access in just a couple of clicks, with no helpdesk or IT staff required. For more information, see the [Manage your users with My Staff (preview)](https://aka.ms/MyStaffAdminDocs) and [Delegate user management with My Staff (preview)](https://aka.ms/MyStaffUserDocs).
 
 ---
 
@@ -321,13 +303,13 @@ https://aka.ms/MyStaffUserDocs
 
 **Product capability:** Identity Governance
 
-We will be upgrading the current reviewer experience for Azure AD access reviews in the Access Panel on July 27th 2020 . This means that on July 27th all reviewers will be automatically switched over to the new My Access to complete their access reviews. Please note that the updated Access reviews experience offers the same functionality as the current experience, but with an improved user interface on top of new capabilities to enable your users to be productive. [You can learn more about the updated experience here](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review). 
+We will be upgrading the current reviewer experience for Azure AD access reviews in the Access Panel on July 27th 2020. This means that on July 27th, all reviewers will be automatically switched over to the new My Access to complete their access reviews. Please note that the updated Access reviews experience offers the same functionality as the current experience, but with an improved user interface on top of new capabilities to enable your users to be productive. [You can learn more about the updated experience here](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review). 
 
 Starting today, your reviewers will see a banner on the access reviews page that will allow them to try the updated experience in My Access, which is currently in preview. However, reviewers can continue to use the Access Panel until July 27th. If you wish to have your reviewers permanently switched over to the preview experience in My Access before July 27th, [please make a request here](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
 
 ---
 
-### Workday inbound user provisioning and writeback apps now support latest versions of Workday Web Services API [730505]
+### Workday inbound user provisioning and writeback apps now support the latest versions of Workday Web Services API [730505]
 
 **Type:** Changed feature
 
@@ -335,14 +317,13 @@ Starting today, your reviewers will see a banner on the access reviews page that
 
 **Product capability:** 
 
-Based on customer feedback, we have now updated the Workday inbound user provisioning and writeback apps in the enterprise app gallery to support latest versions of the Workday Web Services (WWS) API. With this change, customers can specify the WWS API version that they would like to use in the connection string. This gives customers the ability to retrieve more HR attributes available in the releases of Workday. The Workday Writeback app now uses the recommended Change_Work_Contact_Info Workday web service to overcome the limitations of Maintain_Contact_Info. 
+Based on customer feedback, we have now updated the Workday inbound user provisioning and writeback apps in the enterprise app gallery to support the latest versions of the Workday Web Services (WWS) API. With this change, customers can specify the WWS API version that they would like to use in the connection string. This gives customers the ability to retrieve more HR attributes available in the releases of Workday. The Workday Writeback app now uses the recommended Change_Work_Contact_Info Workday web service to overcome the limitations of Maintain_Contact_Info.
 
 If no version is specified in the connection string, by default, the Workday inbound provisioning apps will continue to use WWS v21.1  To switch to the latest Workday APIs for inbound user provisioning, customers need to update the connection string as documented [in the tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles) and also update the XPATHs used for Workday attributes as documented in the [Workday attribute reference guide](https://docs.microsoft.com/azure/active-directory/app-provisioning/workday-attribute-reference#xpath-values-for-workday-web-services-wws-api-v30). 
 
-To use the new API for writeback, there are no changes required in the Workday Writeback provisioning app. On the Workday side, ensure that the Workday Integration System User (ISU) account has permissions to invoke the Change_Work_Contact business process as documented in the tutorial section - [Configure business process security policy permissions](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#configuring-business-process-security-policy-permissions). 
+To use the new API for writeback, there are no changes required in the Workday Writeback provisioning app. On the Workday side, ensure that the Workday Integration System User (ISU) account has permissions to invoke the Change_Work_Contact business process as documented in the tutorial section, [Configure business process security policy permissions](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#configuring-business-process-security-policy-permissions). 
 
-We have updated our tutorial guide to reflect the new API version support.
-https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial
+We have updated our [tutorial guide](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial) to reflect the new API version support.
 
 ---
 
@@ -354,7 +335,7 @@ https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tuto
 
 **Product capability:** Identity Lifecycle Management
 
-Historically, users with the default access role have been out of scope for provisioning. We've heard feedback that customers want users with this role to be in scope for provisioning. Starting 4/16, all new provisioning configurations will allow users with the default access role to be provisioned. Gradually we will change the behavior for existing provisioning configurations to support provisioning users with this role. Learn more: https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned
+Historically, users with the default access role have been out of scope for provisioning. We've heard feedback that customers want users with this role to be in scope for provisioning. As of April 16, 2020, all new provisioning configurations allow users with the default access role to be provisioned. Gradually we will change the behavior for existing provisioning configurations to support provisioning users with this role. [Learn more.](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned)
 
 ---
 
@@ -366,7 +347,7 @@ Historically, users with the default access role have been out of scope for prov
 
 **Product capability:** Identity Lifecycle Management
 
-We've refreshed our provisioning experience to create a more focused management view. When you navigate to the provisioning blade for an enterprise application that has already been configured, you'll be able to easily monitor the progress of provisioning and manage cations such as starting, stopping, and restarting provisioning. Learn more: https://docs.microsoft.com/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal
+We've refreshed our provisioning experience to create a more focused management view. When you navigate to the provisioning blade for an enterprise application that has already been configured, you'll be able to easily monitor the progress of provisioning and manage actions such as starting, stopping, and restarting provisioning. [Learn more.](https://docs.microsoft.com/azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal)
 
 ---
 
@@ -378,9 +359,9 @@ We've refreshed our provisioning experience to create a more focused management 
 
 **Product capability:** Collaboration
 
-Azure Active Directory (Azure AD) now provides the means to validate dynamic group rules. On the Validate rules tab, you can validate your dynamic rule against sample group members to confirm the rule is working as expected. When creating or updating dynamic group rules, administrators want to know whether a user or a device will be a member of the group. This helps evaluate whether user or device meets the rule criteria and aid in troubleshooting when membership is not expected.
+Azure Active Directory (Azure AD) now provides the means to validate dynamic group rules. On the **Validate rules** tab, you can validate your dynamic rule against sample group members to confirm the rule is working as expected. When creating or updating dynamic group rules, administrators want to know whether a user or a device will be a member of the group. This helps evaluate whether a user or device meets the rule criteria and aids in troubleshooting when membership is not expected.
 
-For more information, please see: https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-rule-validation
+For more information, see [Validate a dynamic group membership rule (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-rule-validation).
 
 ---
 
@@ -392,15 +373,13 @@ For more information, please see: https://docs.microsoft.com/azure/active-direct
 
 **Product capability:** Identity Security & Protection
 
-**Supporting security defaults for Azure AD improvement actions**: Microsoft Secure Score will be updating improvement actions to support [security defaults in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), which make it easier to help protect your organization with pre-configured security settings for common attacks.
-
-It will affect the following improvement actions:
+**Supporting security defaults for Azure AD improvement actions:** Microsoft Secure Score will be updating improvement actions to support [security defaults in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), which make it easier to help protect your organization with pre-configured security settings for common attacks. This will affect the following improvement actions:
 
 - Ensure all users can complete multi-factor authentication for secure access
 - Require MFA for administrative roles
 - Enable policy to block legacy authentication
  
-**MFA improvement action updates**: To reflect the need for businesses to ensure the upmost security while applying policies that work with their business, Microsoft Secure Score has removed three improvement actions centered around multi-factor authentication, and added two.
+**MFA improvement action updates:** To reflect the need for businesses to ensure the upmost security while applying policies that work with their business, Microsoft Secure Score has removed three improvement actions centered around multi-factor authentication and added two.
 
 Removed improvement actions:
 
@@ -413,7 +392,7 @@ Added improvement actions:
 - Ensure all users can complete multi-factor authentication for secure access
 - Require MFA for administrative roles
 
-These new improvement actions require registering your users or admins for multi-factor authentication (MFA) across your directory and establishing the right set of policies that fit your organizational needs. The main goal is have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. That can take the form of having multiple policies that apply scoped decisions, or setting security defaults (coming March 16th) that let Microsoft decide when to challenge users for MFA. [Read more about what's new in Microsoft Secure Score](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide#whats-new).
+These new improvement actions require registering your users or admins for multi-factor authentication (MFA) across your directory and establishing the right set of policies that fit your organizational needs. The main goal is to have flexibility while ensuring all your users and admins can authenticate with multiple factors or risk-based identity verification prompts. That can take the form of having multiple policies that apply scoped decisions, or setting security defaults (as of March 16th) that let Microsoft decide when to challenge users for MFA. [Read more about what's new in Microsoft Secure Score](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide#whats-new).
 
 ---
 
@@ -732,7 +711,7 @@ Upgrade your organization to the new My Apps portal that is now generally availa
 **Service category:** My Apps   
 **Product capability:** End User Experiences
  
-Workspaces, the filters admins can configure to organize their users apps, will now be referred to as collections. Find more info on how to configure them at [Create collections on the My Apps portal](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-collections).
+Workspaces, the filters admins can configure to organize their users' apps, will now be referred to as collections. Find more info on how to configure them at [Create collections on the My Apps portal](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-collections).
 
 ---
  
