@@ -11,7 +11,7 @@ ms.reviewer: minewiskan
 
 # Frequently asked questions about Analysis Services network connectivity
 
-This article provides answers to some of the more common questions about connecting to storage accounts, data sources, firewalls, and IP addresses.
+This article provides answers to common questions about connecting to storage accounts, data sources, firewalls, and IP addresses.
 
 ## Backup and restore
 
@@ -27,12 +27,12 @@ This article provides answers to some of the more common questions about connect
 **Answer** - Azure Analysis Services is unable to join a VNET. The best solution here is to install and configure an On-premises Data Gateway on the VNET, and then configure your Analysis Services servers with the **AlwaysUseGateway** server property. To learn more, see [Use gateway for data sources on an Azure Virtual Network (VNet)](analysis-services-vnet-gateway.md).
 
 ### I have a source database behind a firewall. How can I configure the firewall to allow my Analysis Services server to access it?   
-**Answer** - Azure Analysis Services does not use fixed IP addresses or Service Tags. The range of IP addresses your Analysis Services servers use can be anything in the range of IP addresses for the **Azure region**. Because of this, you would have to provide the full range of IP addresses for the Azure region of your server in the source database firewall rules. Another, and possibly more secure, alternative is to configure an On-premises Data Gateway. You can then configure your Analysis Services servers with the [AlwaysUseGateway server property](analysis-services-vnet-gateway.md#configure-alwaysusegateway-property), and then ensure the On-premises Data Gateway has an IP address which is allowed by the firewall rules of the data source.
+**Answer** - Azure Analysis Services does not use fixed IP addresses or Service Tags. The range of IP addresses your Analysis Services servers use can be anything in the range of IP addresses for the **Azure region**. You  have to provide the *full range* of IP addresses for the Azure region of your server in the source database firewall rules. Another, and possibly more secure, alternative is to configure an On-premises Data Gateway. You can then configure your Analysis Services servers with the [AlwaysUseGateway server property](analysis-services-vnet-gateway.md#configure-alwaysusegateway-property), and then ensure the On-premises Data Gateway has an IP address, which is allowed by the firewall rules of the data source.
 
 ## Azure apps with IP address
 
 ### I use an Azure-based application (for example, Azure Functions, Azure Data Factory) with an IP address that changes on the fly. How can I manage the Azure Analysis Services firewall rules to dynamically allow the IP address where my app is executing?   
-**Answer** - Azure Analysis Services does not support Private Links, VNETs or Service Tags. There are some open source solutions (for example, https://github.com/mathwro/Scripts/blob/master/Azure/AllowAzure-AnalysisServer.ps1) that detect the IP address of the client application, and automatically and temporarily update the firewall rules.
+**Answer** - Azure Analysis Services does not support Private Links, VNETs, or Service Tags. There are some open-source solutions (for example, https://github.com/mathwro/Scripts/blob/master/Azure/AllowAzure-AnalysisServer.ps1) that detect the IP address of the client application, and automatically and temporarily update the firewall rules.
 
 
 ## Next steps
