@@ -17,7 +17,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a WAF policy
-> * Associate it with a CDN endpoint
+> * Associate it with a CDN endpoint. Noe that you can only associate WAF policy with endpoints hosted at Azure CDN from Microsft SKU
 > * Configure WAF rules
 
 ## Prerequisites
