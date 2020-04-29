@@ -2,7 +2,7 @@
 title: Scenarios to use a virtual network
 description: Scenarios, resources, and limitations to deploy container groups to an Azure virtual network.
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 04/29/2020
 ms.author: danlep
 
 ---
@@ -28,10 +28,7 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 ## Unsupported networking scenarios 
 
 * **Azure Load Balancer** - Placing an Azure Load Balancer in front of container instances in a networked container group is not supported
-* **Virtual network peering**
-  * You can only peer your virtual network to one other virtual network
-  * Global virtual network peering (connecting virtual networks across Azure regions) is not supported
-* **Private link** - Accessing Azure resources at a private endpoint over a private link is not supported
+* **Global virtual network peering** - Global peering (connecting virtual networks across Azure regions) is not supported
 * **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with a public IP address or a fully qualified domain name
 
 ## Other limitations

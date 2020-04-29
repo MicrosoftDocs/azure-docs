@@ -2,7 +2,7 @@
 title: Deploy container group to Azure virtual network
 description: Learn how to deploy a container group to a new or existing Azure virtual network by using the Azure command-line interface.
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 04/29/2020
 ms.author: danlep
 ---
 
