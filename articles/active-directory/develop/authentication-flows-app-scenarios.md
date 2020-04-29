@@ -165,7 +165,7 @@ For more information, see [Protected web API](scenario-protected-web-api-overvie
 
 ### Web API that calls another web API on behalf of a user
 
-For your ASP.NET or ASP.NET Core protected web API to call another web API on behalf of a user, your app needs to acquire a token for the downstream web API. To acquire a token, your app calls the [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) method. Such calls are also named *service-to-service* calls. The web APIs that call other web APIs need to provide custom cache serialization.
+For your protected web API to call another web API on behalf of a user, your app needs to acquire a token for the downstream web API. Such calls are sometimes referred to as *service-to-service* calls. Web APIs that call other web APIs need to provide custom cache serialization.
 
 ![A web API calling another web API](media/scenarios/web-api.svg)
 
