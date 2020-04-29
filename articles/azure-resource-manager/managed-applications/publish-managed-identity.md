@@ -191,7 +191,7 @@ A basic Azure Resource Manager template that deploys a Managed Application with 
 
 ## Granting access to Azure resources
 
-Once a Managed Application is granted an identity, it can be granted access to existing azure resources. This process can be done through the Access control (IAM) interface in the Azure portal. The name of the Managed Application or **user-assigned identity** can be searched to add a role assignment.
+Once a Managed Application is granted an identity, it can be granted access to existing Azure resources. This process can be done through the Access control (IAM) interface in the Azure portal. The name of the Managed Application or **user-assigned identity** can be searched to add a role assignment.
 
 ![Add role assignment for Managed Application](./media/publish-managed-identity/identity-role-assignment.png)
 
@@ -206,7 +206,7 @@ Managed Identity can also be used to deploy a Managed Application that requires 
 
 When linking the deployment of the Managed Application to existing resources, both the existing Azure resource and a **user-assigned identity** with the applicable role assignment on that resource must be provided.
 
- A sample CreateUIDefinition that requires two inputs: a network interface resource ID and a user assigned identity resource id.
+ A sample CreateUIDefinition that requires two inputs: a network interface resource ID and a user assigned identity resource ID.
 
 ```json
 {
