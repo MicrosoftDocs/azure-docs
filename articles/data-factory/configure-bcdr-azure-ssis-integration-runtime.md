@@ -16,7 +16,7 @@ ms.date: 04/09/2020
 
 # Configure the Azure-SSIS Integration Runtime with Azure SQL Database geo-replication and failover
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
 This article describes how to configure the Azure-SSIS Integration Runtime with Azure SQL Database geo-replication for the SSISDB database. When a failover occurs, you can ensure that the Azure-SSIS IR keeps working with the secondary database.
 
