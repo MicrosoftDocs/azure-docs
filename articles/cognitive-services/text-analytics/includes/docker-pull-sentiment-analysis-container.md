@@ -14,7 +14,7 @@ ms.author: aahi
 #### Docker pull for the Sentiment Analysis container
 
 > [!NOTE]
-> This container uses [version 3](text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) of the API.
+> This container uses [version 3](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) of the API.
 
 For a full description of available tags for the Text Analytics containers, see the [Sentiment Analysis](https://go.microsoft.com/fwlink/?linkid=2018654) container on the Docker Hub.
 

@@ -7,9 +7,12 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 04/29/2020
 ms.author: aahi
 ---
+
+> [!NOTE]
+> This container uses version 2 of the API.
 
 To run the *Language Detection* container, execute the following `docker run` command.
 

@@ -7,11 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/24/2020
+ms.date: 04/29/2020
 ms.author: aahi
 ---
 
-To run the *Sentiment Analysis v2* container, execute the following `docker run` command.
+> [!NOTE]
+> This container uses [version 3](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) of the API.
+
+To run the *Sentiment Analysis v3* container, execute the following `docker run` command.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

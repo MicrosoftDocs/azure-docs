@@ -96,15 +96,9 @@ Replace the placeholders below with your own values:
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
-# [Sentiment Analysis v2](#tab/sentiment-v2)
+# [Sentiment Analysis v3](#tab/sentiment)
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
-
-# [sentiment Analysis v3](#tab/sentiment-v3)
-
-[!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-v3-container.md)]
-
-
 
 ***
 
