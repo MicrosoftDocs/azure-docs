@@ -60,7 +60,7 @@ Evaluate the features using an [offline evaluation](how-to-offline-evaluation.md
 
 ## Switch behavior to Online mode
 
-When you determine Personalizer is trained with an average of 70-85% rolling average, the model is ready to switch to Online mode.
+When you determine Personalizer is trained with an average of 75-85% rolling average, the model is ready to switch to Online mode.
 
 In the Azure portal for your Personalizer resource, on the **Configuration** page, on the **Learning behavior** tab, select **Return the best action** then select **Save**.
 
