@@ -148,6 +148,10 @@ This category does not include specific errors about the messages themselves (li
 <!-- Error codes output by the diagnostic logs (2.2.1.1.5)-->
 [!INCLUDE [iot-hub-diagnostics-error-codes](../../includes/iot-hub-diagnostics-error-codes.md)]
 
+#### IoT Hub diagnostics operation names
+
+[!INCLUDE [iot-hub-diagnostics-operation-names](../../includes/iot-hub-diagnostics-operation-names.md)]
+
 #### Device telemetry
 
 The device telemetry category tracks errors that occur at the IoT hub and are related to the telemetry pipeline. This category includes errors that occur when sending telemetry events (such as throttling) and receiving telemetry events (such as unauthorized reader). This category cannot catch errors caused by code running on the device itself.
@@ -224,10 +228,6 @@ The cloud-to-device twin operations category tracks service-initiated events on 
     ]
 }
 ```
-
-#### IoT Hub Diagnostics Operation Names
-
-[!INCLUDE [iot-hub-diagnostics-operation-names](../../includes/iot-hub-diagnostics-operation-names.md)]
 
 #### Device-to-cloud twin operations
 
