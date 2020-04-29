@@ -77,11 +77,11 @@ Since Personalizer uses collective information in near real-time to return the s
     1. Display best, single _content_ item, which is the returned _reward action ID_, to user.
     1. Apply _algorithm_ to collected information about how the user behaved, to determine the **reward** score, such as:
 
-        |Behavior|Calculated reward score|
-        |--|--|
-        |User selected best, single _content_ item (reward action ID)|**1**|
-        |User selected other content|**0**|
-        |User paused, scrolling around indecisively, before selecting best, single _content_ item (reward action ID)|**0.5**|
+    |Behavior|Calculated reward score|
+    |--|--|
+    |User selected best, single _content_ item (reward action ID)|**1**|
+    |User selected other content|**0**|
+    |User paused, scrolling around indecisively, before selecting best, single _content_ item (reward action ID)|**0.5**|
 
     1. Add a **Reward** call sending a reward score between 0 and 1
         * Immediately after showing your content
