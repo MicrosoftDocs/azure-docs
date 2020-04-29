@@ -1,9 +1,9 @@
 ---
 title: Authentication and authorization for Azure Static Web Apps
 description: Learn to use different authorization providers to secure your static app.
-services: azure-functions
+services: static-web-apps
 author: craigshoemaker
-ms.service: azure-functions
+ms.service: static-web-apps
 ms.topic:  conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Authentication and authorization for Azure Static Web Apps
 
-Authentication and authorization is enforced by rules defined in the [routes.json](routes.md) file and managed through the role management features in the portal. Granting access to secured routes is enabled by creating [invitations](#invitations) that associate a user to roles. Roles are defined in the _routes.json_ file and invitations are tied to one of the following authorization providers:
+Azure Static Web Apps streamlines the authentication experience by managing authentication with the following providers:
 
 - Azure Active Directory
 - GitHub
@@ -19,11 +19,13 @@ Authentication and authorization is enforced by rules defined in the [routes.jso
 - Twitter
 - Google
 
+Authorization is enforced by associating users with roles via a provider-specific [invitations](#invitations). Authorized users are granted access to [routes](routes.md) by rules listed in the _routes.json_ file.
+
 The topics of authentication and authorization significantly overlap with routing concepts. Make sure to read the [routing guide](routes.md) along with this article.
 
 ## Roles
 
-Every user that accesses a static app belongs to one or more roles. There are two built-in roles that identify users as anonymous or authenticated.
+Every user that accesses a static web app belongs to one or more roles. There are two built-in roles that identify users as anonymous or authenticated.
 
 - **anonymous**: All users automatically belong to the _anonymous_ role.
 - **authenticated**: Any user that is logged in belongs to the _authenticated_ role.
@@ -54,6 +56,8 @@ To add users to your site, you generate invitations which allow you to associate
 - Copy the link from the _Invite link_ box.
 - Email the invitation link to the person you are granting access to your app.
 
+When the user clicks the link in the invitation, they are prompted to login with the corresponding account. Once successfully logged-in, the designated roles are are granted to the user.
+
 ### Update role assignments
 
 - Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
@@ -64,7 +68,7 @@ To add users to your site, you generate invitations which allow you to associate
 - Edit the list of roles in the _Role_ box.
 - Click the **Update** button.
 
-### Remove user from all roles
+### Remove user
 
 - Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
 - Under _Settings_, click on **Role Management**.
@@ -72,7 +76,11 @@ To add users to your site, you generate invitations which allow you to associate
 - Check the checkbox on the user's row.
 - Click the **Delete** button.
 
-Removing a user also invalidates the permissions for the user. This action may take a few minutes to propagate the change worldwide.
+As you remove a user, keep in mind the following items:
+
+- Removing a user invalidates the permissions for the user.
+- Worldwide propagation may a few minutes.
+- If the user is added back to the app, the [`userId` changes](user-information.md).
 
 ## System folder
 
@@ -123,7 +131,7 @@ You can use a [route rule](routes.md) to map a friendly route like _/logout_.
 
 ```json
 {
-  "route": "/login",
+  "route": "/logout",
   "serve": "/.auth/logout"
 }
 ```
