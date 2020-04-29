@@ -107,7 +107,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Message**: `The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.`
 
-- **Cause**: The cluster was terminated. For interactive clusters, this might be a race condition.
+- **Cause**: The cluster was terminated. For interactive clusters, this issue might be a race condition.
 
 - **Recommendation**: To avoid this error, use job clusters.
 
@@ -561,7 +561,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
 
-- **Cause**: There was an internal problem with the service that caused this.
+- **Cause**: There was an internal problem with the service that caused this error.
 
 - **Recommendation**: This could be a transient issue. Retry your job, and if the problem persists, contact the ADF support for further assistance.
 
@@ -571,7 +571,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: There was an internal error while trying to determine the region from the primary storage account.
 
-- **Recommendation**: Try another storage. If this isn't an acceptable solution, contact ADF support team for further assistance.
+- **Recommendation**: Try another storage. If this option isn't an acceptable solution, contact ADF support team for further assistance.
 
 ### Error code: 208
 
@@ -579,9 +579,9 @@ The following table applies to Azure Batch.
 
 - **Cause**: There was an internal error while trying to read the Service Principal or instantiating the MSI authentication.
 
-- **Recommendation**: Consider providing a Service Principal which has permissions to create an HDInsight cluster in the provided subscription and try again. Verify that the [Manage Identities are set up correctly](https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities).
+- **Recommendation**: Consider providing a service principal, which has permissions to create an HDInsight cluster in the provided subscription and try again. Verify that the [Manage Identities are set up correctly](https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities).
 
-   If this isn't an acceptable solution, contact ADF support team for further assistance.
+   If this option isn't an acceptable solution, contact ADF support team for further assistance.
 
 ### Error code: 2300
 
@@ -591,7 +591,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Verify that the cluster hasn't been deleted, and that the provided URI is correct. When you open the URI in a browser, you should see the Ambari UI. If the cluster is in a virtual network, the URI should be the private URI. To open it, use a Virtual Machine (VM) that is part of the same virtual network.
 
-   For more information, see [this](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services).
+   For more information, see [Directly connect to Apache Hadoop services](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services).
  
  </br>
 
@@ -599,7 +599,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: The problem could be either general HDInsight connectivity or network connectivity. First confirm that the HDInsight Ambari UI is available from any browser. Then check that your credentials are still valid.
    
-   If you're using a self-hosted integrated runtime (IR), do this from the VM or machine where the self-hosted IR is installed. Then try submitting the job from Data Factory again. If it still fails, contact the Data Factory team for support.
+   If you're using a self-hosted integrated runtime (IR), perform this step from the VM or machine where the self-hosted IR is installed. Then try submitting the job from Data Factory again. If it still fails, contact the Data Factory team for support.
 
    For more information, read [Ambari Web UI](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-manage-ambari#ambari-web-ui).
 
@@ -615,7 +615,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: When the error message contains a message similar to `502 - Web server received an invalid response while acting as a gateway or proxy server`, this error is returned by HDInsight service.
 
-- **Recommendation**: For a 502 error, this often occurs when your Ambari Server process was shut down. You can restart the Ambari Services by rebooting the head node.
+- **Recommendation**: A 502 error often occurs when your Ambari Server process was shut down. You can restart the Ambari Services by rebooting the head node.
 
     1. Connect to one of your nodes on Hdinsight using SSH.
     1. Identify your active head node host by running `ping headnodehost`.
@@ -661,12 +661,12 @@ The following table applies to Azure Batch.
     1. Review your YARN memory. If your YARN memory is high, the processing of your jobs may be delayed. If you do not have enough resources to accommodate your Spark application/job, scale up the cluster to ensure the cluster has enough memory and cores. 
  1. Run a Sample test job.
     1. If you run the same job on Hdinsight backend, check that it succeeded. For examples of sample runs, see [Run the MapReduce examples included in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
- 1. If the job still failed on HDinsight, check the application logs and information which to provide to Support:
+ 1. If the job still failed on HDinsight, check the application logs and information, which to provide to Support:
     1. Check whether the job was submitted to YARN. If the job wasn't submitted to yarn, use `--master yarn`.
     1. If the application finished execution, collect the start time and end time of the YARN Application. If the application didn't complete the execution, collect Start time/Launch time.
     1. Check and collect application log with `yarn logs -applicationId <Insert_Your_Application_ID>`.
     1. Check and collect the yarn resource manager logs under the `/var/log/hadoop-yarn/yarn` directory.
-    1. If these are not enough to resolve the issue, contact Azure HDInsight team for support and provide the above logs and timestamps.
+    1. If these steps are not enough to resolve the issue, contact Azure HDInsight team for support and provide the above logs and timestamps.
 
 ### Error code: 2303
 
@@ -683,18 +683,18 @@ The following table applies to Azure Batch.
     1. Review your YARN memory. If your YARN memory is high, the processing of your jobs may be delayed. If you do not have enough resources to accommodate your Spark application/job, scale up the cluster to ensure the cluster has enough memory and cores. 
  1. Run a Sample test job.
     1. If you run the same job on Hdinsight backend, check that it succeeded. For examples of sample runs, see [Run the MapReduce examples included in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
- 1. If the job still failed on HDinsight, check the application logs and information which to provide to Support:
+ 1. If the job still failed on HDinsight, check the application logs and information, which to provide to Support:
     1. Check whether the job was submitted to YARN. If the job wasn't submitted to yarn, use `--master yarn`.
     1. If the application finished execution, collect the start time and end time of the YARN Application. If the application didn't complete the execution, collect Start time/Launch time.
     1. Check and collect application log with `yarn logs -applicationId <Insert_Your_Application_ID>`.
     1. Check and collect the yarn resource manager logs under the `/var/log/hadoop-yarn/yarn` directory.
-    1. If these are not enough to resolve the issue, contact Azure HDInsight team for support and provide the above logs and timestamps.
+    1. If these steps are not enough to resolve the issue, contact Azure HDInsight team for support and provide the above logs and timestamps.
 
 ### Error code: 2304
 
 - **Message**: `MSI authentication is not supported on storages for HDI activities.`
 
-- **Cause**: The storage linked services used in the HDInsight (HDI) linked service or HDI activity, are configured with an MSI authentication which isn't supported.
+- **Cause**: The storage linked services used in the HDInsight (HDI) linked service or HDI activity, are configured with an MSI authentication that isn't supported.
 
 - **Recommendation**: Provide full connection strings for storage accounts used in the HDI linked service or HDI activity.
 
@@ -722,7 +722,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: ADF tried to create a batch on a Spark cluster using Livy API (livy/batch), but received an error.
 
-- **Recommendation**: Follow the error message to fix the issue. If there isn't enough information to get it resolved, contact the HDI team and provide them the batch ID and job ID, which can be found in the activity run Output in ADF Monitoring page. To troubleshoot further please collect the full log of the batch job.
+- **Recommendation**: Follow the error message to fix the issue. If there isn't enough information to get it resolved, contact the HDI team and provide them the batch ID and job ID, which can be found in the activity run Output in ADF Monitoring page. To troubleshoot further, collect the full log of the batch job.
 
    For more information on how to collect the full log, see [Get the full log of a batch job](https://docs.microsoft.com/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
 
@@ -802,7 +802,7 @@ The following table applies to Azure Batch.
        Connect to the VM where the IR is installed and open the Ambari UI in a browser. Use the private URL for the cluster. This connection should work from the browser. If it doesn't, contact HDInsight support team for further assistance.
     1. If self-hosted IR isn't being used, then the HDI cluster should be accessible publicly. Open the Ambari UI in a browser and check that it opens up. If there are any issues with the cluster or the services on it, contact HDInsight support team for assistance.
 
-       The HDI cluster URL used in ADF linked service must be accessible for ADF IR (self-hosted or Azure) in order for the test connection to pass, and for runs to work. This can be verified by opening the URL from a browser either from VM, or from any public machine.
+       The HDI cluster URL used in ADF linked service must be accessible for ADF IR (self-hosted or Azure) in order for the test connection to pass, and for runs to work. This state can be verified by opening the URL from a browser either from VM, or from any public machine.
 
 ### Error code: 2343
 
@@ -994,7 +994,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
 
-- **Cause**: This is a Network connectivity issue, a DNS failure, a server certificate validation, or a timeout.
+- **Cause**: This is a issue is due to either Network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
 - **Recommendation**: Validate that the endpoint you are trying to hit is responding to requests. You may use tools like **Fiddler/Postman**.
 
