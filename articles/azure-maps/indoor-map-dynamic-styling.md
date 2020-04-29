@@ -12,7 +12,7 @@ manager: philmea
 
 # Implement dynamic styling for Creator indoor maps
 
-The Azure Maps Creator [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) lets you apply styles based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. In this article, we'll discuss how to dynamically render indoor map features based on associated dynamic properties (*states*) using the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
+The Azure Maps Creator [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) lets you apply styles based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. In this article, we'll show you how to dynamically render indoor map features based on associated dynamic properties (*states*) using the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
 
 ## Prerequisites
 
@@ -27,17 +27,17 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Implement dynamic styling
 
-Once you complete the prerequisites, you should have a simple web application configured with your subscription key, `tilesetId`, and `statesetId`.
+Once you complete the prerequisites, you should have a simple web application configured with your subscription key, `tilesetId`, and `stateSetId`.
 
 ### Select features
 
-To implement dynamic styling, a feature, such as a unit, must be identified by a feature `ID`. You'll use the feature `ID` to update the dynamic property or *state* of a specific feature defined in the feature stateset. To view features defined in a dataset, you can use one of the following methods:
+To implement dynamic styling, a feature, such as a meeting or conference room, must be referenced by its feature `id`. You'll use the feature `id` to update the dynamic property or *state* of that feature. To view the features defined in a dataset, you can use one of the following methods:
 
 * WFS API (Web Feature Service). Datasets can be queried using the WFS API. WFS follows the Open Geospatial Consortium API Features. The WFS API is helpful for querying features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a given facility and floor level.
 
 * Implement customized code that allows a user to select features on a map using your web application. In this article, we'll make use of this option.  
 
-The following script handles the mouse click event. It retrieves the feature `ID` based on the clicked point and tests the result of changing occupancy status for meeting rooms. In your application, you can insert the code below your Indoor Manager code block. Run your application and check the console to obtain the feature `ID` of the clicked point.
+The following script implements the mouse click event. The code retrieves the feature `id` based on the clicked point. In your application, you can insert the code below your Indoor Manager code block. Run your application and check the console to obtain the feature `id` of the clicked point.
 
 ```javascript
 /* Upon a mouse click, log the feature properties to the browser's console. */
@@ -57,7 +57,7 @@ For this exercise, choose two feature `ID` for two units, preferably units categ
 
 ### Set occupancy status
 
-The feature stateset in use in the application is configured to accept state updates about occupancy and temperature. To update the state of the features:
+The feature stateset in use in the application is configured to accept state updates for occupancy. To update the state of the two features:
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
