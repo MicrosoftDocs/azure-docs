@@ -32,7 +32,7 @@ This article helps you validate that data encryption using customer managed key 
 
 2. On the Azure portal, if you can ensure that the encryption key is set, then data is encrypted using the customers key used in the Azure portal.
 
-  ![Access policy overview](media/concepts-data-access-and-security-data-encryption/byokvalidate.png)
+  ![Access policy overview](media/concepts-data-access-and-security-data-encryption/byok-validate.png)
 
 ### From CLI
 
