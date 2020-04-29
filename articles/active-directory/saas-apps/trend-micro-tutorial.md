@@ -62,9 +62,9 @@ You'll complete these basic steps to configure and test Azure AD SSO with TMWS:
 
 1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable the feature for your users.
     1. [Create an Azure AD user](#create-an-azure-ad-test-user) to test Azure AD single sign-on.
-    1. [Grant the Azure AD test user](#grant-the-azure-ad-test-user-access-to-TMWS) access to TMWS.
+    1. [Grant the Azure AD test user](#grant-the-azure-ad-test-user-access-to-tmws) access to TMWS.
     1. [Configure user and group synchronization settings in Azure AD](#configure-user-and-group-synchronization-settings-in-azure-ad).
-1. [Configure TMWS SSO](#configure-TMWS-sso) on the application side.
+1. [Configure TMWS SSO](#configure-tmws-sso) on the application side.
 1. [Test SSO](#test-sso) to verify the configuration.
 
 ## Configure Azure AD SSO
@@ -226,7 +226,7 @@ For details, see [Traffic Forwarding Using PAC Files](https://docs.trendmicro.co
 
 1. Visit any internet website. TMWS will direct you to the TMWS captive portal.
 
-1. Specify an Active Directory account (format: domain\sAMAccountName or sAMAccountName@domain), or email address, or UPN, and then click **Log On**. TMWS sends you to the Azure AD logon.
+1. Specify an Active Directory account (format: \<domain>\\<sAMAccountName> or \<sAMAccountName>@\<domain>), or email address, or UPN, and then click **Log On**. TMWS sends you to the Azure AD logon.
 
 1. On the Azure AD logon, type your AD account credentials. You should successfully log on to TMWS.
 
