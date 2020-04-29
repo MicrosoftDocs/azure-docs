@@ -10,16 +10,16 @@
  ms.custom: include file
 ---
 ## Common scenarios
-Here are a couple of scenarios where bursting really comes to save the day:
-- **Cost savings** – No longer do you need to plan to provision your IaaS solution for the peak disk IO performance. You can now provision your virtual machine and disks to meet their average disk IO use. With bursting it can also meet its peak performance needs.
-- **Improving boot times**  – With full burst credits at run time, your instance will be able to boot at a much faster rate than before! For example, the default OS disk for premium enabled VMs is the P4 disk, which is a provisioned performance of up to 120 IOPS and 25 MB/s. With bursting, the P4 can go up to 3500 IOPS and 170 MB/s allowing for a boot time to accelerate by 6X.
+The following scenarios are a few where bursting plays a key role:
+- **Cost savings** – If your daily peak performance time is less than the burst duration, you can use bursting VMs or disks as a cost effective solution. You can build your VM and Disk combination so the bursting limits match the required peak performance and the baseline limits match the average performance.
+- **Improving boot times**  – With bursting, if your instance has full burst credits at run time, the instance can boot at a significantly faster rate. For example, the default OS disk for premium enabled VMs is the P4 disk, which is a provisioned performance of up to 120 IOPS and 25 MB/s. With bursting, the P4 can go up to 3500 IOPS and 170 MB/s allowing for a boot time to accelerate by 6X.
 - **Handling batch jobs** – Some application’s workloads are cyclical in nature and require a baseline performance for most of the time and require higher performance for a short period of time. An example of this is an accounting program that process transactions daily that require a small amount of disk traffic. Then at the end of the month, does reconciling reports that need a much higher amount of disk traffic.
-- **Preparedness for traffic spikes** – Web servers and their applications can get a surge of traffic from unforeseen circumstances. With bursting virtual machines and disks backing the web servers, the web servers will handle traffic spikes smoothly and improve their customer’s experience by reducing load times under heavy stress. 
+- **Preparedness for traffic spikes** – Web servers and their applications can experience traffic surges at any time. If your web server is backed by VMs or disks using bursting, the servers are better equipped to handle traffic spikes. 
 
 ## Bursting flow
 The bursting credit system applies in the same manner at both the virtual machine level and disk level. Your resource, either a VM or disk, will start with fully stocked credits. These credits will allow you to burst for 30 minutes at the maximum burst rate. Bursting credits accumulate when your resource is running under their provisioned disk storage limits. For every IOP and MB/s that your resource is using below the provisioned limit you begin to accumulate credits. If your resource has accrued credits to use for bursting and your workload needs the extra performance, your resource can use those credits to go above your provisioned limit to give it the disk IO performance it needs to meet the demand.
 ![Bursting bucket Diagram](media/managed-disks-bursting/Bucket-Diagram.jpg)
-One thing to note about burst accumulation is that it is different for each resource since it is based on the unused IOPS and MB/s below their provisioned amounts. This means that higher baseline performance products can accrue their bursting amounts faster than lower baseline performing products. For example, a P1 SSD idling with no activity will accrue 120 IOPS per second whereas a P20 will accrues 2,300 IOPS per second while idling with no activity.
+One thing to note about burst accumulation is that it is different for each resource since it is based on the unused IOPS and MB/s below their provisioned amounts. This means that higher baseline performance products can accrue their bursting amounts faster than lower baseline performing products. For example, a P1 disk idling with no activity will accrue 120 IOPS per second whereas a P20 disk accrues 2,300 IOPS per second while idling with no activity.
 
 ## Bursting states
 There are three states your resource can be in with bursting enabled:
@@ -28,7 +28,7 @@ There are three states your resource can be in with bursting enabled:
 - **Constant** – The resource’s traffic is exactly at the provisioned performance target.
 
 ## Examples of bursting
-Let us run through some example of bursting with different virtual machine and disk combination to solidify how this feature works. To make these examples easy to follow, we will focus only on MB/s but the same logic is applied independently to IOPS.
+The following examples show how bursting works with various virtual machine and disk combinations. To make the examples easy to follow, we will focus on MB/s, but the same logic is applied independently to IOPS.
 
 ### Non-burstable virtual machine with burstable Disks
 **VM and disk combination:** 
