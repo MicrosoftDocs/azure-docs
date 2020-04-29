@@ -24,7 +24,7 @@ Before you connect a Cosmos DB account to your workspace, there are a few things
 
 ## Enable Cosmos DB analytical store
 
-To run large-scale analytics into Cosmos DB without impacting your operational performance, we recommend using HTAP collections. HTAP collections can be enabled through the analytical store. Follow this [quickstart]() to enable HTAP containers.
+To run large-scale analytics into Cosmos DB without impacting your operational performance, we recommend using HTAP collections. HTAP collections can be enabled through the analytical store. Follow this quickstart to enable HTAP containers.
 
 ## Connect a Cosmos DB database to a Synapse workspace 
 

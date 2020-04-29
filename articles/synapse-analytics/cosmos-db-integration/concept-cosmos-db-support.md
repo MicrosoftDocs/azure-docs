@@ -46,4 +46,4 @@ Writing back into a Cosmos DB collection from Spark only happens through the tra
 
 ## Next steps
 
-[See the Connect to Cosmos DB quickstart](../quickstart-connect-cosmos-db.md)
+See the [Connect to Cosmos DB quickstart](../quickstart-connect-cosmos-db.md)
