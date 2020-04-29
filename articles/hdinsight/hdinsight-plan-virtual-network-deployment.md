@@ -230,9 +230,11 @@ For more information on controlling outbound traffic from HDInsight clusters, se
 
 #### Forced tunneling to on-premises
 
-Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network. HDInsight does __not__ support forced tunneling of traffic to on-premises networks.
+Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network or Firewall. Forced tunneling of all data transfer back to on-premise is _not_ recommended due to large volumes of data transfer and potential performance impact.
 
-You do not need to create user-defined routes as you can rely on automated routing.
+Customers who are interested to setup forced tunneling, should use [custom metastores](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-external-metadata-stores) and setup the approperiate connectivity from the cluster subnet or on-premise network to these custom metastores. 
+
+To see an example of the UDR setup with Azure Firewall, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
 
 ## <a id="hdinsight-ip"></a> Required IP addresses
 
