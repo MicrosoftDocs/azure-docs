@@ -62,6 +62,8 @@ There are some behavior differences that users coming from Azure Table storage w
   | TableServiceExtensions | " " |
   | TableServiceQuery | " " |
 
+## Other frequently asked questions
+
 ### Do I need a new SDK to use the Table API?
 
 No, existing storage SDKs should still work. However, it's recommended that one always gets the latest SDKs for the best support and in many cases superior performance. See the list of available languages in the [Introduction to Azure Cosmos DB Table API](table-introduction.md).
