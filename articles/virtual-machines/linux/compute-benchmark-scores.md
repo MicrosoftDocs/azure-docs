@@ -3,12 +3,65 @@ title: Compute benchmark scores for Azure Linux VMs
 description: Compare CoreMark compute benchmark scores for Azure VMs running Linux.
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 04/29/2020
 ms.reviewer: davberg
 
 ---
 # Compute benchmark scores for Linux VMs
 The following CoreMark benchmark scores show compute performance for Azure's high-performance VM lineup running Ubuntu. Compute benchmark scores are also available for [Windows VMs](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+## Standard_Das_v4
+(12/11/2019 2:28:52 AM pbi 5851281)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_D2as_v4 | AMD EPYC 7452 32-Core Processor | 2 | 1 | 7.8 | 29,726 | 693 | 2.33% | 42 |
+| Standard_D4as_v4 | AMD EPYC 7452 32-Core Processor | 4 | 1 | 15.7 | 59,224 | 1,595 | 2.69% | 42 |
+| Standard_D8as_v4 | AMD EPYC 7452 32-Core Processor | 8 | 1 | 31.4 | 116,412 | 3,613 | 3.10% | 42 |
+| Standard_D16as_v4 | AMD EPYC 7452 32-Core Processor | 16 | 2 | 62.9 | 229,489 | 7,209 | 3.14% | 35 |
+| Standard_D32as_v4 | AMD EPYC 7452 32-Core Processor | 32 | 4 | 125.9 | 461,916 | 6,746 | 1.46% | 35 |
+
+## Standard_Da_v4
+(12/12/2019 12:01:48 AM pbi 5851281)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_D2a_v4 | AMD EPYC 7452 32-Core Processor | 2 | 1 | 7.8 | 30,023 | 333 | 1.11% | 35 |
+| Standard_D4a_v4 | AMD EPYC 7452 32-Core Processor | 4 | 1 | 15.7 | 59,685 | 1,141 | 1.91% | 77 |
+| Standard_D8a_v4 | AMD EPYC 7452 32-Core Processor | 8 | 1 | 31.4 | 118,346 | 1,130 | 0.95% | 42 |
+| Standard_D16a_v4 | AMD EPYC 7452 32-Core Processor | 16 | 2 | 62.9 | 231,131 | 3,830 | 1.66% | 35 |
+| Standard_D32a_v4 | AMD EPYC 7452 32-Core Processor | 32 | 4 | 125.9 | 457,266 | 10,208 | 2.23% | 35 |
+| Standard_D48a_v4 | AMD EPYC 7452 32-Core Processor | 48 | 6 | 188.9 | 664,078 | 17,241 | 2.60% | 35 |
+| Standard_D64a_v4 | AMD EPYC 7452 32-Core Processor | 64 | 8 | 251.9 | 863,911 | 24,818 | 2.87% | 35 |
+| Standard_D96a_v4 | AMD EPYC 7452 32-Core Processor | 96 | 12 | 377.9 | 1,290,455 | 13,640 | 1.06% | 35 |
+
+## Standard_Eas_v4
+(12/11/2019 2:28:50 AM pbi 5851281)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_E2as_v4 | AMD EPYC 7452 32-Core Processor | 2 | 1 | 15.7 | 29,217 | 654 | 2.24% | 42 |
+| Standard_E4as_v4 | AMD EPYC 7452 32-Core Processor | 4 | 1 | 31.4 | 58,356 | 480 | 0.82% | 42 |
+| Standard_E8as_v4 | AMD EPYC 7452 32-Core Processor | 8 | 1 | 62.9 | 115,943 | 3,526 | 3.04% | 35 |
+| Standard_E16as_v4 | AMD EPYC 7452 32-Core Processor | 16 | 2 | 125.9 | 227,383 | 5,619 | 2.47% | 35 |
+| Standard_E32as_v4 | AMD EPYC 7452 32-Core Processor | 32 | 4 | 251.9 | 454,609 | 12,746 | 2.80% | 35 |
+| Standard_E48as_v4 | AMD EPYC 7452 32-Core Processor | 48 | 6 | 377.9 | 682,769 | 9,257 | 1.36% | 35 |
+| Standard_E64as_v4 | AMD EPYC 7452 32-Core Processor | 64 | 8 | 503.9 | 881,311 | 28,357 | 3.22% | 35 |
+| Standard_E96as_v4 | AMD EPYC 7452 32-Core Processor | 96 | 12 | 661.4 | 1,299,233 | 14,997 | 1.15% | 70 |
+
+##  Standard_Ea_v4
+(12/11/2019 2:29:06 AM pbi 5851281)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_E2a_v4 | AMD EPYC 7452 32-Core Processor | 2 | 1 | 15.7 | 29,561 | 422 | 1.43% | 42 |
+| Standard_E4a_v4 | AMD EPYC 7452 32-Core Processor | 4 | 1 | 31.4 | 58,303 | 1,280 | 2.20% | 42 |
+| Standard_E8a_v4 | AMD EPYC 7452 32-Core Processor | 8 | 1 | 62.9 | 114,650 | 2,726 | 2.38% | 42 |
+| Standard_E16a_v4 | AMD EPYC 7452 32-Core Processor | 16 | 2 | 125.9 | 226,947 | 4,661 | 2.05% | 35 |
+| Standard_E32a_v4 | AMD EPYC 7452 32-Core Processor | 32 | 4 | 251.9 | 453,666 | 10,058 | 2.22% | 42 |
+| Standard_E48a_v4 | AMD EPYC 7452 32-Core Processor | 48 | 6 | 377.9 | 665,200 | 18,714 | 2.81% | 35 |
+| Standard_E64a_v4 | AMD EPYC 7452 32-Core Processor | 64 | 8 | 503.9 | 894,718 | 25,214 | 2.82% | 35 |
+| Standard_E96a_v4 | AMD EPYC 7452 32-Core Processor | 96 | 12 | 661.4 | 1,298,074 | 15,948 | 1.23% | 35 |
 
 ## Av2 - General Compute
 (3/15/2019 12:06:55 AM pbi 3897709)
@@ -41,6 +94,7 @@ Note: Av2-series VMs can be deployed on a variety of hardware types and processo
 
 ## B - Burstable
 (3/15/2019 12:27:08 AM pbi 3897709)
+(updated 6/14/2019 7:09:29 AM pbi 4777081)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -56,6 +110,12 @@ Note: Av2-series VMs can be deployed on a variety of hardware types and processo
 | Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 15.7 | 54,051 | 1,260 | 2.33% | 672 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 31.4 | 111,929 | 1,562 | 1.40% | 35 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 31.4 | 109,537 | 1,354 | 1.24% | 665 |
+| Standard_B12ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 12 | 1 | 47.1 | 170,777 | 3,421 | 2.00% | 70 |
+| Standard_B12ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 12 | 1 | 47.1 | 166,676 | 1,368 | 0.82% | 70 |
+| Standard_B16ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 1 | 62.9 | 208,373 | 30,383 | 14.58% | 63 |
+| Standard_B16ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 62.9 | 223,203 | 1,232 | 0.55% | 70 |
+| Standard_B20ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 20 | 1 | 78.6 | 269,561 | 25,095 | 9.31% | 77 |
+| Standard_B20ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 20 | 1 | 78.6 | 274,007 | 3,669 | 1.34% | 70 |
 
 Note: B-Series VMs are for workloads with burstable performance requirements. VM instances accumulate credits when using less than its baseline. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% to meet short CPU burst requirements. Burst time depends on available credits which is a function of VM size and time.  
 
