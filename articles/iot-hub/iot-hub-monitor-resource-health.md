@@ -225,11 +225,9 @@ The cloud-to-device twin operations category tracks service-initiated events on 
 }
 ```
 
-**RS: table of Operations**
+#### IoT Hub Diagnostics Operation Names
 
-
-
-
+[!INCLUDE [iot-hub-diagnostics-operation-names](../../includes/iot-hub-diagnostics-operation-names.md)]
 
 #### Device-to-cloud twin operations
 
