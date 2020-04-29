@@ -188,6 +188,9 @@ Provide at least one (and up to three) related marketing documents here, such as
 
 In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format. Upload your offer logo in two sizes: **Small (48 x 48)** and **Large (216 x 216)**.
 
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+
 #### Screenshots
 
 Add screenshots that show how your offer works. At least three screenshots are required, and you can add up to five. All screenshots must be 1280 x 720 pixels.
@@ -370,7 +373,7 @@ You must upload a `.pdf` file that lists your offer's key usage scenarios listed
 
 ### App tests automation
 
-You can optionally upload an **App tests automation** file here (.app).
+If your offer is an Add-on app, you must upload an **App tests automation** file (.app). This file is not applicable to Connect apps.
 
 ### Test accounts
 

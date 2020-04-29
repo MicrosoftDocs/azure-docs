@@ -7,6 +7,9 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: ARM template
+    displayName: Resource Manager
+    href: quickstart-cluster-template.md
   - name: Create .NET application
     href: service-fabric-quickstart-dotnet.md
   - name: Deploy a Linux container application
@@ -136,6 +139,8 @@
       href: service-fabric-security-controls.md
     - name: Certificate-based authentication in Service Fabric 
       href: cluster-security-certificates.md
+    - name: Certificate management in Service Fabric
+      href: cluster-security-certificate-management.md
   - name: Terminology
     href: service-fabric-technical-overview.md
   - name: Building applications
@@ -365,7 +370,7 @@
     href: service-fabric-api-management-overview.md
   - name: App Resource model
     href: service-fabric-concept-resource-model.md
-  - name: Managed Identity (preview)
+  - name: Managed Identity
     href: concepts-managed-identity.md
   - name: Configure container repository credentials
     href: configure-container-repository-credentials.md
@@ -763,7 +768,7 @@
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
-  - name: Use Managed Identity for Service Fabric apps (preview)
+  - name: Use Managed Identity for Service Fabric apps
     items:
     - name: Cluster setup
       items:

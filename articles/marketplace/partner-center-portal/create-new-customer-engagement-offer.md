@@ -210,6 +210,9 @@ You must provide at least one (and up to three) related marketing documents here
 
 In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.
 
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+
 #### Store logos
 
 You can provide your offer's logo in three sizes: **Small (48 x 48)**, **Large (216 x 216)**, and **Wide (255 x 115)**. The Small and Large sizes are required.

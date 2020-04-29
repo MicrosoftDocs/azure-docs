@@ -14,6 +14,10 @@ This article answers common questions about the Azure Migrate: Server Migration 
 - Questions about [discovery, assessment, and dependency visualization](common-questions-discovery-assessment.md)
 - Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
 
+## What geographies are supported for migration with Azure Migrate?
+
+Review the supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+
 ## How does agentless VMware replication work?
 
 The agentless replication method for VMware uses VMware snapshots and VMware Changed Block Tracking (CBT).
@@ -56,7 +60,7 @@ No. Azure Availability Zones aren't supported for Azure Migrate migration.
 
 ## What transport protocol does Azure Migrate use during replication?
 
-Azure Migrate uses the Network Block Device (NBD) protocol with SSL encryption.
+Azure Migrate uses the Network Block Device (NBD) protocol with TLS encryption.
 
 ## What is the minimum vCenter Server version required for migration?
 
