@@ -51,7 +51,7 @@ select * from dbo.version
 
 ### 3. Run major compaction on ACID tables in HDInsight 3.6
 
-One key difference between Hive on HDInsight 3.6 and Hive on HDInsight 4.0 is ACID-compliance for tables. In HDInsight 3.6, enabling Hive ACID-compliance requires additional configuration, but in HDInsight 4.0 tables are ACID-compliant by default. The only action required before migration is to run 'MAJOR' compaction against each ACID table on the 3.6 cluster. See the [Hive Language Manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact) for details on compaction.
+HDInsight 3.6 and HDInsight 4.0 ACID tables understand ACID deltas differently. The only action required before migration is to run 'MAJOR' compaction against each ACID table on the 3.6 cluster. See the [Hive Language Manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact) for details on compaction.
 
 ### 4. Deploy a new HDInsight 4.0 cluster
 
@@ -63,7 +63,7 @@ For more information about adding storage accounts to HDInsight clusters, see [A
 
 ### 5. Complete migration with a post-upgrade tool in HDInsight 4.0
 
-Once you've completed the metastore migration, run a post-upgrade tool to make previously non-ACID tables compatible with the HDInsight 4.0 cluster. The HDInsight 4.0 warehouse will have the following properties:
+Managed tables must be ACID-compliant on HDInsight 4.0, by default. Once you've completed the metastore migration, run a post-upgrade tool to make previously non-ACID managed tables compatible with the HDInsight 4.0 cluster. This tool will apply the following conversion:
 
 |3.6 |4.0 |
 |---|---|
@@ -71,9 +71,7 @@ Once you've completed the metastore migration, run a post-upgrade tool to make p
 |Non-ACID managed tables|External tables with property 'external.table.purge'='true'|
 |ACID managed tables|ACID managed tables|
 
-You may need to adjust the properties of your warehouse before executing this tool. For example, if you expect that some table will be accessed by a third party (such as an HDInsight 3.6 cluster), that table must be external once the tool is complete. In HDInsight 4.0, all managed tables are expected to be transactional. Therefore, managed tables in HDInsight 4.0 should be accessed by only HDInsight 4.0 clusters.
-
-Once your table properties are set correctly, execute the Hive post-upgrade tool from the HDInsight 4.0 cluster using the SSH shell:
+Execute the Hive post-upgrade tool from the HDInsight 4.0 cluster using the SSH shell:
 
 1. Connect to your cluster headnode using SSH. For instructions, see [Connect to HDInsight using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
 1. Open a login shell as the Hive user by running `sudo su - hive`
@@ -99,6 +97,18 @@ The HDInsight 3.6 and 4.0 clusters must use the same Storage Account.
 > * This script supports migration of Hive databases, tables, and partitions, only. Other metadata objects, like Views, UDFs, and Table Constraints, are expected to be copied manually.
 >
 > * Once this script is complete, it is assumed that the old cluster will no longer be used for accessing any of the tables or databases referred to in the script.
+>
+> * All managed tables will become transactional in HDInsight 4.0. Optionally, keep the table non-transactional by exporting the data to an external table with the property 'external.table.purge'='true'. For example,
+>
+>    ```SQL
+>    create table tablename_backup like tablename;
+>    insert overwrite table tablename_backup select * from tablename;
+>    create external table tablename_tmp like tablename;
+>    insert overwrite table tablename_tmp select * from tablename;
+>    alter table tablename_tmp set tblproperties('external.table.purge'='true');
+>    drop table tablename;
+>    alter table tablename_tmp rename to tablename;
+>    ```
 
 1. Connect to the HDInsight 3.6 cluster by using a [Secure Shell (SSH) client](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
