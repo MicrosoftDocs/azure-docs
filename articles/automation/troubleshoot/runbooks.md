@@ -167,7 +167,7 @@ Connect-AzAccount : Method 'get_SerializationSettings' in type
 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
 does not have an implementation.
 At line:16 char:1
-+ Connect-AZAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : NotSpecified: (:) [Connect-AzAccount], TypeLoadException
     + FullyQualifiedErrorId : System.TypeLoadException,Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
@@ -175,11 +175,11 @@ At line:16 char:1
 
 ### Cause
 
-This error is caused by using both AzureRM and Az module cmdlets in a runbook. It occurs when you import the Az module before importing the AzureRM module.
+This error is probably caused by using an incomplete migration from AzureRM to Az modules in your runbook. This can cause Azure Automation to start a runbook job using only AzureRM modules, then start another job using only Az modules, leading to a sandbox crash. 
 
 ### Resolution
 
-Az and AzureRM cmdlets can't be imported and used in the same runbook. To learn more about Az cmdlets in Azure Automation, see [Manage modules in Azure Automation](../shared-resources/modules.md).
+We don't recommend the use of Az and AzureRM cmdlets in the same runbook. To learn more about the correct use of these modules, see [Migrating to Az modules](../shared-resources/modules.md#migrating-to-az-modules).
 
 ## <a name="task-was-cancelled"></a>Scenario: The runbook fails with the error: A task was canceled
 
@@ -576,7 +576,7 @@ There are two ways to resolve this error.
 * Instead of using [Start-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job?view=powershell-7), use [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) to start the runbook.
 * Try running the runbook on a Hybrid Runbook Worker.
 
-To learn more about this behavior and other behaviors of Azure Automation runbooks, see [Runbook behavior](../automation-runbook-execution.md#runbook-behavior).
+To learn more about this behavior and other behaviors of Azure Automation runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
 
 ## Scenario: Linux Hybrid Runbook Worker receives a prompt for a password when signing a runbook
 
@@ -640,11 +640,11 @@ Possible causes for this issue:
 
 #### Not using Run As account
 
-Follow steps at [Step 5 - Add authentication to manage Azure resources](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) to ensure that you are using a Run As account to access Key Vault. 
+Follow [Step 5 - Add authentication to manage Azure resources](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) to ensure that you are using a Run As account to access Key Vault. 
 
 #### Insufficient permissions
 
-Follow steps at [Add permissions to Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault. 
+[Add permissions to Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault. 
 
 ## <a name="other"></a>My problem isn't listed above
 
@@ -664,7 +664,7 @@ For help with passing parameters into webhooks, see [Start a runbook from a webh
 
 ### Issues using Az modules
 
-Using Az modules and AzureRM modules in the same Automation account is not supported. See [Az modules in runbooks](https://docs.microsoft.com/azure/automation/az-modules) for more details.
+Using an incomplete migration of your runbook modules from AzureRM to Az can cause sandbox crashes and runbook failures. See [Using modules in your runbooks](../automation-runbook-execution.md#using-modules-in-your-runbooks).
 
 ### Inconsistent behavior in runbooks
 
@@ -683,10 +683,6 @@ Run As accounts might not have the same permissions against Azure resources as y
 
 For help with passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters-used-when-the-webhook-starts-a-runbook).
 
-### Using Az modules
-
-Using Az modules and AzureRM modules in the same Automation account is not supported. See [Az modules in runbooks](https://docs.microsoft.com/azure/automation/az-modules).
-
 ### Using self-signed certificates
 
 To use self-signed certificates, see [Creating a new certificate](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
@@ -695,8 +691,9 @@ To use self-signed certificates, see [Creating a new certificate](https://docs.m
 
 The Azure sandbox prevents access to all out-of-process COM servers. For example, a sandboxed application or runbook can't call into Windows Management Instrumentation (WMI), or into the Windows Installer service (msiserver.exe). For details about the use of the sandbox, see [Runbook execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
 
-## Recommended Documents
+## Recommended documents
 
+* [Runbook execution in Azure Automation](../automation-runbook-execution.md)
 * [Starting a runbook in Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
 * [Runbook execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 
