@@ -1,10 +1,11 @@
 ﻿---
-title: Remove TDE protector - PowerShell
-description: "How-to guide for responding to a potentially compromised TDE protector for an Azure SQL Database or Data Warehouse using TDE with Bring YOur Own Key (BYOK) support."
+title: Remove TDE protector (PowerShell & Azure CLI)
+titleSuffix: Azure SQL Database & Azure Synapse Analytics 
+description: "Learn how to respond to a potentially compromised TDE protector for an Azure SQL Database or Azure Synapse Analytics using TDE with Bring YOur Own Key (BYOK) support."
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
 author: jaszymas
@@ -14,18 +15,33 @@ ms.date: 02/24/2020
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell
 
+This topic describes how to respond to a potentially compromised TDE protector for an Azure SQL Database or Azure Synapse Analytics that is using TDE with customer-managed keys in Azure Key Vault - Bring Your Own Key (BYOK) support. To learn more about BYOK support for TDE, see the [overview page](transparent-data-encryption-byok-azure-sql.md).
+
+> [!CAUTION]
+> The procedures outlined in this article should only be done in extreme cases or in test environments. Review the steps carefully, as deleting actively used TDE protectors from Azure Key Vault will result in **database becoming unavailable**.
+
+If a key is ever suspected to be compromised, such that a service or user had unauthorized access to the key, it's best to delete the key.
+
+Keep in mind that once the TDE protector is deleted in Key Vault, in up to 10 minutes, all encrypted databases will start denying all connections with the corresponding error message and change its state to [Inaccessible](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector).
+
+This how-to guide goes over two approaches depending on the desired result after a compromised incident response:
+
+- To keep databases in Azure SQL Database / Azure Synapse Analytics **accessible**
+- To make the databases in Azure SQL Database / Data Warehouses **inaccessible**
+
+
 ## Prerequisites
 
 - You must have an Azure subscription and be an administrator on that subscription
 - You must have Azure PowerShell installed and running.
-- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Data Warehouse. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-azure-sql.md) to learn more.
+- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Azure Synapse Analytics (formerly SQL DW). See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-azure-sql.md) to learn more.
 
 # [PowerShell](#tab/azure-powershell)
 
  For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+> The PowerShell Azure Resource Manager (RM) module is still supported but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -33,15 +49,8 @@ For installation, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 * * *
 
-## Overview
 
-This how-to guide describes how to respond to a potentially compromised TDE protector for an Azure SQL Database or Data Warehouse that is using TDE with customer-managed keys in Azure Key Vault - Bring Your Own Key (BYOK) support. To learn more about BYOK support for TDE, see the [overview page](transparent-data-encryption-byok-azure-sql.md).
-
-The following procedures should only be done in extreme cases or in test environments. Review the how-to guide carefully, as deleting actively used TDE protectors from Azure Key Vault will result in **database unavailability**.
-
-If a key is ever suspected to be compromised, such that a service or user had unauthorized access to the key, it's best to delete the key.
-
-Keep in mind that once the TDE protector is deleted in Key Vault, in up to 10 minutes all encrypted databases will start denying all connections with the corresponding error message and change its state to [Inaccessible](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector).
+## Check TDE Protector thumbprints 
 
 The following steps outline how to check the TDE Protector thumbprints still in use by Virtual Log Files (VLF) of a given database.
 The thumbprint of the current TDE protector of the database, and the database ID can be found by running:
@@ -54,11 +63,12 @@ SELECT [database_id],
  FROM [sys].[dm_database_encryption_keys]
 ```
 
-The following query returns the VLFs and the encryptor respective thumbprints in use. Each different thumbprint refers to different key in Azure Key Vault (AKV):
+The following query returns the VLFs and the TDE Protector respective thumbprints in use. Each different thumbprint refers to different key in Azure Key Vault (AKV):
 
 ```sql
 SELECT * FROM sys.dm_db_log_info (database_id)
 ```
+Alternatively, you can use PowerShell or the Azure CLI: 
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -70,12 +80,7 @@ The PowerShell command **az sql server key show** provides the thumbprint of t
 
 * * *
 
-This how-to guide goes over two approaches depending on the desired result after the incident response:
-
-- To keep the Azure SQL databases / Data Warehouses **accessible**
-- To make the Azure SQL databases / Data Warehouses **inaccessible**
-
-## To keep the encrypted resources accessible
+## Keep encrypted resources accessible
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -92,7 +97,7 @@ This how-to guide goes over two approaches depending on the desired result after
        -ServerName <LogicalServerName> -Type AzureKeyVault -KeyId <KeyVaultKeyId>
    ```
 
-3. Make sure the server and any replicas have updated to the new TDE protector using the [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet.
+3. Make sure the logical SQL server and any replicas have updated to the new TDE protector using the [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet.
 
    > [!NOTE]
    > It may take a few minutes for the new TDE protector to propagate to all databases and secondary databases under the server.
@@ -126,7 +131,7 @@ For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
 
 1. Create a [new key in Key Vault](/cli/azure/keyvault/key#az-keyvault-key-create). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level.
 
-2. Add the new key to the server and update it as the server's new TDE protector.
+2. Add the new key to the logical SQL server and update it as the new TDE protector of the server.
 
    ```azurecli
    # add the key from Key Vault to the server  
@@ -166,7 +171,7 @@ For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
 
 * * *
 
-## To make the encrypted resources inaccessible
+## Make encrypted resources inaccessible
 
 1. Drop the databases that are being encrypted by the potentially compromised key.
 
