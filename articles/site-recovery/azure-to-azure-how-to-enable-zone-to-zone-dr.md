@@ -63,7 +63,7 @@ As mentioned above, Zone to Zone Disaster Recovery reduces complexity as it leve
 
 • ADE V1/V2: Both ADE v1 (dual pass, with AAD) and ADE v2 (single pass, without AAD) are supported.
 
-• Managed/Unmanaged Disk: Both are supported.
+• Managed/Unmanaged Disk: Managed disks are supported. Unmanaged disks are not supported.
 
 • Customer Managed Keys: Supported.
 
