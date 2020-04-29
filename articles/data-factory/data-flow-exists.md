@@ -37,6 +37,14 @@ To create a free-form expression that contains operators other than "and" and "e
 
 ![Exists custom settings](media/data-flow/exists1.png "exists custom")
 
+## Broadcast optimization
+
+![Broadcast Join](media/data-flow/broadcast.png "Broadcast Join")
+
+In joins, lookups and exists transformation, if one or both data streams fit into worker node memory, you can optimize performance by enabling **Broadcasting**. By default, the spark engine will automatically decide whether or not to broadcast one side. To manually choose which side to broadcast, select **Fixed**.
+
+It's not recommended to disable broadcasting via the **Off** option unless your joins are running into timeout errors.
+
 ## Data flow script
 
 ### Syntax
@@ -46,7 +54,7 @@ To create a free-form expression that contains operators other than "and" and "e
     exists(
         <conditionalExpression>,
         negate: { true | false },
-        broadcast: {'none' | 'left' | 'right' | 'both'}
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <existsTransformationName>
 ```
 
@@ -65,7 +73,7 @@ NameNorm2, TypeConversions
     exists(
         NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region,
 	    negate:false,
-	    broadcast: 'none'
+	    broadcast: 'auto'
     ) ~> checkForChanges
 ```
 
