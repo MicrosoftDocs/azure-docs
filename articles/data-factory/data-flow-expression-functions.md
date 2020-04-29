@@ -736,12 +736,12 @@ Sorts the array using the provided predicate function. Sort expects a reference 
 ___
 ### <code>soundex</code>
 <code><b>soundex(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Gets the soundex code for the string
+Gets the soundex code for the string  
 * ``soundex('genius') -> 'G520'``  
 ___
 ### <code>split</code>
 <code><b>split(<i>&lt;string to split&gt;</i> : string, <i>&lt;split characters&gt;</i> : string) => array</b></code><br/><br/>
-Splits a string based on a delimiter and returns an array of strings
+Splits a string based on a delimiter and returns an array of strings  
 * ``split('bojjus,guchus,dumbo', ',') -> ['bojjus', 'guchus', 'dumbo']``  
 * ``split('bojjus,guchus,dumbo', '|') -> ['bojjus,guchus,dumbo']``  
 * ``split('bojjus, guchus, dumbo', ', ') -> ['bojjus', 'guchus', 'dumbo']``  
@@ -752,27 +752,27 @@ Splits a string based on a delimiter and returns an array of strings
 ___
 ### <code>sqrt</code>
 <code><b>sqrt(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates the square root of a number
+Calculates the square root of a number  
 * ``sqrt(9) -> 3``  
 ___
 ### <code>startsWith</code>
 <code><b>startsWith(<i>&lt;string&gt;</i> : string, <i>&lt;substring to check&gt;</i> : string) => boolean</b></code><br/><br/>
-Checks if the string starts with the supplied string
+Checks if the string starts with the supplied string  
 * ``startsWith('dumbo', 'du') -> true``  
 ___
 ### <code>subDays</code>
 <code><b>subDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
-Subtract months from a date or timestamp. Same as the - operator for date
+Subtract months from a date or timestamp. Same as the - operator for date  
 * ``subDays(toDate('2016-08-08'), 1) -> toDate('2016-08-07')``  
 ___
 ### <code>subMonths</code>
 <code><b>subMonths(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;months to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
-Subtract months from a date or timestamp
+Subtract months from a date or timestamp  
 * ``subMonths(toDate('2016-09-30'), 1) -> toDate('2016-08-31')``  
 ___
 ### <code>substring</code>
 <code><b>substring(<i>&lt;string to subset&gt;</i> : string, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of characters&gt;</i> : integral]) => string</b></code><br/><br/>
-Extracts a substring of a certain length from a position. Position is 1 based. If the length is omitted, it is defaulted to end of the string
+Extracts a substring of a certain length from a position. Position is 1 based. If the length is omitted, it is defaulted to end of the string  
 * ``substring('Cat in the hat', 5, 2) -> 'in'``  
 * ``substring('Cat in the hat', 5, 100) -> 'in the hat'``  
 * ``substring('Cat in the hat', 5) -> 'in the hat'``  
@@ -780,40 +780,40 @@ Extracts a substring of a certain length from a position. Position is 1 based. I
 ___
 ### <code>tan</code>
 <code><b>tan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates a tangent value
+Calculates a tangent value  
 * ``tan(0) -> 0.0``  
 ___
 ### <code>tanh</code>
 <code><b>tanh(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates a hyperbolic tangent value
+Calculates a hyperbolic tangent value  
 * ``tanh(0) -> 0.0``  
 ___
 ### <code>toBase64</code>
 <code><b>toBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Encodes the given string in base64
+Encodes the given string in base64  
 * ``toBase64('bojjus') -> 'Ym9qanVz'``  
 ___
 ### <code>toBinary</code>
 <code><b>toBinary(<i>&lt;value1&gt;</i> : any) => binary</b></code><br/><br/>
-Converts any numeric/date/timestamp/string to binary representation
+Converts any numeric/date/timestamp/string to binary representation  
 * ``toBinary(3) -> [0x11]``  
 ___
 ### <code>toBoolean</code>
 <code><b>toBoolean(<i>&lt;value1&gt;</i> : string) => boolean</b></code><br/><br/>
-Converts a value of ('t', 'true', 'y', 'yes', '1') to true and ('f', 'false', 'n', 'no', '0') to false and NULL for any other value
+Converts a value of ('t', 'true', 'y', 'yes', '1') to true and ('f', 'false', 'n', 'no', '0') to false and NULL for any other value  
 * ``toBoolean('true') -> true``  
 * ``toBoolean('n') -> false``  
 * ``isNull(toBoolean('truthy')) -> true``  
 ___
 ### <code>toDate</code>
 <code><b>toDate(<i>&lt;string&gt;</i> : any, [<i>&lt;date format&gt;</i> : string]) => date</b></code><br/><br/>
-Converts input date string to date using an optional input date format. Refer Java's SimpleDateFormat for available formats. If the input date format is omitted, default format is yyyy-[M]M-[d]d. Accepted formats are :[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]
+Converts input date string to date using an optional input date format. Refer Java's SimpleDateFormat for available formats. If the input date format is omitted, default format is yyyy-[M]M-[d]d. Accepted formats are :[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]  
 * ``toDate('2012-8-18') -> toDate('2012-08-18')``  
 * ``toDate('12/18/2012', 'MM/dd/yyyy') -> toDate('2012-12-18')``  
 ___
 ### <code>toDecimal</code>
 <code><b>toDecimal(<i>&lt;value&gt;</i> : any, [<i>&lt;precision&gt;</i> : integral], [<i>&lt;scale&gt;</i> : integral], [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => decimal(10,0)</b></code><br/><br/>
-Converts any numeric or string to a decimal value. If precision and scale are not specified, it is defaulted to (10,2).An optional Java decimal format can be used for the conversion. An optional locale format in the form of BCP47 language like en-US, de, zh-CN
+Converts any numeric or string to a decimal value. If precision and scale are not specified, it is defaulted to (10,2).An optional Java decimal format can be used for the conversion. An optional locale format in the form of BCP47 language like en-US, de, zh-CN  
 * ``toDecimal(123.45) -> 123.45``  
 * ``toDecimal('123.45', 8, 4) -> 123.4500``  
 * ``toDecimal('$123.45', 8, 4,'$###.00') -> 123.4500``  
@@ -821,7 +821,7 @@ Converts any numeric or string to a decimal value. If precision and scale are no
 ___
 ### <code>toDouble</code>
 <code><b>toDouble(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => double</b></code><br/><br/>
-Converts any numeric or string to a double value. An optional Java decimal format can be used for the conversion. An optional locale format in the form of BCP47 language like en-US, de, zh-CN
+Converts any numeric or string to a double value. An optional Java decimal format can be used for the conversion. An optional locale format in the form of BCP47 language like en-US, de, zh-CN  
 * ``toDouble(123.45) -> 123.45``  
 * ``toDouble('123.45') -> 123.45``  
 * ``toDouble('$123.45', '$###.00') -> 123.45``  
@@ -829,35 +829,35 @@ Converts any numeric or string to a double value. An optional Java decimal forma
 ___
 ### <code>toFloat</code>
 <code><b>toFloat(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => float</b></code><br/><br/>
-Converts any numeric or string to a float value. An optional Java decimal format can be used for the conversion. Truncates any double
+Converts any numeric or string to a float value. An optional Java decimal format can be used for the conversion. Truncates any double  
 * ``toFloat(123.45) -> 123.45f``  
 * ``toFloat('123.45') -> 123.45f``  
 * ``toFloat('$123.45', '$###.00') -> 123.45f``  
 ___
 ### <code>toInteger</code>
 <code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => integer</b></code><br/><br/>
-Converts any numeric or string to an integer value. An optional Java decimal format can be used for the conversion. Truncates any long, float, double
+Converts any numeric or string to an integer value. An optional Java decimal format can be used for the conversion. Truncates any long, float, double  
 * ``toInteger(123) -> 123``  
 * ``toInteger('123') -> 123``  
 * ``toInteger('$123', '$###') -> 123``  
 ___
 ### <code>toLong</code>
 <code><b>toLong(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => long</b></code><br/><br/>
-Converts any numeric or string to a long value. An optional Java decimal format can be used for the conversion. Truncates any float, double
+Converts any numeric or string to a long value. An optional Java decimal format can be used for the conversion. Truncates any float, double  
 * ``toLong(123) -> 123``  
 * ``toLong('123') -> 123``  
 * ``toLong('$123', '$###') -> 123``  
 ___
 ### <code>toShort</code>
 <code><b>toShort(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => short</b></code><br/><br/>
-Converts any numeric or string to a short value. An optional Java decimal format can be used for the conversion. Truncates any integer, long, float, double
+Converts any numeric or string to a short value. An optional Java decimal format can be used for the conversion. Truncates any integer, long, float, double  
 * ``toShort(123) -> 123``  
 * ``toShort('123') -> 123``  
 * ``toShort('$123', '$###') -> 123``  
 ___
 ### <code>toString</code>
 <code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string]) => string</b></code><br/><br/>
-Converts a primitive datatype to a string. For numbers and date a format can be specified. If unspecified the system default is picked.Java decimal format is used for numbers. Refer to Java SimpleDateFormat for all possible date formats; the default format is yyyy-MM-dd 
+Converts a primitive datatype to a string. For numbers and date a format can be specified. If unspecified the system default is picked.Java decimal format is used for numbers. Refer to Java SimpleDateFormat for all possible date formats; the default format is yyyy-MM-dd  
 * ``toString(10) -> '10'``  
 * ``toString('engineer') -> 'engineer'``  
 * ``toString(123456.789, '##,###.##') -> '123,456.79'``  
@@ -869,7 +869,7 @@ Converts a primitive datatype to a string. For numbers and date a format can be 
 ___
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts a string to a timestamp given an optional timestamp format. Refer to Java SimpleDateFormat for all possible formats. If the timestamp is omitted the default pattern.yyyy-[M]M-[d]d hh:mm:ss[.f...] is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'.Timestamp supports up to millisecond accuracy with value of 999Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
+Converts a string to a timestamp given an optional timestamp format. Refer to Java SimpleDateFormat for all possible formats. If the timestamp is omitted the default pattern.yyyy-[M]M-[d]d hh:mm:ss[.f...] is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'.Timestamp supports up to millisecond accuracy with value of 999Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html  
 * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``  
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``  
@@ -877,76 +877,76 @@ Converts a string to a timestamp given an optional timestamp format. Refer to Ja
 ___
 ### <code>toUTC</code>
 <code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts the timestamp to UTC. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezoneRefer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
+Converts the timestamp to UTC. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezoneRefer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html  
 * ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``  
 * ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``  
 ___
 ### <code>translate</code>
 <code><b>translate(<i>&lt;string to translate&gt;</i> : string, <i>&lt;lookup characters&gt;</i> : string, <i>&lt;replace characters&gt;</i> : string) => string</b></code><br/><br/>
-Replace one set of characters by another set of characters in the string. Characters have  1 to 1 replacement
+Replace one set of characters by another set of characters in the string. Characters have  1 to 1 replacement  
 * ``translate('(bojjus)', '()', '[]') -> '[bojjus]'``  
 * ``translate('(gunchus)', '()', '[') -> '[gunchus'``  
 ___
 ### <code>trim</code>
 <code><b>trim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
-Trims a string of leading and trailing characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter
+Trims a string of leading and trailing characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter  
 * ``trim('  dumbo  ') -> 'dumbo'``  
 * ``trim('!--!du!mbo!', '-!') -> 'du!mbo'``  
 ___
 ### <code>true</code>
 <code><b>true() => boolean</b></code><br/><br/>
-Always returns a true value. Use the function syntax(true()) if there is a column named 'true'
+Always returns a true value. Use the function syntax(true()) if there is a column named 'true'  
 * ``(10 + 20 == 30) -> true``  
 * ``(10 + 20 == 30) -> true()``  
 ___
 ### <code>typeMatch</code>
 <code><b>typeMatch(<i>&lt;type&gt;</i> : string, <i>&lt;base type&gt;</i> : string) => boolean</b></code><br/><br/>
-Matches the type of the column. Can only be used in pattern expressions.number matches short, integer, long, double, float or decimal, integral matches short, integer, long, fractional matches double, float, decimal and datetime matches date or timestamp type
+Matches the type of the column. Can only be used in pattern expressions.number matches short, integer, long, double, float or decimal, integral matches short, integer, long, fractional matches double, float, decimal and datetime matches date or timestamp type  
 * ``typeMatch(type, 'number')``  
 * ``typeMatch('date', 'datetime')``  
 ___
 ### <code>upper</code>
 <code><b>upper(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Uppercases a string
+Uppercases a string  
 * ``upper('bojjus') -> 'BOJJUS'``  
 ___
 ### <code>uuid</code>
 <code><b>uuid() => string</b></code><br/><br/>
-Returns the generated UUID
+Returns the generated UUID  
 * ``uuid()``  
 ___
 ### <code>weekOfYear</code>
 <code><b>weekOfYear(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
-Gets the week of the year given a date
+Gets the week of the year given a date  
 * ``weekOfYear(toDate('2008-02-20')) -> 8``  
 ___
 ### <code>weeks</code>
 <code><b>weeks(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
-Duration in milliseconds for number of weeks
+Duration in milliseconds for number of weeks  
 * ``weeks(2) -> 1209600000L``  
 ___
 ### <code>xor</code>
 <code><b>xor(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-Logical XOR operator. Same as ^ operator
+Logical XOR operator. Same as ^ operator  
 * ``xor(true, false) -> true``  
 * ``xor(true, true) -> false``  
 * ``true ^ false -> true``  
 ___
 ### <code>year</code>
 <code><b>year(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
-Gets the year value of a date
+Gets the year value of a date  
 * ``year(toDate('2012-8-8')) -> 2012``  
 ## Aggregate functions
 The following functions are only available in aggregate, pivot, unpivot, and window transformations
 ___
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Gets the average of values of a column
+Gets the average of values of a column  
 * ``avg(sales)``  
 ___
 ### <code>avgIf</code>
 <code><b>avgIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Based on a criteria gets the average of values of a column
+Based on a criteria gets the average of values of a column  
 * ``avgIf(region == 'West', sales)``  
 ___
 ### <code>count</code>
