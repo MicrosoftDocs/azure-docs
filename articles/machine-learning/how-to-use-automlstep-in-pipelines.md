@@ -386,7 +386,6 @@ While the `run` object in the model-registering snippet above is from the active
 
 ```python
 # Run on local machine
-ws = Workspace.from_config()
 experiment = ws.experiments['titanic_automl']
 run = next(run for run in ex.get_runs() if run.id == 'aaaaaaaa-bbbb-cccc-dddd-0123456789AB')
 automl_run = next(r for r in run.get_children() if r.name == 'AutoML_Classification')
