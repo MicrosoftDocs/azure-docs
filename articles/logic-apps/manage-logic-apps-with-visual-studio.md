@@ -3,10 +3,10 @@ title: Edit and manage logic apps by using Visual Studio with Cloud Explorer
 description: Edit, update, manage, add to source control, and deploy logic apps by using Visual Studio with Cloud Explorer
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 10/29/2019
+ms.date: 04/29/2020
 ---
 
 # Manage logic apps with Visual Studio
@@ -262,7 +262,7 @@ To delete your logic app from the Azure portal, in Cloud Explorer, open your log
 
 > [!NOTE]
 > When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. 
-> If you have thousands of runs, cancellation might take significant time to complete. 
+> If you have thousands of runs, cancellation might take significant time to complete.
 
 ## Troubleshooting
 
