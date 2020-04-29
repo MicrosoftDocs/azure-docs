@@ -37,7 +37,7 @@ Make sure all the training documents are of the same format. If you have forms i
 
 In order to train a model using labeled data, you'll need the following files as inputs in the sub-folder. You will learn how to create these file below.
 
-* **Source forms** – the forms to extract data from. Supported types are JPEG, PNG, BMP, PDF, or TIFF.
+* **Source forms** – the forms to extract data from. Supported types are JPEG, PNG, PDF, or TIFF.
 * **OCR layout files** - JSON files that describe the sizes and positions of all readable text in each source form. You'll use the Form Recognizer Layout API to generate this data. 
 * **Label files** - JSON files that describe data labels which a user has entered manually.
 

@@ -236,6 +236,7 @@ The **Speech Translation** API supports different languages for speech-to-speech
 | French                  | `fr`          |
 | German                  | `de`          |
 | Greek                   | `el`          |
+| Gujarati                | `gu`          |
 | Haitian Creole          | `ht`          |
 | Hebrew                  | `he`          |
 | Hindi                   | `hi`          |
@@ -256,6 +257,8 @@ The **Speech Translation** API supports different languages for speech-to-speech
 | Malay                   | `ms`          |
 | Malayalam               | `ml`          |
 | Maltese                 | `mt`          |
+| Maori                   | `mi`          |
+| Marathi                 | `mr`          |
 | Norwegian               | `nb`          |
 | Persian                 | `fa`          |
 | Polish                  | `pl`          |

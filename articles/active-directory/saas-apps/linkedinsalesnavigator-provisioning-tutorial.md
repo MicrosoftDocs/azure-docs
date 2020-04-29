@@ -96,7 +96,7 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
 11. Fill in the following fields under **Admin Credentials** :
 
-    * In the **Tenant URL** field, enter https://api.linkedin.com.
+    * In the **Tenant URL** field, enter https://developer.linkedin.com.
 
     * In the **Secret Token** field, enter the access token you generated in step 1 and click **Test Connection** .
 

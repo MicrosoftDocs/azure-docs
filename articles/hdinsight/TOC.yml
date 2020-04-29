@@ -39,6 +39,8 @@
     items: 
     - name: Apache Hadoop components on HDInsight
       href: ./hdinsight-component-versioning.md
+    - name: Hortonworks release notes
+      href: ./hortonworks-release-notes.md
     - name: High availability components
       href: ./hdinsight-high-availability-components.md   
     - name: Apache Ambari in Azure HDInsight
@@ -59,10 +61,17 @@
       href: ./cluster-management-best-practices.md
     - name: Availability and reliability
       href: ./hdinsight-high-availability-linux.md
-    - name: Compare storage options
-      href: ./hdinsight-hadoop-compare-storage-options.md
     - name: Understand managed identities
       href: ./hdinsight-managed-identities.md
+    - name: Compare storage options
+      href: hdinsight-hadoop-compare-storage-options.md
+      items:
+      - name: Azure Storage overview 
+        href: overview-azure-storage.md
+      - name: Azure Data Lake Storage Gen1 overview 
+        href: overview-data-lake-storage-gen1.md
+      - name: Azure Data Lake Storage Gen2 overview 
+        href: overview-data-lake-storage-gen2.md
   - name: How to
     items:
     - name: Create clusters
@@ -102,6 +111,8 @@
         href: hdinsight-hadoop-customize-cluster-linux.md
       - name: Develop script actions
         href: hdinsight-hadoop-script-actions-linux.md
+      - name: Open-source software support
+        href: open-source-software.md
       - name: Add Apache Hive libraries
         href: hdinsight-hadoop-add-hive-libraries.md
       - name: Use Hue
@@ -120,6 +131,8 @@
         href: hdinsight-hadoop-linux-use-ssh-unix.md
       - name: Use SSH tunneling
         href: hdinsight-linux-ambari-ssh-tunnel.md
+      - name: Use SCP with HDInsight
+        href: ./use-scp.md
       - name: Restrict access to data
         href: hdinsight-storage-sharedaccesssignature-permissions.md
       - name: Authorize users for Apache Ambari Views
@@ -209,7 +222,15 @@
       - name: Monitor cluster performance
         href: ./hdinsight-key-scenarios-to-monitor.md
       - name: Monitor cluster availability with Ambari and Azure Monitor logs
-        href: ./hdinsight-cluster-availability.md    
+        href: ./hdinsight-cluster-availability.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot script actions
+        href: ./troubleshoot-script-action.md
+      - name: Resource creation failures
+        href: ./troubleshoot-resource-creation-fails.md
+      - name: Troubleshoot Apache Oozie
+        href: ./troubleshoot-oozie.md
   - name: Reference
     items:
     - name: Azure PowerShell
@@ -680,6 +701,8 @@
         href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
       - name: Troubleshoot Apache HBase
         href: ./hbase/apache-troubleshoot-hbase.md
+      - name: REST API to query Apache HBase
+        href: ./hbase/troubleshoot-rest-api.md
 - name: Interactive Query
   items:
   - name: Overview
@@ -878,6 +901,8 @@
       href: ./domain-joined/apache-domain-joined-architecture.md
     - name: HDInsight virtual network architecture
       href: ./hdinsight-virtual-network-architecture.md
+    - name: Transport layer security
+      href: ./transport-layer-security.md
     - name: Plan VNETs for HDInsight
       href: ./hdinsight-plan-virtual-network-deployment.md
     - name: Required IP Addresses for NSGs and UDRs

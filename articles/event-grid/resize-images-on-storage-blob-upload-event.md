@@ -97,7 +97,7 @@ In the following command, provide your own unique function app name. The functio
     ```azurecli-interactive
     az functionapp create --name $functionapp --storage-account $functionstorage \
       --resource-group $resourceGroupName --consumption-plan-location southeastasia \
-      --functions_version 2
+      --functions-version 2
     ```
 
 Now configure the function app to connect to the Blob storage account you created in the [previous tutorial][previous-tutorial].

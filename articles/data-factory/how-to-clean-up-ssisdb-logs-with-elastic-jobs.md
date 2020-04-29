@@ -14,7 +14,7 @@ ms.reviewer: douglasl
 
 # Clean up SSISDB logs with Azure Elastic Database Jobs
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to use Azure Elastic Database Jobs to trigger the stored procedure that cleans up logs for the SQL Server Integration Services catalog database, `SSISDB`.
 

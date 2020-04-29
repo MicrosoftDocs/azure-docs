@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
+ms.custom:  mqtt
 ---
 
 # Connect IoT DevKit AZ3166 to Azure IoT Hub
@@ -170,9 +171,7 @@ Follow these steps to prepare the development environment for the DevKit:
 
     ![Install Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
-    Or use this direct link:
-    > [!div class="nextstepaction"]
-    > [Install Azure IoT Tools extension pack](vscode:extension/vsciot-vscode.azure-iot-tools)
+    Or copy and paste this URL into a browser window: `vscode:extension/vsciot-vscode.azure-iot-tools`
 
     > [!NOTE]
     > The Azure IoT Tools extension pack contains the [Azure IoT Device Workbench](https://aka.ms/iot-workbench) which is used to develop and debug on various IoT devkit devices. The [Azure IoT Hub extension](https://aka.ms/iot-toolkit), also included with the Azure IoT Tools extension pack, is used to manage and interact with Azure IoT Hubs.
