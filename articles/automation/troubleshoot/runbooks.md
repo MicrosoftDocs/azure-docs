@@ -465,7 +465,7 @@ The webhook that you're trying to call is either disabled or is expired.
 
 ### Resolution
 
-If the webhook is disabled, you can re-enable it through the Azure portal. If the webhook has expired, you must delete and then recreate it. You can only [renew a webhook](../automation-webhooks.md#renew-webhook) if it hasn't already expired. 
+If the webhook is disabled, you can re-enable it through the Azure portal. If the webhook has expired, you must delete and then recreate it. You can only [renew a webhook](../automation-webhooks.md#renew-a-webhook) if it hasn't already expired. 
 
 ## <a name="429"></a>Scenario: 429: The request rate is currently too large...
 
