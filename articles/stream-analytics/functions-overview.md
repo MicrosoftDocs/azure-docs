@@ -44,7 +44,7 @@ Any runtime errors are considered fatal and are surfaced through activity and re
 
 ## Exception handling
 
-Any exception during data processing is considered a catastrophic failure when consuming data in Azure Stream Analytics. User Defined Methods have a higher potential to throw exceptions and cause the processing to stop. To avoid this issue, JavaScript and C# allow developers to use try-catch blocks to catch any exception during code execution, those exceptions can then be logged and treated without causing any system failure. Users are encouraged to always wrap their custom code in a try-catch block to avoid unexpected exceptions being thrown to the processing engine.
+Any exception during data processing is considered a catastrophic failure when consuming data in Azure Stream Analytics. User-defined functions have a higher potential to throw exceptions and cause the processing to stop. To avoid this issue, use a *try-catch* block in JavaScript or C# to catch exceptions during code execution. Exceptions that are caught can be logged and treated without causing a system failure. You are encouraged to always wrap your custom code in a *try-catch* block to avoid throwing unexpected exceptions to the processing engine.
 
 ## Next steps
 
