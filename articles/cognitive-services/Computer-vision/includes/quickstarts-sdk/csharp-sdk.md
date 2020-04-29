@@ -18,7 +18,7 @@ ms.author: pafarley
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* The latest version of the [.NET Core SDK](https://dotnet.microsoft.com/download/).
 
 ## Setting up
 
