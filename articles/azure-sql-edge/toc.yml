@@ -29,3 +29,21 @@
   items:
   - name: Machine learning and AI with ONNX
     href: onnx-overview.md
+- name: Resources
+  items:
+  - name: ONNX demo
+    href: onnx-demo.md
+  - name: Backup and restore
+    href: backup-restore.md
+  - name: Configure replication
+    href: configure-replication.md
+  - name: Connect
+    href: connect.md
+  - name: Create Stream Analytics job
+    href: create-stream-analytics-job.md
+  - name: Stream data
+    href: stream-data.md
+  - name: Features
+    href: features.md
+  - name: Track data changes
+    href: track-data-changes.md
