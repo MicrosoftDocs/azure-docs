@@ -1579,7 +1579,7 @@ The metrics are organized by namespace. For a list of services and the namespace
 |UnhealthyHostCount|Unhealthy Host Count|Count|Average|Number of unhealthy backend hosts|BackendSettingsPool|
 |HealthyHostCount|Healthy Host Count|Count|Average|Number of healthy backend hosts|BackendSettingsPool|
 |TotalRequests|Total Requests|Count|Total|Count of successful requests that Application Gateway has served|BackendSettingsPool|
-|AvgRequestCountPerHealthyHost|Requests per minute per Healthy Host|Count|Average|Average request count per minute per healthy backend host in a pool|BackendSettingsPool|
+|Requests per minute per Healthy Host|Requests per minute per Healthy Host|Count|Average|Average request count per minute per healthy backend host in a pool|BackendSettingsPool|
 |FailedRequests|Failed Requests|Count|Total|Count of failed requests that Application Gateway has served|BackendSettingsPool|
 |ResponseStatus|Response Status|Count|Total|Http response status returned by Application Gateway|HttpStatusGroup|
 |CurrentConnections|Current Connections|Count|Total|Count of current connections established with Application Gateway|None|
