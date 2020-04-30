@@ -9,24 +9,34 @@ zone_pivot_groups: programming-languages-set-functions
 
 ::: zone pivot="programming-language-csharp"  
 # Quickstart: Create a C# function in Azure using Visual Studio Code
+
+In this article, you use Visual Studio Code to create a C# class library-based function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 # Quickstart: Create a JavaScript function in Azure using Visual Studio Code
+
+In this article, you use Visual Studio Code to create a JavaScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
 # Quickstart: Create a TypeScript function in Azure using Visual Studio Code
+
+In this article, you use Visual Studio Code to create a TypeScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
 # Quickstart: Create a PowerShell function in Azure using Visual Studio Code
+
+In this article, you use Visual Studio Code to create a PowerShell function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
 # Quickstart: Create a Python function in Azure using Visual Studio Code
+
+In this article, you use Visual Studio Code to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 # Quickstart: Create a Java function in Azure using Visual Studio Code
-::: zone-end
 
-In this article, you use Visual Studio Code to create a function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
+In this article, you use Visual Studio Code to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
+::: zone-end
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 There's also a [CLI-based version](functions-create-first-azure-function-azure-cli.md) of this article.
