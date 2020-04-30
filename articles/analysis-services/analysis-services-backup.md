@@ -4,7 +4,7 @@ description: This article describes how to backup and restore model metadata and
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 04/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -103,5 +103,5 @@ Use [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/
 ## Related information
 
 [Azure storage accounts](../storage/common/storage-create-storage-account.md)  
-[High availability](analysis-services-bcdr.md)     
-[Manage Azure Analysis Services](analysis-services-manage.md)
+[High availability](analysis-services-bcdr.md)      
+[Analysis Services network connectivity FAQ](analysis-services-network-faq.md)
