@@ -74,7 +74,7 @@ Since Personalizer uses collective information in near real-time to return the s
     |Standard, `S0`|Online learning behavior in a production environment|
     |Free, `F0`| Try Online learning behavior in a non-production environment|
     
-1. Add Personalizer to your website or content system:
+1. Add Personalizer to your application, website, or system:
     1. Add a **Rank** call to Personalizer in your application, website, or system to determine best, single _content_ item before the content is shown to the user.
     1. Display best, single _content_ item, which is the returned _reward action ID_, to user.
     1. Apply _algorithm_ to collected information about how the user behaved, to determine the **reward** score, such as:
