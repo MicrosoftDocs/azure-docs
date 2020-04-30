@@ -193,7 +193,7 @@
     href: custom-disaster-recovery.md
   - name: Troubleshoot
     items: 
-    - name: Enable diagnostic logs for a topic
+    - name: Enable diagnostic logs
       href: enable-diagnostic-logs-topic.md
     - name: Troubleshoot errors
       href: troubleshoot-errors.md
