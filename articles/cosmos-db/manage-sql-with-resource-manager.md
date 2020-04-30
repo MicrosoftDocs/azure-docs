@@ -1,6 +1,6 @@
 ---
 title: Create and manage Azure Cosmos DB with Resource Manager templates
-description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB for SQL (Core) API 
+description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB for Core (SQL) API 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,11 +8,11 @@ ms.date: 04/30/2020
 ms.author: mjbrown
 ---
 
-# Manage Azure Cosmos DB SQL (Core) API resources with Azure Resource Manager templates
+# Manage Azure Cosmos DB Core (SQL) API resources with Azure Resource Manager templates
 
 In this article, you learn how to use Azure Resource Manager templates to help deploy and manage your Azure Cosmos DB accounts, databases, and containers.
 
-This article only shows Azure Resource Manager template examples for SQL API accounts. You can also find template examples for [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md),
+This article only shows Azure Resource Manager template examples for Core (SQL) API accounts. You can also find template examples for [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md),
 [MongoDB](manage-mongodb-with-resource-manager.md), and [Table](manage-table-with-resource-manager.md) APIs.
 
 > [!IMPORTANT]
