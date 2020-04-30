@@ -90,7 +90,7 @@ This is a long-running operation as a new managed instance will be provisioned i
 
 **What if both hardware generations are not supported in the same region?**
 
-If both hardware generations are not supported in the same region, changing the hardware generation is possible but must be done manually. This requires you to provision a new instance in the region where the wanted hardware generation is available, and manually back up and restore data between the old and new instance or perform cross-instance [point-in-time restore](sql-database-managed-instance-point-in-time-restore.md?tabs=azure-powershell).
+If both hardware generations are not supported in the same region, changing the hardware generation is possible but must be done manually. This requires you to provision a new instance in the region where the wanted hardware generation is available, and manually back up and restore data between the old and new instance.
 
 **What if there are no enough IP addresses for performing update operation?**
 
