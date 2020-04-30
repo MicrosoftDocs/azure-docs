@@ -282,7 +282,7 @@ model_data = PipelineData(name='best_model_data',
                            training_output=TrainingOutput(type='Model'))
 ```
 
-The snippet above creates the two `PipelineData` objects for the metrics and model output. Each is named, assigned to the default datastore retrieved earlier, and associated with the particular `type` of `TrainingOutput` from the `AutoMLStep`. 
+The snippet above creates the two `PipelineData` objects for the metrics and model output. Each is named, assigned to the default datastore retrieved earlier, and associated with the particular `type` of `TrainingOutput` from the `AutoMLStep`. Because we assign `pipeline_output_name` on these `PipelineData` objects, their values will be available not just from the individual pipeline step, but from the pipeline as a whole, as will be discussed below in the section "Examine pipeline results." 
 
 ### Configure and create the automated ML pipeline step
 
@@ -407,16 +407,71 @@ run.wait_for_completion()
 
 The code above combines the data preparation, automated ML, and model-registering steps into a `Pipeline` object. It then creates an `Experiment` object. The `Experiment` constructor will retrieve the named experiment if it exists or create it if necessary. It submits the `Pipeline` to the `Experiment`, creating a `Run` object that will asynchronously run the pipeline. The `wait_for_completion()` function blocks until the run completes.
 
-### Download the results of an automated ML run 
+### Examine pipeline results 
 
-While the `run` object in the code above is from the actively running context, you can also retrieve completed `Run` objects from the `Workspace` by way of an `Experiment` object.
-
-The workspace contains a complete record of all your experiments and runs. You can either use the portal to find and download the outputs of experiments or use code.
+Once the `run` completes, you can retrieve `PipelineData` objects that have been assigned a `pipeline_output_name`. 
 
 ```python
-# Run on local machine
+metrics_output = run.get_pipeline_output('metrics_output')
+model_output = run.get_pipeline_output('model_output')
+```
+
+You can work directly with the results or download and reload them at a later time for further processing. 
+
+```python
+metrics_output.download('.', show_progress=True)
+model_output.download('.', show_progress=True)
+```
+
+Downloaded files are written to the sub-directory `azureml/{run.id}/`. The metrics file is JSON-formatted and can be converted into a Pandas dataframe for examination.
+
+```python
+import pandas as pd
+import json
+
+metrics_filename = metrics_output._path_on_datastore
+# metrics_filename = path to downloaded file
+with open(metrics_filename) as f:
+   metrics_output_result = f.read()
+   
+deserialized_metrics_output = json.loads(metrics_output_result)
+df = pd.DataFrame(deserialized_metrics_output)
+```
+
+The code snippet above shows the metrics file being loaded from it's location on the Azure datastore. You can also load it from the downloaded file, as shown in the comment. Once you've deserialized it and converted it to a Pandas DataFrame, you can see detailed metrics for each of the iterations of the automated ML step.
+
+The model file can be deserialized into a `Model` object that you can use for inferencing, further metrics analysis, and so forth.
+
+```python
+import pickle
+
+model_filename = model_output._path_on_datastore
+# model_filename = path to downloaded file
+
+with open(model_filename, "rb" ) as f:
+    best_model = pickle.load(f)
+
+# ... inferencing code not shown ...
+```
+
+### Download the results of an automated ML run 
+
+If you've been following along with the article, you'll have an instantiated `run` object. But you can also retrieve completed `Run` objects from the `Workspace` by way of an `Experiment` object.
+
+The workspace contains a complete record of all your experiments and runs. You can either use the portal to find and download the outputs of experiments or use code. To access the records from a historic run, use Azure Machine Learning to find the id of the run in which you are interested. With that, you can choose the specific `run` by way of the `Workspace` and `Experiment`.
+
+```python
+# Retrieved from Azure Machine Learning web UI
+run_id = 'aaaaaaaa-bbbb-cccc-dddd-0123456789AB'
 experiment = ws.experiments['titanic_automl']
-run = next(run for run in ex.get_runs() if run.id == 'aaaaaaaa-bbbb-cccc-dddd-0123456789AB')
+run = next(run for run in ex.get_runs() if run.id == run_id)
+```
+
+You would have to change the strings in the above code to the specifics of your historical run. The snippet above assumes that you've assigned `ws` to the relevant `Workspace` with the normal `from_config()`. The experiment of interest is directly retrieved and then the code finds the `Run` of interest by matching the `run.id` value.
+
+Once you have a `Run` object, you can download the metrics and model. 
+
+```python
 automl_run = next(r for r in run.get_children() if r.name == 'AutoML_Classification')
 outputs = automl_run.get_outputs()
 metrics = outputs['default_metrics_AutoML_Classification']
@@ -426,12 +481,9 @@ metrics.get_port_data_reference().download('.')
 model.get_port_data_reference().download('.')
 ```
 
-The above snippet would run on your local machine. First, it logs on to the workspace. It retrieves the `Experiment` named `titanic_automl` and from that `Experiment`, the `Run` in which you're interested. Notice that you'd set the value being compared to `run.id` to that of the run in which you're interested.
+Each `Run` object contains `StepRun` objects that contain information about the individual pipeline step run. The `run` is searched for the `StepRun` object for the `AutoMLStep`. The metrics and model are retrieved using their default names, which are available even if you don't pass `PipelineData` objects to the `outputs` parameter of the `AutoMLStep`. 
 
-Each `Run` object contains `StepRun` objects that contain information about the individual pipeline step run. The `run` is searched for the `StepRun` object for the `AutoMLStep`. The outputs are retrieved using their default names, which are available even if you don't pass `PipelineData` objects to the `outputs` parameter of the `AutoMLStep`. 
-
-Finally, the actual metrics and model are downloaded to your local machine for further processing.
-
+Finally, the actual metrics and model are downloaded to your local machine, as was discussed in the "Examine pipeline results" section above.
 
 ## Next Steps
 
