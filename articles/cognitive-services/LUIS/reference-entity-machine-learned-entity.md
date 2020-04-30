@@ -30,7 +30,7 @@ Example utterances include:
 
 
 
-#### [App schema Version < 7.x](#tab/V3)
+#### [App schema Version before 7.x](#tab/V3)
 
 Because a machine-learned entity can have many subentities with required features, this is just an example only. It should be considered a guide for what your entity will return.
 
