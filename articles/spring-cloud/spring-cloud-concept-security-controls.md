@@ -16,7 +16,7 @@ A security control is a quality or feature of an Azure service that contributes 
 **Data protection security controls**
 
 | Security control | Yes/No | Notes | Documentation |
-|:-----------:|:--------:|:-------------------------------:|:-------------------:|
+|:-------------|:-------|:-------------------------------|:----------------------|
 | Server-side encryption at rest: Microsoft-managed keys | Yes | User uploaded source and artifacts, config server settings, app settings and data in persistent storage are stored in Azure Storage, which automatically encrypts the content at rest.<br><br>Config server cache, runtime binaries built from uploaded source, and application logs during the application lifetime are saved to Azure Managed Disk, which automatically encrypts the content at rest.<br><br>Container images built from user uploaded source are saved in Azure Container Registry, which automatically encrypts the image content at rest. | [Azure Storage encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)<br><br>[Server-side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption)<br><br>[Container image storage in Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-storage) |
 | Encryption in transient | Yes | User app public endpoints use HTTPS for inbound traffic by default. |  |
 | API calls encrypted | Yes | Management calls to configure Azure Spring Cloud service occur via Azure Resource Manager calls over HTTPS. | [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) |
