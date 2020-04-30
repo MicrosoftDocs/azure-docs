@@ -101,10 +101,10 @@ Learn more about [required features](luis-concept-feature.md)
 
 A Pattern.any is only available in a [Pattern](luis-concept-patterns.md).
 
-<a name="#if-you-need-more-than-the-maximum-number-of-entities"></a>
+<a name="if-you-need-more-than-the-maximum-number-of-entities"></a>
 ## Exceeding app limits for entities
 
-If you need more than the [limit](luis-limits#model-limits.md), contact support. To do so, gather detailed information about your system, go to the [LUIS](luis-reference-regions.md#luis-website) website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/support/options/).
+If you need more than the [limit](luis-limits.md#model-limits.md), contact support. To do so, gather detailed information about your system, go to the [LUIS](luis-reference-regions.md#luis-website) website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/support/options/).
 
 ## Entity prediction status
 
