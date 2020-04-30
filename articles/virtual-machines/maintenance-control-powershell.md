@@ -16,16 +16,21 @@ Maintenance control lets you decide when to apply updates to your isolated VMs a
  
 ## Enable the PowerShell module
 
-Make sure `PowerShellGet` is up to date.
+Make sure `PowerShellGet` is up to date.	
 
-```azurepowershell-interactive
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
+```azurepowershell-interactive	
+Install-Module -Name PowerShellGet -Repository PSGallery -Force	
+```	
 
-If you are installing locally, make sure you open your PowerShell prompt as an administrator.
+Install the `Az.Maintenance` module.   	
+
+```azurepowershell-interactive	
+Install-Module -Name Az.Maintenance
+```	
+
+If you are installing locally, make sure you open your PowerShell prompt as an administrator.	
 
 You may also be asked to confirm that you want to install from an *untrusted repository*. Type `Y` or select **Yes to All** to install the module.
-
 
 ## Create a maintenance configuration
 
