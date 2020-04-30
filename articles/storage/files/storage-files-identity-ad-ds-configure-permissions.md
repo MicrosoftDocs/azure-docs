@@ -1,3 +1,14 @@
+---
+title: Enable Active Directory authentication over SMB for Azure Files
+description: Learn how to enable identity-based authentication over SMB for Azure file shares through Active Directory. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares by using AD credentials. 
+author: roygara
+ms.service: storage
+ms.subservice: files
+ms.topic: conceptual
+ms.date: 04/20/2020
+ms.author: rogarana
+---
+
 ## 3. Configure NTFS permissions over SMB 
 After you assign share-level permissions with RBAC, you must assign proper NTFS permissions at the root, directory, or file level. Think of share-level permissions as the high-level gatekeeper that determines whether a user can access the share. Whereas NTFS permissions act at a more granular level to determine what operations the user can do at the directory or file level.
 
