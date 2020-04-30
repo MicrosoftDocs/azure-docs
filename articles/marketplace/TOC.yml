@@ -35,11 +35,11 @@
       items:
       - name: Virtual machines
         href: ./marketplace-virtual-machines.md
-      - name: "Azure applications: Solution templates"
+      - name: "Azure apps solution templates"
         href: ./marketplace-solution-templates.md
-      - name: "Azure applications: Managed applications"
+      - name: "Azure apps managed applications"
         href: ./marketplace-managed-apps.md
-      - name: SaaS Apps
+      - name: SaaS apps
         href: ./marketplace-saas-applications-technical-publishing-guide.md
       - name: Containers
         href: ./marketplace-containers.md
