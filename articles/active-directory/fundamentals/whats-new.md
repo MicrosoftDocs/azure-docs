@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 04/30/2020
 ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -156,13 +156,13 @@ Delta query for administrative units is available for public preview! You can no
 
 **Product capability:** Developer Experience
 
-Azure AD is releasing a new set of authentication method Microsoft Graph APIs. These APIs are a key tool to manage your users’ authentication methods. Now you can programmatically pre-register and manage the authenticators used for MFA and self-service password reset (SSPR). This has been one of the most-requested features in the Azure MFA, SSPR, and Microsoft Graph spaces. The new APIs we’ve released in this wave give you the ability to:
+These APIs are a key tool for managing your users’ authentication methods. Now you can programmatically pre-register and manage the authenticators used for MFA and self-service password reset (SSPR). This has been one of the most-requested features in the Azure MFA, SSPR, and Microsoft Graph spaces. The new APIs we’ve released in this wave give you the ability to:
 
 - Read, add, update, and remove a user’s authentication phones
 - Reset a user’s password
 - Turn on and off SMS-sign-in
 
-These come at an especially welcome time as organizations around the world have shifted to remote work. We’ve heard from our admins that this has created unique complications for getting users registered for MFA and SSPR. Admins don’t want users registering from potentially unsafe locations, and they want users registered as soon as possible to get them protected. These APIs give you the ability to register your users and set them up for MFA via SMS immediately, without requiring users to register from beyond your corporate network or potentially wait a long time to register. [Learn more.](https://docs.microsoft.com/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)
+For more information, see [Azure AD authentication methods API overview](https://docs.microsoft.com/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 ---
 
@@ -265,9 +265,7 @@ My Staff enables Firstline Managers, such as a store manager, to ensure that the
 
 **Product capability:** Identity Governance
 
-We will be upgrading the current reviewer experience for Azure AD access reviews in the Access Panel on July 27th 2020. This means that on July 27th, all reviewers will be automatically switched over to the new My Access to complete their access reviews. Please note that the updated Access reviews experience offers the same functionality as the current experience, but with an improved user interface on top of new capabilities to enable your users to be productive. [You can learn more about the updated experience here](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review). 
-
-Starting today, your reviewers will see a banner on the access reviews page that will allow them to try the updated experience in My Access, which is currently in preview. However, reviewers can continue to use the Access Panel until July 27th. If you wish to have your reviewers permanently switched over to the preview experience in My Access now, [please make a request here](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
+We have updated the reviewer experience for Azure AD access reviews in the My Apps portal. At the end of April, your reviewers who are logged in to the Azure AD access reviews reviewer experience will see a banner that will allow them to try the updated experience in My Access. Please note that the updated Access reviews experience offers the same functionality as the current experience, but with an improved user interface on top of new capabilities to enable your users to be productive. [You can learn more about the updated experience here](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review). This public preview will last until the end of July 2020. At the end of July, reviewers who have not opted into the preview experience will be automatically directed to My Access to perform access reviews. If you wish to have your reviewers permanently switched over to the preview experience in My Access now, [please make a request here](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
 
 ---
 
