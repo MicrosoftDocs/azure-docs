@@ -10,7 +10,7 @@ ms.date: 04/23/2020
 ms.author: dsindona
 ---
 
-# Publishing guide for SaaS applications offers
+# Publishing guide for SaaS application offers
 
 You can publish software as a service (SaaS) applications to Azure Marketplace with three different calls to action: *Contact Me*, *Try it Now*, and *Get it Now*. This guide explains these call-to-action options, including the requirements for each. 
 
