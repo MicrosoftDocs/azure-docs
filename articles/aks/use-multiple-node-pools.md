@@ -718,7 +718,7 @@ az group deployment create \
 
 It may take a few minutes to update your AKS cluster depending on the node pool settings and operations you define in your Resource Manager template.
 
-## Assign a public IP per node for a node pool (preview)
+## Assign a public IP per node for your node pools (preview)
 
 > [!WARNING]
 > You must install the CLI preview extension 0.4.43 to use the *Standard Load Balancer SKU in AKS*. The Standard Load Balancer also provides support for Windows agents and using a public IP per node pool.
