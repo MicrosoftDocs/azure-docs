@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "articles/openshift/howto-azure-monitor-v4.md",
+      "redirect_url": "articles/azure-monitor/insights/container-insights-azure-redhat4-setup.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/openshift/tutorial-scale-cluster.md",
+      "redirect_url": "articles/openshift/tutorial-connect-cluster.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/openshift/howto-using-azure-redhat-openshift.md",
+      "redirect_url": "articles/openshift/tutorial-create-cluster.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/create-virtual-network-classic.md",
       "redirect_url": "/previous-versions/azure/virtual-network/create-virtual-network-classic",
       "redirect_document_id": false
@@ -590,6 +605,46 @@
     {
       "source_path": "articles/virtual-machines/workloads/oracle/oracle-considerations.md",
       "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-overview/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/use-case-excel-studio.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/azure-ml-customer-churn-scenario.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/text-analytics-module-tutorial.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/extend-your-experiment-with-r.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/debug-models.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/troubleshooting-creating-ml-workspace.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/basics-infographic-with-algorithm-examples.md",
+      "redirect_url": "/azure/machine-learning/how-to-select-algorithms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/convert-training-experiment-to-scoring-experiment.md",
+      "redirect_url": "/azure/machine-learning/studio/deploy-a-machine-learning-web-service",
       "redirect_document_id": false
     },
     {
@@ -2353,6 +2408,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/provision-throughput-autopilot.md",
+      "redirect_url": "/azure/cosmos-db/provision-throughput-autoscale",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/autopilot-faq.md",
+      "redirect_url": "/azure/cosmos-db/autoscale-faq",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/how-to-custom-synchronization.md",
       "redirect_url": "/azure/cosmos-db/how-to-multi-master",
       "redirect_document_id": true
@@ -2806,6 +2871,11 @@
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-univ.md",
       "redirect_url": "https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/quickstart-v2-javascipt-auth-code.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-v2-javascript-auth-code",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md",
@@ -4345,6 +4415,11 @@
     {
       "source_path": "articles/azure-portal/resource-group-portal-linked-resources.md",
       "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/template-tutorial-secure-artifacts.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/secure-template-with-sas-token",
       "redirect_document_id": false
     },
     {
@@ -6393,6 +6468,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-b2c/saml-technical-profile.md",
+      "redirect_url": "/azure/active-directory-b2c/saml-identity-provider-technical-profile",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-ds/active-directory-ds-synchronization.md",
       "redirect_url": "/azure/active-directory-domain-services/synchronization",
       "redirect_document_id": false
@@ -7365,6 +7445,11 @@
     {
       "source_path": "articles/logic-apps/logic-apps-using-sap-connector-old.md",
       "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-schema-2015-08-01.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-schema-2016-04-01",
       "redirect_document_id": true
     },
     {
@@ -14200,7 +14285,7 @@
       "source_path": "articles/event-hubs/event-hubs-api-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-samples",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-archive-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-capture-overview",
@@ -14265,7 +14350,7 @@
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-api-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
@@ -14275,7 +14360,7 @@
       "source_path": "articles/event-hubs/event-hubs-dotnet-standard-api-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
@@ -14345,7 +14430,7 @@
       "source_path": "articles/event-hubs/event-hubs-spark-connector.md",
       "redirect_url": "/azure/event-hubs/event-hubs-kafka-spark-tutorial",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-tutorial-virtual-networks-firewalls.md",
       "redirect_url": "/azure/event-hubs/event-hubs-service-endpoints",
@@ -23907,6 +23992,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/develop/authentication-scenarios.md",
+      "redirect_url": "/azure/active-directory/develop/authentication-vs-authorization",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/develop/active-directory-v2-app-registration.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-v2-register-an-app",
       "redirect_document_id": true
@@ -32059,6 +32149,16 @@
     {
       "source_path": "articles/api-management/api-management-howto-add-operations.md",
       "redirect_url": "/azure/api-management/mock-api-responses",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-k8s.md",
+      "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-docker.md",
+      "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-docker",
       "redirect_document_id": false
     },
     {
@@ -51391,6 +51491,121 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/databox-online/data-box-edge-deploy-add-shares.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-add-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-connect-powershell-interface.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-connect-powershell-interface",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-contact-microsoft-support.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-contact-microsoft-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-create-iot-edge-module.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-create-iot-edge-module",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-configure-compute.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-configure-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-configure-compute-advanced.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-configure-compute-advanced",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-connect-setup-activate.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-install.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-prep.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-prep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-extend-compute-access-modules.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-extend-compute-access-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-limits.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-limits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-access-power-connectivity-mode.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-access-power-connectivity-mode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-bandwidth-schedules.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-bandwidth-schedules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-compute.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-shares.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-manage-users.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-manage-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-monitor.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-overview.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-return-device.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-return-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-security.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-system-requirements.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-system-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-technical-specifications-compliance.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-technical-specifications-compliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-troubleshoot.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-troubleshoot", 
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/aks/kubernetes-draft.md",
       "redirect_url": "/azure/aks/quickstart-helm",
       "redirect_document_id": false
@@ -51734,6 +51949,141 @@
       "source_path": "articles/jenkins/jenkins-azure-vm-agents.md",
       "redirect_url": "/azure/developer/jenkins/scale-deployments-using-vm-agents",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/index.yml",
+      "redirect_url": "/azure/developer/jenkins/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/overview.md",
+      "redirect_url": "/azure/developer/jenkins/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-backend.md",
+      "redirect_url": "/azure/developer/terraform/store-state-in-azure-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-cloud-shell.md",
+      "redirect_url": "/azure/developer/terraform/install-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-create-complete-vm.md",
+      "redirect_url": "/azure/developer/terraform/create-linux-virtual machine-with-infrastructure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-create-configuration.md",
+      "redirect_url": "/azure/developer/terraform/deploy-azure-cosmos-db-to-azure-container-instances",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md",
+      "redirect_url": "/azure/developer/terraform/create-k8s-cluster-with-aks-applicationgateway-ingress",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-create-k8s-cluster-with-tf-and-aks.md",
+      "redirect_url": "/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-create-vm-cluster-module.md",
+      "redirect_url": "/azure/developer/terraform/create-vm-cluster-module",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-create-vm-cluster-with-infrastructure.md",
+      "redirect_url": "/azure/developer/terraform/create-vm-cluster-with-infrastructure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-create-vm-scaleset-network-disks-hcl.md",
+      "redirect_url": "/azure/developer/terraform/create-vm-scaleset-network-disks-hcl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl.md",
+      "redirect_url": "/azure/developer/terraform/create-vm-scaleset-network-disks-using-packer-hcl",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-hub-spoke-hub-network.md",
+      "redirect_url": "/azure/developer/terraform/hub-spoke-hub-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-hub-spoke-hub-nva.md",
+      "redirect_url": "/azure/developer/terraform/hub-spoke-hub-nva",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-hub-spoke-introduction.md",
+      "redirect_url": "/azure/developer/terraform/hub-spoke-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-hub-spoke-on-prem.md",
+      "redirect_url": "/azure/developer/terraform/hub-spoke-on-prem",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-hub-spoke-spoke-network.md",
+      "redirect_url": "/azure/developer/terraform/hub-spoke-spoke-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-hub-spoke-validation.md",
+      "redirect_url": "/azure/developer/terraform/hub-spoke-validation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-install-configure.md",
+      "redirect_url": "/azure/developer/terraform/install-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-overview.md",
+      "redirect_url": "/azure/developer/terraform/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-slot-walkthru.md",
+      "redirect_url": "/azure/developer/terraform/provision-infrastructure-using-azure-deployment-slots",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-vscode-extension.md",
+      "redirect_url": "/azure/developer/terraform/configure-vs-code-extension-for-terraform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-vscode-module-generator.md",
+      "redirect_url": "/azure/developer/terraform/create-a-base-template-using-yeoman",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/terraform-modules.md",
+      "redirect_url": "/azure/developer/terraform/test-modules-using-terratest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/terraform/index.yml",
+      "redirect_url": "/azure/developer/terraform/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-auditing-and-threat-detection-powershell.md",
+      "redirect_url": "/azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/media-services/azure-media-player/azure-media-player-license.md",
+      "redirect_url": "/legal/azure-media-player/azure-media-player-license",
+      "redirect_document_id": false
     }
-  ]
+ ]
 }
