@@ -40,7 +40,7 @@ The following compute resources can be used to host your model deployment.
 Learn [where and how to deploy your model to a compute target](how-to-deploy-and-where.md).
 
 <a name="amlcompute"></a>
-## Azure Machine Learning Compute (Managed)
+## Azure Machine Learning compute (managed)
 
 A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters and [compute instances](concept-compute-instance.md) are the only managed computes. Additional managed compute resources may be added in the future.
 
@@ -74,7 +74,7 @@ There are a few exceptions and limitations to choosing a VM size:
 
 See the following table to learn more about supported series and restrictions. 
 
-| Supported VM series  | 
+| **Supported VM series**  | 
 |------------|
 | D |  
 | Dv2 |  
