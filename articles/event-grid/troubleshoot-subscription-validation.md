@@ -18,10 +18,10 @@ This troubleshooting guide provides you information on troubleshooting event sub
 
 During event subscription creation, if you're seeing an error message such as `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation`, it indicates that there's a failure in the validation handshake. To resolve this error, verify the following aspects:
 
-- Do a HTTP POST to your webhook url with a [sample SubscriptionValidationEvent](webhook-event-delivery.md#validation-details) request body using Postman or curl or similar tool.
+- Do an HTTP POST to your webhook url with a [sample SubscriptionValidationEvent](webhook-event-delivery.md#validation-details) request body using Postman or curl or similar tool.
 - If your webhook is implementing synchronous validation handshake mechanism, verify that the ValidationCode is returned as part of the response.
 - If your webhook is implementing asynchronous validation handshake mechanism, verify that you are the HTTP POST is returning 200 OK.
-- If your webhook is returning 403 (Forbidden) in the response, check if your webhook is behind an Azure Application Gateway or Web Application Firewall. If it is, then your need to disable these firewall rules and do a HTTP POST again:
+- If your webhook is returning 403 (Forbidden) in the response, check if your webhook is behind an Azure Application Gateway or Web Application Firewall. If it is, then your need to disable these firewall rules and do an HTTP POST again:
 
   920300 (Request Missing an Accept Header, we can fix this)
 
@@ -44,7 +44,7 @@ Here's an example of using Postman for validating a webhook subscription of an E
 To learn more about event grid event validation for webhooks, see [Endpoint validation with event grid events](webhook-event-delivery.md#endpoint-validation-with-event-grid-events).
 
 ## Validate cloud event subscription using Postman
-Here's an example of using Postman for validating a webhook subscription of an Cloud event: 
+Here's an example of using Postman for validating a webhook subscription of a cloud event: 
 
 ![Cloud event subscription validation using Postman](./media/troubleshoot-subscription-validation/cloud-event-subscription-validation-postman.png)
 
