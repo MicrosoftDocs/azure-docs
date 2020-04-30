@@ -98,7 +98,7 @@ These are errors related to container and share names.
 - On the Connect and copy page of the local web UI, download, and review the error files to identify the folder names with issues. 
 - Rename the directory or containers to ensure that they are compliant with Azure naming conventions.
 
-For more information, see the Azure naming conventions for directories and [containers](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
+For more information, see the Azure naming conventions for [directories](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) and [containers](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
 
 ## Container or share size limit errors
 
