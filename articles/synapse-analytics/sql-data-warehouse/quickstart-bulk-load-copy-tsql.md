@@ -31,6 +31,8 @@ In this quickstart, you'll bulk load data into your SQL pool using the simple an
 
 This quickstart assumes you already have a SQL pool. If a SQL pool hasn't been created, use the [Create and Connect - portal](create-data-warehouse-portal.md) quickstart.
 
+It is not recommended to run these commands while being logged as the server admin, as it uses a [limited resource class](resource-classes-for-workload-management.md). Instead configure [Workload Isolation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql) as [illustrated in the tutorials](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data).
+
 ## Create the target table
 
 In this example, we'll be loading data from the New York taxi dataset. We'll load a table called Trip that represents taxi trips taken within a single year. Run the following to create the table:
