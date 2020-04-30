@@ -29,7 +29,7 @@ This article describes some common Azure Load Balancer deployment errors and pro
 |CannotUseInactiveHealthProbe| You cannot have a probe that's not used by any rule configured for virtual machine scale set health. Ensure that the probe that is set up is being actively used. |
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| You cannot have multiple Load Balancers of the same type (internal, public). You can have a maximum of one internal and one public Load Balancer. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Basic Load Balancer is not supported for multiple-placement group virtual machine scale sets or cross-availability zone virtual machine scale set. Use Standard Load Balancer instead. |
-|ResourceDeploymentFailure| If you load balancer is in failed state, follow the steps to  Can you follow this process to bring it back from the failed state.
+|ResourceDeploymentFailure| If you load balancer is in failed state, follow the steps to bring it back from the failed state.
 ∙          Go to Resources.azure.com
 ∙          Login using your Azure portal credentials.
 ∙          Click on Read/Write
