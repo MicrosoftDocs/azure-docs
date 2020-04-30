@@ -15,7 +15,13 @@ ms.author: allensu
 ---
 # Azure Load Balancer components
 
-Azure Load Balancer contains several key components for it's operation.  These components can be configured in your subscription via the Azure portal, Azure CLI, Azure PowerShell, or ARM Templates.  
+Azure Load Balancer contains several key components for its operation.  
+
+These components can be configured in your subscription via: 
+* **Azure portal** 
+* **Azure CLI**
+* **Azure PowerShell**
+* **Templates** 
 
 ## Frontend IP configurations
 
@@ -24,11 +30,15 @@ The IP address of the load balancer. It's the point of contact for clients. Thes
 - [Public IP Address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)
 - [Private IP Address](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)
 
-The selection of the IP address determines the **type** of load balancer created. If you select a private IP address, you create an internal load balancer. If you select a public IP address, you create a public load balancer.
+The selection of the IP address determines the **type** of load balancer created. Private IP address selection creates an internal load balancer. Public IP address selection creates a public load balancer.
 
 ## Backend pool
 
-The group of virtual machines or instances in the virtual machine scale set that are going to serve the incoming request. To scale cost-effectively to meet high volumes of incoming traffic, computing guidelines generally recommend adding more instances to the backend pool. Load balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without additional operations. The scope of the backend pool is any virtual machine in the virtual network. See [Load balancer limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) for scale considerations. When considering how to design your backend pool, you can design for the least number of individual backend pool resources to further optimize the duration of management operations. There is no difference in data plane performance or scale.
+The group of virtual machines or instances in a virtual machine scale set that is serving the incoming request. To scale cost-effectively to meet high volumes of incoming traffic, computing guidelines generally recommend adding more instances to the backend pool. 
+
+Load balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without additional operations. The scope of the backend pool is any virtual machine in the virtual network. See [Load balancer limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) for scale considerations. 
+
+When considering how to design your backend pool, design for the least number of individual backend pool resources to optimize the length of management operations. There's no difference in data plane performance or scale.
 
 ## Health probes
 
@@ -44,7 +54,7 @@ Load Balancer provides different health probe types for endpoints:
 - HTTP
 - HTTPS
 
-Basic load balancer does not support HTTPS probes. In addition, Basic load balancer will terminate all TCP connections (including established connections).
+Basic load balancer doesn't support HTTPS probes. Basic load balancer closes all TCP connections (including established connections).
 
 For more information, see [Probe types](load-balancer-custom-probe-overview.md#types).
 
@@ -54,13 +64,15 @@ Load balancing rules tell the load balancer what to do. A load balancing rule ma
 
 ## Inbound NAT rules
 
-An inbound NAT rule forwards traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the virtual network. **[Port forwarding](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** is done by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside an Azure Virtual Network. You can map multiple internal endpoints to ports on the same front-end IP address. You can use the front-end IP addresses to remotely administer your VMs without an additional jump box.
+Inbound NAT rules forward traffic from the frontend ip address to a backend instance inside the virtual network. **[Port forwarding](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** is done by the same hash-based distribution as load balancing. 
+
+Example of use is Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to separate VM instances inside a virtual network. Multiple internal endpoints can be mapped to ports on the same front-end IP address. The front-end IP addresses can be used to remotely administer your VMs without an additional jump box.
 
 ## Outbound rules
 
-An **[outbound rule](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** configures outbound Network Address Translation (NAT) for all virtual machines or instances identified by the backend pool of your Standard load balancer to be translated to the frontend.
+An **[outbound rule](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** configures outbound Network Address Translation (NAT) for all virtual machines or instances identified by the backend pool.
 
-Basic load balancer does not support Outbound rules.
+Basic load balancer doesn't support Outbound rules.
 ![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
 
 ## Next steps
