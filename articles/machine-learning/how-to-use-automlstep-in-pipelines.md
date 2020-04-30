@@ -315,16 +315,6 @@ train_step = AutoMLStep(name='AutoML_Classification',
 ```
 The snippet shows an idiom commonly used with `AutoMLConfig`. Arguments that are more fluid (hyperparameter-ish) are specified in a separate dictionary while the values less likely to change are specified directly in the `AutoMLConfig` constructor. In this case, the `automl_settings` specify a brief run: the run will stop after only 2 iterations or 15 minutes, whichever comes first.
 
-{~~
-tk
-You should pass your data to There are two techniques for inputting data to the automated ML step. One technique is the older `X`, `y` technique, where data features (the values to make the prediction) are labeled `X` and data labels (the values you're trying to predict) are labeled `y`. This is 
-
-As discussed above, configuring input to your automated ML step requires the use of certain configurations. In an ML pipeline, you must provide your data using an `X`,`y` technique and can't use the `training_data` technique. You may provide all your data in `X` and `y` and use `n_cross_validations` or you may provide your own validation data in `X_valid` and `y_valid` and leave `n_cross_validations` to the default `None` value. 
-tk
-
-Since in the example all of the data is in `X` and `y` and haven't generated `X_valid` and `y_valid` objects, we set `n_cross_validations`. If you provide `X_valid` and `y_valid`, leave `n_cross_validations` to its default `None` value. 
-~~} 
-
 The `automl_settings` dictionary is passed to the `AutoMLConfig` constructor as kwargs. The other parameters aren't complex:
 
 - `task` is set to `classification` for this example. Other valid values are `regression` and `forecasting`
