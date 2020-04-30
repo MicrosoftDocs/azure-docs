@@ -1,5 +1,5 @@
 ---
-title: Iterating and Evolving Machine Learning Pipelines
+title: Iterating and evolving machine learning pipelines
 titleSuffix: Azure Machine Learning
 description: Patterns, practices, and tips for fast development
 services: machine-learning
@@ -12,7 +12,7 @@ ms.date: 03/29/2020
 # As a data scientist, I want to rapidly evolve my code in collaboration with my colleagues
 ---
 
-# Iterating and Evolving Machine Learning Pipelines
+# Iterating and evolving machine learning pipelines
 
 Azure Machine Learning pipelines provide an efficient way to modularize your code, reuse results, and optimize your compute resources. Here are some practical tips and practices for working with pipelines.
 
