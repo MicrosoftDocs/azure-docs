@@ -440,23 +440,7 @@ df = pd.DataFrame(deserialized_metrics_output)
 
 The code snippet above shows the metrics file being loaded from it's location on the Azure datastore. You can also load it from the downloaded file, as shown in the comment. Once you've deserialized it and converted it to a Pandas DataFrame, you can see detailed metrics for each of the iterations of the automated ML step.
 
-The model file can be deserialized into a `Model` object that you can use for inferencing, further metrics analysis, and so forth. To load a `Model` locally, you'll need to have installed the Azure ML SDK.
-
-```azurepowershell
-pip install azureml-sdk[automl,explain]
-```
-
-```python
-import pickle
-
-model_filename = model_output._path_on_datastore
-# model_filename = path to downloaded file
-
-with open(model_filename, "rb" ) as f:
-    best_model = pickle.load(f)
-
-# ... inferencing code not shown ...
-```
+The model file can be deserialized into a `Model` object that you can use for inferencing, further metrics analysis, and so forth. To load a `Model` locally, you'll need to have installed the Azure ML SDK. For more information on loading and working with existing models, see [Use an existing model with Azure Machine Learning](how-to-deploy-existing-model.md).
 
 ### Download the results of an automated ML run 
 
