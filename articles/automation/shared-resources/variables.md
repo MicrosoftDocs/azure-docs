@@ -53,7 +53,7 @@ You can store multiple values to a single variable by creating an array or hasht
 
 ## Windows PowerShell cmdlets to manage variables
 
-The cmdlets in the following table create and manage Automation variables with Windows PowerShell. They ship as part of the [Az modules](shared-resources/modules.md#az-modules).
+The cmdlets in the following table create and manage Automation variables with Windows PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
 
 | Cmdlet | Description |
 |:---|:---|
@@ -192,5 +192,5 @@ The following image shows example activities to update a variable with a simple 
 ## Next steps
 
 * To learn more about the cmdlets used to access variables, see [Manage modules in Azure Automation](modules.md).
-* For general information about runbooks, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
+* For general information about runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
 * For details of DSC configurations, see [State Configuration overview](../automation-dsc-overview.md).

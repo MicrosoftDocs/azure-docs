@@ -189,6 +189,6 @@ azure_credential = get_automation_runas_credential(runas_connection)
 
 ## Next steps
 
-* To learn more about the cmdlets used to access connections, see [Manage modules in Azure Automation](modules.md).
+* To learn more about the cmdlets used to access connections, see [Manage modules in Azure Automation](shared-resources/modules.md).
 * For general information about runbooks, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
-* For details of DSC configurations, see [State Configuration overview](../automation-dsc-overview.md).
+* For details of DSC configurations, see [State Configuration overview](automation-dsc-overview.md).

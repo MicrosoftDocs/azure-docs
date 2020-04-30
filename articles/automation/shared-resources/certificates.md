@@ -23,7 +23,7 @@ Certificates are stored securely in Azure Automation for access by runbooks and 
 
 ## Windows PowerShell cmdlets to access certificates
 
-The cmdlets in the following table create and manage Automation certificates with Windows PowerShell. They ship as part of the [Az modules](shared-resources/modules.md#az-modules).
+The cmdlets in the following table create and manage Automation certificates with Windows PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
 
 |Cmdlet |Description|
 | --- | ---|
@@ -166,5 +166,5 @@ print cert
 ## Next steps
 
 * To learn more about the cmdlets used to access certificates, see [Manage modules in Azure Automation](modules.md).
-* For general information about runbooks, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
+* For general information about runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
 * For details of DSC configurations, see [State Configuration overview](../automation-dsc-overview.md). 
