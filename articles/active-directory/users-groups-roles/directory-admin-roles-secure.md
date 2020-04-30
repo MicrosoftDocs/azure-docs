@@ -128,7 +128,7 @@ Evaluate the accounts that are assigned or eligible for the global admin role. I
 
 Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange Online administrator, and SharePoint Online administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](../authentication/howto-mfa-userstates.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
-## Stage 2: Mitigate the most frequently used attack techniques
+## Stage 2: Mitigate frequently used attacks
 
 ![Stage 2 Mitigate frequently used attacks](./media/directory-admin-roles-secure/stage-two.png)
 
@@ -228,7 +228,7 @@ The Azure Activity Log provides a history of subscription-level events in Azure.
 Prepare Conditional Access policies for on-premises and cloud-hosted applications. If you have users workplace joined devices, get more information from [Setting up on-premises Conditional Access by using Azure Active Directory device registration](../active-directory-device-registration-on-premises-setup.md).
 
 
-## Stage 3: Build visibility and take full control of admin activity
+## Stage 3: Take full control of admin activity
 
 ![Stage 3: take control of admin activity](./media/directory-admin-roles-secure/stage-three.png)
 
@@ -357,7 +357,7 @@ To ensure users’ access is protected in connected applications as well, we rec
 
 The Cloud App Security SIEM agent integrates Cloud App Security with your SIEM server to enable centralized monitoring of Office 365 alerts and activities. It runs on your server and pulls alerts and activities from Cloud App Security and streams them into the SIEM server. For more information, see [SIEM integration](https://docs.microsoft.com/cloud-app-security/siem).
 
-## Stage 4: Continue building defenses to a more proactive security posture
+## Stage 4: Continue building defenses
 
 ![Stage 4: adopt a proactive security posture](./media/directory-admin-roles-secure/stage-four.png)
 
@@ -433,7 +433,7 @@ Determine if you need to [transfer ownership of an Azure subscription to another
 
 For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](https://aka.ms/Office365SIM).
 
-## FAQ: Common questions we receive regarding securing privileged access  
+## FAQ: Answers to securing privileged access  
 
 **Q:** What do I do if I haven’t implemented any secure access components yet?
 
