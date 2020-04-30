@@ -35,7 +35,7 @@ When Automation executes runbook and DSC compilation jobs, it loads the modules 
 
 The following table lists modules that Azure Automation imports by default when you create your Automation account. Automation can import newer versions of these modules. However, you can't remove the original version from your Automation account, even if you delete a newer version. Note that these default modules include several AzureRM modules. 
 
-Automation doesn't import the root Az module automatically into any new or existing Automation accounts. For more about working with these modules, see [Migrating to Az modules](#migrate-to-az-modules).
+Automation doesn't import the root Az module automatically into any new or existing Automation accounts. For more about working with these modules, see [Migrating to Az modules](#migrating-to-az-modules).
 
 > [!NOTE]
 > We don't recommend altering modules and runbooks in Automation accounts that contain the [Start/Stop VMs during off-hours solution in Azure Automation](../automation-solution-vm-management.md).

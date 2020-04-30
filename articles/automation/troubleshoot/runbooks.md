@@ -623,7 +623,7 @@ This error is probably caused by using an incomplete migration from AzureRM to A
 
 ### Resolution
 
-We don't recommend the use of Az and AzureRM cmdlets in the same runbook. To learn more about the correct use of these modules, see [Migrating to Az modules](../shared-resources/modules.md#migrate-to-az-modules).
+We don't recommend the use of Az and AzureRM cmdlets in the same runbook. To learn more about the correct use of these modules, see [Migrating to Az modules](../shared-resources/modules.md#migrating-to-az-modules).
 
 ## <a name="access-denied-azure-sandbox"></a>Scenario: Access denied when using Azure sandbox for runbook or application
 
