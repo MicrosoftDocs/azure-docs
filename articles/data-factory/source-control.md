@@ -10,30 +10,35 @@ manager: anandsub
 ms.reviewer:
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/09/2019
+ms.date: 04/30/2020
 ---
 
 # Source control in Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-The Azure Data Factory user interface experience (UX) has two experiences available for visual authoring:
+By default, the Azure Data Factory user interface experience (UX) authors directly against the data factory service. This experience has the following limitations:
 
-- Author directly with the Data Factory service
-- Author with Azure Repos Git or GitHub integration
+- The Data Factory service doesn't include a repository for storing the JSON entities for your changes. The only way to save changes is via the **Publish All** button and all changes are published directly to the data factory service.
+- The Data Factory service isn't optimized for collaboration and version control.
+
+To provide a better authoring experience, Azure Data Factory allows you to configure a Git repository with either Azure Repos or GitHub. Git is a version control system that allows for easier change tracking and collaboration. This tutorial will outline how to configure and work in a git repository along with highlighting best practices and a troubleshooting guide.
 
 > [!NOTE]
-> Only authoring directly with the Data Factory service is supported in the Azure Government Cloud.
+> Azure data factory git integration is not available in the Azure Government Cloud.
 
-## Author directly with the Data Factory service
+## Advantages of Git integration
 
-While authoring directly with the Data Factory service, the only way to save changes is via the **Publish All** button. Once clicked, all changes that you made are published directly to the Data Factory service. 
+Below is a list of some of the advantages git integration provides to the authoring experience:
 
-![Publish mode](media/author-visually/data-factory-publish.png)
-
-Authoring directly with the Data Factory service has the following limitations:
-
-- The Data Factory service doesn't include a repository for storing the JSON entities for your changes.
-- The Data Factory service isn't optimized for collaboration or version control.
+-   **Source control:** As your data factory workloads become crucial, you would want to integrate your factory with Git to leverage several source control benefits like the following:
+    -   Ability to track/audit changes.
+    -   Ability to revert changes that introduced bugs.
+-   **Partial saves:** When authoring against the data factory service, you can't save changes as a draft and all publishes must pass data factory validation. Whether your pipelines are not finished or you simply don't want to lose change in case of a computer crash, git integration allows for incremental changes of data factory resources regardless of what state they are in. Configuring a git repository allows you to save changes, letting you only publish when you have tested your changes to your satisfaction.
+-   **Collaboration and control:** If you have multiple team members contributing to the same factory, you may want to let your teammates collaborate with each other via a code review process. You can also set up your factory such that not every contributor has equal permissions. Some team members may only be allowed to make changes via Git and only certain people in the team are allowed to publish the changes to the factory.
+-   **Better CI/CD:**  If you are deploying to multiple environments with a [continuous delivery process](continuous-integration-deployment.md), git integration makes certain actions easier. Some of these actions include:
+    -   Configure your release pipeline to trigger automatically as soon as there are any changes made to your 'dev' factory.
+    -   Customize the properties in your factory that are available as parameters in the Resource Manager template. It can be useful to keep only the required set of properties as parameters, and have everything else hard coded.
+-   **Better Performance:** An average factory with git integration loads ten times faster than one authoring against the data factory service. This performance improvement is because resources are downloaded via Git.
 
 > [!NOTE]
 > Authoring directly with the Data Factory service is disabled in the Azure Data Factory UX when a Git repository is configured. Changes can be made directly to the service via PowerShell or an SDK.
@@ -83,7 +88,7 @@ The configuration pane shows the following Azure Repos code repository settings:
 
 ### Use a different Azure Active Directory tenant
 
-You can create an Azure Repos Git repo in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using.
+The Azure Repos Git repo can be in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using.
 
 ### Use your personal Microsoft account
 
@@ -155,17 +160,6 @@ The configuration pane shows the following GitHub repository settings:
 
 - A maximum of 1,000 entities per resource type (such as pipelines and datasets) can be fetched from a single GitHub branch. If this limit is reached, is suggested to split your resources into separate factories. Azure DevOps Git does not have this limitation.
 
-## Switch to a different Git repo
-
-To switch to a different Git repo, click the **Git Repo Settings** icon in the upper right corner of the Data Factory overview page. If you can't see the icon, clear your local browser cache. Select the icon to remove the association with the current repo.
-
-![Git icon](media/author-visually/remove-repo.png)
-
-Once the Repository Settings pane appears, select **Remove Git**. Enter your data factory name and click **confirm** to remove the Git repository associated with your data factory.
-
-![Remove the association with the current Git repo](media/author-visually/remove-repo2.png)
-
-After you remove the association with the current repo, you can configure your Git settings to use a different repo and then import existing Data Factory resources to the new repo. 
 
 ## Version control
 
@@ -209,17 +203,6 @@ A side pane will open where you confirm that the publish branch and pending chan
 > [!IMPORTANT]
 > The master branch is not representative of what's deployed in the Data Factory service. The master branch *must* be published manually to the Data Factory service.
 
-## Advantages of Git integration
-
--   **Source Control**. As your data factory workloads become crucial, you would want to integrate your factory with Git to leverage several source control benefits like the following:
-    -   Ability to track/audit changes.
-    -   Ability to revert changes that introduced bugs.
--   **Partial Saves**. As you make a lot of changes in your factory, you will realize that in the regular LIVE mode, you can't save your changes as draft, because you are not ready, or you don't want to lose your changes in case your computer crashes. With Git integration, you can continue saving your changes incrementally, and publish to the factory only when you are ready. Git acts as a staging place for your work, until you have tested your changes to your satisfaction.
--   **Collaboration and Control**. If you have multiple team members participating to the same factory, you may want to let your teammates collaborate with each other via a code review process. You can also set up your factory such that not every contributor to the factory has permission to deploy to the factory. Team members may just be allowed to make changes via Git, but only certain people in the team are allowed to "Publish" the changes to the factory.
--   **Showing diffs**. In Git mode, you get to see a nice diff of the payload that's about to get published to the factory. This diff shows you all resources/entities that got modified/added/deleted since the last time you published to your factory. Based on this diff, you can either continue further with publishing, or go back and check your changes, and then come back later.
--   **Better CI/CD**. If you are using Git mode, you can configure your release pipeline to trigger automatically as soon as there are any changes made in the dev factory. You also get to customize the properties in your factory that are available as parameters in the Resource Manager template. It can be useful to keep only the required set of properties as parameters, and have everything else hard coded.
--   **Better Performance**. An average factory loads ten times faster in Git mode than in regular LIVE mode, because the resources are downloaded via Git.
-
 ## Best practices for Git integration
 
 ### Permissions
@@ -253,10 +236,20 @@ Below are some examples of situations that can cause a stale publish branch:
 - A user moved all resources to a new branch and tried to publish for the first time. Linked services should be created manually when importing resources.
 - A user uploads a non AKV linked service or an Integration Runtime JSON manually. They reference that resource from another resource such as a dataset, linked service, or pipeline. A non-AKV linked service created through the UX is published immediately becausethe credentials need to be encrypted. If you upload a dataset referencing that linked service and try to publish, the UX will allow it because it exists in the git environment. It will be rejected at publish time since it does not exist in the data factory service.
 
-## Provide feedback
-Select **Feedback** to comment about features or to notify Microsoft about issues with the tool:
+## Switch to a different Git repository
 
-![Feedback](media/author-visually/provide-feedback.png)
+To switch to a different Git repository, click the **Git Repo Settings** icon in the upper right corner of the Data Factory overview page. If you can't see the icon, clear your local browser cache. Select the icon to remove the association with the current repo.
+
+![Git icon](media/author-visually/remove-repo.png)
+
+Once the Repository Settings pane appears, select **Remove Git**. Enter your data factory name and click **confirm** to remove the Git repository associated with your data factory.
+
+![Remove the association with the current Git repo](media/author-visually/remove-repo2.png)
+
+After you remove the association with the current repo, you can configure your Git settings to use a different repo and then import existing Data Factory resources to the new repo.
+
+> [!IMPORTANT]
+> Removing Git configuration from a data factory doesn't delete anything from the repository. The factory will contain all published resources. You can continue to edit the factory directly against the service.
 
 ## Next steps
 
