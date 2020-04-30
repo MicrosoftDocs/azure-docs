@@ -64,7 +64,7 @@ Use the [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/
 
 #### Create a one-time schedule
 
-The following sample commands create a one-time schedule.
+The following example creates a one-time schedule.
 
 ```azurepowershell-interactive
 $TimeZone = ([System.TimeZoneInfo]::Local).Id
@@ -93,7 +93,7 @@ New-AzAutomationSchedule -AutomationAccountName "ContosoAutomation" -Name "Sched
 
 #### Create a weekly recurring schedule for weekends
 
-The following sample commands show how to create a weekly schedule that runs on weekends only.
+The following example shows how to create a weekly schedule that runs on weekends only.
 
 ```azurepowershell-interactive
 $StartTime = (Get-Date "18:00:00").AddDays(1)
