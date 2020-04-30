@@ -11,7 +11,7 @@ ms.author: spelluru
 ---
 
 # Metrics supported by Azure Event Grid
-This article provides a list of metrics supported by Azure Event Grid categorized by namespaces. 
+This article provides lists of Event Grid metrics that are categorized by namespaces. 
 
 ## Microsoft.EventGrid/domains
 
@@ -78,7 +78,4 @@ This article provides a list of metrics supported by Azure Event Grid categorize
 |PublishSuccessLatencyInMs|Publish Success Latency|Milliseconds|Total|Publish success latency in milliseconds|None|
 
 ## Next steps
-See the following articles: 
-
-- [Custom topics](custom-topics.md)
-- [Domains](event-domains.md)
+See the following article: [Diagnostic logs](diagnostic-logs.md)

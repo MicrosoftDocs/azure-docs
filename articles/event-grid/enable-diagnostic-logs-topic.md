@@ -71,4 +71,4 @@ Diagnostic settings allow Event Grid users to capture and view **publish and del
     ```
 
 ## Next steps
-To see schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](diagnostic-logs.md).
+For the log schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](diagnostic-logs.md).

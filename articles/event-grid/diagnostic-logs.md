@@ -10,8 +10,8 @@ ms.date: 04/29/2020
 ms.author: spelluru
 ---
 
-#  Diagnostic logs for Azure event grid topics or domains
-Diagnostic settings allow Event Grid users to capture and view **publish and delivery failure** Logs in either a Storage account, an event hub, or a Log Analytics Workspace. This article provides step-by-step instructions to enable these settings on an Event Grid Topic.
+#  Diagnostic logs for Azure Event Grid topics/domains
+Diagnostic settings allow Event Grid users to capture and view **publish and delivery failure** logs in either a Storage account, an event hub, or a Log Analytics Workspace. This article provides schema for the logs and an example log entry.
 
 
 ## Schema for publish/delivery failure logs
