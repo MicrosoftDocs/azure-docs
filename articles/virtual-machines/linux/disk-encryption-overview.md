@@ -79,9 +79,6 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | OpenLogic | CentOS 7.1 | 7.1 | OpenLogic:CentOS:7.1:latest | Data disk only |
 | OpenLogic | CentOS 7.0 | 7.0 | OpenLogic:CentOS:7.0:latest | Data disk only |
 | OpenLogic | CentOS 6.8 | 6.8 | OpenLogic:CentOS:6.8:latest | Data disk only |
-| OpenLogic | CentOS 6.7 | 6.7 | OpenLogic:CentOS:6.7:latest | Data disk only |
-| OpenLogic | CentOS 6.6 | 6.6 | OpenLogic:CentOS:6.6:latest | Data disk only |
-| OpenLogic | CentOS 6.5 | 6.5 | OpenLogic:CentOS:6.5:latest | Data disk only |
 | SUSE | openSUSE 42.3 | 42.3 | SUSE:openSUSE-Leap:42.3:latest | Data disk only |
 | SUSE | SLES Priority 12-SP4 | 12-SP4 | SUSE:SLES-Priority:12-SP4:latest | Data disk only |
 | SUSE | SLES Priority 12-SP3 | 12-SP3 | SUSE:SLES-Priority:12-SP3:latest | Data disk only |
