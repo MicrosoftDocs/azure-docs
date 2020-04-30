@@ -41,6 +41,33 @@ Here's an example of using Postman for validating a webhook subscription of an E
 
 ![Event grid event subscription validation using Postman](./media/troubleshoot-subscription-validation/event-subscription-validation-postman.png)
 
+Here is a sample SubscriptionValidationEvent JSON:
+
+```json
+[
+  {
+    "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
+    "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "subject": "",
+    "data": {
+      "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+    },
+    "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
+    "eventTime": "2018-01-25T22:12:19.4556811Z",
+    "metadataVersion": "1",
+    "dataVersion": "1"
+  }
+]
+```
+
+Here is the sample successful response:
+
+```json
+{
+  "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+}
+```
+
 To learn more about event grid event validation for webhooks, see [Endpoint validation with event grid events](webhook-event-delivery.md#endpoint-validation-with-event-grid-events).
 
 ## Validate cloud event subscription using Postman
@@ -48,7 +75,7 @@ Here's an example of using Postman for validating a webhook subscription of a cl
 
 ![Cloud event subscription validation using Postman](./media/troubleshoot-subscription-validation/cloud-event-subscription-validation-postman.png)
 
-To learn more about cloud event validation for webhooks, see [Endpoint validation with cloud events](webhook-event-delivery.md#endpoint-validation-with-event-grid-events).
+Use the **HTTP OPTIONS** method for validation with cloud events. To learn more about cloud event validation for webhooks, see [Endpoint validation with cloud events](webhook-event-delivery.md#endpoint-validation-with-event-grid-events).
 
 ## Event grid event subscription validation using Curl 
 Here's the sample Curl command for validating a webhook subscription of an Event Grid event: 
