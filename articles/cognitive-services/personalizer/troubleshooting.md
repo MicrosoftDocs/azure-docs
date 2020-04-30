@@ -23,7 +23,7 @@ Some configuration settings [reset your model](how-to-settings.md#settings-that-
 <summary><b>When configuring Personalizer with the API, I received an error. What happened?</b></summary>
 
 **Answer**:
-If you use the API to configure your service and change your learning behavior, you will get an error. You need to make two separate API calls: first, to configure your service, then to switch learning behavior. 
+If you use a single API request to configure your service and change your learning behavior, you will get an error. You need to make two separate API calls: first, to configure your service, then to switch learning behavior.
 </details>
 
 ## Transaction errors
