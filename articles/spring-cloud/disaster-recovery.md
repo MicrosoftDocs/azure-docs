@@ -47,7 +47,7 @@ Follow [Custom Domain Document](/articles/spring-cloud/spring-cloud-tutorial-cus
 
 Here is the traffic manager profile:
 * Traffic Manager DNS Name: http://asc-bcdr.trafficmanager.net
-* One Endpoint Profile: 
+* Endpoint Profiles: 
 
 | Profile | Type | Target | Priority | Custom Header Settings |
 |--|--|--|--|--|
