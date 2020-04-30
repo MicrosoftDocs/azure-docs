@@ -7,7 +7,9 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
 ---
-# Frequently asked questions about the Cassandra API for Azure Cosmos DB
+# Frequently asked questions about the Cassandra API in Azure Cosmos DB
+
+This article describes the functionality differences between Apache Cassandra and Cassandra API in Azure Cosmos DB. It also provides answers to frequently asked questions about the Cassandra API in Azure Cosmos DB.
 
 ## Key differences between Apache Cassandra and the Cassandra API
 
