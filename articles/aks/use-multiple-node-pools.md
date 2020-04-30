@@ -778,10 +778,6 @@ You can find the public IPs for your nodes in various ways. The public IPs for y
 az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
 ```
 
-```powershell
-Get-AzPublicIpAddress -ResourceGroupName MC_MyResourceGroup2_MyManagedCluster_eastus -VirtualMachineScaleSetName YourVirtualMachineScaleSetName
-``` 
-
 ## Clean up resources
 
 In this article, you created an AKS cluster that includes GPU-based nodes. To reduce unnecessary cost, you may want to delete the *gpunodepool*, or the whole AKS cluster.
