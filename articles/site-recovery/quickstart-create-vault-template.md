@@ -41,9 +41,9 @@ Two Azure resources are defined in the template:
 
 The template includes optional parameters for the vault's backup configuration. The storage
 redundancy settings are locally-redundant storage (LRS) or geo-redundant storage (GRS). For more
-information, see [Set storage redundancy](../backup/backup-create-rs-vault#set-storage-redundancy).
+information, see [Set storage redundancy](../backup/backup-create-rs-vault.md#set-storage-redundancy).
 
-For more Azure Recovery Services templates, see [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
+For more Azure Recovery Services templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Recoveryservices&pageNumber=1&sort=Popular).
 
 ### Deploy the template
 
@@ -55,7 +55,7 @@ To deploy the template, the **Subscription**, **Resource group**, and **Vault na
 
 1. Select or enter the following values:
 
-   :::image type="content" source="media/quickstart-create-vault-template/create_vault_template.png" alt-text="Template to create a Recovery Services vault.":::
+   :::image type="content" source="media/quickstart-create-vault-template/create-vault-template.png" alt-text="Template to create a Recovery Services vault.":::
 
    - **Subscription**: select your Azure subscription.
    - **Resource group**: select an existing group or select **Create new** to add a group.
