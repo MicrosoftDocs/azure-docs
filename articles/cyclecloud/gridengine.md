@@ -80,7 +80,7 @@ Autoscale = True
     gridengine.slots = 2
 ```
 
-In the above example, there are now two node arrays: One is a 'standard' execute node array, the second is named 'gpu' providing a MachineType that has two Nvidia GPU's (Standard_NV12 in Azure). Also note that there are now two new items in the configuration section besides the csge:sgeexec recipe. Adding `grid_engine.slot_type = gpu` tells the Grid Engine scheduler that these nodes should be named 'gpu' nodes and thus should only run 'gpu' jobs. The name 'gpu' is arbitrary, but a name that describes the node is most useful. Set `grid_engine.slots = 2`, which tells the software to make sure that this type of node can only run two jobs at once (Standard_NV12 only has 2 GPUs). By default the number of slots per node in Grid Engine will be the number of CPUs on the system which, in this case, would cause too many jobs to concurrently execute on the node.
+In the above example, there are now two node arrays: One is a 'standard' execute node array, the second is named 'gpu' providing a MachineType that has two Nvidia GPU's (Standard_NV12 in Azure). Also note that there are now two new items in the configuration section besides the csge:sgeexec recipe. Adding `gridengine.slot_type = gpu` tells the Grid Engine scheduler that these nodes should be named 'gpu' nodes and thus should only run 'gpu' jobs. The name 'gpu' is arbitrary, but a name that describes the node is most useful. Set `gridengine.slots = 2`, which tells the software to make sure that this type of node can only run two jobs at once (Standard_NV12 only has 2 GPUs). By default the number of slots per node in Grid Engine will be the number of CPUs on the system which, in this case, would cause too many jobs to concurrently execute on the node.
 
 You can verify the number of slots and slot_type your machines have by running the command:
 
@@ -101,7 +101,7 @@ Notice that there are one of each 'slot_type' that we specified (execute and gpu
 
 ## Grid Engine Advanced Usage
 
-The above configuration settings allow for advanced customization of nodes and node arrays. For example, if jobs require a specific amount of memory, say 10GB each, you can define an execute nodearray that starts machines with 60GB of memory, then add in the configuration options `grid_engine.slots = 6` to ensure that only 6 jobs can concurrently run on this type of node (ensuring that each job will have at least 10GB of memory to work with).
+The above configuration settings allow for advanced customization of nodes and node arrays. For example, if jobs require a specific amount of memory, say 10GB each, you can define an execute nodearray that starts machines with 60GB of memory, then add in the configuration options `gridengine.slots = 6` to ensure that only 6 jobs can concurrently run on this type of node (ensuring that each job will have at least 10GB of memory to work with).
 
 ## Grouped Nodes in Grid Engine
 When a parallel job is submitted to grid engine, the default autoscale behavior that CycleCloud will use is to treat each MPI job as a grouped node request. Grouped nodes are tightly-coupled and ideally suited for MPI workflows.
