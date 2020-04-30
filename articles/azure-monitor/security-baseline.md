@@ -4,7 +4,7 @@ description: Azure security baseline for Azure Monitor
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 04/30/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -21,9 +21,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
 
-## Network Security
+## Network security
 
-*For more information, see [Security control: Network Security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
@@ -176,9 +176,9 @@ How to view and retrieve Azure Activity Log events: https://docs.microsoft.com/a
 
 **Responsibility**: Customer
 
-## Logging and Monitoring
+## Logging and monitoring
 
-*For more information, see [Security control: Logging and Monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security control: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -314,9 +314,9 @@ How to alert on log analytics log data:https://docs.microsoft.com/azure/azure-mo
 
 **Responsibility**: Customer
 
-## Identity and Access Control
+## Identity and access control
 
-*For more information, see [Security control: Identity and Access Control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -507,9 +507,9 @@ Supported services and scenarios in general availability: https://docs.microsoft
 
 **Responsibility**: Customer
 
-## Data Protection
+## Data protection
 
-*For more information, see [Security control: Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security control: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -634,9 +634,9 @@ How to create alerts for Azure Activity Log events: https://docs.microsoft.com/a
 
 **Responsibility**: Customer
 
-## Vulnerability Management
+## Vulnerability management
 
-*For more information, see [Security control: Vulnerability Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security control: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -695,9 +695,9 @@ How to create alerts for Azure Activity Log events: https://docs.microsoft.com/a
 
 **Responsibility**: Customer
 
-## Inventory and Asset Management
+## Inventory and asset management
 
-*For more information, see [Security control: Inventory and Asset Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### 6.1: Use automated Asset Discovery solution
 
@@ -874,9 +874,9 @@ How to configure Conditional Access to block access to Azure Resources Manager: 
 
 **Responsibility**: Customer
 
-## Secure Configuration
+## Secure configuration
 
-*For more information, see [Security control: Secure Configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security control: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -1032,9 +1032,9 @@ Use Managed Identities to provide Azure services with an automatically managed i
 
 **Responsibility**: Customer
 
-## Malware Defense
+## Malware defense
 
-*For more information, see [Security control: Malware Defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security control: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
 
 ### 8.1: Use centrally managed anti-malware software
 
@@ -1081,9 +1081,9 @@ https://docs.microsoft.com/azure/security-center/security-center-alerts-data-ser
 
 **Responsibility**: Customer
 
-## Data Recovery
+## Data recovery
 
-*For more information, see [Security control: Data Recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security control: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1159,9 +1159,9 @@ Soft delete for Azure Storage blobs:  https://docs.microsoft.com/azure/storage/b
 
 **Responsibility**: Customer
 
-## Incident Response
+## Incident response
 
-*For more information, see [Security control: Incident Response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security control: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
 
 ### 10.1: Create an incident response guide
 
@@ -1231,9 +1231,9 @@ Build out an incident response guide for your organization. Ensure that there ar
 
 **Responsibility**: Customer
 
-## Penetration Tests and Red Team Exercises
+## Penetration tests and red team exercises
 
-*For more information, see [Security control: Penetration Tests and Red Team Exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
