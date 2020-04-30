@@ -8,10 +8,10 @@
     href: cdn-features.md    
 - name: Quickstarts
   items:
-  - name: Create a profile and endpoint
-    href: cdn-create-new-endpoint.md
   - name: Integrate a storage account
     href: cdn-create-a-storage-account-with-cdn.md    
+  - name: Create a profile and endpoint
+    href: cdn-create-new-endpoint.md
   - name: Create a profile by using an Azure Resource Manager template
     href: create-profile-resource-manager-template.md
 - name: Tutorials
