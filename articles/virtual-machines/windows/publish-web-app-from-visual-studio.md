@@ -18,7 +18,7 @@ This document describes how to publish an ASP.NET web application to an Azure vi
 ## Prerequisites
 In order to use Visual Studio to publish an ASP.NET project to an Azure VM, the VM must be correctly set up.
 
-- Machine must be configured to run an ASP.NET web application and have WebDeploy installed.
+- The machine must be configured to run an ASP.NET web application and have WebDeploy installed. For more information, see [Create an ASP.NET VM with WebDeploy](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md).
 
 - The VM must have a DNS name configured. For more information, see [Create a fully qualified domain name in the Azure portal for a Windows VM](portal-create-fqdn.md).
 
