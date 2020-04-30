@@ -12,11 +12,11 @@ ms.custom: security-baselines
 
 ---
 
-# Overview of Azure Security Baselines
+# Overview of Azure security baselines
 
-Azure Security Baselines help you strengthen the security of our products through improved tooling, tracking, and security features and provide you a consistent experience when securing your environment.
+Azure security baselines help you strengthen the security of our products through improved tooling, tracking, and security features and provide you a consistent experience when securing your environment.
 
-Azure Service Security Baselines focus on cloud-centric control areas. These controls are consistent with well-known security benchmarks, such as those described by the Center for Internet Security (CIS). Our baselines provide guidance for the control areas listed in the [Azure Security Benchmark](overview.md).
+Azure Service security baselines focus on cloud-centric control areas. These controls are consistent with well-known security benchmarks, such as those described by the Center for Internet Security (CIS). Our baselines provide guidance for the control areas listed in the [Azure Security Benchmark](overview.md).
 
 Each recommendation includes the following information:
 - **Azure ID**: The Azure Security Benchmark ID that corresponds to the recommendation.
