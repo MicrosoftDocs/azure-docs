@@ -32,7 +32,7 @@ Example utterances include:
 
 #### [V3 prediction endpoint response](#tab/V3)
 
-Because a machine-learned entity can have many subcomponents with constraints and descriptors, this is just an example only. It should be considered a guide for what your entity will return.
+Because a machine-learned entity can have many subentities with constraints and descriptors, this is just an example only. It should be considered a guide for what your entity will return.
 
 Consider the query:
 
