@@ -5,6 +5,7 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
+ms.custom: has-adal-ref
 ---
 
 # Imagery partner integration
@@ -115,10 +116,10 @@ The following sample request is to create a device. This sample has an input JSO
 
 
 ```bash
-curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  
-"accept: application/json" -H  
+curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H
+"accept: application/json" -H
 "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d
-"{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  
+"{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,
 \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
