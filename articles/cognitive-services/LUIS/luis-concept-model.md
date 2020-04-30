@@ -60,11 +60,11 @@ Model decomposition has the following parts:
 
 * [intents](#intents-classify-utterances)
     * [features](#features)
-* [machine-learned entities](#machine-learned-entities)
+* [machine-learned entities](reference-entity-machine-learned-entity.md)
     * [subentities](#machine-learned-entity-components-help-extract-data) (also machine-learned entities)
         * [features](#features)
             * [phrase list](luis-concept-feature.md)
-            * [non-machine-learned entities](luis-concept-feature.md) such as [regular expressions](reference-entity-regular-expression), [lists](reference-entity-list), and [prebuilt entities](luis-reference-prebuilt-entities)
+            * [non-machine-learned entities](luis-concept-feature.md) such as [regular expressions](reference-entity-regular-expression.md), [lists](reference-entity-list.md), and [prebuilt entities](luis-reference-prebuilt-entities.md)
 
 <a name="entities-extract-data"></a>
 <a name="machine-learned-entities"></a>
