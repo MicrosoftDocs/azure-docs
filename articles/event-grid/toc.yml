@@ -208,7 +208,7 @@
     - name: Troubleshoot errors
       href: troubleshoot-errors.md
     - name: Troubleshoot subscription validation
-      href: troulbeshoot-subscription-validation.md
+      href: troubleshoot-subscription-validation.md
     - name: Monitor event delivery
       href: monitor-event-delivery.md
 - name: Reference
