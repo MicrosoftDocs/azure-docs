@@ -415,8 +415,8 @@ Once the `run` completes, you can retrieve `PipelineData` objects that have been
 metrics_output_port = run.get_pipeline_output('metrics_output')
 model_output_port = run.get_pipeline_output('model_output')
 
-metrics_output.download('.', show_progress=True)
-model_output.download('.', show_progress=True)
+metrics_output_port.download('.', show_progress=True)
+model_output_port.download('.', show_progress=True)
 ```
 
 Downloaded files are written to the sub-directory `azureml/{run.id}/`. The metrics file is JSON-formatted and can be converted into a Pandas dataframe for examination.
@@ -438,6 +438,7 @@ with open(metrics_filename) as f:
    
 deserialized_metrics_output = json.loads(metrics_output_result)
 df = pd.DataFrame(deserialized_metrics_output)
+df
 ```
 
 The code snippet above shows the metrics file being loaded from it's location on the Azure datastore. You can also load it from the downloaded file, as shown in the comment. Once you've deserialized it and converted it to a Pandas DataFrame, you can see detailed metrics for each of the iterations of the automated ML step.
