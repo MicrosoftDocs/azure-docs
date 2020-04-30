@@ -79,7 +79,7 @@ When used with Windows Virtual Desktop, ControlUp provides additional capabiliti
 
 ## Dell
 
-![Dell logo](./media/partners/dell-logo.png)
+![Dell logo](./media/partners/dell.png)
 
 Dell Technologies' thin clients are optimized to access Microsoft Azure and Windows Virtual Desktop services. Capable of meeting the needs from collaborative knowledge workers up to graphics-intensive power users, Wyse thin clients deliver a high-quality computing experience to take full advantage of the growing number of apps and content. Ideal for space-constrained environments, Wyse thin clients adapt to the way people work with versatile form factors and a wide array of choices for mounting options.
 
