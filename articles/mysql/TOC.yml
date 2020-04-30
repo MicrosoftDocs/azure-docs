@@ -19,6 +19,9 @@
       href: quickstart-create-server-up-azure-cli.md
     - name: Create DB - Azure PowerShell
       href: quickstart-create-mysql-server-database-using-azure-powershell.md
+    - name: Create DB - ARM template
+      href: quickstart-create-mysql-server-database-using-arm-template.md
+      displayName: deploy azure resource manager template 
   - name: Connect & query
     items:
     - name: PHP
@@ -47,6 +50,8 @@
       href: tutorial-design-database-using-portal.md
     - name: Azure CLI
       href: tutorial-design-database-using-cli.md
+    - name: Azure PowerShell
+      href: tutorial-design-database-using-powershell.md
     - name: Azure Resource Manager template
       href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
   - name: 2 - Create a Web App
@@ -192,6 +197,8 @@
       href: howto-server-parameters.md
     - name: Azure CLI
       href: howto-configure-server-parameters-using-cli.md
+    - name: Azure PowerShell
+      href: howto-configure-server-parameters-using-powershell.md
   - name: Auto grow storage
     items:
     - name: Azure portal
@@ -226,6 +233,8 @@
       href: howto-read-replicas-portal.md
     - name: Create read replicas Azure CLI, REST API
       href: howto-read-replicas-cli.md
+    - name: Create read replicas Azure PowerShell
+      href: howto-read-replicas-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot connection errors
@@ -258,6 +267,8 @@
       href: howto-data-encryption-portal.md
     - name: Azure CLI
       href: howto-data-encryption-cli.md
+    - name: Data encryption validation
+      href: howto-data-encryption-validation.md
   - name: Azure AD Integration
     items:
     - name: Configure Azure AD integration
