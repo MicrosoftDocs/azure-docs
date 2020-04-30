@@ -112,11 +112,13 @@
   items:
   - name: Code samples
     href: https://docs.microsoft.com/samples/browse/
-
   - name: Azure PowerShell
     href: service-fabric-powershell-samples.md
   - name: Service Fabric CLI
     href: samples-cli.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Understand microservices
