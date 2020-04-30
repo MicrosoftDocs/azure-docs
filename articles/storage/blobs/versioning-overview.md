@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -113,17 +113,33 @@ The following diagram shows how modifying a blob after versioning is disabled cr
 
 ## Blob versioning and soft delete
 
-Blob versioning and blob soft delete work together to provide you with optimal data protection. For more information about blob soft delete, see [Soft delete for Azure Storage blobs](storage-blob-soft-delete.md).
+Blob versioning and blob soft delete work together to provide you with optimal data protection. When you enable soft delete, you specify how long Azure Storage should retain a soft-deleted blob. Any soft-deleted blob version remains in the system and can be undeleted within the soft delete retention period. For more information about blob soft delete, see [Soft delete for Azure Storage blobs](storage-blob-soft-delete.md).
 
-When you enable soft delete, you specify the retention period for soft-deleted data. Any deleted blob version remains in the system and can be undeleted within the soft delete retention period.
+### Deleting a blob or version
 
-When both blob versioning and blob soft delete are enabled, modifying or deleting a blob creates a new version instead of a soft-deleted snapshot. This  version is not in the soft-deleted state, so it is not subject to the retention period for soft-deleted data and is not deleted permanently when the retention period elapses.
+Soft delete offers additional protection for deleting blob versions. If both versioning and soft delete are enabled on the storage account, then when you delete a blob, Azure Storage creates a new version to save the state of the blob immediately prior to deletion and deletes the current version. The new version is not soft-deleted and is not removed when the soft-delete retention period expires.
 
-To remove a version, explicitly delete it using the version ID. When a version is deleted while soft delete is enabled, that version becomes a soft-deleted version. Soft-deleted versions are permanently deleted after the soft delete retention period has expired. The following image shows how a version is deleted when soft delete is enabled.
+When you delete a previous version of the blob, the version is soft-deleted. The soft-deleted version is retained throughout the retention period specified in the soft delete settings for the storage account and is permanently deleted when the soft delete retention period expires.
+
+To remove a previous version of a blob, explicitly delete it by specifying the version ID.
+
+The following diagram shows what happens when you delete a blob or a blob version.
 
 :::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram showing deletion of a version with soft delete enabled":::
 
-You can restore a soft-deleted blob version by calling the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation during the soft delete retention period. Once the retention period has elapsed, the blob version is permanently deleted.
+If both versioning and soft delete are enabled on a storage account, then no soft-deleted snapshot is created when a blob or blob version is modified or deleted.
+
+### Restoring a soft-deleted version
+
+You can restore a soft-deleted blob version by calling the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation on the version while the soft delete retention period is in effect. The **Undelete Blob** operation restores all soft-deleted versions of the blob.
+
+Restoring soft-deleted versions with the **Undelete Blob** operation does not promote any version to be the current version. To restore the current version, first restore all soft-deleted versions, and then use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy a previous version to restore the blob.
+
+The following diagram shows how to restore soft-deleted blob versions with the **Undelete Blob** operation, and how to restore the current version of the blob with the **Copy Blob** operation.
+
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagram showing how to restore soft-deleted versions":::
+
+After the soft-delete retention period has elapsed, any soft-deleted blob versions are permanently deleted.
 
 ## Blob versioning and blob snapshots
 
@@ -139,8 +155,6 @@ Although it is not recommended, you can take a snapshot of a blob that is also v
 When you take a snapshot of a versioned blob, a new version is created at the same time that the snapshot is created. A new current version is also created when a snapshot is taken.
 
 The following diagram shows what happens when you take a snapshot of a versioned blob. In the diagram, blob versions and snapshots with version ID 2 and 3 contain identical data.
-
-???need to discuss this image with Yuan - it's confusing - which version is the snapshot associated with? can we change the snapshot ID?
 
 :::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram showing snapshots of a versioned blob ":::
 
@@ -175,8 +189,10 @@ The following table shows the permission required on a SAS to delete a blob vers
 
 Blob versioning is available in preview in the following regions:
 
-- West US 2
-- West Central US
+- France South
+- France Central
+- Canada East
+- Canada Central
 
 The preview is intended for non-production use only.
 

@@ -6,8 +6,8 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
-ms.date: 04/21/2020
+ms.topic: how-to
+ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
 ---

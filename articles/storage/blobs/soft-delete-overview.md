@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 04/30/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -22,13 +22,11 @@ If there is a possibility that your data may accidentally be modified or deleted
 
 ## About soft delete
 
-When soft delete is enabled, you can recover objects after they have been deleted, within the specified data retention period. This protection extends to blob data that is erased as the result of an overwrite.
+When soft delete is enabled on a storage account, you can recover objects after they have been deleted, within the specified data retention period. This protection extends to blob data that is erased as the result of an overwrite.
 
-If a blob, version, or snapshot is deleted while soft delete is enabled, that object transitions to a soft deleted state instead of being permanently erased. After the specified retention period has expired, the object is permanently deleted.
+If data in an existing blob or snapshot is deleted while soft delete is enabled but blob versioning (preview) is not enabled, then a soft deleted snapshot is generated to save the state of the overwritten data. After the specified retention period has expired, the object is permanently deleted.
 
-If data in an existing blob is modified while soft delete is enabled but blob versioning (preview) is not enabled, then a soft deleted snapshot is generated to save the state of the overwritten data.
-
-If blob versioning and soft delete are both enabled, then modifying or deleting a blob creates a new historical version instead of a soft-deleted snapshot. This historical version is not in the soft-deleted state, so it is not subject to the retention period for soft-deleted data and is not deleted permanently when the retention period elapses. For more information about using blob versioning and soft delete together, see [Blob versioning and soft delete](versioning-overview.md#blob-versioning-and-soft-delete).
+If blob versioning and soft delete are both enabled on the storage account, then deleting a blob creates a new version instead of a soft-deleted snapshot. The new version is not soft-deleted and is not removed when the soft-delete retention period expires. Soft-deleted versions of a blob can be restored within the retention period by calling the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation. The blob can subsequently be restored from one of its versions by calling the [Copy Blob](/rest/api/storageservices/copy-blob) operation. For more information about using blob versioning and soft delete together, see [Blob versioning and soft delete](versioning-overview.md#blob-versioning-and-soft-delete).
 
 Soft deleted objects are invisible unless explicitly listed.
 
@@ -54,7 +52,7 @@ If you disable soft delete, you can continue to access and recover soft deleted 
 
 Soft delete preserves your data in many cases where objects are deleted or overwritten.
 
-When a blob is overwritten using **Put Blob**, **Put Block**, **Put Block List**, or **Copy Blob** a version or snapshot of the blob's state prior to the write operation is automatically generated. This object is invisible unless soft deleted objects are explicitly listed. See the [Recovery](#recovery) section to learn how to list soft deleted objects.
+When a blob is overwritten using **Put Blob**, **Put Block List**, or **Copy Blob**, a version or snapshot of the blob's state prior to the write operation is automatically generated. This object is invisible unless soft-deleted objects are explicitly listed. See the [Recovery](#recovery) section to learn how to list soft deleted objects.
 
 ![](media/soft-delete-overview/storage-blob-soft-delete-overwrite.png)
 
@@ -186,7 +184,7 @@ Yes, but you must call Undelete on the blob first.
 
 ### Is soft delete available for virtual machine disks?  
 
-Soft delete is available for both premium and standard unmanaged disks, which are page blobs under the covers. Soft delete will only help you recover data deleted by **Delete Blob**, **Put Blob**, **Put Block List**, **Put Block** and **Copy Blob** operations. Data overwritten by a call to **Put Page** is not recoverable.
+Soft delete is available for both premium and standard unmanaged disks, which are page blobs under the covers. Soft delete will only help you recover data deleted by **Delete Blob**, **Put Blob**, **Put Block List**, and **Copy Blob** operations. Data overwritten by a call to **Put Page** is not recoverable.
 
 An Azure virtual machine writes to an unmanaged disk using calls to **Put Page**, so using soft delete to undo writes to an unmanaged disk from an Azure VM is not a supported scenario.
 
