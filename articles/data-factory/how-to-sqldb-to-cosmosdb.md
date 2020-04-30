@@ -59,13 +59,19 @@ The resulting CosmosDB container will embed the inner query into a single docume
 
 8. Add another derived column and call it "MakeStruct". This is where we will create a hierarchical structure to hold the values from the details table. Remember, details is a ```M:1``` relation to header. Name the new structure "orderdetailsstruct" and create the hierarchy in this way, setting each subcolumn to the incoming column name:
 
-![Create Struct](media/data-flow/cosmosb9.png)
+![Create Structure](media/data-flow/cosmosb9.png)
 
 9. Now, let's go to the sales header source. Add a Join transformation. For the right-side select "MakeStruct". Leave it set to inner join and choose ```SalesOrderID``` for both sides of the join condition.
 
 10. Click on the Data Preview tab in the new join that you added so that you can see your results up to this point. You should see all of the header rows joined with the detail rows. This is the result of the join being formed from the ```SalesOrderID```. Next, we'll combine the details from the common rows into the details struct and aggregate the common rows.
 
-11. 
+11. Before we can create the arrays to denormalize these rows, we first need to remove unwanted columns and make sure the data values will match CosmosDB data types.
+
+12. Add a Select transformation next and set the field mapping to look like this:
+
+![Column scrubber](media/data-flow/cosmosb6.png)
+
+13.
 
 ![Join](media/data-flow/cosmosb4.png)
 
