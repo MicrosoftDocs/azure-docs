@@ -6,9 +6,9 @@ ms.date: 04/27/2020
 ---
 # Soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads
 
-Azure Backup now provides soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads. This is in addition to the already supported [Azure Virtual machine soft delete scenario](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
+Azure Backup now provides soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads. This is in addition to the already supported [Azure Virtual machine soft delete scenario](soft-delete-virtual-machines.md).
 
-Soft delete is a security feature to help protect backup data even after deletion. With soft delete, even if a malicious actor deletes the backup of a database (or backup data is accidentally deleted), the backup data is retained for 14 additional days. This allows the recovery of that backup item with no data loss. This additional retention of 14 days of the backup data in the "soft delete" state doesn’t incur any cost to the customer.
+[Soft delete](backup-azure-security-feature-cloud.md) is a security feature to help protect backup data even after deletion. With soft delete, even if a malicious actor deletes the backup of a database (or backup data is accidentally deleted), the backup data is retained for 14 additional days. This allows the recovery of that backup item with no data loss. This additional retention of 14 days of the backup data in the "soft delete" state doesn’t incur any cost to the customer.
 
 ## Steps to enroll in preview
 

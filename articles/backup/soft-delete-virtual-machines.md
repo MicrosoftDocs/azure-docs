@@ -56,8 +56,6 @@ This flow chart shows the different steps and states of a backup item when Soft 
 
 ![Lifecycle of soft-deleted backup item](./media/backup-azure-security-feature-cloud/lifecycle.png)
 
-For more information, see the [Frequently Asked Questions](backup-azure-security-feature-cloud.md#frequently-asked-questions) section below.
-
 ## Soft delete for VMs using Azure PowerShell
 
 > [!IMPORTANT]
