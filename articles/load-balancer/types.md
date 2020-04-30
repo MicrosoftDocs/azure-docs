@@ -25,7 +25,7 @@ A public Load Balancer maps the public IP address and port of incoming traffic t
 
 The following figure shows a load-balanced endpoint for web traffic that is shared among three VMs for the public and TCP port 80. These three VMs are in a load-balanced set.
 
-![Public Load Balancer example](./media/load-balancer-overview/IC727496.png)
+![Public Load Balancer example](./media/load-balancer-overview/load-balancer.png)
 
 *Figure: Balancing web traffic by using a public Load Balancer*
 
