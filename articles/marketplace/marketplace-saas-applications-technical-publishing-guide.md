@@ -1,5 +1,5 @@
 ---
-title: Publishing guide for SaaS applications in Azure Marketplace
+title: Publishing guide for SaaS applications on Azure Marketplace
 description: A step-by-step guide and checklist for publishing SaaS applications to Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: dsindona
@@ -12,11 +12,11 @@ ms.author: dsindona
 
 # Publishing guide for SaaS applications offers
 
-You can publish software as a service (SaaS) applications in Azure Marketplace with three different calls to action: *Contact Me*, *Try it Now*, and *Get it Now*. This guide explains these call-to-action options, including the requirements for each. 
+You can publish software as a service (SaaS) applications to Azure Marketplace with three different calls to action: *Contact Me*, *Try it Now*, and *Get it Now*. This guide explains these call-to-action options, including the requirements for each. 
 
 ## Offer overview  
 
-SaaS applications are available in Microsoft AppSource and Azure Marketplace.  Both storefronts support *List*, *Trial*, and *Transaction* offers.
+SaaS applications are available on Azure Marketplace and Microsoft AppSource.  Both storefronts support *List*, *Trial*, and *Transaction* offers.
 
 * **List**:  The *List* publishing option consists of a *Contact Me* offer type and is used when a *Trial*-level or *Transaction*-level participation is not feasible. The benefit of this approach is that it enables publishers with a solution in-market to immediately begin receiving leads that can be turned into deals to increase your business.
 
@@ -86,7 +86,7 @@ To check for Azure AD service updates, see:
 
 ## Use Azure Active Directory to enable trials  
 
-Microsoft authenticates all Azure Marketplace users with Azure AD. When authenticated customers click through your Trial listing in Azure Marketplace and are redirected to your Trial environment, you can set up their Trial without requiring an additional sign-in step. 
+Microsoft authenticates all Azure Marketplace users with Azure AD. When authenticated customers click through your Trial listing on Azure Marketplace and are redirected to your Trial environment, you can set up their Trial without requiring an additional sign-in step. 
 
 The token that your application receives from Azure AD during authentication includes valuable customer information that you can use to create a user account in your application. This information can help you automate the customer setup experience and increase the likelihood of conversion. For more information about the token, see [Microsoft identity platform ID tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
@@ -129,7 +129,7 @@ Microsoft hosts the commercial transaction and bills your customers on your beha
 |:--- |:--- |  
 |Billing and metering | Your offer is priced based on the pricing model (flat rate or per-user) that you select before publishing.  If you're using the flat rate model, you can optionally include additional dimensions to charge customers for usage that's not included in the flat rate. |  
 |Cancellation | Your offer is cancelable by the customer at any time. |  
-|Transaction landing page | You host an Azure co-branded transaction landing page where customers can create and manage their SaaS service account. |   
+|Transaction landing page | You host an Azure co-branded transaction landing page where customers can create and manage their SaaS service accounts. |   
 | Subscription API | You expose a service that can interact with the SaaS subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. |  
 
 >[!Note]
