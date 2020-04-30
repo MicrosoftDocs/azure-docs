@@ -210,7 +210,7 @@ Creating permissions by using ResourceTokens is allowed at the container level a
 
 To learn about frequently asked questions in other APIs, see:
 
-* Frequently asked questions about [Azure Cosmos DB's API for MongoDB](mongodb-api-faq)
-* Frequently asked questions about [Gremlin API in Azure Cosmos DB](gremlin-api-faq)
+* Frequently asked questions about [Azure Cosmos DB's API for MongoDB](mongodb-api-faq.md)
+* Frequently asked questions about [Gremlin API in Azure Cosmos DB](gremlin-api-faq.md)
 * Frequently asked questions about [Cassandra API in Azure Cosmos DB](cassandra-faq.md)
 * Frequently asked questions about [Table API in Azure Cosmos DB](table-api-faq.md)
