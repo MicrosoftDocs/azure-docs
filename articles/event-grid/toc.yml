@@ -163,6 +163,12 @@
       href: security-authorization.md
     - name: Network security
       href: network-security.md
+  - name: Monitor and troubleshoot
+    items:
+    - name: Diagnostic logs
+      href: 
+    - name: Metrics
+      href: metrics.md
 - name: How-to guides
   items:
   - name: Configure private endpoints (preview)
