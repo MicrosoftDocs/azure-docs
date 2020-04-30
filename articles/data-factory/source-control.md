@@ -215,9 +215,9 @@ It's recommended to not allow direct check-ins to the collaboration branch. This
 
 ### Using passwords from Azure Key Vault
 
-It's recommended to use Azure Key Vault to store any connection strings or passwords for Data Factory Linked Services. For security reasons, we don't store any such secret information in Git, so any changes to Linked Services are published immediately to the Azure Data Factory service.
+It's recommended to use Azure Key Vault to store any connection strings or passwords or managed identity authentication for Data Factory Linked Services. For security reasons, data factory doesn't store secrets in Git. Any changes to Linked Services containing secrets such as passwords are published immediately to the Azure Data Factory service.
 
-Using Key Vault also makes continuous integration and deployment easier as you will not have to provide these secrets during Resource Manager template deployment.
+Using Key Vault or MSI authentication also makes continuous integration and deployment easier as you won't have to provide these secrets during Resource Manager template deployment.
 
 ## Troubleshooting Git integration
 
