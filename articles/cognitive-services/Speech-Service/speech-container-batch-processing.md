@@ -14,12 +14,12 @@ ms.author: aahi
 
 # Batch processing kit for Speech containers
 
-Use the batch processing kit to complement and scale out workloads on Speech containers. Available as a container, this open source utility helps facilitate batch transcription for large numbers of audio files, across any number of on-prem and cloud-based speech container endpoints. 
+Use the batch processing kit to complement and scale out workloads on Speech containers. Available as a container, this open-source utility helps facilitate batch transcription for large numbers of audio files, across any number of on-premises and cloud-based speech container endpoints. 
 
 | Feature  | Description  |
 |---------|---------|
 | Automatically distribute batches of audio files     | Automatically dispatch files to large numbers of Speech Services endpoints.         |
-| Multiple endpoint support     | Use on-premesis or cloud endpoints, in any ratio.         |
+| Use multiple endpoint types     | Use on-premisis or cloud-based endpoints, in any ratio.         |
 |Run modes     | Run the kit once, continuously in the background, or create HTTP endpoints for audio files.         |
 |POSIX compatibility     | Mount any POSIX-compliant volume, including network filesystems.        |
 
@@ -47,7 +47,7 @@ MyContainer3:
   rtf: 4 
 ```
 
-This specifies three speech containers on three hosts. The first hosts is specified by a IPv4 address, the second is running on the same VM as the batch-client, and the third container is specified by the DNS hostname of another VM. The `concurrency` value specifies the maximum concurrent file transcriptions that can run on the same container. The `rtf` (Real-Time Factor) value is optional, and can be used to tune performance.
+This yaml example specifies three speech containers on three hosts. The first host is specified by a IPv4 address, the second is running on the same VM as the batch-client, and the third container is specified by the DNS hostname of another VM. The `concurrency` value specifies the maximum concurrent file transcriptions that can run on the same container. The `rtf` (Real-Time Factor) value is optional, and can be used to tune performance.
  
 The batch client can dynamically detect if an endpoint becomes unavailable (for example, due to a container restart or networking issue), and when it becomes available again. Transcription requests will not be sent to containers that are unavailable, and the client will continue using other available containers. You can add, remove, or edit endpoints at any time without interrupting the progress of your batch.
 
@@ -76,7 +76,7 @@ To run the batch client and container in a single command:
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs markopoc.azurecr.io/scratch/onprem/batch-client:0.7.3  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
-The client will start running. If an audio file has already been transcribed in a previous run, the client will automatically skip the file. Files are sent with an automatic retry in case of transient errors, and you can differentiate between which errors you want to the client to retry on. On a transcription error, the client will continue transcription, and can retry without losing progress.  
+The client will start running. If an audio file has already been transcribed in a previous run, the client will automatically skip the file. Files are sent with an automatic retry if transient errors occur, and you can differentiate between which errors you want to the client to retry on. On a transcription error, the client will continue transcription, and can retry without losing progress.  
 
 ## Run modes 
 
@@ -96,7 +96,7 @@ The batch processing kit offers three modes:
 
 The kit creates a *run.log* file in the directory specified by the `-log_folder` argument in the docker `run` command. Logs are captured at the DEBUG level by default. The same logs are sent to the `stdout/stderr`, and filtered depending on the `-log_level` argument. This log is only necessary for debugging, or if you need to send a trace for support. The logging folder also contains the Speech SDK logs for each audio file.
 
-The output directory specified by `-output_folder` will contain a *run_summary.json* file, which is periodically re-written every 30 seconds or whenever new transcriptions are finished. You can use this file to check on progress as the batch proceeds. It will also contain the final run statistics and final status of every file when the batch is completed. The batch is completed when the process has a clean exit. 
+The output directory specified by `-output_folder` will contain a *run_summary.json* file, which is periodically rewritten every 30 seconds or whenever new transcriptions are finished. You can use this file to check on progress as the batch proceeds. It will also contain the final run statistics and final status of every file when the batch is completed. The batch is completed when the process has a clean exit. 
 
 ## Next steps
 
