@@ -205,7 +205,7 @@ Using Visual Studio Code, commit and push your changes to the remote git reposit
 1. Add a commit message
 1. Type in **Git: push**
 
-## Create static app in the Azure Portal 
+## Create a static web app
 
 :::image type="content" source="media/add-api/create-static-app-on-azure-portal-1.png" alt-text="Create static app on Azure Portal - screen 1":::
 
@@ -213,22 +213,22 @@ Using Visual Studio Code, commit and push your changes to the remote git reposit
 1. Type **Static Web Apps** in the top search bar
 1. Click on **Static Web Apps**
 1. Click **Add**
-- Select your _Azure subscription_
-- Select or create a new _Resource Group_
-- Name the app **my-vanilla-api**.
-- Select _Region_ closest to you
-- Select the **Free** _SKU_
-- Click the **Sign-in with GitHub** button and authenticate with GitHub
-- Select your preferred _Organization_
-- Select **my-vanilla-api** from the _Repository_ drop-down
-- Select **master** from the _Branch_ drop-down
-- Click the **Next: Build >** button to edit the build configuration
+1. Select your _Azure subscription_
+1. Select or create a new _Resource Group_
+1. Name the app **my-vanilla-api**.
+1. Select _Region_ closest to you
+1. Select the **Free** _SKU_
+1. Click the **Sign-in with GitHub** button and authenticate with GitHub
+1. Select your preferred _Organization_
+1. Select **my-vanilla-api** from the _Repository_ drop-down
+1. Select **master** from the _Branch_ drop-down
+1. Click the **Next: Build >** button to edit the build configuration
 
 :::image type="content" source="media/add-api/create-static-app-on-azure-portal-2.png" alt-text="Create static app on Azure Portal - screen 2":::
 
 Next, add the following the build details.
 
-1. **App location**: Type `./` 
+1. Enter **./** for the _App location_
 1. Enter **api** in the _Api location_ box
     - This is the name of the API folder created in the previous step.
 1. Clear the default value out of the _App artifact location_, leaving the box empty
@@ -257,11 +257,11 @@ You can also find the application URL from the Azure Portal:
 
 :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Access static app URL from Azure Portal":::
 
-Or you can directly access your Azure Static Web App at https://wonderful-dune-066a94d04.azurestaticapps.net and check the result on the screen.
+Alternatively you can directly access your Azure Static Web App at `https://<STATIC_APP_NAME>.azurestaticapps.net` and check the result in the browser.
 
 ## Clean up resources
 
-When you continue to the next step, you'll need to keep all your resources in place. Otherwise, you can use the following steps to delete the Azure Static Web App and its related resources to avoid incurring any further costs.
+If you don't want to keep this application for further use, you can use the following steps to delete the Azure Static Web App and its related resources.
 
 1. Navigate to the [Azure portal](https://portal.azure.com)
 1. In the top search bar, type **Resource groups**
@@ -272,10 +272,8 @@ When you continue to the next step, you'll need to keep all your resources in pl
 1. Type **myResourceGroup** in the text box
 1. Select **Delete**.
 
-To learn more about Azure Static Web Apps costs, see [Estimating costs](https://docs.microsoft.com/azure/?product=featured).
 
 ## Next steps
-
 
 > [!div class="nextstepaction"]
 > [Configure environment variables](./environment-variables.md)
