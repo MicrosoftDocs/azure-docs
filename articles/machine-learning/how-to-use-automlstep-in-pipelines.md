@@ -71,7 +71,8 @@ The code first logs in to the Azure Machine Learning workspace defined in **conf
 Additional resources that the pipeline will need are storage and, generally, Azure Machine Learning compute resources. 
 
 ```python
-from azureml.core import Datastore, AmlCompute, ComputeTarget
+from azureml.core import Datastore
+from azureml.core.compute import AmlCompute, ComputeTarget
 
 datastore = ws.get_default_datastore()
 
