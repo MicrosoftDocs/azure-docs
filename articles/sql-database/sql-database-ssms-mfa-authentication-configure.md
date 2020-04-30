@@ -1,6 +1,6 @@
 ---
 title: Configure multi-factor authentication
-description: Learn how to use Multi-Factored Authentication with SSMS for SQL Database and Azure Synapse Aalytics
+description: Learn how to use Multi-Factored Authentication with SSMS for SQL Database and Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
