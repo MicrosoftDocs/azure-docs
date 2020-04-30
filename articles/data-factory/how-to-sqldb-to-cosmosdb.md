@@ -14,11 +14,13 @@ ms.author: makromer
 
 # Migrate normalized database schema from Azure SQL Database to Azure CosmosDB denormalized container
 
-This guide will explain how to take an existing normalized database schema in Azure SQL Database and convert it into an Azure CosmosDB denomarlized schema in Azure CosmosDB. SQL schemas are typically modeled using third normal form and normalized schemas to provide high levels of data integrity and fewer duplicate data. Queries can join entities together across tables. CosmosDB is optimized for super-quick transactions and querying within a collection or container via denormalized schemas with data self-contained inside a document.
+This guide will explain how to take an existing normalized database schema in Azure SQL Database and convert it into an Azure CosmosDB denomarlized schema for loading into Azure CosmosDB.
+
+SQL schemas are typically modeled using third normal form, resuling in normalized schemas that provide high levels of data integrity and fewer duplicate data values. Queries can join entities together across tables for reading. CosmosDB is optimized for super-quick transactions and querying within a collection or container via denormalized schemas with data self-contained inside a document.
 
 Using Azure Data Factory, we'll build a pipeline that uses a single Mapping Data Flow to read from two Azure SQL Database normalized tables that contain primary and foreign keys as the entity relationship. ADF will join those tables into a single stream using the data flow Spark engine, collect joined rows into arrays and produce individual cleansed documents for insert into a new Azure CosmosDB container.
 
-This guide will build a new container on the fly called "Orders" that will use ```SalesOrderHeader``` and ```SalesOrderDetail``` from the standard SQL Server AdventureWorks sample database. Those tables represent sales transactions joined by ```SalesOrderID```. Each unique detail records has its own primary key of ```SalesOrderDetailID```. The relationship between header and detail is ```1:M```. We'll join on ```SalesOrderID``` in ADF and then roll each related detail record into an array called "detail".
+This guide will build a new container on the fly called "orders" that will use the ```SalesOrderHeader``` and ```SalesOrderDetail``` tables from the standard SQL Server AdventureWorks sample database. Those tables represent sales transactions joined by ```SalesOrderID```. Each unique detail records has its own primary key of ```SalesOrderDetailID```. The relationship between header and detail is ```1:M```. We'll join on ```SalesOrderID``` in ADF and then roll each related detail record into an array called "detail".
 
 The representative SQL query for this guide is:
 
