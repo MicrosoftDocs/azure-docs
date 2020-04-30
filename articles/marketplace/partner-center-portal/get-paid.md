@@ -39,7 +39,7 @@ Keep in mind that the price you select may include sales or value-added tax that
 
 ## Payout reporting
 
-You can access details about your payment info and download reports in the **Payout summary** of [Partner Center](https://partner.microsoft.com/dashboard). For more about the info shown here, and how we categorize the money you earn, see [Payout summary](payout-summary.md).
+You can access details about your payment info and download reports in the **Payout summary** of [Partner Center](https://partner.microsoft.com/dashboard). For more about the info shown here, and how we categorize the money you earn, see [Payout summary](payout-summary-overview.md).
 
 
 ## Payout timeframe
