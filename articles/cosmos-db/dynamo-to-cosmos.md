@@ -26,7 +26,6 @@ The following are the key conceptual differences between Azure Cosmos DB and Dyn
 |Primary Key – Partition key|Partition Key|
 |Primary Key – Sort Key| Not Required |
 |Stream|ChangeFeed|
-|DAC| Not Required |
 |Write Compute Unit|Request Unit (Flexible, can be used for reads or writes)|
 |Read Compute Unit    |Request Unit (Flexible, can be used for reads or writes)|
 |Global Tables| Not Required. You can directly select the region while provisioning the Azure Cosmos account (you can change the region later)|
