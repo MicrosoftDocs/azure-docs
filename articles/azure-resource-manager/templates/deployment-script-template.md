@@ -302,7 +302,7 @@ The requirements for using an existing storage account:
 
 - Supported storage account kinds are: General-purpose v2 accounts, General-purpose v1 accounts and fileStorage accounts. For more information, see [Types of storage accounts](../../storage/common/storage-account-overview.md).
 - Storage account firewall rules must be turned off. See [Configure Azure Storage firewalls and virtual network](../../storage/common/storage-network-security.md)
-- Deployment script's user-assigned managed identity must have permissions to manage the storage account, which include read, create, delete file shares.
+- Deployment script's user-assigned managed identity must have permissions to manage the storage account, which includes read, create, delete file shares.
 
 To specify an existing storage account, add the following json to the property element of `Microsoft.Resources/deploymentScripts`:
 
@@ -319,13 +319,13 @@ When an existing storage account is used, the script service creates a file shar
 
 ## Clean up deployment script resources
 
-A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise a storage account along with a container instance are automatically created by the script service. The two automatically created resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the resources until the resources are deleted. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise a storage account along with a container instance are automatically created by the script service. The two automatically created resources are deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the resources until the resources are deleted. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 The life cycle of these resources is controlled by the following properties in the template:
 
 - **cleanupPreference**: Clean up preference when the script execution gets in a terminal state. The supported values are:
 
-  - **Always**: Delete the automatically created resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created in the storage account. Because the deploymentScripts resource may still be present after the resources are cleaned up, the script service persist the script execution results, for example, stdout, outputs, return value, etc. before the resources are deleted.
+  - **Always**: Delete the automatically created resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created in the storage account. Because the deploymentScripts resource may still be present after the resources are cleaned up, the script services persist the script execution results, for example, stdout, outputs, return value, etc. before the resources are deleted.
   - **OnSuccess**: Delete the automatically created resources only when the script execution is successful. If an existing storage account is used, the script service removes the file share only when the script execution is successful. You can still access the resources to find the debug information.
   - **OnExpiration**: Delete the automatically resources only when the **retentionInterval** setting is expired. If an existing storage account is used, the script service removes the file share, but retain the storage account.
 
