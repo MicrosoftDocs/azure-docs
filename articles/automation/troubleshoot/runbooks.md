@@ -8,6 +8,7 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
+ms.custom: has-adal-ref
 ---
 
 # Troubleshoot runbook errors
@@ -21,7 +22,7 @@ manager: carmonm
 
 When you receive errors during runbook execution in Azure Automation, you can use the following steps to help diagnose the issues.
 
-1. **Ensure that your runbook script executes successfully on your local machine.** 
+1. **Ensure that your runbook script executes successfully on your local machine.**
 
     Refer to the [PowerShell Docs](/powershell/scripting/overview) or [Python Docs](https://docs.python.org/3/) for language reference and learning modules. Executing your script locally can discover and resolve common errors, such as:
 
@@ -33,7 +34,7 @@ When you receive errors during runbook execution in Azure Automation, you can us
 
     Look at these streams for specific messages and compare them to the errors documented in this article.
 
-3. **Ensure that your nodes and Automation workspace have the required modules.** 
+3. **Ensure that your nodes and Automation workspace have the required modules.**
 
     If your runbook imports any modules, verify that they are available to your Automation account using the steps in [Import modules](../shared-resources/modules.md#importing-modules). Update your PowerShell modules to the latest version by following the instructions at [Update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md). For more troubleshooting information, see [Troubleshoot modules](shared-resources.md#modules).
 
@@ -289,9 +290,9 @@ This error can be caused by using outdated Azure modules.
 
 ### Resolution
 
-You can resolve this error by updating your Azure modules to the latest version. 
+You can resolve this error by updating your Azure modules to the latest version.
 
-1. In your Automation account, click **Modules**, then **Update Azure modules**. 
+1. In your Automation account, click **Modules**, then **Update Azure modules**.
 2. The update takes roughly 15 minutes. Once it is complete, rerun the runbook that failed.
 
 To learn more about updating your modules, see [Update Azure modules in Azure Automation](../automation-update-azure-modules.md).
@@ -315,7 +316,7 @@ This error can happen for the following reasons:
 
 ### Resolution
 
-Do one of the following tasks to resolve this error. 
+Do one of the following tasks to resolve this error.
 
 * For an Azure module, see [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md) to learn how to update your modules in your Automation account.
 
@@ -646,7 +647,7 @@ For details about the use of Azure sandboxes, see [Runbook execution in Azure Au
 When trying to access Key Vault through an Azure Automation runbook, you get the following error:
 
 ```error
-Operation returned an invalid status code 'Forbidden' 
+Operation returned an invalid status code 'Forbidden'
 ```
 
 ### Cause
@@ -660,11 +661,11 @@ Possible causes for this issue:
 
 #### Not using Run As account
 
-Follow [Step 5 - Add authentication to manage Azure resources](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) to ensure that you are using a Run As account to access Key Vault. 
+Follow [Step 5 - Add authentication to manage Azure resources](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) to ensure that you are using a Run As account to access Key Vault.
 
 #### Insufficient permissions
 
-[Add permissions to Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault. 
+[Add permissions to Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault.
 
 ## Recommended documents
 
