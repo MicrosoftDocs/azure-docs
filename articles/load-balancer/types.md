@@ -17,7 +17,7 @@ ms.author: allensu
 
 ## <a name = "publicloadbalancer"></a>Public load balancer
 
-A public load balancer maps the public IP address and port of incoming traffic to the private IP address and port of the VM. Load balancer maps traffic the other way around for the response traffic from the VM. You can distribute specific types of traffic across multiple VMs or services by applying load-balancing rules. For example, you can spread the load of web request traffic across multiple web servers.
+A public load balancer maps the public IP and port of incoming traffic to the private IP and port of the VM. Load balancer maps traffic the other way around for the response traffic from the VM. You can distribute specific types of traffic across multiple VMs or services by applying load-balancing rules. For example, you can spread the load of web request traffic across multiple web servers.
 
 >[!NOTE]
 >You can implement only one public load balancer and one internal load balancer per availability set.
@@ -34,7 +34,9 @@ Azure Load Balancer distributes network traffic equally among multiple VM instan
 
 ## <a name = "internalloadbalancer"></a> Internal load balancer
 
-An internal load balancer directs traffic only to resources that are inside a virtual network or that use a VPN to access Azure infrastructure, in contrast to a public load balancer. Azure infrastructure restricts access to the load-balanced front-end IP addresses of a virtual network. Front-end IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
+An internal load balancer distributes traffic to resources that are inside a virtual network. Azure restricts access to the front-end IP addresses of a virtual network that are load balanced. 
+
+Front-end IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
 
 An internal load balancer enables the following types of load balancing:
 
