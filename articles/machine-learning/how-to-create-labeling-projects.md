@@ -6,7 +6,7 @@ author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 03/01/2020
+ms.date: 04/09/2020
 
 ---
 
@@ -18,9 +18,9 @@ Labeling voluminous data in machine learning projects is often a headache. Proje
  
 [Azure Machine Learning](https://ml.azure.com/) gives you a central place to create, manage, and monitor labeling projects (public preview). Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning supports image classification, either multi-label or multi-class, and object identification with bounded boxes.
 
-Machine Learning tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't need an Azure account to participate. After they are authenticated with your Microsoft account or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much labeling as their time allows.
+Azure Machine Learning tracks progress and maintains the queue of incomplete labeling tasks.
 
-You start and stop the project, add and remove labelers and teams, and monitor the labeling progress. You can export labeled data in COCO format or as an Azure Machine Learning dataset.
+You are able to start and stop the project and monitor the labeling progress. You can export labeled data in COCO format or as an Azure Machine Learning dataset.
 
 > [!Important]
 > Only image classification and object identification labeling projects are currently supported. Additionally, the data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.)
@@ -30,7 +30,6 @@ In this article, you'll learn how to:
 > [!div class="checklist"]
 > * Create a project
 > * Specify the project's data and structure
-> * Manage the teams and people who work on the project
 > * Run and monitor the project
 > * Export the labels
 
@@ -46,7 +45,7 @@ In this article, you'll learn how to:
 
 ## Create a labeling project
 
-Labeling projects are administered from Azure Machine Learning. You use the **Labeling projects** page to manage your projects and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it.
+Labeling projects are administered from Azure Machine Learning. You use the **Labeling projects** page to manage your projects.
 
 If your data is already in Azure Blob storage, you should make it available as a datastore before you create the labeling project. For an example of using a datastore, see [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
 
@@ -164,23 +163,11 @@ Once a machine learning model has been trained on your manually labeled data, th
 
 After the labeling project is initialized, some aspects of the  project are immutable. You can't change the task type or dataset. You *can* modify labels and the URL for the task description. Carefully review the settings before you create the project. After you submit the project, you're returned to the **Data Labeling** homepage, which will show the project as **Initializing**. This page doesn't automatically refresh. So, after a pause,  manually refresh the page to see the project's status as **Created**.
 
-## Manage teams and people
-
-By default, each labeling project that you create gets a new team with you as a member. But teams can also be shared between projects. And projects can have more than one team. To create a team, select **Add team** on the **Teams** page. 
-
-You manage people on the **Labelers** page. Add and remove people by email address. Each labeler has to authenticate through your Microsoft account or Azure Active Directory, if you use it.  
-
-After you add a person, you can assign that person to one or more teams: Go to the **Teams** page, select the team, and then select **Assign people** or **Remove people**.
-
-To send an email to the team, select the team to view the **Team details** page. On this page, select **Email team** to open an email draft with the addresses of everyone on the team.
-
 ## Run and monitor the project
 
 After you initialize the project, Azure will begin running it. Select the project on the main **Data Labeling** page to go to **Project details**. The **Dashboard** tab shows the progress of the labeling task.
 
 On the **Data** tab, you can see your dataset and review labeled data. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
-
-Use the **Team** tab to assign or unassign teams to the project.
 
 To pause or restart the project, select the **Pause**/**Start** button. You can only label data when the project is running.
 
