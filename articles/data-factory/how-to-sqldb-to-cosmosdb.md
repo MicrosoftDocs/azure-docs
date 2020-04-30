@@ -45,15 +45,15 @@ The resulting CosmosDB container will embed the inner query into a single docume
 
 2. Add a data flow activity
 
-    ![CosmosDB Pipeline](media/data-flow/fwpipe.png)
-
 3. In the data flow activity, select **New mapping data flow**.
 
 4. We will construct this data flow graph below
 
 ![Data Flow Graph](media/data-flow/cosmosb1.png)
 
-5.
+5. Define the source for "SourceOrderDetails". For dataset, create a new Azure SQL Database dataset that points to the ```SalesOrderDetail``` table.
+
+6. Define the source for "SourceOrderHeader". For dataset, create a new Azure SQL Database dataset that points to the ```SalesOrderHeader``` table.
 
 ## Next steps
 
