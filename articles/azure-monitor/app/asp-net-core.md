@@ -2,7 +2,7 @@
 title: Azure Application Insights for ASP.NET Core applications | Microsoft Docs
 description: Monitor ASP.NET Core web applications for availability, performance, and usage.
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 04/30/2020
 
 ---
 
@@ -10,7 +10,7 @@ ms.date: 05/22/2019
 
 This article describes how to enable Application Insights for an [ASP.NET Core](https://docs.microsoft.com/aspnet/core) application. When you complete the instructions in this article, Application Insights will collect requests, dependencies, exceptions, performance counters, heartbeats, and logs from your ASP.NET Core application.
 
-The example we'll use here is an [MVC application](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) that targets `netcoreapp2.2`. You can apply these instructions to all ASP.NET Core applications.
+The example we'll use here is an [MVC application](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) that targets `netcoreapp3.0`. You can apply these instructions to all ASP.NET Core applications.
 
 ## Supported scenarios
 
@@ -205,7 +205,7 @@ Full List of settings in `ApplicationInsightsServiceOptions`
 |EnableAzureInstanceMetadataTelemetryModule   |  Enable/Disable `AzureInstanceMetadataTelemetryModule` | true
 |EnableQuickPulseMetricStream | Enable/Disable LiveMetrics feature | true
 |EnableAdaptiveSampling | Enable/Disable Adaptive Sampling | true
-|EnableHeartbeat | Enable/Disable Heartbeats feature, which periodically (15-min default) sends a custom metric named 'HeartBeatState' with information about the runtime like .NET Version, Azure Environment information, if applicable, etc. | true
+|EnableHeartbeat | Enable/Disable Heartbeats feature, which periodically (15-min default) sends a custom metric named 'HeartbeatState' with information about the runtime like .NET Version, Azure Environment information, if applicable, etc. | true
 |AddAutoCollectedMetricExtractor | Enable/Disable AutoCollectedMetrics extractor, which is a TelemetryProcessor that sends pre-aggregated metrics about Requests/Dependencies before sampling takes place. | true
 |RequestCollectionOptions.TrackExceptions | Enable/Disable reporting of unhandled Exception tracking by the Request collection module. | false in NETSTANDARD2.0 (because Exceptions are tracked with ApplicationInsightsLoggerProvider), true otherwise.
 
