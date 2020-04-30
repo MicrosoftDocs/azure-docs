@@ -769,7 +769,7 @@ You can locate the public IPs for your nodes in various ways:
 
 * Use the Azure CLI command [az vmss list-instance-public-ips][az-list-ips]
 * Use [PowerShell or Bash commands][vmss-commands]. 
-* You can also view the public IPs in the Azure Portal by viewing the instances in the Virtual Machine Scale Set.
+* You can also view the public IPs in the Azure portal by viewing the instances in the Virtual Machine Scale Set.
 
 > [!Important]
 > The [node resource group][node-resource-group] contains the nodes and their public IPs. Use the node resource group when executing commands to find the public IPs for your nodes.
