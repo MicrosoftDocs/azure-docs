@@ -67,7 +67,7 @@ Azure Automation doesn't import the root Az module automatically into any new or
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
 
-## Az module cmdlets
+## Az modules
 
 For Az.Automation, the majority of the cmdlets have the same names as for the AzureRM modules, except that the AzureRm prefix has been changed to Az. For a list of Az modules that don't follow this naming convention, see [list of exceptions](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
