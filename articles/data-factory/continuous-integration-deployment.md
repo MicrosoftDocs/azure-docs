@@ -40,9 +40,9 @@ Below is a sample overview of the CI/CD lifecycle in an Azure data factory that'
 
 1.  A developer [creates a feature branch](source-control.md#creating-feature-branches) to make a change. They debug their pipeline runs with their most recent changes. For more information on how to debug a pipeline run, see [Iterative development and debugging with Azure Data Factory](iterative-development-debugging.md).
 
-1.  After a developers is satisfied with their changes, they create a pull request from their feature branch to the master or collaboration branch to get their changes reviewed by peers.
+1.  After a developer is satisfied with their changes, they create a pull request from their feature branch to the master or collaboration branch to get their changes reviewed by peers.
 
-1.  After a pull request is approved and changes are merged in the master branch, the changes gets published to the development factory.
+1.  After a pull request is approved and changes are merged in the master branch, the changes get published to the development factory.
 
 1.  When the team is ready to deploy the changes to a test or UAT factory, the team goes to their Azure Pipelines release and deploys the desired version of the development factory to UAT. This deployment takes place as part of an Azure Pipelines task and uses Resource Manager template parameters to apply the appropriate configuration.
 
@@ -593,7 +593,7 @@ If you deploy a factory to production and realize there's a bug that needs to be
 
 If you're using Git integration with your data factory and have a CI/CD pipeline that moves your changes from development into test and then to production, we recommend these best practices:
 
--   **Git integration**. You need to configure only your development data factory with Git integration. Changes to test and production are deployed via CI/CD and don't need Git integration.
+-   **Git integration**. Configure only your development data factory with Git integration. Changes to test and production are deployed via CI/CD and don't need Git integration.
 
 -   **Pre- and post-deployment script**. Before the Resource Manager deployment step in CI/CD, you need to complete certain tasks, like stopping and restarting triggers and performing cleanup. We recommend that you use PowerShell scripts before and after the deployment task. For more information, see [Update active triggers](#update-active-triggers). The data factory team has [provided a script](#script) to use located at the bottom of this page.
 
