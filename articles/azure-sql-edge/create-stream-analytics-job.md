@@ -124,8 +124,8 @@ The example below creates an external stream object to the local SQL Edge databa
 
 Use the **sys.sp_create_streaming_job** system stored procedure to define the streaming queries and create the streaming job. The **sp_create_streaming_job** stored procedure takes two parameters
 
-1. job_name - Name of the streaming job. Streaming job names are unique across the instance.
-2. statement - [Stream Analytics Query Language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?) based streaming query statements.
+- job_name - Name of the streaming job. Streaming job names are unique across the instance.
+- statement - [Stream Analytics Query Language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?) based streaming query statements.
 
 The example below create a simple streaming job with one streaming query. This query reads the inputs from the Edge Hub and write to the *dbo.TemperatureMeasurements* in the database.
 

@@ -226,7 +226,7 @@ $deviceConnectionString = az iot hub device-identity show-connection-string --de
 $connString = $deviceConnectionString[1].Substring(23,$deviceConnectionString[1].Length-24)
 $connString
 ```
-Update the connection string in the Iot Edge config file on the Edge device. The next commands use Azure CLI for deployments.
+Update the connection string in the IoT Edge config file on the Edge device. The next commands use Azure CLI for deployments.
 ```powershell
 $script = "/etc/iotedge/configedge.sh '" + $connString + "'"
 az vm run-command invoke -g $ResourceGroup -n $EdgeDeviceId  --command-id RunShellScript --script $script
