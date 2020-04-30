@@ -48,15 +48,11 @@ Follow [Custom Domain Document](/articles/spring-cloud/spring-cloud-tutorial-cus
 Here is the traffic manager profile:
 * Traffic Manager DNS Name: http://asc-bcdr.trafficmanager.net
 * One Endpoint Profile: 
-Type: External Endpoint
-Target: service-sample-a.asc-test.net
-Priority: 1
-Custom Header Settings: host: bcdr-test.contoso.com
-* Other Endpoint Profile: 
-Type: External Endpoint
-Target: service-sample-b.asc-test.net
-Priority: 2
-Custom Header Settings: host: bcdr-test.contoso.com
+
+| Profile | Type | Target | Priority | Custom Header Settings |
+|--|--|--|--|--|
+| Endpoint A Profile | External Endpoint | service-sample-a.asc-test.net | 1 | host: bcdr-test.contoso.com |
+| Endpoint B Profile | External Endpoint | service-sample-b.asc-test.net | 2 | host: bcdr-test.contoso.com |
 
 4. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
 
