@@ -50,7 +50,7 @@ Multiple Azure resources are defined in the template:
 
 ### Deploy the template
 
-Deploy Resource Manager template to Azure:
+Deploy the Resource Manager template to Azure:
 
 1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates an Azure Firewall, the network infrastructure, and two virtual machines.
 
@@ -72,7 +72,7 @@ To learn about the JSON syntax and properties for a firewall in a template, see 
 
 ## Clean up resources
 
-When you no longer need them, you can remove the resource group, firewall, and all related resources by running the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) PowerShell command. To remove a resource group named *MyResourceGroup*, run: 
+When you no longer need them, you can remove the resource group, firewall, and all related resources by running the `Remove-AzResourceGroup` PowerShell command. To remove a resource group named *MyResourceGroup*, run: 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
