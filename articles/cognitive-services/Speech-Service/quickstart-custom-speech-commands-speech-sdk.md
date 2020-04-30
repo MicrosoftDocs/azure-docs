@@ -12,7 +12,7 @@ ms.date: 12/09/2019
 ms.author: donkim
 ---
 
-# Quickstart: Connect to a Custom Commands application with the Speech SDK (Preview)
+# Quickstart: Connect to a Custom Commands application with the Speech SDK
 
 After creating a hosted Custom Commands application, you can begin talking to it from a client device.
 
