@@ -26,7 +26,7 @@ API endpoints are available to the web app through the _api_ route. While this r
 
 - The API route prefix is must be _api_.
 - Triggers and bindings are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).
-  - All other [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings#supported-bindings.md) are restricted.
+  - All other [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings) are restricted.
 
 ## Next steps
 
