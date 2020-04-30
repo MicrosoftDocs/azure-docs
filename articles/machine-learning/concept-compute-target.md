@@ -53,18 +53,44 @@ You can create Azure Machine Learning compute instances (preview) or compute clu
 
 You can also create compute clusters using the [machine learning extension for the Azure CLI](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
 
-When created these compute resources are automatically part of your workspace unlike other kinds of compute targets.
+When created these compute resources are automatically part of your workspace, unlike other kinds of compute targets.
 
 ### Compute clusters
 
 You can use Azure Machine Learning compute clusters for training and for batch inferencing (preview).  With this compute resource, you have:
 
 * Single- or multi-node cluster
-* Autoscales each time you submit a run 
+* Autoscaling each time you submit a run 
 * Automatic cluster management and job scheduling 
 * Support for both CPU and GPU resources
 
+### Supported VM series and sizes
 
+When you select a node size for a managed compute resource in Azure Machine Learning, you can choose from among select VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows for different workloads. To learn more about the different VM types and sizes, refer [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes).
+
+There are a few exceptions and limitations to choosing a VM size:
+* Some VM series are not supported in Azure Machine Learning.
+* Some VM series are restricted and need to be specifically approved before they can be provisioned. To do this, file a support ticket for a quota increase request for the VM series you want to use.
+
+See the following table to learn more about supported series and restrictions. 
+
+| **Supported VM series**  | **Restrictions** |
+|------------|------------|
+| D | None |
+| Dv2 | None |  
+| DSv2 | None |  
+| FSv2 | None |  
+| M | Requires approval |
+| NC | None |    
+| NCsv2 | Requires approval |
+| NCsv3 | Requires approval |  
+| NDs | Requires approval |
+| NDv2 | Requires approval |
+| NV | None |
+| NVv3 | Requires approval | 
+
+
+Note that while Azure Machine Learning supports these VM series, they may not be available in all Azure regions. You can check with VM series are available here: [Products Available by Region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines).
 
 ## Unmanaged compute
 
