@@ -30,7 +30,7 @@ Example utterances include:
 
 
 
-#### [App schema Version before 7.x](#tab/V3)
+#### [App schema Version before 7.x](#tab/V6)
 
 Because a machine-learned entity can have many subentities with required features, this is just an example only. It should be considered a guide for what your entity will return.
 
@@ -335,7 +335,7 @@ This is the JSON if `verbose=true` is set in the query string:
     }
 }
 ```
-#### [App schema Version 7.x](#tab/V3)
+#### [App schema Version 7.x](#tab/V7)
 
 The prediction setting `enableNestedChildren` is available on apps imported or created with 7.0 schema.
 
