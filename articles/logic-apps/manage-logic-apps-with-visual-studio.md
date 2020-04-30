@@ -3,10 +3,10 @@ title: Edit and manage logic apps by using Visual Studio with Cloud Explorer
 description: Edit, update, manage, add to source control, and deploy logic apps by using Visual Studio with Cloud Explorer
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 10/29/2019
+ms.date: 04/29/2020
 ---
 
 # Manage logic apps with Visual Studio
@@ -262,7 +262,11 @@ To delete your logic app from the Azure portal, in Cloud Explorer, open your log
 
 > [!NOTE]
 > When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. 
-> If you have thousands of runs, cancellation might take significant time to complete. 
+> If you have thousands of runs, cancellation might take significant time to complete.
+
+> [!NOTE]
+> If you delete and recreate a child logic app, you must resave the parent logic app. The recreated child app will have different metadata.
+> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This behavior applies to parent-child logic apps, for example, those that use artifacts in integration accounts or call Azure functions.
 
 ## Troubleshooting
 

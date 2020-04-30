@@ -441,6 +441,11 @@
         href: app/custom-data-correlation.md
       - name: Connection strings
         href: app/sdk-connection-string.md
+      - name: Connection strings
+        href: app/sdk-connection-string.md
+      - name: GetMetric
+        displayname: get metric, custom metrics, metrics, TrackMetric
+        href: app/get-metric.md
       - name: Special topics
         items:
         - name: Deep diagnostics for web apps and services
