@@ -57,7 +57,7 @@ To access the insights and reporting workbook:
 
 The insights and reporting dashboard lets you see the impact of one or more Conditional Access policies over a specified period. Start by setting each of the parameters at the top of the workbook. 
 
-![Conditional Access Insignts and Reporting dashboard in the Azure portal](./media/howto-conditional-access-insights-reporting/conditional-access-insights-and-reporting-dashboard.png)
+![Conditional Access Insights and Reporting dashboard in the Azure portal](./media/howto-conditional-access-insights-reporting/conditional-access-insights-and-reporting-dashboard.png)
 
 **Conditional Access policy**: Select one or more Conditional Access policies to view their combined impact. Policies are separated into two groups: Enabled and Report-only policies. By default, all Enabled policies are selected. These enabled policies are the policies currently enforced in your tenant.  
 
