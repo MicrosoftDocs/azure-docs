@@ -293,6 +293,9 @@
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
+    - name: Use automated ML in ML pipelines (Python)
+      displayName: machine learning automl 
+      href: how-to-use-automlstep-in-pipelines.md
     - name: Understand charts and metrics
       href: how-to-understand-automated-ml.md
   - name: Track & monitor experiments
@@ -390,6 +393,9 @@
     - name: Debug & troubleshoot parallel run step
       displayName: debug_batch consume pipeline parallelrunstep inference
       href: how-to-debug-parallel-run-step.md
+    - name: Iterating and evolving machine learning pipelines
+      displayName: modularizing testing
+      href: concept-pipeline-practices-tips.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
