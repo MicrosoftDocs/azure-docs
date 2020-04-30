@@ -79,7 +79,7 @@ Once you have opened the access review, you can see your access.
 
 ## Review your own access using My Access (New)
 
-You can preview the experience with the updated user interface in My Access a couple of different ways:
+You can try the new experience with the updated user interface in My Access a couple of different ways:
 
 ### My Apps portal
 

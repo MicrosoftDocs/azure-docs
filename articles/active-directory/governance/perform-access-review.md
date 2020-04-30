@@ -108,7 +108,7 @@ You can get to the new reviewer experience with the updated user interface in My
 
 ### My Apps portal
 
-1. Sign in to the My Apps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Sign in to My Apps at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
     ![My Apps portal listing apps you have permissions to](./media/perform-access-review/myapps-access-panel.png)
 
