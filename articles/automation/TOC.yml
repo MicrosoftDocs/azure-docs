@@ -26,6 +26,8 @@
       href: learn/automation-tutorial-runbook-textual-python2.md
 - name: Concepts
   items:
+    - name: Automation account authentication overview
+      href: automation-security-overview.md
     - name: Runbook execution overview
       href: automation-runbook-execution.md
     - name: Hybrid Runbook Worker overview
@@ -36,7 +38,7 @@
       href: /powershell/scripting/dsc/overview/overview
     - name: Data security
       items:
-        - name: Encryption of secure assets 
+        - name: Encryption of secure assets
           href: automation-secure-asset-encryption.md
         - name: Management of Azure Automation data
           href: automation-managing-data.md
@@ -48,6 +50,8 @@
           href: automation-create-standalone-account.md
         - name: Create Automation account with Resource Manager template
           href: automation-create-account-template.md
+        - name: Configure authentication with Amazon Web Services
+          href: automation-config-aws-account.md
         - name: Manage an Automation Run As account
           href: manage-runas-account.md
         - name: Manage role permissions and security
@@ -121,7 +125,7 @@
             - name: Data to collect before opening support case
               href: troubleshoot/collect-data-microsoft-azure-automation-case.md
         - name: Work with a Hybrid Runbook Worker
-          items: 
+          items:
             - name: Deploy Windows Hybrid Runbook Worker
               href: automation-windows-hrw-install.md
             - name: Deploy Linux Hybrid Runbook Worker
@@ -156,7 +160,9 @@
               href: automation-dsc-diagnostics.md
             - name: Troubleshoot issues with DSC
               href: troubleshoot/desired-state-configuration.md
-        - name: Change Tracking and Inventory
+            - name: Azure DSC extension version history
+              href: automation-dsc-extension-history.md
+        - name: Change tracking and inventory
           items:
             - name: Overview
               href: change-tracking.md
@@ -172,7 +178,7 @@
                   href: automation-onboard-solutions-from-automation-account.md
                 - name: From an Automation runbook
                   href: automation-onboard-solutions.md
-            - name: View contents of tracked files
+            - name: Manage change tracking and inventory
               href: change-tracking-file-contents.md
             - name: Manage inventory collection from VMs
               href: automation-vm-inventory.md
@@ -180,7 +186,7 @@
               items:
                 - name: Onboarding
                   href: troubleshoot/onboarding.md
-                - name: Using Change Tracking and Inventory 
+                - name: Using Change Tracking and Inventory
                   href: troubleshoot/change-tracking.md
     - name: Start/Stop VMs during off-hours
       items:
@@ -188,7 +194,7 @@
           href: automation-solution-vm-management.md
         - name: Supported regions for linked Log Analytics workspace
           href: how-to/region-mappings.md
-        - name: Enable 
+        - name: Enable
           href: automation-solution-vm-management-enable.md
         - name: Configure
           href: automation-solution-vm-management-config.md
@@ -211,7 +217,7 @@
             - name: From an Azure VM
               href: automation-onboard-solutions-from-vm.md
             - name: From an Automation account
-              href: automation-onboard-solutions-from-automation-account.md      
+              href: automation-onboard-solutions-from-automation-account.md
         - name: Manage updates for your Azure VMs
           href: automation-tutorial-update-management.md
         - name: Manage updates for multiple VMs
@@ -248,8 +254,6 @@
           href: automation-create-alert-triggered-runbook.md
         - name: Manage Office 365 services
           href: manage-office-365.md
-        - name: Authenticate runbooks with Amazon Web Services
-          href: automation-config-aws-account.md
         - name: Deploy AWS VM with Automation runbook
           href: automation-scenario-aws-deployment.md
         - name: Deploy Resource Manager template with runbook
@@ -257,7 +261,7 @@
         - name: Integrate with Event Grid and Microsoft Teams
           href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md
         - name: Automate start/stop of Azure-SSIS IR
-          href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir      
+          href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Reference
   items:
   - name: Azure PowerShell

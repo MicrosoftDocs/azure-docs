@@ -1,7 +1,7 @@
 ---
 title: Supported Resource Manager resource types
 description: Provide a list of the Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 04/23/2020
+ms.date: 04/24/2020
 ms.topic: reference
 ---
 # Azure Resource Graph table and resource type reference
@@ -61,6 +61,7 @@ part of a **table** in Resource Graph.
 - microsoft.automation/automationaccounts
 - microsoft.automation/automationaccounts/configurations
 - microsoft.automation/automationaccounts/runbooks
+- microsoft.autonomoussystems/workspaces
 - microsoft.azconfig/configurationstores
 - microsoft.azureactivedirectory/b2cdirectories
 - microsoft.azuredata/datacontrollers
@@ -100,6 +101,7 @@ part of a **table** in Resource Graph.
 - microsoft.cognition/syntheticsaccounts
 - microsoft.cognitiveservices/accounts
 - microsoft.compute/availabilitysets
+- microsoft.compute/diskaccesses
 - microsoft.compute/diskencryptionsets
 - microsoft.compute/disks
 - microsoft.compute/galleries

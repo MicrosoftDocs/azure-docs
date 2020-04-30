@@ -133,6 +133,8 @@
     items:
     - name: Troubleshoot Azure Load Balancer
       href: load-balancer-troubleshoot.md
+    - name: Troubleshoot common deployment errors
+      href: load-balancer-common-deployment-errors.md
 - name: Reference
   items:
   - name: Code samples
