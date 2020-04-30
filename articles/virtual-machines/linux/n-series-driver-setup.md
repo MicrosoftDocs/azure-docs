@@ -147,7 +147,7 @@ If the driver is installed, you will see output similar to the following. Note t
 
 ## RDMA network connectivity
 
-RDMA network connectivity can be enabled on RDMA-capable N-series VMs such as NC24r deployed in the same availability set or in a single placement group in a VM scale set. The RDMA network supports Message Passing Interface (MPI) traffic for applications running with Intel MPI 5.x or a later version. Additional requirements follow:
+RDMA network connectivity can be enabled on RDMA-capable N-series VMs such as NC24r deployed in the same availability set or in a single placement group in a virtual machiine (VM) scale set. The RDMA network supports Message Passing Interface (MPI) traffic for applications running with Intel MPI 5.x or a later version. Additional requirements follow:
 
 ### Distributions
 
@@ -352,7 +352,7 @@ Then, create an entry for your update script in `/etc/rc.d/rc3.d` so the script 
 ## Troubleshooting
 
 * You can set persistence mode using `nvidia-smi` so the output of the command is faster when you need to query cards. To set persistence mode, execute `nvidia-smi -pm 1`. Note that if the VM is restarted, the mode setting goes away. You can always script the mode setting to execute upon startup.
-* If you updated the NVIDIA CUDA drivers to the latest version and find RDMA connectivcity is no longer working, [reinstall the RDMA drivers](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) to reistablish that connectivity. 
+* If you updated the NVIDIA CUDA drivers to the latest version and find RDMA connectivity is no longer working, [reinstall the RDMA drivers](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) to reestablish that connectivity. 
 
 ## Next steps
 
