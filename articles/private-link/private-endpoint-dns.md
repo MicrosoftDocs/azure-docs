@@ -73,11 +73,11 @@ DNS is a critical component to make the application work correctly by resolving 
 
 Based on your preferences, the following scenarios are available for DNS resolution integrated:
 
-- [Virtual Network workloads without custom DNS server](#virtual-network-workloads-without-custom-dns-server)
-- [On premises workloads using a Custom DNS server](#on-premises-workloads-using-a-custom-dns-server)
+- [Virtual network workloads without custom DNS server](#virtual-network-workloads-without-custom-dns-server)
+- [On premises workloads using a custom DNS server](#on-premises-workloads-using-a-custom-dns-server)
 
 
-## Virtual Network workloads without custom DNS server
+## Virtual network workloads without custom DNS server
 
 This configuration is appropriate for virtual network workloads without custom DNS server. In this scenario the client queries for the private endpoint IP address to Azure provided DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). Azure DNS will be responsible for DNS resolution of the private DNS zones.
 
@@ -106,7 +106,7 @@ In this scenario there's a [hub & spoke](https://docs.microsoft.com/azure/archit
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="hub and spoke with azure provided dns":::
 
-## On premises workloads using a Custom DNS server
+## On premises workloads using a custom DNS server
  
 For on premises workloads to be able to resolve an FQDN of a private endpoint into the private IP address, you must use a custom DNS server to forward the resolution for Azure service [public DNS zones](#azure-services-dns-zone-configuration) deployed in Azure.
 
