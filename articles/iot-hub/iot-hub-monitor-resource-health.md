@@ -1,13 +1,12 @@
 ---
 title: Monitor the health of your Azure IoT Hub | Microsoft Docs
 description: Use Azure Monitor and Azure Resource Health to monitor your IoT Hub and diagnose problems quickly
-author: kgremban
-manager: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: kgremban
+ms.date: 04/21/2020
+ms.author: robinsh
 ms.custom: amqp
 ---
 # Monitor the health of Azure IoT Hub and diagnose problems quickly
@@ -26,8 +25,6 @@ IoT Hub also provides its own metrics that you can use to understand the state o
 ## Use Azure Monitor
 
 Azure Monitor provides diagnostics information for Azure resources, which means that you can monitor operations that take place within your IoT hub.
-
-Azure Monitor's diagnostics settings replaces the IoT Hub operations monitor. If you currently use operations monitoring, you should migrate your workflows. For more information, see [Migrate from operations monitoring to diagnostics settings](iot-hub-migrate-to-diagnostics-settings.md).
 
 To learn more about the specific metrics and events that Azure Monitor watches, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md) and [Supported services, schemas, and categories for Azure Diagnostic Logs](../azure-monitor/platform/diagnostic-logs-schema.md).
 
@@ -119,7 +116,7 @@ The message routing category tracks errors that occur during message route evalu
 
 * A rule evaluates to "undefined",
 * IoT Hub marks an endpoint as dead, or
-* Any errors received from an endpoint. 
+* Any errors received from an endpoint.
 
 This category does not include specific errors about the messages themselves (like device throttling errors), which are reported under the "device telemetry" category.
 
@@ -128,17 +125,32 @@ This category does not include specific errors about the messages themselves (li
     "records":
     [
         {
-            "time": "UTC timestamp",
-            "resourceId": "Resource Id",
-            "operationName": "endpointUnhealthy",
-            "category": "Routes",
-            "level": "Error",
-            "properties": "{\"deviceId\": \"<deviceId>\",\"endpointName\":\"<endpointName>\",\"messageId\":<messageId>,\"details\":\"<errorDetails>\",\"routeName\": \"<routeName>\"}",
-            "location": "Resource location"
+            "time":"2019-12-12T03:25:14Z",
+            "resourceId":"/SUBSCRIPTIONS/91D12660-3DEC-467A-BE2A-213B5544DDC0/RESOURCEGROUPS/ANON-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/ANONHUB1",
+            "operationName":"endpointUnhealthy",
+            "category":"Routes",
+            "level":"Error",
+            "resultType":"403004",
+            "resultDescription":"DeviceMaximumQueueDepthExceeded",
+            "properties":"{\"deviceId\":null,\"endpointName\":\"juan-sb-1\",\"messageId\":null,\"details\":\"DeviceMaximumQueueDepthExceeded\",\"routeName\":null,\"statusCode\":\"403\"}",
+            "location":"westus"
         }
     ]
 }
 ```
+
+#### Error list for last known error
+
+[!INCLUDE [iot-hub-include-last-known-errors](../../includes/iot-hub-include-last-known-errors.md)]
+
+#### Error codes output by the diagnostic logs
+
+<!-- Error codes output by the diagnostic logs (2.2.1.1.5)-->
+[!INCLUDE [iot-hub-diagnostics-error-codes](../../includes/iot-hub-diagnostics-error-codes.md)]
+
+#### IoT Hub diagnostics operation names
+
+[!INCLUDE [iot-hub-diagnostics-operation-names](../../includes/iot-hub-diagnostics-operation-names.md)]
 
 #### Device telemetry
 

@@ -12,6 +12,8 @@
 
 ### Enable logging with diagnostics settings
 
+ROBIN: Check this out.
+
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
@@ -58,4 +60,4 @@ Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-New settings take effect in about 10 minutes. After that, logs appear in the configured archival target on the **Diagnostics settings** blade. For more information about configuring diagnostics, see [Collect and consume log data from your azure resources](../articles/azure-monitor/platform/platform-logs-overview.md).
+New settings take effect in about 10 minutes. After that, logs appear in the configured archival target on the **Diagnostics settings** blade. For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](../articles/azure-monitor/platform/platform-logs-overview.md).
