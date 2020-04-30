@@ -135,7 +135,7 @@ Property value details:
 - **kind**: Specify the type of script. Currently, Azure PowerShell and Azure CLI scripts are support. The values are **AzurePowerShell** and **AzureCLI**.
 - **forceUpdateTag**: Changing this value between template deployments forces the deployment script to re-execute. Use the newGuid() or utcNow() function that needs to be set as the defaultValue of a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
 - **containerSettings**: Specify the settings to customize Azure Container Instance.  **containerGroupName** is for specifying the container group name.  If not specified, the group name will be automatically generated.
-- **storageAccountSeettings**: Specify the settings to use an existing storage account. If not specified, a storage account is automatically created.
+- **storageAccountSettings**: Specify the settings to use an existing storage account. If not specified, a storage account is automatically created. See [Use an existing storage account](#use-an-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. For a list of supported PowerShell and CLI versions, see [Prerequisites](#prerequisites).
 - **arguments**: Specify the parameter values. The values are separated by spaces.
 - **environmentVariables**: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
@@ -298,7 +298,7 @@ To see the deploymentScripts resource in the portal, select **Show hidden types*
 
 ## Use an existing storage account
 
-The requirements for using an existing storage account:
+A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise the storage account along with the container instance are automatically created by the script service. The requirements for using an existing storage account:
 
 - Supported storage account kinds are: General-purpose v2 accounts, General-purpose v1 accounts and fileStorage accounts. For more information, see [Types of storage accounts](../../storage/common/storage-account-overview.md).
 - Storage account firewall rules must be turned off. See [Configure Azure Storage firewalls and virtual network](../../storage/common/storage-network-security.md)
