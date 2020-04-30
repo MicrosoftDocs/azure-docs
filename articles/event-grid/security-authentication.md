@@ -15,7 +15,7 @@ ms.author: babanisa
 This article provides information on the following scenarios:  
 
 - Authenticate clients that publish events to Azure Event Grid topics using Shared Access Signature (SAS) or key. 
-- Secure your webhook endpoint using Azure Active Directory (AAD) to authenticate Event Grid to **deliver** events to the endpoint.
+- Secure your webhook endpoint using Azure Active Directory (Azure AD) to authenticate Event Grid to **deliver** events to the endpoint.
 
 ## Authenticate publishing clients using SAS or key
 Custom topics use either Shared Access Signature (SAS) or key authentication. We recommend SAS, but key authentication provides simple programming, and is compatible with many existing webhook publishers.
@@ -75,8 +75,8 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 All events or data written to disk by the Event Grid service is encrypted by a Microsoft-managed key ensuring that it's encrypted at rest. Additionally, the maximum period of time that events or data retained is 24 hours in adherence with the [Event Grid retry policy](delivery-and-retry.md). Event Grid will automatically delete all events or data after 24 hours, or the event time-to-live, whichever is less.
 
-## Authenticate event delivery to webhook endpoints using AAD 
-You can secure your webhook endpoint by using Azure Active Directory (Azure AD) to authenticate and authorize Event Grid to deliver events to your endpoints. You'll need to create an Azure AD Application, create a role and service principle in your application authorizing Event Grid, and configure the event subscription to use the Azure AD Application. [Learn how to configure AAD with Event Grid](secure-webhook-delivery.md).
+## Authenticate event delivery to webhook endpoints using Azure AD 
+You can secure your webhook endpoint by using Azure Active Directory (Azure AD) to authenticate and authorize Event Grid to deliver events to your endpoints. You'll need to create an Azure AD Application, create a role and service principle in your application authorizing Event Grid, and configure the event subscription to use the Azure AD Application. [Learn how to configure Azure Active Directory with Event Grid](secure-webhook-delivery.md).
 
 You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token). The webhook can use the secret to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
 
