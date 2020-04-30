@@ -85,6 +85,42 @@ We're expanding B2B invitation capability to allow existing internal accounts to
 
 ---
 
+### Report-only mode for Conditional Access is now generally available [861216]
+
+**Type:** New feature
+
+**Service category:** Conditional Access
+
+**Product capability:** Identity Security & Protection
+
+[Report-only mode for Azure AD Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only) lets you evaluate the result of a policy without enforcing access controls. You can test report-only policies across your organization and understand their impact before enabling them, making deployment safer and easier. Over the past few months, we’ve seen strong adoption of report-only mode, with over 26M users already in scope of a report-only policy. With this announcement, new Azure AD Conditional Access policies will be created in report-only mode by default. This means you can monitor the impact of your policies from the moment they’re created. And for those of you who use the MS Graph APIs, you can also [manage report-only policies programmatically](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta). 
+
+---
+
+### Conditional Access Insights and Reporting workbook is generally available [861216]
+
+**Type:** New feature
+
+**Service category:** Conditional Access
+
+**Product capability:** Identity Security & Protection
+
+The [insights and reporting workbook](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) gives admins a summary view of Azure AD Conditional Access in their tenant. With the capability to select an individual policy, admins can better understand what each policy does and monitor any changes in real time. The workbook streams data stored in Azure Monitor, which you can set up in a few minutes [following these instructions](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics). To make the dashboard more discoverable, we’ve moved it to the new insights and reporting tab within the Azure AD Conditional Access menu.
+
+---
+
+### Policy details blade for Conditional Access is in public preview [861216]
+
+**Type:** New feature
+
+**Service category:** Conditional Access
+
+**Product capability:** Identity Security & Protection
+
+The new [policy details blade](https://docs.microsoft.com/azure/active-directory/conditional-access/troubleshoot-conditional-access) displays which assignments, conditions, and controls were satisfied during conditional access policy evaluation. You can access the blade by selecting a row in the **Conditional Access** or **Report-only** tabs of the Sign-in details.
+
+---
+
 ### New Federated Apps available in Azure AD App gallery - April 2020 [1000157]
 
 **Type:** New feature
