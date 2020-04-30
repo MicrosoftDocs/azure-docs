@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-ms.date: 08/20/2019
+ms.date: 09/20/2019
 ms.author: delhan
 
 ---
@@ -34,13 +34,13 @@ You can't log in to the VM, and you receive a message that indicates that the pa
 
 2. Connect to the troubleshooting VM using Remote Desktop.
 
-3.	Run the following SSH command on the troubleshooting VM to become a super-user.
+3.    Run the following SSH command on the troubleshooting VM to become a super-user.
 
     ```bash
     sudo su
     ```
 
-4.	Run **fdisk -l** or look at system logs to find the newly attached disk. Locate the drive name to mount. Then on the temporal VM, look in the relevant log file.
+4.    Run **fdisk -l** or look at system logs to find the newly attached disk. Locate the drive name to mount. Then on the temporal VM, look in the relevant log file.
 
     ```bash
     grep SCSI /var/log/kern.log (ubuntu)
@@ -53,19 +53,19 @@ You can't log in to the VM, and you receive a message that indicates that the pa
     kernel: [ 9707.100572] sd 3:0:0:0: [sdc] Attached SCSI disk
     ```
 
-5.	Create a mount point called **tempmount**.
+5.    Create a mount point called **tempmount**.
 
     ```bash
     mkdir /tempmount
     ```
 
-6.	Mount the OS disk on the mount point. You usually need to mount *sdc1* or *sdc2*. This will depend on the hosting partition in */etc* directory from the broken machine disk.
+6.    Mount the OS disk on the mount point. You usually need to mount *sdc1* or *sdc2*. This will depend on the hosting partition in */etc* directory from the broken machine disk.
 
     ```bash
     mount /dev/sdc1 /tempmount
     ```
 
-7.	Create copies of the core credential files before making any changes:
+7.    Create copies of the core credential files before making any changes:
 
     ```bash
     cp /etc/passwd /etc/passwd_orig    
@@ -76,13 +76,13 @@ You can't log in to the VM, and you receive a message that indicates that the pa
     cp /tempmount/etc/shadow /tempmount/etc/shadow_orig
     ```
 
-8.	Reset the user’s password that you need:
+8.    Reset the user's password that you need:
 
     ```bash
     passwd <<USER>> 
     ```
 
-9.	Move the modified files to the correct location on the broken machine's disk.
+9.    Move the modified files to the correct location on the broken machine's disk.
 
     ```bash
     cp /etc/passwd /tempmount/etc/passwd
@@ -91,7 +91,7 @@ You can't log in to the VM, and you receive a message that indicates that the pa
     cp /etc/shadow_orig /etc/shadow
     ```
 
-10.	Go back to the root and unmount the disk.
+10.    Go back to the root and unmount the disk.
 
     ```bash
     cd /
