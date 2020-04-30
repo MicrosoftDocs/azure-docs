@@ -162,7 +162,7 @@
               href: troubleshoot/desired-state-configuration.md
             - name: Azure DSC extension version history
               href: automation-dsc-extension-history.md
-        - name: Change Tracking and Inventory
+        - name: Change tracking and inventory
           items:
             - name: Overview
               href: change-tracking.md
@@ -178,7 +178,7 @@
                   href: automation-onboard-solutions-from-automation-account.md
                 - name: From an Automation runbook
                   href: automation-onboard-solutions.md
-            - name: View contents of tracked files
+            - name: Manage change tracking and inventory
               href: change-tracking-file-contents.md
             - name: Manage inventory collection from VMs
               href: automation-vm-inventory.md

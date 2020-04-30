@@ -23992,6 +23992,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/develop/authentication-scenarios.md",
+      "redirect_url": "/azure/active-directory/develop/authentication-vs-authorization",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/develop/active-directory-v2-app-registration.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-v2-register-an-app",
       "redirect_document_id": true
