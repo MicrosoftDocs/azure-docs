@@ -93,6 +93,6 @@ For recommendation on securely managing storage accounts review the [Azure Stora
 
 ## Next Steps
 
-- [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md))
+- [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
-- [virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md))
+- [virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
