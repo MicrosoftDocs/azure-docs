@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -38,15 +38,17 @@ This section will show you how to create a Conditional Access policy that requir
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**.
-   1. Under **Include**, select **Select users and groups** > **Users and groups** > Choose the group created in the prerequisites stage.
-   1. Select **Done**.
+   - Under **Include**, select **Select users and groups** > **Users and groups** > Choose the group created in the prerequisites stage.
+   - Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **Select apps**.
-   1. Choose **Windows Virtual Desktop** and **Windows Virtual Desktop Client**, and select **Select** then **Done**.
-   ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise-selected.png)
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and then **Select**.
-1. Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to **1** and the unit to **Hours**, and then **Select**.
-1. Confirm your settings and set **Enable policy** to **On**.
-1. Select **Create** to enable your policy.
+   - Choose **Windows Virtual Desktop**, then **Select**, and then then **Done**.
+   
+     ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise.png)
+
+2. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and then **Select**.
+3. Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to **1** and the unit to **Hours**, and then select **Select**.
+4. Confirm your settings and set **Enable policy** to **On**.
+5. Select **Create** to enable your policy.
 
 ## Next steps
 
