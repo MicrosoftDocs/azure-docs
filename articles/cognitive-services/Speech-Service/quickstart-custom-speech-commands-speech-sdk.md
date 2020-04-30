@@ -32,6 +32,7 @@ You'll also need:
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+- [Enable your device for development](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## Optional: Get started fast
 
@@ -45,6 +46,7 @@ This quickstart describes, step by step, how to make a client application to con
    > ![Publish application](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. Copy the App ID from the publish notification for later use
+1. Copy the Speech Resource Key for later use
 
 ## Step 2: Create a Visual Studio project
 
@@ -124,7 +126,7 @@ Add the code-behind source as follows:
 
 1. In **Solution Explorer**, open the code-behind source file `MainPage.xaml.cs` (grouped under `MainPage.xaml`)
 
-1. Replace the file's contents with the following code:
+1. Replace the file's contents with the following code: 
 
    ```csharp
    using Microsoft.CognitiveServices.Speech;
@@ -293,6 +295,11 @@ Add the code-behind source as follows:
        }
    }
    ```
+    > [!NOTE]
+    > If you see error: "The type 'Object' is defined in an assembly that is not referenced"
+    > - Right-client your solution.
+    > - Choose **Manage NuGet Packages for Solution**, Select **Updates** 
+    > - If you see **Microsoft.NETCore.UniversalWindowsPlatform** in the update list, Update **Microsoft.NETCore.UniversalWindowsPlatform** to newest version
 
 1. Add the following code to the method body of `InitializeDialogServiceConnector`
 
