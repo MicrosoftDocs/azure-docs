@@ -18,13 +18,13 @@ Configure the learning loop on the **Configuration** page, in the Azure portal f
 
 Because some configuration changes [reset your model](#settings-that-include-resetting-the-model), you should plan your configuration changes.
 
-If you plan to use [Apprentice mode](concept-apprentice-mode.md), make sure to configure Personalizer before switching to Apprentice mode.
+If you plan to use [Apprentice mode](concept-apprentice-mode.md), make sure to review your Personalizer configuration before switching to Apprentice mode.
 
 <a name="clear-data-for-your-learning-loop"></a>
 
 ## Settings that include resetting the model
 
-The following actions include an immediate retraining of the model with the last 2 days of data.
+The following actions trigger a retraining of the model using data available upto the last 2 days.
 
 * Reward
 * Exploration
