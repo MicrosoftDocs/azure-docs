@@ -78,7 +78,7 @@ Use this section to create a commercial marketplace account if you already have 
 
 There are two types of existing enrollments that you can use to set up your commercial marketplace account. Choose the one that applies to you:
 
-- If you have an existing Microsoft Partner Network enrollment, create your account using [Enrolled in the Microsoft Partner Network](#enrolled-in-the-microsoft-partner-network).
+- If you have an existing Microsoft Partner Network enrollment, create your account using [Enrolled in the Microsoft Partner Network](#what-if-im-already-enrolled-in-the-microsoft-partner-network).
 - If you have an existing developer program enrollment, create your account using [What if I'm already enrolled in a developer program?](#what-if-im-already-enrolled-in-a-developer-program).
 
 For both methods, you'll use these steps:
@@ -91,7 +91,7 @@ Make sure to have your account information handy.
 >[!IMPORTANT]
 >If you have an account in the [Cloud Partner Portal](https://cloudpartner.azure.com/) that has been moved to Partner Center, you do not need to create a new account. For more information, see [For publishers who are moving from the Cloud Partner Portal](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
 
-### Enrolled in the Microsoft Partner Network
+### What if I'm already enrolled in the Microsoft Partner Network?
 
 If you're already enrolled in the Microsoft Partner Network, use this section to create your account directly from Partner Center.
 
@@ -142,7 +142,7 @@ After you're enrolled, you're taken to the commercial marketplace overview page,
 
 You've now created a commercial marketplace account on Partner Center. For help, see [Commercial marketplace overview](./commercial-marketplace-overview.md). For help with adding publishers, see [add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
-## Publishers moving from the Cloud Partner Portal
+## For publishers who are moving from the Cloud Partner Portal
 
 If your account has been migrated from the [Cloud Partner Portal](https://cloudpartner.azure.com), you don't need to create a new Partner Center account. You should have received a customized link to your new Partner Center account both in email and in a banner notification after you've signed in to your existing Cloud Partner Portal account.
 
