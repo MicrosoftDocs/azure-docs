@@ -47,6 +47,8 @@
       href: tutorial-design-database-using-portal.md
     - name: Azure CLI
       href: tutorial-design-database-using-cli.md
+    - name: Azure PowerShell
+      href: tutorial-design-database-using-powershell.md
     - name: Azure Resource Manager template
       href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
   - name: 2 - Create a Web App
@@ -192,6 +194,8 @@
       href: howto-server-parameters.md
     - name: Azure CLI
       href: howto-configure-server-parameters-using-cli.md
+    - name: Azure PowerShell
+      href: howto-configure-server-parameters-using-powershell.md
   - name: Auto grow storage
     items:
     - name: Azure portal
@@ -226,6 +230,8 @@
       href: howto-read-replicas-portal.md
     - name: Create read replicas Azure CLI, REST API
       href: howto-read-replicas-cli.md
+    - name: Create read replicas Azure PowerShell
+      href: howto-read-replicas-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot connection errors
