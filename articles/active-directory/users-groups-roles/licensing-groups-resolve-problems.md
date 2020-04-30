@@ -97,7 +97,7 @@ To solve this problem, remove users from unsupported locations from the licensed
 
 ## Duplicate proxy addresses
 
-If you use Exchange Online, some users in your tenant might be incorrectly configured with the same proxy address value. When group-based licensing tries to assign a license to such a user, it fails and shows  “Proxy address is already being used”.
+If you use Exchange Online, some users in your organization might be incorrectly configured with the same proxy address value. When group-based licensing tries to assign a license to such a user, it fails and shows  “Proxy address is already being used”.
 
 > [!TIP]
 > To see if there is a duplicate proxy address, execute the following PowerShell cmdlet against Exchange Online:
