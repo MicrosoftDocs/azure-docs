@@ -44,9 +44,12 @@ To get the standard tier:
 [![Security Center Pricing](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
 > [!NOTE]
-> To enable all Security Center features including advanced threat protection capabilities, you must apply the standard pricing tier to the subscription containing the applicable workloads. Configuring pricing for a workspace does not enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. 
+> To enable all Security Center features including threat protection capabilities, you must apply the standard pricing tier to the subscription containing the applicable workloads. Configuring pricing for a workspace does not enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. 
 >
-> Security Center's threat protection for storage accounts and PaaS SQL/MySQL/PG servers are currently the only workloads that can be enabled at the resource level to protect individual storage/SQL workloads.
+> You can enable threat protection for **Azure Storage accounts** at either the subscription level or resource level.
+> You can enable threat protection for **Azure SQL Database SQL servers** at either the subscription level or resource level.
+> You can enable threat protection for **SQL servers on VMs** at either the subscription level or workspace level. 
+> You can enable threat protection for **PaaS SQL servers** (MySQL, PostgreSQL, MariaDB) at the resource level only.
 
 ## Why upgrade to standard?
 Security Center offers enhanced security and threat protection for your hybrid cloud workloads, including:
