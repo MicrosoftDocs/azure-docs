@@ -433,7 +433,7 @@ Determine if you need to [transfer ownership of an Azure subscription to another
 
 For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](https://aka.ms/Office365SIM).
 
-## FAQ: Answers to securing privileged access  
+## FAQ: Answers for securing privileged access  
 
 **Q:** What do I do if I haven’t implemented any secure access components yet?
 
