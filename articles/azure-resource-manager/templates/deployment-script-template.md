@@ -313,7 +313,7 @@ To specify an existing storage account, add the following json to the property e
 },
 ```
 
-See [Sample templates](#sample_templates) for a completed `Microsoft.Resources/deploymentScripts` definition sample.
+See [Sample templates](#sample-templates) for a complete `Microsoft.Resources/deploymentScripts` definition sample.
 
 When an existing storage account is used, the script service creates a file share with a unique name. See [Clean up deployment script resources](#clean-up-deployment-script-resources) for how the script service cleans up the file share.
 
