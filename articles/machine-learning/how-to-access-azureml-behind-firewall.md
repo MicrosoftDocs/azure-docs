@@ -50,7 +50,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **azurecr.io** | Azure Container Registry |
 | **\*.global.azureml-internal.ms** | Used by integration with Azure Event Grid |
 
-### Hosts for the Azure government cloud
+### Hosts for Azure Government cloud
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
@@ -59,7 +59,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **studio.ml.azure.us** | Azure Machine Learning studio |
 | **\*.global.ml-internal.azure.us** | Used by integration with Azure Event Grid |
 
-### Hosts for the Azure China region
+### Hosts for Azure China 21Vianet
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
