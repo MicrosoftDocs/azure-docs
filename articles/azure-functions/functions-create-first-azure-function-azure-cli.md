@@ -380,6 +380,7 @@ Otherwise, use the following command to delete the resource group and all its co
 ```azurecli
 az group delete --name AzureFunctionsQuickstart-rg
 ```
+::: zone-end
 ::: zone pivot="programming-language-java"
 ```azurecli
 az group delete --name java-functions-group
