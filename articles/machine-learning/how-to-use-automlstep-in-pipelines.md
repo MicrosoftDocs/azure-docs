@@ -30,7 +30,7 @@ Azure Machine Learning's automated ML capability helps you discover high-perform
 
 Automated ML in a pipeline is represented by an `AutoMLStep` object. The `AutoMLStep` class is a subclass of `PipelineStep`. A graph of `PipelineStep` objects defines a `Pipeline`.
 
-There are several subclasses of `PipelineStep`. In addition to the `AutoMLStep`, this article will show a `PythonScriptStep` for data preparation.
+There are several subclasses of `PipelineStep`. In addition to the `AutoMLStep`, this article will show a `PythonScriptStep` for data preparation and another for registering the model.
 
 The preferred way to initially move data _into_ an ML pipeline is with `Dataset` objects. To move data _between_ steps, the preferred way is with `PipelineData` objects. To be used with `AutoMLStep`, the `PipelineData` object must be transformed into a `PipelineOutputTabularDataset` object. For more information, see [Input and output data from ML pipelines](how-to-move-data-in-out-of-pipelines.md).
 
@@ -38,13 +38,13 @@ The `AutoMLStep` is configured via an `AutoMLConfig` object. `AutoMLConfig` is a
 
 A `Pipeline` runs in an `Experiment`. The pipeline `Run` has, for each step, a child `StepRun`. The outputs of the automated ML `StepRun` are the training metrics and highest-performing model.
 
-To make things concrete, this article creates a simple pipeline for a classification task. The task is predicting Titanic survival, but we will not be discussing the data or task except in passing.
+To make things concrete, this article creates a simple pipeline for a classification task. The task is predicting Titanic survival, but we won't be discussing the data or task except in passing.
 
 ## Get started
 
 ### Retrieve initial dataset
 
-Often, an ML workflow starts with pre-existing baseline data. This is a good scenario for a registered dataset. Datasets are visible across the workspace, support versioning, and can be interactively explored. There are many ways to create and populate a dataset, as discussed in [Create Azure Machine Learning datasets](how-to-create-register-datasets.md). Since we will be using the Python SDK to create our pipeline, use the SDK to download baseline data and register it with the name 'titanic_ds'.
+Often, an ML workflow starts with pre-existing baseline data. This is a good scenario for a registered dataset. Datasets are visible across the workspace, support versioning, and can be interactively explored. There are many ways to create and populate a dataset, as discussed in [Create Azure Machine Learning datasets](how-to-create-register-datasets.md). Since we'll be using the Python SDK to create our pipeline, use the SDK to download baseline data and register it with the name 'titanic_ds'.
 
 ```python
 from azureml.core import Workspace, Dataset
@@ -64,7 +64,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-The code first logs in to the Azure Machine Learning workspace defined in **config.json** (for an explanation, see [Tutorial: Get started creating your first ML experiment with the Python SDK](tutorial-1st-experiment-sdk-setup.md)). If there is not already a dataset named `'titanic_ds'` registered, then it creates one. The code downloads CSV data from the Web, uses them to instantiate a `TabularDataset` and then registers the dataset with the workspace. Finally, the function `Dataset.get_by_name()` assigns the `Dataset` to `titanic_ds`. 
+The code first logs in to the Azure Machine Learning workspace defined in **config.json** (for an explanation, see [Tutorial: Get started creating your first ML experiment with the Python SDK](tutorial-1st-experiment-sdk-setup.md)). If there isn't already a dataset named `'titanic_ds'` registered, then it creates one. The code downloads CSV data from the Web, uses them to instantiate a `TabularDataset` and then registers the dataset with the workspace. Finally, the function `Dataset.get_by_name()` assigns the `Dataset` to `titanic_ds`. 
 
 ### Configure your storage and compute target
 
@@ -194,19 +194,19 @@ pq.write_table(pa.Table.from_pandas(df), args.output_path)
 print(f"Wrote test to {args.output_path} and train to {args.output_path}")
 ```
 
-The above code snippet is a complete, but minimal, example of data preparation for the Titanic data. The snippet starts with a Jupyter "magic command" to output the code to a file. If you are not using a Jupyter notebook, remove that line and create the file manually.
+The above code snippet is a complete, but minimal, example of data preparation for the Titanic data. The snippet starts with a Jupyter "magic command" to output the code to a file. If you aren't using a Jupyter notebook, remove that line and create the file manually.
 
 The various `prepare_` functions in the above snippet modify the relevant column in the input dataset. These functions work on the data once it has been changed into a Pandas `DataFrame` object. In each case, missing data is either filled with representative random data or categorical data indicating "Unknown." Text-based categorical data is mapped to integers. No-longer-needed columns are overwritten or dropped. 
 
-After the data preparation functions are defined, the code parses the input argument, which is the path to which we want to write our data. (These values will be determined by `PipelineData` objects that will be discussed in the next step.) The code retrieves the registered `'titanic_cs'` `Dataset`, converts it to a Pandas `DataFrame`, and calls the various data preparation functions. 
+After the code defines the data preparation functions, the code parses the input argument, which is the path to which we want to write our data. (These values will be determined by `PipelineData` objects that will be discussed in the next step.) The code retrieves the registered `'titanic_cs'` `Dataset`, converts it to a Pandas `DataFrame`, and calls the various data preparation functions. 
 
-Since the `output_path` is fully-qualified, the function `os.makedirs()` is used to prepare the directory structure. At this point, you could use `DataFrame.to_csv()` to write the output data, but Parquet files are somewhat more efficient. This efficiency would probably be irrelevant with such a small dataset, but using the **PyArrow** package's `from_pandas()` and `write_table()` functions are only a few more keystrokes than `to_csv()`.
+Since the `output_path` is fully qualified, the function `os.makedirs()` is used to prepare the directory structure. At this point, you could use `DataFrame.to_csv()` to write the output data, but Parquet files are  more efficient. This efficiency would probably be irrelevant with such a small dataset, but using the **PyArrow** package's `from_pandas()` and `write_table()` functions are only a few more keystrokes than `to_csv()`.
 
 Parquet files are natively supported by the automated ML step discussed below, so no special processing is required to consume them. 
 
 ### Write the data preparation pipeline step (`PythonScriptStep`)
 
-The data preparation code described above must be associated with a `PythonScripStep` object in order to be used with a pipeline. The path to which the Parquet data-preparation output is written is generated by a `PipelineData` object. The resources prepared earlier, such as the `ComputeTarget`, the `RunConfig`, and the `'titanic_ds' Dataset` are used to complete the specification.
+The data preparation code described above must be associated with a `PythonScripStep` object to be used with a pipeline. The path to which the Parquet data-preparation output is written is generated by a `PipelineData` object. The resources prepared earlier, such as the `ComputeTarget`, the `RunConfig`, and the `'titanic_ds' Dataset` are used to complete the specification.
 
 ```python
 from azureml.pipeline.core import PipelineData
@@ -227,7 +227,7 @@ dataprep_step = PythonScriptStep(
 )
 ```
 
-The `prepped_data_path` object is of type `PipelineOutputFileDataset`. Notice that it is specified in both the `arguments` and `outputs` arguments. If you review the previous step, you'll see that within the data preparation code, the value of the argument `'--output_path'` is the file path to which the Parquet file was written. 
+The `prepped_data_path` object is of type `PipelineOutputFileDataset`. Notice that it's specified in both the `arguments` and `outputs` arguments. If you review the previous step, you'll see that within the data preparation code, the value of the argument `'--output_path'` is the file path to which the Parquet file was written. 
 
 ## Train with AutoMLStep
 
@@ -257,7 +257,7 @@ Comparing the two techniques:
 |-|-|
 |`PipelineOutputTabularDataset`| Higher performance | 
 || Natural route from `PipelineData` | 
-|| Data is not persisted after pipeline run |
+|| Data isn't persisted after pipeline run |
 | Registered `Dataset` | Lower performance |
 | | Can be generated in many ways | 
 | | Data persists and is visible throughout workspace |
@@ -283,7 +283,7 @@ The snippet above creates the two `PipelineData` objects for the metrics and mod
 
 ### Configure and create the automated ML pipeline step
 
-Once the inputs and outputs are defined, it's time to create the `AutoMLConfig` and `AutoMLStep`. The particulars of the configuration will depend on your task, as described in [Configure automated ML experiments in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train]). For the Titanic survival classification task, the following snippet demonstrates a simple configuration.
+Once the inputs and outputs are defined, it's time to create the `AutoMLConfig` and `AutoMLStep`. The details of the configuration will depend on your task, as described in [Configure automated ML experiments in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train]). For the Titanic survival classification task, the following snippet demonstrates a simple configuration.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -313,23 +313,23 @@ train_step = AutoMLStep(name='AutoML_Classification',
     outputs=[metrics_data,model_data],
     allow_reuse=True)
 ```
-The snippet shows an idiom commonly used with `AutoMLConfig`. Arguments that are more fluid (hyperparameter-ish) are specified in a separate dictionary while the values less likely to change are specified directly in the `AutoMLConfig` constructor. In this case, the `automl_settings` specify a brief run: the run will stop after only two iterations or 15 minutes, whichever comes first.
+The snippet shows an idiom commonly used with `AutoMLConfig`. Arguments that are more fluid (hyperparameter-ish) are specified in a separate dictionary while the values less likely to change are specified directly in the `AutoMLConfig` constructor. In this case, the `automl_settings` specify a brief run: the run will stop after only 2 iterations or 15 minutes, whichever comes first.
 
 {~~
 tk
-You should pass your data to There are two techniques for inputting data to the automated ML step. One technique is the older `X`, `y` technique, where data features (the values to make the prediction) are labeled `X` and data labels (the values you are trying to predict) are labeled `y`. This is 
+You should pass your data to There are two techniques for inputting data to the automated ML step. One technique is the older `X`, `y` technique, where data features (the values to make the prediction) are labeled `X` and data labels (the values you're trying to predict) are labeled `y`. This is 
 
-As discussed above, configuring input to your automated ML step requires the use of certain configurations. In an ML pipeline, you must provide your data using an `X`,`y` technique and cannot use the `training_data` technique. You may provide all your data in `X` and `y` and use `n_cross_validations` or you may provide your own validation data in `X_valid` and `y_valid` and leave `n_cross_validations` to the default `None` value. 
+As discussed above, configuring input to your automated ML step requires the use of certain configurations. In an ML pipeline, you must provide your data using an `X`,`y` technique and can't use the `training_data` technique. You may provide all your data in `X` and `y` and use `n_cross_validations` or you may provide your own validation data in `X_valid` and `y_valid` and leave `n_cross_validations` to the default `None` value. 
 tk
 
-Since in the example all of the data is in `X` and `y` and have not generated `X_valid` and `y_valid` objects, we set `n_cross_validations`. If you provide `X_valid` and `y_valid`, leave `n_cross_validations` to its default `None` value. 
+Since in the example all of the data is in `X` and `y` and haven't generated `X_valid` and `y_valid` objects, we set `n_cross_validations`. If you provide `X_valid` and `y_valid`, leave `n_cross_validations` to its default `None` value. 
 ~~} 
 
-The `automl_settings` dictionary is passed to the `AutoMLConfig` constructor as kwargs. The other parameters are not complex:
+The `automl_settings` dictionary is passed to the `AutoMLConfig` constructor as kwargs. The other parameters aren't complex:
 
 - `task` is set to `classification` for this example. Other valid values are `regression` and `forecasting`
 - `path` and `debug_log` describe the path to the project and a local file to which debug information will be written 
-- `compute_target` is the previously defined `compute_target` that, in this example, is an inexpensive CPU-based machine. If you are using AutoML's Deep Learning facilities, you would want to change the compute target to be GPU-based
+- `compute_target` is the previously defined `compute_target` that, in this example, is an inexpensive CPU-based machine. If you're using AutoML's Deep Learning facilities, you would want to change the compute target to be GPU-based
 - `featurization` is set to `auto`. More details can be found in the [Data Featurization](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) section of the automated ML configuration document 
 - `training_data` is set to the `PipelineOutputTabularDataset` objects made from the outputs of the data preparation step 
 - `label_column_name` indicates which column we are interested in predicting 
@@ -378,7 +378,7 @@ print("Registered version {0} of model {1}".format(model.version, model.name))
 
 ### Write the PythonScriptStep code
 
-The model-registering `PythonScriptStep` uses a `PipelineParameter` for one of its arguments. Pipeline parameters are arguments to pipelines that can be easily set at run-submission time. Once declared, they are passed as normal arguments. 
+The model-registering `PythonScriptStep` uses a `PipelineParameter` for one of its arguments. Pipeline parameters are arguments to pipelines that can be easily set at run-submission time. Once declared, they're passed as normal arguments. 
 
 ```python
 
@@ -433,9 +433,9 @@ metrics.get_port_data_reference().download('.')
 model.get_port_data_reference().download('.')
 ```
 
-The above snippet would run on your local machine. First, it logs on to the workspace. It retrieves the `Experiment` named `titanic_automl` and from that `Experiment`, the `Run` in which you are interested. Notice that you'd set the value being compared to `run.id` to that of the run in which you are interested.
+The above snippet would run on your local machine. First, it logs on to the workspace. It retrieves the `Experiment` named `titanic_automl` and from that `Experiment`, the `Run` in which you're interested. Notice that you'd set the value being compared to `run.id` to that of the run in which you're interested.
 
-Each `Run` object contains `StepRun` objects that contain information about the individual pipeline step run. The `run` is searched for the `StepRun` object for the `AutoMLStep`. The outputs are retrieved using their default names, which are available even if you do not pass `PipelineData` objects to the `outputs` parameter of the `AutoMLStep`. 
+Each `Run` object contains `StepRun` objects that contain information about the individual pipeline step run. The `run` is searched for the `StepRun` object for the `AutoMLStep`. The outputs are retrieved using their default names, which are available even if you don't pass `PipelineData` objects to the `outputs` parameter of the `AutoMLStep`. 
 
 Finally, the actual metrics and model are downloaded to your local machine for further processing.
 
