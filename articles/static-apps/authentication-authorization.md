@@ -42,6 +42,18 @@ To add users to your web site, you generate invitations which allow you to assoc
 
 #### Create an invitation
 
+Invitations are specific to individual authorization-providers, so consider the needs of your app as you select which providers to support. Some providers expose a user's email address, while others only provide the site's username.
+
+The following table shows which providers expose email addresses, and which expose the user name.
+
+| Authorization provider | User details  |
+| ---------------------- | ------------- |
+| Azure Active Directory | Email address |
+| GitHub                 | Username      |
+| Facebook               | Email address |
+| Google                 | Email address |
+| Twitter                | Username      |
+
 - Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
 - Under _Settings_, click on **Role Management**.
 - Click on the **Invite** button.
@@ -49,6 +61,7 @@ To add users to your web site, you generate invitations which allow you to assoc
 - Add either the user account name or email address of the recipient in the _Invitee details_ box.
   - For GitHub and Twitter, you enter the user account name. For all others, enter the recipient's email address.
 - Select the domain of your static site from the _Domain_ drop-down.
+  - This is the domain that appears in the invitation. If you have a custom domain associated with your site, you probably want to select the custom domain.
 - Add a comma-separated list of role names in the _Role_ box.
 - Enter the maximum number of hours you want the invitation to remain valid.
   - The maximum possible limit is 168 hours, which is 7 days.
@@ -88,11 +101,7 @@ Azure Static Web Apps uses the `/.auth` system folder to provide access to autho
 
 ## Login
 
-An authorization provider is selected when invitations are created while granting user access to the site.
-
-Consider the needs of your app as you select which authentication providers to support. Some providers expose a user's email address, while others only provide the site's username.
-
-Use the following routes to enable logins for a specific authentication provider.
+Use the following table to find the provider-specific login route.
 
 | Authorization provider | Login route             | User details  |
 | ---------------------- | ----------------------- | ------------- |
