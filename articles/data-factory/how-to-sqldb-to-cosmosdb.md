@@ -61,6 +61,14 @@ The resulting CosmosDB container will embed the inner query into a single docume
 
 ![Create Struct](media/data-flow/cosmosb9.png)
 
+9. Now, let's go to the sales header source. Add a Join transformation. For the right-side select "MakeStruct". Leave it set to inner join and choose ```SalesOrderID``` for both sides of the join condition.
+
+10. Click on the Data Preview tab in the new join that you added so that you can see your results up to this point. You should see all of the header rows joined with the detail rows. This is the result of the join being formed from the ```SalesOrderID```. Next, we'll combine the details from the common rows into the details struct and aggregate the common rows.
+
+11. 
+
+![Join](media/data-flow/cosmosb4.png)
+
 ## Next steps
 
 * Build the rest of your data flow logic by using mapping data flows [transformations](concepts-data-flow-overview.md).
