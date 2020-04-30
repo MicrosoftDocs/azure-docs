@@ -60,7 +60,48 @@ _Figure 1.1_
 If you're also using Private Link, it's required one additional configuration to allow connection to our Trusted Microsoft Service from your Virtual Network. Refer to the [Storage Network Security documentation](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services).
 
 ### Link your Storage Account with your Application Insights resource
-To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the below steps:
+To configure BYOS for code-level diagnostics (Profiler/Debugger), there are two options:
+
+* Using Azure Command Line Interface (CLI)
+* Using Azure Resource Manager template
+
+#### Configure using Azure CLI
+
+1. Make sure you have installed Azure CLI.
+To install Azure CLI, refer to the [Official Azure CLI documentation](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+1. Install the Application Insights CLI extension.
+    ```powershell
+    az extension add -n application-insights
+    ```
+
+1. Connect your Storage Account with your Application Insights resource.
+
+    Pattern:
+    ```powershell
+    az monitor app-insights component linked-storage link --resource-group "{resource_group_name}" --app "{application_insights_name}" --storage-account "{storage_account_name}"
+    ```
+    
+    Example:
+    ```powershell
+    az monitor app-insights component linked-storage link --resource-group "byos-test" --app "byos-test-westus2-ai" --storage-account "byosteststoragewestus2"
+    ```
+    
+    Expected output:
+    ```powershell
+    {
+      "id": "/subscriptions/{subscription}/resourcegroups/byos-test/providers/microsoft.insights/components/byos-test-westus2-ai/linkedstorageaccounts/serviceprofiler",
+      "linkedStorageAccount": "/subscriptions/{subscription}/resourceGroups/byos-test/providers/Microsoft.Storage/storageAccounts/byosteststoragewestus2",
+      "name": "serviceprofiler",
+      "resourceGroup": "byos-test",
+      "type": "microsoft.insights/components/linkedstorageaccounts"
+    }
+    ```
+
+    > [!NOTE]
+    > For performing updates on the linked Storage Accounts to your Application Insights resource, refer to the [Application Insights CLI documentation](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component/linked-storage).
+
+#### Configure using Azure Resource Manager template
 
 1. Create an Azure Resource Manager template file with the following content (byos.template.json).
     ```json
