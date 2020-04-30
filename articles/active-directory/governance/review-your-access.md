@@ -100,12 +100,12 @@ You can try the new experience with the updated user interface in My Access a co
 
 ### Email
 
-  >[!IMPORTANT]
+>[!IMPORTANT]
 > There could be delays in receiving email and it some cases it could take up to 24 hours. Whitelist azure-noreply@microsoft.com to make sure that you are receiving all emails.
 
 1. Look for an email from Microsoft asking you to review access. You can see an example email message below:
 
-   ![Example email from Microsoft to review access to a group](./media/review-your-access/access-review-email-preview.png
+  ![Example email from Microsoft to review access to a group](./media/review-your-access/access-review-email-preview.png)
 
 2. Click the **Review access** link to open the access review.
 
