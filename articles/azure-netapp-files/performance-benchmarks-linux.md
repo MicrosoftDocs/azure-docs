@@ -42,31 +42,31 @@ This graph illustrates decreases in 10% at a time, from pure read to pure write.
 
 ## Linux scale-up  
 
-Linux 5.3 kernel enables single-client scale-out networking for NFS `nconnect`. This feature is available on SUSE (starting with SLES12SP4) and Ubuntu (starting with the 19.10 release). It's similar in concept to both SMB multichannel and Oracle Direct NFS.
+Linux 5.3 kernel enables single-client scale-out networking for NFS-`nconnect`. The graphs in this section show the validation testing results for the client-side mount option with NFSv3. The feature is available on SUSE (starting with SLES12SP4) and Ubuntu (starting with the 19.10 release). It's similar in concept to both SMB multichannel and Oracle Direct NFS.
 
-The graphs in this section show the results of validation testing for the client-side mount option with NFSv3. The graphs compare `nconnect` to a non-connected mounted volume. In the graphs, FIO generated the workload from a single D32s_v3 instance in the us-west2 Azure region.
+The graphs compare the advantages of `nconnect` to a non-connected mounted volume. In the graphs, FIO generated the workload from a single D32s_v3 instance in the us-west2 Azure region.
 
 ### Linux read throughput  
 
-The following graphs compare sequential reads of ~3,500 MiB/s of reads with `nconnect`, which is roughly 2.3X non-`nconnect`.
+The following graphs compare sequential reads of ~3,500 MiB/s reads with `nconnect`, which is roughly 2.3X non-`nconnect`.
 
 ![Linux read throughput](../media/azure-netapp-files/performance-benchmarks-linux-read-throughput.png)  
 
 ### Linux write throughput  
 
-The following graphs show a comparison of sequential writes. They indicate that nconnect has no noticeable benefit for sequential writes. 1,500 MiB/s is roughly both the upper limit for the sequential write and the egress limit for D32s_v3 instance.
+The following graphs show sequential writes. They indicate that nconnect has no noticeable benefit for sequential writes. 1,500 MiB/s is roughly both the upper limit for the sequential write and the egress limit for D32s_v3 instance.
 
 ![Linux write throughput](../media/azure-netapp-files/performance-benchmarks-linux-write-throughput.png)  
 
 ### Linux read IOPS  
 
-The following graphs show random reads of ~200,000 read IOPS with `nconnect`, which is roughly 3X non-`nconnect`.
+The following graphs show random reads of ~200,000 read IOPS with `nconnect`, roughly 3X non-`nconnect`.
 
 ![Linux read IOPS](../media/azure-netapp-files/performance-benchmarks-linux-read-iops.png)  
 
 ### Linux write IOPS  
 
-The following graphs show random writes of ~135,000 write IOPS with `nconnect`, which is roughly 3X non-`nconnect`.
+The following graphs show random writes of ~135,000 write IOPS with `nconnect`, roughly 3X non-`nconnect`.
 
 ![Linux write IOPS](../media/azure-netapp-files/performance-benchmarks-linux-write-iops.png)  
 
