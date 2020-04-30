@@ -48,13 +48,13 @@ The graphs compare the advantages of `nconnect` to a non-connected mounted volum
 
 ### Linux read throughput  
 
-The following graphs compare sequential reads of ~3,500 MiB/s reads with `nconnect`, which is roughly 2.3X non-`nconnect`.
+The following graphs show sequential reads of ~3,500 MiB/s reads with `nconnect`, roughly 2.3X non-`nconnect`.
 
 ![Linux read throughput](../media/azure-netapp-files/performance-benchmarks-linux-read-throughput.png)  
 
 ### Linux write throughput  
 
-The following graphs show sequential writes. They indicate that nconnect has no noticeable benefit for sequential writes. 1,500 MiB/s is roughly both the upper limit for the sequential write and the egress limit for D32s_v3 instance.
+The following graphs show sequential writes. They indicate that nconnect has no noticeable benefit for sequential writes. 1,500 MiB/s is roughly both the sequential write volume upper limit and the D32s_v3 instance egress limit.
 
 ![Linux write throughput](../media/azure-netapp-files/performance-benchmarks-linux-write-throughput.png)  
 
