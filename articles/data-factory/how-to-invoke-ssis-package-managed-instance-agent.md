@@ -11,7 +11,7 @@ author: lle
 ms.date: 04/14/2020
 ---
 
-# Run SSIS packages by using Azure SQL Database Managed Instance Agent
+# Schedule SSIS package executions by using Azure SQL Database Managed Instance Agent
 This article describes how to run a SQL Server Integration Services (SSIS) package by using Azure SQL Database Managed Instance Agent. This feature provides behaviors that are similar to when you schedule SSIS packages by using SQL Server Agent in your on-premises environment.
 
 With this feature, you can run SSIS packages that are stored in SSISDB in an Azure SQL Database managed instance or a file system like Azure Files.
