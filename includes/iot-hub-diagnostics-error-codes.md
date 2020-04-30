@@ -5,7 +5,7 @@
  author: robinsh
  ms.service: iot-hub
  ms.topic: include
- ms.date: 04/24/20208
+ ms.date: 04/30/2020
  ms.author: robinsh
  ms.custom: include file
 ---
@@ -15,10 +15,7 @@
 
 |Error Code|Description|
 |----------|-----------|
-|404015|ContainerNotFound|
-|400033| Container Disabled|
 |401002| IotHub Unauthorized Access|
-|500007| Azure Storage Timed out|
 |413001| Message too large|
 |403004| Device maximum queue depth exceeded|
 |503008| Receive link throttled|
@@ -27,3 +24,4 @@
 |503|Service Unavailable|
 |500001|Server Error|
 |400103| InvalidContentEncodingOrType|
+|404001| Device Not found|
