@@ -14,6 +14,12 @@ manager: lizross
 
 > Applies to: macOS 10.12 or later
 
+>[!IMPORTANT]
+>This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/connect-macos-2019.md).
+>
+> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 You can access Windows Virtual Desktop resources from your macOS devices with our downloadable client. This guide will tell you how to set up the client.
 
 ## Install the client
@@ -28,7 +34,7 @@ To subscribe to a feed:
 
 1. Select **Add Workspace** on the main page to connect to the service and retrieve your resources.
 2. Enter the Feed URL. This can be a URL or email address:
-   - If you use a URL, use the one your admin gave you. Normally, the URL is <https://rdweb.wvd.microsoft.com>.
+   - If you use a URL, use the one your admin gave you. Normally, the URL is <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>.
    - To use email, enter your email address. This tells the client to search for a URL associated with your email address if your admin configured the server that way.
 3. Select **Add**.
 4. Sign in with your user account when prompted.
