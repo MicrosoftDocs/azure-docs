@@ -61,7 +61,7 @@ After you turn on logging, use the following steps to track down operations for 
    | where TimeGenerated >= ago(1h)
    ```
 
-The following screenshots capture logs when a VNET is added to an Azure Cosmos account:
+The following screenshots capture logs when a consistency level is changed for an Azure Cosmos account:
 
 ![Control plane logs when a VNet is added](./media/audit-control-plane-logs/add-ip-filter-logs.png)
 
@@ -145,8 +145,21 @@ For API-specific operations, the operation is named with the following format:
 
 * CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
 * CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
+* SqlContainersUpdateStart, SqlContainersUpdateComplete
 
 The *ResourceDetails* property contains the entire resource body as a request payload and it contains all the properties requested to update
+
+## Diagnostic log query for Control plane
+
+```
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdateStart"
+
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdateStart"
+```
 
 ## Next steps
 
