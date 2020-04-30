@@ -225,7 +225,7 @@ If you adjust **Orchestrator.Sandbox.exe.config** to set the proxy and the bypas
 
 #### Cause
 
-The connection to Active Directory Federation Services (AD FS) on the server can't bypass the proxy. Remember that a PowerShell sandbox runs as the logged user. However, an Orchestrator sandbox is heavily customized and might ignore the **Orchestrator.Sandbox.exe.config** file settings. It has special code for handling machine or Microsoft Monitoring Agent proxy settings, but not for handling other custom proxy settings. 
+The connection to Active Directory Federation Services (AD FS) on the server can't bypass the proxy. Remember that a PowerShell sandbox runs as the logged user. However, an Orchestrator sandbox is heavily customized and might ignore the **Orchestrator.Sandbox.exe.config** file settings. It has special code for handling machine or Log Analytics agent proxy settings, but not for handling other custom proxy settings. 
 
 #### Resolution
 
