@@ -19,7 +19,7 @@ This article answers commonly asked questions about the Microsoft commercial mar
 
 **What is Azure Marketplace?**
 
-[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) provides access to and information about solutions and services that are available from Microsoft and our partners. Customers can discover, try, or buy cloud software solutions that are built on or for Azure. Our catalog of more than 8,000 listings provides Azure building blocks, such as virtual machines (VMs), APIs, Azure apps, solution templates and managed applications, SaaS apps, containers, and consulting services.
+[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) provides access to and information about solutions and services that are available from Microsoft and our partners. Customers can discover, try, or buy cloud software solutions that are built on or for Azure. Our catalog of more than 8,000 listings provides Azure building blocks, such as virtual machines (VMs), APIs, Azure apps, solution templates and managed applications, software as a service (SaaS) apps, containers, and consulting services.
 
 **Who are Azure Marketplace customers?**
 
@@ -34,7 +34,7 @@ Azure Marketplace offers technical solutions and services from Microsoft and par
 * Security
 * Identity
 * Networking
-* Blockchain
+* Blockchains
 * Developer tools
 
 ### Azure Marketplace for customers
@@ -62,7 +62,7 @@ Azure Marketplace offers can be purchased through:
 
 **Can I choose which Azure regions to deploy my Azure Marketplace purchase to?**
 
-As a customer, you have the option of deploying to any Azure data center region that you've enabled. We recommend selecting the data center locations closest to your services to optimize performance and control your budget.
+As a customer, you have the option of deploying to any Azure datacenter region that you've enabled. We recommend selecting the datacenter locations closest to your services to optimize performance and control your budget.
 
 **If I accidentally delete an Azure Marketplace purchase, can I *undo* the action?**
 
@@ -72,7 +72,7 @@ No, deletions are final. If a subscription is accidentally deleted, it can be re
 
 No, Azure provides no warning when a purchase is being deleted, even if it is currently in use or an application is dependent on it.
 
-**If my Azure Marketplace purchase has any dependencies on other assets such as an Azure website, do I have to manage them?**
+**If my Azure Marketplace purchase has any dependencies on other assets, such as an Azure website, do I have to manage them?**
 
 Dependencies are not automatically managed for Azure Marketplace offerings. To determine whether there are any dependencies prior to deploying the solution, carefully review the description of your Azure Marketplace purchase before using it.
 
@@ -153,7 +153,7 @@ Publishers can add one free month for paid SaaS offers and one or three free mon
 
 **Do I need to have a payment instrument (for example, a credit card) on file to deploy Free Tier or BYOL offerings?**
 
-No. A payment instrument is not required to deploy Free Tier or BYOL offerings. However, *Free Trial* offerings require a payment instrument. Listings that include the *Get it now* or *Free software trial* buttons are deployed into the selected Azure subscription. These listings are billed using the selected account's registered method of payment. Azure usage charges are billed separately from software license fees.
+No. A payment instrument is not required to deploy *Free Tier* or *BYOL* offerings. However, *Free Trial* offerings require a payment instrument. Listings that include the *Get it now* or *Free software trial* buttons are deployed to the selected Azure subscription. These listings are billed using the selected account's registered method of payment. Azure usage charges are billed separately from software license fees.
 
 **If Enterprise Agreement indirect customers have questions about pricing for offers sold on Azure Marketplace, whom should they contact?**
 
@@ -316,7 +316,7 @@ Microsoft offers Standard Contract terms that a publisher can apply to an agreem
 
 **Where do I find guidelines for integrating my application with Azure Active Directory?**
 
-Microsoft authenticates all Azure Marketplace users through Azure Active Directory (Azure AD).  You can directly set up a trial experience for customers without requiring an additional sign-in step.  For example, when authenticated users click through a trial listing in Azure Marketplace, they're automatically redirected to the trial environment.
+Microsoft authenticates all Azure Marketplace users through Azure Active Directory (Azure AD).  You can directly set up a trial experience for customers without requiring an additional sign-in step.  For example, when authenticated users click through a trial listing on Azure Marketplace, they're automatically redirected to the trial environment.
 
 For more information, and to get started enabling a trial by using Azure AD, see the "Enable a trial listing" section of [Enable an AppSource and Azure Marketplace listing by using Azure Active Directory](enable-appsource-marketplace-using-azure-ad.md#enable-a-trial-listing).
 
@@ -324,13 +324,13 @@ For more information, and to get started enabling a trial by using Azure AD, see
 
 As a publisher, you can get started by verifying that you're not already registered with a [Dev Center account](deprecated/register-dev-center.md). Next, register by signing in with your [Microsoft account](https://account.microsoft.com/account/), which will be associated with the developer account.
 
-If you don't already have a Microsoft account, you can [create an account](https://signup.live.com/) (for example, *contoso_marketplace@live.com*).
+If you don't already have a Microsoft account, you can [create an account](https://signup.live.com/) (for example, **contoso_marketplace@live.com**).
 
 **Why is a Dev Center account required?**
 
 A Dev Center account is required to enable Microsoft to bill customers on the publisher's behalf for *Transaction* listing types. Your Dev Center account registration enables Microsoft to validate your legal, tax, and banking information. For more information, see [register in Dev Center](./partner-center-portal/create-account.md).
 
-**What are leads and why are they important to me as a publisher in Azure Marketplace?**
+**What are leads and why are they important to me as a publisher on Azure Marketplace?**
 
 Leads are customers who are deploying your products from Azure Marketplace. Whether your product is listed on [Azure Marketplace](https://azuremarketplace.microsoft.com) or [AppSource](https://appsource.microsoft.com), you can receive leads from customers who are interested in your product.  You can set up a lead destination on your offer. To learn more, see [Become a cloud marketplace publisher](./partner-center-portal/create-account.md).
 
@@ -346,9 +346,9 @@ Yes. If you're publishing a *Contact Me*, *SaaS app*, or *consulting services* o
 
 **How can I confirm that the lead configuration is correct?**
 
-After you've completed the offer and set up a lead destination, the listing can properly be published in [Partner Center](https://partner.microsoft.com/). Before the listing goes live, you can validate whether the lead configuration setup is working correctly.  Send a test-lead to the lead destination that you've configured in the offer.
+After you've completed the offer and set up a lead destination, the listing can properly be published in [Partner Center](https://partner.microsoft.com/). Before the listing goes live, you can validate whether the lead configuration setup is working correctly.  Send a test lead to the lead destination that you've configured in the offer.
 
-**What countries/regions is Azure Marketplace available for publishers to sell from?**
+**What countries/regions are available for Azure Marketplace publishers to sell from?**
 
 Publishers based in the following countries/regions can currently sell on Azure Marketplace: Afghanistan, Albania, Algeria, Angola, Antigua and Barbuda, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Belarus, Belgium, Benin, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Bulgaria, Burkina Faso, Burundi, Cambodia, Cameroon, Canada, Central African Republic, Chad, Chile, Colombia, Comoros, Congo, Congo (DRC), Costa Rica, Cote D'Ivoire, Croatia, Cyprus, Czech Republic, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Eritrea, Estonia, Ethiopia, Fiji Islands, Finland, France, Georgia, Germany, Ghana, Greece, Guatemala, Guinea, Haiti, Honduras, Hong Kong SAR, Hungary, Iceland, India, Indonesia, Iraq, Ireland, Israel, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Korea (South), Kuwait, Laos, Latvia, Lebanon, Liberia, Liechtenstein, Lithuania, Luxembourg, Madagascar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexico, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Nepal, The Netherlands, New Zealand, Nicaragua, Niger, Nigeria, Norway, Oman, Pakistan, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saudi Arabia, Senegal, Serbia, Sierra Leone, Singapore, Slovakia, Slovenia, Somalia, South Africa, Spain, Sri Lanka, Sweden, Switzerland, Tajikistan, Tanzania, Thailand, Timor-Leste, Togo, Tonga, Trinidad and Tobago, Tunisia, Turkey, Turkmenistan, Uganda, Ukraine, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia, and Zimbabwe.
 
