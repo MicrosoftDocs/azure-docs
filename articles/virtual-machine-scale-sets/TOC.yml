@@ -109,7 +109,7 @@
       href: ../virtual-machines/windows/sizes-gpu.md
       maintainContext: true
       items:
-      - name: Setup GPU drivers
+      - name: Setup NVIDIA GPU drivers
         href: ../virtual-machines/windows/n-series-driver-setup.md
         maintainContext: true
     - name: High performance compute
