@@ -29,6 +29,7 @@ The following AI and Cognitive Services are generally available in Azure Governm
 - Translator Text
 - Language Understanding
 - QnA Maker
+- Personalizer
 - Azure Bot Service
 
 > [!IMPORTANT]
@@ -142,13 +143,19 @@ Variations in Azure Government:
 
 For more information, see [global Azure documentation](../cognitive-services/QnAMaker/Overview/overview.md) for QnA Maker.
 
+## Decision
+
+### Personalizer
+
+There are no variations between Azure Global and Azure Government environments for Personalizer. For more information, see [global Azure documentation](../cognitive-services/personalizer/index.yml) for Personalizer.
+
 ## Azure Bot Service
 
 Variations in Azure Government:
 
 The service URL endpoints for Azure Bot Service apps created in Azure Government are different from those apps created in the Azure public cloud:
 
-- Bot Service Endpoints:	*.botframework.azure.us
+- Bot Service Endpoints:    *.botframework.azure.us
 - Bot Authentication Endpoint: login.microsoftonline.us
 
 Some Bot Service features available in the public cloud are not yet available in Azure Government:
