@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Manage connections in Azure Automation
 
-An Azure Automation connection asset contains the information listed below. This information is required for connection to an external service or application from a runbook or DSC configuration: 
+An Azure Automation connection asset contains the information listed below. This information is required for connection to an external service or application from a runbook or DSC configuration. 
 
 * Information needed for authentication, such as user name and password
 * Connection information, such as URL or port
@@ -138,7 +138,7 @@ You add a `Get-AutomationConnection` activity to a graphical runbook by right-cl
 
 ![add to canvas](media/automation-connections/connection-add-canvas.png)
 
-The following image shows an example of using a connection in a graphical runbook. This is the same example as shown above for authenticating using the Run As account with a textual runbook. This example uses the `Constant value` data set for the `Get RunAs Connection` activity that uses a connection object for authentication. A [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) is used here since the `ServicePrincipalCertificate` parameter set is expecting a single object.
+The following image shows an example of using a connection in a graphical runbook. This example uses the `Constant value` data set for the `Get RunAs Connection` activity that uses a connection object for authentication. A [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) is used here since the `ServicePrincipalCertificate` parameter set is expecting a single object.
 
 ![get connections](media/automation-connections/automation-get-connection-object.png)
 

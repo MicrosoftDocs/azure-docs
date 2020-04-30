@@ -13,7 +13,7 @@ manager: carmonm
 
 # Manage certificates in Azure Automation
 
-Certificates are stored securely in Azure Automation so they can be accessed by runbooks or DSC configurations using the [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet for Azure Resource Manager resources. Secure certificate storage allows you to create runbooks and DSC configurations that use certificates for authentication or add them to Azure or third-party resources.
+Certificates are stored securely in Azure Automation for access by runbooks and DSC configurations using the [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet for Azure Resource Manager resources. Secure certificate storage allows you to create runbooks and DSC configurations that use certificates for authentication or add them to Azure or third-party resources.
 
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each Automation account. Azure Automation stores the key in the system-managed Key Vault. Before storing a secure asset, Automation loads the key from Key Vault and then uses it to encrypt the asset. 
@@ -28,7 +28,7 @@ For Az, the cmdlets in the following table are used to create and manage automat
 |Cmdlet |Description|
 | --- | ---|
 |[Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate)|Uploads a service certificate for the specified cloud service.|
-|[Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Retrieves information about a certificate to use in a runbook or DSC configuration. You can only retrieve the certificate itself using the `Get-AutomationCertificate` activity.|
+|[Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Retrieves information about a certificate to use in a runbook or DSC configuration. You can only retrieve the certificate itself using the internal `Get-AutomationCertificate` cmdlet.|
 |[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Creates a new certificate in Azure Automation.|
 |[Remove-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Removes a certificate from Azure Automation.|
 |[Set-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|Sets the properties for an existing certificate including uploading the certificate file and setting the password for a **.pfx** file.|
@@ -126,7 +126,7 @@ New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName TestAzureAuto -Te
 
 ## Using a certificate
 
-To use a certificate, use the `Get-AutomationCertificate` activity. You can't use the [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet, since it returns information about the certificate asset but not the certificate itself.
+To retrieve a certificate, use the internal `Get-AutomationCertificate` cmdlet. You can't use the [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet, since it returns information about the certificate asset but not the certificate itself.
 
 ### Textual runbook example
 
@@ -142,11 +142,11 @@ Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 
 ### Graphical runbook example
 
-Add a `Get-AutomationCertificate` activity to a graphical runbook by right-clicking on the certificate in the Library pane and selecting **Add to canvas**.
+Add an activity for the internal `Get-AutomationCertificate` cmdlet to a graphical runbook by right-clicking on the certificate in the Library pane and selecting **Add to canvas**.
 
 ![Add certificate to the canvas](../media/certificates/automation-certificate-add-to-canvas.png)
 
-The following image shows an example of using a certificate in a graphical runbook. This is the same as the preceding example that shows how to add a certificate to a cloud service from a textual runbook.
+The following image shows an example of using a certificate in a graphical runbook. 
 
 ![Example Graphical Authoring](../media/certificates/graphical-runbook-add-certificate.png)
 
@@ -164,4 +164,4 @@ print cert
 
 ## Next steps
 
-- To learn more about working with links to control the logical flow of activities performed by your runbook, see [Links in graphical authoring](../automation-graphical-authoring-intro.md#links-and-workflow). 
+- To learn more about working with links to control the logical flow of activities in your graphical runbook, see [Links in graphical authoring](../automation-graphical-authoring-intro.md#links-and-workflow). 

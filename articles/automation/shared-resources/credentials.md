@@ -97,7 +97,7 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 
 ## Using a PowerShell credential
 
-A runbook or DSC configuration retrieves a credential asset with the `Get-AutomationPSCredential` activity. This activity retrieves a `PSCredential` object that you can use with an activity or cmdlet that requires a credential. You can also retrieve the properties of the credential object to use individually. The object has properties for the user name and the secure password. Alternatively, you can use the [GetNetworkCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential.getnetworkcredential?view=pscore-6.2.0) method to retrieve a [NetworkCredential](/dotnet/api/system.net.networkcredential) object that represents an unsecured version of the password.
+A runbook or DSC configuration retrieves a credential asset with the internal `Get-AutomationPSCredential` cmdlet. This cmdlet retrieves a `PSCredential` object that you can use with a cmdlet or activity that requires a credential. You can also retrieve the properties of the credential object to use individually. The object has properties for the user name and the secure password. Alternatively, you can use the [GetNetworkCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential.getnetworkcredential?view=pscore-6.2.0) method to retrieve a [NetworkCredential](/dotnet/api/system.net.networkcredential) object that represents an unsecured version of the password.
 
 > [!NOTE]
 > `Get-AzAutomationCredential` does not retrieve a `PSCredential` object that can be used for authentication. It only provides information about the credential. If you need to use a credential in a runbook, you must retrieve it as a `PSCredential` object using `Get-AutomationPSCredential`.
@@ -130,7 +130,7 @@ Connect-AzAccount -Credential $myPsCred
 
 ### Graphical runbook example
 
-You can add a `Get-AutomationPSCredential` activity to a graphical runbook by right-clicking on the credential in the Library pane of the graphical editor and selecting **Add to canvas**.
+You can add an activity for the internal `Get-AutomationPSCredential` cmdlet to a graphical runbook by right-clicking on the credential in the Library pane of the graphical editor and selecting **Add to canvas**.
 
 ![Add credential to canvas](../media/credentials/credential-add-canvas.png)
 
