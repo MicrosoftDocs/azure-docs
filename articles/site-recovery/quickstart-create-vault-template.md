@@ -73,7 +73,7 @@ To deploy the template, the **Subscription**, **Resource group**, and **Vault na
 1. To begin the vault's deployment, select the **Purchase** button. After a successful deployment, a
    notification is displayed.
 
-   :::image type="content" source="media/quickstart-create-vault-template/deploymentsuccess.png" alt-text="Vault deployment was successful.":::
+   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Vault deployment was successful.":::
 
 ## Validate the deployment
 
