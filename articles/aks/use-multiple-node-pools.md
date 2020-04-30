@@ -725,8 +725,6 @@ It may take a few minutes to update your AKS cluster depending on the node pool 
 
 AKS nodes do not require their own public IP addresses for communication. However, scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. An common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved on AKS by registering for a preview feature, Node Public IP (preview).
 
-Register for the Node Public IP feature by issuing the following Azure CLI command.
-
 To install and update the latest aks-preview extension, use the following Azure CLI commands:
 
 ```azurecli
@@ -738,23 +736,34 @@ az extension list
 az extension update --name aks-preview
 az extension list
 ```
+Register for the Node Public IP feature with the following Azure CLI command:
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
-After successful registration, use the Azure CLI to add a public IP to create a new AKS cluster.
+It may take several minutes for the feature to register.  You can check the status with the following command:
 
 ```azurecli-interactive
-az aks create –enable-ip-per-node 
+ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodePublicIPPreview')].{Name:name,State:properties.state}"
 ```
+
+After successful registration, create a new resource group.
 
 ```azurecli-interactive
-az aks nodepool add --enable -ip-per-node
+az group create --name myResourceGroup2 --location eastus
 ```
 
-After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and add the boolean property `enableNodePublicIP` to agentPoolProfiles. Set the value to `true` as by default it is set as `false` if not specified. 
+Create a new AKS cluster and attach a public IP for your node pool.
 
-This property is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
+```azurecli-interactive
+az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-public-ip
+```
+
+For existing AKS clusters, you can also add a new node pool, and attach a public IP.
+
+```azurecli-interactive
+az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
+```
 
 ## Clean up resources
 
@@ -770,6 +779,12 @@ To delete the cluster itself, use the [az group delete][az-group-delete] command
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
+```
+
+You can also delete the additional cluster you created for the public IP for node pools scenario.
+
+```azurecli-interactive
+az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
 ## Next steps
