@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/29/2020
+ms.date: 04/30/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) simplifies how enterprises manage access to groups and applications in Azure AD and other Microsoft Online Services with a feature called Azure AD access reviews. This article will go over how a designated reviewer performs an access review for members of a group or users with access to an application. If you would like to review,  access to a package read [Review access of an access package in Azure AD entitlement management](entitlement-management-access-reviews-review-access.md)
 
-## Perform access review
+## Perform access review using My Apps
 
 You can start the Access Review process from the notification email or by going directly to the site.
 
@@ -85,7 +85,7 @@ There are two ways that you can approve or deny access:
     > You can change your response at any time before the access review has ends. If you want to change your response, select the row and update the response. For example, you can approve a previously denied user or deny a previously approved user.
 
     >[!IMPORTANT]
-    > - If a user is denied access, they aren't removed immediately. They are removed when the review period has ended or when an administrator stops the review. 
+    > - If a user is denied access, they aren't removed immediately. They are removed when the review period has ended or when an administrator stops the review if [Auto apply](complete-access-review.md#apply-the-changes) is enabled.
     > - If there are multiple reviewers, the last submitted response is recorded. Consider an example where an administrator designates two reviewers – Alice and Bob. Alice opens the access review first and approves a user's access request. Before the review period ends, Bob opens the access review and denies access on the same request previously approved by Alice. The last decision denying the access is the response that gets recorded.
 
 ### Approve or deny access based on recommendations
@@ -102,9 +102,9 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 1. Click **Ok** to accept the recommendations.
 
-## Perform access review using My Access (Preview)
+## Perform access review using My Access (New)
 
-You can preview the reviewer experience with the updated user interface in My Access a couple of different ways:
+You can get to the new reviewer experience with the updated user interface in My Access a couple of different ways:
 
 ### My Apps portal
 
@@ -145,13 +145,13 @@ You can also view your pending access reviews by using your browser to open My A
 
    ![access reviews in the menu](./media/perform-access-review/access-review-menu.png)
 
-### Approve or deny access for one or more users (Preview)
+### Approve or deny access for one or more users
 
 After you open My Access under Groups and Apps you can see:
 
 - **Name** The name of the access review.
-- **Due** The due date for the review. After this date denied users could be removed from the group or app being reviewed. 
-- **Resource** Users access to the resourced named in this column is being evaluated as part of this access review.
+- **Due** The due date for the review. After this date denied users could be removed from the group or app being reviewed.
+- **Resource** The name of the resource under review.
 - **Progress** The number of users reviewed over the total number of users part of this access review.
 
 Click on the name of an access review to get started.
@@ -165,7 +165,7 @@ There are two ways that you can approve or deny access:
 - You can manually approve or deny access for one or more users.
 - You can accept the system recommendations.
 
-#### Manually approve or deny access for one or more users (Preview)
+#### Manually approve or deny access for one or more users
 
 1. Review the list of users and decide whether to approve or deny their continued access.
 2. Select one or more users by clicking the circle next to their names.
@@ -183,7 +183,7 @@ There are two ways that you can approve or deny access:
  > - If a user is denied access, they aren't removed immediately. They are removed when the review period has ended or when an administrator stops the review. 
  > - If there are multiple reviewers, the last submitted response is recorded. Consider an example where an administrator designates two reviewers – Alice and  Bob. Alice opens the access review first and approves a user's access request. Before the review period ends, Bob opens the access review and denies access on the same request previously approved by Alice. The last decision denying the access is the response that gets recorded.
 
-#### Approve or deny access based on recommendations (Preview)
+#### Approve or deny access based on recommendations
 
 To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity.
 
