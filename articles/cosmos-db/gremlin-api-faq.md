@@ -12,7 +12,7 @@ ms.author: sngun
 
 This article explains answers to some frequently asked questions about Gremlin API in Azure Cosmos DB.
 
-## How to evaluate the efficiency of Gremlin queries?
+## How to evaluate the efficiency of Gremlin queries
 
 The **executionProfile()** preview step can be used to provide an analysis of the query execution plan. This step needs to be added to the end of any Gremlin query as illustrated by the following example:
 
