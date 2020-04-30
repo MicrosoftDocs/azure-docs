@@ -1,14 +1,13 @@
 ---
-title: Create Azure DB for PostgreSQL server using the ARM template
-description: Learn how to create an Azure ... by using Azure Resource Manager template.
+title: Create an Azure DB for PostgreSQL using an ARM template
+description: In this article, learn how to create an Azure Database for PostgreSQL server by using an Azure Resource Manager template.
 services: azure-resource-manager
 author: mgblythe
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
-ms.date: 04/24/2020
-zone_pivot_groups: user-interface-options
+ms.date: 04/28/2020
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL server by using the ARM template
@@ -19,27 +18,23 @@ zone_pivot_groups: user-interface-options
 
 ## Prerequisites
 
-::: zone pivot="user-interface-azure-powershell"
+# [Portal](#tab/azure-portal)
+
+An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+
+# [PowerShell](#tab/PowerShell)
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally, [Azure PowerShell](/powershell/azure/).
 
-::: zone-end
-
-::: zone pivot="user-interface-azure-cli"
+# [CLI](#tab/CLI)
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally, [Azure CLI](/cli/azure/).
 
-::: zone-end
+---
 
-::: zone pivot="user-interface-azure-portal"
-
-An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-
-::: zone-end
-
-## Create a ...
+## Create an Azure Database for PostgreSQL server
 
 <!-- The second H2 must start with "Create a". For example,  'Create a Key Vault', 'Create a virtual machine', etc. -->
 
@@ -110,7 +105,25 @@ More Azure Database for PostgreSQL template samples can be found in [Azure quick
 
 ## Review deployed resources
 
-::: zone pivot="user-interface-azure-cli"
+# [Portal](#tab/azure-portal)
+
+Follow these steps to see an overview of your new Azure Database for PostgreSQL server:
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for PostgreSQL servers**.
+
+2. In the database list, select your new server. The **Overview** page for your new Azure Database for PostgreSQL server appears.
+
+# [PowerShell](#tab/PowerShell)
+
+Run the following interactive code to view details about your Azure Database for PostgreSQL server. You'll have to enter the name of the new server.
+
+```azurepowershell-interactive
+$serverName = Read-Host -Prompt "Enter the name of your Azure Database for PostgreSQL server"
+Get-AzResource -ResourceType "Microsoft.DbForPostgreSQL/servers" -Name $serverName | ft
+Write-Host "Press [ENTER] to continue..."
+```
+
+# [CLI](#tab/CLI)
 
 Run the following interactive code to view details about your Azure Database for PostgreSQL server. You'll have to enter the name and the resource group of the new server.
 
@@ -122,56 +135,13 @@ read resourcegroupName &&
 az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForPostgreSQL/servers"
 ```
 
-::: zone-end
-
-::: zone pivot="user-interface-azure-powershell"
-
-Run the following interactive code to view details about your Azure Database for PostgreSQL server. You'll have to enter the name of the new server.
-
-```azurepowershell-interactive
-$serverName = Read-Host -Prompt "Enter the name of your Azure Database for PostgreSQL server"
-Get-AzResource -ResourceType "Microsoft.DbForPostgreSQL/servers" -Name $serverName | ft
-Write-Host "Press [ENTER] to continue..."
-```
-
-::: zone-end
-
-::: zone pivot="user-interface-azure-portal"
-
-Follow these steps to see an overview of your new Azure Database for PostgreSQL server:
-
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for PostgreSQL servers**.
-
-2. In the database list, select your new server. The **Overview** page for your new Azure Database for PostgreSQL server appears.
-
-::: zone-end
+---
 
 ## Clean up resources
 
 When it's no longer needed, delete the resource group, which deletes the resources in the resource group.
 
-::: zone pivot="user-interface-azure-cli"
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
-```
-
-::: zone-end
-
-::: zone pivot="user-interface-azure-powershell"
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
-```
-
-::: zone-end
-
-::: zone pivot="user-interface-azure-portal"
+# [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
 
@@ -181,7 +151,24 @@ Write-Host "Press [ENTER] to continue..."
 
 4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
 
-::: zone-end
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+---
 
 ## Next steps
 
