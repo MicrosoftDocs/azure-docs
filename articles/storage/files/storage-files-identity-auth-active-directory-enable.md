@@ -88,4 +88,4 @@ You have now successfully enabled AD DS authentication over SMB and assigned a c
 
 For more information about Azure Files and how to use AD over SMB, see these resources:
 
-[1. Enable AD DS authentication for your account](storage-files-identity-ad-ds-enable.md)
+[Enable AD DS authentication for your account](storage-files-identity-ad-ds-enable.md)
