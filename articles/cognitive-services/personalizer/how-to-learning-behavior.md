@@ -34,7 +34,7 @@ In order to add Personalizer to your application, you need to call the Rank and 
 
 ### Configure your application to call Reward API
 
-1. Use your existing business logic to calculate the **reward** of the displayed action. The value needs to be in the range from 0 to 1. Send this reward to Personalizer using the [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward). The reward value is not expected immediately and can be delayed over a time period - depending on your business logic.
+1. Use your existing business logic to calculate the **reward** of the displayed action. The value needs to be in the range from 0 to 1. Send this reward to Personalizer using the [Reward API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward). The reward value is not expected immediately and can be delayed over a time period - depending on your business logic.
 
 1. If you don't return the reward within the configured **Reward wait time**, the default reward will be used instead.
 

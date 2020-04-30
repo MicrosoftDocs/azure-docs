@@ -70,10 +70,10 @@ Since Personalizer uses collective information in near real-time to return the s
 
     |Resource type| Purpose|
     |--|--|
-    |[Apprentice mode](concept-apprentice-mode.md) `E0`|Train the personalizer model without impacting your existing application, then deploy to Online learning behavior to a production environment|
+    |[Apprentice mode](concept-apprentice-mode.md) `E0`|Train the Personalizer model without impacting your existing application, then deploy to Online learning behavior to a production environment|
     |Standard, `S0`|Online learning behavior in a production environment|
     |Free, `F0`| Try Online learning behavior in a non-production environment|
-    
+
 1. Add Personalizer to your application, website, or system:
     1. Add a **Rank** call to Personalizer in your application, website, or system to determine best, single _content_ item before the content is shown to the user.
     1. Display best, single _content_ item, which is the returned _reward action ID_, to user.
