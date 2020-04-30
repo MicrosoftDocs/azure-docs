@@ -13,7 +13,7 @@ An agent pool provides:
 
 - **Virtual network support** - Assign an agent pool to an Azure VNet, providing access to resources in the VNet such as a container registry, key vault, or storage.
 - **Scale as needed** - Increase the number of instances in an agent pool for compute-intensive tasks, or scale to zero. Billing is based on allocation.
-- **Flexible options** - Choose from different [pool tiers][#pool-tiers] and scale options to meet your task workload needs.
+- **Flexible options** - Choose from different [pool tiers](#pool-tiers) and scale options to meet your task workload needs.
 - **Azure management** - Task pools are patched and maintained by Azure, providing reserved allocation without the need to maintain the individual VMs.
 
 This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry SKUs][acr-tiers].
@@ -26,16 +26,16 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 - Task agent pools currently support Linux nodes. Windows nodes are not currently supported.
 - Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, and East US.
-- For each registry, the default total vCPU (core) quota for all agent pools is 16. Open a support ticket][open-support-ticket] for additional allocation.
+- For each registry, the default total vCPU (core) quota for all agent pools is 16. Open a [support request][open-support-ticket] for additional allocation.
 
 ## Prerequisites
 
 * To use the Azure CLI steps in this article, Azure CLI version 2.3.1 or later is required. If you need to install or upgrade, see [Install Azure CLI][azure-cli]. Or run in [Azure Cloud Shell](../cloud-shell/quickstart.md).
-* If you don't already have a container registry, [create one][create-reg-cli](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli) (Premium tier required) in a preview region.
+* If you don't already have a container registry, [create one][create-reg-cli] (Premium tier required) in a preview region.
 
 ## Pool tiers
 
-The following table shows the resources per instance in the agent pool tiers.
+Agent pool tiers provide the following resources per instance in the pool.
 
 |Tier  |CPU  |Memory (GB)  |
 |---------|---------|---------|
@@ -91,7 +91,7 @@ Task agent pools require access to the following Azure services. The following f
 | Outbound  | TCP      | VirtualNetwork | Any         | AzureMonitor         | 443       | Default |
 
 > [!NOTE]
-> If your tasks require additional resources from public internet, add the corresponding rules. For example, these rules are needed if you run a docker build task that needs to pull the base images from Docker Hub, or restores a NuGet package.
+> If your tasks require additional resources from the public internet, add the corresponding rules. For example, these rules are needed if you run a docker build task that needs to pull the base images from Docker Hub, or restores a NuGet package.
 
 ### Create pool in VNet
 
@@ -155,7 +155,7 @@ az acr task run \
 
 ### Query pool status
 
-Query the agent pool queue status (the number of runs currently scheduled on the agent pool) by running [az acr agentpool show][az-acr-agentpool-show].
+To find the number of runs currently scheduled on the agent pool, run [az acr agentpool show][az-acr-agentpool-show].
 
 ```azurecli
 az acr agentpool show \
@@ -180,4 +180,5 @@ For more examples of container image builds and maintenance in the cloud, check 
 [az-acr-agentpool-show]: /cli/azure/acr/agentpool#az-acr-agentpool-show
 [az-acr-build]: /cli/azure/acr#az-acr-build
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
 [create-reg-cli]: container-registry-get-started-azure-cli.md
