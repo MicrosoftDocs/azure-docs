@@ -30,7 +30,7 @@ In this article, we'll select a custom output voice for the application we creat
 > ![Sample Sentences with parameters](media/custom-speech-commands/select-custom-voice.png)
 
 > [!NOTE]
-> - For **Public voices**, **Neural types** are only available for specific regions. To check availability, see [standard and neural voices by region/endpoint](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md#standard-and-neural-voices).
+> - For **Public voices**, **Neural types** are only available for specific regions. To check availability, see [standard and neural voices by region/endpoint](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
 > - For **Custom voices**, they can be created from the Custom Voice project page. See [Get Started with Custom Voice](./how-to-custom-voice.md).
 
 Now the application will respond in the selected voice, instead of the default voice.
