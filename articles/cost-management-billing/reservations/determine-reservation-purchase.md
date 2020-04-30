@@ -37,7 +37,7 @@ If you want to analyze at the instance size family level, you can get the instan
 
 ### Analyze usage for an Azure Synapse Analytics reserved instance purchase
 
-Reserved capacity applies to Azure Synapse Analytics vCore compute pricing. It doesn't apply to the DTU-based pricing, Azure Synapse Analytics license cost, or any costs other than compute.
+Reserved capacity applies to Azure Synapse Analytics DWU pricing. It doesn't apply to Azure Synapse Analytics license cost or any costs other than compute.
 
 To narrow eligible usage, apply follow filters on your usage data:
 

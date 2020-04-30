@@ -11,7 +11,7 @@ ms.author: banders
 
 # How reservation discounts apply to Azure Synapse Analytics
 
-After you buy Azure Synapse Analytics reserved capacity, the reservation discount is automatically applied to data warehouses that exist in that region. The reservation discount applies to the usage emitted by the Azure Synapse Analytics cDWU meter. Storage and networking are charged at pay-as-you-go rates.
+After you buy Azure Synapse Analytics reserved capacity, the reservation discount is automatically applied to your provisioned instances that exist in that region. The reservation discount applies to the usage emitted by the Azure Synapse Analytics cDWU meter. Storage and networking are charged at pay-as-you-go rates.
 
 ## Reservation discount application
 
