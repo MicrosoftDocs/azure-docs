@@ -57,7 +57,9 @@ The resulting CosmosDB container will embed the inner query into a single docume
 
 7. On the top source, add a Derived Column transformation after "SourceOrderDetails". Call the new transformation "TypeCast". We need to round the ```UnitPrice``` column and cast it to a double data type for CosmosDB. Set the formula to: ```toDouble(round(UnitPrice,2))```.
 
-8. 
+8. Add another derived column and call it "MakeStruct". This is where we will create a hierarchical structure to hold the values from the details table. Remember, details is a ```M:1``` relation to header. Name the new structure "orderdetailsstruct" and create the hierarchy in this way, setting each subcolumn to the incoming column name:
+
+![Create Struct](media/data-flow/cosmosb9.png)
 
 ## Next steps
 
