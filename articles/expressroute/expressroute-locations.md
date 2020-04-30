@@ -7,7 +7,7 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/29/2020
+ms.date: 04/30/2020
 ms.author: cherylmc
 
 ---
@@ -184,7 +184,7 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **Service provider** | **Microsoft Azure** | **Office 365** | **Locations** |
 | --- | --- | --- | --- |
 | **China Telecom** |Supported |Not Supported |Beijing, Beijing2, Shanghai, Shanghai2 |
-| **China Unicom** | Supported | Not Supported | Beijing2 |
+| **China Unicom** | Supported | Not Supported | Beijing2, Shanghai2 |
 | **[GDS](http://www.gds-services.com/en/about_2.html)** |Supported |Not Supported |Beijing2, Shanghai2 |
 
 To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/).
