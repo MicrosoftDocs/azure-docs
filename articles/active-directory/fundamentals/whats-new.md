@@ -57,11 +57,11 @@ The combined registration experience for Multi-Factor Authentication (MFA) and S
 
 **Product capability:** Identity Security & Protection
 
-Continuous Access Evaluation is a new security feature that enables near real-time enforcement of policies on replying parties consuming Azure AD Access Tokens when critical events happen in Azure AD (such as user account deletion). For more details, please read our [blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933) and  [documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation).
+Continuous Access Evaluation is a new security feature that enables near real-time enforcement of policies on relying parties consuming Azure AD Access Tokens when events happen in Azure AD (such as user account deletion). We are rolling this feature out first for Teams and Outlook clients, and will slowly broaden this in the coming months. For more details, please read our [blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933) and  [documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation).
 
 ---
 
-### Azure AD SMS Sign-in: Firstline Workers can sign in to Azure AD-backed applications with their phone number and no password [731501]
+### SMS Sign-in: Firstline Workers can sign in to Azure AD-backed applications with their phone number and no password  [731501]
 
 **Type:** New feature
 
@@ -192,13 +192,11 @@ Delta query for administrative units is available for public preview! You can no
 
 **Product capability:** Developer Experience
 
-Azure AD is releasing a new set of authentication method Microsoft Graph APIs. These APIs are key tools that empower administrators to manage their users’ authentication methods. With these APIs, a tenant can programmatically pre-register and manage users for Azure multi-factor authentication (MFA) and self-service password reset (SSPR). These APIs have been one of the most-requested features in the Azure MFA, SSPR, and Microsoft Graph spaces.
-
-The newly released APIs give an admin the ability to:
+Azure AD is releasing a new set of authentication method Microsoft Graph APIs. These APIs are a key tool to manage your users’ authentication methods. Now you can programmatically pre-register and manage the authenticators used for MFA and self-service password reset (SSPR). This has been one of the most-requested features in the Azure MFA, SSPR, and Microsoft Graph spaces. The new APIs we’ve released in this wave give you the ability to:
 
 - Read, add, update, and remove a user’s authentication phones
-- Reset a user’s password, including syncing to on-premises Active Directory if enabled
-- Turn on and off SMS-sign-in for users enabled for it
+- Reset a user’s password
+- Turn on and off SMS-sign-in
 
 These come at an especially welcome time as organizations around the world have shifted to remote work. We’ve heard from our admins that this has created unique complications for getting users registered for MFA and SSPR. Admins don’t want users registering from potentially unsafe locations, and they want users registered as soon as possible to get them protected. These APIs give you the ability to register your users and set them up for MFA via SMS immediately, without requiring users to register from beyond your corporate network or potentially wait a long time to register. [Learn more.](https://docs.microsoft.com/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)
 
@@ -305,7 +303,7 @@ My Staff enables Firstline Managers, such as a store manager, to ensure that the
 
 We will be upgrading the current reviewer experience for Azure AD access reviews in the Access Panel on July 27th 2020. This means that on July 27th, all reviewers will be automatically switched over to the new My Access to complete their access reviews. Please note that the updated Access reviews experience offers the same functionality as the current experience, but with an improved user interface on top of new capabilities to enable your users to be productive. [You can learn more about the updated experience here](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review). 
 
-Starting today, your reviewers will see a banner on the access reviews page that will allow them to try the updated experience in My Access, which is currently in preview. However, reviewers can continue to use the Access Panel until July 27th. If you wish to have your reviewers permanently switched over to the preview experience in My Access before July 27th, [please make a request here](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
+Starting today, your reviewers will see a banner on the access reviews page that will allow them to try the updated experience in My Access, which is currently in preview. However, reviewers can continue to use the Access Panel until July 27th. If you wish to have your reviewers permanently switched over to the preview experience in My Access now, [please make a request here](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
 
 ---
 
