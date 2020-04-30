@@ -2,22 +2,15 @@
 title: Application Provisioning status of Quarantine | Microsoft Docs
 description: When you've configured an application for automatic user provisioning, learn what a provisioning status of Quarantine means and how to clear it.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: mimart
 ms.reviewer: arvinh
-
-ms.collection: M365-identity-device-management
 ---
 
 # Application provisioning in quarantine status
