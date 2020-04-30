@@ -52079,6 +52079,11 @@
       "source_path": "articles/sql-database/sql-database-auditing-and-threat-detection-powershell.md",
       "redirect_url": "/azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/media-services/azure-media-player/azure-media-player-license.md",
+      "redirect_url": "/legal/azure-media-player/azure-media-player-license",
+      "redirect_document_id": false
     }
  ]
 }
