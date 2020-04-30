@@ -62,7 +62,7 @@ You can use the Editor widget to create new projects and manage a video's insigh
 
 ## Embedding videos
 
-This section discusses embgedding the public and pirvate content into apps.
+This section discusses embedding the public and private content into apps.
 
 The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` paramete. For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
