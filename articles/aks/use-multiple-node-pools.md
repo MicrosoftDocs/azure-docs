@@ -724,7 +724,7 @@ It may take a few minutes to update your AKS cluster depending on the node pool 
 > You must install the CLI preview extension 0.4.43 or greater to use the public IP per node feature.
 
 > [!Important]
-> During preview, the Azure Instance Metadata Service doesn't support public IP addresses for the standard tier VM SKU. Due to this limitation, the AKS nodes will not display their public IP addresses via kubectl commands, but the IPs are assigned and function as intended.
+> The Azure Instance Metadata Service doesn't currently support public IP addresses for the standard tier VM SKU. Due to this limitation, you can't use kubectl commands to display the public IPs assigned to the nodes. However, the IPs are assigned and function as intended.
 
 AKS nodes do not require their own public IP addresses for communication. However, scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. An common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved on AKS by registering for a preview feature, Node Public IP (preview).
 
