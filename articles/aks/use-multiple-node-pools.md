@@ -753,7 +753,7 @@ After successful registration, create a new resource group.
 az group create --name myResourceGroup2 --location eastus
 ```
 
-Create a new AKS cluster and attach a public IP for your node pool nodes. Each of the nodes in the node pool receives a unique public IP. You can verify this by looking at the Virtual Machine Scale Set instances.
+Create a new AKS cluster and attach a public IP for your nodes. Each of the nodes in the node pool receives a unique public IP. You can verify this by looking at the Virtual Machine Scale Set instances.
 
 ```azurecli-interactive
 az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-public-ip
