@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 04/29/2020
+  ms.date: 04/30/2020
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -133,6 +133,9 @@ conceptualContent:
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-apra-australia
           itemType: concept
           text: APRA (Australia)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-cftc-1-31-us
+          itemType: concept
+          text: CFTC 1.31 (US)
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-eba-eu
           itemType: concept
           text: EBA (EU)
@@ -154,13 +157,14 @@ conceptualContent:
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-fsa-denmark
           itemType: concept
           text: FSA (Denmark)
-        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-glba
-          itemType: concept
-          text: GLBA (US)
+
 
     # Card
     - title: Financial services
       links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-glba
+          itemType: concept
+          text: GLBA (US)
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-knf-poland
           itemType: concept
           text: KNF (Poland)
@@ -288,10 +292,10 @@ conceptualContent:
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-eu-us-privacy-shield
           itemType: concept
           text: EU-US Privacy Shield
-        - url: https://www.trustcenter.cn/default.html
+        - url: https://www.trustcenter.cn/compliance/default.html#GB18030
           itemType: concept
           text: GB 18030 (China) 
-        - url: https://www.trustcenter.cn/compliance/default.html#GB18030
+        - url: https://docs.microsoft.com/microsoft-365/compliance/gdpr
           itemType: concept
           text: GDPR (EU)
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-g-cloud-uk
@@ -309,7 +313,7 @@ conceptualContent:
           text: IT-Grundschutz (Germany)
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-lopd-spain
           itemType: concept
-          text: LOPD (Spain)
+          text: DPA (Spain)
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-meity-india
           itemType: concept
           text: MeitY (India)
@@ -357,7 +361,7 @@ additionalContent:
               url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FedRAMP_Reports
             - text: PCI DSS
               url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_PCI_DSS
-            - text: SOC
+            - text: SOC 1, 2, 3
               url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_SOC_/_SSAE_16_Reports
 
 
