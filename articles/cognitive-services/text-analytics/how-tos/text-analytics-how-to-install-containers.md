@@ -52,15 +52,15 @@ You must meet the following prerequisites before using Text Analytics containers
 
 Container images for Text Analytics are available on the Microsoft Container Registry.
 
-# [Key Phrase Extraction](#tab/keyphrase)
+# [Key Phrase Extraction (preview)](#tab/keyphrase)
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-# [Language Detection](#tab/language)
+# [Language Detection (preview)](#tab/language)
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-# [Sentiment Analysis](#tab/sentiment)
+# [Sentiment Analysis v3](#tab/sentiment)
 
 [!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
@@ -87,12 +87,13 @@ Replace the placeholders below with your own values:
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
 > * The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> * The sentiment analysis v3 container is now generally available, which returns [sentiment labels](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) in the response. The key phrase extraction and language detection containers use v2 of the API, and are in preview.
 
-# [Key Phrase Extraction](#tab/keyphrase)
+# [Key Phrase Extraction (preview)](#tab/keyphrase)
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-# [Language Detection](#tab/language)
+# [Language Detection (preview)](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 

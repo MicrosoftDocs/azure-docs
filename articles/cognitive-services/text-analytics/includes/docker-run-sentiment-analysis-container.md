@@ -11,14 +11,11 @@ ms.date: 04/29/2020
 ms.author: aahi
 ---
 
-> [!NOTE]
-> This container uses [version 3](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) of the API.
-
 To run the *Sentiment Analysis v3* container, execute the following `docker run` command.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/sentiment \
+mcr.microsoft.com/azure-cognitive-services/sentiment-v3 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

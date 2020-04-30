@@ -11,7 +11,7 @@ ms.date: 04/01/2020
 ms.author: aahi
 ---
 
-#### Docker pull for the Sentiment Analysis container
+#### Docker pull for the Sentiment Analysis v3 container
 
 > [!NOTE]
 > This container uses [version 3](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) of the API.
@@ -19,5 +19,5 @@ ms.author: aahi
 For a full description of available tags for the Text Analytics containers, see the [Sentiment Analysis](https://go.microsoft.com/fwlink/?linkid=2018654) container on the Docker Hub.
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/sentiment-v3.0:latest
 ```
