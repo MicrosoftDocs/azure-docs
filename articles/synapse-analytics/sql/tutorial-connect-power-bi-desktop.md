@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Tutorial: Connect SQL on-demand (preview) to Power BI Desktop & create report
+# Tutorial: Use SQL on-demand (preview) with Power BI Desktop & create a report
 
 In this tutorial, you learn how to:
 
@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 >
 > - Create demo database
 > - Create view used for report
-> - Connect to Power BI Desktop
+> - Connect Power BI Desktop to SQL on-demand
 > - Create report based on view
 
 ## Prerequisites
