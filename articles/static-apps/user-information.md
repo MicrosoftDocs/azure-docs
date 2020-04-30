@@ -1,7 +1,7 @@
 ---
-title: Accessing user information in an App Service Static Apps API
-description: #Required; article description that is displayed in search results. 
-services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
+title: Accessing user information in Azure Static Web Apps
+description: Learn to read authorization provider-returned user data.
+services: azure-functions
 author: craigshoemaker
 ms.service: azure-functions
 ms.topic:  conceptual
@@ -9,51 +9,89 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
+# Accessing user information in Azure Static Web Apps
 
-# Accessing user information in an App Service Static Apps API
+Azure Static Web Apps provides authentication-related user information via a [direct-access endpoint](#direct-access-endpoint) and to [API functions](#api-functions).
 
-Introductory paragraph.
+Many user interfaces rely heavily on user authentication data. The direct-access endpoint is a utility API that exposes user information without having to implement a custom function. Beyond convenience, the direct-access endpoint isn't subject to cold start delays that are associated with serverless architecture.
 
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental "why would I want to do this?" question.
---->
+## Client principal data
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+Client principal data object exposes user-identifiable information to your app. The following properties are featured in the client principal object:
 
-## Prerequisites
+| Property  | Description |
+|-----------|---------|
+| `identityProvider` | The name of the [identity provider](authentication-authorization.md). |
+| `userId` | An Azure Static Web Apps-specific unique identifier for the user. <ul><li>The value is unique on a per-app basis. For instance, the same user returns a different `userId` value on a different Static Web Apps resource.<li>The value persists for the lifetime of a user. If you delete and add the same user back to the app, a new `userId` is generated.</ul>|
+| `userDetails` | Username or email address of the user. Some providers return the [user's email address](authentication-authorization.md), while others send the [user handle](authentication-authorization.md). |
+| `userRoles`     | An array of the [user's assigned roles](authentication-authorization.md). |
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!--- Make Prerequisites your first H2 if you have them.
-If there's something a customer needs to take care of before they start (for example, creating a VM) it's OK to link to that content before they begin.
---->
+The following example is a sample client principal object:
 
-## <section>
+```json
+{
+  "identityProvider": "facebook",
+  "userId": "d75b260a64504067bfc5b2905e3b8182",
+  "userDetails": "user@example.com",
+  "userRoles": [ "anonymous", "authenticated" ]
+}
+```
 
-<!---Detail what the reader needs to know in each section
---->
+## Direct-access endpoint
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+You can send a `GET` request to the `/.auth/me` route and receive direct access to the client principal data. When the state of your view relies on authorization data, use this approach for the best performance.
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
-   <!---   ![Browser](media/contribute-how-to-mvc-quickstart/browser.png) --->
-      <!---Use screenshots but be judicious to maintain a reasonable length. Make sure screenshots align to the [current standards](contribute-mvc-screen-shots.md).
-      If users access your product/service via a web browser the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.--->
-1. Step four of the procedure
+For logged-in users, the response contains a client principal JSON object. Requests from unauthenticated users returns `null`.
+
+Using the [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch)\* API, you can access the client principal data using the following syntax.
+
+```javascript
+async function getUserInfo() {
+  const response = await fetch("/.auth/me");
+  const payload = await response.json();
+  const { clientPrincipal } = payload;
+  return clientPrincipal;
+}
+
+console.log(getUserInfo());
+```
+
+## API functions
+
+Client principal data is passed to API functions in the `x-ms-client-principal` request header. The client principal data is sent as a [Base64](https://www.wikipedia.org/wiki/Base64)-encoded string containing a serialized JSON object.
+
+The following example function, named `user`, shows how to read and return user information.
+
+```javascript
+module.exports = async function (context, req) {
+  const header = req.headers["x-ms-client-principal"];
+  const encoded = Buffer.from(header, "base64");
+  const decoded = encoded.toString("ascii");
+
+  context.res = {
+    body: {
+      clientPrincipal: JSON.parse(decoded)
+    }
+  };
+};
+```
+
+Using the [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch)\* browser API, you can access the API's response using the following syntax.
+
+```javascript
+async function getUser() {
+  const response = await fetch("/api/user");
+  const payload = await response.json();
+  const { clientPrincipal } = payload;
+  return clientPrincipal;
+}
+
+console.log(getUser());
+```
+
+\* The [fetch](https://caniuse.com/#feat=fetch) API and [await](https://caniuse.com/#feat=mdn-javascript_operators_await) operator aren't supported in Internet Explorer.
 
 ## Next steps
 
-<!-- Uncomment this block and add the appropriate link
-
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
--->
-
-<!--- Required:
-A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn't fit.
---->
+> [Configure environment variables](environment-variables.md)

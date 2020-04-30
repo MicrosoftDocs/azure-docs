@@ -90,6 +90,8 @@ landingContent:
             url: load-balancer-standard-diagnostics.md
           - text: Troubleshoot Azure Load Balancer
             url: load-balancer-troubleshoot.md
+          - text: Common Azure Load Balancer errors
+            url: load-balancer-common-deployment-errors.md
       
      # Card
   - title: Reference
