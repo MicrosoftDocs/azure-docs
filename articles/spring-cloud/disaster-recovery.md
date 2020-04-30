@@ -56,4 +56,4 @@ Here is the traffic manager profile:
 
 4. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
 
-5. Now, the environment is completely set up. Customers should able to access the app via: bcdr-test.contoso.com
+5. Now, the environment is completely set up. Customers should be able to access the app via: bcdr-test.contoso.com
