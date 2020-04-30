@@ -20,15 +20,15 @@ ms.custom: has-adal-ref
 
 ## Diagnose runbook issues
 
-When you receive errors during runbook execution in Azure Automation, you can use the following steps to help diagnose the issues.
+When you receive errors during runbook execution in Azure Automation, you can use the following steps to help diagnose the issues:
 
 1. Ensure that your runbook script executes successfully on your local machine.
 
     For language reference and learning modules, see the [PowerShell Docs](/powershell/scripting/overview) or [Python Docs](https://docs.python.org/3/). Running your script locally can discover and resolve common errors, such as:
 
-      * Missing modules.
-      * Syntax errors.
-      * Logic errors.
+      * Missing modules
+      * Syntax errors
+      * Logic errors
 
 1. Investigate runbook [error streams](../automation-runbook-output-and-messages.md#runbook-output).
 
@@ -84,7 +84,7 @@ These errors occur if the credential asset name isn't valid. They might also occ
 
 ### Resolution
 
-To determine what's wrong, follow these steps.
+To determine what's wrong, follow these steps:
 
 1. Make sure that you don't have any special characters. These characters include the `\@` character in the Automation credential asset name that you're using to connect to Azure.
 1. Check to see if you can use the user name and password that are stored in the Azure Automation credential in your local PowerShell ISE editor. Run the following cmdlets in the PowerShell ISE.
@@ -97,7 +97,7 @@ To determine what's wrong, follow these steps.
    Connect-AzAccount –Credential $Cred
    ```
 
-1. If your authentication fails locally, you haven't set up your Azure Active Directory credentials properly. To get the Azure Active Directory account set up correctly, see the blog post [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/).
+1. If your authentication fails locally, you haven't set up your Azure Active Directory (Azure AD) credentials properly. To get the Azure AD account set up correctly, see the blog post [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/).
 
 1. If the error appears to be transient, try adding retry logic to your authentication routine to make authenticating more robust.
 
@@ -146,7 +146,7 @@ This error has two primary causes:
 
 If you receive this error after you update one AzureRM or Az module, update all your modules to the same version.
 
-If you're trying to access resources in another subscription, follow these steps to configure permissions.
+If you're trying to access resources in another subscription, follow these steps to configure permissions:
 
 1. Go to the Automation Run As account, and copy the **Application ID** and **Thumbprint**.
 
@@ -194,12 +194,12 @@ The subscription named <subscription name> cannot be found.
 This error can occur if:
 
 * The subscription name isn't valid.
-* The Azure Active Directory (Azure AD) user who's trying to get the subscription details isn't configured as an administrator of the subscription.
+* The Azure AD user who's trying to get the subscription details isn't configured as an administrator of the subscription.
 * The cmdlet isn't available.
 
 ### Resolution
 
-Follow these steps to determine if you've authenticated to Azure and have access to the subscription that you're trying to select.
+Follow these steps to determine if you've authenticated to Azure and have access to the subscription that you're trying to select:
 
 1. To make sure that your script works standalone, test it outside of Azure Automation.
 1. Make sure that your script runs the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) cmdlet before running the `Select-*` cmdlet.
@@ -290,7 +290,7 @@ This error can be caused by using outdated Azure modules.
 
 ### Resolution
 
-You can resolve this error by updating your Azure modules to the latest version.
+You can resolve this error by updating your Azure modules to the latest version:
 
 1. In your Automation account, select **Modules**, and then select **Update Azure modules**.
 1. The update takes roughly 15 minutes. After it's finished, rerun the runbook that failed.
@@ -504,7 +504,7 @@ This error occurs when the job execution exceeds the 500-minute free quota for y
 
 ### Resolution
 
-If you want to use more than 500 minutes of processing per month, change your subscription from the Free tier to the Basic tier.
+If you want to use more than 500 minutes of processing per month, change your subscription from the Free tier to the Basic tier:
 
 1. Sign in to your Azure subscription.
 1. Select the Automation account to upgrade.
