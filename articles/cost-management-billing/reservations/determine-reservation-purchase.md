@@ -39,7 +39,7 @@ If you want to analyze at the instance size family level, you can get the instan
 
 Reserved capacity applies to Azure Synapse Analytics vCore compute pricing. It doesn't apply to the DTU-based pricing, Azure Synapse Analytics license cost, or any costs other than compute.
 
-To narrow eligible SQL usage, apply follow filters on your usage data:
+To narrow eligible usage, apply follow filters on your usage data:
 
 
 - Filter **MeterCategory** for **SQL Database**.
@@ -57,7 +57,7 @@ The data informs you about the consistent usage for:
 
 ### Analysis for Azure Synapse Analytics
 
-Reserved capacity applies to Azure Synapse Analytics DWU usage and is purchased in increments on 100 DWU. To narrow eligible SQL usage, apply the follow filters on your usage data:
+Reserved capacity applies to Azure Synapse Analytics DWU usage and is purchased in increments on 100 DWU. To narrow eligible  usage, apply the follow filters on your usage data:
 
 - Filter **MeterName** for **100 DWUs**.
 - Filter **Meter Sub-Category** for **Compute Optimized Gen2**.
