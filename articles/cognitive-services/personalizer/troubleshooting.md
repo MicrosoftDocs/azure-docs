@@ -9,6 +9,23 @@ ms.author: diberry
 
 This article contains answers to frequently asked troubleshooting questions about Personalizer.
 
+## Configuration issues
+
+<details>
+<summary><b>I changed a configuration setting and now my loop isn't performing at the same learning level. What happened?</b></summary>
+
+**Answer**:
+Some configuration settings [reset your model](how-to-settings.md#settings-that-include-resetting-the-model). Configuration changes should be carefully planned.
+
+</details>
+
+<details>
+<summary><b>When configuring Personalizer with the API, I received an error. What happened?</b></summary>
+
+**Answer**:
+If you use the API to configure your service and change your learning behavior, you will get an error. You need to make two separate API calls: first, to configure your service, then to switch learning behavior. 
+</details>
+
 ## Transaction errors
 
 <details>
