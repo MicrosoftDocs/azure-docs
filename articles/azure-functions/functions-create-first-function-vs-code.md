@@ -3,11 +3,28 @@ title: Create your first function in Azure using Visual Studio Code
 description: Create and publish to Azure a simple HTTP triggered function by using Azure Functions extension in Visual Studio Code. 
 ms.topic: quickstart
 ms.date: 01/10/2020
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, seo
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Quickstart: Create an Azure Functions project using Visual Studio Code
+::: zone pivot="programming-language-csharp"  
+# Quickstart: Create a C# function in Azure using Visual Studio Code
+::: zone-end  
+::: zone pivot="programming-language-javascript"
+# Quickstart: Create a JavaScript function in Azure using Visual Studio Code
+::: zone-end
+::: zone pivot="programming-language-typescript"
+# Quickstart: Create a TypeScript function in Azure using Visual Studio Code
+::: zone-end   
+::: zone pivot="programming-language-powershell"
+# Quickstart: Create a PowerShell function in Azure using Visual Studio Code
+::: zone-end  
+::: zone pivot="programming-language-python" 
+# Quickstart: Create a Python function in Azure using Visual Studio Code
+::: zone-end  
+::: zone pivot="programming-language-java" 
+# Quickstart: Create a Java function in Azure using Visual Studio Code
+::: zone-end
 
 In this article, you use Visual Studio Code to create a function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
 
