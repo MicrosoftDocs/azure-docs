@@ -723,9 +723,6 @@ It may take a few minutes to update your AKS cluster depending on the node pool 
 > [!WARNING]
 > You must install the CLI preview extension 0.4.43 or greater to use the public IP per node feature.
 
-> [!Important]
-> The Azure Instance Metadata Service doesn't currently support public IP addresses for the standard tier VM SKU. Due to this limitation, you can't use kubectl commands to display the public IPs assigned to the nodes. However, the IPs are assigned and function as intended.
-
 AKS nodes do not require their own public IP addresses for communication. However, scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved on AKS by registering for a preview feature, Node Public IP (preview).
 
 To install and update the latest aks-preview extension, use the following Azure CLI commands:
@@ -765,7 +762,10 @@ For existing AKS clusters, you can also add a new node pool, and attach a public
 az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
 ```
 
-You can find the public IPs for your nodes in various ways. The public IPs for your nodes are attached to the instances in your Virtual Machine Scale Set.
+> [!Important]
+> During preview, the Azure Instance Metadata Service doesn't currently support retrieval of public IP addresses for the standard tier VM SKU. Due to this limitation, you can't use kubectl commands to display the public IPs assigned to the nodes. However, the IPs are assigned and function as intended. The public IPs for your nodes are attached to the instances in your Virtual Machine Scale Set.
+
+You can locate the public IPs for your nodes in various ways:
 
 * Use the Azure CLI command [az vmss list-instance-public-ips][az-list-ips]
 * Use [PowerShell or Bash commands][vmss-commands]. 
