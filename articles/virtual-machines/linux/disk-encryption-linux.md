@@ -14,7 +14,7 @@ ms.custom: seodec18
 # Azure Disk Encryption scenarios on Linux VMs
 
 
-Azure Disk Encryption for Linux virtual machines (VMs) uses the DM-Crypt feature of Linux to provide full disk encryption of the OS disk and data disks. Additionally, it provides encryption of the temporary resource disk when using the EncryptFormatAll feature.
+Azure Disk Encryption for Linux virtual machines (VMs) uses the DM-Crypt feature of Linux to provide full disk encryption of the OS disk and data disks. Additionally, it provides encryption of the temporary disk when using the EncryptFormatAll feature.
 
 Azure Disk Encryption is [integrated with Azure Key Vault](disk-encryption-key-vault.md) to help you control and manage the disk encryption keys and secrets. For an overview of the service, see [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md).
 
@@ -212,7 +212,7 @@ For more information about configuring the Linux VM disk encryption template, se
 
 The **EncryptFormatAll** parameter reduces the time for Linux data disks to be encrypted. Partitions meeting certain criteria will be formatted, along with their current file systems, then remounted back to where they were before command execution. If you wish to exclude a data disk that meets the criteria, you can unmount it before running the command.
 
- After running this command, any drives that were mounted previously will be formatted, and the encryption layer will be started on top of the now empty drive. When this option is selected, the temporary resource disk attached to the VM will also be encrypted. If the ephemeral drive is reset, it will be reformatted and re-encrypted for the VM by the Azure Disk Encryption solution at the next opportunity. Once the resource disk gets encrypted, the [Microsoft Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) will not be able to manage the resource disk and enable the swap file, but you may manually configure the swap file.
+ After running this command, any drives that were mounted previously will be formatted, and the encryption layer will be started on top of the now empty drive. When this option is selected, the temporary disk attached to the VM will also be encrypted. If the temporary disk is reset, it will be reformatted and re-encrypted for the VM by the Azure Disk Encryption solution at the next opportunity. Once the resource disk gets encrypted, the [Microsoft Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) will not be able to manage the resource disk and enable the swap file, but you may manually configure the swap file.
 
 >[!WARNING]
 > EncryptFormatAll shouldn't be used when there is needed data on a VM's data volumes. You may exclude disks from encryption by unmounting them. You should first try out the EncryptFormatAll first on a test VM, understand the feature parameter and its implication before trying it on the production VM. The EncryptFormatAll option formats the data disk and all the data on it will be lost. Before proceeding, verify that disks you wish to exclude are properly unmounted. </br></br>
