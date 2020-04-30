@@ -142,7 +142,9 @@ When you submit a pipeline run and stay in the authoring page, you can find the 
 You can also find the log files for specific runs in the pipeline run detail page, which can be found in either the **Pipelines** or **Experiments** section of the studio.
 
 1. Select a pipeline run created in the designer.
+
     ![Pipeline run page](./media/how-to-debug-pipelines/designer-pipelines.png)
+
 1. Select a module in the preview pane.
 1. In the right pane of the module, go to the  **Outputs + logs** tab.
 1. Expand the right pane to view the **70_driver_log.txt** file in browser, or select the file to download the logs locally.
