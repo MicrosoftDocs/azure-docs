@@ -2,7 +2,7 @@
 title: Design with models - LUIS
 description: Language understanding provides several types of models. Some models can be used in more than one way.
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 04/30/2020
 ---
 
 # Design with intent and entity models
@@ -28,8 +28,6 @@ Consider an app that needs to determine a user's intention to order a book and a
 The following utterance is a **positive example** for the `OrderBook` intent and a **negative example** for the `ShippingLocation` and `None` intents:
 
 `Buy the top-rated book on bot architecture.`
-
-The result of well-designed intents, with their example utterances, is a high intent prediction.
 
 ## Entities extract data
 
