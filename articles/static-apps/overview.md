@@ -12,7 +12,7 @@ ms.author: cshoe
 
 # What is Azure Static Web Apps (Preview)?
 
-Azure Static Web Apps is a service that automatically builds and deploys web apps to Azure from a GitHub repository.
+Azure Static Web Apps is a service that automatically builds and deploys full stack web apps to Azure from a GitHub repository.
 
 :::image type="content" source="media/overview/static-apps-overview.png" alt-text="Static Apps overview":::
 
@@ -27,7 +27,7 @@ With Static Web Apps, static assets are separated from a traditional web server 
 ## Key features
 
 - **Free web hosting** for static content like HTML, CSS, JavaScript, and images.
-- **Free API** support provided by Azure Functions.
+- **Integrated API** support provided by Azure Functions.
 - **First-party GitHub integration** where repository changes trigger builds and deployments.
 - **Globally distributed** static content, putting content closer to your users.
 - **Free SSL certificates**, which are automatically renewed.
@@ -40,7 +40,7 @@ With Static Web Apps, static assets are separated from a traditional web server 
 
 ## What you can do with Static Web Apps
 
-- **Build modern JavaScript applications** with frameworks and libraries like [Angular](https://angular.io/), [React](https://reactjs.org/), [Svelete](https://svelte.dev/), [Vue](https://vuejs.org/) with an [Azure Functions](https://azure.microsoft.com/services/functions/) back-end.
+- **Build modern JavaScript applications** with frameworks and libraries like [Angular](https://angular.io/), [React](https://reactjs.org/), [Svelte](https://svelte.dev/), [Vue](https://vuejs.org/) with an [Azure Functions](https://azure.microsoft.com/services/functions/) back-end.
 - **Publish static sites** with frameworks like [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
 - **Deploy web applications** with frameworks like [Next.js](deploy-nextjs.md) and [Nuxt.js](deploy-nuxtjs.md).
 
