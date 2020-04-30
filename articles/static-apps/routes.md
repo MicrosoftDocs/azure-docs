@@ -39,16 +39,16 @@ Routes are defined in the _routes.json_ file as an array of route rules on the `
 
 | Rule property  | Required | Default value | Comment                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Yes      | n/a          | The route pattern requested by the caller. [Wildcards](#wildcards) are supported at the end of route paths. For instance, the route _admin/\*_ matches any route under the _admin_ path. |
-| `serve`        | No       | n/a          | Defines the file or path returned from the request. The file path and name can be different from the requested path. If `serve` value is defined, then the requested path is used. |
+| `route`        | Yes      | n/a          | The route pattern requested by the caller.<ul><li>[Wildcards](#wildcards) are supported at the end of route paths. For instance, the route _admin/\*_ matches any route under the _admin_ path.<li>A route's default file is _index.html_.</ul>|
+| `serve`        | No       | n/a          | Defines the file or path returned from the request. The file path and name can be different from the requested path. If a `serve` value is defined, then the requested path is used. |
 | `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role `anonymous` applies to all unauthenticated users.<li>The built-in role `authenticated` applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis. If a user is in any of the listed roles, then access is granted.<li>Individual users are associated to roles by through [invitations](authentication-authorization.md).</ul> |
 | `statusCode`   | No       | 200           | The [HTTP status code](https://wikipedia.org/wiki/List_of_HTTP_status_codes) response for the request. |
 
 ## Securing routes with roles
 
-Routes are secured by adding one or more role names into a rule's `allowedRoles` array.
+Routes are secured by adding one or more role names into a rule's `allowedRoles` array. See the [example route file](#example-route-file) for usage examples.
 
-By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role. For instance, to require that only logged-in users have access to a route, add the built-in `authenticated` role to the `allowedRoles` array.
+By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role. For instance, to restrict a route to only authenticated users, add the built-in `authenticated` role to the `allowedRoles` array.
 
 ```json
 {
@@ -130,7 +130,7 @@ The following table lists the available platform error overrides:
 |---------|---------|---------|
 | `NotFound` | 404  | A page is not found on the server. |
 | `Unauthenticated` | 401 | The user is not logged in with an [authentication provider](authentication-authorization.md). |
-| `Unauthorized_InsufficientUserInformation` | 401 | The user's account on the authentication provider is not configured to expose required data. This error happens in situations like when an authentication provider is asked for the user's email address, but the user has chosen to restricted it. |
+| `Unauthorized_InsufficientUserInformation` | 401 | The user's account on the authentication provider is not configured to expose required data. This error happens in situations like when an authentication provider is asked for the user's email address, but the user chose to restricted it. |
 | `Unauthorized_InvalidInvitationLink` | 401 | An invitation has either expired, or the user followed an invitation link generated for another recipient.  |
 | `Unauthorized_MissingRoles` | 401 | The user is not a member of a required role. |
 | `Unauthorized_TooManyUsers` | 401 | The site has reached the maximum number of users, and the server is limiting further additions. This error is exposed to the client because there's no limit to the number of [invitations](authentication-authorization.md) you can generate, and some users may never accept their invitation.|
@@ -138,7 +138,7 @@ The following table lists the available platform error overrides:
 
 ## Example route file
 
-The following example shows how to build route rules in a _routes.json_ file. Some routes use the [_/.auth_ system folder](authentication-authorization.md) that access authentication-related utility endpoints.
+The following example shows how to build route rules in a _routes.json_ file. Some routes use the [_/.auth_ system folder](authentication-authorization.md) that access authentication-related endpoints.
 
 ```json
 {
