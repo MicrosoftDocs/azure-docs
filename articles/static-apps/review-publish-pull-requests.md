@@ -1,9 +1,9 @@
 ---
-title: Review pull requests in pre-production environments in App Service Static Apps
-description: Learn how to use pre-production environments to review pull requests changes in App Service Static Apps.
-services: azure-functions
+title: Review pull requests in pre-production environments in Azure Static Web Apps
+description: Learn how to use pre-production environments to review pull requests changes in Azure Static Web Apps.
+services: static-web-apps
 author: sinedied
-ms.service: azure-functions
+ms.service: static-web-apps
 ms.topic:  conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
@@ -16,10 +16,10 @@ This article demonstrates how to use pre-production environments to review chang
 
 A pre-production environment is a fully-functional staged version of your application that includes changes not available in production. Generated from GitHub pull requests, staged apps work and behave just as they would in production allowing you to perform reviews before pushing to production.
 
-Multiple pre-production environments can co-exist at the same time when using Azure Static Web Apps. Each time you create a pull request on GitHub, a staged version with your changes is deployed to a distinct pre-production environment.
+Multiple pre-production environments can co-exist at the same time when using Azure Static Web Apps. Each time you create a pull request against the tracked branch, a staged version with your changes is deployed to a distinct pre-production environment.
 
 There are many benefits of using pre-production environments. For example, you can:
-- Review visual changes more easily, for examples changes to CSS
+- Review visual changes more easily - for example, updates to content and layout
 - Demonstrate the changes to your team
 - Compare different versions of your application
 - Validate changes using acceptance tests
@@ -31,7 +31,7 @@ There are many benefits of using pre-production environments. For example, you c
 
 ## Make a change
 
-Begin by making a change either to a local clone of your repository or directly on GitHub. If you make changes locally, you need to commit your changes and push them up to GitHub. Alternatively, you can make the change directly on GitHub as shown in the following steps.
+Begin by making a change either to a local clone of your repository or directly on GitHub. If you make local changes, first create a new branch. Then commit your changes to the branch and push it up to GitHub. Alternatively, you can make a change directly on GitHub as shown in the following steps.
 
 1. Navigate to your project repository on GitHub, then click on the **Branch** button to create a new branch.
 
@@ -49,7 +49,7 @@ Begin by making a change either to a local clone of your repository or directly 
 
 ## Create a pull request
 
-Next, create a pull request from this change. If you made the change locally, make sure to push your branch to remote.
+Next, create a pull request from this change. If you made the local changes, make sure to push your branch to remote.
 
 1. Open the **Pull request** tab of your project on GitHub:
     :::image type="content" source="./media/review-publish-pull-requests/pr-tab.png" alt-text="Pull request tab in a GitHub repository":::
@@ -80,13 +80,15 @@ For a given pull request, the URL remains the same even if you push new updates.
 
 ## Publish changes 
 
-When the pull request is accepted and you are satisfied with the current staged version of your application, the final step is to publish your changes to production.
+Once changes are approved, you can publish your changes to production by merging the pull request.
 
 Click on **Merge pull request**:
 
 :::image type="content" source="./media/review-publish-pull-requests/merge-pr.png" alt-text="Merge pull request button in GitHub interface":::
 
-Merging copies your changes to the `master` branch (the "production" branch). Then, the deployment workflow starts on the `master` branch and the changes are live after your application has rebuilt. To verify the changes in production,  open your production URL to launch the live version of the website.
+Merging copies your changes to the tracked branch (the "production" branch). Then, the deployment workflow starts on the tracked branch and the changes are live after your application has rebuilt.
+
+To verify the changes in production,  open your production URL to load the live version of the website.
 
 ## Limitations
 
