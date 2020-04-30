@@ -92,7 +92,7 @@ Variations in Azure Government:
 - Auth Token Service: 
      - https://usgovvirginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
      - https://usgovarizona.api.cognitive.microsoft.us/sts/v1.0/issueToken
-- Custom Translator and Translator Hub are not supported.
+- Custom Translator is not supported.
  
 For more information, see the [global Azure documentation](../cognitive-services/translator/translator-info-overview.md) and [Translator API documentation](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference).
 
