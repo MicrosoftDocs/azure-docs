@@ -3,7 +3,7 @@ title: Use the Azure Maps Indoor Maps module | Microsoft Azure Maps
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/22/2020
+ms.date: 04/30/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ manager: philmea
 
 # Use the Azure Maps Indoor Maps module
 
-The Azure Maps Web SDK includes the *Indoor Maps* module. The  *Indoor Maps* module allows you to render indoor maps created in Azure Maps Creator.
+The Azure Maps Web SDK includes the *Azure Maps Indoor* module. The  *Azure Maps Indoor* module allows you to render indoor maps created in Azure Maps Creator.
 
 ## Prerequisites
 
@@ -24,9 +24,9 @@ The Azure Maps Web SDK includes the *Indoor Maps* module. The  *Indoor Maps* mod
 
 ## Embed the Indoor Maps module
 
-You can install and embed the Azure Maps *Indoor Maps* module in one of two ways.
+You can install and embed the *Azure Maps Indoor* module in one of two ways.
 
-To use the globally hosted Azure Content Delivery Network version of the Azure Maps *Indoor Maps* module, reference the Indoor Module JavaScript and Style Sheet in the `<head>` element of the HTML file:
+To use the globally hosted Azure Content Delivery Network version of the *Azure Maps Indoor* module, reference the following JavaScript and Style Sheet references in the `<head>` element of the HTML file:
 
   ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
@@ -35,27 +35,27 @@ To use the globally hosted Azure Content Delivery Network version of the Azure M
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css">
   ```
 
- Or, you can download the *Azure Maps Services* module. The *Azure Maps Services* module contains a client library for accessing Azure Maps services. Follow the steps below to install and load the *Indoor Maps* module into your web application.  
+ Or, you can download the *Azure Maps Indoor* module which contains a client library for accessing Azure Maps services. Follow the steps below to install and load the *Azure Maps Indoor* module into your web application.  
   
-  1. Install the NPM package. Make sure you use administrator privileges in the console:
+  1. Download the [azure-maps-indoor package] (https://www.npmjs.com/package/azure-maps-indoor).
+  
+  2. Install the NPM package. Make sure you use administrator privileges in the console:
 
       ```powershell
         >npm install azure-maps-control
         >npm install azure-maps-indoor
       ```
 
-  2. Reference the *Indoor Maps* module JavaScript and Style Sheet in the `<head>` element of the HTML file:
+  3. Reference the *Azure Maps Indoor* module JavaScript and Style Sheet in the `<head>` element of the HTML file:
 
       ```html
-      <script src="node_modules/azure-maps-rest/dist/atlas-indoor.min.js"></script>
       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css">
-
-        ```
+      ```
 
 ## Instantiate the Map object
 
-The first thing you must do is create a *map object*. The *map object* will be used in the next step to instantiate the *Indoor Manager* object.  The code below shows you how to instantiate the *map object*:
+First, create a *Map object*. The *Map object* will be used in the next step to instantiate the *Indoor Manager* object.  The code below shows you how to instantiate the *Map object*:
 
 ```javascript
   const subscriptionKey = "<your Azure Maps Primary Subscription Key>";
@@ -72,7 +72,7 @@ The first thing you must do is create a *map object*. The *map object* will be u
 
 ## Instantiate the Indoor Manager
 
-To load the indoor tilesets and map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *map object* and the corresponding tilesetID. You may optionally include the `stateSetId`, if you're using [dynamic map styling](indoor-map-dynamic-styling.md). The code below shows you how to instantiate the indoor manager:
+To load the indoor tilesets and map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *Map object* and the corresponding `tilesetId`. If you wish to support [dynamic map styling](indoor-map-dynamic-styling.md), you must pass the `stateSetId`. Note that the `stateSetId` variable name is case sensitive. You code should like the JavaScript below.
 
 ```javascript
 const tilesetId = "";
@@ -84,7 +84,7 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 });
 ```
 
-To enable polling of state data you provide, you must provide the `stateSetId` and call `indoorManager.setDynamicStyling(true)`. Polling state data lets you dynamically update the state of dynamic properties or *states*. For example, a feature, such as room, within a tile can have a dynamic property (*state*) called `occupancy`. Your application may wish to poll for any *state* changes to reflect the change inside the visual map. The code below shows you how to enable state polling:
+To enable polling of state data you provide, you must provide the `stateSetId` and call `indoorManager.setDynamicStyling(true)`. Polling state data lets you dynamically update the state of dynamic properties or *states*. For example, a feature such as room can have a dynamic property (*state*) called `occupancy`. Your application may wish to poll for any *state* changes to reflect the change inside the visual map. The code below shows you how to enable state polling:
 
 ```javascript
 
@@ -113,7 +113,7 @@ indoorManager.setOptions({ levelControl });
 
 ## Indoor Events
 
- The *Indoor Maps* module supports *map object* events. The *map object* event listeners are invoked when a level or facility has changed. If you want to run code when a level or a facility have changed, place your code inside the event listener. The code below shows how event listeners can be added to the *map object*.
+ The *Azure Maps Indoor* module supports *Map object* events. The *Map object* event listeners are invoked when a level or facility has changed. If you want to run code when a level or a facility have changed, place your code inside the event listener. The code below shows how event listeners can be added to the *Map object*.
 
 ```javascript
 map.events.add("levelchanged", indoorManager, (eventData) => {
@@ -135,26 +135,26 @@ You can incorporate this data in your web application. For example, you can keep
 
 ## Example: Use the Indoor Maps Module
 
-This example shows you how to use the *Indoor Maps* module in your web application. Although the example is limited in scope, it covers the basics of what you need to get started using the *Indoor Maps* module. The complete HTML code is below these steps.
+This example shows you how to use the *Azure Maps Indoor* module in your web application. Although the example is limited in scope, it covers the basics of what you need to get started using the *Azure Maps Indoor* module. The complete HTML code is below these steps.
 
-1. Use the Azure Content Delivery Network [option](#embed-the-indoor-maps-module) to install the *Indoor Maps* module.
+1. Use the Azure Content Delivery Network [option](#embed-the-indoor-maps-module) to install the *Azure Maps Indoor* module.
 
 2. Create a new HTML file
 
-3. In the HTML header, reference the *Indoor Maps* module JavaScript and style sheet styles.
+3. In the HTML header, reference the *Azure Maps Indoor* module JavaScript and style sheet styles.
 
-4. Initialize a *map object*. The *map object* supports the following options:
+4. Initialize a *Map object*. The *Map object* supports the following options:
     - `Subscription key` is your Azure Maps primary subscription key.
     - `center` defines a latitude and longitude for your indoor map center location. Provide a value for `center` if you do not want to provide a value for `bounds`. Format should appear as `center`: [-122.13315, 47.63637].
     - `bounds` is the smallest rectangular shape that encloses the tileset map data. Set a value for `bounds` if you do not want to set a value for `center`. You can find your map bounds by calling the [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). The Tileset List API returns the `bbox`, which you can parse and assign to `bounds`. Format should appear as `bounds`: [ # , # , # , # ].
     - `style` allows you to set the color of the background. To display a white background, define `style` as "blank".
     - `zoom` allows you to specify the min and max zoom levels for your map.
 
-5. Next, create the *Indoor Manager* module. Assign the *Indoor Maps* `tilesetId`, and optionally add the `stateSetId`.
+5. Next, create the *Indoor Manager* module. Assign the *Azure Maps Indoor* `tilesetId`, and optionally add the `stateSetId`.
 
 6. Instantiate the *Indoor Level Picker* control.
 
-7. Add *map object* event listeners.  
+7. Add *Map object* event listeners.  
 
 Your file should now look similar to the HTML below.
 
@@ -235,7 +235,7 @@ To see your indoor map, load it into a web browser. It should appear like the im
 
 ## Next steps
 
-Read about the APIs that are related to the *Indoor Maps* module:
+Read about the APIs that are related to the *Azure Maps Indoor* module:
 
 > [!div class="nextstepaction"]
 > [Drawing package requirements](drawing-requirements.md)
