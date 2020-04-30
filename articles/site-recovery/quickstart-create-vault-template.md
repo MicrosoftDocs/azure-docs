@@ -96,9 +96,9 @@ echo "Press [ENTER] to continue ..."
 ```azurepowershell-interactive
 $resouceGroupName = Read-Host -Prompt "Enter the resource group name"
 $vaultName = Read-Host -Prompt "Enter the vault name"
-$vaultbackupconfig = Get-AzRecoveryServicesVault -Name $vaultName
+$vaultBackupConfig = Get-AzRecoveryServicesVault -Name $vaultName
 Get-AzRecoveryServicesVault -ResourceGroupName $resouceGroupName -Name $vaultName
-Get-AzRecoveryServicesBackupProperty -Vault $vaultbackupconfig
+Get-AzRecoveryServicesBackupProperty -Vault $vaultBackupConfig
 Write-Host "Press [ENTER] to continue..."
 ```
 
