@@ -2,7 +2,7 @@
 title: Glossary - LUIS
 description: The glossary explains terms that you might encounter as you work with the LUIS API Service.
 ms.topic: reference
-ms.date: 04/29/2020
+ms.date: 04/30/2020
 ---
 
 # Language understanding glossary of common vocabulary and concepts
@@ -141,7 +141,6 @@ A subentity is a child entity of a machine-learned entity.
 An entity that uses text matching to extract data:
 * List entity
 * Regular expression entity
-* Prebuilt entity
 
 ### List entity
 
@@ -206,7 +205,7 @@ A [phrase list](luis-concept-feature.md) is a specific type of machine learning 
 
 ## Prebuilt model
 
-A [prebuilt model](luis-concept-prebuilt-model.md) is an intent, entity, or collection of both, along with labeled examples. These common prebuilt models can be added to your add to reduce the model development work required for your app.
+A [prebuilt model](luis-concept-prebuilt-model.md) is an intent, entity, or collection of both, along with labeled examples. These common prebuilt models can be added to your app to reduce the model development work required for your app.
 
 ### Prebuilt domain
 
@@ -289,7 +288,16 @@ The endpoint includes [timezoneOffset](luis-concept-data-alteration.md#change-ti
 See [Change time zone of prebuilt datetimeV2 entity](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
 ## Token
-A [token](luis-language-support.md#tokenization) is the smallest unit that can be labeled in an entity. Tokenization is based on the application's culture.
+A [token](luis-language-support.md#tokenization) is the smallest unit of text that LUIS can recognize. This differs slightly across languages.
+
+For **English**, a token is a continuous span (no spaces or punctuation) of letters and numbers. A space is NOT a token.
+
+|Phrase|Token count|Explanation|
+|--|--|--|
+|`Dog`|1|A single word with no punctuation or spaces.|
+|`RMT33W`|1|A record locator number. It may have numbers and letters, but does not have any punctuation.|
+|`425-555-5555`|5|A phone number. Each punctuation mark is a single token so  `425-555-5555` would be 5 tokens:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
+|`https://luis.ai`|7|`https`<br>`:`<br>`/`<br>`/`<br>`luis`<br>`.`<br>`ai`<br>|
 
 ## Train
 
