@@ -258,6 +258,8 @@
       href: howto-data-encryption-portal.md
     - name: Azure CLI
       href: howto-data-encryption-cli.md
+    - name: Data encryption validation
+      href: howto-data-encryption-validation.md
   - name: Azure AD Integration
     items:
     - name: Configure Azure AD integration
