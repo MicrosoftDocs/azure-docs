@@ -1,26 +1,26 @@
 ---
-title: Azure Security Baseline for API Management
-description: Azure Security Baseline for API Management
+title: Azure security baseline for API Management
+description: Azure security baseline for API Management
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/29/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
 ---
 
-# Azure Security Baseline for API Management
+# Azure security baseline for API Management
 
 The Azure Security Baseline for API Management contains recommendations that will help you improve the security posture of your deployment.
 
 The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see the [Azure security baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
-## Network Security
+## Network security
 
-*For more information, see [Security Control: Network Security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
@@ -219,9 +219,9 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 **Responsibility**: Customer
 
-## Logging and Monitoring
+## Logging and monitoring
 
-*For more information, see [Security Control: Logging and Monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security control: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -355,9 +355,9 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 **Responsibility**: Not applicable
 
-## Identity and Access Control
+## Identity and access control
 
-*For more information, see [Security Control: Identity and Access Control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -564,9 +564,9 @@ Configure advanced monitoring with API Management by using the `log-to-eventhub`
 
 **Responsibility**: Customer
 
-## Data Protection
+## Data protection
 
-*For more information, see [Security Control: Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security control: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -678,9 +678,9 @@ Microsoft manages the underlying infrastructure for Azure API Management and has
 
 **Responsibility**: Customer
 
-## Vulnerability Management
+## Vulnerability management
 
-*For more information, see [Security Control: Vulnerability Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security control: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -730,9 +730,9 @@ Underlying platform scanned and patched by Microsoft. Customer to review securit
 
 **Responsibility**: Customer
 
-## Inventory and Asset Management
+## Inventory and asset management
 
-*For more information, see [Security Control: Inventory and Asset Management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### 6.1: Use Azure Asset Discovery
 
@@ -876,9 +876,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Responsibility**: Customer
 
-## Secure Configuration
+## Secure configuration
 
-*For more information, see [Security Control: Secure Configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security control: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -1018,9 +1018,9 @@ In addition, define and implement standard security configurations for your Azur
 
 **Responsibility**: Customer
 
-## Malware Defense
+## Malware defense
 
-*For more information, see [Security Control: Malware Defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security control: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
 
 ### 8.1: Use centrally managed anti-malware software
 
@@ -1052,9 +1052,9 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 **Responsibility**: Customer
 
-## Data Recovery
+## Data recovery
 
-*For more information, see [Security Control: Data Recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security control: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1116,9 +1116,9 @@ Enable Soft-Delete in Key Vault to protect keys against accidental or malicious 
 
 **Responsibility**: Customer
 
-## Incident Response
+## Incident response
 
-*For more information, see [Security Control: Incident Response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security control: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
 
 ### 10.1: Create an incident response guide
 
@@ -1190,9 +1190,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 **Responsibility**: Customer
 
-## Penetration Tests and Red Team Exercises
+## Penetration tests and red team exercises
 
-*For more information, see [Security Control: Penetration Tests and Red Team Exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular Penetration Testing of your Azure resources and ensure to remediate all critical security findings within 60 days
 
@@ -1206,5 +1206,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ## Next steps
 
-- See the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure Security Baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Learn more about [Azure security baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
