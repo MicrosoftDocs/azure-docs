@@ -203,6 +203,7 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS75001 | BindingSerializationError - An error occurred during SAML message binding. |
 | AADSTS75003 | UnsupportedBindingError - The app returned an error related to unsupported binding (SAML protocol response cannot be sent via bindings other than HTTP POST). |
 | AADSTS75005 | Saml2MessageInvalid - Azure AD doesn’t support the SAML request sent by the app for SSO. |
+| AADSTS7500514 | A supported type of SAML response was not found. The supported response types are 'Response' (in XML namespace 'urn:oasis:names:tc:SAML:2.0:protocol') or 'Assertion' (in XML namespace 'urn:oasis:names:tc:SAML:2.0:assertion'). Application error - the developer will handle this error.|
 | AADSTS75008 | RequestDeniedError - The request from the app was denied since the SAML request had an unexpected destination. |
 | AADSTS75011 | NoMatchedAuthnContextInOutputClaims - The authentication method by which the user authenticated with the service doesn't match requested authentication method. |
 | AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy - SAML2 Authentication Request has invalid NameIdPolicy. |
