@@ -77,7 +77,7 @@ print(run.get_portal_url())
 >
 > To create artifacts during training (such as model files, checkpoints, data files, or plotted images) write these to the `./outputs` folder.
 >
-> Similarly, you can write any logs from your training run to the `./logs` folder. To utilize Azure Machine Learning's [TensorBoard integration](https://aka.ms/aml-notebook-tb) make sure you write your TensorBoard logs to this folder. While your run is in progress, you will be able to launch TensorBoard and stream these logs.  Later, you will also be able to restore the logs from any of your previous runs.
+> Similarly, you can write any logs from your training run to the `./logs` folder. To utilize Azure Machine Learning's [TensorBoard integration](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb) make sure you write your TensorBoard logs to this folder. While your run is in progress, you will be able to launch TensorBoard and stream these logs.  Later, you will also be able to restore the logs from any of your previous runs.
 >
 > For example, to download a file written to the *outputs* folder to your local machine after your remote training run: 
 > `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`

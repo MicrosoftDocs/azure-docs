@@ -3,13 +3,13 @@ title: Azure Container Instance recipe
 titleSuffix: Azure Cognitive Services
 description: Learn how to deploy Cognitive Services Containers on Azure Container Instance
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 
 # https://github.com/Azure/cognitiveservices-aci

@@ -20,6 +20,9 @@
   - name: Deploy with IP Groups
     displayName: Resource Manager
     href: quick-create-ipgroup-template.md
+  - name: Deploy with multiple addresses
+    displayName: Resource Manager
+    href: quick-create-multiple-ip-template.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -72,6 +75,8 @@
       href: snat-private-range.md
     - name: Create IP Groups
       href: create-ip-group.md
+    - name: Protect Windows Virtual Desktop
+      href: protect-windows-virtual-desktop.md
 - name: Reference
   items:
   - name: Azure CLI

@@ -22,6 +22,9 @@ To connect to your Cosmos DB account using MongoDB Compass, you must:
 * Download and install [Compass](https://www.mongodb.com/download-center/compass?jmp=hero)
 * Have your Cosmos DB [connection string](connect-mongodb-account.md) information
 
+> [!NOTE]
+> Currently, Azure Cosmos DB's API for MongoDB Server version 3.2 is supported with MongoDB Compass.
+
 ## Connect to Cosmos DB's API for MongoDB
 
 To connect your Cosmos DB account to Compass, you can follow the below steps:

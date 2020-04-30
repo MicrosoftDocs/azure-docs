@@ -1,8 +1,8 @@
 ---
 title: Implement IoT Plug and Play Preview model discovery | Microsoft Docs
 description: As a solution developer, learn about how you can implement IoT Plug and Play model discovery in your solution.
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/26/2019
 ms.topic: conceptual
 ms.custom: mvc

@@ -20,8 +20,8 @@ This article describes the requirements that your Internet of Things (IoT) Edge 
 
 An IoT Edge module is a Docker-compatible container that runs on an IoT Edge device.
 
-- To learn more about IoT Edge modules, see [Understand Azure IoT Edge modules](https://aka.ms/UnderstandAzureIoTEdgemodules).
-- To get started with your IoT Edge module development, see [Develop your own IoT Edge modules](https://aka.ms/DevelopyourownIoTEdgemodules).
+- To learn more about IoT Edge modules, see [Understand Azure IoT Edge modules](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules).
+- To get started with your IoT Edge module development, see [Develop your own IoT Edge modules](https://docs.microsoft.com/azure/iot-edge/module-development).
 
 ## Technical requirements
 
@@ -33,15 +33,15 @@ Your IoT Edge module must support one of the following platform options:
 
 #### Tier 1 platforms supported by IoT Edge
 
-Your module must support all Tier 1 platforms supported by IoT Edge (as recorded in [Azure IoT Edge support](https://aka.ms/AzureIoTEdgesupport)). We recommend this option because it provides a better customer experience. Modules that meet this criteria will be showcased. A module using this platform option must:
+Your module must support all Tier 1 platforms supported by IoT Edge (as recorded in [Azure IoT Edge support](https://docs.microsoft.com/azure/iot-edge/support)). We recommend this option because it provides a better customer experience. Modules that meet this criteria will be showcased. A module using this platform option must:
 
-- Provide a latest tag and a version tag (for example, 1.0.1) that are manifest tags built with the [GitHub Manifest-tool](https://aka.ms/GitHubmanifest-tool).
+- Provide a latest tag and a version tag (for example, 1.0.1) that are manifest tags built with the [GitHub Manifest-tool](https://github.com/estesp/manifest-tool).
 
-- Use the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) to add a link under the **Useful links** section to the [Azure IoT Edge Certified device catalog](https://catalog.azureiotsolutions.com/). You can use the redirection link https://aka.ms/iot-edge-certified that resolves to the [Azure IoT Edge Device Catalog](https://catalog.azureiotsolutions.com/).
+- Use the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) to add a link under the **Useful links** section to the [Azure IoT Edge Certified device catalog](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}/).
 
 #### A subset of Tier 1 platforms supported by IoT Edge
 
-Your module must support a subset (at least one) of Tier 1 platforms supported by IoT Edge (as recorded in [Azure IoT Edge support](https://aka.ms/AzureIoTEdgesupport)). A module using this platform option must:
+Your module must support a subset (at least one) of Tier 1 platforms supported by IoT Edge (as recorded in [Azure IoT Edge support](https://docs.microsoft.com/azure/iot-edge/support)). A module using this platform option must:
 
 - Provide a latest tag and a version tag (for example, 1.0.1) that are manifest tags built with the GitHub [manifest-tool](https://github.com/estesp/manifest-tool) if more than one platform is supported. Manifest tags are optional only when one platform is supported.
 - Use the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) to add a link under the **Useful links** section to at least one IoT Edge device from the [Azure IoT Edge Certified device catalog](https://catalog.azureiotsolutions.com/).
@@ -141,4 +141,4 @@ To upload your IoT Edge module to Azure Marketplace, you first need to host it i
 
 ## Next steps
 
-- [Create your IoT Edge module offer](https://aka.ms/AzureCreateIoT)
+- [Create an IoT Edge module offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation)

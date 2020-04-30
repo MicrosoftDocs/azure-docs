@@ -49,7 +49,7 @@ The following versions of the Windows and Linux operating system are officially 
 - CentOS Linux 7
 - SUSE Linux Enterprise Server (SLES) 15
 - Red Hat Enterprise Linux (RHEL) 7
-- Amazon Linux 7
+- Amazon Linux 2
 
 >[!NOTE]
 >This preview release of the Connected Machine agent for Windows only supports Windows Server configured to use the English language.
@@ -138,7 +138,7 @@ You can download the Azure Connected Machine agent package for Windows and L
 >[!NOTE]
 >During this preview, only one package has been released, which is suitable for Ubuntu 16.04 or 18.04.
 
-The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. For more information, see [here](manage-agent.md)
+The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. For more information, see [here](manage-agent.md).
 
 ### Agent status
 

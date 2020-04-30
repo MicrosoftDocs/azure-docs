@@ -1,10 +1,10 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 In this quickstart, you'll learn how to use the Speech Devices SDK for Windows to build a speech-enabled product or use it as a [Conversation Transcription](../conversation-transcription-service.md) device. For Conversation Transcription only the [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) is supported. For other speech use linear mic arrays that provide a microphone array geometry are supported.

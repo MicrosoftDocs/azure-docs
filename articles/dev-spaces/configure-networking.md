@@ -15,7 +15,7 @@ Azure Dev Spaces runs on Azure Kubernetes Service (AKS) clusters with the defaul
 
 ## Virtual network or subnet configurations
 
-Your AKS cluster may have a different virtual network or subnet configuration to restrict ingress or egress traffic for your AKS cluster. For example, your cluster may be behind a firewall, such as Azure Firewall, or you might use Network Security Groups or custom roles for restricting network traffic.
+Your AKS cluster may have a different virtual network or subnet configuration to restrict ingress or egress traffic for your AKS cluster. For example, your cluster may be behind a firewall, such as Azure Firewall, or you might use Network Security Groups or custom roles for restricting network traffic. You can find an example network configuration in the [Azure Dev Spaces sample repository on GitHub][sample-repo].
 
 Azure Dev Spaces has certain requirements for *Ingress and Egress* network traffic as well as *Ingress only* traffic. If you are using Azure Dev Spaces on an AKS cluster with a virtual network or subnet configuration that restricts traffic for your AKS cluster, you must follow the following ingress only and ingress and egress traffic requirements in order for Azure Dev Spaces to function properly.
 
@@ -104,4 +104,5 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 [endpoint-options]: #using-different-endpoint-options
 [traefik-ingress]: how-to/ingress-https-traefik.md
 [nginx-ingress]: how-to/ingress-https-nginx.md
+[sample-repo]: https://github.com/Azure/dev-spaces/tree/master/advanced%20networking
 [team-quickstart]: quickstart-team-development.md

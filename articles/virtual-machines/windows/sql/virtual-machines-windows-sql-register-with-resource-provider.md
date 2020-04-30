@@ -173,9 +173,9 @@ To register your SQL Server VM directly in full mode (and possibly restart your 
 
 SQL Server 2008 and 2008 R2 installed on Windows Server 2008 (_not R2_) can be registered with the SQL VM resource provider in the [NoAgent mode](#management-modes). This option assures compliance and allows the SQL Server VM to be monitored in the Azure portal with limited functionality.
 
-Specify either `AHUB`, `PAYG`, or `DR` as the **sqlLicenseType**, and either `SQL2008-WS2008` or `SQL2008R2-WS2008` as the **sqlImageOffer**. 
+Specify either `AHUB`, `PAYG`, or `DR` as the **sqlLicenseType**, and `SQL2008-WS2008` or `SQL2008R2-WS2008`as the **sqlImageOffer**. 
 
-To register your SQL Server 2008 or 2008 R2 instance on Windows Server 2008 instance, use the following Az CLI or PowerShell code snippet: 
+To register your SQL Server 2008 or 2008 R2 on Windows Server 2008 instance, use the following Az CLI or PowerShell code snippet: 
 
 
 # [AZ CLI](#tab/bash)
@@ -185,7 +185,7 @@ Register your SQL Server 2008 VM in NoAgent mode with the Az CLI:
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
-   --image-sku Enterprise --image-offer SQL2008-WS2008R2
+   --image-sku Enterprise --image-offer SQL2008-WS2008
  ```
  
  
@@ -194,7 +194,7 @@ Register your SQL Server 2008 R2 VM in NoAgent mode with the Az CLI:
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
-   --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
+   --image-sku Enterprise --image-offer SQL2008R2-WS2008
  ```
 
 # [PowerShell](#tab/powershell)
