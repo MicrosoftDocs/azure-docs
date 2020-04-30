@@ -149,13 +149,17 @@ For API-specific operations, the operation is named with the following format:
 
 The *ResourceDetails* property contains the entire resource body as a request payload and it contains all the properties requested to update
 
-## Diagnostic log query for Control plane
+## Diagnostic log queries for control plane operations
 
-```
+The following are some examples to get diagnostic logs for control plane operations:
+
+```kusto
 AzureDiagnostics 
 | where Category =="ControlPlaneRequests"
 | where  OperationName startswith "SqlContainersUpdateStart"
+```
 
+```kusto
 AzureDiagnostics 
 | where Category =="ControlPlaneRequests"
 | where  OperationName startswith "SqlContainersThroughputUpdateStart"
