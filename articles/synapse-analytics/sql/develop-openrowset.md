@@ -21,7 +21,7 @@ OPENROWSET is currently not supported in SQL pool.
 
 ## Syntax
 
-```
+```syntaxsql
 --OPENROWSET syntax for reading Parquet files
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , 
@@ -55,38 +55,39 @@ You have two choices for input files that contain the target data for querying. 
 
 - 'PARQUET' - Binary file in Parquet format 
 
-'unstructured_data_path'
+**'unstructured_data_path'**
 
-The unstructured_data_path that establishes
-a path to the data is structured as follows:
- '<prefix>://<storage_account_path>/<storage_path>' 
+The unstructured_data_path that establishes a path to the data is structured as follows:  
+'\<prefix>://\<storage_account_path>/\<storage_path>'
  
  
  Below you'll find the relevant storage account paths that will link to your particular external data source. 
 
-| External Data Source       | Prefix | Storage account path                                |
-| -------------------------- | ------ | --------------------------------------------------- |
-| Azure Blob Storage         | https  | <storage_account>.blob.core.windows.net             |
-| Azure Data Lake Store Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | https  | <storage_account>.dfs.core.windows.net              |
+| External Data Source       | Prefix | Storage account path                                 |
+| -------------------------- | ------ | ---------------------------------------------------- |
+| Azure Blob Storage         | https  | \<storage_account>.blob.core.windows.net             |
+| Azure Data Lake Store Gen1 | https  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Store Gen2 | https  | \<storage_account>.dfs.core.windows.net              |
+||||
 
- '<storage_path>' 
+'\<storage_path>'
 
  Specifies a path within your storage that points to the folder or file you want to read. If the path points to a container or folder, all files will be read from that particular container or folder. Files in subfolders won't be included. 
  
  You can use wildcards to target multiple files or folders. Usage of multiple nonconsecutive wildcards is allowed.
-Below is an example that reads all *csv* files starting with *population* from all folders starting with */csv/population*:  'https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv'
+Below is an example that reads all *csv* files starting with *population* from all folders starting with */csv/population*:  
+`https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 If you specify the unstructured_data_path to be a folder, a SQL on-demand query will retrieve files from that folder. 
 
 > [!NOTE]
 > Unlike Hadoop and PolyBase, SQL on-demand doesn't return subfolders. Also, unlike Hadoop and PloyBase, SQL on-demand does return files for which the file name begins with an underline (_) or a period (.).
 
-In the example below, if the unstructured_data_path='https://mystorageaccount.dfs.core.windows.net/webdata/', a SQL on-demand query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in a subfolder.
+In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a SQL on-demand query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in a subfolder.
 
 ![Recursive data for external tables](./media/develop-openrowset/folder-traversal.png)
 
-[WITH ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]
+`[WITH ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]`
 
 The WITH clause allows you to specify columns that you want to read from files.
 
@@ -110,7 +111,8 @@ WITH (
     --[population] bigint
 )
 ```
-<bulk_options>
+
+**\<bulk_options>**
 
 FIELDTERMINATOR ='field_terminator'
 

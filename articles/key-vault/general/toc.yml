@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overview 
   items:
-  - name: What is Azure Key Vault?
+  - name: About Azure Key Vault
     href: overview.md
+  - name: About keys, secrets, and certificates
+    href: about-keys-secrets-certificates.md
 
 - name: Tutorials 
   items:
@@ -48,6 +50,8 @@
     href: authentication-requests-and-responses.md
   - name: Azure Key Vault throttling guidance
     href: overview-throttling.md
+  - name: Azure Key Vault availability and redundancy
+    href: disaster-recovery-guidance.md
   - name: Virtual network service endpoints for Azure Key Vault - Azure Key Vault
     href: overview-vnet-service-endpoints.md
 
@@ -71,6 +75,8 @@
       href: vs-key-vault-add-connected-service.md
   - name: Monitor and govern
     items:
+    - name: Configure monitoring and alerting for Azure Key Vault
+      href: alert.md
     - name: Integrate Azure Key Vault with Azure Policy
       href: azure-policy.md
     - name: Azure Key Vault logging
@@ -91,6 +97,10 @@
       href: soft-delete-cli.md
     - name: Use soft-delete with PowerShell
       href: soft-delete-powershell.md
+  - name: Move Key Vault
+    items: 
+    - name: Move Key Vault to Another Region
+      href: keyvault-moveregion.md
   - name: Troubleshoot
     items:
     - name: Change the key vault tenant ID after a subscription move

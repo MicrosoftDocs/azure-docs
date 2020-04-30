@@ -63,7 +63,6 @@ When streaming via RTMPS, check firewall and/or proxy settings to confirm that o
 - Telestream Wirecast (version 13.0.2 or higher due to the TLS 1.2 requirement)
 - Telestream Wirecast S (only RTMP is supported)
 - Teradek Slice 756
-- TriCaster 8000
 - VMIX
 - xStream
 - [Ffmpeg](https://www.ffmpeg.org)

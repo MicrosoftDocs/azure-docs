@@ -285,6 +285,8 @@ File3.json
     "json": "record 3"
 }
 ```
+> [!NOTE]
+> If data flows throw an error stating "corrupt_record" when previewing your JSON data, it is likely that your data contains contains a single document in your JSON file. Setting "single document" should clear that error.
 
 #### Unquoted column names
 

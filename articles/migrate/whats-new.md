@@ -2,7 +2,7 @@
 title: What's new in Azure Migrate 
 description: Learn about what's new and recent updates in the Azure Migrate service.
 ms.topic: overview
-ms.date: 04/16/2020
+ms.date: 04/19/2020
 ms.custom: mvc
 ---
 
@@ -11,6 +11,16 @@ ms.custom: mvc
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
 
+## Update (April 2020)
+
+Azure Migrate supports deployments in Azure Government. 
+
+- You can discover and assess VMware VMs, Hyper-V VMs, and physical servers.
+- You can migrate VMware VMs, Hyper-V VMs, and physical servers to Azure.
+- For VMware migration, you can use agentless or agent-based migration. [Learn more](server-migrate-overview.md).
+- [Review](migrate-support-matrix.md#supported-geographies-azure-government) supported geographies and regions for Azure Government.
+- [Agent-based dependency analysis](concepts-dependency-visualization.md#agent-based-analysis) isn't supported in Azure Government.
+- Features in preview are supported in Azure Government, specifically [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), and [application discovery](how-to-discover-applications.md).
 
 ## Update (March 2020)
 

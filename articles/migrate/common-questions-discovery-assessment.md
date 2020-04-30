@@ -25,6 +25,10 @@ Review the supported geographies for [public](migrate-support-matrix.md#supporte
 
 You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs, and up to 250 physical servers by using a single appliance. If you have more machines, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), or [scaling a physical server assessment](scale-physical-assessment.md).
 
+## I can't see some VM types in Azure Government
+
+VM types supported for assessment and migration depend on availability in Azure Government location. You can [review and compare](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) VM types in Azure Government.
+
 
 ## The size of my VM changed. Can I run an assessment again?
 
@@ -83,7 +87,7 @@ Import-based assessments are assessments created with machines that are imported
 Dependency visualization can help you assess groups of VMs to migrate with greater confidence. Dependency visualization cross-checks machine dependencies before you run an assessment. It helps ensure that nothing is left behind, and it helps avoid unexpected outages when you migrate to Azure. Azure Migrate uses the Service Map solution in Azure Monitor to enable dependency visualization. [Learn more](concepts-dependency-visualization.md).
 
 > [!NOTE]
-> Dependency visualization isn't available in Azure Government.
+> Agent-based dependency analysis isn't available in Azure Government. You can  use agentless dependency analysis
 
 ## What's the difference between agent-based and agentless?
 

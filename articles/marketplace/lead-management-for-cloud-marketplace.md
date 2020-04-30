@@ -85,7 +85,7 @@ Leads are customers who are deploying your products from the Marketplace. Whethe
 
 **Where can I get help in setting up my lead destination?** 
 
-You can find documentation here: [Get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) or submit a support ticket through aka.ms/marketplacepublishersupport select offer type and lead management. 
+You can find documentation at [Get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) or submit a support ticket at [Help and support](https://partner.microsoft.com/support/v2/?stage=1). Select offer type and lead management. 
 
 **Am I required to configure a lead destination in order to publish an offer on Marketplace?**
 
@@ -182,7 +182,7 @@ The lead only gets written when you select Azure BLOB storage as your lead desti
 
 **I received an email from Marketplace, why can't I find the lead in my CRM?**  
 
-It's possible that the end user's email domain is from .edu. For privacy reasons we don't pass personal identifiable data from .edu domain. Submit a [support ticket](https://aka.ms/marketplacepublishersupport).
+It's possible that the end user's email domain is from .edu. For privacy reasons we don't pass personal identifiable data from .edu domain. Submit a support ticket at [Help and support](https://partner.microsoft.com/support/v2/?stage=1).
 
 **I have configured Azure Table/Azure BLOB as my lead destination, how can I view the leads?** 
 
