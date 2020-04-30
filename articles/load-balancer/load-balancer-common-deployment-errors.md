@@ -19,7 +19,7 @@ This article describes some common Azure Load Balancer deployment errors and pro
 ## Error codes
 
 | Error code | Details and mitigation |
-| ------- | ---------- | ------------- |
+| ------- | ---------- |
 |DifferentSkuLoadBalancersAndPublicIPAddressNotAllowed| Both Public IP SKU and Load Balancer SKU must match. Ensure Azure Load Balancer and Public IP SKUs match. Standard SKU is recommended for production workloads. Learn more about the [differences in SKUs](./concepts-limitations.md#skus)  |
 |DifferentSkuLoadBalancerAndPublicIPAddressNotAllowedInVMSS | Virtual machine scale sets default to Basic Load Balancers when SKU is unspecified or deployed without Standard Public IPs. Re-deploy virtual machine scale set with Standard Public IPs on the individual instances to ensure Standard Load Balancer is selected or simply select a Standard LB when deploying virtual machine scale set from the Azure portal. |
 |MaxAvailabilitySetsInLoadBalancerReached | The backend pool of a Load Balancer can contain a maximum of 150 availability sets. If you don't have availability sets explicitly defined for your VMs in the backend pool, each single VM goes into its own Availability Set. So deploying 150 standalone VMs would imply that it would have 150 Availability sets, thus hitting the limit. You can deploy an availability set and add additional VMs to it as a workaround. |
@@ -29,22 +29,15 @@ This article describes some common Azure Load Balancer deployment errors and pro
 |CannotUseInactiveHealthProbe| You cannot have a probe that's not used by any rule configured for virtual machine scale set health. Ensure that the probe that is set up is being actively used. |
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| You cannot have multiple Load Balancers of the same type (internal, public). You can have a maximum of one internal and one public Load Balancer. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Basic Load Balancer is not supported for multiple-placement group virtual machine scale sets or cross-availability zone virtual machine scale set. Use Standard Load Balancer instead. |
-|ResourceDeploymentFailure| If you load balancer is in failed state, follow the steps to bring it back from the failed state.
-∙          Go to Resources.azure.com
-∙          Login using your Azure portal credentials.
-∙          Click on Read/Write
-∙          On the Left pane, expand Subscriptions
-∙          Expand the particular Subscription where we have the LoadBalancer
-∙          Expand ResourceGroups
-∙          Expand the particular resource group where we have the LoadBalancer
-∙          Click and expand Microsoft.Network
-∙          Click and expand LoadBalancers
-∙          Click on the particular LoadBalancer (LoadBalancer_1)
-∙          On the display page for LoadBalancer_1, click GET
-∙          Click on Edit
-∙          On the Line where we have ProvisioningState, change the "Failed" to "Succeeded"
-∙          Click on PUT|
-| |  |
+|ResourceDeploymentFailure| If your load balancer is in a failed state, follow these steps to bring it back from the failed state:<ol><li>Go to http://resources.azure.com, and sign in with your Azure portal credentials.</li>
+<li>Select **Read/Write**.</li>
+<li>On the left, expand **Subscriptions**, and then expand the Subscription with the Load Balancer to update.</li>
+<li>Expand **ResourceGroups**, and then expand the resource group with the Load Balancer to update.</li>
+<li>Select **Microsoft.Network** > **LoadBalancers**, and then select the Load Balancer to update, **LoadBalancer_1**.</li>
+<li>On the display page for **LoadBalancer_1**, select **GET** > **Edit**.</li>
+<li>Update the **ProvisioningState** value from **Failed** to **Succeeded**.</li>
+<li>Select **PUT**.</li></ol>|
+|  |  |
 
 ## Next steps
 
