@@ -14,9 +14,9 @@ ms.custom: include file
 
 A CDN profile is a container for CDN endpoints and specifies a pricing tier.
 
-1. In the Azure portal select **Create a resource** (on the upper left). The **New** pane appears.
+1. In the Azure portal, select **Create a resource** (on the upper left). The **New** pane appears.
    
-1. Search for and select **CDN** , then select **Create**:
+1. Search for and select **CDN**, then select **Create**:
    
     ![Select CDN resource](./media/cdn-create-profile/cdn-new-resource.png)
 

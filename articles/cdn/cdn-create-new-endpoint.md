@@ -25,7 +25,7 @@ In this quickstart, you enable Azure Content Delivery Network (CDN) by creating 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An Azure Storage account named *cdnstorageacct123*, which you use for the origin hostname. To complete this requirement, see [Integrate an Azure storage account with Azure CDN](cdn-create-a-storage-account-with-cdn.md).
+- An Azure Storage account named *cdnstorageacct123*, which you use for the origin hostname. To complete this requirement, see [Integrate an Azure Storage account with Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 
 ## Sign in to the Azure portal
 
@@ -66,7 +66,7 @@ After you've created a CDN profile, you use it to create an endpoint.
     
    ![CDN endpoint](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   The time it takes for the endpoint to propagate depends on the pricing tier selected when you created the profile. **Standard Akamai** usually completes within one minute, **Standard Microsoft** in ten minutes, and **Standard Verizon** and **Premium Verizon** in up to 90 minutes.
+   The time it takes for the endpoint to propagate depends on the pricing tier selected when you created the profile. **Standard Akamai** usually completes within one minute, **Standard Microsoft** in 10 minutes, and **Standard Verizon** and **Premium Verizon** in up to 90 minutes.
 
 ## Clean up resources
 
@@ -74,9 +74,7 @@ In the preceding steps, you created a CDN profile and an endpoint in a resource 
 
 1. From the left-hand menu in the Azure portal, select **Resource groups** and then select **CDNQuickstart-rg**.
 
-2. On the **Resource group** page, select **Delete resource group**, enter *CDNQuickstart-rg* in the text box, then select **Delete**.
-
-    This action will delete the resource group, profile, and endpoint that you created in this quickstart.
+2. On the **Resource group** page, select **Delete resource group**, enter *CDNQuickstart-rg* in the text box, then select **Delete**. This action delete the resource group, profile, and endpoint that you created in this quickstart.
 
 ## Next steps
 

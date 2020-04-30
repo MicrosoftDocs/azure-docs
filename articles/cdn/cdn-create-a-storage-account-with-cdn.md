@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Integrate an Azure storage account with Azure CDN
+title: Quickstart - Integrate an Azure Storage account with Azure CDN
 description: Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs from Azure Storage.
 services: cdn
 documentationcenter: ''
@@ -18,9 +18,9 @@ ms.author: allensu
 ms.custom: mvc
 
 ---
-# Quickstart: Integrate an Azure storage account with Azure CDN
+# Quickstart: Integrate an Azure Storage account with Azure CDN
 
-In this quickstart, you enable [Azure Content Delivery Network (CDN)](cdn-overview.md) to cache content from Azure storage. Azure CDN offers developers a global solution for delivering high-bandwidth content. It can cache blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia, and South America.
+In this quickstart, you enable [Azure Content Delivery Network (CDN)](cdn-overview.md) to cache content from Azure Storage. Azure CDN offers developers a global solution for delivering high-bandwidth content. It can cache blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia, and South America.
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ To create a storage account, you must be either the service administrator or a c
     | -------- | ----- |
     | **CDN profile** | Select **Create new** and enter your profile name, for example, *cdn-profile-123*. A profile is a collection of endpoints. |
     | **Pricing tier** | Select one of the **Standard** options, such as **Standard Microsoft**. |
-	| **CDN endpoint name** | Enter your endpoint hostname, i.e. *cdn-endpoint-123*. This name must be globally unique across Azure because it's to access your cached resources at the URL _&lt;endpoint-name&gt;_.azureedge.net. |
+	| **CDN endpoint name** | Enter your endpoint hostname, such as *cdn-endpoint-123*. This name must be globally unique across Azure because it's to access your cached resources at the URL _&lt;endpoint-name&gt;_.azureedge.net. |
 	| **Origin hostname** | By default, a new CDN endpoint uses the hostname of your storage account as the origin server. |
 
 1. Select **Create**. After the endpoint is created, it appears in the endpoint list.
@@ -85,7 +85,7 @@ From this page, you can enable additional CDN features for your delivery, such a
 	
 ## Enable SAS
 
-If you want to grant limited access to private storage containers, you can use the Shared Access Signature (SAS) feature of your Azure storage account. A SAS is a URI that grants restricted access rights to your Azure Storage resources without exposing your account key. For more information, see [Using Azure CDN with SAS](cdn-sas-storage-support.md).
+If you want to grant limited access to private storage containers, you can use the Shared Access Signature (SAS) feature of your Azure Storage account. A SAS is a URI that grants restricted access rights to your Azure Storage resources without exposing your account key. For more information, see [Using Azure CDN with SAS](cdn-sas-storage-support.md).
 
 ## Access CDN content
 
