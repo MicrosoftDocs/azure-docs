@@ -24,7 +24,10 @@ Automation variables are useful for the following scenarios:
 
 Azure Automation persists variables and makes them available even if a runbook or DSC configuration fails. This behavior allows one runbook or DSC configuration to set a value that is then used by another runbook, or by the same runbook or DSC configuration the next time it runs.
 
-Azure Automation stores each encrypted variable securely. When creating a variable, you can specify its encryption and storage by Azure Automation as a secure asset. Other secure assets include credentials, certificates, and connections. Azure Automation encrypts these assets and stores them using a unique key that is generated for each Automation account. The key is stored in a system-managed Key Vault. Before storing a secure asset, Azure Automation loads the key from the Key Vault and then uses it to encrypt the asset. 
+Azure Automation stores each encrypted variable securely. When creating a variable, you can specify its encryption and storage by Azure Automation as a secure asset. 
+
+>[!NOTE]
+>Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each Automation account. Azure Automation stores the key in the system-managed Key Vault. Before storing a secure asset, Automation loads the key from Key Vault and then uses it to encrypt the asset. 
 
 >[!NOTE]
 >This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
@@ -59,17 +62,17 @@ For the Az module, the cmdlets in the following table are used to create and man
 |[Remove-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| Removes an existing variable.|
 |[Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| Sets the value for an existing variable. |
 
-## Activities to access variables in runbooks and DSC configurations
+## Internal cmdlets to access variables
 
-The activities in the following table are used to access variables in runbooks and DSC configurations. The cmdlets for these activities come with the global module `Orchestrator.AssetManagement.Cmdlets`.
+The internal cmdlets in the following table are used to access variables in your runbooks and DSC configurations. These cmdlets come with the global module `Orchestrator.AssetManagement.Cmdlets`. For more information, see [Internal cmdlets](modules.md#internal-cmdlets).
 
-| Activity | Description |
+| Internal Cmdlet | Description |
 |:---|:---|
 |`Get-AutomationVariable`|Retrieves the value of an existing variable.|
 |`Set-AutomationVariable`|Sets the value for an existing variable.|
 
 > [!NOTE]
-> Avoid using variables in the `Name` parameter of `Get-AutomationVariable` in a runbook or DSC configuration. Use of this parameter can complicate the discovery of dependencies between runbooks or DSC configurations and Automation variables at design time.
+> Avoid using variables in the `Name` parameter of `Get-AutomationVariable` in a runbook or DSC configuration. Use of this parameter can complicate the discovery of dependencies between runbooks and Automation variables at design time.
 
 Note that `Get-AutomationVariable` does not work in PowerShell, but only in a runbook or DSC configuration. For example, to see the value of an encrypted variable, you might create a runbook to get the variable and then write it to the output stream:
  
