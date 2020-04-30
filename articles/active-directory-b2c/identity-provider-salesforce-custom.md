@@ -205,7 +205,7 @@ Now that you have a button in place, you need to link it to an action. The actio
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
 
-    Update the value of **TechnicalProfileReferenceId** to the **ID** of the technical profile you created earlier. For example, `LinkedIn-OAUTH`.
+    Update the value of **TechnicalProfileReferenceId** to the **ID** of the technical profile you created earlier. For example, `salesforce` or `LinkedIn-OAUTH`.
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 
