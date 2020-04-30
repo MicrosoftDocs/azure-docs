@@ -29,7 +29,7 @@ The following actions include an immediate retraining of the model with the last
 * Reward
 * Exploration
 
-To [clear](how-to-manage-model.md) all your data, use the **Model and learning settings ** page.
+To [clear](how-to-manage-model.md) all your data, use the **Model and learning settings** page.
 
 ## Configure rewards for the feedback loop
 
