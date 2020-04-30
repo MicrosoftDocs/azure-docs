@@ -1,6 +1,6 @@
 ---
-title: Run SSIS packages by using Azure SQL Database Managed Instance Agent
-description: Learn how to run SSIS packages by using Azure SQL Database Managed Instance Agent. 
+title: Schedule SSIS package executions by using Azure SQL Database Managed Instance Agent
+description: Learn how to schedule SSIS package executions by using Azure SQL Database Managed Instance Agent. 
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,7 +11,7 @@ author: lle
 ms.date: 04/14/2020
 ---
 
-# Run SSIS packages by using Azure SQL Database Managed Instance Agent
+# Schedule SSIS package executions by using Azure SQL Database Managed Instance Agent
 This article describes how to run a SQL Server Integration Services (SSIS) package by using Azure SQL Database Managed Instance Agent. This feature provides behaviors that are similar to when you schedule SSIS packages by using SQL Server Agent in your on-premises environment.
 
 With this feature, you can run SSIS packages that are stored in SSISDB in an Azure SQL Database managed instance or a file system like Azure Files.
@@ -73,7 +73,7 @@ In this procedure, you use Azure SQL Database Managed Instance Agent to run an S
 
         ![Options for file source type](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
       
-        The package path is **\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx**.
+        The package path is **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`**.
       
         Under **Package file access credential**, enter the Azure file account name and account key to access the Azure file. The domain is set as **Azure**.
 
@@ -84,11 +84,14 @@ In this procedure, you use Azure SQL Database Managed Instance Agent to run an S
         Enter the corresponding domain, username, and password to access the network share package file.
    1. If your package file is encrypted with a password, select **Encryption password** and enter the password.
 1. On the **Configurations** tab, enter the configuration file path if you need a configuration file to run the SSIS package.
+   If you store your configuration in Azure Files, its configuration path will be **`\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`**.
 1. On the **Execution options** tab, you can choose whether to use **Windows authentication** or **32-bit runtime** to run the SSIS package.
-1. On the **Logging** tab, you can choose the logging path and corresponding logging access credential to store the log files. By default, the logging path is the same as the package folder path, and the logging access credential is the same as the package access credential.
+1. On the **Logging** tab, you can choose the logging path and corresponding logging access credential to store the log files. 
+   By default, the logging path is the same as the package folder path, and the logging access credential is the same as the package access credential.
+   If you store your logs in Azure Files, your logging path will be **`\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`**.
 1. On the **Set values** tab, you can enter the property path and value to override the package properties.
  
-   For example, to override the value of your user variable, enter its path in the following format: **\Package.Variables[User::<variable name>].Value**.
+   For example, to override the value of your user variable, enter its path in the following format: **`\Package.Variables[User::<variable name>].Value`**.
 1. Select **OK** to save the agent job configuration.
 1. Start the agent job to run the SSIS package.
 
