@@ -47,12 +47,12 @@ physical characteristics:
 
 Advisor continuously leverages workload-based heuristics such as table access frequency, rows returned on average, and thresholds around data warehouse size and activity to ensure high-quality recommendations are generated.
 
-The following describes workload-based heuristics you may find in the Azure portal for each replicated table recommendation:
+The following section describes workload-based heuristics you may find in the Azure portal for each replicated table recommendation:
 
 - Scan avg- the average percent of rows that were returned from the table for each table access over the past seven days
 - Frequent read, no update - indicates that the table has not been updated in the past seven days while showing access activity
 - Read/update ratio - the ratio of how frequent the table was accessed relative to when it gets updated over the past seven days
-- Activity - measures the usage based on access activity. This compares the table access activity relative to the average table access activity across the data warehouse over the past seven days.
+- Activity - measures the usage based on access activity. This activity compares the table access activity relative to the average table access activity across the data warehouse over the past seven days.
 
 Currently Advisor will only show at most four replicated table candidates at once with clustered columnstore indexes prioritizing the highest activity.
 
@@ -65,4 +65,4 @@ When you have a large working set, you can experience a low cache hit percentage
 
 ## Tempdb contention
 
-Query performance can degrade when there is high tempdb contention.  Tempdb contention can occur via user defined temporary tables or when there is a large amount of data movement. For this scenario, you can scale for more tempdb allocation and [configure resource classes and workload managemen](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management)t to provide more memory to your queries. 
+Query performance can degrade when there is high tempdb contention.  Tempdb contention can occur via user-defined temporary tables or when there is a large amount of data movement. For this scenario, you can scale for more tempdb allocation and [configure resource classes and workload management](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) to provide more memory to your queries. 
