@@ -146,7 +146,7 @@ See [Securing the endpoint](luis-concept-keys.md#securing-the-endpoint).
 ## Working within LUIS limits
 
 ### What is the maximum number of intents and entities that a LUIS app can support?
-See the [boundaries](luis-boundaries.md) reference.
+See the [boundaries](luis-limits.md) reference.
 
 ### I want to build a LUIS app with more than the maximum number of intents. What should I do?
 
@@ -157,10 +157,10 @@ See [Best practices for intents](luis-concept-intent.md#if-you-need-more-than-th
 See [Best practices for entities](luis-concept-entity-types.md#if-you-need-more-than-the-maximum-number-of-entities)
 
 ### What are the limits on the number and size of phrase lists?
-For the maximum length of a [phrase list](./luis-concept-feature.md), see the [boundaries](luis-boundaries.md) reference.
+For the maximum length of a [phrase list](./luis-concept-feature.md), see the [boundaries](luis-limits.md) reference.
 
 ### What are the limits on example utterances?
-See the [boundaries](luis-boundaries.md) reference.
+See the [boundaries](luis-limits.md) reference.
 
 ## Testing and training
 

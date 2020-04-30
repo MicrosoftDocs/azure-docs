@@ -100,30 +100,35 @@ In the *python-docs-hello-world* folder that contains the sample code, run the f
 ```azurecli
 az webapp up --sku F1 -n <app-name>
 ```
+> [!CAUTION]
+> If you are using **Azure-CLI version 2.5.0** there is a regression in `az webapp up` where certain scenarios will fail if the `-l <location-name>` parameter is not included. This issue being [tracked here](https://github.com/Azure/azure-cli/issues/13257).  
+> 
+>You can check what version of the Azure-CLI you are using with the `az --version` command.
+>
 
 The `--sku F1` argument creates the web app on the Free pricing tier. You can omit this argument to use a premium tier instead, which incurs an hourly cost.
 
 You can optionally include the argument `-l <location-name>` where `<location_name>` is an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.
 
-The `az webapp up` command may take a few minutes to completely run. While running, it displays information similar to the following example, where `<app_name>` will be the name you provided earlier:
+The `az webapp up` command may take a few minutes to completely run. While running, it displays information similar to the following example, where `<app-name>` will be the name you provided earlier:
 
 <pre>
 Creating Resource group 'appsvc_rg_Linux_centralus' ...
 Resource group creation complete
 Creating App service plan 'appsvc_asp_Linux_centralus' ...
 App service plan creation complete
-Creating app '<app-name>' ....
+Creating app '&lt;app-name&gt;' ....
 Configuring default logging for the app, if not already enabled
 Creating zip with contents of dir D:\Examples\python-docs-hello-world ...
 Getting scm site credentials for zip deployment
 Starting zip deployment. This operation can take a while to complete ...
 Deployment endpoint responded with status code 202
-You can launch the app at http://<app-name>.azurewebsites.net
+You can launch the app at http://&lt;app-name&gt;.azurewebsites.net
 {
-  "URL": "http://<app-name>.net",
+  "URL": "http://&lt;app-name&gt;.net",
   "appserviceplan": "appsvc_asp_Linux_centralus",
   "location": "eastus",
-  "name": "<app-name>",
+  "name": "&lt;app-name&gt;",
   "os": "Linux",
   "resourcegroup": "appsvc_rg_Linux_centralus",
   "runtime_version": "python|3.7",
