@@ -6,7 +6,24 @@ ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Quickstart: Create a function in Azure that responds to HTTP requests
+::: zone pivot="programming-language-csharp"  
+# Quickstart: Create a C# function in Azure that responds to HTTP requests
+::: zone-end  
+::: zone pivot="programming-language-javascript"
+# Quickstart: Create a JavaScript function in Azure that responds to HTTP requests
+::: zone-end
+::: zone pivot="programming-language-typescript"
+# Quickstart: Create a TypeScript function in Azure that responds to HTTP requests
+::: zone-end   
+::: zone pivot="programming-language-powershell"
+# Quickstart: Create a PowerShell function in Azure that responds to HTTP requests
+::: zone-end  
+::: zone pivot="programming-language-python" 
+# Quickstart: Create a Python function in Azure that responds to HTTP requests
+::: zone-end  
+::: zone pivot="programming-language-java" 
+# Quickstart: Create a Java function in Azure that responds to HTTP requests
+::: zone-end
 
 In this article, you use command-line tools to create a function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
