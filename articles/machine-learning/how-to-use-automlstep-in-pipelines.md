@@ -258,9 +258,11 @@ Comparing the two techniques:
 |`PipelineOutputTabularDataset`| Higher performance | 
 || Natural route from `PipelineData` | 
 || Data isn't persisted after pipeline run |
+|| [Notebook showing `PipelineOutputTabularDataset` technique](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
 | Registered `Dataset` | Lower performance |
 | | Can be generated in many ways | 
 | | Data persists and is visible throughout workspace |
+| | [Notebook showing registered `Dataset` technique](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/continuous-retraining/auto-ml-continuous-retraining.ipynb)
 
 ### Specify automated ML outputs
 
