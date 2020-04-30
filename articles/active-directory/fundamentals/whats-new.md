@@ -37,7 +37,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## April 2020
 
-### Combined security info registration experience is now generally available [579959]
+### Combined security info registration experience is now generally available
 
 **Type:** New feature
 
@@ -49,7 +49,7 @@ The combined registration experience for Multi-Factor Authentication (MFA) and S
 
 ---
 
-### Continuous Access Evaluation [656591]
+### Continuous Access Evaluation
 
 **Type:** New feature
 
@@ -61,7 +61,7 @@ Continuous Access Evaluation is a new security feature that enables near real-ti
 
 ---
 
-### SMS Sign-in: Firstline Workers can sign in to Azure AD-backed applications with their phone number and no password  [731501]
+### SMS Sign-in: Firstline Workers can sign in to Azure AD-backed applications with their phone number and no password
 
 **Type:** New feature
 
@@ -73,7 +73,7 @@ Office is launching a series of mobile-first business apps that cater to non-tra
 
 ---
 
-### Invite internal users to use B2B collaboration [776622]
+### Invite internal users to use B2B collaboration
 
 **Type:** New feature
 
@@ -85,7 +85,7 @@ We're expanding B2B invitation capability to allow existing internal accounts to
 
 ---
 
-### Report-only mode for Conditional Access is now generally available [861216]
+### Report-only mode for Conditional Access is now generally available
 
 **Type:** New feature
 
@@ -97,7 +97,7 @@ We're expanding B2B invitation capability to allow existing internal accounts to
 
 ---
 
-### Conditional Access Insights and Reporting workbook is generally available [861216]
+### Conditional Access Insights and Reporting workbook is generally available
 
 **Type:** New feature
 
@@ -109,7 +109,7 @@ The [insights and reporting workbook](https://docs.microsoft.com/azure/active-di
 
 ---
 
-### Policy details blade for Conditional Access is in public preview [861216]
+### Policy details blade for Conditional Access is in public preview
 
 **Type:** New feature
 
@@ -121,7 +121,7 @@ The new [policy details blade](https://docs.microsoft.com/azure/active-directory
 
 ---
 
-### New Federated Apps available in Azure AD App gallery - April 2020 [1000157]
+### New Federated Apps available in Azure AD App gallery - April 2020
 
 **Type:** New feature
 
@@ -137,7 +137,7 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### Microsoft Graph delta query support for oAuth2PermissionGrant available for Public Preview [691379]
+### Microsoft Graph delta query support for oAuth2PermissionGrant available for Public Preview
 
 **Type:** New feature
 
@@ -149,7 +149,7 @@ Delta query for oAuth2PermissionGrant is available for public preview! You can n
 
 ---
 
-### Microsoft Graph delta query support for organizational contact generally available [837014]
+### Microsoft Graph delta query support for organizational contact generally available
 
 **Type:** New feature
 
@@ -161,7 +161,7 @@ Delta query for organizational contacts is generally available! You can now trac
 
 ---
 
-### Microsoft Graph delta query support for application generally available [982017]
+### Microsoft Graph delta query support for application generally available
 
 **Type:** New feature
 
@@ -173,7 +173,7 @@ Delta query for applications is generally available! You can now track changes i
 
 ---
 
-### Microsoft Graph delta query support for administrative units available for Public Preview [982019]
+### Microsoft Graph delta query support for administrative units available for Public Preview
 
 **Type:** New feature
 
@@ -184,7 +184,7 @@ Delta query for administrative units is available for public preview! You can no
 
 ---
 
-### Manage authentication phone numbers and more in new Microsoft Graph beta APIs [831769]
+### Manage authentication phone numbers and more in new Microsoft Graph beta APIs
 
 **Type:** New feature
 
@@ -202,7 +202,7 @@ For more information, see [Azure AD authentication methods API overview](https:/
 
 ---
 
-### Administrative Units Public Preview [696745]
+### Administrative Units Public Preview
 
 **Type:** New feature
 
@@ -222,7 +222,7 @@ For more information, see [Administrative units management in Azure Active Direc
 
 ---
 
-### Printer Administrator and Printer Technician built-in roles [555434]
+### Printer Administrator and Printer Technician built-in roles
 
 **Type:** New feature
 
@@ -236,7 +236,7 @@ For more information, see [Administrative units management in Azure Active Direc
 
 ---
 
-### Hybrid Identity Admin built-in role [654744]
+### Hybrid Identity Admin built-in role
 
 **Type:** New feature
 
@@ -248,7 +248,7 @@ Users in this role can enable, configure and manage services and settings relate
 
 ---
 
-### Network Administrator built-in role [807477]
+### Network Administrator built-in role
 
 **Type:** New feature
 
@@ -260,7 +260,7 @@ Users with this role can review network perimeter architecture recommendations f
 
 ---
 
-### Bulk activity and downloads in the Azure AD admin portal experience [701359]
+### Bulk activity and downloads in the Azure AD admin portal experience
 
 **Type:** New feature
 
@@ -281,7 +281,7 @@ For more information, check out the following:
 
 ---
 
-### My Staff delegated user management [725438]
+### My Staff delegated user management
 
 **Type:** New feature
 
@@ -293,7 +293,7 @@ My Staff enables Firstline Managers, such as a store manager, to ensure that the
 
 ---
 
-### An upgraded end user experience in access reviews [824944]
+### An upgraded end user experience in access reviews
 
 **Type:** Changed feature
 
@@ -305,7 +305,7 @@ We have updated the reviewer experience for Azure AD access reviews in the My Ap
 
 ---
 
-### Workday inbound user provisioning and writeback apps now support the latest versions of Workday Web Services API [730505]
+### Workday inbound user provisioning and writeback apps now support the latest versions of Workday Web Services API
 
 **Type:** Changed feature
 
@@ -323,7 +323,7 @@ We have updated our [tutorial guide](https://docs.microsoft.com/azure/active-dir
 
 ---
 
-### Users with default access role are now in scope for provisioning [980493]
+### Users with default access role are now in scope for provisioning
 
 **Type:** Changed feature
 
@@ -335,7 +335,7 @@ Historically, users with the default access role have been out of scope for prov
 
 ---
 
-### Updated provisioning UI [850745]
+### Updated provisioning UI
 
 **Type:** Changed feature
 
@@ -347,7 +347,7 @@ We've refreshed our provisioning experience to create a more focused management 
 
 ---
 
-### Dynamic Group rule validation is now available for Public Preview [667537]
+### Dynamic Group rule validation is now available for Public Preview
 
 **Type:** Changed feature
 
@@ -361,7 +361,7 @@ For more information, see [Validate a dynamic group membership rule (preview)](h
 
 ---
 
-### Identity Secure Score - Security Defaults and MFA improvement action updates [935844]
+### Identity Secure Score - Security Defaults and MFA improvement action updates
 
 **Type:** Changed feature
 
