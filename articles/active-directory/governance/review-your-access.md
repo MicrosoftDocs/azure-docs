@@ -96,6 +96,8 @@ You can preview the experience with the updated user interface in My Access a co
 
     ![Pending access reviews list for apps and groups with the new experience available banner displayed during the preview](./media/review-your-access/banner-your-access.png)
 
+4. Continue in the section **Perform the access review (Preview)**
+
 ### Email
 
   >[!IMPORTANT]
@@ -103,9 +105,11 @@ You can preview the experience with the updated user interface in My Access a co
 
 1. Look for an email from Microsoft asking you to review access. You can see an example email message below:
 
-   ![Example email from Microsoft to review access to a group](./media/review-your-access/access-review-email-preview.png)
+   ![Example email from Microsoft to review access to a group](./media/review-your-access/access-review-email-preview.png
 
-   2. Click the **Review access** link to open the access review.
+2. Click the **Review access** link to open the access review.
+
+3. Continue in the section **Perform the access review (Preview)**
 
 >[!NOTE]
 >If clicking start review takes you to **My Apps** follow the steps listed in the section above titled **My Apps Portal**.
