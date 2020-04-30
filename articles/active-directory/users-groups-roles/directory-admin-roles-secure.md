@@ -70,7 +70,7 @@ Microsoft recommends that you develop and follow a roadmap to secure privileged 
 
 This roadmap framework is designed to maximize the use of Microsoft technologies that you may have already deployed. Consider tying in to any security tools from other vendors that you have already deployed or are considering deploying.
 
-## Stage 1: Critical items that we recommend you do right away
+## Stage 1: Critical items to do right now
 
 ![Stage 1 Critical items to do first](./media/directory-admin-roles-secure/stage-one.png)
 
