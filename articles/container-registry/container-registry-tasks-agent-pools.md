@@ -1,6 +1,6 @@
 ---
 title: Use dedicated pool to run task - Tasks
-description: Use a dedicated compute pool (agent pool) to run an Azure Container Registry task.
+description: Set up a dedicated compute pool (agent pool) in your registry to run an Azure Container Registry task.
 ms.topic: article
 ms.date: 04/30/2020
 ---
@@ -26,15 +26,14 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 - Task agent pools currently support Linux nodes. Windows nodes are not currently supported.
 - Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, and East US.
-- For each registry, the default total vCPU (core) quota for all agent pools is 16. Please [open a support ticket][open-support-ticket] for additional allocation.
-
+- For each registry, the default total vCPU (core) quota for all agent pools is 16. Open a support ticket][open-support-ticket] for additional allocation.
 
 ## Prerequisites
 
 * To use the Azure CLI steps in this article, Azure CLI version 2.3.1 or later is required. If you need to install or upgrade, see [Install Azure CLI][azure-cli]. Or run in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 * If you don't already have a container registry, [create one][create-reg-cli](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli) (Premium tier required) in a preview region.
 
-## Pool tiers 
+## Pool tiers
 
 The following table shows the resources per instance in the agent pool tiers.
 
@@ -66,7 +65,7 @@ az acr agentpool create \
     --tier S2
 ```
 
-Creating an agent pool and other pool operations can take several minutes to complete.
+Creating an agent pool and other pool management operations will take several minutes to complete.
 
 ### Scale pool
 
@@ -99,7 +98,8 @@ Task agent pools require access to the following Azure services. The following f
 The following example creates an agent pool in the *mysubnet* subnet of network *myvnet*:
 
 ```azurecli
-subnet=$(az network vnet subnet show \
+# Get the subnet ID
+subnetId=$(az network vnet subnet show \
         --resource-grop myresourcegroup \
         --vnet-name myvnet \
         --name mysubnetname \
@@ -108,15 +108,15 @@ subnet=$(az network vnet subnet show \
 az acr agentpool create \
     --name myagentpool \
     --tier S2 \
-    --subnet-id $subnet
+    --subnet-id $subnetId
 ```
 
-## Run tasks on agent pool
+## Run task on agent pool
 
-The following sections show how to specify an agent pool when queuing a task.
+The following examples show how to specify an agent pool when queuing a task.
 
 > [!NOTE]
-> To use an agent pool in an ACR Task, ensure that the pool contains at least 1 instance.
+> To use an agent pool in an ACR task, ensure that the pool contains at least 1 instance.
 >
 
 ### Quick task run
@@ -133,7 +133,7 @@ az acr build \
 
 ### Automatically triggered task
 
-For example, create a scheduled task on the agent pool with [az acr task create][az-acr-task-create].
+For example, create a scheduled task on the agent pool with [az acr task create][az-acr-task-create], passing the `--agent-pool` parameter.
 
 ```azurecli
 az acr task create \
@@ -155,7 +155,7 @@ az acr task run \
 
 ### Query pool status
 
-Query the agent pool queue status (current scheduled runs on the agent pool) by running [az acr agentpool show][az-acr-agentpool-show].
+Query the agent pool queue status (the number of runs currently scheduled on the agent pool) by running [az acr agentpool show][az-acr-agentpool-show].
 
 ```azurecli
 az acr agentpool show \
