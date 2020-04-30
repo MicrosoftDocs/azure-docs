@@ -125,7 +125,7 @@ A command must execute within 30 seconds by default, and the device must be conn
 
 ## Register a device
 
-IoT Plug and Play makes it easy to advertise the capabilities of your device. With IoT Plug and Play you must specify the **Model ID** when you establish the connection with the IoT Hub. The ID will be available in the Digital Twin associated to your device, under the `$metadata.$model` property.
+IoT Plug and Play makes it easy to advertise the capabilities of your device. A Plug and Playdevice must send it's **Model ID** when it connects to IoT Hub. The ID will be available in the Digital Twin associated to your device, under the `$metadata.$model` property.
 
 This guide shows you how to connect a device and advertise the Model ID using the Azure IoT Device SDK for C.
 
