@@ -47732,6 +47732,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-pnp/howto-install-pnp-cli.md",
+      "redirect_url": "/azure/iot-pnp/howto-install-iot-explorer",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/core/overview-iot-options.md",
       "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies/",
       "redirect_document_id": false

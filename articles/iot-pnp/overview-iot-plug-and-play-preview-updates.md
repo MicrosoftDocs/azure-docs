@@ -38,6 +38,8 @@ There's now a single model repository that contains both public published models
 
 Existing company model repositories from the previous release are supported in this release. You can continue to use the [Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com/products) website to manage the old DTDL v1 models. However, you can no longer use this website to register, test, and certify devices.
 
+The Azure IoT extension for the Azure CLI does not support the new model repository. The `az iot pnp` commands only work the model repositories from the previous release.
+
 ## Model resolution
 
 In this release, IoT Hub no longer provides model storage, resolution, or retrieval.
@@ -71,15 +73,11 @@ The [Azure IoT Device Workbench](https://marketplace.visualstudio.com/items?item
 
 The extension no longer provides integration with the model repository or code generation.
 
-Code generation from DTDL v2 models is now provided by the [Device Code Generator for Azure Digital Twins](https://github.com/microsoft/azure-digital-twins-codegen).
-
 Managing models in the repository is now done using a web UI.
 
 If you require DTDL v1 support in VS Code, including the model repository UI and code generation, install the last version of the extension that supports DTDL v1.
 
 ## Code generation CLI
-
-The [Device Code Generator for Azure Digital Twins](https://github.com/microsoft/azure-digital-twins-codegen) now supports DTDL v2 and generates C code from a model.
 
 The previous version of the code generator remains available if you need to work with DTDL v1 models.
 
