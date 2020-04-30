@@ -67,7 +67,7 @@ Azure Files authentication with AD DS (preview) is available in [all Public regi
 
 If you plan to enable any networking configurations on your file share, we recommend you to evaluate the [networking consideration](https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview) and complete the related configuration first before enabling AD DS authentication.
 
-Enabling AD DS authentication for your Azure file shares allows you to authenticate to your Azure file shares with your AD DS credentials. Further, it allows you to tune your permissions to allow granular access control. Doing this requires a combination of the Azure AD credentials, created when you performed the AD connect sync, and your AD DS credentials. The Azure AD credentials allow you to control file level access while the AD DS credentials allow you to control share level access. Combining these credentials allows you to control both file and share level access.
+Enabling AD DS authentication for your Azure file shares allows you to authenticate to your Azure file shares with your on-prem AD DS credentials. Further, it allows you to better manage your permissions to allow granular access control. Doing this requires synching identities from on-prem AD DS to Azure AD with AD connect. You control the share level access with identities synched to Azure AD while managing file/share level access with on-prem AD DS credentials.
 
 Next, follow the steps below to set up Azure Files for AD DS Authentication: 
 
