@@ -369,6 +369,8 @@ If you have already set prices for your plan in United States Dollars (USD) and 
 
 Provide the per-month price for this plan.  This price is in addition to any Azure infrastructure or pay-as-you-go software costs incurred by the resources deployed by this solution.
 
+In addition to the per-month price, you can also set prices for consumption of non-standard units using [metered billing](./azure-app-metered-billing.md).  You may set the per-month price to zero and charge exclusively using metered billing if you like. 
+
 Prices set in USD (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates when saved. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet. 
 
 >[!Note]
