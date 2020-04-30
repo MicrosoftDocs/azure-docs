@@ -406,9 +406,9 @@ additionalContent:
               url: https://www.microsoft.com/en-ie/lcc_cloud/default.aspx
             - text: Navigating your way to the cloud in Asia
               url: https://www.microsoft.com/en-sg/apac/trustedcloud/default.aspx
-            - text: Navigating your way to the cloud in Middle East and Africa
+            - text: Navigating to the cloud in Middle East and Africa
               url: https://msmea-staging.azurewebsites.net/mea/trustedcloud/default.aspx
-            - text: Cloud compliance guides for financial services (over 30 countries)
+            - text: Cloud compliance guides for financial services
               url: https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3
 
         - title: Implementation and mappings
