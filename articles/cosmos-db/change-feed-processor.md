@@ -1,16 +1,16 @@
 ---
-title: Change feed processor library in Azure Cosmos DB 
-description: Learn how to use the Azure Cosmos DB change feed processor library to read the change feed, the components of the change feed processor
-author: markjbrown
-ms.author: mjbrown
+title: Change feed processor in Azure Cosmos DB 
+description: Learn how to use the Azure Cosmos DB change feed processor to read the change feed, the components of the change feed processor
+author: timsander1
+ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 4/29/2020
 ms.reviewer: sngun
 ---
 
-# Change feed processor in Azure Cosmos DB 
+# Change feed processor in Azure Cosmos DB
 
 The change feed processor is part of the [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3). It simplifies the process of reading the change feed and distribute the event processing across multiple consumers effectively.
 
@@ -18,13 +18,13 @@ The main benefit of change feed processor library is its fault-tolerant behavior
 
 ## Components of the change feed processor
 
-There are four main components of implementing the change feed processor: 
+There are four main components of implementing the change feed processor:
 
 1. **The monitored container:** The monitored container has the data from which the change feed is generated. Any inserts and updates to the monitored container are reflected in the change feed of the container.
 
-1. **The lease container:** The lease container acts as a state storage and coordinates processing the change feed across multiple workers. The lease container can be stored in the same account as the monitored container or in a separate account. 
+1. **The lease container:** The lease container acts as a state storage and coordinates processing the change feed across multiple workers. The lease container can be stored in the same account as the monitored container or in a separate account.
 
-1. **The host:** A host is an application instance that uses the change feed processor to listen for changes. Multiple instances with the same lease configuration can run in parallel, but each instance should have a different **instance name**. 
+1. **The host:** A host is an application instance that uses the change feed processor to listen for changes. Multiple instances with the same lease configuration can run in parallel, but each instance should have a different **instance name**.
 
 1. **The delegate:** The delegate is the code that defines what you, the developer, want to do with each batch of changes that the change feed processor reads. 
 
@@ -62,7 +62,11 @@ The normal life cycle of a host instance is:
 
 ## Error handling
 
-The change feed processor is resilient to user code errors. That means that if your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes will be stopped, and a new thread will be created. The new thread will check which was the latest point in time the lease store has for that range of partition key values, and restart from there, effectively sending the same batch of changes to the delegate. This behavior will continue until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee, because if the delegate code throws, it will retry that batch.
+The change feed processor is resilient to user code errors. That means that if your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes will be stopped, and a new thread will be created. The new thread will check which was the latest point in time the lease store has for that range of partition key values, and restart from there, effectively sending the same batch of changes to the delegate. This behavior will continue until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee, because if the delegate code throws an exception, it will retry that batch.
+
+To prevent your change feed processor from getting "stuck" continuously retrying the same batch of changes, you should add logic in your delegate code to write documents, upon exception, to a dead-letter queue. This design ensures that you can keep track of unprocessed changes while still being able to continue to process future changes. The dead-letter queue might simply be another Cosmos container. The exact data store does not matter, simply that the unprocessed changes are persisted.
+
+In addition, you can use the [change feed estimator](how-to-use-change-feed-estimator.md) to monitor the progress of your change feed processor instances as they read the change feed. In addition to monitoring if the change feed processor gets "stuck" continuously retrying the same batch of changes, you can also understand if your change feed processor is lagging behind due to available resources like CPU, memory, and network bandwidth.
 
 ## Dynamic scaling
 
