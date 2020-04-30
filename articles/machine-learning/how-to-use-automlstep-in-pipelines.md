@@ -421,7 +421,11 @@ model_output.download('.', show_progress=True)
 
 Downloaded files are written to the sub-directory `azureml/{run.id}/`. The metrics file is JSON-formatted and can be converted into a Pandas dataframe for examination.
 
-For local processing, you may need to install relevant packages, such as Pandas, Pickle, the AzureML SDK, and so forth. 
+For local processing, you may need to install relevant packages, such as Pandas, Pickle, the AzureML SDK, and so forth. For this example, it's likely that the best model found by automated ML will depend on XGBoost.
+
+```bash
+!pip install xgboost==0.90
+```
 
 ```python
 import pandas as pd
