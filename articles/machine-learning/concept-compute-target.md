@@ -70,24 +70,25 @@ When you select a node size for a managed compute resource in Azure Machine Lear
 
 There are a few exceptions and limitations to choosing a VM size:
 * Some VM series are not supported in Azure Machine Learning.
-* Some VM series are restricted and need to be specifically enabled before they can be allocated.
+* Some VM series are restricted and need to be specifically approved before they can be provisioned. To do this, file a support ticket for a quota increase request for the VM series you want to use.
 
 See the following table to learn more about supported series and restrictions. 
 
-| **Supported VM series**  | 
-|------------|
-| D |  
-| Dv2 |  
-| DSv2 |  
-| FSv2 |  
-| NC |  
-| NV |  
-| NCsv2 |  
-| NCsv3 |  
-| NDs |  
-| NDv2 |  
-| NVv3 |  
-| FSv2 |  
+| **Supported VM series**  | **Restrictions** |
+|------------|------------|
+| D | None |
+| Dv2 | None |  
+| DSv2 | None |  
+| FSv2 | None |  
+| M | Requires approval |
+| NC | None |    
+| NCsv2 | Requires approval |
+| NCsv3 | Requires approval |  
+| NDs | Requires approval |
+| NDv2 | Requires approval |
+| NV | None |
+| NVv3 | Requires approval | 
+
 
 Note that while Azure Machine Learning supports these VM series, they may not be available in all Azure regions. You can check with VM series are available here: [Products Available by Region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines).
 
