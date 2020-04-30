@@ -253,7 +253,7 @@ Add up to 10 Azure subscription IDs manually, or up to 100 if uploading a CSV fi
 >[!Note]
 >The preview audience differs from a private audience. A preview audience is allowed access to your offer *prior* to being published live in the marketplaces. You may also choose to create a plan and make it available only to a private audience (using the plan Availability tab).  Your preview audience will be able to see and validate all plans, including plans which will be available only to a private audience once your offer is fully published to the marketplace.
 
-### Technical configuration
+## Technical configuration (offer level)
 
 >[!Note]
 >Offer-level technical details are optional.  You only need to configure these details if you are publishing a managed application with metered billing and have a service which will be authenticating with an Azure AD security token. For more information, see [authentication strategies](./marketplace-metering-service-authentication.md) on the different authentication options.
