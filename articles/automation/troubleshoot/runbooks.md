@@ -8,6 +8,7 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
+ms.custom: has-adal-ref
 ---
 
 # Troubleshoot runbook errors
@@ -21,7 +22,7 @@ manager: carmonm
 
 When you receive errors during runbook execution in Azure Automation, you can use the following steps to help diagnose the issues.
 
-1. Ensure that your runbook script runs successfully on your local machine. 
+1. Ensure that your runbook script executes successfully on your local machine.
 
     For language reference and learning modules, see the [PowerShell Docs](/powershell/scripting/overview) or [Python Docs](https://docs.python.org/3/). Running your script locally can discover and resolve common errors, such as:
 
@@ -289,9 +290,9 @@ This error can be caused by using outdated Azure modules.
 
 ### Resolution
 
-You can resolve this error by updating your Azure modules to the latest version. 
+You can resolve this error by updating your Azure modules to the latest version.
 
-1. In your Automation account, select **Modules**, and then select **Update Azure modules**. 
+1. In your Automation account, select **Modules**, and then select **Update Azure modules**.
 1. The update takes roughly 15 minutes. After it's finished, rerun the runbook that failed.
 
 To learn more about updating your modules, see [Update Azure modules in Azure Automation](../automation-update-azure-modules.md).
@@ -637,7 +638,7 @@ For details about the use of Azure sandboxes, see [Runbook execution in Azure Au
 When you try to access Azure Key Vault through an Azure Automation runbook, you get the following error:
 
 ```error
-Operation returned an invalid status code 'Forbidden' 
+Operation returned an invalid status code 'Forbidden'
 ```
 
 ### Cause
@@ -651,11 +652,11 @@ Possible causes for this issue are:
 
 #### Not using a Run As account
 
-Follow [Step 5 - Add authentication to manage Azure resources](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) to ensure that you're using a Run As account to access Key Vault.
+Follow [Step 5 - Add authentication to manage Azure resources](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) to ensure that you are using a Run As account to access Key Vault.
 
 #### Insufficient permissions
 
-[Add permissions to Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault. 
+[Add permissions to Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault.
 
 ## Recommended documents
 
