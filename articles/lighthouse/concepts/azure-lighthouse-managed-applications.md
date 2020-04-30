@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse and Azure managed applications
 description: Azure Lighthouse and Azure managed applications ... 
-ms.date: 04/21/2020
+ms.date: 04/30/2020
 ms.topic: conceptual
 ---
 
@@ -31,7 +31,11 @@ Azure managed applications are typically used for a specific customer need that 
 
 ## Using Azure Lighthouse and Azure managed applications together
 
-While Azure Lighthouse and Azure managed applications use different access mechanisms to achieve different goals, there may be scenarios where it makes sense for a service provider to use both of them with the same customer. For example **(would be great to have an example or two here! Plus any caveats or gotchas)**.
+While Azure Lighthouse and Azure managed applications use different access mechanisms to achieve different goals, there may be scenarios where it makes sense for a service provider to use both of them with the same customer.
+
+For example, a customer might be interested in managed services delivered by a service provider through Azure Lighthouse, so that they have visibility into the partner's actions, along with continued control of ownership of their delegated subscription. However, the service provider may not want the customer to directly access certain resources that will be stored in the customer's tenant, or allow any customized actions on those resources. To meet these goals, the service provider can publish a private offer as a managed application. The managed application can include a specific resource group that can be used within the customer tenant once deployed, but which can't be accessed directly by the customer.
+
+Customers might also want to take advantage of managed applications from multiple service providers, whether or not they also use managed services via Azure Lighthouse from any of those service providers. Partners in the Cloud Solution Provider (CSP) program are also able to resell certain managed applications to customers they support through Azure Lighthouse, whether or not they're the publisher of those managed applications. With a wide range of options, service providers can choose the right balance to meet their customers' needs while restricting access to resources when appropriate.
 
 ## Next steps
 
