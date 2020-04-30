@@ -5,7 +5,7 @@ services: azure-resource-manager
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/27/2020
+ms.date: 04/30/2020
 ---
 
 # Quickstart: Deploy a container instance in Azure using a Resource Manager template
@@ -50,6 +50,8 @@ More Azure Container Instances template samples can be found in the [quickstart 
     * **Name**: accept the generated name for the instance, or enter a name.
     * **Image**: accept the default image name. This sample Linux image packages a small web app written in Node.js that serves a static HTML page. 
 
+    Accept default values for the remaining properties.
+
     Review the terms and conditions. If you agree, select **I agree to the terms and conditions stated above**.
 
     ![Template properties](media/container-instances-quickstart-template/template-properties.png)
@@ -62,11 +64,11 @@ More Azure Container Instances template samples can be found in the [quickstart 
 
 ## Review deployed resources
 
-Use the Azure portal or a tool such as the Azure CLI to review the properties of the container instance.
+Use the Azure portal or a tool such as the [Azure CLI](container-instances-quickstart.md) to review the properties of the container instance.
 
 1. In the portal, search for Container Instances, and select the container instance you created.
 
-1. On the **Overview** page, note the **IP address** of the instance as well as its **Status**.
+1. On the **Overview** page, note the **Status** of the instance and its **IP address**.
 
     ![Instance overview](media/container-instances-quickstart-template/aci-overview.png)
 
@@ -84,11 +86,16 @@ To view the container's logs, under **Settings**, select **Containers** > **Logs
 
 ## Clean up resources
 
-When you no longer need them, delete the resource group, the registry, and the registry replica. To do so, go to the Azure portal, select the resource group that contains the instance, and then select **Delete resource group**.
+When you're done with the container, on the **Overview** page for the container instance, select **Delete**. When prompted, confirm the deletion.
 
 ## Next steps
 
 In this quickstart, you created an Azure container instance from a public Microsoft image. If you'd like to build a container image and deploy it from a private Azure container registry, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances tutorial](./container-instances-tutorial-prepare-app.md)
+> [Tutorial: Create a container image for deployment to Azure Container Instances](./container-instances-tutorial-prepare-app.md)
+
+For a step-by-step tutorial that guides you through the process of creating a template, see:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Create and deploy your first Azure Resource Manager template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template.md)
