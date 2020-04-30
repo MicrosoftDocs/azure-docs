@@ -18,9 +18,7 @@ Transient|A transient error has occurred and IoTHub will retry the operation.|Ch
 |Unauthorized|IoTHub is not authorized to send messages to the specified endpoint.|Validate the connection string is up to date for the endpoint. If it has changed, consider updating your hub. For endpoints that use managed identity (GA in May--is it going to, do we need this, what's the deal?). Check that IoTHub principal has required permissions on the target resource.|
 |Throttled|IoTHub is being throttled while writing messages into the endpoint.|Consider reviewing the throttling limits for the affected endpoint. <br><br>Increase the limit (is this possible), or consider reducing the load of messages sent to this endpoint.|
 |Timeout|Operation timeout. Please retry.| Timeouts can usually be retried. Any other idea apart from retrying?|
-|**Service Bus**|||
 |MaxMessageSize<br>Exceeded|Message routing has a message size limit of 256Kb. The message size being routed exceeded this limit.|See if fewer application properties or message enrichments can be used.|
-|**Topics**|||
 |PartitioningAndDuplicate<br>DetectionNotSupported|Service bus must not have duplicate detection enabled|Disable duplicate detection from service bus or consider using an entity without duplicate detection|
 |SessionfulEntityNotSupported|Service bus must not have sessions enabled|Disable session from service bus or consider using an entity without sessions|
 |NoMatchingSubscriptions<br>ForMessage|There is not subscription to write message on the service bus topic|Create a subscription for IoTHub messages to be sent|
