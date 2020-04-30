@@ -12,9 +12,19 @@ ms.service: azure-project-spool
 
 ---
 
-# ACS As An Event Grid Source
+# React to Communication Services events by using Event Grid to trigger actions
 
-This article provides the properties and schema for Azure Communication Services events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). 
+Azure Communication Services integrates with Azure Event Grid so that you can send event notifications to other services and trigger downstream processes. Configure your business applications to listen for Communication Services events so that you can react to critical events in a reliable, scalable, and secure manner. For example, build an application that updates a database, creates a work ticket, and delivers an email notification every time an SMS is delivered to your Communication Service.
+
+[Azure Event Grid](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/event-grid/overview.md) is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/azure-functions/functions-overview.md) and [Azure Logic Apps](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/logic-apps/logic-apps-what-are-logic-apps.md), and can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/event-grid/overview.md).
+
+![Azure Event Grid architecture](https://github.com/MicrosoftDocs/azure-docs/raw/master/articles/iot-hub/media/iot-hub-event-grid/event-grid-functional-model.png)
+
+## Regional availability
+
+The Event Grid integration is available for Azure Communication services located in the regions where Event Grid is supported. For the latest list of regions, see [An introduction to Azure Event Grid](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/event-grid/overview.md).
+
+This article provides the properties and schema for Azure Communication Services events. For an introduction to event schemas, see [Azure Event Grid event schema](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/event-grid/event-schema.md). 
 
 ## Event Grid event schema
 
@@ -29,13 +39,15 @@ Azure Communication Services emits the following event types:
 
 TODO Add more
 
-### The contents of an event response
+Use either the Azure portal or Azure CLI to configure which events to publish from each IoT hub. For an example, try the (tutorial Send email notifications about SMS Events events using Logic Apps)[#todo_write_tutorial].
 
-When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint.
+## Event Schema
 
-This section contains an example of what that data would look like for each event emitted by Azure Communication Services.
+When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint. Communication Services events contain all the information you need to respond to events in your service. You can identify an Communication Services event by checking that the eventType property starts with Microsoft.CommunicationServices. For more information about how to use Event Grid event properties, see the Event Grid event schema.
 
 ### Microsoft.CommunicationServices.SMSReceived event
+
+The following example shows the schema of an SMS arrived event:
 
 ```json
 [{
