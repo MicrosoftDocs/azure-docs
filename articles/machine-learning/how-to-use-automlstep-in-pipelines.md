@@ -462,7 +462,7 @@ For more information on loading and working with existing models, see [Use an ex
 
 If you've been following along with the article, you'll have an instantiated `run` object. But you can also retrieve completed `Run` objects from the `Workspace` by way of an `Experiment` object.
 
-The workspace contains a complete record of all your experiments and runs. You can either use the portal to find and download the outputs of experiments or use code. To access the records from a historic run, use Azure Machine Learning to find the id of the run in which you are interested. With that, you can choose the specific `run` by way of the `Workspace` and `Experiment`.
+The workspace contains a complete record of all your experiments and runs. You can either use the portal to find and download the outputs of experiments or use code. To access the records from a historic run, use Azure Machine Learning to find the ID of the run in which you are interested. With that, you can choose the specific `run` by way of the `Workspace` and `Experiment`.
 
 ```python
 # Retrieved from Azure Machine Learning web UI
