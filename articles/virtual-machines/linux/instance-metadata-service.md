@@ -8,7 +8,7 @@ ms.service: virtual-machines-linux
 ms.subservice: monitoring
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/09/2020
+ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
 ---
@@ -659,7 +659,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 
 ```
 
-Api-version is a mandatory field. Refer to the [usage section](#Usage) for supported API versions.
+Api-version is a mandatory field. Refer to the [usage section](#usage) for supported API versions.
 Nonce is an optional 10-digit string. If not provided, IMDS returns the current UTC timestamp in its place. Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
 
  ***Response***
