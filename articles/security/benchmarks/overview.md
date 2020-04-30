@@ -1,5 +1,5 @@
 ---
-title: Azure security benchmark overview
+title: Azure Security Benchmark overview
 description: Security benchmark overview
 author: msmbaldwin
 manager: rkarlin
