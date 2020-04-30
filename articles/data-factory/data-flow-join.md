@@ -64,7 +64,9 @@ Unlike merge join in tools like SSIS, the join transformation isn't a mandatory 
 
 ![Join Transformation optimize](media/data-flow/joinoptimize.png "Join Optimization")
 
-If one or both of the data streams fit into worker node memory, further optimize your performance by enabling **Broadcast** in the optimize tab. You can also repartition your data on the join operation so that it fits better into memory per worker.
+In joins, lookups and exists transformation, if one or both data streams fit into worker node memory, you can optimize performance by enabling **Broadcasting**. By default, the spark engine will automatically decide whether or not to broadcast one side. To manually choose which side to broadcast, select **Fixed**.
+
+It's not recommended to disable broadcasting via the **Off** option unless your joins are running into timeout errors.
 
 ## Self-Join
 
@@ -85,7 +87,7 @@ When testing the join transformations with data preview in debug mode, use a sma
     join(
         <conditionalExpression>,
         joinType: { 'inner'> | 'outer' | 'left_outer' | 'right_outer' | 'cross' }
-        broadcast: { 'none' | 'left' | 'right' | 'both' }
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <joinTransformationName>
 ```
 

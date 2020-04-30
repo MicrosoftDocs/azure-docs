@@ -2,21 +2,16 @@
 title: Provision apps with scoping filters | Microsoft Docs
 description: Learn how to use scoping filters to prevent objects in apps that support automated user provisioning from being provisioned if an object doesn't satisfy your business requirements.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: mimart
-ms.custom: H1Hack27Feb2017
-
-ms.collection: M365-identity-device-management
 ---
+
 # Attribute-based application provisioning with scoping filters
 The objective of this article is to explain how to use scoping filters to define attribute-based rules that determine which users are provisioned to an application.
 

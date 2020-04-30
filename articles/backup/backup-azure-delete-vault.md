@@ -84,6 +84,7 @@ First, read the **[Before you start](#before-you-start)** section to understand 
 
      Review the warning message and the instructions in the consent check box.
     > [!NOTE]
+    >
     >- If the protected server is synced with Azure services and backup items exist, the consent check box will display the number of dependent backup items and the link to view the backup items.
     >- If the protected server is not synced with Azure services and backup items exist, the consent check box will display only the number of backup items.
     >- If there are no backup items, the consent check box will ask for deletion.
