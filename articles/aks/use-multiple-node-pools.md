@@ -724,7 +724,7 @@ It may take a few minutes to update your AKS cluster depending on the node pool 
 > You must install the CLI preview extension 0.4.43 or greater to use the public IP per node feature.
 
 > [!Important]
-> The Azure Instance Metadata Service doesn't currently support public IP addresses for the standard tier VM SKU. Due to this limitation, you can't use kubectl commands to display the public IPs assigned to the nodes. However, the IPs are assigned and function as intended. You can use the PowerShell command [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-3.8.0) to view the public IPs.
+> The Azure Instance Metadata Service doesn't currently support public IP addresses for the standard tier VM SKU. Due to this limitation, you can't use kubectl commands to display the public IPs assigned to the nodes. However, the IPs are assigned and function as intended.
 
 AKS nodes do not require their own public IP addresses for communication. However, scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. An common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved on AKS by registering for a preview feature, Node Public IP (preview).
 
@@ -765,10 +765,18 @@ For existing AKS clusters, you can also add a new node pool, and attach a public
 az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
 ```
 
-You can view the public IPs for your nodes with [PowerShell or Bash commands][vmss-commands]. You can also view the public IPs in the Azure Portal by viewing the instances in the Virtual Machine Scale Set.
+You can find the public IPs for your nodes in various ways. The public IPs for your nodes are attached to the instances in your Virtual Machine Scale Set.
+
+* Use the Azure CLI command [az vmss list-instance-public-ips][az-list-ips]
+* Use [PowerShell or Bash commands][vmss-commands]. 
+* You can also view the public IPs in the Azure Portal by viewing the instances in the Virtual Machine Scale Set.
 
 > [!Important]
-> The [node resource group][node-resource-group] contains the nodes and their public IPs. Use the node resource group with the following PowerShell command:
+> The [node resource group][node-resource-group] contains the nodes and their public IPs. Use the node resource group when executing commands to find the public IPs for your nodes.
+
+```azurecli
+az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
+```
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName MC_MyResourceGroup2_MyManagedCluster_eastus -VirtualMachineScaleSetName YourVirtualMachineScaleSetName
@@ -839,3 +847,4 @@ To create and use Windows Server container node pools, see [Create a Windows Ser
 [ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
+[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips
