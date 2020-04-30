@@ -409,21 +409,19 @@ The code above combines the data preparation, automated ML, and model-registerin
 
 ### Examine pipeline results 
 
-Once the `run` completes, you can retrieve `PipelineData` objects that have been assigned a `pipeline_output_name`. 
+Once the `run` completes, you can retrieve `PipelineData` objects that have been assigned a `pipeline_output_name`. You can download the results and load them for further processing.  
 
 ```python
-metrics_output = run.get_pipeline_output('metrics_output')
-model_output = run.get_pipeline_output('model_output')
-```
+metrics_output_port = run.get_pipeline_output('metrics_output')
+model_output_port = run.get_pipeline_output('model_output')
 
-You can work directly with the results or download and reload them at a later time for further processing. 
-
-```python
 metrics_output.download('.', show_progress=True)
 model_output.download('.', show_progress=True)
 ```
 
 Downloaded files are written to the sub-directory `azureml/{run.id}/`. The metrics file is JSON-formatted and can be converted into a Pandas dataframe for examination.
+
+For local processing, you may need to install relevant packages, such as Pandas, Pickle, the AzureML SDK, and so forth. 
 
 ```python
 import pandas as pd
@@ -440,9 +438,23 @@ df = pd.DataFrame(deserialized_metrics_output)
 
 The code snippet above shows the metrics file being loaded from it's location on the Azure datastore. You can also load it from the downloaded file, as shown in the comment. Once you've deserialized it and converted it to a Pandas DataFrame, you can see detailed metrics for each of the iterations of the automated ML step.
 
-The model file can be deserialized into a `Model` object that you can use for inferencing, further metrics analysis, and so forth. To load a `Model` locally, you'll need to have installed the Azure ML SDK. For more information on loading and working with existing models, see [Use an existing model with Azure Machine Learning](how-to-deploy-existing-model.md).
+The model file can be deserialized into a `Model` object that you can use for inferencing, further metrics analysis, and so forth. 
 
-### Download the results of an automated ML run 
+```python
+import pickle
+
+model_filename = model_output._path_on_datastore
+# model_filename = path to downloaded file
+
+with open(model_filename, "rb" ) as f:
+    best_model = pickle.load(f)
+
+# ... inferencing code not shown ...
+```
+
+For more information on loading and working with existing models, see [Use an existing model with Azure Machine Learning](how-to-deploy-existing-model.md).
+
+### Download the results of an automated ML run
 
 If you've been following along with the article, you'll have an instantiated `run` object. But you can also retrieve completed `Run` objects from the `Workspace` by way of an `Experiment` object.
 
