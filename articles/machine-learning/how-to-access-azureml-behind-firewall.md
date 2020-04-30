@@ -35,7 +35,6 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | ---- | ---- |
 | **\*.batchai.core.windows.net** | Training clusters |
 | **ml.azure.com** | Azure Machine Learning studio |
-| **studio.ml.azure.us** | Azure Machine Learning studio |
 | **default.exp-tas.com** | Used by the Azure Machine Learning studio |
 | **\*.azureml.ms** | Used by Azure Machine Learning APIs |
 | **\*.experiments.azureml.net** | Used by experiments running in Azure Machine Learning |
@@ -48,25 +47,18 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **vault.azure.net** | Azure Key Vault |
 | **microsoft.com** | Base docker images |
 | **azurecr.io** | Azure Container Registry |
-| **\*.global.azureml-internal.ms** | Used by integration with Azure Event Grid |
 
 ### Hosts for Azure Government cloud
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
-| **\*.instances.ml.azure.us** | Azure Machine Learning compute instances |
-| **\*.privatelink.api.ml.azure.us** | Azure Machine Learning compute instances when workspace has Private Link enabled |
-| **studio.ml.azure.us** | Azure Machine Learning studio |
-| **\*.global.ml-internal.azure.us** | Used by integration with Azure Event Grid |
+| **\*.ml.azure.us** | Azure Machine Learning |
 
 ### Hosts for Azure China 21Vianet
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
-| **\*.instances.ml.azure.cn** | Azure Machine Learning compute instances |
-| **\*.privatelink.api.ml.azure.cn** | Azure Machine Learning compute instances when workspace has Private Link enabled |
-| **studio.ml.azure.cn** | Azure Machine Learning studio |
-| **\*.global.ml-internal.azure.cn** | Used by integration with Azure Event Grid |
+| **\*.ml.azure.cn** | Azure Machine Learning |
 
 ## Python hosts
 
