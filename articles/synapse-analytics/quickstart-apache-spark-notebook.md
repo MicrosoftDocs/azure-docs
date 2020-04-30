@@ -84,7 +84,7 @@ A notebook is an interactive environment that supports various programming langu
 
 ## Run Spark SQL statements
 
-Structured Query Language (SQL)) is the most common and widely used language for querying and defining data. Spark SQL functions as an extension to Apache Spark for processing structured data, using the familiar SQL syntax.
+Structured Query Language (SQL) is the most common and widely used language for querying and defining data. Spark SQL functions as an extension to Apache Spark for processing structured data, using the familiar SQL syntax.
 
 1. Paste the following code in an empty cell, and then run the code. The command lists the tables on the pool.
 
