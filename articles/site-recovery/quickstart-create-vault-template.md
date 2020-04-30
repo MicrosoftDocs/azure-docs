@@ -32,7 +32,7 @@ None.
 The template used in this quickstart is from
 [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
-:::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json" range="1-66" highlight="42-64":::
+:::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json" range="1-66" highlight="41-65":::
 
 Two Azure resources are defined in the template:
 
