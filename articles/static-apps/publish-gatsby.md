@@ -3,13 +3,13 @@ title: "Tutorial: Publish a Gatsby site to Azure Static Web Apps"
 description: This tutorial shows you how to deploy a Gatsby application to Azure Static Web Apps.
 services: static-web-apps
 author: aaronpowell
-ms.service: azure-functions
+ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ---
 
-# Tutorial: Publish a Gatsby site to App Service Static Web Apps
+# Tutorial: Publish a Gatsby site to Azure Static Web Apps
 
 This article demonstrates how to create and deploy a [Gatsby](https://gatsbyjs.org) web application to [Azure Static Web Apps](overview.md). The final result is a new Static Web Apps site (with the associated GitHub Actions) that give you control over how the app is built and published.
 
@@ -55,11 +55,11 @@ Create a Gatsby app using the Gatsby command line (CLI):
 
 ## Push your application to GitHub
 
-You'll need to have a repository on GitHub to connect App Service Static Web Apps to:
+You need to have a repository on GitHub to create a new Azure Static Web Apps resource:
 
 1. Create a blank GitHub repo (don't create a README) from [https://github.com/new](https://github.com/new) named **gatsby-static-web-app**.
 
-1. Add the GitHub repository as a remote to your local repo. Make sure to add your GitHub username in place of the `<YOUR_USER_NAME>` placeholder in the following command.
+1. Next, add the GitHub repository you just created as a remote to your local repo. Make sure to add your GitHub username in place of the `<YOUR_USER_NAME>` placeholder in the following command.
 
    ```bash
    git remote add origin https://github.com/<YOUR_USER_NAME>/gatsby-static-web-app
@@ -83,7 +83,7 @@ The following steps show you how to create a new static site app and deploy it t
 
    ![Create a Static Web App (Preview) in the portal](./media/static-web-apps-publish-gatsby/create-in-portal.png)
 
-1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
+1. For _Subscription_, accept the subscription that is listed or select a new one from the drop-down list.
 
 1. In _Resource group_, select **New**. In _New resource group name_, enter **myStaticApp** and select **OK**.
 
@@ -137,4 +137,5 @@ Next, you add configuration settings that the build process uses to build your a
 
 > [!div class="nextstepaction"]
 
+> [!div class="nextstepaction"]
 > [Add a custom domain](custom-domain.md)
