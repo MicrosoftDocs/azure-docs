@@ -20,7 +20,7 @@ Use the batch processing kit to complement and scale out workloads on Speech con
 |---------|---------|
 | Automatically distribute batches of audio files     | Automatically dispatch files to large numbers of Speech Services endpoints.         |
 | Use multiple endpoint types     | Use on-premisis or cloud-based endpoints, in any ratio.         |
-|Run modes     | Run the kit once, continuously in the background, or create HTTP endpoints for audio files.         |
+|Run modes     | Run the batch client once, continuously in the background, or create HTTP endpoints for audio files.         |
 |POSIX compatibility     | Mount any POSIX-compliant volume, including network filesystems.        |
 
 The container is publicly available on GitHub. You are only [billed](speech-container-howto.md#billing) for the Speech containers you use.
@@ -92,9 +92,9 @@ The batch processing kit offers three modes:
 ## Logging
 
 > [!NOTE]
-> The batch processing kit may overwrite the *run.log* file periodically if it gets too large.
+> The batch client may overwrite the *run.log* file periodically if it gets too large.
 
-The kit creates a *run.log* file in the directory specified by the `-log_folder` argument in the docker `run` command. Logs are captured at the DEBUG level by default. The same logs are sent to the `stdout/stderr`, and filtered depending on the `-log_level` argument. This log is only necessary for debugging, or if you need to send a trace for support. The logging folder also contains the Speech SDK logs for each audio file.
+The client creates a *run.log* file in the directory specified by the `-log_folder` argument in the docker `run` command. Logs are captured at the DEBUG level by default. The same logs are sent to the `stdout/stderr`, and filtered depending on the `-log_level` argument. This log is only necessary for debugging, or if you need to send a trace for support. The logging folder also contains the Speech SDK logs for each audio file.
 
 The output directory specified by `-output_folder` will contain a *run_summary.json* file, which is periodically rewritten every 30 seconds or whenever new transcriptions are finished. You can use this file to check on progress as the batch proceeds. It will also contain the final run statistics and final status of every file when the batch is completed. The batch is completed when the process has a clean exit. 
 
