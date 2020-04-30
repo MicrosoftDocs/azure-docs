@@ -4,7 +4,7 @@ description: Learn how to manage Azure Cosmos DB resources by using the Azure po
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/30/2020
 ms.author: mjbrown
 ---
 
@@ -28,7 +28,7 @@ Please see [Create an Azure Cosmos DB account with Powershell](manage-with-power
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager template
 
-This Azure Resource Manager template will create an Azure Cosmos account for SQL API configured with two regions and options to select consistency level, automatic failover, and multi-master. To deploy this template, click on Deploy to Azure on the readme page, [Create Azure Cosmos account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)
+Please see [Create Azure Cosmos DB account with Azure Resource Manager templates](manage-sql-with-resource-manager.md)
 
 ## Add/remove regions from your database account
 
