@@ -11,7 +11,7 @@ ms.date: 09/11/2019
 
 # Copy or back up Azure Stream Analytics jobs
 
-You can copy or back up your deployed Azure Stream Analytics jobs using Visual Studio Code or Visual Studio. 
+You can copy or back up your deployed Azure Stream Analytics jobs using Visual Studio Code or Visual Studio. Copying a job to another region does not copy the last output time. Therefore, you cannot use [**When last stopped**](https://docs.microsoft.com/azure/stream-analytics/start-job#start-options) option when starting the copied job.
 
 ## Before you begin
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).

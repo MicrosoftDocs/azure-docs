@@ -22,7 +22,7 @@ Follow the guidelines in this article to provide additional protection for your 
 
  - A deployed WVD environment and host pool.
 
-   For more information, see [Tutorial: Create a host pool by using the Azure Marketplace](../virtual-desktop/create-host-pools-azure-marketplace.md) and [Create a host pool with an Azure Resource Manager template](../virtual-desktop/create-host-pools-arm-template.md).
+   For more information, see [Tutorial: Create a host pool by using the Azure Marketplace](../virtual-desktop/create-host-pools-azure-marketplace.md) and [Create a host pool with an Azure Resource Manager template](../virtual-desktop/virtual-desktop-fall-2019/create-host-pools-arm-template.md).
 
 To learn more about WVD environments see [Windows Virtual Desktop environment](../virtual-desktop/environment-setup.md).
 

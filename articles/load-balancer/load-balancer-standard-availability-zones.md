@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 04/30/2020
 ms.author: allensu
 ---
 
@@ -25,17 +25,17 @@ A Load Balancer resource itself is regional and never zonal. The granularity of 
 In the context of availability zones, the behavior and properties of a Load Balancer rule are described as zone-redundant or zonal.  Zone-redundant and zonal describe the zonality of a property.  In the context of Load Balancer, zone-redundant always means *multiple zones* and zonal means isolating the service to a *single zone*.
 Both public and internal Load Balancer support zone-redundant and zonal scenarios and both can direct traffic across zones as needed (*cross-zone load-balancing*). 
 
-### Frontend
+## Frontend
 
 A Load Balancer frontend is a frontend IP configuration referencing either a public IP address resource or a private IP address within the subnet of a virtual network resource.  It forms the load balanced endpoint where your service is exposed.
 A Load Balancer resource can contain rules with zonal and zone-redundant frontends simultaneously. 
 When a public IP resource or a private IP address has been guaranteed to a zone, the zonality (or lack thereof) isn't mutable.  If you wish to change or omit the zonality of a public IP or private IP address frontend, you need to recreate the public IP in the appropriate zone.  Availability zones do not change the constraints for multiple frontend, review [multiple frontends for Load Balancer](load-balancer-multivip-overview.md) for details for this ability.
 
-#### Zone redundant 
+### Zone redundant 
 
 In a region with availability zones, a Standard Load Balancer frontend can be zone-redundant.  Zone-redundant means that all inbound or outbound flows are served by multiple availability zones in a region simultaneously using a single IP address. DNS redundancy schemes aren't required. A single frontend IP address can survive zone failure and can be used to reach all (non-impacted) backend pool members irrespective of the zone. One or more availability zones can fail and the data path survives as long as one zone in the region remains healthy. The frontend's single IP address is served simultaneously by multiple independent infrastructure deployments in multiple availability zones.  This doesn't mean hitless data path, but any retries or reestablishment will succeed in other zones not impacted by the zone failure.   
 
-#### Optional zone isolation
+### Optional zone isolation
 
 You can choose to have a frontend guaranteed to a single zone, which is known as a *zonal frontend*.  This means any inbound or outbound flow is served by a single zone in a region.  Your frontend shares fate with the health of the zone.  The data path is unaffected by failures in zones other than where it was guaranteed. You can use zonal frontends to expose an IP address per Availability Zone.  
 
@@ -47,13 +47,13 @@ For a public Load Balancer frontend, you add a *zones* parameter to the public I
 
 For an internal Load Balancer frontend, add a *zones* parameter to the internal Load Balancer frontend IP configuration. The zonal frontend causes the Load Balancer to guarantee an IP address in a subnet to a specific zone.
 
-### Cross-zone Load-Balancing
+## Cross-zone Load-Balancing
 
 Cross-zone load-balancing is the ability of Load Balancer to reach a backend endpoint in any zone and is independent of frontend and its zonality.  Any load balancing rule can target backend instance in any availability zone or regional instances.
 
 You need to take care to construct your scenario in a manner which expressed an availability zones notion. For example, you need guarantee your virtual machine deployment within a single zone or multiple zones, and align zonal frontend and zonal backend resources to the same zone.  If you cross availability zones with only zonal resources, the scenario will work but may not have a clear failure mode with respect to availability zones. 
 
-### Backend
+## Backend
 
 Load Balancer works with virtual machines instances.  These can be standalone, availability sets, or virtual machine scale sets.  Any virtual machine instance in a single virtual network can be part of the backend pool irrespective of whether or not it was guaranteed to a zone or which zone was guaranteed to.
 
@@ -61,13 +61,13 @@ If you wish to align and guarantee your frontend and backend with a single zone,
 
 If you wish to address virtual machines across multiple zones, simply place virtual machines from multiple zones into the same backend pool.  When using virtual machine scale sets, you can place one or more virtual machine scale sets into the same backend pool.  And each of these virtual machine scale sets can be in a single or multiple zones.
 
-### Outbound connections
+## Outbound connections
 
 The same zone-redundant and zonal properties apply to [outbound connections](load-balancer-outbound-connections.md).  A zone-redundant public IP address used for outbound connections is served by all zones. A zonal public IP address is served only by the zone it is guaranteed in.  Outbound connection SNAT port allocations survive zone failures and your scenario will continue to provide outbound SNAT connectivity if not impacted by zone failure.  This may require transmissions or for connections to be re-established for zone-redundant scenarios if a flow was served by an impacted zone.  Flows in zones other than the impacted zones are not affected.
 
 The SNAT port preallocation algorithm is the same with or without availability zones.
 
-### Health probes
+## Health probes
 
 Your existing health probe definitions remain as they are without availability zones.  However, we've expanded the health model at an infrastructure level. 
 
