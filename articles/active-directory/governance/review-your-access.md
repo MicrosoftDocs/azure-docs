@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/28/2020
+ms.date: 04/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -79,32 +79,7 @@ Once you have opened the access review, you can see your access.
 
 ## Review your own access to groups and apps using My Access (Preview)
 
-The first step to perform an access review is to find and open the access review.
-
-### Email
-
-  >[!IMPORTANT]
-> There could be delays in receiving email and it some cases it could take up to 24 hours. Whitelist azure-noreply@microsoft.com to make sure that you are receiving all emails.
-
-1. Look for an email from Microsoft asking you to review access. You can see an example email message below:
-
-   ![Example email from Microsoft to review access to a group](./media/review-your-access/access-review-email-preview.png)
-
-   2. Click the **Review access** link to open the access review.
-
-2. Select **Access reviews** from the menu on the left side bar to see a list of pending access reviews assigned to you.
-
-   ![access reviews in the menu](./media/review-your-access/access-review-menu.png)
-
-3. Under Groups and Apps you can see:
-    - **Name** The name of the access review.
-    - **Due** The due date for the review. After this date denied users could be removed from the group or app being reviewed. 
-    - **Resource** Users access to the resourced named in this column is being evaluated as part of this access review.
-    - **Progress** The number of users reviewed over the total number of users part of this access review.
-
-4. Click on the name of an Access review to get started.
- 
-   ![Pending access reviews list for apps and groups](./media/review-your-access/access-reviews-list-preview.png)
+You can preview the experience with the updated user interface in My Access a couple of different ways:
 
 ### My Apps portal
 
@@ -119,14 +94,27 @@ The first step to perform an access review is to find and open the access review
 
 3. Click on **Try it!** in the banner at the top of the page. This will take you to the new My Access experience.
 
-![Pending access reviews list for apps and groups with the new experience available banner displayed during the preview](./media/review-your-access/banner.png)
+    ![Pending access reviews list for apps and groups with the new experience available banner displayed during the preview](./media/review-your-access/banner-your-access.png)
 
+### Email
+
+  >[!IMPORTANT]
+> There could be delays in receiving email and it some cases it could take up to 24 hours. Whitelist azure-noreply@microsoft.com to make sure that you are receiving all emails.
+
+1. Look for an email from Microsoft asking you to review access. You can see an example email message below:
+
+   ![Example email from Microsoft to review access to a group](./media/review-your-access/access-review-email-preview.png)
+
+   2. Click the **Review access** link to open the access review.
+
+>[!NOTE]
+>If clicking start review takes you to **My Apps** follow the steps listed in the section above titled **My Apps Portal**.
 
 ### Directly at My Access
 
 You can also view your pending access reviews by using your browser to open My Access.
 
-1. Sign  in to the My Access at https://myaccess.microsoft.com/#/access-reviews
+1. Sign  in to the My Access at https://myaccess.microsoft.com/
 
 2. Select **Access reviews** from the menu on the left side bar to see a list of pending access reviews assigned to you.
 
@@ -134,9 +122,17 @@ You can also view your pending access reviews by using your browser to open My A
 
 ### Perform the access review (Preview)
 
-Once you have opened the access review, you can see your access.
+1. Under Groups and Apps you can see:
+    - **Name** The name of the access review.
+    - **Due** The due date for the review. After this date denied users could be removed from the group or app being reviewed. 
+    - **Resource** Users access to the resourced named in this column is being evaluated as part of this access review.
+    - **Progress** The number of users reviewed over the total number of users part of this access review.
 
-1. Review your access and decide whether you still need access.
+2. Click on the name of an Access review to get started.
+
+   ![Pending access reviews list for apps and groups](./media/review-your-access/access-reviews-list-preview.png)
+
+3. Review your access and decide whether you still need access.
 
     If the request is to review access for others, the page will look different. For more information, see [Review access to groups or applications](perform-access-review.md).
 

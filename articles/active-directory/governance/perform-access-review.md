@@ -132,6 +132,9 @@ You can preview the reviewer experience with the updated user interface in My Ac
 
    2. Click the **Start review** link to open the access review.
 
+>[!NOTE]
+>If clicking start review takes you to **My Apps** follow the steps listed in the section above titled **My Apps Portal**.
+
 ### Navigate to My Access directly
 
 You can also view your pending access reviews by using your browser to open My Access.
@@ -169,16 +172,16 @@ There are two ways that you can approve or deny access:
 3. Select **Approve** or **Deny** on the bar above.
     - If you are unsure, you can click **Don't know**.The user gets to keep their access and your choice is recorded in the audit logs. It is important that you keep in mind that any information you provide will be available to other reviewers. They can read your comments and take them into account when they review the request.
 
-![Open access review listing the users who need review](./media/perform-access-review/user-list-preview.png)
+    ![Open access review listing the users who need review](./media/perform-access-review/user-list-preview.png)
 
 4. The administrator of the access review may require that you supply a reason in the **Reason** box for your decision. Even when a reason is not required. You can still provide a reason for your decision and the information that you include will be available to other approvers for review.
 
 5. Click **Submit**.
     - You can change your response at any time until the access review has ended. If you want to change your response, select the row and update the response. For example, you can approve a previously denied user or deny a previously approved user.
 
-    >[!IMPORTANT]
-    > - If a user is denied access, they aren't removed immediately. They are removed when the review period has ended or when an administrator stops the review. 
-    > - If there are multiple reviewers, the last submitted response is recorded. Consider an example where an administrator designates two reviewers – Alice and Bob. Alice opens the access review first and approves a user's access request. Before the review period ends, Bob opens the access review and denies access on the same request previously approved by Alice. The last decision denying the access is the response that gets recorded.
+ >[!IMPORTANT]
+ > - If a user is denied access, they aren't removed immediately. They are removed when the review period has ended or when an administrator stops the review. 
+ > - If there are multiple reviewers, the last submitted response is recorded. Consider an example where an administrator designates two reviewers – Alice and  Bob. Alice opens the access review first and approves a user's access request. Before the review period ends, Bob opens the access review and denies access on the same request previously approved by Alice. The last decision denying the access is the response that gets recorded.
 
 #### Approve or deny access based on recommendations (Preview)
 
@@ -190,7 +193,7 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 1. Click **Submit** to accept the recommendations.
 
-To accept recommendations for all user make sure that no one is selected and click on the **Accept recommendations** button on the top bar.
+To accept recommendations for all users make sure that no one is selected and click on the **Accept recommendations** button on the top bar.
 
 >[!NOTE]
 >When you accept recommendations previous decisions will not be changed.
