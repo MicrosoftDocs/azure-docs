@@ -3,7 +3,7 @@ title: Template deployment what-if (Preview)
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 04/29/2020
 ms.author: jgao
 ---
 # ARM template deployment what-if operation (Preview)
@@ -100,7 +100,7 @@ To preview changes before deploying a template, add the `-Whatif` switch paramet
 * `New-AzResourceGroupDeployment -Whatif` for resource group deployments
 * `New-AzSubscriptionDeployment -Whatif` and `New-AzDeployment -Whatif` for subscription level deployments
 
-Or, you can use the `-Confirm` switch parameter to preview the changes and get prompted to continue with the deployment.
+You can use the `-Confirm` switch parameter to preview the changes and get prompted to continue with the deployment.
 
 * `New-AzResourceGroupDeployment -Confirm` for resource group deployments
 * `New-AzSubscriptionDeployment -Confirm` and `New-AzDeployment -Confirm` for subscription level deployments
@@ -117,10 +117,10 @@ To preview changes before deploying a template, use `what-if` with the deploymen
 * `az deployment group what-if` for resource group deployments
 * `az deployment sub what-if` for subscription level deployments
 
-Or, you can use the `--confirm-with-what-if` parameter to preview the changes and get prompted to continue with the deployment.
+You can use the `--confirm-with-what-if` switch (or its short form `-c`) to preview the changes and get prompted to continue with the deployment.
 
-* `az deployment group create --confirm-with-what-if` for resource group deployments
-* `az deployment sub create --confirm-with-what-if` for subscription level deployments
+* `az deployment group create --confirm-with-what-if` or `-c` for resource group deployments
+* `az deployment sub create --confirm-with-what-if` or `-c` for subscription level deployments
 
 The preceding commands return a text summary that you can manually inspect. To get a JSON object that you can programmatically inspect for changes, use:
 
@@ -334,7 +334,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 The what-if operation supports using [deployment mode](deployment-modes.md). When set to complete mode, resources not in the template are deleted. The following example deploys a [template that has no resources defined](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in complete mode.
 
-To preview changes before deploying a template, use the `-Confirm` switch parameter with the deployment command. If the changes are as you expected, confirm that you want the deployment to complete.
+To preview changes before deploying a template, use the confirm switch parameter with the deployment command. If the changes are as you expected, acknowledge that you want the deployment to complete.
 
 # [PowerShell](#tab/azure-powershell)
 
