@@ -24,20 +24,6 @@ The security of most or all business assets in the modern organization depends o
 > [!NOTE]
 > Microsoft is committed to the highest levels of trust, transparency, standards conformance, and regulatory compliance. Learn more about how the Microsoft global incident response team mitigates the effects of attacks against cloud services, and how security is built into Microsoft business products and cloud services at [Microsoft Trust Center - Security](https://www.microsoft.com/trustcenter/security) and Microsoft compliance targets at [Microsoft Trust Center - Compliance](https://www.microsoft.com/trustcenter/compliance).
 
-<!--## Risk management, incident response, and recovery preparation
-
-A cyber-attack, if successful, can shut down operations not just for a few hours, but in some cases for days or even weeks. The collateral damage, such as legal ramifications, information leaks, and media coverage, could potentially continue for years. To ensure effective company-wide risk containment, cybersecurity and IT pros must align their response and recovery processes. To reduce the risk of business disruption due to a cyber-attack, industry experts recommend you do the following:
-
-* As part of your risk management operations, establish a crisis management team for your organization that is responsible for managing all types of business disruptions.
-
-* Compare your current risk mitigations, incident response, and recovery plan with industry best practices for managing a business disruption before, during, and after a cyber-attack.
-
-* Develop and implement a roadmap for closing the gaps between your current plans and the best practices described in this document.
-
-
-## Securing privileged access for hybrid and cloud deployments
-
-does the article really start here?-->
 For most organizations, the security of business assets depends on the integrity of the privileged accounts that administer and manage IT systems. Cyber-attackers focus on privileged access to infrastructure systems (such as Active Directory and Azure Active Directory) to gain access to an organization’s sensitive data. 
 
 The traditional approach was to focus on the entrance and exit points of a network as the primary security perimeter. This approach is now less effective due to increased use of SaaS apps and personal devices on the Internet. The natural replacement for the network security perimeter in a complex modern enterprise is the authentication and authorization controls in an organization's identity layer.
@@ -227,8 +213,7 @@ The Azure Activity Log provides a history of subscription-level events in Azure.
 
 Prepare Conditional Access policies for on-premises and cloud-hosted applications. If you have users workplace joined devices, get more information from [Setting up on-premises Conditional Access by using Azure Active Directory device registration](../active-directory-device-registration-on-premises-setup.md).
 
-
-## Stage 3: Take full control of admin activity
+## Stage 3: Build visibility and take full control of admin activity
 
 ![Stage 3: take control of admin activity](./media/directory-admin-roles-secure/stage-three.png)
 
