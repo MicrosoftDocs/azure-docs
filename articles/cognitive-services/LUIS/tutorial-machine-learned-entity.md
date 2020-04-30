@@ -18,9 +18,7 @@ The machine-learned entity supports the [model decomposition concept](luis-conce
 > * Import example app
 > * Add machine-learned entity
 > * Add subentity and feature
-> * Train app
-> * Test app
-> * Publish app
+> * Train, Test, Publish app
 > * Get entity prediction from endpoint
 
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
@@ -28,11 +26,13 @@ The machine-learned entity supports the [model decomposition concept](luis-conce
 
 ## Why use a machine-learned entity?
 
-This tutorial adds a machine-learned entity to extract data from an utterance.
+This tutorial adds a machine-learned entity to extract data from a user's utterance.
 
 The entity defines the data to extract from within the utterance. This includes giving the data a name, a type (if possible), any resolution of the data if there is ambiguity, and the exact text that makes up the data.
 
-In order to define the entity, you need to create the entity then label the text representing the entity in the example utterances within all intents. These labeled examples teach LUIS what the entity is and where it can be found in an utterance.
+In order to define the data, you need to:
+* Create the entity
+* Label the text, within example utterances, representing the entity. These labeled examples teach LUIS what the entity is and where it can be found in an utterance.
 
 ## Entity decomposability is important
 
@@ -44,9 +44,7 @@ While you may not know how detailed you want your entity when you begin your app
 
 In this tutorial, you create a machine-learned entity to represent an order for a pizza app. The entity will extract order-related text, pulling out size, and quantity.
 
-An utterance for `Please deliver one large cheese pizza to me` should extract `one large cheese pizza` as the order, then also extract `1` for quantity and `large` for size.
-
-There is further decomposition you can add such as creating subentities for toppings or crust. After this tutorial, you should feel confident adding these subentities to your existing `Order` entity.
+An utterance of `Please deliver one large cheese pizza to me` should extract `one large cheese pizza` as the order, then also extract `1` for quantity and `large` for size.
 
 ## Import example .json to begin app
 
