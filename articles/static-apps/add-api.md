@@ -11,7 +11,7 @@ ms.author: wachegha
 
 # Add an API to Azure Static Web Apps with Azure Functions
 
-Adding serverless APIs to Azure Static Web Apps is possible via integration with Azure Functions. This article demonstrates how to add and deploy an API to an Azure Static Web Apps site.
+You can add serverless APIs to Azure Static Web Apps via integration with Azure Functions. This article demonstrates how to add and deploy an API to an Azure Static Web Apps site.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Adding serverless APIs to Azure Static Web Apps is possible via integration with
 
 ## Create a git repository 
 
-The following steps demonstrate how to create a new repository and clone the files to your machine.
+The following steps demonstrate how to create a new repository and clone the files to your computer.
 
 1. Navigate to https://github.com/staticwebdev/vanilla-basic/generate to create a new repository
 1. In the _Repository name_ box, enter **my-vanilla-api**
