@@ -147,7 +147,7 @@ You can also view your pending access reviews by using your browser to open My A
 
 ### Approve or deny access for one or more users (Preview)
 
-After you open My Access underGroups and Apps you can see:
+After you open My Access under Groups and Apps you can see:
 
 - **Name** The name of the access review.
 - **Due** The due date for the review. After this date denied users could be removed from the group or app being reviewed. 
@@ -165,12 +165,12 @@ There are two ways that you can approve or deny access:
 - You can manually approve or deny access for one or more users.
 - You can accept the system recommendations.
 
-#### Manually approve or deny access for one or more users
+#### Manually approve or deny access for one or more users (Preview)
 
 1. Review the list of users and decide whether to approve or deny their continued access.
 2. Select one or more users by clicking the circle next to their names.
 3. Select **Approve** or **Deny** on the bar above.
-    - If you are unsure, you can click **Don't know**.The user gets to keep their access and your choice is recorded in the audit logs. It is important that you keep in mind that any information you provide will be available to other reviewers. They can read your comments and take them into account when they review the request.
+    - If you are unsure, you can click **Don't know**. The user gets to keep their access and your choice is recorded in the audit logs. It is important that you keep in mind that any information you provide will be available to other reviewers. They can read your comments and take them into account when they review the request.
 
     ![Open access review listing the users who need review](./media/perform-access-review/user-list-preview.png)
 
