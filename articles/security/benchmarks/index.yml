@@ -5,11 +5,11 @@ summary: Learn how to secure your cloud solutions on Azure with our best practic
 
 metadata:
   title: Azure Security Benchmarks
-  description: The Azure security controls benchmark contains recommendations that help you improve the security of your applications and data on Azure.
+  description: The Azure Security Benchmark contains recommendations that help you improve the security of your applications and data on Azure.
   services: security
   ms.service: security
   ms.subservice: fundamentals
-  ms.custom: security-baselines
+  ms.custom: security-benchmark
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
