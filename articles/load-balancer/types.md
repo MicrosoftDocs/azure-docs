@@ -15,6 +15,8 @@ ms.author: allensu
 ---
 # Azure Load Balancer types
 
+Azure Load Balancer has two types and two SKU's.
+
 ## <a name = "publicloadbalancer"></a>Public load balancer
 
 A public load balancer maps the public IP and port of incoming traffic to the private IP and port of the VM. Load balancer maps traffic the other way around for the response traffic from the VM. You can distribute specific types of traffic across multiple VMs or services by applying load-balancing rules. For example, you can spread the load of web request traffic across multiple web servers.
