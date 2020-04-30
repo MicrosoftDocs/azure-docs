@@ -116,8 +116,8 @@ Select the **Main Camera** node.
 1. Select **Graphics** from the left list menu
 1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*. Skip this step if the Universal render pipeline is not used.
 
-    ![changing project graphics settings](./media/settings-graphics-render-pipeline.png)
-    Sometimes the UI does not populate the list of available pipeline types from the packages, in which case the *HybridRenderingPipeline* asset must be dragged onto the field manually:
+    ![changing project graphics settings](./media/settings-graphics-render-pipeline.png)\
+    Sometimes the UI does not populate the list of available pipeline types from the packages, in which case the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
     ![changing project graphics settings](./media/hybrid-rendering-pipeline.png)
 
     * > [!NOTE]
@@ -126,7 +126,9 @@ Select the **Main Camera** node.
 1. Select **Player** from the left list menu.
 1. Select the **Universal Windows Platform settings** tab
 1. Change the **XR Settings** to support Windows Mixed Reality:
+
     ![player settings](./media/xr-player-settings.png)
+
 1. Select the settings as in the screenshot above:
     1. Enable **Virtual Reality Supported**
     1. Set **Depth Format** to *16-Bit Depth*
@@ -441,7 +443,8 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 The remote rendering coordinator and a script it requires (*ARRServiceUnity*) are both MonoBehaviours and are required to be attached to a GameObject in the scene.
 
 1. Create a new GameObject in the scene and name it **RemoteRenderingCoordinator**.
-1. Add the *RemoteRenderingCoordinator* script to the **RemoteRenderingCoordinator** GameObject. ![Add RemoteRenderingCoordinator component](./media/add-coordinator-script.png)
+1. Add the *RemoteRenderingCoordinator* script to the **RemoteRenderingCoordinator** GameObject.\
+![Add RemoteRenderingCoordinator component](./media/add-coordinator-script.png)
 1. Confirm the *ARRServiceUnity* script is automatically added to the GameObject, this is a result of adding the attribute `[RequireComponent(typeof(ARRServiceUnity))]` to the top of the **RemoteRenderingCoordinator** script.
 1. Add your Azure Remote Rendering credentials to the coordinator script:\
 ![Add your credentials](./media/configure-coordinator-script.png)

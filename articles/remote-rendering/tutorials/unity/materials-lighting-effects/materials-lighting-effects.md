@@ -131,59 +131,74 @@ public class EntityOverrideController : BaseEntityOverrideController
 }
 ```
 
-**LocalOverride**'s main job is to create the link between itself and its `RemoteComponent`. The **LocalOverride** then allows us to set state flags on the local component, which are bound to the remote entity. The overrides and their states are described in the [Hierarchical state overrides](../../../overview/features/override-hierarchical-state.md) page. This implementation just toggles one state at a time. However, it's entirely possible to combine multiple overrides on single entities and to create combinations at different levels in the hierarchy. For example, combining `Selected` and `SeeThrough` on a single component would give it an outline while also making it transparent. Or setting the root entity `Hidden` override to `ForceOn` while making a child entity's `Hidden` override to `ForceOff` would hide everything except for the child entity with the override.
+**LocalOverride**'s main job is to create the link between itself and its `RemoteComponent`. The **LocalOverride** then allows us to set state flags on the local component, which are bound to the remote entity. The overrides and their states are described in the [Hierarchical state overrides](../../../overview/features/override-hierarchical-state.md) page. This implementation just toggles one state at a time. However, it's entirely possible to combine multiple overrides on single entities and to create combinations at different levels in the hierarchy. For example, combining `Selected` and `SeeThrough` on a single component would give it an outline while also making it transparent. Or setting the root entity `Hidden` override to `ForceOn` while making a child entity's `Hidden` override to `ForceOff` would hide everything except for the child with the override.
 
-To easily apply the above states, we can modify the **RemoteEntityHelper** created previously.
+To apply the above states to entities, we can modify the **RemoteEntityHelper** created previously.
 
 1. Modify the **RemoteEntityHelper** class to implement the **BaseRemoteEntityHelper** abstract class. This will allow the use of a view controller provided in the Tutorial Assets. It should look like this when modified:\
 `public class RemoteEntityHelper : BaseRemoteEntityHelper`
 2. Override the required abstract methods using the following code:
+
 ```csharp
 public override EntityOverrideController EnsureOverrideComponent(Entity entity)
 {
-var entityGameObject = entity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
-var overrideComponent = entityGameObject.GetComponent<EntityOverrideController>();
-if (overrideComponent == null)
-    overrideComponent = entityGameObject.AddComponent<EntityOverrideController>();
-return overrideComponent;
+    var entityGameObject = entity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
+    var overrideComponent = entityGameObject.GetComponent<EntityOverrideController>();
+    if (overrideComponent == null)
+        overrideComponent = entityGameObject.AddComponent<EntityOverrideController>();
+    return overrideComponent;
 }
 
 public override void ToggleHidden(Entity entity)
 {
-var overrideComponent = EnsureOverrideComponent(entity);
-overrideComponent.ToggleHidden();
+    var overrideComponent = EnsureOverrideComponent(entity);
+    overrideComponent.ToggleHidden();
 }
 
 public override void ToggleSelect(Entity entity)
 {
-var overrideComponent = EnsureOverrideComponent(entity);
-overrideComponent.ToggleSelect();
+    var overrideComponent = EnsureOverrideComponent(entity);
+    overrideComponent.ToggleSelect();
 }
 
 public override void ToggleSeeThrough(Entity entity)
 {
-var overrideComponent = EnsureOverrideComponent(entity);
-overrideComponent.ToggleSeeThrough();
+    var overrideComponent = EnsureOverrideComponent(entity);
+    overrideComponent.ToggleSeeThrough();
 }
 
 public Color TintColor = new Color(0.0f, 1.0f, 0.0f, 0.1f);
 public override void ToggleTint(Entity entity)
 {
-var overrideComponent = EnsureOverrideComponent(entity);
-overrideComponent.ToggleTint(TintColor);
+    var overrideComponent = EnsureOverrideComponent(entity);
+    overrideComponent.ToggleTint(TintColor);
 }
 
 public override void ToggleDisableCollision(Entity entity)
 {
-var overrideComponent = EnsureOverrideComponent(entity);
-overrideComponent.ToggleHidden();
+    var overrideComponent = EnsureOverrideComponent(entity);
+    overrideComponent.ToggleHidden();
 }
 ```
 
-This code ensures a **EnsureOverrideComponent** component is added to the target Entity, then calls one of the toggle methods defined in the **EntityOverrideController**. On the **TestModel** GameObject, calling these helper methods can be done as before, by adding the **RemoteEntityHelper** as a callback to the `OnRemoteEntityClicked` event on the **RemoteRayCastPointerHandler** component. Additionally, the **ModelViewController** prefab is configured with a control panel for switching between the overrides. The **EntitySelectionViewController** script included in the Tutorial Assets swaps the callback for the **RemoteRayCastPointerHandler** for each button pressed.
+This code ensures an **EntityOverrideController** component is added to the target Entity, then calls one of the toggle methods. On the **TestModel** GameObject, calling these helper methods can be done as before, by adding the **RemoteEntityHelper** as a callback to the `OnRemoteEntityClicked` event on the **RemoteRayCastPointerHandler** component.\
+![Toggle Hidden](./media/toggle-hidden-pointer-event.png)
+
+ Additionally, the **ModelViewController** prefab is configured with a control panel for switching between the overrides. The **EntitySelectionViewController** script included in the Tutorial Assets swaps the callback for the **RemoteRayCastPointerHandler** for each button pressed. To the **EntitySelectionViewController** script, you will need to ensure an instance of your implementation of **BaseRemoteEntityHelper**, which we've created above to be named **RemoteEntityHelper**, is attached to the same GameObject as the **RemoteRenderedModel**, in this case the **TestModel** GameObject we've been working with. At this point, your **TestModel** should look something like this:
+ ![Test Model with additional scripts](./media/test-model-updated.png)
+
+An example of stacking overrides on a single entity, with `Select` and `Tint`:\
+ ![Test Model tint select](./media/select-tint-test-model.png)
 
 ## Cut planes
 
 ## Editing materials
 
 ## Lighting / sky box
+
+## Next steps
+
+You've implemented all the core functionality of Azure Remote Rendering, in the next chapter we'll learn about securing your Azure Remote Rendering and Blob storage. These will be the first steps to releasing a commercial application that uses Azure Remote Rendering.
+
+> [!div class="nextstepaction"]
+> [Next: Loading custom models](../security/security.md)
