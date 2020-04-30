@@ -205,8 +205,6 @@
         href: ../connectors/connectors-create-api-box.md
       - name: Custom APIs and web apps
         href: logic-apps-create-api-app.md
-      - name: DB2
-        href: ../connectors/connectors-create-api-db2.md
       - name: Delay
         href: ../connectors/connectors-native-delay.md
       - name: Dropbox
@@ -237,8 +235,12 @@
         href: ../connectors/connectors-native-webhook.md
       - name: IBM 3270
         href: ../connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md
-      - name: Informix
+      - name: IBM DB2
+        href: ../connectors/connectors-create-api-db2.md
+      - name: IBM Informix
         href: ../connectors/connectors-create-api-informix.md
+      - name: IBM MQ
+        href: ../connectors/connectors-create-api-mq.md
       - name: Integration Account
         href: logic-apps-enterprise-integration-metadata.md
       - name: MailChimp
@@ -247,8 +249,6 @@
         href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
       - name: Microsoft Translator
         href: ../connectors/connectors-create-api-microsofttranslator.md
-      - name: MQ
-        href: ../connectors/connectors-create-api-mq.md
       - name: Office 365 Outlook
         href: ../connectors/connectors-create-api-office365-outlook.md
       - name: Office 365 Users

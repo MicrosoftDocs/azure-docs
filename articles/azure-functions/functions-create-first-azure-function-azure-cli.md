@@ -376,9 +376,16 @@ If you continue to the next step, [Add an Azure Storage queue output binding](fu
 
 Otherwise, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
 
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp" 
 ```azurecli
 az group delete --name AzureFunctionsQuickstart-rg
 ```
+::: zone-end
+::: zone pivot="programming-language-java"
+```azurecli
+az group delete --name java-functions-group
+```
+::: zone-end
 
 ## Next steps
 
