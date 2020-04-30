@@ -35,30 +35,29 @@ Begin by making a change either to a local clone of your repository or directly 
 
 1. Navigate to your project repository on GitHub, then click on the **Branch** button to create a new branch.
 
-    ![Create new branch using GitHub interface](./media/review-publish-pull-requests/create-branch.png)
+    :::image type="content" source="./media/review-publish-pull-requests/create-branch.png" alt-text="Create new branch using GitHub interface":::]
 
     Type in a branch name and click on **Create branch**.
 
 1. Go to your _app_ folder and make a content change. For example, you can change a title or paragraph. Once you found the file you want to edit, click on **Edit** to make the change.
     
-    ![Edit file button in GitHub interface](./media/review-publish-pull-requests/edit-file.png)
+    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Edit file button in GitHub interface":::
 
 1. After you make the changes, click on **Commit changes** to commit your changes to the branch.
 
-    ![Commit changes button in GitHub interface](./media/review-publish-pull-requests/commit-changes.png)
+    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Commit changes button in GitHub interface":::
 
 ## Create a pull request
 
 Next, create a pull request from this change. If you made the change locally, make sure to push your branch to remote.
 
 1. Open the **Pull request** tab of your project on GitHub:
-
-    ![Pull request tab in a GitHub repository](./media/review-publish-pull-requests/pr-tab.png)
+    :::image type="content" source="./media/review-publish-pull-requests/pr-tab.png" alt-text="Pull request tab in a GitHub repository":::
 
 1. Click on the **Compare & pull request** button of your branch.
 
 1. You can optionally fill-in some details about your changes, then click on **Create pull request**.
-    ![Pull request creation in GitHub](./media/review-publish-pull-requests/open-pr.png)
+    :::image type="content" source="./media/review-publish-pull-requests/open-pr.png" alt-text="Pull request creation in GitHub":::
 
 As common for the regular GitHub workflow for pull requests, you can assign reviewers and add comments to discuss your changes if needed.
 
@@ -71,7 +70,7 @@ After the pull request is created, the [GitHub Actions](https://github.com/featu
 
 Once the workflow is finished, the GitHub bot adds a comment to your pull request which contains the URL of the pre-production environment. You can click on this link to see your staged changes.
 
-![Pull request comment with the pre-production URL](./media/review-publish-pull-requests/bot-comment.png)
+:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Pull request comment with the pre-production URL":::
 
 Click on the generated URL to see the changes.
 
@@ -85,7 +84,7 @@ When the pull request is accepted and you are satisfied with the current staged 
 
 Click on **Merge pull request**:
 
-![Merge pull request button in GitHub interface](./media/review-publish-pull-requests/merge-pr.png)
+:::image type="content" source="./media/review-publish-pull-requests/merge-pr.png" alt-text="Merge pull request button in GitHub interface":::
 
 Merging copies your changes to the `master` branch (the "production" branch). Then, the deployment workflow starts on the `master` branch and the changes are live after your application has rebuilt. To verify the changes in production,  open your production URL to launch the live version of the website.
 
