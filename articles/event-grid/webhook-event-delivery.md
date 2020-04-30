@@ -86,5 +86,6 @@ For an example of handling the subscription validation handshake, see a [C# samp
 If you are already familiar with Event Grid, you may be aware of Event Grid's endpoint validation handshake for preventing abuse. CloudEvents v1.0 implements its own [abuse protection semantics](webhook-event-delivery.md) using the HTTP OPTIONS method. You can read more about it [here](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When using the CloudEvents schema for output, Event Grid uses with the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
 
 ## Next steps
+See the following article to learn how to troubleshoot event subscription validations: 
 
-- For an introduction to Event Grid, see [About Event Grid](overview.md)
+[Troubleshoot event subscription validations](troubleshoot-subscription-validation.md)
