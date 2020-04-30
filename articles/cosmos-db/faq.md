@@ -122,7 +122,7 @@ Yes Azure CosmosDB supports time series analysis, here is a sample for [time ser
 
 See the Azure Cosmos DB [service quotas](concepts-limits.md) and [throughout limits per container and database](set-throughput.md#comparison-of-models) articles for more information.
 
-## Frequently asked questions about SQL API
+## <a id="sql-api-faq"></a>Frequently asked questions about SQL API
 
 ### How do I start developing against the SQL API?
 
@@ -205,3 +205,12 @@ Creating permissions by using ResourceTokens is allowed at the container level a
 
 [azure-portal]: https://portal.azure.com
 [query]: sql-api-sql-query.md
+
+## Next steps
+
+To learn about frequently asked questions in other APIs, see:
+
+* Frequently asked questions about [Azure Cosmos DB's API for MongoDB](mongodb-api-faq)
+* Frequently asked questions about [Gremlin API in Azure Cosmos DB](gremlin-api-faq)
+* Frequently asked questions about [Cassandra API in Azure Cosmos DB](cassandra-faq.md)
+* Frequently asked questions about [Table API in Azure Cosmos DB](table-api-faq.md)
