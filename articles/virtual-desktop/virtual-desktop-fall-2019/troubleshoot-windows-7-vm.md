@@ -6,11 +6,14 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 09/23/2019
+ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
 # Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop
+
+>[!IMPORTANT]
+>This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 Use this article to troubleshoot issues you're having when configuring the Windows Virtual Desktop session host virtual machines (VMs).
 

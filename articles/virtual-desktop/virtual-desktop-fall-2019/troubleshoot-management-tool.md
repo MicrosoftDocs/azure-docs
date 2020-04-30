@@ -6,11 +6,14 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 11/09/2019
+ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
 # Troubleshoot the Windows Virtual Desktop management tool
+
+>[!IMPORTANT]
+>This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 This article describes issues that can occur while deploying the Windows Virtual Desktop management tool and how to fix them.
 
@@ -52,7 +55,6 @@ To fix this, deploy the management tool in a different region. Redeploying the t
 
 ## Next steps
 
-- Learn about escalation tracks at [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
+- Learn about escalation tracks at [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
 - Learn how to report issues with Windows Virtual Desktop tools at [ARM Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md).
-- For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
 - To learn how to deploy the management tool, see [Deploy a management tool](manage-resources-using-ui.md).
