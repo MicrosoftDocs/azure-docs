@@ -72,7 +72,7 @@ You enable Local Cache on a per-web-app basis by using this app setting:
 
     "properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
-        "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
+        "WEBSITE_LOCAL_CACHE_SIZEINMB": "1000"
     }
 }
 
