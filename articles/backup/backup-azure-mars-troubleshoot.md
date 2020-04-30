@@ -78,10 +78,10 @@ We recommend that you check the following before you start troubleshooting Micro
   ![Backup job completed with warnings](./media/backup-azure-mars-troubleshoot/backup-completed-with-warning.png)
 
 - Conditions that can cause the backups to skip files include:
-  - unsupported file attributes (for example: in a OneDrive folder, Compressed stream, reparse points). For the complete list, refer to the [support matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#supported-file-types-for-backup).
-  - a file system issue
-  - another process interfering (for example: antivirus software holding handles on files can prevent the MARS agent from accessing the files)
-  - files locked by an application  
+  - Unsupported file attributes (for example: in a OneDrive folder, Compressed stream, reparse points). For the complete list, refer to the [support matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#supported-file-types-for-backup).
+  - A file system issue
+  - Another process interfering (for example: antivirus software holding handles on files can prevent the MARS agent from accessing the files)
+  - Files locked by an application  
 
 - The backup service will mark these files as failed in the log file, with the following naming convention: *LastBackupFailedFilesxxxx.txt* under the *C:\Program Files\Microsoft Azure Recovery Service Agent\temp* folder.
 - To resolve the issue, review the log file to understand the nature of the issue:
