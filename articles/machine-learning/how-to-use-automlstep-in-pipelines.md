@@ -38,7 +38,7 @@ The `AutoMLStep` is configured via an `AutoMLConfig` object. `AutoMLConfig` is a
 
 A `Pipeline` runs in an `Experiment`. The pipeline `Run` has, for each step, a child `StepRun`. The outputs of the automated ML `StepRun` are the training metrics and highest-performing model.
 
-To make things concrete, this article creates a simple pipeline for a classification task. The task is predicting Titanic survival, but we will not be discussing the data or task except in passing. 
+To make things concrete, this article creates a simple pipeline for a classification task. The task is predicting Titanic survival, but we will not be discussing the data or task except in passing.
 
 ## Get started
 
@@ -64,7 +64,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-The code first logs in to the Azure Machine Learning workspace defined in **config.json**  (for an explanation, see [Tutorial: Get started creating your first ML experiment with the Python SDK](tutorial-1st-experiment-sdk-setup.md)). If there is not already a dataset named `'titanic_ds'` registered, the creates one. The code downloads CSV data from the Web, uses them to instantiate a `TabularDataset` and then registers the dataset with the workspace. Finally, the function `Dataset.get_by_name()` assigns the `Dataset` to `titanic_ds`. 
+The code first logs in to the Azure Machine Learning workspace defined in **config.json** (for an explanation, see [Tutorial: Get started creating your first ML experiment with the Python SDK](tutorial-1st-experiment-sdk-setup.md)). If there is not already a dataset named `'titanic_ds'` registered, then it creates one. The code downloads CSV data from the Web, uses them to instantiate a `TabularDataset` and then registers the dataset with the workspace. Finally, the function `Dataset.get_by_name()` assigns the `Dataset` to `titanic_ds`. 
 
 ### Configure your storage and compute target
 
@@ -75,7 +75,7 @@ from azureml.core import Datastore, AmlCompute, ComputeTarget
 
 datastore = ws.get_default_datastore()
 
-compute_name = 'cpu-compute'
+compute_name = 'cpu-cluster'
 if not compute_name in ws.compute_targets :
     print('creating a new compute target...')
     provisioning_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
@@ -94,7 +94,7 @@ compute_target = ws.compute_targets[compute_name]
 
 The intermediate data between the data preparation and the automated ML step can be stored in the workspace's default datastore, so we don't need to do more than call `get_default_datastore()` on the `Workspace` object. 
 
-After that, the code checks if the AML compute target `'cpu-compute'` already exists. If not, we specify that we want a small CPU-based compute target. If you plan to use automated ML's deep learning features (for instance, text featurization with DNN support) you should choose a compute with strong GPU support, as described in [GPU optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu). 
+After that, the code checks if the AML compute target `'cpu-cluster'` already exists. If not, we specify that we want a small CPU-based compute target. If you plan to use automated ML's deep learning features (for instance, text featurization with DNN support) you should choose a compute with strong GPU support, as described in [GPU optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu). 
 
 The code blocks until the target is provisioned and then prints some details of the just-created compute target. Finally, the named compute target is retrieved from the workspace and assigned to `compute_target`. 
 
@@ -107,7 +107,7 @@ from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
 
 aml_run_config = RunConfiguration()
-# Use just-specified compute target ("cpu-compute")
+# Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
 aml_run_config.environment.python.user_managed_dependencies = False
 
@@ -235,26 +235,20 @@ Configuring an automated ML pipeline step is done with the `AutoMLConfig` class.
 
 ### Send data to `AutoMLStep`
 
-As discussed above, configuring input to your automated ML step requires the use of certain configurations. In an ML pipeline, you must provide your data using an `X`,`y` technique and cannot use the `training_data` technique. You may provide all your data in `X` and `y` and use `n_cross_validations` or you may provide your own validation data in `X_valid` and `y_valid` and leave `n_cross_validations` to the default `None` value. 
-
 In an ML pipeline, the input data must be a `Dataset` object. The highest-performing way is to provide the input data in the form of `PipelineOutputTabularDataset` objects. You create an object of that type with the `parse_parquet_files()` or `parse_delimited_files()` on a `PipelineOutputFileDataset`, such as the `prepped_data_path` object.
 
 ```python
 # type(prepped_data_path) == PipelineOutputFileDataset
-# type(prepped_data_potds) == PipelineOutputTabularDataset
-prepped_data_potds = prepped_data_path.parse_parquet_files(file_extension=None)
-
-X = prepped_data_potds.drop_columns('Survived')
-y = prepped_data_potds.keep_columns('Survived')
+# type(prepped_data) == PipelineOutputTabularDataset
+prepped_data = prepped_data_path.parse_parquet_files(file_extension=None)
 ```
 
-The first executable line in the snippet above creates a high-performing `PipelineOutputTabularDataset` from the `PipelineOutputFileDataset` output of the data preparation step. The `X` data is every column except the `Survived` value, and the `y` data is only that column. 
+The snippet above creates a high-performing `PipelineOutputTabularDataset` from the `PipelineOutputFileDataset` output of the data preparation step.
 
 Another option is to use `Dataset` objects registered in the workspace:
 
 ```python
-X = Dataset.get_by_name(ws, 'Data_features')
-y = Dataset.get_by_name(ws, 'Data_labels')
+prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 ```
 
 Comparing the two techniques:
@@ -295,13 +289,12 @@ Once the inputs and outputs are defined, it's time to create the `AutoMLConfig` 
 from azureml.train.automl import AutoMLConfig
 from azureml.pipeline.steps import AutoMLStep
 
-# To improve model metrics, change timeouts and increase iterations to a reasonable number (e.g., 50)
+# Change iterations to a reasonable number (50) to get better accuracy
 automl_settings = {
     "iteration_timeout_minutes" : 10,
     "iterations" : 2,
     "experiment_timeout_hours" : 0.25,
-    "primary_metric" : 'AUC_weighted',
-    "n_cross_validations" : 3
+    "primary_metric" : 'AUC_weighted'
 }
 
 automl_config = AutoMLConfig(task = 'classification',
@@ -310,20 +303,27 @@ automl_config = AutoMLConfig(task = 'classification',
                              compute_target = compute_target,
                              run_configuration = aml_run_config,
                              featurization = 'auto',
-                             X = X,
-                             y = y,
+                             training_data = prepped_data,
+                             label_column_name = 'Survived',
                              **automl_settings)
 
 train_step = AutoMLStep(name='AutoML_Classification',
-                                 automl_config=automl_config,
-                                 passthru_automl_config=False,
-                                 outputs=[metrics_data,model_data],
-                                 allow_reuse=True)
+    automl_config=automl_config,
+    passthru_automl_config=False,
+    outputs=[metrics_data,model_data],
+    allow_reuse=True)
 ```
+The snippet shows an idiom commonly used with `AutoMLConfig`. Arguments that are more fluid (hyperparameter-ish) are specified in a separate dictionary while the values less likely to change are specified directly in the `AutoMLConfig` constructor. In this case, the `automl_settings` specify a brief run: the run will stop after only two iterations or 15 minutes, whichever comes first.
 
-The snippet shows an idiom commonly used with `AutoMLConfig`. Arguments that are more fluid (hyperparameter-ish) are specified in a separate dictionary while the values less likely to change are specified directly in the `AutoMLConfig` constructor. In this case, the `automl_settings` specify a brief run: the run will stop after only two iterations or 15 minutes, whichever comes first. 
+{~~
+tk
+You should pass your data to There are two techniques for inputting data to the automated ML step. One technique is the older `X`, `y` technique, where data features (the values to make the prediction) are labeled `X` and data labels (the values you are trying to predict) are labeled `y`. This is 
+
+As discussed above, configuring input to your automated ML step requires the use of certain configurations. In an ML pipeline, you must provide your data using an `X`,`y` technique and cannot use the `training_data` technique. You may provide all your data in `X` and `y` and use `n_cross_validations` or you may provide your own validation data in `X_valid` and `y_valid` and leave `n_cross_validations` to the default `None` value. 
+tk
 
 Since in the example all of the data is in `X` and `y` and have not generated `X_valid` and `y_valid` objects, we set `n_cross_validations`. If you provide `X_valid` and `y_valid`, leave `n_cross_validations` to its default `None` value. 
+~~} 
 
 The `automl_settings` dictionary is passed to the `AutoMLConfig` constructor as kwargs. The other parameters are not complex:
 
@@ -331,12 +331,17 @@ The `automl_settings` dictionary is passed to the `AutoMLConfig` constructor as 
 - `path` and `debug_log` describe the path to the project and a local file to which debug information will be written 
 - `compute_target` is the previously defined `compute_target` that, in this example, is an inexpensive CPU-based machine. If you are using AutoML's Deep Learning facilities, you would want to change the compute target to be GPU-based
 - `featurization` is set to `auto`. More details can be found in the [Data Featurization](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) section of the automated ML configuration document 
-- `X` and `y` are set to the `PipelineOutputTabularDataset` objects made from the outputs of the data preparation step 
+- `training_data` is set to the `PipelineOutputTabularDataset` objects made from the outputs of the data preparation step 
+- `label_column_name` indicates which column we are interested in predicting 
 
 The `AutoMLStep` itself takes the `AutoMLConfig` and has, as outputs, the `PipelineData` objects created to hold the metrics and model data. 
 
 >[!Important]
 > You must set `passthru_automl_config` to `False` if your `AutoMLStep` is using `PipelineOutputTabularDataset` objects for input.
+
+In this example, the automated ML process will perform cross-validations on the `training_data`. You can control the number of cross-validations with the `n_cross_validations` argument. If you've already split your training data as part of your data preparation steps, you can set `validation_data` to its own `Dataset`.
+
+You might occasionally see the use `X` for data features and `y` for data labels. This technique is deprecated and you should use `training_data` for input. 
 
 ## Register the model generated by automated ML 
 
