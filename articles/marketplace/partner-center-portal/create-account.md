@@ -14,7 +14,7 @@ ms.date: 04/14/2020
 To publish your offers to [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [Microsoft AppSource](https://appsource.microsoft.com/), you need to create an account in the commercial marketplace program in Partner Center. This article covers how to create a Partner Center account and how to add new publishers to the commercial marketplace program.
 
 >[!IMPORTANT]
->If you have an account in the [Cloud Partner Portal](https://cloudpartner.azure.com) that has been moved to Partner Center, you don't need to create a new account. See [Publishers moving from the Cloud Partner Portal](#publishers-moving-from-cpp) for more information.
+>If you have an account in the [Cloud Partner Portal](https://cloudpartner.azure.com) that has been moved to Partner Center, you don't need to create a new account. For more information, see [For publishers who are moving from the Cloud Partner Portal](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
 
 ## Before you begin
 
@@ -40,7 +40,7 @@ Use this method if you're new to Partner Center and are not enrolled in the Micr
 - [Provide your publisher profile](#provide-your-publisher-profile)
 
 >[!IMPORTANT]
->If you have a [Cloud Partner Portal](https://cloudpartner.azure.com) account that has been moved to Partner Center, you don't need to create a new account. For more information, see [Publishers moving from the Cloud Partner Portal](#publishers-moving-from-cpp).
+>If you have a [Cloud Partner Portal](https://cloudpartner.azure.com) account that has been moved to Partner Center, you don't need to create a new account. For more information, see [For publishers who are moving from the Cloud Partner Portal](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
 
 ### Register on the Partner Center enrollment page
 
@@ -79,7 +79,7 @@ Use this section to create a commercial marketplace account if you already have 
 There are two types of existing enrollments that you can use to set up your commercial marketplace account. Choose the one that applies to you:
 
 - If you have an existing Microsoft Partner Network enrollment, create your account using [Enrolled in the Microsoft Partner Network](#enrolled-in-the-microsoft-partner-network).
-- If you have an existing developer program enrollment, create your account using [Enrolled in a developer program](#enrolled-in-a-developer-program).
+- If you have an existing developer program enrollment, create your account using [What if I'm already enrolled in a developer program?](#what-if-im-already-enrolled-in-a-developer-program).
 
 For both methods, you'll use these steps:
 
@@ -89,7 +89,7 @@ For both methods, you'll use these steps:
 Make sure to have your account information handy.
 
 >[!IMPORTANT]
->If you have an account in the [Cloud Partner Portal](https://cloudpartner.azure.com/) that has been moved to Partner Center, you do not need to create a new account. See [Publishers moving from the Cloud Partner Portal](#publishers-moving-from-cpp) for more information.
+>If you have an account in the [Cloud Partner Portal](https://cloudpartner.azure.com/) that has been moved to Partner Center, you do not need to create a new account. For more information, see [For publishers who are moving from the Cloud Partner Portal](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
 
 ### Enrolled in the Microsoft Partner Network
 
@@ -173,6 +173,6 @@ Another user from the same Azure Active Directory tenant can add a new publisher
 
 After you complete the process, you can manage the newly created publisher by going to the **Commercial Marketplace** program that's listed in the left pane. If you don't see the **Commercial Marketplace** program, refresh the page. The new publisher appears in the **Publishers** list.
 
-## Next step
+## Next steps
 
 - [Manage your commercial marketplace account in Partner Center](./manage-account.md)
