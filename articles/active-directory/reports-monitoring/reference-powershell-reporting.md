@@ -3,7 +3,7 @@ title: Azure AD PowerShell cmdlets for reporting | Microsoft Docs
 description: Reference of the Azure AD PowerShell cmdlets for reporting.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 07/12/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -23,7 +23,14 @@ ms.collection: M365-identity-device-management
 # Azure AD PowerShell cmdlets for reporting
 
 > [!NOTE] 
-> These Powershell cmdlets currently only work with the [Azure AD Preview](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) Module. Please note that the preview module is not suggested for production use. 
+> These Powershell cmdlets currently only work with the [Azure AD Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) Module. Please note that the preview module is not suggested for production use. 
+
+To install the public preview release, use the following. 
+
+```powershell
+Install-module AzureADPreview
+```
+For more infromation on how to connect to Azure AD using powershell , please see the article [Azure AD Powershell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
 
 With Azure Active Directory (Azure AD) reports, you can get details on activities around all the write operations in your direction (audit logs) and authentication data (sign-in logs). Although the information is available by using the MS Graph API, now you can retrieve the same data by using the Azure AD PowerShell cmdlets for reporting.
 

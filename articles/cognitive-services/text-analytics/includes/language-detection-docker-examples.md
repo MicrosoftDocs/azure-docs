@@ -3,19 +3,19 @@ title: Language Detection container docker examples
 titleSuffix: Azure Cognitive Services
 description: Language Detection container docker examples
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 08/21/2019
-ms.author: dapine
+ms.topic: include
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
-## Language Detection container docker examples
+### Language Detection container docker examples
 
 The following docker examples are for the Language Detection container.
 
-### Basic example 
+#### Basic example 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -25,7 +25,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} 
   ```
 
-### Logging example 
+#### Logging example 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

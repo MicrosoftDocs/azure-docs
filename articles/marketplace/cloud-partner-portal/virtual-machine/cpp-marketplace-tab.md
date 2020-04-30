@@ -1,15 +1,18 @@
 ---
 title: Virtual machine Marketplace tab in the Cloud Partner Portal for Azure Marketplace
 description: Describes the Marketplace tab used in creating an Azure Marketplace VM offer.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: dsindona
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Virtual machine Marketplace tab
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) to manage your migrated offers.
 
 The **Marketplace** tab of the **New Offer** page enables you to provide your prospective customers with marketing, sales, and legal information and agreements and manage leads generated from the marketplace. This long form is divided into four sections: **Overview**, **Marketing Artifacts**, **Lead Management**, and **Legal**.
 
@@ -31,7 +34,7 @@ The following table describes the purpose and content of these fields. Required 
 | **Marketing Identifier\***  | A unique URL to associate to this offer, typically includes your organization and solution name, maximum length 50 characters.  For example: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Preview Subscription IDs\*** | Add one to 100 subscription identifiers of previewers. These white-listed subscriptions will have access to the offer once it's published, before it goes live. |
 | **Useful Links**          | Add URLs to the documentations, release notes, FAQs, and so on. |
-| **Suggested Categories (Max 5)\*** | Multi-selection of business and technical categories that offer can be best associated with.  Maximum five allowed.  |
+| **Suggested Categories\*** | Select up to two (2) categories, including a primary and a secondary category (optional). Select up to two (2) subcategories for each primary and/or secondary category. If no subcategory is selected, you offer will still be discoverable on the selected category only. |
 |  |  |
 
 

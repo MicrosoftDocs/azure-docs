@@ -8,7 +8,7 @@ ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.date: 04/22/2019
+ms.date: 12/11/2019
 ms.author: gsacavdm
 
 ---
@@ -81,12 +81,6 @@ For more information, see [Site Recovery commercial documentation](../site-recov
 The following Site Recovery features are not currently available in Azure Government:
 * Email notification
 
-| Site Recovery | Classic | Resource Manager |
-| --- | --- | --- |
-| VMware/Physical  | GA | GA |
-| Hyper-V | GA | GA |
-| Site to Site | GA | GA |
-
 The following URLs for Site Recovery are different in Azure Government:
 
 | Azure Public | Azure Government | Notes |
@@ -101,70 +95,13 @@ Azure Monitor is generally available in Azure Government.
 
 For more information, see [Monitor commercial documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview).
 
-### Variations
-The following sections detail differences and workarounds for features of Azure Monitor in Azure Government:
-
-#### Action Groups
-Action Groups are generally available in Azure Government with no differences from commercial Azure.   
-
-#### Activity Log Alerts
-Activity Log Alerts are generally available in Azure Government with no differences from commercial Azure.
-
-#### Alerts Experience
-The unified alerts UI experience is available for metric and log alerts in Azure Government.
-
-#### Autoscale
-Autoscale is generally available in Azure Government.
-
-If you are using PowerShell/ARM/REST calls to specify settings, set the "Location" of the Autoscale to "USGov Virginia" or "USGov Iowa". The resource targeted by Autoscale can exist in any region. An example of the setting is below:
-
-```powershell
-$rule1 = New-AzAutoscaleRule -MetricName "Requests" -MetricResourceId "/subscriptions/S1/resourceGroups/RG1/providers/Microsoft.Web/sites/WebSite1" -Operator GreaterThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1"
-$rule2 = New-AzAutoscaleRule -MetricName "Requests" -MetricResourceId "/subscriptions/S1/resourceGroups/RG1/providers/Microsoft.Web/sites/WebSite1" -Operator GreaterThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "2"
-$profile1 = New-AzAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1, $rule2 -Name "MyProfile"
-$webhook_scale = New-AzAutoscaleWebhook -ServiceUri https://example.com?mytoken=mytokenvalue
-$notification1= New-AzAutoscaleNotification -CustomEmails myname@company.com -SendEmailToSubscriptionAdministrator -SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
-Add-AzAutoscaleSetting -Location "USGov Virginia" -Name "MyScaleVMSSSetting" -ResourceGroup sdubeys-usgv -TargetResourceId /subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Web/serverFarms/ServerFarm1 -AutoscaleProfiles $profile1 -Notifications $notification1
-```
-
-If you are interested in implementing autoscale on your resources, use PowerShell/ARM/Rest calls to specify the settings.
-
-For more information on using PowerShell, see [public documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
-
-#### Metrics
-Metrics are generally available in Azure Government. However, multi-dimensional metrics are supported only via the REST API. The ability to [show multi-dimensional metrics](../azure-monitor/platform/metrics-charts.md) is in preview in the Azure Government portal.
-
-#### Metric Alerts
-The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*.  The second generation of metric alerts (also called the [unified alerts experience](../azure-monitor/platform/alerts-overview.md)) is now also available, but with a reduced set of resource providers [compared to the public cloud](../azure-monitor/platform/alerts-metric-near-real-time.md). More will be added over time. 
-
-The resources currently supported in the second generation alerts experience are:
-- Microsoft.Compute/virtualMachines
-- Microsoft.OperationalInsights/workspaces
-- Microsoft.PowerBIDedicated/capacities
-- Microsoft.Storage/accounts
-
-You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) for resources not yet available in the second generation of alerts. 
-
-When using PowerShell/ARM/Rest calls to create metric alerts, you will need to set the "Location" of the metric alert to "USGov Virginia" or "USGov Iowa". An example of the setting is below:
-
-```powershell
-$actionEmail = New-AzAlertRuleEmail -CustomEmail myname@company.com
-$actionWebhook = New-AzAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
-Add-AzMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%"
-```
-
-For more information on using PowerShell, see [public documentation](../azure-monitor/platform/powershell-quickstart-samples.md).
-
 ## Application Insights
-
-> [!NOTE]
-> Codeless agent/extension based monitoring for Azure App Services is **currently not supported**. As soon as this functionality becomes available this article will be updated.
 
 This section describes the supplemental configuration that is required to use Application Insights in Azure Government. To learn more about Azure Monitor and Application Insights checkout the [full documentation](https://docs.microsoft.com/azure/azure-monitor/overview).
 
 ### Enable Application Insights for ASP.NET & ASP.NET Core with Visual Studio
 
-Currently for Azure Government customers, the only way to enable Application Insights via the traditional **Add Applications Insights Telemetry** button in Visual Studio requires a small manual workaround. Customers experiencing the associated issue may see error messages like _"There is no Azure subscription associated with this account_ or  _"The selected subscription does not support Application Insights_ even though the `microsoft.insights` resource provider has a status of registered for the subscription. To mitigate this issue, you must perform the following steps:
+Azure Government customers can enable Application Insights with a [codeless agent](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) for their Azure App Services hosted applications or via the traditional **Add Applications Insights Telemetry** button in Visual Studio, which requires a small manual workaround. Customers experiencing the associated issue may see error messages like _"There is no Azure subscription associated with this account_ or  _"The selected subscription does not support Application Insights_ even though the `microsoft.insights` resource provider has a status of registered for the subscription. To mitigate this issue, you must perform the following steps:
 
 1. Switch Visual Studio to [target the Azure Government cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-vs).
 
@@ -410,8 +347,8 @@ The URLs for Azure Monitor logs are different in Azure Government:
 | portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
 | api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
 | docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
-| \*.azure-automation.net |\*.azure-automation.us |Azure Automation - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) |
-| N/A | *.usgovtrafficmanager.net | Azure Traffic Manager - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) |
+| \*.azure-automation.net |\*.azure-automation.us |Azure Automation - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-requirements) |
+| N/A | *.usgovtrafficmanager.net | Azure Traffic Manager - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-requirements) |
 
 The following Azure Monitor logs features behave differently in Azure Government:
 
@@ -426,7 +363,7 @@ The following Azure Monitor logs features behave differently in Azure Government
     3. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see [How to Import an Operations Manager Management Pack](https://technet.microsoft.com/library/hh212691.aspx).
     4. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor logs](../azure-monitor/platform/om-agents.md).
 
-* To use [computer groups from System Center Configuration Manager 2016](../azure-monitor/platform/collect-sccm.md), you need to be using [Technical Preview 1701](https://docs.microsoft.com/sccm/core/get-started/technical-preview) or later.
+* For more information about using computer groups from Configuration Manager, see [Connect Configuration Manager to Azure Monitor](../azure-monitor/platform/collect-sccm.md).
 
 ### Frequently asked questions
 * Can I migrate data from Azure Monitor logs in Microsoft Azure to Azure Government?
@@ -437,13 +374,13 @@ The following Azure Monitor logs features behave differently in Azure Government
 For more information, see [Azure Monitor logs public documentation](../log-analytics/log-analytics-overview.md).
 
 ## Scheduler
-For information on this service and how to use it, see [Azure Scheduler Documentation](../scheduler/index.md).
+For information on this service and how to use it, see [Azure Scheduler Documentation](../scheduler/index.yml).
 
 ## Azure portal
 The Azure Government portal can be accessed [here](https://portal.azure.us).
 
 ## Azure Resource Manager
-For information on this service and how to use it, see [Azure Resource Manager Documentation](../azure-resource-manager/resource-group-overview.md).
+For information on this service and how to use it, see [Azure Resource Manager Documentation](../azure-resource-manager/management/overview.md).
 
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)

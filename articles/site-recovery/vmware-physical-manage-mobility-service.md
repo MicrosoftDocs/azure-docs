@@ -1,5 +1,5 @@
 ---
-title: Manage Mobility agent on servers for disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs
+title: Manage the Mobility agent for VMware/physical servers with Azure Site Recovery 
 description: Manage Mobility Service agent for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -9,7 +9,7 @@ ms.date: 03/25/2019
 ms.author: ramamill
 ---
 
-# Manage mobility agent on protected machines
+# Manage the Mobility agent 
 
 You set up mobility agent on your server when you use Azure Site Recovery for disaster recovery of VMware VMs and physical servers to Azure. Mobility agent coordinates communications between your protected machine, configuration server/scale-out process server and manages data replication. This article summarizes common tasks for managing mobility agent after it's deployed.
 
@@ -32,11 +32,24 @@ You set up mobility agent on your server when you use Azure Site Recovery for di
 
 ## Update Mobility service through powershell script on Windows server
 
+Before you start ensure that the configuration server, scale-out process servers, and any master target servers that are a part of your deployment are updated before you update the Mobility Service on protected machines.
+
 Use following script to upgrade mobility service on a server through power shell cmdlet
 
 ```azurepowershell
 Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
+
+## Update mobility service manually on each protected server
+
+1. Before you start ensure that the configuration server, scale-out process servers, and any master target servers that are a part of your deployment are updated before you update the Mobility Service on protected machines.
+
+2. [Locate the agent installer](vmware-physical-mobility-service-overview.md#locate-installer-files) based on the operating system of the server.
+
+>[!IMPORTANT]
+> If you are replicating Azure IaaS VM from one Azure region to another, don't use this method. Refer to [our guidance](azure-to-azure-autoupdate.md) for information on all available options.
+
+3. Copy the installation file on to the protected machine, and run it to update the mobility agent.
 
 ## Update account used for push installation of Mobility service
 

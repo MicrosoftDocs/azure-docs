@@ -1,5 +1,5 @@
 ---
-title: 'Connect client VM - Azure SQL Database Managed Instance | Microsoft Docs'
+title: Connect client VM - managed instance
 description: Connect to an Azure SQL Database Managed Instance using SQL Server Management Studio from an Azure virtual machine.
 services: sql-database
 ms.service: sql-database
@@ -40,7 +40,7 @@ The following steps create a new subnet in the Managed Instance VNet so an Azure
 
    | Setting| Suggested value | Description |
    | ---------------- | ----------------- | ----------- |
-   | **Name** | Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   | **Name** | Any valid name|For valid names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming).|
    | **Address range (CIDR block)** | A valid range | The default value is good for this quickstart.|
    | **Network security group** | None | The default value is good for this quickstart.|
    | **Route table** | None | The default value is good for this quickstart.|
@@ -72,8 +72,8 @@ The easiest way to create a client virtual machine with all necessary tools is t
    | **Subscription** | A valid subscription | Must be a subscription in which you have permission to create new resources. |
    | **Resource Group** |The resource group that you specified in the [Create Managed Instance](sql-database-managed-instance-get-started.md) quickstart.|This resource group must be the one in which the VNet exists.|
    | **Location** | The location for the resource group | This value is populated based on the resource group selected. |
-   | **Virtual machine name**  | Any valid name | For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Admin Username**|Any valid username|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Don't use "serveradmin" as that is a reserved server-level role.<br>You use this username any time you [connect to the VM](#connect-to-virtual-machine).|
+   | **Virtual machine name**  | Any valid name | For valid names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming).|
+   |**Admin Username**|Any valid username|For valid names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). Don't use "serveradmin" as that is a reserved server-level role.<br>You use this username any time you [connect to the VM](#connect-to-virtual-machine).|
    |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>You use this password any time you [connect to the VM](#connect-to-virtual-machine).|
    | **Virtual Machine Size** | Any valid size | The default in this template of **Standard_B2s** is sufficient for this quickstart. |
    | **Location**|[resourceGroup().location].| Don't change this value. |
@@ -114,7 +114,7 @@ The following steps show you how to connect to your newly created virtual machin
 
 4. Close the **Connect to virtual machine** form.
 5. To connect to your VM, open the downloaded RDP file.
-6. When prompted, select **Connect**. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
+6. When prompted, select **Connect**. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) from the Mac App Store.
 
 7. Enter the username and password you specified when creating the virtual machine, then choose **OK**.
 

@@ -1,11 +1,11 @@
 ---
-title: Azure PowerShell Script Sample -  Copy (move) snapshot of a managed disk to same or different subscription | Microsoft Docs
+title: Copy snapshot of a managed disk to a subscription - PowerShell Sample
 description: Azure PowerShell Script Sample -  Copy (move) snapshot of a managed disk to same or different subscription
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:
@@ -30,7 +30,7 @@ This script copies a snapshot of a managed disk to same or different subscriptio
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Sample script
 
@@ -43,7 +43,7 @@ This script uses following commands to create a snapshot in the target subscript
 | Command | Notes |
 |---|---|
 | [New-AzSnapshotConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzSnapshotConfig) | Creates snapshot configuration that is used for snapshot creation. It includes the resource Id of the parent snapshot and location that is same as the parent snapshot.  |
-| [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Creates a snapshot using snapshot configuration, snapshot name, and resource group name passed as parameters. |
+| [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) | Creates a snapshot using snapshot configuration, snapshot name, and resource group name passed as parameters. |
 
 ## Next steps
 

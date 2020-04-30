@@ -1,21 +1,11 @@
 ---
-title: Create and upload a CentOS-based Linux VHD in Azure
+title: Create and upload a CentOS-based Linux VHD
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system.
-services: virtual-machines-linux
-documentationcenter: ''
-author: szarkos
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: 0e518e92-e981-43f4-b12c-9cba1064c4bb
+author: gbowerman
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
-ms.date: 05/04/2018
-ms.author: szark
+ms.date: 11/25/2019
+ms.author: guybo
 
 ---
 # Prepare a CentOS-based virtual machine for Azure
@@ -168,7 +158,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
     sudo yum install microsoft-hyper-v
     ```
 
-    Alternatively, you can follow the manual installation instructions on the [LIS download page](https://go.microsoft.com/fwlink/?linkid=403033) to install the RPM onto your VM.
+    Alternatively, you can follow the manual installation instructions on the [LIS download page](https://www.microsoft.com/download/details.aspx?id=51612) to install the RPM onto your VM.
 
 12. Install the Azure Linux Agent and dependencies. Start and enable waagent service:
 
@@ -352,7 +342,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
     Edit `/etc/dracut.conf`, add content:
 
 	```console
-	add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+	add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 	```
 
     Rebuild the initramfs:

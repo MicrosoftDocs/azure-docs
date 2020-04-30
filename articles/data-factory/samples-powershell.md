@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Samples for Azure Data Factory | Microsoft Docs
+title: Azure PowerShell Samples for Azure Data Factory 
 description: Azure PowerShell Samples - Scripts to help you create and manage data factories. 
 services: data-factory
 ms.service: data-factory
@@ -13,6 +13,8 @@ ms.date: 01/16/2018
 ---
 
 # Azure PowerShell samples for Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 The following table includes links to sample Azure PowerShell scripts for Azure Data Factory.
 

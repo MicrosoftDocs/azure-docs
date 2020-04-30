@@ -1,17 +1,12 @@
 ---
-title: Azure Cloud Shell Quickstart | Microsoft Docs
-description: Quickstart for Azure Cloud Shell
-services: 
-documentationcenter: ''
+title: Azure Cloud Shell Quickstart - Bash
+description: Learn how to use the Bash command line in your browser with Azure Cloud Shell.
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
- 
-ms.assetid: 
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
@@ -85,7 +80,7 @@ Upon establishing the SSH connection, you should see the Ubuntu welcome prompt. 
 
 ## Cleaning up 
 1. Exit your ssh session.
-   ```azurecli-interactive
+   ```
    exit
    ```
 

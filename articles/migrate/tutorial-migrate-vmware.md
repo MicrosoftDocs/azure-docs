@@ -1,11 +1,8 @@
 ---
-title: Migrate on-premises VMware VMs to Azure with agentless Azure Migrate Server Migration | Microsoft Docs
-description: Describes how to perform and agentless migration of on-premises VMware VMs to Azure, using Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
+title: Migrate VMware VMs agentless Azure Migrate Server Migration 
+description: Learn how to run an agentless migration of VMware VMs with Azure Migrate.
 ms.topic: tutorial
-ms.date: 09/04/2019
-ms.author: raynew
+ms.date: 04/15/2020
 ms.custom: mvc
 ---
 
@@ -13,7 +10,7 @@ ms.custom: mvc
 
 This article shows you how to migrate on-premises VMware VMs to Azure, using agentless migration with the Azure Migrate Server Migration tool.
 
-[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment and migration of your on-premises apps and workloads, and AWS/GCP VM instances, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
+[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and AWS/GCP VM instances, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
 This tutorial is the third in a series that demonstrates how to assess and migrate VMware VMs to Azure using Azure Migrate Server Assessment and Migration. In this tutorial, you learn how to:
 
@@ -43,20 +40,22 @@ To decide whether you want to use agentless or agent-based migration, review the
 
 Before you begin this tutorial, you should:
 
-1. [Understand](migrate-architecture.md) the VMware migration architecture.
-2. [Complete the first tutorial](tutorial-prepare-vmware.md) in this series to set up Azure and VMware for migration. Specifically, in this tutorial  you need to:
+1. [Complete the first tutorial](tutorial-prepare-vmware.md) in this series to set up Azure and VMware for migration. Specifically, in this tutorial  you need to:
     - [Prepare Azure](tutorial-prepare-vmware.md#prepare-azure) for migration.
     - [Prepare the on-premises environment](tutorial-prepare-vmware.md#prepare-for-agentless-vmware-migration) for migration.
     
-3. We recommend that you try assessing VMware VMs with Azure Migrate Server Assessment before migrating them to Azure. To set up assessment, [complete the second tutorial](tutorial-assess-vmware.md) in this series. If you don't want to assess VMs you can skip this tutorial. Although we recommend that you try out an assessment, but you don't have to run an assessment before you try a migration.
+2. We recommend that you try assessing VMware VMs with Azure Migrate Server Assessment before migrating them to Azure. To set up assessment, [complete the second tutorial](tutorial-assess-vmware.md) in this series. If you don't want to assess VMs, you can skip this tutorial. Although we recommend that you try out an assessment, but you don't have to run an assessment before you try a migration.
 
 
 
 ## Add the Azure Migrate Server Migration tool
 
-If you didn't follow the second tutorial to assess VMware VMs, you need to [follow these instructions](how-to-add-tool-first-time.md) set up an Azure Migrate project, and select the Azure Migrate Server Migration tool. 
+Add the Azure Migrate:Server Migration tool.
 
-If you followed the second tutorial and already have an Azure Migrate project set up, add the Azure Migrate Server Migration tool as follows:
+- If you followed the second tutorial to [assess VMware VMs](tutorial-assess-vmware.md), you can go ahead and add the tool.
+- If you didn't follow the second tutorial, [follow these instructions](how-to-add-tool-first-time.md)  to set up an Azure Migrate project.  You add the Azure Migrate:Server Migration tool when you create the project.
+
+If you have a project set up, add the tool as follows:
 
 1. In the Azure Migrate project, click **Overview**. 
 2. In **Discover, assess, and migration servers**, click **Assess and migrate servers**.
@@ -73,22 +72,21 @@ If you followed the second tutorial and already have an Azure Migrate project se
 
 ## Set up the Azure Migrate appliance
 
-Azure Migrate Server Migration runs a lightweight VMware VM appliance. The appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate Server Migration. The same appliance is also used by the Azure Migrate Server Assessment tool.
+Azure Migrate Server Migration runs a lightweight VMware VM appliance. The appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate:Server Migration. The same appliance is also used by the Azure Migrate:Server Assessment tool, to perform agentless migration of VMware VMs.
 
-If you followed the second tutorial to assess VMware VMs, you already set up the appliance during that tutorial. If you didn't follow that tutorial, you need to set up the appliance now. To do this, you: 
+- If you followed the [tutorial to assess VMware VMs](tutorial-assess-vmware.md), you already set up the appliance during that tutorial.
+- If you didn't follow that tutorial, you can set up the appliance now, using one of these methods:
+    - [Set up](how-to-set-up-appliance-vmware.md) on a VMware VM using a downloaded OVA template.
+    - Set up on a VMware VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using an OVA template, or if you're in Azure government.
 
-- Download an OVA template file, and import it to vCenter Server.
-- Create the appliance, and check that it can connect to Azure Migrate Server Assessment. 
-- Configure the appliance for the first time, and register it with the Azure Migrate project.
-
-Follow the instructions in [this article](how-to-set-up-appliance-vmware.md) to set up the appliance.
+After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
 
 ## Prepare VMs for migration
 
 Azure Migrate requires some VM changes to ensure that VMs can be migrated to Azure.
 
-- For some operating systems, Azure Migrate makes these changes automatically. [Learn more](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)
+- For some operating systems, Azure Migrate makes these changes automatically. [Learn more](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms)
 - If you're migrating a VM that doesn't have one of these operating systems, follow the instructions to prepare the VM.
 - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 - Configuration changes you make on on-premises VMs are replicated to Azure after replication for the VM is enabled. To ensure that changes are replicated, make sure that the recovery point you migrate to is later than the time at which the configuration changes were made on-premises.
@@ -157,7 +155,7 @@ With discovery completed, you can begin replication of VMware VMs to Azure.
 
     ![Target settings](./media/tutorial-migrate-vmware/target-settings.png)
 
-8. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
+8. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown will contain the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
@@ -183,7 +181,7 @@ If this is the first VM you're replicating in the Azure Migrate project, Azure M
 - **Service bus**: Azure Migrate Server Migration uses the service bus to send replication orchestration messages to the appliance.
 - **Gateway storage account**: Server Migration uses the gateway storage account to store state information about the VMs being replicated.
 - **Log storage account**: The Azure Migrate appliance uploads replication logs for VMs to a log storage account. Azure Migrate applies the replication information to the replica managed disks.
-- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you prepared. [Review these permissions](tutorial-prepare-vmware.md#assign-role-assignment-permissions).   
+- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you prepared. [Review these permissions](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault).   
 
 
 ## Track and monitor
@@ -247,7 +245,7 @@ After you've verified that the test migration works as expected, you can migrate
 
 ## Complete the migration
 
-1. After the migration is done, right-click the VM > **Stop migration**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
+1. After the migration is done, right-click the VM > **Stop Replication**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
 2. Install the Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) or [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) agent on the migrated machines.
 3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 4. Perform final application and migration acceptance testing on the migrated application now running in Azure.

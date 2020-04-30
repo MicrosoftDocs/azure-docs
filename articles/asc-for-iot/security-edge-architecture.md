@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure Security Center for IoT security module for IoT Edge Preview| Microsoft Docs
+title: Security module for IoT Edge
 description: Understand the architecture and capabilities of Azure Security Center for IoT security module for IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -16,14 +16,9 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-
 ---
-# Azure IoT Edge security module
 
-> [!IMPORTANT]
-> Azure Security Center for IoT service for IoT Edge is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Azure IoT Edge security module
 
 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) provides powerful capabilities to manage and perform business workflows at the edge.
 The key part that IoT Edge plays in IoT environments make it particularly attractive for malicious actors.
@@ -37,7 +32,7 @@ See [Configure your agent](how-to-agent-configuration.md) to learn more.
 Azure Security Center for IoT security module for IoT Edge offers the following features:
 
 - Collects raw security events from the underlying Operating System (Linux), and the IoT Edge Container systems.
-  
+
   See [Azure Security Center for IoT agent configuration](how-to-agent-configuration.md) to learn more about available security data collectors.
 
 - Analysis of IoT Edge deployment manifests.
@@ -53,7 +48,7 @@ Privileged mode is required to allow the module to monitor the Operating System,
 
 ## Module supported platforms
 
-Azure Security Center for IoT security module for IoT Edge is currently only available for Linux. 
+Azure Security Center for IoT security module for IoT Edge is currently only available for Linux.
 
 ## Next steps
 

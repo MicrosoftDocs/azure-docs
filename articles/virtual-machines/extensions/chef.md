@@ -1,10 +1,10 @@
 ---
-title: Chef extension for Azure VMs  | Microsoft Docs
+title: Chef extension for Azure VMs  
 description: Deploy the Chef Client to a virtual machine using the Chef VM Extension.
 services: virtual-machines-linux
 documentationcenter: ''
 
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
-ms.author: roiyz
+ms.author: akjosh
 ---
 
 # Chef VM Extension for Linux and Windows
@@ -46,7 +46,7 @@ The following JSON shows the schema for the Chef VM Extension. The extension req
   "properties": {
     "publisher": "Chef.Bootstrap.WindowsAzure",
     "type": "[parameters('chef_vm_extension_type')]",
-    "typeHandlerVersion": "1210.12",
+    "typeHandlerVersion": "1210.13",
     "settings": {
       "bootstrap_options": {
         "chef_server_url": "[parameters('chef_server_url')]",
@@ -68,7 +68,7 @@ The following JSON shows the schema for the Chef VM Extension. The extension req
 | apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
-| typeHandlerVersion | `1210.12` | string (double) |
+| typeHandlerVersion | `1210.13` | string (double) |
 
 ### Settings
 
@@ -114,7 +114,7 @@ az vm extension set \
   --vm-name myExistingVM \
   --name LinuxChefClient \
   --publisher Chef.Bootstrap.WindowsAzure \
-  --version 1210.12 --protected-settings '{"validation_key": "<validation_key>"}' \
+  --version 1210.13 --protected-settings '{"validation_key": "<validation_key>"}' \
   --settings '{ "bootstrap_options": { "chef_server_url": "<chef_server_url>", "validation_client_name": "<validation_client_name>" }, "runlist": "<run_list>" }'
 ```
 
@@ -147,6 +147,9 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 | 51 | This extension is not supported on the VM's operating system | |
 
 Additional troubleshooting information can be found in the [Chef VM Extension readme](https://github.com/chef-partners/azure-chef-extension).
+
+> [!NOTE]
+> For anything else directly related to Chef, contact [Chef Support](https://www.chef.io/support/).
 
 ## Next steps
 

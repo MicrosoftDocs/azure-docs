@@ -1,27 +1,21 @@
 ---
-title: Use Azure Functions to perform a database clean up task | Microsoft Docs
+title: Use Azure Functions to perform a database clean up task 
 description: Use Azure Functions to schedule a task that connects to Azure SQL Database to periodically clean up rows.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
-ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: glenga
+ms.date: 10/02/2019
 ---
 
 # Use Azure Functions to connect to an Azure SQL Database
 
-This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database instance. The function code cleans up rows in a table in the database. The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2019. To support this scenario, you must also set a database connection string as an app setting in the function app. This scenario uses a bulk operation against the database. 
+This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database or Azure SQL Managed Instance. The function code cleans up rows in a table in the database. The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2019. To support this scenario, you must also set a database connection string as an app setting in the function app. For Azure SQL Managed Instance you need to [enable public endpoint](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) to be able to connect from Azure Functions. This scenario uses a bulk operation against the database. 
 
 If this is your first experience working with C# Functions, you should read the [Azure Functions C# developer reference](functions-dotnet-class-library.md).
 
 ## Prerequisites
 
-+ Complete the steps in the article [Create your first function using Visual Studio](functions-create-your-first-function-visual-studio.md) to create a local function app that targets the version 2.x runtime. You must also have published your project to a function app in Azure.
++ Complete the steps in the article [Create your first function using Visual Studio](functions-create-your-first-function-visual-studio.md) to create a local function app that targets version 2.x or a later version of the runtime. You must also have published your project to a function app in Azure.
 
 + This article demonstrates a Transact-SQL command that executes a bulk cleanup operation in the **SalesOrderHeader** table in the AdventureWorksLT sample database. To create the AdventureWorksLT sample database, complete the steps in the article [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started-portal.md).
 
@@ -35,7 +29,7 @@ You need to get the connection string for the database you created when you comp
 
 1. Select **SQL Databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
-1. Select **Connection strings** under **Settings** and copy the complete **ADO.NET** connection string.
+1. Select **Connection strings** under **Settings** and copy the complete **ADO.NET** connection string. For Azure SQL Managed Instance copy connection string for public endpoint.
 
     ![Copy the ADO.NET connection string.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -45,7 +39,7 @@ A function app hosts the execution of your functions in Azure. As a best securit
 
 You must have previously published your app to Azure. If you haven't already done so, [Publish your function app to Azure](functions-develop-vs.md#publish-to-azure).
 
-1. In Solution Explorer, right-click the function app project and choose **Publish** > **Manage application settings...**. Select **Add setting**, in **New app setting name**, type `sqldb_connection`, and select **OK**.
+1. In Solution Explorer, right-click the function app project and choose **Publish** > **Edit Azure App Service settings**. Select **Add setting**, in **New app setting name**, type `sqldb_connection`, and select **OK**.
 
     ![Application settings for the function app.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 

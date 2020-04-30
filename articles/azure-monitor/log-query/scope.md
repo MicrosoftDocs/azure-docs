@@ -1,13 +1,12 @@
 ---
 title: Log query scope in Azure Monitor Log Analytics | Microsoft Docs
 description: Describes the scope and time range for a log query in Azure Monitor Log Analytics.
-services: log-analytics
-author: bwren
-manager: carmonm
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/25/2019
+author: bwren
 ms.author: bwren
+ms.date: 06/25/2019
+
 ---
 
 # Log query scope and time range in Azure Monitor Log Analytics

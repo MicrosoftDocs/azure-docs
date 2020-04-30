@@ -4,7 +4,7 @@ description: Learn how to troubleshoot the issue when an Azure VM startup is stu
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 
 ms.service: virtual-machines-windows
@@ -20,8 +20,6 @@ ms.author: genli
 
 This article helps resolve the issue when your Virtual Machine (VM) is stuck at the Windows Update stage during startup. 
 
-> [!NOTE] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of using the classic deployment model.
 
 ## Symptom
 

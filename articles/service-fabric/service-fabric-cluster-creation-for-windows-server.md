@@ -1,24 +1,14 @@
 ---
-title: Create a standalone Azure Service Fabric cluster | Microsoft Docs
+title: Create a standalone Azure Service Fabric cluster 
 description: Create an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in any cloud.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
 
-ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
-
 ---
 # Create a standalone cluster running on Windows Server
-You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package.
+You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package. Traditional Service Fabric clusters on Azure are available as a managed service, while standalone Service Fabric clusters are self-service. For more on the differences, see [Comparing Azure and standalone Service Fabric clusters](./service-fabric-deploy-anywhere.md).
 
 This article walks you through the steps for creating a Service Fabric standalone cluster.
 
@@ -150,7 +140,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ### Step 3: Visualize the cluster using Service Fabric explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a good tool for visualizing your cluster and managing applications.  Service Fabric Explorer is a service that runs in the cluster, which you access using a browser by navigating to [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a good tool for visualizing your cluster and managing applications.  Service Fabric Explorer is a service that runs in the cluster, which you access using a browser by navigating to `http://localhost:19080/Explorer`.
 
 The cluster dashboard provides an overview of your cluster, including a summary of application and node health. The node view shows the physical layout of the cluster. For a given node, you can inspect which applications have code deployed on that node.
 

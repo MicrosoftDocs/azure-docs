@@ -4,7 +4,7 @@ description: Troubleshoot deploying Windows virtual machine issues in the Azure 
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 
@@ -111,6 +111,8 @@ This [article](../windows/client-images.md) outlines the eligibility requirement
 When a VM is running, it is deployed to a physical server. The physical servers in Azure regions are grouped in clusters of common physical hardware. Resizing a VM that requires the VM to be moved to different hardware clusters is different depending on which deployment model was used to deploy the VM.
 
 - VMs deployed in Classic deployment model, the cloud service deployment must be removed and redeployed to change the VMs to a size in another size family.
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 - VMs deployed in Resource Manager deployment model, you must stop all VMs in the availability set before changing the size of any VM in the availability set.
 

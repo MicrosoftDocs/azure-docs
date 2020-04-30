@@ -1,20 +1,13 @@
 ---
 title: Advanced queries in Azure Monitor | Microsoft Docs
 description: This article provides a tutorial for using the Analytics portal to write queries in Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/15/2018
+author: bwren
 ms.author: bwren
----
+ms.date: 11/15/2018
 
+---
 
 # Writing advanced queries in Azure Monitor
 

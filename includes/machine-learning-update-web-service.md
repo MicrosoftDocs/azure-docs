@@ -1,8 +1,8 @@
 ---
-author: larryfr
+author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 03/16/2020
 ms.author: larryfr
 ---
 
@@ -10,6 +10,8 @@ To update a web service, use the `update` method. You can update the web service
 
 > [!IMPORTANT]
 > When you create a new version of a model, you must manually update each service that you want to use it.
+>
+> You can not use the SDK to update a web service published from the Azure Machine Learning designer.
 
 **Using the SDK**
 

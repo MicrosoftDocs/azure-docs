@@ -1,5 +1,5 @@
 ---
-title: Gateway traffic migration notice for Azure SQL Database  | Microsoft Docs
+title: Gateway traffic migration notice
 description: Article provides notice to users about the migration of Azure SQL Database Gateways IP addresses
 services: sql-database
 ms.service: sql-database
@@ -46,9 +46,9 @@ You will not be impacted if you have :
 
 ## What to do you do if you're affected
 
-We recommend that you allow outbound traffic to IP addresses for all the [Azure SQL Database gateway IP addresses](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) in the region on TCP port 1433, and port range 11000-11999 in your firewall device. For more information on port ranges, see [Connection policy](sql-database-connectivity-architecture.md#connection-policy).
+We recommend that you allow outbound traffic to IP addresses for all the [Azure SQL Database gateway IP addresses](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) in the region on TCP port 1433, and port range 11000-11999. This recomendation is applicable to clients connecting from on-premises and also those connecting via Service Endpoints. For more information on port ranges, see [Connection policy](sql-database-connectivity-architecture.md#connection-policy).
 
-Connections made from applications using Microsoft JDBC Driver below version 4.0 might fail certificate validation. Lower versions of Microsoft JDBC rely on Common Name (CN) in the Subject field of the certificate. The mitigation is to ensure that the hostNameInCertificate property is set to *.database.windows.net. For more information on how to set the hostNameInCertificate property, see [Connecting with SSL Encryption](/sql/connect/jdbc/connecting-with-ssl-encryption).
+Connections made from applications using Microsoft JDBC Driver below version 4.0 might fail certificate validation. Lower versions of Microsoft JDBC rely on Common Name (CN) in the Subject field of the certificate. The mitigation is to ensure that the hostNameInCertificate property is set to *.database.windows.net. For more information on how to set the hostNameInCertificate property, see [Connecting with Encryption](/sql/connect/jdbc/connecting-with-ssl-encryption).
 
 If the above mitigation doesn't work, file a support request for SQL Database using the following URL: https://aka.ms/getazuresupport
 

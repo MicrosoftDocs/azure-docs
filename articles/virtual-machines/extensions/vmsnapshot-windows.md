@@ -1,9 +1,9 @@
 ---
-title: VM Snapshot Windows extension for Azure Backup | Microsoft Docs
+title: VM Snapshot Windows extension for Azure Backup 
 description: Take application consistent backup of the virtual machine from Azure Backup using VM snapshot extension
 services: backup, virtual-machines-windows
 documentationcenter: ''
-author: trinadhk
+author: trinadhkotturu
 manager: gwallace
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -15,14 +15,12 @@ ms.author: trinadhk
 
 Azure Backup provides support for backing up workloads from on-premises to cloud and backing up cloud resources to Recovery Services vault. Azure Backup uses VM snapshot extension to take an application consistent backup of the Azure virtual machine without the need to shutdown the VM. VM Snapshot extension is published and supported by Microsoft as part of Azure Backup service. Azure Backup will install the extension as part of first scheduled backup triggered post enabling backup. This document details the supported platforms, configurations, and deployment options for the VM Snapshot extension.
 
+The VMSnapshot extension appears in the Azure portal only for non-managed VMs.
+
 ## Prerequisites
 
 ### Operating system
 For a list of supported operating systems, refer to [Operating Systems supported by Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
-
-### Internet connectivity
-
-VM Snapshot extension requires that the target virtual machine is connected to the internet when we take a backup of virtual machine.
 
 ## Extension schema
 

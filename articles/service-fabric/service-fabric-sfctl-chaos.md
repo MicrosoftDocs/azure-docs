@@ -1,22 +1,12 @@
 ---
-title: Azure Service Fabric CLI- sfctl chaos| Microsoft Docs
-description: Describes the Service Fabric CLI sfctl chaos commands.
-services: service-fabric
-documentationcenter: na
-author: Christina-Kang
-manager: chackdan
-editor: ''
+title: Azure Service Fabric CLI- sfctl chaos
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing chaos.
+author: jeffj6123
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-
+ms.date: 1/16/2020
+ms.author: jejarry
 ---
-
 # sfctl chaos
 Start, stop, and report on the chaos test service.
 
@@ -43,10 +33,10 @@ To get the next segment of the Chaos events, you can specify the ContinuationTok
 |Argument|Description|
 | --- | --- |
 | --continuation-token | The continuation token parameter is used to obtain next set of results. A continuation token with a non-empty value is included in the response of the API when the results from the system do not fit in a single response. When this value is passed to the next API call, the API returns next set of results. If there are no further results, then the continuation token does not contain a value. The value of this parameter should not be URL encoded. |
-| --end-time-utc | The Windows file time representing the end time of the time range for which a Chaos report is to be generated. Consult [DateTime.ToFileTimeUtc Method](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) for details. |
+| --end-time-utc | The Windows file time representing the end time of the time range for which a Chaos report is to be generated. Consult [DateTime.ToFileTimeUtc Method](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) for details. |
 | --max-results | The maximum number of results to be returned as part of the paged queries. This parameter defines the upper bound on the number of results returned. The results returned can be less than the specified maximum results if they do not fit in the message as per the max message size restrictions defined in the configuration. If this parameter is zero or not specified, the paged query includes as many results as possible that fit in the return message. |
-| --start-time-utc | The Windows file time representing the start time of the time range for which a Chaos report is to be generated. Consult [DateTime.ToFileTimeUtc Method](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) for details. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --start-time-utc | The Windows file time representing the start time of the time range for which a Chaos report is to be generated. Consult [DateTime.ToFileTimeUtc Method](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) for details. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -67,7 +57,7 @@ Get the status of Chaos indicating whether or not Chaos is running, the Chaos pa
 
 |Argument|Description|
 | --- | --- |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 
@@ -82,7 +72,7 @@ Get the status of Chaos indicating whether or not Chaos is running, the Chaos pa
 ## sfctl chaos start
 Starts Chaos in the cluster.
 
-If Chaos is not already running in the cluster, it starts Chaos with the passed in Chaos parameters. If Chaos is already running when this call is made, the call fails with the error code FABRIC_E_CHAOS_ALREADY_RUNNING.
+If Chaos is not already running in the cluster, it starts Chaos with the passed in Chaos parameters. If Chaos is already running when this call is made, the call fails with the error code FABRIC_E_CHAOS_ALREADY_RUNNING. Refer to the article [Induce controlled Chaos in Service Fabric clusters](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos) for more details.
 
 ### Arguments
 
@@ -97,7 +87,7 @@ If Chaos is not already running in the cluster, it starts Chaos with the passed 
 | --max-percent-unhealthy-apps | When evaluating cluster health during Chaos, the maximum allowed percentage of unhealthy applications before reporting an error. <br><br> The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10. The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error. If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning. This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap. The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero. |
 | --max-percent-unhealthy-nodes | When evaluating cluster health during Chaos, the maximum allowed percentage of unhealthy nodes before reporting an error. <br><br> The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10. The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error. If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning. The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster. The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero. In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that. |
 | --time-to-run | Total time (in seconds) for which Chaos will run before automatically stopping. The maximum allowed value is 4,294,967,295 (System.UInt32.MaxValue).  Default\: 4294967295. |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | Default\: 60. |
 | --wait-time-between-faults | Wait time (in seconds) between consecutive faults within a single iteration.  Default\: 20. <br><br> The larger the value, the lower the overlapping between faults and the simpler the sequence of state transitions that the cluster goes through. The recommendation is to start with a value between 1 and 5 and exercise caution while moving up. |
 | --wait-time-between-iterations | Time-separation (in seconds) between two consecutive iterations of Chaos. The larger the value, the lower the fault injection rate.  Default\: 30. |
 | --warning-as-error | Indicates whether warnings are treated with the same severity as errors. |
@@ -121,7 +111,7 @@ Stops Chaos from executing new faults. In-flight faults will continue to execute
 
 |Argument|Description|
 | --- | --- |
-| --timeout -t | Server timeout in seconds.  Default\: 60. |
+| --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
 ### Global Arguments
 

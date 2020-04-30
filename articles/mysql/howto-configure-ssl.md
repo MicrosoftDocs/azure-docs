@@ -1,11 +1,11 @@
 ---
-title: Configure SSL connectivity to securely connect to Azure Database for MySQL
+title: Configure SSL - Azure Database for MySQL
 description: Instructions for how to properly configure Azure Database for MySQL and associated applications to correctly use SSL connections
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 4/21/2020
 ---
 # Configure SSL connectivity in your application to securely connect to Azure Database for MySQL
 Azure Database for MySQL supports connecting your Azure Database for MySQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
@@ -62,6 +62,8 @@ Confirm the connection is encrypted by reviewing the output, which should show: 
 ## Sample code
 To establish a secure connection to Azure Database for MySQL over SSL from your application, refer to the following code samples:
 
+Refer to the list of [compatible drivers](concepts-compatibility.md) supported by the Azure Database for MySQL service.
+
 ### PHP
 ```php
 $conn = mysqli_init();
@@ -96,7 +98,7 @@ conn = pymysql.connect(user='myadmin@mydemoserver',
                        password='yourpassword',
                        database='quickstartdb',
                        host='mydemoserver.mysql.database.azure.com',
-                       ssl={'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
+                       ssl={'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
 
 ### Django (PyMySQL)
@@ -110,7 +112,7 @@ DATABASES = {
         'HOST': 'mydemoserver.mysql.database.azure.com',
         'PORT': '3306',
         'OPTIONS': {
-            'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}
+            'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}
         }
     }
 }

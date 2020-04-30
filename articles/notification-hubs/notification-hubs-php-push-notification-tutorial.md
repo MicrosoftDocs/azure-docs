@@ -1,11 +1,11 @@
 ---
-title: How to use Notification Hubs with PHP
-description: Learn how to use Azure Notification Hubs from a PHP backend.
+title: How to use Azure Notification Hubs with PHP
+description: Learn how to use Azure Notification Hubs from a PHP back-end.
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856
 ms.service: notification-hubs
@@ -14,7 +14,9 @@ ms.tgt_pltfrm: php
 ms.devlang: php
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
 # How to use Notification Hubs from PHP

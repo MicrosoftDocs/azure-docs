@@ -1,17 +1,9 @@
 ---
 title: Monitor Node.js services with Azure Application Insights | Microsoft Docs
 description: Monitor performance and diagnose problems in Node.js services with Application Insights.
-services: application-insights
-documentationcenter: nodejs
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: mbullwin
+
 ---
 
 # Monitor your Node.js services and apps with Application Insights
@@ -20,7 +12,7 @@ ms.author: mbullwin
 
 To receive, store, and explore your monitoring data, include the SDK in your code, and then set up a corresponding Application Insights resource in Azure. The SDK sends data to that resource for further analysis and exploration.
 
-The Node.js SDK can automatically monitor incoming and outgoing HTTP requests, exceptions, and some system metrics. Beginning in version 0.20, the SDK also can monitor some common third-party packages, like MongoDB, MySQL, and Redis. All events related to an incoming HTTP request are correlated for faster troubleshooting.
+The Node.js SDK can automatically monitor incoming and outgoing HTTP requests, exceptions, and some system metrics. Beginning in version 0.20, the SDK also can monitor some common [third-party packages](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules), like MongoDB, MySQL, and Redis. All events related to an incoming HTTP request are correlated for faster troubleshooting.
 
 You can use the TelemetryClient API to manually instrument and monitor additional aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
 

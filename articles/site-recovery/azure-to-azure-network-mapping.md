@@ -1,11 +1,11 @@
 ---
-title: Map virtual networks between two Azure regions in Azure Site Recovery | Microsoft Docs
-description: Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines and physical servers. Learn about failover to Azure or to a secondary datacenter.
+title: Map virtual networks between two regions in Azure Site Recovery 
+description: Learn about mapping virtual networks between two Azure regions for Azure VM disaster recovery with Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 10/15/2019
 ms.author: mayg
 
 ---
@@ -28,7 +28,7 @@ Map networks as follows:
 3. In **Add network mapping**, select the source and target locations. In our example, the source VM is running in the East Asia region, and replicates to the Southeast Asia region.
 
     ![Select source and target](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
-3. Now create a network mapping in the opposite directory. In our example, the source will now be Southeast Asia, and the target will be East Asia.
+3. Now create a network mapping in the opposite direction. In our example, the source will now be Southeast Asia, and the target will be East Asia.
 
     ![Add network mapping pane - Select source and target locations for the target network](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
@@ -71,8 +71,7 @@ The IP address for each NIC on a target virtual machine is configured as follows
 **Source and target subnets** | **Details**
 --- | ---
 Same address space | IP address of the source VM NIC is set as the target VM NIC IP address.<br/><br/> If the address isn't available, the next available IP address is set as the target.
-
-Different address space<br/><br/> The next available IP address in the target subnet is set as the target VM NIC address.
+Different address space | The next available IP address in the target subnet is set as the target VM NIC address.
 
 
 
@@ -80,8 +79,8 @@ Different address space<br/><br/> The next available IP address in the target su
 
 **Target network** | **Details**
 --- | ---
-Target network is the failover VNet | - Target IP address is static, but not the same IP address as that reserved for failover.<br/><br/>  - The assigned address is the next available address from the end of the subnet range.<br/><br/> For example: If the source IP address is 10.0.0.19 and failover network uses range 10.0.0.0/24, then the next IP address assigned to the target VM is 10.0.0.254.
-Target network isn't the failover VNet | - Target IP address will be static with the same IP address reserved for failover.<br/><br/>  - If the same IP address is already assigned, then the IP address is the next one available at the end of the subnet range.<br/><br/> For example: If the source static IP address is 10.0.0.19 and failover is on an network that isn't the failover network, with the range 10.0.0.0/24, then the target static IP address will be 10.0.0.0.19 if available, and otherwise it will be 10.0.0.254.
+Target network is the failover VNet | - Target IP address will be static with the same IP address. <br/><br/>  - If the same IP address is already assigned, then the IP address is the next one available at the end of the subnet range. For example: If the source IP address is 10.0.0.19 and failover network uses range 10.0.0.0/24, then the next IP address assigned to the target VM is 10.0.0.254.
+Target network isn't the failover VNet | - Target IP address will be static with the same IP address.<br/><br/>  - If the same IP address is already assigned, then the IP address is the next one available at the end of the subnet range.<br/><br/> For example: If the source static IP address is 10.0.0.19 and failover is on an network that isn't the failover network, with the range 10.0.0.0/24, then the target static IP address will be 10.0.0.0.19 if available, and otherwise it will be 10.0.0.254.
 
 - The failover VNet is the target network that you select when you set up disaster recovery.
 - We recommend that you always use a non-production network for test failover.

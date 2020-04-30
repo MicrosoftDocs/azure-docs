@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for images - Bing Image Search REST API and C#"
+title: "Quickstart: Search for images using the Bing Image Search REST API and C#"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send image search requests to the Bing Image Search REST API using C#, and receive JSON responses.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 03/31/2020
 ms.author: aahi
 ---
 # Quickstart: Search for images using the Bing Image Search REST API and C#
@@ -36,7 +36,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     using Newtonsoft.Json.Linq;
     ```
 
-2. Create variables for the API endpoint, your subscription key, and search term.
+2. Create variables for the API endpoint, your subscription key, and search term. `uriBase` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     //...

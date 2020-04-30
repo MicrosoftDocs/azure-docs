@@ -3,7 +3,7 @@ title: Azure Active Directory risk detections | Microsoft Docs
 description: This artice gives you a detailed overview of what risk detections are.
 services: active-directory
 keywords: azure active directory identity protection, security, risk, risk level, vulnerability, security policy
-author: cawrites
+author: MarkusVi
 manager: daveba
 
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -87,6 +87,9 @@ The algorithm ignores obvious "false positives" contributing to the impossible t
 This risk detection type considers past sign-in locations (IP, Latitude / Longitude and ASN) to determine new / unfamiliar locations. The system stores information about previous locations used by a user, and considers these “familiar” locations. The risk detection is triggered when the sign-in occurs from a location that's not already in the list of familiar locations. The system has an initial learning period of 30 days, during which it does not flag any new locations as unfamiliar locations. The system also ignores sign-ins from familiar devices, and locations that are geographically close to a familiar location. 
 
 Identity Protection detects sign-ins from unfamiliar locations also for basic authentication / legacy protocols. Because these protocols do not have modern familiar features such as client id, there is not enough telemetry to reduce false positives. To reduce the number of detected risk detections, you should move to modern authentication.   
+
+> [!NOTE]
+> If the login username and password do not match, the sign-in will fail and the risk detection does not occur. Sign-in from unfamiliar location risk detections only are triggered on succesful logins.
 
 ### Sign-ins from infected devices
 

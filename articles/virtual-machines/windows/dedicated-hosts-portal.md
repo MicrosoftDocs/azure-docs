@@ -1,22 +1,18 @@
 ---
-title: Deploy Azure dedicated hosts using the Azure portal | Microsoft Docs
-description: Deploy VMs to dedicated hosts using the Azure portal.
-services: virtual-machines-windows
+title: Deploy Azure dedicated hosts using the portal 
+description: Deploy VMs to dedicated hosts using the portal.
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/26/2019
+ms.date: 03/10/2020
 ms.author: cynthn
+ms.reviewer: zivr
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
 
-# Preview: Deploy VMs to dedicated hosts using the portal
+# Deploy VMs to dedicated hosts using the portal
 
 This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
 
@@ -37,6 +33,25 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 1. When you see the message that validation has passed, select **Create**.
 
+## Add an existing VM 
+
+You can add an existing VM to a dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
+
+- The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it could not be a Standard_A4_v2. 
+- The VM needs to be located in same region as the dedicated host.
+- The VM can't be part of a proximity placement group. Remove the VM from the proximity placement group before moving it to a dedicated host. For more information, see [Move a VM out of a proximity placement group](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group)
+- The VM can't be in an availability set.
+- If the VM is in an availability zone, it must be the same availability zone as the host group. The availability zone settings for the VM and the host group must match.
+
+Move the VM to a dedicated host using the [portal](https://portal.azure.com).
+
+1. Open the page for the VM.
+1. Select **Stop** to stop\deallocate the VM.
+1. Select **Configuration** from the left menu.
+1. Select a host group and a host from the drop-down menus.
+1. When you are done, select **Save** at the top of the page.
+1. After the VM has been added to the host, select **Overview** from the left menu.
+1. At the top of the page, select **Start** to restart the VM.
 
 ## Next steps
 

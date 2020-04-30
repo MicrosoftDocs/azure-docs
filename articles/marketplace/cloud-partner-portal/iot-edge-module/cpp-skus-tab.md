@@ -1,15 +1,18 @@
 ---
 title: Azure IoT Edge module SKUs | Azure Marketplace
 description: Create SKUs for an IoT Edge module.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # IoT Edge module SKUs tab
+
+>[!Important]
+>Starting April 13, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) to manage your migrated offers.
 
 The **SKUs** tab of the **New Offer** page enables you to create one or more SKUs and associate them to your new offer.  You can use different SKUs to differentiate a solution by feature sets, billing models, or some other characteristic.
 
@@ -36,7 +39,7 @@ The **SKUs** tab is refreshed and displays the fields that you edit to configure
 
 ## SKU Details
 
-Configure the **SKU Details** to define how your SKU will be displayed on the Azure Marketplace and Azure Portal websites.
+Configure the **SKU Details** to define how your SKU will be displayed on the Azure Marketplace and Azure portal websites.
 
 ![IoT Edge module sku metadata](media/iot-edge-module-skus-tab-metadata.png)
 
@@ -44,9 +47,9 @@ The following table describes the purpose, content, and formatting for fields un
 
 |  **Field**       |     **Description**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Title\***        | Title for this SKU. Maximum length of 50 characters. <br/> It will be shown in the Azure Portal and will be used as a default module name (without spaces and special characters) when it's deployed. See the pictures below to see exactly where this field is displayed.|
+| **Title\***        | Title for this SKU. Maximum length of 50 characters. <br/> It will be shown in the Azure portal and will be used as a default module name (without spaces and special characters) when it's deployed. See the pictures below to see exactly where this field is displayed.|
 | **Summary\***      | Short summary of this SKU. Maximum length of 100 characters. Do **NOT** summarize the offer, just the SKU.  This summary will be shown in the Azure Marketplace. See the pictures below to see exactly where this field is displayed.|
-| **Description\***  | Short description of this SKU.Maximum length of 3000 characters. Do NOT describe the offer but just this SKU. It will be shown in the azure marketplace and in the Azure portal. In the Azure portal, it will be appended to the Marketplace Description describing the offer defined in the Marketplace tab.  It can be the same as the SKU Summary. See the pictures below to see exactly where this field is displayed.|
+| **Description\***  | Short description of this SKU.Maximum length of 3000 characters. Do NOT describe the offer but just this SKU. It will be shown in the Azure Marketplace and in the Azure portal. In the Azure portal, it will be appended to the Marketplace Description describing the offer defined in the Marketplace tab.  It can be the same as the SKU Summary. See the pictures below to see exactly where this field is displayed.|
 | **Hide this SKU\*** | Keep the default setting, which is **No**. |
 |  |  |
 
@@ -63,7 +66,7 @@ The following table describes the purpose, content, and formatting for fields un
     ![How SKUs are displayed in Azure Marketplace website](media/iot-edge-module-ampdotcom-pdp-plans.png)
 
 
-#### On the Azure Portal website:
+#### On the Azure portal website:
 
 - When browsing SKUs:
 

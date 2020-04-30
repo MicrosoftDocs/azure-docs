@@ -1,6 +1,6 @@
 ---
-title: Manage app groups for Windows Virtual Desktop Preview - Azure
-description: Describes how to set up Windows Virtual Desktop Preview tenants in Azure Active Directory.
+title: Manage app groups for Windows Virtual Desktop - Azure
+description: Describes how to set up Windows Virtual Desktop tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 
@@ -8,10 +8,11 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
+manager: lizross
 ---
-# Tutorial: Manage app groups for Windows Virtual Desktop Preview
+# Tutorial: Manage app groups for Windows Virtual Desktop
 
-The default app group created for a new Windows Virtual Desktop Preview host pool also publishes the full desktop. In addition, you can create one or more RemoteApp application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual **Start** menu apps.
+The default app group created for a new Windows Virtual Desktop host pool also publishes the full desktop. In addition, you can create one or more RemoteApp application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual **Start** menu apps.
 
 In this tutorial, learn how to:
 
@@ -19,7 +20,7 @@ In this tutorial, learn how to:
 > * Create a RemoteApp group.
 > * Grant access to RemoteApp programs.
 
-Before you begin, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
+Before you begin, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

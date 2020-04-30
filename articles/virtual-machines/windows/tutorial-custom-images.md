@@ -1,17 +1,10 @@
 ---
-title: Tutorial - Create custom VM images with Azure PowerShell | Microsoft Docs
+title: Tutorial - Create custom VM images with Azure PowerShell 
 description: In this tutorial, you learn how to use Azure PowerShell to create a custom virtual machine image in Azure
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
+ms.subservice: imaging
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
@@ -113,7 +106,7 @@ New-AzImage `
  
 ## Create VMs from the image
 
-Now that you have an image, you can create one or more new VMs from the image. Creating a VM from a custom image is similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to provide the information about the image, image provider, offer, SKU, and version. Using the simplified parameter set for the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet, you just need to provide the name of the custom image as long as it is in the same resource group. 
+Now that you have an image, you can create one or more new VMs from the image. Creating a VM from a custom image is similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to provide the information about the image, image provider, offer, SKU, and version. Using the simplified parameter set for the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet, you just need to provide the name of the custom image as long as it is in the same resource group. If you plan to create VM in a different resource group, provide the Resource Id of the image for -ImageName parameter.
 
 This example creates a VM named *myVMfromImage* from the *myImage* image, in *myResourceGroup*.
 
@@ -122,7 +115,7 @@ This example creates a VM named *myVMfromImage* from the *myImage* image, in *my
 New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
-	-ImageName "myImage" `
+    -ImageName "myImage" `
     -Location "East US" `
     -VirtualNetworkName "myImageVnet" `
     -SubnetName "myImageSubnet" `
@@ -130,6 +123,9 @@ New-AzVm `
     -PublicIpAddressName "myImagePIP" `
     -OpenPorts 3389
 ```
+
+We recommend that you limit the number of concurrent deployments to 20 VMs from a single image. If you are planning large-scale, concurrent deployments of over 20 VMs from the same custom image, you should use a [Shared Image Gallery](shared-image-galleries.md) with multiple image replicas. 
+
 
 ## Image management 
 

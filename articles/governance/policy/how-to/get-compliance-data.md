@@ -1,12 +1,8 @@
 ---
 title: Get policy compliance data
-description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details.
-author: DCtheGeek
-ms.author: dacoulte
+description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
 ms.date: 02/01/2019
-ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
+ms.topic: how-to
 ---
 # Get compliance data of Azure resources
 
@@ -132,13 +128,13 @@ condition triggers evaluation of the existence condition for the related resourc
 For example, assume that you have a resource group – ContsoRG, with some storage accounts
 (highlighted in red) that are exposed to public networks.
 
-![Storage accounts exposed to public networks](../media/getting-compliance-data/resource-group01.png)
+:::image type="content" source="../media/getting-compliance-data/resource-group01.png" alt-text="Storage accounts exposed to public networks" border="false":::
 
 In this example, you need to be wary of security risks. Now that you've created a policy assignment,
 it's evaluated for all storage accounts in the ContosoRG resource group. It audits the three
 non-compliant storage accounts, consequently changing their states to **Non-compliant.**
 
-![Audited non-compliant storage accounts](../media/getting-compliance-data/resource-group03.png)
+:::image type="content" source="../media/getting-compliance-data/resource-group03.png" alt-text="Audited non-compliant storage accounts" border="false":::
 
 Besides **Compliant** and **Non-compliant**, policies and resources have three other states:
 
@@ -160,7 +156,7 @@ divided by the sum of all distinct resources. In the image below, there are 20 d
 that are applicable and only one is **Non-compliant**. The overall resource compliance is 95% (19
 out of 20).
 
-![Example of policy compliance from Compliance page](../media/getting-compliance-data/simple-compliance.png)
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Example of policy compliance from Compliance page" border="false":::
 
 ## Portal
 
@@ -171,69 +167,55 @@ and count per assignment, it contains a chart showing compliance over the last s
 **Compliance** page contains much of this same information (except the chart), but provide
 additional filtering and sorting options.
 
-![Example of Azure Policy Compliance page](../media/getting-compliance-data/compliance-page.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Example of Azure Policy Compliance page" border="false":::
 
 Since a policy or initiative can be assigned to different scopes, the table includes the scope for
 each assignment and the type of definition that was assigned. The number of non-compliant resources
 and non-compliant policies for each assignment are also provided. Clicking on a policy or initiative
 in the table provides a deeper look at the compliance for that particular assignment.
 
-![Example of Azure Policy Compliance Details page](../media/getting-compliance-data/compliance-details.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Example of Azure Policy Compliance Details page" border="false":::
 
 The list of resources on the **Resource compliance** tab shows the evaluation status of existing
 resources for the current assignment. The tab defaults to **Non-compliant**, but can be filtered.
 Events (append, audit, deny, deploy) triggered by the request to create a resource are shown under
 the **Events** tab.
 
-![Example of Azure Policy Compliance events](../media/getting-compliance-data/compliance-events.png)
+> [!NOTE]
+> For an AKS Engine policy, the resource shown is the resource group.
 
-Right-click on the row of the event you would like to gather more details on and select **Show
-activity logs**. The activity log page opens and is pre-filtered to the search showing details for
-the assignment and the events. The activity log provides additional context and information about
-those events.
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Example of Azure Policy Compliance events" border="false":::
 
-![Example of Azure Policy Compliance Activity Log](../media/getting-compliance-data/compliance-activitylog.png)
+For [Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) resources,
+on the **Resource compliance** tab, selecting the resource or right-clicking on the row and
+selecting **View compliance details** opens the component compliance details. This page also offers
+tabs to see the policies that are assigned to this resource, events, component events, and change
+history.
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Example of Azure Policy Component compliance details" border="false":::
+
+Back on the resource compliance page, right-click on the row of the event you would like to gather
+more details on and select **Show activity logs**. The activity log page opens and is pre-filtered
+to the search showing details for the assignment and the events. The activity log provides
+additional context and information about those events.
+
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Example of Azure Policy Compliance Activity Log" border="false":::
 
 ### Understand non-compliance
 
-<a name="change-history-preview"></a>
-
 When a resources is determined to be **non-compliant**, there are many possible reasons. To
-determine the reason a resource is **non-compliant** or to find the change responsible, see [Determine non-compliance](./determine-non-compliance.md).
+determine the reason a resource is **non-compliant** or to find the change responsible, see
+[Determine non-compliance](./determine-non-compliance.md).
 
 ## Command line
 
-The same information available in the portal can be retrieved with the REST API (including with [ARMClient](https://github.com/projectkudu/ARMClient))
-or Azure PowerShell. For full details on the REST API, see the [Azure Policy Insights](/rest/api/policy-insights/)
+The same information available in the portal can be retrieved with the REST API (including with
+[ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell, and Azure CLI (preview).
+For full details on the REST API, see the [Azure Policy Insights](/rest/api/policy-insights/)
 reference. The REST API reference pages have a green 'Try It' button on each operation that allows
 you to try it right in the browser.
 
-To use the following examples in Azure PowerShell, construct an authentication token with this
-example code. Then replace the $restUri with the string in the examples to retrieve a JSON object
-that can then be parsed.
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-
-$azContext = Get-AzContext
-$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-$profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-$token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
-$authHeader = @{
-    'Content-Type'='application/json'
-    'Authorization'='Bearer ' + $token.AccessToken
-}
-
-# Define the REST API to communicate with
-# Use double quotes for $restUri as some endpoints take strings passed in single quotes
-$restUri = "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04"
-
-# Invoke the REST API
-$response = Invoke-RestMethod -Uri $restUri -Method POST -Headers $authHeader
-
-# View the response object (as JSON)
-$response
-```
+Use ARMClient or a similar tool to handle authentication to Azure for the REST API examples.
 
 ### Summarize results
 
@@ -502,13 +484,13 @@ Trent Baker
 ## Azure Monitor logs
 
 If you have a [Log Analytics workspace](../../../log-analytics/log-analytics-overview.md) with
-`AzureActivity` from the [Activity Log Analytics solution](../../../azure-monitor/platform/activity-log-collect.md) tied to your subscription, you
-can also view non-compliance results from the evaluation cycle using simple Kusto queries and the
-`AzureActivity` table. With details in Azure Monitor logs, alerts can be configured to watch for
-non-compliance.
+`AzureActivity` from the
+[Activity Log Analytics solution](../../../azure-monitor/platform/activity-log-collect.md) tied to
+your subscription, you can also view non-compliance results from the evaluation cycle using simple
+Kusto queries and the `AzureActivity` table. With details in Azure Monitor logs, alerts can be
+configured to watch for non-compliance.
 
-
-![Azure Policy Compliance using Azure Monitor logs](../media/getting-compliance-data/compliance-loganalytics.png)
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Azure Policy Compliance using Azure Monitor logs" border="false":::
 
 ## Next steps
 

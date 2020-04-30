@@ -1,7 +1,7 @@
 ---
 title: Custom subdomains
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services use custom subdomain names for each resource created through the Azure portal, Azure Cloud Shell, or Azure CLI. Unlike regional endpoints, which were common for all customers in a specific Azure region, custom subdomain names are unique to the resource. Custom subdomain names are required to enable features like Azure Active Directory (Azure AD) for authentication.
+description: Custom subdomain names for each Cognitive Service resource are created through the Azure portal, Azure Cloud Shell, or Azure CLI.
 services: cognitive-services
 author: erhopf
 manager: nitinme

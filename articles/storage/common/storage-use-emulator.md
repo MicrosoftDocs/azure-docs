@@ -55,7 +55,7 @@ The first time you run the storage emulator, the local storage environment is in
 The storage emulator is installed by default to `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> You can use the [Microsoft Azure Storage Explorer](https://storageexplorer.com) to work with local storage emulator resources. Look for "(Development)" under "Storage Accounts" in the Storage Explorer resources tree after you've installed and started the storage emulator.
+> You can use the [Microsoft Azure Storage Explorer](https://storageexplorer.com) to work with local storage emulator resources. Look for "(Emulator - Default Ports) (Key)" under "Local & Attached" in the Storage Explorer resources tree after you've installed and started the storage emulator.
 >
 
 ### Initialize the storage emulator to use a different SQL database
@@ -321,6 +321,6 @@ There are no differences specific to Queue storage in the emulator.
 
 ## Next steps
 
-* Evaluate the cross-platform, community-maintained open-source storage emulator [Azurite](https://github.com/arafato/azurite). 
+* Evaluate the cross-platform, community-maintained open-source storage emulator [Azurite](https://github.com/azure/azurite). 
 * [Azure Storage samples using .NET](../storage-samples-dotnet.md) contains links to several code samples you can use when developing your application.
 * You can use the [Microsoft Azure Storage Explorer](https://storageexplorer.com) to work with resources in your cloud Storage account, and in the storage emulator.

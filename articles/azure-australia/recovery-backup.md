@@ -1,11 +1,11 @@
 ---
 title: Backup and disaster recovery in Azure Australia
 description: Backup and disaster recovery in Microsoft Azure for Australian Government agencies as it relates to the ASD Essential 8
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: v-emread
 ---
 
 # Backup and disaster recovery in Azure Australia
@@ -14,7 +14,7 @@ Having backup and disaster recovery plans with the supporting infrastructure in 
 
 Microsoft Azure provides two services that enable resilience: Azure Backup and Azure Site Recovery. These services enable you to protect your data, both on-premises and in the cloud,  for a variety of design scenarios. Azure Backup and Azure Site Recovery both use a common storage and management resource: the Azure Recovery Services Vault. This vault is used to manage, monitor, and segregate Azure Backup and Azure Site Recovery Data.
 
-This article details the key design elements for implementing Azure Backup and Azure Site Recovery in line with the [Australian Signals Directorate’s (ASD) Information Security Manual (ISM) Controls](https://acsc.gov.au/infosec/ism/index.htm).
+This article details the key design elements for implementing Azure Backup and Azure Site Recovery in line with the [Australian Signals Directorate's (ASD) Information Security Manual (ISM) Controls](https://acsc.gov.au/infosec/ism/index.htm).
 
 ## Azure Backup
 
@@ -32,7 +32,7 @@ Azure Backup resembles a traditional on-premises backup solution and provides th
 
 ![Azure Site Recovery](media/asr-overview.png)
 
-Azure Site Recovery replicates workloads consisting of either a single virtual machine or multi-tier applications. Replication is supported from on-premises into Azure, between Azure regions, or between on-premise locations orchestrated by Azure Site Recovery. On-premises virtual machines can be replicated to Azure or to a supported on-premises hypervisor. Once configured, Azure Site Recovery orchestrates replication, fail-over, and fail-back.
+Azure Site Recovery replicates workloads consisting of either a single virtual machine or multi-tier applications. Replication is supported from on-premises into Azure, between Azure regions, or between on-premises locations orchestrated by Azure Site Recovery. On-premises virtual machines can be replicated to Azure or to a supported on-premises hypervisor. Once configured, Azure Site Recovery orchestrates replication, fail-over, and fail-back.
 
 ## Key design considerations
 
@@ -85,7 +85,7 @@ These minimum retention range checks include:
 * For monthly retention, a minimum of three months of retention
 * For yearly retention, a minimum of one year of retention
 
-All backup data stored within Azure is encrypted at rest using Azure's Storage Service Encryption (SSE). This is enabled for all new and existing storage accounts by default and cannot be disabled. The encrypted data is automatically decrypted during retrieval. By default, data encrypted using SSE is encrypted using a key provided by and managed by Microsoft. Organisations can choose to provide and manage their own encryption key for use with SSE. This provides an optional additional layer of security for the encrypted data. This key can be stored by the customer on-premise or securely within the Azure Key vault.
+All backup data stored within Azure is encrypted at rest using Azure's Storage Service Encryption (SSE). This is enabled for all new and existing storage accounts by default and cannot be disabled. The encrypted data is automatically decrypted during retrieval. By default, data encrypted using SSE is encrypted using a key provided by and managed by Microsoft. Organisations can choose to provide and manage their own encryption key for use with SSE. This provides an optional additional layer of security for the encrypted data. This key can be stored by the customer on-premises or securely within the Azure Key vault.
 
 ### Secure data transport
 

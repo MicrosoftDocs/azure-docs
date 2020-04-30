@@ -18,12 +18,18 @@
     href: advisor-performance-recommendations.md
   - name: Reduce service costs
     href: advisor-cost-recommendations.md
+  - name: Achieve operational excellence
+    href: advisor-operational-excellence-recommendations.md
   - name: Configure recommendations
     href: view-recommendations.md
   - name: Permissions and blocked actions
     href: permissions.md
   - name: Configure Alerts for recommendations
     href: advisor-alerts.md
+  - name: Bulk remediation for recommendations
+    href: advisor-quick-fix.md
+  - name: Advisor data in Azure Resource Graph
+    href: advisor-azure-resource-graph.md
 - name: Reference
   items:
   - name: Security Center

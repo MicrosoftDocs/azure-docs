@@ -1,8 +1,8 @@
 ---
 title: Azure Cosmos DB Table API .NET Standard SDK & Resources
 description: Learn all about the Azure Cosmos DB Table API and the .NET Standard SDK including release dates, retirement dates, and changes made between each version.
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
@@ -36,6 +36,12 @@ ms.date: 03/18/2019
 
 ## Release notes for 1.0.0 series
 1.0.0 series takes the dependency on [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+
+### <a name="1.0.7"/>1.0.7
+* Performance improvement by setting Table SDK default trace level to SourceLevels.Off, which can be opted in via app.config
+
+### <a name="1.0.5"/>1.0.5
+* Introduce new config under TableClientConfiguration to use Rest Executor to communicate with Cosmos DB Table API
 
 ### <a name="1.0.5-preview"/>1.0.5-preview
 * Bug fixes
@@ -87,6 +93,7 @@ This cross-platform .NET Standard library [Microsoft.Azure.Cosmos.Table](https:/
 ### 1.0.0 series
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.0.5](#1.0.5) |September 13, 2019 |--- |
 | [1.0.5-preview](#1.0.5-preview) |Auguest 20, 2019 |--- |
 | [1.0.4](#1.0.4) |Auguest 12, 2019 |--- |
 | [1.0.4-preview](#1.0.4-preview) |July 26, 2019 |--- |

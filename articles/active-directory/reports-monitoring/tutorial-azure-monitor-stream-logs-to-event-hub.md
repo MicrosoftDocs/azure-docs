@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Stream Azure Active Directory logs to an Azure event hub | Microsoft Docs
+title: Tutorial - Stream logs to an Azure event hub | Microsoft Docs
 description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to an event hub
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to route Azure AD logs to an event hub so I can integrate it with my third party SIEM system.
@@ -39,7 +39,7 @@ To use this feature, you need:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-2. Select **Azure Active Directory** > **Activity** > **Audit logs**. 
+2. Select **Azure Active Directory** > **Monitoring** > **Audit logs**. 
 
 3. Select **Export Settings**.  
     

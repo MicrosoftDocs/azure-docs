@@ -4,7 +4,7 @@ description: This article provides overview of the workflow processes when you d
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: Willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
@@ -31,15 +31,16 @@ The following diagram presents the architecture of Azure resources.
 
 **B**. The fabric controller is responsible for maintaining and monitoring all the resources in the data center. It communicates with fabric host agents on the fabric OS sending information such as the Guest OS version, service package, service configuration, and service state.
 
-**C**. The Host Agent lives on the Host OSsystem and is responsible for setting up Guest OS and communicating with Guest Agent (WindowsAzureGuestAgent) in order to update the role toward an intended goal state and do heartbeat checks with the Guest agent. If Host Agent does not receive heartbeat response for 10 minutes, Host Agent restarts the Guest OS.
+**C**. The Host Agent lives on the Host OS and is responsible for setting up Guest OS and communicating with Guest Agent (WindowsAzureGuestAgent) in order to update the role toward an intended goal state and do heartbeat checks with the Guest agent. If Host Agent does not receive heartbeat response for 10 minutes, Host Agent restarts the Guest OS.
 
 **C2**. WaAppAgent is responsible for installing, configuring, and updating WindowsAzureGuestAgent.exe.
 
 **D**.  WindowsAzureGuestAgent is responsible for the following:
 
-1. Configuring the Guest OS including firewall, ACLs, LocalStorage resources, service package and configuration, and certificates.Setting up the SID for the user account that the role will run under.
-2. Communicating the role status to the fabric.
-3. Starting WaHostBootstrapper and monitoring it to make sure that the role is in goal state.
+1. Configuring the Guest OS including firewall, ACLs, LocalStorage resources, service package and configuration, and certificates.
+2. Setting up the SID for the user account that the role will run under.
+3. Communicating the role status to the fabric.
+4. Starting WaHostBootstrapper and monitoring it to make sure that the role is in goal state.
 
 **E**. WaHostBootstrapper is responsible for:
 
@@ -54,7 +55,7 @@ The following diagram presents the architecture of Azure resources.
 3. Setting up the AppPool for the configured role in the service model
 4. Setting up IIS logging to point to the DiagnosticStore LocalStorage folder
 5. Configuring permissions and ACLs
-6. The website resides in %roleroot%:\sitesroot\0, and the apppool points to this location to run IIS. 
+6. The website resides in %roleroot%:\sitesroot\0, and the AppPool points to this location to run IIS. 
 
 **G**. Startup tasks are defined by the role model and started by WaHostBootstrapper. Startup tasks can be configured to run in the background asynchronously, and the host bootstrapper will start the startup task and then continue on to other startup tasks. Startup tasks can also be configured to run in Simple (default) mode in which the host bootstrapper will wait for the startup task to finish running and return a success (0) exit code before continuing to the next startup task.
 
@@ -70,7 +71,7 @@ The following diagram presents the architecture of Azure resources.
 
 ## Workflow processes
 
-1. A user makes a request, such as uploading .cspkg and .cscfg files, telling a resource to stop or making a configuration change, and so on. This can be done through the Azure portal or a tool that uses the Service Management API, such as the Visual Studio Publish feature. This request goes to RDFE to do all the subscription-related work and then communicate the request to FFE. The rest of these workflow steps are to deploy a new package and start it.
+1. A user makes a request, such as uploading ".cspkg" and ".cscfg" files, telling a resource to stop or making a configuration change, and so on. This can be done through the Azure portal or a tool that uses the Service Management API, such as the Visual Studio Publish feature. This request goes to RDFE to do all the subscription-related work and then communicate the request to FFE. The rest of these workflow steps are to deploy a new package and start it.
 2. FFE finds the correct machine pool (based on customer input such, as affinity group or geographical location plus input from the fabric, such as machine availability) and communicates with the master fabric controller in that machine pool.
 3. The fabric controller finds a host that has available CPU cores (or spins up a new host). The service package and configuration is copied to the host, and the fabric controller communicates with the host agent on the host OS to deploy the package (configure DIPs, ports, guest OS, and so on).
 4. The host agent starts the Guest OS and communicates with the guest agent (WindowsAzureGuestAgent). The host sends heartbeats to the guest to make sure that the role is working towards its goal state.
@@ -79,7 +80,7 @@ The following diagram presents the architecture of Azure resources.
 7. WaHostBootstrapper reads the **Startup** tasks from E:\RoleModel.xml and begins executing startup tasks. WaHostBootstrapper waits until all Simple startup tasks have finished and returned a “success” message.
 8. For Full IIS web roles, WaHostBootstrapper tells IISConfigurator to configure the IIS AppPool and points the site to `E:\Sitesroot\<index>`, where `<index>` is a 0 based index into the number of `<Sites>` elements defined for the service.
 9. WaHostBootstrapper will start the host process depending on the role type:
-    1. **Worker Role**: WaWorkerHost.exe is started. WaHostBootstrapper executes the OnStart() method.After it returns,  WaHostBootstrapper starts to execute the Run() method, and then simultaneously marks the role as Ready and puts it into the load balancer rotation (if InputEndpoints are defined). WaHostBootsrapper then goes into a loop of checking the role status.
+    1. **Worker Role**: WaWorkerHost.exe is started. WaHostBootstrapper executes the OnStart() method. After it returns,  WaHostBootstrapper starts to execute the Run() method, and then simultaneously marks the role as Ready and puts it into the load balancer rotation (if InputEndpoints are defined). WaHostBootsrapper then goes into a loop of checking the role status.
     1. **SDK 1.2 HWC Web Role**: WaWebHost is started. WaHostBootstrapper executes the OnStart() method. After it returns,  WaHostBootstrapper starts to execute the Run() method, and then simultaneously marks the role as Ready and puts it into the load balancer rotation. WaWebHost issues a warmup request (GET /do.rd_runtime_init). All web requests are sent to WaWebHost.exe. WaHostBootsrapper then goes into a loop of checking the role status.
     1. **Full IIS Web Role**: aIISHost is started. WaHostBootstrapper executes the OnStart() method. After it returns, it starts to execute the Run() method, and then simultaneously marks the role as Ready and puts it into the load balancer rotation. WaHostBootsrapper then goes into a loop of checking the role status.
 10. Incoming web requests to a Full IIS web role triggers IIS to start the W3WP process and serve the request, the same as it would in an on-premises IIS environment.

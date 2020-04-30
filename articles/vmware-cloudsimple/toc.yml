@@ -10,6 +10,8 @@
   - name: Quickstart
     expanded: true
     items:
+    - name: Network planning
+      href: cloudsimple-network-checklist.md
     - name: Initialize and provision capacity
       href: quickstart-create-cloudsimple-service.md
     - name: Configure Private Cloud environment
@@ -132,6 +134,10 @@
         href: azure-expressroute-connection.md
       - name: Configure DNS name resolution
         href: on-premises-dns-setup.md
+      - name: Configure highly available Site-to-Site VPN connections
+        href: high-availability-vpn-connection.md
+      - name: Private Cloud DNS configuration to on premises
+        href: private-cloud-dns-forwarding.md
     - name: VMware platform
       items:
       - name: Learn Private Cloud permission model
@@ -144,6 +150,8 @@
         href: configure-server-vrealize-automation-endpoint.md
       - name: Migrating workload VMs to a Private Cloud
         href: migrate-workloads.md
+      - name: Migration using Azure Data Box
+        href: migration-using-azure-data-box.md
       - name: Ensuring Application high availability in VMware on Azure
         href: ensuring-high-availability.md
       - name: Choose a load balancing solution

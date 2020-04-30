@@ -21,14 +21,14 @@ ms.reviewer: cenkdin;anilmur
 # Use the Wirecast encoder to send a single bitrate live stream 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
-> * [Tricaster](media-services-configure-tricaster-live-encoder.md)
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
->
 >
 
-This article shows how to configure the [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding.  For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+This article shows how to configure the [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md).
+
+> [!NOTE]
+> Encoders must support TLS 1.2 when using RTMPS protocols. Use the Wirecast version 13.0.2 or higher due to the TLS 1.2 requirement.
 
 ## Prerequisites
 * [Create an Azure Media Services account](media-services-portal-create-account.md)

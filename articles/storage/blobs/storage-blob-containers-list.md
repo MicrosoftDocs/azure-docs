@@ -5,15 +5,15 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
-ms.date: 07/10/2019
+ms.topic: conceptual
+ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
 
 # List blob containers with .NET
 
-When you list the containers in an Azure Storage account from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).  
+When you list the containers in an Azure Storage account from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 
 ## Understand container listing options
 
@@ -36,16 +36,17 @@ In your code, check the value of the continuation token to determine whether it 
 
 To filter the list of containers, specify a string for the `prefix` parameter. The prefix string can include one or more characters. Azure Storage then returns only the containers whose names start with that prefix.
 
-### Return container metadata
+### Return metadata
 
-To return container metadata with the results, specify the **Metadata** value for the [ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) enumeration. Azure Storage includes metadata with each container returned, so you do not need to also call one of the **FetchAttributes** methods to retrieve the container metadata.
+To return container metadata with the results, specify the **Metadata** value for the [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) enumeration. Azure Storage includes metadata with each container returned, so you do not need to also call one of the **FetchAttributes** methods to retrieve the container metadata.
 
 ## Example: List containers
 
 The following example asynchronously lists the containers in a storage account that begin with a specified prefix. The example lists containers in increments of 5 results at a time, and uses the continuation token to get the next segment of results. The example also returns container metadata with the results.
 
 ```csharp
-private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient, string prefix)
+private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient,
+                                                        string prefix)
 {
     Console.WriteLine("List all containers beginning with prefix {0}, plus container metadata:", prefix);
 

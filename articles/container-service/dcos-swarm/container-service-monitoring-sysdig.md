@@ -1,12 +1,9 @@
 ---
 title: (DEPRECATED) Monitor an Azure Container Service cluster with Sysdig
 description: Monitor an Azure Container Service cluster with Sysdig.
-services: container-service
 author: sauryadas
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
@@ -29,7 +26,7 @@ Sysdig is a monitoring service that allows you to monitor your containers within
 ## Configure a Sysdig deployment with Marathon
 These steps will show you how to configure and deploy Sysdig applications to your cluster with Marathon. 
 
-Access your DC/OS UI via [http://localhost:80/](http://localhost:80/) Once in the DC/OS UI navigate to the "Universe", which is on the bottom left and then search for "Sysdig."
+Access your DC/OS UI via `http://localhost:80/` Once in the DC/OS UI navigate to the "Universe", which is on the bottom left and then search for "Sysdig."
 
 ![Sysdig in DC/OS Universe](./media/container-service-monitoring-sysdig/sysdig1.png)
 

@@ -3,22 +3,21 @@ title: Publish app - LUIS
 titleSuffix: Azure Cognitive Services 
 description: When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint.
 services: cognitive-services
-titleSuffix: Azure Cognitive Services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 11/19/2019
 ms.author: diberry
 ---
 
 # Publish your active, trained app to a staging or production endpoint
 
-When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint. 
+When you finish building, training, and testing your active LUIS app, make it available to your client application by publishing it to the endpoint. 
 
-<a name="publish-your-trained-app-to-an-http-endpoint"></a>
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## Publishing
 
@@ -34,16 +33,19 @@ When you finish building and testing your active LUIS app, make it available to 
 
 Select the correct slot when the pop-up window displays: 
 
-* Staging.
-* Production. 
+* Staging
+* Production 
 
 By using both publishing slots, this allows you to have two different versions of your app available at the published endpoints or the same version on two different endpoints. 
 
 ### Publishing regions
 
-The app is published to all regions associated with the LUIS prediction endpoint resources added in the LUIS portal. 
+The app is published to all regions associated with the LUIS prediction endpoint resources added in the LUIS portal from the **Manage** -> **[Azure Resources](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** page. 
 
 For example, for an app created on [www.luis.ai](https://www.luis.ai), if you create a LUIS resource in two regions, **westus** and **eastus**, and add these to the app as resources, the app is published in both regions. For more information about LUIS regions, see [Regions](luis-reference-regions.md).
+
+> [!TIP]
+> There are 3 authoring regions. You must author in the region you intend to publish to. If you need to publish to all regions, you need to manage your authoring process and the resulting trained model in all 3 authoring regions. 
 
 
 ## Configuring publish settings
@@ -51,16 +53,14 @@ For example, for an app created on [www.luis.ai](https://www.luis.ai), if you cr
 After you select the slot, configure the publish settings for:
 
 * Sentiment analysis
-* Spelling correction
+* Spelling correction - v2 prediction endpoint only
 * Speech priming 
 
 After you publish, these settings are available for review from the **Manage** section's **Publish settings** page. You can change the settings with every publish. If you cancel a publish, any changes you made during the publish are also canceled. 
 
 ### When your app is published
 
-When your app is successfully published, a green success notification appears at the top of the browser. The green notification bar also includes a link to the endpoints. 
-
-![Publishing pop-up window with link to endpoint](./media/luis-how-to-publish-app/publish-success.png)
+When your app is successfully published, a success notification appears at the top of the browser. The notification also includes a link to the endpoints. 
 
 If you need the endpoint URL, select the link. You can also get to the endpoint URLs by selecting **Manage** in the top menu, then select **Azure Resources** in the left menu. 
 
@@ -77,6 +77,8 @@ Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) 
 For more information about the JSON endpoint response with sentiment analysis, see [Sentiment analysis](luis-concept-data-extraction.md#sentiment-analysis)
 
 ## Spelling correction
+
+[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
 Corrections to spelling are made before the LUIS user utterance prediction. You can see any changes to the original utterance, including spelling, in the response.
 

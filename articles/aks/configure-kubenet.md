@@ -2,12 +2,9 @@
 title: Configure kubenet networking in Azure Kubernetes Service (AKS)
 description: Learn how to configure kubenet (basic) network in Azure Kubernetes Service (AKS) to deploy an AKS cluster into an existing virtual network and subnet.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 06/26/2019
-ms.author: mlearned
+
 ms.reviewer: nieberts, jomore
 ---
 
@@ -19,8 +16,17 @@ With [Azure Container Networking Interface (CNI)][cni-networking], every pod get
 
 This article shows you how to use *kubenet* networking to create and use a virtual network subnet for an AKS cluster. For more information on network options and considerations, see [Network concepts for Kubernetes and AKS][aks-network-concepts].
 
+## Prerequisites
+
+* The virtual network for the AKS cluster must allow outbound internet connectivity.
+* Don't create more than one AKS cluster in the same subnet.
+* AKS clusters may not use `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24` for the Kubernetes service address range.
+* The service principal used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) role on the subnet within your virtual network. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
+  * `Microsoft.Network/virtualNetworks/subnets/join/action`
+  * `Microsoft.Network/virtualNetworks/subnets/read`
+
 > [!WARNING]
-> To use Windows Server node pools (currently in preview in AKS), you must use Azure CNI. The use of kubenet as the network model is not available for Windows Server containers.
+> To use Windows Server node pools, you must use Azure CNI. The use of kubenet as the network model is not available for Windows Server containers.
 
 ## Before you begin
 
@@ -34,9 +40,9 @@ With *kubenet*, only the nodes receive an IP address in the virtual network subn
 
 ![Kubenet network model with an AKS cluster](media/use-kubenet/kubenet-overview.png)
 
-Azure supports a maximum of 400 routes in a UDR, so you can't have an AKS cluster larger than 400 nodes. AKS features such as [Virtual Nodes][virtual-nodes] or network policies aren't supported with *kubenet*.
+Azure supports a maximum of 400 routes in a UDR, so you can't have an AKS cluster larger than 400 nodes. AKS [Virtual Nodes][virtual-nodes] and Azure Network Policies aren't supported with *kubenet*.  You can use [Calico Network Policies][calico-network-policies], as they are supported with kubenet.
 
-With *Azure CNI*, each pod receives an IP address in the IP subnet, and can directly communicate with other pods and services. Your clusters can be as large as the IP address range you specify. However, the IP address range must be planned in advance, and all of the IP addresses are consumed by the AKS nodes based on the maximum number of pods that they can support. Advanced network features and scenarios such as [Virtual Nodes][virtual-nodes] or network policies are supported with *Azure CNI*.
+With *Azure CNI*, each pod receives an IP address in the IP subnet, and can directly communicate with other pods and services. Your clusters can be as large as the IP address range you specify. However, the IP address range must be planned in advance, and all of the IP addresses are consumed by the AKS nodes based on the maximum number of pods that they can support. Advanced network features and scenarios such as [Virtual Nodes][virtual-nodes] or Network Policies (either Azure or Calico) are supported with *Azure CNI*.
 
 ### IP address availability and exhaustion
 
@@ -68,19 +74,16 @@ Use *kubenet* when:
 
 - You have limited IP address space.
 - Most of the pod communication is within the cluster.
-- You don't need advanced features such as virtual nodes or network policy.
+- You don't need advanced AKS features such as virtual nodes or Azure Network Policy.  Use [Calico network policies][calico-network-policies].
 
 Use *Azure CNI* when:
 
 - You have available IP address space.
 - Most of the pod communication is to resources outside of the cluster.
-- You don’t want to manage the UDRs.
-- You need advanced features such as virtual nodes or network policy.
+- You don't want to manage the UDRs.
+- You need AKS advanced features such as virtual nodes or Azure Network Policy.  Use [Calico network policies][calico-network-policies].
 
 For more information to help you decide which network model to use, see [Compare network models and their support scope][network-comparisons].
-
-> [!NOTE]
-> Kuberouter makes it possible to enable network policy when using kubenet and can be installed as a daemonset in an AKS cluster. Please be aware kube-router is still in beta and no support is offered by Microsoft for the project.
 
 ## Create a virtual network and subnet
 
@@ -111,9 +114,11 @@ az ad sp create-for-rbac --skip-assignment
 
 The following example output shows the application ID and password for your service principal. These values are used in additional steps to assign a role to the service principal and then create the AKS cluster:
 
-```console
-$ az ad sp create-for-rbac --skip-assignment
+```azurecli
+az ad sp create-for-rbac --skip-assignment
+```
 
+```output
 {
   "appId": "476b3636-5eda-4c0e-9751-849e70b5cfad",
   "displayName": "azure-cli-2019-01-09-22-29-24",
@@ -168,16 +173,35 @@ az aks create \
     --client-secret <password>
 ```
 
-When you create an AKS cluster, a network security group and route table are created. These network resources are managed by the AKS control plane. The network security group is automatically associated with the virtual NICs on your nodes. The route table is automatically associated with the virtual network subnet. Network security group rules and route tables and are automatically updated as you create and expose services.
+> [!Note]
+> If you wish to enable an AKS cluster to include a [Calico network policy][calico-network-policies] you can use the following command.
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 3 \
+    --network-plugin kubenet --network-policy calico \
+    --service-cidr 10.0.0.0/16 \
+    --dns-service-ip 10.0.0.10 \
+    --pod-cidr 10.244.0.0/16 \
+    --docker-bridge-address 172.17.0.1/16 \
+    --vnet-subnet-id $SUBNET_ID \
+    --service-principal <appId> \
+    --client-secret <password>
+```
+
+When you create an AKS cluster, a network security group and route table are created. These network resources are managed by the AKS control plane. The network security group is automatically associated with the virtual NICs on your nodes. The route table is automatically associated with the virtual network subnet. Network security group rules and route tables are automatically updated as you create and expose services.
 
 ## Next steps
 
-With an AKS cluster deployed into your existing virtual network subnet, you can now use the cluster as normal. Get started with [building apps using Azure Dev Spaces][dev-spaces] or [using Draft][use-draft], or [deploy apps using Helm][use-helm].
+With an AKS cluster deployed into your existing virtual network subnet, you can now use the cluster as normal. Get started with [building apps using Azure Dev Spaces][dev-spaces], [deploy existing apps using Helm][use-helm], or [creating new apps using Helm][develop-helm].
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[Calico-network-policies]: https://docs.projectcalico.org/v3.9/security/calico-network-policy
 
 <!-- LINKS - Internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
@@ -189,8 +213,8 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md
-[use-draft]: kubernetes-draft.md
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md

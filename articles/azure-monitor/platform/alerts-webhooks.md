@@ -1,15 +1,14 @@
 ---
-title: Have a classic metric alert notify a non-Azure system using a webhook
-description: "Learn how to reroute Azure metric alerts to other, non-Azure systems."
-author: snehithm
-services: azure-monitor
-ms.service: azure-monitor
+title: Call a webhook with a classic metric alert in Azure Monitor
+description: Learn how to reroute Azure metric alerts to other, non-Azure systems.
+author: harelbr
+ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: snmuvva
 ms.subservice: alerts
 ---
-# Have a classic metric alert notify a non-Azure system using a webhook
+# Call a webhook with a classic metric alert in Azure Monitor
+
 You can use webhooks to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS messages, to log bugs, to notify a team via chat or messaging services, or for various other actions. 
 
 This article describes how to set a webhook on an Azure metric alert. It also shows you what the payload for the HTTP POST to a webhook looks like. For information about the setup and schema for an Azure activity log alert (alert on events), see [Call a webhook on an Azure activity log alert](alerts-log-webhook.md).

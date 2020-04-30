@@ -1,5 +1,5 @@
 ---
-title: About ExpressRoute Direct - Azure | Microsoft Docs
+title: 'About Azure ExpressRoute Direct'
 description: This page provides an overview of ExpressRoute Direct
 services: expressroute
 author: jaredr80
@@ -8,7 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
-ms.custom: seodec18
+
 
 ---
 
@@ -42,7 +42,7 @@ Before using ExpressRoute Direct, you must first enroll your subscription. To en
 
 ## ExpressRoute Direct circuits
 
-Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365.  
+Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, and Office 365.
 
 Each peering location has access to Microsoft’s global network and can access any region in a geopolitical zone by default and can access all global regions with a premium circuit.  
 

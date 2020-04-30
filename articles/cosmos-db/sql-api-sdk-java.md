@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 03/13/2019
+ms.date: 02/21/2020
 ms.author: sngun
 
 
@@ -35,9 +35,44 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**Get started**|[Get started with the Java SDK](sql-api-java-get-started.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-java-application.md)|
-|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
+|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
 
 ## Release notes
+
+### <a name="2.4.7"/>2.4.7
+* Fixes connection pool timeout issue.
+* Fixes auth token refresh on internal retries.
+
+### <a name="2.4.6"/>2.4.6
+* Updated correct client side replica policy tag on databaseAccount and made databaseAccount configuration reads from cache.
+
+### <a name="2.4.5"/>2.4.5
+* Avoiding retry on invalid partition key range error, if user provides pkRangeId.
+
+### <a name="2.4.4"/>2.4.4
+* Optimized partition key range cache refreshes.
+* Fixes the scenario where the SDK doesn't entertain partition split hint from server and results in incorrect client side routing caches refresh.
+
+### <a name="2.4.2"/>2.4.2
+* Optimized collection cache refreshes.
+
+### <a name="2.4.1"/>2.4.1
+* Added support to retrieve inner exception message from request diagnostic string.
+
+### <a name="2.4.0"/>2.4.0
+* Introduced version api on PartitionKeyDefinition.
+
+### <a name="2.3.0"/>2.3.0
+* Added separate timeout support for direct mode.
+
+### <a name="2.2.3"/>2.2.3
+* Consuming null error message from service and producing document client exception.
+
+### <a name="2.2.2"/>2.2.2
+* Socket connection improvement, adding SoKeepAlive default true.
+
+### <a name="2.2.0"/>2.2.0
+* Added request diagnostics string support.
 
 ### <a name="2.1.3"/>2.1.3
 * Fixed bug in PartitionKey for Hash V2.
@@ -92,7 +127,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ### <a name="1.15.0"/>1.15.0
 * Improved Json Serialization performance.
-* This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
+* This SDK version requires the latest version of [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
 
 ### <a name="1.14.0"/>1.14.0
 * Internal changes for Microsoft friends libraries.
@@ -224,8 +259,19 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [2.1.3](#2.1.3) |Mar 13, 2018 |--- |
-| [2.1.2](#2.1.2) |Mar 09, 2018 |--- |
+| [2.4.7](#2.4.7) |Feb 20, 2020 |--- |
+| [2.4.6](#2.4.6) |Jan 24, 2020 |--- |
+| [2.4.5](#2.4.5) |Nov 10, 2019 |--- |
+| [2.4.4](#2.4.4) |Oct 24, 2019 |--- |
+| [2.4.2](#2.4.2) |Sep 26, 2019 |--- |
+| [2.4.1](#2.4.1) |Jul 18, 2019 |--- |
+| [2.4.0](#2.4.0) |May 04, 2019 |--- |
+| [2.3.0](#2.3.0) |Apr 24, 2019 |--- |
+| [2.2.3](#2.2.3) |Apr 16, 2019 |--- |
+| [2.2.2](#2.2.2) |Apr 05, 2019 |--- |
+| [2.2.0](#2.2.0) |Mar 27, 2019 |--- |
+| [2.1.3](#2.1.3) |Mar 13, 2019 |--- |
+| [2.1.2](#2.1.2) |Mar 09, 2019 |--- |
 | [2.1.1](#2.1.1) |Dec 13, 2018 |--- |
 | [2.1.0](#2.1.0) |Nov 20, 2018 |--- |
 | [2.0.0](#2.0.0) |Sept 21, 2018 |--- |

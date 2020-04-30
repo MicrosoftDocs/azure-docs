@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB indexing policies
 description:  Learn how to configure and change the default indexing policy for automatic indexing and greater performance in Azure Cosmos DB.
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/10/2019
-ms.author: thweiss
+ms.date: 04/28/2020
+ms.author: tisande
 ---
 
 # Indexing policies in Azure Cosmos DB
@@ -21,12 +21,15 @@ In some situations, you may want to override this automatic behavior to better s
 
 Azure Cosmos DB supports two indexing modes:
 
-- **Consistent**: If a container's indexing policy is set to Consistent, the index is updated synchronously as you create, update or delete items. This means that the consistency of your read queries will be the [consistency configured for the account](consistency-levels.md).
-- **None**: If a container's indexing policy is set to None, indexing is effectively disabled on that container. This is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also help speeding up bulk insert operations.
+- **Consistent**: The index is updated synchronously as you create, update or delete items. This means that the consistency of your read queries will be the [consistency configured for the account](consistency-levels.md).
+- **None**: Indexing is disabled on the container. This is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also be used to improve the performance of bulk operations. After the bulk operations are complete, the index mode can be set to Consistent and then monitored using the [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) until complete.
 
-Additionally you should set the **automatic** property in the indexing policy to **true**. Setting this property to true allows Azure Cosmos DB to automatically index documents as they are written.
+> [!NOTE]
+> Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query a Cosmos container, you should not select lazy indexing.
 
-## Including and excluding property paths
+By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure CosmosDB to automatically index documents as they are written.
+
+## <a id="include-exclude-paths"></a> Including and excluding property paths
 
 A custom indexing policy can specify property paths that are explicitly included or excluded from indexing. By optimizing the number of paths that are indexed, you can lower the amount of storage used by your container and improve the latency of write operations. These paths are defined following [the method described in the indexing overview section](index-overview.md#from-trees-to-property-paths) with the following additions:
 
@@ -65,9 +68,11 @@ Any indexing policy has to include the root path `/*` as either an included or a
 - Include the root path to selectively exclude paths that don't need to be indexed. This is the recommended approach as it lets Azure Cosmos DB proactively index any new property that may be added to your model.
 - Exclude the root path to selectively include paths that need to be indexed.
 
-- For paths with regular characters that include: alphanumeric characters and _ (underscore), you don’t have to escape the path string around double quotes (for example, "/path/?"). For paths with other special characters, you need to escape the path string around double quotes (for example, "/\"path-abc\"/?"). If you expect special characters in your path, you can escape every path for safety. Functionally it doesn’t make any difference if you escape every path Vs just the ones that have special characters.
+- For paths with regular characters that include: alphanumeric characters and _ (underscore), you don't have to escape the path string around double quotes (for example, "/path/?"). For paths with other special characters, you need to escape the path string around double quotes (for example, "/\"path-abc\"/?"). If you expect special characters in your path, you can escape every path for safety. Functionally it doesn't make any difference if you escape every path Vs just the ones that have special characters.
 
-- The system property "etag" is excluded from indexing by default, unless the etag is added to the included path for indexing.
+- The system property `_etag` is excluded from indexing by default, unless the etag is added to the included path for indexing.
+
+- If the indexing mode is set to **consistent**, the system properties `id` and `_ts` are automatically indexed.
 
 When including and excluding paths, you may encounter the following attributes:
 
@@ -87,6 +92,26 @@ When not specified, these properties will have the following default values:
 
 See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples for including and excluding paths.
 
+## Include/exclude precedence
+
+If your included paths and excluded paths have a conflict, the more precise path takes precedence.
+
+Here's an example:
+
+**Included Path**: `/food/ingredients/nutrition/*`
+
+**Excluded Path**: `/food/ingredients/*`
+
+In this case, the included path takes precedence over the excluded path because it is more precise. Based on these paths, any data in the `food/ingredients` path or nested within would be excluded from the index. The exception would be data within the included path: `/food/ingredients/nutrition/*`, which would be indexed.
+
+Here are some rules for included and excluded paths precedence in Azure Cosmos DB:
+
+- Deeper paths are more precise than narrower paths. for example: `/a/b/?` is more precise than `/a/?`.
+
+- The `/?` is more precise than `/*`. For example `/a/?` is more precise than `/a/*` so `/a/?` takes precedence.
+
+- The path `/*` must be either an included path or excluded path.
+
 ## Spatial indexes
 
 When you define a spatial path in the indexing policy, you should define which index ```type``` should be applied to that path. Possible types for spatial indexes include:
@@ -105,6 +130,8 @@ Azure Cosmos DB, by default, will not create any spatial indexes. If you would l
 
 Queries that have an `ORDER BY` clause with two or more properties require a composite index. You can also define a composite index to improve the performance of many equality and range queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) as needed.
 
+Unlike with included or excluded paths, you can't create a path with the `/*` wildcard. Every composite path has an implicit `/?` at the end of the path that you don't need to specify. Composite paths lead to a scalar value and this is the only value that is included in the composite index.
+
 When defining a composite index, you specify:
 
 - Two or more property paths. The sequence in which property paths are defined matters.
@@ -112,7 +139,7 @@ When defining a composite index, you specify:
 - The order (ascending or descending).
 
 > [!NOTE]
-> When adding a composite index, as with other index types, queries may return inconsistent results as the index is being updated.
+> When you add a composite index, the query will utilize existing range indexes until the new composite index addition is complete. Therefore, when you add a composite index, you may not immediately observe performance improvements. It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
 
 ### ORDER BY queries on multiple properties:
 
@@ -230,7 +257,7 @@ The following considerations are used when creating composite indexes to optimiz
 A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in place (so no additional storage space is consumed during the operation). The old policy's index is efficiently transformed to the new policy without affecting the write availability or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size.
 
 > [!NOTE]
-> While re-indexing is in progress, queries may not return all the matching results, and will do so without returning any errors. This means that query results may not be consistent until the index transformation is completed. It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
+> While adding a range or spatial index, queries may not return all the matching results, and will do so without returning any errors. This means that query results may not be consistent until the index transformation is completed. It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
 
 If the new indexing policy's mode is set to Consistent, no other indexing policy change can be applied while the index transformation is in progress. A running index transformation can be canceled by setting the indexing policy's mode to None (which will immediately drop the index).
 

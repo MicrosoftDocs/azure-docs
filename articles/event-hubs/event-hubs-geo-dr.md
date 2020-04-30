@@ -52,7 +52,7 @@ The following terms are used in this article:
 ## Supported namespace pairs
 The following combinations of primary and secondary namespaces are supported:  
 
-| Primary namespace | Secondary namespace | Suppported | 
+| Primary namespace | Secondary namespace | Supported | 
 | ----------------- | -------------------- | ---------- |
 | Standard | Standard | Yes | 
 | Standard | Dedicated | Yes | 
@@ -126,7 +126,7 @@ Note the following considerations to keep in mind with this release:
 The Event Hubs Standard SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. 
 
 > [!NOTE]
-> The Availability Zones support for Azure Event Hubs Standard is only available in [Azure regions](../availability-zones/az-overview.md#services-support-by-region) where availability zones are present.
+> The Availability Zones support for Azure Event Hubs Standard is only available in [Azure regions](../availability-zones/az-region.md) where availability zones are present.
 
 You can enable Availability Zones on new namespaces only, using the Azure portal. Event Hubs does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
 
@@ -139,7 +139,11 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 
 For more information about Event Hubs, visit the following links:
 
-* Get started with an [Event Hubs tutorial](event-hubs-dotnet-standard-getstarted-send.md)
+- Get started with Event Hubs
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

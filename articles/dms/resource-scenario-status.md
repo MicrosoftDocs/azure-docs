@@ -1,9 +1,10 @@
 ﻿---
-title: Database migration scenario status | Microsoft Docs
+title: Database migration scenario status
+titleSuffix: Azure Database Migration Service
 description: Learn about the status of the migration scenarios supported by Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms

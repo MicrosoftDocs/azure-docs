@@ -1,5 +1,5 @@
 ---
-title: Use Visual Studio with .NET and C# to query Azure SQL Database | Microsoft Docs
+title: Use Visual Studio with .NET and C# to query
 description: Use Visual Studio to create a C# app that connects to an Azure SQL Database and queries it with Transact-SQL statements.
 services: sql-database
 ms.service: sql-database
@@ -10,11 +10,11 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 03/25/2019
+ms.date: 12/31/2019
 ---
 # Quickstart: Use .NET and C# in Visual Studio to connect to and query an Azure SQL database
 
-This quickstart shows how to use the [.NET framework](https://www.microsoft.com/net/) and C# code in Visual Studio to query an Azure SQL database with Transact-SQL statements.
+This quickstart shows how to use the [.NET Framework](https://www.microsoft.com/net/) and C# code in Visual Studio to query an Azure SQL database with Transact-SQL statements.
 
 ## Prerequisites
 
@@ -95,7 +95,6 @@ Get the connection information you need to connect to the Azure SQL database. Yo
                        Console.WriteLine("\nQuery data example:");
                        Console.WriteLine("=========================================\n");
                        
-                       connection.Open();       
                        StringBuilder sb = new StringBuilder();
                        sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
                        sb.Append("FROM [SalesLT].[ProductCategory] pc ");
@@ -105,6 +104,7 @@ Get the connection information you need to connect to the Azure SQL database. Yo
    
                        using (SqlCommand command = new SqlCommand(sql, connection))
                        {
+                           connection.Open();
                            using (SqlDataReader reader = command.ExecuteReader())
                            {
                                while (reader.Read())
@@ -141,5 +141,5 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 

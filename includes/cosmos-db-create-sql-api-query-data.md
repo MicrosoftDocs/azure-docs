@@ -11,7 +11,7 @@
 ---
 You can use queries in Data Explorer to retrieve and filter your data.
 
-1. At the top of the **Documents** tab in Data Explorer, review the default query `SELECT * FROM c`. This query retrieves and displays all documents in the collection in ID order. 
+1. At the top of the **Items** tab in Data Explorer, review the default query `SELECT * FROM c`. This query retrieves and displays all documents from the container ordered by ID. 
    
    ![Default query in Data Explorer is `SELECT * FROM c`](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-query.png)
    

@@ -1,21 +1,9 @@
 ---
-title: Run tasks under user accounts - Azure Batch | Microsoft Docs
-description: Configure user accounts for running tasks in Azure Batch
-services: batch
-author: laurenhughes
-manager: gwallace
-editor: ''
-tags: 
-
-ms.assetid: 
-ms.service: batch
+title: Run tasks under user accounts - Azure Batch
+description: It's useful to be able to configure the user account under which you want a task to run. Learn the types of user accounts and how to configure them.
 ms.topic: article
-ms.tgt_pltfrm:
-ms.workload: big-compute
-ms.date: 05/22/2017
-ms.author: lahugh
+ms.date: 11/18/2019
 ms.custom: seodec18
-
 ---
 
 > [!NOTE] 
@@ -23,9 +11,6 @@ ms.custom: seodec18
 >
 > To connect to a node running the Linux virtual machine configuration via SSH, see [Use Remote Desktop to a Linux VM in Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). To connect to nodes running Windows via RDP, see [Connect to a Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
 > To connect to a node running the cloud service configuration via RDP, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
->
->
-
 
 # Run tasks under user accounts in Batch
 
@@ -277,7 +262,7 @@ users = [
     batchmodels.UserAccount(
         name='pool-nonadmin',
         password='******',
-        elevation_level=batchmodels.ElevationLevel.nonadmin)
+        elevation_level=batchmodels.ElevationLevel.non_admin)
 ]
 pool = batchmodels.PoolAddParameter(
     id=pool_id,
@@ -326,7 +311,7 @@ The Batch service version 2017-01-01.4.0 introduces a breaking change, replacing
 | If your code uses...                      | Update it to....                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, where <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
-| `run_elevated=False`                      | `user_identity=user`, where <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
+| `run_elevated=False`                      | `user_identity=user`, where <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
 | `run_elevated` not specified | No update required                                                                                                                                  |
 
 

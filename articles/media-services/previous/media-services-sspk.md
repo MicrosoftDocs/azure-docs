@@ -1,6 +1,6 @@
 ---
-title: Licensing Microsoft® Smooth Streaming Client Porting Kit
-description: Learn about how to licensing the Microsoft® Smooth Streaming Client Porting Kit.
+title: Licensing Microsoft&reg; Smooth Streaming Client Porting Kit
+description: Learn about how to licensing the Microsoft&reg; Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 10/21/2019
 ms.author: xpouyat
 
 ---
-# Licensing Microsoft® Smooth Streaming Client Porting Kit 
+# Licensing Microsoft&reg; Smooth Streaming Client Porting Kit 
 ## Overview
 Microsoft Smooth Streaming Client Porting Kit (**SSPK** for short) is a Smooth Streaming client implementation that is optimized to help embedded device manufacturers, cable and mobile operators, content service providers, handset manufacturers, independent software vendors (ISVs), and solution providers to create products and services for streaming adaptive content in Smooth Streaming format. SSPK is a device and platform-independent implementation of Smooth Streaming client that can be ported by the licensee to any device and platform. 
 
@@ -69,11 +69,12 @@ The Smooth Streaming Client Final Product is offered under a royalty model as un
 ## Licensing Procedure and SSPK access
 Email [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) for all licensing queries.
 
-The [SSPK Distribution portal](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) is accessible to registered Interim licensees.
+The SSPK Distribution portal is accessible to registered Interim licensees.
 
 Interim and Final SSPK licensees can submit technical questions to [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
 
 ## Microsoft Smooth Streaming Client Interim Product Agreement Licensees
+
 * Adroit Business Solutions, Inc
 * Advanced Digital Broadcast SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
@@ -86,10 +87,10 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
 * Fluendo S.A.
+* Guangzhou Shikun Electronics., Ltd.
 * HANDAN BroadInfoCom Co., Ltd.
 * Infomir GMBH
 * Irdeto USA Inc.
-* iWEDIA S.A. 
 * Liberty Global Services BV
 * MediaTek Inc.
 * MStar Co, Ltd
@@ -100,7 +101,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL Technology Electronics (Huizhou) Co., Ltd.
 * Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
@@ -137,6 +137,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Orange SA
 * Saffron Digital Limited
 * Sagemcom Broadband SAS
+* Shenzhen Chuangwei-RGB Electronics Co.,Ltd.
 * Shenzhen Coship Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
@@ -146,7 +147,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * SmarDTV S.A.
 * SoftAtHome
 * Sony Corporation
-* TCL Overseas Marketing (Macao Commercial Offshore) Limited
 * Technicolor Delivery Technologies, SAS
 * Tongfang Global Ltd.
 * Top Victory Investments, Ltd.

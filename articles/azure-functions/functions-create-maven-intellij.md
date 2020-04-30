@@ -1,14 +1,8 @@
 ---
-title: Create an Azure function with Java and IntelliJ | Microsoft Docs
+title: Create an Azure function with Java and IntelliJ 
 description: Learn how to create and publish a simple HTTP-triggered, serverless app on Azure with Java and IntelliJ.
-services: functions
-documentationcenter: na
 author: jeffhollan
-manager: jpconnock
-keywords: azure functions, functions, event processing, compute, serverless architecture, java
-ms.service: azure-functions
-ms.topic: conceptual
-ms.devlang: java
+ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
@@ -47,7 +41,7 @@ To develop a function with Java and IntelliJ, install the following software:
 1. In the **Add Archetype** window, complete the fields as follows:
     - _GroupId_: com.microsoft.azure
     - _ArtifactId_: azure-functions-archetype
-    - _Version_: Use the latest version **1.22** from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - _Version_: Check and use the latest version from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Create a Maven project from archetype in IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Select **OK**, and then select **Next**.
 1. Enter your details for current project, and select **Finish**.
@@ -81,8 +75,6 @@ Maven creates the project files in a new folder with the same name as the _Artif
 1. Select **(+)** to add a **Remote**.
 1. Complete the _Name_ and _Settings_ fields, and then select **OK** to save the configuration.
 1. After setup, select **Debug < Remote Configuration Name >** or press Shift+F9 on your keyboard to start debugging.
-
-   ![Debug functions in IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.png)
 
 1. When you're finished, stop the debugger and the running process. Only one function host can be active and running locally at a time.
 

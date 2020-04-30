@@ -8,6 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
+ms.custom: mqtt
 ---
 
 # Schedule and broadcast jobs (.NET)
@@ -49,6 +50,8 @@ At the end of this tutorial, you have two .NET (C#) console apps:
 * Visual Studio.
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 

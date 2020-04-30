@@ -1,13 +1,14 @@
 ---
-title: Windows Virtual Desktop troubleshooting overview, feedback, and support - Azure
+title: Windows Virtual Desktop troubleshooting overview - Azure
 description: An overview for troubleshooting issues while setting up a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/08/2019
+ms.date: 02/07/2020
 ms.author: helohr
+manager: lizross
 ---
 # Troubleshooting overview, feedback, and support
 
@@ -15,38 +16,41 @@ This article provides an overview of the issues you may encounter when setting u
 
 ## Provide feedback
 
-We currently aren't taking support cases while Windows Virtual Desktop is in preview. Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
+Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
 
 ## Escalation tracks
 
-Use the following table to identify and resolve issues you may encounter when setting up a tenant environment using Remote Desktop client. Once your tenant's set up, you can use our new [Diagnostics service](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) to identify issues for common scenarios.
+Use the following table to identify and resolve issues you may encounter when setting up a tenant environment using Remote Desktop client. Once your tenant's set up, you can use our new [Diagnostics service](diagnostics-role-service.md) to identify issues for common scenarios.
 
 >[!NOTE]
->We currently aren't taking support cases while Windows Virtual Desktop is in preview. Whenever we refer to Windows Virtual Desktop support, go to our Tech Community forum for now. Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss issues with the product team and active community members. If you need to resolve a support issue, include the activity ID and approximate time frame for when the issue occurred.
+> We have a Tech Community forum which you can visit to discuss your issues with the product team and active community members. Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to start a discussion.
 
 | **Issue**                                                            | **Suggested Solution**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
-| Creating a Tenant                                                    | If there's an Azure outage, contact [Azure Support](https://azure.microsoft.com/support/options/); otherwise contact **Remote Desktop Services/Windows Virtual Desktop support**.|
-| Accessing Marketplace templates in Azure portal       | If there's an Azure outage, contact [Azure Support](https://azure.microsoft.com/support/options/). <br> <br> Azure Marketplace Windows Virtual Desktop templates are freely available.|
-| Accessing Azure Resource Manager templates from GitHub                                  | See the "Creating Windows Virtual Desktop session host VMs" section of [Tenant and host pool creation](troubleshoot-set-up-issues.md). If the problem is still unresolved, contact the [GitHub support team](https://github.com/contact). <br> <br> If the error occurs after accessing the template in GitHub, contact [Azure Support](https://azure.microsoft.com/support/options/).|
-| Session host pool Azure Virtual Network (VNET) and Express Route settings               | Contact **Azure Support (Networking)**. |
-| Session host pool Virtual Machine (VM) creation when Azure Resource Manager templates provided with Windows Virtual Desktop aren't being used | Contact **Azure Support (Compute)**. <br> <br> For issues with the Azure Resource Manager templates that are provided with Windows Virtual Desktop, see Creating Windows Virtual Desktop tenant section of [Tenant and host pool creation](troubleshoot-set-up-issues.md). |
-| Managing Windows Virtual Desktop session host environment from the Azure portal    | Contact **Azure Support**. <br> <br> For management issues when using Remote Desktop Services/Windows Virtual Desktop PowerShell, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) or contact the **Remote Desktop Services/Windows Virtual Desktop support team**. |
-| Managing Windows Virtual Desktop configuration tied to host pools and application groups (app groups)      | See [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md), or contact the **Remote Desktop Services/Windows Virtual Desktop support team**. <br> <br> If issues are tied to the sample graphical user interface (GUI), reach out to the Yammer community.|
-| Remote desktop clients malfunction on start                                                 | See [Remote Desktop client connections](troubleshoot-client-connection.md) and if that doesn't resolve the issue, contact **Remote Desktop Services/Windows Virtual Desktop support team**.  <br> <br> If it's a network issue, your users need to contact their network administrator. |
-| Connected but no feed                                                                 | Troubleshoot using the "User connects but nothing is displayed (no feed)" section of [Remote Desktop client connections](troubleshoot-client-connection.md). <br> <br> If your users have been assigned to an app group, escalate to the **Remote Desktop Services/Windows Virtual Desktop support team**. |
+| Creating a Windows Virtual Desktop tenant                                                    | If there's an Azure outage, [open an Azure support request](https://azure.microsoft.com/support/create-ticket/); otherwise [open an Azure support request](https://azure.microsoft.com/support/create-ticket/), select **Windows Virtual Desktop** for the service, select **Deployment** for the problem type, then select **Issues creating a Windows Virtual Desktop tenant** for the problem subtype.|
+| Accessing Marketplace templates in Azure portal       | If there's an Azure outage, [open an Azure support request](https://azure.microsoft.com/support/create-ticket/). <br> <br> Azure Marketplace Windows Virtual Desktop templates are freely available.|
+| Accessing Azure Resource Manager templates from GitHub                                  | See the [Creating Windows Virtual Desktop session host VMs](troubleshoot-set-up-issues.md#creating-windows-virtual-desktop-session-host-vms) section of [Tenant and host pool creation](troubleshoot-set-up-issues.md). If the problem is still unresolved, contact the [GitHub support team](https://github.com/contact). <br> <br> If the error occurs after accessing the template in GitHub, contact [Azure Support](https://azure.microsoft.com/support/create-ticket/).|
+| Session host pool Azure Virtual Network (VNET) and Express Route settings               | [Open an Azure support request](https://azure.microsoft.com/support/create-ticket/), then select the appropriate service (under the Networking category). |
+| Session host pool Virtual Machine (VM) creation when Azure Resource Manager templates provided with Windows Virtual Desktop aren't being used | [Open an Azure support request](https://azure.microsoft.com/support/create-ticket/), then select **Virtual Machine running Windows** for the service. <br> <br> For issues with the Azure Resource Manager templates that are provided with Windows Virtual Desktop, see Creating Windows Virtual Desktop tenant section of [Tenant and host pool creation](troubleshoot-set-up-issues.md). |
+| Managing Windows Virtual Desktop session host environment from the Azure portal    | [Open an Azure support request](https://azure.microsoft.com/support/create-ticket/). <br> <br> For management issues when using Remote Desktop Services/Windows Virtual Desktop PowerShell, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) or [open an Azure support request](https://azure.microsoft.com/support/create-ticket/), select **Windows Virtual Desktop** for the service, select **Configuration and management** for the problem type, then select **Issues configuring tenant using PowerShell** for the problem subtype. |
+| Managing Windows Virtual Desktop configuration tied to host pools and application groups (app groups)      | See [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md), or [open an Azure support request](https://azure.microsoft.com/support/create-ticket/), select **Windows Virtual Desktop** for the service, then select the appropriate problem type.|
+| Deploying and manage FSLogix Profile Containers | See [Troubleshooting guide for FSLogix products](/fslogix/fslogix-trouble-shooting-ht/) and if that doesn't resolve the issue, [Open an Azure support request](https://azure.microsoft.com/support/create-ticket/), select **Windows Virtual Desktop** for the service, select **FSLogix** for the problem type, then select the appropriate problem subtype. |
+| Remote desktop clients malfunction on start                                                 | See [Troubleshoot the Remote Desktop client](troubleshoot-client.md) and if that doesn't resolve the issue,  [Open an Azure support request](https://azure.microsoft.com/support/create-ticket/), select **Windows Virtual Desktop** for the service, then select **Remote Desktop clients** for the problem type.  <br> <br> If it's a network issue, your users need to contact their network administrator. |
+| Connected but no feed                                                                 | Troubleshoot using the [User connects but nothing is displayed (no feed)](troubleshoot-service-connection.md#user-connects-but-nothing-is-displayed-no-feed) section of [Windows Virtual Desktop service connections](troubleshoot-service-connection.md). <br> <br> If your users have been assigned to an app group,  [open an Azure support request](https://azure.microsoft.com/support/create-ticket/), select **Windows Virtual Desktop** for the service, then select **Remote Desktop Clients** for the problem type. |
 | Feed discovery problems due to the network                                            | Your users need to contact their network administrator. |
-| Connecting clients                                                                    | See [Remote Desktop client connections](troubleshoot-client-connection.md) and if that doesn't solve your issue, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md). |
+| Connecting clients                                                                    | See [Windows Virtual Desktop service connections](troubleshoot-service-connection.md) and if that doesn't solve your issue, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md). |
 | Responsiveness of remote applications or desktop                                      | If issues are tied to a specific application or product, contact the team responsible for that product. |
 | Licensing messages or errors                                                          | If issues are tied to a specific application or product, contact the team responsible for that product. |
+| Issues when using Windows Virtual Desktop tools on GitHub (Azure Resource Manager templates, diagnostics tool, management tool) | See [Azure Resource Manager Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md) to report issues. |
 
 ## Next steps
 
 - To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Remote Desktop client connections](troubleshoot-client-connection.md).
+- To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the Preview service, see [Windows Virtual Desktop Preview environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- To learn more about the service, see [Windows Virtual Desktop environment](environment-setup.md).
+- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- To learn about actions to determine errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

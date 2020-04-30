@@ -1,13 +1,13 @@
 ---
-title: Azure Digital Twins common query patterns | Microsoft Docs
-description: Learn common patterns of querying the Azure Digital Twins management APIs.
-author: kingdomofends
-manager: philmea
+title: Common query patterns - Azure Digital Twins | Microsoft Docs
+description: Learn several common API querying patterns for the Azure Digital Twins management APIs.
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/29/2019
-ms.author: v-adgera
+ms.date: 02/24/2020
 ---
 
 # How to query Azure Digital Twins APIs for common tasks

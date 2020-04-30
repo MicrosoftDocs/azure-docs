@@ -1,19 +1,10 @@
 ---
-title: Configure certificates for Azure Service Fabric applications on Linux | Microsoft Docs
+title: Configure certificates for applications on Linux 
 description: Configure certificates for your app with the Service Fabric runtime on a Linux cluster
-services: service-fabric
-documentationcenter: NA
-author: JimacoMS2
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2019
-ms.author: chackdan
+ms.author: pepogors
 
 ---
 # Certificates and security on Linux clusters

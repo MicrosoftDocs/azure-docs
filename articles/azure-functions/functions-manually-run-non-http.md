@@ -1,13 +1,9 @@
 ---
 title: Manually run a non HTTP-triggered Azure Functions
 description: Use an HTTP request to run a non-HTTP triggered Azure Functions
-services: functions
-keywords: 
 author: craigshoemaker
-manager: gwallace
 
-ms.service: azure-functions
-ms.topic: tutorial
+ms.topic: article
 ms.date: 12/12/2018
 ms.author: cshoe
 ---
@@ -22,7 +18,7 @@ In some contexts, you may need to run "on-demand" an Azure Function that is indi
 
 ## Define the request location
 
-To run a non HTTP-triggered function, you need to a way to send a request to Azure to run the function. The URL used to make this request takes a specific form.
+To run a non HTTP-triggered function, you need a way to send a request to Azure to run the function. The URL used to make this request takes a specific form.
 
 ![Define the request location: host name + folder path + function name](./media/functions-manually-run-non-http/azure-functions-admin-url-anatomy.png)
 

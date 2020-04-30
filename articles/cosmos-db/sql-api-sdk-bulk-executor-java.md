@@ -32,7 +32,7 @@ ms.author: ramkris
 |**Description**|The bulk executor library allows client applications to perform bulk operations in Azure Cosmos DB accounts. bulk executor library provides BulkImport, and BulkUpdate namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos containers as patches.|
 |**SDK download**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**Bulk executor library in GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
-| **API documentation**| [.NET API reference documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
+| **API documentation**| [Java API reference documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Get started**|[Get started with the bulk executor library Java SDK](bulk-executor-java.md)|
-|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
+|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
 

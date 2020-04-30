@@ -1,18 +1,18 @@
 ---
-title: Azure Disk Storage managed disk overview for Windows VMs| Microsoft Docs
-description: Overview of Azure managed disks, which handles the storage accounts for you when using Azure Windows VMs
+title: Azure Disk Storage overview 
+description: Overview of Azure managed disks, which handle the storage accounts for you when using Azure VMs
 author: roygara
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: overview
-ms.date: 08/15/2019
+ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
 # Introduction to Azure managed disks
 
-An Azure managed disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk ‘managed’ because it is an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
+Azure managed disks are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Managed disks are like a physical disk in an on-premises server but virtualized. With managed disks, all you have to do is specify the disk size, the disk type, and provision the disk. Once you provision the disk, Azure handles the rest.
 
-When you select to use Azure managed disks with your workloads, Azure creates and manages the disk for you. The available types of disks are Ultra disk, Premium solid state drive (SSD), Standard SSD, and Standard hard disk drive (HDD). For more information about each individual disk type, see [Select a disk type for IaaS VMs](disks-types.md).
+The available types of disks are ultra disks, premium solid-state drives (SSD), standard SSDs, and standard hard disk drives (HDD). For information about each individual disk type, see [Select a disk type for IaaS VMs](disks-types.md).
 
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
 

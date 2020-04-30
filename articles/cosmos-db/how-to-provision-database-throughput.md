@@ -1,16 +1,16 @@
 ---
 title: Provision database throughput in Azure Cosmos DB
-description: Learn how to provision throughput at the database level in Azure Cosmos DB
-author: rimman
+description: Learn how to provision throughput at the database level in Azure Cosmos DB using Azure portal, CLI, PowerShell and various other SDKs. 
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
-ms.author: rimman
+ms.date: 09/28/2019
+ms.author: mjbrown
 ---
 
 # Provision throughput on a database in Azure Cosmos DB
 
-This article explains how to provision throughput on a database in Azure Cosmos DB. You can provision throughput for a single [container](how-to-provision-container-throughput.md), or for a database and share the throughput among the containers within it. To learn when to use container-level and database-level throughput, see the [Use cases for provisioning throughput on containers and databases](set-throughput.md) article. You can provision database level throughput by using the Azure portal or Azure Cosmos DB SDKs.
+This article explains how to provision throughput on a database in Azure Cosmos DB. You can provision throughput for a single [container](how-to-provision-container-throughput.md), or for a database and share the throughput among the containers within it. To learn when to use container level and database level throughput, see the [Use cases for provisioning throughput on containers and databases](set-throughput.md) article. You can provision database level throughput by using the Azure portal or Azure Cosmos DB SDKs.
 
 ## Provision throughput using Azure portal
 
@@ -22,47 +22,19 @@ This article explains how to provision throughput on a database in Azure Cosmos 
 
 1. Open the **Data Explorer** pane, and select **New Database**. Provide the following details:
 
-   * Enter a database ID. 
+   * Enter a database ID.
    * Select **Provision throughput**.
    * Enter a throughput (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of New Database dialog box](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+    ![Screenshot of New Database dialog box](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
+## Provision throughput using Azure CLI or PowerShell
 
-## Provision throughput using Azure CLI
+To create a database with shared throughput see,
 
-```azcli-interactive
-az cosmosdb database create --db-name
-                            [--key]
-                            [--name]
-                            [--resource-group-name]
-                            [--subscription]
-                            [--throughput]
-                            [--url-connection]
-```
-
-
-
-
-## Provision throughput using PowerShell
-
-```azurepowershell-interactive
-# Create a database and provision throughput of 400 RU/s
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$databaseName = "database1"
-$databaseResourceName = $accountName + "/sql/" + $databaseName
-
-$databaseProperties = @{
-    "resource"=@{ "id"=$databaseName };
-    "options"=@{ "Throughput"= 400 }
-}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $databaseResourceName -PropertyObject $databaseProperties
-```
+* [Create a database using Azure CLI](manage-with-cli.md#create-a-database-with-shared-throughput)
+* [Create a database using Powershell](manage-with-powershell.md#create-db-ru)
 
 ## Provision throughput using .NET SDK
 
@@ -70,6 +42,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 > You can use Cosmos SDKs for SQL API to provision throughput for all APIs. You can optionally use the following example for Cassandra API as well.
 
 ### <a id="dotnet-all"></a>All APIs
+
 ### .Net V2 SDK
 
 ```csharp
@@ -86,15 +59,16 @@ await client.CreateDatabaseIfNotExistsAsync(
 ```
 
 ### .Net V3 SDK
+
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
-
+Similar command can be executed through any CQL compliant driver. 
 ```csharp
 // Create a Cassandra keyspace and provision throughput of 400 RU/s
-session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400);
+session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");
 ```
-
+ 
 ## Next steps
 
 See the following articles to learn about provisioned throughput in Azure Cosmos DB:

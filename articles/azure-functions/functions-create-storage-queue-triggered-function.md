@@ -1,16 +1,10 @@
 ---
-title: Create a function in Azure triggered by queue messages | Microsoft Docs
+title: Create a function in Azure triggered by queue messages 
 description: Use Azure Functions to create a serverless function that is invoked by a messages submitted to an Azure Storage queue.
-services: azure-functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
-ms.service: azure-functions
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/01/2018
-ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Queue storage
@@ -47,7 +41,7 @@ Next, you create a function in the new function app.
 
 1. In the search field, type `queue` and then choose the **Queue trigger** template.
 
-1. If prompted, select **Install** to install the Azure Storage extension any dependencies in the function app. After installation succeeds, select **Continue**.
+1. If prompted, select **Install** to install the Azure Storage extension and any dependencies in the function app. After installation succeeds, select **Continue**.
 
     ![Install binding extensions](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
 
@@ -59,7 +53,7 @@ Next, you create a function in the new function app.
     |---|---|---|
     | **Name** | Unique in your function app | Name of this queue triggered function. |
     | **Queue name**   | myqueue-items    | Name of the queue to connect to in your Storage account. |
-    | **Storage account connection** | AzureWebJobStorage | You can use the storage account connection already being used by your function app, or create a new one.  |    
+    | **Storage account connection** | AzureWebJobsStorage | You can use the storage account connection already being used by your function app, or create a new one.  |    
 
 1. Click **Create** to create your function.
 
@@ -89,7 +83,7 @@ Now that you have a storage queue, you can test the function by adding a message
 
 1. Back in the Azure portal, browse to your function, expand the **Logs** at the bottom of the page, and make sure that log streaming isn't paused.
 
-1. In Storage Explorer, expand your storage account, **Queues**, and **myqueue-items**, then click **Add message**.
+1. In Storage Explorer, expand your storage account, **Queues**, and **myqueue-items**, then click **Add Message**.
 
     ![Add a message to the queue.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
 

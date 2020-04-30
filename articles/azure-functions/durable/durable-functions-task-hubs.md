@@ -1,13 +1,9 @@
 ---
 title: Task hubs in Durable Functions - Azure
-description: Learn what a task hub is in the Durable Functions extension for Azure Functions. Learn how to configure configure task hubs.
-services: functions
+description: Learn what a task hub is in the Durable Functions extension for Azure Functions. Learn how to configure task hubs.
 author: cgillum
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 11/03/2019
 ms.author: azfuncdf
 ---
 
@@ -28,24 +24,21 @@ A task hub consists of the following storage resources:
 * One history table.
 * One instances table.
 * One storage container containing one or more lease blobs.
+* A storage container containing large message payloads, if applicable.
 
-All of these resources are created automatically in the default Azure Storage account when orchestrator or activity functions run or are scheduled to run. The [Performance and Scale](durable-functions-perf-and-scale.md) article explains how these resources are used.
+All of these resources are created automatically in the default Azure Storage account when orchestrator, entity, or activity functions run or are scheduled to run. The [Performance and Scale](durable-functions-perf-and-scale.md) article explains how these resources are used.
 
 ## Task hub names
 
-Task hubs are identified by a name that is declared in the *host.json* file, as shown in the following example:
+Task hubs are identified by a name that conforms to these rules:
 
-### host.json (Functions 1.x)
+* Contains only alphanumeric characters
+* Starts with a letter
+* Has a minimum length of 3 characters, maximum length of 45 characters
 
-```json
-{
-  "durableTask": {
-    "hubName": "MyTaskHub"
-  }
-}
-```
+The task hub name is declared in the *host.json* file, as shown in the following example:
 
-### host.json (Functions 2.x)
+### host.json (Functions 2.0)
 
 ```json
 {
@@ -58,9 +51,19 @@ Task hubs are identified by a name that is declared in the *host.json* file, as 
 }
 ```
 
-Task hubs can also be configured using app settings, as shown in the following *host.json* example file:
-
 ### host.json (Functions 1.x)
+
+```json
+{
+  "durableTask": {
+    "hubName": "MyTaskHub"
+  }
+}
+```
+
+Task hubs can also be configured using app settings, as shown in the following `host.json` example file:
+
+### host.json (Functions 1.0)
 
 ```json
 {
@@ -70,7 +73,7 @@ Task hubs can also be configured using app settings, as shown in the following *
 }
 ```
 
-### host.json (Functions 2.x)
+### host.json (Functions 2.0)
 
 ```json
 {
@@ -94,15 +97,15 @@ The task hub name will be set to the value of the `MyTaskHub` app setting. The f
 }
 ```
 
-Here is a precompiled C# example of how to write a function which uses an [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) to work with a task hub that is configured as an App Setting:
+The following code demonstrates how to write a function that uses the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to work with a task hub that is configured as an App Setting:
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
     [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
-    [OrchestrationClient(TaskHub = "%MyTaskHub%")] DurableOrchestrationClientBase starter,
+    [OrchestrationClient(TaskHub = "%MyTaskHub%")] IDurableOrchestrationClient starter,
     string functionName,
     ILogger log)
 {
@@ -116,9 +119,13 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-### JavaScript
+> [!NOTE]
+> The previous C# example is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+# [JavaScript](#tab/javascript)
 
 The task hub property in the `function.json` file is set via App Setting:
+
 ```json
 {
     "name": "input",
@@ -128,12 +135,21 @@ The task hub property in the `function.json` file is set via App Setting:
 }
 ```
 
-Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default name is **DurableFunctionsHub**.
+---
+
+Task hub names must start with a letter and consist of only letters and numbers. If not specified, a default task hub name will be used as shown in the following table:
+
+| Durable extension version | Default task hub name |
+| - | - |
+| 2.x | When deployed in Azure, the task hub name is derived from the name of the _function app_. When running outside of Azure, the default task hub name is `TestHubName`. |
+| 1.x | The default task hub name for all environments is `DurableFunctionsHub`. |
+
+For more information about the differences between extension versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 > [!NOTE]
-> The name is what differentiates one task hub from another when there are multiple task hubs in a shared storage account. If you have multiple function apps sharing a shared storage account, you must explicitly configure different names for each task hub in the *host.json* files. Otherwise the multiple function apps will compete with each other for messages, which could result in undefined behavior.
+> The name is what differentiates one task hub from another when there are multiple task hubs in a shared storage account. If you have multiple function apps sharing a shared storage account, you must explicitly configure different names for each task hub in the *host.json* files. Otherwise the multiple function apps will compete with each other for messages, which could result in undefined behavior, including orchestrations getting unexpectedly "stuck" in the `Pending` or `Running` state.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to handle versioning](durable-functions-versioning.md)
+> [Learn how to handle orchestration versioning](durable-functions-versioning.md)

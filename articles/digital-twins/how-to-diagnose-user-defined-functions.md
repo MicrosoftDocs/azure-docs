@@ -1,13 +1,13 @@
 ---
-title: 'How to debug UDFs in Azure Digital Twins | Microsoft Docs'
-description: Guideline about how to debug UDFs in Azure Digital Twins.
-author: kingdomofends
-manager: alinast
+title: How to debug UDFs - Azure Digital Twins | Microsoft Docs
+description: Learn about recommended approaches to debug user-defined functions in Azure Digital Twins.
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: v-adgera
+ms.date: 01/21/2020
 ms.custom: seodec18
 ---
 
@@ -30,7 +30,7 @@ Azure Digital Twins supports robust logging, monitoring, and analytics. Solution
 
 * For logging configuration specific to Azure Digital Twins, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
 * Consult the [Azure Monitor](../azure-monitor/overview.md) overview to learn about powerful log settings enabled through Azure Monitor.
-* Review the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins through the Azure Portal, Azure CLI, or PowerShell.
+* Review the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/platform-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins through the Azure portal, Azure CLI, or PowerShell.
 
 Once configured, you'll be able to select all log categories, metrics, and use powerful Azure Monitor log analytics workspaces to support your debugging efforts.
 
@@ -50,6 +50,13 @@ AzureDiagnostics
 | Query value | Replace with |
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | The Correlation ID that was specified on the event data |
+
+To read all recent telemetry logs query:
+
+```Kusto
+AzureDiagnostics
+| order by CorrelationId desc
+```
 
 If you enable logging for your user-defined function, those logs appear in your log analytics instance with the category `UserDefinedFunction`. To retrieve them, enter the following query condition in log analytics:
 
@@ -72,7 +79,7 @@ Without a role assignment created within the Management API, the user-defined fu
 
 Check if a role assignment exists for your user-defined function through your Management API:
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
@@ -86,7 +93,7 @@ Learn [How to create a role assignment for your user-defined function](./how-to-
 
 With the following call against your Azure Digital Twins instances' Management API, you're able to determine if a given matcher applies for the given sensor.
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
@@ -110,7 +117,7 @@ Response:
 
 With the following call against the Azure Digital Twins Management APIs, you're able to determine the identifiers of your user-defined functions triggered by the given sensor's incoming telemetry:
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
@@ -204,4 +211,4 @@ If you enable diagnostic settings, you might encounter these common exceptions:
 
 - Learn how to enable [monitoring and logs](./how-to-configure-monitoring.md) in Azure Digital Twins.
 
-- Read the [Overview of Azure Activity log](../azure-monitor/platform/activity-logs-overview.md) article for more Azure logging options.
+- Read the [Overview of Azure Activity log](../azure-monitor/platform/platform-logs-overview.md) article for more Azure logging options.

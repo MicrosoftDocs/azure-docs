@@ -1,10 +1,10 @@
 ---
-title: Visualize Interactive Query Hive data with Power BI in Azure HDInsight 
+title: See Interactive Query Hive data with Power BI in Azure HDInsight
 description: Use Microsoft Power BI to visualize Interactive Query Hive data from Azure HDInsight
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
@@ -21,7 +21,7 @@ You can leverage the [Apache Hive ODBC driver](../hadoop/apache-hadoop-connect-h
 ## Prerequisites
 Before going through this article, you must have the following items:
 
-* **HDInsight cluster**. The cluster can be either an HDInsight cluster with Apache Hive or a newly released Interactive Query cluster. For creating clusters, see [Create cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+* **HDInsight cluster**. The cluster can be either an HDInsight cluster with Apache Hive or a newly released Interactive Query cluster. For creating clusters, see [Create cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**. You can download a copy from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## Load data from HDInsight
@@ -32,7 +32,7 @@ The `hivesampletable` Hive table comes with all HDInsight clusters.
 
 2. From the menu bar, navigate to **Home** > **Get Data** > **More...**.
 
-    ![HDInsight Power BI open data](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
+    ![HDInsight Power BI Get Data More](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 
 3. From the **Get Data** window, enter **hdinsight** in the search box.  
 

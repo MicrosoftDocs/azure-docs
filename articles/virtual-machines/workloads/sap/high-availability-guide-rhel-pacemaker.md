@@ -1,10 +1,10 @@
 ---
-title: Setting up Pacemaker on Red Hat Enterprise Linux in Azure | Microsoft Docs
+title: Setting up Pacemaker on RHEL in Azure | Microsoft Docs
 description: Setting up Pacemaker on Red Hat Enterprise Linux in Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: timlt
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
-ms.author: sedusch
+ms.author: radeltch
 
 ---
 
@@ -34,7 +34,7 @@ ms.author: sedusch
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-linux-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
 
 Read the following SAP Notes and papers first:
@@ -60,6 +60,7 @@ Read the following SAP Notes and papers first:
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691)
 * Azure-specific RHEL documentation:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
@@ -68,6 +69,10 @@ Read the following SAP Notes and papers first:
 ## Cluster installation
 
 ![Pacemaker on RHEL overview](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
+
+> [!NOTE]
+> Red Hat doesn't support software-emulated watchdog. Red Hat doesn't support SBD on cloud platforms. For details see [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691).
+> The only supported fencing mechanism for Pacemaker Red Hat Enterprise Linux clusters on Azure, is Azure fence agent.  
 
 The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
 
@@ -81,7 +86,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Note that by attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this, Azure now provides BYOS RHEL images. More information is available [here](https://aka.ms/rhel-byos).
+   Note that by attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this, Azure now provides BYOS RHEL images. More information is available [here](../redhat/byos.md).
 
 1. **[A]** Enable RHEL for SAP repos
 

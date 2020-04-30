@@ -1,10 +1,10 @@
 ---
 title: Check the publishing status of your Commercial Marketplace offer
 description: Check the status of the validation, certification, and preview steps required to publish an offer via the Commercial Marketplace in Microsoft Partner Center. 
-author: ChJenk 
-manager: evansma
-ms.author: v-chjen 
+author: dsindona 
+ms.author: dsindona 
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
 ---
@@ -17,7 +17,7 @@ One of the following status indicators should be displayed for each offer.
 
 | **Status**    | **Description**  |
 | :---------- | :-------------------|
-| **Draft** | Offer has been created but it isn’t being published. |
+| **Draft** | Offer has been created but it isn't being published. |
 | **Publish in progress** | Offer/Plan is working its way through the steps of the publishing process. |
 | **Attention needed** | A critical issue was discovered during certification by Microsoft or any of the publishing steps. |
 | **Preview** | Offer was certified by Microsoft, and now awaits a final verification by the publisher. Select go live to make the offer live. |
@@ -101,7 +101,7 @@ During the **Preview creation** step, we create a version of your offer accessib
 
 In this step, you will be emailed with a request for you to review and approve your offer preview prior to the final publishing step.
 
-If you have selected to sell your offer through Microsoft, you will be able to test the acquisition and deployment of your offer to ensure that it meets your requirements during this preview approval stage. Your offer will not yet be available in the pubic marketplace. Once you test and approve this preview, you will need to select **Go-Live** on the [**Offer Overview**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dashboard.
+If you have selected to sell your offer through Microsoft, you will be able to test the acquisition and deployment of your offer to ensure that it meets your requirements during this preview approval stage. Your offer will not yet be available in the public marketplace. Once you test and approve this preview, you will need to select **Go-Live** on the [**Offer Overview**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dashboard.
 
 If you want to make changes to the offer during this preview stage, you may edit and resubmit to publish a new preview. See the article [Update existing marketplace offers](#update-existing-marketplace-offers) for details on more changes.
 

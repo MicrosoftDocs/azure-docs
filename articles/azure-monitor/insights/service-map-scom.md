@@ -1,23 +1,17 @@
 ---
-title: Azure Monitor for VMs integration with System Center Operations Manager | Microsoft Docs
+title: Integrate Azure Monitor for VMs Map with Operations Manager | Microsoft Docs
 description: Azure Monitor for VMs automatically discovers application components on Windows and Linux systems and maps the communication between services. This article discusses using the Map feature to automatically create distributed application diagrams in Operations Manager.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.subservice: 
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 07/12/2019
-ms.author: magoedte
+
 ---
 
-# System Center Operations Manager integration with Azure Monitor for VMs Map feature
+# Integrate System Center Operations Manager with Azure Monitor for VMs Map feature
 
-In Azure Monitor for VMs, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. With this integration between the Map feature and System Center Operations Manager, you can automatically create distributed application diagrams in Operations Manager that are based on the dynamic dependency maps in Azure Monitor for VMs. 
+In Azure Monitor for VMs, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. With this integration between the Map feature and System Center Operations Manager, you can automatically create distributed application diagrams in Operations Manager that are based on the dynamic dependency maps in Azure Monitor for VMs. This article describes how to configure your System Center Operations Manager management group to support this feature.
 
 >[!NOTE]
 >If you have already deployed Service Map, you can view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. The Map feature of Azure Monitor for VMs is intended to replace the standalone Service Map solution. To learn more, see [Azure Monitor for VMs overview](vminsights-overview.md).

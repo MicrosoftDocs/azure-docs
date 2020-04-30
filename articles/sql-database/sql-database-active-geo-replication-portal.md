@@ -1,6 +1,6 @@
 ---
-title: 'Azure portal: SQL Database geo-replication | Microsoft Docs'
-description: Configure geo-replication for a single or pooled database in Azure SQL Database using the Azure portal and initiate failover
+title: "Tutorial: Geo-replication & failover in portal"
+description: Configure geo-replication for a single or pooled database in Azure SQL Database using the Azure portal and initiate failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -16,7 +16,7 @@ ms.date: 02/13/2019
 
 This article shows you how to configure [active geo-replication for single and pooled databases](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) in Azure SQL Database using the [Azure portal](https://portal.azure.com) and to initiate failover.
 
-For information about auto-failover groups with single and pooled databases, see [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). For information about auto-failover groups with Managed Instances (preview), see [Best practices of using failover groups with managed-instances](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
+For information about auto-failover groups with single and pooled databases, see [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). For information about auto-failover groups with Managed Instances, see [Best practices of using failover groups with managed-instances](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ The secondary database can be switched to become the primary.
 
 1. In the [Azure portal](https://portal.azure.com), browse to the primary database in the geo-replication partnership.
 2. On the SQL Database blade, select **All settings** > **geo-replication**.
-3. In the **SECONDARIES** list, select the database you want to become the new primary and click **Failover**.
+3. In the **SECONDARIES** list, select the database you want to become the new primary and click **Forced Failover**.
 
     ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Click **Yes** to begin the failover.

@@ -1,20 +1,11 @@
 ---
 title: Set up web app analytics for ASP.NET with Azure Application Insights | Microsoft Docs
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website, hosted on-premises or in Azure.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: d0eee3c0-b328-448f-8123-f478052751db
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.author: mbullwin
 
 ---
+
 # Set up Application Insights for your ASP.NET website
 
 This procedure configures your ASP.NET web app to send telemetry to the [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) service. It works for ASP.NET apps that are hosted either in your own IIS server on-premises or in the Cloud. You get charts and a powerful query language that help you understand the performance of your app and how people are using it, plus automatic alerts on failures or performance issues. Many developers find these features great as they are, but you can also extend and customize the telemetry if you need to.
@@ -98,7 +89,7 @@ The portal opens on a view of the telemetry from your app.
 In the portal, click any tile or chart to see more detail.
 
 ## Step 4: Publish your app
-Publish your app to your IIS server or to Azure. Watch [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) to make sure everything is running smoothly.
+Publish your app to your IIS server or to Azure. Watch [Live Metrics Stream](../../azure-monitor/app/live-stream.md) to make sure everything is running smoothly.
 
 Your telemetry builds up in the Application Insights portal, where you can monitor metrics, search your telemetry. You can also use the powerful [Kusto query language](/azure/kusto/query/) to analyze usage and performance, or to find specific events.
 
@@ -120,10 +111,6 @@ The Azure resource that receives your app's telemetry is identified by an *instr
 To upgrade to a [new release of the SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), open the **NuGet package manager**, and filter on installed packages. Select **Microsoft.ApplicationInsights.Web**, and choose **Upgrade**.
 
 If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade. Then, merge your changes into the new version.
-
-## Video
-
-* External step-by-step video about [configuring Application Insights with a .NET application from scratch](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## Next steps
 

@@ -3,15 +3,15 @@ title: Run container example of docker run command
 titleSuffix: Azure Cognitive Services
 description: Docker run command for Key Phrase Extraction container
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 08/20/2019
-ms.author: dapine
+ms.topic: include
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
-### Run container example of docker run command
+To run the *Key Phrase Extraction* container, execute the following `docker run` command.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

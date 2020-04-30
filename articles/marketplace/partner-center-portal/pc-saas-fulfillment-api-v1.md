@@ -1,12 +1,12 @@
 ---
 title: SaaS Fulfillment APIs v1 | Azure Marketplace 
 description: Explains how to create and manage a SaaS offer on the Azure Marketplace using the associated Fulfillment v1 APIs.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 05/23/2019
-ms.author: evansma
+ms.author: dsindona
 
 ROBOTS: NOINDEX
 ---
@@ -17,7 +17,7 @@ This article explains how to create a SaaS offer with APIs. The APIs, composed o
 through Azure selected.  
 
 > [!WARNING]
-> This initial version of the SaaS Fulfillment API is deprecated; instead, use [SaaS Fulfillment API V2](./pc-saas-fulfillment-api-v2.md).  This intial version of the API is currently being maintained only to serve existing publishers. 
+> This initial version of the SaaS Fulfillment API is deprecated; instead, use [SaaS Fulfillment API V2](./pc-saas-fulfillment-api-v2.md).  This initial version of the API is currently being maintained only to serve existing publishers. 
 
 The following APIs are provided to help you integrate your SaaS service with Azure:
 
@@ -43,7 +43,7 @@ The current API version is `api-version=2017-04-15`.
 
 POST action on resolve endpoint allows users to resolve a marketplace token to a persistent Resource ID.  The Resource ID is the unique identifier for SAAS subscription. 
 
-When a user is redirected to an ISV’s website, the URL contains a token in the query parameters. The ISV is expected to use this token, and make a request to resolve it. The response contains the unique SAAS subscription ID, name, offer ID, and plan for the resource. This token is valid for an hour only.
+When a user is redirected to an ISV's website, the URL contains a token in the query parameters. The ISV is expected to use this token, and make a request to resolve it. The response contains the unique SAAS subscription ID, name, offer ID, and plan for the resource. This token is valid for an hour only.
 
 *Request*
 
@@ -65,7 +65,7 @@ When a user is redirected to an ISV’s website, the URL contains a token in the
 | x-ms-correlationid | No           | A unique string value for operation on the client. This field correlates all events from client operation with events on the server side. If this value is not provided, one will be generated and provided in the response headers. |
 | Content-type       | Yes          | `application/json`                                        |
 | authorization      | Yes          | The JSON web token (JWT) bearer token.                    |
-| x-ms-marketplace-token| Yes| The token query parameter in the URL when the user is redirected to SaaS ISV’s website from Azure. **Note:** This token is only valid for 1 hour. Additionally, URL decode the token value from the browser before using it.|
+| x-ms-marketplace-token| Yes| The token query parameter in the URL when the user is redirected to SaaS ISV's website from Azure. **Note:** This token is only valid for 1 hour. Additionally, URL decode the token value from the browser before using it.|
 |  |  |  |
   
 
@@ -136,7 +136,7 @@ service for a given plan and enable billing in the commerce system.
 | If-Match/If-None-Match |   No         |   Strong validator ETag value.                                                          |
 | content-type           |   Yes        |    `application/json`                                                                   |
 |  authorization         |   Yes        |    The JSON web token (JWT) bearer token.                                               |
-| x-ms-marketplace-session-mode| No | Flag to enable dry run mode while subscribing to a SaaS offer. If set, the subscription will not be charged. This is useful for ISV testing scenarios. Please set it to **‘dryrun’**|
+| x-ms-marketplace-session-mode| No | Flag to enable dry run mode while subscribing to a SaaS offer. If set, the subscription will not be charged. This is useful for ISV testing scenarios. Please set it to **'dryrun'**|
 |  |  |  |
 
 *Body*
@@ -165,7 +165,7 @@ service for a given plan and enable billing in the commerce system.
 | 503                  | `ServiceUnavailable` | Service is down temporarily, retry later.                          |
 |  |  |  |
 
-For a 202 response, follow up on the request operation’s status at the ‘Operation-location’ header. The authentication is the same as other Marketplace APIs.
+For a 202 response, follow up on the request operation's status at the 'Operation-location' header. The authentication is the same as other Marketplace APIs.
 
 *Response Headers*
 
@@ -277,7 +277,7 @@ The Delete action on the subscribe endpoint allows a user to delete a subscripti
 | 503                  | `ServiceUnavailable` | Service is down temporarily. Please retry later.                          |
 |  |  |  |
 
-For a 202 response, follow up on the request operation’s status at the ‘Operation-location’ header. The authentication is the same as other Marketplace APIs.
+For a 202 response, follow up on the request operation's status at the 'Operation-location' header. The authentication is the same as other Marketplace APIs.
 
 *Response Headers*
 

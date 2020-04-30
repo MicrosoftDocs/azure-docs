@@ -1,11 +1,11 @@
 ---
-title: Azure CLI Script Sample - Encrypt a Linux VM | Microsoft Docs
+title: Azure CLI Script Sample - Encrypt a Linux VM 
 description: Azure CLI Script Sample - Encrypt a Linux VM 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid:

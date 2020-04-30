@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot issues on your Azure Data Box, Azure Data Box Heavy| Microsoft Docs 
+title: Troubleshoot issues on your Azure Data Box, Azure Data Box Heavy
 description: Describes how to troubleshoot issues seen in Azure Data Box and Azure Data Box Heavy when copying data to these devices.
 services: databox
 author: alkohli

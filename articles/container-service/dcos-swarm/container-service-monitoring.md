@@ -1,12 +1,9 @@
 ---
 title: (DEPRECATED) Monitor Azure DC/OS cluster - Datadog
 description: Monitor an Azure Container Service cluster with Datadog. Use the DC/OS web UI to deploy the Datadog agents to your cluster.
-services: container-service
 author: sauryadas
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
@@ -29,7 +26,7 @@ Datadog is a monitoring service that gathers monitoring data from your container
 ## Configure a Datadog deployment with Marathon
 These steps will show you how to configure and deploy Datadog applications to your cluster with Marathon. 
 
-Access your DC/OS UI via [http://localhost:80/](http://localhost:80/). Once in the DC/OS UI navigate to the "Universe" which is on the bottom left and then search for "Datadog" and click "Install."
+Access your DC/OS UI via `http://localhost:80/`. Once in the DC/OS UI navigate to the "Universe" which is on the bottom left and then search for "Datadog" and click "Install."
 
 ![Datadog package within the DC/OS Universe](./media/container-service-monitoring/datadog1.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Optimize autovacuum on an Azure Database for PostgreSQL - Single Server
+title: Optimize autovacuum - Azure Database for PostgreSQL - Single Server
 description: This article describes how you can optimize autovacuum on an Azure Database for PostgreSQL - Single Server
 author: dianaputnam
 ms.author: dianas

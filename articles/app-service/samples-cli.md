@@ -1,20 +1,11 @@
 ---
-title: Azure CLI Samples - App Service | Microsoft Docs
-description: Azure CLI Samples - App Service
-services: app-service
-documentationcenter: app-service
-author: syntaxc4
-manager: erikre
-editor: ggailey777
+title: CLI Samples
+description: Find Azure CLI samples for some of the common App Service scenarios. Learn how to automate your App Service deployment or management tasks.
 tags: azure-service-management
 
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: app-service
 ms.date: 12/12/2017
-ms.author: cfowler
 ms.custom: mvc
 
 ---
@@ -33,10 +24,12 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Create an ASP.NET Core app in a Docker container](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app on Linux and loads a Docker image from Docker Hub. |
 |**Configure app**||
 | [Map a custom domain to an app](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and maps a custom domain name to it. |
-| [Bind a custom SSL certificate to an app](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and binds the SSL certificate of a custom domain name to it. |
+| [Bind a custom TLS/SSL certificate to an app](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and binds the TLS/SSL certificate of a custom domain name to it. |
 |**Scale app**||
 | [Scale an app manually](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and scales it across 2 instances. |
 | [Scale an app worldwide with a high-availability architecture](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Creates two App Service apps in two different geographical regions and makes them available through a single endpoint using Azure Traffic Manager. |
+|**Protect app**||
+| [Integrate with Azure Application Gateway](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and integrates it with Application Gateway using service endpoint and access restrictions. |
 |**Connect app to resources**||
 | [Connect an app to a SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and a SQL database, then adds the database connection string to the app settings. |
 | [Connect an app to a storage account](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and a storage account, then adds the storage connection string to the app settings. |

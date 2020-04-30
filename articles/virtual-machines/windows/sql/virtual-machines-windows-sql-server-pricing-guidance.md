@@ -1,10 +1,9 @@
 ---
-title: Manage costs effectively for SQL Server on Azure virtual machines | Microsoft Docs
+title: Price guidance & managing costs
 description: Provides best practices for choosing the right SQL Server virtual machine pricing model.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: 
@@ -16,8 +15,9 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
+ms.custom: "seo-lt-2019"
 ---
-# Pricing guidance for SQL Server Azure VMs
+# Pricing guidance for Azure SQL Server VMs
 
 This article provides pricing guidance for [SQL Server virtual machines](virtual-machines-windows-sql-server-iaas-overview.md) in Azure. There are several options that affect cost, and it is important to pick the right image that balances costs with business requirements.
 
@@ -59,7 +59,7 @@ You have two options to pay for SQL Server licensing for these editions: *pay pe
 
 ## Pay per usage
 
-**Paying the SQL Server license per usage** means that the per-second cost of running the Azure VM includes the cost of the SQL Server license. You can see the pricing for the different SQL Server editions (Web, Standard, Enterprise) in the Azure VM pricing page for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) or [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
+**Paying the SQL Server license per usage** (also known as **pay as you go**) means that the per-second cost of running the Azure VM includes the cost of the SQL Server license. You can see the pricing for the different SQL Server editions (Web, Standard, Enterprise) in the Azure VM pricing page for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) or [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
 The cost is the same for all versions of SQL Server (2012 SP3 to 2017). The per-second licensing cost depends on the number of VM vCPUs.
 
@@ -69,7 +69,7 @@ Paying the SQL Server licensing per usage is recommended for:
 
 - **Workloads with unknown lifetime or scale**. For example, an app that may not be required in a few months, or which may require more, or less compute power, depending on demand.
 
-To create a SQL Server 2017 Azure VM with one of these pay-per-usage images, see the following links:
+To create a SQL Server 2017 Azure VM with one of these pay-as-you-go images, see the following links:
 
 | Platform | Licensed images |
 |---|---|
@@ -161,7 +161,7 @@ For other workflows, consider automatically shutting down and restarting Azure V
 
 ## Next steps
 
-For general Azure pricing guidance, see [Prevent unexpected costs with Azure billing and cost management](../../../billing/billing-getting-started.md). For the latest Virtual Machines pricing, including SQL Server, see the Azure VM Azure pricing page for [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+For general Azure pricing guidance, see [Prevent unexpected costs with Azure billing and cost management](../../../cost-management-billing/manage/getting-started.md). For the latest Virtual Machines pricing, including SQL Server, see the Azure VM Azure pricing page for [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 For an overview of SQL Server running on Azure Virtual Machines, see the following articles:
 

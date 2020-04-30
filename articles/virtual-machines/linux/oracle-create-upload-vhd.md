@@ -1,41 +1,30 @@
 ---
-title: Create and upload an Oracle Linux VHD | Microsoft Docs
+title: Create and upload an Oracle Linux VHD 
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains an Oracle Linux operating system.
-services: virtual-machines-linux
-documentationcenter: ''
-author: szarkos
-manager: gwallace
-editor: tysonn
-tags: azure-service-management,azure-resource-manager
-
-ms.assetid: dd96f771-26eb-4391-9a89-8c8b6d691822
+author: gbowerman
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
-ms.date: 03/12/2018
-ms.author: szark
+ms.date: 12/10/2019
+ms.author: guybo
 
 ---
 # Prepare an Oracle Linux virtual machine for Azure
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## Prerequisites
 This article assumes that you have already installed an Oracle Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](https://technet.microsoft.com/library/hh846766.aspx).
 
-### Oracle Linux installation notes
+## Oracle Linux installation notes
 * Please see also [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
-* Oracle's Red Hat compatible kernel and their UEK3 (Unbreakable Enterprise Kernel) are both supported on Hyper-V and Azure. For best results, please be sure to update to the latest kernel while preparing your Oracle Linux VHD.
+* Hyper-V and Azure support Oracle Linux with either the Unbreakable Enterprise Kernel (UEK) or the Red Hat Compatible Kernel.
 * Oracle's UEK2 is not supported on Hyper-V and Azure as it does not include the required drivers.
 * The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 * When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) may be used on data disks if preferred.
-* NUMA is not supported for larger VM sizes due to a bug in Linux kernel versions below 2.6.37. This issue primarily impacts distributions using the upstream Red Hat 2.6.32 kernel. Manual installation of the Azure Linux agent (waagent) will automatically disable NUMA in the GRUB configuration for the Linux kernel. More information about this can be found in the steps below.
+* Linux kernel versions earlier than 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in Oracle Linux 6.6 and later
 * Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about this can be found in the steps below.
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 * Make sure that the `Addons` repository is enabled. Edit the file `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
 
-## Oracle Linux 6.4+
+## Oracle Linux 6.4 and later
 You must complete specific configuration steps in the operating system for the virtual machine to run in Azure.
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
@@ -68,11 +57,11 @@ You must complete specific configuration steps in the operating system for the v
 8. Install python-pyasn1 by running the following command:
    
         # sudo yum install python-pyasn1
-9. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:
+9. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open "/boot/grub/menu.lst" in a text editor and ensure that the kernel includes the following parameters:
    
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
+        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
    
-   This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. This will disable NUMA due to a bug in Oracle's Red Hat compatible kernel.
+   This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
    
    In addition to the above, it is recommended to *remove* the following parameters:
    
@@ -104,12 +93,12 @@ You must complete specific configuration steps in the operating system for the v
 14. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 ---
-## Oracle Linux 7.0+
+## Oracle Linux 7.0 and later
 **Changes in Oracle Linux 7**
 
 Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle Linux 6, however there are several important differences worth noting:
 
-* Both the Red Hat compatible kernel and Oracle's UEK3 are supported in Azure.  The UEK3 kernel is recommended.
+* Azure supports Oracle Linux with either the Unbreakable Enterprise Kernel (UEK) or the Red Hat Compatible Kernel. Oracle Linux with UEK is recommended.
 * The NetworkManager package no longer conflicts with the Azure Linux agent. This package is installed by default and we recommend that it is not removed.
 * GRUB2 is now used as the default bootloader, so the procedure for editing kernel parameters has changed (see below).
 * XFS is now the default file system. The ext4 file system can still be used if desired.
@@ -148,7 +137,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
-   This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new OEL 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
+   This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the naming conventions for NICs in Oracle Linux 7 with the Unbreakable Enterprise Kernel. In addition to the above, it is recommended to *remove* the following parameters:
    
        rhgb quiet crashkernel=auto
    

@@ -58,6 +58,10 @@ A Site-to-Site VPN connection uses the following default cryptographic parameter
 | Life Time | 1,800 seconds | 1,800 seconds | 1,800 seconds |
 | Data Size | 4 GB | 4 GB | 4 GB |
 
+
+> [!IMPORTANT]
+> Set TCP MSS Clamping at 1200 on your VPN device. Or if your VPN devices do not support MSS clamping, you can alternatively set the MTU on the tunnel interface to 1240 bytes instead.
+
 ## Point-to-Site VPN gateway
 
 A Point-to-Site VPN is used to send encrypted traffic between a CloudSimple region network and a client computer.  Point-to-Site VPN is the easiest way to access your Private Cloud network, including your Private Cloud vCenter and workload VMs.  Use Point-to-Site VPN connectivity if you're connecting to the Private Cloud remotely.

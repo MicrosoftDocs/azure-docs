@@ -1,13 +1,12 @@
 ---
-title: Azure IoT Edge Modules 
+title: Azure Marketplace IoT Edge Modules 
 description: The IoT Edge Module Offer in the Azure Marketplace for app and service publishers.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, IoT Edge module offer
 author: qianw211
-manager: pabutler
 ms.service: marketplace
-ms.topic: article
-ms.date: 09/22/2018
-ms.author: pabutler
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+ms.date: 04/15/2020
+ms.author: dsindona
 ---
 
 # IoT Edge modules
@@ -54,7 +53,7 @@ All the terms of the Microsoft Azure Marketplace agreements and policies apply t
 
 To publish an IoT Edge module to the Azure Marketplace, you need to meet the following prerequisites:
 
-- Access to the Cloud Partner Portal (CPP). For more information, see [Azure Marketplace and AppSource publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+- Access to the Partner Center. For more information, see [Azure Marketplace and AppSource publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 - Host your IoT Edge module in an Azure Container Registry. 
 - Have your IoT Edge module metadata ready such as (non-exhaustive list): 
     - A title
@@ -67,21 +66,19 @@ To publish an IoT Edge module to the Azure Marketplace, you need to meet the fol
 
 **Technical Requirements**
 
-The primary technical requirements for an IoT Edge Module, in order for it to get certified and published in the Azure Marketplace, are detailed in the [Prepare your IoT Edge module technical assets](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets).  
+The primary technical requirements for an IoT Edge Module, in order for it to get certified and published in the Azure Marketplace, are detailed in the [Prepare your IoT Edge module technical assets](./partner-center-portal/create-iot-edge-module-asset.md).
 
 ## Documentation and Resources
 
-[Create an IoT Edge module offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -– The steps for publishing a new IoT Edge module offer with the Cloud Publishing Portal.
+[Create an IoT Edge module offer](./partner-center-portal/azure-iot-edge-module-creation.md) -- The steps for publishing a new IoT Edge module offer in Partner Center.
 
 ## Next steps
 
-If you haven’t already done so,
+If you haven't already done so,
 
-- Register in the [Microsoft Partner Network](https://partner.microsoft.com/membership).
-- Create a [Microsoft Account](https://account.microsoft.com/account/) (required for Azure Marketplace transact offers; recommended for others).
-- Submit the [Marketplace Registration Form](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). See how to [create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
+- [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
 
-If you're registered and are creating a new offer or working on an existing one,
+To register in Partner Center, and start creating a new offer or working on an existing one,
 
-- Sign in to [Cloud Partner Portal](https://cloudpartner.azure.com/) to create or complete your offer.
-- See [IoT Edge module offer publishing overview](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) for information on how to publish an IoT Edge module offer.
+- Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
+- See [create an IoT Edge module offer](./partner-center-portal/azure-iot-edge-module-creation.md) for information on how to publish an IoT Edge module offer.

@@ -1,18 +1,11 @@
 ---
 title: Performance counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET performance counters in Application Insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: mbullwin
+
 ---
+
 # System performance counters in Application Insights
 
 Windows provides a wide variety of [performance counters](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) such as CPU occupancy, memory, disk, and network usage. You can also define your own performance counters. Performance counters collection is supported as long as your application is running under IIS on an on-premises host, or virtual machine to which you have administrative access. Though applications running as Azure Web Apps don't have direct access to performance counters, a subset of available counters are collected by Application Insights.
@@ -138,15 +131,16 @@ Like other telemetry, **performanceCounters** also has a column `cloud_RoleInsta
 
 ## Performance counters for applications running in Azure Web Apps
 
-Both ASP.NET and ASP.NET Core applications deployed to Azure Web Apps run in a special sandbox environment. This environment does not allow direct access to system performance counters. However, a limited subset of counters are exposed as environment variables as described [here](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Application Insights SDK for ASP.NET and ASP.NET Core collects performance counters from Azure Web Apps from these special environment variables. Only a subset of counters are available in this environment, and the full list can be found [here.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
+Both ASP.NET and ASP.NET Core applications deployed to Azure Web Apps run in a special sandbox environment. This environment does not allow direct access to system performance counters. However, a limited subset of counters are exposed as environment variables as described [here](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Application Insights SDK for ASP.NET and ASP.NET Core collects performance counters from Azure Web Apps from these special environment variables. Only a subset of counters are available in this environment, and the full list can be found [here.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/WEB/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
 
 ## Performance counters in ASP.NET Core applications
 
-* [ASP.NET Core SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.4.1 and above collects performance counters if the application is running in Azure Web App (Windows)
+Support for performance counters in ASP.NET Core is limited:
 
-* SDK version 2.7.0-beta3 and above collects performance counters if the application is running in Windows, and targeting `NETSTANDARD2.0` or higher.
-* For applications targeting the .NET Framework, performance counters are supported in all versions of SDK.
-* This article will be updated when performance counter support in non-Windows is added.
+* [SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versions 2.4.1 and later collect performance counters if the application is running in Azure Web Apps (Windows).
+* SDK versions 2.7.1 and later collect performance counters if the application is running in Windows and targets `NETSTANDARD2.0` or later.
+* For applications targeting the .NET Framework, all versions of the SDK support performance counters.
+* SDK Versions 2.8.0 and later support cpu/memory counter in Linux. No other counter is supported in Linux. The recommended way to get system counters in Linux (and other non-Windows environments) is by using [EventCounters](eventcounters.md)
 
 ## Alerts
 Like other metrics, you can [set an alert](../../azure-monitor/app/alerts.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.

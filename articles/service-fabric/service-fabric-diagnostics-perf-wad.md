@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric - Performance monitoring with the Windows Azure Diagnostics extension | Microsoft Docs
+title: Performance monitoring with Windows Azure Diagnostics
 description: Use Windows Azure Diagnostics to collect performance counters for your Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-
 ---
 
 # Performance monitoring with the Windows Azure Diagnostics extension
@@ -188,9 +178,6 @@ Here is an example of a configuration with the counter for the *Total Processor 
       },
 ....
 ```
-
- >[!NOTE]
- >Though you can use `*` to specify groups of performance counters that are named similarly, sending any counters via a sink (to Application Insights) requires that they are individually declared. 
 
 1. Once you have added the appropriate performance counters that need to be collected, you need to upgrade your cluster resource so that these changes are reflected in your running cluster. Save your modified `template.json` and open up PowerShell. You can upgrade your cluster using `New-AzResourceGroupDeployment`. The call requires the name of the resource group, the updated template file, and the parameters file, and prompts Resource Manager to make appropriate changes to the resources that you updated. Once you are signed into your account and are in the right subscription, use the following command to run the upgrade:
 

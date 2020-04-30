@@ -1,19 +1,14 @@
 ---
-title: Management solution in Azure best practices | Microsoft Docs
-description: 
-services: operations-management-suite
-documentationcenter: ''
+title: Management solution in Azure best practices
+description: In this article, learn tips for creating a management solution file. See how to work with data sources, runbooks, views, and alerts.
+ms.subservice: 
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/27/2017
 ms.author: bwren
+ms.date: 04/27/2017
+
 ---
+
 # Best practices for creating management solutions in Azure (Preview)
 > [!NOTE]
 > This is preliminary documentation for creating management solutions in Azure which are currently in preview. Any schema described below is subject to change.  

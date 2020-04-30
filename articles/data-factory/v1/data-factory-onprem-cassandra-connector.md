@@ -1,16 +1,16 @@
 ---
-title: Move data from Cassandra using Data Factory | Microsoft Docs
+title: Move data from Cassandra using Data Factory 
 description: Learn about how to move data from an on-premises Cassandra database using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: 085cc312-42ca-4f43-aa35-535b35a102d5
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 06/07/2018
@@ -74,7 +74,7 @@ The following table provides description for JSON elements specific to Cassandra
 | encryptedCredential |Credential encrypted by the gateway. |No |
 
 >[!NOTE]
->Currently connection to Cassandra using SSL is not supported.
+>Currently connection to Cassandra using TLS is not supported.
 
 ## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).

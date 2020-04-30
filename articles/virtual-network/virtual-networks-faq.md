@@ -62,7 +62,7 @@ You cannot add the following address ranges:
 Yes. For more information about public IP address ranges, see [Create a virtual network](manage-virtual-network.md#create-a-virtual-network). Public IP addresses are not directly accessible from the internet.
 
 ### Is there a limit to the number of subnets in my VNet?
-Yes. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces cannot overlap one another.
+Yes. See [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces cannot overlap one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
 Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3 and the last address of the subnet. x.x.x.1-x.x.x.3 is reserved in each subnet for Azure services.   
@@ -72,7 +72,7 @@ Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3
 - x.x.x.255: Network broadcast address
 
 ### How small and how large can VNets and subnets be?
-The smallest supported subnet is /29, and the largest is /8 (using CIDR subnet definitions).
+The smallest supported IPv4 subnet is /29, and the largest is /8 (using CIDR subnet definitions).  IPv6 subnets must be exactly /64 in size.  
 
 ### Can I bring my VLANs to Azure using VNets?
 No. VNets are Layer-3 overlays. Azure does not support any Layer-2 semantics.
@@ -105,7 +105,7 @@ Yes. You can add, remove, and modify the CIDR blocks used by a VNet.
 Yes. All services deployed within a VNet can connect outbound to the internet. To learn more about outbound internet connections in Azure, see [Outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you want to connect inbound to a resource deployed through Resource Manager, the resource must have a public IP address assigned to it. To learn more about public IP addresses, see [Public IP addresses](virtual-network-public-ip-address.md). Every Azure Cloud Service deployed in Azure has a publicly addressable VIP assigned to it. You define input endpoints for PaaS roles and endpoints for virtual machines to enable these services to accept connections from the internet.
 
 ### Do VNets support IPv6?
-No. You cannot use IPv6 with VNets at this time. You can however, assign IPv6 addresses to Azure load balancers to load balance virtual machines. For details, see [Overview of IPv6 for Azure Load Balancer](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Yes, VNets can be IPv4-only or dual stack (IPv4+IPv6).  For details, see [Overview of IPv6 for Azure Virtual Networks](./ipv6-overview.md).
 
 ### Can a VNet span regions?
 No. A VNet is limited to a single region. A virtual network does, however, span availability zones. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). You can connect virtual networks in different regions with virtual network peering. For details, see [Virtual network peering overview](virtual-network-peering-overview.md)
@@ -124,10 +124,10 @@ Use the decision table on the [Name Resolution for VMs and Role Instances](virtu
 Yes. You can specify DNS server IP addresses in the VNet settings. The setting is applied as the default DNS server(s) for all VMs in the VNet.
 
 ### How many DNS servers can I specify?
-Reference [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+Reference [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ### Can I modify my DNS servers after I have created the network?
-Yes. You can change the DNS server list for your VNet at any time. If you change your DNS server list, you will need to restart each of the VMs in your VNet in order for them to pick up the new DNS server.
+Yes. You can change the DNS server list for your VNet at any time. If you change your DNS server list, you need to perform a DHCP lease renewal on all affected VMs in the VNet, for the new DNS settings to take effect. For VMs running Windows OS you can do this by typing `ipconfig /renew` directly on the VM. For other OS types, refer to the DHCP lease renewal documentation for the specific OS type. 
 
 ### What is Azure-provided DNS and does it work with VNets?
 Azure-provided DNS is a multi-tenant DNS service offered by Microsoft. Azure registers all of your VMs and cloud service role instances in this service. This service provides name resolution by hostname for VMs and role instances contained within the same cloud service, and by FQDN for VMs and role instances in the same VNet. To learn more about DNS, see [Name Resolution for VMs and Cloud Services role instances](virtual-networks-name-resolution-for-vms-and-role-instances.md).
@@ -196,9 +196,9 @@ Yes. You must connect a virtual machine scale set to a VNet.
 ### Is there a complete list of Azure services that can I deploy resources from into a VNet?
 Yes, For details, see [Virtual network integration for Azure services](virtual-network-for-azure-services.md).
 
-### Which Azure PaaS resources can I restrict access to from a VNet?
+### How can I restrict access to Azure PaaS resources from a VNet?
 
-Resources deployed through some Azure PaaS services (such as Azure Storage and Azure SQL Database), can restrict network access to only resources in a VNet through the use of virtual network service endpoints. For details, see [Virtual network service endpoints overview](virtual-network-service-endpoints-overview.md).
+Resources deployed through some Azure PaaS services (such as Azure Storage and Azure SQL Database), can restrict network access to VNet through the use of virtual network service endpoints or Azure Private Link. For details, see [Virtual network service endpoints overview](virtual-network-service-endpoints-overview.md), [Azure Private Link overview](../private-link/private-link-overview.md)
 
 ### Can I move my services in and out of VNets?
 No. You cannot move services in and out of VNets. To move a resource to another VNet, you have to delete and redeploy the resource.
@@ -226,7 +226,7 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/v
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
 - PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) and [classic](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) deployment models.
-- The Azure command-line interface (CLI) to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) deployment models.  
+- The Azure command-line interface (CLI) to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) deployment models.  
 
 ## VNet peering
 
@@ -237,8 +237,8 @@ VNet peering (or virtual network peering) enables you to connect virtual network
 Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions, China cloud regions, and Government cloud regions. You cannot globally peer from Azure public regions to national cloud regions.
 
 ### What are the constraints related to Global VNet Peering and Load Balancers?
-If the two virtual networks are in different regions (Global VNet Peering), you cannot connect to resources that use Basic Load Balancer. You can connect to resources that use Standard Load Balancer.
-The following resources use Basic Load Balancers which means you cannot communicate to them across Global VNet Peering:
+If the two virtual networks in two different regions are peered over Global VNet Peering, you cannot connect to resources that are behind a Basic Load Balancer through the Front End IP of the Load Balancer. This restriction does not exist for a Standard Load Balancer.
+The following resources can use Basic Load Balancers which means you cannot reach them through the Load Balancer's Front End IP over Global VNet Peering. You can however use Global VNet peering to reach the resources directly through their private VNet IPs, if permitted. 
 - VMs behind Basic Load Balancers
 - Virtual machine scale sets with Basic Load Balancers 
 - Redis Cache 
@@ -250,7 +250,6 @@ The following resources use Basic Load Balancers which means you cannot communic
 - Logic Apps
 - HDInsight
 -	Azure Batch
-- AKS
 - App Service Environment
 
 You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
@@ -391,7 +390,7 @@ Virtual network (VNet) service endpoint policies allow you to filter virtual net
 
 ### Does Azure Active Directory (Azure AD) support VNet service endpoints?
 
-Azure Active Directory (Azure AD) doesn't support service endpoints natively. Complete list of Azure Services supporting VNet service endpoints can be seen [here](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Note that the "Microsoft.AzureActiveDirectory" tag listed under services supporting service endpoints is used for supporting service endpoints to ADLS Gen 1. For ADLS Gen 1, virtual network integration for Azure Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Azure Active Directory (Azure AD) to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access. Learn more about [Azure Data Lake Store Gen 1 VNet Integration](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+Azure Active Directory (Azure AD) doesn't support service endpoints natively. Complete list of Azure Services supporting VNet service endpoints can be seen [here](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Note that the "Microsoft.AzureActiveDirectory" tag listed under services supporting service endpoints is used for supporting service endpoints to ADLS Gen 1. For ADLS Gen 1, virtual network integration for Azure Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Azure Active Directory (Azure AD) to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access. Learn more about [Azure Data Lake Store Gen 1 VNet Integration](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ### Are there any limits on how many VNet service endpoints I can set up from my VNet?
 There is no limit on the total number of VNet service endpoints in a virtual network. For an Azure service resource (such as an Azure Storage account), services may enforce limits on the number of subnets used for securing the resource. The following table shows some example limits: 

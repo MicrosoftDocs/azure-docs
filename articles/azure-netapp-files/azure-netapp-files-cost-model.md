@@ -68,7 +68,7 @@ The diagram below illustrates these concepts:
     * Volumes 1 through 8 are assigned a quota of 60 TiB each.  The total used capacity is 480 TiB.  
         Each volume has a QoS limit of 3.75 GiB/s of throughput (60 TiB * 64 MiB/s).  
     * Volume 9 is assigned a quota of 20 TiB.  
-        Volume 9 has a QoS limit of 1.25 GiB/s of throughput (60 TiB * 64 MiB/s).
+        Volume 9 has a QoS limit of 1.25 GiB/s of throughput (20 TiB * 64 MiB/s).
 * Volume 9 is an overage scenario. It has 25 TiB of actual consumption.  
     * After the one-hour grace period, the capacity pool will be resized to 505 TiB.  
         That is, total used capacity = 8 * 60-TiB quota for Volumes 1 through 8, and 25 TiB of actual consumption for Volume 9.

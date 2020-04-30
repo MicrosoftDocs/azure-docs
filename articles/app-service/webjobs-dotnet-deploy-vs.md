@@ -1,18 +1,10 @@
 ---
-title: Develop and deploy WebJobs using Visual Studio - Azure 
-description: Learn how to develop and deploy Azure WebJobs to Azure App Service using Visual Studio.
-services: app-service
-documentationcenter: ''
+title: Develop and deploy WebJobs using VS
+description: Learn how to develop Azure WebJobs in Visual Studio and deploy them to Azure App Service, including creating a scheduled task.
 author: ggailey777
-manager: jeconnoc
-
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
-ms.service: app-service
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: vs-azure
-ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
@@ -179,7 +171,7 @@ and stores scheduling information in a *webjob-publish-settings.json* file in th
           "runMode": "Continuous"
         }
 
-You can edit this file directly, and Visual Studio provides IntelliSense. The file schema is stored at [https://schemastore.org](https://schemastore.org/schemas/json/webjob-publish-settings.json) and can be viewed there.  
+You can edit this file directly, and Visual Studio provides IntelliSense. The file schema is stored at [https://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) and can be viewed there.  
 
 ### <a id="webjobslist"></a>webjobs-list.json
 When you link a WebJobs-enabled project to a web project, Visual Studio stores the name of the WebJobs project in a *webjobs-list.json* file in the web project's *Properties* folder. The list might contain multiple WebJobs projects, as shown in the following example:
@@ -196,7 +188,7 @@ When you link a WebJobs-enabled project to a web project, Visual Studio stores t
           ]
         }
 
-You can edit this file directly, and Visual Studio provides IntelliSense. The file schema is stored at [https://schemastore.org](https://schemastore.org/schemas/json/webjobs-list.json) and can be viewed there.
+You can edit this file directly, and Visual Studio provides IntelliSense. The file schema is stored at [https://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) and can be viewed there.
 
 ### <a id="deploy"></a>Deploy a WebJobs project
 A WebJobs project that you have linked to a web project deploys automatically with the web project. For information about web project deployment, see **How-to guides** > **Deploy app** in the left navigation.
@@ -227,7 +219,9 @@ When you [create a WebJob from the Azure portal](webjobs-create.md), the setting
 
 WebJobs uses the same CRON expressions for scheduling as the timer trigger in Azure Functions. To learn more about CRON support, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
 
-### setting.job reference
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
+
+### settings.job reference
 
 The following settings are supported by WebJobs:
 

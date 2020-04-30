@@ -1,18 +1,9 @@
 ---
-title: Store unstructured data using Azure Cosmos DB and Functions | Microsoft Docs
+title: Store unstructured data using Azure Cosmos DB and Functions 
 description: Store unstructured data using Azure Functions and Cosmos DB
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, functions, event processing, Cosmos DB, dynamic compute, serverless architecture
 
-ms.assetid: 
-ms.service: azure-functions
-ms.devlang: csharp
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/01/2018
-ms.author: glenga
 ms.custom: mvc
 ---
 # Store unstructured data using Azure Functions and Azure Cosmos DB

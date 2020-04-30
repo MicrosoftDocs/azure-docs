@@ -1,11 +1,8 @@
 ---
 title: Select a VMware migration option with Azure Migrate Server Migration | Microsoft Docs
 description: Provides an overview of options for migrating VMware VMs to Azure with Azure Migrate Server Migration
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: raynew
 ---
 
 
@@ -21,7 +18,7 @@ You can migrate VMware VMs to Azure using the Azure Migrate Server Migration too
 
 ## Compare migration methods
 
-Use these selected comparisons to help you decide which method to use. You can also review full support requirements for [agentless](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) and [agent-based](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) migration.
+Use these selected comparisons to help you decide which method to use. You can also review full support requirements for [agentless](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) and [agent-based](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) migration.
 
 **Setting** | **Agentless** | **Agent-based**
 --- | --- | ---
@@ -30,7 +27,7 @@ Use these selected comparisons to help you decide which method to use. You can a
 **Appliance deployment** | The [Azure Migrate appliance](migrate-appliance.md) is deployed on-premises. | The [Azure Migrate Replication appliance](migrate-replication-appliance.md) is deployed on-premises.
 **Site Recovery compatibility** | Compatible. | You can't replicate with Azure Migrate Server Migration if you've set up replication for a machine using Site Recovery.
 **Target disk** | Managed disks | Managed disks
-**Disk limits** | OS disk: 2 TB<br/><br/> Data disk: 4 TB<br/><br/> Maximum disks: 60 | OS disk: 2 TB<br/><br/> Data disk: 4 TB<br/><br/> Maximum disks: 63
+**Disk limits** | OS disk: 2 TB<br/><br/> Data disk: 4 TB<br/><br/> Maximum disks: 60 | OS disk: 2 TB<br/><br/> Data disk: 8 TB<br/><br/> Maximum disks: 63
 **Passthrough disks** | Not supported | Supported
 **UEFI boot** | Not supported | The migrated VM in Azure will be automatically converted to a BIOS boot VM.<br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
 
@@ -41,6 +38,7 @@ After reviewing the limitations, understanding the steps involved in deploying e
 
 **Task** | **Details** |**Agentless** | **Agent-based**
 --- | --- | --- | ---
+**Assessment** | Assess servers before migration.  Assessment is optional. We suggest that you assess machines before you migrate them, but you don't have to. <br/><br/> For assessment, Azure Migrate sets up a lightweight appliance to discover and assess VMs. | If you run an agentless migration after assessment, the same Azure Migrate appliance set up for assessment is used for agentless migration.  |  If you run an agent-based migration after assessment, the appliance set up for assessment isn't used during agentless migration. You can leave the appliance in place, or remove it if you don't want to do further discovery and assessment.
 **Prepare VMware servers and VMs for migration** | Configure a number of settings on VMware servers and VMs. | Required | Required
 **Add the Server Migration tool** | Add the Azure Migrate Server Migration tool in the Azure Migrate project. | Required | Required
 **Deploy the Azure Migrate appliance** | Set up a lightweight appliance on a VMware VM for VM discovery and assessment. | Required | Not required.

@@ -1,19 +1,19 @@
 ---
 title: "Preprocess Text: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Preprocess Text module in Azure Machine Learning service to clean and simplify text.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Preprocess Text module in Azure Machine Learning to clean and simplify text.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 09/01/2019
 ---
 # Preprocess Text
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use the **Preprocess Text** module to clean and simplify text. It supports these common text processing operations:
 
@@ -28,7 +28,7 @@ The **Preprocess Text** module currently only supports English.
 
 ## Configure Text Preprocessing  
 
-1.  Add the **Preprocess Text** module to your experiment in Azure Machine Learning Service. You can find this module under **Text Analytics**.
+1.  Add the **Preprocess Text** module to your pipeline in Azure Machine Learning. You can find this module under **Text Analytics**.
 
 1. Connect a dataset that has at least one column containing text.
 
@@ -78,8 +78,8 @@ The **Preprocess Text** module currently only supports English.
 
     For example, the string `MS---WORD` would be separated into three tokens, `MS`, `-`, and `WORD`.
 
-1. Run the experiment.
+1. Submit the pipeline.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

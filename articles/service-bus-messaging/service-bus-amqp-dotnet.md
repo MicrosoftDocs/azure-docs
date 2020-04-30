@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus with .NET and AMQP 1.0 | Microsoft Docs
-description: Using Azure Service Bus from .NET with AMQP
+description: This article describes how to use Azure Service Bus from a .NET application using AMQP (Advanced Messaging Queuing Protocol).
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
@@ -106,7 +106,7 @@ The [.NET APIs](/dotnet/api/) expose several settings to control the behavior of
 * **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: Controls the initial credit applied to a link. The default is 0.
 * **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: Controls the maximum AMQP frame size offered during the negotiation at connection open time. The default is 65,536 bytes.
 * **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: If transfers are batchable, this value determines the maximum delay for sending dispositions. Inherited by senders/receivers by default. Individual sender/receiver can override the default, which is 20 milliseconds.
-* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: Controls whether AMQP connections are established over an SSL connection. The default is **true**.
+* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: Controls whether AMQP connections are established over a TLS connection. The default is **true**.
 
 ## Next steps
 

@@ -8,16 +8,25 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 03/01/2019
 ms.author: diberry
 ---
 # What's new in Personalizer
 
-Learn what's new in the service. These items may include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.  
+Learn what's new in the service. These items may include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
 
-## Release notes 
+## Release notes
 
-### May 6, 2019 - //Build Conference
+### March 2020
+
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
+
+### November 2019 - Ignite Conference
+
+* Personalizer is generally available (GA)
+* Azure Notebooks [tutorial](tutorial-use-azure-notebook-generate-loop-data.md) with entire lifecycle
+
+### May 2019 - //Build Conference
 
 The following preview features were released at the Build 2019 Conference:
 

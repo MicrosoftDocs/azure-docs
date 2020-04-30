@@ -4,8 +4,8 @@ description: Learn how to configure private IP addresses for virtual machines (C
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
+manager: dcscontentpm
+
 tags: azure-service-management
 
 ms.assetid: b8ef8367-58b2-42df-9f26-3269980950b8

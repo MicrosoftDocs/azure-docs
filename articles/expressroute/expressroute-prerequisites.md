@@ -1,14 +1,14 @@
 ---
-title: 'Prerequisites - ExpressRoute : Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Prerequisites'
 description: This page provides a list of requirements to be met before you can order an Azure ExpressRoute circuit. It includes a checklist.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 09/18/2019
 ms.author: cherylmc
-ms.custom: seodec18
+
 
 ---
 # ExpressRoute prerequisites & checklist
@@ -17,7 +17,7 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## Azure account
-* A valid and active Microsoft Azure account. This account is required to set up the ExpressRoute circuit. ExpressRoute circuits are resources within Azure subscriptions. An Azure subscription is a requirement even if connectivity is limited to non-Azure Microsoft cloud services, such as Office 365 services and Dynamics 365.
+* A valid and active Microsoft Azure account. This account is required to set up the ExpressRoute circuit. ExpressRoute circuits are resources within Azure subscriptions. An Azure subscription is a requirement even if connectivity is limited to non-Azure Microsoft cloud services, such as Office 365.
 * An active Office 365 subscription (if using Office 365 services). For more information, see the Office 365 specific requirements section of this article.
 
 ## Connectivity provider
@@ -44,9 +44,6 @@ If you plan to enable Office 365 on ExpressRoute, review the following documents
 * [Network bandwidth calculators and tools](https://support.office.com/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
 * [Office 365 integration with on-premises environments](https://support.office.com/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [ExpressRoute on Office 365 advanced training videos](https://channel9.msdn.com/series/aer/)
-
-## Dynamics 365
-If you plan to enable Dynamics 365 on ExpressRoute, review [Dynamics 365 URLs](https://support.microsoft.com/kb/2655102) and [IP address ranges](https://support.microsoft.com/kb/2728473).
 
 ## Next steps
 * For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).

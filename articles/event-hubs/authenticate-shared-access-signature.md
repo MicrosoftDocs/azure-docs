@@ -7,7 +7,7 @@ documentationcenter: ''
 author: spelluru
 
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 
 ---
@@ -18,7 +18,7 @@ Shared access signature (SAS) gives you granular control over the type of access
 - The permissions granted by the SAS. For example, a SAS for an Event Hubs namespace might grant the listen permission, but not the send permission.
 - Only clients that present valid credentials can send data to an event hub.
 - A client can't impersonate another client.
-- A rouge client can be blocked from sending data to an event hub.
+- A rogue client can be blocked from sending data to an event hub.
 
 This article covers authenticating the access to Event Hubs resources using SAS. To learn about **authorizing** access to Event Hubs resources using SAS, see [this article](authorize-access-shared-access-signature.md). 
 
@@ -29,7 +29,7 @@ This article covers authenticating the access to Event Hubs resources using SAS.
 
 
 ## Configuring for SAS authentication
-You can configure the EventHubs shared access authorization rule on an Event Hubs namespace, or an entity (event hub instance or Kafka Topic in an Event Hubs for Kafka enabled namespace). Configuring a shared access authorization rule on a consumer group is currently not supported, but you can use rules configured on a namespace or entity to secure access to consumer group. 
+You can configure the EventHubs shared access authorization rule on an Event Hubs namespace, or an entity (event hub instance or Kafka Topic in an event hub). Configuring a shared access authorization rule on a consumer group is currently not supported, but you can use rules configured on a namespace or entity to secure access to consumer group. 
 
 The following image shows how the authorization rules apply on sample entities. 
 
@@ -179,22 +179,33 @@ An event publisher defines a virtual endpoint for an event hub. The publisher ca
 
 Typically, an event hub employs one publisher per client. All messages that are sent to any of the publishers of an event hub are enqueued within that event hub. Publishers enable fine-grained access control.
 
-Each Event Hubs client is assigned a unique token, which is uploaded to the client. The tokens are produced such that each unique token grants access to different unique publisher. A client that holds a token can only send to one publisher, and no other publisher. If multiple clients share the same token, then each of them shares a publisher.
+Each Event Hubs client is assigned a unique token, which is uploaded to the client. The tokens are produced such that each unique token grants access to different unique publisher. A client that holds a token can only send to one publisher, and no other publisher. If multiple clients share the same token, then each of them shares the publisher.
 
-All tokens are assigned with SAS keys. Typically, all tokens are signed with the same key. Clients aren't aware of the key, which prevents other clients from manufacturing tokens. Clients operate on the same tokens until they expire.
+All tokens are assigned with SAS keys. Typically, all tokens are signed with the same key. Clients aren't aware of the key, which prevents clients from manufacturing tokens. Clients operate on the same tokens until they expire.
 
 For example, to define authorization rules scoped down to only sending/publishing to Event Hubs, you need to define a send authorization rule. This can be done at a namespace level or give more granular scope to a particular entity (event hubs instance or a topic). A client or an application that is scoped with such granular access is called, Event Hubs publisher. To do so, follow these steps:
 
 1. Create a SAS key on the entity you want to publish to assign the **send** scope on it. For more information, see [Shared access authorization policies](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
 2. Generate a SAS token with an expiry time for a specific publisher by using the key generated in step1.
-3. Provide the token to the publisher client, which can only send to the entity that token grants access to.
-4. Once the token expires, the client loses its access to send/publish to the entity. 
+
+    ```csharp
+    var sasToken = SharedAccessSignatureTokenProvider.GetPublisherSharedAccessSignature(
+                new Uri("Service-Bus-URI"),
+                "eventub-name",
+                "publisher-name",
+                "sas-key-name",
+                "sas-key",
+                TimeSpan.FromMinutes(30));
+    ```
+3. Provide the token to the publisher client, which can only send to the entity and the publisher that token grants access to.
+
+    Once the token expires, the client loses its access to send/publish to the entity. 
 
 
 > [!NOTE]
-> Although it's not recommended, it is possible to equip devices with tokens that grant access to an event hub. Any device that holds this token can send messages directly to that event hub. Furthermore, the device cannot be blacklisted from sending to that event hub.
+> Although it's not recommended, it is possible to equip devices with tokens that grant access to an event hub or a namespace. Any device that holds this token can send messages directly to that event hub. Furthermore, the device cannot be blacklisted from sending to that event hub.
 > 
-> The above behavior can be observed when the same token is distributed to multiple devices which gives you access at the namespace level. In that case, a rouge device/publisher cannot be isolated and revoked. It's always recommended to give specific and granular scopes.
+> It's always recommended to give specific and granular scopes.
 
 > [!IMPORTANT]
 > Once the tokens have been created, each client is provisioned with its own unique token.

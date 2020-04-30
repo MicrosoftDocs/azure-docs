@@ -1,14 +1,15 @@
 ---
-title: Migrate on-premises Apache Hadoop to Azure HDInsight - motivation and benefits
+title: 'Benefits: Migrate on-premises Apache Hadoop to Azure HDInsight'
 description: Learn the motivation and benefits for migrating on-premises Hadoop clusters to Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
-ms.author: hrasheed
+ms.date: 11/15/2019
 ---
+
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - motivation and benefits
 
 This article is the first in a series on best-practices for migrating on-premises Apache Hadoop eco-system deployments to Azure HDInsight. This series of articles is for people who are responsible for the design, deployment, and migration of Apache Hadoop solutions in Azure HDInsight. The roles that may benefit from these articles include cloud architects, Hadoop administrators, and DevOps engineers. Software developers, data engineers, and data scientists should also benefit from the explanation of how different types of clusters work in the cloud.
@@ -39,7 +40,7 @@ Azure HDInsight is a cloud distribution of Hadoop components. Azure HDInsight ma
 
 - **Secure and compliant** - HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [encryption](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), and integration with [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).
 
-- **Simplified version management** - Azure HDInsight manages the version of Hadoop eco-system components and keeps them up-to-date. Software updates are usually a complex process for on-premises deployments.
+- **Simplified version management** - Azure HDInsight manages the version of Hadoop eco-system components and keeps them up to date. Software updates are usually a complex process for on-premises deployments.
 
 - **Smaller clusters optimized for specific workloads with fewer dependencies between components** - A typical on-premises Hadoop setup uses a single cluster that serves many purposes. With Azure HDInsight, workload-specific clusters can be created. Creating clusters for specific workloads removes the complexity of maintaining a single cluster with growing complexity.
 
@@ -79,7 +80,7 @@ This section provides template questionnaires to help gather important informati
 - Project details
 - Azure requirements
 
-### On-Premises deployment questionnaire
+### On-premises deployment questionnaire
 
 | **Question** | **Example** | **Answer** |
 |---|---|---|
@@ -97,7 +98,7 @@ This section provides template questionnaires to help gather important informati
 |Edge Nodes configuration|m/y, cpu, disk, etc.|
 |HDFS Encryption?|Yes|
 |High Availability|HDFS HA, Metastore HA|
-|Disaster Recovery / Back up|Backup cluster?|  
+|Disaster Recovery / Backup|Backup cluster?|  
 |Systems that are dependent on Cluster|SQL Server, Teradata, Power BI, MongoDB|
 |Third-party integrations|Tableau, GridGain, Qubole, Informatica, Splunk|
 |**Topic**: **Security**|||
@@ -131,10 +132,10 @@ This section provides template questionnaires to help gather important informati
 |Data destinations|HDFS, RDBMS, Kafka, MPP ||
 |**Topic**: **Meta data**|||
 |Hive DB type|Mysql, Postgres||
-|No. of Hive metastores|2||
-|No. of Hive tables|100||
-|No. of Ranger policies|20||
-|No. of Oozie workflows|100||
+|Number of Hive metastores|2||
+|Number of Hive tables|100||
+|Number of Ranger policies|20||
+|Number of Oozie workflows|100||
 |**Topic**: **Scale**|||
 |Data volume including Replication|100 TB||
 |Daily ingestion volume|50 GB||
@@ -146,11 +147,11 @@ This section provides template questionnaires to help gather important informati
 |Disk space used|75%||
 |Average Network % used|25%
 |**Topic**: **Staff**|||
-|No. of Administrators|2||
-|No. of Developers|10||
-|No. of end users|100||
+|Number of Administrators|2||
+|Number of Developers|10||
+|Number of end users|100||
 |Skills|Hadoop, Spark||
-|No. of available resources for Migration efforts|2||
+|Number of available resources for Migration efforts|2||
 |**Topic**: **Limitations**|||
 |Current limitations|Latency is high||
 |Current challenges|Concurrency issue||
@@ -174,7 +175,7 @@ This section provides template questionnaires to help gather important informati
 |Private and protected data pipeline?|Yes||
 |Domain Joined cluster (ESP)?|     Yes||
 |On-Premises AD Sync to Cloud?|     Yes||
-|No. of AD users to sync?|          100||
+|Number of AD users to sync?|          100||
 |Ok to sync passwords to cloud?|    Yes||
 |Cloud only Users?|                 Yes||
 |MFA needed?|                       No|| 

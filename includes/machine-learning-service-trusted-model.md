@@ -1,8 +1,8 @@
 ---
-author: blackmist
+author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 08/08/2019
+ms.date: 03/16/2020
 ms.author: larryfr
 ---
 > [!IMPORTANT]

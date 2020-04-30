@@ -1,18 +1,11 @@
 ---
-title: How to troubleshoot issues with the Log Analytics agent for Windows | Microsoft Docs
+title: Troubleshoot issues with Log Analytics agent for Windows
 description: Describe the symptoms, causes, and resolution for the most common issues with the Log Analytics agent for Windows in Azure Monitor.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/12/2019
-ms.author: magoedte
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
+ms.date: 11/21/2019
+
 ---
 
 # How to troubleshoot issues with the Log Analytics agent for Windows 
@@ -31,7 +24,7 @@ If none of these steps work for you, the following support channels are also ava
 
 ## Connectivity issues
 
-If the agent is communicating through a proxy server or firewall, there may be restrictions in place preventing communication from the source computer and the Azure Monitor service. If communication is blocked, misconfiguration, registration with a workspace may fail while attempting to install the agent, configure the agent post-setup to report to an additional workspace, or agent communication fails after successful registration. This section describes the methods to troubleshoot this type of issue with the Windows agent. 
+If the agent is communicating through a proxy server or firewall, there may be restrictions in place preventing communication from the source computer and the Azure Monitor service. In case communication is blocked, because of misconfiguration, registration with a workspace might fail while attempting to install the agent or configure the agent post-setup to report to an additional workspace. Agent communication may fail after successful registration. This section describes the methods to troubleshoot this type of issue with the Windows agent.
 
 Double check that the firewall or proxy is configured to allow the following ports and URLs described in the following table. Also confirm HTTP inspection is not enabled for web traffic, as it can prevent a secure TLS channel between the agent and Azure Monitor.  
 
@@ -40,9 +33,8 @@ Double check that the firewall or proxy is configured to allow the following por
 |*.ods.opinsights.azure.com |Port 443 |Outbound|Yes |  
 |*.oms.opinsights.azure.com |Port 443 |Outbound|Yes |  
 |*.blob.core.windows.net |Port 443 |Outbound|Yes |  
-|*.azure-automation.net |Port 443 |Outbound|Yes |  
 
-For firewall information required for Azure Government, see [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
+For firewall information required for Azure Government, see [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 There are several ways you can verify if the agent is successfully communicating with Azure Monitor.
 
@@ -68,7 +60,7 @@ There are several ways you can verify if the agent is successfully communicating
     |---------|-------|------------|-----------|
     |2133 & 2129 |Health Service |Connection to the service from the agent failed |This error can occur when the agent cannot communicate directly or through a firewall/proxy server to the Azure Monitor service. Verify agent proxy settings or that the network firewall/proxy allows TCP traffic from the computer to the service.|
     |2138 |Health Service Modules |Proxy requires authentication |Configure the agent proxy settings and specify the username/password required to authenticate with the proxy server. |
-    |2129 |Health Service Modules |Failed connection/Failed SSL negotiation |Check your network adapter TCP/IP settings and agent proxy settings.|
+    |2129 |Health Service Modules |Failed connection/Failed TLS negotiation |Check your network adapter TCP/IP settings and agent proxy settings.|
     |2127 |Health Service Modules |Failure sending data received error code |If it only happens periodically during the day, it could just be a random anomaly that can be ignored. Monitor to understand how often it happens. If it happens often throughout the day, first check your network configuration and proxy settings. If the description includes HTTP error code 404 and it's the first time that the agent tries to send data to the service, it will include a 500 error with an inner 404 error code. 404 means not found, which indicates that the storage area for the new workspace is still being provisioned. On next retry, data will successfully write to the workspace as expected. An HTTP error 403 might indicate a permission or credentials issue. There is more information included with the 403 error to help troubleshoot the issue.|
     |4000 |Service Connector |DNS name resolution failed |The machine could not resolve the Internet address used when sending data to the service. This might be DNS resolver settings on your machine, incorrect proxy settings, or maybe a temporary DNS issue with your provider. If it happens periodically, it could be caused by a transient network-related issue.|
     |4001 |Service Connector |Connection to the service failed. |This error can occur when the agent cannot communicate directly or through a firewall/proxy server to the Azure Monitor service. Verify agent proxy settings or that the network firewall/proxy allows TCP traffic from the computer to the service.|

@@ -1,16 +1,11 @@
 ---
-title: How to enable nested virtualization in Azure Virtual Machines | Microsoft Docs 
+title: How to enable nested virtualization in Azure Virtual Machines  
 description: How to enable nested virtualization in Azure Virtual Machines
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-
 ms.author: cynthn
 ms.date: 10/09/2017
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 
 
@@ -23,7 +18,7 @@ This article steps through enabling Hyper-V on an Azure VM and configuring Inter
 
 ## Create a nesting capable Azure VM
 
-Create a new Windows Server 2016 Azure VM.  For quick reference, all v3 virtual machines support nested virtualization. For a complete list of virtual machine sizes that support nesting, check out the [Azure Compute Unit article](acu.md).
+Create a new Windows Server 2016 Azure VM. For a complete list of virtual machine sizes that support nesting, check out the [Azure Compute Unit article](acu.md).
 
 Remember to choose a VM size large enough to support the demands of a guest virtual machine. In this example, we are using a D3_v3 size Azure VM. 
 
@@ -39,7 +34,7 @@ Create a remote desktop connection to the virtual machine.
 
 1. Click the **Connect** button on the virtual machine properties. A Remote Desktop Protocol file (.rdp file) is created and downloaded.
 
-2. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
+2. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) from the Mac App Store.
 
 3. Enter the user name and password you specified when creating the virtual machine, then click **Ok**.
 
@@ -96,7 +91,7 @@ Create a new virtual network adapter for the guest virtual machine and configure
 4. Create an IP address for the NAT Gateway.
     
 In order to configure the gateway, you need some information about your network:    
-  * IPAddress - The NAT Gateway IP specifies the IPv4 or IPv6 address to use as the default gateway address for the virtual network subnet. The generic form is a.b.c.1 (for example, "192.168.0.1"). While the final position doesn’t have to be .1, it usually is (based on prefix length). Typically you should use an RFC 1918 private network address space. 
+  * IPAddress - The NAT Gateway IP specifies the IPv4 or IPv6 address to use as the default gateway address for the virtual network subnet. The generic form is a.b.c.1 (for example, "192.168.0.1"). While the final position doesn't have to be .1, it usually is (based on prefix length). Typically you should use an RFC 1918 private network address space. 
   * PrefixLength - The subnet prefix length defines the local subnet size (subnet mask). The subnet prefix length will be an integer value between 0 and 32. 0 would map the entire internet, 32 would only allow one mapped IP. Common values range from 24 to 12 depending on how many IPs need to be attached to the NAT. A common PrefixLength is 24 -- this is a subnet mask of 255.255.255.0.
   * InterfaceIndex - **ifIndex** is the interface index of the virtual switch created in the previous step. 
 
@@ -120,7 +115,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 >[!IMPORTANT] 
 >
->The Azure guest agent is not supported on nested VMs, and may cause issues on both the host and nested VMs. Don’t install the Azure agent on nested VMs, and don't use an image for creating the nested VMs that already has the Azure guest agent installed.
+>The Azure guest agent is not supported on nested VMs, and may cause issues on both the host and nested VMs. Don't install the Azure agent on nested VMs, and don't use an image for creating the nested VMs that already has the Azure guest agent installed.
 
 1. Open Hyper-V Manager and create a new virtual machine. Configure the virtual machine to use the new Internal network you created.
     

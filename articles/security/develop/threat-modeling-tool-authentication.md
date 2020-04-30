@@ -305,7 +305,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | Client Credential Type - None |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **Steps** | The absence of authentication means everyone is able to access this service. A service that does not authenticate its clients allows access to all users. Configure the application to authenticate against client credentials. This can be done by setting the message clientCredentialType to Windows or Certificate. |
 
 ### Example
@@ -321,7 +321,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, .NET Framework 3 |
 | **Attributes**              | Client Credential Type - None |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **Steps** | The absence of authentication means everyone is able to access this service. A service that does not authenticate its clients allows all users to access its functionality. Configure the application to authenticate against client credentials. This can be done by setting the transport clientCredentialType to Windows or Certificate. |
 
 ### Example
@@ -453,7 +453,7 @@ Please note that to test the effectiveness of this configuration, login into you
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, C#, Node.JS,  |
 | **Attributes**              | N/A, Gateway choice - Azure IoT Hub |
-| **References**              | N/A, [Azure IoT hub with .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Getting Started with IoT hub and Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Securing IoT with SAS and certificates](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git repository](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
+| **References**              | N/A, [Azure IoT hub with .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Getting Started with IoT hub and Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Securing IoT with SAS and certificates](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git repository](https://github.com/Azure/azure-iot-sdks/) |
 | **Steps** | <ul><li>**Generic:** Authenticate the device using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Azure AD, Oauth.</li><li>**C#:** When creating a DeviceClient instance, by default, the Create method creates a DeviceClient instance that uses the AMQP protocol to communicate with IoT Hub. To use the HTTPS protocol, use the override of the Create method that enables you to specify the protocol. If you use the HTTPS protocol, you should also add the `Microsoft.AspNet.WebApi.Client` NuGet package to your project to include the `System.Net.Http.Formatting` namespace.</li></ul>|
 
 ### Example

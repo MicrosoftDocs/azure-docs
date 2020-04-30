@@ -1,15 +1,15 @@
 ---
-title: Copy data from OData sources by using Azure Data Factory | Microsoft Docs
+title: Copy data from OData sources by using Azure Data Factory 
 description: Learn how to copy data from OData sources to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 09/04/2019
@@ -17,6 +17,7 @@ ms.author: jingwang
 
 ---
 # Copy data from an OData source by using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-odata-connector.md)
@@ -26,12 +27,17 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 ## Supported capabilities
 
+This OData connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from an OData source to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Specifically, this OData connector supports:
 
 - OData version 3.0 and 4.0.
-- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Windows**, **AAD service principal**, and **managed identities for Azure resources**.
+- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Windows**, and **AAD service principal**.
 
 ## Prerequisites
 
@@ -51,7 +57,7 @@ The following properties are supported for an OData linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **OData**. |Yes |
 | url | The root URL of the OData service. |Yes |
-| authenticationType | The type of authentication used to connect to the OData source. Allowed values are **Anonymous**, **Basic**, **Windows**, **AadServicePrincipal**, and **ManagedServiceIdentity**. User based OAuth isn't supported. | Yes |
+| authenticationType | The type of authentication used to connect to the OData source. Allowed values are **Anonymous**, **Basic**, **Windows**, and **AadServicePrincipal**. User-based OAuth isn't supported. | Yes |
 | userName | Specify **userName** if you use Basic or Windows authentication. | No |
 | password | Specify **password** for the user account you specified for **userName**. Mark this field as a **SecureString** type to store it securely in Data Factory. You also can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | servicePrincipalId | Specify the Azure Active Directory application's client ID. | No |
@@ -297,6 +303,10 @@ When you copy data from OData, the following mappings are used between OData dat
 > OData complex data types (such as **Object**) aren't supported.
 
 
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 ## Next steps
 
-For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,20 +1,11 @@
 ---
-title: Quickstart - Create a Linux VM in the Azure portal | Microsoft Docs
-description: In this quickstart, you learn how to use the Azure portal to create a Linux virtual machine
-services: virtual-machines-linux
-documentationcenter: virtual-machines
+title: Quickstart - Create a Linux VM in the Azure portal 
+description: In this quickstart, you learn how to use the Azure portal to create a Linux virtual machine.
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 8/20/2019
+ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -47,15 +38,14 @@ Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
 
 ## Create virtual machine
 
-1. Choose **Create a resource** in the upper left corner of the Azure portal.
-
-1. In **Popular**, select **Ubuntu Server 18.04 LTS**.
-
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** under **Resource group**. Type *myResourceGroup* for the name of the resource group and then choose **OK**. 
+1. Type **virtual machines** in the search.
+1. Under **Services**, select **Virtual machines**.
+1. In the **Virtual machines** page, select **Add**. The **Create a virtual machine** page opens.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.*. 
 
 	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
-1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *East US* for your **Region**. Leave the other defaults.
+1. Under **Instance details**, type *myVM* for the **Virtual machine name**, choose *East US* for your **Region**, and choose *Ubuntu 18.04 LTS* for your **Image**. Leave the other defaults.
 
 	![Instance details section](./media/quick-create-portal/instance-details.png)
 
@@ -88,7 +78,7 @@ Create an SSH connection with the VM.
     ssh azureuser@10.111.12.123
     ```
 
-3. Using the same bash shell you used to create your SSH key pair (you can reopen the Cloud Shell by selecting `>_` again or going to https://shell.azure.com/bash), paste the SSH connection command into the shell to create an SSH session.
+3. Using the same bash shell you used to create your SSH key pair (you can reopen the Cloud Shell by selecting `>_` again or going to `https://shell.azure.com/bash`), paste the SSH connection command into the shell to create an SSH session.
 
 ## Install web server
 

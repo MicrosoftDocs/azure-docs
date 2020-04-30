@@ -1,12 +1,8 @@
 ---
-title: Samples - CIS Microsoft Azure Foundations Benchmark blueprint - Overview
-description: Overview of the CIS Microsoft Azure Foundations Benchmark blueprint sample.
-author: DCtheGeek
-ms.author: dacoulte
+title: CIS Microsoft Azure Foundations Benchmark blueprint sample overview
+description: Overview of the CIS Microsoft Azure Foundations Benchmark blueprint sample. This blueprint sample helps customers assess specific controls.
 ms.date: 08/09/2019
 ms.topic: sample
-ms.service: blueprints
-manager: carmonm
 ---
 # Overview of the CIS Microsoft Azure Foundations Benchmark blueprint sample
 
@@ -19,19 +15,20 @@ recommendations.
 ## Recommendation mapping
 
 The recommendation mapping section provides details on policies included within this blueprint and
-how these policies address various recommendations in the CIS Microsoft Azure Foundations Benchmark.
-When assigned to an architecture, resources are evaluated by Azure Policy for non-compliance with
-assigned policies. For more information, see [Azure Policy](../../../policy/overview.md).
+how these policies address various recommendations in the CIS Microsoft Azure Foundations Benchmark
+v1.1.0. When assigned to an architecture, resources are evaluated by Azure Policy for non-compliance
+with assigned policies. For more information, see [Azure Policy](../../../policy/overview.md).
 
 ## Next steps
 
 You've reviewed the overview and of the CIS Microsoft Azure Foundations Benchmark blueprint sample.
-Next, visit the following article to learn about the recommendation mapping:
+Next, visit the following articles to learn about the recommendation mapping:
 
 > [!div class="nextstepaction"]
 > [CIS Microsoft Azure Foundations Benchmark blueprint - Recommendation mapping](./control-mapping.md)
+> [CIS Microsoft Azure Foundations Benchmark blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

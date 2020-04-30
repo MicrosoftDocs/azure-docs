@@ -1,19 +1,12 @@
 ﻿---
-title: 'Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: 'IPsec/IKE policy for S2S VPN & VNet-to-VNet connections'
+titleSuffix: Azure VPN Gateway
 description: Configure IPsec/IKE policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using Azure Resource Manager and PowerShell.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
 
@@ -22,7 +15,7 @@ ms.author: yushwang
 
 This article walks you through the steps to configure IPsec/IKE policy for Site-to-Site VPN or VNet-to-VNet connections using the Resource Manager deployment model and PowerShell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="about"></a>About IPsec and IKE policy parameters for Azure VPN gateways
 IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. Refer to [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) to see how this can help ensuring cross-premises and VNet-to-VNet connectivity satisfy your compliance or security requirements.
@@ -105,7 +98,7 @@ The following table lists the corresponding Diffie-Hellman Groups supported by t
 | 2                         | DHGroup2                 | PFS2         | 1024-bit MODP  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048-bit MODP  |
 | 19                        | ECP256                   | ECP256       | 256-bit ECP    |
-| 20                        | ECP384                   | ECP284       | 384-bit ECP    |
+| 20                        | ECP384                   | ECP384       | 384-bit ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048-bit MODP  |
 
 Refer to [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114) for more details.
@@ -350,7 +343,7 @@ DhGroup             : DHGroup24
 PfsGroup            : PFS24
 ```
 
-If there is no IPsec/IKE policy configured, the command (PS> $connection6.policy) gets an empty return. It does not mean IPsec/IKE is not configured on the connection, but that there is no custom IPsec/IKE policy. The actual connection uses the default policy negotiated between your on-premises VPN device and the Azure VPN gateway.
+If there is no IPsec/IKE policy configured, the command (PS> $connection6.IpsecPolicies) gets an empty return. It does not mean IPsec/IKE is not configured on the connection, but that there is no custom IPsec/IKE policy. The actual connection uses the default policy negotiated between your on-premises VPN device and the Azure VPN gateway.
 
 #### 2. Add or update an IPsec/IKE policy for a connection
 

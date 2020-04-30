@@ -1,21 +1,12 @@
 ---
-title: Azure PowerShell Samples - Single-zone scale set | Microsoft Docs
-description: Azure PowerShell Samples
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
+title: Azure PowerShell Samples - Single-zone scale set
+description: This script creates a virtual machine scale set running Windows Server 2016 in a single Availability Zone.
+author: ju-shim
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-machine-scale-sets
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/05/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
 
 ---

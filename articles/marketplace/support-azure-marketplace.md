@@ -1,30 +1,30 @@
 ---
-title: Support for Azure Marketplace and AppSource | Azure
+title: Support for the commercial marketplace | Azure Marketplace
 description: Support information and links for Azure Marketplace and AppSource
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: qianw211
-manager: evansma
+author: dsindona
 ms.service: marketplace
-ms.topic: article
-ms.date: 7/25/2019
-ms.author: v-qiwe
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+ms.date: 04/16/2020
+ms.author: dsindona
 
 ---
 
-# Support for the Marketplace  
+# Support for the Marketplace
+
 Here is a list of support options for the Marketplace.  
 
 Additionally, you can get many of your questions answered in the [Marketplace channel of C+AI Community Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
 ## Onboarding
 
-Open a ticket with Microsoft [marketplace publisher support](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) for issues with onboarding and getting started, or with Microsoft [partner support](https://partner.microsoft.com/support) if you have questions on Microsoft Partner Network.
+Open a ticket with Microsoft [marketplace publisher support](https://partner.microsoft.com/support/v2/?stage=1) for issues with onboarding and getting started.
 
-## Partner Center or Cloud Partner Portal  
+## Partner Center   
 
 | Support channel | Description | Availability |  
 |:--- |:--- |:--- |  
-| For assistance, visit the Create an incident page located at [Marketplace Support](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Support for Partner Center or Cloud Partner Portal. | Support is provided between 6am - 6pm PST. |  
+| For assistance, visit the Create an incident page located at [Marketplace Support](https://partner.microsoft.com/support/v2/?stage=1)</li> </ul> | Support for Partner Center. | Support is provided 24x5. |  
 
 ## Technical  
 
@@ -43,6 +43,8 @@ Open a ticket with Microsoft [marketplace publisher support](https://support.mic
 
 
 ## Next steps
-Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
- 
+
+* Visit the [commercial marketplace publisher guide page](https://docs.microsoft.com/azure/marketplace/).
+* Learn more about [support for the commercial marketplace program in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+
 ---

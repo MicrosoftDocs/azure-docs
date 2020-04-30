@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Data Box documentation - Online transfer # < 60 chars
-summary: Use Azure Data Box Gateway and Azure Data Box Edge devices for over-the-network high performance data transfers. Choose Data Box Gateway to send data for cloud archival, disaster recovery, or to process data at cloud scale. Use Data Box Edge to filter, analyze, and transform your data before it moves to Azure.  # < 160 chars
+title: Azure Stack Edge and Azure Data Box Gateway documentation - Online transfer # < 60 chars
+summary: Use Azure Data Box Gateway and Azure Stack Edge devices for over-the-network high performance data transfers. Choose Data Box Gateway to send data for cloud archival, disaster recovery, or to process data at cloud scale. Use Azure Stack Edge to filter, analyze, and transform your data before it moves to Azure. Azure Data Box Edge was recently rebranded as Azure Stack Edge. # < 160 chars
 
 metadata:
-  title: Azure Data Box documentation - Online transfer # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Data Box Gateway, Data Box Edge Documentation for high performance over the network data transfer to Azure. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Stack Edge and Azure Data Box Gateway documentation - Online transfer # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Data Box Gateway, Azure Stack Edge (Data Box Edge rebranded) Documentation for high performance over the network data transfer to Azure. # Required; article description that is displayed in search results. < 160 chars.
   services: databox
   ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: edge
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: alkohli #Required; your GitHub user alias, with correct capitalization.
   ms.author: alkohli #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/15/2019 #Required; mm/dd/yyyy format.
+  ms.date: 11/04/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -21,14 +21,14 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Data Box family
+  - title: About Azure Stack Edge and Data Box Gateway
     linkLists:
       - linkListType: overview
         links:
           - text: What is Data Box Gateway?
             url: data-box-gateway-overview.md
-          - text: What is Data Box Edge?
-            url: data-box-edge-overview.md  
+          - text: What is Azure Stack Edge?
+            url: azure-stack-edge-overview.md  
       - linkListType: architecture
         links:
           - text: Choose Azure data transfer options
@@ -47,12 +47,12 @@ landingContent:
         links:
           - text: Data Box Gateway requirements
             url: data-box-gateway-system-requirements.md
-          - text: Data Box Edge requirements
-            url: data-box-edge-system-requirements.md
+          - text: Azure Stack Edge requirements
+            url: azure-stack-edge-system-requirements.md
           - text: Data Box Gateway limits
             url: data-box-gateway-limits.md
-          - text: Data Box Edge limits
-            url: data-box-edge-limits.md
+          - text: Azure Stack Edge limits
+            url: azure-stack-edge-limits.md
 
   # Card
   - title: "Deploy"
@@ -61,8 +61,8 @@ landingContent:
         links:
           - text: Data Box Gateway
             url: data-box-gateway-deploy-prep.md
-          - text: Data Box Edge
-            url: data-box-edge-deploy-prep.md
+          - text: Azure Stack Edge
+            url: azure-stack-edge-deploy-prep.md
 
   # Card
   - title: Develop
@@ -70,10 +70,10 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: C# Edge compute module
-            url: data-box-edge-create-iot-edge-module.md
+            url: azure-stack-edge-create-iot-edge-module.md
       - linkListType: download
         links:
-          - text: "Samples - C# for Data Box Edge"
+          - text: "Samples - C# for Azure Stack Edge"
             url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
 
   # Card
@@ -83,12 +83,12 @@ landingContent:
         links:
           - text: Data Box Gateway shares
             url: data-box-gateway-manage-shares.md
-          - text: Data Box Edge shares
-            url: data-box-edge-manage-shares.md
+          - text: Azure Stack Edge shares
+            url: azure-stack-edge-manage-shares.md
           - text: Edge compute
-            url: data-box-edge-manage-compute.md
+            url: azure-stack-edge-manage-compute.md
           - text: Edge compute network
-            url: data-box-edge-extend-compute-access-modules.md
+            url: azure-stack-edge-extend-compute-access-modules.md
 
   # Card
   - title: Troubleshoot
@@ -97,11 +97,11 @@ landingContent:
         links:
           - text: Data Box Gateway
             url: data-box-gateway-troubleshoot.md
-          - text: Data Box Edge
-            url: data-box-edge-troubleshoot.md
+          - text: Azure Stack Edge
+            url: azure-stack-edge-troubleshoot.md
           - text: Edge compute modules
-            url: data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules            
-          - text: Return or replace Data Box Edge
-            url: data-box-edge-return-device.md
+            url: azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules            
+          - text: Return or replace Azure Stack Edge
+            url: azure-stack-edge-return-device.md
           - text: Open Support ticket
-            url: data-box-edge-contact-microsoft-support.md
+            url: azure-stack-edge-contact-microsoft-support.md

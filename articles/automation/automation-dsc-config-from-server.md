@@ -46,13 +46,13 @@ to be used with SharePointDSC configuration scripts.
 
 Once the data files have been generated,
 you can use them with
-[DSC Configuration scripts](/powershell/dsc/overview/overview)
+[DSC Configuration scripts](/powershell/scripting/dsc/overview/overview)
 to generate MOF files
 and
 [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Then register your servers from either
-[on-premises](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws)
-or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)
+[on-premises](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)
+or [in Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms)
 to pull configurations.
 
 To try out ReverseDSC, visit the
@@ -63,6 +63,6 @@ to view the
 
 ## Next steps
 
-- [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview/overview)
-- [DSC Resources](/powershell/dsc/resources/resources)
-- [Configuring The Local Configuration Manager](/powershell/dsc/managing-nodes/metaconfig)
+- [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview)
+- [DSC Resources](/powershell/scripting/dsc/resources/resources)
+- [Configuring The Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)

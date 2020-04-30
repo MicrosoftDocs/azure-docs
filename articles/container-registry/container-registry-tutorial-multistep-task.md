@@ -1,14 +1,8 @@
 ---
-title: Tutorial - Multi-step container tasks - Azure Container Registry Tasks
+title: Tutorial - Multi-step ACR task
 description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger a multi-step workflow to build, run, and push container images in the cloud when you commit source code to a Git repository.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 05/09/2019
-ms.author: danlep
 ms.custom: "seodec18, mvc"
 # Customer intent: As a developer or devops engineer, I want to trigger
 # a multi-step container workflow automatically when I commit code to a Git repo.
@@ -72,7 +66,9 @@ This multi-step task does the following:
 
 First, populate these shell environment variables with values appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate these environment variables, you must manually replace each value wherever it appears in the example commands.
 
-```azurecli-interactive
+[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
@@ -93,7 +89,7 @@ This task specifies that any time code is committed to the *master* branch in th
 
 Output from a successful [az acr task create][az-acr-task-create] command is similar to the following:
 
-```console
+```output
 {
   "agentConfiguration": {
     "cpu": 2
@@ -158,7 +154,7 @@ az acr task run --registry $ACR_NAME --name example1
 
 By default, the `az acr task run` command streams the log output to your console when you execute the command. The output shows the progress of running each of the task steps. The output below is condensed to show key steps.
 
-```console
+```output
 Queued a run with ID: cf19
 Waiting for an agent...
 2019/05/03 03:03:31 Downloading source code...
@@ -220,13 +216,13 @@ Now that you've tested the task by manually running it, trigger it automatically
 
 First, ensure you're in the directory containing your local clone of the [repository][sample-repo]:
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
 Next, execute the following commands to create, commit, and push a new file to your fork of the repo on GitHub:
 
-```azurecli-interactive
+```console
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"
@@ -235,8 +231,7 @@ git push origin master
 
 You may be asked to provide your GitHub credentials when you execute the `git push` command. Provide your GitHub username, and enter the personal access token (PAT) that you created earlier for the password.
 
-```console
-$ git push origin master
+```azurecli-interactive
 Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
@@ -249,8 +244,7 @@ az acr task logs --registry $ACR_NAME
 
 Output is similar to the following, showing the currently executing (or last-executed) task:
 
-```console
-$ az acr task logs --registry $ACR_NAME
+```output
 Showing logs of the last created run.
 Run ID: cf1d
 
@@ -269,9 +263,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 
 Output from the command should appear similar to the following. The runs that ACR Tasks has executed are displayed, and "Git Commit" appears in the TRIGGER column for the most recent task:
 
-```console
-$ az acr task list-runs --registry $ACR_NAME --output table
-
+```output
 RUN ID    TASK       PLATFORM    STATUS     TRIGGER    STARTED               DURATION
 --------  ---------  ----------  ---------  ---------  --------------------  ----------
 cf1d      example1   linux       Succeeded  Commit     2019-05-03T04:16:44Z  00:00:37
@@ -363,7 +355,7 @@ By default, the `az acr task run` command streams the log output to your console
 
 Output:
 
-```console
+```output
 Queued a run with ID: cf1g
 Waiting for an agent...
 2019/05/03 04:33:39 Downloading source code...

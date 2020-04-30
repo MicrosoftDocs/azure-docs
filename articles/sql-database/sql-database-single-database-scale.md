@@ -1,5 +1,5 @@
 ---
-title: Scale single database resources - Azure SQL Database | Microsoft Docs
+title: Scale single database resources
 description: This article describes how to scale the compute and storage resources available for a single database in Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
@@ -10,44 +10,37 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/26/2019
+ms.date: 03/10/2020
 ---
 # Scale single database resources in Azure SQL Database
 
-This article describes how to scale the compute and storage resources available for a single database in the provisioned compute tier. Alternatively, the [serverless (preview) compute tier](sql-database-serverless.md) provides compute auto-scaling and bills per second for compute used.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
-
-## Change compute size (vCores or DTUs)
+This article describes how to scale the compute and storage resources available for an Azure SQL Database in the provisioned compute tier. Alternatively, the [serverless compute tier](sql-database-serverless.md) provides compute auto-scaling and bills per second for compute used.
 
 After initially picking the number of vCores or DTUs, you can scale a single database up or down dynamically based on actual experience using the [Azure portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 The following video shows dynamically changing the service tier and compute size to increase available DTUs for a single database.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
->
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
-### Impact of changing service tier or rescaling compute size
+## Impact
 
-Changing the service tier or compute size of a single database mainly involves the service performing the following steps:
+Changing the service tier or compute size of mainly involves the service performing the following steps:
 
 1. Create new compute instance for the database  
 
-    A new compute instance for the database is created with the requested service tier and compute size. For some combinations of service tier and compute size changes, a replica of the database must be created in the new compute instance which involves copying data and can strongly influence the overall latency. Regardless, the database remains online during this step, and connections continue to be directed to the database in the original compute instance.
+    A new compute instance is created with the requested service tier and compute size. For some combinations of service tier and compute size changes, a replica of the database must be created in the new compute instance which involves copying data and can strongly influence the overall latency. Regardless, the database remains online during this step, and connections continue to be directed to the database in the original compute instance.
 
 2. Switch routing of connections to new compute instance
 
     Existing connections to the database in the original compute instance are dropped. Any new connections are established to the database in the new compute instance. For some combinations of service tier and compute size changes, database files are detached and reattached during the switch.  Regardless, the switch can result in a brief service interruption when the database is unavailable generally for less than 30 seconds and often for only a few seconds. If there are long running transactions running when connections are dropped, the duration of this step may take longer in order to recover aborted transactions. [Accelerated Database Recovery](sql-database-accelerated-database-recovery.md) can reduce the impact from aborting long running transactions.
 
 > [!IMPORTANT]
-> No data is lost during any step in the workflow.
+> No data is lost during any step in the workflow. Make sure that you have implemented some [retry logic](sql-database-connectivity-issues.md) in the applications and components that are using Azure SQL Database while the service tier is changed.
 
-### Latency of changing service tier or rescaling compute size
+## Latency 
 
 The estimated latency to change the service tier or rescale the compute size of a single database or elastic pool is parameterized as follows:
 
@@ -60,7 +53,7 @@ The estimated latency to change the service tier or rescale the compute size of 
 > [!TIP]
 > To monitor in-progress operations, see: [Manage operations using the SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Manage operations using CLI](/cli/azure/sql/db/op), [Monitor operations using T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) and these two PowerShell commands: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) and [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
-### Cancelling service tier changes or compute rescaling operations
+## Cancelling changes
 
 A service tier change or compute rescaling operation can be canceled.
 
@@ -76,32 +69,30 @@ Next, click on the button labeled **Cancel this operation**.
 
 #### PowerShell
 
-From a PowerShell command prompt, set the `$ResourceGroupName`, `$ServerName`, and `$DatabaseName`, and then run the following command:
+From a PowerShell command prompt, set the `$resourceGroupName`, `$serverName`, and `$databaseName`, and then run the following command:
 
-```PowerShell
-$OperationName = (az sql db op list --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --query "[?state=='InProgress'].name" --out tsv)
-if(-not [string]::IsNullOrEmpty($OperationName))
-    {
-        (az sql db op cancel --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --name $OperationName)
-        "Operation " + $OperationName + " has been canceled"
-    }
-    else
-    {
-        "No service tier change or compute rescaling operation found"
-    }
+```azurecli
+$operationName = (az sql db op list --resource-group $resourceGroupName --server $serverName --database $databaseName --query "[?state=='InProgress'].name" --out tsv)
+if (-not [string]::IsNullOrEmpty($operationName)) {
+    (az sql db op cancel --resource-group $resourceGroupName --server $serverName --database $databaseName --name $operationName)
+        "Operation " + $operationName + " has been canceled"
+}
+else {
+    "No service tier change or compute rescaling operation found"
+}
 ```
 
-### Additional considerations when changing service tier or rescaling compute size
+## Additional considerations
 
 - If you are upgrading to a higher service tier or compute size, the database max size does not increase unless you explicitly specify a larger size (maxsize).
 - To downgrade a database, the database used space must be smaller than the maximum allowed size of the target service tier and compute size.
 - When downgrading from **Premium** to the **Standard** tier, an extra storage cost applies if both (1) the max size of the database is supported in the target compute size, and (2) the max size exceeds the included storage amount of the target compute size. For example, if a P1 database with a max size of 500 GB is downsized to S3, then an extra storage cost applies since S3 supports a max size of 1 TB and its included storage amount is only 250 GB. So, the extra storage amount is 500 GB – 250 GB = 250 GB. For pricing of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of space used is less than the included storage amount, then this extra cost can be avoided by reducing the database max size to the included amount.
-- When upgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, upgrade its secondary databases to the desired service tier and compute size before upgrading the primary database (general guidance for best performance). When upgrading to a different, upgrading the secondary database first is required.
-- When downgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, downgrade its primary databases to the desired service tier and compute size before downgrading the secondary database (general guidance for best performance). When downgrading to a different edition, downgrading the primary database first is required.
+- When upgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, upgrade its secondary databases to the desired service tier and compute size before upgrading the primary database (general guidance for best performance). When upgrading to a different edition, it is a requirement that the secondary database is upgraded first.
+- When downgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, downgrade its primary databases to the desired service tier and compute size before downgrading the secondary database (general guidance for best performance). When downgrading to a different edition, it is a requirement that the primary database is downgraded first.
 - The restore service offerings are different for the various service tiers. If you are downgrading to the **Basic** tier, there is a lower backup retention period. See [Azure SQL Database Backups](sql-database-automated-backups.md).
 - The new properties for the database are not applied until the changes are complete.
 
-### Billing during compute rescaling
+## Billing 
 
 You are billed for each hour a database exists using the highest service tier + compute size that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour.
 
@@ -109,11 +100,11 @@ You are billed for each hour a database exists using the highest service tier + 
 
 ### vCore-based purchasing model
 
-- Storage can be provisioned up to the max size limit using 1GB increments. The minimum configurable data storage is 5 GB
-- Storage for a single database can be provisioned by increasing or decreasing its max size using the
- [Azure portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
-- SQL Database automatically allocates 30% of additional storage for the log files and 32GB per vCore for TempDB, but not to exceed 384GB. TempDB is located on an attached SSD in all service tiers.
-- The price of storage for a single database is the sum of data storage and log storage amounts multiplied by the storage unit price of the service tier. The cost of TempDB is included in the vCore price. For details on the price of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+- Storage can be provisioned up to the data storage max size limit using 1 GB increments. The minimum configurable data storage is 1 GB. See resource limit documentation pages for [single databases](sql-database-vcore-resource-limits-single-databases.md) and [elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) for data storage max size limits in each service objective.
+- Data storage for a single database can be provisioned by increasing or decreasing its max size using the [Azure portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or [REST API](https://docs.microsoft.com/rest/api/sql/databases/update). If the max size value is specified in bytes, it must be a multiple of 1 GB (1073741824 bytes).
+- The amount of data that can be stored in the data files of a database is limited by the configured data storage max size. In addition to that storage, SQL Database automatically allocates 30% more storage to be used for the transaction log.
+- SQL Database automatically allocates 32 GB per vCore for the `tempdb` database. `tempdb` is located on the local SSD storage in all service tiers.
+- The price of storage for a single database or an elastic pool is the sum of data storage and transaction log storage amounts multiplied by the storage unit price of the service tier. The cost of `tempdb` is included in the price. For details on storage price, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
@@ -126,6 +117,10 @@ You are billed for each hour a database exists using the highest service tier + 
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
+
+### Geo-replicated database
+
+To change the database size of a replicated secondary database, change the size of the primary database. This change will then be replicated and implemented on the secondary database as well. 
 
 ## P11 and P15 constraints when max size greater than 1 TB
 

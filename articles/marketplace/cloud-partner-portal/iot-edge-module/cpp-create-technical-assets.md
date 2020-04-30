@@ -1,15 +1,18 @@
 ---
 title: Create Azure IoT Edge module technical assets | Azure Marketplace
 description: Create the technical assets for an IoT Edge module.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # Prepare your IoT Edge module technical assets
+
+>[!Important]
+>Starting April 13, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-iot-edge-module-asset) to manage your migrated offers.
 
 This article describes the requirements that your IoT Edge module technical assets need to meet before being published on Azure Marketplace.
 
@@ -33,7 +36,7 @@ Your IoT Edge module must support one of the following platform options.
 Support all Tier 1 platforms supported by IoT Edge (as recorded in [Azure IoT Edge support](https://docs.microsoft.com/azure/iot-edge/support)). We recommend this option because it provides a better customer experience. Modules meeting this criteria will be showcased. A module using this platform option must:
 
 - Provide a `latest` tag and a version tag (for example, `1.0.1`) that are manifest tags built with the GitHub [manifest-tool](https://github.com/estesp/manifest-tool).
-- Use the [the Marketplace tab](./cpp-marketplace-tab.md) to add a link to [Compatible IoT Edge certified devices](https://aka.ms/iot-edge-certified). This link resolves to `https://aka.ms/iot-edge-certified`, a website where customers can browse or search for certified devices. This website is also known as the [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) device catalog.
+- Use the [Marketplace tab](./cpp-marketplace-tab.md) to add a link to [IoT Edge Certified](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}), a website where customers can browse or search for certified devices. This website is also known as the [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) device catalog.
 
 #### A subset of Tier 1 platforms supported by IoT Edge
   

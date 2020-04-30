@@ -4,7 +4,7 @@ description: How to reset the password of a local Windows user account when the 
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 
 ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
@@ -97,6 +97,8 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
       * remove gpt.ini (if gpt.ini existed before, and you renamed it to gpt.ini.bak, rename the .bak file back to gpt.ini)
 
 ## Detailed steps for Classic VM
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 > [!NOTE]
 > The steps do not apply to Windows domain controllers. It only works on standalone server or a server that is a member of a domain.

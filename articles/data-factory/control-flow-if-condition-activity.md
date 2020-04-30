@@ -1,5 +1,5 @@
 ---
-title: If Condition activity in Azure Data Factory | Microsoft Docs
+title: If Condition activity in Azure Data Factory 
 description: The If Condition activity allows you to control the processing flow based on a condition.
 services: data-factory
 documentationcenter: ''
@@ -14,6 +14,8 @@ ms.date: 01/10/2018
 ---
 
 # If Condition activity in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The If Condition activity provides the same functionality that an if statement provides in programming languages. It evaluates a set of activities when the condition evaluates to `true` and another set of activities when the condition evaluates to `false`. 
 
 ## Syntax
@@ -177,7 +179,7 @@ Another example for expression is:
 
 ```json
 "expression":  {
-    "value":  "@pipeline().parameters.routeSelection == 1", 
+    "value":  "@equals(pipeline().parameters.routeSelection,1)", 
     "type": "Expression"
 }
 ```
@@ -191,10 +193,7 @@ Another example for expression is:
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }
