@@ -31,6 +31,8 @@
     href: concepts-model-repository.md
   - name: Model discovery
     href: concepts-model-discovery.md
+  - name: Model parser
+    href: concepts-model-parser.md
   - name: Limits and quotas
     href: concepts-limits-quotas.md
 - name: How-to guides
