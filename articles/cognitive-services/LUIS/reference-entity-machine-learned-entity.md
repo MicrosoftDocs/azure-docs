@@ -30,7 +30,7 @@ Example utterances include:
 
 
 
-#### [App schema Version before 7.x](#tab/V6)
+#### [V3 prediction endpoint response](#tab/V3)
 
 Because a machine-learned entity can have many subentities with required features, this is just an example only. It should be considered a guide for what your entity will return.
 
@@ -335,23 +335,9 @@ This is the JSON if `verbose=true` is set in the query string:
     }
 }
 ```
-#### [App schema Version 7.x](#tab/V7)
+#### [V2 prediction endpoint response](#tab/V2)
 
-The prediction setting `enableNestedChildren` is available on apps imported or created with 7.0 schema.
-
-Consider the query:
-
-`deliver 1 large cheese pizza on thin crust and 2 medium pepperoni pizzas on deep dish crust`
-
-This is the JSON if `verbose=false` and `enableNestedChildren=true` is set in the query string:
-
-```json
-```
-
-This is the JSON if `verbose=true` and `enableNestedChildren=true` is set in the query string:
-
-```json
-```
+This entity isn't available in the V2 prediction runtime.
 * * *
 
 ## Next steps
