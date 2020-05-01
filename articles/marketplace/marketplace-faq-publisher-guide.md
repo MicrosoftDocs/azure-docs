@@ -159,7 +159,7 @@ The commercial marketplace doesn’t have the ability to specify margin for rese
 
 The availability of your offers and plans are defined by the customer’s billing location. So, a reseller will first select the customer they’re selling to and then select your offer. If the customer is in an unsupported location, your offer won’t be available to them.
 
-## Billing Capabilities
+## Billing capabilities
 
 ### What’s the difference between transaction and monetization?
 
@@ -197,7 +197,7 @@ If the solution is used directly in a customer’s Azure subscription, they’re
 
 ### Can I sell professional services through the commercial marketplace?
 
-Software that’s built-on or built-for our cloud services can be transacted through the commercial marketplace. Professional services directly related to our cloud services will be transactable in the future.
+Software that’s built-on or built-for our cloud services can be transacted through the commercial marketplace. Professional services are not yet transactable.
 
 ## Purchasing
 
@@ -260,7 +260,7 @@ For Microsoft AppSource, the customer must have a credit card with a billing add
 
 For Azure Marketplace, the customer must have an active Azure subscription and a user account with Owner or Contributor permissions on that subscription. The customer’s Azure admin must make sure the Azure Policy doesn’t conflict with the offer being used, and to ensure that Cost Management can’t be set up to disable Azure Marketplace.
 
-## Collection and Payouts
+## Collection and payouts
 
 ### When are customers billed for their purchases in the commercial marketplace?
 
