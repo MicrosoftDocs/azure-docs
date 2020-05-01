@@ -22,7 +22,9 @@ All reporting and insights for the transact publishing option are available in t
 
 ![Illustrates the Payout icon in the upper right corner of the Partner Center portal.](./media/payout-overview.png)
 
-## Roles and permissions to access the payout report
+## Roles and permissions
+
+These are roles and permissions to access the payout report:
 
 | Reports/Pages | Account owner | Manager | Developer | Business contributor | Finance contributor | Marketer  |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -36,9 +38,11 @@ All reporting and insights for the transact publishing option are available in t
 | Payout summary | Can view | No access | No access | No access | Can view | No access  |
 | | | | | | | |
 
-## Payout report: Differences in Partner Center
+## Payout report differences
 
-| Cloud Partner Portal (old) | Partner Center (new) |
+These are the differences in the payout report between Cloud Partner Portal (old) and Partner Center (new):
+
+| Cloud Partner Portal | Partner Center |
 | --- | --- |
 | **Link**: https://cloudpartner.azure.com/ | **Link**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory and https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
 | **Navigation**: Payout reporting provided in Insights Payout | **Navigation**: Payout reporting provided in Partner Center – Payout Icon |
