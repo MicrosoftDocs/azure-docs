@@ -605,9 +605,29 @@ This container image has the following tags available:
 | `1.1.007360001-amd64-preview` |       |
 | `1.1.006770001-amd64-preview` |       |
 
-## Sentiment Analysis
+## Sentiment Analysis v3
 
-The [Sentiment Analysis][ta-se] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `sentiment`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/sentiment`.
+The [Sentiment Analysis][ta-se] v3 container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `sentiment`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/sentiment`.
+
+This container image has the following tags available:
+
+| Image Tags | Notes                                         |
+|------------|:----------------------------------------------|
+| `latest`   |                                               |
+| `3.0-en`   | Sentiment Analysis v3 (English)               |
+| `3.0-es`   | Sentiment Analysis v3 (Spanish)               |
+| `3.0-fr`   | Sentiment Analysis v3 (French)                |
+| `3.0-it`   | Sentiment Analysis v3 (Italian)               |
+| `3.0-de`   | Sentiment Analysis v3 (German)                |
+| `3.0-zh`   | Sentiment Analysis v3 (Chinese - simplified)  |
+| `3.0-zht`  | Sentiment Analysis v3 (Chinese - traditional) |
+| `3.0-ja`   | Sentiment Analysis v3 (Japanese)              |
+| `3.0-pt`   | Sentiment Analysis v3 (Portuguese)            |
+| `3.0-nl`   | Sentiment Analysis v3 (Dutch)                 |
+
+## Sentiment Analysis v2
+
+The [Sentiment Analysis][ta-se] v2 container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `sentiment`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/sentiment`.
 
 This container image has the following tags available:
 

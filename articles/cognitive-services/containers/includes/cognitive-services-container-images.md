@@ -18,10 +18,32 @@ The tables below are a listing of the available container images offered by Azur
 
 The Microsoft Container Registry (MCR) syndicates all of the generally available containers for Cognitive Services. The containers are also available directly from the [Docker hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
-| Service | Container | Container Registry / Repository / Image Name |
-|--|--|--|
-| [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
-| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Sentiment Analysis v3 | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+#### [LUIS](#tab/luis)
+
+| LUIS Container | Container Registry / Repository / Image Name |
+|--|--|
+| LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
+
+See [How to run and install LUIS containers](../../LUIS/luis-container-howto.md) for more information.
+
+#### [Text Analytics](#tab/text-analytics)
+
+| Text Analytics Container | Container Registry / Repository / Image Name |
+|--|--|
+| Sentiment Analysis v3 (English) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-en` |
+| Sentiment Analysis v3 (Spanish) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-es` |
+| Sentiment Analysis v3 (French) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-fr` |
+| Sentiment Analysis v3 (Italian) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-it` |
+| Sentiment Analysis v3 (German) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-de` |
+| Sentiment Analysis v3 (Chinese - simplified) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zh` |
+| Sentiment Analysis v3 (Chinese - traditional) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zht` |
+| Sentiment Analysis v3 (Japanese) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-ja` |
+| Sentiment Analysis v3 (Portuguese) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-pt` |
+| Sentiment Analysis v3 (Dutch) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-nl` |
+
+See [How to run and install Text Analytics containers](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) for more information.
+
+---
 
 #### Public "Ungated" preview (container registry: `mcr.microsoft.com`)
 
