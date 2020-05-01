@@ -29,5 +29,8 @@ You can find the authentication endpoints for your application in the [Azure por
 
 -   Use the endpoint specific to the authentication protocol you are using, in conjunction with the application ID to craft the authentication request specific to your application.
 
+[!NOTE]
+> National clouds have specific App registration and Azure AD authentication endpoints. Learn more [here](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)
+
 ## Next steps
 [Azure Active Directory developer's guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
