@@ -5,7 +5,7 @@ author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 05/01/2020
 ms.author: normesta
 ms.reviewer: fryu
 ---
