@@ -35,7 +35,11 @@ Azure Communication Services emits the following event types:
 | Event type | Description |
 | ---------- | ----------- |
 | Microsoft.CommunicationServices.SMSReceived | Published when an SMS is received by a phone number associated with the Communcation Service. |
-| Microsoft.CommunicationServices.SMSDeliveryReport | Published when a delivery report is received for an SMS seny by the Communication Service. |
+| Microsoft.CommunicationServices.SMSDeliveryReport | Published when a delivery report is received for an SMS sent by the Communication Service. |
+| Microsoft.CommunicationServices.ChatReceived | Published when a chat messaged is received by a Communication Services user. |
+| Microsoft.CommunicationServices.IncomingCall | Published when a call is received by a Communication Services user. |
+| Microsoft.CommunicationServices.CallEnded | Published when a call is terminated by a Communication Services user. |
+
 
 TODO Add more
 
@@ -45,23 +49,15 @@ Use either the Azure portal or Azure CLI to configure which events to publish fr
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint. Communication Services events contain all the information you need to respond to events in your service. You can identify an Communication Services event by checking that the eventType property starts with Microsoft.CommunicationServices. For more information about how to use Event Grid event properties, see the Event Grid event schema.
 
-The subject field of all Communication Services events are designed to allow simple [Event Grid Filtering](https://docs.microsoft.com/en-us/azure/event-grid/event-filtering).
+### Event Subjects
+
+The subject field of all Communication Services events identify the user, phone number or entity that is targeted by the event. The events are designed to allow simple [Event Grid Filtering](https://docs.microsoft.com/en-us/azure/event-grid/event-filtering).
 
 |Subject|Communication Service Entity|
 |---------|---------|
 |`phonenumber/555-555-5555`|PSTN phone number|
 |`user/831e1650-001e-001b-66ab-eeb76e069631`|ACS User|
 |`space/831e1650-001e-001b-66ab-eeb76e069631`|ACS Space|
-
-The following example shows a filter for chat messages sent to all any user owned by an ACS resrouce:
-
-```json
-"filter": {
-  "includedEventTypes": [
-    "Microsoft.Resources.ChatReceived",
-  ],
-}
-```
 
 The following example shows a filter for all SMS messages and delivery reports sent to all 604 area code phone numbers owned by an ACS resource:
 
@@ -98,7 +94,13 @@ The following example shows the schema of an SMS arrived event:
 }]
 ```
 
-The following example shows the schema of an Chat received event:
+The following example shows the schema of an SMS deliver report event:
+
+```json
+TODO
+```
+
+The following example shows the schema of a chat received event:
 
 ```json
 [{
@@ -108,15 +110,31 @@ The following example shows the schema of an Chat received event:
   "eventTime": "2017-06-26T18:41:00.9584103Z",
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
   "data": {
-    "messageId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "sender": "555-555-1234",
-    "recepient": "555-555-5555",
-    "content": "This is a message",
-    "receivedTimeStamp": "2020-4-20T17:02:19.6069787Z"
+    "id": "1f4e632b-ecbd-4bbd-afbb-25b5b9a06643",
+    "messageType":"text?",
+    "clientMessageId": "a6e761ea-9e50-4704-98dd-54d178e0b853"
+    "priority": "Normal",
+    "content": "This is a message.",
+    "senderDisplayName": "Bob",
+    "composedAt": 1588308562 ,
+    "arrivedAt": 1588308562 ,
+    "composedBy": "b6d7de05-aac0-4138-9c43-4b3e87ca7646",
   },
   "dataVersion": "",
   "metadataVersion": "1"
 }]
+```
+
+The following example shows the schema of an incoming call event:
+
+```json
+TODO
+```
+
+The following example shows the schema of a call cancelled event:
+
+```json
+TODO
 ```
 
 ## Tutorials and how-tos
@@ -128,5 +146,5 @@ The following example shows the schema of an Chat received event:
 ## Next steps
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](https://docs.microsoft.com/en-us/azure/event-grid/overview)
-* To learn about how Communication Services and Event Grid work together, see [React to IoT Hub events by using Event Grid to trigger actions](todo.md).
+* To learn about how Communication Services and Event Grid work together, see [React to Communication Services events by using Event Grid to trigger actions](todo.md).
 
