@@ -79,8 +79,6 @@
       href: container-instances-start-command.md
     - name: Execute a command (exec)
       href: container-instances-exec.md
-    - name: Run Jenkins build job
-      href: container-instances-jenkins.md
     - name: Use a managed identity (preview)
       href: container-instances-managed-identity.md
     - name: Use GPU resources (preview)
