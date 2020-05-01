@@ -34,6 +34,8 @@ You can also view example call bodies in the Swagger's accompanying [examples fo
 
 ## Azure Digital Twins C# SDK
 
+The Azure Digital Twins C# SDK is part of the [Azure SDK for .NET](http://github.com/azure/azure-sdk-for-net).
+
 ## Other languages: Generate an Azure Digital Twins SDK 
 
 To generate an SDK, you will need:
