@@ -12,11 +12,11 @@ ms.date: 03/24/2020
 > [!Note]
 > Existing AKS clusters with AAD (Azure Active Directory) integration are not affected by the new AKS managed AAD experience.
 
-Azure AD integration with AKS managed AAD is designed to simplify the Azure AD integration experience, where users were required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
+Azure AD integration with AKS managed AAD is designed to simplify the Azure AD integration experience, where users were previously required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
 
 ## Limitations
 
-* You can't currently upgrade an existing AKS AAD Integration cluster to the new AKS managed AAD experience.
+* You can't currently upgrade an existing AKS AAD Integrated cluster to the new AKS managed AAD experience.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
