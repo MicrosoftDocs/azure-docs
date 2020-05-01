@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: rolyon
   ms.author: rolyon
-  ms.date: 08/26/2019
+  ms.date: 04/30/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -72,6 +72,10 @@ landingContent:
         links: 
           - text: Custom roles
             url: custom-roles.md
+      - linkListType: how-to-guide
+        links: 
+          - text: Create a custom role - Portal
+            url: custom-roles-portal.md
       - linkListType: tutorial
         links: 
           - text: Create a custom role - PowerShell
