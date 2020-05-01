@@ -75,7 +75,7 @@ You can modify the following settings to tune the spout.
   A good calculation to do is to estimate the size of each of your tuples. Then figure out how much memory one spout thread has. The total memory allocated to a thread, divided by this value, should give you the upper bound for the max spout pending parameter.
 
 ## Tune the bolt
-When you're writing to Data Lake Storage Gen1, set a size sync policy (buffer on the client side) to 4 MB. A flushing or hsync() is then performed only when the buffer size is the at this value. The Data Lake Storage Gen1 driver on the worker VM automatically does this buffering, unless you explicitly perform an hsync().
+When you're writing to Data Lake Storage Gen1, set a size sync policy (buffer on the client side) to 4 MB. A flushing or hsync() is then performed only when the buffer size is at this value. The Data Lake Storage Gen1 driver on the worker VM automatically does this buffering, unless you explicitly perform an hsync().
 
 The default Data Lake Storage Gen1 Storm bolt has a size sync policy parameter (fileBufferSize) that can be used to tune this parameter.
 
