@@ -91,7 +91,7 @@ Now matter how many entity drawings are in the exterior layer, the [resulting fa
 
 If the layer contains multiple overlapping PolyLines, then the PolyLines will be dissolved into a single Level feature. Alternatively, if the layer contains multiple non_overlapping PolyLines, the resulting Level feature will have a multi-polygonal representation.
 
-An example of the Exterior layer can be seen as the OUTLINE layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+An example of the Exterior layer can be seen as the OUTLINE layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### Unit layer
 
@@ -104,7 +104,7 @@ The DWG file for each level should define a layer containing units.  Units are n
 
  Name a unit by creating a text object in the _unitLabel_ layer, then place the object inside the bounds of the unit. For more information, see the [UnitLabel layer](#unitlabel-layer).
 
-An example of the Units layer can be seen as the UNITS layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+An example of the Units layer can be seen as the UNITS layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### Wall layer
 
@@ -113,7 +113,7 @@ The DWG file for each level may contain a layer that defines the physical extent
 * Walls must be drawn as Polygon, PolyLine (closed), Circle.
 * The wall layer(s) should only contain geometry that's interpreted as building structure.
 
-An example of the Walls layer can be seen as the WALLS layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+An example of the Walls layer can be seen as the WALLS layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### Door layer
 
@@ -121,7 +121,7 @@ You may include a DWG layer containing doors. Each door must overlap the edge of
 
 Doors from the layer won't be rendered on the resulting map as they appear in the CAD software. They'll be drawn according to the Azure Maps styling rules for the opening features.
 
-An example of the Doors layer can be seen as the DOORS layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+An example of the Doors layer can be seen as the DOORS layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### Zone layer
 
@@ -133,7 +133,7 @@ The DWG file for each level may contain a zone layer that defines the physical e
 
 Name a zone by creating a text object in the _zoneLabel_ layer, and placing the text object inside the bounds of the zone. For more details, see [ZoneLabel layer](#zonelabel-layer).
 
-An example of the Zones layer can be seen as the ZONES layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+An example of the Zones layer can be seen as the ZONES layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### UnitLabel layer
 
@@ -143,7 +143,7 @@ The DWG file for each level may contain a unit label layer. The unit label layer
 * Unit labels must fall inside the bounds of their unit.
 * Units must not contain multiple text entities in the unit labels layer.
 
-An example of the UnitLabel layer can be seen as the UNITLABELS layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+An example of the UnitLabel layer can be seen as the UNITLABELS layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### ZoneLabel layer
 
@@ -153,7 +153,7 @@ The DWG file for each level may contain a zone label layer. This layer adds a na
 * Zones labels must fall inside the bounds of their zone.
 * Zones must not contain multiple text entities in the zone labels layer.
 
-An example of the Zonelabel layer can be seen as the ZONELABELS layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+An example of the Zonelabel layer can be seen as the ZONELABELS layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ## Manifest file requirements
 
@@ -256,8 +256,8 @@ The `zoneProperties` object contains a JSON array of zone properties.
 |zoneNameAlt|    string/int|    false    |Alternate Name of the zone.  |
 |zoneNameSubtitle|    string/int |    false    |Subtitle of the zone. |
 
-### Sample Conversion Drawing package manifest
-Below is a sample manifest file for the sample Conversion Drawing package. To download the entire package, click [sample Conversion Drawing package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
+### Sample Drawing package manifest
+Below is a sample manifest file for the sample Drawing package. To download the entire package, click [sample Drawing package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
 
 #### Manifest File
 ```JSON
