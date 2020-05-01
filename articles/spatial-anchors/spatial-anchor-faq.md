@@ -45,6 +45,10 @@ For more information, see [Azure Spatial Anchors overview](overview.md).
 
 **A:** Anchors are isolated by Azure account. Only apps to which you grant access to your account will be able to access anchors within the account.
 
+**Q: How does Azure Spatial Anchors store data?**
+
+**A:** All data is stored encrypted in our system, with a Microsoft managed data encryption key.
+
 **Q: What information about an environment is transmitted and stored on the service when using Azure Spatial Anchors? Are pictures of the environment transmitted and stored?**
 
 **A**: When creating or locating anchors, pictures of the environment are processed on the device into a derived format. This derived format is transmitted to and stored on the service.
@@ -55,7 +59,6 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 
 ![An environment and its derived sparse point cloud](./media/sparse-point-cloud.png)
 *Figure 1: An environment and its derived sparse point cloud*
-
 
 **Q: Is there a way I can send diagnostics information to Microsoft?**
 

@@ -15,9 +15,13 @@ ms.service: azure-spatial-anchors
 
 This article provides guidelines and considerations to help you effectively create and locate anchors by using Spatial Anchors.
 
+## Anchor improvement over time
+
+With Azure Spatial Anchors, each time you locate anchors, we attempt to improve the quality of future locate operations. We do this by using the environment data collected to augment the visual information on the anchors we are looking for. This process runs under the hood and is an offline optimization run by Azure Spatial Anchors to optimize for your environment. The additional data gathered during each operation builds a stronger understanding of the environment. This improves quality and allows you to better locate anchors through environment change, time passing, and for users looking at anchors from different angles and perspectives.
+
 ## Good anchors
 
-Spatial Anchors helps you create good anchors. It's important to invest time in either educating or guiding users in your user experience (UX) to create good anchors. By investing in creating good anchors up front, you help end users to reliably find anchors:
+While Azure Spatial Anchors does attempt to improve the quality of anchors over time, it is also important to invest time in either educating or guiding users in your user experience (UX) to create good anchors. By investing in creating good anchors up front, you help end users to reliably find anchors:
 
 - Across different devices.
 - At various times.

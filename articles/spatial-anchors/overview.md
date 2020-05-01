@@ -36,7 +36,7 @@ sections provide information about getting started with building apps using Azur
 
 ## Next steps
 
-Create your first app with Spatial Anchors.
+Create your first app with Azure Spatial Anchors.
 
 > [!div class="nextstepaction"]
 > [Unity (HoloLens)](quickstarts/get-started-unity-hololens.md)
