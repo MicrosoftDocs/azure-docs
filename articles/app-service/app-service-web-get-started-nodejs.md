@@ -6,9 +6,6 @@ ms.topic: quickstart
 ms.date: 03/04/2020
 ms.custom: mvc, devcenter, seodec18
 
-experimental: false
-experiment_id: a231f2b4-2625-4d
-
 # NOTE: this article is nearly identical to app-service/containers/quickstart-nodejs.md.
 # The difference is that this article uses the advanced web app step to deploy to Windows, whereas the other
 # uses defaults to deploy to Linux.

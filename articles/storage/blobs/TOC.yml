@@ -175,8 +175,10 @@
         href: ../common/storage-plan-manage-costs.md
     - name: Concurrency
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Search and understand blob data
+    - name: Find, search, and understand blob data
       items:
+      - name: Use Blob Index to manage and find blob data
+        href: storage-manage-find-blobs.md
       - name: Use AI to understand blob data
         href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Full text search for blob data
@@ -398,6 +400,8 @@
       href: storage-custom-domain-name.md
     - name: Route events to a custom endpoint
       href: storage-blob-event-quickstart.md
+    - name: Utilize Blob Index
+      href: storage-blob-index-how-to.md
     - name: Process change feed logs
       href: storage-blob-change-feed-how-to.md
     - name: Transfer data
@@ -824,6 +828,3 @@
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-
-
-
