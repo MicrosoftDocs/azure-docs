@@ -30,8 +30,6 @@ The maximum empirical throughput that has been observed in testing is 4,500 MiB/
 
 If you are considering assigning volume quota amounts beyond 70.31 TiB, additional quota may be assigned to a volume for storing additional data. However, the added quota will not result in a further increase in actual throughput.  
 
-See [Performance benchmarks for Azure NetApp Files](azure-netapp-files-performance-benchmarks.md) for additional information.
-
 ## Overprovisioning the volume quota
 
 If a workload’s performance is throughput-limit bound, it is possible to overprovision the volume quota to set a higher throughput level and achieve higher performance.  
