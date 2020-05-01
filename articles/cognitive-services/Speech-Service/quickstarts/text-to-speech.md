@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-set-sixteen
 ---
 
 # Quickstart: Synthesize speech to a speaker
@@ -38,6 +38,13 @@ zone_pivot_groups: programming-languages-set-two
 [!INCLUDE [Header](../includes/quickstarts/tts/python/header.md)]
 [!INCLUDE [python](../includes/quickstarts/tts/python/python.md)]
 ::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Header](../includes/quickstarts/tts/header.md)]
+[!INCLUDE [Header](../includes/quickstarts/tts/javascript/header.md)]
+[!INCLUDE [javascript](../includes/quickstarts/tts/javascript/javascript.md)]
+::: zone-end
+
 
 ::: zone pivot="programming-language-more"
 [!INCLUDE [Header](../includes/quickstarts/tts/more/header.md)]
