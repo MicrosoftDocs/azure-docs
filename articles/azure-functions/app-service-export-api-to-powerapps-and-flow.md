@@ -24,7 +24,7 @@ Before exporting an API, you must describe the API using an OpenAPI definition (
 
 To export the API definition, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your Azure Function or another App Service application.
+1. In the [Azure portal](https://portal.azure.com), navigate to your function app or an App Service application.
 
     From the left menu, under **API**, select **API definition**.
 
