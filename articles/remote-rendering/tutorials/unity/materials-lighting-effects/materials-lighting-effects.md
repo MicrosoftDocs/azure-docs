@@ -135,8 +135,10 @@ public class EntityOverrideController : BaseEntityOverrideController
 
 To apply the above states to entities, we can modify the **RemoteEntityHelper** created previously.
 
-1. Modify the **RemoteEntityHelper** class to implement the **BaseRemoteEntityHelper** abstract class. This will allow the use of a view controller provided in the Tutorial Assets. It should look like this when modified:\
+1. Modify the **RemoteEntityHelper** class to implement the **BaseRemoteEntityHelper** abstract class. This will allow the use of a view controller provided in the Tutorial Assets. It should look like this when modified:
+
 `public class RemoteEntityHelper : BaseRemoteEntityHelper`
+
 2. Override the required abstract methods using the following code:
 
 ```csharp
@@ -181,18 +183,140 @@ public override void ToggleDisableCollision(Entity entity)
 }
 ```
 
-This code ensures an **EntityOverrideController** component is added to the target Entity, then calls one of the toggle methods. On the **TestModel** GameObject, calling these helper methods can be done as before, by adding the **RemoteEntityHelper** as a callback to the `OnRemoteEntityClicked` event on the **RemoteRayCastPointerHandler** component.\
+This code ensures an **EntityOverrideController** component is added to the target Entity, then calls one of the toggle methods. On the **TestModel** GameObject, calling these helper methods can be done as before, by adding the **RemoteEntityHelper** as a callback to the `OnRemoteEntityClicked` event on the **RemoteRayCastPointerHandler** component.
+
 ![Toggle Hidden](./media/toggle-hidden-pointer-event.png)
 
- Additionally, the **ModelViewController** prefab is configured with a control panel for switching between the overrides. The **EntitySelectionViewController** script included in the Tutorial Assets swaps the callback for the **RemoteRayCastPointerHandler** for each button pressed. To the **EntitySelectionViewController** script, you will need to ensure an instance of your implementation of **BaseRemoteEntityHelper**, which we've created above to be named **RemoteEntityHelper**, is attached to the same GameObject as the **RemoteRenderedModel**, in this case the **TestModel** GameObject we've been working with. At this point, your **TestModel** should look something like this:
- ![Test Model with additional scripts](./media/test-model-updated.png)
+Additionally, the **ModelViewController** prefab is configured with a control panel for switching between the overrides. The **EntitySelectionViewController** script included in the Tutorial Assets swaps the callback for the **RemoteRayCastPointerHandler** for each button pressed. To the **EntitySelectionViewController** script, you will need to ensure an instance of your implementation of **BaseRemoteEntityHelper**, which we've created above to be named **RemoteEntityHelper**, is attached to the same GameObject as the **RemoteRenderedModel**, in this case the **TestModel** GameObject we've been working with.
 
-An example of stacking overrides on a single entity, with `Select` and `Tint`:\
- ![Test Model tint select](./media/select-tint-test-model.png)
+At this point, your **TestModel** GameObject's components should look something like this:
+
+![Test Model with additional scripts](./media/test-model-updated.png)
+
+An example of stacking overrides on a single entity, with `Select` and `Tint`, providing an outline and coloring:
+
+![Test Model tint select](./media/select-tint-test-model.png)
 
 ## Cut planes
 
+[Cut planes](../../../overview/features/cut-planes.md) are a feature that can be added to any remote entity. Most commonly, you create a new remote entity, that's not associated with any mesh data, to hold the cut plane component. The position and orientation of the cut plane are determined by the position and orientation of the remote entity it's attached to. We'll create a script that automatically creates a remote entity, adds a cut plane component and syncs the transform of a local object with the cut plane entity. Then, we can use the **CutPlaneViewController** to wrap the cut plane in an interface that'll allow us to manipulate it.
+
+1. Create a new script named **RemoteCutPlane** and replace it's code with the code below:
+
+```csharp
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
+using Microsoft.Azure.RemoteRendering;
+using Microsoft.Azure.RemoteRendering.Unity;
+using UnityEngine;
+
+public class RemoteCutPlane : BaseRemoteCutPlane
+{
+    public Color SliceColor = new Color(0.5f,0f,0f,.5f);
+    public float FadeLengthCM = 0.05f;
+    public Axis SliceNormal = Axis.Z;
+
+    public bool AutomaticlyCreate = true;
+
+    private CutPlaneComponent CutPlane;
+
+    public void Start()
+    {
+        RemoteRenderingCoordinator.OnCoordinatorStateChange += RemoteRenderingCoordinator_OnCoordinatorStateChange;
+    }
+
+    private void RemoteRenderingCoordinator_OnCoordinatorStateChange(RemoteRenderingState state)
+    {
+        switch (state)
+        {
+            case RemoteRenderingState.RuntimeConnected:
+                if(AutomaticlyCreate)
+                    CreateCutPlane();
+                break;
+            default:
+                DestroyCutPlane();
+                break;
+        }
+    }
+
+    public override void CreateCutPlane()
+    {
+        //Implement me
+    }
+
+    public override void DestroyCutPlane()
+    {
+        //Implement me
+    }
+}
+```
+
+This code extends the **BaseRemoteCutPlane** class included in the Tutorial Assets. Similar to the remotely rendered model, this script attaches and listens for `RemoteRenderingState` changes from the remote coordinator. When the coordinator reaches the `RuntimeConnected` state, it will try to automatically connect if it's supposed to. There's also a `CutPlaneComponent` variable we'll be tracking, this is the Azure Remote Rendering component that syncs with the cut plane in the remote session. Let's take a look at what we need to do to create the cut plane.
+
+2. Replace the `CreateCutPlane()` method with the completed version below:
+
+```csharp
+    public override void CreateCutPlane()
+    {
+        if (CutPlane != null)
+            return; //Nothing to do!
+
+        //Create a root object for the cut plane
+        var cutEntity = RemoteRenderingCoordinator.CurrentSession.Actions.CreateEntity();
+
+        //Bind the remote entity to this game object
+        cutEntity.BindToUnityGameObject(this.gameObject);
+
+        //Sync the transform of this object so we can move the cut plane
+        var syncComponent = this.gameObject.GetComponent<RemoteEntitySyncObject>();
+        syncComponent.SyncEveryFrame = true;
+
+        //Add a cut plane to the entity
+        CutPlane = RemoteRenderingCoordinator.CurrentSession.Actions.CreateComponent(ObjectType.CutPlaneComponent, cutEntity) as CutPlaneComponent;
+
+        //Configure the cut plane
+        CutPlane.Normal = SliceNormal;
+        CutPlane.FadeColor = SliceColor.toRemote();
+        CutPlane.FadeLength = FadeLengthCM;
+    }
+```
+
+Here we're creating a remote entity and binding it to a local GameObject. We ensure that the remote entity will have its transform synced to the local transform by setting `SyncEveryFrame` to `true`. Then we use the `CreateComponent` call to add a `CutPlaneComponent` to the remote object. Finally, we configure the cut plane with the settings defined at the top of the MonoBehaviour. Let's see what it takes to clean up a cut plane by implementing the `DestroyCutPlane()` method.
+
+3. Replace the `DestroyCutPlane()` method with the completed version below:
+
+```csharp
+    public override void DestroyCutPlane()
+    {
+        if (CutPlane == null)
+            return; //Nothing to do!
+
+        CutPlane.Destroy();
+        CutPlane = null;
+    }
+```
+
+Since the remote object is fairly simple, and we're only cleaning up the remote end (and keeping our local object around), it's straight forward to just call `Destroy` on the remote object and clear our reference to it.
+
+The Tutorial Assets include a prefab and view controller for classes that implement **BaseRemoteCutPlane**, like the one we've just created. It's not required to add the prefab or view controller, but they make for a better experience because they enable the manipulation of the cut plane. Let's test the cut plane and its view controller.
+
+1. Create a new Empty GameObject in the scene and name it **CutPlane**.
+1. Add the **RemoteCutPlane** component to the **CutPlane** GameObject.
+
+![Cut Plane component configuration](./media/cut-plane-config.png)
+
+3. Drag the **CutPlaneViewController** prefab from the Tutorial Assets and drop it on top of the **CutPlane** GameObject, making the view controller a child.
+
+![Cut Plane child](./media/cut-plane-child.png)
+
+4. Press Play in the Unity Editor to load and connect to a remote session. Ensure your **TestModel** is still configured to load into the remote session.
+5. Grab and drag the CutPlane to move it around the scene, watching it slice into the **TestModel** to reveal internal components.
+
+![Cut Plane example](./media/cut-plane-example.png)
+
 ## Editing materials
+
 
 ## Lighting / sky box
 
@@ -201,4 +325,4 @@ An example of stacking overrides on a single entity, with `Select` and `Tint`:\
 You've implemented all the core functionality of Azure Remote Rendering, in the next chapter we'll learn about securing your Azure Remote Rendering and Blob storage. These will be the first steps to releasing a commercial application that uses Azure Remote Rendering.
 
 > [!div class="nextstepaction"]
-> [Next: Loading custom models](../security/security.md)
+> [Next: Securing Azure Remote Rendering and model storage](../security/security.md)
