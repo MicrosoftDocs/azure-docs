@@ -14,9 +14,9 @@ ms.author: makromer
 
 # Migrate normalized database schema from Azure SQL Database to Azure CosmosDB denormalized container
 
-This guide will explain how to take an existing normalized database schema in Azure SQL Database and convert it into an Azure CosmosDB denomarlized schema for loading into Azure CosmosDB.
+This guide will explain how to take an existing normalized database schema in Azure SQL Database and convert it into an Azure CosmosDB denormarlized schema for loading into Azure CosmosDB.
 
-SQL schemas are typically modeled using third normal form, resuling in normalized schemas that provide high levels of data integrity and fewer duplicate data values. Queries can join entities together across tables for reading. CosmosDB is optimized for super-quick transactions and querying within a collection or container via denormalized schemas with data self-contained inside a document.
+SQL schemas are typically modeled using third normal form, resulting in normalized schemas that provide high levels of data integrity and fewer duplicate data values. Queries can join entities together across tables for reading. CosmosDB is optimized for super-quick transactions and querying within a collection or container via denormalized schemas with data self-contained inside a document.
 
 Using Azure Data Factory, we'll build a pipeline that uses a single Mapping Data Flow to read from two Azure SQL Database normalized tables that contain primary and foreign keys as the entity relationship. ADF will join those tables into a single stream using the data flow Spark engine, collect joined rows into arrays and produce individual cleansed documents for insert into a new Azure CosmosDB container.
 
