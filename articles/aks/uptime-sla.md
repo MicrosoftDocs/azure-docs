@@ -27,10 +27,11 @@ Uptime SLA is available in the following regions:
 
 * Australia East
 * Canada Central
-* EAST US
-* EAST US 2
-* SOUTH CENTRAL US
-* WEST US2
+* East US
+* East US 2
+* South Central US
+* South East Asia
+* West US 2
 
 ## Before you begin
 
