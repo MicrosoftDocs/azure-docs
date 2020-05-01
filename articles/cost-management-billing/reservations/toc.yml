@@ -36,7 +36,7 @@
       href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: SQL Database
       href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: SQL Data Warehouse
+    - name: Azure Synapse Analytics
       href: prepay-sql-data-warehouse-charges.md
     - name: Virtual machines
       href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -91,7 +91,7 @@
       href: understand-storage-charges.md
     - name: SQL Database
       href: understand-reservation-charges.md
-    - name: SQL Data Warehouse
+    - name: Azure Synapse Analytics
       href: reservation-discount-azure-sql-dw.md
     - name: Virtual machines
       href: ../manage/understand-vm-reservation-charges.md
