@@ -1,6 +1,6 @@
 ---
 author: rogeriohc
-ms.service: cost-management-billing
+ms.service: azure-functions
 ms.topic: include
 ms.date: 04/27/2020	
 ms.author: rogerioc
