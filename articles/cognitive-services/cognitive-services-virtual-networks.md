@@ -518,7 +518,7 @@ We create a [private DNS zone](../dns/private-dns-overview.md) attached to the V
 
 ### Private endpoints with the Speech Service
 
-When using private endpoints with the Speech Service, you must use a custom endpoint to call the Speech Service API. You cannot use the global translator endpoint. You should use an endpoint of the form {account}.{stt|tts|voice|dls}.speech.microsoft.com.
+When using private endpoints with the Speech Service, you must use a custom endpoint to call the Speech Service API. You cannot use the global endpoint. You should use an endpoint of the form {account}.{stt|tts|voice|dls}.speech.microsoft.com.
 
 Here's an example on using private endpoints with the Speech Service.
 
