@@ -32,9 +32,9 @@ Only one restore operation can be run on a storage account at a time.
 
 Point-in-time restore requires that the following Azure Storage features are enabled:
 
-- [Soft delete](blobs/soft-delete-overview.md).
-- [Change feed (preview)](blobs/storage-blob-change-feed.md)
-- [Blob versioning (preview)](blobs/versioning-overview.md).
+- [Soft delete](soft-delete-overview.md).
+- [Change feed (preview)](storage-blob-change-feed.md)
+- [Blob versioning (preview)](versioning-overview.md).
 
 Enable these features for the storage account before you enable point-in-time restore (???spec says that they should be enabled automatically, but i haven't seen this).
 
