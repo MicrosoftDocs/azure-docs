@@ -134,16 +134,18 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 This section provides additional considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Event Hubs in general, see [Integrate Azure Event Hubs with Azure Private Link](private-link-service.md).
 
 ### New pairings
-If primary namespace with a private endpoint is paired with secondary namespace without a private endpoint, pairing them will fail. It will succeed only if both primary and secondary namespaces have private endpoints. 
+You can't pair a primary namespace with private endpoint and a secondary namespace without a private endpoint. Also, the pairing will succeed only if both primary and secondary namespaces have private endpoints. So, follow these steps: 
+
+1. Create a private endpoint on the secondary namespace. 
+2. Create a private endpoint on the primary namespace. 
+3. Create a pairing between the namespaces. 
+
+We recommend that you use same configurations on the primary and secondary namespaces and on virtual networks used by them for creating private endpoints.  
 
 > [!NOTE]
-> When you try to pair primary namespace with a private endpoint to the secondary namespace, the validation process only checks whether the private endpoint exists on the secondary namespace. It doesn't check whether the endpoint works or will work after failover. 
-> 
-> It's your responsibility to ensure that the secondary namespace with private endpoint will work as expected after failover.
+> When you try to pair a primary namespace with private endpoint to a secondary namespace, the validation process only checks whether the private endpoint exists on the secondary namespace. It doesn't check whether the endpoint works or will work after failover. It's your responsibility to ensure that the secondary namespace with private endpoint will work as expected after failover.
 >
-> To test that the private endpoint configurations are same, send a [Get Event Hub](/rest/api/eventhub/get-event-hub) request to the secondary namespace from outside the virtual network, and verify that you receive an error message from the service (not just from the private link network resource provider).
-
-We recommend that you use same configurations on the primary and secondary namespaces and on virtual networks used by them for creating private endpoints. 
+> To test that the private endpoint configurations are same on primary and secondary namespaces, send a read request (for example: [Get Event Hub](/rest/api/eventhub/get-event-hub)) to the secondary namespace from outside the virtual network, and verify that you receive an error message from the service (not just from the private link network resource provider).
 
 ### Existing pairings
 If pairing between primary and secondary namespace already exists, private endpoint creation on the primary namespace will fail. Create a private endpoint on the secondary namespace first and then create one for the primary namespace.
