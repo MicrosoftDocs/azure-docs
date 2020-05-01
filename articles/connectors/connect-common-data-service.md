@@ -11,13 +11,10 @@ tags: connectors
 
 # Create and manage records in Common Data Service by using Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Common Data Service connector](https://docs.microsoft.com/connectors/commondataservice/), you can build automated workflows that manage records in your Common Data Service database. These workflows can create records, update records, and perform other operations. You can also get information from your Common Data Service database and make the output available for other actions to use in your logic app. For example, when a record is updated in your Common Data Service database, you can send an email by using the Office 365 Outlook connector.
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Common Data Service connector](https://docs.microsoft.com/connectors/commondataservice/), you can build automated workflows that manage records in your [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) database. These workflows can create records, update records, and perform other operations. You can also get information from your Common Data Service database and make the output available for other actions to use in your logic app. For example, when a record is updated in your Common Data Service database, you can send an email by using the Office 365 Outlook connector.
 
-> [Common Data Service](https://powerapps.microsoft.com/common-data-service/) 
-> lets you securely store and manage data that's used by business apps, such as Dynamics 365. 
-> These apps use the Common Data Service 
-> For more information, see 
-> [What is Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro)?
+Common Data Service lets you securely store and manage data that's used by business apps, such as Dynamics 365. 
+
 
 > [!IMPORTANT]
 > The [Common Data Service connector](https://docs.microsoft.com/connectors/commondataservice/) 
@@ -36,7 +33,6 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Common Da
 > information, see the Power Platform blog post, [Dynamics 365 Connector is deprecated](https://docs.microsoft.com/power-platform/important-changes-coming).
 >
 > This article is updated to use the 
-
 
 This article shows how you can build a logic app that creates a task whenever a new record is created.
 
@@ -83,7 +79,7 @@ Now add a Common Data Service action that creates a task record for a new "Leads
 
    ![Select "Create a new record" action](./media/connectors-create-api-crmonline/select-create-new-record-action.png)
 
-1. In the action, provide the information about the environment where you want to create the new task record. If available, other properties also appear based on the environment that you selected for this action, for example:
+1. In the action, provide the information about the environment where you want to create the new task record. If available, other properties also appear based on the entity that you selected for this action, for example:
 
    ![Action information for the environment where to create the record](./media/connectors-create-api-crmonline/create-new-record-action-details.png)
 
@@ -91,25 +87,33 @@ Now add a Common Data Service action that creates a task record for a new "Leads
    |----------|----------|-------------|
    | **Organization Name** | Yes | The environment where you want to create the record, which doesn't have to be the same environment in your trigger, but is "Fabrikam Sales Production" in this example |
    | **Entity Name** | Yes | The entity where you want to create the record, for example, "Tasks" |
-   | **Subject** | Yes, by the environment in this example | A short description about the objective for this task. <p>1. |
+   | **Subject** | Yes, based on the entity selected in this example | A short description about the objective for this task |
    ||||
 
-   1. For the **Subject** property, From this list, select the property values that you want to include in the task record that's associated with the new lead record:
+   1. For the **Subject** property, enter this text with a trailing space:
 
-   | Property | Description |
-   |-------|----------------|
-   | **First Name** | The first name from the lead record to use the primary contact in the task record |
-   | **Last Name** | The last name from the lead as the primary contact in the task record |
-   | **Topic** | The descriptive name for the lead record in the record |
-   | | |
+      `Follow up with new lead:`
 
-   ![Details for Task record details](./media/connectors-create-api-crmonline/create-record-details.png)
+   1. Keep your pointer inside the **Subject** box so that dynamic content list stays visible.
+   
+   1. In the list, from the **When a record is created** section, select the trigger outputs that you want to include in the task record, for example:
+
+      ![Select trigger outputs to use in task record](./media/connectors-create-api-crmonline/create-new-record-action-select-trigger-outputs.png)
+
+      | Trigger output | Description |
+      |----------------|-------------|
+      | **First Name** | The first name from the lead record to use as the primary contact in the task record |
+      | **Last Name** | The last name from the lead record to use as the primary contact in the task record |
+      | **Description** | Other outputs to include in the task record, such as email address and business phone number |
+      |||
+
+   When you're done, the action might look like this example:
+
+   ![Finished "Create a new record" action](./media/connectors-create-api-crmonline/finished-create-record-action-details.png)
 
 1. Save your logic app. On the designer toolbar, select **Save**.
 
-1. To manually start the logic app, on the designer toolbar, select **Run**.
-
-1. Now create a lead record to test your logic app's workflow.
+1. To manually start the logic app, on the designer toolbar, select **Run**. To test your logic app, create a new "Leads" record.
 
 ## Add filter or query
 

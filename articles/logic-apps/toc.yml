@@ -203,6 +203,8 @@
         href: ../connectors/connectors-create-api-bingsearch.md
       - name: Box
         href: ../connectors/connectors-create-api-box.md
+      - name: Common Data Service
+        href: ../connectors/connect-common-data-service.md
       - name: Custom APIs and web apps
         href: logic-apps-create-api-app.md
       - name: Delay
