@@ -155,66 +155,27 @@ For actions that return records, such as the **List records** action, you can us
 
 For more information about `$orderby` system query options, see [Common Data Service - Order results](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
 
-### Best practices for advanced options
+## Field data types
 
-When you specify a value for a field in an action or trigger, 
-the value's data type must match the field type whether you 
-manually enter the value or select the value from the dynamic content list.
+Regardless whether you manually enter a value or select a value from the dynamic content list for a field in a trigger or action, the value's data type must match the field's required data type.
 
-This table describes some of field types and 
-the required data types for their values.
+This table describes some field types and the data types that those fields require for their values.
 
-| Field type | Required data type | Description | 
-|------------|--------------------|-------------|
-| Text fields | Single line of text | These fields require a single line of text or dynamic content that has the text type. <p><p>*Example fields*: **Description** and **Category** | 
-| Integer fields | Whole number | Some fields require integer or dynamic content that has the integer type. <p><p>*Example fields*: **Percent Complete** and **Duration** | 
-| Date fields | Date and Time | Some fields require a date with mm/dd/yyyy format or dynamic content that has the date type. <p><p>*Example fields*: **Created On**, **Start Date**, **Actual Start**, **Actual End**, and **Due Date** | 
-| Fields requiring both a record ID and lookup type | Primary key | Some fields that reference another entity record require both a record ID and a lookup type. | 
+| Field | Data type | Description |
+|-------|-----------|-------------|
+| Text field | Single line of text | Requires either a single line of text or dynamic content that has the text data type, for example: <p><p>- **Description** <br>- **Category** |
+| Integer field | Whole number | Requires either an integer or dynamic content that has the integer data type, for example: <p><p>- **Percent Complete** <br>- **Duration** |
+| Date field | Date and Time | Requires either a date in MM/DD/YYY format or dynamic content that has the date data type, for example: <p><p>- **Created On** <br>- **Start Date** <br>- **Actual Start** <br>- **Actual End** <br>- **Due Date** |
+| Field that references another entity record | Primary key | Requires both a record ID, such as a GUID, and a lookup type, which means that values from the dynamic content list won't work, for example: <p><p>- **Owner**: Must be a valid user ID or a team record ID. <br>- **Owner Type**: Must be a lookup type such as `systemusers` or `teams`, respectively. <p><p>- **Regarding**: Must be a valid record ID such as an account ID or a contact record ID. <br>- **Regarding Type**: Must be a lookup type such as `accounts` or `contacts`, respectively. <p><p>- **Customer**: Must be a valid record ID such as an account ID or contact record ID. <br>- **Customer Type**: Must be the lookup type, such as `accounts` or `contacts`, respectively. |
 ||||
 
-Expanding on these field types, here are example fields in 
-Dynamics 365 triggers and actions that require both a 
-record ID and the lookup type. This requirement means 
-values that you select from the dynamic list won't work.
+For example, this **Create a new record** action creates a new "Tasks" record and shows how some of these field types require values that match the required data types.
 
-| Field | Description |
-|-------|-------------|
-| **Owner** | Must be either a valid user ID or team record ID. |
-| **Owner Type** | Must be either `systemusers` or `teams`. |
-| **Regarding** | Must be a valid record ID, such as an account ID or contact record ID. |
-| **Regarding Type** | Must be a lookup type, such as `accounts` or `contacts`. |
-| **Customer** | Must be a valid record ID, such as an account ID or contact record ID. |
-| **Customer Type** | Must be the lookup type, such as `accounts` or `contacts`. |
-|||
+* The action assigns the new task record to a specific user ID, based on the record ID in the **Owner** field and the lookup type in the **Owner Type** field. 
 
-In this example, the action named **Create a new record** creates a new task record:
+* The action adds an account record that's associated with the record ID in the **Regarding** field and the lookup type in the **Regarding Type** field.
 
-![Create task record with record IDs and lookup types](./media/connectors-create-api-crmonline/create-record-advanced.png)
-
-This action assigns the task record to a specific user ID or team record ID, 
-based on the record ID in the **Owner** field and the lookup type in the **Owner Type** field:
-
-![Owner record ID and lookup type](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
-
-This action also adds an account record that's associated with the record ID 
-added in the **Regarding** field and the lookup type in the **Regarding Type** field:
-
-![Regarding record ID and lookup type](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
-
-## Find record ID
-
-To find a record ID, follow these steps:
-
-1. In Dynamics 365, open a record, such as an account record.
-
-2. On the actions toolbar, choose one of these steps:
-
-   * Choose **Pop Out**. ![popout record](./media/connectors-create-api-crmonline/popout-record.png) 
-   * Choose **EMAIL A LINK** so you can copy the full URL into your default email program.
-
-   The record ID appears in the URL between the `%7b` and `%7d` encoding characters:
-
-   ![Find record ID](./media/connectors-create-api-crmonline/find-record-ID.png)
+![Create task record with record IDs and lookup types](./media/connect-common-data-service/create-new-record-task-properties.png)
 
 ## Connector reference
 
@@ -223,5 +184,3 @@ For technical information based on the connector's Swagger description, such as 
 ## Next steps
 
 * Learn about other [connectors for Azure Logic Apps](../connectors/apis-list.md)
-
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
