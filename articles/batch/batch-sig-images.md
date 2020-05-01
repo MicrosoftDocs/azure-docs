@@ -125,6 +125,71 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
 }
 ```
 
+## Create a pool from a Shared Image using Python
+
+You can also create a pool from a Shared Image using Python SDK. 
+
+```python
+# Import the required modules from the
+# Azure Batch Client Library for Python
+import azure.batch._batch_service_client as batch
+import azure.batch.models as batchmodels
+from azure.common.credentials import ServicePrincipalCredentials
+
+# Specify Batch account and service principal account credentials
+account = "{batch-account-name}"
+batch_url = "{batch-account-url}"
+ad_client_id = "{sp-client-id}"
+ad_tenant = "{tenant-id}"
+ad_secret = "{sp-secret}"
+
+# Pool settings
+pool_id = "LinuxNodesSamplePoolPython"
+vm_size = "STANDARD_D2_V3"
+node_count = 1
+
+# Initialize the Batch client with Azure AD authentication
+creds = ServicePrincipalCredentials(
+    client_id=ad_client_id,
+    secret=ad_secret,
+    tenant=ad_tenant,
+    resource="https://batch.core.windows.net/"
+)
+config = batch.BatchServiceClientConfiguration(creds, batch_url)
+client = batch.BatchServiceClient(creds, batch_url)
+
+# Create the unbound pool
+new_pool = batchmodels.PoolAddParameter(id=pool_id, vm_size=vm_size)
+new_pool.target_dedicated = node_count
+
+# Configure the start task for the pool
+start_task = batchmodels.StartTask(
+    command_line="printenv AZ_BATCH_NODE_STARTUP_DIR"
+)
+start_task.run_elevated = True
+new_pool.start_task = start_task
+
+# Create an ImageReference which specifies the image from
+# Shared Image Gallery to install on the nodes.
+ir = batchmodels.ImageReference(
+    virtual_machine_image_id="/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}"
+)
+
+# Create the VirtualMachineConfiguration, specifying
+# the VM image reference and the Batch node agent to
+# be installed on the node.
+vmc = batchmodels.VirtualMachineConfiguration(
+    image_reference=ir,
+    node_agent_sku_id="batch.node.ubuntu 18.04"
+)
+
+# Assign the virtual machine configuration to the pool
+new_pool.virtual_machine_configuration = vmc
+
+# Create pool in the Batch service
+client.pool.add(new_pool)
+```
+
 ## Create a pool from a Shared Image using the Azure portal
 
 Use the following steps to create a pool from a Shared Image in the Azure portal.
