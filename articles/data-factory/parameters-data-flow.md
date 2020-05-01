@@ -53,7 +53,19 @@ Pipeline expression parameters allow you to reference system variables, function
 
 When referenced, pipeline parameters are evaluated and then their value is used in the data flow expression language. The pipeline expression type doesn't need to match the data flow parameter type. 
 
-#### Example
+#### String literals vs expressions
+
+When assigning a pipeline expression parameter of type string, by default quotes will be added and the value will be evaluated as a literal. To read the parameter value as a data flow expression, check the expression box next to the parameter.
+
+![Setting a Data Flow parameter](media/data-flow/string-param.png "Setting a Data Flow parameter")
+
+If data flow parameter `stringParam` references a pipeline parameter with value `upper(column1)`. 
+
+- If expression is checked, `$stringParam` evaluates to the value of column1 all uppercase.
+- If expression is not checked (default behavior),  `$stringParam` evaluates to `'upper(column1)'`
+
+
+#### Pipeline parameter example
 
 Say you have an integer parameter `intParam` that is referencing a pipeline parameter of type String, `@pipeline.parameters.pipelineParam`. 
 
@@ -71,30 +83,17 @@ When `$intParam` is referenced in an expression such as a derived column, it wil
 
 Select **Data flow expression** will open up the data flow expression builder. You will be able to reference functions, other parameters and any defined schema column throughout your data flow. This expression will be evaluated as is when referenced.
 
-> [!Note]
+> [!NOTE]
 > If you pass in an invalid expression or reference a schema column that doesn't exist in that transformation, the parameter will evaluate to null.
 
-### String parameters
-
-If your parameter data type is string, when you click the text box to set parameter values, you can choose to enter either a pipeline or a data flow expression. If you choose pipeline expression, you will be presented with the pipeline expression panel. Make sure to include pipeline functions inside string interpolation syntax using `'@{<expression>}'`, for example:
-
-```'@{pipeline().RunId}'```
-
-If your parameter is not of type string, you will always be presented with the Data Flow Expression Builder. Here, you can enter any expression or literal values that you wish that matches the data type of the parameter. Below are examples of data flow expression and a literal string from the expression builder:
-
-* ```toInteger(Role)```
-* ```'this is my static literal string'```
-
-
-![Data flow parameters sample](media/data-flow/parameter-example.png "Data flow parameters sample")
 
 ### Passing in a column name as a parameter
 
-A common pattern is to pass in a column name as a parameter value. To reference the column associated with the parameter, use the `byName()` function. Remember to cast the column to its appropriate type with a casting function such as `toString()`.
+A common pattern is to pass in a column name as a parameter value. If the column is defined in the data flow schema, you can reference it directly as a string expression. If the column isn't defined in the schema, use the `byName()` function. Remember to cast the column to its appropriate type with a casting function such as `toString()`.
 
 For example, if you wanted to map a string column based upon a parameter `columnName`, you can add a derived column transformation equal to `toString(byName($columnName))`.
 
-![Passing in a column name as a parameter](media/data-flow/parameterize-column-name.png "Passing in a column name as a paramete")
+![Passing in a column name as a parameter](media/data-flow/parameterize-column-name.png "Passing in a column name as a parameter")
 
 ## Next steps
 * [Execute data flow activity](control-flow-execute-data-flow-activity.md)
