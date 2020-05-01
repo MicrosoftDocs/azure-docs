@@ -50,14 +50,25 @@ To establish full interconnectivity to a private cloud, you use the Azure portal
 
 An on-premises to Azure virtual network ExpressRoute circuit is required to connect from on-premises environments to your private cloud in Azure. This ExpressRoute circuit is in your subscription and isn't part of a private cloud deployment. The on-premises ExpressRoute circuit is beyond the scope of this document. If you require on-premises connectivity to your private cloud, you can use one of your existing ExpressRoute circuits or purchase one in the Azure portal.
 
-Once linked with Global Reach, the two ExpressRoute circuits will route network traffic between your on-premises environments and your private cloud. The on-premises to private cloud interconnectivity is shown in the following diagram. The interconnectivity represented in the diagram enables the following use cases:
+Once linked with Global Reach, the two ExpressRoute circuits will route network traffic between your on-premises environments and your private cloud. The on-premises to private cloud interconnectivity is shown in the preceding diagram. The interconnectivity represented in the diagram enables the following use cases:
 
 - Hot/Cold Cross-vCenter vMotion
 - On-Premise to AVS private cloud management access
 
 To enable full connectivity, an Authorization Key and private peering ID for Global Reach can be requested in the Azure portal. You use the key and ID to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your new private cloud. The [tutorial for creating a private cloud](tutorial-create-private-cloud.md) provides you with the procedures for requesting and using the key and ID.
 
-The routing requirements of the solution require you to plan private cloud network address spaces so that you avoid overlaps with other virtual networks and on-premises networks. A /22 network block used for each private cloud needs to be unique across your routing domains. This network block includes management and production networks in the private cloud.
+The routing requirements of the solution require you to plan private cloud network address spaces so that you avoid overlaps with other virtual networks and on-premises networks. AVS private clouds require a minimum of a `/22` CIDR network address block for subnets, shown below. This network complements your on-premises networks. In order to connect to on-premises environments and virtual networks, this must be a non-overlapping network address block.
+
+Example `/22` CIDR network address block:  `10.10.0.0/22`
+
+The subnets:
+
+| Network usage             | Subnet | Example        |
+| ------------------------- | ------ | -------------- |
+| Private cloud management            | `/24`    | `10.10.0.0/24`   |
+| vMotion network       | `/24`    | `10.10.1.0/24`   |
+| VM workloads | `/24`   | `10.10.2.0/24`   |
+| ExpressRoute peering | `/24`    | `10.10.3.8/30`   |
 
 ## Next steps 
 

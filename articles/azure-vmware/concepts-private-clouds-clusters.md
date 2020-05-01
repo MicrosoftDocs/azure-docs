@@ -29,14 +29,11 @@ You create, delete, and scale clusters through the portal or API. You still use 
 
 ## Hosts
 
-Hyper-converged, bare-metal infrastructure nodes are used in AVS private cloud clusters. There are two types of hosts, and clusters are built using only one type of host. The RAM, CPU, and disk capacities of both types the host types is provided in the table below. 
+Hyper-converged, bare-metal infrastructure nodes are used in AVS private cloud clusters. The RAM, CPU, and disk capacities of the host is provided in the table below. 
 
 | Host Type              |             CPU             |   RAM (GB)   |  vSAN NVMe cache Tier (TB, raw)  |  vSAN SSD capacity tier (TB, raw)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
 | High-End (HE)          |  dual Intel 18 core 2.3 GHz  |     576      |                3.2               |                15.20               |
-| General-Purpose (GP)   |  dual Intel 10 core 2.2 GHz  |     192      |                1.6               |                 7.68               |
-
-Multiple types of hosts provide you with the flexibility to match hosts and cluster specifications to workload and business requirements.
 
 Hosts that are used to build or scale clusters are acquired from an isolated pool of hosts. Those hosts have passed hardware tests and have had all data securely deleted from the flash disks. When you remove a host from a cluster, the internal disks are securely wiped and the hosts are placed into the isolated pool of hosts. When you add a host to a cluster, a sanitized host from the isolated pool is used.
 
