@@ -633,7 +633,6 @@ This container image has the following tags available:
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
-| `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
 | `1.1.008510001-amd64-preview` |       |
 | `1.1.007750002-amd64-preview` |       |
