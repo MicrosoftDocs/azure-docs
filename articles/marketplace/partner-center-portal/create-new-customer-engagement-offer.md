@@ -21,7 +21,7 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](htt
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Dynamics 365 for Customer Engagement & PowerApps**.
 
-    ![Illustrates the left-navigation menu.](./media/newoffer-dynamics-365-cepa.png)
+    ![Illustrates the left-navigation menu.](./media/new-offer-dynamics-365-cepa.png)
 
 > [!NOTE]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
@@ -389,7 +389,7 @@ Select **Save draft** before continuing.
 
 ### Submit offer to preview
 
-Aftert you have completed all the required sections of the offer, select **Review and publish** at the upper-right corner of the portal.
+After you have completed all the required sections of the offer, select **Review and publish** at the upper-right corner of the portal.
 
 If it's your first time publishing this offer, you can:
 

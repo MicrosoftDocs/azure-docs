@@ -25,7 +25,7 @@ You must have a [Silver or Gold Cloud Platform competency level](https://partner
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Managed Service**.
 
-    ![Illustrates the left-navigation menu.](./media/newoffer-managed-service.png)
+    ![Illustrates the left-navigation menu.](./media/new-offer-managed-service.png)
 
 >[!NOTE]
 >After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.

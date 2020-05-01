@@ -21,7 +21,7 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](htt
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Dynamics 365 business central**.
 
-    ![Illustrates the left-navigation menu.](./media/newoffer-dynamics-365-bc.png)
+    ![Illustrates the left-navigation menu.](./media/new-offer-dynamics-365-bc.png)
 
 > [!NOTE]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.

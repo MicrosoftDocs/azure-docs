@@ -22,7 +22,7 @@ This article describes how to create and publish a Container offer for Azure Mar
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Azure Container**.
 
-    ![Illustrates the left-navigation menu.](./media/newoffer-azure-container.png)
+    ![Illustrates the left-navigation menu.](./media/new-offer-azure-container.png)
 
 > [!TIP]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.

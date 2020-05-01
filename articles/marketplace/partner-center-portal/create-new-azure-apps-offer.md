@@ -102,7 +102,7 @@ You can review the available tools in the [Azure Developer Tools](https://azure.
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Azure Application**.
 
-    ![Illustrates the left-navigation menu.](./media/newoffer-azure-app.png)
+    ![Illustrates the left-navigation menu.](./media/new-offer-azure-app.png)
 
 >[!NOTE]
 >After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
@@ -304,7 +304,7 @@ If you have more than one plan of the same type and the packages are identical b
 
 Your plan must be made available in at least one Azure region.
 
-Select the **Azure Global** option to make your plan available to customers in all public Azure regions that have commercial marketplace integration. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Select the **Azure Global** option to make your plan available to customers in all Azure Global regions that have commercial marketplace integration. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
 Select the **Azure Government** option to make your plan available in the [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) region. This region provides controlled access for customers from  U.S. federal, state, local, or tribal entities, as well as partners eligible to serve them. You, as the publisher, are responsible for any compliance controls, security measures, and best practices. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
 
@@ -349,7 +349,7 @@ You can configure each plan to be visible to everyone or to only a specific audi
 
 Select **This is a private plan** to make your plan private and visible only to the restricted audience of your choosing. Once published as a private plan, you can update the audience or choose to make the plan available to everyone. Once a plan is published as visible to everyone, it must remain visible to everyone; it cannot be reconfigured as a private plan.
 
-If you make the plant private, enter an **Azure subscription IDs** and its description. Each is an audience that will have access to this private plan. Access is assigned using Azure subscription IDs with the option to include a description of each Azure subscription ID assigned. Add up to 10 customers subscription IDs individually, or 20,000 by importing a CSV file.  Azur subscription IDs are represented as GUIDs and letters must be lowercase.
+If you make the plant private, enter an **Azure subscription IDs** and its description. Each is an audience that will have access to this private plan. Access is assigned using Azure subscription IDs with the option to include a description of each Azure subscription ID assigned. Add up to 10 customers subscription IDs individually, or 20,000 by importing a CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
 
 >[!Note]
 >A private or restricted audience is different from the preview audience you defined on the **Preview** tab. A preview audience can access your offer _before_ its published live in the marketplace. While the private audience choice only applies to a specific plan, the preview audience can view all plans (private or not) for validation purposes.
@@ -392,7 +392,7 @@ You can configure each plan to be visible to everyone or to only a specific audi
 
 Select **This is a private plan** to make your plan private and visible only to the restricted audience of your choosing. Once published as a private plan, you can update the audience or choose to make the plan available to everyone. Once a plan is published as visible to everyone, it must remain visible to everyone; it cannot be reconfigured as a private plan.
 
-If you make the plant private, enter an **Azure subscription IDs** and its description. Each is an audience that will have access to this private plan. Access is assigned using Azure subscription IDs with the option to include a description of each Azure subscription ID assigned. Add up to 10 customers subscription IDs individually, or 20,000 by importing a CSV file.  Azur subscription IDs are represented as GUIDs and letters must be lowercase.
+If you make the plant private, enter an **Azure subscription IDs** and its description. Each is an audience that will have access to this private plan. Access is assigned using Azure subscription IDs with the option to include a description of each Azure subscription ID assigned. Add up to 10 customers subscription IDs individually, or 20,000 by importing a CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
 
 >[!Note]
 >A private or restricted audience is different from the preview audience you defined on the **Preview** tab. A preview audience can access your offer _before_ its published live in the marketplace. While the private audience choice only applies to a specific plan, the preview audience can view all plans (private or not) for validation purposes.

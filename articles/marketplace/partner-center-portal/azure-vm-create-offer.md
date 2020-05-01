@@ -59,7 +59,7 @@ Your engineering team should understand the following Microsoft technologies:
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Azure Virtual Machine**.
 
-    ![Illustrates the left-navigation menu.](./media/newoffer-azure-vm.png)
+    ![Illustrates the left-navigation menu.](./media/new-offer-azure-vm.png)
 
 > [!NOTE]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
@@ -344,7 +344,7 @@ If you have more than one plan of the same type, and the packages are identical 
 
 Your plan must be made available in at least one Azure region.
 
-Select the **Azure Global** option to make your plan available to customers in all public Azure regions that have commercial marketplace integration. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Select the **Azure Global** option to make your plan available to customers in all Azure Global regions that have commercial marketplace integration. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
 Select the **Azure Government** option to make your plan available in the [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) region. This region provides controlled access for customers from  U.S. federal, state, local, or tribal entities, as well as partners eligible to serve them. You, as the publisher, are responsible for any compliance controls, security measures, and best practices. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
 

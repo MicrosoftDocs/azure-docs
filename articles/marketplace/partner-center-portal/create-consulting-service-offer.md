@@ -33,7 +33,7 @@ Benefits of publishing to the commercial marketplace:
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Consulting Service**.
 
-    ![Illustrates the left-navigation menu.](./media/newoffer-consulting-service.png)
+    ![Illustrates the left-navigation menu.](./media/new-offer-consulting-service.png)
 
 >[!NOTE]
 >After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.

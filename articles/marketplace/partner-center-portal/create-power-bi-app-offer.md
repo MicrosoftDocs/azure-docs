@@ -22,15 +22,15 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](htt
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
-3. On the Overview page, select **+ New offer** > **PowerBI Service App**.
+3. On the Overview page, select **+ New offer** > **Power BI Service App**.
 
-   ![Illustrates the left-navigation menu.](./media/newoffer-pbi-app.png)
+   ![Illustrates the left-navigation menu.](./media/new-offer-pbi-app.png)
 
 > [!NOTE]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
 
 > [!IMPORTANT]
-> If **PowerBI Service App** isn't shown or enabled, your account doesn't have permission to create this offer type. Please check that you've met all the [requirements](create-power-bi-app-overview.md) for this offer type, including registering for a developer account.
+> If **Power BI Service App** isn't shown or enabled, your account doesn't have permission to create this offer type. Please check that you've met all the [requirements](create-power-bi-app-overview.md) for this offer type, including registering for a developer account.
 
 ## New offer
 
