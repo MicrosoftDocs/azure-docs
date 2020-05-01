@@ -697,6 +697,8 @@
           href: mongodb-feature-support-36.md
         - name: Wire protocol support (3.2)
           href: mongodb-feature-support.md
+        - name: FAQ
+          href: mongodb-api-faq.md
       - name: How-to guides
         items:
         - name: Pre-migration guide
@@ -763,6 +765,10 @@
         items:
         - name: 1 - Query data
           href: tutorial-query-graph.md
+      - name: Concepts
+        items:
+        - name: FAQ
+          href: gremlin-api-faq.md
       - name: How-to guides
         items:
         - name: Graph data modeling
@@ -844,6 +850,10 @@
         - name: F#
           href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
           maintainContext: true
+      - name: Concepts
+        items:
+        - name: FAQ
+          href: table-api-faq.md     
       - name: How-to guides
         items:
         - name: Build apps with Table API
