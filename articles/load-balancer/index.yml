@@ -28,7 +28,7 @@ landingContent:
             url: load-balancer-overview.md
           - text: Load Balancer concepts
             url: concepts.md
-          - text: Load balancer components
+          - text: Load Balancer components
             url: components.md
       
   # Card (optional)
