@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Quickstart: Create a Synapse SQL pool workload classifier using the Azure portal
 
-In this quickstart, you will create a [workload classifier](sql-data-warehouse-workload-classification.md) for assigning queries to a workload group.  The classifier will assign requests from the `ELTLogin` SQL user to the `DataLoads` workload group.   Follow the [Quickstart: Configure workload isolation](quickstart-create-a-workload-isolation-portal.md) tutorial to create the `DataLoads` workload group.  This tutorial will create a workload classifier with the WLM_LABEL option to help further classify requests correctly.  The classifier will assign high [workload importance](sql-data-warehouse-workload-importance.md) to these requests as well.
+In this quickstart, you will create a [workload classifier](sql-data-warehouse-workload-classification.md) for assigning queries to a workload group.  The classifier will assign requests from the `ELTLogin` SQL user to the `DataLoads` workload group.   Follow the [Quickstart: Configure workload isolation](quickstart-configure-workload-isolation-portal.md) tutorial to create the `DataLoads` workload group.  This tutorial will create a workload classifier with the WLM_LABEL option to help further classify requests correctly.  The classifier will assign high [workload importance](sql-data-warehouse-workload-importance.md) to these requests as well.
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -62,7 +62,7 @@ END
 ```
 
 ## Configure workload classification
-Classification allows you to route requests, based on a set of rules, to a workload group.  In the [Quickstart: Configure workload isolation](quickstart-create-a-workload-isolation-portal.md) tutorial we created the `DataLoads` workload group.  Now you will create a workload classifier to route queries to the `DataLoads` workload group.
+Classification allows you to route requests, based on a set of rules, to a workload group.  In the [Quickstart: Configure workload isolation](quickstart-configure-workload-isolation-portal.md) tutorial we created the `DataLoads` workload group.  Now you will create a workload classifier to route queries to the `DataLoads` workload group.
 
 
 1.	Click **Azure Synapse Analytics (formerly SQL DW)** in the left page of the Azure portal.
@@ -87,12 +87,14 @@ Classification allows you to route requests, based on a set of rules, to a workl
     ![Click Add](./media/quickstart-create-a-workload-classifier-portal/quickstart-workload-classifier-add-config-portal.png)
 
 ## Verify and test classification
-Check the [sys.workload_management_workload_classifiers](sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest) catalog view to verify existence of the `ELTLoginDataLoads` classifier.
+Check the [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest)
+
+ catalog view to verify existence of the `ELTLoginDataLoads` classifier.
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers WHERE name = 'ELTLoginDataLoads'
 ```
 
-Check the [sys.workload_management_workload_classifier_details](sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest) catalog view to verify classifier details.
+Check the [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest) catalog view to verify classifier details.
 
 ```sql
 SELECT c.[name], c.group_name, c.importance, cd.classifier_type, cd.classifier_value
