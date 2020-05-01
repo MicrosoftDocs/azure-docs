@@ -67,7 +67,7 @@ Azure Automation doesn't import the root Az module automatically into any new or
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
 
-## Az module cmdlets
+## Az modules
 
 For Az.Automation, the majority of the cmdlets have the same names as for the AzureRM modules, except that the AzureRm prefix has been changed to Az. For a list of Az modules that don't follow this naming convention, see [list of exceptions](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
@@ -98,7 +98,7 @@ You can create Python 2 runbooks in Azure Automation. For Python module informat
 
 ## Custom modules
 
-Azure Automation supports custom PowerShell modules that you create to use with your runbooks and DSC configurations. One type of custom module is an integration module that optionally contains a file of metadata to define the custom functionality for the module cmdlets. An example of the use of an integration module is provided in [Adding a connection type](../automation-connections.md#adding-a-connection-type).
+Azure Automation supports custom PowerShell modules that you create to use with your runbooks and DSC configurations. One type of custom module is an integration module that optionally contains a file of metadata to define the custom functionality for the module cmdlets. An example of the use of an integration module is provided in [Add a connection type](../automation-connections.md#add-a-connection-type).
 
 Azure Automation can import a custom module to make its cmdlets available. Behind the scenes, it stores the module and uses it in the Azure sandboxes, just like it does other modules.
 
@@ -132,7 +132,7 @@ When you create a new Automation account, even after migration to Az modules, Az
 
 To ensure that you don't run any existing runbooks or DSC configurations that use AzureRM modules, you must stop and unschedule all affected runbooks and configurations. First, make sure that you review each runbook or DSC configuration and its schedules separately to ensure that you can reschedule the item in the future if necessary. 
 
-When you're ready to remove your schedules, you can either use the Azure portal or the [Remove-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) cmdlet. See [Removing a schedule](schedules.md#removing-a-schedule).
+When you're ready to remove your schedules, you can either use the Azure portal or the [Remove-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) cmdlet. See [Remove a schedule](schedules.md#remove-a-schedule).
 
 ### Remove the AzureRM modules
 
