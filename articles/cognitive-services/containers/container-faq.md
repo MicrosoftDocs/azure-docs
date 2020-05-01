@@ -75,7 +75,7 @@ Unfortunately, the Cognitive Services containers are *not* natively supported in
 
 **Q: Are these containers compatible with OpenShift?** 
 
-We don't test containers with OpenShift, but generally, different environments shouldn't affect containers. If you're using OpenShift, we recommend running the containers as `root-user`.   
+We don't test containers with OpenShift, but generally, Cognitive Services containers should run on any platform that support Docker images. If you're using OpenShift, we recommend running the containers as `root-user`.
 
 **Q: How do I provide product feedback and feature recommendations?**
 
