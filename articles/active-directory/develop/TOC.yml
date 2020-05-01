@@ -103,7 +103,15 @@
   items:
   - name: Authentication basics
     displayName: Auth basics
-    href: authentication-scenarios.md
+    items:
+    - name: Authentication vs. authorization
+      href: authentication-vs-authorization.md
+    - name: Security tokens
+      href: security-tokens.md
+    - name: Application model
+      href: application-model.md
+    - name: App sign-in flow
+      href: app-sign-in-flow.md
   - name: Authentication flows and app scenarios
     displayName: Auth flows
     href: authentication-flows-app-scenarios.md
@@ -448,9 +456,13 @@
   - name: Automatic user provisioning (SCIM)
     items:
     - name: What is automatic user provisioning?
-      href: /azure/active-directory/manage-apps/user-provisioning
-    - name: Building and integrating a SCIM endpoint
-      href: /azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups
+      href: /azure/active-directory/app-provisioning/user-provisioning
+    - name: Develop and integrating a SCIM endpoint
+      href: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+    - name: Common provisioning scenarios
+      href: /azure/active-directory/app-provisioning/scim-graph-scenarios
+    - name: Automate configuration using MS Graph
+      href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
 - name: How-to guides
   items:
   - name: Authentication
