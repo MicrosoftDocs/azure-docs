@@ -106,7 +106,7 @@
     href: troubleshoot-set-up-overview.md
   - name: Identify and diagnose issues
     href: diagnostics-role-service.md
-  - name: Tenant and host pool creation
+  - name: Host pool creation
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
