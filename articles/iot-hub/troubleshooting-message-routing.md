@@ -61,7 +61,7 @@ Are there any other reasons we want to cover for dropped messages?
 <a id="endpoint-health"></a>
 [!INCLUDE [iot-hub-include-endpoint-health](../../includes/iot-hub-include-endpoint-health.md)]
 
-## Diagnostic logs tables details
+## Diagnostic logs details
 
 The following are the values used in the diagnostics logs.
 
