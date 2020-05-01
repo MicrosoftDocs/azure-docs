@@ -51,9 +51,9 @@ You can store multiple values to a single variable by creating an array or hasht
 >[!NOTE]
 >VM name variables can be a maximum of 80 characters. Resource group variables can be a maximum of 90 characters. See [Naming rules and restrictions for Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules).
 
-## Windows PowerShell cmdlets to manage variables
+## PowerShell cmdlets to access variables
 
-The cmdlets in the following table create and manage Automation variables with Windows PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
+The cmdlets in the following table create and manage Automation variables with PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
 
 | Cmdlet | Description |
 |:---|:---|
