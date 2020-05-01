@@ -211,7 +211,7 @@
         href: ../connectors/connectors-native-delay.md
       - name: Dropbox
         href: ../connectors/connectors-create-api-dropbox.md
-      - name: Dynamics 365 CRM Online
+      - name: Dynamics 365
         href: ../connectors/connectors-create-api-crmonline.md
       - name: EDIFACT
         href: logic-apps-enterprise-integration-edifact.md

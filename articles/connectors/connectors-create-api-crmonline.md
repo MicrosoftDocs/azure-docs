@@ -1,6 +1,6 @@
 ---
 title: Connect to Dynamics 365
-description: Create and manage records in Dynamics 365 by using Azure Logic Apps
+description: Create and manage Dynamics 365 records by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
@@ -9,7 +9,7 @@ ms.date: 05/05/2020
 tags: connectors
 ---
 
-# Create and manage Dynamics 365 records by using Azure Logic Apps
+# Create and manage records in Dynamics 365 by using Azure Logic Apps
 
 The Dynamics 365 connector is being deprecated and replaced by the [Common Data Service connector](https://docs.microsoft.com/connectors/commondataservice/), which has all the Dynamics 365 connector's capabilities plus improvements that increase reliability. [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) helps you securely store and manage data that's used by business apps, such as Dynamics 365.
 
