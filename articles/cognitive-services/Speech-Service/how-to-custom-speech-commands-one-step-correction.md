@@ -53,8 +53,8 @@ To demonstrate one-step correction, let's extend the **SetAlarm** command create
    > [!div class="mx-imgBorder"]
    > ![Add a range validation](media/custom-speech-commands/one-step-correction-rules.png)
 
-> [!NOTE]
-> In a real application, in the Actions section of this rule you'll also send back an activity to the client or call an HTTP endpoint to update the alarm in your system.
+    > [!NOTE]
+    > In a real application, in the Actions section of this rule you'll also send back an activity to the client or call an HTTP endpoint to update the alarm in your system.
 
 ## Try it out
 

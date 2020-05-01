@@ -29,16 +29,16 @@ To demonstrate confirmations, let's create a new Command allowing the user to se
 
 1. Open your previously created Custom Commands application in [Speech Studio](https://speech.microsoft.com/).
 1. Create a new Command `SetAlarm`.
-1. Add a parameter called DateTime.
+1. Add a parameter called `DateTime` with the following configuration.
 
-   | Setting                           | Suggested value                                      |
-   | --------------------------------- | -----------------------------------------------------| 
-   | Name                              | DateTime                                             |
-   | Required                          | checked                                              |
-   | Response for required parameter   | What time?                                           |
-   | Type                              | DateTime                                             |
-   | Date Defaults                     | If date is missing use today                         |    
-   | Time Defaults                     | If time is missing use start of day                  |
+   | Setting                           | Suggested value                     |  Description                 |
+   | --------------------------------- | -----------------------------------------------------| ------------|
+   | Name                              | DateTime                                | A descriptive name for parameter                                |
+   | Required                          | checked                                 | Checkbox indicating whether a value for this parameter is required before completing the Command |
+   | Response for required parameter   | Simple editor -> What time?                              | A prompt to ask for the value of this parameter when it isn't known |
+   | Type                              | DateTime                                | The type of parameter, such as Number, String, Date Time or Geography   |
+   | Date Defaults                     | If date is missing use today            | Default value of the variable to use if not provided by user.  |  
+   | Time Defaults                     | If time is missing use start of day     |  Default value of the variable to use if not provided by user.|
 
 1. Add some example sentences.
    
@@ -50,10 +50,10 @@ To demonstrate confirmations, let's create a new Command allowing the user to se
 
 1. Add a Completion rule to confirm result.
 
-   | Setting    | Suggested value                                         |
-   | ---------- | ------------------------------------------------------- |
-   | Rule Name  | Set alarm                                               |
-   | Actions    | Send speech response - Ok, alarm set for {DateTime}"    |
+   | Setting    | Suggested value                               |Description                                     |
+   | ---------- | ------------------------------------------------------- |-----|
+   | Rule Name  | Set alarm                                               |    A name describing the purpose of the rule |
+   | Actions    | Send speech response - Ok, alarm set for {DateTime}"    |The action to take when the rule condition is true
 
 ## Try it out
 

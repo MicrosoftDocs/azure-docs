@@ -31,13 +31,12 @@ To demonstrate validations, let's create a new Command allowing users to set tem
 1. Create a new Command `SetTemperature`
 1. Add a parameter for the target temperature.
 
-   | Parameter Configuration           | Suggested value                                        
-   | ----------------- | ----------------------------------| 
-   | Name              | Temperature                       | 
-   | Is Global         | unchecked                         | 
-   | Required          | checked                           | 
-   | Simple editor     | What temperature would you like?  | 
-   | Type              | Number                            |
+   | Parameter Configuration           | Suggested value    |Description                 |                                    
+   | ----------------- | ----------------------------------| -------------|
+   | Name              | Temperature                       | A descriptive name for parameter                                |
+   | Required          | checked                           | Checkbox indicating whether a value for this parameter is required before completing the Command |
+   | Response for required parameter     | Simple editor -> What temperature would you like?  | A prompt to ask for the value of this parameter when it isn't known |
+   | Type              | Number                            | Type of parameter, such as Number, String, Date Time or Geography   |
 
 1. Add a validation for the temperature parameter.
 
@@ -65,11 +64,11 @@ To demonstrate validations, let's create a new Command allowing users to set tem
 
 1. Add a Completion rule to confirm result
 
-   | Setting    | Suggested value                                           |
-   | ---------- | --------------------------------------------------------- |
-   | Name       | Confirmation Message                                      |
-   | Conditions | Required Parameters - `Temperature`                       |
-   | Actions    | Send speech response - `Ok, setting temperature to {Temperature} degrees` |
+   | Setting    | Suggested value                                           |Description                                     |
+   | ---------- | --------------------------------------------------------- |-----|
+   | Name       | Confirmation Message                                      |A name describing the purpose of the rule |
+   | Conditions | Required Parameters - `Temperature`                       |Conditions that determine when the rule can run    |   
+   | Actions    | Send speech response - `Ok, setting temperature to {Temperature} degrees` | The action to take when the rule condition is true |
 
 > [!TIP]
 > This example uses a speech response to confirm the result. For examples on completing the Command with a client action see:
