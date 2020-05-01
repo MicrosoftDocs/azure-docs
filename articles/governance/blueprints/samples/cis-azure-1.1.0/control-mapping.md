@@ -8,26 +8,27 @@ ms.topic: sample
 
 The following article details how the Azure Blueprints CIS Microsoft Azure Foundations Benchmark
 blueprint sample maps to the CIS Microsoft Azure Foundations Benchmark recommendations. For more
-information about the recommendations, see [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
+information about the recommendations, see
+[CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
 The following mappings are to the **CIS Microsoft Azure Foundations Benchmark v1.1.0**
-recommendations. Use the navigation on the right to jump directly to a specific recommendation mapping.
-Many of the mapped recommendations are implemented with an [Azure Policy](../../../policy/overview.md)
-initiative. To review the complete initiative, open **Policy** in the Azure portal and select the
-**Definitions** page. Then, find and select the **\[Preview\] Audit CIS Microsoft Azure Foundations
-Benchmark v1.1.0 recommendations and deploy specific VM Extensions to support audit requirements** 
-built-in policy initiative.
+recommendations. Use the navigation on the right to jump directly to a specific recommendation
+mapping. Many of the mapped recommendations are implemented with an
+[Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative, open
+**Policy** in the Azure portal and select the **Definitions** page. Then, find and select the
+**\[Preview\] Audit CIS Microsoft Azure Foundations Benchmark v1.1.0 recommendations and deploy
+specific VM Extensions to support audit requirements** built-in policy initiative.
 
-> [!IMPORTANT]
-> Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
-> definitions. These policies may help you [assess compliance](../../../policy/how-to/get-compliance-data.md)
-> with the control; however, there often is not a 1:1 or complete match between a control and one or
-> more policies. As such, **Compliant** in Azure Policy refers only to the policies themselves; this
-> doesn't ensure you're fully compliant with all requirements of a control. In addition, the
-> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
-> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
-> status. The associations between controls and Azure Policy definitions for this compliance
-> blueprint sample may change over time. To view the change history, see the
+> [!IMPORTANT] Each control below is associated with one or more
+> [Azure Policy](../../../policy/overview.md) definitions. These policies may help you
+> [assess compliance](../../../policy/how-to/get-compliance-data.md) with the control; however,
+> there often is not a 1:1 or complete match between a control and one or more policies. As such,
+> **Compliant** in Azure Policy refers only to the policies themselves; this doesn't ensure you're
+> fully compliant with all requirements of a control. In addition, the compliance standard includes
+> controls that aren't addressed by any Azure Policy definitions at this time. Therefore, compliance
+> in Azure Policy is only a partial view of your overall compliance status. The associations between
+> controls and Azure Policy definitions for this compliance blueprint sample may change over time.
+> To view the change history, see the
 > [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md).
 
 ## 1.1 Ensure that multi-factor authentication is enabled for all privileged users
@@ -74,7 +75,8 @@ monitor networks and virtual machines where the Security Center standard tier is
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
 ensure automatic provisioning of the Log Analytics agent is enabled.
 
-- Automatic provisioning of the Log Analytics monitoring agent should be enabled on your subscription
+- Automatic provisioning of the Log Analytics monitoring agent should be enabled on your
+  subscription
 
 ## 2.3 Ensure ASC Default policy setting "Monitor System Updates" is not "Disabled"
 
@@ -244,24 +246,30 @@ ensure advanced data security is enabled on SQL servers and SQL managed instance
 This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
 advanced threat protection is properly configured on SQL servers and SQL managed instances.
 
-- Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security settings
-- Advanced Threat Protection types should be set to 'All' in SQL managed instance Advanced Data Security settings
+- Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security
+  settings
+- Advanced Threat Protection types should be set to 'All' in SQL managed instance Advanced Data
+  Security settings
 
 ## 4.6 Ensure that 'Send alerts to' is set
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
 ensure advanced data security notifications are properly enabled.
 
-- Advanced data security settings for SQL server should contain an email address to receive security alerts
-- Advanced data security settings for SQL managed instance should contain an email address to receive security alerts
+- Advanced data security settings for SQL server should contain an email address to receive security
+  alerts
+- Advanced data security settings for SQL managed instance should contain an email address to
+  receive security alerts
 
 ## 4.7 Ensure that 'Email service and co-administrators' is 'Enabled'
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
 ensure advanced data security notifications are properly enabled.
 
-- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings
-- Email notifications to admins and subscription owners should be enabled in SQL managed instance advanced data security settings
+- Email notifications to admins and subscription owners should be enabled in SQL server advanced
+  data security settings
+- Email notifications to admins and subscription owners should be enabled in SQL managed instance
+  advanced data security settings
 
 ## 4.8 Ensure that Azure Active Directory Admin is configured
 
