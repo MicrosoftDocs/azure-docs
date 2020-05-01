@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Query the Azure Digital Twins twin graph
 
-This article goes in-depth on using the [Azure Digital Twins Query Store language](concepts-query-language.md) to query the [twin graph](concepts-twins-graph.md) for information. You run queries on the graph using the Azure Digital Twins [**Query APIs**](how-to-use-apis.md).
+This article goes in-depth on using the [Azure Digital Twins Query Store language](concepts-query-language.md) to query the [twin graph](concepts-twins-graph.md) for information. You run queries on the graph using the Azure Digital Twins [**Query APIs**](how-to-use-apis-sdks.md).
 
 ## Query syntax
 
@@ -181,4 +181,4 @@ Below are some tips for querying with Azure Digital Twins.
 
 ## Next steps
 
-Learn more about the [Azure Digital Twins APIs](how-to-use-apis.md), including the Query API which is used to run the queries from this article.
+Learn more about the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), including the Query API which is used to run the queries from this article.

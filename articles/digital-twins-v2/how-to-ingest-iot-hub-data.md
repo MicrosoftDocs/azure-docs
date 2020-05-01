@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Ingest IoT Hub telemetry into Azure Digital Twins
 
-Azure Digital Twins is driven with data from IoT devices and other sources, by calling the [DigitalTwins APIs](how-to-use-apis.md) to set properties or fire telemetry events on [digital twins](concepts-twins-graph.md). Once a property change or telemetry event arrives inside of Azure Digital Twins, all further event propagation and processing happens inside of Azure Digital Twins.
+Azure Digital Twins is driven with data from IoT devices and other sources, by calling the [DigitalTwins APIs](how-to-use-apis-sdks.md) to set properties or fire telemetry events on [digital twins](concepts-twins-graph.md). Once a property change or telemetry event arrives inside of Azure Digital Twins, all further event propagation and processing happens inside of Azure Digital Twins.
 
 This how-to document walks through an example of ingesting telemetry from [IoT Hub](../iot-hub/about-iot-hub.md).
 

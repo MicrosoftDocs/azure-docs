@@ -9,7 +9,7 @@ ms.author: baanders
 
 To authenticate against Azure Digital Twins from a client application, you need to set up an **app registration** in [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md).
 
-This app registration is where you configure access permissions to the [Azure Digital Twins APIs](../articles/digital-twins-v2/how-to-use-apis.md). Your client app authenticates against the app registration, and as a result is granted the configured access permissions to the APIs.
+This app registration is where you configure access permissions to the [Azure Digital Twins APIs](../articles/digital-twins-v2/how-to-use-apis-sdks.md). Your client app authenticates against the app registration, and as a result is granted the configured access permissions to the APIs.
 
 To create an app registration, you need to provide the resource IDs for the Azure Digital Twins APIs, and the baseline permissions to the API. In your working directory, open a new file and enter the following JSON snippet to configure these details: 
 

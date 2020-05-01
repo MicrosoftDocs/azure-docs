@@ -26,7 +26,7 @@ Supported endpoint types include:
 
 For more information on the different endpoints, see [Choose between Azure messaging services](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
 
-Endpoints and routes are managed with the [**EventRoutes APIs**](how-to-use-apis.md), or with the [Azure Digital Twins CLI](how-to-use-cli.md).
+Endpoints and routes are managed with the [**EventRoutes APIs**](how-to-use-apis-sdks.md), or with the [Azure Digital Twins CLI](how-to-use-cli.md).
 
 ## Create an endpoint for Azure Digital Twins
 
@@ -62,7 +62,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 To actually send data from Azure Digital Twins to an endpoint, you need to define an event route. Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [Concepts: Routing Azure Digital Twins events](concepts-route-events.md).
 
-[!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
+The samples in this article use the C# SDK.
 
 Event routes are defined using data plane APIs. A route definition can contain these elements:
 * The route ID you want to use

@@ -83,7 +83,7 @@ For more information about this, see [Debug Event Grid trigger locally](../azure
 
 ### Add the Azure Digital Twins SDK to your Azure function app
 
-Visit [How-to: Use the Azure Digital Twins APIs](how-to-use-apis.md) to see how to generate the Azure Digital Twins SDK using AutoRest, and compile it as a reusable project.
+Visit [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md) to see how to generate the Azure Digital Twins SDK using AutoRest, and compile it as a reusable project.
 
 To access Azure Digital Twins from your Azure function, add the Azure Digital Twins SDK project to the function app. You can do that by right-selecting *Dependencies* in the Solution Explorer and choosing *Add Reference...*.
 

@@ -64,7 +64,7 @@ The endpoint APIs that are available in control plane are:
 
 ## Create an event route
  
-Event routes are created in a client application with the following [Azure Digital Twins API](how-to-use-apis.md) call: 
+Event routes are created in a client application with the following [Azure Digital Twins API](how-to-use-apis-sdks.md) call: 
 
 ```csharp
 await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-ID>"));

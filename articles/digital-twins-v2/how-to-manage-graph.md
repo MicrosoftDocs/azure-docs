@@ -19,9 +19,9 @@ ms.service: digital-twins
 
 The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) representing your whole environment. The twin graph is made up of individual digital twins connected via **relationships**.
 
-Once you have a working [Azure Digital Twins instance](how-to-set-up-instance.md) and have set up [authentication](how-to-authenticate-client.md) for your client app, you can use the [**DigitalTwins APIs**](how-to-use-apis.md) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [How-to: Manage a digital twin](how-to-manage-twin.md).
+Once you have a working [Azure Digital Twins instance](how-to-set-up-instance.md) and have set up [authentication](how-to-authenticate-client.md) for your client app, you can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [How-to: Manage a digital twin](how-to-manage-twin.md).
 
-[!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
+The samples in this article use the C# SDK.
 
 ## Create relationships
 

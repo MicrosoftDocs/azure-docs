@@ -203,7 +203,7 @@ Here are the fields in the body of an edge change notification.
 
 #### Body details
 
-The body is the payload of a relationship, also in JSON format. It uses the same format as a `GET` request for a relationship via the [DigitalTwins API](how-to-use-apis.md). 
+The body is the payload of a relationship, also in JSON format. It uses the same format as a `GET` request for a relationship via the [DigitalTwins API](how-to-use-apis-sdks.md). 
 
 "Updating a relationship" means properties of the relationship have changed. 
 
@@ -333,5 +333,5 @@ The corresponding notification (if synchronously executed by the service, such a
 See how to create endpoints and routes to deliver events:
 * [How-to: Manage endpoints and routes](how-to-manage-routes.md)
 
-Or, learn more about the Azure Digital Twins APIs:
-* [How-to: Use the Azure Digital Twins APIs](how-to-use-apis.md)
+Or, learn more about the Azure Digital Twins APIs and SDK options:
+* [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)

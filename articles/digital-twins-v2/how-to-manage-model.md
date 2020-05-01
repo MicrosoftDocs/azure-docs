@@ -17,9 +17,9 @@ ms.service: digital-twins
 
 # Manage Azure Digital Twins models
 
-You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinsModels APIs**](how-to-use-apis.md). Management operations include upload, validation, retrieval, and deletion of models. 
+You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinsModels APIs**](how-to-use-apis-sdks.md). Management operations include upload, validation, retrieval, and deletion of models. 
 
-[!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
+The samples in this article use the C# SDK.
 
 ## Create models
 

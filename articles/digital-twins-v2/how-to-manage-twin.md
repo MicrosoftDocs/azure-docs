@@ -17,9 +17,9 @@ ms.service: digital-twins
 
 # Manage digital twins
 
-Entities in your environment are represented by [digital twins](concepts-twins-graph.md). You can use the [**DigitalTwins APIs**](how-to-use-apis.md) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [How-to: Manage a twin graph with relationships](how-to-manage-graph.md).
+Entities in your environment are represented by [digital twins](concepts-twins-graph.md). You can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [How-to: Manage a twin graph with relationships](how-to-manage-graph.md).
 
-[!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
+The samples in this article use the C# SDK.
 
 ## Create a digital twin (preview)
 

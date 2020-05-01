@@ -28,8 +28,6 @@
     href: concepts-route-events.md
   - name: Securing Azure Digital Twins solutions
     href: concepts-security.md
-  - name: The Azure Digital Twins SDKs
-    href: concepts-sdks.md
 - name: How-to guides
   items:
   - name: Create an Azure Digital Twins instance
@@ -40,8 +38,8 @@
     href: how-to-ingest-iot-hub-data.md
   - name: Set up an Azure Function
     href: how-to-create-azure-function.md
-  - name: Use the APIs
-    href: how-to-use-apis.md
+  - name: Use the APIs and SDKs
+    href: how-to-use-apis-sdks.md
   - name: Manage a twin model
     href: how-to-manage-model.md
   - name: Manage a digital twin
