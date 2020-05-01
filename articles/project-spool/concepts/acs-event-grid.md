@@ -112,7 +112,7 @@ The following example shows the schema of a chat received event:
   "data": {
     "id": "1f4e632b-ecbd-4bbd-afbb-25b5b9a06643",
     "messageType":"text?",
-    "clientMessageId": "a6e761ea-9e50-4704-98dd-54d178e0b853"
+    "clientMessageId": "a6e761ea-9e50-4704-98dd-54d178e0b853",
     "priority": "Normal",
     "content": "This is a message.",
     "senderDisplayName": "Bob",
