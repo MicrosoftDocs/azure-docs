@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Quickstart: Create a Synapse SQL pool workload classifier using the Azure portal
 
-In this quickstart, you will create a [workload classifier](sql-data-warehouse-workload-classification.md) for assigning queries to a workload group.  The classifier will assign requests from the `ELTLogin` SQL user to the `DataLoads` workload group.   Follow the [Quickstart: Configure workload isolation](quickstart-configure-workload-isolation-portal.md) tutorial to create the `DataLoads` workload group.  This tutorial will create a workload classifier with the WLM_LABEL option to help further classify requests correctly.  The classifier will assign high [workload importance](sql-data-warehouse-workload-importance.md) to these requests as well.
+In this quickstart, you will create a [workload classifier](sql-data-warehouse-workload-classification.md) for assigning queries to a workload group.  The classifier will assign requests from the `ELTLogin` SQL user to the `DataLoads` workload group.   Follow the [Quickstart: Configure workload isolation](quickstart-configure-workload-isolation-portal.md) tutorial to create the `DataLoads` workload group.  This tutorial will create a workload classifier with the WLM_LABEL option to help further classify requests correctly.  The classifier will assign `HIGH` [workload importance](sql-data-warehouse-workload-importance.md) to these requests as well.
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -31,7 +31,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 ## Prerequisites
 
 This quickstart assumes you already have a SQL pool instance in Synapse SQL and that you have CONTROL DATABASE permissions. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
-
+<br><br>
+A workload group `DataLoads` exists.  See the [Quickstart: Configure workload isolation](quickstart-configure-workload-isolation-portal.md) tutorial to create the workload group.
+<br><br>
 >[!IMPORTANT] 
 >Your SQL pool must be online to configure workload management. 
 
@@ -88,8 +90,8 @@ Classification allows you to route requests, based on a set of rules, to a workl
 
 ## Verify and test classification
 Check the [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest)
+catalog view to verify existence of the `ELTLoginDataLoads` classifier.
 
- catalog view to verify existence of the `ELTLoginDataLoads` classifier.
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers WHERE name = 'ELTLoginDataLoads'
 ```
