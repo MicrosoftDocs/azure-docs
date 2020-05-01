@@ -36,7 +36,7 @@ For this tutorial you need:
 
 To get access to the Azure Remote Rendering service, you first need to [create an account](../../../how-tos/create-an-account.md#create-an-account).
 
-You're required to complete the "Create an account" section for this tutorial, optionally you can complete the "Link storage accounts" section which is required for a future tutorial \[Commercial ready: Model library](../commercial-ready/commercial-ready.md#model-library).
+You're required to complete the "Create an account" section for this tutorial, optionally you can complete the "Link storage accounts" section which is required for a future tutorial [Commercial ready: Model library](../commercial-ready/commercial-ready.md#model-library).
 
 ## Create a new Unity project
 
@@ -108,7 +108,7 @@ Select the **Main Camera** node.
 ## Adjust the project settings
 
 1. Open *Edit > Project Settings...*
-1. In the list on the left select Quality.
+1. In the list on the left select **Quality**.
 1. Change the **Default Quality Level** to *Low*
 
     ![change project quality settings](./media/settings-quality.png)
@@ -445,7 +445,7 @@ The remote rendering coordinator and a script it requires (*ARRServiceUnity*) ar
 1. Create a new GameObject in the scene and name it **RemoteRenderingCoordinator**.
 1. Add the *RemoteRenderingCoordinator* script to the **RemoteRenderingCoordinator** GameObject.\
 ![Add RemoteRenderingCoordinator component](./media/add-coordinator-script.png)
-1. Confirm the *ARRServiceUnity* script is automatically added to the GameObject, this is a result of adding the attribute `[RequireComponent(typeof(ARRServiceUnity))]` to the top of the **RemoteRenderingCoordinator** script.
+1. Confirm the *ARRServiceUnity* script, appearing as *Service* in the inspector, is automatically added to the GameObject, this is a result of adding the attribute `[RequireComponent(typeof(ARRServiceUnity))]` to the top of the **RemoteRenderingCoordinator** script.
 1. Add your Azure Remote Rendering credentials to the coordinator script:\
 ![Add your credentials](./media/configure-coordinator-script.png)
 
@@ -467,8 +467,7 @@ Now that we have the framework for our coordinator, we will implement each of th
 /// </summary>
 public void InitializeARR()
 {
-    RemoteUnityClientInit clientInit = new RemoteUnityClientInit(Camera.main);
-    RemoteManagerUnity.InitializeManager(clientInit);
+    RemoteManagerUnity.InitializeManager(new RemoteUnityClientInit(Camera.main));
 
     ARRSessionService.Initialize(new AzureFrontendAccountInfo(AccountDomain, AccountId, AccountKey));
 
@@ -484,8 +483,9 @@ The second stage is to Create or Join a Remote Rendering Session (see [Remote Re
 
 ![ARR stack 2](./media/remote-render-stack-2.png)
 
-The remote session is where our models will be rendered. The `JoinRemoteSession()` method will attempt to join an existing session (if we're the one that created it, tracked with the `LastUsedSessionID` property, or if we've assigned an active session ID to `sessionIDOverride`).\
-If no sessions are available, it will create a new session. Creating a new session is, unfortunately, a time consuming operation. Therefore one should try to create sessions rarely, and reuse them whenever possible (see \[Commercial Ready: Session pooling, scheduling, and best practices](../commercial-ready/commercial-ready.md#session-pooling-scheduling-and-best-practices) for more). `StopRemoteSession()` will end the currently active session. To prevent charges, you should always stop sessions when they are not needed anymore.
+The remote session is where our models will be rendered. The `JoinRemoteSession()` method will attempt to join an existing session (if we're the one that created it, tracked with the `LastUsedSessionID` property, or if we've assigned an active session ID to `sessionIDOverride`).
+
+If no sessions are available, it will create a new session. Creating a new session is, unfortunately, a time consuming operation. Therefore one should try to create sessions rarely, and reuse them whenever possible (see [Commercial Ready: Session pooling, scheduling, and best practices](../commercial-ready/commercial-ready.md#session-pooling-scheduling-and-best-practices) for more). `StopRemoteSession()` will end the currently active session. To prevent charges, you should always stop sessions when they are not needed anymore.
 
 Our state machine will now progress to either `ConnectingToNewRemoteSession` or `ConnectingToExistingRemoteSession` depending on available sessions. Both opening an existing session or creating a new session will trigger the `ARRSessionService.OnSessionStatusChanged` event, executing our `OnRemoteSessionStatusChanged` method. Ideally, this will result in advancing the state machine to `RemoteSessionReady`.
 
@@ -499,7 +499,7 @@ public async void JoinRemoteSession()
 {
     //If there's a session available that previously belonged to us, and it's ready, use it. Otherwise start a new session.
     RenderingSessionProperties joinResult;
-    if ((await IsSessionAvailable(LastUsedSessionID)))
+    if (await IsSessionAvailable(LastUsedSessionID))
     {
         CurrentCoordinatorState = RemoteRenderingState.ConnectingToExistingRemoteSession;
         joinResult = await ARRSessionService.OpenSession(LastUsedSessionID);
@@ -594,8 +594,9 @@ private void LateUpdate()
 
 ## Loading a model
 
-Finally, we have all the foundation required to load a model into the remote session and start receiving frames.\
- ![ARR stack 4](./media/remote-render-stack-4.png)
+Finally, we have all the foundation required to load a model into the remote session and start receiving frames.
+
+![ARR stack 4](./media/remote-render-stack-4.png)
 
 The `LoadModel` method is designed to accept a model path, progress handler and parent Transform. These arguments will be used to load a model into the remote session, update the user on the loading progress and orient the remotely rendered model based on the parent `Transform`. Replace the `LoadModel` method entirely with the code below:
 
@@ -615,7 +616,7 @@ public async Task<Entity> LoadModel(string modelPath, Transform parent = null, P
     //Get the game object representation of this entity
     var modelGameObject = modelEntity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
 
-    //Ensure the entity will its transform with the server
+    //Ensure the entity will sync its transform with the server
     var sync = modelGameObject.GetComponent<RemoteEntitySyncObject>();
     sync.SyncEveryFrame = true;
 
@@ -640,10 +641,10 @@ public async Task<Entity> LoadModel(string modelPath, Transform parent = null, P
 
     //Load a model that will be parented to the entity
     var loadModelParams = new LoadModelFromSASParams(modelPath, modelEntity);
-    var async = ARRSessionService.CurrentActiveSession.Actions.LoadModelFromSASAsync(loadModelParams);
+    var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelFromSASAsync(loadModelParams);
     if(progress != null)
-        async.ProgressUpdated += progress;
-    var result = await async.AsTask();
+        loadModelAsync.ProgressUpdated += progress;
+    var result = await loadModelAsync.AsTask();
     return modelEntity;
 }
 ```
@@ -663,7 +664,7 @@ Similar to the starting code for **RemoteRenderingCoordinator**, much of the cod
 
 First we'll create an enum to track the states of our model.
 
-1. Create a new script named **ModelStates** in the same folder as **RemoteRenderingCoordinator**. Replace the entire contents with the following code:
+1. Create a new script named **ModelState** in the same folder as **RemoteRenderingCoordinator**. Replace the entire contents with the following code:
 
 ```csharp
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -750,10 +751,11 @@ public class RemoteRenderedModel : MonoBehaviour
 
     public void Awake()
     {
-        OnModelStateChange += HandleUnityEvents;
+        OnModelStateChange += HandleUnityStateEvents;
+        LoadProgress += (progress) => OnLoadProgress?.Invoke(progress);
     }
 
-    private void HandleUnityEvents(ModelState modelState)
+    private void HandleUnityStateEvents(ModelState modelState)
     {
         switch (modelState)
         {
@@ -794,7 +796,7 @@ public class RemoteRenderedModel : MonoBehaviour
     public async void LoadModel()
     {
         if (CurrentModelState != ModelState.Ready)
-            return; //We're already loaded or loading or not ready to load
+            return; //We're already loaded, currently loading, or not ready to load
 
         CurrentModelState = ModelState.Loading;
 
@@ -833,13 +835,13 @@ public class RemoteRenderedModel : MonoBehaviour
     {
         CurrentModelState = ModelState.Unloading;
 
-        if (ModelEntity == null)
-            return;
-
-        var modelGameObject = ModelEntity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
-        Destroy(modelGameObject);
-        ModelEntity.Destroy();
-        ModelEntity = null;
+        if (ModelEntity != null)
+        {
+            var modelGameObject = ModelEntity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
+            Destroy(modelGameObject);
+            ModelEntity.Destroy();
+            ModelEntity = null;
+        }
 
         if (RemoteRenderingCoordinator.instance.CurrentCoordinatorState == RemoteRenderingState.RuntimeConnected)
             CurrentModelState = ModelState.Ready;
@@ -848,10 +850,10 @@ public class RemoteRenderedModel : MonoBehaviour
     }
 
     /// <summary>
-    /// Update the Unity method
+    /// Update the Unity progress event
     /// </summary>
     /// <param name="progressValue"></param>
-    public void SetLoadingProgress(float progressValue)
+    private void SetLoadingProgress(float progressValue)
     {
         Debug.Log($"Loading {ModelPath} progress: {Math.Round(progressValue * 100, 2)}%");
         loadProgress?.Invoke(progressValue);
@@ -865,7 +867,7 @@ The application now has everything in place required to load a view a remotely r
 
 1. Create a new GameObject in the scene and name it **TestModel**.
 1. Add the *RemoteRenderedModel* script to **TestModel**.\
-![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)\
+![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)
 1. Fill in the `Model Display Name` and the `Model Path` with "*TestModel*" and "*builtin://Engine*" respectively. The 'built in engine path' is a special path that references a test model built into Azure Remote Rendering.\
 ![Specify model details](./media/add-model-script.png)
 1. Position the **TestModel** object in front of the camera, at position **x = 0, y = 1, z = 3**.\
