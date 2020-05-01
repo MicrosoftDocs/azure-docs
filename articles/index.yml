@@ -575,7 +575,7 @@ productDirectory:
       azureCategories:
         - compute
         - web
-      url: XXXX/index.yml
+      url: static-apps/index.yml
     # Card
     - title: Virtual Machine Scale Sets
       summary: Manage and scale up to thousands of Linux and Windows virtual machines
