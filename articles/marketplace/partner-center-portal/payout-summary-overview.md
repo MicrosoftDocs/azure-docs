@@ -26,7 +26,7 @@ All reporting and insights for the transact publishing option are available in t
 
 These are roles and permissions to access the payout report:
 
-| Reports/Pages | Account owner | Manager | Developer | Business contributor | Finance contributor | Marketer  |
+| Reports/Pages | Account owner | Manager | Developer | Business contributor | Finance contributor | Marketer |
 | --- | --- | --- | --- | --- | --- | --- |
 | Acquisition report (including near real-time data) | Can view | Can view | No access | No access | Can view | No access |
 | Feedback report/responses | Can view and send feedback | Can view and send feedback | Can view and send feedback | No access | No access | Can view and send feedback |

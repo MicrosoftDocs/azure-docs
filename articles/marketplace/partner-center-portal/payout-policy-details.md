@@ -102,7 +102,7 @@ The following is an example schedule:
 | Customer receives termination notice | 2/1/2020 | None |
 | Collection process ends / funds are written off | 2/15/2020 | Email notification sent to publisher that funds have been written off. Transaction ID and dollar amount are included. |
 | Payout is deducted | 3/1/2020 | Publisher will see negative transaction in Partner Center Payout Statement |
-| Payout is withheld | 3/15/2020 | Future payouts will be shown in Partner Center Payout Statement. Publisher will not receive payment until balance is no longer negative. |
+| Payout is withheld | 3/15/2020 | Future payouts will be shown in Partner Center Payout Statement. Publisher will not receive payment until balance is no longer negative.  |
 |||
 
 ## Next Step
