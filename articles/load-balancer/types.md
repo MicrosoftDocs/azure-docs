@@ -1,6 +1,6 @@
 ---
-title: Azure Load Balancer Types
-description: Overview of Azure Load Balancer types
+title: Azure Load Balancer SKUs
+description: Overview of Azure Load Balancer SKUs
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,11 +13,11 @@ ms.date: 05/01/2020
 ms.author: allensu
 
 ---
-# Azure Load Balancer types
+# Azure Load Balancer SKUs
 
-Azure Load Balancer has two SKU's.
+Azure Load Balancer has two flavors or SKUs.
 
-## <a name="skus"></a> Load Balancer SKU comparison
+## <a name="skus"></a> SKU comparison
 
 Load balancer supports both Basic and Standard SKUs. These SKUs differ in scenario scale, features, and pricing. Any scenario that's possible with Basic load balancer can be created with Standard load balancer.
 
