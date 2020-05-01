@@ -1,6 +1,6 @@
 ---
 title: ACS As An Event Grid Source
-description: TODO
+description: Use Azure Event Grid to trigger processes based on actions that happen in a Communication Service.
 author: mikben    
 manager: jken
 services: azure-project-spool
