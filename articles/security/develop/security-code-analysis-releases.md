@@ -17,7 +17,7 @@ ms.workload: na
 
 # Microsoft Security Code Analysis releases and roadmap
 
-Microsoft Security Code Analysis team in partnership with Developer Support is proud to announce recent and upcoming enhancements to our MSCA extension. Please see Roadmap below.
+Microsoft Security Code Analysis (MSCA) team in partnership with Developer Support is proud to announce recent and upcoming enhancements to our MSCA extension. Please see Roadmap below.
 
 ![Releases](./media/security-code-analysis-releases/releases.png)
 
@@ -28,8 +28,8 @@ Microsoft Security Code Analysis team in partnership with Developer Support is p
 - **Core Engine**
 
    - Average performance upgrade of 25% with near linear run times
-   - Context/evidence based searching and ranking for increased accuracy
-   - Improvements to general password detections and matching logic for obvious placeholders (for example, fakePassword)
+   - Increase in accuracy through context and evidence based searching and ranking capabilities
+   - Improvements to general password detections and matching logic for placeholders (for example, fakePassword)
 
 - **Coverage** - Support for 25+ secret types including the following top requested:
 
@@ -44,7 +44,7 @@ Microsoft Security Code Analysis team in partnership with Developer Support is p
 
 - **Outputs**
 
-   - Support for SARIF 2.1 and CSV file output file formats
+   - Support for SARIF 2.1 and CSV file output formats
 
 ## BinSkim v1.6.0: Released in April 2020
 
@@ -53,18 +53,18 @@ Microsoft Security Code Analysis team in partnership with Developer Support is p
 - FEATURE: Update to final SARIF v2 (version 2.1.16). This enables results caching when passing --hashes on the command-line, a significant performance improvement when recursively analyzing directories with multiple copies of scan targets.
 - BUG FIX: Fix typo in BA2021.DoNotMarkWritableSectionsAsExecutable output.
 - PERFORMANCE: Eliminate PDB loading for all non-mixed-mode for managed assemblies, including IL Library (ahead of time compiled) binaries.
-- FALSE NEGATIVE FIX: Verify that a PDB placed alongside a binary actually matches the binary under analysis
+- FALSE NEGATIVE FIX: Verify that a PDB placed alongside a binary matches the binary under analysis
 - FEATURE: Provide --local-symbol-directories argument to specify additional (local, non-symbol-server) PDB look-up locations
 - FALSE POSITIVE FIX: Skip PDB-driven analysis for the generated .NET core native bootstrap exe (which is not user-controllable code).
 
 ## What's next in FY20?
 
-- Java Security Analysis tool
-- Python Security Analysis tool
+- Java Security Analysis tool support
+- Python Security Analysis tool support
 - ES Lint to replace TS Lint for TypeScript and JavaScript
 
 ## Next steps
 
 For instructions on how to onboard and install Microsoft Security Code Analysis, refer to our [Onboarding and installation guide](security-code-analysis-onboard.md).
 
-If you have more questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.md).
+If you have questions about the MSCA extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.md).
