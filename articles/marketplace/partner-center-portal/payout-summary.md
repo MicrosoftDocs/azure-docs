@@ -1,6 +1,6 @@
 ---
-title: Commercial marketplace payout summary | Azure Marketplace
-description: The Payout summary shows you details about the money you’ve earned with your offer. It also lets you know when you’ll receive payments and how much you'll be paid.
+title: Payout reports - Microsoft commercial marketplace
+description: The payout report shows you details about the money you’ve earned with your offer. It also lets you know when you’ll receive payments and how much you'll be paid.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,11 +8,11 @@ ms.topic: guide
 ms.date: 12/10/2019
 ---
 
-# Payout reporting
+# Payout reporting for Microsoft commercial marketplace
 
 The [**Payout summary**](https://docs.microsoft.com/windows/uwp/publish/payout-summary) shows you details about the money you’ve earned with Microsoft. It also lets you know when you’ll receive payments and how much you'll be paid.
 
-If you sell offerings in the Azure Marketplace, you’ll also see info on successful payouts in the **Payout summary**. For more information regarding Azure Marketplace payment, see the [Microsoft Azure Marketplace Participation Policies](https://go.microsoft.com/fwlink/p/?LinkId=722436) and the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
+If you sell offerings in  Azure Marketplace, you’ll also see info on successful payouts in the **Payout summary**. For more information regarding Azure Marketplace payment, see the [Microsoft Azure Marketplace Participation Policies](https://go.microsoft.com/fwlink/p/?LinkId=722436) and the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
 > [!NOTE]
 > To be eligible for payout, your proceeds must reach the [payment threshold](payment-thresholds-methods-timeframes.md) of $50. For details about the payment threshold see this page and review the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
