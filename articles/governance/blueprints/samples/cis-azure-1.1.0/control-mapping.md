@@ -1,34 +1,33 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark blueprint sample controls
 description: Recommendation mapping of the CIS Microsoft Azure Foundations Benchmark blueprint sample to Azure Policy.
-ms.date: 11/04/2019
+ms.date: 05/01/2020
 ms.topic: sample
 ---
 # Recommendation mapping of the CIS Microsoft Azure Foundations Benchmark blueprint sample
 
 The following article details how the Azure Blueprints CIS Microsoft Azure Foundations Benchmark
 blueprint sample maps to the CIS Microsoft Azure Foundations Benchmark recommendations. For more
-information about the recommendations, see
-[CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
+information about the recommendations, see [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
 The following mappings are to the **CIS Microsoft Azure Foundations Benchmark v1.1.0**
-recommendations. Use the navigation on the right to jump directly to a specific recommendation
-mapping. Many of the mapped recommendations are implemented with an
-[Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative, open
-**Policy** in the Azure portal and select the **Definitions** page. Then, find and select the
-**\[Preview\] Audit CIS Microsoft Azure Foundations Benchmark v1.1.0 recommendations and deploy
-specific VM Extensions to support audit requirements** built-in policy initiative.
+recommendations. Use the navigation on the right to jump directly to a specific recommendation mapping.
+Many of the mapped recommendations are implemented with an [Azure Policy](../../../policy/overview.md)
+initiative. To review the complete initiative, open **Policy** in the Azure portal and select the
+**Definitions** page. Then, find and select the **\[Preview\] Audit CIS Microsoft Azure Foundations
+Benchmark v1.1.0 recommendations and deploy specific VM Extensions to support audit requirements** 
+built-in policy initiative.
 
-> [!IMPORTANT] Each control below is associated with one or more
-> [Azure Policy](../../../policy/overview.md) definitions. These policies may help you
-> [assess compliance](../../../policy/how-to/get-compliance-data.md) with the control; however,
-> there often is not a 1:1 or complete match between a control and one or more policies. As such,
-> **Compliant** in Azure Policy refers only to the policies themselves; this doesn't ensure you're
-> fully compliant with all requirements of a control. In addition, the compliance standard includes
-> controls that aren't addressed by any Azure Policy definitions at this time. Therefore, compliance
-> in Azure Policy is only a partial view of your overall compliance status. The associations between
-> controls and Azure Policy definitions for this compliance blueprint sample may change over time.
-> To view the change history, see the
+> [!IMPORTANT]
+> Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
+> definitions. These policies may help you [assess compliance](../../../policy/how-to/get-compliance-data.md)
+> with the control; however, there often is not a 1:1 or complete match between a control and one or
+> more policies. As such, **Compliant** in Azure Policy refers only to the policies themselves; this
+> doesn't ensure you're fully compliant with all requirements of a control. In addition, the
+> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
+> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
+> status. The associations between controls and Azure Policy definitions for this compliance
+> blueprint sample may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md).
 
 ## 1.1 Ensure that multi-factor authentication is enabled for all privileged users
