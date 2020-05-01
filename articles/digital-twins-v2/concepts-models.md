@@ -25,11 +25,9 @@ Models are written using the JSON-based **Digital Twin Definition Language (DTDL
 
 ## Digital Twin Definition Language (DTDL) for writing models
 
-Models for Azure Digital Twins are defined using the [Digital Twins Definition language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). DTDL is based on JSON-LD and is programming-language independent.
+Models for Azure Digital Twins are defined using the Digital Twins Definition language (DTDL). DTDL is based on JSON-LD and is programming-language independent.
 
-DTDL is also used as part of [Azure IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md). Developers of PnP devices use a subset of the same description language used for Azure Digital Twins. The DTDL version used for PnP is, semantically, a subset of DTDL for Azure Digital Twins: every *capability model* as defined by PnP is also a valid model for use in Azure Digital Twins. 
-
-For more information about DTDL, see its [reference documentation](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+For more information about DTDL, see its [spec document (DTDL version 2)](https://github.com/Azure/azure-digital-twins/blob/public-preview/DTDL/DTDL-spec.md), or its [reference documentation](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
 ## Elements of a model
 
@@ -52,11 +50,9 @@ DTDL and models have several constraints while in preview:
 * Azure Digital Twins does not currently support the execution of commands on digital twins.
 * Azure Digital Twins does not support standalone relationships (that is, relationships defined as independent graph elements). All relationships must be defined inline as part of a model.
 
-## Create a model
+## Example model code
 
 Twin type models can be written in any text editor. The DTDL language follows JSON syntax, so you should store models with the extension *.json*. Using the JSON extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents.
-
-### Example model code
 
 Here is an example of a typical model, written as a DTDL interface. The model describes planets, each with a name, a mass, and a temperature. The planet may have moons as satellites, and it may contain craters.
 
@@ -103,7 +99,7 @@ Here is an example of a typical model, written as a DTDL interface. The model de
 ]
 ```
 
-The fields of the DTDL document are:
+The fields of the model are:
 
 | Field | Description |
 | --- | --- |
@@ -195,5 +191,5 @@ The extending interface cannot change any of the definitions of the parent inter
 Learn about how digital twins are created based on models:
 * [Concepts: Digital twins and the twin graph](concepts-twins-graph.md)
 
-Or, see how to manage models with the DigitalTwinsModels APIs:
+See how to manage models with the DigitalTwinsModels APIs:
 * [How-to: Manage a twin model](how-to-manage-model.md)

@@ -4,7 +4,7 @@
   items:
   - name: About Azure Digital Twins
     href: overview.md
-  - name: Differences from Public Preview 1
+  - name: Differences from previous release
     href: overview-differences.md
 - name: Quickstart
   items:
@@ -54,8 +54,6 @@
     href: how-to-query-graph.md
   - name: Use the Azure Digital Twins CLI
     href: how-to-use-cli.md
-  - name: Migrate from Public Preview 1
-    href: how-to-migrate.md
 - name: Reference
   items:
 - name: Resources
