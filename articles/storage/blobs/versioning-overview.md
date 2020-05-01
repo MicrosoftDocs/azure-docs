@@ -99,7 +99,7 @@ To automate the process of moving blobs to the appropriate tier, use blob life c
 
 ## Enable or disable blob versioning
 
-To learn how to enable or disable blob versioning, see [Enable or disable blob versioning](versioning-manage.md).
+To learn how to enable or disable blob versioning, see [Enable or disable blob versioning](versioning-enable.md).
 
 Disabling blob versioning does not delete existing blobs, versions, or snapshots. When you turn off blob versioning, any existing versions remain accessible in your storage account. No new versions are subsequently created.
 
@@ -258,6 +258,6 @@ In scenario 4, the base blob has been completely updated and contains none of it
 
 ## See also
 
-- [Enable blob versioning](versioning-manage.md)
+- [Enable blob versioning](versioning-enable.md)
 - [Creating a snapshot of a blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Soft delete for Azure Storage Blobs](storage-blob-soft-delete.md)

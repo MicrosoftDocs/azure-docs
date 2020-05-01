@@ -1,7 +1,7 @@
 ---
 title: Enable and manage blob versioning (preview)
 titleSuffix: Azure Storage
-description: Learn how to enable blob versioning in the Azure portal, PowerShell, Azure CLI, or by using an Azure Resource Manager template.
+description: Learn how to enable blob versioning in the Azure portal or by using an Azure Resource Manager template.
 services: storage
 author: tamram
 
@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Enable and manage blob versioning
 
-You can enable or disable blob versioning (preview) for the storage account at any time by using the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template.
+You can enable or disable blob versioning (preview) for the storage account at any time by using the Azure portal or an Azure Resource Manager template.
 
 ## Enable blob versioning
 
@@ -26,11 +26,11 @@ To enable blob versioning in the Azure portal:
 1. Under **Blob service**, choose **Data protection**.
 1. In the **Versioning** section, select **Enabled**.
 
-:::image type="content" source="media/versioning-manage/portal-enable-versioning.png" alt-text="Screenshot showing how to enable blob versioning in Azure portal":::
+:::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Screenshot showing how to enable blob versioning in Azure portal":::
 
 # [Template](#tab/template)
 
-To enable blob versioning with a template, create a template with the `IsVersioningEnabled` property to **true**. The following steps describe how to create a template in the Azure portal.
+To enable blob versioning with a template, create a template with the **IsVersioningEnabled** property to **true**. The following steps describe how to create a template in the Azure portal.
 
 1. In the Azure portal, choose **Create a resource**.
 1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
@@ -62,38 +62,9 @@ For more information about deploying resources with templates in the Azure porta
 
 ---
 
-## List blobs and blob versions
+## Modify a blob to trigger a new version
 
-You can get a list of blobs and versions under a specific container by including the *versions* parameter on the listing operation. To determine whether a given version is the current version (that is, the base blob), check the value of the **IsCurrentVersion** field.
-
-The following XML is a sample response body from a [List Blobs](/rest/api/storageservices/list-blobs) operation that includes the *versions* parameter.
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>  
-<EnumerationResults ServiceEndpoint="http://myaccount.blob.core.windows.net/"  ContainerName="mycontainer">  
-  <Prefix>string-value</Prefix>  
-  <Marker>string-value</Marker>  
-  <MaxResults>int-value</MaxResults>  
-  <Delimiter>string-value</Delimiter>  
-  <Blobs>  
-    <Blob>  
-      <Name>blob-name</name>  
-      <VersionId>version-id</VersionId>
-      <IsCurrentVersion>true</IsCurrentVersion>
-      <Properties>
-        …
-      </Properties>  
-      <Metadata>
-        …
-      </Metadata>  
-    </Blob>  
-    <BlobPrefix>  
-      <Name>blob-prefix</Name>  
-    </BlobPrefix>  
-  </Blobs>  
-  <NextMarker />  
-</EnumerationResults>
-```
+.NET example here
 
 ## Next steps
 
