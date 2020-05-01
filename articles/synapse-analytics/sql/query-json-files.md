@@ -128,7 +128,7 @@ FROM
         ROWTERMINATOR = '0x0b'
     )
     WITH (
-        jsonContent NVARCHAR(4000) --Note that you have to use NVARCHAR(4000) for OPENJSON to work.
+        jsonContent NVARCHAR(max) -- Use appropriate length. Make sure JSON fits. 
     ) AS [r]
 CROSS APPLY OPENJSON(jsonContent) AS j
 WHERE
