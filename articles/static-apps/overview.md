@@ -18,7 +18,7 @@ Azure Static Web Apps is a service that automatically builds and deploys full st
 
 The workflow of Azure Static Web Apps is tailored to a developer's daily workflow. Apps are built and deployed based off GitHub interactions.
 
-When you create an Azure Static Web Apps resource, you point a GitHub repository and select a branch to track. As commits are pushed and PRs are accepted against this branch, a GitHub Actions workflow starts. The workflow builds the app for production and deploys it to Azure.
+When you create an Azure Static Web Apps resource, Azure sets up a GitHub Actions workflow in the app's source code repository that monitors a branch of your choice. Every time you push commits or accept pull requests into the watched branch, the GitHub Action automatically builds and deploys your app and its API to Azure.
 
 Static web apps are commonly built using libraries and frameworks like Angular, React, Svelte, or Vue. These apps include HTML, CSS, JavaScript, and image assets that make up the application. With a traditional web server, these assets are served from a single server alongside any required API endpoints.
 
