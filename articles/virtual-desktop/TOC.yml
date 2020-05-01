@@ -120,12 +120,10 @@
     href: remotefx-graphics-performance-counters.md
 - name: Reference
   items:
+  - name: Fall 2019 Release documentation
+    href: /virtual-desktop-2019/tenant-setup-azure-active-directory.md
   - name: Linux support
     href: linux-overview.md
-  - name: PowerShell
-    href: /powershell/module/az.desktopvirtualization
-  - name: REST API
-    href: /rest/api/desktopvirtualization/
   - name: Supported RDP file settings
     href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
   - name: Network guidance
