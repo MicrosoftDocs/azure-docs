@@ -76,12 +76,12 @@ a Resource Provider property.
 The **mode** determines which resource types will be evaluated for a policy. The supported modes
 are:
 
-- `all`: evaluate resource groups and all resource types
+- `all`: evaluate resource groups, subscriptions, and all resource types
 - `indexed`: only evaluate resource types that support tags and location
 
 For example, resource `Microsoft.Network/routeTables` supports tags and location and is evaluated in
-both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged and isn't evaluated
-in `Indexed` mode.
+both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged and isn't
+evaluated in `Indexed` mode.
 
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
@@ -91,10 +91,12 @@ support backwards compatibility.
 
 `indexed` should be used when creating policies that enforce tags or locations. While not required,
 it prevents resources that don't support tags and locations from showing up as non-compliant in the
-compliance results. The exception is **resource groups**. Policies that enforce location or tags on
-a resource group should set **mode** to `all` and specifically target the
-`Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource group
-tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see
+compliance results. The exception is **resource groups** and **subscriptions**. Policies that
+enforce location or tags on a resource group or subscription should set **mode** to `all` and
+specifically target the `Microsoft.Resources/subscriptions/resourceGroups` or
+`Microsoft.Resources/subscriptions` type. For an example, see
+[Enforce resource group tags](../samples/enforce-tag-rg.md). For a list of resources that support
+tags, see
 [Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes" />Resource Provider modes (preview)
