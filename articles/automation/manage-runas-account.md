@@ -471,7 +471,7 @@ Some configuration items necessary for a Run As or Classic Run As account might 
 * Run As account removed from the Contributor role
 * Service principal or application in Azure AD
 
-For such misconfiguration instances, the Automation account detects the changes and displays a status of `Incomplete` on the Run As Accounts properties pane for the account.
+For such misconfiguration instances, the Automation account detects the changes and displays a status of *Incomplete* on the Run As Accounts properties pane for the account.
 
 ![Incomplete Run As account configuration status](media/manage-runas-account/automation-account-runas-incomplete-config.png)
 

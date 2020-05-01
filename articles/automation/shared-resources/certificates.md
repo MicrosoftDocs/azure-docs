@@ -21,19 +21,20 @@ Azure Automation stores certificates securely for access by runbooks and DSC con
 >[!NOTE]
 >This article shows you how to use the Azure PowerShell Az module. You can still use the AzureRM module. To learn more about the Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version by using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
-## Az PowerShell cmdlets
+## PowerShell cmdlets to access certificates
 
-For Az, you use the cmdlets in the following table to create and manage automation credential assets with Windows PowerShell. They ship as part of the [Az.Automation module](/powershell/azure/overview), which is available for use in Automation runbooks and DSC configurations.
+The cmdlets in the following table create and manage Automation certificates with PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
 
 |Cmdlet |Description|
 | --- | ---|
-|[Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate)|Uploads a service certificate for the specified cloud service.|
 |[Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Retrieves information about a certificate to use in a runbook or DSC configuration. You can only retrieve the certificate itself by using the internal `Get-AutomationCertificate` cmdlet.|
 |[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Creates a new certificate in Automation.|
 |[Remove-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Removes a certificate from Automation.|
 |[Set-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|Sets the properties for an existing certificate, including uploading the certificate file and setting the password for a **.pfx** file.|
 
-## Internal cmdlets
+The [Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate) cmdlet can also be used to upload a service certificate for the specified cloud service.
+
+## Internal cmdlets to access certificates
 
 The internal cmdlet in the following table is used to access certificates in your runbooks. This cmdlet comes with the global module `Orchestrator.AssetManagement.Cmdlets`. For more information, see [Internal cmdlets](modules.md#internal-cmdlets).
 
@@ -44,7 +45,7 @@ The internal cmdlet in the following table is used to access certificates in you
 > [!NOTE] 
 > You should avoid using variables in the `Name` parameter of `Get-AutomationCertificate` in a runbook or DSC configuration. Such variables can complicate discovery of dependencies between runbooks or DSC configurations and Automation variables at design time.
 
-## Python 2 function
+## Python 2 functions to access certificates
 
 Use the function in the following table to access certificates in a Python 2 runbook.
 
@@ -122,7 +123,7 @@ $json | out-file .\template.json
 New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName TestAzureAuto -TemplateFile .\template.json
 ```
 
-## Use a certificate
+## Get a certificate
 
 To retrieve a certificate, use the internal `Get-AutomationCertificate` cmdlet. You can't use the [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet, because it returns information about the certificate asset, but not the certificate itself.
 
@@ -162,4 +163,6 @@ print cert
 
 ## Next steps
 
-To learn more about working with links to control the logical flow of activities in your graphical runbook, see [Links in graphical authoring](../automation-graphical-authoring-intro.md#links-and-workflow). 
+* To learn more about the cmdlets used to access certificates, see [Manage modules in Azure Automation](modules.md).
+* For general information about runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
+* For details of DSC configurations, see [State Configuration overview](../automation-dsc-overview.md). 
