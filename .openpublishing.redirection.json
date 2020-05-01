@@ -52074,6 +52074,11 @@
       "source_path": "articles/media-services/azure-media-player/azure-media-player-license.md",
       "redirect_url": "/legal/azure-media-player/azure-media-player-license",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/azure-media-player/components-limitations.md",
+      "redirect_url": "/articles/load-balancer/concepts",
+      "redirect_document_id": false
     }
  ]
 }

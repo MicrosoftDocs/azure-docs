@@ -57,7 +57,7 @@ To deploy a load balancer, you create and configure the following objects:
 * Inbound NAT rules - contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
 * Probes - contains health probes used to check availability of virtual machines instances in the back-end address pool.
 
-For more information, see [Azure Load Balancer components](./concepts-limitations.md#load-balancer-components).
+For more information, see [Azure Load Balancer components](./components.md).
 
 ## Set up PowerShell to use Resource Manager
 
