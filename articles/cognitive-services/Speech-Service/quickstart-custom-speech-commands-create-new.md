@@ -12,7 +12,7 @@ ms.date: 12/09/2019
 ms.author: donkim
 ---
 
-# Quickstart: Create a Custom Commands app
+# Quickstart: Create a Custom Commands app (Preview)
 
 In this quickstart, you will learn how to create and test a Custom Commands application.
 The created application will process utterances like "turn on the tv" and reply with a simple message "Ok, turning on the tv".
@@ -22,7 +22,7 @@ The created application will process utterances like "turn on the tv" and reply 
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
   > [!NOTE]
-  > At this time, only the westus, westus2, neur regions are supported.
+  > At this time, Custom Commands only supports the westus, westus2, neur regions.
 
 ## Go to the Speech Studio for Custom Commands
 
@@ -73,7 +73,7 @@ You can update the authoring resource that was set in the new project window, an
 > [!div class="mx-imgBorder"]
 > ![Set LUIS Resources](media/custom-speech-commands/set-luis-resources.png)
 
-1. Select **Settings** from the left pane and then navigate to the **LUIS resources** section in the middle pane .
+1. Select **Settings** from the left pane and then navigate to the **LUIS resources** section in the middle pane.
 1. Select a prediction resource, or create one by selecting **Create new resource**
 1. Select **Save**
 
@@ -81,9 +81,9 @@ You can update the authoring resource that was set in the new project window, an
 
 Let's create a simple command that will take a single utterance, `turn on the tv`, and respond with the message `Ok, turning on the tv`.
 
-1. Create a new Command by selecting the **+** icon next to **New command**. A new pop-up window appears titled **New command**.
+1. Create a new Command by selecting the **+** icon adjacent to **New command**. A new pop-up appears titled **New command**.
 1. Provide value for the **Name** field as `TurnOn`
-1. Click on **Create**
+1. Select **Create**
 
 > [!div class="mx-imgBorder"]
 > ![Create a command](media/custom-speech-commands/create-add-command.png)
@@ -94,28 +94,31 @@ A Command comprises of:
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Example sentences | Example utterances the user can say to trigger this Command                                                                 |
 | Parameters       | Information required to complete the Command                                                                                |
-| Completion Rules | The actions to be taken to fulfill the Command. For example, to respond to the user or communicate with another web service |
-| Advanced Rules   | Additional rules to handle more specific or complex situations                                                              |
+| Completion rules | The actions to be taken to fulfill the Command. For example, to respond to the user or communicate with another web service |
+| Interaction rules   | Additional rules to handle more specific or complex situations                                                              |
 
-### Add Example Sentences
+### Add Example sentences
 
-Let's start with **Example Sentences** section, and provide an example of what the user can say:
+Let's start with Example sentences section, and provide an example of what the user can say.
+1. Select **Example sentences** section from the middle pane and in the right most pane, add examples
 
-```
-turn on the tv
-```
+    ```
+    turn on the tv
+    ```
+
+1. Select `Save` icon present on top of this pane.
 
 For now, we have no parameters so we can move on to **Completion rules** section.
 
 ### Add a Completion Rule
 
-Now add a Completion Rule to respond to user indicating that a fulfillment action is being taken.
+Now add a Completion rule to respond to user indicating that a fulfillment action is being taken.
 
-1. Create a new completion rule by selecting the **+Add** button at the top of the middle pane
-1. Provide value for rule name.
+1. Create a new completion rule by selecting the `+Add` icon at the top of the middle pane.
+1. Provide value in **Name** section.
 1. Add an action
-   1. Create a new Speech Response Action by selecting the **+** icon next to Actions.
-   1. In the **New Action** pop-up window which appears, select `Send speech response` from the drop-down options for **Type**.
+   1. Create a new action by selecting the **+ Add an action** in the **Actions** section.
+   1. In the **New Action** pop-up, select `Send speech response` from the drop-down options for **Type**.
    1. Choose `Simple editor` for the **Response** field.
        - In the **First variation** field, provide value for response as `Ok, turning on the tv`
 
@@ -123,6 +126,7 @@ Now add a Completion Rule to respond to user indicating that a fulfillment actio
    > ![Create a Speech response](media/custom-speech-commands/create-speech-response-action.png)
 
 1. Click **Save** to save the rule.
+1. Back in the **Completion rules** section, select **Save** to save all changes. 
 
 > [!div class="mx-imgBorder"]
 > ![Create a completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
@@ -136,11 +140,10 @@ Now add a Completion Rule to respond to user indicating that a fulfillment actio
 ## Try it out
 
 Test the behavior using the Test chat panel
-1. Click on **Train** button.
-1. Once, training completes, click on **Test** button.
-    - A new **Test your application** window will appear.
-    - You type: "turn on the tv"
-    - Expected response: "Ok, turning on the tv"
+1. Select `Train` icon present on top of the right pane.
+1. Once, training completes, select `Test`. A new **Test your application** window will appear.
+    - You type: turn on the tv
+    - Expected response: Ok, turning on the tv
 
 
 > [!div class="mx-imgBorder"]

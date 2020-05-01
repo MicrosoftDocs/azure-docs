@@ -1,5 +1,5 @@
 ---
-title: 'How to: Add a confirmation to a custom command (Preview)'
+title: 'How to: Add a confirmation to a custom command'
 titleSuffix: Azure Cognitive Services
 description: In this article, how to implements confirmations for a command in Custom Commands.
 services: cognitive-services
@@ -12,20 +12,20 @@ ms.date: 12/05/2019
 ms.author: encorona
 ---
 
-# How To: Add a confirmation to a Custom Command (Preview)
+# How To: Add a confirmation to a Custom Command
 
 In this article, you'll learn how to add a confirmation to a command.
 
 ## Prerequisites
 
 You must have completed the steps in the following articles:
-
-- [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
-- [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+> [!div class="checklist"]
+> *  [Quickstart: Create a Custom Command](./quickstart-custom-speech-commands-create-new.md)
+> * [Quickstart: Create a Custom Command with Parameters](./quickstart-custom-speech-commands-create-parameters.md)
 
 ## Create a SetAlarm command
 
-To demonstrate validations, let's create a new Command allowing the user to set an alarm.
+To demonstrate confirmations, let's create a new Command allowing the user to set an alarm.
 
 1. Open your previously created Custom Commands application in [Speech Studio](https://speech.microsoft.com/)
 1. Create a new Command **SetAlarm**
