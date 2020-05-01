@@ -6,7 +6,7 @@ ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.topic: tutorial
 ms.workload: infrastructure
-ms.date: 04/28/2020
+ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
 
@@ -21,8 +21,9 @@ Images can be used to bootstrap deployments and ensure consistency across multip
 > * Create a Shared Image Gallery
 > * Create an image definition
 > * Create an image version
-> * Create a VM from an image version
-> * Learn about creating generalized images
+> * Create a VM from an image 
+> * Share an image gallery
+
 
 
 ## Before you begin
@@ -172,6 +173,23 @@ Add-AzVMNetworkInterface -Id $nic.Id
 New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
+
+## Share the gallery
+
+We recommend that you share access at the image gallery level. Use an email address and the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet to get the object ID for the user, then use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) to give them access to the gallery. Replace the example email, alinne_montes@contoso.com in this example, with your own information.
+
+```azurepowershell-interactive
+# Get the object ID for the user
+$user = Get-AzADUser -StartsWith alinne_montes@contoso.com
+# Grant access to the user for our gallery
+New-AzRoleAssignment `
+   -ObjectId $user.Id `
+   -RoleDefinitionName Reader `
+   -ResourceName $gallery.Name `
+   -ResourceType Microsoft.Compute/galleries `
+   -ResourceGroupName $resourceGroup.ResourceGroupName
+```
+   
 ## Clean up resources
 
 When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, and all related resources:
@@ -196,7 +214,8 @@ In this tutorial, you created a specialized VM image. You learned how to:
 > * Create a Shared Image Gallery
 > * Create an image definition
 > * Create an image version
-> * Create a VM from a specialized image
+> * Create a VM from an image 
+> * Share an image gallery
 
 Advance to the next tutorial to learn about how to create highly available virtual machines.
 

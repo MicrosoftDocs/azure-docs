@@ -3,9 +3,10 @@ title: Create a scale set from a specialized image version using the Azure CLI
 description: Create a scale set using a specialized image version in a Shared Image Gallery using the Azure CLI.
 author: cynthn
 ms.service: virtual-machine-scale-sets
+ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 04/23/2020
+ms.date: 05/01/2020
 ms.author: cynthn
 ---
 
@@ -29,7 +30,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Create the scale set using [az vmss create](/cli/azure/vmss#az-vmss-create) using the --specialized parameter to indicate the the image is a specialized image. 
+Create a scale set using [az vmss create](/cli/azure/vmss#az-vmss-create). 
 
 Use the image definition ID for `--image` to create the scale set instances from the latest version of the image that is available. You can also create the scale set instances from a specific version by supplying the image version ID for `--image`. 
 
@@ -41,8 +42,10 @@ az vmss create \
    --resource-group myResourceGroup \
    --name myScaleSet \
    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
-   --specialized
+   --admin-username azureuser \
+   --generate-ssh-keys
 ```
+
 
 ## Next steps
 [Azure Image Builder (preview)](../virtual-machines/linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 

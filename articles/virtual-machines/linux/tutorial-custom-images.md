@@ -28,8 +28,9 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * Create a Shared Image Gallery
 > * Create an image definition
 > * Create an image version
-> * Create a VM from an image version
-> * Learn about creating generalized images
+> * Create a VM from an image 
+> * Share an image gallery
+
 
 This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
@@ -84,6 +85,7 @@ Once you know the VM name and what resource group it is in, get the ID of the VM
 az vm get-instance-view -g MyResourceGroup -n MyVm --query id
 ```
 
+Copy the ID of your VM to use later.
 
 ## Create an image definition
 
@@ -108,6 +110,8 @@ az sig image-definition create \
    --os-type Linux \
    --os-state specialized
 ```
+
+Copy the ID of the image definition from the output to use later.
 
 ## Create the image version
 
@@ -136,108 +140,22 @@ az sig image-version create \
 > You can also store your image in Premiun storage by a adding `--storage-account-type  premium_lrs`, or [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `--storage-account-type  standard_zrs` when you create the image version.
 >
 
-
-### Deprovision the VM 
-
-Deprovisioning generalizes the VM by removing machine-specific information. This generalization makes it possible to deploy many VMs from a single image. During deprovisioning, the host name is reset to *localhost.localdomain*. SSH host keys, nameserver configurations, root password, and cached DHCP leases are also deleted.
-
-> [!WARNING]
-> Deprovisioning and marking the VM as generalized will make source VM unusable, and it cannot be restarted. 
-
-To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](../extensions/agent-linux.md).
-
-Connect to your VM using SSH and run the command to deprovision the VM. With the `+user` argument, the last provisioned user account and any associated data are also deleted. Replace the example IP address with the public IP address of your VM.
-
-SSH to the VM.
-```bash
-ssh azureuser@52.174.34.95
-```
-Deprovision the VM.
-
-```bash
-sudo waagent -deprovision+user -force
-```
-Close the SSH session.
-
-```bash
-exit
-```
-
-### Deallocate and mark the VM as generalized
-
-To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](/cli//azure/vm). 
-   
-```azurecli-interactive 
-az vm deallocate --resource-group myResourceGroup --name myVM
-```
-
-Finally, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
-   
-```azurecli-interactive 
-az vm generalize --resource-group myResourceGroup --name myVM
-```
-
-### Create the image
-
-Now you can create an image of the VM by using [az image create](/cli//azure/image). The following example creates an image named *myImage* from a VM named *myVM*.
-   
-```azurecli-interactive 
-az image create \
-    --resource-group myResourceGroup \
-    --name myImage \
-    --source myVM
-```
  
-## Create VMs from the image
+## Create the VM
 
-Now that you have an image, you can create one or more new VMs from the image using [az vm create](/cli/azure/vm). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
+Create the VM using [az vm create](/cli/azure/vm#az-vm-create) using the --specialized parameter to indicate the the image is a specialized image. 
 
-```azurecli-interactive 
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMfromImage \
-    --image myImage \
-    --admin-username azureuser \
-    --generate-ssh-keys
+Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`. 
+
+In this example, we are creating a VM from the latest version of the *myImageDefinition* image.
+
+```azurecli
+az group create --name myResourceGroup --location eastus
+az vm create --resource-group myResourceGroup \
+    --name myVM \
+    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
+    --specialized
 ```
-
-We recommend that you limit the number of concurrent deployments to 20 VMs from a single image. If you are planning large-scale, concurrent deployments of over 20 VMs from the same custom image, you should use a [Shared Image Gallery](shared-image-galleries.md) with multiple image replicas. 
-
-## Other options: Creating a generalized image
-
-You can also create images from generalized VMs. The process is very similar to creating specialized images, but you have to use the VM agent to deprovision (*generalize*)the VM before creating the image.
-
-Start an SSH connection to the VM. In this example, the admin username is `azureuser`. Replace `<publicIPAddress>` with the IP address of your source VM.
-
-```bash
-ssh azureuser@<publicIpAddress>
-```
-
-Now, deprovision your VM. This step removes machine-specific information from the VM. When the VM is deprovisioned, the host name is reset to *localhost.localdomain*. SSH host keys, nameserver configurations, root password, and cached DHCP leases are also deleted.
-
-To deprovision the VM, use the Azure VM agent (*waagent*). The Azure VM agent is installed on every VM and is used to communicate with the Azure platform. The `-force` parameter tells the agent to accept prompts to reset the machine-specific information.
-
-```bash
-sudo waagent -deprovision+user -force
-```
-
-Close your SSH connection to the VM:
-
-```bash
-exit
-```
-
-Deallocated the VM with [az vm deallocate](/cli//azure/vm). Then, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm) so that the Azure platform knows the VM is ready to be used to create a generalized image. 
-
-```azurecli-interactive
-az vm deallocate --resource-group myResourceGroup --name myVM
-az vm generalize --resource-group myResourceGroup --name myVM
-```
-
-The rest of the process for creating an image in a Shared Image Gallery is the same, with these exceptions:
-
-- When creating the image definition using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create), use `--os-state generalized` to show the that source was generalized.
-- When creating the VM from the generalized image, don't use the `--specialized` parameter. For more information, see [Create a VM from a generalized image](../vm-generalized-image-version-cli.md).
 
 ## Share the gallery
 
@@ -263,16 +181,20 @@ az role assignment create \
 
 For more information about how to share resources using RBAC, see [Manage access using RBAC and Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
 
+## Azure Image Builder
+
+Azure also offers a service, built on Packer, [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview). Simply describe your customizations in a template, and it will handle the image creation. 
+
 ## Next steps
 
 In this tutorial, you created a custom VM image. You learned how to:
 
 > [!div class="checklist"]
-> * Deprovision and generalize VMs
-> * Create a custom image
-> * Create a VM from a custom image
-> * List all the images in your subscription
-> * Delete an image
+> * Create a Shared Image Gallery
+> * Create an image definition
+> * Create an image version
+> * Create a VM from an image 
+> * Share an image gallery
 
 Advance to the next tutorial to learn about highly available virtual machines.
 

@@ -5,7 +5,7 @@ author: cynthn
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: tutorial
-ms.date: 04/28/2020
+ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
 
@@ -18,7 +18,8 @@ When you create a scale set, you specify an image to be used when the VM instanc
 > * Create a specialized image definition
 > * Create an image version
 > * Create a scale set from a specialized image
-> * Learn about creating generalized images
+> * Share an image gallery
+
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -33,7 +34,6 @@ A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image shar
 The Shared Image Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
 
 ## Create and configure a source VM
-
 
 First, create a resource group with [az group create](/cli/azure/group), then create a VM with [az vm create](/cli/azure/vm). This VM is then used as the source for the image. The following example creates a VM named *myVM* in the resource group named *myResourceGroup*:
 
@@ -187,41 +187,6 @@ Type the public IP address into your web browser. The default NGINX web page is 
 
 ![Nginx running from custom VM image](media/tutorial-use-custom-image-cli/default-nginx-website.png)
 
-## Other options: Creating a generalized image
-
-You can also create images from generalized VMs. The process is very similar to creating specialized images, but you have to use the VM agent to deprovision (*generalize*)the VM before creating the image.
-
-Start an SSH connection to the VM. In this example, the admin username is `azureuser`. Replace `<publicIPAddress>` with the IP address of your source VM.
-
-```bash
-ssh azureuser@<publicIpAddress>
-```
-
-Now, deprovision your VM. This step removes machine-specific information from the VM. When the VM is deprovisioned, the host name is reset to *localhost.localdomain*. SSH host keys, nameserver configurations, root password, and cached DHCP leases are also deleted.
-
-To deprovision the VM, use the Azure VM agent (*waagent*). The Azure VM agent is installed on every VM and is used to communicate with the Azure platform. The `-force` parameter tells the agent to accept prompts to reset the machine-specific information.
-
-```bash
-sudo waagent -deprovision+user -force
-```
-
-Close your SSH connection to the VM:
-
-```bash
-exit
-```
-
-Deallocated the VM with [az vm deallocate](/cli//azure/vm). Then, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm) so that the Azure platform knows the VM is ready to be used to create a generalized image. 
-
-```azurecli-interactive
-az vm deallocate --resource-group myResourceGroup --name myVM
-az vm generalize --resource-group myResourceGroup --name myVM
-```
-
-The rest of the process for creating an image in a Shared Image Gallery is the same, with these exceptions:
-
-- When creating the image definition using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create), use `--os-state generalized` to show the that source was generalized.
-- When creating the scale set from the generalized image, don't use the `--specialized` parameter. For more information, see [Create a scale set from a generalized image](instance-generalized-image-version-cli.md).
 
 
 ## Share the gallery
@@ -261,10 +226,11 @@ az group delete --name myResourceGroup --no-wait --yes
 In this tutorial, you learned how to create and use a custom VM image for your scale sets with the Azure CLI:
 
 > [!div class="checklist"]
-> * Create and customize a VM
-> * Deprovision and generalize the VM
-> * Create a custom VM image
-> * Deploy a scale set that uses the custom VM image
+> * Create a Shared Image Gallery
+> * Create a specialized image definition
+> * Create an image version
+> * Create a scale set from a specialized image
+> * Share an image gallery
 
 Advance to the next tutorial to learn how to deploy applications to your scale set.
 

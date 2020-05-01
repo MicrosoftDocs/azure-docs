@@ -6,7 +6,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: cynthn
 ---
 
@@ -31,11 +31,6 @@ $imageDefinition = Get-AzGalleryImageDefinition `
    -GalleryName myGallery `
    -ResourceGroupName myGalleryRG `
    -Name myImageDefinition
-
-# Create user object
-
-$cred = Get-Credential `
-   -Message "Enter a username and password for the virtual machine."
    
 # Define variables for the scale set
 $resourceGroupName = "myVMSSRG"

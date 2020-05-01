@@ -18,8 +18,8 @@ When you create a scale set, you specify an image to be used when the VM instanc
 > * Create a Shared Image Gallery
 > * Create an image definition
 > * Create an image version
-> * Create a VM from an image version
-> * List all the images in your subscription
+> * Create a scale-set from an image 
+> * Share an image gallery
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -120,51 +120,121 @@ New-AzGalleryImageVersion `
 
 It can take a while to replicate the image to all of the target regions.
 
-
-## Configure the Network Security Group Rules
-Before creating the scale set, we need to create a resource group and then configure the associating Network Security Group (NSG) rules to allow access to HTTP, RDP and remoting.
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name "myVMSSfromImage" -Location "East US"
-
-$rule1 = New-AzNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
-
-$rule2 = New-AzNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389
-
-$rule3 = New-AzNetworkSecurityRuleConfig -Name remoting-rule -Description "Allow PS Remoting" -Access Allow -Protocol Tcp -Direction Inbound -Priority 120 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 5985
-
-New-AzNetworkSecurityGroup -Name "myNSG" -ResourceGroupName "myVMSSfromImage" -Location "EastUS" -SecurityRules $rule1,$rule2,$rule3
-```
-
 ## Create a scale set from the image
 Now create a scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss) that uses the `-ImageName` parameter to define the custom VM image created in the previous step. To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
 
 ```azurepowershell-interactive
+# Define variables for the scale set
+$resourceGroupName = "myVMSSRG3"
+$scaleSetName = "myScaleSet3"
+$location = "East US"
+
+# Create a resource group
+New-AzResourceGroup -ResourceGroupName $resourceGroupName -Location $location
+
+# Create a networking pieces
+$subnet = New-AzVirtualNetworkSubnetConfig `
+  -Name "mySubnet" `
+  -AddressPrefix 10.0.0.0/24
+$vnet = New-AzVirtualNetwork `
+  -ResourceGroupName $resourceGroupName `
+  -Name "myVnet" `
+  -Location $location `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $subnet
+$publicIP = New-AzPublicIpAddress `
+  -ResourceGroupName $resourceGroupName `
+  -Location $location `
+  -AllocationMethod Static `
+  -Name "myPublicIP"
+$frontendIP = New-AzLoadBalancerFrontendIpConfig `
+  -Name "myFrontEndPool" `
+  -PublicIpAddress $publicIP
+$backendPool = New-AzLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
+$inboundNATPool = New-AzLoadBalancerInboundNatPoolConfig `
+  -Name "myRDPRule" `
+  -FrontendIpConfigurationId $frontendIP.Id `
+  -Protocol TCP `
+  -FrontendPortRangeStart 50001 `
+  -FrontendPortRangeEnd 50010 `
+  -BackendPort 3389
+# Create the load balancer and health probe
+$lb = New-AzLoadBalancer `
+  -ResourceGroupName $resourceGroupName `
+  -Name "myLoadBalancer" `
+  -Location $location `
+  -FrontendIpConfiguration $frontendIP `
+  -BackendAddressPool $backendPool `
+  -InboundNatPool $inboundNATPool
+Add-AzLoadBalancerProbeConfig -Name "myHealthProbe" `
+  -LoadBalancer $lb `
+  -Protocol TCP `
+  -Port 80 `
+  -IntervalInSeconds 15 `
+  -ProbeCount 2
+Add-AzLoadBalancerRuleConfig `
+  -Name "myLoadBalancerRule" `
+  -LoadBalancer $lb `
+  -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
+  -BackendAddressPool $lb.BackendAddressPools[0] `
+  -Protocol TCP `
+  -FrontendPort 80 `
+  -BackendPort 80 `
+  -Probe (Get-AzLoadBalancerProbeConfig -Name "myHealthProbe" -LoadBalancer $lb)
+Set-AzLoadBalancer -LoadBalancer $lb
+
+# Create IP address configurations
+$ipConfig = New-AzVmssIpConfig `
+  -Name "myIPConfig" `
+  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
+  -LoadBalancerInboundNatPoolsId $inboundNATPool.Id `
+  -SubnetId $vnet.Subnets[0].Id
+
+# Create a configuration 
+$vmssConfig = New-AzVmssConfig `
+    -Location $location `
+    -SkuCapacity 2 `
+    -SkuName "Standard_DS2" `
+    -UpgradePolicyMode "Automatic"
+
+# Reference the image version
+Set-AzVmssStorageProfile $vmssConfig `
+  -OsDiskCreateOption "FromImage" `
+  -ImageReferenceId $galleryImage.Id
+
+# Complete the configuration
+ 
+Add-AzVmssNetworkInterfaceConfiguration `
+  -VirtualMachineScaleSet $vmssConfig `
+  -Name "network-config" `
+  -Primary $true `
+  -IPConfiguration $ipConfig 
+
+# Create the scale set 
 New-AzVmss `
-  -ResourceGroupName "myVMSSfromImage" `
-  -Location "East US" `
-  -VMScaleSetName "myScaleSet" `
-  -UpgradePolicyMode "Automatic" `
-  -ImageName $galleryImage.id 
+  -ResourceGroupName $resourceGroupName `
+  -Name $scaleSetName `
+  -VirtualMachineScaleSet $vmssConfig
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs.
 
 
-## Test your scale set
-To see your scale set in action, get the public IP address of your load balancer with [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) as follows:
+## Share the gallery
 
+We recommend that you share access at the image gallery level. Use an email address and the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet to get the object ID for the user, then use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) to give them access to the gallery. Replace the example email, alinne_montes@contoso.com in this example, with your own information.
 
 ```azurepowershell-interactive
-Get-AzPublicIpAddress `
-  -ResourceGroupName "myResourceGroup" `
-  -Name "myPublicIPAddress" | Select IpAddress
+# Get the object ID for the user
+$user = Get-AzADUser -StartsWith alinne_montes@contoso.com
+# Grant access to the user for our gallery
+New-AzRoleAssignment `
+   -ObjectId $user.Id `
+   -RoleDefinitionName Reader `
+   -ResourceName $gallery.Name `
+   -ResourceType Microsoft.Compute/galleries `
+   -ResourceGroupName $resourceGroup.ResourceGroupName
 ```
-
-Type the public IP address into your web browser. The default IIS web page is displayed, as shown in the following example:
-
-![IIS running from custom VM image](media/tutorial-use-custom-image-powershell/default-iis-website.png)
-
 
 ## Clean up resources
 
@@ -186,10 +256,11 @@ Azure also offers a service, built on Packer, [Azure VM Image Builder](https://d
 In this tutorial, you learned how to create and use a custom VM image for your scale sets with Azure PowerShell:
 
 > [!div class="checklist"]
-> * Create and customize a VM
-> * Deprovision and generalize the VM
-> * Create a custom VM image
-> * Deploy a scale set that uses the custom VM image
+> * Create a Shared Image Gallery
+> * Create an image definition
+> * Create an image version
+> * Create a scale-set from an image 
+> * Share an image gallery
 
 Advance to the next tutorial to learn how to deploy applications to your scale set.
 
