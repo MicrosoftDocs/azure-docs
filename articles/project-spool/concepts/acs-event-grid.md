@@ -45,6 +45,25 @@ Use either the Azure portal or Azure CLI to configure which events to publish fr
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint. Communication Services events contain all the information you need to respond to events in your service. You can identify an Communication Services event by checking that the eventType property starts with Microsoft.CommunicationServices. For more information about how to use Event Grid event properties, see the Event Grid event schema.
 
+The subject field of all Communication Services events are designed to allow simple [Event Grid Filtering](https://docs.microsoft.com/en-us/azure/event-grid/event-filtering).
+
+|Subject|Communication Service Entity|
+|`phonenumber/555-555-5555`|PSTN phone number|
+|`user/831e1650-001e-001b-66ab-eeb76e069631`|ACS User|
+|`space/831e1650-001e-001b-66ab-eeb76e069631`|ACS Space|
+
+The following example shows a filter for all SMS messages sent to all 604 area code phone numbers owned by an ACS resource:
+
+```json
+TODO
+```
+
+The following example shows a filter for chat messages sent to all any user owned by an ACS resrouce:
+
+```json
+```
+
+
 ### Microsoft.CommunicationServices.SMSReceived event
 
 The following example shows the schema of an SMS arrived event:
