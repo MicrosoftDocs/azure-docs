@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ---
 
+
 # Payout summaries
 
 The Payout summary shows you details about the money you’ve earned with Microsoft. It also lets you know when you’ll receive payments and how much you'll be paid.
