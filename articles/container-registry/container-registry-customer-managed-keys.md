@@ -372,7 +372,7 @@ Rotate a customer-managed key in Azure Key Vault according to your compliance po
 When rotating a key, typically you specify the same identity used when creating the registry. Optionally, configure a new user-assigned identity for key access, or enable and specify the registry's system-assigned identity.
 
 > [!NOTE]
-> Ensure that the required [key vault access policy](#key-vault-access-policy) is set for the identity you configure for key access. 
+> Ensure that the required [key vault access policy](#add-key-vault-access-policy) is set for the identity you configure for key access. 
 
 ### Azure CLI
 
@@ -459,14 +459,14 @@ To update the registry's encryption settings to use the identity:
 
 1. In the portal, navigate to your registry. 
 1. Under **Settings**, select  **Encryption** > **Change key**.
-1. In **Identity***, select **System assigned**, and select **Save**.
+1. In **Identity**, select **System assigned**, and select **Save**.
 
 ### Key Vault firewall
 
 If your Azure key vault is deployed in a virtual network with a Key Vault firewall, perform the following steps:
 
 1. Configure registry encryption to use the registry's system-assigned identity. See the preceding section.
-2. Configure the key vault to allow access by any [trusted service](../key-vault/key-vault-overview-vnet-service-endpoints.md#trusted-services). 
+2. Configure the key vault to allow access by any [trusted service](../key-vault/general/key-vault-overview-vnet-service-endpoints.md#trusted-services). 
 
 For detailed steps, see [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md). 
 
