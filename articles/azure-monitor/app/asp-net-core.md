@@ -105,7 +105,9 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    Typically, `APPINSIGHTS_INSTRUMENTATIONKEY` specifies the instrumentation key for applications deployed to Azure Web Apps.
+    * `APPINSIGHTS_INSTRUMENTATIONKEY` specifies the instrumentation key for applications deployed to [Azure Web Apps](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net).
+
+    In lieu of setting instrumentation keys you can now also use [Connection Strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net)
 
     > [!NOTE]
     > An instrumentation key specified in code wins over the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
