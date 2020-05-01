@@ -1,22 +1,14 @@
 ---
-title: Connecting Azure Security Center data to Azure Sentinel| Microsoft Docs
+title: Connect Azure Security Center data to Azure Sentinel
 description: Learn how to connect Azure Security Center data to Azure Sentinel.
-services: sentinel
-documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
-editor: ''
-
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-
+ms.author: yelevin
 ---
 # Connect data from Azure Security Center
 
@@ -28,11 +20,10 @@ Azure Sentinel enables you to connect alerts from [Azure Security Center](../sec
 
 ## Prerequisites
 
-- If you want to export alerts from Azure Security Center, you must be a contributor on the subscription whose logs you stream.
+- To export alerts from Azure Security Center, you must have the Security Reader role in the subscription of the logs you stream.
 
 - You must have the [Azure Security Center Standard tier](../security-center/security-center-pricing.md) running on the subscription. If not, [upgrade your subscription to standard](https://azure.microsoft.com/pricing/details/security-center/).
 
-- You must log in with a user that has global administrator or security administrator permissions on each subscription you want to connect.
 
 
 ## Connect to Azure Security Center

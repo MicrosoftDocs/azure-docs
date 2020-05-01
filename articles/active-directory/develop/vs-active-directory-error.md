@@ -1,9 +1,8 @@
 ---
-title: Diagnose errors with Azure Active Directory connected service
+title: Diagnose errors with Azure AD connected service (Visual Studio)
 description: The active directory connected service detected an incompatible authentication type
 author: ghogen
 manager: jillfra
-ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
@@ -11,7 +10,6 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
 ---
 # Diagnosing errors with the Azure Active Directory Connected Service
 

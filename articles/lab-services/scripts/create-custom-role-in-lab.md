@@ -1,6 +1,6 @@
 ---
-title: "PowerShell script: Create a custom role in a lab in Azure DevTest Labs | Microsoft Docs"
-description: This PowerShell script adds an external user to a lab in Azure DevTest Labs.  
+title: PowerShell - Create a custom role in a lab in Azure DevTest Labs
+description: This article provides an Azure PowerShell script that adds an external user to a lab in Azure DevTest Labs.  
 services: lab-services
 author: spelluru
 manager: 
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/22/2020
 ms.author: spelluru
 ---
 

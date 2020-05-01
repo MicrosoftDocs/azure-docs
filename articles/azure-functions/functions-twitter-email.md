@@ -32,7 +32,14 @@ In this tutorial, you learn how to:
 
 + An active [Twitter](https://twitter.com/) account. 
 + An [Outlook.com](https://outlook.com/) account (for sending notifications).
-+ This article uses as its starting point the resources created in [Create your first function from the Azure portal](functions-create-first-azure-function.md).  
+
+> [!NOTE]
+> If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restrictions in logic apps. 
+> If you have a Gmail consumer account, you can use the Gmail connector with only specific Google-approved apps and services, 
+> or you can [create a Google client app to use for authentication in your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+> For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
++ This article uses as its starting point the resources created in [Create your first function from the Azure portal](functions-create-first-azure-function.md).
 If you haven't already done so, complete these steps now to create your function app.
 
 ## Create a Cognitive Services resource
@@ -125,7 +132,7 @@ Now you have a function that categorizes sentiment scores. Next, you create a lo
 
 ## Create a logic app   
 
-1. In the Azure portal, click the **New** button found on the upper left-hand corner of the Azure portal.
+1. In the Azure portal, click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
 
 2. Click **Web** > **Logic App**.
  

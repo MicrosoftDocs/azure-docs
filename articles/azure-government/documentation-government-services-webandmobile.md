@@ -22,7 +22,7 @@ This article outlines the web and mobile services for the Azure Government envir
 
 ## Azure Cognitive Search
 
-[Azure Cognitive Search](https://docs.microsoft.com/azure/search/) is generally available in Azure Government. For a self-directed exploration of search functionality using public government data, visit the [Content Search and Intelligence](http://documentsearch.azurewebsites.net/home/) web site, select the dataset "US Court of Appeals District 1", and then choose one of the demo options.
+[Azure Cognitive Search](https://docs.microsoft.com/azure/search/) is generally available in Azure Government. For a self-directed exploration of search functionality using public government data, visit the Content Search and Intelligence web site, select the dataset "US Court of Appeals District 1", and then choose one of the demo options.
 
 Search features that have been widely adopted in government search applications include [cognitive skills](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro), useful for extracting structure and information from large undifferentiated text documents.
 
@@ -60,19 +60,10 @@ those apps created in the public cloud:
 Some App Service features available in the public cloud are not yet available 
 in Azure Government:
 
-- Diagnose and solve problems
 - Deployment
     - Deployment Options: Only Local Git Repository and External Repository are available.
-    - Deployment Center
-- Settings
-    - Application Insights
 - Development Tools
-    - Performance test
     - Resource explorer
-    - PHP Debugging
-- Support & Troubleshooting
-    - App Service Advisor
-- App Service Certificates
 
 
 ### Considerations

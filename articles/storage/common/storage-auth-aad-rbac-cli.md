@@ -1,18 +1,19 @@
 ---
-title: Use Azure CLI to manage Azure AD access rights to blob and queue data with RBAC - Azure Storage
-description: Use Azure CLI to assign access to containers and queues with role-based access control (RBAC). Azure Storage supports built-in and custom RBAC roles for authentication via Azure AD.
+title: Use Azure CLI to assign an RBAC role for data access 
+titleSuffix: Azure Storage
+description: Learn how to use Azure CLI to assign permissions to an Azure Active Directory security principal with role-based access control (RBAC). Azure Storage supports built-in and custom RBAC roles for authentication via Azure AD.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Grant access to Azure blob and queue data with RBAC using Azure CLI
+# Use Azure CLI to assign an RBAC role for access to blob and queue data
 
 Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access blob or queue data.
 
@@ -24,7 +25,7 @@ This article describes how to use Azure CLI to list built-in RBAC roles and assi
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## Determine resource scope 
+## Determine resource scope
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 

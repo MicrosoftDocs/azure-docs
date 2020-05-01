@@ -1,15 +1,18 @@
 ---
-title: Join transformation in Azure Data Factory mapping data flow 
+title: Join transformation in mapping data flow 
 description: Combine data from two data sources using the join transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.custom: seo-lt-2019
+ms.date: 01/02/2020
 ---
 
 # Join transformation in mapping data flow
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use the join transformation to combine data from two sources or streams in a mapping data flow. The output stream will include all columns from both sources matched based on a join condition. 
 
@@ -19,11 +22,14 @@ Mapping data flows currently supports five different join types.
 
 ### Inner Join
 
-Inner join only outputs rows that have matching values both tables.
+Inner join only outputs rows that have matching values in both tables.
 
 ### Left Outer
 
 Left outer join returns all rows from the left stream and matched records from the right stream. If a row from the left stream has no match, the output columns from the right stream are set to NULL. The output will be the rows returned by an inner join plus the unmatched rows from the left stream.
+
+> [!NOTE]
+> The Spark engine used by data flows will occasionally fail due to possible cartesian products in your join conditions. If this occurs, you can switch to a custom cross join and manually enter your join condition. This may result in slower performance in your data flows as the execution engine may need to calculate all rows from both sides of the relationship and then filter rows.
 
 ### Right Outer
 
@@ -33,9 +39,16 @@ Right outer join returns all rows from the right stream and matched records from
 
 Full outer join outputs all columns and rows from both sides with NULL values for columns that aren't matched.
 
-### Cross Join
+### Custom cross join
 
-Cross join outputs the cross product of the two streams based upon a condition. If you're using a condition that isn't equality, specify a custom expression as your cross join condition. The output stream will be all rows that meet the join condition. To create a cartesian product that outputs every row combination, specify `true()` as your join condition.
+Cross join outputs the cross product of the two streams based upon a condition. If you're using a condition that isn't equality, specify a custom expression as your cross join condition. The output stream will be all rows that meet the join condition.
+
+You can use this join type for non-equi joins and ```OR``` conditions.
+
+If you would like to explicitly produce a full cartesian product, use the Derived Column transformation in each of the two independent streams before the join to create a synthetic key to match on. For example, create a new column in Derived Column in each stream called ```SyntheticKey``` and set it equal to ```1```. Then use ```a.SyntheticKey == b.SyntheticKey``` as your custom join expression.
+
+> [!NOTE]
+> Make sure to include at least one column from each side of your left and right relationship in a custom cross join. Executing cross joins with static values instead of columns from each side results in full scans of the entire dataset, causing your data flow to perform poorly.
 
 ## Configuration
 
@@ -51,7 +64,9 @@ Unlike merge join in tools like SSIS, the join transformation isn't a mandatory 
 
 ![Join Transformation optimize](media/data-flow/joinoptimize.png "Join Optimization")
 
-If one or both of the data streams fit into worker node memory, further optimize your performance by enabling **Broadcast** in the optimize tab. You can also repartition your data on the join operation so that it fits better into memory per worker.
+In joins, lookups and exists transformation, if one or both data streams fit into worker node memory, you can optimize performance by enabling **Broadcasting**. By default, the spark engine will automatically decide whether or not to broadcast one side. To manually choose which side to broadcast, select **Fixed**.
+
+It's not recommended to disable broadcasting via the **Off** option unless your joins are running into timeout errors.
 
 ## Self-Join
 
@@ -72,7 +87,7 @@ When testing the join transformations with data preview in debug mode, use a sma
     join(
         <conditionalExpression>,
         joinType: { 'inner'> | 'outer' | 'left_outer' | 'right_outer' | 'cross' }
-        broadcast: { 'none' | 'left' | 'right' | 'both' }
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <joinTransformationName>
 ```
 
@@ -90,17 +105,17 @@ The data flow script for this transformation is in the snippet below:
 TripData, TripFare
     join(
         hack_license == { hack_license}
-    	&& TripData@medallion == TripFare@medallion
-    	&& vendor_id == { vendor_id}
-    	&& pickup_datetime == { pickup_datetime},
-    	joinType:'inner',
-    	broadcast: 'left'
+        && TripData@medallion == TripFare@medallion
+        && vendor_id == { vendor_id}
+        && pickup_datetime == { pickup_datetime},
+        joinType:'inner',
+        broadcast: 'left'
     )~> JoinMatchedData
 ```
 
-### Cross join example
+### Custom cross join example
 
-The below example is a join transformation named `CartesianProduct` that takes left stream `TripData` and right stream `TripFare`. This transformation takes in two streams and returns a cartesian product of their rows. The join condition is `true()` because it outputs a full cartesian product. The `joinType` is `cross`. We're enabling broadcasting in only the left stream so `broadcast` has value `'left'`.
+The below example is a join transformation named `JoiningColumns` that takes left stream `LeftStream` and right stream `RightStream`. This transformation takes in two streams and joins together all rows where column `leftstreamcolumn` is greater than column `rightstreamcolumn`. The `joinType` is `cross`. Broadcasting is not enabled `broadcast` has value `'none'`.
 
 In the Data Factory UX, this transformation looks like the below image:
 
@@ -109,12 +124,12 @@ In the Data Factory UX, this transformation looks like the below image:
 The data flow script for this transformation is in the snippet below:
 
 ```
-TripData, TripFare
+LeftStream, RightStream
     join(
-        true(),
-	    joinType:'cross',
-        broadcast: 'left'
-    )~> CartesianProduct
+        leftstreamcolumn > rightstreamcolumn,
+        joinType:'cross',
+        broadcast: 'none'
+    )~> JoiningColumns
 ```
 
 ## Next steps

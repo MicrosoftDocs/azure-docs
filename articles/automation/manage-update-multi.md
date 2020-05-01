@@ -2,46 +2,25 @@
 title: Manage updates for multiple Azure virtual machines
 description: This article describes how to manage updates for Azure and non-Azure virtual machines.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
-ms.date: 11/20/2019
+ms.date: 03/26/2020
 ms.topic: conceptual
-manager: carmonm
 ---
-# Manage updates for multiple machines
+# Manage updates for multiple Azure virtual machines
 
-You can use the Update Management solution to manage updates and patches for your Windows and Linux virtual machines. From your [Azure Automation](automation-offering-get-started.md) account, you can:
+You can use Azure Automation Update Management to manage updates and patches for your Windows and Linux virtual machines. From your [Azure Automation](automation-offering-get-started.md) account, you can:
 
-- Onboard virtual machines
-- Assess the status of available updates
-- Schedule installation of required updates
-- Review deployment results to verify that updates were applied successfully to all virtual machines for which Update Management is enabled
+- Onboard virtual machines.
+- Assess the status of available updates.
+- Schedule installation of required updates.
+- Review deployment results to verify that updates were applied successfully to all virtual machines for which Update Management is enabled.
+
+To learn about the system requirements for Update Management, see [Update Management client requirements](automation-update-management.md#clients).
 
 ## Prerequisites
 
-To use Update Management, you need:
-
-- A virtual machine or computer with one of the supported operating systems installed.
-
-- Access to an update repository for Linux VMs onboarded to the solution.
-
-## Supported operating systems
-
-Update Management is supported on the following operating systems:
-
-|Operating system  |Notes  |
-|---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later     |Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1 is recommended for increased reliability. ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
-|CentOS 6 (x86/x64) and 7 (x64)      | |
-|Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | |
-|SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | |
-|Ubuntu 14.04 LTS, 16.04 LTS and 18.04 LTS (x86/x64)      | |
-
-> [!NOTE]
-> To prevent updates from being applied outside a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For more information, see the [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+* A virtual machine or computer with one of the supported operating systems installed.
+* Access to an update repository for Linux VMs onboarded to Update Management.
 
 ## Enable Update Management for Azure virtual machines
 
@@ -65,25 +44,23 @@ The Log Analytics agent for Windows and Linux needs to be installed on the VMs t
 
 ## View computers attached to your Automation account
 
-After you enable Update Management for your machines, you can view machine information by selecting **Computers**. You can see information about *machine name*, *compliance status*, *environment*, *OS type*, *critical and security updates installed*, *other updates installed*, and *update agent readiness* for your computers.
+After you enable Update Management for your machines, you can view machine information by selecting **Computers**. You can see information about machine name, compliance status, environment, OS type, critical and security updates installed, other updates installed, and update agent readiness for your computers.
 
   ![View computers tab](./media/manage-update-multi/update-computers-tab.png)
 
-Computers that have recently been enabled for Update Management might not have been assessed yet. The compliance state status for those computers is **Not assessed**. Here's a list of possible values for compliance state:
+Computers that have recently been enabled for Update Management might not have been assessed yet. The compliance state for those computers is `Not assessed`. Here's a list of possible values for compliance state:
 
-- **Compliant**: Computers that are not missing critical or security updates.
+- `Compliant`: Computers that are not missing critical or security updates.
+- `Non-compliant`: Computers that are missing at least one critical or security update.
+- `Not assessed`: The update assessment data hasn't been received from the computer within the expected timeframe. For Linux computers, the expected timeframe is the last hour. For Windows computers, the expected timeframe is the last 12 hours.
 
-- **Non-compliant**: Computers that are missing at least one critical or security update.
-
-- **Not assessed**: The update assessment data hasn't been received from the computer within the expected timeframe. For Linux computers, the expect timeframe is in the last hour. For Windows computers, the expected timeframe is in the last 12 hours.
-
-To view the status of the agent, select the link in the **UPDATE AGENT READINESS** column. Selecting this option opens the **Hybrid Worker** pane, and shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time:
+To view the status of the agent, select the link in the **Update agent readiness** column. Selecting this option opens the Hybrid Worker pane, and shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time:
 
 ![View computers tab](./media/manage-update-multi/update-agent-broken.png)
 
 ## View an update assessment
 
-After Update Management is enabled, the **Update management** pane opens. You can see a list of missing updates on the **Missing updates** tab.
+After Update Management is enabled, the Update Management pane opens. You can see a list of missing updates on the **Missing updates** tab.
 
 ## Collect data
 
@@ -114,6 +91,10 @@ It can take between 30 minutes and 6 hours for the dashboard to display updated 
 
 To install updates, schedule a deployment that aligns with your release schedule and service window. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
+>[!NOTE]
+>When you schedule an update deployment, it creates a [schedule](shared-resources/schedules.md) resource linked to the **Patch-MicrosoftOMSComputers** runbook that handles the update deployment on the target machines. If you delete the schedule resource from the Azure portal or using PowerShell after creating the deployment, it breaks the scheduled update deployment and presents an error when you attempt to reconfigure it from the portal. You can only delete the schedule resource by deleting the corresponding deployment schedule.
+>
+
 To schedule a new update deployment for one or more virtual machines, under **Update management**, select **Schedule update deployment**.
 
 In the **New update deployment** pane, specify the following information:
@@ -126,7 +107,7 @@ In the **New update deployment** pane, specify the following information:
    >[!NOTE]
    >Selecting the Saved Search option does not return machine identities, only their names. If you have several VMs with the same name across multiple resource groups, they are returned in the results. Using the **Groups to update** option is recommended to ensure you include unique VMs matching your criteria.
 
-   If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
+   If you choose **Machines**, the readiness of the machine is shown in the **Update agent readiness** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
 
   ![New update deployment pane](./media/manage-update-multi/update-select-computers.png)
 
@@ -140,7 +121,14 @@ In the **New update deployment** pane, specify the following information:
   - Tools
   - Updates
 
-- **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For additional information on how inclusion is handled, see [Schedule an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment).
+- **Updates to include/exclude** - This opens the Include/Exclude page. Updates to be included or excluded are on separate tabs. For additional information on how inclusion is handled, see [Schedule an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment).
+
+> [!NOTE]
+> It is important to know that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, then no patches or packages are installed as they are all excluded. Excluded patches still show as missing from the machine. For Linux machines if a package is included but has a dependent package that was excluded, the package is not installed.
+
+> [!NOTE]
+> You cannot specify updates that have been superseded for inclusion with the update deployment.
+>
 
 - **Schedule settings**: You can accept the default date and time, which is 30 minutes after the current time. You can also specify a different time.
 
@@ -177,11 +165,11 @@ If one or more updates fail in the deployment, the status is **Partially failed*
 
 To see the dashboard for an update deployment, select the completed deployment.
 
-The **Update results** pane shows the total number of updates and the deployment results for the virtual machine. The table on the right gives a detailed breakdown of each update and the installation results. Installation results can be one of the following values:
+The Update results pane shows the total number of updates and the deployment results for the virtual machine. The table on the right gives a detailed breakdown of each update and the installation results. Installation results can be one of the following values:
 
-- **Not attempted**: The update was not installed because insufficient time was available based on the defined maintenance window.
-- **Succeeded**: The update succeeded.
-- **Failed**: The update failed.
+- `Not attempted`: The update was not installed because insufficient time was available based on the defined maintenance window.
+- `Succeeded`: The update succeeded.
+- `Failed`: The update failed.
 
 To see all log entries that the deployment created, select **All logs**.
 
@@ -191,5 +179,4 @@ To see detailed information about any errors from the deployment, select **Error
 
 ## Next steps
 
-To learn more about Update Management, including logs, output, and errors, see [Update Management solution in Azure](../operations-management-suite/oms-solution-update-management.md).
-
+To learn more about Update Management logs, output, and errors, see [Query update records for Update Management](automation-update-management-query-logs.md).

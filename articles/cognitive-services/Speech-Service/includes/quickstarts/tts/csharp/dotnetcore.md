@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, C# (.NET Core) - Speech Service'
+title: 'Quickstart: Synthesize speech, C# (.NET Core) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in C# under .NET Core on Windows by using the Speech SDK
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 6/24/2019
+ms.date: 04/04/2020
 ms.author: yinhew
 ---
 
@@ -21,8 +21,8 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnetcore)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnetcore)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=dotnetcore&pivots=programming-language-csharp)
+
 ## Add sample code
 
 1. Open `Program.cs`, and replace all the code in it with the following.
@@ -45,13 +45,13 @@ Before you get started, make sure to:
 
     ![Screenshot of Visual Studio application, with Start Debugging option highlighted](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Start the app into debugging")
 
-1. A console window appears, prompting you to type some text. Type a few words or a sentence. The text that you typed is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
+1. A console window appears, prompting you to type some text. Type a few words or a sentence. The text that you typed is transmitted to the Speech service and synthesized to speech, which plays on your speaker.
 
     ![Screenshot of console output after successful synthesis](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Console output after successful synthesis")
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## See also
 

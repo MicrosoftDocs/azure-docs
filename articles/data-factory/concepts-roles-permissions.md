@@ -7,13 +7,16 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 author: djpmsft
 ms.author: daperlov
-manager: craigg
+manager: anandsub
 ---
 
 # Roles and permissions for Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 This article describes the roles required to create and manage Azure Data Factory resources, and the permissions granted by those roles.
 
@@ -25,7 +28,7 @@ To create and manage child resources for Data Factory - including datasets, link
 - To create and manage child resources in the Azure portal, you must belong to the **Data Factory Contributor** role at the resource group level or above.
 - To create and manage child resources with PowerShell or the SDK, the **contributor** role at the resource level or above is sufficient.
 
-For sample instructions about how to add a user to a role, see the [Add roles](../billing/billing-add-change-azure-subscription-administrator.md) article.
+For sample instructions about how to add a user to a role, see the [Add roles](../cost-management-billing/manage/add-change-subscription-administrator.md) article.
 
 ## Set up permissions
 

@@ -1,9 +1,9 @@
 ---
-title: "Quickstart: Interactive map search with Azure Maps"
-description: Azure quickstart - Create a demo interactive map search by using Azure Maps
-author: walsehgal
-ms.author: v-musehg
-ms.date: 11/08/2019
+title: "Quickstart: Interactive map search with Azure Maps | Microsoft Azure Maps"
+description: Learn how to create a demo web application for interactive map search by using Microsoft Azure Maps web SDK.
+author: philmea
+ms.author: philmea
+ms.date: 1/14/2020
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
@@ -21,28 +21,42 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create an account and get your key
+<a id="createaccount"></a>
 
-1. In the upper-left corner of the [Azure portal](https://portal.azure.com), select **Create a resource**.
-2. In the **Search the Marketplace** box, enter **Maps**.
-3. From the **Results**, select **Maps**. Select the **Create** button that appears below the map.
-4. On the **Create Azure Maps Account** page, enter the following values:
-   - The **Name** of your new account.
-   - The **Subscription** that you want to use for this account.
-   - The **Resource group** for this account. You might choose to **Create new** or **Use existing** resource group.
-   - Select the **Pricing Tier** of your choice.
-   - Read the **License** and **Privacy Statement**. Select the check box to accept the terms.
-   - Finally, select the **Create** button.
+## Create an account with Azure Maps
 
-     ![Create an Azure Maps account in the portal](./media/quick-demo-map-app/create-account.png)
+Create a new Maps account with the following steps:
 
-5. After your account is successfully created, open it and find the settings section of the account menu. Select **Authentication** to view the primary and secondary keys for your Azure Maps account. Copy the **Primary Key** value to your local clipboard to use in the following section.
+1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), click **Create a resource**.
+2. In the *Search the Marketplace* box, type **Maps**.
+3. From the *Results*, select **Maps**. Click **Create** button that appears below the map.
+4. On the **Create Maps Account** page, enter the following values:
+    * The *Subscription* that you want to use for this account.
+    * The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
+    * The *Name* of your new account.
+    * The *Pricing tier* for this account.
+    * Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms.
+    * Click the **Create** button.
+
+![Create Maps account in portal](./media/quick-demo-map-app/create-account.png)
+
+<a id="getkey"></a>
+
+## Get the primary key for your account
+
+Once your Maps account is successfully created, retrieve the key that enables you to query the Maps APIs. We recommend using your account's primary key as the subscription key when calling Azure Maps services.
+
+1. Open your Maps account in the portal.
+2. In the settings section, select **Authentication**.
+3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
+
+![Get Primary Key Azure Maps key in Azure portal](./media/quick-demo-map-app/get-key.png)
 
 ## Download the application
 
-1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
+1. Go to [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) and click it to view the contents within the GitHub User Interface. Right click on the **Raw** button and copy the content of the file or 'Save as' to download the file.
 2. Save the contents of this file locally as **AzureMapDemo.html**. Open it in a text editor.
 3. Search for the string `<Your Azure Maps Key>`. Replace it with the **Primary Key** value from the preceding section.
 
@@ -54,7 +68,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 4. Try out the interactive search experience. In the search box on the upper-left corner of the demo web application, search for **restaurants**.
 5. Move your mouse over the list of addresses and locations that appear below the search box. Notice how the corresponding pin on the map pops out information about that location. For privacy of private businesses, fictitious names and addresses are shown.
 
-    ![Interactive search web application](./media/quick-demo-map-app/interactive-search.png)
+    ![Interactive map search web application](./media/quick-demo-map-app/interactive-search.png)
 
 ## Clean up resources
 

@@ -1,4 +1,6 @@
 ---
+title: include file
+description: include file
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
@@ -40,18 +42,18 @@ You can create [alerts](../articles/azure-monitor/platform/alerts-overview.md) b
 
 ## Azure Activity Log
 
-The [Azure Activity Log](../articles/azure-monitor/platform/activity-logs-overview.md) is a subscription log that provides insight into subscription-level events that have occurred in Azure. The log includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. You can click Activity Log in the Azure portal to view the log for your VM.
+The [Azure Activity Log](../articles/azure-monitor/platform/platform-logs-overview.md) is a subscription log that provides insight into subscription-level events that have occurred in Azure. The log includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. You can click Activity Log in the Azure portal to view the log for your VM.
 
 Some of the things you can do with the activity log include:
 
-- Create an [alert on an Activity Log event](../articles/azure-monitor/platform/activity-logs-overview.md).
+- Create an [alert on an Activity Log event](../articles/azure-monitor/platform/platform-logs-overview.md).
 - [Stream it to an Event Hub](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as Power BI.
 - Analyze it in Power BI using the [Power BI content pack](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Save it to a storage account](../articles/azure-monitor/platform/archive-activity-log.md) for archival or manual inspection. You can specify the retention time (in days) using the Log Profile.
 
 You can also access activity log data by using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), the [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), or [Monitor REST APIs](https://docs.microsoft.com/rest/api/monitor/).
 
-[Azure Resource Logs](../articles/azure-monitor/platform/resource-logs-overview.md) are logs emitted by your VM that provide rich, frequent data about its operation. Resource logs differ from the activity log by providing insight about operations that were performed within the VM.
+[Azure Resource Logs](../articles/azure-monitor/platform/platform-logs-overview.md) are logs emitted by your VM that provide rich, frequent data about its operation. Resource logs differ from the activity log by providing insight about operations that were performed within the VM.
 
 Some of the things you can do with diagnostics logs include:
 

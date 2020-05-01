@@ -1,5 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple Quickstart - Create service 
+title: "Quickstart: Create VMware CloudSimple service"
+titleSuffix: Azure VMware Solution by CloudSimple 
 description: Learn how to create the CloudSimple service, purchase nodes, and reserve nodes  
 author: sharaths-cs 
 ms.author: dikamath 
@@ -81,4 +82,4 @@ To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, fi
 ## Next steps
 
 * [Create Private Cloud and configure environment](quickstart-create-private-cloud.md)
-* Learn more about [CloudSimple service](https://docs.azure.cloudsimple.com/cloudsimple-service)
+* Learn more about [CloudSimple service](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-service)

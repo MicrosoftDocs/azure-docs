@@ -1,16 +1,9 @@
 ---
-title: How to Create an App Service Environment v1 - Azure
-description: Creation flow description for an app service environment v1
-services: app-service
-documentationcenter: ''
+title: Create an ASE v1
+description: Creation flow description for an app service environment v1. This doc is provided only for customers who use the legacy v1 ASE.
 author: ccompy
-manager: stefsch
-editor: ''
 
 ms.assetid: 81bd32cf-7ae5-454b-a0d2-23b57b51af47
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
@@ -48,7 +41,7 @@ To create an App Service Environment v1, you can search the Azure Marketplace fo
 3. Select or specify a new resource group. The resource group used for your ASE must be the same that is used for your VNet. If you select a pre-existing VNet, the resource group selection for your ASE will be updated to reflect that of your VNet.
    
     ![][2]
-4. Make your Virtual Network and Location selections. You can choose to create a new VNet or select a pre-existing VNet. If you select a new VNet then you can specify a name and location. The new VNet will have the address range 192.168.250.0/23 and a subnet named **default** that is defined as 192.168.250.0/24. You can also simply select a pre-existing Classic or Resource Manager VNet. The VIP Type selection determines if your ASE can be directly accessed from the internet (External) or if it uses an Internal Load Balancer (ILB). To learn more about them read [Using an Internal Load Balancer with an App Service Environment][ILBASE]. If you select a VIP type of External then you can select how many external IP addresses the system is created with for IPSSL purposes. If you select Internal then you need to specify the subdomain that your ASE will use. ASEs can be deployed into virtual networks that use *either* public address ranges, *or* RFC1918 address spaces (i.e. private addresses). In order to use a virtual network with a public address range, you will need to create the VNet ahead of time. When you select a pre-existing VNet you will need to create a new subnet during ASE creation. **You cannot use a pre-created subnet in the portal. You can create an ASE with a pre-existing subnet if you create your ASE using a resource manager template.** To create an ASE from a template use the information here, [Creating an App Service Environment from template][ILBAseTemplate] and here, [Creating an ILB App Service Environment from template][ASEfromTemplate].
+4. Make your Virtual Network and Location selections. You can choose to create a new VNet or select a pre-existing VNet. If you select a new VNet then you can specify a name and location. The new VNet will have the address range 192.168.250.0/23 and a subnet named **default** that is defined as 192.168.250.0/24. You can also simply select a pre-existing Classic or Resource Manager VNet. The VIP Type selection determines if your ASE can be directly accessed from the internet (External) or if it uses an Internal Load Balancer (ILB). To learn more about them read [Using an Internal Load Balancer with an App Service Environment][ILBASE]. If you select a VIP type of External then you can select how many external IP addresses the system is created with for IP SSL purposes. If you select Internal then you need to specify the subdomain that your ASE will use. ASEs can be deployed into virtual networks that use *either* public address ranges, *or* RFC1918 address spaces (i.e. private addresses). In order to use a virtual network with a public address range, you will need to create the VNet ahead of time. When you select a pre-existing VNet you will need to create a new subnet during ASE creation. **You cannot use a pre-created subnet in the portal. You can create an ASE with a pre-existing subnet if you create your ASE using a resource manager template.** To create an ASE from a template use the information here, [Creating an App Service Environment from template][ILBAseTemplate] and here, [Creating an ILB App Service Environment from template][ASEfromTemplate].
 
 ### Details
 An ASE is created with 2 Front Ends and 2 Workers. The Front Ends act as the HTTP/HTTPS endpoints and send traffic to the Workers which are the roles that host your apps. You can adjust the quantity after ASE creation and can even set up autoscale rules on these resource pools. For more details around manual scaling, management and monitoring of an App Service Environment go here: [How to configure an App Service Environment][ASEConfig] 

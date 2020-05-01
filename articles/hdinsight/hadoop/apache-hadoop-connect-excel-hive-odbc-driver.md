@@ -1,23 +1,22 @@
 ---
-title: Excel & Apache Hadoop with ODBC Driver - Azure HDInsight
+title: Excel & Apache Hadoop with Open Database Connectivity (ODBC) Driver - Azure HDInsight
 description: Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in HDInsight clusters from Microsoft Excel.
-keywords: hadoop excel,hive excel,hive odbc
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
+ms.date: 04/22/2020
 ---
 
 # Connect Excel to Apache Hadoop in Azure HDInsight with the Microsoft Hive ODBC driver
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Microsoft's Big Data solution integrates Microsoft Business Intelligence (BI) components with Apache Hadoop clusters that have been deployed in Azure HDInsight. An example of this integration is the ability to connect Excel to the Hive data warehouse of a Hadoop cluster in HDInsight using the Microsoft Hive Open Database Connectivity (ODBC) Driver.
+Microsoft's Big Data solution integrates Microsoft Business Intelligence (BI) components with Apache Hadoop clusters  deployed in  HDInsight. An example is the ability to connect Excel to the Hive data warehouse of a Hadoop cluster. Connect using the Microsoft Hive Open Database Connectivity (ODBC) Driver.
 
-It's also possible to connect the data associated with an HDInsight cluster and other data sources, including other (non-HDInsight) Hadoop clusters, from Excel using the Microsoft Power Query add-in for Excel. For information on installing and using Power Query, see [Connect Excel to HDInsight with Power Query](../hdinsight-connect-excel-power-query.md).
+You can connect the data associated with an HDInsight cluster from Excel with Microsoft Power Query add-in for Excel. For more information, see [Connect Excel to HDInsight with Power Query](../hdinsight-connect-excel-power-query.md).
 
 ## Prerequisites
 
@@ -28,13 +27,13 @@ Before you begin this article, you must have the following items:
 
 ## Install Microsoft Hive ODBC driver
 
-Download and install the [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886) version that matches the version of the application where you'll be using the ODBC driver.  For this article, the driver is used for Office Excel.
+Download and install [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886). Choose the version that matches the version of the application where you'll be using the ODBC driver.  For this article, the driver is used for Office Excel.
 
 ## Create Apache Hive ODBC data source
 
 The following steps show you how to create a Hive ODBC Data Source.
 
-1. From Windows, navigate to Start > Windows Administrative Tools > ODBC Data Sources (32-bit)/(64-bit).  This opens the **ODBC Data Source Administrator** window.
+1. From Windows, navigate to **Start > Windows Administrative Tools > ODBC Data Sources (32-bit)/(64-bit)**.  This action opens the **ODBC Data Source Administrator** window.
 
     ![OBDC data source administrator](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "Configure a DSN using ODBC Data Source Administrator")
 
@@ -47,7 +46,7 @@ The following steps show you how to create a Hive ODBC Data Source.
    | Property | Description |
    | --- | --- |
    |  Data Source Name |Give a name to your data source |
-   |  Host(s) |Enter `HDInsightClusterName.azurehdinsight.net`. For example, `myHDICluster.azurehdinsight.net` |
+   |  Host(s) |Enter `HDInsightClusterName.azurehdinsight.net`. For example, `myHDICluster.azurehdinsight.net`. Note: `HDInsightClusterName-int.azurehdinsight.net` is supported so long as the client VM is peered to the same virtual network. |
    |  Port |Use **443**. (This port has been changed from 563 to 443.) |
    |  Database |Use **default**. |
    |  Mechanism |Select **Windows Azure HDInsight Service** |
@@ -60,11 +59,11 @@ The following steps show you how to create a Hive ODBC Data Source.
    | --- | --- |
    |  Use Native Query |When it's selected, the ODBC driver does NOT try to convert TSQL into HiveQL. You shall use it only if you're 100% sure you're submitting pure HiveQL statements. When connecting to SQL Server or Azure SQL Database, you should leave it unchecked. |
    |  Rows fetched per block |When fetching a large number of records, tuning this parameter may be required to ensure optimal performances. |
-   |  Default string column length, Binary column length, Decimal column scale |The data type lengths and precisions may affect how data is returned. They cause incorrect information to be returned due to loss of precision and/or truncation. |
+   |  Default string column length, Binary column length, Decimal column scale |The data type lengths and precisions may affect how data is returned. They cause incorrect information to be returned because of loss of precision and, or truncation. |
 
     ![Advanced DSN configuration options](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "Advanced DSN configuration options")
 
-1. Select **Test** to test the data source. When the data source is configured correctly, the test result shows **SUCCESS!**.  
+1. Select **Test** to test the data source. When the data source is configured correctly, the test result shows **SUCCESS!**
 
 1. Select **OK** to close the Test window.  
 
@@ -96,8 +95,5 @@ In this article, you learned how to use the Microsoft Hive ODBC driver to retrie
 
 * [Visualize Apache Hive data with Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualize Interactive Query Hive data with Power BI in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Connect Excel to Apache Hadoop by using Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Connect to Azure HDInsight and run Apache Hive queries using Data Lake Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
-* [Use Azure HDInsight Tool for Visual Studio Code](../hdinsight-for-vscode.md).
-* [Upload data to HDInsight](./../hdinsight-upload-data.md).

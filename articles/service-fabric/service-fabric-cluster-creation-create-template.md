@@ -1,20 +1,9 @@
 ---
-title: Create an Azure Service Fabric cluster template | Microsoft Docs
+title: Create an Azure Service Fabric cluster template 
 description: Learn how to create a Resource Manager template for a Service Fabric cluster. Configure security, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: chackdan
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 08/16/2018
-ms.author: atsenthi
 
+ms.topic: conceptual
+ms.date: 08/16/2018
 ---
 # Create a Service Fabric cluster Resource Manager template
 
@@ -90,7 +79,7 @@ The cluster authentication certificate must be configured in both the Service Fa
       "extensionProfile": {
         "extensions": [
           {
-            "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+            "name": "[concat('ServiceFabricNodeVmExt_',variables('vmNodeType0Name'))]",
             "properties": {
               ...
               "settings": {

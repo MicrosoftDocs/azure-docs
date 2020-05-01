@@ -1,14 +1,12 @@
 ---
-title: Set up your Azure Red Hat OpenShift development environment | Microsoft Docs
+title: Set up your Azure Red Hat OpenShift development environment
 description: Here are the prerequisites for working with Microsoft Azure Red Hat OpenShift.
-services: openshift
 keywords:  red hat openshift setup set up
 author: jimzim
 ms.author: jzim
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
-manager: jeconnoc
 #Customer intent: As a developer, I need to understand the prerequisites for working with Azure Red Hat OpenShift
 ---
 
@@ -28,7 +26,7 @@ The following instructions will walk you through all of these prerequisites.
 
 Azure Red Hat OpenShift requires version 2.0.65 or higher of the Azure CLI. If you've already installed the Azure CLI, you can check which version you have by running:
 
-```bash
+```azurecli
 az --version
 ```
 
@@ -46,49 +44,49 @@ To register these providers and features manually, use the following instruction
 
 1. If you have multiple Azure subscriptions, specify the relevant subscription ID:
 
-    ```bash
+    ```azurecli
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
 1. Register the Microsoft.ContainerService AROGA feature:
 
-    ```bash
+    ```azurecli
     az feature register --namespace Microsoft.ContainerService -n AROGA
     ```
 
 1. Register the Microsoft.Storage provider:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Storage --wait
     ```
     
 1. Register the Microsoft.Compute provider:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Compute --wait
     ```
 
 1. Register the Microsoft.Solutions provider:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Solutions --wait
     ```
 
 1. Register the Microsoft.Network provider:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.Network --wait
     ```
 
 1. Register the Microsoft.KeyVault provider:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.KeyVault --wait
     ```
 
 1. Refresh the registration of the Microsoft.ContainerService resource provider:
 
-    ```bash
+    ```azurecli
     az provider register -n Microsoft.ContainerService --wait
     ```
 

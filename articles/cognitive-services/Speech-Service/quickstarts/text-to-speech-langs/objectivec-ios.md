@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, Objective-C - Speech Service'
+title: 'Quickstart: Synthesize speech, Objective-C - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in Objective-C on iOS using the Speech SDK
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/20/2019
+ms.date: 12/09/2019
 ms.author: yulili
 ---
 
@@ -20,7 +20,7 @@ In this article, you learn how to create an iOS app in Objective-C using the Cog
 
 Before you get started, here's a list of prerequisites:
 
-* A [subscription key](~/articles/cognitive-services/Speech-Service/get-started.md) for the Speech Service
+* A [subscription key](~/articles/cognitive-services/Speech-Service/get-started.md) for the Speech service
 * A macOS machine with [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) or later
 * The target set to iOS version 9.3 or later
 

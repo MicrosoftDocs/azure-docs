@@ -43,8 +43,6 @@
       href: tutorial-python-postgresql-app.md
     - name: Java with Spring Data
       href: tutorial-java-spring-cosmosdb.md
-    - name: Java Enterprise with Postgres
-      href: tutorial-java-enterprise-postgresql-app.md
   - name: Multi-container app
     href: tutorial-multi-container-app.md
   - name: Run container from ACR
@@ -57,6 +55,10 @@
     href: ../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Authenticate users
     href: tutorial-auth-aad.md
+  - name: Send email/tweet
+    href: ../tutorial-send-email.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Troubleshoot errors
+    href: tutorial-troubleshoot-monitor.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -103,6 +105,8 @@
     items:
     - name: Deploy the app
       items:
+      - name: Run from package
+        href: ../deploy-run-package.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy via FTP
         href: ../deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy via cloud sync
@@ -126,7 +130,7 @@
     - name: Buy domain
       href: ../manage-custom-dns-buy-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Map domains with Traffic Manager
-      href: ../web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../configure-domain-traffic-manager.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Migrate an active domain
       href: ../manage-custom-dns-migrate-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Secure app
@@ -174,13 +178,13 @@
     - name: Clone an app
       href: ../app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Move resources
-      href: ../../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-service-limitations
+      href: ../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#checklist-before-moving-resources
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/appservice
   - name: Azure PowerShell
-    href: /powershell
+    href: /powershell/module/az.websites/#app_service
   - name: REST API
     href: /rest/api/appservice/
 - name: Resources
@@ -192,7 +196,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information
-    href: ../../azure-subscription-service-limits.md#app-service-limits
+    href: ../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=app-service
   - name: Migration Assistant guides

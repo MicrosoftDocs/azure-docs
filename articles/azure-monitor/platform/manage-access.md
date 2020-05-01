@@ -1,12 +1,11 @@
 ---
 title: Manage Log Analytics workspaces in Azure Monitor | Microsoft Docs
 description: You can manage access to data stored in a Log Analytics workspace in Azure Monitor using resource, workspace, or table-level permissions. This article details how to complete.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
+ms.date: 04/10/2019
 
 ---
 
@@ -22,7 +21,7 @@ This article explains how to manage access to logs and to administer the workspa
 
 ## Configure access control mode
 
-You can view the access control mode configured on a workspace from the Azure portal or with Azure PowerShell.  You can change this setting using one of the following supported methods:
+You can view the [access control mode](design-logs-deployment.md) configured on a workspace from the Azure portal or with Azure PowerShell.  You can change this setting using one of the following supported methods:
 
 * Azure portal
 
@@ -85,6 +84,7 @@ if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null
 else
     { $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
+}
 ```
 
 ### Using a Resource Manager template
@@ -222,7 +222,7 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
 
     * Grant users the following permissions on the workspace: 
 
-        * `Microsoft.OperationalInsights/workspaces/read` – required so the use can enumerate the workspace and open the workspace blade in the Azure portal
+        * `Microsoft.OperationalInsights/workspaces/read` – required so the user can enumerate the workspace and open the workspace blade in the Azure portal
         * `Microsoft.OperationalInsights/workspaces/query/read` – required for every user that can execute queries
         * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` – to be able to read Azure AD sign-in logs
         * `Microsoft.OperationalInsights/workspaces/query/Update/read` – to be able to read Update Management solution logs
@@ -237,13 +237,12 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
 
 **Table level RBAC** allows you to define more granular control to data in a Log Analytics workspace in addition to the other permissions. This control allows you to define specific data types that are accessible only to a specific set of users.
 
-You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant or deny access to specific [tables](../log-query/logs-structure.md) in the workspace. These roles are applied to workspaces with either workspace-context or resource-context [access control modes](design-logs-deployment.md#access-control-mode) regardless of the user's [access mode](design-logs-deployment.md#access-mode).
+You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant access to specific [tables](../log-query/logs-structure.md) in the workspace. These roles are applied to workspaces with either workspace-context or resource-context [access control modes](design-logs-deployment.md#access-control-mode) regardless of the user's [access mode](design-logs-deployment.md#access-mode).
 
 Create a [custom role](../../role-based-access-control/custom-roles.md) with the following actions to define access to table access control.
 
-* To grant access to a table, include it in the **Actions** section of the role definition.
-* To deny access to a table, include it in the **NotActions** section of the role definition.
-* Use * to specify all tables.
+* To grant access to a table, include it in the **Actions** section of the role definition. To subtract access from the allowed **Actions**, include it in the **NotActions** section.
+* Use Microsoft.OperationalInsights/workspaces/query/* to specify all tables.
 
 For example, to create a role with access to the _Heartbeat_ and _AzureActivity_ tables, create a custom role using the following actions:
 
@@ -256,7 +255,7 @@ For example, to create a role with access to the _Heartbeat_ and _AzureActivity_
   ],
 ```
 
-To create a role with access to only _SecurityBaseline_ and no other tables, create a custom role using the following actions:
+To create a role with access to only the _SecurityBaseline_ table, create a custom role using the following actions:
 
 ```
 "Actions":  [
@@ -264,16 +263,13 @@ To create a role with access to only _SecurityBaseline_ and no other tables, cre
     "Microsoft.OperationalInsights/workspaces/query/read",
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
-"NotActions":  [
-    "Microsoft.OperationalInsights/workspaces/query/*/read"
-],
 ```
 
 ### Custom logs
 
  Custom logs are created from data sources such as custom logs and HTTP Data Collector API. The easiest way to identify the type of log is by checking the tables listed under [Custom Logs in the log schema](../log-query/get-started-portal.md#understand-the-schema).
 
- You can't currently grant or deny access to individual custom logs, but you can grant or deny access to all custom logs. To create a role with access to all custom logs, create a custom role using the following actions:
+ You can't grant access to individual custom logs, but you can grant access to all custom logs. To create a role with access to all custom logs, create a custom role using the following actions:
 
 ```
 "Actions":  [
@@ -282,6 +278,9 @@ To create a role with access to only _SecurityBaseline_ and no other tables, cre
     "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
 ],
 ```
+An alternative approach to manage access to custom logs is to assign them to an Azure resource and manage access using the resource-context paradigm. To use this method, you must include the resource ID by specifying it in the [x-ms-AzureResourceId](data-collector-api.md#request-headers) header when data is ingested to Log Analytics via the [HTTP Data Collector API](data-collector-api.md). The resource ID must be valid and have access rules applied to it. After the logs are ingested, they are accessible to those with read access to the resource, as explained here.
+
+Sometimes custom logs come from sources that are not directly associated to a specific resource. In this case, create a resource group  just to manage access to these logs. The resource group does not incur any cost, but gives you a valid resource ID to control access to the custom logs. For example, if a specific firewall is sending custom logs, create a resource group called "MyFireWallLogs" and make sure that the API requests contain the resource ID of "MyFireWallLogs". The firewall log records are then accessible only to users that were granted access to either MyFireWallLogs or those with full workspace access.          
 
 ### Considerations
 

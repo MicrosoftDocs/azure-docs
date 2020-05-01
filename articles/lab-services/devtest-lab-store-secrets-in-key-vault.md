@@ -20,7 +20,10 @@ ms.author: spelluru
 # Store secrets in a key vault in Azure DevTest Labs
 You may need to enter a complex secret when using Azure DevTest Labs: password for your Windows VM, public SSH key for your Linux VM, or personal access token to clone your Git repo through an artifact. Secrets are usually long and have random characters. Therefore, entering them can be tricky and inconvenient, especially if you use the same secret multiple times.
 
-To solve this problem and also keep your secrets in a safe place, DevTest Labs supports storing secrets in an [Azure key vault](../key-vault/key-vault-overview.md). When a user saves a secret for the first time, the DevTest Labs service automatically creates a key vault in the same resource group that contains the lab and stores the secret in the key vault. DevTest Labs creates a separate key vault for each user. 
+To solve this problem and also keep your secrets in a safe place, DevTest Labs supports storing secrets in an [Azure key vault](../key-vault/general/overview.md). When a user saves a secret for the first time, the DevTest Labs service automatically creates a key vault in the same resource group that contains the lab and stores the secret in the key vault. DevTest Labs creates a separate key vault for each user. 
+
+Please note that lab user will need to first create a lab virtual machine before they can create a secret in the key vault. This is because DevTest Lab service needs to associate the lab user with a valid user document before they are allowed to create and store secrets in their key vault. 
+
 
 ## Save a secret in Azure Key Vault
 To save your secret in Azure Key Vault, do the following steps:

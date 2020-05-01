@@ -1,0 +1,102 @@
+### YamlMime:Landing
+
+title: Save with Azure reservations
+summary: Learn how Azure Reservations help you save money by committing to one-year or three-years plans for virtual machines, Azure Blob storage or Azure Data Lake Storage Gen2, SQL Database compute capacity, Azure Cosmos DB throughput, and other Azure resources. 
+metadata:
+  title: Save with Azure reservations
+  description: Learn how Azure Reservations help you save money by committing to one-year or three-years plans for virtual machines, Azure Blob storage or Azure Data Lake Storage Gen2, SQL Database compute capacity, Azure Cosmos DB throughput, and other Azure resources. 
+  ms.service: cost-management-billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 04/30/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Buy reservations
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: What are Azure reservations?
+        url: save-compute-costs-reservations.md
+      - text: Reservation exchanges and refunds
+        url: exchange-and-refund-azure-reservations.md
+      - text: Buy a reservation with monthly payments
+        url: monthly-payments-reservations.md
+    - linkListType: how-to-guide
+      links:
+      - text: Renew reservations
+        url: reservation-renew.md
+      - text: Azure Synapse Analytics
+        url: prepay-sql-data-warehouse-charges.md
+      - text: Virtual machine
+        url: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+      - text: Azure Storage
+        url: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+      - text: Cosmos DB
+        url: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+      - text: SQL Database
+        url: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+      - text: Azure Data Explorer
+        url: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
+      - text: Azure Databricks
+        url: prepay-databricks-reserved-capacity.md
+      - text: App Service
+        url: prepay-app-service-isolated-stamp.md
+      - text: Azure software plans
+        url: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/toc.json
+
+  # Card (optional)
+  - title: Learn how discounts are applied
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Reserved VM instances
+        url: ../manage/understand-vm-reservation-charges.md
+      - text: Azure Strorage reserved capacity
+        url: understand-storage-charges.md
+      - text: Cosmos DB reserved capacity
+        url: understand-cosmosdb-reservation-charges.md
+      - text: SQL Database reserved capacity
+        url: understand-reservation-charges.md
+      - text: Azure Synapse Analytics
+        url: reservation-discount-azure-sql-dw.md
+      - text: Azure Data Explorer
+        url: understand-azure-data-explorer-reservation-charges.md
+      - text: Azure Databricks
+        url: reservation-discount-databricks.md
+      - text: App Service
+        url: reservation-discount-app-service-isolated-stamp.md
+      - text: Azure software charges
+        url: understand-suse-reservation-charges.md
+
+  # Card (optional)
+  - title: How discounts apply to Azure Database
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Azure Database for MySQL
+        url: understand-reservation-charges-mysql.md
+      - text: Azure Database for PostgreSQL
+        url: understand-reservation-charges-postgresql.md
+      - text: Azure Database for MariaDB
+        url: understand-reservation-charges-mariadb.md
+
+  # Card (optional)
+  - title: Manage reservations
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Manage reservations
+        url: manage-reserved-vm-instance.md
+      - text: View reservations
+        url: view-reservations.md
+    - linkListType: reference
+      links:
+      - text: Reservation APIs
+        url: reservation-apis.md

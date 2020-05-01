@@ -1,19 +1,20 @@
 ---
-title: How to Query Logs from Azure Monitor for VMs (preview) | Microsoft Docs
+title: How to Query Logs from Azure Monitor for VMs
 description: Azure Monitor for VMs solution collects metrics and log data to and this article describes the records and includes sample queries.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 10/29/2019
+author: bwren
+ms.author: bwren
+ms.date: 03/12/2020
 
 ---
 
-# How to query logs from Azure Monitor for VMs (preview)
+# How to query logs from Azure Monitor for VMs
+
 Azure Monitor for VMs collects performance and connection metrics, computer and process inventory data, and health state information and forwards it to the Log Analytics workspace in Azure Monitor.  This data is available for [query](../../azure-monitor/log-query/log-query-overview.md) in Azure Monitor. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
 ## Map records
+
 One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to Azure Monitor for VMs Map feature. These records have the properties in the following tables. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource. 
 
 There are internally generated properties you can use to identify unique processes and computers:
@@ -24,16 +25,18 @@ There are internally generated properties you can use to identify unique process
 Because multiple records can exist for a specified process and computer in a specified time range, queries can return more than one record for the same computer or process. To include only the most recent record, add `| summarize arg_max(TimeGenerated, *) by ResourceId` to the query.
 
 ### Connections and ports
+
 The Connection Metrics feature introduces two new tables in Azure Monitor logs - VMConnection and VMBoundPort. These tables provide information about the connections for a machine (inbound and outbound), as well as the server ports that are open/active on them. ConnectionMetrics are also exposed via APIs that provide the means to obtain a specific metric during a time window. TCP connections resulting from *accepting* on a listening socket are inbound, while those created by *connecting* to a given IP and port are outbound. The direction of a connection is represented by the Direction property, which can be set to either **inbound** or **outbound**. 
 
 Records in these tables are generated from data reported by the Dependency Agent. Every record represents an observation over a 1-minute time interval. The TimeGenerated property indicates the start of the time interval. Each record contains information to identify the respective entity, that is, connection or port, as well as metrics associated with that entity. Currently, only network activity that occurs using TCP over IPv4 is reported. 
 
 #### Common fields and conventions 
+
 The following fields and conventions apply to both VMConnection and VMBoundPort: 
 
 - Computer: Fully-qualified domain name of reporting machine 
-- AgentID: The unique identifier for a machine with the Log Analytics agent  
-- Machine: Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It is of the form *m-{GUID}*, where *GUID* is the same GUID as AgentID  
+- AgentId: The unique identifier for a machine with the Log Analytics agent  
+- Machine: Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It is of the form *m-{GUID}*, where *GUID* is the same GUID as AgentId  
 - Process: Name of the Azure Resource Manager resource for the process exposed by ServiceMap. It is of the form *p-{hex string}*. Process is unique within a machine scope and to generate a unique process ID across machines, combine Machine and Process fields. 
 - ProcessName: Executable name of the reporting process.
 - All IP addresses are strings in IPv4 canonical format, for example *13.107.3.160* 
@@ -84,9 +87,11 @@ Here are some important points to consider:
 4. Ports that are bound only on a specific interface have IsWildcardBind set to *False*.
 
 #### Naming and Classification
+
 For convenience, the IP address of the remote end of a connection is included in the RemoteIp property. For inbound connections, RemoteIp is the same as SourceIp, while for outbound connections, it is the same as DestinationIp. The RemoteDnsCanonicalNames property represents the DNS canonical names reported by the machine for RemoteIp. The RemoteDnsQuestions and RemoteClassification properties are reserved for future use. 
 
 #### Geolocation
+
 *VMConnection* also includes geolocation information for the remote end of each connection record in the following properties of the record: 
 
 | Property | Description |
@@ -96,6 +101,7 @@ For convenience, the IP address of the remote end of a connection is included in
 |RemoteLongitude |The geolocation longitude. For example, *-122.12* |
 
 #### Malicious IP
+
 Every RemoteIp property in *VMConnection* table is checked against a set of IPs with known malicious activity. If the RemoteIp is identified as malicious the following properties will be populated (they are empty, when the IP is not considered malicious) in the following properties of the record:
 
 | Property | Description |
@@ -113,6 +119,7 @@ Every RemoteIp property in *VMConnection* table is checked against a set of IPs 
 |AdditionalInformation |Provides additional information, if applicable, about the observed threat. |
 
 ### Ports 
+
 Ports on a machine that actively accept incoming traffic or could potentially accept traffic, but are idle during the reporting time window, are written to the VMBoundPort table.  
 
 Every record in VMBoundPort is identified by the following fields: 
@@ -127,6 +134,7 @@ Every record in VMBoundPort is identified by the following fields:
 The identity a port is derived from the above five fields and is stored in the PortId  property. This property can be used to quickly find records for a specific port across time. 
 
 #### Metrics 
+
 Port records include metrics representing the connections associated with them. Currently, the following metrics are reported (the details for each metric are described in the previous section): 
 
 - BytesSent and BytesReceived 
@@ -140,139 +148,202 @@ Here are some important points to consider:
 - To reduce verbosity and data volume, records with wildcard IP will be omitted when there is a matching record (for the same process, port, and protocol) with a specific IP address. When a wildcard IP record is omitted, the *IsWildcardBind* property for the record with the specific IP address, will be set to *True*.  This indicates the port is exposed over every interface of the reporting machine. 
 - Ports that are bound only on a specific interface have IsWildcardBind set to *False*. 
 
-### ServiceMapComputer_CL records
-Records with a type of *ServiceMapComputer_CL* have inventory data for servers with the Dependency agent. These records have the properties in the following table:
+### VMComputer records
+
+Records with a type of *VMComputer* have inventory data for servers with the Dependency agent. These records have the properties in the following table:
 
 | Property | Description |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | The unique identifier for a machine within the workspace |
-| ResourceName_s | The unique identifier for a machine within the workspace |
-| ComputerName_s | The computer FQDN |
-| Ipv4Addresses_s | A list of the server's IPv4 addresses |
-| Ipv6Addresses_s | A list of the server's IPv6 addresses |
-| DnsNames_s | An array of DNS names |
-| OperatingSystemFamily_s | Windows or Linux |
-| OperatingSystemFullName_s | The full name of the operating system  |
-| Bitness_s | The bitness of the machine (32-bit or 64-bit)  |
-| PhysicalMemory_d | The physical memory in MB |
-| Cpus_d | The number of CPUs |
-| CpuSpeed_d | The CPU speed in MHz|
-| VirtualizationState_s | *unknown*, *physical*, *virtual*, *hypervisor* |
-| VirtualMachineType_s | *hyperv*, *vmware*, and so on |
-| VirtualMachineNativeMachineId_g | The VM ID as assigned by its hypervisor |
-| VirtualMachineName_s | The name of the VM |
-| BootTime_t | The boot time |
+|TenantId | The unique identifier for the workspace |
+|SourceSystem | *Insights* | 
+|TimeGenerated | Timestamp of the record (UTC) |
+|Computer | The computer FQDN | 
+|AgentId | The unique ID of the Log Analytics agent |
+|Machine | Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It is of the form *m-{GUID}*, where *GUID* is the same GUID as AgentId. | 
+|DisplayName | Display name | 
+|FullDisplayName | Full display name | 
+|HostName | The name of machine without domain name |
+|BootTime | The machine boot time (UTC) |
+|TimeZone | The normalized time zone |
+|VirtualizationState | *virtual*, *hypervisor*, *physical* |
+|Ipv4Addresses | Array of IPv4 addresses | 
+|Ipv4SubnetMasks | Array of IPv4 subnet masks (in the same order as Ipv4Addresses). |
+|Ipv4DefaultGateways | Array of IPv4 gateways | 
+|Ipv6Addresses | Array of IPv6 addresses | 
+|MacAddresses | Array of MAC addresses | 
+|DnsNames | Array of DNS names associated with the machine. |
+|DependencyAgentVersion | The version of the Dependency agent running on the machine. | 
+|OperatingSystemFamily | *Linux*, *Windows* |
+|OperatingSystemFullName | The full name of the operating system | 
+|PhysicalMemoryMB | The physical memory in megabytes | 
+|Cpus | The number of processors | 
+|CpuSpeed | The CPU speed in MHz | 
+|VirtualMachineType | *hyperv*, *vmware*, *xen* |
+|VirtualMachineNativeId | The VM ID as assigned by its hypervisor | 
+|VirtualMachineNativeName | The name of the VM |
+|VirtualMachineHypervisorId | The unique identifier of the hypervisor hosting the VM |
+|HypervisorType | *hyperv* |
+|HypervisorId | The unique ID of the hypervisor | 
+|HostingProvider | *azure* |
+|_ResourceId | The unique identifier for an Azure resource |
+|AzureSubscriptionId | A globally unique identifier that identifies your subscription | 
+|AzureResourceGroup | The name of the Azure resource group the machine is a member of. |
+|AzureResourceName | The name of the Azure resource |
+|AzureLocation | The location of the Azure resource |
+|AzureUpdateDomain | The name of the Azure update domain |
+|AzureFaultDomain | The name of the Azure fault domain |
+|AzureVmId | The unique identifier of the Azure virtual machine |
+|AzureSize | The size of the Azure VM |
+|AzureImagePublisher | The name of the Azure VM publisher |
+|AzureImageOffering | The name of the Azure VM offer type | 
+|AzureImageSku | The SKU of the Azure VM image | 
+|AzureImageVersion | The version of the Azure VM image | 
+|AzureCloudServiceName | The name of the Azure cloud service |
+|AzureCloudServiceDeployment | Deployment ID for the Cloud Service |
+|AzureCloudServiceRoleName | Cloud Service role name |
+|AzureCloudServiceRoleType | Cloud Service role type: *worker* or *web* |
+|AzureCloudServiceInstanceId | Cloud Service role instance ID |
+|AzureVmScaleSetName | The name of the virtual machine scale set |
+|AzureVmScaleSetDeployment | Virtual machine scale set deployment ID |
+|AzureVmScaleSetResourceId | The unique identifier of the virtual machine scale set resource.|
+|AzureVmScaleSetInstanceId | The unique identifier of the virtual machine scale set |
+|AzureServiceFabricClusterId | The unique identifer of the Azure Service Fabric cluster | 
+|AzureServiceFabricClusterName | The name of the Azure Service Fabric cluster |
 
-### ServiceMapProcess_CL Type records
-Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connected processes on servers with the Dependency agent. These records have the properties in the following table:
+### VMProcess records
+
+Records with a type of *VMProcess* have inventory data for TCP-connected processes on servers with the Dependency agent. These records have the properties in the following table:
 
 | Property | Description |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | The unique identifier for a process within the workspace |
-| ResourceName_s | The unique identifier for a process within the machine on which it is running|
-| MachineResourceName_s | The resource name of the machine |
-| ExecutableName_s | The name of the process executable |
-| StartTime_t | The process pool start time |
-| FirstPid_d | The first PID in the process pool |
-| Description_s | The process description |
-| CompanyName_s | The name of the company |
-| InternalName_s | The internal name |
-| ProductName_s | The name of the product |
-| ProductVersion_s | The product version |
-| FileVersion_s | The file version |
-| CommandLine_s | The command line |
-| ExecutablePath_s | The path to the executable file |
-| WorkingDirectory_s | The working directory |
-| UserName | The account under which the process is executing |
-| UserDomain | The domain under which the process is executing |
+|TenantId | The unique identifier for the workspace |
+|SourceSystem | *Insights* | 
+|TimeGenerated | Timestamp of the record (UTC) |
+|Computer | The computer FQDN | 
+|AgentId | The unique ID of the Log Analytics agent |
+|Machine | Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It is of the form *m-{GUID}*, where *GUID* is  the same GUID as AgentId. | 
+|Process | The unique identifier of the Service Map process. It is in the form of *p-{GUID}*. 
+|ExecutableName | The name of the process executable | 
+|DisplayName | Process display name |
+|Role | Process role: *webserver*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
+|Group | Process group name. Processes in the same group are logically related, e.g., part of the same product or system component. |
+|StartTime | The process pool start time |
+|FirstPid | The first PID in the process pool |
+|Description | The process description |
+|CompanyName | The name of the company |
+|InternalName | The internal name |
+|ProductName | The name of the product |
+|ProductVersion | The version of the product |
+|FileVersion | The version of the file |
+|ExecutablePath |The path of the executable |
+|CommandLine | The command line |
+|WorkingDirectory | The working directory |
+|Services | An array of services under which the process is executing |
+|UserName | The account under which the process is executing |
+|UserDomain | The domain under which the process is executing |
+|_ResourceId | The unique identifier for a process within the workspace |
 
-## Sample log searches
+
+## Sample map queries
 
 ### List all known machines
+
 ```kusto
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
+VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### When was the VM last rebooted
+
 ```kusto
-let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc
+let Today = now(); VMComputer | extend DaysSinceBoot = Today - BootTime | summarize by Computer, DaysSinceBoot, BootTime | sort by BootTime asc
 ```
 
 ### Summary of Azure VMs by image, location, and SKU
+
 ```kusto
-ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s
+VMComputer | where AzureLocation != "" | summarize by Computer, AzureImageOffering, AzureLocation, AzureImageSku
 ```
 
-### List the physical memory capacity of all managed computers.
+### List the physical memory capacity of all managed computers
+
 ```kusto
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
+VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project PhysicalMemoryMB, Computer
 ```
 
-### List computer name, DNS, IP, and OS.
+### List computer name, DNS, IP, and OS
+
 ```kusto
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project Computer, OperatingSystemFullName, DnsNames, Ipv4Addresses
 ```
 
 ### Find all processes with "sql" in the command line
+
 ```kusto
-ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
+VMProcess | where CommandLine contains_cs "sql" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### Find a machine (most recent record) by resource name
+
 ```kusto
-search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
+search in (VMComputer) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### Find a machine (most recent record) by IP address
+
 ```kusto
-search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
+search in (VMComputer) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### List all known processes on a specified machine
+
 ```kusto
-ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
+VMProcess | where Machine == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### List all computers running SQL Server
+
 ```kusto
-ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
+VMComputer | where AzureResourceName in ((search in (VMProcess) "*sql*" | distinct Machine)) | distinct Computer
 ```
 
 ### List all unique product versions of curl in my datacenter
+
 ```kusto
-ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
+VMProcess | where ExecutableName == "curl" | distinct ProductVersion
 ```
 
 ### Create a computer group of all computers running CentOS
+
 ```kusto
-ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
+VMComputer | where OperatingSystemFullName contains_cs "CentOS" | distinct Computer
 ```
 
 ### Bytes sent and received trends
+
 ```kusto
 VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart
 ```
 
 ### Which Azure VMs are transmitting the most bytes
+
 ```kusto
-VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc
+VMConnection | join kind=fullouter(VMComputer) on $left.Computer == $right.Computer | summarize count(BytesSent) by Computer, AzureVMSize | sort by count_BytesSent desc
 ```
 
 ### Link status trends
+
 ```kusto
 VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart
 ```
 
 ### Connection failures trend
+
 ```kusto
 VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart
 ```
 
 ### Bound Ports
+
 ```kusto
 VMBoundPort
 | where TimeGenerated >= ago(24hr)
@@ -281,6 +352,7 @@ VMBoundPort
 ```
 
 ### Number of open ports across machines
+
 ```kusto
 VMBoundPort
 | where Ip != "127.0.0.1"
@@ -290,6 +362,7 @@ VMBoundPort
 ```
 
 ### Score processes in your workspace by the number of ports they have open
+
 ```kusto
 VMBoundPort
 | where Ip != "127.0.0.1"
@@ -299,6 +372,7 @@ VMBoundPort
 ```
 
 ### Aggregate behavior for each port
+
 This query can then be used to score ports by activity, e.g., ports with most inbound/outbound traffic, ports with most connections
 ```kusto
 // 
@@ -310,12 +384,13 @@ VMBoundPort
 ```
 
 ### Summarize the outbound connections from a group of machines
+
 ```kusto
 // the machines of interest
 let machines = datatable(m: string) ["m-82412a7a-6a32-45a9-a8d6-538354224a25"];
 // map of ip to monitored machine in the environment
-let ips=materialize(ServiceMapComputer_CL
-| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+let ips=materialize(VMComputer
+| summarize ips=makeset(todynamic(Ipv4Addresses)) by MonitoredMachine=AzureResourceName
 | mvexpand ips to typeof(string));
 // all connections to/from the machines of interest
 let out=materialize(VMConnection
@@ -351,7 +426,49 @@ let remoteMachines = remote | summarize by RemoteMachine;
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
 
+## Performance records
+Records with a type of *InsightsMetrics* have performance data from the guest operating system of the virtual machine. These records have the properties in the following table:
+
+
+| Property | Description |
+|:--|:--|
+|TenantId | Unique identifier for the workspace |
+|SourceSystem | *Insights* | 
+|TimeGenerated | Time the value was collected (UTC) |
+|Computer | The computer FQDN | 
+|Origin | *vm.azm.ms* |
+|Namespace | Category of the performance counter | 
+|Name | Name of the performance counter |
+|Val | Collected value | 
+|Tags | Related details about the record. See the table below for tags used with different record types.  |
+|AgentId | Unique identifier for each computer's agent |
+|Type | *InsightsMetrics* |
+|_ResourceId_ | Resource ID of the virtual machine |
+
+The performance counters currently collected into the *InsightsMetrics* table are listed in the following table:
+
+| Namespace | Name | Description | Unit | Tags |
+|:---|:---|:---|:---|:---|
+| Computer    | Heartbeat             | Computer Heartbeat                        | | |
+| Memory      | AvailableMB           | Memory Available Bytes                    | Bytes          | memorySizeMB - Total memory size|
+| Network     | WriteBytesPerSecond   | Network Write Bytes Per Second            | BytesPerSecond | NetworkDeviceId - Id of the device<br>bytes - Total sent bytes |
+| Network     | ReadBytesPerSecond    | Network Read Bytes Per Second             | BytesPerSecond | networkDeviceId - Id of the device<br>bytes - Total received bytes |
+| Processor   | UtilizationPercentage | Processor Utilization Percentage          | Percent        | totalCpus - Total CPUs |
+| LogicalDisk | WritesPerSecond       | Logical Disk Writes Per Second            | CountPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | WriteLatencyMs        | Logical Disk Write Latency Millisecond    | MilliSeconds   | mountId - Mount ID of the device |
+| LogicalDisk | WriteBytesPerSecond   | Logical Disk Write Bytes Per Second       | BytesPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | TransfersPerSecond    | Logical Disk Transfers Per Second         | CountPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | TransferLatencyMs     | Logical Disk Transfer Latency Millisecond | MilliSeconds   | mountId - Mount ID of the device |
+| LogicalDisk | ReadsPerSecond        | Logical Disk Reads Per Second             | CountPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | ReadLatencyMs         | Logical Disk Read Latency Millisecond     | MilliSeconds   | mountId - Mount ID of the device |
+| LogicalDisk | ReadBytesPerSecond    | Logical Disk Read Bytes Per Second        | BytesPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | FreeSpacePercentage   | Logical Disk Free Space Percentage        | Percent        | mountId - Mount ID of the device |
+| LogicalDisk | FreeSpaceMB           | Logical Disk Free Space Bytes             | Bytes          | mountId - Mount ID of the device<br>diskSizeMB - Total disk size |
+| LogicalDisk | BytesPerSecond        | Logical Disk Bytes Per Second             | BytesPerSecond | mountId - Mount ID of the device |
+
+
 ## Next steps
+
 * If you are new to writing log queries in Azure Monitor, review [how to use Log Analytics](../../azure-monitor/log-query/get-started-portal.md) in the Azure portal to write log queries.
 
 * Learn about [writing search queries](../../azure-monitor/log-query/search-queries.md).

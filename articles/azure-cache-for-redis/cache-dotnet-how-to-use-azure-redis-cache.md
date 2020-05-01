@@ -1,14 +1,14 @@
 ---
-title: Quickstart to learn how to Use Azure Cache for Redis with .NET apps
+title: 'Quickstart: Use Azure Cache for Redis with .NET apps'
 description: In this quickstart, learn how to access Azure Cache for Redis from your .NET apps
 author: yegu-ms
-
+ms.author: yegu
 ms.service: cache
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2018
-ms.author: yegu
 ms.custom: mvc
+ms.date: 03/11/2020
+
 #Customer intent: As a .NET developer, new to Azure Cache for Redis, I want to create a new .NET app that uses Azure Cache for Redis.
 ---
 # Quickstart: Use Azure Cache for Redis with a .NET Framework application
@@ -45,8 +45,7 @@ Replace `<access-key>` with the primary key for your cache.
 
 In Visual Studio, click **File** > **New** > **Project**.
 
-Under **Visual C#**, click **Windows Classic Desktop** and then click **Console App**, and **OK** to create a new console application.
-
+Select **Console App (.NET Framework)**, and **Next** to configure your app. Type a **Project name** and click **Create** to create a new console application.
 
 <a name="configure-the-cache-clients"></a>
 
@@ -124,7 +123,7 @@ Add the following code for the `Main` procedure of the `Program` class for your 
         {
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+            IDatabase cache = Connection.GetDatabase();
 
             // Perform cache operations using the cache object...
 

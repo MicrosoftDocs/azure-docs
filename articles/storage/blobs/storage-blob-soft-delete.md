@@ -15,6 +15,8 @@ ms.subservice: blobs
 
 Azure Storage now offers soft delete for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an application or other storage account user.
 
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+
 ## How soft delete works
 
 When enabled, soft delete enables you to save and recover your data when blobs or blob snapshots are deleted. This protection extends to blob data that is erased as the result of an overwrite.
@@ -65,7 +67,7 @@ When **Delete Blob** is called on a base blob (any blob that is not itself a sna
 > When a soft deleted blob is overwritten, a soft deleted snapshot of the blob's state prior to the write operation is automatically generated. The new blob inherits the tier of the overwritten blob.
 
 Soft delete does not save your data in cases of container or account deletes, nor when blob metadata and blob properties are overwritten. To protect a storage account from erroneous deletion, you can configure a lock using the Azure Resource Manager. Please see the Azure Resource Manager article [Lock Resources to Prevent Unexpected
-Changes](../../azure-resource-manager/resource-group-lock-resources.md) to learn more.
+Changes](../../azure-resource-manager/management/lock-resources.md) to learn more.
 
 The following table details expected behavior when soft delete is turned on:
 
@@ -149,7 +151,17 @@ The following steps show how to get started with soft delete.
 
 # [Portal](#tab/azure-portal)
 
-To enable soft delete, navigate to the **Soft delete** option under **Blob Service**. Then click **Enabled** and enter the number of days you want to retain soft deleted data.
+Enable soft delete for blobs on your storage account by using Azure portal:
+
+1. In the [Azure portal](https://portal.azure.com/), select your storage account. 
+
+2. Navigate to the **Data Protection** option under **Blob Service**.
+
+3. Click **Enabled** under **Blob soft delete**
+
+4. Enter the number of days you want to *retain for* under **Retention policies**
+
+5. Choose the **Save** button to confirm your Data Protection settings
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
@@ -191,7 +203,8 @@ $MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 You can verify that soft delete was turned on by using the following command:
 
 ```powershell
-$MatchingAccounts | Get-AzStorageServiceProperty -ServiceType Blob
+$MatchingAccounts | $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
+   Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context | Select-Object -ExpandProperty DeleteRetentionPolicy
 ```
 
 To recover blobs that were accidentally deleted, call Undelete on those blobs. Remember that calling **Undelete Blob**, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls Undelete on all soft deleted and active blobs in a container:
@@ -322,7 +335,7 @@ Yes, soft delete is configurable for both existing and new storage accounts.
 
 ### If I delete an entire account or container with soft delete turned on, will all associated blobs be saved?
 
-No, if you delete an entire account or container, all associated blobs will be permanently deleted. For more information about protecting a storage account from accidental deletes, see [Lock Resources to Prevent Unexpected Changes](../../azure-resource-manager/resource-group-lock-resources.md).
+No, if you delete an entire account or container, all associated blobs will be permanently deleted. For more information about protecting a storage account from accidental deletes, see [Lock Resources to Prevent Unexpected Changes](../../azure-resource-manager/management/lock-resources.md).
 
 ### Can I view capacity metrics for deleted data?
 

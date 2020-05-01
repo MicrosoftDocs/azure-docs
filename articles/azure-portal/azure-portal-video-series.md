@@ -1,11 +1,11 @@
 ---
 title: Azure portal how-to video series
-description: Find video demos for how to work with Azure services in the portal
+description: Find video demos for how to work with Azure services in the portal. View and link directly to the latest how-to videos.
 services: azure-portal
 keywords: 
-author: kfollis
-ms.author: kfollis
-ms.date: 10/16/2019
+author: mgblythe
+ms.author: mblythe
+ms.date: 04/06/2020
 ms.topic: conceptual
 
 ms.service: azure-portal
@@ -17,19 +17,18 @@ The Azure portal how-to video series showcases how to work with Azure services i
 
 ## Featured video
 
-In this featured video, we explore how to diagnose and solve the most common problems with Azure resources.
+In this featured video, we show you how to save money in Azure using Azure Advisor cost recommendations.
 
-> [!VIDEO https://www.youtube.com/embed/FgfcSdHErus]
+> [!VIDEO https://www.youtube.com/embed/ky2WS3KWuYs]
 
-[Troubleshoot common problems with Azure resources](https://www.youtube.com/watch?v=FgfcSdHErus)
+[How to use cost recommendations on Azure Advisor](https://www.youtube.com/watch?v=ky2WS3KWuYs)
 
 Catch up on these recent videos you may have missed:
 
 |   |   |   |
 | ------| ------ | ------ |
-| [![Image of YouTube video about cost management](https://i.ytimg.com/vi/mfxysF-kTFA/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDSzqNnsCYuKxe8kjbZFoM-FwB_vw)](http://www.youtube.com/watch?v=mfxysF-kTFA) | [![Image of YouTube video about applying budgets to subscriptions](https://i.ytimg.com/vi/UrkHiUx19Po/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAymEmnvYBmUSIJ_I7BU30ipAcsNA)](http://www.youtube.com/watch?v=UrkHiUx19Po) | [![Image of YouTube video about making the most of Azure Advisor](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA_2QjNx26-LIkEzo22KBUsB2zSAg)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
-| [How to use Cost Management](https://www.youtube.com/watch?v=mfxysF-kTFA) | [How to Apply Budgets to Subscriptions](https://www.youtube.com/watch?v=UrkHiUx19Po) | [How to make the most of Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
-
+| [![Image of YouTube video about using Azure Monitor workbooks](https://i.ytimg.com/vi/Z5xRyy3HB8U/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=Z5xRyy3HB8U) | [![Image of YouTube video about filtering your resource list view in the Azure portal](https://i.ytimg.com/vi/L3I-xOZKWcg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=L3I-xOZKWcg) | [![Image of YouTube video about using auto-refresh for dashboards](https://i.ytimg.com/vi/tVoDXygZzWM/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=tVoDXygZzWM) |
+| [Using Azure Monitor workbooks](https://www.youtube.com/watch?v=Z5xRyy3HB8U) | [Filtering your resource list view in the Azure portal](https://www.youtube.com/watch?v=L3I-xOZKWcg) | [Using auto-refresh for dashboards](https://www.youtube.com/watch?v=tVoDXygZzWM) |
 
 ## Video playlist
 

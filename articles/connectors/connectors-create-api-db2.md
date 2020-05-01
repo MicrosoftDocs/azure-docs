@@ -1,20 +1,18 @@
 ---
-title: Connect to IBM DB2 - Azure Logic Apps
-description: Manage resources with IBM DB2 REST APIs and Azure Logic Apps
+title: Access and manage IBM DB2 resources
+description: Read, edit, update, and manage IBM DB2 resources by building automated workflows using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: plarsen, LADocs
+ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ---
 
-# Manage IBM DB2 resources with Azure Logic Apps
+# Access and manage IBM DB2 resources by using Azure Logic Apps
 
-With Azure Logic Apps and the IBM DB2 connector, you can create automated 
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the 
+[IBM DB2 connector](/connectors/db2/), you can create automated 
 tasks and workflows based on the resources stored in your DB2 database. 
 Your workflows can connect to the resources in your database, read and 
 list your database tables, add rows, change rows, delete rows, and more. 
@@ -431,9 +429,11 @@ Expand the **Delete row** action.
 
 ## Connector reference
 
-For technical details, such as triggers, actions, and limits, 
-as described by the connector's OpenAPI (formerly Swagger) file, 
-see the [connector's reference page](/connectors/db2/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/db2/).
+
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 

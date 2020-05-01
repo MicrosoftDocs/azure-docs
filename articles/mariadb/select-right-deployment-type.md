@@ -1,11 +1,11 @@
 ---
-title: Selecting the right deployment type for Azure Database for MariaDB
+title: Selecting the right deployment type - Azure Database for MariaDB
 description: This article describes what factors to consider before you deploy Azure Database for MariaDB as either infrastructure as a service (IaaS) or platform as a service (PaaS).
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 3/18/2020
 ---
 
 # Choose the right MariaDB Server option in Azure
@@ -97,4 +97,4 @@ The following list describes administrative considerations for each option:
 ## Next steps
 
 * See [Azure Database for MariaDB pricing](https://azure.microsoft.com/pricing/details/MariaDB/).
-* Get started by [creating your first server](https://review.docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).
+* Get started by [creating your first server](https://docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).

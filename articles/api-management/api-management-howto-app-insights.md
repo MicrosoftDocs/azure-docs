@@ -1,5 +1,6 @@
 ---
-title: How to integrate Azure API Management with Azure Application Insights | Microsoft Docs
+title: Integrate Azure API Management with Azure Application Insights
+titleSuffix: Azure API Management
 description: Learn how to log and view events from Azure API Management in Azure Application Insights.
 services: api-management
 documentationcenter: ''
@@ -47,7 +48,7 @@ Before you can use Azure Application Insights, you first need to create an insta
     ![App Insights logger](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> Behind the scene, a [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) entity is created in your API Management instance, containing the Instrumentation Key of the Application Insights instance.
+> Behind the scene, a [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) entity is created in your API Management instance, containing the Instrumentation Key of the Application Insights instance.
 
 ## Enable Application Insights logging for your API
 
@@ -66,7 +67,7 @@ Before you can use Azure Application Insights, you first need to create an insta
 > Overriding the default value **0** in the **First bytes of body** field may significantly decrease the performance of your APIs.
 
 > [!NOTE]
-> Behind the scene, a [Diagnostic](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) entity named 'applicationinsights' is created at the API level.
+> Behind the scene, a [Diagnostic](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) entity named 'applicationinsights' is created at the API level.
 
 | Setting name                        | Value type                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

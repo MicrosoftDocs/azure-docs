@@ -3,7 +3,7 @@ title: Add messages to an Azure Storage queue using Functions
 description: Use Azure Functions to create a serverless function that is invoked by an HTTP request and creates a message in an Azure Storage queue.
 
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 09/19/2017
 ms.custom: mvc
 ---
@@ -29,7 +29,7 @@ In this section, you use the portal UI to add a queue storage output binding to 
 
 1. Select the function that you created in that earlier quickstart.
 
-1. Select **Integrate > New output > Azure Queue storage**.
+1. Select **Integrate > New Output > Azure Queue Storage**.
 
 1. Click **Select**.
 

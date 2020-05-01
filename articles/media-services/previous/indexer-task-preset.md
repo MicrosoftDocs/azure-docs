@@ -1,6 +1,6 @@
 ---
 title: Task preset for Azure Media Indexer
-description: This topic gives an overview of task preset for Azure Media Indexer.
+description: This topic gives an overview of task preset for Azure Media Services Media Indexer.
 services: media-services
 documentationcenter: ''
 author: Asolanki

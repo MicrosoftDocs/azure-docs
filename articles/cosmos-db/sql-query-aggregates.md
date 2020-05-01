@@ -1,16 +1,16 @@
 ---
 title: Aggregate functions in Azure Cosmos DB
-description: Learn about SQL aggregate function syntax for Azure Cosmos DB.
-author: markjbrown
+description: Learn about SQL aggregate function syntax, types of aggregate functions supported by Azure Cosmos DB.
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.author: mjbrown
+ms.date: 03/16/2020
+ms.author: tisande
 
 ---
 # Aggregate functions in Azure Cosmos DB
 
-Aggregate functions perform a calculation on a set of values in the SELECT clause and return a single value. For example, the following query returns the count of items within the `Families` container:
+Aggregate functions perform a calculation on a set of values in the `SELECT` clause and return a single value. For example, the following query returns the count of items within the `Families` container:
 
 ## Examples
 
@@ -56,7 +56,7 @@ The results are:
 
 ## Types of aggregate functions
 
-The SQL API supports the following aggregate functions. SUM and AVG operate on numeric values, and COUNT, MIN, and MAX work on numbers, strings, Booleans, and nulls.
+The SQL API supports the following aggregate functions. `SUM` and `AVG` operate on numeric values, and `COUNT`, `MIN`, and `MAX` work on numbers, strings, Booleans, and nulls.
 
 | Function | Description |
 |-------|-------------|
@@ -70,6 +70,10 @@ You can also aggregate over the results of an array iteration.
 
 > [!NOTE]
 > In the Azure portal's Data Explorer, aggregation queries may aggregate partial results over only one query page. The SDK produces a single cumulative value across all pages. To perform aggregation queries using code, you need .NET SDK 1.12.0, .NET Core SDK 1.1.0, or Java SDK 1.9.5 or above.
+
+## Remarks
+
+These aggregate system functions will benefit from a [range index](index-policy.md#includeexclude-strategy). If you expect to do a `COUNT`, `SUM`, `MIN`, `MAX`, or `AVG` on a property, you should [include the relevant path in the indexing policy](index-policy.md#includeexclude-strategy).
 
 ## Next steps
 

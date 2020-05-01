@@ -1,16 +1,17 @@
 ---
-title: Article about known troubleshooting issues/errors associated with connecting Azure Database Migration Service to source databases | Microsoft Docs
+title: "Issues connecting source databases"
+titleSuffix: Azure Database Migration Service
 description: Learn about how to troubleshoot known issues/errors associated with connecting Azure Database Migration Service to source databases.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 06/28/2019
+ms.date: 02/20/2020
 ---
 
 # Troubleshoot DMS errors when connecting to source databases
@@ -68,7 +69,7 @@ Potential issues associated with connecting to a source AWS RDS SQL Server datab
 | **Error 53** - SQL connection failed. A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server wasn't found or wasn't accessible. Verify that the instance name is correct, and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server | This error occurs if the service can’t connect to the source server. To address the issue, refer to the troubleshooting documents listed in the note below this table, and then try again. |
 | **Error 18456** - Login failed. Login failed for user '{user}' | This error occurs if the service can’t connect to the source database with the T-SQL credentials provided. To address the issue, verify the entered credentials. You can also refer to [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) or to the troubleshooting documents listed in the note below this table, and try again. |
 | **Error 87** - Connection string is not valid. A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct, and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 25 - Connection string is not valid) | This error occurs if the service can’t connect to the source server because of an invalid connection string. To address the issue, verify the connection string provided. If the issue persists, refer to the troubleshooting documents listed in the note below this table, and then try again. |
-| **Error - Server certificate not trusted.** A connection was successfully established with the server, but then an error occurred during the login process. (provider: SSL Provider, error: 0 - The certificate chain was issued by an authority that is not trusted.) | This error occurs if the certificate used isn't trusted. To address the issue, you need to find a certificate that can be trusted, and then enable it on the server. Alternatively, you can select the Trust Certificate option while connecting. Take this action only if you're familiar with the certificate used and you trust it. <br> SSL connections that are encrypted using a self-signed certificate don't provide strong security -- they're susceptible to man-in-the-middle attacks. Do not rely on SSL using self-signed certificates in a production environment or on servers that are connected to the internet. <br> For more information, see to [Using SSL with a Microsoft SQL Server DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.html) or [Tutorial: Migrate RDS SQL Server to Azure using DMS](https://docs.microsoft.com/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online#prerequisites). |
+| **Error - Server certificate not trusted.** A connection was successfully established with the server, but then an error occurred during the login process. (provider: SSL Provider, error: 0 - The certificate chain was issued by an authority that is not trusted.) | This error occurs if the certificate used isn't trusted. To address the issue, you need to find a certificate that can be trusted, and then enable it on the server. Alternatively, you can select the Trust Certificate option while connecting. Take this action only if you're familiar with the certificate used and you trust it. <br> TLS connections that are encrypted using a self-signed certificate don't provide strong security -- they're susceptible to man-in-the-middle attacks. Do not rely on TLS using self-signed certificates in a production environment or on servers that are connected to the internet. <br> For more information, see to [Using SSL with a Microsoft SQL Server DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.html) or [Tutorial: Migrate RDS SQL Server to Azure using DMS](https://docs.microsoft.com/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online#prerequisites). |
 | **Error 300** - User does not have required permissions. VIEW SERVER STATE permission was denied on object '{server}', database '{database}' | This error occurs if user doesn't have permission to perform the migration. To address the issue, refer to [GRANT Server Permissions - Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql?view=sql-server-2017) or [Tutorial: Migrate RDS SQL Server to Azure using DMS](https://docs.microsoft.com/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online#prerequisites) for more details. |
 
 > [!NOTE]

@@ -1,12 +1,13 @@
 ﻿---
 title: Understand Azure IoT Device Provisioning Service MQTT support | Microsoft Docs
-description: Developer guide - support for devices connecting to the Azure IoT Device Provisioning Service device-facing endpoint using the MQTT protocol.
+description: Developer guide - support for devices connecting to the Azure IoT Device Provisioning Service (DPS) device-facing endpoint using the MQTT protocol.
 author: rajeevmv
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: ravokkar
+ms.custom:  [amqp, mqtt]
 ---
 # Communicate with your DPS using the MQTT protocol
 
@@ -17,7 +18,7 @@ DPS enables devices to communicate with the DPS device endpoint using:
 
 DPS is not a full-featured MQTT broker and does not support all the behaviors specified in the MQTT v3.1.1 standard. This article describes how devices can use supported MQTT behaviors to communicate with DPS.
 
-All device communication with DPS must be secured using TLS/SSL. Therefore, DPS doesn’t support non-secure connections over port 1883.
+All device communication with DPS must be secured using TLS/SSL. Therefore, DPS doesn't support non-secure connections over port 1883.
 
  > [!NOTE] 
  > DPS does not currently support devices using TPM [attestation mechanism](https://docs.microsoft.com/azure/iot-dps/concepts-device#attestation-mechanism) over the MQTT protocol.

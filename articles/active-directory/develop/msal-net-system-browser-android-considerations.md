@@ -1,36 +1,31 @@
 ---
-title: Xamarin Android system browser considerations (Microsoft Authentication Library for .NET) 
+title: Xamarin Android system browser considerations (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about specific considerations when using system browsers on Xamarin Android when using the Microsoft Authentication Library for .NET (MSAL.NET).
+description: Learn about considerations for using system browsers on Xamarin Android with Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about specific considerations when using Xamarin Android and MSAL.NET so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
+#Customer intent: As an application developer, I want to learn about considerations for using Xamarin Android and MSAL.NET so I can decide if this platform meets my application development needs.
 ---
 
-#  Xamarin Android system browser considerations with MSAL.NET
+#  Xamarin Android system browser considerations for using MSAL.NET
 
-This article discusses specific considerations when using the system browser on Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
+This article discusses what you should consider when you use the system browser on Xamarin Android with Microsoft Authentication Library for .NET (MSAL.NET).
 
-Starting with MSAL.NET 2.4.0-preview, MSAL.NET supports browsers other than Chrome and no longer requires Chrome be installed on the Android device for authentication.
+Starting with MSAL.NET 2.4.0 Preview, MSAL.NET supports browsers other than Chrome. It no longer requires Chrome be installed on the Android device for authentication.
 
-We recommend you use browsers that support custom tabs, such as these:
+We recommend that you use browsers that support custom tabs. Here are some examples of these browsers:
 
-| Browsers with custom tabs support | Package Name |
+| Browsers that have custom tabs support | Package name |
 |------| ------- |
 |Chrome | com.android.chrome|
 |Microsoft Edge | com.microsoft.emmx|
@@ -39,39 +34,39 @@ We recommend you use browsers that support custom tabs, such as these:
 |Kiwi | com.kiwibrowser.browser|
 |Brave | com.brave.browser|
 
-In addition to browsers with custom tabs support, based on our testing, a few browsers that don't support custom tabs will also work for authentication: Opera, Opera Mini, InBrowser, and Maxthon. For more information, read [table for test results](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Android-system-browser#devices-and-browsers-tested).
+In addition to identifying browsers that offer custom tabs support, our testing indicates that a few browsers that don't support custom tabs also work for authentication. These browsers include Opera, Opera Mini, InBrowser, and Maxthon. 
 
-## Known issues
+## Tested devices and browsers
+The following table lists the devices and browsers that have been tested for authentication compatibility.
 
-- If the user has no browser enabled on the device, MSAL.NET will throw an `AndroidActivityNotFound` Exception. 
-  - **Mitigation**: Inform the user that they should enable a browser (preferably one with custom tabs support) on their device.
-
-- If authentication fails (ex. authentication launches with DuckDuckGo), MSAL.NET will return an `AuthenticationCanceled MsalClientException`. 
-  - **Root Problem**: A browser with custom tabs support was not enabled on the device. Authentication launched with an alternate browser, which wasn't able to complete authentication. 
-  - **Mitigation**: Inform the user that they should install a browser (preferably one with custom tab support) on their device.
-
-## Devices and browsers tested
-The following table lists the devices and browsers that have been tested.
-
-| | Browser&ast;     |  Result  | 
+| Device | Browser     |  Result  | 
 | ------------- |:-------------:|:-----:|
-| Huawei/One+ | Chrome&ast; | Pass|
-| Huawei/One+ | Edge&ast; | Pass|
-| Huawei/One+ | Firefox&ast; | Pass|
-| Huawei/One+ | Brave&ast; | Pass|
-| One+ | Ecosia&ast; | Pass|
-| One+ | Kiwi&ast; | Pass|
+| Huawei/One+ | Chrome\* | Pass|
+| Huawei/One+ | Edge\* | Pass|
+| Huawei/One+ | Firefox\* | Pass|
+| Huawei/One+ | Brave\* | Pass|
+| One+ | Ecosia\* | Pass|
+| One+ | Kiwi\* | Pass|
 | Huawei/One+ | Opera | Pass|
 | Huawei | OperaMini | Pass|
 | Huawei/One+ | InBrowser | Pass|
 | One+ | Maxthon | Pass|
-| Huawei/One+ | DuckDuckGo | User canceled auth|
-| Huawei/One+ | UC Browser | User canceled auth|
-| One+ | Dolphin | User canceled auth|
-| One+ | CM browser | User canceled auth|
-| Huawei/One+ | none installed | AndroidActivityNotFound ex|
+| Huawei/One+ | DuckDuckGo | User canceled authentication|
+| Huawei/One+ | UC Browser | User canceled authentication|
+| One+ | Dolphin | User canceled authentication|
+| One+ | CM Browser | User canceled authentication|
+| Huawei/One+ | None installed | AndroidActivityNotFound exception|
 
-&ast; Supports custom tabs
+\* Supports custom tabs
+
+## Known issues
+
+If the user has no browser enabled on the device, MSAL.NET will throw an `AndroidActivityNotFound` exception.  
+  - **Mitigation**: Ask the user to enable a browser on their device. Recommend a browser that supports custom tabs.
+
+If authentication fails (for example, if authentication launches with DuckDuckGo), MSAL.NET will return `AuthenticationCanceled MsalClientException`. 
+  - **Root problem**: A browser that supports custom tabs wasn't enabled on the device. Authentication launched with a browser that couldn't complete authentication. 
+  - **Mitigation**: Ask the user to enable a browser on their device. Recommend a browser that supports custom tabs.
 
 ## Next steps
-For code snippets and additional information on using system browser with Xamarin Android, read this [guide](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid).  
+For more information and code examples, see [Choosing between an embedded web browser and a system browser on Xamarin Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) and [Embedded versus system web UI](msal-net-web-browsers.md#embedded-vs-system-web-ui).  

@@ -1,17 +1,33 @@
 ---
 title: Configure Hybrid Kubernetes clusters with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can configure Azure Monitor for containers to monitor Kubernetes clusters hosted on Azure Stack or other environment.
-ms.service:  azure-monitor
-ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 10/15/2019
+ms.date: 04/22/2020
 ---
 
 # Configure hybrid Kubernetes clusters with Azure Monitor for containers
 
-Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters hosted in Azure. This article describes how to enable monitoring of Kubernetes clusters hosted outside of Azure and achieve a similar monitoring experience.
+Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and [AKS Engine on Azure](https://github.com/Azure/aks-engine), which is a self-managed Kubernetes cluster hosted on Azure. This article describes how to enable monitoring of Kubernetes clusters hosted outside of Azure and achieve a similar monitoring experience.
+
+## Supported configurations
+
+The following is officially supported with Azure Monitor for containers.
+
+* Environments: 
+
+    * Kubernetes on-premises
+    
+    * AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
+    
+    * [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4 and higher, on-premises or other cloud environments.
+
+* Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
+
+* Container Runtime: Docker, Moby, and CRI compatible runtimes such CRI-O and ContainerD.
+
+* Linux OS release for master and worked nodes: Ubuntu (18.04 LTS and 16.04 LTS), and Red Hat Enterprise Linux CoreOS 43.81.
+
+* Access control supported: Kubernetes RBAC and non-RBAC
 
 ## Prerequisites
 
@@ -32,28 +48,17 @@ Before you start, make sure that you have the following:
 * The following proxy and firewall configuration information is required for the containerized version of the Log Analytics agent for Linux to communicate with Azure Monitor:
 
     |Agent Resource|Ports |
-    |------|---------|   
-    |*.ods.opinsights.azure.com |Port 443 |  
-    |*.oms.opinsights.azure.com |Port 443 |  
-    |*.blob.core.windows.net |Port 443 |  
-    |*.dc.services.visualstudio.com |Port 443 | 
+    |------|---------|
+    |*.ods.opinsights.azure.com |Port 443 |
+    |*.oms.opinsights.azure.com |Port 443 |
+    |*.dc.services.visualstudio.com |Port 443 |
 
-* The containerized agent requires `cAdvisor port: 10255` to be opened on all nodes in the cluster to collect performance metrics.
+* The containerized agent requires Kubelet's `cAdvisor secure port: 10250` or `unsecure port :10255` to be opened on all nodes in the cluster to collect performance metrics. We recommend you configure `secure port: 10250` on the Kubelet's cAdvisor if it's not configured already.
 
-* The containerized agent requires the following environmental variables to be specified on the container in order to communicate with the Kubernetes API service within the cluster to collect inventory data - `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`. 
+* The containerized agent requires the following environmental variables to be specified on the container in order to communicate with the Kubernetes API service within the cluster to collect inventory data - `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`.
 
 >[!IMPORTANT]
->The minimum agent version supported for monitoring hybrid Kubernetes clusters is ciprod10182019 or later. 
-
-## Supported configurations
-
-The following is officially supported with Azure Monitor for containers.
-
-- Environments: Kubernetes on-premises, AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
-- Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md). 
-- Container Runtime: Docker and Moby
-- Linux OS release for master and worked nodes: Ubuntu (18.04 LTS and 16.04 LTS)
-- Access control supported: Kubernetes RBAC and non-RBAC
+>The minimum agent version supported for monitoring hybrid Kubernetes clusters is ciprod10182019 or later.
 
 ## Enable monitoring
 
@@ -69,11 +74,11 @@ You can deploy the solution with the provided Azure Resource Manager template by
 
 If you are unfamiliar with the concept of deploying resources by using a template, see:
 
-* [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
+* [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 
-* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 This method includes two JSON templates. One template specifies the configuration to enable monitoring, and the other contains parameter values that you configure to specify the following:
 
@@ -104,9 +109,9 @@ To first identify the full resource ID of your Log Analytics workspace required 
     az account set -s <subscriptionId of the workspace>
     ```
 
-3. The following example displays the list of workspaces in your subscriptions in the default JSON format. 
+3. The following example displays the list of workspaces in your subscriptions in the default JSON format.
 
-    ```
+    ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
@@ -194,7 +199,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
 
 8. Save this file as containerSolutionParams.json to a local folder.
 
-9. You are ready to deploy this template. 
+9. You are ready to deploy this template.
 
    * To deploy with Azure PowerShell, use the following commands in the folder that contains the template:
 
@@ -207,12 +212,12 @@ To first identify the full resource ID of your Log Analytics workspace required 
        # set the context of the subscription of Log Analytics workspace
        Set-AzureRmContext -SubscriptionId <subscription Id of log analytics workspace>
        ```
-       
+
        ```powershell
        # execute deployment command to add container insights solution to the specified Log Analytics workspace
        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <resource group of log analytics workspace> -TemplateFile .\containerSolution.json -TemplateParameterFile .\containerSolutionParams.json
        ```
-       
+
        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
        ```powershell
@@ -220,14 +225,14 @@ To first identify the full resource ID of your Log Analytics workspace required 
        ```
 
    * To deploy with Azure CLI, run the following commands:
-    
+
        ```azurecli
        az login
        az account set --name <AzureCloud | AzureChinaCloud | AzureUSGovernment>
        az login
        az account set --subscription "Subscription Name"
        # execute deployment command to add container insights solution to the specified Log Analytics workspace
-       az group deployment create --resource-group <resource group of log analytics workspace> --template-file ./containerSolution.json --parameters @./containerSolutionParams.json
+       az deployment group create --resource-group <resource group of log analytics workspace> --name <deployment name> --template-file  ./containerSolution.json --parameters @./containerSolutionParams.json
        ```
 
        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
@@ -235,10 +240,13 @@ To first identify the full resource ID of your Log Analytics workspace required 
        ```azurecli
        provisioningState       : Succeeded
        ```
-     
-       After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster. 
+
+       After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
 ## Install the chart
+
+>[!NOTE]
+>The following commands are applicable only for Helm version 2. Use of the `--name` parameter is not applicable with Helm version 3.
 
 To enable the HELM chart, do the following:
 
@@ -259,7 +267,7 @@ To enable the HELM chart, do the following:
 
     ```
     $ helm install --name myrelease-1 \
-     --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers 
+     --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
 
     If the Log Analytics workspace is in Azure US Government, run the following command:
@@ -269,14 +277,55 @@ To enable the HELM chart, do the following:
     --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
 
+### Enable the Helm chart using the API Model
+
+You can specify an addon in the AKS Engine cluster specification json file, also referred to as the API Model. In this addon, provide the base64 encoded version of `WorkspaceGUID` and `WorkspaceKey` of the Log Analytics Workspace where the collected monitoring data is stored.
+
+Supported API definitions for the Azure Stack Hub cluster can be found in this example - [kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Specifically, find the **addons** property in **kubernetesConfig**:
+
+```json
+"orchestratorType": "Kubernetes",
+       "kubernetesConfig": {
+         "addons": [
+           {
+             "name": "container-monitoring",
+             "enabled": true,
+             "config": {
+               "workspaceGuid": "<Azure Log Analytics Workspace Guid in Base-64 encoded>",
+               "workspaceKey": "<Azure Log Analytics Workspace Key in Base-64 encoded>"
+             }
+           }
+         ]
+       }
+```
+
 ## Configure agent data collection
 
-Staring with chart version 1.0.0, the agent data collection settings are controlled from the ConfigMap. Refer to documentation about agent data collection settings [here](container-insights-agent-config.md). 
+Staring with chart version 1.0.0, the agent data collection settings are controlled from the ConfigMap. Refer to documentation about agent data collection settings [here](container-insights-agent-config.md).
 
 After you have successfully deployed the chart, you can review the data for your hybrid Kubernetes cluster in Azure Monitor for containers from the Azure portal.  
 
 >[!NOTE]
->Ingestion latency is around five to ten minutes from agent to commit in the Azure Log Analytics workspace. Status of the cluster show the value **No data** or **Unknown** until all the required monitoring data is available in Azure Monitor. 
+>Ingestion latency is around five to ten minutes from agent to commit in the Azure Log Analytics workspace. Status of the cluster show the value **No data** or **Unknown** until all the required monitoring data is available in Azure Monitor.
+
+## Troubleshooting
+
+If you encounter an error while attempting to enable monitoring for your hybrid Kubernetes cluster, copy the PowerShell script [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) and save it to a folder on your computer. This script is provided to help detect and fix the issues encountered. The issues it is designed to detect and attempt correction of are the following:
+
+* The specified Log Analytics workspace is valid
+* The Log Analytics workspace is configured with the Azure Monitor for Containers solution. If not, configure the workspace.
+* OmsAgent replicaset pods are running
+* OmsAgent daemonset pods are running
+* OmsAgent Health service is running
+* The Log Analytics workspace ID and key configured on the containerized agent match with the workspace the Insight is configured with.
+* Validate all the Linux worker nodes have `kubernetes.io/role=agent` label to schedule rs pod. If it doesn't exist, add it.
+* Validate `cAdvisor secure port:10250` or `unsecure port: 10255` is opened on all nodes in the cluster.
+
+To execute with Azure PowerShell, use the following commands in the folder that contains the script:
+
+```powershell
+.\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig <kubeConfigFile> -clusterContextInKubeconfig <clusterContext>
+```
 
 ## Next steps
 

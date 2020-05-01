@@ -425,10 +425,12 @@ lock, and blueprint parameters, use the matching PowerShell parameters on the
      assigning the blueprint has permissions to.
 
      > [!IMPORTANT]
-     > Blueprints doesn't manage the user-assigned managed identity. Users are responsible for assigning
-     > sufficient roles and permissions or the blueprint assignment will fail.
+     > Azure Blueprints doesn't manage the user-assigned managed identity. Users are responsible for
+     > assigning sufficient roles and permissions or the blueprint assignment will fail.
 
-## Unassign a blueprint
+## Clean up resources
+
+### Unassign a blueprint
 
 You can remove a blueprint from a subscription. Removal is often done when the artifact resources
 are no longer needed. When a blueprint is removed, the artifacts assigned as part of that blueprint

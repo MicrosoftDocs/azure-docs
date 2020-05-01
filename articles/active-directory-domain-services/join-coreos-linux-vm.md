@@ -9,8 +9,8 @@ ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/14/2019
+ms.topic: how-to
+ms.date: 01/23/2020
 ms.author: iainfou
 
 ---
@@ -25,12 +25,12 @@ This article shows you how to join a CoreOS VM to an Azure AD DS managed domain.
 To complete this tutorial, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
-* A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+* A user account that's a part of the Azure AD DS managed domain.
 
 ## Create and connect to a CoreOS Linux VM
 
@@ -59,13 +59,13 @@ sudo vi /etc/hosts
 
 In the *hosts* file, update the *localhost* address. In the following example:
 
-* *contoso.com* is the DNS domain name of your Azure AD DS managed domain.
+* *aaddscontoso.com* is the DNS domain name of your Azure AD DS managed domain.
 * *coreos* is the hostname of your CoreOS VM that you're joining to the managed domain.
 
 Update these names with your own values:
 
 ```console
-127.0.0.1 coreos coreos.contoso.com
+127.0.0.1 coreos coreos.aaddscontoso.com
 ```
 
 When done, save and exit the *hosts* file using the `:wq` command of the editor.
@@ -81,7 +81,7 @@ sudo vi /etc/sssd/sssd.conf
 Specify your own Azure AD DS managed domain name for the following parameters:
 
 * *domains* in ALL UPPER CASE
-* *[domain/CONTOSO]* where CONTOSO is in ALL UPPER CASE
+* *[domain/AADDS]* where AADDS is in ALL UPPER CASE
 * *ldap_uri*
 * *ldap_search_base*
 * *krb5_server*
@@ -91,15 +91,15 @@ Specify your own Azure AD DS managed domain name for the following parameters:
 [sssd]
 config_file_version = 2
 services = nss, pam
-domains = CONTOSO.COM
+domains = AADDSCONTOSO.COM
 
-[domain/CONTOSO.COM]
+[domain/AADDSCONTOSO.COM]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad
 
-ldap_uri = ldap://contoso.com
-ldap_search_base = dc=contoso,dc=com
+ldap_uri = ldap://aaddscontoso.com
+ldap_search_base = dc=aaddscontoso,dc=com
 ldap_schema = rfc2307bis
 ldap_sasl_mech = GSSAPI
 ldap_user_object_class = user
@@ -110,32 +110,32 @@ ldap_account_expire_policy = ad
 ldap_force_upper_case_realm = true
 fallback_homedir = /home/%d/%u
 
-krb5_server = contoso.com
-krb5_realm = CONTOSO.COM
+krb5_server = aaddscontoso.com
+krb5_realm = AADDSCONTOSO.COM
 ```
 
 ## Join the VM to the managed domain
 
 With the SSSD configuration file updated, now join the virtual machine to the managed domain.
 
-1. First, use the `adcli info` command to verify you can see information about the Azure AD DS managed domain. The following example gets information for the domain *CONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
+1. First, use the `adcli info` command to verify you can see information about the Azure AD DS managed domain. The following example gets information for the domain *AADDSCONTOSO.COM*. Specify your own Azure AD DS managed domain name in ALL UPPERCASE:
 
     ```console
-    sudo adcli info CONTOSO.COM
+    sudo adcli info AADDSCONTOSO.COM
     ```
 
    If the `adcli info` command can't find your Azure AD DS managed domain, review the following troubleshooting steps:
 
-    * Make sure that the domain is reachable from the VM. Try `ping contoso.com` to see if a positive reply is returned.
+    * Make sure that the domain is reachable from the VM. Try `ping aaddscontoso.com` to see if a positive reply is returned.
     * Check that the VM is deployed to the same, or a peered, virtual network in which the Azure AD DS managed domain is available.
     * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the Azure AD DS managed domain.
 
-1. Now join the VM to the Azure AD DS managed domain using the `adcli join` command. Specify a user that belongs to the *AAD DC Administrators* group. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+1. Now join the VM to the Azure AD DS managed domain using the `adcli join` command. Specify a user that's a part of the Azure AD DS managed domain. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Again, the Azure AD DS managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@contoso.com` is used to initialize Kerberos. Enter your own user account that's a member of the *AAD DC Administrators* group.
+    Again, the Azure AD DS managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@aaddscontoso.com` is used to initialize Kerberos. Enter your own user account that's a part of the Azure AD DS managed domain.
 
     ```console
-    sudo adcli join -D CONTOSO.COM -U contosoadmin@CONTOSO.COM -K /etc/krb5.keytab -H coreos.contoso.com -N coreos
+    sudo adcli join -D AADDSCONTOSO.COM -U contosoadmin@AADDSCONTOSO.COM -K /etc/krb5.keytab -H coreos.aaddscontoso.com -N coreos
     ```
 
     The `adcli join` command doesn't return any information when the VM has successfully joined to the Azure AD DS managed domain.
@@ -150,10 +150,10 @@ With the SSSD configuration file updated, now join the virtual machine to the ma
 
 To verify that the VM has been successfully joined to the Azure AD DS managed domain, start a new SSH connection using a domain user account. Confirm that a home directory has been created, and that group membership from the domain is applied.
 
-1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@contoso.com` and then enter the address of your VM, such as *coreos.contoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
+1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@aaddscontoso.com` and then enter the address of your VM, such as *coreos.aaddscontoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
 
     ```console
-    ssh -l contosoadmin@CONTOSO.com coreos.contoso.com
+    ssh -l contosoadmin@AADDSCONTOSO.com coreos.aaddscontoso.com
     ```
 
 1. Now check that the group memberships are being resolved correctly:

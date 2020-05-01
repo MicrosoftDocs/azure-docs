@@ -3,6 +3,7 @@ title: Move Azure Public IP to another Azure region using Azure PowerShell
 description: Use Azure Resource Manager template to move Azure Public IP from one Azure region to another using Azure PowerShell.
 author: asudbring
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
@@ -27,7 +28,7 @@ Azure Public IPs are region specific and can't be moved from one region to anoth
 
 - Verify that your Azure subscription allows you to create public IPs in the target region that's used. Contact support to enable the required quota.
 
-- Make sure that your subscription has enough resources to support the addition of public IPs for this process.  See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Make sure that your subscription has enough resources to support the addition of public IPs for this process.  See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## Prepare and move

@@ -1,11 +1,10 @@
 ---
 title: Create a Log Analytics workspace using Azure PowerShell| Microsoft Docs
 description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments with Azure PowerShell.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/12/2019
 
 ---
@@ -16,7 +15,7 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 * Azure resources in your subscription  
 * On-premises computers monitored by System Center Operations Manager  
-* Device collections from System Center Configuration Manager  
+* Device collections from Configuration Manager  
 * Diagnostic or log data from Azure storage  
  
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
@@ -58,32 +57,32 @@ The following parameters set a default value:
     "parameters": {
         "workspaceName": {
             "type": "String",
-			"metadata": {
+            "metadata": {
               "description": "Specifies the name of the workspace."
             }
         },
         "location": {
             "type": "String",
-			"allowedValues": [
-			  "eastus",
-			  "westus"
-			],
-			"defaultValue": "eastus",
-			"metadata": {
-			  "description": "Specifies the location in which to create the workspace."
-			}
+            "allowedValues": [
+              "eastus",
+              "westus"
+            ],
+            "defaultValue": "eastus",
+            "metadata": {
+              "description": "Specifies the location in which to create the workspace."
+            }
         },
         "sku": {
             "type": "String",
-			"allowedValues": [
+            "allowedValues": [
               "Standalone",
               "PerNode",
-		      "PerGB2018"
+              "PerGB2018"
             ],
-			"defaultValue": "PerGB2018",
-	        "metadata": {
+            "defaultValue": "PerGB2018",
+            "metadata": {
             "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
-		}
+        }
           }
     },
     "resources": [
@@ -105,7 +104,7 @@ The following parameters set a default value:
     }
     ```
 
-2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
+2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) reference to learn what properties and values are supported. 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.   
 4. You are ready to deploy this template. Use the following commands from the folder containing the template. When you're prompted for a workspace name, provide a name that is globally unique across all Azure subscriptions.
 

@@ -1,12 +1,11 @@
 ---
-title: Batch process messages as a group - Azure Logic Apps
-description: Send and receive messages as batches in Azure Logic Apps
+title: Batch process messages as a group
+description: Send and receive messages in groups between your workflows by using batch processing in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, jonfan, LADocs
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
 ---
@@ -45,20 +44,20 @@ batch sender because they're not visible to each other.
 
 ## Prerequisites
 
-To follow this example, you need these items:
-
-* An Azure subscription. If you don't have a subscription, you can 
-[start with a free Azure account](https://azure.microsoft.com/free/). 
+* An Azure subscription. If you don't have a subscription, you can [start with a free Azure account](https://azure.microsoft.com/free/).
 Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-* An email account with any 
-[email provider supported by Azure Logic Apps](../connectors/apis-list.md)
+* An email account with any [email provider supported by Azure Logic Apps](../connectors/apis-list.md)
 
-* Basic knowledge about 
-[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+  > [!IMPORTANT]
+  > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
+  > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
+  > [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+  > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* To use Visual Studio rather than the Azure portal, make sure you 
-[set up Visual Studio for working with Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* To use Visual Studio rather than the Azure portal, make sure you [set up Visual Studio for working with Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="batch-receiver"></a>
 
@@ -120,11 +119,7 @@ Select this trigger: **Batch messages**
    2. In the search box, enter "send email" as your filter.
    Based on your email provider, select an email connector.
 
-      For example, if you have a personal account, 
-      such as @outlook.com or @hotmail.com, 
-      select the Outlook.com connector. 
-      If you have a Gmail account, select the Gmail connector. 
-      This example uses Office 365 Outlook. 
+      For example, if you have a personal account, such as @outlook.com or @hotmail.com, select the Outlook.com connector. This example uses the Office 365 Outlook connector.
 
    3. Select this action: **Send an email - <*email provider*>**
 

@@ -1,10 +1,9 @@
 ---
 title: Use Machine Learning endpoints in Azure Stream Analytics
 description: This article describes how to use Machine Language user defined functions in Azure Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019

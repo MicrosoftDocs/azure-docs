@@ -1,16 +1,9 @@
 ---
-title: Layered Security Architecture with App Service Environments - Azure
-description: Implementing a layered security architecture with App Service Environments.
-services: app-service
-documentationcenter: ''
+title: Layered security v1
+description: Learn how to implement a layered security architecture in your App Service environment. This doc is provided only for customers who use the legacy v1 ASE.
 author: stefsch
-manager: erikre
-editor: ''
 
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
@@ -18,7 +11,6 @@ ms.custom: seodec18
 
 ---
 # Implementing a Layered Security Architecture with App Service Environments
-## Overview
 Since App Service Environments provide an isolated runtime environment deployed into a virtual network, developers can create a layered security architecture providing differing levels of network access for each physical application tier.
 
 A common desire is to hide API back-ends from general Internet access, and only allow APIs to be called by upstream web apps.  [Network security groups (NSGs)][NetworkSecurityGroups] can be used on subnets containing App Service Environments to restrict public access to API applications.

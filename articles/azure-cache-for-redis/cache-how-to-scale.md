@@ -1,13 +1,11 @@
 ---
 title: How to Scale Azure Cache for Redis
-description: Learn how to scale your Azure Cache for Redis instances
+description: Learn how to scale your Azure Cache for Redis instances using the Azure portal, and tools such as Azure PowerShell, and Azure CLI.
 author: yegu-ms
-
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.author: yegu
-
 ---
 # How to Scale Azure Cache for Redis
 Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features. After a cache is created, you can scale the size and the pricing tier of the cache if the requirements of your application change. This article shows you how to scale your cache using the Azure portal, and tools such as Azure PowerShell, and Azure CLI.
@@ -162,7 +160,7 @@ If a scaling operation fails, the service tries to revert the operation, and the
 
 
 ### How long does scaling take?
-Scaling takes approximately 20 minutes, depending on how much data is in the cache.
+Scaling time depends on how much data is in the cache, with larger amounts of data taking a longer time to complete. Scaling takes approximately 20 minutes. For clustered caches, scaling takes approximately 20 minutes per shard.
 
 ### How can I tell when scaling is complete?
 In the Azure portal, you can see the scaling operation in progress. When scaling is complete, the status of the cache changes to **Running**.
@@ -172,6 +170,3 @@ In the Azure portal, you can see the scaling operation in progress. When scaling
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
-
-
-

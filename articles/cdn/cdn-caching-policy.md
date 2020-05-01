@@ -1,6 +1,6 @@
 ---
 title: Manage Azure CDN caching policy in Azure Media Services | Microsoft Docs
-description: Learn how to manage Azure CDN caching policy in Azure Media Services.
+description: This article explains how to manage Azure CDN caching policy in Azure Media Services.
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako

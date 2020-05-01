@@ -31,21 +31,21 @@ ms.custom: "include file"
 
 **Azure portal**
 
-| Category | Limits | Comments |
+| Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum records returned by a log query | 10,000 | Reduce results using query scope, time range, and filters in the query. |
 
 
 **Data Collector API**
 
-| Category | Limits | Comments |
+| Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum size for a single post | 30 MB | Split larger volumes into multiple posts. |
 | Maximum size for field values  | 32 KB | Fields longer than 32 KB are truncated. |
 
 **Search API**
 
-| Category | Limits | Comments |
+| Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum records returned in a single query | 500,000 | |
 | Maximum size of data returned | 64,000,000 bytes (~61 MiB)| |
@@ -54,11 +54,10 @@ ms.custom: "include file"
 
 **General workspace limits**
 
-| Category | Limits | Comments |
+| Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum columns in a table         | 500 | |
 | Maximum characters for column name | 500 | |
-| Regions at capacity | West Central US | You cannot currently create a new workspace in this region since it is at temporary capacity limit. This limit is planned to be addressed by end of November, 2019. |
 | Data export | Not currently available | Use Azure Function or Logic App to aggregate and export data. | 
 
 **Data ingestion volume rate**
@@ -66,7 +65,7 @@ ms.custom: "include file"
 
 Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. The default ingestion volume rate limit for data sent from Azure resources using [diagnostic settings](../articles/azure-monitor/platform/diagnostic-settings.md) is approximately **6 GB/min** per workspace. This is an approximate value since the actual size can vary between data types depending on the log length and its compression ratio. This limit does not apply to data that is sent from agents or [Data Collector API](../articles/azure-monitor/platform/data-collector-api.md).
 
-If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you are expecting to reach it sometime soon, you can request an increase to your workspace by opening a support request.
+If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you are expecting to reach it sometime soon, you can request an increase to your workspace by sending an email to LAIngestionRate@microsoft.com or opening a support request.
  
 To be notified on such an event in your workspace, create a [log alert rule](../articles/azure-monitor/platform/alerts-log.md) using the following query with alert logic base on number of results grater than zero.
 

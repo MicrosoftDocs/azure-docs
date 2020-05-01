@@ -1,9 +1,8 @@
 ---
-title: Create a new Azure Apps offer in the Commercial Marketplace 
+title: Create a new Azure Apps offer in the commercial marketplace 
 description: How to create a new Azure Apps offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
-author: qianw211 
-manager: evansma
-ms.author: v-qiwe
+author: dsindona 
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -43,7 +42,7 @@ All Azure applications include at least two files in the root folder of a `.zip`
 
 * A user interface definition for the Azure application creation experience named [createUiDefinition.json](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  In the user interface, you specify elements that enable consumers to provide parameter values.
 
-All new Azure application offers must include an [Azure partner customer usage attribution GUID](??).
+All new Azure application offers must include an [Azure partner customer usage attribution GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution).
 
 ### Before you begin
 
@@ -54,7 +53,7 @@ Review the following Azure application documentation, which provides Quickstarts
 
     * [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
     * [GitHub Azure Quickstart templates](https://github.com/azure/azure-quickstart-templates)
-    * [Publish application definition](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+    * [Publish application definition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Deploy service catalog app](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
 * Tutorials:
@@ -99,7 +98,7 @@ You can review the available tools in the [Azure Developer Tools](https://azure.
 
 ## Create an Azure application offer
 
-Before you can create an Azure application offer, you must first [Create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
+Before you can create an Azure application offer, you must first [create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and open the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
 >[!Note]
 >Once an offer is published, edits to the offer made in Partner Center will only be updated in the system and storefronts after re-publishing.  Please ensure that you submit the offer for publication after you changes are made.
@@ -110,7 +109,7 @@ Select the **+ New offer** button, then select the **Azure Application** menu it
 
 ### Offer ID and alias
 
-* **Offer ID**: A unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). <br> <br> Your Offer ID must be lowercase alphanumeric characters (including hyphens and underscores, but no whitespace). It is limited to 50 characters and can’t be changed after you select Create. <br> <br> For example, if you enter `test-offer-1` here, the offer URL will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`. 
+* **Offer ID**: A unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). <br> <br> Your Offer ID must be lowercase alphanumeric characters (including hyphens and underscores, but no whitespace). It is limited to 50 characters and can't be changed after you select Create. <br> <br> For example, if you enter `test-offer-1` here, the offer URL will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`. 
 
 * **Offer alias**: The name used to refer to the offer within the Partner Center. This name won't be used in the marketplace and is different from the offer name and other values that will be shown to customers. This value can't be changed after you select **Create**.
 
@@ -151,19 +150,9 @@ The **Properties** page lets you define the categories and industries used to gr
 
 Select a minimum of one and a maximum of three categories, which will be used to place your offer into the appropriate marketplace search areas. Be sure to call out how your offer supports these categories in the offer description. 
 
-### Standard Marketplace terms and conditions
+### Standard Contract for the Microsoft commercial marketplace
 
-To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract template in order to help facilitate a transaction in the marketplace.
-
-Rather than crafting custom terms and conditions, you can choose to offer your software under the Standard Contract, which customers only need to vet and accept once.
-
-The Standard Contract can be found here: https://go.microsoft.com/fwlink/?linkid=2041178
-
-To use the Standard Contract, check the **Use Standard Contract?** box.
-
-#### Terms of use
-
-If you do not check the **Use Standard Contract?** box, you'll need to provide your own legal terms of use in the **Terms of use** field. Enter up to 10,000 characters of text, or, if your terms of use require a longer description, provide the URL where your additional license terms can be found. Customers will be required to accept these terms before they can try your app.
+[!INCLUDE [Commercial marketplace Standard Contract](./includes/marketplace-contract-text.md)]
 
 ## Offer listing
 
@@ -226,6 +215,9 @@ In the **Support contact** section, you must also provide the **Support URL** wh
 ### Marketplace images
 
 In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.
+
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
@@ -299,7 +291,7 @@ This plan must be made available in at least one cloud.
 
 Select the **Public Azure** option to make your solution deployable to customers in all public Azure regions that have Marketplace integration.  Learn more about [geographic availability](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Select the **Azure Government Cloud** option to make your solution deployable in the [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), a government-community cloud with controlled access for customers from the US Federal, State, local or tribal and partners eligible to serve these entities.  You, as the publisher, are responsible for any compliance controls, security measures, and best practices to serve this cloud community.  Azure Government uses physically isolated data centers and networks (located in U.S. only).  Before publishing to the [Azure Government](https://aka.ms/azuregovpublish), Microsoft recommends that you test and validate your solution in the environment as certain endpoints may differ. To stage and test your solution, request a trial account from this [link](https://azure.microsoft.com/global-infrastructure/government/request/).
+Select the **Azure Government Cloud** option to make your solution deployable in the [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), a government-community cloud with controlled access for customers from the US Federal, State, local or tribal and partners eligible to serve these entities.  You, as the publisher, are responsible for any compliance controls, security measures, and best practices to serve this cloud community.  Azure Government uses physically isolated data centers and networks (located in U.S. only).  Before publishing to the [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft recommends that you test and validate your solution in the environment as certain endpoints may differ. To stage and test your solution, request a trial account from this [link](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 >[!Note]
 >Once a plan is published as available in a specific cloud, that cloud cannot be removed.
@@ -361,7 +353,7 @@ If you have already set prices for your plan in United States Dollars (USD) and 
 
 Provide the per-month price for this plan.  This price is in addition to any Azure infrastructure or pay-as-you-go software costs incurred by the resources deployed by this solution.
 
-Prices set in local currency (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates available during setup. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet. 
+Prices set in USD (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates when saved. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet. 
 
 >[!Note]
 >You must first save your pricing changes to enable export of pricing data.
@@ -403,7 +395,16 @@ All Azure application plan packages must include these two files in the root fol
 
 * A user interface definition for the Azure application creation experience named [createUiDefinition.json](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
+Maximum file sizes supported are:
+
+* Up to 1 Gb in total compressed `.zip` archive size
+
+* Up to 1 Gb for any individual uncompressed file within the `.zip` archive  
+
 All new Azure application offers must also include an [Azure partner customer usage attribution](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution) GUID.
+
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 ### Previously published packages 
 
@@ -435,7 +436,7 @@ Specify an HTTPS Webhook endpoint to receive notifications about all CRUD operat
 
 ### Customize allowed customer actions
 
-Select this option to specify which actions customers can perform on the managed resources in addition to the “`*/read`” actions that is available by default. 
+Select this option to specify which actions customers can perform on the managed resources in addition to the "`*/read`" actions that is available by default. 
 
 List the additional actions you would like to enable your customer to perform here, separated by semicolons.  For more information, see [Understanding deny assignments for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).  For available actions, see [Azure Resource Manager resource provider operations](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations). For example, to permit consumers to restart virtual machines, add `Microsoft.Compute/virtualMachines/restart/action` to the allowed actions.
 
@@ -450,7 +451,7 @@ Indicate who should have management access to this managed application in each s
 For each principal, select one of the Azure AD built-in roles from the list (Owner or Contributor). The role you select will describe the permissions the principal will have on the resources in the customer subscription. For more information, see [Built-in roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).  For more information about role-based access control (RBAC), see [Get started with RBAC in the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 >[!Note]
->Although you may add up to 100 authorizations per cloud, it’s generally easier to create an Active Directory user group and specify its ID in the "Principal ID."  This will enable you to add more users to the management group after the plan is deployed and reduce the need to update the plan just to add more authorizations.
+>Although you may add up to 100 authorizations per cloud, it's generally easier to create an Active Directory user group and specify its ID in the "Principal ID."  This will enable you to add more users to the management group after the plan is deployed and reduce the need to update the plan just to add more authorizations.
 
 ### Policy settings
 

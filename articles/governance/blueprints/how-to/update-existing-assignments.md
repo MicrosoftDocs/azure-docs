@@ -1,8 +1,8 @@
 ---
 title: Update an existing assignment from the portal
 description: Learn about the mechanism for updating an existing blueprint assignment from the portal in Azure Blueprints.
-ms.date: 11/21/2019
-ms.topic: conceptual
+ms.date: 04/15/2020
+ms.topic: how-to
 ---
 # How to update an existing blueprint assignment
 
@@ -22,7 +22,7 @@ an existing assignment, including:
 1. In the list of blueprints, left-click the blueprint assignment. Then click the **Update
    assignment** button OR right-click the blueprint assignment and select **Update assignment**.
 
-   ![Update an existing blueprint assignment](../media/update-existing-assignments/update-assignment.png)
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Update an existing blueprint assignment" border="false":::
 
 1. The **Assign blueprint** page will load pre-filled with all values from the original assignment.
    You can change the **blueprint definition version**, the **Lock Assignment** state, and any of
@@ -32,12 +32,12 @@ an existing assignment, including:
 1. On the updated assignment details page, see the new status. In this example, we added **Locking**
    to the assignment.
 
-   ![Updated an existing blueprint assignment - lock mode changed](../media/update-existing-assignments/updated-assignment.png)
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Updated an existing blueprint assignment - lock mode changed" border="false":::
 
 1. Explore details about other **Assignment operations** using the drop-down. The table of **Managed
    resources** updates by selected assignment operation.
 
-   ![Assignment operations of a blueprint assignment](../media/update-existing-assignments/assignment-operations.png)
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Assignment operations of a blueprint assignment" border="false":::
 
 ## Rules for updating assignments
 
@@ -63,7 +63,7 @@ deployed or updated determine which actions are taken.
 
 When updating assignments, it's possible to make changes that break when executed. An example is
 changing the location of a resource group after it has already been deployed. Any change that are
-supported by [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md)
+supported by [Azure Resource Manager](../../../azure-resource-manager/management/overview.md)
 can be made, but any change that would result in an error through Azure Resource Manager will also
 result in the failure of the assignment.
 

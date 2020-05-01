@@ -1,11 +1,7 @@
 ---
-title: Diagnose failures and exceptions in web apps with Azure Application Insights | Microsoft Docs
+title: Diagnose failures and exceptions with Azure Application Insights
 description: Capture exceptions from ASP.NET apps along with request telemetry.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/11/2019
 
 ---
@@ -19,7 +15,7 @@ Exceptions in your live web app are reported by [Application Insights](../../azu
   * Azure VM and Azure virtual machine scale set IIS-hosted apps: Add the [Application Monitoring Extension](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * Install [Application Insights SDK](../../azure-monitor/app/asp-net.md) in your app code, or
   * IIS web servers: Run [Application Insights Agent](../../azure-monitor/app/monitor-performance-live-website-now.md); or
-  * Java web apps: Install the [Java agent](../../azure-monitor/app/java-agent.md)
+  * Java web apps: Enable the [Java agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 * Install the [JavaScript snippet](../../azure-monitor/app/javascript.md) in your web pages to catch browser exceptions.
 * In some application frameworks or with some settings, you need to take some extra steps to catch more exceptions:
   * [Web forms](#web-forms)
@@ -27,6 +23,8 @@ Exceptions in your live web app are reported by [Application Insights](../../azu
   * [Web API 1.*](#web-api-1x)
   * [Web API 2.*](#web-api-2x)
   * [WCF](#wcf)
+
+  This article is specifically focused on .NET Framework apps from a code example perspective. Some of the methods that work for .NET Framework are obsolete in the .NET Core SDK. Refer to the [.NET Core SDK documentation](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) if you have a .NET Core app.
 
 ## Diagnosing exceptions using Visual Studio
 Open the app solution in Visual Studio to help with debugging.

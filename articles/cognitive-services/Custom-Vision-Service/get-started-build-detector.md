@@ -3,14 +3,14 @@ title: "Quickstart Build an object detector - Custom Vision Service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to use the Custom Vision website to create an image classification model.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/12/2019
-ms.author: anroth
+ms.date: 04/14/2020
+ms.author: pafarley
 ---
 
 # Quickstart: How to build an object detector with Custom Vision
@@ -103,6 +103,8 @@ After training has completed, the model's performance is calculated and displaye
 ## Manage training iterations
 
 Each time you train your detector, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. In the left pane you will also find the **Delete** button, which you can use to delete an iteration if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
+
+See [Use your model with the prediction API](./use-prediction-api.md) to learn how to access your trained models programmatically.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, Java (Android) - Speech Service'
+title: 'Quickstart: Synthesize speech, Java (Android) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in Java on Android by using the Speech SDK
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 04/04/2020
 ms.author: yulili
 ---
 
@@ -18,8 +18,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=android)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=android)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 
 ## Create user interface
 
@@ -74,7 +73,7 @@ Enter a text and press the button in the application to begin a speech synthesis
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## See also
 

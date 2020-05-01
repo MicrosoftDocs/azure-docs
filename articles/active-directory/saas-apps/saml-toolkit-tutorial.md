@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2019
+ms.date: 04/24/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -42,6 +41,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Azure AD SAML Toolkit supports **SP** initiated SSO
+* Once you configure Azure AD SAML Toolkit you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Azure AD SAML Toolkit from the gallery
 
@@ -87,6 +87,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. In the **Reply URL** text box, type a URL:
     `https://samltoolkit.azurewebsites.net/SAML/Consume`
+
+    > [!NOTE]
+    > These values are not real values. Update these values with the actual Sign on URL, Identifier and Reply URL values, which is explained later in the tutorial.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
@@ -154,6 +157,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	1. Click **Create**.
 
+    1. Copy Sign-on URL, Identifier and ACS URL values on SAML Toolkit SSO configuration page and paste into respected textboxes in the **Basic SAML Configuration section** in the Azure portal.
+
 ### Create Azure AD SAML Toolkit test user
 
 In this section, a user called B.Simon is created in Azure AD SAML Toolkit. Azure AD SAML Toolkit supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Azure AD SAML Toolkit, a new one is created after authentication.
@@ -173,3 +178,7 @@ When you click the Azure AD SAML Toolkit tile in the Access Panel, you should be
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Azure AD SAML Toolkit with Azure AD](https://aad.portal.azure.com/)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [How to protect Azure AD SAML Toolkit with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/protect-azure)

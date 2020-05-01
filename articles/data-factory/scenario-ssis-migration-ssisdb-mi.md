@@ -9,11 +9,13 @@ ms.reviewer:
 manager: 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.date: 9/12/2019
 ---
 # SSIS migration with Azure SQL Database managed instance as the database workload destination
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 When migrating database workloads from SQL Server on premises to Azure SQL Database managed instance, you should be familiar with [Azure Data Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)(DMS), and the [network topologies for Azure SQL Database managed instance migrations using DMS](https://docs.microsoft.com/azure/dms/resource-network-topologies).
 

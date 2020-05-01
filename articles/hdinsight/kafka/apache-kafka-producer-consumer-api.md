@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Apache Kafka Producer & Consumer APIs - Azure HDInsight'
 description: Learn how to use the Apache Kafka Producer and Consumer APIs with Kafka on HDInsight. In this tutorial, you learn how to use these APIs with Kafka on HDInsight from a Java application.
-author: dhgoelmsft
-ms.author: dhgoel
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -29,21 +29,20 @@ For more information on the APIs, see Apache documentation on the [Producer API]
 
 ## Prerequisites
 
-* Apache Kafka on HDInsight 3.6. To learn how to create a Kafka on HDInsight cluster, see [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md).
-
+* Apache Kafka on HDInsight cluster. To learn how to create the cluster, see [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md).
 * [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks) or an equivalent, such as OpenJDK.
-
 * [Apache Maven](https://maven.apache.org/download.cgi) properly [installed](https://maven.apache.org/install.html) according to Apache.  Maven is a project build system for Java projects.
-
-* An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* An SSH client like Putty. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Understand the code
 
-The example application is located at [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), in the `Producer-Consumer` subdirectory. The application consists primarily of four files:
+The example application is located at [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), in the `Producer-Consumer` subdirectory. If you're using **Enterprise Security Package (ESP)** enabled Kafka cluster, you should use the application version located in the `DomainJoined-Producer-Consumer` subdirectory.
 
+The application consists primarily of four files:
 * `pom.xml`: This file defines the project dependencies, Java version, and packaging methods.
 * `Producer.java`: This file sends random sentences to Kafka using the producer API.
 * `Consumer.java`: This file uses the consumer API to read data from Kafka and emit it to STDOUT.
+* `AdminClientWrapper.java`: This file uses the admin API to create, describe, and delete Kafka topics.
 * `Run.java`: The command-line interface used to run the producer and consumer code.
 
 ### Pom.xml
@@ -112,9 +111,11 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
 
 ## Build and deploy the example
 
+If you would like to skip this step, prebuilt jars can be downloaded from the `Prebuilt-Jars` subdirectory. Download the kafka-producer-consumer.jar. If your cluster is **Enterprise Security Package (ESP)** enabled, use kafka-producer-consumer-esp.jar. Execute step 3 to copy the jar to your HDInsight cluster.
+
 1. Download and extract the examples from [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
-2. Set your current directory to the location of the `hdinsight-kafka-java-get-started\Producer-Consumer` directory and use the following command:
+2. Set your current directory to the location of the `hdinsight-kafka-java-get-started\Producer-Consumer` directory. If you are using **Enterprise Security Package (ESP)** enabled Kafka cluster, you should set the location to `DomainJoined-Producer-Consumer`subdirectory. Use the following command to build the application:
 
     ```cmd
     mvn clean package
@@ -136,29 +137,12 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Install [jq](https://stedolan.github.io/jq/), a command-line JSON processor. From the open SSH connection, enter following command to install `jq`:
+1. To get the Kafka broker hosts, substitute the values for `<clustername>` and `<password>` in the following command and execute it. Use the same casing for `<clustername>` as shown in the Azure portal. Replace `<password>` with the cluster login password, then execute:
 
     ```bash
     sudo apt -y install jq
-    ```
-
-1. Set up password variable. Replace `PASSWORD` with the cluster login password, then enter the command:
-
-    ```bash
-    export password='PASSWORD'
-    ```
-
-1. Extract correctly cased cluster name. The actual casing of the cluster name may be different than you expect, depending on how the cluster was created. This command will obtain the actual casing, and then store it in a variable. Enter the following command:
-
-    ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
-    ```
-    > [!Note]  
-    > If you're doing this process from outside the cluster, there is a different procedure for storing the cluster name. Get the cluster name in lower case from the Azure portal. Then, substitute the cluster name for `<clustername>` in the following command and execute it: `export clusterName='<clustername>'`.  
-
-1. To get the Kafka broker hosts, use the following command:
-
-    ```bash
+    export clusterName='<clustername>'
+    export password='<password>'
     export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
@@ -230,5 +214,5 @@ To remove the resource group using the Azure portal:
 
 In this document, you learned how to use the Apache Kafka Producer and Consumer API with Kafka on HDInsight. Use the following to learn more about working with Kafka:
 
-> [!div class="nextstepaction"]
-> [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)
+* [Use Kafka REST Proxy](rest-proxy.md)
+* [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)

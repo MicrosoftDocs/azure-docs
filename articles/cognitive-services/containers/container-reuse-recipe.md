@@ -1,15 +1,15 @@
 ---
 title: Recipes for Docker containers
 titleSuffix: Azure Cognitive Services
-description: Learn how to build, test and store containers with some or all of your configuration settings for deployment and reuse.
+description: Learn how to build, test, and store containers with some or all of your configuration settings for deployment and reuse.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.topic: conceptual 
-ms.date: 06/26/2019
-ms.author: dapine
+ms.topic: conceptual
+ms.date: 04/01/2020
+ms.author: aahi
 #As a potential customer, I want to know how to configure containers so I can reuse them.
 
 # SME: Siddhartha Prasad <siprasa@microsoft.com>

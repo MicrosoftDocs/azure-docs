@@ -9,6 +9,7 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ""
 ms.date: 09/27/2019
+manager: dcscontentpm
 ---
 
 # Azure SQL Database Import/Export service takes a long time to import or export a database
@@ -17,7 +18,7 @@ When you use the Azure SQL Database Import/Export service, the process might tak
 
 ## Azure SQL Database Import/Export service
 
-The Azure SQL Database Import/Export service is a REST-based web service that runs in every Azure data center. This service is called when you use either the [Import database](https://docs.microsoft.com/azure/sql-database/sql-database-import#import-from-a-bacpac-file-in-the-azure-portal) or [Export](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) option to move your SQL database in the Azure portal. The service provides free request queuing and compute services to perform imports and exports between an Azure SQL database and Azure Blob storage.
+The Azure SQL Database Import/Export service is a REST-based web service that runs in every Azure data center. This service is called when you use either the [Import database](sql-database-import.md#using-azure-portal) or [Export](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) option to move your SQL database in the Azure portal. The service provides free request queuing and compute services to perform imports and exports between an Azure SQL database and Azure Blob storage.
 
 The import and export operations don't represent a traditional physical database backup but instead a logical backup of the database that uses a special BACPAC format. The BACPAC format lets you avoid having to use a physical format that might vary between versions of Microsoft SQL Server and Azure SQL Database. Therefore, you can use it to safely restore the database to a SQL Server database and to a SQL database.
 
@@ -41,7 +42,7 @@ If your database exports are used only for recovery from accidental data deletio
 
 ## Things to consider when you export or import an Azure SQL database
 
-* All the methods discussed in this article use up the Database Transaction Unit (DTU) quota, which causes throttling by the Azure SQL Database service. You can [view the DTU stats for the database on the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview#monitor-database-performance). If the database has reached its resource limits, [upgrade the service tier](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources) to add more resources.
+* All the methods discussed in this article use up the Database Transaction Unit (DTU) quota, which causes throttling by the Azure SQL Database service. You can [view the DTU stats for the database on the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview#sql-database-resource-monitoring). If the database has reached its resource limits, [upgrade the service tier](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources) to add more resources.
 * Ideally, you should run client applications (like the sqlpackage utility or your custom DAC application) from a VM in the same region as your SQL database. Otherwise, you might experience performance issues related to network latency.
 * Exporting large tables without clustered indexes can be very slow or even cause failure. This behavior occurs because the table can't be split up and exported in parallel. Instead, it must be exported in a single transaction, and that causes slow performance and potential failure during export, especially for large tables.
 

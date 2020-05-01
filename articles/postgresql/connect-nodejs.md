@@ -4,23 +4,23 @@ description: This quickstart provides a Node.js code sample you can use to conne
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: [mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019]
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ---
 
 # Quickstart: Use Node.js to connect and query data in Azure Database for PostgreSQL - Single Server
-This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using a [Node.js](https://nodejs.org/) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Node.js, and are new to working with Azure Database for PostgreSQL.
+
+In this quickstart, you connect to an Azure Database for PostgreSQL using a Node.js application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Node.js, and are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
-This quickstart uses the resources created in either of these guides as a starting point:
-- [Create DB - Portal](quickstart-create-server-database-portal.md)
-- [Create DB - CLI](quickstart-create-server-database-azure-cli.md)
 
-You also need to:
-- Install [Node.js](https://nodejs.org)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+- Completion of [Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal](quickstart-create-server-database-portal.md) or [Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI](quickstart-create-server-database-azure-cli.md).
+
+- [Node.js](https://nodejs.org)
 
 ## Install pg client
 Install [pg](https://www.npmjs.com/package/pg), which is a PostgreSQL client for Node.js.
@@ -38,11 +38,11 @@ npm list
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
-3. Select the server name.
-4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for PostgreSQL connection string](./media/connect-nodejs/server-details-azure-database-postgresql.png)
+1. In the [Azure portal](https://portal.azure.com/), search for and select the server you have created (such as **mydemoserver**).
+
+1. From the server's **Overview** panel, make a note of the **Server name** and **Admin username**. If you forget your password, you can also reset the password from this panel.
+
+   ![Azure Database for PostgreSQL connection string](./media/connect-nodejs/server-details-azure-database-postgresql.png)
 
 ## Running the JavaScript code in Node.js
 You may launch Node.js from the Bash shell, Terminal, or Windows Command Prompt by typing `node`, then run the example JavaScript code interactively by copy and pasting it onto the prompt. Alternatively, you may save the JavaScript code into a text file and launch `node filename.js` with the file name as a parameter to run it.

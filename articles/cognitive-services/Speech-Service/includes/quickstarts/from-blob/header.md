@@ -1,20 +1,20 @@
 ---
-title: "Quickstart: Recognize speech stored in blob storage - Speech Service"
+title: "Quickstart: Recognize speech stored in blob storage - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
-author: erhopf
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
+ms.date: 03/13/2020
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ---
 
-In this quickstart you will use the [Batch Transcription REST API](../../../batch-transcription.md) to recognize speech stored in a [SAS blob](https://aka.ms/ignite2019/speech/placeholder). After satisfying a few prerequisites, recognizing speech using a REST API only takes a few steps:
-> [!div class="checklist"]
-> * Send the JSON request to the Speech Service to begin transcribing speech.
-> * Check the status of the transcription.
-> * Download the transcription results when done.
+In this quickstart, you will use a REST API to recognize speech from files in a batch process. A batch process executes the speech transcription without any user interactions. It gives you a simple programming model, without the need to manage concurrency, custom speech models, or other details. It entails advanced control options, while making efficient use of Azure speech service resources.
+
+For more information on the available options and configuration details, see [batch transcription](../../../batch-transcription.md).
+
+The following quickstart will walk you through a usage sample.

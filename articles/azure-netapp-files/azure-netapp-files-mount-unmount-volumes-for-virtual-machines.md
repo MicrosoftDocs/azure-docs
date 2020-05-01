@@ -1,24 +1,19 @@
 ---
-title: Mount or unmount an Azure NetApp Files volume for Windows or Linux virtual machines | Microsoft Docs
-description: Describes how to mount or unmount a volume for virtual machines or Linux virtual machines.
-services: azure-netapp-files
-documentationcenter: ''
+title: Mount Azure NetApp Files volumes for virtual machines
+description: Learn how to mount or unmount a volume for Windows virtual machines or Linux virtual machines in Azure.
 author: b-juche
-manager: ''
-editor: ''
-
-ms.assetid:
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.author: b-juche
+ms.date: 04/30/2020
 ---
 # Mount or unmount a volume for Windows or Linux virtual machines 
 
 You can mount or unmount a volume for Windows or Linux virtual machines as necessary.  The mount instructions for Linux virtual machines are available on Azure NetApp Files.  
+
+> [!IMPORTANT] 
+> You must have at least one export policy to be able to access an NFS volume.
 
 1. Click the **Volumes** blade, and then select the volume for which you want to mount. 
 2. Click **Mount instructions** from the selected volume, and then follow the instructions to mount the volume. 
@@ -37,7 +32,14 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
     * `$FILEPATH` is the export path of the Azure NetApp Files volume.
     * `$MOUNTPOINT` is the directory created on the Linux host used to mount the NFS export.
 
+4. If you want to mount the volume to Windows using NFS:
+
+    a. Mount the volume onto a Unix or Linux VM first.  
+    b. Run a `chmod 777` or `chmod 775` command against the volume.  
+    c. Mount the volume via the NFS client on Windows.
+
 ## Next steps
 
 * [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [NFS FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)
+* [Network File System overview](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview)

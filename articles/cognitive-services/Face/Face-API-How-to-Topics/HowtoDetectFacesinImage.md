@@ -1,5 +1,5 @@
 ---
-title: "Detect faces in an image - Face API"
+title: "Detect faces in an image - Face"
 titleSuffix: Azure Cognitive Services
 description: This guide demonstrates how to use face detection to extract attributes like gender, age, or pose from a given image.
 services: cognitive-services
@@ -15,7 +15,7 @@ ms.author: sbowles
 
 # Get face detection data
 
-This guide demonstrates how to use face detection to extract attributes like gender, age, or pose from a given image. The code snippets in this guide are written in C# by using the Azure Cognitive Services Face API client library. The same functionality is available through the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+This guide demonstrates how to use face detection to extract attributes like gender, age, or pose from a given image. The code snippets in this guide are written in C# by using the Azure Cognitive Services Face client library. The same functionality is available through the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 This guide shows you how to:
 

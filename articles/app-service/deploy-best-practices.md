@@ -1,21 +1,13 @@
 ---
-title: Deployment best practices - Azure App Service | Microsoft Docs 
-description: Learn about the key components of deploying to Azure App Service.
+title: Deployment best practices 
+description: Learn about the key mechanisms of deploying to Azure App Service. Find language-specific recommendations and other caveats.
 keywords: azure app service, web app, deploy, deployment, pipelines, build
-services: app-service
-documentationcenter: ''
 author: jasonfreeberg
-manager: 
-editor: 
 
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.custom: 
 ---
 
 # Deployment Best Practices
@@ -41,6 +33,92 @@ The deployment mechanism is the action used to put your built application into t
 
 Deployment tools such as Azure Pipelines, Jenkins, and editor plugins use one of these deployment mechanisms.
 
+## Use deployment slots
+
+Whenever possible, use [deployment slots](deploy-staging-slots.md) when deploying a new production build. When using a Standard App Service Plan tier or better, you can deploy your app to a staging environment, validate your changes, and do smoke tests. When you are ready, you can swap your staging and production slots. The swap operation warms up the necessary worker instances to match your production scale, thus eliminating downtime.
+
+### Continuously deploy code
+
+If your project has designated branches for testing, QA, and staging, then each of those branches should be continuously deployed to a staging slot. (This is known as the [Gitflow design](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) This allows your stakeholders to easily assess and test the deployed the branch. 
+
+Continuous deployment should never be enabled for your production slot. Instead, your production branch (often master) should be deployed onto a non-production slot. When you are ready to release the base branch, swap it into the production slot. Swapping into production—instead of deploying to production—prevents downtime and allows you to roll back the changes by swapping again. 
+
+![Slot usage visual](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+
+### Continuously deploy containers
+
+For custom containers from Docker or other container registries, deploy the image into a staging slot and swap into production to prevent downtime. The automation is more complex than code deployment because you must push the image to a container registry and update the image tag on the webapp.
+
+For each branch you want to deploy to a slot, set up automation to do the following on each commit to the branch.
+
+1. **Build and tag the image**. As part of the build pipeline, tag the image with the git commit ID, timestamp, or other identifiable information. It’s best not to use the default “latest” tag. Otherwise, it’s difficult to trace back what code is currently deployed, which makes debugging far more difficult.
+1. **Push the tagged image**. Once the image is built and tagged, the pipeline pushes the image to our container registry. In the next step, the deployment slot will pull the tagged image from the container registry.
+1. **Update the deployment slot with the new image tag**. When this property is updated, the site will automatically restart and pull the new container image.
+
+![Slot usage visual](media/app-service-deploy-best-practices/slot_flow_container_diagram.png)
+
+There are examples below for common automation frameworks.
+
+### Use Azure DevOps
+
+App Service has [built-in continuous delivery](deploy-continuous-deployment.md) for containers through the Deployment Center. Navigate to your app in the [Azure portal](https://portal.azure.com/) and select **Deployment Center** under **Deployment**. Follow the instructions to select your repository and branch. This will configure a DevOps build and release pipeline to automatically build, tag, and deploy your container when new commits are pushed to your selected branch.
+
+### Use GitHub Actions
+
+You can also automate your container deployment [with GitHub Actions](containers/deploy-container-github-action.md).  The workflow file below will build and tag the container with the commit ID, push it to a container registry, and update the specified site slot with the new image tag.
+
+```yaml
+name: Build and deploy a container image to Azure Web Apps
+
+on:
+  push:
+    branches:
+    - <your-branch-name>
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@master
+
+    -name: Authenticate using a Service Principal
+      uses: azure/actions/login@v1
+      with:
+        creds: ${{ secrets.AZURE_SP }}
+
+    - uses: azure/container-actions/docker-login@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and push the image tagged with the git commit hash
+      run: |
+        docker build . -t contoso/demo:${{ github.sha }}
+        docker push contoso/demo:${{ github.sha }}
+
+    - name: Update image tag on the Azure Web App
+      uses: azure/webapps-container-deploy@v1
+      with:
+        app-name: '<your-webapp-name>'
+        slot-name: '<your-slot-name>'
+        images: 'contoso/demo:${{ github.sha }}'
+```
+
+### Use other automation providers
+
+The steps listed earlier apply to other automation utilities such as CircleCI or Travis CI. However, you need to use the Azure CLI to update the deployment slots with new image tags in the final step. To use the Azure CLI in your automation script, generate a Service Principal using the following command.
+
+```shell
+az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
+   --scopes /subscriptions/{subscription}/resourceGroups/{resource-group} \
+   --sdk-auth
+```
+
+In your script, log in using `az login --service-principal`, providing the principal’s information. You can then use `az webapp config container set` to set the container name, tag, registry URL, and registry password. Below are some helpful links for you to construct your container CI process.
+
+- [How to log into the Azure CLI on Circle CI](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
+
 ## Language-Specific Considerations
 
 ### Java
@@ -53,13 +131,9 @@ By default, Kudu executes the build steps for your Node application (`npm instal
 
 ### .NET 
 
-By default, Kudu executes the build steps for your .Net application (`dotnet build`). If you are using a build service such as Azure DevOps, then the Kudu build is unnecessary. To disable the Kudu build, create an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, with a value of `false`.
+By default, Kudu executes the build steps for your .NET application (`dotnet build`). If you are using a build service such as Azure DevOps, then the Kudu build is unnecessary. To disable the Kudu build, create an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, with a value of `false`.
 
 ## Other Deployment Considerations
-
-### Use deployment slots
-
-Whenever possible, use [deployment slots](deploy-staging-slots.md) when deploying a new production build. When using a Standard App Service Plan tier or better, you can deploy your app to a staging environment, validate your changes, and do smoke tests. When you are ready, you can swap your staging and production slots. The swap operation warms up the necessary worker instances to match your production scale, thus eliminating downtime. 
 
 ### Local Cache
 
@@ -70,3 +144,12 @@ Always use local cache in conjunction with [deployment slots](deploy-staging-slo
 ### High CPU or Memory
 
 If your App Service Plan is using over 90% of available CPU or memory, the underlying virtual machine may have trouble processing your deployment. When this happens, temporarily scale up your instance count to perform the deployment. Once the deployment has finished, you can return the instance count to its previous value.
+
+For more information on best practices, visit [App Service Diagnostics](https://docs.microsoft.com/azure/app-service/overview-diagnostics) to find out actionable best practices specific to your resource.
+
+- Navigate to your Web App in the [Azure portal](https://portal.azure.com).
+- Click on **Diagnose and solve problems** in the left navigation, which opens App Service Diagnostics.
+- Choose **Best Practices** homepage tile.
+- Click **Best Practices for Availability & Performance** or **Best Practices for Optimal Configuration** to view the current state of your app in regards to these best practices.
+
+You can also use this link to directly open App Service Diagnostics for your resource: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.

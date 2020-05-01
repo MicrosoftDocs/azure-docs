@@ -1,24 +1,12 @@
 ---
-title: Debug Azure Service Fabric apps in Linux | Microsoft Docs
+title: Debug Azure Service Fabric apps in Linux 
 description: Learn how to monitor and diagnose your Service Fabric services on a local Linux development machine.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
 
-ms.assetid: 4eebe937-ab42-4429-93db-f35c26424321
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-
 ---
 
-# Monitor and diagnose services in a local machine development setup
+# Monitor and diagnose services in a local Linux machine development setup
 
 
 > [!div class="op_single_selector"]
@@ -67,7 +55,7 @@ For more information, see the [code examples in GitHub](https://github.com/Azure
 ## Debugging Service Fabric C# applications
 
 
-Multiple frameworks are available for tracing CoreCLR applications on Linux. For more information, see [GitHub: logging](http:/github.com/aspnet/logging).  Since EventSource is familiar to C# developers,`this article uses EventSource for tracing in CoreCLR samples on Linux.
+Multiple frameworks are available for tracing CoreCLR applications on Linux. For more information, see [.NET Extensions for Logging](https://github.com/dotnet/extensions/tree/master/src/Logging).  Since EventSource is familiar to C# developers,`this article uses EventSource for tracing in CoreCLR samples on Linux.
 
 The first step is to include System.Diagnostics.Tracing so that you can write your logs to memory, output streams, or console files.  For logging using EventSource, add the following project to your project.json:
 

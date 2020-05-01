@@ -1,11 +1,10 @@
 ---
-title: "Understand how the voluntary migration tool works for Azure Monitor alerts"
+title: Understand migration tool for Azure Monitor alerts
 description: Understand how the alerts migration tool works and troubleshoot problems.
-author: snehithm
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: snmuvva
+ms.author: yalavi
+author: yalavi
 ms.subservice: alerts
 ---
 # Understand how the migration tool works
@@ -33,7 +32,7 @@ Although the tool can migrate almost all [classic alert rules](monitoring-classi
 If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. You can also continue to create new classic alerts on the above listed exceptions till June 2020. However for everything else, no new classic alerts can be created after August 2019.
 
 > [!NOTE]
-> Besides the above listed exceptions, if your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic-alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated during voluntary migration. Any such invalid classic alert rules will be deleted when automatic migration happens.
+> Besides the above listed exceptions, if your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic-alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated and will not be available after service is retired.
 
 ### Guest metrics on virtual machines
 
@@ -256,7 +255,7 @@ Due to some recent changes to classic alert rules in your subscription, the subs
 
 ### Scope lock preventing us from migrating your rules
 
-As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a scope lock can prevent us from creating or deleting resources. Depending on the scope lock, some or all rules could not be migrated. You can resolve this problem by removing the scope lock for the subscription, resource group, or resource, which is listed in the [migration tool](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel), and triggering the migration again. Scope lock can't be disabled and must be removed for the duration of the migration process. [Learn more about managing scope locks](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a scope lock can prevent us from creating or deleting resources. Depending on the scope lock, some or all rules could not be migrated. You can resolve this problem by removing the scope lock for the subscription, resource group, or resource, which is listed in the [migration tool](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel), and triggering the migration again. Scope lock can't be disabled and must be removed for the duration of the migration process. [Learn more about managing scope locks](../../azure-resource-manager/management/lock-resources.md#portal).
 
 ### Policy with 'Deny' effect preventing us from migrating your rules
 

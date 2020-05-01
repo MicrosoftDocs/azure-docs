@@ -176,7 +176,7 @@ You might have a situation where you know that you cannot set a bandwidth of mor
 
 **VM Name**: The VM name or IP address that's used in the VMListFile when a report is generated. This column also lists the disks (VMDKs) that are attached to the VMs. To distinguish vCenter VMs with duplicate names or IP addresses, the names include the ESXi host name. The listed ESXi host is the one where the VM was placed when the tool discovered during the profiling period.
 
-**VM Compatibility**: Values are **Yes** and **Yes**\*. **Yes**\* is for instances in which the VM is a fit for [premium SSDs](../virtual-machines/windows/disks-types.md). Here, the profiled high-churn or IOPS disk fits in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. The storage account decides which premium storage disk type to map a disk to, based on its size. For example:
+**VM Compatibility**: Values are **Yes** and **Yes\***. **Yes**\* is for instances in which the VM is a fit for [premium SSDs](../virtual-machines/windows/disks-types.md). Here, the profiled high-churn or IOPS disk fits in the P20 or P30 category, but the size of the disk causes it to be mapped down to a P10 or P20. The storage account decides which premium storage disk type to map a disk to, based on its size. For example:
 * <128 GB is a P10.
 * 128 GB to 256 GB is a P15
 * 256 GB to 512 GB is a P20.
@@ -219,10 +219,7 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 **VM Compatibility**: Indicates why the given VM is incompatible for use with Site Recovery. The reasons are described for each incompatible disk of the VM and, based on published [storage limits](https://aka.ms/azure-storage-scalbility-performance), can be any of the following:
 
-* Disk size is >4095 GB. Azure Storage currently does not support data disk sizes greater than 4095 GB.
-
-* OS disk is >2048 GB. Azure Storage currently does not support OS disk size greater than 2048 GB.
-
+* Wrong data disk size or wrong OS disk size. [Review](vmware-physical-azure-support-matrix.md#azure-vm-requirements) the support limits. 
 * Total VM size (replication + TFO) exceeds the supported storage-account size limit (35 TB). This incompatibility usually occurs when a single disk in the VM has a performance characteristic that exceeds the maximum supported Azure or Site Recovery limits for standard storage. Such an instance pushes the VM into the premium storage zone. However, the maximum supported size of a premium storage account is 35 TB, and a single protected VM cannot be protected across multiple storage accounts. Also note that when a test failover is executed on a protected VM, it runs in the same storage account where replication is progressing. In this instance, set up 2x the size of the disk for replication to progress and test failover to succeed in parallel.
 
 * Source IOPS exceeds supported storage IOPS limit of 7500 per disk.

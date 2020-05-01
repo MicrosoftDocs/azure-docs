@@ -14,6 +14,9 @@ ms.date: 12/19/2018
 ---
 
 # Web activity in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+
 Web Activity can be used to call a custom REST endpoint from a Data Factory pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
 
 > [!NOTE]
@@ -85,10 +88,14 @@ The following table shows the requirements for JSON content:
 
 ## Authentication
 
+Below are the supported authentication types in the web activity.
+
 ### None
+
 If authentication is not required, do not include the "authentication" property.
 
 ### Basic
+
 Specify user name and password to use with the basic authentication.
 
 ```json
@@ -100,6 +107,7 @@ Specify user name and password to use with the basic authentication.
 ```
 
 ### Client certificate
+
 Specify base64-encoded contents of a PFX file and the password.
 
 ```json
@@ -120,6 +128,9 @@ Specify the resource uri for which the access token will be requested using the 
 	"resource": "https://management.azure.com/"
 }
 ```
+
+> [!NOTE]
+> If your data factory is configured with a git repository, you must store your credentials in Azure Key Vault to use basic or client certificate authentication. Azure Data Factory doesn't store passwords in git.
 
 ## Request payload schema
 When you use the POST/PUT method, the body property represents the payload that is sent to the endpoint. You can pass linked services and datasets as part of the payload. Here is the schema for the payload:

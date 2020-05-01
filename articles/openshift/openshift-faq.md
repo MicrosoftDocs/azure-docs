@@ -1,12 +1,10 @@
 ---
-title: Frequently asked questions for Azure Red Hat OpenShift | Microsoft Docs
+title: Frequently asked questions for Azure Red Hat OpenShift
 description: Here are answers to common questions about Microsoft Azure Red Hat OpenShift
-services: container-service
 author: jimzim
 ms.author: jzim
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
@@ -20,8 +18,8 @@ See [Supported resources](supported-resources.md#azure-regions) for a list of gl
 
 ## Can I deploy a cluster into an existing virtual network?
 
-No. But you can connect an Azure Red Hat OpenShift cluster to an existing VNET via peering. See [Connect a cluster's virtual network to an existing virtual network
-](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) for details.
+No. But you can connect an Azure Red Hat OpenShift cluster to an existing virtual network via peering. See [Connect a cluster's virtual network to an existing virtual network
+](tutorial-create-cluster.md#create-the-cluster) for details.
 
 ## What cluster operations are available?
 
@@ -59,6 +57,18 @@ Yes. An Azure Red Hat OpenShift administrator can manage users and quotas in add
 ## Can I restrict a cluster to only certain Azure AD users?
 
 Yes. You can restrict which Azure AD users can sign in to a cluster by configuring the Azure AD Application. For details, see [How to: Restrict your app to a set of users](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
+
+## Can I restrict users from creating projects?
+
+Yes. Log in to your cluster as an Azure Red Hat OpenShift administrator and execute this command:
+
+```
+oc adm policy \
+    remove-cluster-role-from-group self-provisioner \
+    system:authenticated:oauth
+```
+
+For more information, see the OpenShift documentation on [disabling self-provisioning](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_projects.html#disabling-self-provisioning).
 
 ## Can a cluster have compute nodes across multiple Azure regions?
 
@@ -118,11 +128,11 @@ Syslog, docker logs, journal, and dmesg are handled by the managed service and a
 
 ## How can a customer get access to metrics like CPU/memory at the node level to take action to scale, debug issues, etc. I cannot seem to run `kubectl top` on an ARO cluster.
 
-`kubectl top` is not available on Red Hat OpenShift. It requires a backing metrics source, either Heapster (deprecated) or metrics-server (incubating or alpha), neither of which are included in the OpenShift monitoring stack.
+Customers can access the CPU/Memory metrics at the node level by using the command `oc adm top nodes` or `kubectl top nodes` with the customer-admin clusterrole.  Customers can also access the CPU/Memory metrics of `pods` with the command `oc adm top pods` or `kubectl top pods`
 
 ## What is the default pod scheduler configuration for ARO?
 
-ARO uses the default scheduler that ships in OpenShift. There are a couple of additional mechanisms that are not supported in ARO. Refer to [default scheduler documentation](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) and [master scheduler documentation](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v6/data/master/etc/origin/master/scheduler.json) for more details.
+ARO uses the default scheduler that ships in OpenShift. There are a couple of additional mechanisms that are not supported in ARO. Refer to [default scheduler documentation](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) and [master scheduler documentation](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v16/data/master/etc/origin/master/scheduler.json) for more details.
 
 Advanced/Custom scheduling is currently unsupported. Refer to the [Scheduling documentation](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html) for more details.
 
@@ -134,7 +144,7 @@ Refer to [Choosing the right number of fault domains for virtual machine scale s
 
 ## Is there a way to manage pod placement?
 
-With the impending customer-admin update, customers will have the ability to get nodes and view labels.  This will provide a way to target any VM in the scale set.
+Customers have the ability to get nodes and view labels as the customer-admin.  This will provide a way to target any VM in the scale set.
 
 Caution must be used when using specific labels:
 
@@ -144,7 +154,7 @@ Caution must be used when using specific labels:
 
 ## What is the maximum number of pods in an ARO cluster?  What is the maximum number of pods per node in ARO?
 
-Refer to [upstream OpenShift docs](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits) for more details. Red Hat OpenShift 3.11 has a 250-pod/node limit, whereas [ARO has a 20-compute node limit](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), so that caps the maximum number of pods supported in an ARO cluster to 250*20 = 5000.
+ Azure Red Hat OpenShift 3.11 has a 50-pod per node limit with [ARO having a 20-compute node limit](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available), so that caps the maximum number of pods supported in an ARO cluster to 50*20 = 1000.
 
 ## Can we specify IP ranges for deployment on the private VNET, avoiding clashes with other corporate VNETs once peered?
 

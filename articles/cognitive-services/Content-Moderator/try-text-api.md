@@ -59,9 +59,8 @@ For **Content-Type**, select the type of content you want to screen. For this ex
 In the **Request body** box, enter some text. The following example shows an intentional typo in the text.
 
 ```
-Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300.
-Also, 999-99-9999 looks like a social security number (SSN).
+Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 
+255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
 ```
 
 ## Analyze the response
@@ -72,96 +71,61 @@ The following response shows the various insights from the API. It contains pote
 > The machine-assisted 'Classification' feature is in preview and supports English only.
 
 ```json
-{"OriginalText":"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.\r\nThese are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300.\r\nAlso, 544-56-7788 looks like a social security number (SSN).",
-"NormalizedText":"Is this a grabage or crap email abcdef@ abcd. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. \r\nThese are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. \r\nAlso, 544- 56- 7788 looks like a social security number ( SSN) .",
-"Misrepresentation":null,
-"PII":{  
-  "Email":[  
-    {  
-      "Detected":"abcdef@abcd.com",
-      "SubType":"Regular",
-      "Text":"abcdef@abcd.com",
-      "Index":32
-    }
-  ],
-  "IPA":[  
-    {  
-      "SubType":"IPV4",
-      "Text":"255.255.255.255",
-      "Index":72
-    }
-  ],
-  "Phone":[  
-    {  
-      "CountryCode":"US",
-      "Text":"6657789887",
-      "Index":56
-    },
-    {  
-      "CountryCode":"US",
-      "Text":"870 608 4000",
-      "Index":211
-    },
-    {  
-      "CountryCode":"UK",
-      "Text":"+44 870 608 4000",
-      "Index":207
-    },
-    {  
-      "CountryCode":"UK",
-      "Text":"0344 800 2400",
-      "Index":227
-    },
-    {  
-      "CountryCode":"UK",
-      "Text":"0800 820 3300",
-      "Index":244
-    }
-  ],
-  "Address":[  
-    {  
-      "Text":"1 Microsoft Way, Redmond, WA 98052",
-      "Index":89
-    }
-  ],
-  "SSN":[  
-    {  
-      "Text":"999999999",
-      "Index":56
-    },
-    {  
-      "Text":"999-99-9999",
-      "Index":266
-    }
-  ]
-},
-"Classification":{  
-  "ReviewRecommended":true,
-  "Category1":{  
-    "Score":1.5113095059859916E-06
-  },
-  "Category2":{  
-    "Score":0.12747249007225037
-  },
-  "Category3":{  
-    "Score":0.98799997568130493
-  }
-},
-"Language":"eng",
-"Terms":[  
-  {  
-    "Index":21,
-    "OriginalIndex":21,
-    "ListId":0,
-    "Term":"crap"
-  }
-],
-"Status":{  
-  "Code":3000,
-  "Description":"OK",
-  "Exception":null
-},
-"TrackingId":"2eaa012f-1604-4e36-a8d7-cc34b14ebcb4"
+{
+   "original_text":"Is this a grabage or crap email abcdef@abcd.com, phone: 
+   6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
+   "normalized_text":"   grabage  crap email abcdef@abcd.com, phone: 
+   6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
+   "auto_corrected_text":"Is this a garbage or crap email abcdef@abcd.com, phone: 
+   6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.",
+   "status":{
+      "code":3000,
+      "description":"OK"
+   },
+   "pii":{
+      "email":[
+         {
+            "detected":"abcdef@abcd.com",
+            "sub_type":"Regular",
+            "text":"abcdef@abcd.com",
+            "index":32
+         }
+      ],
+      "ssn":[
+
+      ],
+      "ipa":[
+         {
+            "sub_type":"IPV4",
+            "text":"255.255.255.255",
+            "index":72
+         }
+      ],
+      "phone":[
+         {
+            "country_code":"US",
+            "text":"6657789887",
+            "index":56
+         }
+      ],
+      "address":[
+         {
+            "text":"1 Microsoft Way, Redmond, WA 98052",
+            "index":89
+         }
+      ]
+   },
+   "language":"eng",
+   "terms":[
+      {
+         "index":12,
+         "original_index":21,
+         "list_id":0,
+         "term":"crap"
+      }
+   ],
+   "tracking_id":"WU_ibiza_65a1016d-0f67-45d2-b838-b8f373d6d52e_ContentModerator.
+   F0_fe000d38-8ecd-47b5-a8b0-4764df00e3b5"
 }
 ```
 

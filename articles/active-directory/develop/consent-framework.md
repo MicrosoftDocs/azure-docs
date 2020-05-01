@@ -1,24 +1,19 @@
 ---
-title: Azure Active Directory consent framework 
+title: Azure AD consent framework
 titleSuffix: Microsoft identity platform
 description: Learn about the consent framework in Azure Active Directory and how it makes it easy to develop multi-tenant web and native client applications.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
-ms.custom: aaddev
-ms.collection: M365-identity-device-management
+ms.custom: aaddev, has-adal-ref
 ---
 
 # Azure Active Directory consent framework
@@ -29,7 +24,7 @@ The framework is based on a user or an administrator giving consent to an applic
 
 The consent framework is built on OAuth 2.0 and its various flows, such as authorization code grant and client credentials grant, using public or confidential clients. By using OAuth 2.0, Azure AD makes it possible to build many different types of client applications--such as on a phone, tablet, server, or a web application--and gain access to the required resources.
 
-For more info about using the consent framework with OAuth2.0 authorization grants, see [Authorize access to web applications using OAuth 2.0 and Azure AD](v1-protocols-oauth-code.md) and [Authentication scenarios for Azure AD](authentication-scenarios.md). For info about getting authorized access to Office 365 through Microsoft Graph, see [App authentication with Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
+For more info about using the consent framework with OAuth2.0 authorization grants, see [Authorize access to web applications using OAuth 2.0 and Azure AD](v2-oauth2-auth-code-flow.md) and [Authentication scenarios for Azure AD](authentication-scenarios.md). For info about getting authorized access to Office 365 through Microsoft Graph, see [App authentication with Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
 
 ## Consent experience - an example
 
@@ -43,13 +38,13 @@ The following steps show you how the consent experience works for both the appli
 
 1. If the user is not already authenticated, Azure AD's `/authorize` endpoint prompts the user to sign in.
 
-    ![User or administrator sign in to Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
+    ![User or administrator sign in to Azure AD](./media/consent-framework/usersignin.png)
 
 1. After the user has signed in, Azure AD will determine if the user needs to be shown a consent page. This determination is based on whether the user (or their organization’s administrator) has already granted the application consent. If consent has not already been granted, Azure AD prompts the user for consent and displays the required permissions it needs to function. The set of permissions that are displayed in the consent dialog match the ones selected in the **Delegated permissions** in the Azure portal.
 
-    ![Shows an example of permissions displayed in the consent dialog](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Shows an example of permissions displayed in the consent dialog](./media/consent-framework/consent.png)
 
-1. After the user grants consent, an authorization code is returned to your application, which is redeemed to acquire an access token and refresh token. For more information about this flow, see [Web API app type](web-api.md).
+1. After the user grants consent, an authorization code is returned to your application, which is redeemed to acquire an access token and refresh token. For more information about this flow, see [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
 1. As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog from appearing for every user in the tenant, and can be done in the [Azure portal](https://portal.azure.com) by users with the administrator role. To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 

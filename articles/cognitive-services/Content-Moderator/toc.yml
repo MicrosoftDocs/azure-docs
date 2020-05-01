@@ -1,6 +1,7 @@
 - name: Content Moderator Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Content Moderator?
     href: overview.md
@@ -9,14 +10,8 @@
   items:
   - name: Try Content Moderator on web
     href: quick-start.md
-  - name: Using the client SDK
-    items:
-    - name: Using the .NET SDK
-      href: dotnet-sdk-quickstart.md
-    - name: Using the Python SDK
-      href: python-sdk-quickstart.md
-    - name: Using the Java SDK
-      href: java-sdk-quickstart.md
+  - name: Using the client library
+    href: client-libraries.md
 - name: Tutorials
   items:
   - name: Moderate e-commerce images
@@ -96,7 +91,7 @@
     - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
     - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest
+      href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-contentmoderator/?view=azure-node-latest
     - name: Python
       href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python
     - name: Go
@@ -133,3 +128,5 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Encryption
+    href: content-moderator-encryption-of-data-at-rest.md

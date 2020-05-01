@@ -1,22 +1,12 @@
 ---
 title: Go-To-Market Services - Promote your business with Microsoft | Azure
 description: Go-To-Market Services - Publishers can learn how to promote your business with Microsoft in this section.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
 author: qianw211
-
-
-
-
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-
-
-
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/12/2019
-ms.author: ellacroi
-
+ms.author: dsindona
 ---
 
 # Promote your business with Microsoft
@@ -41,6 +31,6 @@ To promote your offer or app, and to access more benefits and resources, use the
 
 To learn more about marketplace GTM services, go to [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
 
-Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.
+[Log in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
 
 ---

@@ -1,14 +1,14 @@
 ---
-title: 'Quickstart: Connect to a Custom Commands app with Speech SDK - Speech Service'
+title: 'Quickstart: Connect to a Custom Commands app with Speech SDK - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you will create a Speech SDK client application with Custom Commands.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: donkim
 ---
 
@@ -18,7 +18,7 @@ After creating a hosted Custom Commands application, you can begin talking to it
 
 In this article, you'll:
 
-- Publish a Custom Commands application and get an application identifier (app id)
+- Publish a Custom Commands application and get an application identifier (App ID)
 - Create a client app using the Speech SDK to allow you to talk to your Custom Commands application
 
 ## Prerequisites
@@ -41,10 +41,10 @@ This quickstart describes, step by step, how to make a client application to con
 
 1. Open your [previously created Custom Commands application](./quickstart-custom-speech-commands-create-new.md) and select **Publish**
 
-   > [!div class="mx-imgBorder"] 
+   > [!div class="mx-imgBorder"]
    > ![Publish application](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
-1. Copy the app id from the publish notification for later use
+1. Copy the App ID from the publish notification for later use
 
 ## Step 2: Create a Visual Studio project
 
@@ -304,7 +304,7 @@ Add the code-behind source as follows:
    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
    const string region = "YourServiceRegion"; // The subscription service region. Note: only 'westus2' is currently supported
 
-   var speechCommandsConfig = DialogServiceConfig.FromSpeechCommandsAppId(speechCommandsApplicationId, speechSubscriptionKey, region);
+   var speechCommandsConfig = CustomCommandsConfig.FromSubscription(speechCommandsApplicationId, speechSubscriptionKey, region);
    speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```

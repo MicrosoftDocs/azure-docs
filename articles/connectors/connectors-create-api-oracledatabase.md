@@ -1,18 +1,11 @@
 ---
-# required metadata
-title: Connect to Oracle Database - Azure Logic Apps | Microsoft Docs
-description: Insert and manage records with Oracle Database REST APIs and Azure Logic Apps 
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 03/29/2017
-ms.topic: article
-ms.service: logic-apps
+title: Connect to Oracle Database
+description: Insert and manage records with Oracle Database REST APIs and Azure Logic Apps
 services: logic-apps
-
-# optional metadata
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 03/29/2017
 tags: connectors
 ---
 
@@ -74,7 +67,7 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
     ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. In this next step, you can use any of the other connectors to build your workflow. If you want to test getting data from Oracle, then send yourself an email with the Oracle data using one of the send email connectors, such Office 365 or Gmail. Use the dynamic tokens from the Oracle table to build the `Subject` and `Body` of your email:
+7. In this next step, you can use any of the other connectors to build your workflow. If you want to test getting data from Oracle, then send yourself an email with the Oracle data using one of the send email connectors, such Office 365 Outlook. Use the dynamic tokens from the Oracle table to build the `Subject` and `Body` of your email:
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 

@@ -15,7 +15,7 @@ This article explains how to restore data from a backup vault. To restore data, 
 Use the Instant Restore feature to mount a writeable recovery point snapshot as a recovery volume. You can then explore the recovery volume and copy files to a local computer, thereby selectively restoring files.
 
 > [!NOTE]
-> The [January 2017 Azure Backup update](https://support.microsoft.com/help/3216528?preview) is required if you want to use Instant Restore to restore data. Also, the backup data must be protected in vaults in locales listed in the support article. Consult the [January 2017 Azure Backup update](https://support.microsoft.com/help/3216528?preview) for the latest list of locales that support Instant Restore.
+> The [January 2017 Azure Backup update](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) is required if you want to use Instant Restore to restore data. Also, the backup data must be protected in vaults in locales listed in the support article. Consult the [January 2017 Azure Backup update](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) for the latest list of locales that support Instant Restore.
 >
 
 Use Instant Restore with Recovery Services vaults in the Azure portal. If you stored data in Backup vaults, they have been converted to Recovery Services vaults. If you want to use Instant Restore, download the MARS update, and follow the procedures that mention Instant Restore.
@@ -44,7 +44,7 @@ If you accidentally deleted a file and want to restore it to the same machine (f
     ![Screenshot of Recover Data Wizard Select Recovery Mode page](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > The option to restore individual files and folders requires .NET Framework 4.5.2 or later. If you do not see the **Individual files and folders** option, you must upgrade .NET Framework to version 4.5.2 or later, and try again.
- 
+
    > [!TIP]
    > The **Individual files and folders** option allows for quick access to the recovery point data. It is suitable for recovering individual files, with sizes totalling not more than 80 GB, and offers transfer or copy speeds up to 6 MBps during recovery. The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 60 MBps), which is ideal for recovering large-sized data or entire volumes.
 
@@ -139,4 +139,6 @@ These steps include the following terminology:
 
 ## Next steps
 
-Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server.md).
+* Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server.md).
+
+* Find [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.md).

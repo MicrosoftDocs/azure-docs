@@ -1,20 +1,10 @@
 ---
-title: Azure Service Fabric set up reverse proxy | Microsoft Docs
-description: Understand how to set up and configure Service Fabric's reverse proxy.
-services: service-fabric
-documentationcenter: na
-author: jimacoMS2
-manager: chackdan
-editor: 
+title: Azure Service Fabric set up reverse proxy 
+description: Understand how to set up and configure the reverse proxy service for an Azure Service Fabric application.
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/13/2018
 ms.author: pepogors
-
 ---
 # Set up and configure reverse proxy in Azure Service Fabric
 Reverse proxy is an optional Azure Service Fabric service that helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints. To learn more, see [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md). This article shows you how to set up and configure reverse proxy in your cluster. 
@@ -28,7 +18,7 @@ To configure reverse proxy when you [create a cluster using Azure portal](./serv
 1. In **Step 2: Cluster Configuration**, under **Node type configuration**, select **Enable reverse proxy**.
 
    ![Enable reverse proxy on portal](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (Optional) To configure secure reverse proxy, you need to configure an SSL certificate. In **Step 3: Security**, on **Configure cluster security settings**, under **Configuration type**, select **Custom**. Then, under **Reverse Proxy SSL certificate**, select **Include a SSL certificate for reverse proxy** and enter your certificate details.
+2. (Optional) To configure secure reverse proxy, you need to configure a TLS/SSL certificate. In **Step 3: Security**, on **Configure cluster security settings**, under **Configuration type**, select **Custom**. Then, under **Reverse Proxy SSL certificate**, select **Include a SSL certificate for reverse proxy** and enter your certificate details.
 
    ![Configure secure reverse proxy on portal](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -46,7 +36,7 @@ For an existing cluster, you can export the Resource Manager template for the cl
 
 After you have a Resource Manager template, you can enable the reverse proxy with the following steps:
 
-1. Define a port for the reverse proxy in the [Parameters section](../azure-resource-manager/resource-group-authoring-templates.md) of the template.
+1. Define a port for the reverse proxy in the [Parameters section](../azure-resource-manager/templates/template-syntax.md) of the template.
 
     ```json
     "SFReverseProxyPort": {
@@ -57,7 +47,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
         }
     },
     ```
-2. Specify the port for each of the nodetype objects in the [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md).
+2. Specify the port for each of the nodetype objects in the [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/templates/template-syntax.md).
 
     The port is identified by the parameter name, reverseProxyEndpointPort.
 
@@ -79,7 +69,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
         ...
     }
     ```
-3. To configure SSL certificates on the port for the reverse proxy, add the certificate to the ***reverseProxyCertificate*** property in the **Microsoft.ServiceFabric/clusters** [Resource type section](../resource-group-authoring-templates.md).
+3. To configure TLS/SSL certificates on the port for the reverse proxy, add the certificate to the ***reverseProxyCertificate*** property in the **Microsoft.ServiceFabric/clusters** [Resource type section](../resource-group-authoring-templates.md).
 
     ```json
     {

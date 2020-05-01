@@ -1,35 +1,31 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone, C++ (Linux) - Speech Service'
-titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in C++ on Linux by using the Speech SDK
-services: cognitive-services
-author: wolfma61
-manager: nitinme
+author: trevorbye
 ms.service: cognitive-services
-ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
-ms.author: wolfma
+ms.topic: include
+ms.date: 04/03/2020
+ms.author: trbye
 ---
 
 ## Prerequisites
 
-Before you get started, make sure to:
+Before you get started:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=linux)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=linux)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programming-language-cpp)
+> * Make sure that you have access to a microphone for audio capture
 
-## Add sample code
+## Source code
 
-1. Create a C++ source file named `helloworld.cpp`, and paste the following code into it.
+Create a C++ source file named *helloworld.cpp*, and paste the following code into it.
 
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/from-microphone/helloworld.cpp#code)]
+[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/from-microphone/helloworld.cpp#code)]
 
-1. In this new file, replace the string `YourSubscriptionKey` with your Speech Services subscription key.
+[!INCLUDE [replace key and region](../replace-key-and-region.md)]
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+## Code explanation
+
+[!INCLUDE [code explanation](../code-explanation.md)]
 
 ## Build the app
 
@@ -82,7 +78,7 @@ Before you get started, make sure to:
    ./helloworld
    ```
 
-1. In the console window, a prompt appears, requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the same window.
+1. In the console window, a prompt appears, requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech service and transcribed to text, which appears in the same window.
 
    ```text
    Say something...
@@ -91,4 +87,5 @@ Before you get started, make sure to:
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+

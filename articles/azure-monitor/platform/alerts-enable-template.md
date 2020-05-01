@@ -1,27 +1,24 @@
 ---
-title: Create a classic metric alert in Azure with a Resource Manager template
+title: Resource Manager template - create metric alert
 description: Learn how to use a Resource Manager template to create a classic metric alert to receive notifications by email or webhook.
-author: johnkemnetz
-services: azure-monitor
-ms.service: azure-monitor
+author: rboucher
+ms.author: robb
 ms.topic: conceptual
-ms.date: 4/27/2018
-ms.author: johnkem
-ms.subservice: metrics
+ms.date: 03/09/2020
+ms.subservice: alerts
 ---
 # Create a classic metric alert with a Resource Manager template
-This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) to configure Azure metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
-
-> [!NOTE]
+> [!WARNING]
 > 
-> This article describes creating **classic metric alerts** using Resource Manager templates. If you are looking for creating [newer metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md) using templates, [this article](alerts-metric-create-templates.md) provides the details.
+> This article describes creating **classic metric alerts** using Resource Manager templates. Classic alerts were retired in August 2019 and set to be fully deprecated in June 2020. You cannot create new classic alerts public Azure. Some regional versions of Azure may still have the option, but we suggest you instead create [newer metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md) using templates if at all possible. [This article](alerts-metric-create-templates.md) provides the details.
 >
 
+This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure Azure classic metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
 
 The basic steps are as follows:
 
 1. Create a template as a JSON file that describes how to create the alert.
-2. [Deploy the template using any deployment method](../../azure-resource-manager/resource-group-template-deploy.md).
+2. [Deploy the template using any deployment method](../../azure-resource-manager/templates/deploy-powershell.md).
 
 Below we describe how to create a Resource Manager template first for an alert alone, then for an alert during the creation of another resource.
 

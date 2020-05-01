@@ -1,5 +1,5 @@
 - name: Bing Video Search API Documentation
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Overview   
   expanded: true     
   items:
@@ -8,7 +8,7 @@
     - name: Compare the Bing Search APIs
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: REST API Quickstarts
+- name: Quickstarts
   expanded: true
   items:
     - name: REST API
@@ -27,14 +27,8 @@
         href: quickstarts/ruby.md
     - name: SDK
       items:
-      - name: Using C#
-        href: quickstarts/sdk-csharp-quickstart.md 
-      - name: Using Node.js
-        href: quickstarts/sdk-node-quickstart.md 
-      - name: Using Python
-        href: quickstarts/sdk-python-quickstart.md
-      - name: Using Java
-        href: quickstarts/sdk-java-quickstart.md 
+      - name: Bing Video Search client libraries
+        href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Build a single-page web app

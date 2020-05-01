@@ -1,17 +1,8 @@
 ---
-title: Introduction to Azure Service Fabric Resource Model | Microsoft Docs
+title: Introduction to Azure Service Fabric Resource Model 
 description: Learn about the Service Fabric Resource Model, a simplified approach to defining Service Fabric Mesh applications.
-services: service-fabric-mesh
-documentationcenter: .net
 author: vturecek
-manager: timlt
-editor: ''
-ms.assetid: 
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter 

@@ -36,7 +36,12 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
    az account set --subscription "<subscription ID>"
    ```
 
-2. List all locations where ExpressRoute Direct is supported:
+2. Re-register your subscription to Microsoft.Network to access the expressrouteportslocation and expressrouteport APIs
+
+   ```azurecli
+   az provider register --namespace Microsoft.Network
+   ```
+3. List all locations where ExpressRoute Direct is supported:
     
    ```azurecli
    az network express-route port location list
@@ -44,7 +49,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
 
    **Example output**
   
-   ```azurecli
+   ```output
    [
    {
     "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
@@ -103,7 +108,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
    }
    ]
    ```
-3. Determine whether one of the locations listed in the preceding step has available bandwidth:
+4. Determine whether one of the locations listed in the preceding step has available bandwidth:
 
    ```azurecli
    az network express-route port location show -l "Equinix-Ashburn-DC2"
@@ -111,7 +116,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
 
    **Example output**
 
-   ```azurecli
+   ```output
    {
    "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
    "availableBandwidths": [
@@ -129,7 +134,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
    "type": "Microsoft.Network/expressRoutePortsLocations"
    }
    ```
-4. Create an ExpressRoute Direct resource that's based on the location you chose in the preceding steps.
+5. Create an ExpressRoute Direct resource that's based on the location you chose in the preceding steps.
 
    ExpressRoute Direct supports both QinQ and Dot1Q encapsulation. If you select QinQ, each ExpressRoute circuit is dynamically assigned an S-Tag and is unique throughout the ExpressRoute Direct resource. Each C-Tag on the circuit must be unique on the circuit but not across the ExpressRoute Direct resource.  
 
@@ -149,7 +154,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
 
    **Example output**
 
-   ```azurecli
+   ```output
    {
    "allocationDate": "Wednesday, October 17, 2018",
    "bandwidthInGbps": 100,
@@ -217,7 +222,7 @@ Use this process to conduct a layer 1 test. Ensure that each cross-connection is
    ```
    **Example output**
 
-   ```azurecli
+   ```output
    {
    "allocationDate": "Wednesday, October 17, 2018",
    "bandwidthInGbps": 100,
@@ -290,7 +295,7 @@ Create a circuit on the ExpressRoute Direct resource:
 
   **Example output**
 
-  ```azurecli
+  ```output
   {
   "allowClassicOperations": false,
   "allowGlobalReach": false,

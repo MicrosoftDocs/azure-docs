@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Create an Azure Cosmos account with IP Firewall
-description: Azure PowerShell script sample - Create an Azure Cosmos account with IP Firewall
+title: PowerShell script to create an Azure Cosmos DB account with IP Firewall
+description: Azure PowerShell script sample - Create an Azure Cosmos DB account with IP Firewall
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
 ---
 
-# Create an Azure Cosmos account with IP Firewall
+# Create an Azure Cosmos DB account with IP Firewall
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -35,10 +35,9 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-|**Azure Resources**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Create a resource. |
+|**Azure Cosmos DB**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Creates a new Cosmos DB Account. |
 |**Azure Resource Groups**| |
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 

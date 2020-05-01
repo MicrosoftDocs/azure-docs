@@ -33,7 +33,7 @@ Storage account credentials contain the credentials that the device uses to acce
 On the **Storage account credentials** blade, all storage account credentials that are created for the billing subscription are displayed in a tabular format containing the following information:
 
 * **Name** – The unique name assigned to the account when it was created.
-* **SSL enabled** – Whether the SSL is enabled and device-to-cloud communication is over the secure channel.
+* **SSL enabled** – Whether the TLS is enabled and device-to-cloud communication is over the secure channel.
   
   ![Configuration section](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccountcredentials-blade.png)
 
@@ -51,7 +51,7 @@ There are three types of storage account credentials that can be used with your 
 * **storage account credentials outside of the service subscription** – These are the Azure storage account credentials that are not associated with your service and likely existed before the service was created.
 
 ## Add a storage account credential
-You can add a storage account credential to your StorSimple Device Manager service configuration by providing a unique friendly name and access credentials that are linked to the storage account. You also have the option of enabling the secure sockets layer (SSL) mode to create a secure channel for network communication between your device and the cloud.
+You can add a storage account credential to your StorSimple Device Manager service configuration by providing a unique friendly name and access credentials that are linked to the storage account. You also have the option of enabling the Transport Layer Security (TLS) mode, previously known as Secure Sockets Layer (SSL) mode, to create a secure channel for network communication between your device and the cloud.
 
 You can create multiple accounts for a given cloud service provider. While the storage account credential is being saved, the service attempts to communicate with your cloud service provider. The credentials and the access material that you supplied are authenticated at this time. A storage account credential is created only if the authentication succeeds. If the authentication fails, then an appropriate error message is displayed.
 
@@ -87,7 +87,7 @@ Use the following procedures to add Azure storage account credentials:
    
     3. In the **Storage account access key** text box, supply the primary Access Key for your Azure storage account credential. To get this key, go to the Azure Storage service, select your storage account credential, and click **Manage account keys**. You can now copy the primary access key.
    
-    4. To enable SSL, click the **Enable** button to create a secure channel for network communication between your StorSimple Device Manager service and the cloud. Click the **Disable** button only if you are operating within a private cloud.
+    4. To enable TLS, click the **Enable** button to create a secure channel for network communication between your StorSimple Device Manager service and the cloud. Click the **Disable** button only if you are operating within a private cloud.
    
     5. Click **Add**. You are notified after the storage account credential is successfully created.
 
@@ -96,7 +96,7 @@ Use the following procedures to add Azure storage account credentials:
     ![Add a storage account credential outside of the Device Manager service subscription](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-outside-storageacct.png)
 
 ## Edit a storage account credential
-You can edit a storage account credential used by your device. If you edit a storage account credential that is currently in use, the fields available to modify are the access key and the SSL mode for the storage account credential. You can supply the new storage access key or modify the **Enable SSL mode** selection and save the updated settings.
+You can edit a storage account credential used by your device. If you edit a storage account credential that is currently in use, the fields available to modify are the access key and the TLS mode for the storage account credential. You can supply the new storage access key or modify the **Enable SSL mode** selection and save the updated settings.
 
 #### To edit a storage account credential
 1. Navigate to your Device Manager service, select and double-click it. This opens the **Overview** blade.
@@ -105,7 +105,7 @@ You can edit a storage account credential used by your device. If you edit a sto
 4. In the storage account credential **Properties** blade, do the following:
    
    1. If necessary, you can modify the **Enable SSL** mode selection.
-   2. You can choose to regenerate your storage account credential access keys. For more information, see [Regenerate the storage account keys](../storage/common/storage-account-manage.md#access-keys). Supply the new storage account credential key. For an Azure storage account, this is the primary access key.
+   2. You can choose to regenerate your storage account credential access keys. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md). Supply the new storage account credential key. For an Azure storage account, this is the primary access key.
    3. Click **Save** at the top of the **Properties** blade to save the settings. The settings are updated on the **Storage account credentials** blade.
       
       ![Edit a storage account credential](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)

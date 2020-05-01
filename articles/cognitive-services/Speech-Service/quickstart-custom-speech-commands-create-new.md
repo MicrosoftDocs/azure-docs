@@ -1,14 +1,14 @@
 ---
-title: 'Quickstart: Create a Custom Command (Preview) - Speech Service'
+title: 'Quickstart: Create a Custom Command (Preview) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you create and test a hosted Custom Commands application.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: donkim
 ---
 
@@ -19,20 +19,15 @@ The application will recognize an utterance like "turn on the tv" and respond wi
 
 ## Prerequisites
 
-- A Speech subscription. [Try the speech service for free](~/articles/cognitive-services/speech-service/get-started.md).
+- A Speech subscription.
+
+If you don't have a speech subscription, you can create one by navigating to the [Speech Studio](https://speech.microsoft.com/) and selecting **Create a Speech Resource**.
+
+  > [!div class="mx-imgBorder"]
+  > [ ![Create a project](media/custom-speech-commands/create-new-subscription.png) ](media/custom-speech-commands/create-new-subscription.png#lightbox)
 
   > [!NOTE]
-  > During preview, only the westus2 region is supported for subscription keys.
-
-- A [Language Understanding](https://www.luis.ai/home) (LUIS) authoring key:
-  1. Open a web browser and navigate to the [Azure portal](https://portal.azure.com)
-  1. Select Create a resource
-  1. Search for and select [Language Understanding](https://aka.ms/sc-luis-all)
-  1. Select Authoring in the create options
-  1. After the resource is deployed, go to the resource and copy the key from the Quickstart or Keys section
-
-      > [!div class="mx-imgBorder"]
-      > ![Create authoring resource](media/custom-speech-commands/resources-lu-authoring.png)
+  > During preview, only the westus2 region is supported.
 
 ## Go to the Speech Studio for Custom Commands
 
@@ -53,13 +48,37 @@ The default view is a list of the Custom Commands applications you created.
 1. Select **New project** to create a new project
 
    > [!div class="mx-imgBorder"]
-   > ![Create new project](media/custom-speech-commands/create-new-project.png)
+   > ![Create a project](media/custom-speech-commands/create-new-project.png)
 
-1. Enter the project name and language, then select **Next** to continue
-1. Enter your LUIS authoring key
-1. Once created, select your project
+1. Enter the project name and language.
+1. Select an authoring resource. If there are no valid authoring resources, create one by selecting  **Create new resource**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Create a resource](media/custom-speech-commands/create-new-resource.png)
+
+   1. Enter the resource name, group, location, and pricing tier.
+
+         > [!NOTE]
+         > You can create resource groups by entering the desired resource group name into the "Resource Group" field. The resource group will be created when **Create** is selected.
+
+1. Click **Create** to create your project.
+1. Once created, select your project.
 
 Your view should now be an overview of your Custom Commands application.
+
+## Update LUIS Resources (Optional)
+
+You can update the authoring resource set in the new project window, and set a prediction resource used to recognize inputs during runtime.
+
+> [!NOTE]
+> You will need to set a prediction resource before your application requests predictions beyond the 1,000 requests provided by the authoring resource.
+
+> [!div class="mx-imgBorder"]
+> ![Set LUIS Resources](media/custom-speech-commands/set-luis-resources.png)
+
+1. Navigate to the LUIS Resources pane by selecting **Settings** from the left pane, and then **LUIS Resources** from the middle pane.
+1. Select a prediction resource, or create one by selecting **Create new resource**
+1. Select **Save**
 
 ## Create a new Command
 
@@ -94,25 +113,40 @@ For now, we have no parameters so we can move on to Completion Rules.
 
 Now add a Completion Rule to respond to the user indicating that an action is being taken.
 
-> [!div class="mx-imgBorder"]
-> ![Create a Completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
+1. Create a new Completion Rule by selecting the `+` icon next to Completion Rules
+1. Enter the rule name
+1. Add an action
+   1. Create a new Speech Response Action by selecting the `+` icon next to Actions and select `SpeechResponse`
+   1. Enter the response
 
-| Setting    | Suggested value                        | Description                                        |
-| ---------- | -------------------------------------- | -------------------------------------------------- |
-| Rule Name  | "ConfirmationResponse"                 | A name describing the purpose of the rule          |
-| Conditions | None                                   | Conditions that determine when the rule can run    |
-| Actions    | SpeechResponse "Ok, turning on the TV" | The action to take when the rule condition is true |
+   > [!NOTE]
+   > Regular text must start with a dash. For more details, go [here](https://aka.ms/sc-lg-format)
+
+   > [!div class="mx-imgBorder"]
+   > ![Create a Speech response](media/custom-speech-commands/create-speech-response-action.png)
+
+1. Click **Save** to save the rule
+
+> [!div class="mx-imgBorder"]
+> ![Create a completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
+
+| Setting    | Suggested value                          | Description                                        |
+| ---------- | ---------------------------------------- | -------------------------------------------------- |
+| Rule Name  | "ConfirmationResponse"                   | A name describing the purpose of the rule          |
+| Conditions | None                                     | Conditions that determine when the rule can run    |
+| Actions    | SpeechResponse "- Ok, turning on the TV" | The action to take when the rule condition is true |
 
 ## Try it out
 
 Test the behavior using the Test chat panel.
 
 > [!div class="mx-imgBorder"]
-> ![Test with webchat](media/custom-speech-commands/create-basic-test-chat.png)
+> ![Test with web chat](media/custom-speech-commands/create-basic-test-chat.png)
 
 - You type: "turn on the tv"
 - Expected response: "Ok, turning on the tv"
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)

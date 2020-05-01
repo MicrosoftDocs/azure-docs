@@ -1,15 +1,15 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB get provisioned throughput (RU/s) for SQL (Core) API
-description: Azure PowerShell script - Azure Cosmos DB get provisioned throughput (RU/s) for SQL (Core) API
+title: PowerShell script to get throughput (RU/s) for Azure Cosmos DB SQL API database or container
+description: Azure PowerShell script to get throughput (RU/s) for Azure Cosmos DB SQL API database or container
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
 ---
 
-# Get the provisioned throughput (RU/s) for a database or container for Azure Cosmos DB - SQL (Core) API
+# Get throughput (RU/s) for Azure Cosmos DB SQL API database or container
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -17,7 +17,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-get.ps1 "Get throughput for a database or container for SQL (Core) API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-get.ps1 "Get throughput (RU/s) for Azure Cosmos DB SQL API database or container")]
 
 ## Clean up deployment
 
@@ -33,8 +33,9 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-|**Azure Resources**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Creates a resource. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBSqlDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabasethroughput) | Get the throughput provisioned on an Azure Cosmos DB SQL API Database. |
+| [Get-AzCosmosDBSqlContainerThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainerthroughput) | Get the throughput provisioned on an Azure Cosmos DB SQL API Container. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

@@ -1,6 +1,6 @@
 ---
-title: "Azure portal: geo-replication"
-description: Configure geo-replication for a single or pooled database in Azure SQL Database using the Azure portal and initiate failover
+title: "Tutorial: Geo-replication & failover in portal"
+description: Configure geo-replication for a single or pooled database in Azure SQL Database using the Azure portal and initiate failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -61,7 +61,7 @@ The secondary database can be switched to become the primary.
 
 1. In the [Azure portal](https://portal.azure.com), browse to the primary database in the geo-replication partnership.
 2. On the SQL Database blade, select **All settings** > **geo-replication**.
-3. In the **SECONDARIES** list, select the database you want to become the new primary and click **Failover**.
+3. In the **SECONDARIES** list, select the database you want to become the new primary and click **Forced Failover**.
 
     ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Click **Yes** to begin the failover.

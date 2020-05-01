@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a Cassandra API account by using a Java app - Azure Cosmos DB'
+title: 'Tutorial: Build Java app to create Azure Cosmos DB Cassandra API account'
 description: This tutorial shows how to create a Cassandra API account, add a database (also called a keyspace), and add a table to that account by using a Java application.
 author: kanshiG
 ms.author: govindk
@@ -29,7 +29,7 @@ This tutorial covers the following tasks:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin. 
 
-* Get the latest version of [Java Development Kit (JDK)](https://aka.ms/azure-jdks). 
+* Get the latest version of [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable). 
 
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) the [Maven](https://maven.apache.org/) binary archive. 
   - On Ubuntu, you can run `apt-get install maven` to install Maven. 

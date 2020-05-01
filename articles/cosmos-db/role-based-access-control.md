@@ -1,5 +1,5 @@
 ---
-title: Role-based access control in Azure Cosmos DB with Azure Active Directory integration
+title: Role-based access control in Azure Cosmos DB 
 description: Learn how Azure Cosmos DB provides database protection with Active directory integration (RBAC).
 author: markjbrown
 ms.service: cosmos-db
@@ -56,6 +56,12 @@ The Cosmos resource provider can be locked down to prevent any changes to resour
         }
     }
 }
+```
+If you export an existing Resource Manager template and update it with this property, it can completely replace the functionality of your template. So if all values are not included, they will be reset to default. Another way to disable the key-based metadata write access is by using Azure CLI as shown in the following command:
+
+```cli
+az cosmosdb update  --name CosmosDBAccountName --resource-group ResourceGroupName  --disable-key-based-metadata-write-access true
+
 ```
 
 ## Next steps

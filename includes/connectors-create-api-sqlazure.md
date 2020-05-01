@@ -1,12 +1,8 @@
 ---
-title: include file
-description: include file
-services: logic-apps
-author: ecfan
 ms.service: logic-apps
-ms.topic: include
+author: ecfan
 ms.author: estfan
-ms.custom: include file
+ms.topic: include
 ms.date: 11/08/2019
 ---
 

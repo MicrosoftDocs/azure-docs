@@ -1,18 +1,9 @@
 ---
-title: Use Azure Automation Runbook to manage StorSimple devices | Microsoft Docs
+title: Use Azure Automation Runbook to manage StorSimple devices
 description: Learn how to use Azure Automation Runbook to automate StorSimple jobs
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid:
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: alkohli
 ---

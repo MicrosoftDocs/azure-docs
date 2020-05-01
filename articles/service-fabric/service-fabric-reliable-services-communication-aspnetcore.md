@@ -1,18 +1,9 @@
 ---
-title: Service communication with the ASP.NET Core | Microsoft Docs
-description: Learn how to use ASP.NET Core in stateless and stateful Reliable Services.
-services: service-fabric
-documentationcenter: .net
+title: Service communication with the ASP.NET Core 
+description: Learn how to use ASP.NET Core in stateless and stateful Azure Service Fabric Reliable Services applications.
 author: vturecek
-manager: chackdan
-editor: ''
 
-ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
 ---

@@ -1,11 +1,11 @@
 ---
-title: Configure and access audit logs - Azure Database for MySQL
+title: Access audit logs - Azure portal - Azure Database for MySQL
 description: This article describes how to configure and access the audit logs in Azure Database for MySQL from the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 4/13/2020
 ---
 
 # Configure and access audit logs for Azure Database for MySQL in the Azure portal
@@ -65,4 +65,5 @@ Enable and configure audit logging.
 
 ## Next steps
 
-- Learn more about [audit logs](concepts-audit-logs.md) in Azure Database for MySQL.
+- Learn more about [audit logs](concepts-audit-logs.md) in Azure Database for MySQL
+- Learn how to configure audit logs in the [Azure CLI](howto-configure-audit-logs-cli.md)

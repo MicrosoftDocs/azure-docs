@@ -1,11 +1,11 @@
 ---
-title: Performance recommendations in Azure Database for MariaDB
+title: Performance recommendations - Azure Database for MariaDB
 description: This article describes the Performance Recommendation feature in Azure Database for MariaDB
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 3/18/2020
 ---
 # Performance Recommendations in Azure Database for MariaDB
 

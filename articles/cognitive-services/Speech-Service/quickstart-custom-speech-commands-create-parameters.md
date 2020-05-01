@@ -1,14 +1,14 @@
 ---
-title: 'Quickstart: Create a Custom Command with Parameters (Preview) - Speech Service'
+title: 'Quickstart: Create a Custom Command with Parameters (Preview) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you'll add parameters to a Custom Commands application.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: donkim
 ---
 
@@ -29,28 +29,28 @@ In this article, we will extend this application with parameters so that it can 
    > [!div class="mx-imgBorder"]
    > ![Create parameter](media/custom-speech-commands/create-on-off-parameter.png)
 
-   | Setting            | Suggested value | Description                                                                                               |
-   | ------------------ | --------------- | --------------------------------------------------------------------------------------------------------- |
-   | Name               | OnOff           | A descriptive name for your parameter                                                                     |
-   | Is Global          | unchecked       | Checkbox indicating whether a value for this parameter is globally applied to all Commands in the project |
-   | Required           | checked         | Checkbox indicating whether a value for this parameter is required before completing the Command          |
-   | Response template  | On or off?      | A prompt to ask for the value of this parameter when it isn't known                                       |
-   | Type               | String          | The type of parameter, such as Number, String, or Date Time                                               |
-   | Configuration      | String List     | For Strings, a String List limits inputs to a set of possible values                                      |
-   | String list values | on, off         | For a String List parameter, the set of possible values and their synonyms                                |
+   | Setting            | Suggested value     | Description                                                                                               |
+   | ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------- |
+   | Name               | OnOff               | A descriptive name for your parameter                                                                     |
+   | Is Global          | unchecked           | Checkbox indicating whether a value for this parameter is globally applied to all Commands in the project |
+   | Required           | checked             | Checkbox indicating whether a value for this parameter is required before completing the Command          |
+   | Response template  | "- On or off?"      | A prompt to ask for the value of this parameter when it isn't known                                       |
+   | Type               | String              | The type of parameter, such as Number, String, or Date Time                                               |
+   | Configuration      | String List         | For Strings, a String List limits inputs to a set of possible values                                      |
+   | String list values | on, off             | For a String List parameter, the set of possible values and their synonyms                                |
 
    - Next, select the `+` icon again to add a second parameter to represent the name of the devices. For this example, a tv and a fan
 
-   | Setting            | Suggested value   | Description                                                                                               |
-   | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------- |
-   | Name               | SubjectDevice     | A descriptive name for your parameter                                                                     |
-   | Is Global          | unchecked         | Checkbox indicating whether a value for this parameter is globally applied to all Commands in the project |
-   | Required           | checked           | Checkbox indicating whether a value for this parameter is required before completing the Command          |
-   | Response template  | Which device?     | A prompt to ask for the value of this parameter when it isn't known                                       |
-   | Type               | String            | The type of parameter, such as Number, String, or Date Time                                               |
-   | Configuration      | String List       | For Strings, a String List limits inputs to a set of possible values                                      |
-   | String list values | tv, fan           | For a String List parameter, the set of possible values and their synonyms                                |
-   | Synonyms (tv)      | television, telly | Optional synonyms for each possible value of a String List Parameter                                      |
+   | Setting            | Suggested value       | Description                                                                                               |
+   | ------------------ | --------------------- | --------------------------------------------------------------------------------------------------------- |
+   | Name               | SubjectDevice         | A descriptive name for your parameter                                                                     |
+   | Is Global          | unchecked             | Checkbox indicating whether a value for this parameter is globally applied to all Commands in the project |
+   | Required           | checked               | Checkbox indicating whether a value for this parameter is required before completing the Command          |
+   | Response template  | "- Which device?"     | A prompt to ask for the value of this parameter when it isn't known                                       |
+   | Type               | String                | The type of parameter, such as Number, String, or Date Time                                               |
+   | Configuration      | String List           | For Strings, a String List limits inputs to a set of possible values                                      |
+   | String list values | tv, fan               | For a String List parameter, the set of possible values and their synonyms                                |
+   | Synonyms (tv)      | television, telly     | Optional synonyms for each possible value of a String List Parameter                                      |
 
 ## Add Sample Sentences
 
@@ -87,7 +87,7 @@ Modify the Completion rule that you created in [the previous quickstart](./quick
 1. Edit the Speech Response action to use `OnOff` and `SubjectDevice`:
 
    ```
-   Ok, turning {OnOff} the {SubjectDevice}
+   - Ok, turning {OnOff} the {SubjectDevice}
    ```
 
 ## Try it out
@@ -107,5 +107,4 @@ Open the Test chat panel and try a few interactions.
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
-
+> [Quickstart: Use Custom Commands with Custom Voice (Preview)](./quickstart-custom-speech-commands-select-custom-voice.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Build a Java app with the Async Java SDK to manage a SQL API account in Azure Cosmos DB'
+title: 'Tutorial: Build a Java app with Azure Cosmos DB Async Java SDK to manage data in SQL API account'
 description: This tutorial shows you how to store and access data within a SQL API account in Azure Cosmos DB by using an Async Java application. 
 author: SnehaGunda
 ms.service: cosmos-db
@@ -39,7 +39,7 @@ Make sure you have the following resources:
 
 * [Git](https://git-scm.com/downloads).
 
-* [Java Development Kit (JDK) 8+](https://aka.ms/azure-jdks).
+* [Java Development Kit (JDK) 8+](/java/azure/jdk/?view=azure-java-stable).
 
 * [Maven](https://maven.apache.org/download.cgi).
 

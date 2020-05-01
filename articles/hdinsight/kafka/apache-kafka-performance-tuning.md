@@ -6,8 +6,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 12/19/2019
 ---
+
 # Performance optimization for Apache Kafka HDInsight clusters
 
 This article gives some suggestions for optimizing the performance of your Apache Kafka workloads in HDInsight. The focus is on adjusting producer and broker configuration. There are different ways of measuring performance, and the optimizations that you apply will depend on your business needs.
@@ -36,9 +37,9 @@ The following sections will highlight some of the most important configuration p
 
 Apache Kafka producers assemble groups of messages (called batches) which are sent as a unit to be stored in a single storage partition. Batch size means the number of bytes that must be present before that group is transmitted. Increasing the `batch.size` parameter can increase throughput, because it reduces the processing overhead from network and IO requests. Under light load, increased batch size may increase Kafka send latency as the producer waits for a batch to be ready. Under heavy load, it's recommended to increase the batch size to improve throughput and latency.
 
-### Producer required acknowledgements
+### Producer required acknowledgments
 
-The producer required `acks` configuration determines the number of acknowledgments required by the partition leader before a write request is considered completed. This setting affects data reliability and it takes values of `0`, `1`, or `-1`. The value of `-1` means that an acknowledgement must be received from all replicas before the write is completed. Setting `acks = -1` provides stronger guarantees against data loss, but it also results in higher latency and lower throughput. If your application requirements demand higher throughput, try setting `acks = 0` or `acks = 1`. Keep in mind, that not acknowledging all replicas can reduce data reliability.
+The producer required `acks` configuration determines the number of acknowledgments required by the partition leader before a write request is considered completed. This setting affects data reliability and it takes values of `0`, `1`, or `-1`. The value of `-1` means that an acknowledgment must be received from all replicas before the write is completed. Setting `acks = -1` provides stronger guarantees against data loss, but it also results in higher latency and lower throughput. If your application requirements demand higher throughput, try setting `acks = 0` or `acks = 1`. Keep in mind, that not acknowledging all replicas can reduce data reliability.
 
 ### Compression
 
@@ -46,16 +47,15 @@ A Kafka producer can be configured to compress messages before sending them to b
 
 Among the two commonly used compression codecs, `gzip` and `snappy`, `gzip` has a higher compression ratio, which results in lower disk usage at the cost of higher CPU load. The `snappy` codec provides less compression with less CPU overhead. You can decide which codec to use based on broker disk or producer CPU limitations. `gzip` can compress data at a rate five times higher than `snappy`.
 
-Using data compression will increase the number of records that can be stored on a disk. It may also increase CPU overhead in cases where there is a mismatch between the compression formats being used by the producer and the broker. as the data must be compressed before sending and then decompressed before processing.
+Using data compression will increase the number of records that can be stored on a disk. It may also increase CPU overhead in cases where there's a mismatch between the compression formats being used by the producer and the broker. as the data must be compressed before sending and then decompressed before processing.
 
 ## Broker settings
 
 The following sections will highlight some of the most important settings to optimize performance of your Kafka brokers. For a detailed explanation of all broker settings, see [Apache Kafka documentation on producer configurations](https://kafka.apache.org/documentation/#producerconfigs).
 
-
 ### Number of disks
 
-Storage disks have limited IOPS (Input/Output Operations Per Second) and read/write bytes per second. When creating new partitions, Kafka stores each new partition on the disk with fewest existing partitions to balance them across the available disks. Despite storage strategy, when processing hundreds of partition replicas on each disk, Kafka can easily saturate the available disk throughput. The tradeoff here is between throughput and cost. If your application requires greater throughput, create a cluster with more managed disks per broker. HDInsight does not currently support adding managed disks to a running cluster. For more information on how to configure the number of managed disks, see [Configure storage and scalability for Apache Kafka on HDInsight](apache-kafka-scalability.md). Understand the cost implications of increasing storage space for the nodes in your cluster.
+Storage disks have limited IOPS (Input/Output Operations Per Second) and read/write bytes per second. When creating new partitions, Kafka stores each new partition on the disk with fewest existing partitions to balance them across the available disks. Despite storage strategy, when processing hundreds of partition replicas on each disk, Kafka can easily saturate the available disk throughput. The tradeoff here is between throughput and cost. If your application requires greater throughput, create a cluster with more managed disks per broker. HDInsight doesn't currently support adding managed disks to a running cluster. For more information on how to configure the number of managed disks, see [Configure storage and scalability for Apache Kafka on HDInsight](apache-kafka-scalability.md). Understand the cost implications of increasing storage space for the nodes in your cluster.
 
 ### Number of topics and partitions
 
