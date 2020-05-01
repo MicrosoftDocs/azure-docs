@@ -28,8 +28,8 @@
       href: quickstart-create-sql-pool.md
   - name: Use SQL on-demand
     href: quickstart-sql-on-demand.md
-  - name: Connect to Cosmos DB
-    href: quickstart-connect-cosmos-db.md
+  - name: Connect to Synapse Link for Cosmos DB
+    href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Tutorials
   items:
   - name: Run Apache Spark applications for Spark pools
@@ -321,7 +321,7 @@
   - name: Synapse Link
     items:
     - name: Synapse Link supported features
-      href: ./cosmos-db-integration/concept-cosmos-db-support.md
+      href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
   - name: Tools integration (AI, ETL, BI)
     items:
     - name: Troubleshoot Synapse Analytics Studio
