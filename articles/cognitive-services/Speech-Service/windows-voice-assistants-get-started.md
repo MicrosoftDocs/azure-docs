@@ -12,6 +12,9 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ---
+## Overview
+
+This guide, along with the documentation provided with the [UWP Voice Assistant Sample](windows-voice-assistants-sample-info), will take you through the steps to begin developing a voice assistant on Windows.
 
 ## Set up your development environment
 To start developing a voice assistant for Windows, you will need to make sure you have the proper development environment.
@@ -22,7 +25,7 @@ To start developing a voice assistant for Windows, you will need to mak
 
 ## Obtain resources from Microsoft
 
-Some resources necessary for a completely customized voice agent on Windows will require resources from Microsoft. The [UWP Voice Assistant Sample](windows-voice-assistants-sample-info) provides sample versions of these resources for initial development and testing.
+Some resources necessary for a completely customized voice agent on Windows will require resources from Microsoft. The [UWP Voice Assistant Sample](windows-voice-assistants-sample-info) provides sample versions of these resources for initial development and testing, so this section is unnecessary for initial development.
 
 - **Keyword model:** Voice activation requires a keyword model from Microsoft in the form of a .bin file. Note that the .bin file provided in the UWP Voice Assistant Sample is trained on the keyword "Contoso".
 - **Limited Access Feature Token:** Since the ConversationalAgent APIs provide access to microphone audio, they are protected under Limited Access Feature restrictions. To use a Limited Access Feature, you will need to obtain a Limited Access Feature token connected to the package identity of your application from Microsoft.
@@ -45,10 +48,10 @@ The following provides the requirements to create a simple dialog service using 
 
 With the subscription key from your Speech Services subscription and bot id from your echo bot, you are ready to try out the [UWP Voice Assistant sample](windows-voice-assistants-sample-info). Follow the instructions in the readme to run the app and enter your credentials.
 
-## Create your own voice assistant
+## Create your own voice assistant for Windows
 
-Now that you have received your Limited Access Feature token and bin file from Microsoft, you can begin on your own voice assistant on Windows.
+Once you have received your Limited Access Feature token and bin file from Microsoft, you can begin on your own voice assistant on Windows.
 
-The UWP Voice Assistant sample was built to demonstrate what a UWP application needs to do to access the full set of voice assistant features. The "docs" folder in the project contains a walk-through of the code and covers each step of setup and state management for voice activation, above lock activation, privacy settings, and more.
+The UWP Voice Assistant sample was built to demonstrate what steps a UWP application needs to take to access the full set of voice assistant features. The "docs" folder in the project contains a walk-through of the code and covers each step of setup and state management for voice activation, above lock activation, privacy settings, and more.
 
 The UWP Voice Assistant sample was also designed to be reusable and extendable. You are welcome to borrow components or use it as a starting point for your own application.

@@ -28,5 +28,6 @@ On Windows 10 version 2004 and up, voice assistant applications can take advanta
 
 ## Getting Started
 
-- **Visit the Getting Started Guide:** We've created a guide for developing voice assistants on Windows [here](windows-voice-assistants-get-started).
-- **Try it out**: To experience these capabilities firsthand, visit the [UWP Voice Assistant Sample](windows-voice-assistants-sample-info) page and follow the steps to get the sample client running.
+- **Review the design guidelines:** Our [design guidelines](windows-voice-assistants-best-practices) lay out the key work required to provide the best possible experiences for voice activation on Windows 10.
+- **Visit the Getting Started Guide:** Start [here](windows-voice-assistants-get-started) for the steps to begin implementing voice assistants on Windows, from setting your development environment through an introduction to the UWP Voice Assistant Sample.
+- **Try out the sample app**: To experience these capabilities firsthand, visit the [UWP Voice Assistant Sample](windows-voice-assistants-sample-info) page and follow the steps to get the sample client running.
