@@ -73,8 +73,9 @@ For more information, see [Create a Shared Image Gallery with Azure PowerShell](
 
 To specify a disk encryption set to for an image version, use  [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) with the `--target-region-encryption` parameter. The format for `--target-region-encryption` is a space-separated list of keys for encrypting the OS and data disks. It should look like this: `<encyption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>`. 
 
+If the source for the OS disk is a managed disk or a VM, use `--managed-image` to specify the source for the image version. In this example, the source is a managed image that has an OS disk as well as a data disk at LUN 0. The OS disk will be encrypted with DiskEncryptionSet1 and the data disk will be encrypted with DiskEncryptionSet2.
+
 ```azurecli-interactive
-sourceId=<ID of the image version source>
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
@@ -82,8 +83,27 @@ az sig image-version create \
    --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
    --gallery-name MyGallery \
    --gallery-image-definition MyImage \
-   --managed-image $sourceId
+   --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```
+
+If the source for the OS disk is a snapshot, use `--os-snapshot` to specify the OS disk. If there are data disk snapshots that should also be part of the image version, add those using `--data-snapshot-luns` to specify the LUN, and `--data-snapshots` to specify the snapshots.
+
+In this example, the sources are disk snapshots. There is an OS disk, and also a data disk at LUN 0. The OS disk will be encrypted with DiskEncryptionSet1 and the data disk will be encrypted with DiskEncryptionSet2.
+
+```azurecli-interactive
+az sig image-version create \
+   -g MyResourceGroup \
+   --gallery-image-version 1.0.0 \
+   --target-regions westus=2=standard_lrs \
+   --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
+   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot"
+   --data-snapshot-luns 0
+   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot"
+   --gallery-name MyGallery \
+   --gallery-image-definition MyImage 
+   
+```
+
 
 For more information, see [Create a Shared Image Gallery with the Azure CLI](shared-images-cli.md).
 
