@@ -4,6 +4,8 @@
   items:
   - name: What is Windows Virtual Desktop?
     href: overview.md
+  - name: Fall 2019 Release documentation
+    href: /virtual-desktop/virtual-desktop-2019/overview
 - name: Tutorials
   items:
   - name: 1. Create a host pool with the Azure portal
@@ -120,8 +122,6 @@
     href: remotefx-graphics-performance-counters.md
 - name: Reference
   items:
-  - name: Fall 2019 Release documentation
-    href: /virtual-desktop-2019/tenant-setup-azure-active-directory.md
   - name: Linux support
     href: linux-overview.md
   - name: Supported RDP file settings
