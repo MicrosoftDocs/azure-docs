@@ -17,11 +17,7 @@ ms.author: allensu
 
 Azure Load Balancer contains several key components for its operation.  
 
-These components can be configured in your subscription via: 
-* **Azure portal** 
-* **Azure CLI**
-* **Azure PowerShell**
-* **Templates** 
+These components can be configured in your subscription via Azure portal, Azure CLI, Azure PowerShell or Templates.
 
 ## Frontend IP configurations
 
