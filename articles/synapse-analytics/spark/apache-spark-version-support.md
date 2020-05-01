@@ -37,7 +37,11 @@ Apache Spark in Azure Synapse includes .NET Core 3.0
 
 ## .NET Support for Apache Spark
 
-Azure Synapse includes .NET Support for Apache Spark 0.5.0
+Azure Synapse includes:
+
+- .NET Framework 3.1
+- .NET Support for Apache Spark 0.10.0 
+- .NET Interactive 
 
 ## Delta Lake
 
