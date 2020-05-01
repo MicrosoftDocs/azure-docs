@@ -54,13 +54,13 @@ For this example, add the Common Data Service trigger that fires when a new reco
 
 1. In the search box, enter `common data service`. For this example, under the triggers list, select this trigger: **When a record is created**
 
-   ![Select "When a record is created" trigger](./media/connectors-create-api-crmonline/select-when-record-created-trigger.png)
+   ![Select "When a record is created" trigger](./media/connect-common-data-service/select-when-record-created-trigger.png)
 
 1. If prompted, sign in to the Common Data Service.
 
 1. In the trigger, provide information about the environment where you want to monitor for new "Leads" records, for example:
 
-   ![Trigger information for environment to monitor](./media/connectors-create-api-crmonline/when-record-created-trigger-details.png)
+   ![Trigger information for environment to monitor](./media/connect-common-data-service/when-record-created-trigger-details.png)
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -77,11 +77,11 @@ Now add a Common Data Service action that creates a task record for a new "Leads
 
 1. In the search box, enter `common data service`. From the actions list, select this action: **Create a new record**
 
-   ![Select "Create a new record" action](./media/connectors-create-api-crmonline/select-create-new-record-action.png)
+   ![Select "Create a new record" action](./media/connect-common-data-service/select-create-new-record-action.png)
 
 1. In the action, provide the information about the environment where you want to create the new task record. If available, other properties also appear based on the entity that you selected for this action, for example:
 
-   ![Action information for the environment where to create the record](./media/connectors-create-api-crmonline/create-new-record-action-details.png)
+   ![Action information for the environment where to create the record](./media/connect-common-data-service/create-new-record-action-details.png)
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -98,7 +98,7 @@ Now add a Common Data Service action that creates a task record for a new "Leads
    
    1. In the list, from the **When a record is created** section, select the trigger outputs that you want to include in the task record, for example:
 
-      ![Select trigger outputs to use in task record](./media/connectors-create-api-crmonline/create-new-record-action-select-trigger-outputs.png)
+      ![Select trigger outputs to use in task record](./media/connect-common-data-service/create-new-record-action-select-trigger-outputs.png)
 
       | Trigger output | Description |
       |----------------|-------------|
@@ -109,19 +109,27 @@ Now add a Common Data Service action that creates a task record for a new "Leads
 
    When you're done, the action might look like this example:
 
-   ![Finished "Create a new record" action](./media/connectors-create-api-crmonline/finished-create-record-action-details.png)
+   ![Finished "Create a new record" action](./media/connect-common-data-service/finished-create-record-action-details.png)
 
 1. Save your logic app. On the designer toolbar, select **Save**.
 
 1. To manually start the logic app, on the designer toolbar, select **Run**. To test your logic app, create a new "Leads" record.
 
-## Add filter or query
+## Trigger only on updated attributes
 
-To specify how to filter data in a Dynamics 365 action, choose **Show advanced options** in that action. 
-You can then add a filter or order by query.
-For example, you can use a filter query to get only the 
-active accounts and order those records by account name. 
-For this task, follow these steps:
+For triggers that run when a record is updated, you can use filter attributes so that your logic app runs only when the specified attributes are updated. This capability helps you prevent unnecessary logic app runs.
+
+1. In the trigger, from the **Add new parameter** list, select **Attribute Filters**.
+
+   ![Add "Attribute Filters" property](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
+
+1. For each **Attribute Filters Item**, select the attribute that you want to monitor for updates, for example:
+
+   ![Add "Attribute Filters" property](./media/connect-common-data-service/when-record-updated-trigger-select-attribute-filter.png)
+
+## Add record filtering or ordering
+
+For actions that list records, you can add a query that returns records based on a filter or in a specific order. For example, you can use a filter query to get only the active accounts and order those records by account name. For this task, follow these steps:
 
 1. Under **Filter query**, enter this OData filter query: `statuscode eq 1`
 
