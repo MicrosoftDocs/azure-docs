@@ -149,7 +149,12 @@ This section provides additional considerations when using Geo-disaster recovery
 ### New pairings
 If primary namespace with a private endpoint is paired with secondary namespace without a private endpoint, pairing them will fail. The pairing will succeed only if both primary and secondary namespaces have private endpoints. 
 
-When you try to pair primary namespace with a private endpoint to the secondary namespace, the validation process only checks that the private endpoint exists (boolean check) on the secondary namespace. It doesn't check whether the endpoint works or will work after failover. It's your responsibility to ensure that the secondary namespace with private endpoint will work as expected after failover.
+> [!NOTE]
+> When you try to pair primary namespace with a private endpoint to the secondary namespace, the validation process only checks whether the private endpoint exists on the secondary namespace. It doesn't check whether the endpoint works or will work after failover. 
+> 
+> It's your responsibility to ensure that the secondary namespace with private endpoint will work as expected after failover.
+>
+> To test that the private endpoint configurations are same, send a [Get queues](/rest/api/servicebus/queues/get) request to the secondary namespace from outside the virtual network, and verify that you receive an error message from the service (not just from the private link network resource provider).
 
 We recommend that you use same configurations on the primary and secondary namespaces and on virtual networks used by them for creating private endpoints. 
 
