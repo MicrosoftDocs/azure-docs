@@ -52,27 +52,27 @@ Are there any other reasons we want to cover for dropped messages?
 <!-- I put in some anchors so you can link directly to this spot that shows each table -->
 <!-- I don't ordinarily use anchors, but seems like a good solution here.-->
 
-## List of last known errors for IoT Hub Routing
+## Last known errors for IoT Hub Routing
 
 <a id="last-known-errors"></a>
 [!INCLUDE [iot-hub-include-last-known-errors](../../includes/iot-hub-include-last-known-errors.md)]
 
-## Endpoint health
 <a id="endpoint-health"></a>
+## Endpoint health
 [!INCLUDE [iot-hub-include-endpoint-health](../../includes/iot-hub-include-endpoint-health.md)]
 
 ## Diagnostic logs
 
 The following are the error codes and operation names used in the diagnostics logs.
 
+<a id="diagnostics-error-codes"></a>
 ### Common error codes output
 
-<a id="diagnostics-error-codes"></a>
 [!INCLUDE [iot-hub-diagnostics-error-codes](../../includes/iot-hub-diagnostics-error-codes.md)]
 
+<a id="diagnostics-operation-names"></a>
 ### Operation Names
 
-<a id="diagnostics-operation-names"></a>
 [!INCLUDE [iot-hub-diagnostics-operation-names](../../includes/iot-hub-diagnostics-operation-names.md)]
 
 ## Next steps
