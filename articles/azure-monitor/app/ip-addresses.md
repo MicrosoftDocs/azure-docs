@@ -4,7 +4,7 @@ description: Server firewall exceptions required by Application Insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 04/30/2020
+ms.date: 05/01/2020
 
 ---
 
@@ -216,11 +216,11 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 | Application Insights JS SDK CDN | az416426.vo.msecnd.net | dynamic | 80,443 |
 | Application Insights Java SDK | aijavasdk.blob.core.windows.net | dynamic | 80,443 |
 
-## Alert webhooks
+## Action Group webhooks
 
 | Purpose | IP | Ports
 | --- | --- | --- |
-| Alerting | 23.96.11.4 | 443 |
+| Alerting | 13.72.19.232 <br/>13.106.57.181<br/>13.106.54.3<br/>13.106.54.19<br/>13.106.38.142<br/>13.106.38.148<br/>13.106.57.196<br/>13.106.57.197<br/>52.244.68.117<br/>52.244.65.137<br/>52.183.31.0<br/>52.184.145.166<br/>51.4.138.199<br/>51.5.148.86<br/>51.5.149.19 | 443 |
 
 ## Profiler
 
