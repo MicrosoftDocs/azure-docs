@@ -117,7 +117,7 @@ Now add a Common Data Service action that creates a task record for a new "Leads
 
 ## Trigger only on updated attributes
 
-For triggers that run when a record is updated, you can use filter attributes so that your logic app runs only when the specified attributes are updated. This capability helps you prevent unnecessary logic app runs.
+For triggers that run when records are updated, such as the **When a record is updated** action, you can use filter attributes so that your logic app runs only when the specified attributes are updated. This capability helps you prevent unnecessary logic app runs.
 
 1. In the trigger, from the **Add new parameter** list, select **Attribute Filters**.
 
@@ -127,22 +127,33 @@ For triggers that run when a record is updated, you can use filter attributes so
 
    ![Add "Attribute Filters" property](./media/connect-common-data-service/when-record-updated-trigger-select-attribute-filter.png)
 
-## Add record filtering or ordering
+## List records based on a filter
 
-For actions that list records, you can add a query that returns records based on a filter or in a specific order. For example, you can use a filter query to get only the active accounts and order those records by account name. For this task, follow these steps:
+For actions that return records, such as the **List records** action, you can use an ODATA query that returns records based on the specified filter. For example, you have the action list only the records for active accounts.
 
-1. Under **Filter query**, enter this OData filter query: `statuscode eq 1`
+1. In the action, open the **Add new parameter** list, and select the **Filter Query** property.
 
-2. Under **Order By**, when the dynamic content list appears, 
-select **Account Name**. 
+   ![Add "Filter Query" property](./media/connect-common-data-service/list-records-action-filter-query.png)
 
-   ![Specify filter and order](./media/connectors-create-api-crmonline/advanced-options.png)
+1. In the **Filter Query** property that now appears in the action, enter this ODATA filter query: `statuscode eq 1`
 
-For more information, see these Dynamics 365 
-Customer Engagement Web API system query options:
+   ![Enter ODATA filter query for filtering records](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
-* [$filter](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#filter-results)
-* [$orderby](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#order-results)
+For more information about `$filter` system query options, see [Common Data Service - Filter results](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
+
+## List records based on an order
+
+For actions that return records, such as the **List records** action, you can use an ODATA query that returns records in a specified order, which varies based on the records that the action returns. For example, you can have the action list the records based on the account name.
+
+1. In the action, open the **Add new parameter** list, and select the **Order By** property.
+
+   ![Add "Order by" property](./media/connect-common-data-service/list-records-action-order-by.png)
+
+1. In the **Order By** property that now appears in the action, enter this ODATA filter query: `name`
+
+   ![Enter ODATA filter query for ordering records](./media/connect-common-data-service/list-records-action-order-by-value.png)
+
+For more information about `$orderby` system query options, see [Common Data Service - Order results](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
 
 ### Best practices for advanced options
 
@@ -207,10 +218,10 @@ To find a record ID, follow these steps:
 
 ## Connector reference
 
-For technical details, see the the [connector's reference page](/connectors/dynamicscrmonline/).
+For technical information based on the connector's Swagger description, such as triggers, actions, limits, and other details, see the the [connector's reference page](https://docs.microsoft.com/connectors/commondataservice/).
 
 ## Next steps
 
-[Diagnose logic app failures](../logic-apps/logic-apps-diagnosing-failures.md)
+* Learn about other [connectors for Azure Logic Apps](../connectors/apis-list.md)
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
