@@ -139,18 +139,15 @@ This category does not include specific errors about the messages themselves (li
 }
 ```
 
-#### Error list for last known error
+Here are links to some helpful reference tables:
 
-[!INCLUDE [iot-hub-include-last-known-errors](../../includes/iot-hub-include-last-known-errors.md)]
+[Endpoint Health](troubleshooting-message-routing.md#endpoint-health)
 
-#### Error codes output by the diagnostic logs
+[Last Known Errors](troubleshooting-message-routing.md#last-known-errors)
 
-<!-- Error codes output by the diagnostic logs (2.2.1.1.5)-->
-[!INCLUDE [iot-hub-diagnostics-error-codes](../../includes/iot-hub-diagnostics-error-codes.md)]
+[Diagnostics error codes](troubleshooting-message-routing.md#diagnostics-error-codes)
 
-#### IoT Hub diagnostics operation names
-
-[!INCLUDE [iot-hub-diagnostics-operation-names](../../includes/iot-hub-diagnostics-operation-names.md)]
+[Operation names used in the diagnostics logs](troubleshooting-message-routing.md#diagnostics-operation-names)
 
 #### Device telemetry
 
