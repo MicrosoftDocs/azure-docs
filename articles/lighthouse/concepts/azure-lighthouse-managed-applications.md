@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse and Azure managed applications
 description: Azure Lighthouse and Azure managed applications ... 
-ms.date: 04/30/2020
+ms.date: 05/01/2020
 ms.topic: conceptual
 ---
 
@@ -15,7 +15,7 @@ Both Azure managed applications and Azure Lighthouse work by enabling a service 
 
 With [Azure Lighthouse](../overview.md), a service provider to perform a wide range of management tasks directly on a customer's subscription (or resource group). This access is achieved through a logical projection, allowing service providers to sign in to their own tenant and access resources that belong to the customer's tenant. The customer can determine which subscriptions or resource groups to delegate to the service provider, and the customer maintains full access to those resources. They can also remove the service provider's access at any time.
 
-To use Azure Lighthouse, customers are onboarded for [Azure delegated resource management](azure-delegated-resource-management.md) either by [deploying ARM templates](../how-to/onboard-customer.md) or through a [Managed Service offer in  Azure Marketplace](managed-services-offers.md).
+To use Azure Lighthouse, customers are onboarded for [Azure delegated resource management](azure-delegated-resource-management.md) either by [deploying ARM templates](../how-to/onboard-customer.md) or through a [Managed Service offer in  Azure Marketplace](managed-services-offers.md). You can track your impact on customer engagements by [linking your partner ID](../../cost-management-billing/manage/link-partner-id.md).
 
 Azure Lighthouse is typically used when a service provider will perform management tasks for a customer on an ongoing basis.
 
@@ -25,7 +25,9 @@ Azure Lighthouse is typically used when a service provider will perform manageme
 
 In a managed application, the resources used by the application are bundled together and deployed to a resource group that's managed by the publisher. This resource group is present in the customer's subscription, but an identity in the publisher's tenant has access to it. The ISV continues to manage and maintain the managed application, while the customer does not have direct access to work in its resource group, or any access to its resources.
 
-Managed applications can be [published to Azure Marketplace](../../azure-resource-manager/managed-applications/publish-marketplace-app.md), either as a private offer for a specific customer's use, or as public offers that multiple customers can purchase. They can also be delivered to users within your organization by [publishing managed applications to your service catalog](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md).
+Managed applications offer ways for publishers to deliver customized and integrated experiences, such as [customized Azure portal experiences](../../azure-resource-manager/managed-applications/concepts-view-definition.md) and [integration with Custom Providers](../../azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider.md). These options can be used to make it easier for the customer to perform some management tasks themselves.
+
+Managed applications can be [published to Azure Marketplace](../../azure-resource-manager/managed-applications/publish-marketplace-app.md), either as a private offer for a specific customer's use, or as public offers that multiple customers can purchase. They can also be delivered to users within your organization by [publishing managed applications to your service catalog](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). You can deploy both service catalog and Marketplace instances using ARM templates, which can include a Commercial Marketplace partner's unique identifier to track [customer usage attribution](../../marketplace/azure-partner-customer-usage-attribution.md).
 
 Azure managed applications are typically used for a specific customer need that can be achieved through a turnkey solution that is fully managed by the service provider.
 
