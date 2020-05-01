@@ -72,7 +72,7 @@ The following are the error codes and operation names used in the diagnostics lo
 
 ### Operation Names
 
-<a id="diganotics-operation-names"></a>
+<a id="diganostics-operation-names"></a>
 [!INCLUDE [iot-hub-diagnostics-operation-names](../../includes/iot-hub-diagnostics-operation-names.md)]
 
 ## Next steps
