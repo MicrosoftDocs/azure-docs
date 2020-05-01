@@ -30,7 +30,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Create a scale set using [az vmss create](/cli/azure/vmss#az-vmss-create). 
+Create a scale set using [az vmss create](/cli/azure/vmss#az-vmss-create) using the --specialized parameter to indicate the the image is a specialized image.
 
 Use the image definition ID for `--image` to create the scale set instances from the latest version of the image that is available. You can also create the scale set instances from a specific version by supplying the image version ID for `--image`. 
 
@@ -42,8 +42,7 @@ az vmss create \
    --resource-group myResourceGroup \
    --name myScaleSet \
    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
-   --admin-username azureuser \
-   --generate-ssh-keys
+   --Specialized
 ```
 
 
