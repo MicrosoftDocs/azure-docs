@@ -30,8 +30,6 @@ landingContent:
             url: concepts.md
           - text: Load balancer components
             url: components.md
-          - text: Load Balancer types
-            url: types.md
       
   # Card (optional)
   - title: Get started
