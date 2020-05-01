@@ -21,16 +21,16 @@ ms.author: Zhchia
 # Tutorial: Configure Samanage for automatic user provisioning
 This tutorial describes the steps you need to perform in both Samanage and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Samanage](https://www.samanage.com/pricing/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## Migrating to the new Samange application
+## Migrate to the new Samange application
 
-If you have an existing integration with Samanage, please see the below section about up coming changes. If you are setting up Samanage for the first time you can skip this section and move to **Capabilities supported**.
+If you have an existing integration with Samanage, please see the section below about up coming changes. If you're setting up Samanage for the first time, you can skip this section and move to **Capabilities supported**.
 
 #### What's changing?
 * Changes on the Azure AD side: The authorization method to provision users in Samange has historically been **Basic auth**. Soon you will see the authorization method changed to **Long lived secret token**.
 
 
 #### What do I need to do to migrate my existing custom integration to the new application?
-If you have an existing Samanage integration with valid admin credentials, **no action is required**. We are automatically migrating customers to the new application. This is done completely behind the scenes. if the exisiting credentials expire or if you need to authorize access to the application again you will need to generate a long lived secret token. To generate a new token refer Step 2 of this article.
+If you have an existing Samanage integration with valid admin credentials, **no action is required**. We automatically migrate customers to the new application. This process is done completely behind the scenes. If the existing credentials expire, or if you need to authorize access to the application again, you need to generate a long-lived secret token. To generate a new token, refer to Step 2 of this article.
 
 
 #### How can I tell if my application has been migrated? 
