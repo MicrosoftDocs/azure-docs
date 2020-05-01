@@ -28,7 +28,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https:/portal.azure.com/)
+Sign in to the [Azure portal](https:/portal.azure.com/).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -108,7 +108,7 @@ Structured Query Language (SQL) is the most common and widely used language for 
 
     ![Query output in Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query.png "Query output in Azure Synapse Spark")
 
-3. In the **View** switcher, select **Chart**
+3. In the **View** switcher, select **Chart**.
 4. Select the **View options** icon from the far right-hand side.
 5. In the **Chart type** field, select "bar chart".
 6. In the X-axis column field, select "state".
