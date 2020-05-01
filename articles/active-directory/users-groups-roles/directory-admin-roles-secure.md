@@ -1,6 +1,6 @@
 ---
 
-title: Best practices for secure admin access - Azure AD | Microsoft Docs
+title: Secure access practices for administrators in Azure AD | Microsoft Docs
 description: Ensure that your organization’s administrative access and admin accounts are secure. For system architects and IT pros who configure Azure AD, Azure, and Microsoft Online Services. 
 services: active-directory 
 keywords: 
@@ -24,18 +24,16 @@ The security of most or all business assets in the modern organization depends o
 > [!NOTE]
 > Microsoft is committed to the highest levels of trust, transparency, standards conformance, and regulatory compliance. Learn more about how the Microsoft global incident response team mitigates the effects of attacks against cloud services, and how security is built into Microsoft business products and cloud services at [Microsoft Trust Center - Security](https://www.microsoft.com/trustcenter/security) and Microsoft compliance targets at [Microsoft Trust Center - Compliance](https://www.microsoft.com/trustcenter/compliance).
 
-For most organizations, the security of business assets depends on the integrity of the privileged accounts that administer and manage IT systems. Cyber-attackers focus on privileged access to infrastructure systems (such as Active Directory and Azure Active Directory) to gain access to an organization’s sensitive data. 
+The security of your business assets depends on the integrity of the privileged accounts that administer and manage IT systems. Cyber-attackers focus on obtaining privileged access to infrastructure systems (such as Active Directory and Azure Active Directory) to gain access to your sensitive data.
 
-The traditional approach was to focus on the entrance and exit points of a network as the primary security perimeter. This approach is now less effective due to increased use of SaaS apps and personal devices on the Internet. The natural replacement for the network security perimeter in a complex modern enterprise is the authentication and authorization controls in an organization's identity layer.
+Traditionally, organization security has focused on the entrance and exit points of a network as the primary security perimeter. However, increased use of SaaS apps and personal devices on the Internet have made this approach less effective. In Azure AD, we replace the network security perimeter with the authentication and authorization controls in an organization's identity layer. Now, users in privileged administrative roles control this new "security perimeter." Their privileged access must be protected, whether the environment is on-premises, cloud, or a hybrid.
 
-Privileged administrative accounts are effectively in control of this new "security perimeter." It's critical to protect privileged access, regardless of whether the environment is on-premises, cloud, or hybrid on-premises and cloud hosted services. Protecting administrative access against determined adversaries requires you to take a complete and thoughtful approach to isolating your organization’s systems from risks. 
-
-Securing privileged access requires changes to
+Securing privileged access requires changes to:
 
 * Processes, administrative practices, and knowledge management
 * Technical components such as host defenses, account protections, and identity management
 
-This article can help you secure your identities and access in a way that is managed and reported in services such as Azure AD, Microsoft Azure, and Office 365. For organizations that have on-premises admin accounts, see the guidance for on-premises and hybrid privileged access in Active Directory at [Securing Privileged Access](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access).
+Secure your privileged access in a way that is managed and reported in services such as Azure AD, Microsoft Azure, and Office 365. If you have on-premises admin accounts, see the guidance for on-premises and hybrid privileged access in Active Directory at [Securing Privileged Access](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access).
 
 > [!NOTE]
 > The guidance in this article refers primarily to features of Azure Active Directory that are included in Azure Active Directory Premium plans P1 and P2. Azure Active Directory Premium P2 is included in the EMS E5 suite and Microsoft 365 E5 suite. This guidance assumes your organization already has Azure AD Premium P2 licenses purchased for your users. If you do not have these licenses, some of the guidance might not apply to your organization. Also, throughout this article, the term global administrator (or global admin) means the same thing as “company administrator” or “tenant administrator.”
@@ -66,11 +64,11 @@ Stage 1 of the roadmap is focused on critical tasks that are fast and easy to im
 
 #### Turn on Azure AD Privileged Identity Management
 
-If you have not already turned on Azure AD Privileged Identity Management (PIM), do so in your Azure AD production organization. After you turn on Privileged Identity Management, you’ll receive notification email messages for privileged access role changes. These notifications provide early warning when additional users are added to highly privileged roles in your directory.
+We recommend that you turn on Azure AD Privileged Identity Management (PIM) in your Azure AD production environment. After you turn on PIM, you’ll receive notification email messages for privileged access role changes. Notifications provide early warning when additional users are added to highly privileged roles.
 
 Azure AD Privileged Identity Management is included in Azure AD Premium P2 or EMS E5. These solutions help you protect access to applications and resources across the on-premises environment and into the cloud. If you don't already have an Azure AD Premium P2 or EMS E5 license plan, sign up for the [Enterprise Mobility + Security free 90-day trial](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Use the license trial to try Azure AD Privileged Identity Management and Azure AD Identity Protection, to monitor activity using Azure AD advanced security reporting, auditing, and alerts.
 
-After you have turned on Azure AD Privileged Identity Management:
+After you turn on Azure AD Privileged Identity Management:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that is a global admin of your Azure AD production organization.
 
