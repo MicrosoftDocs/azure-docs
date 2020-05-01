@@ -39,8 +39,6 @@ To take advantage of the GPU capabilities of Azure N-series VMs, NVIDIA or AMD G
 
 - For VMs backed by AMD GPUs, see [Install AMD GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) for supported operating systems, drivers, installation, and verification steps.
 
-To manually install the AMD GPU drivers, see  [N-series AMD GPU driver setup for Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) for supported operating systems, drivers, installation, and verification steps.
-
 ## Deployment considerations
 
 - For availability of N-series VMs, see [Products available by region](https://azure.microsoft.com/regions/services/).
