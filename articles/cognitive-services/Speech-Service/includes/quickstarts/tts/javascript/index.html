@@ -59,12 +59,12 @@
       a.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       a.send("");
       a.onload = function() {
-          var token = JSON.parse(atob(this.responseText.split(".")[1]));
-          serviceRegion.value = token.region;
-          authorizationToken = this.responseText;
-          subscriptionKey.disabled = true;
-          subscriptionKey.value = "using authorization token (hit F5 to refresh)";
-          console.log("Got an authorization token: " + token);
+        var token = JSON.parse(atob(this.responseText.split(".")[1]));
+        serviceRegion.value = token.region;
+        authorizationToken = this.responseText;
+        subscriptionKey.disabled = true;
+        subscriptionKey.value = "using authorization token (hit F5 to refresh)";
+        console.log("Got an authorization token: " + token);
       }
     }
   }
@@ -94,19 +94,19 @@
       resultDiv = document.getElementById("resultDiv");
 
       startSpeakTextAsyncButton.addEventListener("click", function () {
-				var soundContext = undefined;
-				try {
-					var AudioContext = window.AudioContext || window.webkitAudioContext || false;
-					if (AudioContext) {
-						soundContext = new AudioContext();
-					} else {
-						alert("AudioContext not supported");
-					}
-				}
-				catch(e){
-					window.console.log("no sound context found, no audio output. " + e);
-				}
- 
+        var soundContext = undefined;
+        try {
+          var AudioContext = window.AudioContext || window.webkitAudioContext || false;
+          if (AudioContext) {
+            soundContext = new AudioContext();
+          } else {
+            alert("AudioContext not supported");
+          }
+        }
+        catch(e){
+          window.console.log("no sound context found, no audio output. " + e);
+        }
+   
         startSpeakTextAsyncButton.disabled = true;
         phraseDiv.innerHTML = "";
 
@@ -125,9 +125,9 @@
 
         synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig);
 
-				var inputText = phraseDiv.value;
+        var inputText = phraseDiv.value;
         synthesizer.speakTextAsync(
-					inputText,	  
+          inputText,	  
           function (result) {
             startSpeakTextAsyncButton.disabled = false;
             resultDiv.innerHTML += "Result: ";
@@ -135,14 +135,14 @@
             resultDiv.innerHTML += "\n";
 
             window.console.log(result);
-						if (result.audioData && soundContext) {
-							var source = soundContext.createBufferSource();
-							soundContext.decodeAudioData(result.audioData, function (newBuffer) {
-								source.buffer = newBuffer;
-								source.connect(soundContext.destination);
-								source.start(0);
-							});
-						}
+            if (result.audioData && soundContext) {
+              var source = soundContext.createBufferSource();
+              soundContext.decodeAudioData(result.audioData, function (newBuffer) {
+                source.buffer = newBuffer;
+                source.connect(soundContext.destination);
+                source.start(0);
+              });
+            }
 
             synthesizer.close();
             synthesizer = undefined;
@@ -168,7 +168,7 @@
 
         // in case we have a function for getting an authorization token, call it.
         if (typeof RequestAuthorizationToken === "function") {
-            RequestAuthorizationToken();
+          RequestAuthorizationToken();
         }
       }
     });
