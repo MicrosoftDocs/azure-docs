@@ -26,8 +26,8 @@ You can view two types of logs for Azure Event Hubs:
 * **[Activity logs](../azure-monitor/platform/platform-logs-overview.md)**: These logs have information about operations done on a job. The logs are always enabled. You can see activity log entries by selecting **Activity log** in the left pane for your event hub namespace in the Azure portal. For example: "Create or Update Namespace", "Create or Update Event Hub".
 
     ![Activity log for an Event Hubs namespace](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md)**: You can configure diagnostic logs for a richer view of everything that happens with a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
-
+* **[Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md)**: Diagnostic logs provide richer information about operations and actions that are conducted against your namespace by using the API, or through management clients on the language SDK. 
+    
     The following section shows you how to enable diagnostic logs for an Event Hubs namespace.
 
 ## Enable diagnostic logs
@@ -51,12 +51,12 @@ Diagnostic logs are disabled by default. To enable diagnostic logs, follow these
 
 Event Hubs captures diagnostic logs for the following categories:
 
-- **Archive Logs**: logs related to Event Hubs archives, specifically, logs related to archive errors.
-- **Operational Logs**: information about what is happening during Event Hubs operations, specifically, the operation type, including event hub creation, resources used, and the status of the operation.
-- **Auto scale logs**: information about autoscaling operations done on an Event Hubs namespace. 
+- **Archive Logs**: logs related to the [Event Hubs Capture](event-hubs-capture-overview.md) feature, specifically, logs related to capture errors.
+- **Operational Logs**: information about all management operations that are performed on the Azure Event Hubs namespace. Data operations are not captured, because of the high volume of data operations that are conducted on Azure Event Hubs.
+- **Auto scale logs**: information about auto-inflate operations done on an Event Hubs namespace. 
 - **Kafka coordinator logs** - information about Kafka coordinator operations related to Event Hubs. 
-- **Kafka user logs**: information about Kafka user operations related to Event Hubs. 
-- **Event Hubs virtual network (VNet) connection event**: information about Event Hubs virtual network connection events. 
+- **Kafka user error logs**: information about Kafka user operations related to Event Hubs. 
+- **Event Hubs virtual network (VNet) connection event**: information about IP addresses and virtual networks sending traffic to Event Hubs.
 - **Customer-managed key user logs**: information about operations related to customer-managed key. 
 
 
@@ -74,7 +74,7 @@ trackingId | Internal ID, used for tracking.
 resourceId | Azure Resource Manager resource ID.
 eventHub | Event hub full name (includes namespace name).
 partitionId | Event Hub partition being written to.
-archiveStep | ArchiveFlushWriter
+archiveStep | possible values: ArchiveFlushWriter, DestinationInit
 startTime | Failure start time.
 failures | Number of times failure occurred.
 durationInSeconds | Duration of failure.
