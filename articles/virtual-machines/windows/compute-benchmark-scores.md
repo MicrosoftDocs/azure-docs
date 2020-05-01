@@ -16,6 +16,7 @@ The following SPECInt benchmark scores show compute performance for select Azure
 
 
 ## Av2 - General Compute
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_A1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 12 | 14.2 | 0.3 | 
@@ -40,10 +41,14 @@ The following SPECInt benchmark scores show compute performance for select Azure
 | Standard_A8m_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 10 | 104.5 | 5.1 | 
 | Standard_A8m_v2 | 8 | 2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 13 | 111.6 | 2.3 | 
 
-Note: Av2-series VMs can be deployed on a variety of hardware types and processors (as seen above). Av2-series VMs have CPU performance and memory configurations best suited for entry level workloads like development and test. The size is throttled to offer relatively consistent processor performance for the running instance, regardless of the hardware it is deployed on; however, software that takes advantage of specific newer processor optimizations may see more significant variation across processor types.
+
+> [!NOTE]
+> Av2-series VMs can be deployed on a variety of hardware types and processors (as seen above). Av2-series VMs have CPU performance and memory configurations best suited for entry level workloads like development and test. The size is throttled to offer relatively consistent processor performance for the running instance, regardless of the hardware it is deployed on; however, software that takes advantage of specific newer processor optimizations may see more significant variation across processor types.
 
 ## B - Burstable
+
 (Updated 2019-10-23 to 2019-11-03 PBI:5604451)
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_B1ms | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 6.3 | 0.2 | 
@@ -59,12 +64,16 @@ Note: Av2-series VMs can be deployed on a variety of hardware types and processo
 | Standard_B16ms | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 or v4 | 18 | 75.4 | 2.1 |
 | Standard_B20ms | 20 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 or v4| 2 | 90.6 | 1.3 |
 
-Note: B-Series VMs are for workloads with burstable performance requirements. VM instances accumulate credits when using less than its baseline. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% to meet short CPU burst requirements. Burst time depends on available credits which is a function of VM size and time.  
 
-SPEC Int is a fairly long running test that typically exhausts available burst credits.  Therefore the numbers above are closer to the baseline performance of the VM (although they may reflect some burst time accumulated between runs).  For short, bursty, workloads (typical on B-Series) performance will typically be closer to that of the Ds v3 Series..
+>[!NOTE]
+> B-Series VMs are for workloads with burstable performance requirements. VM instances accumulate credits when using less than its baseline. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% to meet short CPU burst requirements. Burst time depends on available credits which is a function of VM size and time.  
+>
+> SPEC Int is a fairly long running test that typically exhausts available burst credits.  Therefore the numbers above are closer to the baseline performance of the VM (although they may reflect some burst time accumulated between runs).  For short, bursty, workloads (typical on B-Series) performance will typically be closer to that of the Ds v3 Series..
 
 ## DSv3 - General Compute + Premium Storage
+
 (updated 2019-10-23 to 2019-11-03 PBI:5604451)
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 10 | 40.8 | 2.3 | 
@@ -85,7 +94,9 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_D64-32s_v3 | 32 |  | Intel(R) Xeon(R) CPU E5-2673 v3 or v4 | 3 | 592.3 | 1.5 |
 
 ## Dv3 - General Compute
+
 (updated 2019-10-23 to 2019-11-03 PBI:5604451)
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D2_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 10 | 38.6 | 1.8 | 
@@ -102,6 +113,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_D64_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 1070.6 | 12.4 | 
 
 ## DSv2 - Storage Optimized
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_DS1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 12 | 33.0 | 1.1 | 
@@ -139,6 +151,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_DS15_v2 | 20 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 45 | 546.1 | 10.5 | 
 
 ## Dv2 - General Compute
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_D1_v2 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 30 | 33.5 | 1.7 | 
@@ -163,6 +176,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_D15_v2 | 20 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 37 | 558.8 | 8.4 | 
 
 ## Esv3 - Memory Optimized + Premium Storage
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 39 | 42.5 | 2.2 | 
@@ -183,11 +197,13 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_E64-32s_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 592.5 | 4.4 | 
 
 ## Eisv3 - Memory Opt + Premium Storage (isolated)
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E64is_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 28 | 1073.9 | 5.7 | 
 
 ## Ev3 - Memory Optimized
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E2_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 41 | 41.2 | 2.4 | 
@@ -199,11 +215,13 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_E64_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 1080.0 | 11.3 | 
 
 ## Eiv3 - Memory Optimized (isolated)
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_E64i_v3 | 64 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 28 | 1081.4 | 11.1 | 
 
 ## Fsv2 - Compute + Storage Optimized
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F2s_v2 | 2 | 1 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 46 | 56.5 | 2.4 | 
@@ -215,6 +233,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_F72s_v2 | 72 | 2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 29 | 1372.1 | 8.2 | 
 
 ## Fs - Compute and Storage Optimized
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F1s | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 31 | 33.2 | 1.0 | 
@@ -229,6 +248,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_F16s | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 36 | 471.8 | 7.5 | 
 
 ## F - Compute Optimized
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F1 | 1 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 15 | 32.8 | 1.8 | 
@@ -244,6 +264,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_F16 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 6 | 472.3 | 13.2 | 
 
 ## GS - Storage Optimized
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_GS1 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 29 | 63.6 | 4.7 | 
@@ -266,6 +287,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_G5 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 31 | 774.1 | 4.1 | 
 
 ## H - High Performance Compute (HPC)
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_H8 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 31 | 296.1 | 1.4 | 
@@ -276,6 +298,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_H16r | 16 | 2 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 17 | 562.2 | 4.2 | 
 
 ## Ls - Storage Optimized
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_L4s | 4 | 1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 29 | 122.7 | 6.6 | 
@@ -284,6 +307,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_L32s | 32 | 2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 31 | 766.1 | 3.5 | 
 
 ## M - Memory Optimized
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_M8-2ms | 2 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 15 | 42.1 | 2.1 | 
@@ -313,6 +337,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_M8ms | 8 | 1 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 13 | 158.2 | 5.5 | 
 
 ## NCSv3 - GPU Enabled
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NC6s_v3 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 6 | 230.2 | 1.6 | 
@@ -321,6 +346,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_NC24s_v3 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 3 | 809.3 | 2.3 | 
 
 ## NCSv2 - GPU Enabled
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NC6s_v2 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 11 | 227.0 | 6.2 | 
@@ -329,6 +355,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_NC24s_v2 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 11 | 811.5 | 4.4 | 
 
 ## NC - GPU Enabled
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NC6 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 27 | 209.6 | 4.4 | 
@@ -337,6 +364,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_NC24r | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 27 | 752.9 | 3.4 | 
 
 ## NDs- GPU Enabled
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_ND6s | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 8 | 230.1 | 1.2 | 
@@ -345,6 +373,7 @@ SPEC Int is a fairly long running test that typically exhausts available burst c
 | Standard_ND24s | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz | 11 | 812.6 | 4.4 | 
 
 ## NV - GPU Enabled
+
 | Size | vCPUs | NUMA Nodes | CPU | Runs | Avg Base Rate | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_NV6 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2.60GHz | 28 | 210.5 | 6.1 | 
