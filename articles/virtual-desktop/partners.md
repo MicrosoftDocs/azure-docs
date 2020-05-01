@@ -85,6 +85,8 @@ Dell Technologies' thin clients are optimized to access Microsoft Azure and Wind
 
 Wyse thin clients are designed with security in mind with limited attack surface, support for security compliance standards, and advanced multi-factor authentication solutions. Deploy highly secure thin clients with Dell-exclusive Wyse ThinOS, or experience secure access to cloud applications and virtual workspaces from hardened Wyse ThinLinux with a commercial proven design and Windows 10 IoT Enterprise with Dell-added security features. With secure, HTTPS-based communications and active directory authentication for role-based administration, Wyse Management Suite keeps Wyse endpoints always up to date, and the mobile app for WMS Pro allows IT to view critical alerts and send real-time commands with one tap at any time.
 
+- [Go to the partner website](https://www.delltechnologies.com/en-us/wyse/index.htm#scroll=off&overlay=//www.dellemc.com/en-us/collaterals/unauth/brochures/products/thin-clients/Wyse_Windows_Embedded_Standard_thin_clients_brochure.pdf).
+
 ## deviceTRUST
 
 ![deviceTRUST Logo](./media/partners/devicetrust.png)
