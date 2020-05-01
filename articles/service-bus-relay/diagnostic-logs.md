@@ -1,6 +1,6 @@
 ---
 title: Diagnostics logs for Hybrid Connections
-description: This article provides an overview of all the operational and diagnostics logs that are available for Azure Relay. 
+description: This article provides an overview of all the activity and diagnostics logs that are available for Azure Relay. 
 services: service-bus-messaging
 author: spelluru
 editor: 
@@ -15,7 +15,7 @@ ms.author: spelluru
 
 ---
 # Enable diagnostics logs for Azure Relay Hybrid Connections
-When you start using your Azure Relay Hybrid Connections, you might want to monitor how and when your listeners and senders are opened and closed, and how your Hybrid Connections messages are created and sent. This article provides an overview of all the operational and diagnostics logs that are available.
+When you start using your Azure Relay Hybrid Connections, you might want to monitor how and when your listeners and senders are opened and closed, and how your Hybrid Connections are created and messages are sent. This article provides an overview of activity and diagnostics logs provided by the Azure Relay service. 
 
 You can view two types of logs for Azure Relay:
 
@@ -88,21 +88,21 @@ Here's a sample hybrid connections event in JSON format.
 | --------- | ----------- | 
 | AuthorizationFailed | Authorization failed.|
 | InvalidSasToken | Invalid SAS token. | 
-| ListenerAcceptingConnection | The on-prem listener is accepting connection. |
-| ListenerAcceptingConnectionTimeout | The on-prem listener accepting connection has timed out. |
+| ListenerAcceptingConnection | The listener running on-premises or on Azure is accepting connection. |
+| ListenerAcceptingConnectionTimeout | The listener running on-premises or on Azure has timed out while accepting connection. |
 | ListenerAcceptingHttpRequestFailed | The listener accepting HTTP request failed due to an exception. |
 | ListenerAcceptingRequestTimeout | The listener accepting request has timed out. |  
 | ListenerClosingFromExpiredToken | The listener is closing because the security token has expired. | 
-| ListenerRejectedConnection | The on-prem listener has rejected the connection. |
-| ListenerReturningHttpResponse | The on-prem listener is returning an HTTP response. |  
+| ListenerRejectedConnection | The listener running on-premises or on Azure has rejected the connection. |
+| ListenerReturningHttpResponse | The listener running on-premises or on Azure is returning an HTTP response. |  
 | ListenerReturningHttpResponseFailed | The listener is returning an HTTP response with a failure code. | 
- ListenerSentHttpResponse | Relay service has received an HTTP response from the on-prem listener. | 
+ ListenerSentHttpResponse | Relay service has received an HTTP response from the listener running on-premises or on Azure. | 
 | ListenerUnregistered | The listener is unregistered. | 
-| ListenerUnresponsive | The on-prem listener is unresponsive when returning a response. | 
-| MessageSendingToOnPremListener | Message is being sent to on-premises listener. |
-| MessageSentToOnPremListener | Message is sent to on-premises listener. | 
+| ListenerUnresponsive | The listener running on-premises or on Azure is unresponsive when returning a response. | 
+| MessageSendingToOnPremListener | Message is being sent to listener running on-premises or on Azure. |
+| MessageSentToOnPremListener | Message is sent to listener running on-premises or on Azure. | 
 | NewListenerRegistered | New listener registered. |
-| NewSenderRegistering | New on-prem sender is registering. | 
+| NewSenderRegistering | New sender running on-premises or on Azure is registering. | 
 | ProcessingRequestFailed | The processing of a Hybrid Connection operation has failed. | 
 | SenderConnectionClosed | The sender connection is closed. |
 | SenderListenerConnectionEstablished | The sender and listener established connection successfully. |
