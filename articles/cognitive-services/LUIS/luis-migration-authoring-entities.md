@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 05/01/2020
 ms.author: diberry
 ---
 
@@ -19,9 +19,9 @@ The V3 authoring provides one new entity type, the machine-learned entity, along
 
 ## Entities are decomposable in V3
 
-Entities created with the V3 authoring APIs, either using the [APIs](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) or with the [preview portal](https://preview.luis.ai/), allow you to build a layered entity model with a parent and children. The parent is known to as the **machine-learned entity** and the children are known as **subcomponents** of the machine learned entity.
+Entities created with the V3 authoring APIs, either using the [APIs](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) or with the [preview portal](https://preview.luis.ai/), allow you to build a layered entity model with a parent and children. The parent is known to as the **machine-learned entity** and the children are known as **subentities** of the machine learned entity.
 
-Each subcomponent is also a machine-learned entity but with the added configuration options of constraints and descriptors.
+Each subentity is also a machine-learned entity but with the added configuration options of constraints and descriptors.
 
 * **Constraints** are exact text matching rules that guarantee an entity is extracted when it matches a rule. The rule is defined by an exact text matching entity, currently: a [prebuilt entity](luis-reference-prebuilt-entities.md), a [regular expression entity](reference-entity-regular-expression.md), or [list entity](reference-entity-list.md).
 * **Descriptors** are [features](luis-concept-feature.md), such as phrase lists or entities, that are used to strongly indicate the entity.
@@ -57,7 +57,7 @@ When you migrate, consider the following in your migration plan:
     * Entities
         * Hierarchical entity
         * Composite entity
-    * Roles - roles can only be applied to a machine-learned (parent) entity. Roles can't be applied to subcomponents
+    * Roles - roles can only be applied to a machine-learned (parent) entity. Roles can't be applied to subentities
     * Batch tests and patterns that use the hierarchical and composite entities
 
 When you design your migration plan, leave time to review the final machine-learned entities, after all hierarchical and composite entities have been migrated. While a straight migration will work, after you make the change and review your batch test results, and prediction JSON, the more unified JSON may lead you to make changes so the final information delivered to the client-side app is organized differently. This is similar to code refactoring and should be treated with the same review process your organization has in place.
@@ -66,7 +66,7 @@ If you don't have batch tests in place for your V2 model, and migrate the batch 
 
 ## Migrating from V2 entities
 
-As you begin to move to the V3 authoring model, you should consider how to move to the machine-learned entity, and its subcomponents including the constraints and descriptors.
+As you begin to move to the V3 authoring model, you should consider how to move to the machine-learned entity, and its subentities including the constraints and descriptors.
 
 The following table notes which entities need to migrate from a V2 to a V3 entity design.
 
@@ -77,7 +77,7 @@ The following table notes which entities need to migrate from a V2 to a V3 entit
 
 ## Migrate V2 Composite entity
 
-Each child of the V2 composite should be represented with a subcomponent of the V3 machine-learned entity. If the composite child is a prebuilt, regular expression, or a list entity, this should be applied as a **constraint** on the subcomponent representing the child.
+Each child of the V2 composite should be represented with a subentity of the V3 machine-learned entity. If the composite child is a prebuilt, regular expression, or a list entity, this should be applied as a **constraint** on the subentity representing the child.
 
 Considerations when planning to migrate a composite entity to a machine-learned entity:
 * Child entities can't be used in patterns
@@ -86,7 +86,7 @@ Considerations when planning to migrate a composite entity to a machine-learned 
 
 ### Existing descriptors
 
-Any phrase list used to boost words in the composite entity should be applied as a descriptor to either the machine-learned (parent) entity, the subcomponent (child) entity, or the intent (if the phrase list only applies to one intent). Plan to add the descriptor to the entity it should boost most significantly. Do not add the descriptor generically to the machine-learned (parent) entity, if it will most significantly boost the prediction of a subcomponent (child).
+Any phrase list used to boost words in the composite entity should be applied as a descriptor to either the machine-learned (parent) entity, the subentity (child) entity, or the intent (if the phrase list only applies to one intent). Plan to add the descriptor to the entity it should boost most significantly. Do not add the descriptor generically to the machine-learned (parent) entity, if it will most significantly boost the prediction of a subentity (child).
 
 ### New descriptors
 
@@ -120,7 +120,7 @@ In V2 authoring, a hierarchical entity was provided before roles existing in LUI
 
 In V3 authoring:
 * A role can be applied on the machine-learned (parent) entity.
-* A role can't be applied to any subcomponents.
+* A role can't be applied to any subentities.
 
 This entity is an example only. Your own entity migration may require other considerations.
 
