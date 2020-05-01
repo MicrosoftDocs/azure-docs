@@ -20,8 +20,8 @@
     href: quickstart-synapse-studio.md
   - name: Create pools
     items:
-    - name: Create Apache Spark pool using web tools
-      href: ./spark/apache-spark-notebook-create-spark-use-sql.md
+    - name: Create Apache Spark notebook using web tools
+      href: quickstart-apache-spark-notebook.md
     - name: Create Apache Spark pool using Azure portal
       href: quickstart-create-apache-spark-pool.md
     - name: Create SQL pool
@@ -322,8 +322,8 @@
       href: troubleshoot/troubleshoot-synapse-studio.md
     - name: Troubleshoot Synapse Analytics Studio with PowerShell
       href: troubleshoot/troubleshoot-synapse-studio-powershell.md
-    - name: Integrate with Power BI
-      items:
+    # - name: Integrate with Power BI
+    #   items:
 - name: How to
   items:
   - name: Secure
@@ -790,22 +790,6 @@
         href: ../data-factory/how-to-create-tumbling-window-trigger.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Create a tumbling window trigger dependency
         href: ../data-factory/tumbling-window-trigger-dependency.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Templates
-      items:
-      - name: Overview of templates
-        href: ../data-factory/solution-templates-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Copy files from multiple containers
-        href: ../data-factory/solution-template-copy-files-multiple-containers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Copy new files by LastModifiedDate
-        href: ../data-factory/solution-template-copy-new-files-lastmodifieddate.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Bulk copy from database
-        href: ../data-factory/solution-template-bulk-copy-with-control-table.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Delta copy from database
-        href: ../data-factory/solution-template-delta-copy-with-control-table.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Move files
-        href: ../data-factory/solution-template-move-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Transform data with Databricks
-        href: ../data-factory/solution-template-databricks-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Troubleshooting guide
       items:
       - name: Activity troubleshooting

@@ -76,6 +76,9 @@ landingContent:
             url: https://www.youtube.com/watch?v=gxsitRRgylI          
           - text: Azure Private Link 
             url: https://www.youtube.com/watch?v=vVDql7IKneg
+          - text: Securely access your Azure PaaS resources with Azure Private Link
+            url: https://www.youtube.com/watch?v=PWKM5KXjWno        
+       
   # Card
   - title: Connect virtual networks
     linkLists:

@@ -6,11 +6,14 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 04/30/2020
 ---
 # Mount or unmount a volume for Windows or Linux virtual machines 
 
 You can mount or unmount a volume for Windows or Linux virtual machines as necessary.  The mount instructions for Linux virtual machines are available on Azure NetApp Files.  
+
+> [!IMPORTANT] 
+> You must have at least one export policy to be able to access an NFS volume.
 
 1. Click the **Volumes** blade, and then select the volume for which you want to mount. 
 2. Click **Mount instructions** from the selected volume, and then follow the instructions to mount the volume. 
@@ -39,3 +42,4 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
 
 * [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [NFS FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)
+* [Network File System overview](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview)
