@@ -32,7 +32,7 @@ To open one of the payout summary pages:
 
 This page displays all of your individual earnings, including the date, type, and earning for each. You can select a time period to view, and you can also filter by Enrollment ID, Program, Payment ID, Earning type, Lever, and Status. Data is available for the current fiscal year (July 1 – June 30) and the previous two fiscal years.
 
-To see more details about an earning, select the down arrow at the right-hand side of the page. This will display the lever, revenue amount, and product. If any of this data is unavailable but you need access to it, contact [support](https://developer.microsoft.com/windows/support)]. If the earning is the result of an adjustment and not a transaction, the product fields will not be displayed.
+To see more details about an earning, select the down arrow at the right-hand side of the page. This will display the lever, revenue amount, and product. If any of this data is unavailable but you need access to it, contact [support](https://developer.microsoft.com/windows/support). If the earning is the result of an adjustment and not a transaction, the product fields will not be displayed.
 
 To export any of the transaction data on this page, use the **Export data** page.
 
@@ -235,3 +235,7 @@ Transaction history from before July 1 2019 is handled separately. Statements wi
 | Eligibility Date Time   | The date and time when transaction proceeds become eligible for payout (UTC). When a payout is created, it includes transaction proceeds with an Eligibility Date Time prior to the payout creation date (only included in **Reserved** CSV file). |
 | Charges                 | Shows a breakdown of all the charge details aggregated in the Transaction Amount column (only included for Azure Marketplace; not included in **Reserved** CSV file). |
 |||
+
+## Next Step
+
+- [Payout policy details](./payout-policy-details.md)

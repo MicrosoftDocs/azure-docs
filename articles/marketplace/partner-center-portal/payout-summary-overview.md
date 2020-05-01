@@ -11,7 +11,7 @@ ms.date: 04/24/2020
 
 # Payout summary overview
 
-The [Payout summary](./payout-summaries.md) shows you details about the money you've earned with Microsoft. It also lets you know when you'll receive payments and how much you'll be paid.
+The [Payout summary](./payout-summary.md) shows you details about the money you've earned with Microsoft. It also lets you know when you'll receive payments and how much you'll be paid.
 
 If you sell offerings in the Azure Marketplace, you'll also see info on successful payouts in the Payout summary. For more information about Azure Marketplace payment, see [Azure Marketplace participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy) and [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
 
@@ -36,9 +36,9 @@ All reporting and insights for the transact publishing option are available in t
 | Payout summary | Can view | No access | No access | No access | Can view | No access  |
 | | | | | | | |
 
-## Payout report: Difference between Cloud Partner Portal and Partner Center
+## Payout report: Differences in Partner Center
 
-| Cloud Partner Portal | Partner Center |
+| Cloud Partner Portal (old) | Partner Center (new) |
 | --- | --- |
 | **Link**: https://cloudpartner.azure.com/ | **Link**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory and https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
 | **Navigation**: Payout reporting provided in Insights Payout | **Navigation**: Payout reporting provided in Partner Center – Payout Icon |
@@ -132,3 +132,7 @@ This option provides a download of each earning line item you see on the Transac
 
 ## Billing questions and support
 For billing support, contact commercial marketplace [publisher support](https://partner.microsoft.com/support/v2/?stage=1).
+
+## Next Step
+
+- [Payout summaries](./payout-summary.md)

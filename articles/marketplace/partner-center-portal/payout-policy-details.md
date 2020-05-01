@@ -11,11 +11,13 @@ ms.date: 04/24/2020
 
 # Payout policy details
 
+This article discusses Microsoft's payout process, payout schedule, where to find the status of a payout, and recoupment policy.
+
 ## Where to find upcoming payouts
 
-In Partner Center, select **Payout** at the upper-right corner of the portal:
+In Partner Center, select **Payout** at the upper-right of the portal:
 
-![Illustrates the Payout icon in the upper-right corner of the Partner Center portal.](./media/payout-overview.png)
+![Illustrates the Payout icon in the upper-right of the Partner Center portal.](./media/payout-overview.png)
 
 > [!NOTE]
 > Not all account roles have access to payout information. For details, see [Roles and permissions to access the payout report](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payout-summary).
@@ -104,3 +106,7 @@ After the customer's charges are written off as uncollectable, the recoupment pr
 | Customer invoice date | 12/1/2020 | Denoted as **Sent** in Transaction History and in the Payments section on the Payout Dashboard | **Usage report**: consumption shown with OrderID/OrderLineItemID<br>**Order report**: customer orders shown as ACTIVE |
 | Customer does not pay Microsoft | 12/2/2020 – 12/5/2020 | Denoted as **Sent** in Transaction History and in the Payments section on the Payout Dashboard | **Usage report**: consumption shown with OrderID/OrderLineItemID<br>**Order report**: customer orders shown as ACTIVE |
 |  |  |  |  |
+
+## Next Step
+
+- [Tax details](./tax-details-paid-transactions.md)
