@@ -1001,6 +1001,8 @@
         href: platform/alerts-metric-logs.md
       - name: Using Resource Manager template
         href: platform/alerts-metric-create-templates.md
+      - name: Troubleshoot metric alerts
+        href: platform/alerts-metric-troubleshoot.md
     - name: Log alert rules
       items:  
       - name: Configure alerts on analytics query
