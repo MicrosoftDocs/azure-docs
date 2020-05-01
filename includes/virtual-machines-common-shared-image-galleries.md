@@ -224,7 +224,7 @@ To list all the Shared Image Gallery resources across subscriptions that you hav
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
 ```
 
-For more information, see **Manage gallery resources** using the [Azure CLI](../articles/virtual-machines/gallery-list-cli.md) or [PowerShell](../articles/virtual-machines/gallery-list-ps.md).
+For more information, see **Manage gallery resources** using the [Azure CLI](../articles/virtual-machines/update-image-resources-cli.md) or [PowerShell](../articles/virtual-machines/update-image-resources-powershell.md).
 
 ### Can I move my existing image to the shared image gallery?
  

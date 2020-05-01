@@ -103,9 +103,9 @@ In this example, the image version is *1.0.0* and it's replicated to both *East 
 To create an image version from the VM, use `$vm.Id.ToString()` for the `-Source`.
 
 ```azurepowershell-interactive
-   $region1 = @{Name='South Central US';ReplicaCount=1}
-   $region2 = @{Name='East US';ReplicaCount=2}
-   $targetRegions = @($region1,$region2)
+$region1 = @{Name='South Central US';ReplicaCount=1}
+$region2 = @{Name='East US';ReplicaCount=2}
+$targetRegions = @($region1,$region2)
 
 New-AzGalleryImageVersion `
    -GalleryImageDefinitionName $galleryImage.Name`
@@ -120,16 +120,32 @@ New-AzGalleryImageVersion `
 
 It can take a while to replicate the image to all of the target regions.
 
+
+## Configure the Network Security Group Rules
+Before creating the scale set, we need to create a resource group and then configure the associating Network Security Group (NSG) rules to allow access to HTTP, RDP and remoting.
+
+```azurepowershell-interactive
+New-AzResourceGroup -Name "myVMSSfromImage" -Location "East US"
+
+$rule1 = New-AzNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
+
+$rule2 = New-AzNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389
+
+$rule3 = New-AzNetworkSecurityRuleConfig -Name remoting-rule -Description "Allow PS Remoting" -Access Allow -Protocol Tcp -Direction Inbound -Priority 120 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 5985
+
+New-AzNetworkSecurityGroup -Name "myNSG" -ResourceGroupName "myVMSSfromImage" -Location "EastUS" -SecurityRules $rule1,$rule2,$rule3
+```
+
 ## Create a scale set from the image
 Now create a scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss) that uses the `-ImageName` parameter to define the custom VM image created in the previous step. To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
 
 ```azurepowershell-interactive
 New-AzVmss `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
+  -ResourceGroupName "myVMSSfromImage" `
+  -Location "East US" `
   -VMScaleSetName "myScaleSet" `
   -UpgradePolicyMode "Automatic" `
-  -ImageName $galleryImage.id
+  -ImageName $galleryImage.id 
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs.
