@@ -138,36 +138,51 @@ Autoscale log JSON includes elements listed in the following table:
 
 | Name | Description |
 | ---- | ----------- | 
-| trackingId | Internal ID, which is used for tracing purposes |
-| resourceId | Internal ID, which contains Azure subscription ID and namespace name |
-| message | Informational message, which provides details about auto-inflate action. The message contains previous and current value of throughput unit for a given namespace and what triggered the inflate of the TU. |
+| TrackingId | Internal ID, which is used for tracing purposes |
+| ResourceId | Azure Resource Manager resource ID. |
+| Message | Informational message, which provides details about auto-inflate action. The message contains previous and current value of throughput unit for a given namespace and what triggered the inflate of the TU. |
 
 ## Kafka coordinator logs schema
 Kafka coordinator log JSON includes elements listed in the following table:
 
 | Name | Description |
 | ---- | ----------- | 
-| requestId | request ID, which is used for tracing purposes |
-| resourceId | Internal ID, which contains Azure subscription ID and namespace name |
-| operationName | Name of the operation that's done during the group coordination |
-| clientId | Client ID |
-| namespaceName | Namespace name | 
-| subscriptionId | Azure subscription ID |
-| message | Informational message, which provides details about actions done during the consumer group coordination. |
+| RequestId | Request ID, which is used for tracing purposes |
+| ResourceId | Azure Resource Manager resource ID |
+| Operation | Name of the operation that's done during the group coordination |
+| ClientId | Client ID |
+| NamespaceName | Namespace name | 
+| SubscriptionId | Azure subscription ID |
+| Message | Informational or warning message, which provides details about actions done during the group coordination. |
+
+### Example
+
+```json
+{
+    "RequestId": "FE01001A89E30B020000000304620E2A_KafkaExampleConsumer#0",
+    "Operation": "Join.Start",
+    "ClientId": "KafkaExampleConsumer#0",
+    "Message": "Start join group for new member namespace-name:c:$default:I:KafkaExampleConsumer#0-cc40856f7f3c4607915a571efe994e82, current group size: 0, API version: 2, session timeout: 10000ms, rebalance timeout: 300000ms.",
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "KafkaCoordinatorLogs"
+}
+```
 
 ## Kafka user error logs schema
 Kafka user error log JSON includes elements listed in the following table:
 
 | Name | Description |
 | ---- | ----------- |
-| trackingId | tracking ID, which is used for tracing purposes. |
-| namespaceName | Namespace name |
-| eventhub | Event hub name |
-| partitionId | Partition ID |
-| groupId | Group ID |
+| TrackingId | Tracking ID, which is used for tracing purposes. |
+| NamespaceName | Namespace name |
+| Eventhub | Event hub name |
+| PartitionId | Partition ID |
+| GroupId | Group ID |
 | ClientId | Client ID |
-| resourceId | Internal ID, which contains Azure subscription ID and namespace name |
-| message | Informational message, which provides details about an error |
+| ResourceId | Azure Resource Manager resource ID. |
+| Message | Informational message, which provides details about an error |
 
 ## Event Hubs virtual network connection event schema
 
@@ -175,27 +190,42 @@ Event Hubs virtual network (VNet) connection event JSON includes elements listed
 
 | Name | Description |
 | ---  | ----------- | 
-| subscriptionId | Azure subscription ID |
-| namespaceName | Namespace name |
-| ipAddress | IP address of a client connecting to the Event Hubs service |
-| action | Action done by the Event Hubs service when evaluating connection requests. Supported actions are **AcceptConnection** and **RejectConnection**. |
-| reason | Provides a reason why the action was done |
-| count | Number of occurrences for the given action |
-| resourceId | Internal resource ID, which contains subscription ID and namespace name. |
+| SubscriptionId | Azure subscription ID |
+| NamespaceName | Namespace name |
+| IPAddress | IP address of a client connecting to the Event Hubs service |
+| Action | Action done by the Event Hubs service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. |
+| Reason | Provides a reason why the action was done |
+| Count | Number of occurrences for the given action |
+| ResourceId | Azure Resource Manager resource ID. |
+
+### Example
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Deny Connection",
+    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
+    "Count": "65",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "EventHubVNetConnectionEvent"
+}
+```
 
 ## Customer-managed key user logs
 Customer-managed key user log JSON includes elements listed in the following table:
 
 | Name | Description |
 | ---- | ----------- | 
-| category | Type of category for a message. It's one of the following values: **error** and **info** |
-| resourceId | Internal resource ID, which includes Azure subscription ID and namespace name |
-| keyVault | Name of the Key Vault resource |
-| key | Name of the Key Vault key. |
-| version | Version of the Key Vault key |
-| operation | The name of an operation done to serve requests |
-| code | Status code |
-| message | Message, which provides details about an error or informational message |
+| Category | Type of category for a message. It's one of the following values: **error** and **info** |
+| ResourceId | Internal resource ID, which includes Azure subscription ID and namespace name |
+| KeyVault | Name of the Key Vault resource |
+| Key | Name of the Key Vault key. |
+| Version | Version of the Key Vault key |
+| Operation | The name of an operation done to serve requests |
+| Code | Status code |
+| Message | Message, which provides details about an error or informational message |
 
 
 
