@@ -98,7 +98,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 >[!IMPORTANT]
 >We recommend you use the service tags instead of URLs in most cases to prevent service issues. Unblocking these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and don't include URLs for other services like Azure Active Directory.
 >
->Windows Virtual Desktop now supports the FQDN tag.
+>Windows Virtual Desktop now supports the FQDN tag. For more information, see [Use Azure Firewall to protect Window Virtual Desktop deployments](../firewall/protect-windows-virtual-desktop.md).
 
 The following table lists optional URLs that your Azure virtual machines can have access to:
 
