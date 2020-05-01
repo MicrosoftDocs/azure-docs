@@ -25,7 +25,7 @@ When you configure Windows Azure the diagnostics extension, you must specify a s
 You can install and configure the diagnostics extension on an individual virtual machine in the Azure portal which provides you an interface as opposed to working directly with the configuration. When you enable the diagnostics extension, it will automatically use a default configuration with the most common performance counters and events. You can modify this default configuration according to your specific requirements.
 
 > [!NOTE]
-> The following describe the most common settings for the diagnostics extension. For details on all of the configuration options, see [Windows diagnostics extension schema](diagnostics-extension-schema-windows).
+> The following describe the most common settings for the diagnostics extension. For details on all of the configuration options, see [Windows diagnostics extension schema](diagnostics-extension-schema-windows.md).
 
 1. Open the menu for a virtual machine in the Azure portal.
 2. Click on **Diagnostic settings** in the **Monitoring** section of the VM menu.
