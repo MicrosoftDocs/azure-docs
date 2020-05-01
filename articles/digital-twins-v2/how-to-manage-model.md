@@ -292,10 +292,6 @@ You can do this by updating the dependent model to remove the dependencies, or d
 
 #### During deletion: Deletion process
 
-Here is the code to delete a model.
-
-<!!!! code needed>
-
 Even if a model meets the requirements to delete it immediately, you may want to go through a few steps first to avoid unintended consequences for the twins left behind. Here are some steps that can help you manage the process:
 1. First, decommission the model
 2. Wait a few minutes, to make sure the service has processed any last-minute twin creation requests sent before the decommission
