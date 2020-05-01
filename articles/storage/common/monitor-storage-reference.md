@@ -230,7 +230,7 @@ The following table lists the properties for Azure Storage resource logs when th
 |**accountName** | The name of the storage account. For example: `mystorageaccount`.  |
 |**requestUrl** | The URL that is requested. For example: `http://mystorageaccount.blob.core.windows.net/cont1/blobname?timeout=10`.|
 |**userAgentHeader** | The **User-Agent header** value, in quotes. For example: `WA-Storage/6.2.0 (.NET CLR 4.0.30319.42000; Win32NT 6.2.9200.0)`.|
-|**referrerHeader** | The **Referer** header value. For example: `http://contoso.com/about.html`.|
+|**referrerHeader** | The **Referrer** header value. For example: `http://contoso.com/about.html`.|
 |**clientRequestId** | The **x-ms-client-request-id** header value of the request. For example: `360b66a6-ad4f-4c4a-84a4-0ad7cb44f7a6`. |
 |**etag** | The ETag identifier for the returned object, in quotes. For example: `0x8D101F7E4B662C4`.  |
 |**serverLatencyMs** | The total time expressed in milliseconds to perform the requested operation. This value doesn't include network latency (the time to read the incoming request and send the response to the requester). For example: `22`. |
@@ -257,7 +257,7 @@ The following table lists the properties for Azure Storage resource logs when th
 |**smbCommandMajor	uint32** | Value in the **SMB2_HEADER.Command**. Currently, this is a number between 0 and 18 inclusive. For example: `0x6` |
 |**smbCommandMinor** | The subclass of **SmbCommandMajor**, where appropriate. For example: `DirectoryCloseAndDelete` |
 
-## See Also
+## See also
 
 - See [Monitoring Azure Storage](monitor-storage.md) for a description of monitoring Azure Storage.
 - See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.

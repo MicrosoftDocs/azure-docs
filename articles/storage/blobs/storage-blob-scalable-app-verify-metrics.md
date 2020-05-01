@@ -29,7 +29,7 @@ Choose Blob from the **SUB SERVICE** drop-down.
 
 Under **METRIC**, select one of the metrics found in the following table:
 
-The following metrics give you an idea of the latency and throughput of the application. The metrics you configure in the portal are in 1-minute averages. If a transaction finished in the middle of a minute that minute data is halfed for the average. In the application, the upload and download operations were timed and provided you output of the actual amount of time it took to upload and download the files. This information can be used in conjunction with the portal metrics to fully understand throughput.
+The following metrics give you an idea of the latency and throughput of the application. The metrics you configure in the portal are in 1-minute averages. If a transaction finished in the middle of a minute that minute data is halved for the average. In the application, the upload and download operations were timed and provided you output of the actual amount of time it took to upload and download the files. This information can be used in conjunction with the portal metrics to fully understand throughput.
 
 |Metric|Definition|
 |---|---|

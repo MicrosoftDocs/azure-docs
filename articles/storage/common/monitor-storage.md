@@ -88,11 +88,11 @@ You can analyze metrics for Azure storage with metrics from other Azure services
 
 The following example shows how to view **Transactions** at account level.
 
-![screenshot of accessing metrics in the Azure portal](./media/monitor-storage/access-metrics-in-portal.png)
+![screenshot of accessing metrics in the Azure portal](./media/monitor-storage/access-metrics-portal.png)
 
 For metrics supporting dimensions, you can filter metric with the desired dimension value. The following example shows how to view **Transactions** at account level on a specific operation by selecting values for  **API Name** dimension.
 
-![screenshot of accessing metrics with dimension in the Azure portal](./media/monitor-storage/access-metrics-in-portal-with-dimension.png)
+![screenshot of accessing metrics with dimension in the Azure portal](./media/monitor-storage/access-metrics-portal-with-dimension.png)
 
 For a complete list of the dimensions that Azure Storage supports, see [Metrics Dimensions](monitor-storage-reference.md#metrics-dimensions).
 
