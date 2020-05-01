@@ -321,6 +321,8 @@ When `--cert` is provided for a PFX file, you must provide a corresponding `--pw
 azurite --cert path/server.pfx --pwd pfxpassword
 ```
 
+For detailed information on creating PEM and PFX files, see [HTTPS Setup](https://github.com/Azure/Azurite/blob/master/README.md#https-setup).
+
 ### OAuth configuration
 
 **Optional** Enable OAuth authentication for Azurite by using the `--oauth` switch.
@@ -336,7 +338,9 @@ Azurite supports basic authentication by specifying the `basic` parameter to the
 
 ## Authorization for tools and SDKs
 
-Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), by using any authentication strategy. Authentication is required. Azurite supports authorization with Shared Key and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
+Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), by using any authentication strategy. Authentication is required. Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
+
+If you are using the Azure SDKs, start Azurite with the `--oauth basic` option.
 
 ### Well-known storage account and key
 
@@ -345,10 +349,36 @@ Azurite accepts the same well-known account and key used by the legacy Azure sto
 * Account name: `devstoreaccount1`
 * Account key: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
-> [!NOTE]
-> In addition to SharedKey authentication, Azurite supports account and service SAS authentication. Anonymous access is also available when a container is set to allow public access.
+### Custom storage accounts and keys
 
-### Connection string
+Azurite supports custom storage account names and keys by setting the `AZURITE_ACCOUNTS` environment variable in the following format: `account1:key1[:key2];account2:key1[:key2];...`.
+
+For example, use a custom storage account that has one key:
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1"
+```
+
+```bash
+export AZURITE_ACCOUNTS="account1:key1"
+```
+
+Or use multiple storage accounts with 2 keys each:
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
+```
+
+```bash
+export AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
+```
+
+Azurite refreshes custom account names and keys from the environment variable every minute by default. With this feature, you can dynamically rotate the account key, or add new storage accounts without restarting Azurite.
+
+> [!NOTE]
+> The default `devstoreaccount1` storage account is disabled when you set custom storage accounts.
+
+### Connection strings
 
 The easiest way to connect to Azurite from your application is to configure a connection string in your application's configuration file that references the shortcut *UseDevelopmentStorage=true*. Here's an example of a connection string in an *app.config* file:
 
@@ -358,34 +388,93 @@ The easiest way to connect to Azurite from your application is to configure a co
 </appSettings>
 ```
 
+#### HTTP Connection Strings
+
+You can pass the following connection strings to the [Azure SDKs](https://aka.ms/azsdk) or tools, like Azure CLI 2.0 or Storage Explorer.
+
+The full connection string is:
+
+```console
+DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
+```
+
+To connect to the blob service only, the connection string is:
+
+```console
+DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
+```
+
+To connect to the queue service only, the connection string is:
+
+```console
+DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
+```
+
+#### HTTPS Connection Strings
+
+The full HTTPS connection string is:
+
+```console
+DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;
+```
+
+To use the blob service only, the HTTPS connection string is:
+
+```console
+DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;
+```
+
+To use the queue service only, the HTTPS connection string is:
+
+```console
+DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;
+```
+
+If you used `dotnet dev-certs` to generate your self-signed certificate, use the following connection string.
+
+```console
+DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;
+```
+
+Update the connection string accordingly when using [custom storage accounts and keys](#custom-storage-accounts-and-keys).
+
 For more information, see [Configure Azure Storage connection strings](storage-configure-connection-string.md).
 
-### Custom storage accounts and keys
+### Azure SDKs
 
-Azurite supports custom storage account names and keys by setting the `AZURITE_ACCOUNTS` environment variable in the following format: `account1:key1[:key2];account2:key1[:key2];...`.
+To use Azurite with the [Azure SDKs](https://aka.ms/azsdk), use OAuth and HTTPs options:
 
-For example, use a custom storage account that has one key:
+`azurite --oauth basic --cert certname.pem --key certname-key.pem`
 
-```console
-set AZURITE_ACCOUNTS="account1:key1"
+#### Azure Blob Storage
+
+You can then instantiate a BlobContainerClient, BlobServiceClient, or BlobClient.
+
+```csharp
+// With container URL and DefaultAzureCredential
+var client = new BlobContainerClient(new Uri("https://127.0.0.1:10000/devstoreaccount1/container-name"), new DefaultAzureCredential());
+
+// With connection string
+var client = new BlobContainerClient("DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;", "container-name");
+
+// With account name and key
+var client = new BlobContainerClient(new Uri("https://127.0.0.1:10000/devstoreaccount1/container-name"), new StorageSharedKeyCredential("devstoreaccount1", "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=="));
 ```
 
-Or use multiple storage accounts with 2 keys each:
+#### Azure Queue Storage
 
-```console
-set AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
+You can also instantiate a QueueClient or QueueServiceClient.
+
+```csharp
+// With queue URL and DefaultAzureCredential
+var client = new QueueClient(new Uri("https://127.0.0.1:10001/devstoreaccount1/queue-name"), new DefaultAzureCredential());
+
+// With connection string
+var client = new QueueClient("DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;", "queue-name");
+
+// With account name and key
+var client = new QueueClient(new Uri("https://127.0.0.1:10001/devstoreaccount1/queue-name"), new StorageSharedKeyCredential("devstoreaccount1", "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=="));
 ```
-
-Azurite refreshes custom account names and keys from the environment variable every minute by default. With this feature, you can dynamically rotate the account key, or add new storage accounts without restarting Azurite.
-
-> [!NOTE]
-> The default `devstoreaccount1` storage account is disabled when you set custom storage accounts.
-
-> [!NOTE]
-> Update the connection string accordingly when using custom account names and keys.
-
-> [!NOTE]
-> Use the `export` keyword to set environment variables in a Linux environment, use `set` in Windows.
 
 ### Storage Explorer
 
