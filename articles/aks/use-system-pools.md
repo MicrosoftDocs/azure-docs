@@ -44,6 +44,7 @@ You can do the following operations with node pools:
 * Delete user node pools.
 * You can delete system node pools, provided you have another system node pool to take its place in the AKS cluster.
 * An AKS cluster may have multiple system node pools and requires at least one system node pool.
+* Configure maxPods per node per node pool when creating new node pools.
 
 ## Create a new AKS cluster with a system node pool
 
