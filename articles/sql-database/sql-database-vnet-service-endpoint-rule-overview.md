@@ -130,10 +130,10 @@ PolyBase is commonly used to load data into Azure Synapse Analytics from Azure S
    > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1. Under your storage account, navigate to **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your Azure SQL Server (logical server of your Azure Synapse Analytics data warehouse) which you've registered with Azure Active Directory (AAD) as in step#1.
+1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Select the  **Storage Blob Data Contributor** RBAC role from the drop down. For **Assign access to** select **Azure AD user, group, or service principal**. For **Select**, type the server name of your Azure SQL Server (logical server of your Azure Synapse Analytics data warehouse) which you've registered with Azure Active Directory (AAD) as in step 1. Use only the server name not the fully qualified DNS name (**servername** without .database.windows.net)
 
    > [!NOTE]
-   > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Only members with Owner privilege  on the storage account can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Polybase connectivity to the Azure Storage account:**
 
