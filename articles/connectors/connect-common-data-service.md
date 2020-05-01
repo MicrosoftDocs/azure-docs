@@ -176,7 +176,7 @@ This example shows how the **Create a new record** action creates a new "Tasks" 
 
 * Based on the **Owner** property, which specifies a user ID, and the **Owner Type** property, which specifies the `systemusers` lookup type, the action associates the new "Tasks" record with a specific user.
 
-* Based on the **Regarding** property, which specifies a record ID, and the **Regarding Type** property, which specifies the `accounts` lookup type, the action associates the new "Tasks` record with a specific account.
+* Based on the **Regarding** property, which specifies a record ID, and the **Regarding Type** property, which specifies the `accounts` lookup type, the action associates the new "Tasks" record with a specific account.
 
 ![Create "Tasks" record associated with IDs and lookup types](./media/connect-common-data-service/create-new-record-task-properties.png)
 
