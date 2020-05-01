@@ -11,7 +11,7 @@ ms.date: 08/13/2019
 
 # Learn about test drive for your offer
 
-The **Test drive** tab enables you to set up a demonstration (or "test drive"). With a test drive, new customers can try your offer before committing to purchase it. For more information, see [What is Test Drive?](../cloud-partner-portal/test-drive/what-is-test-drive.md).
+The **Test drive** option in the Microsoft commercial marketplace lets you configure a hands-on, self-guided tour of your product's key features. With a test drive, new customers can try your offer before committing to purchase it. For more information, see [What is Test Drive?](../cloud-partner-portal/test-drive/what-is-test-drive.md).
 
 If you no longer want to provide a test drive for your offer, return to the **Offer setup** page and uncheck **Enable test drive**.
 
@@ -109,4 +109,4 @@ Select **Save** after completing these fields.
 
 ## Next steps
 
-- [Update an existing offer in the Commercial Marketplace](./update-existing-offer.md)
+[Update an existing offer in the Commercial Marketplace](./update-existing-offer.md)
