@@ -313,7 +313,7 @@ The Tutorial Assets include a prefab and view controller for classes that implem
 4. Press Play in the Unity Editor to load and connect to a remote session. Ensure your **TestModel** is still configured to load into the remote session.
 5. Grab and drag the CutPlane to move it around the scene, watching it slice into the **TestModel** to reveal internal components.
 
-![Cut Plane example](./media/cut-plane-example.png)
+![Cut Plane example](./media/cut-plane-example-engine.png)
 
 ## Editing materials
 
