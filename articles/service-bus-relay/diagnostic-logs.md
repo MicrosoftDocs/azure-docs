@@ -84,25 +84,28 @@ Here's a sample hybrid connections event in JSON format.
 
 ## Events and operations captured in diagnostic logs
 
+> [!NOTE]
+> A client listener or sender could be running on-premises or on Azure. 
+
 | Operation | Description | 
 | --------- | ----------- | 
 | AuthorizationFailed | Authorization failed.|
 | InvalidSasToken | Invalid SAS token. | 
-| ListenerAcceptingConnection | The listener running on-premises or on Azure is accepting connection. |
-| ListenerAcceptingConnectionTimeout | The listener running on-premises or on Azure has timed out while accepting connection. |
+| ListenerAcceptingConnection | The client listener is accepting connection. |
+| ListenerAcceptingConnectionTimeout | The client listener accepting connection has timed out. |
 | ListenerAcceptingHttpRequestFailed | The listener accepting HTTP request failed due to an exception. |
 | ListenerAcceptingRequestTimeout | The listener accepting request has timed out. |  
 | ListenerClosingFromExpiredToken | The listener is closing because the security token has expired. | 
-| ListenerRejectedConnection | The listener running on-premises or on Azure has rejected the connection. |
-| ListenerReturningHttpResponse | The listener running on-premises or on Azure is returning an HTTP response. |  
+| ListenerRejectedConnection | The client listener has rejected the connection. |
+| ListenerReturningHttpResponse | The client listener is returning an HTTP response. |  
 | ListenerReturningHttpResponseFailed | The listener is returning an HTTP response with a failure code. | 
- ListenerSentHttpResponse | Relay service has received an HTTP response from the listener running on-premises or on Azure. | 
+ ListenerSentHttpResponse | Relay service has received an HTTP response from the client listener. | 
 | ListenerUnregistered | The listener is unregistered. | 
-| ListenerUnresponsive | The listener running on-premises or on Azure is unresponsive when returning a response. | 
-| MessageSendingToOnPremListener | Message is being sent to listener running on-premises or on Azure. |
-| MessageSentToOnPremListener | Message is sent to listener running on-premises or on Azure. | 
+| ListenerUnresponsive | The client listener is unresponsive when returning a response. | 
+| MessageSendingToOnPremListener | Message is being sent to client listener. |
+| MessageSentToOnPremListener | Message is sent to client listener. | 
 | NewListenerRegistered | New listener registered. |
-| NewSenderRegistering | New sender running on-premises or on Azure is registering. | 
+| NewSenderRegistering | New client sender is registering. | 
 | ProcessingRequestFailed | The processing of a Hybrid Connection operation has failed. | 
 | SenderConnectionClosed | The sender connection is closed. |
 | SenderListenerConnectionEstablished | The sender and listener established connection successfully. |
