@@ -61,9 +61,9 @@ Are there any other reasons we want to cover for dropped messages?
 <a id="endpoint-health"></a>
 [!INCLUDE [iot-hub-include-endpoint-health](../../includes/iot-hub-include-endpoint-health.md)]
 
-## Diagnostic logs details
+## Diagnostic logs
 
-The following are the values used in the diagnostics logs.
+The following are the error codes and operation names used in the diagnostics logs.
 
 ### Common error codes output
 
@@ -82,7 +82,7 @@ The following are the values used in the diagnostics logs.
   * Setting up metrics
   * Setting alerts in Azure Monitor
   * Enabling diagnostic logs
-* Using diagnostic logs to debug
+  * Using diagnostic logs to debug
 
 Update the alerts in the article [Set up and use metrics and diagnostic logs with an IoT Hub](tutorial-use-metrics-and-diags.md) so they use the Azure Monitor alerts instead of the old classic alerts.
 
