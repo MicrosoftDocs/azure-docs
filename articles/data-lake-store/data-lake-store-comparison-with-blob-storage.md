@@ -1,15 +1,9 @@
 ---
-title: Azure Data Lake Storage Gen1 comparison with Azure Storage Blob | Microsoft Docs
-description: Azure Data Lake Storage Gen1 comparison with Azure Storage Blob
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
+title: Comparison of Azure Data Lake Storage Gen1 with Blob storage
+description: Provides a summary of the differences between Azure Data Lake Storage Gen1 and Azure Blob storage.
 
-ms.assetid: b199525b-84de-4f79-9eb6-69a613b8b217
+author: twooley
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
@@ -36,10 +30,10 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 | Data Operations - Auditing |Available. See [here](data-lake-store-diagnostic-logs.md) for information. |Available |
 | Encryption data at rest |<ul><li>Transparent, Server side</li> <ul><li>With service-managed keys</li><li>With customer-managed keys in Azure KeyVault</li></ul></ul> |<ul><li>Transparent, Server side</li> <ul><li>With service-managed keys</li><li>With customer-managed keys in Azure KeyVault (preview)</li></ul><li>Client-side encryption</li></ul> |
 | Management operations (e.g. Account Create) |[Role-based access control](../role-based-access-control/overview.md) (RBAC) provided by Azure for account management |[Role-based access control](../role-based-access-control/overview.md) (RBAC) provided by Azure for account management |
-| Developer SDKs |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
+| Developer SDKs |.NET, Java, Python, Node.js |.NET, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
 | Analytics Workload Performance |Optimized performance for parallel analytics workloads. High Throughput and IOPS. |Optimized performance for parallel analytics workloads. |
 | Size limits |No limits on account sizes, file sizes or number of files |For specific limits, see [Scalability targets for standard storage accounts](../storage/common/scalability-targets-standard-account.md) and [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md). Larger account limits available by contacting [Azure Support](https://azure.microsoft.com/support/faq/) |
-| Geo-redundancy |Locally-redundant (multiple copies of data in one Azure region) |Locally redundant (LRS), zone redundant (ZRS), globally redundant (GRS), read-access globally redundant (RA-GRS). See [here](../storage/common/storage-redundancy.md) for more information |
+| Geo-redundancy |Locally redundant (multiple copies of data in one Azure region) |Locally redundant (LRS), zone redundant (ZRS), globally redundant (GRS), read-access globally redundant (RA-GRS). See [here](../storage/common/storage-redundancy.md) for more information |
 | Service state |Generally available |Generally available |
 | Regional availability |See [here](https://azure.microsoft.com/regions/#services) |Available in all Azure regions |
 | Price |See [Pricing](https://azure.microsoft.com/pricing/details/data-lake-store/) |See [Pricing](https://azure.microsoft.com/pricing/details/storage/) |
