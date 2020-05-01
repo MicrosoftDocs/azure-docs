@@ -43,11 +43,11 @@ Azure Communication Services emits the following event types:
 
 TODO Add more
 
-Use either the Azure portal or Azure CLI to configure which events to publish from each Communication Service. For an example, try the (tutorial Send email notifications about SMS Events events using Logic Apps)[https://docs.microsoft.com/en-us/azure/event-grid/publish-iot-hub-events-to-logic-apps].
+Use either the Azure portal or Azure CLI to configure which events to publish from each Communication Service. For an example, try the [tutorial Send email notifications about SMS Events events using Logic Apps](https://docs.microsoft.com/en-us/azure/event-grid/publish-iot-hub-events-to-logic-apps).
 
 ## Event Schema
 
-When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint. Communication Services events contain all the information you need to respond to events in your service. You can identify an Communication Services event by checking that the eventType property starts with Microsoft.CommunicationServices. For more information about how to use Event Grid event properties, see the Event Grid event schema.
+When an event is triggered, the Event Grid service sends data about that event to subscribing endpoints. Communication Services events contain all the information you need to respond to events in your service. You can identify an Communication Services event by checking that the eventType property starts with Microsoft.CommunicationServices. For more information about how to use Event Grid event properties, see the Event Grid event schema.
 
 ### Event Subjects
 
