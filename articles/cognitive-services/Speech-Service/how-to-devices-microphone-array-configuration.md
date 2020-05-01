@@ -48,7 +48,7 @@ Currently only [Roobo v1](speech-devices-sdk-android-quickstart.md) is supported
 
 ## Microphone Array Configuration JSON
 
-The [JSON file](https://aka.ms/sdsdk-micarray-json) for microphone array geometry configuration will follow the JSON schema. Following are some examples that follow the schema.
+The JSON file for microphone array geometry configuration will follow the [JSON schema](https://aka.ms/sdsdk-micarray-json). Following are some examples that follow the schema.
 
 
 ```json
