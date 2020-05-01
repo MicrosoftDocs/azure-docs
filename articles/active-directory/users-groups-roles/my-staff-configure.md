@@ -32,14 +32,20 @@ My Staff is based on administrative units (AUs), which are a container of resour
 To complete this article, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+  * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 * An Azure Active Directory tenant associated with your subscription.
-    * If needed, [create an Azure Active Directory tenant](../fundamentals/sign-up-organization.md) or [associate an Azure subscription with your account](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+
+  * If needed, [create an Azure Active Directory tenant](../fundamentals/sign-up-organization.md) or [associate an Azure subscription with your account](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+
 * You need *Global administrator* privileges in your Azure AD tenant to enable SMS-based authentication.
+
 * Each user that's enabled in the text message authentication method policy must be licensed, even if they don't use it. Each enabled user must have one of the following Azure AD or Microsoft 365 licenses:
-    * [Azure AD Premium P1 or P2](https://azure.microsoft.com/pricing/details/active-directory/)
-    * [Microsoft 365 (M365) F1 or F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
-    * [Enterprise Mobility + Security (EMS) E3 or E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) or [Microsoft 365 (M365) E3 or E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
+
+  * [Azure AD Premium P1 or P2](https://azure.microsoft.com/pricing/details/active-directory/)
+  * [Microsoft 365 (M365) F1 or F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
+  * [Enterprise Mobility + Security (EMS) E3 or E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) or [Microsoft 365 (M365) E3 or E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
 
 ## How to enable My Staff
 
