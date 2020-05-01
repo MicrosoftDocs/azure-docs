@@ -20,7 +20,7 @@ Azure Custom Vision automatically encrypts your data when persisted it to the cl
 [!INCLUDE [cognitive-services-about-encryption](../../../includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
-> Customer-managed keys are only available on the E0 pricing tier. To request the ability to use customer-managed keys, fill out and submit the [Custom Vision Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk). It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using CMK with Custom Vision, you will need to create a new Custom Vision resource and select E0 as the Pricing Tier. Once your resource with the E0 pricing tier is created, you can use Azure Key Vault to set up your managed identity.
+> Customer-managed keys are only available resources created after 11 May, 2020. To use CMK with Custom Vision, you will need to create a new Custom Vision resource. Once the resource is created, you can use Azure Key Vault to set up your managed identity.
 
 ### Regional availability
 
