@@ -166,23 +166,23 @@ This table describes some field types and the data types that those fields requi
 
 | Field | Data type | Description |
 |-------|-----------|-------------|
-| Text field | Single line of text | Requires either a single line of text or dynamic content that has the text data type, for example: <p><p>- **Description** <br>- **Category** |
-| Integer field | Whole number | Requires either an integer or dynamic content that has the integer data type, for example: <p><p>- **Percent Complete** <br>- **Duration** |
-| Date field | Date and Time | Requires either a date in MM/DD/YYY format or dynamic content that has the date data type, for example: <p><p>- **Created On** <br>- **Start Date** <br>- **Actual Start** <br>- **Actual End** <br>- **Due Date** |
-| Field that references another entity record | Primary key | Requires both a record ID, such as a GUID, and a lookup type, which means that values from the dynamic content list won't work, for example: <p><p>- **Owner**: Must be a valid user ID or a team record ID. <br>- **Owner Type**: Must be a lookup type such as `systemusers` or `teams`, respectively. <p><p>- **Regarding**: Must be a valid record ID such as an account ID or a contact record ID. <br>- **Regarding Type**: Must be a lookup type such as `accounts` or `contacts`, respectively. <p><p>- **Customer**: Must be a valid record ID such as an account ID or contact record ID. <br>- **Customer Type**: Must be the lookup type, such as `accounts` or `contacts`, respectively. |
+| Text field | Single line of text | Requires either a single line of text or dynamic content that has the text data type, for example, these properties: <p><p>- **Description** <br>- **Category** |
+| Integer field | Whole number | Requires either an integer or dynamic content that has the integer data type, for example, these properties: <p><p>- **Percent Complete** <br>- **Duration** |
+| Date field | Date and Time | Requires either a date in MM/DD/YYY format or dynamic content that has the date data type, for example, these properties: <p><p>- **Created On** <br>- **Start Date** <br>- **Actual Start** <br>- **Actual End** <br>- **Due Date** |
+| Field that references another entity record | Primary key | Requires both a record ID, such as a GUID, and a lookup type, which means that values from the dynamic content list won't work, for example, these properties: <p><p>- **Owner**: Must be a valid user ID or a team record ID. <br>- **Owner Type**: Must be a lookup type such as `systemusers` or `teams`, respectively. <p><p>- **Regarding**: Must be a valid record ID such as an account ID or a contact record ID. <br>- **Regarding Type**: Must be a lookup type such as `accounts` or `contacts`, respectively. <p><p>- **Customer**: Must be a valid record ID such as an account ID or contact record ID. <br>- **Customer Type**: Must be the lookup type, such as `accounts` or `contacts`, respectively. |
 ||||
 
-For example, this **Create a new record** action creates a new "Tasks" record and shows how some of these field types require values that match the required data types.
+This example shows how the **Create a new record** action creates a new "Tasks" record that's associated with other entity records, specifically a user record and an account record. The action specifies the IDs and lookup types for those entity records by using values that match the expected data types for the relevant properties.
 
-* The action assigns the new task record to a specific user ID, based on the record ID in the **Owner** field and the lookup type in the **Owner Type** field. 
+* Based on the **Owner** property, which specifies a user ID, and the **Owner Type** property, which specifies the `systemusers` lookup type, the action associates the new "Tasks" record with a specific user.
 
-* The action adds an account record that's associated with the record ID in the **Regarding** field and the lookup type in the **Regarding Type** field.
+* Based on the **Regarding** property, which specifies a record ID, and the **Regarding Type** property, which specifies the `accounts` lookup type, the action associates the new "Tasks` record with a specific account.
 
-![Create task record with record IDs and lookup types](./media/connect-common-data-service/create-new-record-task-properties.png)
+![Create "Tasks" record associated with IDs and lookup types](./media/connect-common-data-service/create-new-record-task-properties.png)
 
 ## Connector reference
 
-For technical information based on the connector's Swagger description, such as triggers, actions, limits, and other details, see the the [connector's reference page](https://docs.microsoft.com/connectors/commondataservice/).
+For technical information based on the connector's Swagger description, such as triggers, actions, limits, and other details, see the [connector's reference page](https://docs.microsoft.com/connectors/commondataservice/).
 
 ## Next steps
 
