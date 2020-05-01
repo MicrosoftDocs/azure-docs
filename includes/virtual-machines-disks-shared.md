@@ -46,6 +46,10 @@ Some popular applications running on WSFC include:
 
 Linux clusters can leverage cluster managers such as [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker builds on [Corosync](http://corosync.github.io/corosync/), enabling cluster communications for applications deployed in highly available environments. Some common clustered filesystems include [ocfs2](https://oss.oracle.com/projects/ocfs2/) and [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). You can manipulate reservations and registrations using utilities such as [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) and [sg_persist](https://linux.die.net/man/8/sg_persist).
 
+#### Ubuntu
+
+For details on how to set up Ubuntu High Availability with Corosync & Pacemaker on Azure Shared Disk please refer to the [Ubuntu Community Discourse] (https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874).
+
 ## Persistent reservation flow
 
 The following diagram illustrates a sample 2-node clustered database application that leverages SCSI PR to enable failover from one node to the other.
