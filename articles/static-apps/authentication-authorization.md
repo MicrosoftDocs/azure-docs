@@ -54,20 +54,20 @@ Invitations are specific to individual authorization-providers, so consider the 
 | Google                 | email address     |
 | Twitter                | username          |
 
-- Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
-- Under _Settings_, click on **Role Management**.
-- Click on the **Invite** button.
-- Select an _Authorization provider_ from the list of options.
-- Add either the username or email address of the recipient in the _Invitee details_ box.
-  - For GitHub and Twitter, you enter the username. For all others, enter the recipient's email address.
-- Select the domain of your static site from the _Domain_ drop-down.
-  - The domain you select is the domain that appears in the invitation. If you have a custom domain associated with your site, you probably want to choose the custom domain.
-- Add a comma-separated list of role names in the _Role_ box.
-- Enter the maximum number of hours you want the invitation to remain valid.
-  - The maximum possible limit is 168 hours, which is 7 days.
-- Click the **Generate** button.
-- Copy the link from the _Invite link_ box.
-- Email the invitation link to the person you're granting access to your app.
+1. Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+1. Under _Settings_, click on **Role Management**.
+1. Click on the **Invite** button.
+1. Select an _Authorization provider_ from the list of options.
+1. Add either the username or email address of the recipient in the _Invitee details_ box.
+    - For GitHub and Twitter, you enter the username. For all others, enter the recipient's email address.
+1. Select the domain of your static site from the _Domain_ drop-down.
+    - The domain you select is the domain that appears in the invitation. If you have a custom domain associated with your site, you probably want to choose the custom domain.
+1. Add a comma-separated list of role names in the _Role_ box.
+1. Enter the maximum number of hours you want the invitation to remain valid.
+    - The maximum possible limit is 168 hours, which is 7 days.
+1. Click the **Generate** button.
+1. Copy the link from the _Invite link_ box.
+1. Email the invitation link to the person you're granting access to your app.
 
 When the user clicks the link in the invitation, they're prompted to log in with their corresponding account. Once successfully logged-in, the user is associated with the selected roles.
 
@@ -76,25 +76,25 @@ When the user clicks the link in the invitation, they're prompted to log in with
 
 ### Update role assignments
 
-- Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
-- Under _Settings_, click on **Role Management**.
-- Click on the user in the list.
-- Edit the list of roles in the _Role_ box.
-- Click the **Update** button.
+1. Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+1. Under _Settings_, click on **Role Management**.
+1. Click on the user in the list.
+1. Edit the list of roles in the _Role_ box.
+1. Click the **Update** button.
 
 ### Remove user
 
-- Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
-- Under _Settings_, click on **Role Management**.
-- Locate the user in the list.
-- Check the checkbox on the user's row.
-- Click the **Delete** button.
+1. Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+1. Under _Settings_, click on **Role Management**.
+1. Locate the user in the list.
+1. Check the checkbox on the user's row.
+1. Click the **Delete** button.
 
 As you remove a user, keep in mind the following items:
 
-- Removing a user invalidates their permissions.
-- Worldwide propagation may take a few minutes.
-- If the user is added back to the app, the [`userId` changes](user-information.md).
+1. Removing a user invalidates their permissions.
+1. Worldwide propagation may take a few minutes.
+1. If the user is added back to the app, the [`userId` changes](user-information.md).
 
 ## System folder
 
