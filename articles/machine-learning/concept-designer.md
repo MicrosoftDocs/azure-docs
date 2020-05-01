@@ -87,6 +87,7 @@ Use compute resources from your workspace to run your pipeline and host your dep
 | Compute target | Training | Deployment |
 | ---- |:----:|:----:|
 | Azure Machine Learning compute | ✓ | |
+| Azure Machine Learning compute instance | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
 Compute targets are attached to your [Azure Machine Learning workspace](concept-workspace.md). You manage your compute targets in your workspace in [Azure Machine Learning Studio (classic)](https://ml.azure.com).
