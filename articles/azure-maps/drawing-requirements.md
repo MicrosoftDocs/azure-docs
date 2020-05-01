@@ -12,7 +12,7 @@ manager: philMea
 
 # Drawing package requirements
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert uploaded Drawing packages into map data. This article describes the Drawing package requirements for the Conversion API. To view a sample package, you can download the [Sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert uploaded Drawing packages into map data. This article describes the Drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ## Prerequisites
 
@@ -53,6 +53,8 @@ The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/dat
 * Walls
 * Vertical Penetrations
 
+All conversion jobs result in a minimal set of default categories: room, structure.wall, opening.door, zone, and facility. Additional categories are for each Category Name referenced by objects.  
+
 A DWG layer must contain features of a single class, and classes must not share a layer. For example, units and walls can't share a layer.
 
 Moreover:
@@ -67,13 +69,13 @@ The table below outlines the supported entity types and supported features for e
 
 | Layer | Entity types | Features |
 | :----- | :-------------------| :-------
-| Exterior | Polygon, PolyLine (closed), Circle |
-| Units |  Polygon, PolyLine (closed), Circle | Vertical Penetrations, Units
-| Walls  | Polygon, PolyLine (closed), Circle |
-| Doors | Polygon, PolyLine, Line, CircularArc, Circle |
-| Zones | Polygon, PolyLine (closed), Circle |
-| UnitLabel | Text (single line) | Not applicable. This layer can only add properties to the unit features from the Units Layer.
-| ZoneLabel | Text (single line) | Not applicable. This layer can only add properties to zone features from the ZonesLayer.
+| [Exterior](#exterior-layer) | Polygon, PolyLine (closed), Circle | Levels
+| [Unit](#unit-layer) |  Polygon, PolyLine (closed), Circle | Vertical Penetrations, Units
+| [Wall](#wall-layer)  | Polygon, PolyLine (closed), Circle | Not applicable. For more details, see the [Wall layer](#wall-layer).
+| [Door](#door-layer) | Polygon, PolyLine, Line, CircularArc, Circle | Openings
+| [Zone](#zone-layer) | Polygon, PolyLine (closed), Circle | Zone
+| [UnitLabel](#unitlabel-layer) | Text (single line) | Not applicable. This layer can only add properties to the unit features from the Units layer. For more details, see the [UnitLabel layer](#unitlabel-layer).
+| [ZoneLabel](#zonelabel-layer) | Text (single line) | Not applicable. This layer can only add properties to zone features from the ZonesLayer. For more details, see the [ZoneLabel layer](#zonelabel-layer)
 
 The next sections detail the requirements for each layer.
 
@@ -89,9 +91,9 @@ Now matter how many entity drawings are in the exterior layer, the [resulting fa
 
 If the layer contains multiple overlapping PolyLines, then the PolyLines will be dissolved into a single Level feature. Alternatively, if the layer contains multiple non_overlapping PolyLines, the resulting Level feature will have a multi-polygonal representation.
 
-An example of the Exterior layer can be seen as the OUTLINE layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+An example of the Exterior layer can be seen as the OUTLINE layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
-### Units layer
+### Unit layer
 
 The DWG file for each level should define a layer containing units.  Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. The Units layer should adhere to the following requirements:
 
@@ -102,36 +104,36 @@ The DWG file for each level should define a layer containing units.  Units are n
 
  Name a unit by creating a text object in the _unitLabel_ layer, then place the object inside the bounds of the unit. For more information, see the [UnitLabel layer](#unitlabel-layer).
 
-An example of the Units layer can be seen as the UNITS layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+An example of the Units layer can be seen as the UNITS layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
-### Walls layer
+### Wall layer
 
 The DWG file for each level may contain a layer that defines the physical extents of walls, columns, and other building structure.
 
 * Walls must be drawn as Polygon, PolyLine (closed), Circle
 * The wall layer(s) should only contain geometry that's interpreted as building structure.
 
-An example of the Walls layer can be seen as the WALLS layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+An example of the Walls layer can be seen as the WALLS layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
-### Doors layer
+### Door layer
 
 You may include a DWG layer containing doors. Each door must overlap the edge of a unit from the unit layer. Each facility level can have a separate doors layer since each level is in a separate DWG file.
 
 Doors from the layer won't be rendered on the resulting map as they appear in the CAD software. They'll be drawn according to the Azure Maps styling rules for the opening features.
 
-An example of the Doors layer can be seen as the DOORS layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+An example of the Doors layer can be seen as the DOORS layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
-### Zones layer
+### Zone layer
 
-The DWG file for each level may contain a zone layer that defines the physical extents of zones. A zone can be an indoor empty space or a back yard. 
+The DWG file for each level may contain a zone layer that defines the physical extents of zones. A zone can be an indoor empty space or a back yard.
 
 * Zones must be drawn as Polygon, PolyLine (closed), Circle
 * Zones may overlap
 * Zones may fall inside or outside the facility's exterior perimeter
 
-Name a zone by creating a text object in the _zoneLabel_ layer, and placing the text object inside the bounds of the zone. For more information, see [ZoneLabel layer](#zonelabel-layer).
+Name a zone by creating a text object in the _zoneLabel_ layer, and placing the text object inside the bounds of the zone. For more details, see [ZoneLabel layer](#zonelabel-layer).
 
-An example of the Zones layer can be seen as the ZONES layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+An example of the Zones layer can be seen as the ZONES layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### UnitLabel layer
 
@@ -141,7 +143,7 @@ The DWG file for each level may contain a unit label layer. The unit label layer
 * Unit labels must fall inside the bounds of their unit.
 * Units must not contain multiple text entities in the unit labels layer.
 
-An example of the UnitLabel layer can be seen as the UNITLABELS layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+An example of the UnitLabel layer can be seen as the UNITLABELS layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ### ZoneLabel layer
 
@@ -151,7 +153,7 @@ The DWG file for each level may contain a zone label layer. This layer adds a na
 * Zones labels must fall inside the bounds of their zone.
 * Zones must not contain multiple text entities in the zone labels layer.
 
-An example of the Zonelabel layer can be seen as the ZONELABELS layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+An example of the Zonelabel layer can be seen as the ZONELABELS layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ## Manifest file requirements
 
@@ -162,9 +164,9 @@ The file paths, in the **building_levels** object of the manifest file, must be 
 Although there are requirements when using the manifest objects, not all objects are required. The table below shows the required and the optional objects for version 1.1 of the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion).
 
 | Object | Required | Description |
-| :----- | :------- | :------- | 
+| :----- | :------- | :------- |
 | directoryInfo | true | Outlines the facility geographic and contact information. It can also be used to outline an occupant geographic and contact information. |
-| buildingLevels | true | Specifies the levels of the buildings and the files containing the design of the levels | 
+| buildingLevels | true | Specifies the levels of the buildings and the files containing the design of the levels |
 | georeference | true | Contains numerical geographic information for the facility drawing |
 | dwgLayers | true | Lists the names of the layers, and each layer lists the names of its own features |
 | unitProperties | false | Can be used to insert additional metadata for the unit features |
@@ -207,8 +209,8 @@ The `buildingLevels` object contains a JSON array of buildings levels.
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|lat    | numeric |    true |    Decimal representation of degrees latitude at the facility drawing's origin |
-|lon    |numeric|    true|    Decimal representation of degrees longitude at the facility drawing's origin |
+|lat    | numeric |    true |    Decimal representation of degrees latitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (EPSG:3857).|
+|lon    |numeric|    true|    Decimal representation of degrees longitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (EPSG:3857) |
 |angle|    numeric|    true|    The angle from the desired orientation of the building on a map to the orientation of the building in the DWG file. The angle is measured clockwise and in degrees. |
 
 ### dwgLayers
@@ -232,16 +234,16 @@ The `unitProperties` object contains a JSON array of unit properties.
 |unitName    |string/int    |true    |Name of unit to associate with this `unitProperty` record. This record is only valid when a label matching `unitName` is found in the `unitLabel` layer(s) |
 |categoryName|    string/int|    false    |Category Name. For a complete list of categories, refer to [categories](https://aka.ms/pa-indoor-spacecategories). |
 |navigableBy| Array of strings |    false    |Indicates the types of navigating agents that can traverse the unit. For example, "pedestrian". This property will inform the wayfinding capabilities.  The permitted values are `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hired_auto`, `bus`, `railcar`, `emergency`, `ferry`, `boat`, and `disallowed`.|
-|routeThroughBehavior|    string|    false    |The route through behavior for the unit. The permitted values are `disallowed`, `allowed`, and `preferred`.|
+|routeThroughBehavior|    string|    false    |The route through behavior for the unit. The permitted values are `disallowed`, `allowed`, and `preferred`. Default value is `allowed`.|
 |occupants    |Array of directoryInfo objects |false    |List of occupants for the unit |
 |nameAlt|    string/int|    false|    Alternate Name |
 |nameSubtitle|    string/int    |false|    Subtitle |
 |addressRoomNumber|    string/int|    false|    Room/Unit/Apartment/Suite number of the unit|
 |verticalPenetrationCategory|    string/int|    false| When this property is defined, the resulting feature will be a Vertical Penetration (VRT) rather than a unit. VRTs can be used to navigate to other VRT features in the levels above or below it. Vertical Penetration is a [Category](https://aka.ms/pa-indoor-spacecategories) Name. If this property is defined, categoryName property is overridden with verticalPenetrationCategory. |
-|verticalPenetrationDirection|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are `low_to_high`, `high_to_low`, `both`, and `closed`.|
+|verticalPenetrationDirection|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are `low_to_high`, `high_to_low`, `both`, and `closed`. Default value is `both`.|
 | nonPublic | bool | false | Indicates if the unit is open to the public |
-| isRoutable | bool | false | When set to false, unit can't be navigated to, or through |
-| isOpenArea | bool | false | Allows navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to true unless the unit has an opening. |
+| isRoutable | bool | false | When set to `false`, unit can't be navigated to, or through. Default value is `true` |
+| isOpenArea | bool | false | Allows navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to `true` unless the unit has an opening. |
 
 ### The zoneProperties object
 
@@ -254,8 +256,8 @@ The `zoneProperties` object contains a JSON array of zone properties.
 |zoneNameAlt|    string/int|    false    |Alternate Name  |
 |zoneNameSubtitle|    string/int |    false    |Subtitle |
 
-### Sample Drawing package
-Below is a sample manifest file for the sample Drawing package. To download the entire package, click [Creator Drawing Sample package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
+### Sample Conversion Drawing package manifest
+Below is a sample manifest file for the sample Conversion Drawing package. To download the entire package, click [sample Conversion Drawing package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
 
 #### Manifest File
 ```JSON
@@ -388,7 +390,7 @@ Below is a sample manifest file for the sample Drawing package. To download the 
 
 ## Next steps
 
-Once your Drawing package meets the requirements, you may use the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) to convert the package to a map data set. Then, you can use the data set to generate an indoor map using the Indoor Maps module. Learn more about using the Indoor Maps module by reading the following articles:
+Once your Drawing package meets the requirements, you may use the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) to convert the package to a map dataset. Then, you can use the dataset to generate an indoor map using the Indoor Maps module. Learn more about using the Indoor Maps module by reading the following articles:
 
 > [!div class="nextstepaction"]
 >[Creator for indoor maps](creator-for-indoor-maps.md)

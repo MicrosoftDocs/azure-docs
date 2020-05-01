@@ -30,7 +30,7 @@ To create indoor maps:
 1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 3. [Enable Creator](how-to-manage-creator.md)
-4. Download the [Sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+4. Download the [Sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
@@ -123,7 +123,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
 >[!NOTE]
 >The Postman application does not natively support HTTP Long Running Requests. As a result, you may notice a long delay while making a **GET** request at the status URL.  Wait about thirty seconds and try clicking the **Send** button again until the response shows success or fail.
 
-The sample Drawing package should be converted without errors. However, if you receive errors using your own Drawing package, the response, as shown below, will give you a link to the [Drawing error visualizer](azure-maps-drawing-errors-visualizer.md). To receive recommendations on how to resolve conversion errors and warnings, see the [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
+The sample Conversion Drawing package should be converted without errors. However, if you receive errors using your own Drawing package, the response, as shown below, will give you a link to the [Drawing error visualizer](azure-maps-drawing-errors-visualizer.md). To receive recommendations on how to resolve conversion errors and warnings, see the [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
 
 ```json
 {
