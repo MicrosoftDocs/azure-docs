@@ -35,6 +35,39 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
 
 ## Installation and import
 
+* **Pip Installation: Dependencies are not guaranteed to be consistent with single line installation**: 
+
+   This is a known limitation of pip, as it does not have a functioning dependency resolver when you install as a single line. The first  unique dependency is the only one it looks at. 
+
+   In the following code `azure-ml-datadrift` and `azureml-train-automl` are both installed using a single line pip install. 
+     ```
+       pip install azure-ml-datadrift, azureml-train-automl
+     ```
+   For this example, let's say `azure-ml-datadrift` requires version > 1.0 and `azureml-train-automl` requires version < 1.2. If the latest version of `azure-ml-datadrift` is 1.3,  then both packages get upgraded to 1.3, regardless of the `azureml-train-automl` package requirement for an older version. 
+
+   To ensure the appropriate versions are installed for your packages, install using multiple lines like in the following code. Order isn't an issue here, since pip explicitly downgrades as part of the next line call. And so, the appropriate version dependencies are applied.
+    
+     ```
+        pip install azure-ml-datadrift
+        pip install azureml-train-automl 
+     ```
+
+* **Panda errors: Typically seen during AutoML Experiment:**
+   
+   When manually setting up your environmnet using pip, you will notice attribute errors (especially from pandas) due to unsupported package versions being installed. In order to prevent such errors, [please install the AutoML SDK using the automl_setup.cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
+   
+    1. Open an Anaconda prompt and clone the GitHub repository for a set of sample notebooks.
+
+    ```bash
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+    
+    2. cd to the how-to-use-azureml/automated-machine-learning folder where the sample notebooks were extracted and then run:
+    
+    ```bash
+    automl_setup
+    ```
+  
 * **Error message: Cannot uninstall 'PyYAML'**
 
     Azure Machine Learning SDK for Python: PyYAML is a `distutils` installed project. Therefore, we cannot accurately determine which files belong to it if there is a partial uninstall. To continue installing the SDK while ignoring this error, use:
@@ -42,16 +75,6 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
     ```Python
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
-
-* **Error message: No matching distribution found for azureml-dataprep-native**
-
-    Anaconda's Python 3.7.4 distribution has a bug that breaks azureml-sdk install. This issue is discussed in this [GitHub Issue](https://github.com/ContinuumIO/anaconda-issues/issues/11195)
-    
-    This can be worked around by creating a new Conda Environment using this command:
-    ```bash
-    conda create -n <env-name> python=3.7.3
-    ```
-    Which creates a Conda Environment using Python 3.7.3, which doesn't have the install issue present in 3.7.4.
 
 * **Databricks failure when installing packages**
 
@@ -84,11 +107,10 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
 
 * **Databricks FailToSendFeather**: If you see a `FailToSendFeather` error when reading data on Azure Databricks cluster, refer to the following solutions:
     
-        * Upgrade `azureml-sdk[automl]` package to the latest version.
-        * Add `azureml-dataprep` version 1.1.8 or above.
-        * Add `pyarrow` version 0.11 or above.
-        `
-
+    * Upgrade `azureml-sdk[automl]` package to the latest version.
+    * Add `azureml-dataprep` version 1.1.8 or above.
+    * Add `pyarrow` version 0.11 or above.
+    
 ## Create and manage workspaces
 
 > [!WARNING]
@@ -108,9 +130,7 @@ If you receive an error `Unable to upload project files to working directory in 
 
 If you are using file share for other workloads, such as data transfer, the recommendation is to use blobs so that file share is free to be used for submitting runs. You may also split the workload between two different workspaces.
 
-### Datasets and Data Preparation
-
-These are known issues for Azure Machine Learning Datasets.
+### Passing data as input
 
 *  **TypeError: FileNotFound: No such file or directory**: This error occurs if the file path you provide isn't where the file is located. You need to make sure the way you refer to the file is consistent with where you mounted your dataset on your compute target. To ensure a deterministic state, we recommend using the abstract path when mounting a dataset to a compute target. For example, in the following code we mount the dataset under the root of the filesystem of the compute target, `/tmp`. 
     
@@ -123,8 +143,7 @@ These are known issues for Azure Machine Learning Datasets.
 
     If you don't include the leading forward slash, '/',  you'll need to prefix the working directory e.g. `/mnt/batch/.../tmp/dataset` on the compute target to indicate where you want the dataset to be mounted.
 
-### Data labeling projects issues
-
+### Data labeling projects
 
 |Issue  |Resolution  |
 |---------|---------|
@@ -133,9 +152,9 @@ These are known issues for Azure Machine Learning Datasets.
 |When reviewing images, newly labeled images are not shown     |   To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.      |
 |Pressing Esc key while labeling for object detection creates a zero size label on the top-left corner. Submitting labels in this state fails.     |   Delete the label by clicking on the cross mark next to it.  |
 
-## Azure Machine Learning designer issues
+## Azure Machine Learning designer
 
-Known issues with the designer.
+Known issues:
 
 * **Long compute preparation time**: It may be a few minutes or even longer when you first connect to or create a compute target. 
 

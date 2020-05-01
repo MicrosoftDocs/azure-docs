@@ -4,7 +4,7 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 04/02/2020
 ms.author: rogarana
 ms.subservice: disks
 ---

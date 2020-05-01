@@ -1,10 +1,10 @@
 ---
 title: Microsoft Security Code Analysis onboarding guide
 description: This article describes installing the Microsoft Security Code Analysis extension
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 04/24/2020
 ms.topic: article
 ms.service: security
 services: azure
@@ -40,11 +40,12 @@ If you do not have one of the mentioned above support agreements, you can purcha
 
 **Next Steps:**
 
-Contact a Partner from the below list and ask to purchase the Microsoft Security Code Analysis extension.
+If you meet the above qualifications, contact a partner from the below list to purchase the Microsoft Security Code Analysis extension. Otherwise, contact [Microsoft Security Code Analysis Support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
 
 >**Partners:**
 
 - Zones - Contact Details: cloudsupport@zones.com
+- Wortell – Contact Details: info@wortell.nl
 
 ### Become a Partner
 

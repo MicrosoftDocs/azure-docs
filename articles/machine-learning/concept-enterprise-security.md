@@ -73,7 +73,7 @@ The following table lists some of the major Azure Machine Learning operations an
 If the built-in roles don't meet your needs, you can create custom roles. Custom roles are supported only for operations on the workspace and Machine Learning Compute. Custom roles can have read, write, or delete permissions on the workspace and on the compute resource in that workspace. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 > [!WARNING]
-> Azure Machine Learning is not currently supported with Azure Active Directory business-to-business collaboration.
+> Azure Machine Learning is supported with Azure Active Directory business-to-business collaboration, but is not currently supported with Azure Active Directory business-to-consumer collaboration.
 
 ### Securing compute targets and data
 
@@ -129,7 +129,15 @@ You can also enable Azure Private Link for your workspace. Private Link allows y
 ### Encryption at rest
 
 > [!IMPORTANT]
-> If your workspace contains sensitive data we recommend setting the [hbi_workspace flag](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) while creating your workspace. This controls the amount of data Microsoft collects for diagnostic purposes and enables additional encryption in Microsoft managed environments.
+> If your workspace contains sensitive data we recommend setting the [hbi_workspace flag](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) while creating your workspace. 
+
+The `hbi_workspace` flag controls the amount of data Microsoft collects for diagnostic purposes and enables additional encryption in Microsoft managed environments. In addition it enables the following:
+
+* Starts encrypting the local scratch disk in your Amlcompute cluster provided you have not created any previous clusters in that subscription. Else, you need to raise a support ticket to enable encryption of the scratch disk of your compute clusters 
+* Cleans up your local scratch disk between runs
+* Securely passes credentials for your storage account, container registry and SSH account from the execution layer to your compute clusters using your key vault
+* Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService
+
 
 For more information on how encryption at rest works in Azure, see [Azure data encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
@@ -170,7 +178,7 @@ To enable provisioning a Cosmos DB instance in your subscription with customer-m
         > [!NOTE]
         > This key vault instance can be different than the key vault that is created by Azure Machine Learning when you provision the workspace. If you want to use the same key vault instance for the workspace, pass the same key vault while provisioning the workspace by using the [key_vault parameter](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-This Cosmos DB instance is created in a Microsoft-managed resource group in your subscription. 
+This Cosmos DB instance is created in a Microsoft-managed resource group in your subscription. The managed resource group is named in the format `<AML Workspace Resource Group Name><GUID>`.
 
 > [!IMPORTANT]
 > * If you need to delete this Cosmos DB instance, you must delete the Azure Machine Learning workspace that uses it. 
@@ -230,9 +238,9 @@ Azure Databricks can be used in Azure Machine Learning pipelines. By default, th
 
 ### Encryption in transit
 
-You can use TLS to secure internal communication between Azure Machine Learning microservices and to secure external calls to the scoring endpoint. All Azure Storage access also occurs over a secure channel.
+Azure Machine Learning uses TLS to secure internal communication between various Azure Machine Learning microservices. All Azure Storage access also occurs over a secure channel.
 
-For more information, see [Use TLS to secure a web service through Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+To secure external calls to the scoring endpoint Azure Machine Learning uses TLS. For more information, see [Use TLS to secure a web service through Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### Using Azure Key Vault
 
@@ -372,10 +380,7 @@ Here are the details:
 
 * [Secure Azure Machine Learning web services with TLS](how-to-secure-web-service.md)
 * [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
-* [How to run batch predictions](how-to-use-parallel-run-step.md)
-* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
-* [Collect data for models in production](how-to-enable-data-collection.md)
-* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Use Azure Machine Learning with Azure Firewall](how-to-access-azureml-behind-firewall.md)
 * [Use Azure Machine Learning with Azure Virtual Network](how-to-enable-virtual-network.md)
 * [Best practices for building recommendation systems](https://github.com/Microsoft/Recommenders)
 * [Build a real-time recommendation API on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

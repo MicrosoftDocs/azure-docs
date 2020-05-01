@@ -40,6 +40,8 @@
     href: resource-manager-template-samples.md
 - name: Concepts
   items:
+  - name: Support for working remotely
+    href: ../networking/working-remotely-support.md?toc=%2fazure%2fapplication-gateway%2ftoc.json
   - name: Basics
     items:
     - name: Application Gateway features

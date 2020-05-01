@@ -2,12 +2,12 @@
 title: 'Quickstart: Connect to a virtual machine using a private IP address: Azure Bastion'
 description: In this article, learn how to create an Azure Bastion host from a virtual machine and connect securely using a private IP address.
 services: bastion
-author: cherylmc
+author: charwen
 
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: cherylmc
+ms.author: charwen
 # Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH without using a public IP address.
 
 ---

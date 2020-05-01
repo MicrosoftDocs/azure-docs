@@ -53,7 +53,7 @@ The following list provides the main use cases where instance pools should be co
 
 ## Architecture of instance pools
 
-Instance pools have similar architecture to regular managed instances (*single instances*). To support [deployments within Azure Virtual Networks (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) and to provide isolation and security for customers, instance pools also rely on [virtual
+Instance pools have similar architecture to regular managed instances (*single instances*). To support [deployments within Azure Virtual Networks (VNets)](../virtual-network/virtual-network-for-azure-services.md) and to provide isolation and security for customers, instance pools also rely on [virtual
 clusters](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Virtual clusters represent a dedicated set of isolated virtual machines deployed inside the customer's virtual network subnet.
 
 The main difference between the two deployment models is that instance pools allow multiple SQL Server process deployments on the same virtual machine node, which are resource governed using [Windows Job Objects](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), while single instances are always alone on a virtual machine node.
