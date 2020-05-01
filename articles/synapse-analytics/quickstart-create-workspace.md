@@ -2,12 +2,12 @@
 title: Quickstart - create a workspace  
 description: Create an Azure Synapse Analytics workspace by following the steps in this guide. 
 services: synapse-analytics
-author: malvenko 
+author: pimorano
 ms.service: synapse-analytics 
 ms.topic: quickstart
 ms.subservice: 
 ms.date: 04/15/2020
-ms.author: josels
+ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
 ---
 
