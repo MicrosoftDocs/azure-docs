@@ -397,7 +397,7 @@ PHP and WordPress sites are not supported. There is currently no officially supp
 
 ### Connection string and instrumentation key
 
-When using codeless monitoring is being used, only the connection string is required. However, we still recommend setting the instrumentation key to preserve backwards compatibility with older versions of the SDK when manual instrumentation is being performed.
+When codeless monitoring is being used, only the connection string is required. However, we still recommend setting the instrumentation key to preserve backwards compatibility with older versions of the SDK when manual instrumentation is being performed.
 
 ## Next steps
 * [Run the profiler on your live app](../app/profiler.md).
