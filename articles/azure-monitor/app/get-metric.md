@@ -184,9 +184,9 @@ However, you will notice that you aren't able to split the metric by your new cu
 
 By default multi-dimensional metrics within the Metric explorer experience are not turned on in Application Insights resources. To turn on this behavior go to the usage and estimated cost tab by checking ["Enable alerting on custom metric dimensions"](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
-### How to use metricIdentifier when there are more than three dimensions
+### How to use MetricIdentifier when there are more than three dimensions
 
-Currently 10 dimensions are supported however, greater than three dimensions requires the user of `metricIdentifier`:
+Currently 10 dimensions are supported however, greater than three dimensions requires the use of `MetricIdentifier`:
 
 ```csharp
 // Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
