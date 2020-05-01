@@ -46,7 +46,7 @@ Before you begin this tutorial, you must have the following:
 
     b. The **Available objects** box lists the files and folders under the **AmbulanceData** folder.
 
-    c. **Objects to be registered box list the files and folders that you want to register in Azure Data Catalog.
+    c. The **Objects to be registered** box lists the files and folders that you want to register in Azure Data Catalog.
 
     ![View data structure](./media/data-lake-store-with-data-catalog/view-data-structure.png "View data structure")
 1. For this tutorial, you should register all the files in the directory. For that, click the (![move objects](./media/data-lake-store-with-data-catalog/move-objects.png "Move objects")) button to move all the files to **Objects to be registered** box.
