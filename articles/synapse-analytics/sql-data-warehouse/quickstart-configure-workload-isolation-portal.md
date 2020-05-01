@@ -67,7 +67,7 @@ To delete the `DataLoads` workload group created in this tutorial:
 3. Click on **Yes** when prompted to confirm deletion of the workload group.
 4. Click on **Save**.
 
-   ![Click Final](./media/quickstart-configure-workload-isolation-portal/quickstart-delete-workload-group-portal.png)
+   ![Click Delete](./media/quickstart-configure-workload-isolation-portal/quickstart-delete-workload-group-portal.png)
 
 
 
