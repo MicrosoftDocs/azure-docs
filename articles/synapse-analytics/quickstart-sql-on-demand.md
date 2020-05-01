@@ -23,187 +23,63 @@ SQL on demand supports the following file formats:
 
 ## Prerequisites
 
-Choose a SQL client to issue queries:
+You will need:
+* An Azure Synapse Analtyics workspace
+* Read and Write access to an ADLSGEN2 container
 
-- [Azure Synapse Studio](quickstart-synapse-studio.md) is a web tool that you can use to browse files in storage and create SQL query.
-- [Azure Data Studio](sql/get-started-azure-data-studio.md) is a client tool that enables you to run SQL queries and notebooks on your On-demand database.
-- [SQL Server Management Studio](sql/get-started-ssms.md) is a client tool that enables you to run SQL queries on your On-demand database.
+## Sample Data
 
-Parameters for quickstart:
+Download these files to your local machine
+* [SearchLog.csv](https://synapsesampledata.blob.core.windows.net/public/SearchLog/SearchLog.csv)
+* [SearchLog.parquet](https://synapsesampledata.blob.core.windows.net/public/SearchLog/SearchLog.parquet)
+* [SearchLog.json](https://synapsesampledata.blob.core.windows.net/public/SearchLog/SearchLog.json)
 
-| Parameter                                 | Description                                                   |
-| ----------------------------------------- | ------------------------------------------------------------- |
-| SQL on-demand service endpoint address    | Used as server name                                   |
-| SQL on-demand service endpoint region     | Used to determine what storage will we use in samples |
-| Username and password for endpoint access | Used to access endpoint                               |
-| The database used to create views         | Database used as starting point in samples       |
+Using Synapse studio upload them to a linked ADLSGEN2 account. They should have URIs that look like this
 
-## First-time setup
+    ```
+    https://ACCOUNT.dfs.core.windows.net/CONTAINER/SearchLog.csv
+    https://ACCOUNT.dfs.core.windows.net/CONTAINER/SearchLog.parquet
+    https://ACCOUNT.dfs.core.windows.net/CONTAINER/SearchLog.parquet
+    ```
 
-Prior to using samples:
+## Querying Parquet files
 
-- Create database for your views (in case you want to use views)
-- Create credentials to be used by SQL on-demand to access files in storage
+Create a SQL Script and enter the follwing T-SQL to query the parquet file:
 
-### Create database
-
-Create your own database for demo purposes. This is the database in which you create your views. Use this database in the sample queries in this article.
-
-> [!NOTE]
-> The databases are used only for view metadata, not for actual data.
->
-> Write down database name you use for use later in the Quickstart.
-
-Use the following query, changing `mydbname` to a name of your choice:
-
-```sql
-CREATE DATABASE mydbname
+```
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK 'https://ACCOUNT.dfs.core.windows.net/CONTAINER/SearchLog.parquet',
+        FORMAT='PARQUET'
+    ) AS [r];
 ```
 
-### Upload a sample data file into and ADLSGEN2 account
-
-* Download [this file[(<link>] to your local machine
-* Upload the tu into the primary ADLSGEN2 account for your workspace
-
-For example the file should have a path like this:
-
-
-To run queries using SQL on-demand, create credentials for SQL on-demand to use to access files in storage.
-
-> [!NOTE]
-> In order to successfully run samples in this section you have to use SAS token.
->
-> To start using SAS tokens you have to drop the UserIdentity which is explained in the following [article](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
->
-> SQL on-demand by default always uses AAD pass-through.
-
-For more information on how to manage storage access control, check this [link](sql/develop-storage-files-storage-access-control.md).
-
-Execute following code snippet to create credential used in samples in this section:
-
-```sql
--- create credentials for containers in our demo storage account
-IF EXISTS
-   (SELECT * FROM sys.credentials
-   WHERE name = 'https://sqlondemandstorage.blob.core.windows.net')
-   DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
-GO
-```
 
 ## Querying CSV files
 
-The following image is a preview of the file to be queried:
-
-![First 10 rows of the CSV file without header, Windows style new line.](./sql/media/query-single-csv-file/population.png)
-
-The following query shows how to read a CSV file that does not contain a header row, with Windows-style new line, and comma-delimited columns:
 
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET
-  (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/*.csv'
+ (
+      BULK 'https://ACCOUNT.dfs.core.windows.net/CONTAINER/SearchLog/SearchLog.csv'
     , FORMAT = 'CSV'
   )
 WITH
   (
-      country_code VARCHAR (5)
-    , country_name VARCHAR (100)
-    , year smallint
-    , population bigint
+     id           INTEGER 
+    ,time         DATETIME 
+    ,market       VARCHAR(16) 
+    ,searchtext   VARCHAR(255) 
+    ,latency      INTEGER 
+    ,links        VARCHAR(255) 
+    ,clickedlinks VARCHAR(255) 
   ) AS r
-WHERE
-  country_name = 'Luxembourg' AND year = 2017
 ```
 
-You can specify schema at query compilation time.
-For more examples, see how to [query CSV file](sql/query-single-csv-file.md).
+# Next Steps
+* CSV examples [query CSV file](sql/query-single-csv-file.md).
+* Parquet examples [querying parquet files](sql/query-parquet-files.md)].
 
-## Querying parquet files
-
-The following sample shows the automatic schema inference capabilities for querying Parquet files. It returns the number of rows in September of 2017 without specifying schema.
-
-> [!NOTE]
-> You do not have to specify columns in `OPENROWSET WITH` clause when reading Parquet files. In that case, SQL on-demand utilizes metadata in the Parquet file and bind columns by name.
-
-```sql
-SELECT COUNT_BIG(*)
-FROM OPENROWSET
-  (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet'
-    , FORMAT='PARQUET'
-  ) AS nyc
-```
-
-Find more information about [querying parquet files](sql/query-parquet-files.md)].
-
-## Querying JSON files
-
-### JSON sample file
-
-Files are stored in *json* container, folder *books*, and contain single book entry with following structure:
-
-```json
-{  
-   "_id":"ahokw88",
-   "type":"Book",
-   "title":"The AWK Programming Language",
-   "year":"1988",
-   "publisher":"Addison-Wesley",
-   "authors":[  
-      "Alfred V. Aho",
-      "Brian W. Kernighan",
-      "Peter J. Weinberger"
-   ],
-   "source":"DBLP"
-}
-```
-
-### Querying JSON files
-
-Following query shows how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve scalar values (title, publisher) from a book with the title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
-
-```sql
-SELECT
-    JSON_VALUE(jsonContent, '$.title') AS title
-  , JSON_VALUE(jsonContent, '$.publisher') as publisher
-  , jsonContent
-FROM OPENROWSET
-  (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json'
-    , FORMAT='CSV'
-    , FIELDTERMINATOR ='0x0b'
-    , FIELDQUOTE = '0x0b'
-    , ROWTERMINATOR = '0x0b'
-  )
-WITH
-  ( jsonContent varchar(8000) ) AS [r]
-WHERE
-  JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics'
-```
-
-> [!IMPORTANT]
-> We are reading the entire JSON file as single row/column so FIELDTERMINATOR, FIELDQUOTE, and ROWTERMINATOR are set to 0x0b because we do not expect to find it in the file.
-
-## Next steps
-
-Now you are ready to start with following Quickstart articles:
-
-- [Query single CSV file](sql/query-single-csv-file.md)
-- [Query folders and multiple CSV files](sql/query-folders-multiple-csv-files.md)
-- [Query specific files](sql/query-specific-files.md)
-- [Query Parquet files](sql/query-parquet-files.md)
-- [Query Parquet nested types](sql/query-parquet-nested-types.md)
-- [Query JSON files](sql/query-json-files.md)
-- [Creating and using views](sql/create-use-views.md)
-- [Creating and using external tables](sql/create-use-external-tables.md)
-- [Persist query result to Azure storage](sql/create-external-table-as-select.md)
-
-Advance to the next article to learn how to query single CSV file.
-> [!div class="nextstepaction"]
-> [Query single CSV file](sql/query-single-csv-file.md)
