@@ -20637,6 +20637,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cloud-partner-portal/cloud-partner-portal-manage-publisher-profile.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/cloud-partner-portal/Cloud-partner-portal-products-that-can-get-published-via-portal.md",
       "redirect_url": "https://go.microsoft.com/fwlink/?linkid=847458",
       "redirect_document_id": false
