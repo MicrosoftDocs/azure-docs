@@ -3,15 +3,12 @@ title: Authentication and authorization
 description: Find out about the built-in authentication and authorization support in Azure App Service and Azure Functions, and how it can help secure your app against unauthorized access.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 04/15/2020
 ms.reviewer: mahender
 ms.custom: [seodec18, fasttrack-edit]
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 
-> [!NOTE]
-> At this time, [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (including [MSAL](../active-directory/develop/msal-overview.md)) is not supported for Azure App Service and Azure Functions. Please check back for updates.
->
 > [!NOTE]
 > At this time, ASP.NET Core does not currently support populating the current user with the Authentication/Authorization feature.
 >

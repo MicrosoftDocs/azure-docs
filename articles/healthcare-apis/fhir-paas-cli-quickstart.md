@@ -48,7 +48,7 @@ az healthcareapis create --resource-group myResourceGroup --name nameoffhiraccou
 
 Obtain a capability statement from the FHIR API with:
 
-```console
+```azurecli-interactive
 curl --url "https://nameoffhiraccount.azurehealthcareapis.com/metadata"
 ```
 

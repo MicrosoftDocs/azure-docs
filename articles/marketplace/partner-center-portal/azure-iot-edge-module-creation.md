@@ -14,18 +14,15 @@ ms.date: 04/03/2020
 > [!IMPORTANT]
 > We're moving the management of your IoT Edge module offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [IoT Edge module offer publishing overview](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) for Cloud Partner Portal to manage your offers.
 
-This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace.
-
-Before you can create an IoT Edge module offer, you must have a commercial marketplace account in Partner Center. If you haven't created one yet, see [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
-1. Sign in to Partner Center.
-2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
+3. On the Overview page, select **+ New offer** > **IoT Edge module**.
 
-    ![Illustrates the left-navigation menu.](./media/cs-menu-overview.png)
-
-3. Select **+ New offer** > **IoT Edge module**. The **New offer** dialog box appears.
+    ![Illustrates the left-navigation menu.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
@@ -36,14 +33,14 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 
 - This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
 - Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- The Offer ID can't be changed after you select Create.
+- The Offer ID can't be changed after you select **Create**.
 
-Enter an **Offer alias**. This is the name used to refer to the offer in Partner Center.
+Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
 - This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
 - This can't be changed after you select **Create**.
 
-After you enter these two values, select **Create** before continuing to the next page, Offer overview.
+Select **Create** to generate the offer and continue.
 
 ## Offer overview
 
@@ -84,7 +81,7 @@ Here are some additional lead management resources:
 - [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
 
-Select **Save draft** before continuing to the next section, Properties.
+Select **Save draft** before continuing.
 
 ### Properties
 
@@ -219,6 +216,9 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 Provide logos and images to use with your offer. All images must be in .png format. Blurry images will be rejected.
 
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+
 #### Store logos
 
 Provide .png files of your offer's logo in each of the following four pixel sizes:
@@ -317,9 +317,9 @@ This tab lets you configure which clouds the plan is available in. Your answers 
 
 Your plan must be available in at least one cloud using Azure IoT Hub.
 
-Select the **Azure Global** option so your plan can be used by customers in all global Azure regions that use the marketplace. For details, see [Geographic availability and currency support](https://aka.ms/AzureGovCurrencies).
+Select the **Azure Global** option so your plan can be used by customers in all global Azure regions that use the marketplace. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Select the [Azure Government Cloud](https://aka.ms/WhatIsAzureGovernment) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only). Before [publishing](https://aka.ms/azuregovpublish) to Azure Government, test and confirm your solution within that area as the results may be different. To stage and test your solution, request a trial account from [Microsoft Azure Government trial](https://aka.ms/AzureGovernmentTrial).
+Select the [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only). Before [publishing](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) to Azure Government, test and confirm your solution within that area as the results may be different. To stage and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > After your plan is published and available in a specific cloud, you can't remove that cloud.
@@ -373,11 +373,11 @@ This field is commonly used when:
 
 ## Technical configuration
 
-The **IoT Edge module** offer type is a specific type of container that runs on an IoT Edge device. On the **Technical Configuration** tab you'll provide reference information for your container image repository inside the [Azure Container Registry](https://aka.ms/ContainerRegistry), along with configuration settings that let customers use the module easily.
+The **IoT Edge module** offer type is a specific type of container that runs on an IoT Edge device. On the **Technical Configuration** tab you'll provide reference information for your container image repository inside the [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), along with configuration settings that let customers use the module easily.
 
 After the offer is published, your IoT Edge container image is copied to Azure Marketplace in a specific public container registry. All requests from Azure users to use your module are served from the Azure Marketplace public container registry, not your private container registry.
 
-You can target multiple platforms and provide several versions of your module container image using tags. To learn more about tags and versioning, see [Prepare your IoT Edge module technical assets](https://aka.ms/AzureIoTTechAsset).
+You can target multiple platforms and provide several versions of your module container image using tags. To learn more about tags and versioning, see [Prepare your IoT Edge module technical assets](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-iot-edge-module-asset).
 
 ### Image repository details
 
@@ -387,25 +387,25 @@ You'll provide the following information on the **Image repository details** tab
 
 **Azure subscription ID**: Provide the subscription ID where resource usage is reported and services are billed for the Azure Container Registry that includes your container image. You can find this ID on the [Subscriptions page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal.
 
-**Azure resource group name**: Provide the [resource group](https://aka.ms/ResourceManagerAzurePortal) name that contains the Azure Container Registry with your container image. The resource group must be accessible in the subscription ID (above). You can find the name on the [Resource groups](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) page in the Azure portal.
+**Azure resource group name**: Provide the [resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) name that contains the Azure Container Registry with your container image. The resource group must be accessible in the subscription ID (above). You can find the name on the [Resource groups](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) page in the Azure portal.
 
-**Azure container registry name**: Provide the name of the [Azure Container Registry](https://aka.ms/DockerContainerRegistriesAzure) that has your container image. The container registry must be present in the Azure resource group you provided earlier. Provide only the registry name, not the full login server name. Be sure to omit **azurecr.io** from the name. You can find the registry name on the [Container Registries page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) in the Azure portal.
+**Azure container registry name**: Provide the name of the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro) that has your container image. The container registry must be present in the Azure resource group you provided earlier. Provide only the registry name, not the full login server name. Be sure to omit **azurecr.io** from the name. You can find the registry name on the [Container Registries page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) in the Azure portal.
 
-**Admin username for the Azure Container Registry**: Provide the [admin username](https://aka.ms/AdminAccountContainerRegistry) associated with the Azure Container Registry that has your container image. The username and password are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in the Azure portal.
+**Admin username for the Azure Container Registry**: Provide the [admin username](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) associated with the Azure Container Registry that has your container image. The username and password are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in the Azure portal.
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-admin-user.png" alt-text="Illustrates the Update container registry dialog box.":::
 
-**Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](https://aka.ms/azacrcredentialshow)
+**Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-username-password.png" alt-text="Illustrates the access key screen in Azure portal.":::
 
-**Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. You specify the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://aka.ms/ContainerRegistry) > **Repositories page**. For more information, see [View container registry repositories in the Azure portal](https://aka.ms/ContainerRegistryRepositoriesAzure). Note that after the name is set, it can't be changed. Use a unique name for each offer in your account.
+**Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. You specify the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://azure.microsoft.com/services/container-registry/) > **Repositories page**. For more information, see [View container registry repositories in the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories). Note that after the name is set, it can't be changed. Use a unique name for each offer in your account.
 
 ### Image tags for new versions of your offer
 
 Customers must be able to automatically get updates from the Azure Marketplace when you publish an update. If they don't want to update, they must be able to stay on a specific version of your image. You can do this by adding new image tags each time you make an update to the image.
 
-**Image tag**. This field must include a **latest** tag that points to the latest version of your image on all supported platforms. It must also include a version tag (for example, starting with xx.xx.xx, where xx is a number). Customers should use [manifest tags](https://aka.ms/GitHubmanifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them. All manifest tags (except the latest tag) must start with either X.Y- or X.Y.Z- where X, Y, and Z are integers. For example, if a latest tag points to 1.0.1-linux-x64, 1.0.1-linux-arm32, and 1.0.1-windows-arm32, these six tags need to be added to this field. For details about tags and versioning, see [Prepare your IoT Edge module technical assets.](https://aka.ms/PrepareIoTEdgeModTechAssets)
+**Image tag**. This field must include a **latest** tag that points to the latest version of your image on all supported platforms. It must also include a version tag (for example, starting with xx.xx.xx, where xx is a number). Customers should use [manifest tags](https://github.com/estesp/manifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them. All manifest tags (except the latest tag) must start with either X.Y- or X.Y.Z- where X, Y, and Z are integers. For example, if a latest tag points to 1.0.1-linux-x64, 1.0.1-linux-arm32, and 1.0.1-windows-arm32, these six tags need to be added to this field. For details about tags and versioning, see [Prepare your IoT Edge module technical assets.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets)
 
 ### Default deployment settings (optional)
 
@@ -413,7 +413,7 @@ Define the most common settings to deploy your IoT Edge module. Optimize custome
 
 **Default routes**. The IoT Edge Hub manages communication between modules, the IoT Hub, and devices. You can set routes for data input and output between modules and the IoT Hub, which gives you the flexibility to send messages where they need to go without the need for additional services to process messages or writing additional code. Routes are constructed using name/value pairs. You can define up to five default route names, each up to 512 characters long.
 
-Be sure to use the correct [route syntax](https://aka.ms/DeclareRoutesAzureIoT) in your route value (usually defined as FROM/message/* INTO $upstream). This means that any messages sent by any modules go to your IoT Hub. To refer to your module, use its default module name, which will be your **Offer Name**, without spaces or special characters. To refer to other modules that are not yet known, use the <FROM_MODULE_NAME> convention to let your customers know that they need to update this info. For details about IoT Edge routes, see [Declare routes](https://aka.ms/DeclareRoutesAzureIoT).
+Be sure to use the correct [route syntax](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) in your route value (usually defined as FROM/message/* INTO $upstream). This means that any messages sent by any modules go to your IoT Hub. To refer to your module, use its default module name, which will be your **Offer Name**, without spaces or special characters. To refer to other modules that are not yet known, use the <FROM_MODULE_NAME> convention to let your customers know that they need to update this info. For details about IoT Edge routes, see [Declare routes](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes).
 
 For example, if module ContosoModule listens for inputs on ContosoInput and output data at ContosoOutput, it makes sense to define the following two default routes:
 
@@ -422,7 +422,7 @@ For example, if module ContosoModule listens for inputs on ContosoInput and outp
 - Name #2: FromContosoModuleToCloud
 - Value #2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**Default module twin desired properties**. A module twin is a JSON document in the IoT Hub that stores the state information for a module instance, including desired properties. Desired properties are used along with reported properties to synchronize module configuration or conditions. The solution backend can set desired properties and the module can read them. The module can also receive change notifications in the desired properties. Desired properties are created using up to five name/value pairs and each default value must be less than 512 characters. You can define up to five name/value twin desired properties. Values of twin desired properties must be valid JSON, non-escaped, without arrays with a maximum nested hierarchy of four levels. In a scenario where a parameter required for a default value doesn't make sense (for example, the IP address of a customer's server), you can add a parameter as the default value. To learn more about twin desired properties, see [Define or update desired properties](https://aka.ms/DefineUpdateProperties).
+**Default module twin desired properties**. A module twin is a JSON document in the IoT Hub that stores the state information for a module instance, including desired properties. Desired properties are used along with reported properties to synchronize module configuration or conditions. The solution backend can set desired properties and the module can read them. The module can also receive change notifications in the desired properties. Desired properties are created using up to five name/value pairs and each default value must be less than 512 characters. You can define up to five name/value twin desired properties. Values of twin desired properties must be valid JSON, non-escaped, without arrays with a maximum nested hierarchy of four levels. In a scenario where a parameter required for a default value doesn't make sense (for example, the IP address of a customer's server), you can add a parameter as the default value. To learn more about twin desired properties, see [Define or update desired properties](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
 
 For example, if a module supports a dynamically configurable refresh rate using twin desired properties, it makes sense to define the following default twin desired property:
 
@@ -436,7 +436,7 @@ For example, if a module requires to accept terms of use before being started, y
 - Name #1: ACCEPT_EULA
 - Value #1: Y
 
-**Default container create options**. Container creation options direct the creation of the IoT Edge module Docker container. IoT Edge supports Docker engine API Create Container options. See all the options at [List containers.](https://aka.ms/ContainerList) The create options field must be valid JSON, non-escaped, and less than 512 characters.
+**Default container create options**. Container creation options direct the creation of the IoT Edge module Docker container. IoT Edge supports Docker engine API Create Container options. See all the options at [List containers.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) The create options field must be valid JSON, non-escaped, and less than 512 characters.
 
 For example, if a module requires port binding, define the following create options:
 

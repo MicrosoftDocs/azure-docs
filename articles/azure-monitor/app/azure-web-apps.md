@@ -3,7 +3,6 @@ title: Monitor Azure app services performance | Microsoft Docs
 description: Application performance monitoring for Azure app services. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 12/11/2019
-
 ---
 
 # Monitor Azure App Service performance
@@ -51,15 +50,16 @@ There are two ways to enable application monitoring for Azure App Services hoste
 2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. ASP.NET app monitoring is on-by-default with two different levels of collection.
 
     ![Choose options per platform](./media/azure-web-apps/choose-options-new.png)
-
-   * .NET **Basic collection** level offers essential single-instance APM capabilities.
-
-   * .NET **Recommended collection** level:
-       * Adds CPU, memory, and I/O usage trends.
-       * Correlates micro-services across request/dependency boundaries.
-       * Collects usage trends, and enables correlation from availability results to transactions.
-       * Collects exceptions unhandled by the host process.
-       * Improves APM metrics accuracy under load, when sampling is used.
+ 
+ Below is a summary of data collected for each route:
+        
+|  | .NET Basic Collection | .NET Recommended collection |
+| --- | --- | --- |
+| Adds CPU, memory, and I/O usage trends |Yes |Yes |
+| Collects usage trends, and enables correlation from availability results to transactions | Yes |Yes |
+| Collects exceptions unhandled by the host process | Yes |Yes |
+| Improves APM metrics accuracy under load, when sampling is used | Yes |Yes |
+| Correlates micro-services across request/dependency boundaries | No (single-instance APM capabilities only) |Yes |
 
 3. To configure settings like sampling, which you could previously control via the applicationinsights.config file you can now interact with those same settings via Application settings with a corresponding prefix. 
 
@@ -393,7 +393,11 @@ For the latest information on the Application Insights agent/extension, check ou
 
 ### PHP and WordPress are not supported
 
-PHP and WordPress sites are not supported. There is currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side javascript to your web pages can be accomplished by using the [JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript). 
+PHP and WordPress sites are not supported. There is currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side javascript to your web pages can be accomplished by using the [JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+### Connection string and instrumentation key
+
+When codeless monitoring is being used, only the connection string is required. However, we still recommend setting the instrumentation key to preserve backwards compatibility with older versions of the SDK when manual instrumentation is being performed.
 
 ## Next steps
 * [Run the profiler on your live app](../app/profiler.md).

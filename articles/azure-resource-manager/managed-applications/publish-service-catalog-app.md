@@ -285,7 +285,7 @@ Some of the parameters used in the preceding example are:
 
 * **resource group**: The name of the resource group where the managed application definition is created.
 * **lock level**: The type of lock placed on the managed resource group. It prevents the customer from performing undesirable operations on this resource group. Currently, ReadOnly is the only supported lock level. When ReadOnly is specified, the customer can only read the resources present in the managed resource group. The publisher identities that are granted access to the managed resource group are exempt from the lock.
-* **authorizations**: Describes the principal ID and the role definition ID that are used to grant permission to the managed resource group. It's specified in the format of `<principalId>:<roleDefinitionId>`. If more than one value is needed, specify them in the form `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. The values are separated by a space.
+* **authorizations**: Describes the principal ID and the role definition ID that are used to grant permission to the managed resource group. It's specified in the format of `<principalId>:<roleDefinitionId>`. If more than one value is needed, specify them in the form `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>`. The values are separated by a comma.
 * **package file URI**: The location of a .zip package that contains the required files.
 
 ## Bring your own storage for the managed application definition

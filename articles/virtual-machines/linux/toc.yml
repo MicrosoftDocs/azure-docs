@@ -45,9 +45,13 @@
     href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
   - name: 14b - Integrate Jenkins with Azure DevOps
     href: ../../jenkins/tutorial-build-deploy-jenkins.md
-  - name: 15a - DevOps for IaaS and PaaS on Azure
+  - name: 15a - Configure Rolling deployment strategy
     href: tutorial-devops-azure-pipelines-classic.md
-  - name: 15b - CI/CD with Azure Pipelines(YAML)
+  - name: 15b - Configure Canary deployment strategy
+    href: tutorial-azure-devops-canary-strategy.md
+  - name: 15c - Configure Blue-Green deployment strategy
+    href: tutorial-azure-devops-blue-green-strategy.md
+  - name: 15d - CI/CD with Azure Pipelines(YAML)
     href: tutorial-build-deploy-azure-pipelines.md
   - name: 16a - Create LAMP stack
     href: tutorial-lamp-stack.md
@@ -150,7 +154,7 @@
         href: ../nvv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: NVv4-series
         href: ../nvv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-      - name: Setup GPU drivers
+      - name: Setup NVIDIA GPU drivers
         href: n-series-driver-setup.md
     - name: High performance compute
       displayName: H-series
@@ -434,10 +438,14 @@
         href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Maintenance control
       items:
+      - name: Overview
+        href: ../maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: CLI
         href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: PowerShell
         href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Portal
+        href: ../maintenance-control-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Scheduled events
       href: scheduled-events.md
   - name: Monitor VMs
@@ -556,14 +564,14 @@
       - name: Prepare existing VM for cloud-init
         href: cloudinit-prepare-custom-image.md
     - name: Jenkins
-      href: ../../jenkins/overview.md
+      href: /azure/developer/jenkins/overview.md
       items:
       - name: Create a Jenkins server
-        href: ../../jenkins/install-jenkins-solution-template.md
+        href: /azure/developer/jenkins/configure-on-linux-vm.md
       - name: Scale with VM agents
-        href: ../../jenkins/jenkins-azure-vm-agents.md
+        href: /azure/developer/jenkins/scale-deployments-using-vm-agents.md
       - name: Publish artifacts to Storage
-        href: ../../jenkins/storage-java-jenkins-continuous-integration-solution.md
+        href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository.md
       - name: Secure Jenkins
         href: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
   - name: Run containers

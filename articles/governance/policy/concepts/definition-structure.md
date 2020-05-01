@@ -76,12 +76,12 @@ a Resource Provider property.
 The **mode** determines which resource types will be evaluated for a policy. The supported modes
 are:
 
-- `all`: evaluate resource groups and all resource types
+- `all`: evaluate resource groups, subscriptions, and all resource types
 - `indexed`: only evaluate resource types that support tags and location
 
 For example, resource `Microsoft.Network/routeTables` supports tags and location and is evaluated in
-both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged and isn't evaluated
-in `Indexed` mode.
+both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged and isn't
+evaluated in `Indexed` mode.
 
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
@@ -91,10 +91,12 @@ support backwards compatibility.
 
 `indexed` should be used when creating policies that enforce tags or locations. While not required,
 it prevents resources that don't support tags and locations from showing up as non-compliant in the
-compliance results. The exception is **resource groups**. Policies that enforce location or tags on
-a resource group should set **mode** to `all` and specifically target the
-`Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource group
-tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see
+compliance results. The exception is **resource groups** and **subscriptions**. Policies that
+enforce location or tags on a resource group or subscription should set **mode** to `all` and
+specifically target the `Microsoft.Resources/subscriptions/resourceGroups` or
+`Microsoft.Resources/subscriptions` type. For an example, see
+[Enforce resource group tags](../samples/enforce-tag-rg.md). For a list of resources that support
+tags, see
 [Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes" />Resource Provider modes (preview)
@@ -108,7 +110,7 @@ The following Resource Provider modes are currently supported during preview:
   Policies using this Resource Provider mode **must** use the
   [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
-  [Azure Key Vault](../../../key-vault/key-vault-overview.md).
+  [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
 > Resource Provider modes only support built-in policy definitions and don't support initiatives
@@ -515,7 +517,8 @@ Conditions that count how many members of an array in the resource payload satis
 expression can be formed using **count** expression. Common scenarios are checking whether 'at least
 one of', 'exactly one of', 'all of', or 'none of' the array members satisfy the condition. **count**
 evaluates each [\[\*\] alias](#understanding-the--alias) array member for a condition expression and
-sums the _true_ results, which is then compared to the expression operator.
+sums the _true_ results, which is then compared to the expression operator. **Count** expressions
+may be added up to 3 times to a single **policyRule** definition.
 
 The structure of the **count** expression is:
 
@@ -763,7 +766,7 @@ Policy, use one of the following methods:
   Use the [Azure Policy extension for Visual Studio Code](../how-to/extension-for-vscode.md) to view
   and discover aliases for resource properties.
 
-  ![Azure Policy extension for Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy extension for Visual Studio Code" border="false":::
 
 - Azure Resource Graph
 

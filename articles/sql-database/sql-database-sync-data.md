@@ -128,6 +128,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - Azure Active Directory authentication isn't supported.
 - Tables with same name but different schema (for example, dbo.customers and sales.customers) aren't supported.
 - Columns with User Defined Data Types aren't supported
+- Moving servers between different subscriptions is not supported. 
 
 #### Unsupported data types
 

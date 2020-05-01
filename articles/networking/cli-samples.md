@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
 manager: timlt
-editor: tysonn
+
 tags:
 ms.assetid:
 ms.service: virtual-network

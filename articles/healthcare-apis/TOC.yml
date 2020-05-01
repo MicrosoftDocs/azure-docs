@@ -22,7 +22,7 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: Deploy javascript application
+  - name: Deploy JavaScript application
     expanded: false
     items:
     - name: 1. Initial setup and FHIR deployment

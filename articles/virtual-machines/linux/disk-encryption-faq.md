@@ -143,7 +143,9 @@ Azure Disk Encryption uses the decrypt default of aes-xts-plain64 with a 256-bit
 No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. For more information, see the [EncryptFormatAll criteria](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).        
 
 ## Is XFS filesystem supported?
-XFS volumes are supported for data disk encryption only with the EncryptFormatAll. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+Encryption of XFS OS disks is supported.
+
+Encryption of XFS data disks is supported only when the EncryptFormatAll parameter is used. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 ## Can I backup and restore an encrypted VM? 
 
