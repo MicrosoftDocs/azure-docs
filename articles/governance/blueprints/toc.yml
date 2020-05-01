@@ -35,9 +35,15 @@
     href: ./samples/index.md
   - name: Azure Security Benchmark
     items:
+    - name: Overview
+      displayName: standards, azure, benchmark
+      href: ./samples/azure-security-benchmark/index.md
     - name: Control mapping
       displayName: standards, azure, benchmark
       href: ./samples/azure-security-benchmark/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, azure, benchmark
+      href: ./samples/azure-security-benchmark/deploy.md
   - name: Australian Government ISM PROTECTED
     items:
     - name: Control mapping
