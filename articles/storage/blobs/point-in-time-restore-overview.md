@@ -18,6 +18,7 @@ Point-in-time restore for block blobs provides protection for your data against 
 
 ## How point-in-time restore works
 
+To enable point-in-time restore, you create a management policy for the storage account and specify a retention period. 
 
 
 ### Point-in-time restore works with change feed, soft delete, and blob versioning
@@ -26,7 +27,7 @@ Point-in-time restore relies on the following Azure Storage features:
 
 - Change feed (preview): Change feed is required for point-in-time restore. You must register for the change feed preview if you have not already. After you are registered, change feed will automatically be enabled when you enable point-in-time restore if it is not already enabled. For more information about change feed, see [Change feed support in Azure Blob Storage (Preview)](blobs/storage-blob-change-feed.md).
 - Soft delete: Soft delete is required for point-in-time restore. After you are registered, soft delete will automatically be enabled when you enable point-in-time restore if it is not already enabled. For more information about soft delete, see [Soft delete for Blob storage](blobs/soft-delete-overview.md).
-- Blob versioning (preview): Enabling blob versioning is optional for the point-in-time restore preview. For more information about blob versioning, see [Blob versioning (preview)](blobs/versioning-overview.md).
+- Blob versioning (preview): Enabling blob versioning is not required for the point-in-time restore preview. Beyond the preview, blob versioning will be required for point-in-time restore. For more information about blob versioning, see [Blob versioning (preview)](blobs/versioning-overview.md).
 
 ### Retention period for point-in-time restore
 
@@ -34,7 +35,7 @@ When you enable point-in-time restore for a storage account, you specify a reten
 
 The retention period begins when you enable point-in-time restore, and you cannot restore data to a state prior to the beginning of the retention period. For example, if you enabled point-in-time restore on May 1st with a retention of 30 days, then on May 15th you can restore to a maximum of 15 days. As of June 1st, you can restore data from between 1 and 30 days.
 
-
+The retention period for point-in-time restore must be greater than or equal to the retention period specified for soft delete and change feed.
 
 
 
@@ -48,6 +49,7 @@ Not supported:
 
 - Premium block blobs are not supported.
 - Restoring data in the archive tier is not supported.
+- Azure Data Lake Storage Gen2 flat and hierarchical namespaces are not supported.
 
 > [!IMPORTANT]
 > The point-in-time restore preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
