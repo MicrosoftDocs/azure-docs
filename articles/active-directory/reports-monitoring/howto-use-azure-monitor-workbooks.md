@@ -43,7 +43,7 @@ including device platform, device state, client app, sign-in risk, location, and
 reports how many users were granted or denied access, as well as how many users bypassed 
 Conditional Access policies when accessing resources.
 
-- To help you to address these questions, Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, analytics queries, metrics, and parameters into rich interactive reports.
+- To help you to address these questions, Azure Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, analytics queries, metrics, and parameters into rich interactive reports.
 
 
 
@@ -59,7 +59,7 @@ This article:
 
 To use Monitor workbooks, you need:
 
-- An Active Directory tenant with a premium (P1 or P2) license. Learn how to [get a premium license](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- An Azure Active Directory tenant with a premium (P1 or P2) license. Learn how to [get a premium license](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - A [Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
