@@ -26,6 +26,12 @@ landingContent:
         links:
           - text: What is Load Balancer?
             url: load-balancer-overview.md
+          - text: Load Balancer concepts
+            url: concepts.md
+          - text: Load balancer components
+            url: components.md
+          - text: Load Balancer types
+            url: types.md
       
   # Card (optional)
   - title: Get started
