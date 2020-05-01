@@ -1,5 +1,5 @@
 ---
-title: Utilize Blob Index to manage and find data
+title: Utilize Blob Index to manage and find data on Azure Blob storage
 description: See examples of how to use Blob Index tags to categorize, manage, and query to discover blob objects.
 author: mhopkins-msft
 
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.reviewer: hux
 ---
 
-# Utilize Blob Index tags to manage and find data
+# Utilize Blob Index tags (Preview) to manage and find data on Azure Blob storage
 
 Blob Index tags categorize data in your storage account utilizing key-value tag attributes. These tags are automatically indexed and exposed as a queryable multi-dimensional index to easily find data. This article shows you how to set, get, and find data using blob index tags.
 
-To learn more about the Blob Index, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-and-find-blobs.md).
+To learn more about the Blob Index, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
 
 > [!NOTE]
-> Blob Index is in public preview, and is available in the **France Central** and **France South** regions. To learn more about this feature along with known issues and limitations, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-and-find-blobs.md).
+> Blob Index is in public preview, and is available in the **France Central** and **France South** regions. To learn more about this feature along with known issues and limitations, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
 
 ## Prerequisites
 # [Portal](#tab/azure-portal)
@@ -289,10 +289,12 @@ static async Task FindBlobsByTagsExample()
 6. Select **Add** to apply the new rule to the lifecycle management policy
 
 # [.NET](#tab/net)
-Lifecycle management is applied at the control plane level. Please install the [Microsoft Azure Management Storage Library version 16.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) or higher to take advantage of the Blob Index match filter within a lifecycle management rule.
+[Lifecycle management](storage-lifecycle-management-concepts.md) policies are applied for each storage account at the control plane level. For .NET, install the [Microsoft Azure Management Storage Library version 16.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) or higher to take advantage of the Blob Index match filter within a lifecycle management rule.
 
 ---
 
 ## Next steps
 
-Learn more about Blob Index. See [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-and-find-blobs.md )
+Learn more about Blob Index. See [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md )
+
+Learn more about Lifecycle Management. See [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)
