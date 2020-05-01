@@ -174,7 +174,7 @@ East US
 20.42.35.112/28
 20.42.35.128/28
 
-Azure US Government
+Azure US Government (Not needed if you are an Azure Public cloud customer)
 
 20.140.48.160/27
 20.140.56.160/27
