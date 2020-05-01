@@ -123,7 +123,7 @@ Redirects also work with paths that don't define distinct files.
 
 ## Custom error pages
 
-Ranging from requesting files not found (404) to a host of authorization-related errors, users may encounter situations which can result in an error. Using the `platformErrorOverrides` array, you can provide a custom experience in response to these errors. Refer to the [example route file](#example-route-file) for placement of the array in the _routes.json_ file.
+Users may encounter a number of different situations that may result in an error. Using the `platformErrorOverrides` array, you can provide a custom experience in response to these errors. Refer to the [example route file](#example-route-file) for placement of the array in the _routes.json_ file.
 
 The following table lists the available platform error overrides:
 
@@ -131,7 +131,7 @@ The following table lists the available platform error overrides:
 |---------|---------|---------|
 | `NotFound` | 404  | A page is not found on the server. |
 | `Unauthenticated` | 401 | The user is not logged in with an [authentication provider](authentication-authorization.md). |
-| `Unauthorized_InsufficientUserInformation` | 401 | The user's account on the authentication provider is not configured to expose required data. This error happens in situations like when an authentication provider is asked for the user's email address, but the user chose to restricted it. |
+| `Unauthorized_InsufficientUserInformation` | 401 | The user's account on the authentication provider is not configured to expose required data. This error may happen in situations like when the app asks the authentication provider for the user's email address, but the user chose to restrict access to the email address. |
 | `Unauthorized_InvalidInvitationLink` | 401 | An invitation has either expired, or the user followed an invitation link generated for another recipient.  |
 | `Unauthorized_MissingRoles` | 401 | The user is not a member of a required role. |
 | `Unauthorized_TooManyUsers` | 401 | The site has reached the maximum number of users, and the server is limiting further additions. This error is exposed to the client because there's no limit to the number of [invitations](authentication-authorization.md) you can generate, and some users may never accept their invitation.|
