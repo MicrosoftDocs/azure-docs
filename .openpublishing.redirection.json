@@ -6243,13 +6243,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cloud-partner-portal/cloud-partner-portal-manage-publisher-profile.md",
-      "redirect_url": "https://go.microsoft.com/fwlink/?linkid=847458",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cloud-partner-portal/cloud-partner-portal-manage-users.md",
-      "redirect_url": "https://go.microsoft.com/fwlink/?linkid=847458",
+      "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
       "redirect_document_id": false
     },
     {
@@ -20527,6 +20522,56 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_document_id": true
+    },    
+    {
+      "source_path": "articles/marketplace/enable-lead-sharing.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/listing-type-requirements.md",
+      "redirect_url": "/azure/marketplace/publisher-guide-by-offer-type",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/promote-your-business-with-microsoft.md",
+      "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/publishing-checklist-appsource.md",
+      "redirect_url": "/azure/marketplace/appsource-offer-publishing-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/publishing-checklist-azure-marketplace.md",
+      "redirect_url": "/azure/marketplace/publisher-guide-by-offer-type",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/support-appsource.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/store-your-appSource-package-to-azure-storage-and-generate-sas-key.md",
+      "redirect_url": "/azure/marketplace/marketplace-publishers-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/dynamics-365-solution-preparation.md",
+      "redirect_url": "/azure/marketplace/appsource-offer-publishing-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/request-to-publish-the-app.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/marketplace-participation-policy.md",
       "redirect_url": "https://docs.microsoft.com/legal/marketplace/participation-policy",
       "redirect_document_id": false
@@ -20588,7 +20633,12 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/cloud-partner-portal-manage-publisher-profile.md",
-      "redirect_url": "https://go.microsoft.com/fwlink/?linkid=847458",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-partner-portal/cloud-partner-portal-manage-publisher-profile.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
       "redirect_document_id": false
     },
     {
@@ -20597,9 +20647,14 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/marketplace/cloud-partner-portal/cloud-partner-portal-manage-users.md",
-      "redirect_url": "https://go.microsoft.com/fwlink/?linkid=847458",
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/cloud-partner-portal-manage-users.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/cloud-partner-portal-publish-cortana-intelligence-app.md",
@@ -31682,28 +31737,63 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/add-bank-tax-info.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/manage-account#payout-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/appsource-package-preparation.md",
+      "redirect_url": "/azure/marketplace/marketplace-publishers-guide",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/enable-trial-using-azure-ad.md",
       "redirect_url": "/azure/marketplace/enable-appsource-marketplace-using-azure-ad",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/marketplace/gtm-promote-your-business.md",
-      "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
+      "redirect_url": "/azure/marketplace/gtm-marketing-best-practices",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/become-publisher.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
-      "redirect_document_id": true
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/deprecated/gtm-promote-your-business.md",
+      "redirect_url": "/azure/marketplace/gtm-marketing-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/deprecated/become-publisher.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/guidelines.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
-      "redirect_document_id": true
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/deprecated/guidelines.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/register-dev-center.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/deprecated/register-dev-center.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
       "redirect_document_id": false
     },
     {
@@ -31719,7 +31809,7 @@
     {
       "source_path": "articles/marketplace/grow-your-business-with-appsource.md",
       "redirect_url": "/azure/marketplace/marketplace-publishers-guide",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/billing-options-azure-marketplace.md",
@@ -31793,7 +31883,22 @@
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md",
-      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md",
+      "redirect_url": "/azure/marketplace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
       "redirect_document_id": false
     },
     {
