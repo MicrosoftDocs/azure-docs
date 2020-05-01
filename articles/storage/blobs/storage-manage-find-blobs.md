@@ -1,5 +1,5 @@
 ---
-title: Manage and find blob data with Blob Index 
+title: Manage and find data on Azure Blob Storage with Blob Index (Preview) 
 description: Learn how to use Blob Index tags to categorize, manage, and query to discover blob objects.
 author: mhopkins-msft
 
@@ -288,8 +288,8 @@ This section describes known issues and conditions in the current public preview
 ### Can Blob Index help me filter and query content inside my blobs? 
 No, Blob Index tags can help you find the blobs that you are looking for. If you need to search within your blobs, use Query Acceleration or Azure Search.
 
-### Are Blob Index tags and Azure Resource Manager (ARM) tags related?
-No, ARM tags help organize control plane resources such as subscriptions, resource groups, and storage accounts. Blob Index tags provide object management and discovery on data plane resources such as blobs within a storage account.
+### Are Blob Index tags and Azure Resource Manager tags related?
+No, Azure Resource Manager tags help organize control plane resources such as subscriptions, resource groups, and storage accounts. Blob Index tags provide object management and discovery on data plane resources such as blobs within a storage account.
 
 ## Next steps
 
