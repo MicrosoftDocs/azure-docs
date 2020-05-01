@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Manage Azure Digital Twins models
 
-You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinsModels APIs**](how-to-use-apis.md). Management operations include upload, validation, and retrieval of models. 
+You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinsModels APIs**](how-to-use-apis.md). Management operations include upload, validation, retrieval, and deletion of models. 
 
 [!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
 
@@ -257,14 +257,15 @@ public void ParseModels()
 }
 ```
 
-## Delete models
+## Remove models
 
-Models can also be deleted from the service. 
+Models can also be removed from the service, in one of two ways:
+* **Decommissioning** : Once a model is decommissioned, you can no longer use it to create new digital twins. Existing digital twins that already use this model aren't affected, so you can still update them with things like property changes and adding or deleting relationships.
+* **Deletion** : This will completely remove the model from the solution. Any twins that were using this model are no longer associated with any valid model, so they're treated as though they don't have a model at all. You can still read these twins, but won't be able to make any updates on them.
 
-Deletion is a multi-step process:
-1. First, **decommission** the model. A decommissioned model is still valid for use by existing digital twins, including the ability to change properties and add or delete relationships. However, new digital twins of this model can't be created anymore.
-2. After decommissioning a model, you will either delete existing digital twins of that model, or transition those digital twins to a different model.
-3. Once there are no more digital twins of a given model, and the model is no longer referenced by any other model, you can **delete** it. 
+These are separate features and they do not impact each other, although they may be used together to remove a model gradually. 
+
+### Decommissioning
 
 Here is the code to decommission a model:
 
@@ -278,6 +279,53 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 `DecommissionModel()` can take one or more URNs, so developers can process one or multiple models in one statement. 
 
 A model's decommissioning status is also included in the `ModelData` records returned by the model retrieval APIs.
+
+### Deletion
+
+#### Before deletion: Deletion requirements
+
+Generally, models can be deleted at any time.
+
+The exception is models that other models depend on, either with an `extends` relationship or as a component. For example, if a *ConferenceRoom* model extends a *Room* model, and has a *ACUnit* model as a component, you cannot delete *Room* or *ACUnit* until *ConferenceRoom* removes those respective references. 
+
+You can do this by updating the dependent model to remove the dependencies, or deleting the dependent model completely.
+
+#### During deletion: Deletion process
+
+Even if a model meets the requirements to delete it immediately, you may want to go through a few steps first to avoid unintended consequences for the twins left behind. Here are some steps that can help you manage the process:
+1. First, decommission the model
+2. Wait a few minutes, to make sure the service has processed any last-minute twin creation requests sent before the decommission
+3. Query twins by model to see all twins that are using the now-decommissioned model
+4. Delete the twins if you no longer need them, or patch them to a new model if needed. You can also choose to leave them alone, in which case they will become twins without models once the model is deleted. See the next section for the implications of this state.
+5. Wait for another few minutes to make sure the changes have percolated through
+6. Delete the model 
+
+#### After deletion: Twins without models
+
+Once a model is deleted, any digital twins that were using the model are now considered to be without a model. Note that there is no query that can give you a list of all the twins in this state—although you *can* still query the twins by the deleted model to know what twins are affected.
+
+Here is an overview of what you can and cannot do with twins that don't have a model.
+
+Things you **can** do:
+* Query the twin
+* Read properties
+* Read outgoing relationships
+* Add and delete incoming relationships (as in, other twins can still form relationships *to* this twin)
+  - The `target` in the relationship definition can still reflect the DTMI of the deleted model. A relationship with no defined target can also work here.
+* Delete relationships
+* Delete the twin
+
+Things you **can't** do:
+* Edit outgoing relationships (as in, relationships *from* this twin to other twins)
+* Edit properties
+
+#### After deletion: Re-uploading a model
+
+After a model has been deleted, you may decide later to upload a new model with the same ID as the one you deleted. Here's what happens in that case.
+* From the solution store's perspective, this is the same as uploading a completely new model. The service doesn't remember the old one was ever uploaded.   
+* If there are any remaining twins in the graph referencing the deleted model, they are no longer orphaned; this model ID is valid again with the new definition. However, if the new definition for the model is different than the model definition that was deleted, these twins may have properties and relationships that match the deleted definition and are not valid with the new one.
+
+Azure Digital Twins does not prevent this state, so be careful to patch twins appropriately in order to make sure they remain valid through the model definition switch.
 
 ## Next steps
 
