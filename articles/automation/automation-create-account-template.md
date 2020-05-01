@@ -48,20 +48,20 @@ The JSON template is configured to prompt you for:
 The following parameters in the template are set with a default value for the Log Analytics workspace:
 
 * *sku* - defaults to the per GB pricing tier released in the April 2018 pricing model.
-* *dataRetention* - defaults to thirty days.
+* *dataRetention* - defaults to 30 days.
 * *capacityReservationLevel* - defaults to 100 GB.
 
 >[!WARNING]
 >If you want to create or configure a Log Analytics workspace in a subscription that has opted into the April 2018 pricing model, the only valid Log Analytics pricing tier is *PerGB2018*.
 >
 
-The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and the Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For more information about working with templates, see [Deploy resources with Resource Manager templates and the Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
 If you're new to Azure Automation and Azure Monitor, it is important that you understand the following configuration details in order to avoid errors when you try to create, configure, and use a Log Analytics workspace linked to your new Automation account. You should:
 
 * Review [additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace), to fully understand workspace configuration options such as access control mode, pricing tier, retention, and capacity reservation level.
 
-* Review [workspace mappings](how-to/region-mappings.md), to specify the supported regions inline or in a parameter file. This is because only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
+* Review [workspace mappings](how-to/region-mappings.md), to specify the supported regions inline or in a parameter file, because only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
 
 * Review the [workspace design guidance](../azure-monitor/platform/design-logs-deployment.md), to learn about access control and understand the design implementation strategies we recommend for your organization, if you're new to Azure Monitor Logs and have not deployed a workspace already.
 
@@ -300,7 +300,7 @@ If you're new to Azure Automation and Azure Monitor, it is important that you un
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployAzAutomationAccttemplate.json
     ```
 
-    The deployment can take a few minutes to finish. When it does, you'll see a message like the following that includes the result:
+    The deployment can take a few minutes to finish. When it does, you'll see a message like the one below that includes the result.
 
     ![Example result when deployment is complete](media/automation-create-account-template/template-output.png)
 
