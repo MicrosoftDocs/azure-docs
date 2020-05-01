@@ -110,7 +110,7 @@ First, create a role definition using the following JSON description. Name the f
 
 ```json
 {
-    "Name": "Azure Image Builder Service Image creation role",
+    "Name": "Azure Image Builder Service Image Creation Role",
     "IsCustom": true,
     "Description": "Azure role to distribute a source custom image using Azure Image Builder Service",
     "Actions": [
@@ -163,7 +163,7 @@ RES_GROUP="<Distribution resource group>"
 
 az role assignment create \
     --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role "Azure Image Builder Service Image creation role" \
+    --role "Azure Image Builder Service Image Creation Role" \
     --scope /subscriptions/$SUB_ID/resourceGroups/$RES_GROUP
 ```
 
@@ -187,79 +187,93 @@ Replace the following placeholder settings when executing the command.
 | Setting | Description |
 |---------|-------------|
 | \<Subscription ID\> | Azure subscription |
-| \<Distribution resource group\> | Resource group for distribution |
+| \<Distribution resource group\> | Distribution resource group |
 
 
 ### Use an existing VNET example
 
 Setting Azure Image Builder service principal name permissions to allow it to use an existing VNET
 
-```bash
-# set your variables
-subscriptionID=<subID>
-imageResourceGroup=<distributionRG>
+The following example creates an Azure role to use and distribute a source custom image. Use the custom role to set the Azure Image Builder service principal name permissions.
 
-# download preconfigured example
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
+First, create a role definition using the following JSON description. Name the file `aibRoleNetworking.json`.
 
-# update the definition
-sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleNetworking.json
-sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
+```json
+{
+    "Name": "Azure Image Builder Service Networking Role",
+    "IsCustom": true,
+    "Description": "Image Builder access to create resources for the image build",
+    "Actions": [
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/virtualNetworks/subnets/join/action"
+    ],
+    "NotActions": [
+  
+    ],
+    "AssignableScopes": [
+      "/subscriptions/<Subscription ID>/resourceGroups/<VNET resource group>"
+    ]
+  }
+```
 
-# create role definitions
+Replace the following placeholder settings in the JSON description.
+
+| Setting | Description |
+|---------|-------------|
+| \<Subscription ID\> | Azure subscription ID for the custom role |
+| \<VNET resource group\> | VNET resource group  |
+
+Create a custom role from the `aibRoleNetworking.json` description file. Use either a Azure CLI or PowerShell command.
+
+Use Azure CLI:
+
+```azurecli
+az role definition create --role-definition ./aibRoleNetworking.json
 az role definition update --role-definition ./aibRoleNetworking.json
+```
 
-# grant role definition to the AIB SPN
+Or use PowerShell:
+
+```powershell
+New-AzRoleDefinition -InputFile  ./aibRoleNetworking.json
+```
+
+Next, assign the custom role to Azure Image Builder service principal name to grant permission. Use either a Azure CLI or PowerShell command.
+
+Use Azure CLI:
+
+```bash
+SUB_ID="<Subscription ID>"
+RES_GROUP="<VNET resource group>"
+
 az role assignment create \
     --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
     --role "Azure Image Builder Service Networking Role" \
- --scope /subscriptions/$subscriptionID/resourceGroups/$vnetRgName
+    --scope /subscriptions/$SUB_ID/resourceGroups/$RES_GROUP
 ```
 
-### Azure PowerShell Examples
-#### Setting Azure Image Builder SPN Permissions to use source custom image and distribute a custom image
-```powerShell
-# set your variables
+Or use PowerShell:
 
-# download preconfigured example
-$aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
-$aibRoleImageCreationPath = "aibRoleImageCreation.json"
+```powershell
+$sub_id = "<Subscription ID>"
+$res_group = "<VNET resource group>"
 
-Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPath -UseBasicParsing
+$parameters = @{
+    ObjectId = 'ef511139-6170-438e-a6e1-763dc31bdf74'
+    RoleDefinitionName = 'Azure Image Builder Service Networking Role'
+    Scope = '/subscriptions/$sub_id/resourceGroups/$res_group'
+}
 
-# update the definition
-((Get-Content -path $aibRoleImageCreationPath -Raw) -replace '<subscriptionID>',$subscriptionID) | Set-Content -Path $aibRoleImageCreationPath
-((Get-Content -path $aibRoleImageCreationPath -Raw) -replace '<rgName>', $imageResourceGroup) | Set-Content -Path $aibRoleImageCreationPath
-
-# create role definitions
-New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
-
-# grant role definition to the AIB SPN
-
-New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -RoleDefinitionName "Azure Image Builder Service Image Creation Role" -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+New-AzRoleAssignment @parameters
 ```
 
-#### Setting Azure Image Builder SPN Permissions to allow it to use an existing VNET
+Replace the following placeholder settings when executing the command.
 
-```powerShell
-# set your variables
+| Setting | Description |
+|---------|-------------|
+| \<Subscription ID\> | Azure subscription |
+| \<VNET resource group\> | VNET resource group |
 
-# download preconfigured example
-$aibRoleNetworkingUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
-$aibRoleNetworkingPath = "aibRoleNetworking.json"
-
-Invoke-WebRequest -Uri $aibRoleNetworkingUrl -OutFile $aibRoleNetworkingPath -UseBasicParsing
-
-# update the definition
-((Get-Content -path $aibRoleNetworkingPath -Raw) -replace '<subscriptionID>',$subscriptionID) | Set-Content -Path $aibRoleNetworkingPath
-((Get-Content -path $aibRoleNetworkingPath -Raw) -replace '<vnetRgName>',$vnetRgName) | Set-Content -Path $aibRoleNetworkingPath
-
-# create role definitions
-New-AzRoleDefinition -InputFile  ./aibRoleNetworking.json
-
-# grant role definition to image builder service principal
-New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -RoleDefinitionName "Azure Image Builder Service Networking Role" -Scope "/subscriptions/$subscriptionID/resourceGroups/$vnetRgName"
-```
 ## Using Managed Identity to allowing Image Builder to Access Azure Storage
 If you want to seemlessly authenticate with Azure Storage, and use Private Containers, then you need to give Azure Image Builder an Azure User-Assigned Managed Identity, which it can use to authenticate with Azure Storage.
 
