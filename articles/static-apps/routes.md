@@ -15,6 +15,7 @@ Routing in Azure Static Web Apps defines back-end routing rules and authorizatio
 
 - The _routes.json_ file must exist at the root of app's build folder.
 - Rules are executed in the order as they appear in the `routes` array.
+- Rule evaluation stops at the first match. Routes rules are not chained together.
 - Roles are defined in the _routes.json_ file and users are associated to roles via [invitations](authentication-authorization.md).
 - You have full control over role names.
 
