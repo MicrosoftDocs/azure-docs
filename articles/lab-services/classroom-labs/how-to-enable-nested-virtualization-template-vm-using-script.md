@@ -20,7 +20,7 @@ ms.author: spelluru
 
 Nested virtualization enables you to create a multi-VM environment inside a lab's template virtual machine. Publishing the template will provide each user in the lab with a virtual machine set up with multiple VMs within it.  For more information about nested virtualization and Azure Lab Services, see [Enable nested virtualization on a template virtual machine in Azure Lab Services](how-to-enable-nested-virtualization-template-vm.md).
 
-The steps in this article focus on setting up nested virtualization for Windows Server 2016 or Windows Server 2019. You will use a script to set up template machine with Hyper-V.  The following steps will guide you through how to use the [Lab Services Hyper-V scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV).
+The steps in this article focus on setting up nested virtualization for Windows Server 2016, Windows Server 2019, or Windows 10.  Windows 10 has additional steps related to IP configuration later in the document. You will use a script to set up template machine with Hyper-V.  The following steps will guide you through how to use the [Lab Services Hyper-V scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV).
 
 >[!IMPORTANT]
 >Select **Large (nested virtualization)** or **Medium (nested virtualization)** for the virtual machine size when creating the lab.  Nested virtualization will not work otherwise.  
@@ -65,9 +65,13 @@ The steps in this article focus on setting up nested virtualization for Windows 
     Set-ExecutionPolicy default -force
     ```
 
-## Conclusion
+## Adding Virtual machines to Hyper-V
 
 Now your template machine is ready to create Hyper-V virtual machines. See [Create a Virtual Machine in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) for instructions on how to create Hyper-V virtual machines. Also, see [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) to check out available operating systems and software.  
+
+## Windows 10
+When using Windows 10 as the Hyper-V host, you will need to manually set the IP, subnet mask, and Dns within each Hyper-V virtual machine.  Each virtual machine must have a unique IP address must be between 192.168.0.4 and 192.168.0.254, the subnet mask is 255.255.255.0, and for Azure DNS the id is 168.63.129.16.  Please see documentation for the specific operating system of the virtual machine on how to change the IP address, subnet mask, and Dns.
+
 
 ## Next steps
 
