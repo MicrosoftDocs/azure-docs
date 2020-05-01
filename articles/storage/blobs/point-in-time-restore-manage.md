@@ -38,6 +38,9 @@ Enable-AzStorageBlobRestorePolicy -ResourceGroupName $rgName -StorageAccountName
 Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName
 ```
 
+## Restore block blob data with point-in-time restore - storage account
+
+
 ## Restore block blob data with point-in-time restore
 
 
