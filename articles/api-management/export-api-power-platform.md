@@ -17,7 +17,7 @@ ms.author: apimpm
 ---
 # Export APIs from Azure API Management to the Power Platform 
 
-Citizen developers using the Microsoft [Power Platform]((https://powerplatform.microsoft.com/)) often needs to reach the business capabilities that are developed by professional developers and deployed in Azure. [Azure API Management](https://aka.ms/apimrocks) enables professional developers to publish their backend service as APIs, and easily export these APIs to the Power Platform (Power Apps and Power Automate) as custom connectors for consumption by citizen developers. 
+Citizen developers using the Microsoft [Power Platform](https://powerplatform.microsoft.com) often needs to reach the business capabilities that are developed by professional developers and deployed in Azure. [Azure API Management](https://aka.ms/apimrocks) enables professional developers to publish their backend service as APIs, and easily export these APIs to the Power Platform (Power Apps and Power Automate) as custom connectors for consumption by citizen developers. 
 
 This article walks through the steps to export APIs from API Management to the Power Platform. 
 
