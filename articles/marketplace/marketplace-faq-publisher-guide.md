@@ -82,7 +82,7 @@ If the publisher has configured an offering to make it available through the Clo
 
 **What countries/regions are supported for purchasing applications and services that are sold or set up through Azure Marketplace?**
 
-Azure Marketplace is available to Azure customers in the countries/regions that are listed in the [participation policies](/legal/marketplace/participation-policy).
+Azure Marketplace is available to Azure customers in the countries/regions that are listed in [Azure Marketplace participation policies](/legal/marketplace/participation-policy).
 
 **What currencies are supported by Azure Marketplace?**
 
@@ -300,7 +300,7 @@ Yes, an MPN membership is required to publish on Azure Marketplace. To get start
 
 **What are the criteria to publish a solution on Azure Marketplace?**
 
-To publish on Azure Marketplace, partners must demonstrate that their application runs on or extends Azure. Publishers are required to provide customers with a [service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/), a [privacy policy](https://privacy.microsoft.com/privacystatement), and phone and online support. Various workloads have additional requirements. For further guidance, see [Azure Marketplace Participation Policies](./marketplace-participation-policy.md) and [Commercial marketplace publishing guide](marketplace-publishers-guide.md).
+To publish on Azure Marketplace, partners must demonstrate that their application runs on or extends Azure. Publishers are required to provide customers with a [service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/), a [privacy policy](https://privacy.microsoft.com/privacystatement), and phone and online support. Various workloads have additional requirements. For further guidance, see [Azure Marketplace participation policies](./marketplace-participation-policy.md) and [Commercial marketplace publishing guide](marketplace-publishers-guide.md).
 
 **Is there a fee to publish on Azure Marketplace?**
 
@@ -324,7 +324,7 @@ For more information, and to get started enabling a trial by using Azure AD, see
 
 As a publisher, you can get started by verifying that you're not already registered with a [Dev Center account](deprecated/register-dev-center.md). Next, register by signing in with your [Microsoft account](https://account.microsoft.com/account/), which will be associated with the developer account.
 
-If you don't already have a Microsoft account, you can [create an account](https://signup.live.com/) (for example, **contoso_marketplace@live.com**).
+If you don't already have a Microsoft account, you can [create an account](https://signup.live.com/) (for example, contoso_marketplace@live.com).
 
 **Why is a Dev Center account required?**
 
@@ -453,7 +453,7 @@ You can edit an existing offer, select the new countries/regions, and then use t
 
 **In what countries/regions can my customers purchase Azure Marketplace offerings?**
 
-Azure Marketplace supports 141 buy-from geographies, as defined by customer billing addresses. For a list of countries/regions, see [participation policies](/legal/marketplace/participation-policy).
+Azure Marketplace supports 141 buy-from geographies, as defined by customer billing addresses. For a list of countries/regions, see [Azure Marketplace participation policies](/legal/marketplace/participation-policy).
 
 **What currencies are supported by Azure Marketplace?**
 
