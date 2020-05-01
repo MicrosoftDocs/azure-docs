@@ -100,7 +100,7 @@ Invalid archive format detected. Archive isn't a valid ZIP file. For example:
 To resolve this error:
 
 1. Make sure your archive file name ends in .zip.
-2. Make sure you can open your zip file'.
+2. Make sure you can open your zip file.
 
 ### invalidUserData
 
@@ -141,8 +141,8 @@ Use a JSON linter to detect any JSON errors and resolve them.
 
 Manifest is missing a required data. For example:
 
-* Manifest is missing a "version" object
-* Manifest is missing a "dwgLayers" object
+* Manifest is missing a "version" object.
+* Manifest is missing a "dwgLayers" object.
 
 Verify that the manifest contains all required properties. For a full list of required manifest object, see the [manifest section in the Drawing package requirements](drawing-requirements.md#manifest-file-requirements)  
 
@@ -150,9 +150,9 @@ Verify that the manifest contains all required properties. For a full list of re
 
 Manifest is missing from archive. It could be because manifest.json is:
 
-* Misspelled
-* Missing
-* Not inside the root directory of the archive
+* Misspelled.
+* Missing.
+* Not inside the root directory of the archive.
 
 Ensure the archive has a file named _manifest.json_ at the root level.
 
@@ -166,8 +166,8 @@ Read through your _manifest.json_ and remove conflicts.
 
 Manifest georeference is invalid. For example, the user could be georeferencing:
 
-* Out of range latitude or longitude value
-* Out of range rotation value
+* Out of range latitude or longitude value.
+* Out of range rotation value.
 
 Check your georeferenced values.
 
@@ -244,8 +244,8 @@ Make sure each zone has one and only one label.
 
 Error creating a vertical penetration feature. For example:
 
-* A vertical penetration area with no overlapping vertical penetration areas on any levels above or below it
-* There exists a level with two or more vertical penetration features on it that overlap this one
+* A vertical penetration area with no overlapping vertical penetration areas on any levels above or below it.
+* There exists a level with two or more vertical penetration features on it that overlap this one.
 
 Read about how to use a vertical penetration feature in the [Drawing package requirements](drawing-requirements.md) article.
 
