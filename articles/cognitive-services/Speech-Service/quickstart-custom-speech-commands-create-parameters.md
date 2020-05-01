@@ -125,4 +125,4 @@ Modify the Completion rule that we created in [the previous quickstart](./quicks
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Quickstart: Use Custom Commands with Custom Voice](./quickstart-custom-speech-commands-select-custom-voice.md)
+> [Quickstart: Use Custom Commands with Custom Voice (Preview)](./quickstart-custom-speech-commands-select-custom-voice.md)

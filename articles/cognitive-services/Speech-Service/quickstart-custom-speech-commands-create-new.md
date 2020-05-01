@@ -152,4 +152,4 @@ Test the behavior using the Test chat panel
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a Custom Command with Parameters](./quickstart-custom-speech-commands-create-parameters.md)
+> [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
