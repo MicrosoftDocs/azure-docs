@@ -24,9 +24,9 @@ Azure Communication Services integrates with Azure Event Grid so that you can se
 
 The Event Grid integration is available for Azure Communication services located in the regions where Event Grid is supported. For the latest list of regions, see [An introduction to Azure Event Grid](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/event-grid/overview.md).
 
-This article provides the properties and schema for Azure Communication Services events. For an introduction to event schemas, see [Azure Event Grid event schema](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/event-grid/event-schema.md). 
-
 ## Event Grid event schema
+
+This article provides the properties and schema for Azure Communication Services events. For an introduction to event schemas, see [Azure Event Grid event schema](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/event-grid/event-schema.md).
 
 ### Available event types
 
@@ -43,7 +43,7 @@ Azure Communication Services emits the following event types:
 
 TODO Add more
 
-Use either the Azure portal or Azure CLI to configure which events to publish from each IoT hub. For an example, try the (tutorial Send email notifications about SMS Events events using Logic Apps)[#todo_write_tutorial].
+Use either the Azure portal or Azure CLI to configure which events to publish from each Communication Service. For an example, try the (tutorial Send email notifications about SMS Events events using Logic Apps)[https://docs.microsoft.com/en-us/azure/event-grid/publish-iot-hub-events-to-logic-apps].
 
 ## Event Schema
 
