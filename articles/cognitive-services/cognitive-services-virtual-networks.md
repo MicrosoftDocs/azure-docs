@@ -512,7 +512,7 @@ When creating the private endpoint, you must specify the Cognitive Services reso
 
 ### Connecting to private endpoints
 
-Clients on a VNet using the private endpoint should use the same connection string for the Cognitive Services resource as clients connecting to the public endpoint. We rely upon DNS resolution to automatically route the connections from the VNet to the Cognitive Services resource over a private link. The Speech Service 
+Clients on a VNet using the private endpoint should use the same connection string for the Cognitive Services resource as clients connecting to the public endpoint. The exception is the Speech Service, which requires a separate endpoint. See the section on [Private endpoints with the Speech Service](#private-endpoints-with-the-speech-service). We rely upon DNS resolution to automatically route the connections from the VNet to the Cognitive Services resource over a private link. The Speech Service 
 
 We create a [private DNS zone](../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints, by default. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
 
