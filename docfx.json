@@ -130,10 +130,20 @@
       }
     },
     "fileMetadata": {
+      "uhfHeaderId": {
+        "articles/active-directory/**/*.md": "azure",
+        "articles/active-directory/**/*.yml": "azure",
+        "articles/active-directory-domain-services/**/*.md": "azure",
+        "articles/active-directory-domain-services/**/*.yml": "azure",
+        "articles/active-directory-b2c/**/*.md": "azure",
+        "articles/active-directory-b2c/**/*.yml": "azure",
+        "articles/storage/**/*.md": "azure",
+        "articles/storage/**/*.yml": "azure"
+      },
       "author": {
         "articles/advisor/*.md": "saket-ms",
         "articles/connectors/*.md": "ecfan",
-        "articles/batch/*.md": "ju-shim",
+        "articles/batch/*.md": "JnHs",
         "articles/logic-apps/*.md": "ecfan",
         "articles/governance/*.md": "DCtheGeek",
         "articles/governance/blueprints/**/*.md": "DCtheGeek",
@@ -176,7 +186,7 @@
         "articles/cognitive-services/personalizer/**/*.md": "diberry",
         "articles/cognitive-services/QnAMaker/**/*.md": "diberry",
         "articles/cognitive-services/Speech/**/*.md": "nitinme",
-        "articles/cognitive-services/Speech-Service/**/*.md": "IEvangelist",
+        "articles/cognitive-services/Speech-Service/**/*.md": "trevorbye",
         "articles/cognitive-services/text-analytics/**/*.md": "aahill",
         "articles/container-instances/**/*.md": "dlepow",
         "articles/container-registry/**/*.md": "dlepow",
@@ -396,9 +406,10 @@
         "articles/cognitive-services/**/*.md": "nitinme",
         "articles/site-recovery/**/*.md": "carmonm",
         "articles/migrate/**/*.md": "carmonm",
-        "articles/batch/**/*.md": "gwallace",
+        "articles/batch/**/*.md": "evansma",
         "articles/virtual-machines/**/*.md": "gwallace",
-        "articles/virtual-machine-scale-sets/**/*.md": "gwallace"
+        "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
+		"articles/remote-rendering/**/*.md": "jlyons"
    },
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
@@ -445,7 +456,7 @@
         "articles/cognitive-services/personalizer/**/*.md": "diberry",
         "articles/cognitive-services/QnAMaker/**/*.md": "diberry",
         "articles/cognitive-services/Speech/**/*.md": "nitinme",
-        "articles/cognitive-services/Speech-Service/**/*.md": "dapine",
+        "articles/cognitive-services/Speech-Service/**/*.md": "trbye",
         "articles/cognitive-services/text-analytics/**/*.md": "aahi",
         "articles/container-instances/**/*.md": "danlep",
         "articles/container-registry/**/*.md": "danlep",
@@ -464,14 +475,17 @@
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "jushiman",
-        "articles/batch/*.md": "jushiman",
+        "articles/batch/*.md": "jenhayes",
         "articles/service-fabric/*.md": "atsenthi",
         "articles/service-fabric-mesh/*md": "atsenthi",
         "articles/notebooks/*.md": "jasonh",
         "articles/service-health/*.md": "stbaron",
-        "articles/aks/**/*.md": "mlearned"
+        "articles/aks/**/*.md": "mlearned",
+        "articles/media-services/*.md": "juliako",
+        "articles/media-services/**/*.md": "juliako"	      
       },
       "ms.service": {
+        "articles/batch/*.md": "batch",
         "articles/connectors/*.md": "logic-apps",
         "articles/logic-apps/*.md": "logic-apps",
         "articles/governance/*.md": "governance",
@@ -508,7 +522,10 @@
         "articles/service-fabric/*.md": "service-fabric",
         "articles/service-fabric-mesh/*.md": "service-fabric-mesh",
         "articles/service-health/**/*.md": "service-health",
-        "articles/aks/**/*.md": "container-service"
+        "articles/aks/**/*.md": "container-service",
+        "articles/remote-rendering/**/*.md": "azure-remote-rendering",
+        "articles/media-services/*.md": "media-services",
+        "articles/media-services/**/*.md": "media-services"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
@@ -569,8 +586,8 @@
         "articles/hdinsight/**/*.yml": ["Azure","Azure HDInsight"],
         "articles/mariadb/**/*.md": ["Azure","Azure Database for MariaDB"],
         "articles/mariadb/**/*.yml": ["Azure","Azure Database for MariaDB"],
-        "articles/marketplace/**/*.md": ["Azure","Microsoft's commercial marketplace"],
-        "articles/marketplace/**/*.yml": ["Azure","Microsoft's commercial marketplace"],
+        "articles/marketplace/**/*.md": ["Azure","Microsoft commercial marketplace"],
+        "articles/marketplace/**/*.yml": ["Azure","Microsoft commercial marketplace"],
         "articles/mysql/**/*.md": ["Azure","Azure Database for MySQL"],
         "articles/mysql/**/*.yml": ["Azure","Azure Database for MySQL"],
         "articles/notebooks/**/*.yml": ["Azure","Azure Notebooks"],
@@ -593,6 +610,8 @@
         "articles/service-health/*.yml": "Azure Service Health",
         "articles/advisor/**/*.md": "Azure Advisor",
         "articles/advisor/*.yml": "Azure Advisor",
+        "articles/asc-for-iot/**/*.md": "Azure Security Center for IoT",
+        "articles/asc-for-iot/**/*.yml": "Azure Security Center for IoT",
         "articles/azure-monitor/**/*.yml" : "Azure Monitor",
         "articles/azure-monitor/**/*.md" : "Azure Monitor",
         "articles/connectors/*.md": "Azure Logic Apps",
@@ -602,6 +621,8 @@
         "articles/governance/policy/**/*.md": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
         "articles/lighthouse/**/*.md": "Azure Lighthouse",
+        "articles/synapse-analytics/**/*.md": "Azure Synapse Analytics",
+        "articles/synapse-analytics/**/*.yml": "Azure Synapse Analytics",
         "articles/backup/**/*.md": "Azure Backup",
         "articles/backup/**/*.yml": "Azure Backup",
         "articles/blockchain/**/*.md": "Azure Blockchain",
@@ -653,7 +674,13 @@
         "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps",
         "articles/service-fabric/*.md": "Azure Service Fabric",
         "articles/service-fabric-mesh/*.md": "Azure Service Fabric Mesh",
-        "articles/aks/**/*.md": "Azure Kubernetes Service"
+        "articles/aks/**/*.md": "Azure Kubernetes Service",
+        "articles/remote-rendering/**/*.md": "Azure Remote Rendering",
+        "articles/remote-rendering/**/*.yml": "Azure Remote Rendering",
+        "articles/media-services/**/*.yml" : "Azure Media Services",
+        "articles/media-services/**/*.md" : "Azure Media Services",
+        "articles/media-services/*.yml" : "Azure Media Services",
+        "articles/media-services/*.md" : "Azure Media Services"     	      
       },
       "featureFlags": {
         "articles/**/*.md": [

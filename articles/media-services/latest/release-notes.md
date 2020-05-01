@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 04/20/2020
 ms.author: juliako
 ---
 
@@ -32,7 +32,13 @@ To stay up-to-date with the most recent developments, this article provides you 
 > You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view v3 [Assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, Transforms and Jobs), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
- 
+
+## April 2020
+
+### Improvements in documentation
+
+Azure Media Player docs were migrated to the [Azure documentation](../azure-media-player/azure-media-player-overview.md).
+
 ## January 2020
 
 ### Improvements in media processors
@@ -174,7 +180,7 @@ For more information, see [Clouds and regions in which Media Services v3 exists]
 
 Added updates that include Media Services performance improvements.
 
-* The maximum file size supported for processing was updated. See, [Quotas and limitations](limits-quotas-constraints.md).
+* The maximum file size supported for processing was updated. See, [Quotas and limits](limits-quotas-constraints.md).
 * [Encoding speeds improvements](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
 
 ## April 2019
@@ -358,4 +364,5 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 ## Next steps
 
 - [Overview](media-services-overview.md)
+- [Media Services v3 Documentation updates](docs-release-notes.md)
 - [Media Services v2 release notes](../previous/media-services-release-notes.md)

@@ -56,7 +56,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.CustomerLockbox | Customer Lockbox for Microsoft Azure |
 | Microsoft.CustomProviders | [Azure Custom Providers](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](/azure/databox-family/) |
-| Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/data-box-edge-overview.md) |
+| Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
 | Microsoft.Databricks | [Azure Databricks](/azure/azure-databricks/) |
 | Microsoft.DataCatalog | [Data Catalog](/azure/data-catalog/) |
 | Microsoft.DataFactory | [Data Factory](/azure/data-factory/) |
@@ -93,7 +93,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
 | Microsoft.KeyVault | [Key Vault](../../key-vault/index.yml) |
 | Microsoft.Kubernetes | [Azure Kubernetes Service (AKS)](/azure/aks/) |
-| Microsoft.Kusto | [Azure Data Explorer](../../data-explorer/index.yml) |
+| Microsoft.Kusto | [Azure Data Explorer](/azure/data-explorer/) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Logic | [Logic Apps](../../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/studio/index.yml) |

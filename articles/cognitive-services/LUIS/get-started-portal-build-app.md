@@ -2,7 +2,7 @@
 title: "Quickstart: Create a new app in the LUIS portal"
 description: In this quickstart, you create the basic parts of an app, intents, and entities as well as test with sample utterance in the LUIS portal.
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 04/14/2020
 #Customer intent: As a new user, I want to quickly get a LUIS app created in the LUIS portal so I can understand the different models of intent, entity, and example utterances.
 ---
 
@@ -84,11 +84,10 @@ Add the following 15 example utterances to the `FindForm` intent.
 By design, these example utterances vary in the following ways:
 
 * utterance length
-* punctuation
+* [punctuation](luis-reference-application-settings.md#punctuation-normalization)
 * word choice
 * verb tense (is, was, will be)
 * word order
-
 
 
 ## Create a regular expression entity

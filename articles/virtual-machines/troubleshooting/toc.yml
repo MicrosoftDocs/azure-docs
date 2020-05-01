@@ -78,6 +78,8 @@
       href: troubleshoot-guide-critical-process-died.md
     - name: Critical service failed
       href: troubleshoot-critical-service-failed-boot-error.md
+    - name: VM is unresponsive when applying local users and groups policy
+      href: troubleshoot-vm-unresponsive-group-policy-local-users.md
     - name: Not a bootable disk
       href: troubleshoot-guide-not-bootable-disk.md
     - name: Reboot loop
@@ -88,6 +90,8 @@
       href: troubleshoot-vm-boot-configure-update.md
     - name: VM cannot boot due to windows boot manager
       href: troubleshoot-guide-windows-boot-manager-menu.md
+    - name: VM is unresponsive due to updating
+      href: unresponsive-vm-apply-windows-update.md
 - name: Cannot connect to my VM
   items:
   - name: RDP

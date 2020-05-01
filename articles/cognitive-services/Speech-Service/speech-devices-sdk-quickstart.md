@@ -3,13 +3,13 @@ title: 'Quickstart: Run the Speech Devices SDK on Windows, Linux or Android - Sp
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with a Windows, Linux or Android Speech Devices SDK.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/20/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: platforms-set-of-three
 ---
 

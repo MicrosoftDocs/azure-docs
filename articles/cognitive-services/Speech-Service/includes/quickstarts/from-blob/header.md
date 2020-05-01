@@ -3,13 +3,13 @@ title: "Quickstart: Recognize speech stored in blob storage - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 03/13/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ---
 
