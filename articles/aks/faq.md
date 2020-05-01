@@ -131,12 +131,14 @@ It is important to recognize the distinction between AKS service availability wh
 ## Why can't I set maxPods below 30?
 
 In AKS, you can set the `maxPods` value when you create the cluster by using the Azure
-CLI and Azure Resource Manager templates. However, both Kubenet and Azure CNI require a *minimum value* (validated at creation time):
+CLI and Azure Resource Manager templates, and you can also specify `maxPods` for any new node pools you create. However, both Kubenet and Azure CNI require a *minimum value* (validated at creation time):
 
 | Networking | Minimum | Maximum |
 | -- | :--: | :--: |
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |
+
+If you don't specify `maxPods` when creating new node pools, you receive a default value of 110 for kubenet, and 30 for Azure CNI.
 
 Because AKS is a managed service, we deploy and manage add-ons and pods as part of the cluster. In the past, users could define a `maxPods` value lower than the value that the managed pods required to run (for example, 30). AKS now calculates the minimum number of
 pods by using this formula: ((maxPods or (maxPods * vm_count)) > managed add-on pods minimum.
