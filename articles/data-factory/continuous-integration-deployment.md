@@ -21,7 +21,7 @@ ms.date: 04/30/2020
 
 Continuous integration is the practice of testing each change made to your codebase automatically and as early as possible. Continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
 
-In Azure Data Factory, continuous integration and delivery (CI/CD) means moving Data Factory pipelines from one environment (development, test, production) to another. Azure Data Factory utilizes [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) to store the configuration of your various ADF entities (pipelines, datasets, data flows, etc). There are two suggested methods to promote a data factory to another environment:
+In Azure Data Factory, continuous integration and delivery (CI/CD) means moving Data Factory pipelines from one environment (development, test, production) to another. Azure Data Factory utilizes [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) to store the configuration of your various ADF entities (pipelines, datasets, data flows, and so on). There are two suggested methods to promote a data factory to another environment:
 
 -    Automated deployment using Data Factory's integration with [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
 -    Manually upload a Resource Manager template using Data Factory UX integration with Azure Resource Manager.
