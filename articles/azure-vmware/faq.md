@@ -56,23 +56,19 @@ Updates made to the service itself will follow Microsoft Azure’s standard chan
 
 **Is there more than one type of host available?**
 
-There are two types of hosts available: General Purpose and High-end servers.
+There is only one type of host available.
 
 **What are the CPU specifications in each type of host?**
 
-The High-End servers have dual 18 core 2.3 GHz Intel CPUs.
-
-The General Purpose servers have dual 10 core 2.2 GHz Intel CPUs.
+The servers have dual 18 core 2.3 GHz Intel CPUs.
 
 **How much memory is in each host?**
 
-The High-End servers have 576 GB of RAM and the General Purpose hosts have 192 GB RAM.
+The servers have 576 GB of RAM.
 
 **What is the storage capacity of each host?**
 
-Each High-end ESXi host has two VSAN diskgroups with a capacity tier of 15.2 TB and a 3.2 TB NVMe cache tier (1.6 TB in each diskgroup).
-
-The General-purpose ESXi hosts have two VSAN diskgroups with a capacity tier of 7.68 TB and a 1.6 TB NVMe cache tier (1.6 TB in each diskgroup).
+Each ESXi host has two VSAN diskgroups with a capacity tier of 15.2 TB and a 3.2 TB NVMe cache tier (1.6 TB in each diskgroup).
 
 **How much network bandwidth is available in each ESXi host?**
 
@@ -87,10 +83,6 @@ Yes, all VSAN data is encrypted by default using keys stored in Azure Key Vault.
 **Is the underlying infrastructure shared?**
 
 No, private cloud hosts and clusters are dedicated and securely erased before and after use.
-
-**Can I mix host types in a cluster?**
-
-No. General Purpose and High-end hosts can't be mixed in a cluster, though clusters of different host types can be used in a private cloud.
 
 **What are the minimum and maximum number of hosts per cluster?**
 

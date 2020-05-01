@@ -50,7 +50,7 @@ To establish full interconnectivity to a private cloud, you use the Azure portal
 
 An on-premises to Azure virtual network ExpressRoute circuit is required to connect from on-premises environments to your private cloud in Azure. This ExpressRoute circuit is in your subscription and isn't part of a private cloud deployment. The on-premises ExpressRoute circuit is beyond the scope of this document. If you require on-premises connectivity to your private cloud, you can use one of your existing ExpressRoute circuits or purchase one in the Azure portal.
 
-Once linked with Global Reach, the two ExpressRoute circuits will route network traffic between your on-premises environments and your private cloud. The on-premises to private cloud interconnectivity is shown in the following diagram. The interconnectivity represented in the diagram enables the following use cases:
+Once linked with Global Reach, the two ExpressRoute circuits will route network traffic between your on-premises environments and your private cloud. The on-premises to private cloud interconnectivity is shown in the preceding diagram. The interconnectivity represented in the diagram enables the following use cases:
 
 - Hot/Cold Cross-vCenter vMotion
 - On-Premise to AVS private cloud management access
