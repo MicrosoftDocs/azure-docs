@@ -45,7 +45,7 @@ For information on using **xDscDiagnostics**, see [Using xDscDiagnostics to anal
 
 ### 3. Ensure that nodes and the Automation workspace have required modules
 
-DSC depends on modules installed on the node. When you use Azure Automation State Configuration, import any required modules into your Automation account by following the steps in [Import Modules](../shared-resources/modules.md#importing-modules). Configurations can also have a dependency on specific versions of modules. For more information, see [Troubleshoot modules](shared-resources.md#modules).
+DSC depends on modules installed on the node. When you use Azure Automation State Configuration, import any required modules into your Automation account by following the steps in [Import Modules](../shared-resources/modules.md#import-modules). Configurations can also have a dependency on specific versions of modules. For more information, see [Troubleshoot modules](shared-resources.md#modules).
 
 ## <a name="unsupported-characters"></a>Scenario: A configuration with special characters can't be deleted from the portal
 
