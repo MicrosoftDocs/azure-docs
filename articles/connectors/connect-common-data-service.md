@@ -13,25 +13,28 @@ tags: connectors
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Common Data Service connector](https://docs.microsoft.com/connectors/commondataservice/), you can build automated workflows that manage records in your [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) database. These workflows can create records, update records, and perform other operations. You can also get information from your Common Data Service database and make the output available for other actions to use in your logic app. For example, when a record is updated in your Common Data Service database, you can send an email by using the Office 365 Outlook connector.
 
-> [!IMPORTANT]
+This article shows how you can build a logic app that creates a task record whenever a new lead record is created.
+
+> [!NOTE]
 > The [Common Data Service connector](https://docs.microsoft.com/connectors/commondataservice/) 
-> is replacing the Dynamics 365 connector, which is being deprecated, and has all the Dynamics 365 
+> replaces the soon-to-be-deprecated Dynamics 365 connector and has all the Dynamics 365 
 > connector's capabilities plus improvements that increase reliability. Common Data Service 
 > helps you securely store and manage data that's used by business apps, such as Dynamics 365.
 > 
 > * For new logic apps, use the Common Data Service connector, rather than the Dynamics 365 connector. 
-> After deprecation, Dynamics 365 connector actions won't be available for adding new actions.
+> After deprecation, Dynamics 365 triggers and actions won't be available for you to include in logic apps.
 >
 > * For existing logic apps, you're not currently required to use the Common Data Service 
-> connector or to stop using the Dynamics 365 connector, which will continue to work at this time.
+> connector or stop using the Dynamics 365 connector, which continues to work at this time.
 >
-> At some point, the [Common Data Service (Current Environment) connector](https://docs.microsoft.com/connectors/commondataserviceforapps/), 
-> which is not yet available for logic apps, will replace both the Dynamics 365 connector and the 
-> Common Data Service connector. At that point, both these connectors will be removed. For more 
-> information, see the Power Platform blog post, [Dynamics 365 Connector is deprecated](https://docs.microsoft.com/power-platform/important-changes-coming).
+> At some point, the [Common Data Service (*Current Environment*) connector](https://docs.microsoft.com/connectors/commondataserviceforapps/), 
+> which is not yet available for Azure Logic Apps, will replace both the Dynamics 365 connector and the 
+> Common Data Service connector. At that time, both these connectors will be removed. For more 
+> information, see these resources:<p>
 >
-
-This article shows how you can build a logic app that creates a task record whenever a new lead record is created.
+> * [Power Platform blog: Dynamics 365 Connector is deprecated](https://docs.microsoft.com/power-platform/important-changes-coming)
+> * [Learn: Connect and analyze your Dynamics 365 data by using the Power Platform and Common Data Service](https://docs.microsoft.com/learn/wwl/connect-analyze-dynamics-365-data/)
+  
 
 ## Prerequisites
 
