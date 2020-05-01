@@ -29,7 +29,7 @@ Within Visual Studio Code, select the **EXTENSIONS** pane and search for *Azurit
 
 ![Visual Studio Code extensions marketplace](media/storage-use-azurite/azurite-vs-code-extension.png)
 
-Alternatively, navigate to [Visual Studio Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) in your browser. Select the **Install** button to open Visual Studio Code and go directly to the Azurite extension page.
+You can also navigate to [Visual Studio Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) in your browser. Select the **Install** button to open Visual Studio Code and go directly to the Azurite extension page.
 
 You can quickly start or close Azurite in the Visual Studio Code status bar. Click on **[Azurite Blob Service]** or **[Azurite Queue Service]**.
 
@@ -47,7 +47,7 @@ The extension supports the following Visual Studio Code commands. To open the co
 
 To configure Azurite within Visual Studio Code, select the extensions pane. Select the **Manage** (gear) icon for **Azurite**. Select **Configure Extension Settings**.
 
-![Azurite configure extension settings](media/storage-use-azurite/azurite-configure-extension-settings.png)
+![Azurites configure extension settings](media/storage-use-azurite/azurite-configure-extension-settings.png)
 
 The following settings are supported:
 
@@ -102,7 +102,7 @@ docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite
 
 **Set all Azurite parameters**:
 
-This example shows how to set all of the command line parameters. All of the parameters below should be placed on a single command line.
+This example shows how to set all of the command-line parameters. All of the parameters below should be placed on a single command line.
 
 ```console
 docker run -p 8888:8888
@@ -116,7 +116,7 @@ docker run -p 8888:8888
            --queueHost 0.0.0.0
 ```
 
-See [Command line options](#command-line-options) for more information about configuring Azurite at start-up.
+For more information about configuring Azurite at start-up, see [Command-line options](#command-line-options).
 
 ## Clone, build, and run Azurite from the GitHub repository
 
@@ -149,13 +149,13 @@ azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 
 This command tells Azurite to store all data in a particular directory, *c:\azurite*. If the `--location` option is omitted, it will use the current working directory.
 
-## Command line options
+## Command-line options
 
-This section details the command line switches available when launching Azurite. All command line switches are optional.
+This section details the command line switches available when launching Azurite. All command-line switches are optional.
 
 ### Help
 
-**Optional** Get command line help by using the `--help` switch.
+**Optional** Get command-line help by using the `--help` switch.
 
 ```console
 azurite --help
@@ -340,7 +340,7 @@ Azurite supports basic authentication by specifying the `basic` parameter to the
 
 Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), by using any authentication strategy. Authentication is required. Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
 
-If you are using the Azure SDKs, start Azurite with the `--oauth basic` option.
+If you're using the Azure SDKs, start Azurite with the `--oauth basic` option.
 
 ### Well-known storage account and key
 
@@ -363,7 +363,7 @@ set AZURITE_ACCOUNTS="account1:key1"
 export AZURITE_ACCOUNTS="account1:key1"
 ```
 
-Or use multiple storage accounts with 2 keys each:
+Or use multiple storage accounts with two keys each:
 
 ```cmd
 set AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
@@ -436,7 +436,7 @@ If you used `dotnet dev-certs` to generate your self-signed certificate, use the
 DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;
 ```
 
-Update the connection string accordingly when using [custom storage accounts and keys](#custom-storage-accounts-and-keys).
+Update the connection string when using [custom storage accounts and keys](#custom-storage-accounts-and-keys).
 
 For more information, see [Configure Azure Storage connection strings](storage-configure-connection-string.md).
 
@@ -506,7 +506,7 @@ The following address might be used for accessing a blob in Azurite:
 
 ### Scaling and performance
 
-Azurite isn't a scalable storage service and doesn't support a large number of concurrent clients. There's no performance guarantee. Azurite is intended for development and testing purposes.
+Azurite doesn't support a large number of concurrent clients. There's no performance guarantee. Azurite is intended for development and testing purposes.
 
 ### Error handling
 
