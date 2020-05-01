@@ -11,7 +11,7 @@ tags: connectors
 
 # Create and manage Dynamics 365 records by using Azure Logic Apps
 
-The Dynamics 365 connector is being deprecated and replaced by the [Common Data Service connector](https://docs.microsoft.com/connectors/commondataservice/), which has all the Dynamics 365 connector's capabilities plus improvements that increase reliability. [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) lets you securely store and manage data that's used by business apps, such as Dynamics 365.
+The Dynamics 365 connector is being deprecated and replaced by the [Common Data Service connector](https://docs.microsoft.com/connectors/commondataservice/), which has all the Dynamics 365 connector's capabilities plus improvements that increase reliability. [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) lets you securely store and manage data that's used by business apps, such as Dynamics 365. You can use Common Data Service to 
 
 * For new logic apps, use the Common Data Service connector instead. After deprecation, Dynamics 365 connector actions won't be available for you to use in logic apps. For more information, see [Create and manage Common Data Service records by using Azure Logic Apps](../connectors/connect-common-data-service.md).
 
@@ -21,5 +21,6 @@ However, the [Common Data Service (*Current Environment*) connector](https://doc
 
 ## Next steps
 
-* [Create and manage Common Data Service records by using Azure Logic Apps](../logic-apps/logic-apps-diagnosing-failures.md)
-* Learn about other [connectors for Azure Logic Apps](../connectors/apis-list.md)
+* [Create and manage Common Data Service records by using Azure Logic Apps](../connnectors/connect-common-data-service.md)
+* [Learn: Get started with Common Data Service](https://docs.microsoft.com/learn/modules/get-started-with-powerapps-common-data-service/)
+* [Learn: Connect and analyze your Dynamics 365 data by using the Power Platform and Common Data Service](https://docs.microsoft.com/learn/wwl/connect-analyze-dynamics-365-data/)

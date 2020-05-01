@@ -13,13 +13,11 @@ tags: connectors
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Common Data Service connector](https://docs.microsoft.com/connectors/commondataservice/), you can build automated workflows that manage records in your [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) database. These workflows can create records, update records, and perform other operations. You can also get information from your Common Data Service database and make the output available for other actions to use in your logic app. For example, when a record is updated in your Common Data Service database, you can send an email by using the Office 365 Outlook connector.
 
-Common Data Service lets you securely store and manage data that's used by business apps, such as Dynamics 365. 
-
-
 > [!IMPORTANT]
 > The [Common Data Service connector](https://docs.microsoft.com/connectors/commondataservice/) 
-> replaces the Dynamics 365 connector, which is being deprecated, and has all the Dynamics 365 
-> connector's capabilities plus improvements that increase reliability. 
+> is replacing the Dynamics 365 connector, which is being deprecated, and has all the Dynamics 365 
+> connector's capabilities plus improvements that increase reliability. Common Data Service 
+> helps you securely store and manage data that's used by business apps, such as Dynamics 365.
 > 
 > * For new logic apps, use the Common Data Service connector, rather than the Dynamics 365 connector. 
 > After deprecation, Dynamics 365 connector actions won't be available for adding new actions.
@@ -32,17 +30,19 @@ Common Data Service lets you securely store and manage data that's used by busin
 > Common Data Service connector. At that point, both these connectors will be removed. For more 
 > information, see the Power Platform blog post, [Dynamics 365 Connector is deprecated](https://docs.microsoft.com/power-platform/important-changes-coming).
 >
-> This article is updated to use the 
 
-This article shows how you can build a logic app that creates a task whenever a new record is created.
+This article shows how you can build a logic app that creates a task record whenever a new lead record is created.
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* A [Common Data Service environment](https://dynamics.microsoft.com), which is a space where your organization stores, manages, and shares business data. For more information, see [Power Platform - Environments overview](https://docs.microsoft.com/power-platform/admin/environments-overview).
+* A [Common Data Service environment](https://docs.microsoft.com/power-platform/admin/environments-overview), which is a space where your organization stores, manages, and shares business data and a Common Data Service database. For more information, see these resources:<p>
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) and the logic app where you want to access your Dynamics 365 account. To start your logic app with a Dynamics 365 trigger, you need a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  * [Learn: Get started with Common Data Service](https://docs.microsoft.com/learn/modules/get-started-with-powerapps-common-data-service/)
+  * [Power Platform - Environments overview](https://docs.microsoft.com/power-platform/admin/environments-overview)
+
+* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) and the logic app from where you want to access the records in your Common Data Service database. To start your logic app with a Common Data Service trigger, you need a blank logic app. If you're new to Azure Logic Apps, review [Quickstart: Create your first workflow by using Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Add Common Data Service trigger
 
