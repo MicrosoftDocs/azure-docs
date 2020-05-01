@@ -72,13 +72,13 @@
     items:
     - name: Types
       href: luis-concept-model.md
-    - name: Intents
+    - name: Intents classify utterances
       href: luis-concept-intent.md
-    - name: Utterances
-      href: luis-concept-utterance.md
-    - name: Entities
+    - name: Entities extract data
       displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles
       href: luis-concept-entity-types.md
+    - name: Example utterances
+      href: luis-concept-utterance.md
     - name: Prebuilt models
       href: luis-concept-prebuilt-model.md
     - name: Patterns
