@@ -69,7 +69,7 @@ Understanding Network Security provided by Azure Security Center:
 
 **Guidance**: Enable DDoS Protection Standard on the virtual networks associated with your event hubs to guard against distributed denial-of-service (DDoS) attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.​
 
-How to configure DDoS protection:​ https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection​
+How to configure DDoS protection:​ [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](/azure/virtual-network/manage-ddos-protection)
 
 For more information about the Azure Security Center Integrated Threat Intelligence: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
@@ -103,7 +103,7 @@ https://azuremarketplace.microsoft.com/marketplace/?term=Firewall
 
 How to add a firewall rule in Event Hubs for a specified IP address:
 
- https://docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-virtual-networks-firewalls#add-firewall-for-specified-ip
+ https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
 
 **Azure Security Center monitoring**: Not yet available
 
@@ -131,13 +131,13 @@ How to add a firewall rule in Event Hubs for a specified IP address:
 
 ​- Event Hub should use a virtual network service endpoint.​
 
-​How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage​
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Azure Built-in Policy for Event Hubs namespace:  https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
 ​
 
-Azure Policy samples for networking:​ https://docs.microsoft.com/azure/governance/policy/samples/#network​
+Azure Policy samples for networking:​ https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 ​
 
@@ -332,7 +332,7 @@ How to use Azure Policy: https://docs.microsoft.com/azure/governance/policy/tuto
 
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
-**Guidance**: Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (AD). A key advantage of using Azure AD with Azure Event Hubs is that you don't need to store your credentials in the code anymore. Instead, you can request an OAuth 2.0 access token from the Microsoft Identity platform. The resource name to request a token is https://eventhubs.azure.net/. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If the authentication succeeds, Azure AD returns an access token to the application, and the application can then use the access token to authorize request to Azure Event Hubs resources.
+**Guidance**: Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (AD). A key advantage of using Azure AD with Azure Event Hubs is that you don't need to store your credentials in the code anymore. Instead, you can request an OAuth 2.0 access token from the Microsoft Identity platform. The resource name to request a token is https:\//eventhubs.azure.net/. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If the authentication succeeds, Azure AD returns an access token to the application, and the application can then use the access token to authorize request to Azure Event Hubs resources.
 
 How to authenticate an application with Azure AD to access Event Hubs resources: https://docs.microsoft.com/azure/event-hubs/authenticate-application
 
@@ -370,12 +370,9 @@ How to enable MFA in Azure: https://docs.microsoft.com/azure/active-directory/au
 
 **Guidance**: Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure AD risk detections to view alerts and reports on risky user behavior. For additional logging, send Azure Security Center risk detection alerts into Azure Monitor and configure custom alerting/notifications using action groups.​
 
-​
+​How to deploy Privileged Identity Management (PIM):​ https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-How to deploy Privileged Identity Management (PIM):​ https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan​​
-
-​
-Understand Azure AD risk detections:​ https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events​​
+​Understand Azure AD risk detections:​ https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
 How to configure action groups for custom alerting and notification:​ https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 
@@ -631,7 +628,7 @@ How to create alerts for Azure Activity Log events: https://docs.microsoft.com/a
 
 **Guidance**: Use Azure Resource Graph to query and discover all resources (including Azure Event Hubs namespaces) within your subscription(s). Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
-How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
@@ -675,7 +672,7 @@ How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 ### 6.5: Monitor for unapproved Azure resources
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 - Not allowed resource types
 
@@ -717,7 +714,7 @@ How to create queries with Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### 6.9: Use only approved Azure services
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 - Not allowed resource types
 
@@ -777,9 +774,9 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 - Event Hub should use a virtual network service endpoint
 
-Azure Built-in Policy for Event Hubs namespace:​ https://docs.microsoft.com/en-\ us/azure/governance/policy/samples/built-in-policies#event-hub
+Azure Built-in Policy for Event Hubs namespace:​ https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
-How to view available Azure Policy Aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+How to view available Azure Policy aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -797,7 +794,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Event Hubs-enabled resources. 
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Event Hubs-enabled resources. 
 
 How to configure and manage Azure Policy:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -856,7 +853,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 ### 7.9: Implement automated configuration monitoring for Azure services
 
-**Guidance**: Use Azure Policy aliases in the "Microsoft.EventHub" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure Event Hubs deployments and related resources.
+**Guidance**: Use Azure Policy aliases in the "Microsoft.EventHub" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure Event Hubs deployments and related resources.
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -958,7 +955,7 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 **Guidance**: Configure geo-disaster recovery for Azure Event Hubs. When entire Azure regions or datacenters (if no availability zones are used) experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, Geo-disaster recovery and Geo-replication are important features for any enterprise. Azure Event Hubs supports both geo-disaster recovery and geo-replication, at the namespace level. 
 
-Understand geo-disaster recovery for Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones-preview
+Understand geo-disaster recovery for Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -994,7 +991,7 @@ How to restore key vault keys in Azure: https://docs.microsoft.com/powershell/mo
 
 **Guidance**: Enable soft-delete in Key Vault to protect keys against accidental or malicious deletion. Azure Event Hubs requires customer-managed keys to have Soft Delete and Do Not Purge configured.
 
-Configure soft delete for Azure Storage account that’s used for capturing Event Hubs data. Note that this feature isn’t supported for Azure Data Lake Storage Gen 2 yet.
+Configure soft delete for Azure Storage account that's used for capturing Event Hubs data. Note that this feature isn't supported for Azure Data Lake Storage Gen 2 yet.
 
 How to enable soft-delete in Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
@@ -1032,7 +1029,7 @@ How to configure Workflow Automations within Azure Security Center: https://docs
 
 ### 10.3: Test Security Response Procedures
 
-**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
+**Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
 Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
@@ -1080,7 +1077,7 @@ How to configure Workflow Automation and Logic Apps: https://docs.microsoft.com/
 
 **Guidance**: Please follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies:
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
-You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+You can find more information on Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Azure Security Center monitoring**: Yes
 

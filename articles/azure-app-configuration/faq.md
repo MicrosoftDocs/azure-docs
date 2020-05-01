@@ -63,7 +63,7 @@ See [best practices](./howto-best-practices.md).
 
 ## How much does App Configuration cost?
 
-There are two pricing tiers: 
+There are two pricing tiers:
 
 - Free tier
 - Standard tier.
@@ -94,6 +94,25 @@ The following are considerations for choosing a tier.
 You can upgrade from the Free tier to the Standard tier at any time.
 
 You can't downgrade a store from the Standard tier to the Free tier. You can create a new store in the Free tier and then [import configuration data into that store](howto-import-export-data.md).
+
+## Are there any limits on the number of requests made to App Configuration?
+
+Configuration stores in the Free tier are limited to 1,000 requests per day. Configuration stores in the Standard tier may experience temporary throttling when the request rate exceeds 20,000 requests per hour.
+
+When a store reaches its limit, it will return HTTP status code 429 for all requests made until the time period expires. The `retry-after-ms` header in the response gives a suggested wait time (in milliseconds) before retrying the request.
+
+If your application regularly experiences HTTP status code 429 responses, consider redesigning it to reduce the number of requests made. For more information, see [Reduce requests made to App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
+
+## My application receives HTTP status code 429 responses. Why?
+
+You'll receive an HTTP status code 429 response under these circumstances:
+
+* Exceeding the daily request limit for a store in the Free tier.
+* Temporary throttling due to a high request rate for a store in the Standard tier.
+* Excessive bandwidth usage.
+* Attempting to create or modify a key when the storage quote is exceeded.
+
+Check the body of the 429 response for the specific reason why the request failed.
 
 ## How can I receive announcements on new releases and other information related to App Configuration?
 

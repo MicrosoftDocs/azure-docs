@@ -77,7 +77,7 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 <sup>3</sup> The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet directly or via the configured web proxy. The fixed IP addresses are used for servicing the updates to the device and for garbage collection. If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device and garbage collection will not work properly.
 
 > [!IMPORTANT]
-> Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.
+> Ensure that the firewall does not modify or decrypt any TLS traffic between the StorSimple device and Azure.
 
 
 ### URL patterns for firewall rules

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 04/06/2020
 ms.author: iainfou
 
 #Customer intent: As a directory administrator, I want to troubleshoot why user accounts are locked out in an Azure Active Directory Domain Services managed domain.
@@ -31,11 +31,11 @@ The default account lockout thresholds are configured using fine-grained passwor
 
 ### Fine-grained password policy
 
-Fine-grained password policies (FGPPs) let you apply specific restrictions for password and account lockout policies to different users in a domain. FGPP only affects users created in Azure AD DS. Cloud users and domain users synchronized into the Azure AD DS managed domain from Azure AD aren't affected by the password policies.
+Fine-grained password policies (FGPPs) let you apply specific restrictions for password and account lockout policies to different users in a domain. FGPP only affects users within an Azure AD DS managed domain. Cloud users and domain users synchronized into the Azure AD DS managed domain from Azure AD are only affected by the password policies within Azure AD DS. Their accounts in Azure AD or an on-premises directory aren't impacted.
 
 Policies are distributed through group association in the Azure AD DS managed domain, and any changes you make are applied at the next user sign-in. Changing the policy doesn't unlock a user account that's already locked out.
 
-For more information on fine-grained password policies, see [Configure password and account lockout policies][configure-fgpp].
+For more information on fine-grained password policies, and the differences between users created directly in Azure AD DS versus synchronized in from Azure AD, see [Configure password and account lockout policies][configure-fgpp].
 
 ## Common account lockout reasons
 

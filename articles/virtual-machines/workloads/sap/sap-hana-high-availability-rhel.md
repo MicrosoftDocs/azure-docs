@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/28/2020
+ms.date: 03/31/2020
 ms.author: radeltch
 
 ---
@@ -262,9 +262,13 @@ The steps in this section use the following prefixes:
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Create the logical volumes. A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance, where the `-i` argument should be the number of the underlying physical volume. In this document, two physical volumes are used for the data volume, so the `-i` switch argument is set to **2**. One physical volume is used for the log volume, so no `-i` switch is explicitly used. Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data, log, or shared volumes.
+   Create the logical volumes. A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance, and align the stripe sizes to the values documented in [SAP HANA VM storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). The `-i` argument should be the number of the underlying physical volumes and the `-I` argument is the stripe size. In this document, two physical volumes are used for the data volume, so the `-i` switch argument is set to **2**. The stripe size for the data volume is **256KiB**. One physical volume is used for the log volume, so no `-i` or `-I` switches are explicitly used for the log volume commands.  
 
-   <pre><code>sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+   > [!IMPORTANT]
+   > Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data, log, or shared volumes. Use the `-I` switch to specify the stripe size, when creating a striped volume.  
+   > See [SAP HANA VM storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) for recommended storage configurations, including stripe sizes and number of disks.  
+
+   <pre><code>sudo lvcreate <b>-i 2</b> <b>-I 256</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
    sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data

@@ -75,7 +75,7 @@ Your streaming client can specify the following Smooth Streaming formats:
 
 The following steps show a common Media Services streaming workflow where Dynamic Packaging is used along with the Standard Encoder in Azure Media Services.
 
-1. Upload an input file such as a QuickTime/MOV or MXF file. This file is also referred to as the mezzanine or source file. For the list of supported formats, see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md).
+1. Upload an input file such as a QuickTime/MOV or MXF file. This file is also referred to as the mezzanine or source file. For the list of supported formats, see [Formats Supported by the Standard Encoder](media-encoder-standard-formats.md).
 1. [Encode](#encode-to-adaptive-bitrate-mp4s) your mezzanine file into an H.264/AAC MP4 adaptive bitrate set.
 1. Publish the output asset that contains the adaptive bitrate MP4 set. You publish by creating a streaming locator.
 1. Build URLs that target different formats (HLS, MPEG-DASH, and Smooth Streaming). The **Streaming Endpoint** would take care of serving the correct manifest and requests for all these different formats.
@@ -92,7 +92,7 @@ The following articles show examples of [how to encode a video with Media Servic
 * [Encode a local file by using built-in presets](job-input-from-local-file-how-to.md).
 * [Build a custom preset to target your specific scenario or device requirements](customize-encoder-presets-how-to.md).
 
-See the list of Media Encoder Standard [formats and codecs](media-encoder-standard-formats.md).
+See the list of Standard Encoder [formats and codecs](media-encoder-standard-formats.md).
 
 ## Live streaming workflow
 

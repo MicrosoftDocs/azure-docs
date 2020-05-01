@@ -19,6 +19,8 @@ ms.date: 09/04/2018
 > * [Version 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Current version](connector-amazon-redshift.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an Amazon Redshift. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 

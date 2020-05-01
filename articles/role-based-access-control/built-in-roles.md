@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 03/22/2020
+ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -331,7 +331,7 @@ Lets you manage user access to Azure resources.
 > | **Actions** |  |
 > | */read | Read resources of all types, except secrets. |
 > | Microsoft.Authorization/* | Manage authorization |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -388,11 +388,11 @@ Lets you manage classic virtual machines, but not access to them, and not the vi
 > | Microsoft.ClassicStorage/storageAccounts/images/read | Returns the storage account image. (Deprecated. Use 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Return the storage account with the given account. |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -509,7 +509,7 @@ Lets you manage virtual machines, but not access to them, and not the virtual ne
 > | Microsoft.Compute/disks/read | Get the properties of a Disk |
 > | Microsoft.Compute/disks/delete | Deletes the Disk |
 > | Microsoft.DevTestLab/schedules/* |  |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Joins an application gateway backend address pool. Not Alertable. |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
 > | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Joins a load balancer inbound NAT pool. Not alertable. |
@@ -535,12 +535,12 @@ Lets you manage virtual machines, but not access to them, and not the virtual ne
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/write | Create Vault operation creates an Azure resource of type 'vault' |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.SqlVirtualMachine/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -677,10 +677,10 @@ Can manage CDN endpoints, but can't grant access to other users.
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
 > | Microsoft.Cdn/profiles/endpoints/* |  |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -731,10 +731,10 @@ Can view CDN endpoints, but can't make changes.
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
 > | Microsoft.Cdn/profiles/endpoints/*/read |  |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -785,10 +785,10 @@ Can manage CDN profiles and their endpoints, but can't grant access to other use
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
 > | Microsoft.Cdn/profiles/* |  |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -839,10 +839,10 @@ Can view CDN profiles and their endpoints, but can't make changes.
 > | Microsoft.Cdn/edgenodes/read |  |
 > | Microsoft.Cdn/operationresults/* |  |
 > | Microsoft.Cdn/profiles/*/read |  |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -891,11 +891,11 @@ Lets you manage classic networks, but not access to them.
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.ClassicNetwork/* | Create and manage classic networks |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -942,12 +942,12 @@ Lets you manage DNS zones and record sets in Azure DNS, but does not let you con
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Network/dnsZones/* | Create and manage DNS zones and records |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -994,12 +994,12 @@ Lets you manage networks, but not access to them.
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Network/* | Create and manage networks |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1046,12 +1046,12 @@ Lets you manage Traffic Manager profiles, but does not let you control who has a
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Network/trafficManagerProfiles/* |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1112,12 +1112,12 @@ Can create and manage an Avere vFXT cluster.
 > | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
 > | Microsoft.Network/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Storage/*/read |  |
 > | Microsoft.Storage/storageAccounts/* | Create and manage storage accounts |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Gets the resources for the resource group. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -1270,7 +1270,7 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | Microsoft.RecoveryServices/Vaults/read | The Get Vault operation gets an object representing the Azure resource of type 'vault' |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Create and manage registered identities |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Create and manage usage of Recovery Services vault |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
@@ -1288,7 +1288,7 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | Microsoft.RecoveryServices/operations/read | Operation returns the list of Operations for a Resource Provider |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Gets Operation Status for a given Operation |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1402,7 +1402,7 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | The Get Containers operation can be used get the containers registered for a resource. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | The Register Service Container operation can be used to register a container with Recovery Service. |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | Microsoft.RecoveryServices/Vaults/backupstorageconfig/* |  |
@@ -1423,7 +1423,7 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | Microsoft.RecoveryServices/operations/read | Operation returns the list of Operations for a Resource Provider |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Gets Operation Status for a given Operation |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1634,11 +1634,11 @@ Lets you manage classic storage accounts, but not access to them.
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.ClassicStorage/storageAccounts/* | Create and manage storage accounts |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1728,9 +1728,9 @@ Lets you manage everything under Data Box Service except giving access to others
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Databox/* |  |
 > | **NotActions** |  |
 > | *none* |  |
@@ -1785,7 +1785,7 @@ Lets you manage Data Box Service except creating order or editing order details 
 > | Microsoft.Databox/locations/regionConfiguration/action | This method returns the configurations for the region. |
 > | Microsoft.Databox/locations/validateAddress/action | Validates the shipping address and provides alternate addresses if any. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1837,11 +1837,11 @@ Lets you submit, monitor, and manage your own jobs but not create or delete Data
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.BigAnalytics/accounts/* |  |
 > | Microsoft.DataLakeAnalytics/accounts/* |  |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | Microsoft.BigAnalytics/accounts/Delete |  |
 > | Microsoft.BigAnalytics/accounts/TakeOwnership/action |  |
@@ -1961,14 +1961,14 @@ Permits management of storage accounts. Provides access to the account key, whic
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Insights/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Storage/storageAccounts/* | Create and manage storage accounts |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2067,6 +2067,7 @@ Read, write, and delete Azure Storage containers and blobs. To learn which actio
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Delete a blob. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Return a blob or a list of blobs. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action | Moves the blob from one path to another |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Write to a blob. |
 > | **NotDataActions** |  |
 > | *none* |  |
@@ -2091,6 +2092,7 @@ Read, write, and delete Azure Storage containers and blobs. To learn which actio
       "dataActions": [
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
       ],
       "notDataActions": []
@@ -2586,12 +2588,12 @@ Lets you manage Search services, but not access to them.
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Search/searchServices/* | Create and manage search services |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2638,11 +2640,11 @@ Lets you manage the web plans for websites, but not access to them.
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Web/serverFarms/* | Create and manage server farms |
 > | Microsoft.Web/hostingEnvironments/Join/Action | Joins an App Service Environment |
 > | **NotActions** |  |
@@ -2692,12 +2694,12 @@ Lets you manage websites (not web plans), but not access to them.
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Insights/components/* | Create and manage Insights components |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Web/certificates/* | Create and manage website certificates |
 > | Microsoft.Web/listSitesAssignedToHostName/read | Get names of sites assigned to hostname. |
 > | Microsoft.Web/serverFarms/join/action |  |
@@ -3091,7 +3093,7 @@ Can read Azure Cosmos DB account data. See [DocumentDB Account Contributor](#doc
 > | Microsoft.Insights/MetricDefinitions/read | Read metric definitions |
 > | Microsoft.Insights/Metrics/read | Read metrics |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -3138,12 +3140,12 @@ Lets you manage Azure Cosmos DB accounts, but not access data in them. Prevents 
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.DocumentDb/databaseAccounts/* |  |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
 > | **NotActions** |  |
 > | Microsoft.DocumentDB/databaseAccounts/readonlyKeys/* |  |
@@ -3243,11 +3245,11 @@ Can manage Azure Cosmos DB accounts. Azure Cosmos DB is formerly known as Docume
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.DocumentDb/databaseAccounts/* | Create and manage Azure Cosmos DB accounts |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -3297,11 +3299,11 @@ Lets you manage Redis caches, but not access to them.
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.Cache/redis/* | Create and manage Redis caches |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -3348,14 +3350,14 @@ Lets you manage SQL databases, but not access to them. Also, you can't manage th
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/servers/databases/* | Create and manage SQL databases |
 > | Microsoft.Sql/servers/read | Return the list of servers or gets the properties for the specified server. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Insights/metrics/read | Read metrics |
 > | Microsoft.Insights/metricDefinitions/read | Read metric definitions |
 > | **NotActions** |  |
@@ -3456,17 +3458,17 @@ Lets you manage SQL Managed Instances and required network configuration, but ca
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Network/networkSecurityGroups/* |  |
 > | Microsoft.Network/routeTables/* |  |
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Network/virtualNetworks/subnets/* |  |
 > | Microsoft.Network/virtualNetworks/* |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Insights/metrics/read | Read metrics |
 > | Microsoft.Insights/metricDefinitions/read | Read metric definitions |
 > | **NotActions** |  |
@@ -3522,10 +3524,10 @@ Lets you manage the security-related policies of SQL servers and databases, but 
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
@@ -3563,7 +3565,7 @@ Lets you manage the security-related policies of SQL servers and databases, but 
 > | Microsoft.Sql/servers/read | Return the list of servers or gets the properties for the specified server. |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Create and manage SQL server security alert policies |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -3646,13 +3648,13 @@ Lets you manage SQL servers and databases, but not access to them, and not their
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Sql/locations/*/read |  |
 > | Microsoft.Sql/servers/* | Create and manage SQL servers |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Insights/metrics/read | Read metrics |
 > | Microsoft.Insights/metricDefinitions/read | Read metric definitions |
 > | **NotActions** |  |
@@ -3891,11 +3893,11 @@ Create and manage data factories, as well as child resources within them.
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.DataFactory/dataFactories/* | Create and manage data factories, and child resources within them. |
 > | Microsoft.DataFactory/factories/* | Create and manage data factories, and child resources within them. |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.EventGrid/eventSubscriptions/write | Create or update an eventSubscription |
 > | **NotActions** |  |
 > | *none* |  |
@@ -3996,9 +3998,9 @@ Lets you read and modify HDInsight cluster configurations.
 > | Microsoft.HDInsight/clusters/configurations/* |  |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Resources/deployments/operations/read | Gets or lists deployment operations. |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -4095,14 +4097,15 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
 > | Microsoft.Compute/virtualMachines/extensions/* |  |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.HybridCompute/machines/extensions/write | Installs or Updates an Azure Arc extensions |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Insights/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
 > | Microsoft.OperationalInsights/* |  |
 > | Microsoft.OperationsManagement/* |  |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -4126,6 +4129,7 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
         "Microsoft.ClassicCompute/virtualMachines/extensions/*",
         "Microsoft.ClassicStorage/storageAccounts/listKeys/action",
         "Microsoft.Compute/virtualMachines/extensions/*",
+        "Microsoft.HybridCompute/machines/extensions/write",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Insights/diagnosticSettings/*",
         "Microsoft.OperationalInsights/*",
@@ -4157,7 +4161,7 @@ Log Analytics Reader can view and search all monitoring data as well as and view
 > | */read | Read resources of all types, except secrets. |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Search using new engine. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Executes a search query |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
 > | **DataActions** |  |
@@ -4254,19 +4258,19 @@ Lets you create, read, update, delete and manage keys of Cognitive Services.
 > | Microsoft.CognitiveServices/* |  |
 > | Microsoft.Features/features/read | Gets the features of a subscription. |
 > | Microsoft.Features/providers/features/read | Gets the feature of a subscription in a given resource provider. |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Insights/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
 > | Microsoft.Insights/logDefinitions/read | Read log definitions |
 > | Microsoft.Insights/metricdefinitions/read | Read metric definitions |
 > | Microsoft.Insights/metrics/read | Read metrics |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/deployments/operations/read | Gets or lists deployment operations. |
 > | Microsoft.Resources/subscriptions/operationresults/read | Get the subscription operation results. |
 > | Microsoft.Resources/subscriptions/read | Gets the list of subscriptions. |
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -4374,7 +4378,7 @@ Lets you read and list keys of Cognitive Services.
 > | Microsoft.Resources/subscriptions/operationresults/read | Get the subscription operation results. |
 > | Microsoft.Resources/subscriptions/read | Gets the list of subscriptions. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -4584,11 +4588,11 @@ Can manage service and the APIs
 > | **Actions** |  |
 > | Microsoft.ApiManagement/service/* | Create and manage API Management service |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -4640,15 +4644,15 @@ Can manage service but not the APIs
 > | Microsoft.ApiManagement/service/managedeployments/action | Change SKU/units, add/remove regional deployments of API Management Service |
 > | Microsoft.ApiManagement/service/read | Read metadata for an API Management Service instance |
 > | Microsoft.ApiManagement/service/restore/action | Restore API Management Service from the specified container in a user provided storage account |
-> | Microsoft.ApiManagement/service/updatecertificate/action | Upload SSL certificate for an API Management Service |
+> | Microsoft.ApiManagement/service/updatecertificate/action | Upload TLS/SSL certificate for an API Management Service |
 > | Microsoft.ApiManagement/service/updatehostname/action | Setup, update or remove custom domain names for an API Management Service |
 > | Microsoft.ApiManagement/service/write | Create or Update API Management Service instance |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Get keys associated with user |
 > | **DataActions** |  |
@@ -4707,11 +4711,11 @@ Read-only access to service and APIs
 > | Microsoft.ApiManagement/service/*/read | Read API Management Service instances |
 > | Microsoft.ApiManagement/service/read | Read metadata for an API Management Service instance |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Get keys associated with user |
 > | **DataActions** |  |
@@ -5027,10 +5031,10 @@ Lets you manage EventGrid event subscription operations.
 > | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | List global event subscriptions by topic type |
 > | Microsoft.EventGrid/locations/eventSubscriptions/read | List regional event subscriptions |
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | List regional event subscriptions by topictype |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -5129,12 +5133,12 @@ Lets you manage Intelligent Systems accounts, but not access to them.
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.IntelligentSystems/accounts/* | Create and manage intelligent systems accounts |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -5183,18 +5187,18 @@ Lets you manage logic apps, but not change access to them.
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Return the storage account with the given account. |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Insights/metricAlerts/* |  |
 > | Microsoft.Insights/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
 > | Microsoft.Insights/logdefinitions/* | This permission is necessary for users who need access to Activity Logs via the portal. List log categories in Activity Log. |
 > | Microsoft.Insights/metricDefinitions/* | Read metric definitions (list of available metric types for a resource). |
 > | Microsoft.Logic/* | Manages Logic Apps resources. |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/operationresults/read | Get the subscription operation results. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Storage/storageAccounts/listkeys/action | Returns the access keys for the specified storage account. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Web/connectionGateways/* | Create and manages a Connection Gateway. |
 > | Microsoft.Web/connections/* | Create and manages a Connection. |
 > | Microsoft.Web/customApis/* | Creates and manages a Custom API. |
@@ -5272,7 +5276,7 @@ Lets you read, enable, and disable logic apps, but not edit or update them.
 > | Microsoft.Resources/deployments/operations/read | Gets or lists deployment operations. |
 > | Microsoft.Resources/subscriptions/operationresults/read | Get the subscription operation results. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Web/connectionGateways/*/read | Read Connection Gateways. |
 > | Microsoft.Web/connections/*/read | Read Connections. |
 > | Microsoft.Web/customApis/*/read | Read Custom API. |
@@ -5339,10 +5343,10 @@ Create, Read, Update, and Delete User Assigned Identity
 > | Microsoft.ManagedIdentity/userAssignedIdentities/write | Creates a new user assigned identity or updates the tags associated with an existing user assigned identity |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/delete | Deletes an existing user assigned identity |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -5392,10 +5396,10 @@ Read and Assign User Assigned Identity
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -5454,10 +5458,10 @@ Azure Sentinel Contributor
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Get datasources under a workspace. |
 > | Microsoft.Insights/workbooks/* |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -5511,6 +5515,7 @@ Azure Sentinel Reader
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Check user authorization and license |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Search using new engine. |
 > | Microsoft.OperationalInsights/workspaces/*/read | View log analytics data |
 > | Microsoft.OperationalInsights/workspaces/LinkedServices/read | Get linked services under given workspace. |
@@ -5521,10 +5526,10 @@ Azure Sentinel Reader
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Get datasources under a workspace. |
 > | Microsoft.Insights/workbooks/read | Read a workbook |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -5544,6 +5549,7 @@ Azure Sentinel Reader
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
         "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
@@ -5579,6 +5585,7 @@ Azure Sentinel Responder
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Check user authorization and license |
 > | Microsoft.SecurityInsights/cases/* |  |
 > | Microsoft.SecurityInsights/incidents/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Search using new engine. |
@@ -5591,10 +5598,10 @@ Azure Sentinel Responder
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Get datasources under a workspace. |
 > | Microsoft.Insights/workbooks/read | Read a workbook |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -5614,6 +5621,7 @@ Azure Sentinel Responder
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.SecurityInsights/cases/*",
         "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
@@ -5651,11 +5659,11 @@ Lets you manage key vaults, but not access to them.
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.KeyVault/* |  |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Purge a soft deleted key vault |
 > | Microsoft.KeyVault/hsmPools/* |  |
@@ -5708,13 +5716,13 @@ Can view security policies, view security states, edit security policies, view a
 > | Microsoft.Authorization/policyAssignments/* | Create and manage policy assignments |
 > | Microsoft.Authorization/policyDefinitions/* | Create and manage policy definitions |
 > | Microsoft.Authorization/policySetDefinitions/* | Create and manage policy sets |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
 > | Microsoft.operationalInsights/workspaces/*/read | View log analytics data |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Security/* | Create and manage security components and policies |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -5808,12 +5816,12 @@ This is a legacy role. Please use Security Admin instead.
 > | Microsoft.ClassicCompute/*/read | Read configuration information classic virtual machines |
 > | Microsoft.ClassicCompute/virtualMachines/*/write | Write configuration for classic virtual machines |
 > | Microsoft.ClassicNetwork/*/read | Read configuration information about classic network |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Security/* | Create and manage security components and policies |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -5863,12 +5871,12 @@ Can view recommendations and alerts, view security policies, view security state
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.operationalInsights/workspaces/*/read | View log analytics data |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Security/*/read | Read security components and policies |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -6031,7 +6039,7 @@ Lets you create, manage, delete your managed labs under your Azure Lab Accounts.
 > | Microsoft.LabServices/labAccounts/getPricingAndAvailability/action | Get the pricing and availability of combinations of sizes, geographies, and operating systems for the lab account. |
 > | Microsoft.LabServices/labAccounts/getRestrictionsAndUsage/action | Get core restrictions and usage for this subscription |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6088,9 +6096,9 @@ Can manage Application Insights components
 > | Microsoft.Insights/components/* | Create and manage Insights components |
 > | Microsoft.Insights/webtests/* | Create and manage Insights web tests |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6139,11 +6147,11 @@ Gives user permission to view and download debug snapshots collected with the Ap
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Insights/components/*/read |  |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6193,7 +6201,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
 > | Microsoft.Insights/actiongroups/* |  |
 > | Microsoft.Insights/activityLogAlerts/* |  |
-> | Microsoft.Insights/AlertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/AlertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Insights/components/* | Create and manage Insights components |
 > | Microsoft.Insights/DiagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
 > | Microsoft.Insights/eventtypes/* | List Activity Log events (management events) in a subscription. This permission is applicable to both programmatic and portal access to the Activity Log. |
@@ -6210,7 +6218,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | Microsoft.OperationalInsights/workspaces/search/action | Executes a search query |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Read/write/delete log analytics storage insight configurations. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft.AlertsManagement/smartDetectorAlertRules/* |  |
@@ -6283,7 +6291,7 @@ Enables publishing metrics against Azure resources
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Insights/Register/Action | Register the Microsoft Insights provider |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -6330,7 +6338,7 @@ Can read all monitoring data (metrics, logs, etc.). See also [Get started with r
 > | **Actions** |  |
 > | */read | Read resources of all types, except secrets. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Executes a search query |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6468,10 +6476,10 @@ Create and Manage Jobs using Automation Runbooks.
 > | Microsoft.Automation/automationAccounts/jobs/suspend/action | Suspends an Azure Automation job |
 > | Microsoft.Automation/automationAccounts/jobs/write | Creates an Azure Automation job |
 > | Microsoft.Automation/automationAccounts/jobs/output/read | Gets the output of a job |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6538,12 +6546,12 @@ Automation Operators are able to start, stop, suspend, and resume jobs
 > | Microsoft.Automation/automationAccounts/runbooks/read | Gets an Azure Automation runbook |
 > | Microsoft.Automation/automationAccounts/schedules/read | Gets an Azure Automation schedule asset |
 > | Microsoft.Automation/automationAccounts/schedules/write | Creates or updates an Azure Automation schedule asset |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Automation/automationAccounts/jobs/output/read | Gets the output of a job |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6605,10 +6613,10 @@ Read Runbook properties - to be able to create Jobs of the runbook.
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.Automation/automationAccounts/runbooks/read | Gets an Azure Automation runbook |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6753,7 +6761,7 @@ Allows read access to billing data
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
 > | Microsoft.CostManagement/*/read |  |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6802,8 +6810,8 @@ Can manage blueprint definitions, but not assign them.
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.Blueprint/blueprints/* | Create and manage blueprint definitions or blueprint artifacts. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6850,8 +6858,8 @@ Can assign existing published blueprints, but cannot create new blueprints. Note
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.Blueprint/blueprintAssignments/* | Create and manage blueprint assignments. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -6900,7 +6908,7 @@ Can view costs and manage cost configuration (e.g. budgets, exports)
 > | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | Gets the list of subscriptions. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Advisor/configurations/read | Get configurations |
 > | Microsoft.Advisor/recommendations/read | Reads recommendations |
 > | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
@@ -6956,7 +6964,7 @@ Can view cost data and configuration (e.g. budgets, exports)
 > | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | Gets the list of subscriptions. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Advisor/configurations/read | Get configurations |
 > | Microsoft.Advisor/recommendations/read | Reads recommendations |
 > | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
@@ -7011,7 +7019,7 @@ Allows for creating managed application resources.
 > | Microsoft.Solutions/applications/* |  |
 > | Microsoft.Solutions/register/action | Register to Solutions. |
 > | Microsoft.Resources/subscriptions/resourceGroups/* |  |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -7100,7 +7108,7 @@ Lets you read resources in a managed app and request JIT access.
 > | --- | --- |
 > | **Actions** |  |
 > | */read | Read resources of all types, except secrets. |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Solutions/jitRequests/* |  |
 > | **NotActions** |  |
 > | *none* |  |
@@ -7276,11 +7284,11 @@ Lets you manage New Relic Application Performance Management accounts and applic
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | NewRelic.APM/accounts/* |  |
 > | **NotActions** |  |
 > | *none* |  |
@@ -7380,7 +7388,7 @@ Users with rights to create/modify resource policy, create support ticket and re
 > | Microsoft.Authorization/policydefinitions/* | Create and manage policy definitions |
 > | Microsoft.Authorization/policysetdefinitions/* | Create and manage policy sets |
 > | Microsoft.PolicyInsights/* |  |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -7426,7 +7434,7 @@ Lets you manage Site Recovery service except vault creation and role assignment
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Network/virtualNetworks/read | Get the virtual network definition |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is internal operation used by service |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp is internal operation used by service |
@@ -7448,11 +7456,11 @@ Lets you manage Site Recovery service except vault creation and role assignment
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Read alerts for the Recovery services vault |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | Microsoft.RecoveryServices/vaults/replicationOperationStatus/read | Read any Vault Replication Operation Status |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -7520,7 +7528,7 @@ Lets you failover and failback but not perform other Site Recovery management op
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.Network/virtualNetworks/read | Get the virtual network definition |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is internal operation used by service |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp is internal operation used by service |
@@ -7573,10 +7581,10 @@ Lets you failover and failback but not perform other Site Recovery management op
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -7703,7 +7711,7 @@ Lets you view Site Recovery status but not perform other management operations
 > | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -7775,7 +7783,7 @@ Lets you create and manage Support requests
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -7821,9 +7829,9 @@ Lets you manage tags on entities, without providing access to the entities thems
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Gets the resources for the resource group. |
 > | Microsoft.Resources/subscriptions/resources/read | Gets resources of a subscription. |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | Microsoft.Resources/tags/* |  |
 > | **NotActions** |  |
 > | *none* |  |
@@ -7876,11 +7884,11 @@ Lets you manage BizTalk services, but not access to them.
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.BizTalkServices/BizTalk/* | Create and manage BizTalk services |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -7927,12 +7935,12 @@ Lets you manage Scheduler job collections, but not access to them.
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage a classic metric alert |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/deployments/* | Create and manage a deployment |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Scheduler/jobcollections/* | Create and manage job collections |
-> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Support/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |

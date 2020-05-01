@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -48,9 +48,27 @@ To enable KMSI, set the content definition `DataUri` element to [page identifier
     </BuildingBlocks>
     ```
 
+## Add the metadata to the self-asserted technical profile
+
+To add the KMSI checkbox to the sign-up and sign-in page, set the `setting.enableRememberMe` metadata to true. Override the SelfAsserted-LocalAccountSignin-Email technical profiles in the extension file.
+
+1. Find the ClaimsProviders element. If the element doesn't exist, add it.
+1. Add the following claims provider to the ClaimsProviders element:
+
+```XML
+<ClaimsProvider>
+  <DisplayName>Local Account</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+      <Metadata>
+        <Item Key="setting.enableRememberMe">True</Item>
+      </Metadata>
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
 1. Save the extensions file.
-
-
 
 ## Configure a relying party file
 

@@ -9,17 +9,19 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 12/03/2019
+ms.date: 04/16/2020
 ---
 # Exceptions and error codes for the designer (preview)
 
 This article describes the error messages and exception codes in Azure Machine Learning designer (preview) to help you troubleshoot your machine learning pipelines.
 
-There are two ways to get the full text of an error message in the designer:  
+You can find the error message in the designer following these steps:  
 
-- Click the link, **View Output Log**, in the right pane and scroll to the bottom. The detailed error message is displayed in the last two lines of the window.  
-  
-- Select the module that has the error, and click the red X. Only the pertinent error text is displayed.
+- Select the failed module, go to the **Outputs+logs** tab, you can find the detailed log in the **70_driver_log.txt** file under the **azureml-logs** category.
+
+- For detailed module error, you can check it in the error_info.json under **module_statistics** category.
+
+Following are error codes of modules in the designer.
 
 ## Error 0001  
  Exception occurs if one or more specified columns of data set couldn't be found.  
@@ -143,6 +145,7 @@ There are two ways to get the full text of an error message in the designer:
 |Parameter "{arg_name}" value should be less than or equal to parameter "{upper_boundary_parameter_name}" value.|
 |Parameter "{arg_name}" has value "{actual_value}" which should be less than or equal to {upper_boundary}.|
 |Parameter "{arg_name}" value {actual_value} should be less than or equal to parameter "{upper_boundary_parameter_name}" value {upper_boundary}.|
+|Parameter "{arg_name}" value {actual_value} should be less than or equal to {upper_boundary_meaning} value {upper_boundary}.|
 
 
 ## Error 0008  
@@ -273,6 +276,7 @@ If the model was trained using any of the specialized training modules, connect 
 |Learner of invalid type is passed.|
 |Learner "{arg_name}" has invalid type.|
 |Learner "{arg_name}" has invalid type "{learner_type}".|
+|Learner of invalid type is passed. Exception message: {exception_message}|
 
 
 ## Error 0014  
@@ -399,6 +403,7 @@ For columns that you intend to use for grouping or categorization, take steps to
 |Values in column are not sorted.|
 |Values in column "{col_index}" are not sorted.|
 |Values in column "{col_index}" of dataset "{dataset}" are not sorted.|
+|Values in argument "{arg_name}" are not sorted in "{sorting_order}" order.|
 
 
 ## Error 0020  
@@ -651,6 +656,7 @@ It can also happen that a label column is present in the dataset, but not detect
 |------------------------|
 |Argument must be finite.|
 |"{arg_name}" is not finite.|
+|Column "{column_name}" contains infinite values.|
 
 
 ## Error 0034  
@@ -1454,9 +1460,10 @@ This error can also occur when a previous operation changes the dataset such tha
 
 Resolution: 
 
- If you include a label column in the column selection but it isn’t recognized, use the [Edit Metadata](edit-metadata.md) module to mark it as a label column.
+ If you include a label column in the column selection but it isn't recognized, use the [Edit Metadata](edit-metadata.md) module to mark it as a label column.
 
-  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->Then, you can use the [Clean Missing Data](clean-missing-data.md) module to remove rows with missing values in the label column. 
+  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->
+  Then, you can use the [Clean Missing Data](clean-missing-data.md) module to remove rows with missing values in the label column. 
 
  Check your input datasets to make sure that they contain valid data, and enough rows to satisfy the requirements of the operation. Many algorithms will generate an error message if they require some minimum number rows of data, but the data contains only a few rows, or only a header.
 
@@ -1548,6 +1555,18 @@ Resolution:
 |------------------------------------------------------------|
 |Given TransformationDirectory is invalid.|
 |TransformationDirectory "{arg_name}" is invalid. Reason: {reason}. Please rerun training experiment which generates the Transform file. If training experiment was deleted, please recreate and save the Transform file.|
+|TransformationDirectory "{arg_name}" is invalid. Reason: {reason}. {troubleshoot_hint}|
+
+
+## Error 0159
+ Exception occurs if passed to module model directory is invalid. 
+
+|Exception Messages|
+|------------------------------------------------------------|
+|Given ModelDirectory is invalid.|
+|ModelDirectory "{arg_name}" is invalid.|
+|ModelDirectory "{arg_name}" is invalid. Reason: {reason}.|
+|ModelDirectory "{arg_name}" is invalid. Reason: {reason}. {troubleshoot_hint}|
 
 
 ## Error 1000  

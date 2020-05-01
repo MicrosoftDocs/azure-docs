@@ -34,7 +34,7 @@ Clang supports the  `-march=znver1` flag to enable best code generation and tuni
 
 ### FLANG
 
-The FLANG compiler is a recent addition to the AOCC suite (added April 2018) and is currently in pre-release for developers to download and test. Based on Fortran 2008, AMD extends the GitHub version of FLANG (https://github.com/flangcompiler/flang). The FLANG compiler supports all Clang compiler options and an additional number of FLANG-specific compiler options.
+The FLANG compiler is a recent addition to the AOCC suite (added April 2018) and is currently in pre-release for developers to download and test. Based on Fortran 2008, AMD extends the GitHub version of FLANG (https://github.com/flang-compiler/flang). The FLANG compiler supports all Clang compiler options and an additional number of FLANG-specific compiler options.
 
 ### DragonEgg
 

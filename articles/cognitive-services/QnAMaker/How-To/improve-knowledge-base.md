@@ -2,7 +2,7 @@
 title: Improve knowledge base - QnA Maker
 description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 04/06/2020
 ---
 
 
@@ -29,7 +29,7 @@ In order to see suggested questions, you must [turn on active learning](use-acti
 
 1. Each QnA pair suggests the new question alternatives with a check mark, `✔` , to accept the question or an `x` to reject the suggestions. Select the check mark to add the question.
 
-    [![Select or reject active learning's suggested question alternatives by selecting the green check mark or red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Select or reject active learning's suggested question alternatives by selecting the green check mark or red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     You can add or delete _all suggestions_ by selecting **Add all** or **Reject all** in the contextual toolbar.
 
@@ -199,7 +199,7 @@ In the [Azure Bot sample](https://aka.ms/activelearningsamplebot), both of these
 
 ### Example C# code for Train API with Bot Framework 4.x
 
-The following code illustrates how to send information back to QnA Maker with the Train API. This [complete code sample](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-activelearning/csharp_dotnetcore) is available on GitHub.
+The following code illustrates how to send information back to QnA Maker with the Train API.
 
 ```csharp
 public class FeedbackRecords
@@ -262,7 +262,7 @@ public async static void CallTrain(string endpoint, FeedbackRecords feedbackReco
 
 ### Example Node.js code for Train API with Bot Framework 4.x
 
-The following code illustrates how to send information back to QnA Maker with the Train API. This [complete code sample](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs) is available on GitHub.
+The following code illustrates how to send information back to QnA Maker with the Train API.
 
 ```javascript
 async callTrain(stepContext){

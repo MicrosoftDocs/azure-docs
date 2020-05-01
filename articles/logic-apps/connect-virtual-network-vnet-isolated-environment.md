@@ -27,7 +27,7 @@ This article shows you how to complete these tasks by using the Azure portal:
 * Create your ISE.
 * Add extra capacity to your ISE.
 
-You can also create an ISE by using the Logic Apps REST API, including setting up customer-managed keys:
+You can also create an ISE by using the [sample Azure Resource Manager quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) or by using the Logic Apps REST API, including setting up customer-managed keys:
 
 * [Create an integration service environment (ISE) by using the Logic Apps REST API](../logic-apps/create-integration-service-environment-rest-api.md)
 * [Set up customer-managed keys to encrypt data at rest for ISEs](../logic-apps/customer-managed-keys-integration-service-environment.md)
@@ -163,15 +163,7 @@ This table describes the ports in your Azure virtual network that your ISE uses 
 
    * Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) and a Class B address space.
 
-   * Uses at least a `/27` in the address space because each subnet requires 32 addresses at *minimum*. For example:
-
-     * `10.0.0.0/28` has only 16 addresses and is too small because 2<sup>(32-28)</sup> is 2<sup>4</sup> or 16.
-
-     * `10.0.0.0/27` has 32 addresses because 2<sup>(32-27)</sup> is 2<sup>5</sup> or 32.
-
-     * `10.0.0.0/24` has 256 addresses because 2<sup>(32-24)</sup> is 2<sup>8</sup> or 256. However, more addresses don't provide any additional benefits.
-
-     To learn more about calculating addresses, see [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
+   * Uses a `/27` in the address space because each subnet requires 32 addresses. For example, `10.0.0.0/27` has 32 addresses because 2<sup>(32-27)</sup> is 2<sup>5</sup> or 32. More addresses won't provide additional benefits.  To learn more about calculating addresses, see [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), you have to [create a route table](../virtual-network/manage-route-table.md) that has the following route and link that table with each subnet that's used by your ISE:
 

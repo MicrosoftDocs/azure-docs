@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -365,7 +365,7 @@ Copies localized strings into claims.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | The name of the localized string | string | List of claim types that is produced after this claims transformation has been invoked. |
+| OutputClaim | The name of the localized string | string | List of claim types that are produced after this claims transformation has been invoked. |
 
 To use the GetLocalizedStringsTransformation claims transformation:
 
@@ -611,13 +611,17 @@ Checks that a string claim `claimToMatch` and `matchTo` input parameter are equa
 | inputClaim | claimToMatch | string | The claim type, which is to be compared. |
 | InputParameter | matchTo | string | The regular expression to match. |
 | InputParameter | outputClaimIfMatched | string | The value to be set if strings are equal. |
+| InputParameter | extractGroups | boolean | [Optional] Specifies whether the Regex match should extract groups values. Possible values: `true`, or `false` (default). | 
 | OutputClaim | outputClaim | string | If regular expression is match, this output claim contains the value of `outputClaimIfMatched` input parameter. Or null, if no match. |
 | OutputClaim | regexCompareResultClaim | boolean | The regular expression match result output claim type, which is to be set as `true` or `false` based on the result of matching. |
+| OutputClaim| The name of the claim| string | If the extractGroups input parameter set to true, list of claim types that are produced after this claims transformation has been invoked. The name of the claimType must match the Regex group name. | 
 
-For example, checks whether the provided phone number is valid, based on phone number regular expression pattern.
+### Example 1
+
+Checks whether the provided phone number is valid, based on phone number regular expression pattern.
 
 ```XML
-<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
+<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="SetClaimsIfRegexMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
   </InputClaims>
@@ -632,8 +636,6 @@ For example, checks whether the provided phone number is valid, based on phone n
 </ClaimsTransformation>
 ```
 
-### Example
-
 - Input claims:
     - **claimToMatch**: "64854114520"
 - Input parameters:
@@ -643,6 +645,39 @@ For example, checks whether the provided phone number is valid, based on phone n
     - **outputClaim**: "isPhone"
     - **regexCompareResultClaim**: true
 
+### Example 2
+
+Checks whether the provided email address is valid, and return the email alias.
+
+```XML
+<ClaimsTransformation Id="GetAliasFromEmail" TransformationMethod="SetClaimsIfRegexMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="(?&lt;mailAlias&gt;.*)@(.*)$" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isEmail" />
+    <InputParameter Id="extractGroups" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
+    <OutputClaim ClaimTypeReferenceId="isEmailString" TransformationClaimType="regexCompareResultClaim" />
+    <OutputClaim ClaimTypeReferenceId="mailAlias" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+- Input claims:
+    - **claimToMatch**: "emily@contoso.com"
+- Input parameters:
+    - **matchTo**: `(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **outputClaimIfMatched**:  "isEmail"
+    - **extractGroups**: true
+- Output claims:
+    - **outputClaim**: "isEmail"
+    - **regexCompareResultClaim**: true
+    - **mailAlias**: emily
+    
 ## SetClaimsIfStringsAreEqual
 
 Checks that a string claim and `matchTo` input parameter are equal, and sets the output claims with the value present in `stringMatchMsg` and `stringMatchMsgCode` input parameters, along with  compare result output claim, which is to be set as `true` or `false` based on the result of comparison.

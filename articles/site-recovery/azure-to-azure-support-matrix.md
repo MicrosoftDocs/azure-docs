@@ -39,13 +39,13 @@ You can replicate and recover VMs between any two regions within the same geogra
 **Geographic cluster** | **Azure regions**
 -- | --
 America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
-Europe | UK West, UK South, North Europe, West Europe, France Central, France South, South Africa West, South Africa North, Norway East, Norway West
-Asia | South India, Central India, West India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, UAE Central, UAE North
+Europe | UK West, UK South, North Europe, West Europe, South Africa West, South Africa North, Norway East, Norway West
+Asia | South India, Central India, West India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South
 Australia    | Australia East, Australia Southeast, Australia Central, Australia Central 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Germany    | Germany Central, Germany Northeast
 China | China East, China North, China North2, China East2
-Restricted Regions reserved for in-country disaster recovery |Germany North reserved for Germany West Central, Switzerland West reserved for Switzerland North, France South reserved for France Central customers
+Restricted Regions reserved for in-country disaster recovery |Germany North reserved for Germany West Central, Switzerland West reserved for Switzerland North, France South reserved for France Central, UAE Central restricted for UAE North customers
 
 >[!NOTE]
 >
@@ -140,16 +140,16 @@ Debian 8 | 9.28 | 3.16.0-4-amd64 to 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.32 | All [stock SUSE 12 SP1,SP2,SP3,SP4 kernels](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.34-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.31 | All [stock SUSE 12 SP1,SP2,SP3,SP4 kernels](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.29-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.30 | All [stock SUSE 12 SP1,SP2,SP3,SP4 kernels](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.29-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.29 | All [stock SUSE 12 SP1,SP2,SP3,SP4 kernels](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.23-azure  |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.32 | All stock SUSE 12 SP1,SP2,SP3,SP4 kernels are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.34-azure  |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.31 | All stock SUSE 12 SP1,SP2,SP3,SP4 kernels are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.29-azure  |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.30 | All stock SUSE 12 SP1,SP2,SP3,SP4 kernels are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.29-azure  |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.29 | All stock SUSE 12 SP1,SP2,SP3,SP4 kernels are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.23-azure  |
 
 #### Supported SUSE Linux Enterprise Server 15 kernel versions for Azure virtual machines
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 and 15 SP1 | 9.32 | All [stock SUSE 15 and 15 kernels](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15) are supported.</br></br> 4.12.14-5.5-azure to 4.12.14-8.22-azure |
+SUSE Linux Enterprise Server 15 and 15 SP1 | 9.32 | All stock SUSE 15 and 15 kernels are supported.</br></br> 4.12.14-5.5-azure to 4.12.14-8.22-azure |
 
 ## Replicated machines - Linux file system/guest storage
 

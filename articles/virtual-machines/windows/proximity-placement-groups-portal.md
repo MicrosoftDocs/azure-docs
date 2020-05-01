@@ -1,15 +1,11 @@
 ---
 title: Create a proximity placement group using the portal 
 description: Learn how to create a proximity placement group using the Azure portal. 
-services: virtual-machines
 author: cynthn
-manager: gwallace
-
 ms.service: virtual-machines
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 10/30/2019
+ms.date: 04/24/2020
 ms.author: cynthn
 
 ---
@@ -20,6 +16,11 @@ To get VMs as close as possible, achieving the lowest possible latency, you shou
 
 A proximity placement group is a logical grouping used to make sure that Azure compute resources are physically located close to each other. Proximity placement groups are useful for workloads where low latency is a requirement.
 
+> [!NOTE]
+> Proximity placement groups cannot be used with dedicated hosts.
+>
+> If you want to use availability zones together with placement groups, you need to make sure that the VMs in the placement group are also all in the same availability zone.
+>
 
 ## Create the proximity placement group
 
@@ -27,7 +28,7 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 1. Under **Services** in the search results, select **Proximity placement groups**.
 1. In the **Proximity placement groups** page, select **Add**.
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected.
-1. In **Resource group** either select **Create new** to create a new group or select an existing resource group from the drop-down.
+1. In **Resource group** either select **Create new** to create a new group or select an empty resource group that already exists, from the drop-down. 
 1. In **Region** select the location where you want the proximity placement group to be created.
 1. In **Proximity placement group name** type a name and then select **Review + create**.
 1. After validation passes, select **Create** to create the proximity placement group.
@@ -46,7 +47,28 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 1. After it passes validation, select **Create** to deploy the VM in the placement group.
 
 
+## Add VMs in an availability set to a proximity placement group
 
+If the VM is part of the Availability set, you need to add the availability set into the the placement group, before adding the VMs.
+
+1. In the [portal](https://portal.azure.com) search for *Availability sets* and select your availability set from the results.
+1. Stop\deallocate each VM in the availability set by selecting the VM, then selecting **Stop** on the page for the VM, and then select **OK** to stop the VM.
+1. On the page for your availability set, make sure all of the VMs have the **Status** listed as **Stopped (deallocated)**.
+1. In the left menu, select **Configuration**.
+1. Under **Proximity placement group**, select a placement group from the drop-down, and then select **Save**.
+1. Select **Overview** from the left menu to see the list of VMs again. 
+1. Select each VM in the availability set, and then select **Start** on the page for each VM. 
+
+
+## Add existing VM to placement group 
+
+
+1. On the page for the VM, select **Stop**.
+1. Once the status of the VM is listed as **Stopped (deallocated)**, select **Configuration** on the left menu.
+1. Under **Proximity placement group**, select a placement group from the drop-down, and then select **Save**.
+1. Select **Overview** from the left menu, then select **Start** to restart the VM.
+
+ 
 
 ## Next steps
 

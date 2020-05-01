@@ -37,7 +37,7 @@ Follow the steps to query the ingested sensor telemetry data using FarmBeats RES
 > [!NOTE]
 > The **id** and the **sensorModelId** of the interested sensor object.
 
-2. Make a GET/{id} on /SensorModel API for the **ensorModelId** as noted in step 1. The "Sensor Model" has all the metadata and details about the ingested telemetry from the sensor. For example, **Sensor Measure** within the **Sensor Model** object has details about what measures is the sensor sending and in what types and units. For example,
+2. Make a GET/{id} on /SensorModel API for the **sensorModelId** as noted in step 1. The "Sensor Model" has all the metadata and details about the ingested telemetry from the sensor. For example, **Sensor Measure** within the **Sensor Model** object has details about what measures is the sensor sending and in what types and units. For example,
 
   ```json
   {

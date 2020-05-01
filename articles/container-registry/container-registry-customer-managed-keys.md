@@ -10,7 +10,7 @@ ms.custom:
 
 When you store images and other artifacts in an Azure container registry, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#data-encryption-models). You can supplement default encryption with an additional encryption layer using a key that you create and manage in Azure Key Vault. This article walks you through the steps using the Azure CLI and the Azure portal.
 
-Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/key-vault-overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage.
+Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage.
 
 This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
 
@@ -171,7 +171,7 @@ Take note of the **Resource Name** of the managed identity. You need this name i
 
 ### Create a key vault
 
-For steps to create a key vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/quick-create-portal.md).
+For steps to create a key vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
 
 When creating a key vault for a customer-managed key, in the **Basics** tab, you must enable the following protection settings: **Soft delete** and **Purge protection**. These settings help prevent data loss caused by accidental key or key vault deletions.
 
@@ -387,7 +387,7 @@ Revoking the key effectively blocks access to all registry data, since the regis
 ## Next steps
 
 * Learn more about [encryption at rest in Azure](../security/fundamentals/encryption-atrest.md).
-* Learn more about access policies and how to [secure access to a key vault](../key-vault/key-vault-secure-your-key-vault.md).
+* Learn more about access policies and how to [secure access to a key vault](../key-vault/general/secure-your-key-vault.md).
 * To provide feedback on customer-managed keys for Azure Container Registry, visit the [ACR GitHub site](https://aka.ms/acr/issues).
 
 

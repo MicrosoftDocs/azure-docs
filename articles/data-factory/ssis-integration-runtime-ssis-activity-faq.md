@@ -15,6 +15,8 @@ ms.date: 04/15/2019
 
 # Troubleshoot package execution in the SSIS integration runtime
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article includes the most common errors that you might find when you're executing SQL Server Integration Services (SSIS) packages in the SSIS integration runtime. It describes the potential causes and actions to solve the errors.
 
 ## Where to find logs for troubleshooting

@@ -1,0 +1,76 @@
+### YamlMime:Landing
+
+title: Azure Key Vault documentation
+summary: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+
+metadata:
+  title: Azure Key Vault documentation
+  description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+  services: key-vault
+  ms.service: key-vault
+  ms.topic: landing-page # Required
+  author: msmbaldwin
+  ms.author: mbaldwin
+  manager: rkarlin
+  ms.date: 09/19/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Key Vault
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Key Vault?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Basic concepts
+            url: basic-concepts.md
+          - text: Soft-delete
+            url: overview-soft-delete.md
+          - text: Throttling
+            url: overview-throttling.md
+
+  # Card
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Key Vault from a web application
+            url: tutorial-net-create-vault-azure-web-app.md
+          - text: Key Vault with Azure Windows Virtual Machine
+            url: tutorial-net-windows-virtual-machine.md
+          - text: Key Vault with Python - Windows
+            url: tutorial-python-windows-virtual-machine.md
+
+  # Card
+  - title: Security
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Secure your Key Vault
+            url: secure-your-key-vault.md
+          - text: Security recommendations
+            url: security-recommendations.md
+          - text: Security baseline
+            url: security-baseline.md
+      - linkListType: tutorial
+        links:
+          - text: Use private link
+            url: private-link-service.md
+          - text: Use a managed identity
+            url: managed-identity.md
+          - text: Use an access policy
+            url: group-permissions-for-apps.md
+
+  # Card
+  - title: Microsoft Learn
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Manage secrets in your server apps with Azure Key Vault
+            url: /learn/modules/manage-secrets-with-azure-key-vault/
