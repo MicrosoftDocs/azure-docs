@@ -3,7 +3,7 @@ title: Drawing Conversion Error and Warning in Azure Maps | Microsoft Docs
 description: Learn about the Conversion errors and warnings you may meet while you're using the Azure Maps Conversion service. Read the recommendations on how to resolve the errors and the warnings, with some examples.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/20/2020
+ms.date: 05/01/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,11 +12,11 @@ manager: philMea
 
 # Drawing conversion errors and warnings
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert uploaded Drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If any requirement isn't met, then the Conversion service will return errors or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. We'll also describe some examples that cause the Conversion service to return these codes.
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert uploaded Drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If one or more requirements are not met, then the Conversion service will return errors and/or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
 
 ## Codes overview
 
-The table contains the possible error codes you may come across. Click on an error category or a specific error to see more details. The Conversion service won't let you convert your designs into map data, unless you resolve all the errors.
+This table contains the possible errors.  The conversion will not succeed unless all conversion errors are resolved. To see more details, click on an error category or a specific error.
 
 | Error | Location |
 |:----------|:----------|
@@ -31,7 +31,8 @@ The table contains the possible error codes you may come across. Click on an err
 | [wallError](#wallerror) | [wall](#wall-errors) |
 | [verticalPenetrationError](#verticalpenetrationerror) | [Vertical Penetration](#vertical-penetration-errors) |
 
-The table lists the possible warning codes you may meet. Click on a warning category or a specific warning to see more details. The Conversion service will let you convert your designs into map data with warnings, but it's recommended you resolve all warnings. Failing to resolve the warnings could mean your map won't render as expected.
+This table contains the possible warning codes. The Conversion service will succeed if there are any conversion warnings, but it’s recommended that you review and/or resolve all warnings. A warning means part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes. To see more details, click on an error category or a specific error.
+
 
 | Warning | Location |
 |:-------|:----------|
@@ -57,8 +58,8 @@ Manually inspect the `geometryWarning` warning for each geometry to ensure the g
 
 The Conversion service came across a geometry of an unexpected type, and the service ignored it. For example:
 
-* Non-closed PolyLine is found in the level outline layer, unit layer, zone layer, or wall layer
-* Non-text entity is found in the zoneLabel layer or the unitLabel layer
+* Non-closed PolyLine is found in the level outline layer, unit layer, zone layer, or wall layer.
+* Non-text entity is found in the zoneLabel layer or the unitLabel layer.
 
 Inspect each error and remove the incompatible geometry. Otherwise, move the incompatible geometry to a layer in which it's compatible.
 
@@ -66,9 +67,9 @@ Inspect each error and remove the incompatible geometry. Otherwise, move the inc
 
 The Conversion service came across an entity of an unsupported type. For example:
 
-* A multi-line text object in a label layer
-* A 3D Face in the unit layer
-* An old-style Polyline2D entity that hasn't been converted to a regular Polyline
+* A multi-line text object in a label layer.
+* A 3D Face in the unit layer.
+* An old-style Polyline2D entity that hasn't been converted to a regular Polyline.
 
 Only use the supported entity types listed under the [Drawing files requirements section in the Drawing package requirements article](drawing-requirements.md#drawing-package-requirements).
 
@@ -76,15 +77,15 @@ Only use the supported entity types listed under the [Drawing files requirements
 
 Geometry, which would have otherwise caused an error, was automatically modified to resolve the potential error. The following are cases that raise an `automaticRepairPerformed` warning:
 
-* A self-intersecting polygon was repaired
-* A non-closed PolyLine with first and last vertices closer than 1 mm were snapped to make a closed PolyLine
+* A self-intersecting polygon was repaired.
+* A non-closed PolyLine with first and last vertices closer than 1 mm were snapped to make a closed PolyLine.
 * In a layer that only supports closed PolyLines, multiple non-closed PolyLines were combined to create a single closed Polyline. This fix was done to avoid discarding the PolyLines.
 
 To resolve an `automaticRepairPerformed` warning:
 
-1. Inspect each warning's geometry and the specific warning text
-2. Determine if the automated repair is correct
-3. If the repair is correct, continue. Otherwise, go to the design file and resolve the warning manually
+1. Inspect each warning's geometry and the specific warning text.
+2. Determine if the automated repair is correct.
+3. If the repair is correct, continue. Otherwise, go to the design file and resolve the warning manually.
 
 To suppress a warning in the future, make changes to the original drawing such that the original drawing matches the repaired drawing.
 
@@ -98,14 +99,14 @@ Invalid archive format detected. Archive isn't a valid ZIP file. For example:
 
 To resolve this error:
 
-1. Make sure your archive file name ends in .zip
-2. Make sure you can open your zip file'
+1. Make sure your archive file name ends in .zip.
+2. Make sure you can open your zip file'.
 
 ### invalidUserData
 
 Unable to read user data object from storage. For example:
 
-* User provided an incorrect `udid` parameter
+* User provided an incorrect `udid` parameter.
 
 To resolve this error, confirm all of the following:
 
@@ -117,9 +118,9 @@ To resolve this error, confirm all of the following:
 
 Error when reading one or more DWG files from the archive. For example, the DWG file is:
 
-* Not a valid AutoCAD DWG file format drawing
-* Corrupt
-* Listed in the manifest, but it's missing from the archive
+* Not a valid AutoCAD DWG file format drawing.
+* Corrupt.
+* Listed in the manifest, but it's missing from the archive.
 
 Check your manifest.json file, and make sure to only list the DWG files in your folder. Repair your corrupt DWG file or discard it.
 
@@ -130,9 +131,9 @@ Check your manifest.json file, and make sure to only list the DWG files in your 
 
 The JSON file can't be read. For example:
 
-* Manifest.json doesn't contain any JSON text
-* Manifest.json contains non-JSON text
-* Manifest.json has JSON syntax errors
+* Manifest.json doesn't contain any JSON text.
+* Manifest.json contains non-JSON text.
+* Manifest.json has JSON syntax errors.
 
 Use a JSON linter to detect any JSON errors and resolve them.
 
@@ -219,7 +220,7 @@ The Conversion service ignores any partially overlapping units. Redraw each part
 
 ### wallError
 
-Error creating a wall feature. For example, this error occurs when a wall feature doesn't overlap any units.
+Error creating a wall feature. This error occurs when a wall feature doesn't overlap any units.
 
 Redraw the wall so that it overlaps at least one unit. Otherwise, create a new unit that overlaps the wall.
 

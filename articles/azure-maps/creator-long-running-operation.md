@@ -3,7 +3,7 @@ title: Azure Maps Long-Running Operation API | Microsoft Azure Maps
 description: Learn about long-running asynchronous background processing in Azure Maps
 author: anastasia-ms 
 ms.author: v-stharr 
-ms.date: 04/22/2020 
+ms.date: 05/01/2020 
 ms.topic: conceptual 
 ms.service: azure-maps 
 services: azure-maps 
@@ -39,6 +39,7 @@ The location endpoint provided in the accepted response headers can be polled to
 Status: 200 OK
 Retry-After: 30
 {
+    "operationId": "c587574e-add9-4ef7-9788-1635bed9a87e",
     "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
     "status": "Running"
 }
@@ -54,6 +55,7 @@ Upon completing the long-running operation, the status of the response will eith
 Status: 201 Created
 Location: "https://atlas.microsoft.com/tileset/{tileset-id}"
  {
+    "operationId": "c587574e-add9-4ef7-9788-1635bed9a87e",
     "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
     "status": "Succeeded",
     "resourceLocation": "https://atlas.microsoft.com/tileset/{tileset-id}"
@@ -66,6 +68,7 @@ Location: "https://atlas.microsoft.com/tileset/{tileset-id}"
 Status: 200 OK
 
 {
+    "operationId": "c587574e-add9-4ef7-9788-1635bed9a87e",
     "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
     "status": "Failed",
     "error": {
