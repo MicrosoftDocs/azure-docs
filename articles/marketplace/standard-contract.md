@@ -1,11 +1,11 @@
 ---
-title: Standard Contract | Azure Marketplace
-description: Standard Contract for Azure Marketplace and AppSource
+title: Standard Contract for the Microsoft commercial marketplace
+description: Standard Contract for Azure Marketplace and AppSource in Partner Center
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/01/2020
 ms.author: dsindona
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Marketplace and AppSource preferred solutions
-description: Overview of preferred solutions within the Marketplace and how they are selected
+title: Azure Marketplace and AppSource preferred solutions - Microsoft commercial marketplace
+description:Preferred solutions within the Marketplace and how they are selected
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
