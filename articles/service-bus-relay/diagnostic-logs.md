@@ -85,7 +85,7 @@ Here's a sample hybrid connections event in JSON format.
 ## Events and operations captured in diagnostic logs
 
 > [!NOTE]
-> A client listener or sender could be running on-premises or on Azure. 
+> A client listener/sender could be running on-premises or on Azure. 
 
 | Operation | Description | 
 | --------- | ----------- | 
