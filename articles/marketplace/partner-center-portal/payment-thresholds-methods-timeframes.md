@@ -188,3 +188,7 @@ These are the countries and regions in which the above payment methods are used 
 | Zambia | Yes | Yes | Yes | No |
 | Zimbabwe | Yes | Yes | Yes | No |
 | | |
+
+## Next Step
+
+- [Payout summary overview](./payout-summary-overview.md)
