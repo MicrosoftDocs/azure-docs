@@ -198,7 +198,7 @@ The following instructions will tell you how to upload your master image into an
 
 Now that you have an image, you can create or update host pools. To learn more about how to create and update host pools, see the following articles:
 
-- [Create a host pool with an Azure Resource Manager template](create-host-pools-arm-template.md)
+- [Create a host pool with an Azure Resource Manager template](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
 - [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Create a host pool with PowerShell](create-host-pools-powershell.md)
 - [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md)
