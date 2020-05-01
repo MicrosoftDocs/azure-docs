@@ -3,7 +3,7 @@ title: Drawing package requirements in Creator  | Microsoft Docs
 description: Learn about the Drawing package requirements to convert your facility design files to map data using the Azure Maps Conversion service
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/20/2020
+ms.date: 5/01/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -26,11 +26,11 @@ Glossary of terms used within this document.
 
 | Term  | Definition |
 |:-------|:------------|
-| Layer | An AutoCAD DWG layer|
-| Level | An area of a building at a set elevation. For example, the floor of a building |
-| Xref  |A file in AutoCAD DWG file format (.dwg) attached to the primary drawing as an external reference  |
-| Feature | An object that combines a geometry with additional metadata information |
-| Feature Classes | A common blueprint for features. For example, a Unit is a feature class, and an office is a feature |
+| Layer | An AutoCAD DWG layer.|
+| Level | An area of a building at a set elevation. For example, the floor of a building. |
+| Xref  |A file in AutoCAD DWG file format (.dwg) attached to the primary drawing as an external reference.  |
+| Feature | An object that combines a geometry with additional metadata information. |
+| Feature Classes | A common blueprint for features. For example, a Unit is a feature class, and an office is a feature. |
 
 ## Drawing Package structure
 
@@ -41,8 +41,8 @@ A Drawing package is a .zip file that consists of files in AutoCAD DWG file form
 A single DWG file is required for each level of the facility. And the level's data must be contained in a single DWG file. Any external references (_xrefs_) must be bound to the parent drawing. Additionally, each DWG file:
 
 * Must define the _Exterior_ and _Unit_ layers. It may optionally define the following optional layers: _Wall_, _Door_, _UnitLabel_, _Zone_, and _ZoneLabel_.
-* Must not contain features from multiple levels
-* Must not contain features from multiple facilities
+* Must not contain features from multiple levels.
+* Must not contain features from multiple facilities.
 
 The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) can extract the following feature classes from a DWG file:
 
@@ -60,7 +60,7 @@ A DWG layer must contain features of a single class, and classes must not share 
 Moreover:
 
 * The origins of drawings for all DWG files must align to the same latitude and longitude.
-* Each level must be in the same orientation as the other levels
+* Each level must be in the same orientation as the other levels.
 * Self-intersecting polygons will be automatically repaired, and the  [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) will raise a warning. It's recommended to manually inspect the repaired results as they may not match the expected results.
 
 All layer entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Text (single line). Any other entity types will be ignored.
@@ -85,9 +85,9 @@ The DWG file for each level must contain a layer to define that level's perimete
 
 Now matter how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-creator-indoor-maps.md#create-a-feature-stateset) will contain only **one** level feature for each DWG file. Additionally:
 
-* Exteriors must be drawn as Polygon, PolyLine (closed), Circle
+* Exteriors must be drawn as Polygon, PolyLine (closed), Circle.
 
-* Exteriors may overlap, but will be dissolved into one geometry
+* Exteriors may overlap, but will be dissolved into one geometry.
 
 If the layer contains multiple overlapping PolyLines, then the PolyLines will be dissolved into a single Level feature. Alternatively, if the layer contains multiple non_overlapping PolyLines, the resulting Level feature will have a multi-polygonal representation.
 
@@ -97,10 +97,10 @@ An example of the Exterior layer can be seen as the OUTLINE layer in the [sample
 
 The DWG file for each level should define a layer containing units.  Units are navigable spaces in the building, such as offices, hallways, stairs, and elevators. The Units layer should adhere to the following requirements:
 
-* Units must be drawn as Polygon, PolyLine (closed), Circle
-* Units must fall inside the bounds of the facility exterior perimeter
-* Units must not partially overlap
-* Units must not contain any self-intersecting geometry
+* Units must be drawn as Polygon, PolyLine (closed), Circle.
+* Units must fall inside the bounds of the facility exterior perimeter.
+* Units must not partially overlap.
+* Units must not contain any self-intersecting geometry.
 
  Name a unit by creating a text object in the _unitLabel_ layer, then place the object inside the bounds of the unit. For more information, see the [UnitLabel layer](#unitlabel-layer).
 
@@ -110,7 +110,7 @@ An example of the Units layer can be seen as the UNITS layer in the [sample Conv
 
 The DWG file for each level may contain a layer that defines the physical extents of walls, columns, and other building structure.
 
-* Walls must be drawn as Polygon, PolyLine (closed), Circle
+* Walls must be drawn as Polygon, PolyLine (closed), Circle.
 * The wall layer(s) should only contain geometry that's interpreted as building structure.
 
 An example of the Walls layer can be seen as the WALLS layer in the [sample Conversion Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
@@ -127,9 +127,9 @@ An example of the Doors layer can be seen as the DOORS layer in the [sample Conv
 
 The DWG file for each level may contain a zone layer that defines the physical extents of zones. A zone can be an indoor empty space or a back yard.
 
-* Zones must be drawn as Polygon, PolyLine (closed), Circle
-* Zones may overlap
-* Zones may fall inside or outside the facility's exterior perimeter
+* Zones must be drawn as Polygon, PolyLine (closed), Circle.
+* Zones may overlap.
+* Zones may fall inside or outside the facility's exterior perimeter.
 
 Name a zone by creating a text object in the _zoneLabel_ layer, and placing the text object inside the bounds of the zone. For more details, see [ZoneLabel layer](#zonelabel-layer).
 
@@ -166,11 +166,11 @@ Although there are requirements when using the manifest objects, not all objects
 | Object | Required | Description |
 | :----- | :------- | :------- |
 | directoryInfo | true | Outlines the facility geographic and contact information. It can also be used to outline an occupant geographic and contact information. |
-| buildingLevels | true | Specifies the levels of the buildings and the files containing the design of the levels |
-| georeference | true | Contains numerical geographic information for the facility drawing |
-| dwgLayers | true | Lists the names of the layers, and each layer lists the names of its own features |
-| unitProperties | false | Can be used to insert additional metadata for the unit features |
-| zoneProperties | false | Can be used to insert additional metadata for the zone features |
+| buildingLevels | true | Specifies the levels of the buildings and the files containing the design of the levels. |
+| georeference | true | Contains numerical geographic information for the facility drawing. |
+| dwgLayers | true | Lists the names of the layers, and each layer lists the names of its own features. |
+| unitProperties | false | Can be used to insert additional metadata for the unit features. |
+| zoneProperties | false | Can be used to insert additional metadata for the zone features. |
 
 The next sections detail the requirements for each object.
 
@@ -178,20 +178,20 @@ The next sections detail the requirements for each object.
 
 | Property  | type | Required | Description |
 |-----------|------|----------|-------------|
-| name      | string/int | true   |  Name of building |
-| streetAddress|    string/int |    false    | Address of building |
-|unit     | string/int    |  false    |  Unit in building |
+| name      | string/int | true   |  Name of building. |
+| streetAddress|    string/int |    false    | Address of building. |
+|unit     | string/int    |  false    |  Unit in building. |
 | locality |    string/int |    false |    Name of an area, neighborhood, or region. For example, "Overlake" or "Central District." Locality isn't part of the mailing address. |
 | adminDivisions |    JSON Array of strings |    false     | An array containing address designations (Country, State, City) or (Country, Prefecture, City, Town). Use ISO 3166 country codes and ISO 3166-2 state/territory codes. |
-| postalCode |    string/int    | false    | The mail sorting code |
-| hoursOfOperation |    string |     false | Adheres to the [OSM Opening Hours](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) format |
-| phone    | string/int |    false |    Phone number associated with the building, and it must include the country code |
-| website    | string |    false    | Website associated with the building, and it must begin with http or https |
+| postalCode |    string/int    | false    | The mail sorting code. |
+| hoursOfOperation |    string |     false | Adheres to the [OSM Opening Hours](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) format. |
+| phone    | string/int |    false |    Phone number associated with the building. Must include the country code. |
+| website    | string |    false    | Website associated with the building. M begin with http or https. |
 | nonPublic |    bool    | false | Flag specifying if the building is open to the public. |
-| anchorLatitude | numeric |    false | Latitude of a facility anchor (pushpin) |
-| anchorLongitude | numeric |    false | Longitude of a facility anchor (pushpin) |
-| anchorHeightAboveSeaLevel  | numeric | false | Height of the facility's ground floor above sea level, in meters |
-| defaultLevelVerticalExtent | numeric | false | Default height (thickness) of a level of this facility to use when a level's `verticalExtent` is undefined |
+| anchorLatitude | numeric |    false | Latitude of a facility anchor (pushpin). |
+| anchorLongitude | numeric |    false | Longitude of a facility anchor (pushpin). |
+| anchorHeightAboveSeaLevel  | numeric | false | Height of the facility's ground floor above sea level, in meters. |
+| defaultLevelVerticalExtent | numeric | false | Default height (thickness) of a level of this facility to use when a level's `verticalExtent` is undefined. |
 
 ### buildingLevels
 
@@ -200,9 +200,9 @@ The `buildingLevels` object contains a JSON array of buildings levels.
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
 |level_name    |string/int    |true |    Descriptive level name. For example: Floor 1, Lobby, Blue Parking, Basement, and so on.|
-|ordinal | integer |    true | Ordinal is used to determine the vertical order of levels. Every facility must have a level with ordinal 0 |
-|heightAboveFacilityAnchor | numeric |    false |    Level height above the ground floor in meters |
-| verticalExtent | numeric | false | Floor to ceiling height (thickness) of the level in meters |
+|ordinal | integer |    true | Ordinal is used to determine the vertical order of levels. Every facility must have a level with ordinal 0. |
+|heightAboveFacilityAnchor | numeric |    false |    Level height above the ground floor in meters. |
+| verticalExtent | numeric | false | Floor to ceiling height (thickness) of the level in meters. |
 |filename |    string/int |    true |    File system path of the CAD drawing for a building level. It must be relative to the root of the building's zip file. |
 
 ### georeference
@@ -210,20 +210,20 @@ The `buildingLevels` object contains a JSON array of buildings levels.
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
 |lat    | numeric |    true |    Decimal representation of degrees latitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (EPSG:3857).|
-|lon    |numeric|    true|    Decimal representation of degrees longitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (EPSG:3857) |
+|lon    |numeric|    true|    Decimal representation of degrees longitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (EPSG:3857). |
 |angle|    numeric|    true|    The angle from the desired orientation of the building on a map to the orientation of the building in the DWG file. The angle is measured clockwise and in degrees. |
 
 ### dwgLayers
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|exterior    |Array of strings/ints|    true|    Names of layer(s) that define the exterior building profile|
-|unit|    Array of strings/ints|    true|    Names of layer(s) that define units|
-|wall|    Array of strings/ints    |false|    Names of layer(s) that define walls|
-|door    |Array of strings/ints|    false   | Names of layer(s) that define doors|
-|unitLabel    |Array of strings/ints|    false    |Names of layer(s) that define names of units|
-|zone | Array of strings/ints    | false    | Names of layer(s) that define zones|
-|zoneLabel | Array of strings/ints |     false |    Names of layer(s) that define names of zones|
+|exterior    |Array of strings/ints|    true|    Names of layer(s) that define the exterior building profile.|
+|unit|    Array of strings/ints|    true|    Names of layer(s) that define units.|
+|wall|    Array of strings/ints    |false|    Names of layer(s) that define walls.|
+|door    |Array of strings/ints|    false   | Names of layer(s) that define doors.|
+|unitLabel    |Array of strings/ints|    false    |Names of layer(s) that define names of units.|
+|zone | Array of strings/ints    | false    | Names of layer(s) that define zones.|
+|zoneLabel | Array of strings/ints |     false |    Names of layer(s) that define names of zones.|
 
 ### unitProperties
 
@@ -231,18 +231,18 @@ The `unitProperties` object contains a JSON array of unit properties.
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|unitName    |string/int    |true    |Name of unit to associate with this `unitProperty` record. This record is only valid when a label matching `unitName` is found in the `unitLabel` layer(s) |
+|unitName    |string/int    |true    |Name of unit to associate with this `unitProperty` record. This record is only valid when a label matching `unitName` is found in the `unitLabel` layer(s). |
 |categoryName|    string/int|    false    |Category Name. For a complete list of categories, refer to [categories](https://aka.ms/pa-indoor-spacecategories). |
 |navigableBy| Array of strings |    false    |Indicates the types of navigating agents that can traverse the unit. For example, "pedestrian". This property will inform the wayfinding capabilities.  The permitted values are `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hired_auto`, `bus`, `railcar`, `emergency`, `ferry`, `boat`, and `disallowed`.|
 |routeThroughBehavior|    string|    false    |The route through behavior for the unit. The permitted values are `disallowed`, `allowed`, and `preferred`. Default value is `allowed`.|
-|occupants    |Array of directoryInfo objects |false    |List of occupants for the unit |
-|nameAlt|    string/int|    false|    Alternate Name |
-|nameSubtitle|    string/int    |false|    Subtitle |
-|addressRoomNumber|    string/int|    false|    Room/Unit/Apartment/Suite number of the unit|
+|occupants    |Array of directoryInfo objects |false    |List of occupants for the unit. |
+|nameAlt|    string/int|    false|    Alternate Name of the unit. |
+|nameSubtitle|    string/int    |false|    Subtitle of the unit. |
+|addressRoomNumber|    string/int|    false|    Room/Unit/Apartment/Suite number of the unit.|
 |verticalPenetrationCategory|    string/int|    false| When this property is defined, the resulting feature will be a Vertical Penetration (VRT) rather than a unit. VRTs can be used to navigate to other VRT features in the levels above or below it. Vertical Penetration is a [Category](https://aka.ms/pa-indoor-spacecategories) Name. If this property is defined, categoryName property is overridden with verticalPenetrationCategory. |
 |verticalPenetrationDirection|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are `low_to_high`, `high_to_low`, `both`, and `closed`. Default value is `both`.|
-| nonPublic | bool | false | Indicates if the unit is open to the public |
-| isRoutable | bool | false | When set to `false`, unit can't be navigated to, or through. Default value is `true` |
+| nonPublic | bool | false | Indicates if the unit is open to the public. |
+| isRoutable | bool | false | When set to `false`, unit can't be navigated to, or through. Default value is `true`. |
 | isOpenArea | bool | false | Allows navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to `true` unless the unit has an opening. |
 
 ### The zoneProperties object
@@ -251,10 +251,10 @@ The `zoneProperties` object contains a JSON array of zone properties.
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|zoneName        |string/int    |true    |Name of zone to associate with `zoneProperty` record. This record is only valid when a label matching `zoneName` is found in the `zoneLabel` layer  |
+|zoneName        |string/int    |true    |Name of zone to associate with `zoneProperty` record. This record is only valid when a label matching `zoneName` is found in the `zoneLabel` layer of the zone.  |
 |categoryName|    string/int|    false    |Category Name. For a complete list of categories, refer to [categories](https://aka.ms/pa-indoor-spacecategories). |
-|zoneNameAlt|    string/int|    false    |Alternate Name  |
-|zoneNameSubtitle|    string/int |    false    |Subtitle |
+|zoneNameAlt|    string/int|    false    |Alternate Name of the zone.  |
+|zoneNameSubtitle|    string/int |    false    |Subtitle of the zone. |
 
 ### Sample Conversion Drawing package manifest
 Below is a sample manifest file for the sample Conversion Drawing package. To download the entire package, click [sample Conversion Drawing package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
