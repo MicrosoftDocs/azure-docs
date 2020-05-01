@@ -26,7 +26,7 @@
         href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
       - name: Private offers
         href: ./private-offers.md
-      - name: Standard contract
+      - name: Standard Contract
         href: ./standard-contract.md
       - name: Azure partner customer usage attribution
         href: ./azure-partner-customer-usage-attribution.md
@@ -35,9 +35,9 @@
       items:
       - name: Virtual machines
         href: ./marketplace-virtual-machines.md
-      - name: "Azure apps solution templates"
+      - name: Azure apps solution templates
         href: ./marketplace-solution-templates.md
-      - name: "Azure apps managed applications"
+      - name: Azure apps managed applications
         href: ./marketplace-managed-apps.md
       - name: SaaS apps
         href: ./marketplace-saas-applications-technical-publishing-guide.md
@@ -78,7 +78,7 @@
     - name: Support for the commercial marketplace
       href: ./support-azure-marketplace.md
       items:
-      - name: Marketplace FAQ
+      - name: Microsoft commercial marketplace FAQ
         href: ./marketplace-faq-publisher-guide.md
       - name: Geographic availability and currencies
         href: ./marketplace-geo-availability-currencies.md
@@ -89,7 +89,7 @@
     href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
   - name: Migration FAQ
     href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
-  - name: Portal Tour
+  - name: Portal tour
     href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
     items:
     - name: Portal navigation
