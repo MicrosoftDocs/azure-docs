@@ -374,7 +374,7 @@
       href: reference-entity-simple.md
   - name: Pattern syntax
     href: reference-pattern-syntax.md
-  - name: Sentiment
+  - name: Sentiment reference
     href: luis-reference-prebuilt-sentiment.md
 - name: Resources
   items:
