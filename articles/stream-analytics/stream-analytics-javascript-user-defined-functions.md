@@ -76,29 +76,28 @@ Azure Stream Analytics JavaScript user-defined functions support standard, built
 
 ### Stream Analytics and JavaScript type conversion
 
-There are differences in the types that the Stream Analytics query language and JavaScript support. This table lists the conversion mappings between the two:
+For Azure Stream Analytics values to be used in JavaScript, they need to be marshaled from one environment to the other. Marshaling happens for all input parameters of a UDF. Every Azure Stream Analytics type has a corresponding type in JavaScript shown on the table below:
 
-Stream Analytics | JavaScript
---- | ---
-bigint | Number (JavaScript can only represent integers up to precisely 2^53)
-DateTime | Date (JavaScript only supports milliseconds)
-double | Number
-nvarchar(MAX) | String
-Record | Object
-Array | Array
-NULL | Null
+|**Azure Stream Analytics type** |**JavaScript type** |
+|---------|---------|
+|bigint | Number (JavaScript can only represent integers up to 2^53) |
+|float | Number |
+|nvarchar(max) | String |
+|datetime | Date (JavaScript only supports milliseconds resolution) |
+|Record | Object |
+|Array | Array |
 
-Here are JavaScript-to-Stream Analytics conversions:
+The same is true when data needs to be marshaled from JavaScript to Azure Stream Analytics, which happens on the output value of a UDF. The table below shows what types are supported:
 
-JavaScript | Stream Analytics
---- | ---
-Number | Bigint (if the number is round and between long.MinValue and long.MaxValue; otherwise, it's double)
-Date | DateTime
-String | nvarchar(MAX)
-Object | Record
-Array | Array
-Null, Undefined | NULL
-Any other type (for example, a function or error) | Not supported (results in runtime error)
+|**JavaScript type**  |**Azure Stream Analytics type**  |
+|---------|---------|
+|Number  |  bigint   |
+|Number  |  float   |
+|String  |  nvarchar(max)   |
+|Date  |  dateTime   |
+|Object  |  Record   |
+|Array  |  Array   |
+|Any other type (for example, a function) | Not supported (results in runtime error) |
 
 JavaScript language is case-sensitive and casing of the object fields in JavaScript code must match the casing of the fields in the incoming data. Jobs with compatibility level 1.0 will convert fields from SQL SELECT statement to be lowercase. Under compatibility level 1.1 and higher, fields from SELECT statement will have the same casing as specified in the SQL query.
 
@@ -112,7 +111,7 @@ If you have a follow-up processing step that uses a Stream Analytics job output 
 
 ```javascript
 function main(x) {
-return JSON.stringify(x);
+    return JSON.stringify(x);
 }
 ```
 
