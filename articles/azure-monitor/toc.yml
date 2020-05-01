@@ -117,6 +117,12 @@
     href: platform/partners.md
 - name: How-to guides
   items:
+  - name: Scenarios
+    items:
+    - name: Monitor Azure service
+      href: insights/monitor-azure-resource.md
+    - name: Monitor Azure virtual machines
+      href: insights/monitor-vm-azure.md
   - name: Manage Azure Monitor
     items:
     - name: Design a workspace deployment
@@ -152,6 +158,204 @@
         href: app/pricing.md
       - name: Log data usage and costs
         href: platform/manage-cost-storage.md
+  - name: Log analytics
+    items:
+    - name: Log query overview
+      displayname: log query, log queries, query, queries
+      href: log-query/log-query-overview.md
+    - name: Simple logs experience
+      href: log-query/simple-logs.md
+    - name: Tutorials
+      items:
+      - name: Log Analytics tutorial
+        href: log-query/get-started-portal.md
+      - name: Log queries tutorial
+        href: log-query/get-started-queries.md
+    - name: Log data
+      items:
+      - name: Log data structure
+        href: log-query/logs-structure.md
+      - name: Query scope
+        href: log-query/scope.md
+      - name: Standard properties
+        href: platform/log-standard-properties.md
+    - name: Query language
+      items:
+      - name: Query language Documentation
+        href: log-query/query-language.md
+      - name: Language differences
+        href: log-query/data-explorer-difference.md
+      - name: Useful operators
+        href: log-query/useful-operators.md
+      - name: Functions
+        href: log-query/functions.md
+      - name: Transition from log search
+        href: log-query/log-search-transition.md
+      - name: Lessons
+        items:
+        - name: String operations
+          href: log-query/string-operations.md
+        - name: Date and time operations
+          href: log-query/datetime-operations.md
+        - name: Aggregation functions
+          href: log-query/aggregations.md
+        - name: Advanced aggregations
+          href: log-query/advanced-aggregations.md
+        - name: Joins
+          href: log-query/joins.md
+        - name: JSON and data structures
+          href: log-query/json-data-structures.md
+        - name: Advanced query writing
+          href: log-query/advanced-query-writing.md
+        - name: Charts and diagrams
+          href: log-query/charts.md
+        - name: Search queries
+          href: log-query/search-queries.md
+      - name: Cheatsheets
+        items:
+        - name: SQL
+          href: log-query/sql-cheatsheet.md
+        - name: Splunk
+          href: log-query/splunk-cheatsheet.md
+    - name: Cross resource
+      items:
+      - name: Cross-resource queries
+        href: log-query/cross-workspace-query.md
+      - name: app expression
+        href: log-query/app-expression.md
+      - name: workspace expression
+        href: log-query/workspace-expression.md   
+      - name: resource expression
+        href: log-query/resource-expression.md   
+      - name: Unify application data resources
+        href: log-query/unify-app-resource-data.md
+    - name: Examples and guidance
+      items:
+      - name: Log query examples
+        href: log-query/examples.md
+      - name: Smart analytics examples
+        href: log-query/smart-analytics.md
+      - name: Optimize queries
+        href: log-query/query-optimization.md
+      - name: Parse text data
+        href: log-query/parse-text.md
+  - name: Metrics explorer
+    items:
+    - name: Getting started with Metrics Explorer
+      href: platform/metrics-getting-started.md
+    - name: Advanced features of Metrics Explorer
+      href: platform/metrics-charts.md
+    - name: Examples of metric charts
+      href: platform/metric-chart-samples.md
+    - name: Troubleshooting metric charts
+      href: platform/metrics-troubleshoot.md
+  - name: Alerts
+    items:
+    - name: Troubleshoot alerts
+      href: platform/alerts-troubleshoot.md
+    - name: Application alert rules
+      items:
+      - name: Availability
+        href: app/monitor-web-app-availability.md
+      - name: Metric alerts
+        href: app/alerts.md
+    - name: Metric alert rules
+      items:
+      - name: Manage metric alerts
+        href: platform/alerts-metric.md
+      - name: Use dynamic thresholds
+        href: platform/alerts-dynamic-thresholds.md
+      - name: Metric alerts on logs
+        href: platform/alerts-metric-logs.md
+      - name: Using Resource Manager template
+        href: platform/alerts-metric-create-templates.md
+    - name: Log alert rules
+      items:  
+      - name: Configure alerts on analytics query
+        href: platform/alerts-log.md
+      - name: Queries
+        href: platform/alerts-log-query.md
+      - name: Webhook actions
+        href: platform/alerts-log-webhook.md
+      - name: Troubleshoot log alerts
+        href: platform/alert-log-troubleshoot.md
+    - name:  Activity log alert rules
+      items:
+      - name: Alert on an activity log event
+        href: platform/alerts-activity-log.md
+      - name: Migrate management events to activity log alerts
+        href: platform/migrate-management-alerts.md
+      - name: Webhook schema
+        href: platform/activity-log-alerts-webhook.md
+    - name: Service health alerts in activity log
+      items:
+      - name: View notifications
+        href: platform/service-notifications.md
+      - name: Configure alerts on notification events
+        href: platform/alerts-activity-log-service-notifications.md     
+    - name: Notifications and actions
+      items:
+      - name: Action rules (Preview)
+        href: platform/alerts-action-rules.md
+      - name: Create action group
+        href: platform/action-groups.md
+      - name: Common alert schema
+        href: platform/alerts-common-schema.md        
+      - name: Common alert schema definition
+        href: platform/alerts-common-schema-definitions.md   
+      - name: Integrate the common alert schema with Logic Apps
+        href: platform/alerts-common-schema-integrations.md   
+      - name: SMS alert behavior
+        href: platform/alerts-sms-behavior.md
+      - name: Notification rate limiting
+        href: platform/alerts-rate-limiting.md
+      - name: Create action groups with Resource Manager
+        href: platform/action-groups-create-resource-manager-template.md
+      - name: Implement a Logic App action
+        href: platform/action-groups-logic-app.md
+    - name: Alert Management solution
+      href: platform/alert-management-solution.md
+    - name: Alert user interface
+      items:
+      - name: About smart groups
+        href: platform/alerts-smartgroups-overview.md 
+      - name: Manage alert instances
+        href: platform/alerts-managing-alert-instances.md
+      - name: Manage smart groups
+        href: platform/alerts-managing-smart-groups.md   
+      - name: Manage alert and smart group states
+        href: platform/alerts-managing-alert-states.md  
+      - name: Manage alerts from other monitoring services
+        href: platform/alerts-managing-nagios-zabbix-scom.md   
+    - name: Migrate classic alert rules
+      items:
+      - name: About classic alerts 
+        href: platform/alerts-classic.overview.md  
+      - name: Prepare for migration
+        href: platform/alerts-prepare-migration.md
+      - name: Understand the migration tool
+        href: platform/alerts-understand-migration.md
+      - name: Use the migration tool
+        href: platform/alerts-using-migration-tool.md
+      - name: Automatic migration process
+        href: platform/alerts-automatic-migration.md
+      - name: Manage classic metric alerts
+        href: platform/alerts-classic-portal.md
+      - name: Classic metric alert using a Resource Manager template
+        href: platform/alerts-enable-template.md    
+      - name: Classic metric alert calling a webhook
+        href: platform/alerts-webhooks.md
+    - name: Alert API
+      href: platform/api-alerts.md
+    - name: IT Service Management
+      items:
+      - name: IT Service Management Connector
+        href: platform/itsmc-overview.md
+      - name: IT Service Management connections
+        href: platform/itsmc-connections.md
+      - name: Create Service Manager web app
+        href: platform/itsmc-service-manager-script.md
+      - name: Fix ServiceNow ITSM sync problems
   - name: Application Insights
     items:
     - name: Application Insights overview
@@ -481,10 +685,105 @@
         href: app/sharepoint.md
       - name: Windows desktop
         href: app/windows-desktop.md
+  - name: Azure Monitor for VMs
+    items:
+    - name: Overview
+      href: insights/vminsights-overview.md
+    - name: General Availability FAQ
+      href: insights/vminsights-ga-release-faq.md  
+    - name: FAQ
+      href: faq.md#azure-monitor-for-vms
+    - name: Enable monitoring
+      items:
+      - name: Enable monitoring overview
+        href: insights/vminsights-enable-overview.md
+      - name: Enable for single Azure VM
+        href: insights/vminsights-enable-single-vm.md
+      - name: Enable using Azure Policy
+        href: insights/vminsights-enable-at-scale-policy.md
+      - name: Enable using Azure PowerShell
+        href: insights/vminsights-enable-at-scale-powershell.md
+      - name: Enable for Hybrid environment
+        href: insights/vminsights-enable-hybrid-cloud.md
+    - name: Map dependencies
+      href: insights/vminsights-maps.md
+    - name: Monitor performance
+      href: insights/vminsights-performance.md
+    - name: Analyze data with log queries
+      href: insights/vminsights-log-search.md
+    - name: Visualize data with workbooks
+      href: insights/vminsights-workbooks.md
+    - name: Create alert rules
+      href: insights/vminsights-alerts.md
+    - name: Upgrade Dependency agent
+      href: insights/vminsights-dependency-agent-maintenance.md
+    - name: Disable monitoring
+  - name: Azure Monitor for containers 
+    items:
+    - name: Overview
+      href: insights/container-insights-overview.md
+    - name: FAQ
+      href: faq.md#azure-monitor-for-containers
+    - name: Enable monitoring
+      items:
+      - name: Enable monitoring overview 
+        href: insights/container-insights-onboard.md
+      - name: Enable for new AKS cluster
+        href: insights/container-insights-enable-new-cluster.md
+      - name: Enable for existing AKS cluster
+        href: insights/container-insights-enable-existing-clusters.md
+      - name: Enable for hybrid cluster
+        href: insights/container-insights-hybrid-setup.md
+      - name: Enable for Azure Red Hat OpenShift v3
+        href: insights/container-insights-azure-redhat-setup.md
+      - name: Enable for Azure Red Hat OpenShift v4
+        href: insights/container-insights-azure-redhat4-setup.md
+      - name: Region mappings
+        href: insights/container-insights-region-mapping.md
+    - name: Monitor performance
+      href: insights/container-insights-analyze.md
+    - name: Monitor health
+      href: insights/container-insights-health.md
+    - name: Monitor GPU performance
+      href: insights/container-insights-gpu-monitoring.md
+    - name: View live data
+      items:
+      - name: Live Data (preview) overview
+        href: insights/container-insights-livedata-overview.md
+      - name: Setup
+        href: insights/container-insights-livedata-setup.md
+      - name: View cluster metrics
+        href: insights/container-insights-livedata-metrics.md
+      - name: View deployments
+        href: insights/container-insights-livedata-deployments.md
+    - name: Analyze data with log queries
+      href: insights/container-insights-log-search.md
+    - name: Alerting
+      href: insights/container-insights-alerts.md
+    - name: Agent management
+      href: insights/container-insights-manage-agent.md
+    - name: Configure Prometheus metric scraping
+      href: insights/container-insights-prometheus-integration.md
+    - name: Configure agent collection settings
+      href: insights/container-insights-agent-config.md
+    - name: Update to enable metrics
+      href: insights/container-insights-update-metrics.md
+    - name: Health monitoring configuration
+      href: insights/container-insights-health-monitors-config.md
+    - name: Disable monitoring
+      items:
+        - name: Disable monitoring AKS
+          href: insights/container-insights-optout.md
+        - name: Disable monitoring Red Hat OpenShift v3
+          href: insights/container-insights-optout-openshift-v3.md
+        - name: Disable monitoring Red Hat OpenShift v4
+          href: insights/container-insights-optout-openshift-v4.md
+        - name: Disable monitoring hybrid cluster
+          href: insights/container-insights-optout-hybrid.md
+    - name: Troubleshooting
+      href: insights/container-insights-troubleshoot.md
   - name: Monitor Azure resources
     items:
-    - name: Monitor Azure service
-      href: insights/monitor-azure-resource.md
     - name: Monitor resource groups
       href: insights/resource-group-insights.md
     - name: Platform logs
@@ -529,8 +828,6 @@
       href: platform/stream-monitoring-data-event-hubs.md 
   - name: Monitor VMs and guest OS
     items: 
-    - name: Monitor Azure virtual machines
-      href: insights/monitor-vm-azure.md
     - name: Agents
       items:
       - name: Agents overview
@@ -632,39 +929,6 @@
         - name: Log Analytics Linux agent
           displayname: troubleshoot, troubleshooting
           href: platform/agent-linux-troubleshoot.md
-    - name: Azure Monitor for VMs
-      items:
-      - name: Overview
-        href: insights/vminsights-overview.md
-      - name: General Availability FAQ
-        href: insights/vminsights-ga-release-faq.md  
-      - name: FAQ
-        href: faq.md#azure-monitor-for-vms
-      - name: Enable monitoring
-        items:
-        - name: Enable monitoring overview
-          href: insights/vminsights-enable-overview.md
-        - name: Enable for single Azure VM
-          href: insights/vminsights-enable-single-vm.md
-        - name: Enable using Azure Policy
-          href: insights/vminsights-enable-at-scale-policy.md
-        - name: Enable using Azure PowerShell
-          href: insights/vminsights-enable-at-scale-powershell.md
-        - name: Enable for Hybrid environment
-          href: insights/vminsights-enable-hybrid-cloud.md
-      - name: Map dependencies
-        href: insights/vminsights-maps.md
-      - name: Monitor performance
-        href: insights/vminsights-performance.md
-      - name: Analyze data with log queries
-        href: insights/vminsights-log-search.md
-      - name: Visualize data with workbooks
-        href: insights/vminsights-workbooks.md
-      - name: Create alert rules
-        href: insights/vminsights-alerts.md
-      - name: Upgrade Dependency agent
-        href: insights/vminsights-dependency-agent-maintenance.md
-      - name: Disable monitoring
         href: insights/vminsights-optout.md
     - name: Solutions
       items:
@@ -682,70 +946,6 @@
       href: platform/computer-groups.md
   - name: Monitor containers
     items:
-    - name: Azure Monitor for containers 
-      items:
-      - name: Overview
-        href: insights/container-insights-overview.md
-      - name: FAQ
-        href: faq.md#azure-monitor-for-containers
-      - name: Enable monitoring
-        items:
-        - name: Enable monitoring overview 
-          href: insights/container-insights-onboard.md
-        - name: Enable for new AKS cluster
-          href: insights/container-insights-enable-new-cluster.md
-        - name: Enable for existing AKS cluster
-          href: insights/container-insights-enable-existing-clusters.md
-        - name: Enable for hybrid cluster
-          href: insights/container-insights-hybrid-setup.md
-        - name: Enable for Azure Red Hat OpenShift v3
-          href: insights/container-insights-azure-redhat-setup.md
-        - name: Enable for Azure Red Hat OpenShift v4
-          href: insights/container-insights-azure-redhat4-setup.md
-        - name: Region mappings
-          href: insights/container-insights-region-mapping.md
-      - name: Monitor performance
-        href: insights/container-insights-analyze.md
-      - name: Monitor health
-        href: insights/container-insights-health.md
-      - name: Monitor GPU performance
-        href: insights/container-insights-gpu-monitoring.md
-      - name: View live data
-        items:
-        - name: Live Data (preview) overview
-          href: insights/container-insights-livedata-overview.md
-        - name: Setup
-          href: insights/container-insights-livedata-setup.md
-        - name: View cluster metrics
-          href: insights/container-insights-livedata-metrics.md
-        - name: View deployments
-          href: insights/container-insights-livedata-deployments.md
-      - name: Analyze data with log queries
-        href: insights/container-insights-log-search.md
-      - name: Alerting
-        href: insights/container-insights-alerts.md
-      - name: Agent management
-        href: insights/container-insights-manage-agent.md
-      - name: Configure Prometheus metric scraping
-        href: insights/container-insights-prometheus-integration.md
-      - name: Configure agent collection settings
-        href: insights/container-insights-agent-config.md
-      - name: Update to enable metrics
-        href: insights/container-insights-update-metrics.md
-      - name: Health monitoring configuration
-        href: insights/container-insights-health-monitors-config.md
-      - name: Disable monitoring
-        items:
-          - name: Disable monitoring AKS
-            href: insights/container-insights-optout.md
-          - name: Disable monitoring Red Hat OpenShift v3
-            href: insights/container-insights-optout-openshift-v3.md
-          - name: Disable monitoring Red Hat OpenShift v4
-            href: insights/container-insights-optout-openshift-v4.md
-          - name: Disable monitoring hybrid cluster
-            href: insights/container-insights-optout-hybrid.md
-      - name: Troubleshooting
-        href: insights/container-insights-troubleshoot.md
     - name: Docker and Windows Container monitoring
       href: insights/containers.md
   - name: Monitor other resources
@@ -815,97 +1015,8 @@
       href: platform/create-pipeline-datacollector-api.md
   - name: Analyze data
     items:
-    - name: Metrics
-      items:
-      - name: Getting started with Metrics Explorer
-        href: platform/metrics-getting-started.md
-      - name: Advanced features of Metrics Explorer
-        href: platform/metrics-charts.md
-      - name: Examples of metric charts
-        href: platform/metric-chart-samples.md
-      - name: Troubleshooting metric charts
-        href: platform/metrics-troubleshoot.md
-    - name: Logs
-      items:
-      - name: Log query overview
-        displayname: log query, log queries, query, queries
-        href: log-query/log-query-overview.md
-      - name: Simple logs experience
-        href: log-query/simple-logs.md
-      - name: Tutorials
-        items:
-        - name: Log Analytics tutorial
-          href: log-query/get-started-portal.md
-        - name: Log queries tutorial
-          href: log-query/get-started-queries.md
-      - name: Log data
-        items:
-        - name: Log data structure
-          href: log-query/logs-structure.md
-        - name: Query scope
-          href: log-query/scope.md
-        - name: Standard properties
-          href: platform/log-standard-properties.md
-      - name: Query language
-        items:
-        - name: Query language Documentation
-          href: log-query/query-language.md
-        - name: Language differences
-          href: log-query/data-explorer-difference.md
-        - name: Useful operators
-          href: log-query/useful-operators.md
-        - name: Functions
-          href: log-query/functions.md
-        - name: Transition from log search
-          href: log-query/log-search-transition.md
-        - name: Lessons
-          items:
-          - name: String operations
-            href: log-query/string-operations.md
-          - name: Date and time operations
-            href: log-query/datetime-operations.md
-          - name: Aggregation functions
-            href: log-query/aggregations.md
-          - name: Advanced aggregations
-            href: log-query/advanced-aggregations.md
-          - name: Joins
-            href: log-query/joins.md
-          - name: JSON and data structures
-            href: log-query/json-data-structures.md
-          - name: Advanced query writing
-            href: log-query/advanced-query-writing.md
-          - name: Charts and diagrams
-            href: log-query/charts.md
-          - name: Search queries
-            href: log-query/search-queries.md
-        - name: Cheatsheets
-          items:
-          - name: SQL
-            href: log-query/sql-cheatsheet.md
-          - name: Splunk
-            href: log-query/splunk-cheatsheet.md
-      - name: Cross resource
-        items:
-        - name: Cross-resource queries
-          href: log-query/cross-workspace-query.md
-        - name: app expression
-          href: log-query/app-expression.md
-        - name: workspace expression
-          href: log-query/workspace-expression.md   
-        - name: resource expression
-          href: log-query/resource-expression.md   
-        - name: Unify application data resources
-          href: log-query/unify-app-resource-data.md
-      - name: Examples and guidance
-        items:
-        - name: Log query examples
-          href: log-query/examples.md
-        - name: Smart analytics examples
-          href: log-query/smart-analytics.md
-        - name: Optimize queries
-          href: log-query/query-optimization.md
-        - name: Parse text data
-          href: log-query/parse-text.md
+
+
     - name: Logic Apps
       items: 
       - name: Azure Monitor Logs connector
@@ -981,113 +1092,7 @@
         href: learn/tutorial-app-dashboards.md
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
-  - name: Alerting
-    items:
-    - name: Troubleshoot alerts
-      href: platform/alerts-troubleshoot.md
-    - name: Application alert rules
-      items:
-      - name: Availability
-        href: app/monitor-web-app-availability.md
-      - name: Metric alerts
-        href: app/alerts.md
-    - name: Metric alert rules
-      items:
-      - name: Manage metric alerts
-        href: platform/alerts-metric.md
-      - name: Use dynamic thresholds
-        href: platform/alerts-dynamic-thresholds.md
-      - name: Metric alerts on logs
-        href: platform/alerts-metric-logs.md
-      - name: Using Resource Manager template
-        href: platform/alerts-metric-create-templates.md
-    - name: Log alert rules
-      items:  
-      - name: Configure alerts on analytics query
-        href: platform/alerts-log.md
-      - name: Queries
-        href: platform/alerts-log-query.md
-      - name: Webhook actions
-        href: platform/alerts-log-webhook.md
-      - name: Troubleshoot log alerts
-        href: platform/alert-log-troubleshoot.md
-    - name:  Activity log alert rules
-      items:
-      - name: Alert on an activity log event
-        href: platform/alerts-activity-log.md
-      - name: Migrate management events to activity log alerts
-        href: platform/migrate-management-alerts.md
-      - name: Webhook schema
-        href: platform/activity-log-alerts-webhook.md
-    - name: Service health alerts in activity log
-      items:
-      - name: View notifications
-        href: platform/service-notifications.md
-      - name: Configure alerts on notification events
-        href: platform/alerts-activity-log-service-notifications.md     
-    - name: Notifications and actions
-      items:
-      - name: Action rules (Preview)
-        href: platform/alerts-action-rules.md
-      - name: Create action group
-        href: platform/action-groups.md
-      - name: Common alert schema
-        href: platform/alerts-common-schema.md        
-      - name: Common alert schema definition
-        href: platform/alerts-common-schema-definitions.md   
-      - name: Integrate the common alert schema with Logic Apps
-        href: platform/alerts-common-schema-integrations.md   
-      - name: SMS alert behavior
-        href: platform/alerts-sms-behavior.md
-      - name: Notification rate limiting
-        href: platform/alerts-rate-limiting.md
-      - name: Create action groups with Resource Manager
-        href: platform/action-groups-create-resource-manager-template.md
-      - name: Implement a Logic App action
-        href: platform/action-groups-logic-app.md
-    - name: Alert Management solution
-      href: platform/alert-management-solution.md
-    - name: Alert user interface
-      items:
-      - name: About smart groups
-        href: platform/alerts-smartgroups-overview.md 
-      - name: Manage alert instances
-        href: platform/alerts-managing-alert-instances.md
-      - name: Manage smart groups
-        href: platform/alerts-managing-smart-groups.md   
-      - name: Manage alert and smart group states
-        href: platform/alerts-managing-alert-states.md  
-      - name: Manage alerts from other monitoring services
-        href: platform/alerts-managing-nagios-zabbix-scom.md   
-    - name: Migrate classic alert rules
-      items:
-      - name: About classic alerts 
-        href: platform/alerts-classic.overview.md  
-      - name: Prepare for migration
-        href: platform/alerts-prepare-migration.md
-      - name: Understand the migration tool
-        href: platform/alerts-understand-migration.md
-      - name: Use the migration tool
-        href: platform/alerts-using-migration-tool.md
-      - name: Automatic migration process
-        href: platform/alerts-automatic-migration.md
-      - name: Manage classic metric alerts
-        href: platform/alerts-classic-portal.md
-      - name: Classic metric alert using a Resource Manager template
-        href: platform/alerts-enable-template.md    
-      - name: Classic metric alert calling a webhook
-        href: platform/alerts-webhooks.md
-    - name: Alert API
-      href: platform/api-alerts.md
-    - name: IT Service Management
-      items:
-      - name: IT Service Management Connector
-        href: platform/itsmc-overview.md
-      - name: IT Service Management connections
-        href: platform/itsmc-connections.md
-      - name: Create Service Manager web app
-        href: platform/itsmc-service-manager-script.md
-      - name: Fix ServiceNow ITSM sync problems
+
         href: platform/itsmc-resync-servicenow.md
   - name: Automate 
     items:
