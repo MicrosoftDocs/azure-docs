@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure role-based access control (Azure RBAC) documentation
+title: Azure RBAC documentation
 summary: Azure role-based access control (Azure RBAC) is a system that provides fine-grained access management of Azure resources. Using Azure RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
 
 metadata:
-  title: Azure role-based access control (Azure RBAC) documentation
+  title: Azure RBAC documentation
   description: Learn about Azure role-based access control (Azure RBAC) to manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
   services: role-based-access-control
   ms.service: role-based-access-control
@@ -66,7 +66,7 @@ landingContent:
           - text: Template
             url: role-assignments-template.md
   # Card
-  - title: Create custom roles
+  - title: Create and update custom roles
     linkLists: 
       - linkListType: overview
         links: 

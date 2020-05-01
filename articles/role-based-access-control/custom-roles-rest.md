@@ -185,7 +185,7 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 1. In the `notActions` property, add the operations that are excluded from the allowed `actions`.
 
-1. In the `roleName` and `description` properties, specify a unique role name and a description. For more information about the properties, see [Custom roles](custom-roles.md).
+1. In the `roleName` and `description` properties, specify a unique role name and a description. For more information about the properties, see [Azure custom roles](custom-roles.md).
 
     The following shows an example of a request body:
 
@@ -337,5 +337,5 @@ To delete a custom role, use the [Role Definitions - Delete](/rest/api/authoriza
 ## Next steps
 
 - [Azure custom roles](custom-roles.md)
-- [Manage access to Azure resources using Azure RBAC and the REST API](role-assignments-rest.md)
+- [Add or remove Azure role assignments using the REST API](role-assignments-rest.md)
 - [Azure REST API Reference](/rest/api/azure/)

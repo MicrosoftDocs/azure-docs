@@ -29,7 +29,7 @@ When planning your access control strategy, it's a best practice to grant users 
 
 ![Azure RBAC and least privilege](./media/best-practices/rbac-least-privilege.png)
 
-For information about how to add role assignments, see [Add or remove role assignments](role-assignments-portal.md).
+For information about how to add role assignments, see [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md).
 
 ## Limit the number of subscription owners
 

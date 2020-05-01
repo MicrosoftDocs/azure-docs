@@ -100,7 +100,7 @@ If you prefer, you can specify most of your custom role values in a JSON file. Y
     }
     ```
 
-1. In the JSON file, specify values for the various properties. Here's an example with some values added. For information about the different properties, see [Understand role definitions](role-definitions.md).
+1. In the JSON file, specify values for the various properties. Here's an example with some values added. For information about the different properties, see [Understand Azure role definitions](role-definitions.md).
 
     ```json
     {
@@ -343,6 +343,6 @@ Follow these steps to view your custom roles.
 
 ## Next steps
 
-- [Tutorial: Create a custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Custom roles in Azure](custom-roles.md)
+- [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Azure custom roles](custom-roles.md)
 - [Azure Resource Manager resource provider operations](resource-provider-operations.md)

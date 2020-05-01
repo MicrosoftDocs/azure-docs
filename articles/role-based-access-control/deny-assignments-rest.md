@@ -87,7 +87,7 @@ To get information about a deny assignment, you must have:
 
 ## List deny assignments at the root scope (/)
 
-1. Elevate your access as described in [Elevate access for a Global Administrator in Azure Active Directory](elevate-access-global-admin.md).
+1. Elevate your access as described in [Elevate access to manage all Azure subscriptions and management groups](elevate-access-global-admin.md).
 
 1. Use the following request:
 
@@ -108,5 +108,5 @@ To get information about a deny assignment, you must have:
 ## Next steps
 
 - [Understand Azure deny assignments](deny-assignments.md)
-- [Elevate access for a Global Administrator in Azure Active Directory](elevate-access-global-admin.md)
+- [Elevate access to manage all Azure subscriptions and management groups](elevate-access-global-admin.md)
 - [Azure REST API Reference](/rest/api/azure/)

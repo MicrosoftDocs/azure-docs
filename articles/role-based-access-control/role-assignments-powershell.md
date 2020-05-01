@@ -225,6 +225,6 @@ If you get the error message: "The provided information does not map to a role a
 ## Next steps
 
 - [List Azure role assignments using Azure PowerShell](role-assignments-list-powershell.md)
-- [Tutorial: Grant a group access to Azure resources using Azure RBAC and Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Tutorial: Grant a group access to Azure resources using Azure PowerShell](tutorial-role-assignments-group-powershell.md)
 - [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Manage resources with Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

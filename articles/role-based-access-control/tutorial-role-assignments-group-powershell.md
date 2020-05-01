@@ -69,7 +69,7 @@ To assign a role, you need a user, group, or service principal. If you don't alr
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-If you don't have permissions to create groups, you can try the [Tutorial: Grant a user access to Azure resources using Azure RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md) instead.
+If you don't have permissions to create groups, you can try the [Tutorial: Grant a user access to Azure resources using Azure PowerShell](tutorial-role-assignments-user-powershell.md) instead.
 
 ## Create a resource group
 
@@ -293,4 +293,4 @@ To clean up the resources created by this tutorial, delete the resource group an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage access to Azure resources using Azure RBAC and Azure PowerShell](role-assignments-powershell.md)
+> [Add or remove Azure role assignments using Azure PowerShell](role-assignments-powershell.md)

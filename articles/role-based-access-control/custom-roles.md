@@ -85,7 +85,7 @@ When you create a custom role, it appears in the Azure portal with an orange res
 
     Once you have your custom role, you have to test it to verify that it works as you expect. If you need to make adjustments later, you can update the custom role.
 
-For a step-by-step tutorial on how to create a custom role, see [Tutorial: Create a custom role using Azure PowerShell](tutorial-custom-role-powershell.md) or [Tutorial: Create a custom role using Azure CLI](tutorial-custom-role-cli.md).
+For a step-by-step tutorial on how to create a custom role, see [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md) or [Tutorial: Create an Azure custom role using Azure CLI](tutorial-custom-role-cli.md).
 
 ## Custom role properties
 

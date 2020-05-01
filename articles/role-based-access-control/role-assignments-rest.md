@@ -108,4 +108,4 @@ In Azure RBAC, to remove access, you remove a role assignment. To remove a role 
 - [List Azure role assignments using the REST API](role-assignments-list-rest.md)
 - [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 - [Azure REST API Reference](/rest/api/azure/)
-- [Create Azure custom roles using the REST API](custom-roles-rest.md)
+- [Create or update Azure custom roles using the REST API](custom-roles-rest.md)

@@ -71,7 +71,7 @@ The easiest way to create a custom role is to start with a built-in role, edit i
 
 1. Open the **ReaderSupportRole.json** file in an editor.
 
-    The following shows the JSON output. For information about the different properties, see [Custom roles](custom-roles.md).
+    The following shows the JSON output. For information about the different properties, see [Azure custom roles](custom-roles.md).
 
     ```json
     {
@@ -275,4 +275,4 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create Azure custom roles using Azure PowerShell](custom-roles-powershell.md)
+> [Create or update Azure custom roles using Azure PowerShell](custom-roles-powershell.md)

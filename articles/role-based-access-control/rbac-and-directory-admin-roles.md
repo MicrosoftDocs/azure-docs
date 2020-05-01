@@ -87,7 +87,7 @@ When you click the **Roles** tab, you will see the list of built-in and custom r
 
 ![Built-in roles in the Azure portal](./media/rbac-and-directory-admin-roles/roles-list.png)
 
-For more information, see [Manage access to Azure resources using Azure RBAC and the Azure portal](role-assignments-portal.md).
+For more information, see [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md).
 
 ## Azure AD roles
 
@@ -116,7 +116,7 @@ At a high level, Azure roles control permissions to manage Azure resources, whil
 
 ### Do Azure roles and Azure AD roles overlap?
 
-By default, Azure roles and Azure AD roles do not span Azure and Azure AD. However, if a Global Administrator elevates their access by choosing the **Global admin can manage Azure Subscriptions and Management Groups** switch in the Azure portal, the Global Administrator will be granted the [User Access Administrator](built-in-roles.md#user-access-administrator) role (an Azure role) on all subscriptions for a particular tenant. The User Access Administrator role enables the user to grant other users access to Azure resources. This switch can be helpful to regain access to a subscription. For more information, see [Elevate access as an Azure AD administrator](elevate-access-global-admin.md).
+By default, Azure roles and Azure AD roles do not span Azure and Azure AD. However, if a Global Administrator elevates their access by choosing the **Global admin can manage Azure Subscriptions and Management Groups** switch in the Azure portal, the Global Administrator will be granted the [User Access Administrator](built-in-roles.md#user-access-administrator) role (an Azure role) on all subscriptions for a particular tenant. The User Access Administrator role enables the user to grant other users access to Azure resources. This switch can be helpful to regain access to a subscription. For more information, see [Elevate access to manage all Azure subscriptions and management groups](elevate-access-global-admin.md).
 
 Several Azure AD roles span Azure AD and Microsoft Office 365, such as the Global Administrator and User Administrator roles. For example, if you are a member of the Global Administrator role, you have global administrator capabilities in Azure AD and Office 365, such as making changes to Microsoft Exchange and Microsoft SharePoint. However, by default, the Global Administrator doesn't have access to Azure resources.
 

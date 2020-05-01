@@ -53,4 +53,4 @@ You can use the **Access control (IAM)** blade in [Azure role-based access contr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Grant a user access to Azure resources using Azure RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
+> [Tutorial: Grant a user access to Azure resources using the Azure portal](quickstart-assign-role-user-portal.md)

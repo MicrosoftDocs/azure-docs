@@ -278,4 +278,4 @@ To clean up the resources created by this tutorial, delete the resource group an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage access to Azure resources using Azure RBAC and Azure PowerShell](role-assignments-powershell.md)
+> [Add or remove Azure role assignments using Azure PowerShell](role-assignments-powershell.md)
