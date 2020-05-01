@@ -45,6 +45,10 @@ If possible, you can prepare files for better performance:
 - It's better to have equally sized files for a single OPENROWSET path or an external table LOCATION.
 - Partition your data by storing partitions to different folders or file names - check [use filename and filepath functions to target specific partitions](#use-fileinfo-and-filepath-functions-to-target-specific-partitions).
 
+## Push wildcards to lower levels in path
+
+You can use wildcards in your path to [query multiple files and folders](develop-storage-files-overview.md#query-multiple-files-or-folders). SQL on-demand lists files in your storage account starting from first * using storage API and eliminates files that do not match specified path. Reducing initial list of files can improve performance if there are many files that match specified path up to first wildcard.
+
 ## Use appropriate data types
 
 Data types used in your query affects performance. You can get better performance if you: 
