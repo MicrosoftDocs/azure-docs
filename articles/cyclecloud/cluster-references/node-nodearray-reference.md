@@ -184,9 +184,23 @@ InitialCount | Integer | Number of nodes to start when cluster starts.
 MaxCount | Integer | To ensure that the cluster never exceeds 10 nodes you would specify a value of 10. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
 InitialCoreCount | Integer | Number of cores to start when cluster starts.
 MaxCoreCount | Integer | To ensure that the cluster never exceeds 100 cores you would specify a value of 100. Note that MaxCount and MaxCoreCount can be used together, in which case the lower effective constraint will take effect.
+ShutdownPolicy | String | Indicates what to do with the VM when a node shuts down. If 'terminate' the VM is deleted when the node shuts down. If 'deallocate', the node is stopped instead. (Default: terminate)
 
 > [!NOTE]
 > All VMSSs will be assigned `FaultDomainCount = 1`
+
+### Inheritance
+
+Nodes and nodearrays which are closely related can be derived from other nodes in the same cluster template.
+These inherited definitions minimize the declarations needed by sharing common attributes. Commonly used is the
+`[[node defaults]]` section, which is a special abstract definition that applies to all nodes and nodearrays in 
+the cluster.
+
+Attribute | String | Definition
+------ | ----- | ----------
+Abstract | Boolean | If true, don't create an node or nodearray in the cluster. The abstract can be used for inheritance. (Default: false)
+Extends | String (list) | Ordered list of inherited node/nodearray names. Items later in the list take precedence when values conflict. 'default' node will always effectively be first in the list. (Default: [])
+
 
 ## Subordinate Objects
 
