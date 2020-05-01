@@ -16,9 +16,9 @@ ms.reviewer: igorstan
 
 > [!NOTE] 
 > Try the latest Azure Synapse features such as workspaces, Spark, SQL on demand, and the integrated Synapse Studio experience 
-> by [requesting access to Azure Synapse (workspace preview)](https://aka.ms/synapsepreview). 
+> by [requesting access to Azure Synapse (workspaces preview)](https://aka.ms/synapsepreview). 
 >
->Explore the [Azure Synapse (workspace preview) documentation](../overview-what-is.md).
+>Explore the [Azure Synapse (workspaces preview) documentation](../overview-what-is.md).
 
 Azure Synapse is an analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs.
 
