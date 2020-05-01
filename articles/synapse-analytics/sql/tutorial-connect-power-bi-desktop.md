@@ -125,11 +125,11 @@ Create the report for Power BI Desktop using the following steps:
 
     - Example for AAD 
   
-    ![Click Sign in.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
+        ![Click Sign in.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
 
     - Example for SQL Login - Type your User name and password.
 
-    ![Use SQL login.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
+        ![Use SQL login.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
 
 
 5. Select the view `usPopulationView`, and then select **Load**. 
