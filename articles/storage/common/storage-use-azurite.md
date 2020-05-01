@@ -35,17 +35,17 @@ You can quickly start or close Azurite in the Visual Studio Code status bar. Cli
 
 The extension supports the following Visual Studio Code commands. To open the command palette, press F1 in Visual Studio Code. 
 
-   * **Azurite: Start** - Start all Azurite services
-   * **Azurite: Close** - Close all Azurite services
    * **Azurite: Clean** - Reset all Azurite services persistency data
-   * **Azurite: Start Blob Service** - Start blob service
-   * **Azurite: Close Blob Service** - Close blob service
    * **Azurite: Clean Blob Service** - Clean blob service
-   * **Azurite: Start Queue Service** - Start queue service
-   * **Azurite: Close Queue Service** - Close queue service
    * **Azurite: Clean Queue Service** - Clean queue service
+   * **Azurite: Close** - Close all Azurite services
+   * **Azurite: Close Blob Service** - Close blob service
+   * **Azurite: Close Queue Service** - Close queue service
+   * **Azurite: Start** - Start all Azurite services
+   * **Azurite: Start Blob Service** - Start blob service
+   * **Azurite: Start Queue Service** - Start queue service
 
-To configure Azurite within Visual Studio Code, select the extensions pane. Select the **Manage** (gear) icon for **Azurite**. Select **Configure Extension Settings**.
+To configure Azurite within Visual Studio Code, select the extensions pane. Select the **Manage** (gear) icon for **Azurite**. Select **Extension Settings**.
 
 ![Azurites configure extension settings](media/storage-use-azurite/azurite-configure-extension-settings.png)
 
@@ -53,8 +53,13 @@ The following settings are supported:
 
    * **Azurite: Blob Host** - The Blob service listening endpoint. The default setting is 127.0.0.1.
    * **Azurite: Blob Port** - The Blob service listening port. The default port is 10000.
+   * **Azurite: Cert** - Path to a locally-trusted PEM or PFX certificate file path to enable HTTPS mode.
    * **Azurite: Debug** - Output the debug log to the Azurite channel. The default value is **false**.
+   * **Azurite: Key** - Path to a locally-trusted PEM key file, required when **Azurite: Cert** points to a PEM file.
    * **Azurite: Location** - The workspace location path. The default is the Visual Studio Code working folder.
+   * **Azurite: Loose** - Enable loose mode which ignores unsupported headers and parameters.
+   * **Azurite: Oauth** - Optional OAuth level.
+   * **Azurite: Pwd** - Password for PFX file. Required when **Azurite: Cert** points to a PFX file.
    * **Azurite: Queue Host** - The Queue service listening endpoint. The default setting is 127.0.0.1.
    * **Azurite: Queue Port** - The Queue service listening port. The default port is 10001.
    * **Azurite: Silent** - Silent mode disables the access log. The default value is **false**.
