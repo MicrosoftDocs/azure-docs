@@ -48,6 +48,7 @@ When an event is triggered, the Event Grid service sends data about that event t
 The subject field of all Communication Services events are designed to allow simple [Event Grid Filtering](https://docs.microsoft.com/en-us/azure/event-grid/event-filtering).
 
 |Subject|Communication Service Entity|
+|---------|---------|
 |`phonenumber/555-555-5555`|PSTN phone number|
 |`user/831e1650-001e-001b-66ab-eeb76e069631`|ACS User|
 |`space/831e1650-001e-001b-66ab-eeb76e069631`|ACS Space|
