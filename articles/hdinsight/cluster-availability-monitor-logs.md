@@ -33,7 +33,7 @@ Once Azure Monitor log integration is enabled (this may take a few minutes), nav
 
 Logs list a number of sample queries, such as:
 
-| Query Name                      | Description                                                               |
+| Query name                      | Description                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | Computers availability today    | Chart the number of computers sending logs, each hour                     |
 | List heartbeats                 | List all computer heartbeats from the last hour                           |
