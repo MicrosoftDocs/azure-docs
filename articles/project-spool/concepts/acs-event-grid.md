@@ -53,17 +53,27 @@ The subject field of all Communication Services events are designed to allow sim
 |`user/831e1650-001e-001b-66ab-eeb76e069631`|ACS User|
 |`space/831e1650-001e-001b-66ab-eeb76e069631`|ACS Space|
 
-The following example shows a filter for all SMS messages sent to all 604 area code phone numbers owned by an ACS resource:
-
-```json
-TODO
-```
-
 The following example shows a filter for chat messages sent to all any user owned by an ACS resrouce:
 
 ```json
+"filter": {
+  "includedEventTypes": [
+    "Microsoft.Resources.ChatReceived",
+  ],
+}
 ```
 
+The following example shows a filter for all SMS messages and delivery reports sent to all 604 area code phone numbers owned by an ACS resource:
+
+```json
+"filter": {
+  "includedEventTypes": [
+    "Microsoft.Resources.SMSReceived",
+    "Microsoft.Resources.SMSDeliveryReport"
+  ],
+  "subjectBeginsWith": "phonenumber/604",
+}
+```
 
 ### Microsoft.CommunicationServices.SMSReceived event
 
@@ -73,7 +83,28 @@ The following example shows the schema of an SMS arrived event:
 [{
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/Microsoft.CommunicationServices/{service-name}",
   "subject": "/phone_number/555-555-5555",
-  "eventType": "Microsoft.Storage.SMSReceived",
+  "eventType": "Microsoft.CommunicationServices.SMSReceived",
+  "eventTime": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "messageId": "831e1650-001e-001b-66ab-eeb76e000000",
+    "sender": "555-555-1234",
+    "recepient": "555-555-5555",
+    "content": "This is a message",
+    "receivedTimeStamp": "2020-4-20T17:02:19.6069787Z"
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
+}]
+```
+
+The following example shows the schema of an Chat received event:
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/Microsoft.CommunicationServices/{service-name}",
+  "subject": "/user/621e5550-001e-001b-66af-eeb76e000000",
+  "eventType": "Microsoft.CommunicationServices.ChatReceived",
   "eventTime": "2017-06-26T18:41:00.9584103Z",
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
   "data": {
