@@ -1,6 +1,6 @@
 ---
-title: Quickstart - View the access a user has to Azure resources
-description: In this QuickStart, learn how to view the access a user or other security principal has to Azure resources using Azure role-based access control (Azure RBAC) and the Azure portal.
+title: Quickstart - View the access a user has to Azure resources - Azure RBAC
+description: In this QuickStart, learn how to view the access a user or other security principal has to Azure resources using the Azure portal and Azure role-based access control (Azure RBAC).
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon

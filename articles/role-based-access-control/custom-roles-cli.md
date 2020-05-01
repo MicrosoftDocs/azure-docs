@@ -1,6 +1,6 @@
 ---
-title: Create or update Azure custom roles using Azure CLI
-description: Learn how to list, create, update, or delete Azure custom roles using Azure role-based access control (Azure RBAC) and Azure CLI.
+title: Create or update Azure custom roles using Azure CLI - Azure RBAC
+description: Learn how to list, create, update, or delete Azure custom roles using Azure CLI and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon

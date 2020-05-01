@@ -1,6 +1,6 @@
 ---
 title: Create or update Azure custom roles using the Azure portal - Azure RBAC
-description: Learn how to create Azure custom roles for Azure role-based access control (Azure RBAC) using the Azure portal. This includes how to list, create, update, and delete custom roles.
+description: Learn how to create Azure custom roles using the Azure portal and Azure role-based access control (Azure RBAC). This includes how to list, create, update, and delete custom roles.
 services: active-directory
 documentationcenter: ''
 author: rolyon

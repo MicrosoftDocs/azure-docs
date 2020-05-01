@@ -1,6 +1,6 @@
 ---
-title: Create or update Azure custom roles using the REST API
-description: Learn how to list, create, update, or delete Azure custom roles using Azure role-based access control (Azure RBAC) and the REST API.
+title: Create or update Azure custom roles using the REST API - Azure RBAC
+description: Learn how to list, create, update, or delete Azure custom roles using the REST API and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: na
 author: rolyon

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Create an Azure custom role with Azure PowerShell"
-description: Get started creating an Azure custom role using Azure PowerShell in this tutorial.
+title: "Tutorial: Create an Azure custom role with Azure PowerShell - Azure RBAC"
+description: Get started creating an Azure custom role using Azure PowerShell and Azure role-based access control (Azure RBAC) in this tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
