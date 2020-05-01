@@ -49,30 +49,40 @@ TBD.
 Figure out if it's dropped because the size of the message or enrichment is too large.
 Are there any other reasons we want to cover for dropped messages?
 
-### monitoring and troubleshooting (use existing tutorial)
-#### setting up metrics
-#### setting alerts in Azure Monitor
-#### Enabling diagnostic logs
-#### Using diagnostic logs to debug
-
-Update the alerts in the article [Set up and use metrics and diagnostic logs with an IoT Hub](tutorial-use-metrics-and-diags.md) so they use the Azure Monitor alerts instead of the old classic alerts.
+<!-- I put in some anchors so you can link directly to this spot that shows each table -->
+<!-- I don't ordinarily use anchors, but seems like a good solution here.-->
 
 ## List of last known errors for IoT Hub Routing
 
+<a id="last-known-errors"></a>
 [!INCLUDE [iot-hub-include-last-known-errors](../../includes/iot-hub-include-last-known-errors.md)]
 
-## Endpoint Status
-
+## Endpoint health
+<a id="endpoint-health"></a>
 [!INCLUDE [iot-hub-include-endpoint-health](../../includes/iot-hub-include-endpoint-health.md)]
 
-## Common error codes output by the diagnostic logs
+## Diagnostic logs tables details
 
-<!-- Error codes output by the diagnostic logs (2.2.1.1.5)-->
+The following are the values used in the diagnostics logs.
 
+### Common error codes output
+
+<a id="diagnostics-error-codes"></a>
 [!INCLUDE [iot-hub-diagnostics-error-codes](../../includes/iot-hub-diagnostics-error-codes.md)]
 
-## Operation names used by the diagnostic logs
+### Operation Names
 
+<a id="diganotics-operation-names"></a>
 [!INCLUDE [iot-hub-diagnostics-operation-names](../../includes/iot-hub-diagnostics-operation-names.md)]
 
 ## Next steps
+
+<!--combine into one last, as these are all in the same tutorial -->
+* Monitoring and troubleshooting (tutorial)
+  * Setting up metrics
+  * Setting alerts in Azure Monitor
+  * Enabling diagnostic logs
+* Using diagnostic logs to debug
+
+Update the alerts in the article [Set up and use metrics and diagnostic logs with an IoT Hub](tutorial-use-metrics-and-diags.md) so they use the Azure Monitor alerts instead of the old classic alerts.
+
