@@ -2,7 +2,7 @@
 title: Apprentice mode - Personalizer
 description:
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/01/2020
 ---
 
 # Use Apprentice mode to train Personalizer without affecting your existing application

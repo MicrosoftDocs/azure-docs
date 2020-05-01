@@ -2,12 +2,12 @@
 title: Configure learning behavior
 description: Apprentice mode gives you confidence in the Personalizer service and its machine learning capabilities, and provides metrics that the service is sent information that can be learned from – without risking online traffic.
 ms.topic: how-to
-ms.date: 04/29/2020
+ms.date: 05/01/2020
 ---
 
 # Configure the Personalizer learning behavior
 
-Apprentice mode gives you trust and confidence in the Personalizer service and its machine learning capabilities, and provides assurance that the service is sent information that can be learned from – without risking online traffic.
+[Apprentice mode](concept-apprentice-mode.md) gives you trust and confidence in the Personalizer service and its machine learning capabilities, and provides assurance that the service is sent information that can be learned from – without risking online traffic.
 
 [!INCLUDE [Important Blue Box - Apprentice mode pricing tier](./includes/important-apprentice-mode.md)]
 
