@@ -41,7 +41,7 @@ Azure Synapse includes:
 
 - .NET Framework 3.1
 - .NET Support for Apache Spark 0.10.0 
-- .NET Interactive 
+- .NET Interactive Preview 2 (1.0.122501)
 
 ## Delta Lake
 
