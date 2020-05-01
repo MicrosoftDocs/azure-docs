@@ -2,14 +2,14 @@
 title: Best practices for SQL on-demand (preview) in Azure Synapse Analytics
 description: Recommendations and best practices you should know as you work with SQL on-demand (preview). 
 services: synapse-analytics
-author: mlee3gsd
+author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice:
-ms.date: 04/15/2020
-ms.author: martinle
-ms.reviewer: igorstan
+ms.date: 05/01/2020
+ms.author: fipopovi
+ms.reviewer: jrasnick
 ---
 
 # Best practices for SQL on-demand (preview) in Azure Synapse Analytics
@@ -45,17 +45,79 @@ If possible, you can prepare files for better performance:
 - It's better to have equally sized files for a single OPENROWSET path or an external table LOCATION.
 - Partition your data by storing partitions to different folders or file names - check [use filename and filepath functions to target specific partitions](#use-fileinfo-and-filepath-functions-to-target-specific-partitions).
 
+## Push wildcards to lower levels in path
+
+You can use wildcards in your path to [query multiple files and folders](develop-storage-files-overview.md#query-multiple-files-or-folders). SQL on-demand lists files in your storage account starting from first * using storage API and eliminates files that do not match specified path. Reducing initial list of files can improve performance if there are many files that match specified path up to first wildcard.
+
+## Use appropriate data types
+
+Data types used in your query affects performance. You can get better performance if you: 
+
+- Use the smallest data size that will accommodate the largest possible value.
+  - If maximum character value length is 30 characters, use character data type of length 30.
+  - If all character column values are of fixed size, use char or nchar. Otherwise, use varchar or nvarchar.
+  - If maximum integer column value is 500, use smallint as it is smallest data type that can accommodate this value. You can find integer data type ranges [here](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15).
+- If possible, use varchar and char instead of nvarchar and nchar.
+- Use integer-based data types if possible. Sort, join and group by operations are performed faster on integers than on characters data.
+- If you are using schema inference, [check inferred data type](#check-inferred-data-types).
+
+## Check inferred data types
+
+[Schema inference](query-parquet-files.md#automatic-schema-inference) helps you quickly write queries and explore data without knowing file schema. This comfort comes at expense of inferred data types being larger than they actually are. It happens when there is not enough information in source files to make sure appropriate data type is used. For example, Parquet files do not contain metadata about maximum character column length and SQL on-demand infers it as varchar(8000). 
+
+You can check resulting data types of your query using [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15).
+
+The following example shows how you can optimize inferred data types. Procedure is used to show inferred data types. 
+```sql  
+EXEC sp_describe_first_result_set N'
+	SELECT
+        vendor_id, pickup_datetime, passenger_count
+	FROM 
+		OPENROWSET(
+        	BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*'',
+	        FORMAT=''PARQUET''
+    	) AS nyc';
+```
+
+Here is the result set.
+
+|is_hidden|column_ordinal|name|system_type_name|max_length|
+|----------------|---------------------|----------|--------------------|-------------------||
+|0|1|vendor_id|varchar(8000)|8000|
+|0|2|pickup_datetime|datetime2(7)|8|
+|0|3|passenger_count|int|4|
+
+Once we know inferred data types for query we can specify appropriate data types:
+
+```sql  
+SELECT
+    vendor_id, pickup_datetime, passenger_count
+FROM 
+	OPENROWSET(
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*',
+		FORMAT='PARQUET'
+    ) 
+	WITH (
+		vendor_id varchar(4), -- we used length of 4 instead of inferred 8000
+		pickup_datetime datetime2,
+		passenger_count int
+	) AS nyc;
+```
+
 ## Use fileinfo and filepath functions to target specific partitions
 
 Data is often organized in partitions. You can instruct SQL on-demand to query particular folders and files. This function will reduce the number of files and amount of data the query needs to read and process. An added bonus is that you'll achieve better performance.
 
 For more information, check [filename](develop-storage-files-overview.md#filename-function) and [filepath](develop-storage-files-overview.md#filepath-function) functions and examples on how to [query specific files](query-specific-files.md).
 
+> [!TIP]
+> Always cast result of filepath and fileinfo functions to appropriate data types. If you use character data types, make sure appropriate length is used.
+
 If your stored data isn't partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files. When [querying partitioned Spark tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only the files needed.
 
 ## Use CETAS to enhance query performance and joins
 
-[CETAS](develop-tables-cetas.md) is one of the most important features available in SQL  on-demand. CETAS is a parallel operation that creates external table metadata and exports the SELECT query results to a set of files in your storage account.
+[CETAS](develop-tables-cetas.md) is one of the most important features available in SQL on-demand. CETAS is a parallel operation that creates external table metadata and exports the SELECT query results to a set of files in your storage account.
 
 You can use CETAS to store frequently used parts of queries, like joined reference tables, to a new set of files. Next, you can join to this single external table instead of repeating common joins in multiple queries.
 

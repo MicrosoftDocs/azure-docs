@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/30/2020
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -217,6 +217,23 @@ This setting is configured in the **Active Directory Connections** under **NetAp
     The volume you created appears in the Volumes page. 
  
     A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
+
+## Control access to an SMB volume  
+
+Access to an SMB volume is managed through permissions.  
+
+### Share permissions  
+
+By default, a new volume has the **Everyone / Full Control** share permissions. Members of the Domain Admins group can change the share permissions by using Computer Management on the computer account that is used for the Azure NetApp Files volume.
+
+![SMB mount path](../media/azure-netapp-files/smb-mount-path.png) 
+![Set share permissions](../media/azure-netapp-files/set-share-permissions.png) 
+
+### NTFS file and folder permissions  
+
+You can set permissions for a file or folder by using the **Security** tab of the object's properties in the Windows SMB client.
+ 
+![Set file and folder permissions](../media/azure-netapp-files/set-file-folder-permissions.png) 
 
 ## Next steps  
 

@@ -23,9 +23,9 @@ An Automation credential asset holds an object that contains security credential
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../../includes/gdpr-dsr-and-stp-note.md)]
 
-## Windows PowerShell cmdlets used to access credentials
+## PowerShell cmdlets used to access credentials
 
-The cmdlets in the following table create and manage Automation credentials with Windows PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
+The cmdlets in the following table create and manage Automation credentials with PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
 
 | Cmdlet | Description |
 |:--- |:--- |
