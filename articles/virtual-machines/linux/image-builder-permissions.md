@@ -3,7 +3,7 @@ title: Azure Image Builder Service Permissions and Requirements
 description: Configuration requirements for Azure VM Image Builder Service including permissions and privileges
 author: cynthn
 ms.author: patricka
-ms.date: 04/29/2020
+ms.date: 05/01/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -32,13 +32,13 @@ To allow Azure Image Builder to create,manage and delete a staging resource grou
 
 Using Azure CLI:
 
-```azurecli
+```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
 Using PowerShell:
 
-```powershell
+```powershell-interactive
 Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
@@ -71,13 +71,15 @@ Microsoft.Compute/galleries/images/versions/write
 
 For Azure Image Builder to build images from source custom images (Managed Images / Shared Image Gallery), the Azure Image Builder service must be allowed to read the images into these resource groups, to do this, you need to grant the Azure Image Builder Service Principal Name (SPN) reader rights on the resource group where the image is located. 
 
+Build from an existing custom image:
+
 ```Actions
-# to build from an existing custom image
-
 Microsoft.Compute/galleries/read
+```
 
-# to build from an existing SIG version
+Build from an existing SIG version:
 
+```Actions
 Microsoft.Compute/galleries/read
 Microsoft.Compute/galleries/images/read
 Microsoft.Compute/galleries/images/versions/read
@@ -102,9 +104,9 @@ The image actions allow read and write. Decide what is appropriate for your envi
 
 ### Use and distribute a source custom image example
 
-The following example creates an Azure role to use and distribute a source custom image. Sets the Azure Image Builder service principal name permissions using the role.
+The following example creates an Azure role to use and distribute a source custom image. Use the custom role to set the Azure Image Builder service principal name permissions.
 
-Create a template using the following JSON. Name the file `aibRoleImageCreation.json`.
+First, create a role definition using the following JSON description. Name the file `aibRoleImageCreation.json`.
 
 ```json
 {
@@ -130,29 +132,30 @@ Create a template using the following JSON. Name the file `aibRoleImageCreation.
 }
 ```
 
-Replace:
+Replace the following placeholder settings in the JSON description.
 
 | Setting | Description |
 |---------|-------------|
-| \<Subscription ID\> | Azure subscription |
+| \<Subscription ID\> | Azure subscription ID for the custom role |
 | \<Distribution resource group\> | Resource group for distribution |
 
-Create role definitions using the template. You can use either Azure CLI or PowerShell.
+Create a custom role from the `aibRoleImageCreation.json` description file. Use either a Azure CLI or PowerShell command.
 
-Using Azure CLI:
+Use Azure CLI:
 
-```bash
+```azurecli
 az role definition create --role-definition ./aibRoleImageCreation.json
 ```
 
-Using PowerShell: 
+Or use PowerShell:
+
 ```powershell
 New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
 ```
 
-Grant role definition to the Azure Image Builder service principal name. You can use either Azure CLI or PowerShell.
+Next, assign the custom role to Azure Image Builder service principal name to grant permission. Use either a Azure CLI or PowerShell command.
 
-Using Azure CLI:
+Use Azure CLI:
 
 ```bash
 SUB_ID="<Subscription ID>"
@@ -164,7 +167,7 @@ az role assignment create \
     --scope /subscriptions/$SUB_ID/resourceGroups/$RES_GROUP
 ```
 
-Using PowerShell:
+Or use PowerShell:
 
 ```powershell
 $sub_id = "<Subscription ID>"
@@ -179,7 +182,7 @@ $parameters = @{
 New-AzRoleAssignment @parameters
 ```
 
-Replace:
+Replace the following placeholder settings when executing the command.
 
 | Setting | Description |
 |---------|-------------|
