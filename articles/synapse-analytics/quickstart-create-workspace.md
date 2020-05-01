@@ -28,9 +28,9 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 ## Create an Azure Synapse workspace using the Azure portal
 
 1. In the Microsoft Azure search pane, enter **Synapse workspace** and then select this service.
-![Azure portal search bar with Azure Synapse workspaces typed in.](media/quickstart-create-synapse-workspace/workspace-search.png).
+![Azure portal search bar with Azure Synapse workspaces typed in.](media/quickstart-create-synapse-workspace/workspace-search.png)
 2. On the **Synapse workspaces** page, click **+ Add**.
-![Command to create new Azure Synapse workspace highlighted.](media/quickstart-create-synapse-workspace/create-workspace-02.png).
+![Command to create new Azure Synapse workspace highlighted.](media/quickstart-create-synapse-workspace/create-workspace-02.png)
 3. Fill out the **Azure Synapse workspace** form with the following information:
 
     | Setting | Suggested value | Description |
@@ -42,7 +42,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     | **Data Lake Storage Gen2** | Account: `storage account name` </br> File system: `root file system to use` | Specifies the ADLS Gen2 storage account name to use as primary storage and the file system to use.|
     ||||
 
-    ![Workspace provisioning flow - Basics tab.](media/quickstart-create-synapse-workspace/create-workspace-03.png).
+    ![Workspace provisioning flow - Basics tab.](media/quickstart-create-synapse-workspace/create-workspace-03.png)
 
     The storage account can be selected from:
     - A list of ADLS Gen2 accounts available in your subscription
@@ -55,8 +55,8 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 4. (Optional) Modify any of the **Security + networking defaults** tab:
 5. (Optional) Add any tags in the **Tags** tab.
-6. The **Summary** tab will run the necessary validations to ensure that the workspace can be successfully created. Once the validation succeeds, press **Create** ![Workspace provisioning flow - confirmation tab.](media/quickstart-create-synapse-workspace/create-workspace-05.png).
-7. Once the resource provisioning process completes successfully, you'll see an entry for the created workspace in the list of Synapse workspaces. ![Listing of Synapse workspaces showing the newly provisioned workspace.](media/quickstart-create-synapse-workspace/create-workspace-07.png).
+6. The **Summary** tab will run the necessary validations to ensure that the workspace can be successfully created. Once the validation succeeds, press **Create** ![Workspace provisioning flow - confirmation tab.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
+7. Once the resource provisioning process completes successfully, you'll see an entry for the created workspace in the list of Synapse workspaces. ![Listing of Synapse workspaces showing the newly provisioned workspace.](media/quickstart-create-synapse-workspace/create-workspace-07.png)
 
 ## Clean up resources
 
