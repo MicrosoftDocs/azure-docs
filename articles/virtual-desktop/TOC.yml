@@ -5,7 +5,7 @@
   - name: What is Windows Virtual Desktop?
     href: overview.md
   - name: Fall 2019 Release documentation
-    href: /virtual-desktop/virtual-desktop-fall-2019/overview
+    href: /virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutorials
   items:
   - name: 1. Create a host pool with the Azure portal
