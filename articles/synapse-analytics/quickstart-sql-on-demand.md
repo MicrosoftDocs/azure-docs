@@ -1,5 +1,5 @@
 ---
-title: Using SQL on-demand (preview)
+title: Using SQL on demand (preview)
 description: In this quickstart, you will see and learn how easy is to query various types of files using SQL on-demand (preview).
 services: synapse-analytics
 author: azaricstefan
@@ -13,9 +13,13 @@ ms.reviewer: jrasnick
 
 # Quickstart: Using SQL on-demand
 
-Synapse SQL on-demand  (preview) is a serverless query service that enables you to run the SQL queries on your files placed in Azure Storage. In this quickstart, you will learn how to query various types of files using SQL on-demand.
+Synapse SQL on demand is a serverless query service that enables you to run the SQL queries on your files placed in Azure Storage. In this quickstart, you will learn how to query various types of files using SQL on-demand.
 
-The following file types are supported: JSON, CSV, Apache Parquet
+## File format support
+SQL on demand supports the following file formats:
+* JSON
+* CSV
+* Parquet
 
 ## Prerequisites
 
@@ -56,7 +60,13 @@ Use the following query, changing `mydbname` to a name of your choice:
 CREATE DATABASE mydbname
 ```
 
-### Create credentials
+### Upload a sample data file into and ADLSGEN2 account
+
+* Download [this file[(<link>] to your local machine
+* Upload the tu into the primary ADLSGEN2 account for your workspace
+
+For example the file should have a path like this:
+
 
 To run queries using SQL on-demand, create credentials for SQL on-demand to use to access files in storage.
 
