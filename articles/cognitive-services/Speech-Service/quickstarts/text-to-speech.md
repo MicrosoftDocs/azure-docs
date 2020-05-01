@@ -45,7 +45,6 @@ zone_pivot_groups: programming-languages-set-sixteen
 [!INCLUDE [javascript](../includes/quickstarts/tts/javascript/javascript.md)]
 ::: zone-end
 
-
 ::: zone pivot="programming-language-more"
 [!INCLUDE [Header](../includes/quickstarts/tts/more/header.md)]
 [!INCLUDE [More](../includes/quickstarts/tts/more/more.md)]
