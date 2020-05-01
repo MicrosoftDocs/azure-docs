@@ -13,9 +13,9 @@ ms.author: cshoe
 
 Routing in Azure Static Web Apps defines back-end routing rules and authorization behavior for both static content and APIs. The rules are defined as an array of rules in the _routes.json_ file.
 
-- The _routes.json_ file must exist at the root of app's build folder.
+- The _routes.json_ file must exist at the root of app's build artifact folder.
 - Rules are executed in the order as they appear in the `routes` array.
-- Rule evaluation stops at the first match. Routes rules are not chained together.
+- Rule evaluation stops at the first match. Routing rules are not chained together.
 - Roles are defined in the _routes.json_ file and users are associated to roles via [invitations](authentication-authorization.md).
 - You have full control over role names.
 
@@ -23,7 +23,7 @@ The topic of routing significantly overlaps with authentication and authorizatio
 
 ## Location
 
-The _routes.json_ file must exist at the root of app's build folder. If your web app includes a build step that copies built files to a specific folder, then the _routes.json_ file needs to exist in this folder.
+The _routes.json_ file must exist at the root of app's build artifact folder. If your web app includes a build step that copies built files to a specific folder, then the _routes.json_ file needs to exist in this folder.
 
 The following table lists the appropriate location for a number of front-end JavaScript frameworks and libraries.
 
@@ -121,6 +121,37 @@ Redirects also work with paths that don't define distinct files.
 }
 ```
 
+## Fallback routes
+
+When your front-end JavaScript framework or library relies on client-side routing, you should consider creating a fallback route.
+
+When there are client-side routes in your front-end application and you refresh the browser while on that page, you expect the app to reload that page. However, without a fallback route, you will see a 404 error stating the page cannot be found.
+
+For example, suppose you're on the client-side route **/products** in your web app and you refresh the page. You would see a 404 error because the browser sends a request to the hosting platform to serve **/products**. There's no page on the server named \*products\*\* to serve.
+
+Fortunately, it's easy to resolve this by creating a fallback route. A fallback route is commonly known as a route that matches all unmatched page requests to the server.
+
+You can configure routing rules for your app with Azure Static Web Apps. Routing rules are defined in an optional _routes.json_ file located in the app's app artifact folder. You can define a route in the **routes** array. A common fallback route configuration is shown below:
+
+
+{
+  "routes": [
+    {
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200
+    }
+  ]
+}
+
+
+| Setting    | Value         | Description                                                                 |
+| ---------- | ------------- | --------------------------------------------------------------------------- |
+| route      | `/*`          | The matching rule. The **/\*** is a wildcard route that matches all routes. |
+| serve      | `/index.html` | The page to serve.                                                          |
+| statusCode | 200           | The status code to return.                                                  |
+
+Routing rules run in the order they appear in the _routes.json_ file's routes array. The fallback route must be listed last in your routing rules, because it catches all routes that aren't caught by the rules that are listed before it.
 ## Custom error pages
 
 Users may encounter a number of different situations that may result in an error. Using the `platformErrorOverrides` array, you can provide a custom experience in response to these errors. Refer to the [example route file](#example-route-file) for placement of the array in the _routes.json_ file.
