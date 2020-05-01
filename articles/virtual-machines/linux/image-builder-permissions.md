@@ -32,13 +32,13 @@ To allow Azure Image Builder to create,manage and delete a staging resource grou
 
 Using Azure CLI:
 
-```azurecli-interactive
+```azurecli
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
 Using PowerShell:
 
-```powershell-interactive
+```powershell
 Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
@@ -102,39 +102,90 @@ The image actions allow read and write. Decide what is appropriate for your envi
 
 ### Use and distribute a source custom image example
 
-The following script sets Azure Image Builder service principal name permissions to use a source custom image and distribute a custom image.
+The following example creates an Azure role to use and distribute a source custom image. Sets the Azure Image Builder service principal name permissions using the role.
 
-```azurecli
-# Set your variables
+Create a template using the following JSON. Name the file `aibRoleImageCreation.json`.
 
-subscriptionID=<subID>
-imageResourceGroup=<distributionRG>
+```json
+{
+    "Name": "Azure Image Builder Service Image creation role",
+    "IsCustom": true,
+    "Description": "Azure role to distribute a source custom image using Azure Image Builder Service",
+    "Actions": [
+        "Microsoft.Compute/galleries/read",
+        "Microsoft.Compute/galleries/images/read",
+        "Microsoft.Compute/galleries/images/versions/read",
+        "Microsoft.Compute/galleries/images/versions/write",
+    
+        "Microsoft.Compute/images/write",
+        "Microsoft.Compute/images/read",
+        "Microsoft.Compute/images/delete"
+    ],
+    "NotActions": [
+    
+    ],
+    "AssignableScopes": [
+        "/subscriptions/<Subscription ID>/resourceGroups/<Distribution resource group>"
+    ]
+}
 ```
-Download pre-configured example
 
-```azurecli
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
-```
+Replace:
 
-Update the definition
+| Setting | Description |
+|---------|-------------|
+| \<Subscription ID\> | Azure subscription |
+| \<Distribution resource group\> | Resource group for distribution |
 
-```azurecli
-sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
-sed -i -e "s/<rgName>/$imageResourceGroup/g" aibRoleImageCreation.json
-```
+Create role definitions using the template. You can use either Azure CLI or PowerShell.
 
-Create and grant role definitions
+Using Azure CLI:
 
-```azurecli
+```bash
 az role definition create --role-definition ./aibRoleImageCreation.json
+```
 
-# Grant role definition to the Azure Image Builder service principal name
+Using PowerShell: 
+```powershell
+New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
+```
+
+Grant role definition to the Azure Image Builder service principal name. You can use either Azure CLI or PowerShell.
+
+Using Azure CLI:
+
+```bash
+SUB_ID="<Subscription ID>"
+RES_GROUP="<Distribution resource group>"
 
 az role assignment create \
     --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role "Azure Image Builder Service Image Creation Role" \
-    --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
+    --role "Azure Image Builder Service Image creation role" \
+    --scope /subscriptions/$SUB_ID/resourceGroups/$RES_GROUP
 ```
+
+Using PowerShell:
+
+```powershell
+$sub_id = "<Subscription ID>"
+$res_group = "<Distribution resource group>"
+
+$parameters = @{
+    ObjectId = 'ef511139-6170-438e-a6e1-763dc31bdf74'
+    RoleDefinitionName = 'Azure Image Builder Service Image Creation Role'
+    Scope = '/subscriptions/$sub_id/resourceGroups/$res_group'
+}
+
+New-AzRoleAssignment @parameters
+```
+
+Replace:
+
+| Setting | Description |
+|---------|-------------|
+| \<Subscription ID\> | Azure subscription |
+| \<Distribution resource group\> | Resource group for distribution |
+
 
 ### Use an existing VNET example
 
