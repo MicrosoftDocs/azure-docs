@@ -25,7 +25,7 @@ The topics of authentication and authorization significantly overlap with routin
 
 ## Roles
 
-Every user who accesses a static web app belongs to one or more roles. There are two built-in roles that identify users as anonymous or authenticated.
+Every user who accesses a static web app belongs to one or more roles.  There are two built-in roles that users can belong:
 
 - **anonymous**: All users automatically belong to the _anonymous_ role.
 - **authenticated**: All users who are logged in belong to the _authenticated_ role.
@@ -58,8 +58,8 @@ Invitations are specific to individual authorization-providers, so consider the 
 - Under _Settings_, click on **Role Management**.
 - Click on the **Invite** button.
 - Select an _Authorization provider_ from the list of options.
-- Add either the user account name or email address of the recipient in the _Invitee details_ box.
-  - For GitHub and Twitter, you enter the user account name. For all others, enter the recipient's email address.
+- Add either the username or email address of the recipient in the _Invitee details_ box.
+  - For GitHub and Twitter, you enter the username. For all others, enter the recipient's email address.
 - Select the domain of your static site from the _Domain_ drop-down.
   - The domain you select is the domain that appears in the invitation. If you have a custom domain associated with your site, you probably want to choose the custom domain.
 - Add a comma-separated list of role names in the _Role_ box.
