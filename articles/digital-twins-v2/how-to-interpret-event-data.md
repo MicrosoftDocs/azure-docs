@@ -109,7 +109,7 @@ Here are the fields in the body of a life-cycle notification.
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event. |
 | `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
 | `specversion` | 1.0 |
-| `type` | `Microsoft.<Service RP>.Twin.Create`<br>`Microsoft.<Service RP>.Twin.Delete`<br>`Microsoft.<Service RP>.TwinProxy.Create`<br>`Microsoft.<Service RP>.TwinProxy.Delete`<br>`Microsoft.<Service RP>.TwinProxy.Attach`<br>`Microsoft.<Service RP>.TwinProxy.Detach` |
+| `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete`<br>`Microsoft.DigitalTwins.TwinProxy.Create`<br>`Microsoft.DigitalTwins.TwinProxy.Delete`<br>`Microsoft.DigitalTwins.TwinProxy.Attach`<br>`Microsoft.DigitalTwins.TwinProxy.Detach` |
 | `datacontenttype` | application/json |
 | `subject` | ID of the digital twin |
 | `time` | Timestamp for when the operation occurred on the twin |
@@ -195,7 +195,7 @@ Here are the fields in the body of an edge change notification.
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
 | `source` | Name of the Azure Digital Twins instance, like *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
 | `specversion` | 1.0 |
-| `type` | `Microsoft.<Service RP>.Edge.Create`<br>`Microsoft.<Service RP>.Edge.Update`<br>`Microsoft.<Service RP>.Edge.Delete`<br>`datacontenttype    application/json for Edge.Create`<br>`application/json-patch+json for Edge.Update` |
+| `type` | `Microsoft.DigitalTwins.Edge.Create`<br>`Microsoft.DigitalTwins.Edge.Update`<br>`Microsoft.DigitalTwins.Edge.Delete`<br>`datacontenttype    application/json for Edge.Create`<br>`application/json-patch+json for Edge.Update` |
 | `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipName>/<edgeID>` |
 | `time` | Timestamp for when the operation occurred on the relationship |
 | `sequence` | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
@@ -247,7 +247,7 @@ Here are the fields in the body of a model change notification.
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
 | `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
 | `specversion` | 1.0 |
-| `type` | `Microsoft.<Service RP>.Model.Upload`<br>`Microsoft.<Service RP>.Model.Reload` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Patch` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Decom`<br>`Microsoft.<Service RP>.Model.Delete` |
+| `type` | `Microsoft.DigitalTwins.Model.Upload`<br>`Microsoft.DigitalTwins.Model.Reload` (Hub-specific)<br>`Microsoft.DigitalTwins.Model.Patch` (Hub-specific)<br>`Microsoft.DigitalTwins.Model.Decom`<br>`Microsoft.DigitalTwins.Model.Delete` |
 | `datacontenttype` | application/json |
 | `subject` | ID of the model, in the form `dtmi:<domain>:<unique model identifier>;<model version number>` |
 | `time` | Timestamp for when the operation occurred on the model |
@@ -289,7 +289,7 @@ Here are the fields in the body of a digital twin change notification.
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
 | `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net*
 | `specversion` | 1.0 |
-| `type` | `Microsoft.<Service RP>.Twin.Update` |
+| `type` | `Microsoft.DigitalTwins.Twin.Update` |
 | `datacontenttype` | application/json-patch+json |
 | `subject` | ID of the digital twin |
 | `time` | Timestamp for when the operation occurred on the digital twin |

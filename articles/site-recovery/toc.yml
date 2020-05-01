@@ -11,6 +11,9 @@
   items:
   - name: Replicate an Azure VM to another region
     href: azure-to-azure-quickstart.md
+  - name: Create a vault - ARM template
+    displayName: Resource Manager
+    href: quickstart-create-vault-template.md
 - name: Tutorials
   items:
   - name: Azure VM disaster recovery to Azure
