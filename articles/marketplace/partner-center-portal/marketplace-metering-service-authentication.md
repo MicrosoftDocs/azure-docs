@@ -6,12 +6,12 @@ ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 05/03/2020
 ---
 
 # Marketplace metering service authentication strategies
 
-Marketplace metering service supports two authentication strategies, 
+Marketplace metering service supports two authentication strategies:
 
 * [Azure AD security token](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
 * [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
@@ -49,7 +49,7 @@ For more information about these tokens, see [Azure Active Directory access toke
 
 |  **Parameter name** |  **Required**  |  **Description**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `tenantId`         |   True         | Tenant ID of the registered AAD application.   |
+|  `tenantId`         |   True         | Tenant ID of the registered Azure AD application.   |
 | | | |
 
 #### *Request header*
@@ -106,12 +106,12 @@ Your managed application can contain different type of resources, from Virtual M
 For example, follow the steps below to authenticate using a Windows VM,
 
 1. Make sure Managed Identity is configured using one of the methods:
-    1. [Azure portal UI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
-    1. [CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
-    1. [PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
-    1. [Azure Resource Manager Template](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
-    1. [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
-    1. [Azure SDKs](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
+    * [Azure portal UI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+    * [CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
+    * [PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
+    * [Azure Resource Manager Template](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
+    * [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
+    * [Azure SDKs](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
 
 1. Get an access token for Marketplace metering service application ID (`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`) using the system identity, RDP to the VM, open PowerShell console and run the command below
 
@@ -148,3 +148,6 @@ For example, follow the steps below to authenticate using a Windows VM,
 
 1. Use the [Marketplace metering service API](https://review.docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis?branch=pr-en-us-101847) to emit usage.
 
+## Next steps
+
+* [Create an Azure application offer](./create-new-azure-apps-offer.md)

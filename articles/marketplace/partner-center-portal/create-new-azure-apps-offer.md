@@ -1,12 +1,15 @@
 ---
-title: Create an Azure application offer in the commercial marketplace 
+title: Create an Azure application offer in Microsoft commercial marketplace 
 description: How to create a new Azure Apps offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
-author: dsindona 
-ms.author: dsindona
+author: qianw211
+ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+ms.date: 05/03/2020
+
 # Create an Azure application offer
+
 The steps for publishing an Azure application offer in commercial marketplace are outlined here.
 
 ## Azure application offer type
