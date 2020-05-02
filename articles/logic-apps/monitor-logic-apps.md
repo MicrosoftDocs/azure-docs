@@ -20,7 +20,7 @@ For real-time event monitoring and richer debugging, set up diagnostics logging 
 > you can view and access inputs and outputs from logic app's runs history *only from inside your virtual network*. Make sure that you have network 
 > connectivity between the private endpoints and the computer from where you want to access runs history. For example, your client computer can exist 
 > inside the ISE's virtual network or inside a virtual network that's connected to the ISE's virtual network, for example, through peering or a virtual 
-> private network. For more information, see [ISE endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
+> private network. For more information, see [ISE endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
 
 <a name="review-runs-history"></a>
 
