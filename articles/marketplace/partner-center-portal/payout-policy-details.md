@@ -30,7 +30,7 @@ The following sections describe our payouts process.
 
 #### Update to our Commercial Marketplace publisher payout model
 
-Beginning May 1, 2020, we are updating our payouts policy relating to products purchased in Azure Marketplace or AppSource by customers with a Microsoft Enterprise Agreement. When a customer purchases a product from Azure Marketplace or AppSource using their existing Microsoft enterprise agreement for transactions after May 1, 2020 we will begin issuing payouts in the next payout cycle 30-days post customer invoice. Transactions where a customer uses a credit card are unchanged and will continue to have a 30-day holding period prior to payout. This tables shows details on the payout schedule.
+Beginning May 1, 2020, we are updating our payouts policy relating to products purchased in Azure Marketplace or AppSource by customers with a Microsoft Enterprise Agreement. When a customer purchases a product from Azure Marketplace or AppSource using their existing Microsoft Enterprise Agreement for transactions after May 1, 2020 we will begin issuing payouts in the next payout cycle 30-days post customer invoice. Transactions where a customer uses a credit card are unchanged and will continue to have a 30-day holding period prior to payout. This tables shows details on the payout schedule.
 
 > [!NOTE]
 > See [Process for customer non-payment](#process-for-customer-non-payment) below for the actions we take if the customer fails to pay but we have already issued a payout to you.

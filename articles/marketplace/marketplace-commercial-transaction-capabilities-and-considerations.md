@@ -137,7 +137,7 @@ For certain SaaS Products that you publish on our Commercial Marketplace, Micros
 
 **Invoicing and payment** – You can use the customer's preferred invoicing method to deliver subscription or PAYGO software license fees.
 
-**Enterprise agreement** – If the customer's preferred invoicing method is the Microsoft Enterprise Agreement, your software license fees will be billed using this invoicing method as an itemized cost, separate from any Azure-specific usage costs.
+**Enterprise Agreement** – If the customer's preferred invoicing method is the Microsoft Enterprise Agreement, your software license fees will be billed using this invoicing method as an itemized cost, separate from any Azure-specific usage costs.
 
 **Credit cards and monthly invoice** – Customers can also pay using a credit card and a monthly invoice. In this case, your software license fees will be billed just like the Enterprise Agreement scenario, as an itemized cost, separate from any Azure-specific usage costs.
 
