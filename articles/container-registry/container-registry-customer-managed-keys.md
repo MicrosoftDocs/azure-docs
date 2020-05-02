@@ -466,7 +466,7 @@ To update the registry's encryption settings to use the identity:
 If your Azure key vault is deployed in a virtual network with a Key Vault firewall, perform the following steps:
 
 1. Configure registry encryption to use the registry's system-assigned identity. See the preceding section.
-2. Configure the key vault to allow access by any [trusted service](../key-vault/general/key-vault-overview-vnet-service-endpoints.md#trusted-services). 
+2. Configure the key vault to allow access by any [trusted service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). 
 
 For detailed steps, see [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md). 
 
