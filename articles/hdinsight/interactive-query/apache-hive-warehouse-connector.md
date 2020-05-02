@@ -84,7 +84,7 @@ Apart from the configurations mentioned in the previous section, add the followi
 You can choose between a few different methods to connect to your Interactive Query cluster and execute queries using the Hive Warehouse Connector. Supported methods include the following tools:
 
 * [Spark-shell / PySpark](../spark/apache-spark-shell.md)
-* [Spark-submit](#Spark-submit)
+* [Spark-submit](#spark-submit)
 * [Zeppelin](../spark/apache-spark-zeppelin-notebook.md)
 
 
@@ -192,7 +192,7 @@ To learn about the spark operations supported by HWC, please follow this [docume
 
 * [Spark Operations Supported By Hive Warehouse Connector](./apache-hive-warehouse-connector-supported-spark-operations.md)
 * [Use Interactive Query with HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
-* [Use Apache Zeppelin with Hive Warehouse Connector on Azure HDInsight](./apache-hive-warehouse-connector-Zeppelin-Livy-Setup.md)
+* [Use Apache Zeppelin with Hive Warehouse Connector on Azure HDInsight](./apache-hive-warehouse-connector-zeppelin-livy.md)
 * [Examples of interacting with Hive Warehouse Connector using Zeppelin, Livy, spark-submit, and pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:

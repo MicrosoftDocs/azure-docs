@@ -19,7 +19,7 @@ HDInsight Spark clusters include Apache Zeppelin notebooks with different interp
 
 1. Create an HDInsight Interactive Query (LLAP) **4.0** cluster with the same storage account and Azure virtual network as the Spark cluster.
 
-1. Setup up both Spark and Hive clusters with HWC using this document. See [Setup HDInsight clusters with Hive Warehouse Connector](./apache-hive-warehouse-connector.md#configure-HWC-settings)
+1. Setup up both Spark and Hive clusters with HWC using this document. See [Setup HDInsight clusters with Hive Warehouse Connector](./apache-hive-warehouse-connector.md#configure-hwc-settings)
 
 ## Configure Livy
 
