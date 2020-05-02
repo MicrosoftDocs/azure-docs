@@ -1,6 +1,6 @@
 ---
 title: Using SQL on demand (preview)
-description: learn howTO query Parquet, CSV, JSON in ADLSGEN2 files using SQL on-demand (preview).
+description: learn how to query Parquet, CSV, JSON in ADLSGEN2 files using SQL on-demand (preview).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
