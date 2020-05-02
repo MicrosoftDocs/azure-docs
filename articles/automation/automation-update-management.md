@@ -8,72 +8,72 @@ ms.topic: conceptual
 ---
 # Update Management in Azure Automation
 
-Update Management in Azure Automation allows you to manage operating system updates for your Windows and Linux machines in Azure, in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers. 
+You can use Update Management in Azure Automation to manage operating system updates for your Windows and Linux machines in Azure, in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.
 
-Update Management requires you to link a Log Analytics workspace to your Automation account. For a list of supported regions, see [Azure Workspace mappings](./how-to/region-mappings.md). The region mappings don't affect your ability to manage VMs in a separate region from your Automation account.
+You can enable Update Management for virtual machines (VMs) using the following methods:
+
+* From your [Azure Automation account](automation-onboard-solutions-from-automation-account.md) for one or more Azure machines.
+* Manually for non-Azure machines.
+* For a single Azure VM from the Virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
+* For [multiple Azure VMs](manage-update-multi.md) by selecting them from the Virtual machines page in the Azure portal.
+
+> [!NOTE]
+> Update Management requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
+
+> [!NOTE]
+> This article was recently updated to use the term Azure Monitor logs instead of Log Analytics. Log data is still stored in a Log Analytics workspace and is still collected and analyzed by the same Log Analytics service. We are updating the terminology to better reflect the role of [logs in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs). See [Azure Monitor terminology changes](https://docs.microsoft.com/azure/azure-monitor/terminology) for details.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-> [!NOTE]
-> Having a machine registered for Update Management in more than one Log Analytics workspace, also referred to as multihoming, isn't supported.
+An [Azure Resource Manager template](automation-update-management-deploy-template.md) is available to help you deploy Update Management to a new or existing Automation account and Log Analytics workspace in your subscription.
 
-Machines managed by Update Management use the following configurations to perform assessments and update deployments:
+## Update Management overview
+
+Machines that are managed by Update Management use the following configurations to perform assessment and to update deployments:
 
 * Log Analytics agent for Windows or Linux
 * PowerShell Desired State Configuration (DSC) for Linux
 * Automation Hybrid Runbook Worker
 * Microsoft Update or Windows Server Update Services (WSUS) for Windows machines
 
-The following diagram illustrates how Update Management assesses and applies security updates to all connected Windows Server and Linux machines in a workspace.
+The following diagram illustrates how Update Management assesses and applies security updates to all connected Windows Server and Linux machines in a workspace:
 
-![Update Management process flow](./media/automation-update-management/update-mgmt-updateworkflow.png)
+![Update Management workflow](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
-You can use Update Management to natively onboard machines in multiple subscriptions in the same tenant. After a package is released, it takes 2 to 3 hours for the patch to show up for Linux machines for assessment. For Windows machines, it takes 12 to 15 hours for the patch to be available for assessment after it's been released.
+Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant.
 
-After a machine completes a scan for update compliance, the Log Analytics agent forwards the information in bulk to Azure Monitor logs. A Windows machine runs the compliance scan every 12 hours by default. In addition to the scan schedule, the machine initiates the scan for update compliance within 15 minutes of Log Analytics agent restart, before update installation, and after update installation. A Linux machine runs the compliance scan every hour by default. Upon Log Analytics agent restart, the Linux machine initiates a compliance scan within 15 minutes.
+After a package is released, it takes 2 to 3 hours for the patch to show up for Linux machines for assessment. For Windows machines, it takes 12 to 15 hours for the patch to show up for assessment after it's been released.
 
-Update Management reports how up to date a machine is based on the source that you configure for synchronization. If a Windows machine is configured to report to WSUS, the results might differ from what Microsoft Update shows, depending on when WSUS was last synchronized with Microsoft Update. This behavior is the same for Linux machines configured to report to a local repository instead of to a public repository.
+After a machine completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor logs. On a Windows machine, the compliance scan is run every 12 hours by default.
+
+In addition to the scan schedule, the scan for update compliance is started within 15 minutes of the Log Analytics agent being restarted, before update installation, and after update installation.
+
+For a Linux machine, the compliance scan is performed every hour by default. If the Log Analytics agent is restarted, a compliance scan is started within 15 minutes.
+
+Update Management reports how up to date the machine is based on what source you're configured to sync with. If the Windows machine is configured to report to WSUS, depending on when WSUS last synced with Microsoft Update, the results might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repo instead of to a public repo.
 
 > [!NOTE]
-> To properly report to the service, Update Management requires certain URLs and ports to be enabled. To learn more about these requirements, see [Network planning for Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning).
+> To properly report to the service, Update Management requires certain URLs and ports to be enabled. To learn more about these requirements, see [Network planning for Hybrid Workers](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker#network-planning).
 
-## Update classifications
+You can deploy and install software updates on machines that require the updates by creating a scheduled deployment. Updates classified as optional aren't included in the deployment scope for Windows machines. Only required updates are included in the deployment scope.
 
-The following table defines the classifications that Update Management supports for Windows updates. 
+The scheduled deployment defines which target machines receive the applicable updates. It does so either by explicitly specifying certain machines or by selecting a [computer group](https://docs.microsoft.com/azure/azure-monitor/platform/computer-groups) that's based on log searches of a specific set of machines (or on an [Azure query](automation-update-management-query-logs.md) that dynamically selects Azure VMs based on specified criteria). These groups differ from [scope configuration](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting), which is used only to determine which machines get the management packs that enable Update Management.
 
-|Classification  |Description  |
-|---------|---------|
-|Critical updates     | An update for a specific problem that addresses a critical, non-security-related bug.        |
-|Security updates     | An update for a product-specific, security-related issue.        |
-|Update rollups     | A cumulative set of hotfixes that are packaged together for easy deployment.        |
-|Feature packs     | New product features that are distributed outside a product release.        |
-|Service packs     | A cumulative set of hotfixes that are applied to an application.        |
-|Definition updates     | An update to virus or other definition files.        |
-|Tools     | A utility or feature that helps complete one or more tasks.        |
-|Updates     | An update to an application or file that currently is installed.        |
+You also specify a schedule to approve and set a time period during which updates can be installed. This period is called the maintenance window. A 20-minute span of the maintenance window is reserved for reboots, assuming one is needed and you selected the appropriate reboot option. If patching takes longer than expected and there's less than 20 minutes in the maintenance window, a reboot won't occur.
 
-The next table defines the supported classifications for Linux updates.
+Updates are installed by runbooks in Azure Automation. You can't view these runbooks, and they don't require any configuration. When an update deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included machines. The master runbook starts a child runbook on each agent to install the required updates.
 
-|Classification  |Description  |
-|---------|---------|
-|Critical and security updates     | Updates for a specific problem or a product-specific, security-related issue.         |
-|Other updates     | All other updates that aren't critical in nature or that aren't security updates.        |
+At the date and time specified in the update deployment, the target machines execute the deployment in parallel. Before installation, a scan is run to verify that the updates are still required. For WSUS client machines, if the updates aren't approved in WSUS, update deployment fails.
+Having a machine registered for Update Management in more than one Log Analytics workspace (also referred to as multihoming) isn't supported.
 
-For Linux, Update Management can distinguish between critical updates and security updates in the cloud while displaying assessment data due to data enrichment in the cloud. For patching, Update Management relies on classification data available on the machine. Unlike other distributions, CentOS does not have this information available in the RTM version. If you have CentOS machines configured to return security data for the following command, Update Management can patch based on classifications.
-
-```bash
-sudo yum -q --security check-update
-```
-
-There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who might have enabled this feature on their own. 
-
-To classify updates on Red Hat Enterprise version 6, you need to install the yum-security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of yum itself and there's no need to install anything. For more information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
-
-## Update assessment clients
+## Clients
 
 ### Supported client types
 
 The following table lists the supported operating systems for update assessments. Patching requires a Hybrid Runbook Worker. For information on Hybrid Runbook Worker requirements, see the installation guides for installing a [Windows Hybrid Runbook Worker](automation-windows-hrw-install.md) and a [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
+
+> [!NOTE]
+> Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings). 
 
 |Operating system  |Notes  |
 |---------|---------|
@@ -124,24 +124,11 @@ For information about how to install the Log Analytics agent for Linux and to do
 
 VMs created from the on-demand Red Hat Enterprise Linux (RHEL) images that are available in the Azure Marketplace are registered to access the [Red Hat Update Infrastructure (RHUI)](../virtual-machines/workloads/redhat/redhat-rhui.md) that's deployed in Azure. Any other Linux distribution must be updated from the distribution's online file repository by using methods supported by the distribution.
 
-## Scheduled deployments
-
-You can deploy and install software updates on machines that require them by creating a scheduled deployment. This deployment specifically defines which target machines receive the applicable updates. At the date and time specified in the update deployment, the target machines execute the deployment in parallel. Before installation, a scan is run to verify that the updates are still required. For WSUS client machines, if the updates aren't approved in WSUS, update deployment fails.
-
-For deployment, you can also select a [computer group](../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of machines or on an [Azure query](automation-update-management-query-logs.md) that dynamically selects Azure VMs based on specified criteria. Use of the computer group differs from [scope configuration](../azure-monitor/insights/solution-targeting.md), which is used only to determine which machines get the management packs that enable Update Management.
-
-> [!NOTE]
-> The deployment scope for Windows machines only includes required updates. The scoope doesn't include updates classified as optional. 
-
-You also specify a deployment schedule to approve and set a time period during which updates can be installed. This period is called the maintenance window. A 20-minute span of the maintenance window is reserved for reboots, assuming that one is needed and that you selected the appropriate reboot option. If patching takes longer than expected and there's less than 20 minutes in the maintenance window, a reboot won't occur.
-
-Runbooks in Azure Automation can install updates. You can't view these runbooks, and they don't require any configuration. When an update deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included machines. The master runbook starts a child runbook on each agent to install the required updates.
-
 ## Permissions
 
 To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access – Update Management](automation-role-based-access-control.md#update-management-permissions).
 
-## Resources
+## Update Management components
 
 Update Management uses the resources described in this section. These resources are automatically added to your Automation account when you enable Update Management. 
 
@@ -212,26 +199,54 @@ We recommend that you use the addresses listed when defining exceptions. For IP 
 
 Follow the instructions in [Connect computers without internet access](../azure-monitor/platform/gateway.md) to configure machines that don't have internet access.
 
-## Enable Update Management
+## Update classifications
 
-An Azure [Resource Manager template](automation-update-management-deploy-template.md) is available to help you deploy Update Management to a new or existing Automation account and Azure Monitor Log Analytics workspace in your subscription. Here are the ways that you can enable Update Management:
+The following table defines the classifications that Update Management supports for Windows updates. 
 
-* From your [Azure Automation account](automation-onboard-solutions-from-automation-account.md) for one or more Azure machines.
-* Manually for non-Azure machines.
-* For a single Azure VM from the Virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
-* For [multiple Azure VMs](manage-update-multi.md) by selecting them from the Virtual machines page in the Azure portal.
-* [From a virtual machine](automation-onboard-solutions-from-vm.md).
-* [From browsing multiple machines](automation-onboard-solutions-from-browse.md).
-* [With an Azure Automation runbook](automation-onboard-solutions.md).
-* [With the Azure Resource Manager template](automation-update-management-deploy-template.md).
+|Classification  |Description  |
+|---------|---------|
+|Critical updates     | An update for a specific problem that addresses a critical, non-security-related bug.        |
+|Security updates     | An update for a product-specific, security-related issue.        |
+|Update rollups     | A cumulative set of hotfixes that are packaged together for easy deployment.        |
+|Feature packs     | New product features that are distributed outside a product release.        |
+|Service packs     | A cumulative set of hotfixes that are applied to an application.        |
+|Definition updates     | An update to virus or other definition files.        |
+|Tools     | A utility or feature that helps complete one or more tasks.        |
+|Updates     | An update to an application or file that currently is installed.        |
+
+The next table defines the supported classifications for Linux updates.
+
+|Classification  |Description  |
+|---------|---------|
+|Critical and security updates     | Updates for a specific problem or a product-specific, security-related issue.         |
+|Other updates     | All other updates that aren't critical in nature or that aren't security updates.        |
+
+For Linux, Update Management can distinguish between critical updates and security updates in the cloud while displaying assessment data due to data enrichment in the cloud. For patching, Update Management relies on classification data available on the machine. Unlike other distributions, CentOS does not have this information available in the RTM version. If you have CentOS machines configured to return security data for the following command, Update Management can patch based on classifications.
+
+```bash
+sudo yum -q --security check-update
+```
+
+There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who might have enabled this feature on their own. 
+
+To classify updates on Red Hat Enterprise version 6, you need to install the yum-security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of yum itself and there's no need to install anything. For more information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
 
 ## Integrate Update Management with Configuration Manager
 
 Customers who have invested in Microsoft Endpoint Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help them manage software updates. Configuration Manager is part of their software update management (SUM) cycle. To learn how to integrate Update Management with Configuration Manager, see [Integrate Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md).
 
-### Third-party updates on Windows
+## Third-party updates on Windows
 
 Update Management relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Management to update machines that use Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](https://docs.microsoft.com/configmgr/sum/tools/install-updates-publisher).
+
+## Enable Update Management
+
+An Azure [Resource Manager template](automation-update-management-deploy-template.md) is available to help you deploy Update Management to a new or existing Automation account and Azure Monitor Log Analytics workspace in your subscription. Here are the ways that you can enable Update Management:
+
+* [From a virtual machine](automation-onboard-solutions-from-vm.md).
+* [From browsing multiple machines](automation-onboard-solutions-from-browse.md).
+* [With an Azure Automation runbook](automation-onboard-solutions.md).
+* [With the Azure Resource Manager template](automation-update-management-deploy-template.md).
 
 ## Next steps
 
