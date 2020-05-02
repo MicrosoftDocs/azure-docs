@@ -98,6 +98,20 @@ WITH
 
 CSV files don't contain any inherent metadata, so in this case the schema is defined in the query itself. 
 
+# Query Examples
+There are many examples available of how to use SQL on-demand to query data
+
+- [Query single CSV file](sql/query-single-csv-file.md)
+- [Query folders and multiple CSV files](sql/query-folders-multiple-csv-files.md)
+- [Query specific files](sql/query-specific-files.md)
+- [Query Parquet files](sql/query-parquet-files.md)
+- [Query Parquet nested types](sql/query-parquet-nested-types.md)
+- [Query JSON files](sql/query-json-files.md)
+- [Creating and using views](sql/create-use-views.md)
+- [Creating and using external tables](sql/create-use-external-tables.md)
+- [Persist query result to Azure storage](sql/create-external-table-as-select.md)
+
+## Next steps
 
 # Next Steps
 * CSV examples [query CSV file](sql/query-single-csv-file.md).
