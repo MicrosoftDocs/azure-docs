@@ -163,14 +163,6 @@ start_task = batchmodels.StartTask(
 )
 start_task.run_elevated = True
 
-# Create the unbound pool
-new_pool = batchmodels.PoolAddParameter(
-    id=pool_id,
-    vm_size=vm_size,
-    target_dedicated_nodes=node_count,
-    start_task=start_task
-)
-
 # Create an ImageReference which specifies the image from
 # Shared Image Gallery to install on the nodes.
 ir = batchmodels.ImageReference(
@@ -185,8 +177,14 @@ vmc = batchmodels.VirtualMachineConfiguration(
     node_agent_sku_id="batch.node.ubuntu 18.04"
 )
 
-# Assign the virtual machine configuration to the pool
-new_pool.virtual_machine_configuration = vmc
+# Create the unbound pool
+new_pool = batchmodels.PoolAddParameter(
+    id=pool_id,
+    vm_size=vm_size,
+    target_dedicated_nodes=node_count,
+    virtual_machine_configuration=vmc,
+    start_task=start_task
+)
 
 # Create pool in the Batch service
 client.pool.add(new_pool)
