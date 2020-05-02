@@ -23,7 +23,11 @@ The current release is 7.9.5.
 
 Comprehensive release notes for the individual 7.9.x releases are listed below
 
+<<<<<<< HEAD
 * [**7.9.5 Release Notes**](release-notes/7-9-5.md) - released on 04/20/20
+=======
+* [**7.9.4 Release Notes**](release-notes/7-9-4.md) - released on 04/20/20
+>>>>>>> master
 * [**7.9.4 Release Notes**](release-notes/7-9-4.md) - released on 03/17/20
 * [**7.9.3 Release Notes**](release-notes/7-9-3.md) - released on 03/12/20
 * [**7.9.2 Release Notes**](release-notes/7-9-2.md) - released on 01/13/20
