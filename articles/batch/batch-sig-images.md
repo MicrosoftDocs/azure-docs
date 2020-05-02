@@ -132,7 +132,7 @@ You can also create a pool from a Shared Image using Python SDK.
 ```python
 # Import the required modules from the
 # Azure Batch Client Library for Python
-import azure.batch._batch_service_client as batch
+import azure.batch as batch
 import azure.batch.models as batchmodels
 from azure.common.credentials import ServicePrincipalCredentials
 
@@ -158,16 +158,19 @@ creds = ServicePrincipalCredentials(
 config = batch.BatchServiceClientConfiguration(creds, batch_url)
 client = batch.BatchServiceClient(creds, batch_url)
 
-# Create the unbound pool
-new_pool = batchmodels.PoolAddParameter(id=pool_id, vm_size=vm_size)
-new_pool.target_dedicated = node_count
-
 # Configure the start task for the pool
 start_task = batchmodels.StartTask(
     command_line="printenv AZ_BATCH_NODE_STARTUP_DIR"
 )
 start_task.run_elevated = True
-new_pool.start_task = start_task
+
+# Create the unbound pool
+new_pool = batchmodels.PoolAddParameter(
+    id=pool_id,
+    vm_size=vm_size,
+    target_dedicated_nodes=node_count,
+    start_task=start_task
+)
 
 # Create an ImageReference which specifies the image from
 # Shared Image Gallery to install on the nodes.
