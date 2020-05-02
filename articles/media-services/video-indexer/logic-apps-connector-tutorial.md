@@ -54,7 +54,7 @@ Once you can connect to your Azure Storage and Video Indexer accounts, go to the
 
 Next, go to the “Create SAS URI by path” action, and select List of Files Path from the Dynamic content options.  
 
-![SAS uri by path](./media/logic-apps-connector-tutorial/sas-uri-by-path.png)
+![SAS uri by path](./media/logic-apps-connector-tutorial/create-sas-uri.png)
 
 Fill out [your account Location and ID](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location) to get the Video Indexer account token.
 
