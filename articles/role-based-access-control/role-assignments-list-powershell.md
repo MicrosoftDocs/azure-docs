@@ -147,7 +147,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## List role assignments for a managed identity
 
-1. Get the the object ID of the system-assigned or user-assigned managed identity. 
+1. Get the object ID of the system-assigned or user-assigned managed identity. 
 
     To get the object ID of a user-assigned managed identity, you can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
 
