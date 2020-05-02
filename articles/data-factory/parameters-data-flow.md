@@ -57,7 +57,7 @@ When referenced, pipeline parameters are evaluated and then their value is used 
 
 When assigning a pipeline expression parameter of type string, by default quotes will be added and the value will be evaluated as a literal. To read the parameter value as a data flow expression, check the expression box next to the parameter.
 
-![Setting a Data Flow parameter](media/data-flow/string-param.png "Setting a Data Flow parameter")
+![Setting a Data Flow parameter](media/data-flow/string-parameter.png "Setting a Data Flow parameter")
 
 If data flow parameter `stringParam` references a pipeline parameter with value `upper(column1)`. 
 
@@ -69,15 +69,15 @@ If data flow parameter `stringParam` references a pipeline parameter with value 
 
 Say you have an integer parameter `intParam` that is referencing a pipeline parameter of type String, `@pipeline.parameters.pipelineParam`. 
 
-![Setting a Data Flow parameter](media/data-flow/parameter-pipeline2.png "Setting a Data Flow parameter")
+![Setting a Data Flow parameter](media/data-flow/parameter-pipeline-2.png "Setting a Data Flow parameter")
 
 `@pipeline.parameters.pipelineParam` is assigned a value of `abs(1)` at runtime.
 
-![Setting a Data Flow parameter](media/data-flow/parameter-pipeline4.png "Setting a Data Flow parameter")
+![Setting a Data Flow parameter](media/data-flow/parameter-pipeline-4.png "Setting a Data Flow parameter")
 
 When `$intParam` is referenced in an expression such as a derived column, it will evaluate `abs(1)` return `1`. 
 
-![Setting a Data Flow parameter](media/data-flow/parameter-pipeline4.png "Setting a Data Flow parameter")
+![Setting a Data Flow parameter](media/data-flow/parameter-pipeline-3.png "Setting a Data Flow parameter")
 
 ### Data flow expression parameters
 
