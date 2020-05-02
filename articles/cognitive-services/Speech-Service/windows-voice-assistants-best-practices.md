@@ -88,7 +88,7 @@ Voice activation above lock is always disabled by default. Customers opt-in thro
 
 While notifications or other standard app lock-screen integration points remain available for the assistant, the Windows lock screen always defines the initial customer experience until a voice activation occurs. After voice activation is detected, the assistant app temporarily appears above the lock screen. To avoid customer confusion, when active above lock, the assistant app must never present UI to ask for any kind of credentials or log-in.
 
-![Screenshot of a Windows lock screen](media/voice-assistants/windows_voice_assistant/lock_screen.png)
+![Screenshot of a Windows lock screen](media/voice-assistants/windows_voice_assistant/lock_screen1.png)
 
 ### Above lock experience following voice activation
 
@@ -110,7 +110,7 @@ The assistant must implement the dismissal guidance in this section to make it e
 
 ![Screenshot of voice assistant on Windows before activation](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
-![Screenshot of voice assistant on Windows before activation](media/voice-assistants/windows_voice_assistant/lock_screen.png)
+![Screenshot of voice assistant on Windows before activation](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
 ### Privacy &amp; security considerations above lock
 
