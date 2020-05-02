@@ -35,15 +35,15 @@ You can quickly start or close Azurite in the Visual Studio Code status bar. Cli
 
 The extension supports the following Visual Studio Code commands. To open the command palette, press F1 in Visual Studio Code. 
 
-   * **Azurite: Clean** - Reset all Azurite services persistency data
-   * **Azurite: Clean Blob Service** - Clean blob service
-   * **Azurite: Clean Queue Service** - Clean queue service
-   * **Azurite: Close** - Close all Azurite services
-   * **Azurite: Close Blob Service** - Close blob service
-   * **Azurite: Close Queue Service** - Close queue service
-   * **Azurite: Start** - Start all Azurite services
-   * **Azurite: Start Blob Service** - Start blob service
-   * **Azurite: Start Queue Service** - Start queue service
+   - **Azurite: Clean** - Reset all Azurite services persistency data
+   - **Azurite: Clean Blob Service** - Clean blob service
+   - **Azurite: Clean Queue Service** - Clean queue service
+   - **Azurite: Close** - Close all Azurite services
+   - **Azurite: Close Blob Service** - Close blob service
+   - **Azurite: Close Queue Service** - Close queue service
+   - **Azurite: Start** - Start all Azurite services
+   - **Azurite: Start Blob Service** - Start blob service
+   - **Azurite: Start Queue Service** - Start queue service
 
 To configure Azurite within Visual Studio Code, select the extensions pane. Select the **Manage** (gear) icon for **Azurite**. Select **Extension Settings**.
 
@@ -51,18 +51,18 @@ To configure Azurite within Visual Studio Code, select the extensions pane. Sele
 
 The following settings are supported:
 
-   * **Azurite: Blob Host** - The Blob service listening endpoint. The default setting is 127.0.0.1.
-   * **Azurite: Blob Port** - The Blob service listening port. The default port is 10000.
-   * **Azurite: Cert** - Path to a locally-trusted PEM or PFX certificate file path to enable HTTPS mode.
-   * **Azurite: Debug** - Output the debug log to the Azurite channel. The default value is **false**.
-   * **Azurite: Key** - Path to a locally-trusted PEM key file, required when **Azurite: Cert** points to a PEM file.
-   * **Azurite: Location** - The workspace location path. The default is the Visual Studio Code working folder.
-   * **Azurite: Loose** - Enable loose mode which ignores unsupported headers and parameters.
-   * **Azurite: Oauth** - Optional OAuth level.
-   * **Azurite: Pwd** - Password for PFX file. Required when **Azurite: Cert** points to a PFX file.
-   * **Azurite: Queue Host** - The Queue service listening endpoint. The default setting is 127.0.0.1.
-   * **Azurite: Queue Port** - The Queue service listening port. The default port is 10001.
-   * **Azurite: Silent** - Silent mode disables the access log. The default value is **false**.
+   - **Azurite: Blob Host** - The Blob service listening endpoint. The default setting is 127.0.0.1.
+   - **Azurite: Blob Port** - The Blob service listening port. The default port is 10000.
+   - **Azurite: Cert** - Path to a locally trusted PEM or PFX certificate file path to enable HTTPS mode.
+   - **Azurite: Debug** - Output the debug log to the Azurite channel. The default value is **false**.
+   - **Azurite: Key** - Path to a locally trusted PEM key file, required when **Azurite: Cert** points to a PEM file.
+   - **Azurite: Location** - The workspace location path. The default is the Visual Studio Code working folder.
+   - **Azurite: Loose** - Enable loose mode, which ignores unsupported headers and parameters.
+   - **Azurite: Oauth** - Optional OAuth level.
+   - **Azurite: Pwd** - Password for PFX file. Required when **Azurite: Cert** points to a PFX file.
+   - **Azurite: Queue Host** - The Queue service listening endpoint. The default setting is 127.0.0.1.
+   - **Azurite: Queue Port** - The Queue service listening port. The default port is 10001.
+   - **Azurite: Silent** - Silent mode disables the access log. The default value is **false**.
 
 ## Install and run Azurite by using NPM
 
@@ -87,7 +87,8 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 The following command runs the Azurite Docker image. The `-p 10000:10000` parameter redirects requests from host machine's port 10000 to the Docker instance.
 
 ```console
-docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
+docker run -p 10000:10000 -p 10001:10001 \
+    mcr.microsoft.com/azure-storage/azurite
 ```
 
 **Specify the workspace location**:
@@ -95,30 +96,15 @@ docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
 In the following example, the `-v c:/azurite:/data` parameter specifies *c:/azurite* as the Azurite persisted data location. The directory, *c:/azurite*, must be created before running the Docker command.
 
 ```console
-docker run -p 10000:10000 -p 10001:10001 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
+docker run -p 10000:10000 -p 10001:10001 \
+    -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
 ```
 
 **Run just the blob service**
 
 ```console
-docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite
+docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite \
     azurite-blob --blobHost 0.0.0.0 --blobPort 10000
-```
-
-**Set all Azurite parameters**:
-
-This example shows how to set all of the command-line parameters. All of the parameters below should be placed on a single command line.
-
-```console
-docker run -p 8888:8888
-           -p 9999:9999
-           -v c:/azurite:/workspace mcr.microsoft.com/azure-storage/azurite azurite
-           -l /workspace
-           -d /workspace/debug.log
-           --blobPort 8888
-           --blobHost 0.0.0.0
-           --queuePort 9999
-           --queueHost 0.0.0.0
 ```
 
 For more information about configuring Azurite at start-up, see [Command-line options](#command-line-options).
@@ -156,25 +142,20 @@ This command tells Azurite to store all data in a particular directory, *c:\azur
 
 ## Command-line options
 
-This section details the command line switches available when launching Azurite. All command-line switches are optional.
+This section details the command line switches available when launching Azurite.
 
 ### Help
 
-**Optional** Get command-line help by using the `--help` switch.
-
-```console
-azurite --help
-```
-
-The `-h` switch is a shortcut for `--help`.
+**Optional** - Get command-line help by using the `-h` or `--help` switch.
 
 ```console
 azurite -h
+azurite --help
 ```
 
 ### Blob listening host
 
-**Optional** By default, Azurite will listen to 127.0.0.1 as the local server. Use the `--blobHost` switch to set the address to your requirements.
+**Optional** - By default, Azurite will listen to 127.0.0.1 as the local server. Use the `--blobHost` switch to set the address to your requirements.
 
 Accept requests on the local machine only:
 
@@ -193,7 +174,7 @@ azurite --blobHost 0.0.0.0
 
 ### Blob listening port configuration
 
-**Optional** By default, Azurite will listen for the Blob service on port 10000. Use the `--blobPort` switch to specify the listening port that you require.
+**Optional** - By default, Azurite will listen for the Blob service on port 10000. Use the `--blobPort` switch to specify the listening port that you require.
 
 > [!NOTE]
 > After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
@@ -214,7 +195,7 @@ The port in use is displayed during Azurite startup.
 
 ### Queue listening host
 
-**Optional** By default, Azurite will listen to 127.0.0.1 as the local server. Use the `--queueHost` switch to set the address to your requirements.
+**Optional** - By default, Azurite will listen to 127.0.0.1 as the local server. Use the `--queueHost` switch to set the address to your requirements.
 
 Accept requests on the local machine only:
 
@@ -233,7 +214,7 @@ azurite --queueHost 0.0.0.0
 
 ### Queue listening port configuration
 
-**Optional** By default, Azurite will listen for the Queue service on port 10001. Use the `--queuePort` switch to specify the listening port that you require.
+**Optional** - By default, Azurite will listen for the Queue service on port 10001. Use the `--queuePort` switch to specify the listening port that you require.
 
 > [!NOTE]
 > After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
@@ -254,61 +235,50 @@ The port in use is displayed during Azurite startup.
 
 ### Workspace path
 
-**Optional** Azurite stores data to the local disk during execution. Use the `--location` switch to specify a path as the workspace location. By default, the current process working directory will be used.
-
-```console
-azurite --location c:\azurite
-```
-
-The `-l` switch is a shortcut for `--location`. Note the lowercase 'l':
+**Optional** - Azurite stores data to the local disk during execution. Use the `-l` or `--location` switch to specify a path as the workspace location. By default, the current process working directory will be used. Note the lowercase 'l'.
 
 ```console
 azurite -l c:\azurite
+azurite --location c:\azurite
 ```
 
 ### Access log
 
-**Optional** By default, the access log is displayed in the console window. Disable the display of the access log by using the `--silent` switch.
-
-```console
-azurite --silent
-```
-The `-s` switch is a shortcut for `--silent`.
+**Optional** - By default, the access log is displayed in the console window. Disable the display of the access log by using the `-s` or `--silent` switch.
 
 ```console
 azurite -s
+azurite --silent
 ```
-
 ### Debug log
 
-**Optional** The debug log includes detailed information on every request and exception stack trace. Enable the debug log by providing a valid local file path to the `--debug` switch.
-
-```console
-azurite --debug path/debug.log
-```
-The `-d` switch is a shortcut for `--debug`.
+**Optional** - The debug log includes detailed information on every request and exception stack trace. Enable the debug log by providing a valid local file path to the `-d` or `--debug` switch.
 
 ```console
 azurite -d path/debug.log
+azurite --debug path/debug.log
 ```
 
 ### Loose mode
 
-**Optional** By default, Azurite applies strict mode to block unsupported request headers and parameters. Disable strict mode by using the `--loose` switch.
-
-```console
-azurite --loose
-```
-
-The `-L` switch is a shortcut for `--loose`. Note the capital 'L':
+**Optional** - By default, Azurite applies strict mode to block unsupported request headers and parameters. Disable strict mode by using the `-L` or `--loose` switch. Note the capital 'L'.
 
 ```console
 azurite -L
+azurite --loose
+```
+### Version
+
+**Optional** - Display the installed Azurite version number by using the `-v` or `--version` switch.
+
+```console
+azurite -v
+azurite --version
 ```
 
 ### Certificate configuration (HTTPS)
 
-**Optional** By default, Azurite uses the HTTP protocol. Enable HTTPS mode by providing a path to a Privacy Enhanced Mail (.pem) or [Personal Information Exchange (.pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) certificate file to the `--cert` switch.
+**Optional** - By default, Azurite uses the HTTP protocol. Enable HTTPS mode by providing a path to a Privacy Enhanced Mail (.pem) or [Personal Information Exchange (.pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) certificate file to the `--cert` switch.
 
 ```console
 azurite --cert path/server.pem
@@ -330,7 +300,7 @@ For detailed information on creating PEM and PFX files, see [HTTPS Setup](https:
 
 ### OAuth configuration
 
-**Optional** Enable OAuth authentication for Azurite by using the `--oauth` switch.
+**Optional** - Enable OAuth authentication for Azurite by using the `--oauth` switch.
 
 ```console
 azurite --oauth basic
@@ -351,8 +321,8 @@ If you're using the Azure SDKs, start Azurite with the `--oauth basic` option.
 
 Azurite accepts the same well-known account and key used by the legacy Azure storage emulator.
 
-* Account name: `devstoreaccount1`
-* Account key: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
+- Account name: `devstoreaccount1`
+- Account key: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 ### Custom storage accounts and keys
 
@@ -399,47 +369,33 @@ You can pass the following connection strings to the [Azure SDKs](https://aka.ms
 
 The full connection string is:
 
-```console
-DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
-```
+`DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;`
 
 To connect to the blob service only, the connection string is:
 
-```console
-DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
-```
+`DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;`
 
 To connect to the queue service only, the connection string is:
 
-```console
-DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
-```
+`DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;`
 
 #### HTTPS Connection Strings
 
 The full HTTPS connection string is:
 
-```console
-DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;
-```
+`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
 
 To use the blob service only, the HTTPS connection string is:
 
-```console
-DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;
-```
+`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;`
 
 To use the queue service only, the HTTPS connection string is:
 
-```console
-DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;
-```
+`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
 
 If you used `dotnet dev-certs` to generate your self-signed certificate, use the following connection string.
 
-```console
-DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;
-```
+`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;`
 
 Update the connection string when using [custom storage accounts and keys](#custom-storage-accounts-and-keys).
 
@@ -449,7 +405,9 @@ For more information, see [Configure Azure Storage connection strings](storage-c
 
 To use Azurite with the [Azure SDKs](https://aka.ms/azsdk), use OAuth and HTTPs options:
 
-`azurite --oauth basic --cert certname.pem --key certname-key.pem`
+```console
+azurite --oauth basic --cert certname.pem --key certname-key.pem
+```
 
 #### Azure Blob Storage
 
@@ -457,13 +415,20 @@ You can then instantiate a BlobContainerClient, BlobServiceClient, or BlobClient
 
 ```csharp
 // With container URL and DefaultAzureCredential
-var client = new BlobContainerClient(new Uri("https://127.0.0.1:10000/devstoreaccount1/container-name"), new DefaultAzureCredential());
+var client = new BlobContainerClient(
+    new Uri("https://127.0.0.1:10000/devstoreaccount1/container-name"), new DefaultAzureCredential()
+  );
 
 // With connection string
-var client = new BlobContainerClient("DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;", "container-name");
+var client = new BlobContainerClient(
+    "DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;", "container-name"
+  );
 
 // With account name and key
-var client = new BlobContainerClient(new Uri("https://127.0.0.1:10000/devstoreaccount1/container-name"), new StorageSharedKeyCredential("devstoreaccount1", "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=="));
+var client = new BlobContainerClient(
+    new Uri("https://127.0.0.1:10000/devstoreaccount1/container-name"),
+    new StorageSharedKeyCredential("devstoreaccount1", "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==")
+  );
 ```
 
 #### Azure Queue Storage
@@ -472,18 +437,75 @@ You can also instantiate a QueueClient or QueueServiceClient.
 
 ```csharp
 // With queue URL and DefaultAzureCredential
-var client = new QueueClient(new Uri("https://127.0.0.1:10001/devstoreaccount1/queue-name"), new DefaultAzureCredential());
+var client = new QueueClient(
+    new Uri("https://127.0.0.1:10001/devstoreaccount1/queue-name"), new DefaultAzureCredential()
+  );
 
 // With connection string
-var client = new QueueClient("DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;", "queue-name");
+var client = new QueueClient(
+    "DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;", "queue-name"
+  );
 
 // With account name and key
-var client = new QueueClient(new Uri("https://127.0.0.1:10001/devstoreaccount1/queue-name"), new StorageSharedKeyCredential("devstoreaccount1", "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=="));
+var client = new QueueClient(
+    new Uri("https://127.0.0.1:10001/devstoreaccount1/queue-name"),
+    new StorageSharedKeyCredential("devstoreaccount1", "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==")
+  );
 ```
 
-### Storage Explorer
+### Microsoft Azure Storage Explorer
 
-In Azure Storage Explorer, connect to Azurite by clicking the **Add Account** icon, then select **Attach to a local emulator** and click **Connect**.
+You can use Storage Explorer to view the data stored in Azurite.
+
+#### Connect to Azurite using HTTP
+
+In Storage Explorer, connect to Azurite by following these steps:
+
+ 1. Select **Add an account** icon
+ 1. Select **Attach to a local emulator**
+ 1. Select **Next**
+ 1. Select **Next** again
+ 1. Select **Connect**
+
+#### Connect to Azurite using HTTPS
+
+By default Storage Explorer won't open an HTTPS endpoint that uses a self-signed certificate. If you're running Azurite with HTTPS, you're likely using a self-signed certificate. In Storage Explorer, import SSL certificates via the **Edit** -> **SSL Certificates** -> **Import Certificates** dialog.
+
+##### Import Certificate to Storage Explorer
+
+1. Find the certificate on your local machine.
+1. In Storage Explorer, go to **Edit** -> **SSL Certificates** -> **Import Certificates** and import your certificate.
+
+If you don't import a certificate, you'll get an error:
+
+`unable to verify the first certificate` or `self signed certificate in chain`
+
+##### Add Azurite via HTTPS Connection String
+
+Follow these steps to add Azurite HTTPS to Storage Explorer:
+
+1. Select **Toggle Explorer**
+1. Select **Local & Attached**
+1. Right-click on **Storage Accounts** and select **Connect to Azure Storage**.
+1. Select **Use a connection string**
+1. Select **Next**.
+1. Enter a value in the **Display name** field.
+1. Enter the [HTTPS connection string](#https-connection-strings) from the previous section of this document
+1. Select **Next**
+1. Select **Connect**
+
+## Workspace Structure
+
+The following files and folders may be created in the workspace location when initializing Azurite.
+
+- `__blobstorage__` - Directory containing Azurite blob service persisted binary data
+- `__queuestorage__` - Directory containing Azurite queue service persisted binary data
+- `__azurite_db_blob__.json` - Azurite blob service metadata file
+- `__azurite_db_blob_extent__.json` - Azurite blob service extent metadata file
+- `__azurite_db_queue__.json` - Azurite queue service metadata file
+- `__azurite_db_queue_extent__.json` - Azurite queue service extent metadata file
+
+To clean up Azurite, delete above files and folders and restart the emulator.
 
 ## Differences between Azurite and Azure Storage
 
@@ -511,7 +533,7 @@ The following address might be used for accessing a blob in Azurite:
 
 ### Scaling and performance
 
-Azurite doesn't support a large number of concurrent clients. There's no performance guarantee. Azurite is intended for development and testing purposes.
+Azurite doesn't support large numbers of connected clients. There's no performance guarantee. Azurite is intended for development and testing purposes.
 
 ### Error handling
 
@@ -529,5 +551,5 @@ Contributions and suggestions for Azurite are welcome. Go to the Azurite [GitHub
 
 ## Next steps
 
-* [Use the Azure storage emulator for development and testing](storage-use-emulator.md) documents the legacy Azure storage emulator, which is being superseded by Azurite.
-* [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure STorage connection string.
+- [Use the Azure storage emulator for development and testing](storage-use-emulator.md) documents the legacy Azure storage emulator, which is being superseded by Azurite.
+- [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure STorage connection string.
