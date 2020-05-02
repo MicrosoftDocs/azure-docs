@@ -118,7 +118,7 @@ By default, Windows VMs that are deployed from the Azure Marketplace are set to 
 For Linux, the machine requires access to an update repository, either private or public. TLS 1.1 or TLS 1.2 is required to interact with Update Management. Update Management doesn't support a Log Analytics agent for Linux that's configured to report to more than one Log Analytics workspace. The machine must also have Python 2.x installed.
 
 > [!NOTE]
-> Update assessment of Linux machines is only supported in certain regions. See the Automation account and Log Analytics workspace [mappings table](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings#supported-mappings). 
+> Update assessment of Linux machines is only supported in certain regions. See the Automation account and Log Analytics workspace [mappings table](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings). 
 
 For information about how to install the Log Analytics agent for Linux and to download the latest version, see [Log Analytics agent for Linux](../azure-monitor/platform/agent-linux.md). 
 
