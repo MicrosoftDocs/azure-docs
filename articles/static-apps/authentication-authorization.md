@@ -25,7 +25,7 @@ The topics of authentication and authorization significantly overlap with routin
 
 ## Roles
 
-Every user who accesses a static web app belongs to one or more roles.  There are two built-in roles that users can belong:
+Every user who accesses a static web app belongs to one or more roles.  There are two built-in roles that users can belong to:
 
 - **anonymous**: All users automatically belong to the _anonymous_ role.
 - **authenticated**: All users who are logged in belong to the _authenticated_ role.
@@ -162,4 +162,4 @@ To block a provider, you can create [route rules](routes.md) to return a 404 for
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Review pull requests in pre-production environments](review-publish-pull-requests.md)
+> [Access user authentication and authorization data](user-information.md)
