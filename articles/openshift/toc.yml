@@ -69,7 +69,9 @@
               href: cluster-administration-security-context-constraints.md
 - name: Reference
   items:
-    - name: Azure Red Hat OpenShift CLI
+    - name: Azure Red Hat OpenShift 4.3 CLI
+    - href: /cli/azure/aro
+    - name: Azure Red Hat OpenShift 3.11 CLI
       href: /cli/azure/openshift
     - name: Azure Red Hat OpenShift REST APIs
       href: /rest/api/openshift
