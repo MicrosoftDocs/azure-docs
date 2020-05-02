@@ -97,6 +97,24 @@ WITH
 
 CSV files don't contain any inherent metadata, so in this case the schema is defined in the query itself. 
 
+## Query JSON files
+
+```
+SELECT
+    JSON_VALUE(jsonContent, '$.id') AS id
+  , JSON_VALUE(jsonContent, '$.market') as market
+  , jsonContent
+FROM OPENROWSET
+  (
+      BULK 'https://synapsesampledata.blob.core.windows.net/public/SearchLog/SearchLog.json'
+    , FORMAT='CSV'
+    , FIELDTERMINATOR ='0x0b'
+    , FIELDQUOTE = '0x0b'
+    , ROWTERMINATOR = '0x0b'
+  )
+WITH
+  ( jsonContent varchar(8000) ) AS [r]
+```
 ## Next Steps
 
 - [Overview of Querying data in storage](sq/query-data-storage.md)
