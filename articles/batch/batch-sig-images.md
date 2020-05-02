@@ -155,7 +155,6 @@ creds = ServicePrincipalCredentials(
     tenant=ad_tenant,
     resource="https://batch.core.windows.net/"
 )
-config = batch.BatchServiceClientConfiguration(creds, batch_url)
 client = batch.BatchServiceClient(creds, batch_url)
 
 # Configure the start task for the pool
