@@ -14,15 +14,15 @@ ms.date: 04/07/2020
 > [!IMPORTANT]
 > We're moving the management of your Azure Container offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Containers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) for Cloud Partner Portal to manage your offers.
 
-This article describes how to create and publish a Container offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+This article describes how to create and publish a Container offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
-1. Log in to [Partner Center](https://partner.microsoft.com/dashboard/home), and then from the top menu, select **Dashboard**.
-2. In the left menu, select **Commercial Marketplace**, then **Overview**.
-3. On the **Overview** page, select **+ New offer**, then **Azure Container**. The **New offer** dialog box appears.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
+3. On the Overview page, select **+ New offer** > **Azure Container**.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-new-container.png" alt-text="Illustrated the Overview page in Partner Center. The New offer button and Consulting service offer are highlighted.":::
+    ![Illustrates the left-navigation menu.](./media/new-offer-azure-container.png)
 
 > [!TIP]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
@@ -31,16 +31,16 @@ This article describes how to create and publish a Container offer for Azure Mar
 
 Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
-- This ID can be seen by customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
+- This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
 - Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - The Offer ID can't be changed after you select **Create**.
 
-**Enter an** **Offer alias**. This is the name used to refer to the offer in Partner Center.
+Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
 - This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
 - This can't be changed after you select **Create**.
 
-Select **Create** before continuing.
+Select **Create** to generate the offer and continue.
 
 ## Offer overview
 
@@ -82,7 +82,7 @@ Here are some additional lead management resources:
 - [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off)
 
-Select **Save draft** before continuing to the next section, Properties.
+Select **Save draft** before continuing.
 
 ### Properties
 
