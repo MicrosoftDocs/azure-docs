@@ -8,7 +8,7 @@ ms.topic: sample
 
 The following article details how the Azure Blueprints Azure Security Benchmark
 blueprint sample maps to the Azure Security Benchmark controls. For more
-information about the controls, see [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview).
+information about the controls, see [Azure Security Benchmark](../../../../security/benchmarks/overview.md).
 
 The following mappings are to the **Azure Security Benchmark** controls. Use the navigation on the
 right to jump directly to a specific control mapping. The mapped controls are implemented with an

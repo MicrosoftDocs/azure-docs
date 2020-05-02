@@ -1,67 +1,52 @@
 ---
-title: What are App Service Static Apps?
-description: #Required; article description that is displayed in search results. 
-services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
+title: What is Azure Static Web Apps?
+description: The key features and functionality of Azure Static Web Apps.
+services: static-web-apps
 author: craigshoemaker
-ms.service: azure-functions
+ms.service: static-web-apps
 ms.topic:  overview
 ms.date: 05/08/2020
 ms.author: cshoe
+# Customer intent: As a developer, I want to publish a website from a GitHub repository so that the app is publicly available on the web.
 ---
 
-<!---Recommended: Remove all the comments in this template before you sign-off or merge to master.--->
+# What is Azure Static Web Apps (Preview)?
 
-<!---overview articles are for new customers and explain the service from a technical point of view.
-They are not intended to define benefits or value prop; that would be in marketing content.
---->
+Azure Static Web Apps is a service that automatically builds and deploys full stack web apps to Azure from a GitHub repository.
 
-# What are App Service Static Apps?
+:::image type="content" source="media/overview/static-apps-overview.png" alt-text="Static Apps overview":::
 
-<!---Required: 
-For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn't cause the phrase to wrap.
---->
+The workflow of Azure Static Web Apps is tailored to a developer's daily workflow. Apps are built and deployed based off GitHub interactions.
 
-Introductory paragraph.
-<!---Required:
-The introductory paragraph helps customers quickly determine whether an article is relevant.
-Describe in customer-friendly terms what the service is and does, and why the customer should care. Keep it short for the intro.
-You can go into more detail later in the article. Many services add artwork or videos below the introduction.
---->
+When you create an Azure Static Web Apps resource, Azure sets up a GitHub Actions workflow in the app's source code repository that monitors a branch of your choice. Every time you push commits or accept pull requests into the watched branch, the GitHub Action automatically builds and deploys your app and its API to Azure.
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+Static web apps are commonly built using libraries and frameworks like Angular, React, Svelte, or Vue. These apps include HTML, CSS, JavaScript, and image assets that make up the application. With a traditional web server, these assets are served from a single server alongside any required API endpoints.
 
-<!---Screenshots and videos can add another way to show and tell the overview story. But don't overdo them. Make sure that they offer value for the overview.
-If users access your product/service via a web browser, the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
---->
+With Static Web Apps, static assets are separated from a traditional web server and are instead served from points geographically distributed around the world. This distribution makes serving files much faster as files are physically closer to end users. In addition, API endpoints are hosted using a [serverless architecture](../azure-functions/functions-overview.md), which avoids the need for a full back-end server all together.
 
-## <article body>
+## Key features
 
-<!---
-After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
-Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
-Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
---->
+- **Free web hosting** for static content like HTML, CSS, JavaScript, and images.
+- **Integrated API** support provided by Azure Functions.
+- **First-party GitHub integration** where repository changes trigger builds and deployments.
+- **Globally distributed** static content, putting content closer to your users.
+- **Free SSL certificates**, which are automatically renewed.
+- **Custom domains**\* to provide branded customizations to your app.
+- **Seamless security model** with a reverse-proxy when calling APIs, which requires no CORS configuration.
+- **Authentication provider integrations** with Azure Active Directory, Facebook, Google, GitHub, and Twitter.
+- **Customizable authorization role definition** and assignments.
+- **Back-end routing rules** enabling full control over the content and routes you serve.
+- **Generated staging versions** powered by pull requests enabling preview versions of your site before publishing.
 
-## <Top task>
+## What you can do with Static Web Apps
 
-<!---Suggested:
-An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [Content + Learning content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
-Create a new H2 for each task you list.
---->
+- **Build modern JavaScript applications** with frameworks and libraries like [Angular](https://angular.io/), [React](https://reactjs.org/), [Svelte](https://svelte.dev/), [Vue](https://vuejs.org/) with an [Azure Functions](https://azure.microsoft.com/services/functions/) back-end.
+- **Publish static sites** with frameworks like [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
+- **Deploy web applications** with frameworks like [Next.js](deploy-nextjs.md) and [Nuxt.js](deploy-nuxtjs.md).
+
+\* Apex domain registrations are not supported during preview.
 
 ## Next steps
 
-<!-- Uncomment this block and add the appropriate link
-
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
--->
-
-<!--- Required:
-In Overview articles, provide at least one next step and no more than three.
-Next steps in overview articles will often link to a quickstart.
-Use regular links; do not use a blue box link. What you link to will depend on what is really a next step for the customer.
-Do not use a "More info section" or a "Resources section" or a "See also section".
---->
+> [Build your first static app](getting-started.md)

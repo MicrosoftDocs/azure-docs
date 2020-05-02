@@ -267,14 +267,14 @@
       href: how-to-train-keras.md
     - name: PyTorch
       href: how-to-train-pytorch.md
-  - name: Explain models
+  - name: 'Interpret & explain models'
     displayName: interpretability
     items:
-    - name: Explain ML models
-      displayName: SDK, interpret
+    - name: Interpret ML models
+      displayName: SDK, interpret, explain, explanability, interpretability
       href: how-to-machine-learning-interpretability-aml.md
     - name: Explain automated ML models
-      displayName: SDK, interpret, automl
+      displayName: SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml
       href: how-to-machine-learning-interpretability-automl.md
   - name: Automate machine learning
     displayName: automl, auto ml
