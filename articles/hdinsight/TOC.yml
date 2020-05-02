@@ -738,6 +738,10 @@
         href: ./hadoop/python-udf-hdinsight.md
       - name: Apache Hive with Apache Spark
         href: ./interactive-query/apache-hive-warehouse-connector.md
+      - name: Spark operations supported by Hive Warehouse Connector
+        href: ./interactive-query/apache-hive-warehouse-connector-supported-spark-operations.md
+      - name: Use Apache Zeppelin with Hive Warehouse Connector
+        href: ./interactive-query/apache-hive-warehouse-connector-zeppelin-livy.md
       - name: Apache Hive with Hadoop
         href: ./hadoop/hdinsight-use-hive.md
       - name: Use the Apache Hive View
