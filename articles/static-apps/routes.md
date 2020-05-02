@@ -29,7 +29,7 @@ The following table lists the appropriate location for a number of front-end Jav
 
 |Framework / library | Location  |
 |---------|----------|
-| Angular | _dist/name-of-angular-app_   |
+| Angular | _dist/<NAME_OF_ANGULAR_APP>_   |
 | React   | _build_  |
 | Svelte  | _dist_   |
 | Vue     | _public_ |
