@@ -4,7 +4,7 @@ description: The Azurite open-source emulator (preview) provides a free local en
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 05/02/2020
+ms.date: 05/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
