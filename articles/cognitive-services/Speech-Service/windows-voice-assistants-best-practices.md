@@ -1,23 +1,19 @@
 ---
 title: 
-Windows Voice Assistants - Best Practices
+Voice Assistants on Windows - Design Guidelines
 titleSuffix: Azure Cognitive Services
 description: Guidelines for best practices when designing a voice agent experience.
 services: cognitive-services
-author: cofogg
-manager: trrwilson
+author: adamwa
+manager: spencer.king
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.author: travisw
+ms.date: 05/1/2020
+ms.author: adamwa
 ---
 
 # Design assistant experiences for Windows 10
-
-| Authors | Adam Wayment <br/> [adamwa@microsoft.com](mailto:adamwa@microsoft.com) |
-| --- | --- |
-| Document state | DRAFT, version 0.6. Current state: <ul><li>PM ART</li><li>A few open questions</li><li>Missing coordinating code samples</li></ul>
 
 Voice assistants developed on Windows 10 must implement the user experience guidelines below in order to provide the best possible experiences for voice activation on Windows 10. This document will guide developers through understanding the key work needed for a voice assistant to integrate with the Windows 10 Shell.
 
