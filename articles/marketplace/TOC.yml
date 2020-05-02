@@ -8,13 +8,6 @@
   - name: Commercial marketplace overview and benefits
     href: ./marketplace-publishers-guide.md
     items:
-#    - name: Become a publisher on the marketplace
-#      href: ./become-publisher.md
-#      items:
-#      - name: Create a Microsoft account
-#        href: ./guidelines.md
-#      - name: Register in Dev Center
-#        href: ./register-dev-center.md
     - name: One marketplace, two storefronts
       href: ./comparing-appsource-azure-marketplace.md
     - name: Publishing options and considerations
@@ -67,8 +60,6 @@
     - name: Your marketplace benefits
       href: ./gtm-your-marketplace-benefits.md
       items:
-#      - name: Promote your business with Microsoft
-#        href: ./gtm-promote-your-business.md
       - name: Co-sell partner engagement
         href: ./marketplace-co-sell.md
       - name: Preferred solutions

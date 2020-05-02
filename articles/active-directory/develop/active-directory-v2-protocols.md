@@ -2,7 +2,7 @@
 title: OAuth 2.0 and OpenID Connect protocols - Microsoft identity platform | Azure
 description: A guide to OAuth 2.0 and OpenID Connect protocols that are supported by the Microsoft identity platform endpoint.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 
 ms.service: active-directory
