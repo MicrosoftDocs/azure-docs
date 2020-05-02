@@ -1,5 +1,5 @@
 ---
-title: Using SQL on demand (preview)
+title: Using SQL on-demand (preview)
 description: learn how to query Parquet, CSV, JSON in ADLSGEN2 files using SQL on-demand (preview).
 services: synapse-analytics
 author: azaricstefan
@@ -95,12 +95,11 @@ WITH
   ) AS [r]
 ```
 
-
 CSV files don't contain any inherent metadata, so in this case the schema is defined in the query itself. 
 
-# Query Examples
-There are many examples available of how to use SQL on-demand to query data
+## Next Steps
 
+- [Overview of Querying data in storage](sq/query-data-storage.md)
 - [Query single CSV file](sql/query-single-csv-file.md)
 - [Query folders and multiple CSV files](sql/query-folders-multiple-csv-files.md)
 - [Query specific files](sql/query-specific-files.md)
@@ -110,10 +109,4 @@ There are many examples available of how to use SQL on-demand to query data
 - [Creating and using views](sql/create-use-views.md)
 - [Creating and using external tables](sql/create-use-external-tables.md)
 - [Persist query result to Azure storage](sql/create-external-table-as-select.md)
-
-## Next steps
-
-# Next Steps
-* CSV examples [query CSV file](sql/query-single-csv-file.md).
-* Parquet examples [querying parquet files](sql/query-parquet-files.md)].
 
