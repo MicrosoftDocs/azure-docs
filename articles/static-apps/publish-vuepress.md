@@ -11,7 +11,7 @@ ms.author: aapowell
 
 # Tutorial: Publish a VuePress site to Azure Static Web Apps
 
-This article demonstrates how to create and deploy a [VuePress](https://vuepress.vuejs.org/) web application to [Azure Azure Static Web Apps](overview.md). The final result is a new Azure Static Web Apps with the associated GitHub Actions that give you control over how the app is built and published.
+This article demonstrates how to create and deploy a [VuePress](https://vuepress.vuejs.org/) web application to [Azure Azure Static Web Apps](overview.md). The final result is a new Azure Static Web Apps application with the associated GitHub Actions that give you control over how the app is built and published.
 
 In this tutorial, you learn how to:
 
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 ## Create a VuePress App
 
-Create a VuePress app from the command line (CLI):
+Create a VuePress app from the Command Line Interface (CLI):
 
 1. Create a new folder for the VuePress app.
 
@@ -37,13 +37,13 @@ Create a VuePress app from the command line (CLI):
    mkdir static-site
    ```
 
-1. Add a page.
+1. Add a _README_ file the folder.
 
    ```bash
    echo '# Hello From VuePress' > README.md
    ```
 
-1. Initialize the `package.json` file.
+1. Initialize the _package.json_ file.
 
    ```bash
    npm init -y
@@ -55,7 +55,7 @@ Create a VuePress app from the command line (CLI):
    npm install --save-dev vuepress
    ```
 
-1. Open the `package.json` file in a text editor and add a build command to the [`scripts`](https://docs.npmjs.com/cli-commands/run-script.html) section.
+1. Open the _package.json_ file in a text editor and add a build command to the [`scripts`](https://docs.npmjs.com/cli-commands/run-script.html) section.
 
    ```json
    ...
@@ -75,7 +75,7 @@ Create a VuePress app from the command line (CLI):
 
 ## Push your application to GitHub
 
-You'll need to have a repository on GitHub to connect Azure Static Web Apps to:
+You need a repository on GitHub to connect to Azure Static Web Apps. The following steps show you how to create a repository for your site.
 
 1. Create a blank GitHub repo (don't create a README) from [https://github.com/new](https://github.com/new) named **vuepress-static-app**.
 
@@ -88,20 +88,20 @@ You'll need to have a repository on GitHub to connect Azure Static Web Apps to:
 1. Push your local repo up to GitHub.
 
    ```bash
-   git push --upstream origin master
+   git push --set-upstream origin master
    ```
 
 ## Deploy your web app
 
-The following steps show you how to create a new static site app and deploy it to a production environment.
+The following steps show you how to create a new Static Web Apps application and deploy it to a production environment.
 
 ### Create the application
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 
-1. Select **Create a Resource** and search for **Static App**.
+1. Select **Create a Resource** and search for **Static Web Apps**.
 
-   ![Create a Static App (Preview) in the portal](./media/static-apps-publish-vuepress/create-in-portal.png)
+   ![Create a Static Web Apps (Preview) in the portal](./media/static-apps-publish-vuepress/create-in-portal.png)
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 
@@ -124,12 +124,15 @@ The following steps show you how to create a new static site app and deploy it t
 1. For the _Branch_ select **master**.
 
    ![Completed GitHub information](./media/static-apps-publish-vuepress/completed-github-info.png)
-
+1. Click **Next : Build >**
 ### Build
 
-Next, you add configuration settings that the build process uses to build your app.
+Next, you add configuration settings that the build process uses to build your app. The following settings configure the GitHub Action workflow file.
 
-1. To configure the settings of the GitHub Action, set the _App location_ to **/** and _App artifact location_ to **.vuepress/dist**. A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
+1. Set _App location_ to **/**.
+1. Set _App artifact location_ to **.vuepress/dist**.
+
+A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
 
    ![Build Settings](./media/static-apps-publish-vuepress/build-details.png)
 
