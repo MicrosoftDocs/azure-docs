@@ -45,7 +45,7 @@ To expand your host pool by adding virtual machines:
 
 3. In the menu on the left side of the screen, select **Host pools**, then select the name of the host pool you want to add virtual machines to.
 
-4. Select **Virtual machines** from the menu on the left side of the screen.
+4. Select **Session hosts** from the menu on the left side of the screen.
 
 5. Select **+Add** to start creating your host pool.
 
