@@ -26,14 +26,14 @@ The following sections show you how to further protect your App Service app from
 
 ## HTTPS and Certificates
 
-App Service lets you secure your apps with [HTTPS](https://wikipedia.org/wiki/HTTPS). When your app is created, its default domain name (\<app_name>.azurewebsites.net) is already accessible using HTTPS. If you [configure a custom domain for your app](app-service-web-tutorial-custom-domain.md), you should also [secure it with an SSL certificate](configure-ssl-bindings.md) so that client browsers can make secured HTTPS connections to your custom domain. There are several types of certificates supported by App Service:
+App Service lets you secure your apps with [HTTPS](https://wikipedia.org/wiki/HTTPS). When your app is created, its default domain name (\<app_name>.azurewebsites.net) is already accessible using HTTPS. If you [configure a custom domain for your app](app-service-web-tutorial-custom-domain.md), you should also [secure it with a TLS/SSL certificate](configure-ssl-bindings.md) so that client browsers can make secured HTTPS connections to your custom domain. There are several types of certificates supported by App Service:
 
 - Free App Service Managed Certificate
 - App Service certificate
 - Third-party certificate
 - Certificate imported from Azure Key Vault
 
-For more information, see [Add an SSL certificate in Azure App Service](configure-ssl-certificate.md).
+For more information, see [Add a TLS/SSL certificate in Azure App Service](configure-ssl-certificate.md).
 
 ## Insecure protocols (HTTP, TLS 1.0, FTP)
 
@@ -60,7 +60,7 @@ App Service authentication and authorization support multiple authentication pro
 When authenticating against a back-end service, App Service provides two different mechanisms depending on your need:
 
 - **Service identity** - Sign in to the remote resource using the identity of the app itself. App Service lets you easily create a [managed identity](overview-managed-identity.md), which you can use to authenticate with other services, such as [Azure SQL Database](/azure/sql-database/) or [Azure Key Vault](/azure/key-vault/). For an end-to-end tutorial of this approach, see [Secure Azure SQL Database connection from App Service using a managed identity](app-service-web-tutorial-connect-msi.md).
-- **On-behalf-of (OBO)** - Make delegated access to remote resources on behalf of the user. With Azure Active Directory as the authentication provider, your App Service app can perform delegated sign-in to a remote service, such as [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) or a remote API app in App Service. For an end-to-end tutorial of this approach, see [Authenticate and authorize users end-to-end in Azure App Service](app-service-web-tutorial-auth-aad.md).
+- **On-behalf-of (OBO)** - Make delegated access to remote resources on behalf of the user. With Azure Active Directory as the authentication provider, your App Service app can perform delegated sign-in to a remote service, such as [Microsoft Graph API](../active-directory/develop/microsoft-graph-intro.md) or a remote API app in App Service. For an end-to-end tutorial of this approach, see [Authenticate and authorize users end-to-end in Azure App Service](app-service-web-tutorial-auth-aad.md).
 
 ## Connectivity to remote resources
 

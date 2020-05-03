@@ -1,16 +1,18 @@
 ---
 title: Marketplace description for an Azure IoT Edge module | Azure Marketplace
 description: Create the marketplace description for an IoT Edge module.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # IoT Edge module Marketplace tab
+
+>[!Important]
+>Starting April 13, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) to manage your migrated offers.
 
 The **Marketplace** tab of the **New Offer** page enables you to provide your prospective customers with marketing, sales, and legal information and agreements and manage leads generated from the marketplace. This long form is divided into four sections: **Overview**, **Marketing Artifacts**, **Lead Management**, and **Legal**.
 
@@ -104,7 +106,7 @@ This section has the following subsections: **Logos**, **Screenshot**, and **Vid
 All the logos uploaded to the Cloud Partner Portal should follow the guidelines:
 
 *  The Azure design has a simple color palette. Keep the number of primary and secondary colors on your logo low.
-*  The theme colors of the Azure Portal are white and black. Avoid using these colors as the background color for your logos. Use a color that will make your logos prominent in the Azure portal. We recommend simple primary colors. If you're using a transparent background, make sure that the logos/text aren't white, black, or blue.
+*  The theme colors of the Azure portal are white and black. Avoid using these colors as the background color for your logos. Use a color that will make your logos prominent in the Azure portal. We recommend simple primary colors. If you're using a transparent background, make sure that the logos/text aren't white, black, or blue.
 *  Don't use a gradient background on your logo.
 *  Avoid placing text—even your company or brand name—on the logo. The look and feel of your logo should be "flat" and should avoid gradients.
 *  Don't stretch the logo.

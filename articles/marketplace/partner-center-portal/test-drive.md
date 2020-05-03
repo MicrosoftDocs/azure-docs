@@ -1,9 +1,8 @@
 ---
 title: Test Drive your offer in the commercial marketplace | Azure Marketplace
 description: Allow your customers to test drive your offer
-author: MaggiePucciEvans 
-manager: evansma
-ms.author: evansma 
+author: dsindona 
+ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

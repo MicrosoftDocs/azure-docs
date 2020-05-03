@@ -36,7 +36,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - [Azure SQL Database and Data Warehouse](../../sql-database/sql-database-conditional-access.md)
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
-- [Microsoft Azure Information Protection](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Microsoft Azure Management](#microsoft-azure-management)
 - Microsoft Azure Subscription Management
 - Microsoft Cloud App Security
@@ -45,7 +45,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
-- [Microsoft Intune Enrollment](https://docs.microsoft.com/intune/enrollment/multi-factor-authentication)
+- [Microsoft Intune Enrollment](/intune/enrollment/multi-factor-authentication)
 - Microsoft Planner
 - Microsoft PowerApps
 - Microsoft Search in Bing
@@ -117,7 +117,7 @@ In addition to the Microsoft apps, administrators can add any Azure AD registere
 
 ## User actions
 
-User actions are tasks that can be performed by a user. The only currently supported action is **Register security information (preview)**, which allows Conditional Access policy to enforce when users who are enabled for combined registration attempt to register their security information. More information can be found in the article, [Combined security information registration (preview)](../authentication/concept-registration-mfa-sspr-combined.md).
+User actions are tasks that can be performed by a user. The only currently supported action is **Register security information**, which allows Conditional Access policy to enforce when users who are enabled for combined registration attempt to register their security information. More information can be found in the article, [Combined security information registration](../authentication/concept-registration-mfa-sspr-combined.md).
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author:  jordane
-ms.date: 02/21/2020
+ms.date: 03/17/2020
 ms.custom: seodec18
 ---
 
@@ -19,7 +19,7 @@ In this article, learn about how to use Azure Machine Learning to manage the lif
 
 ## What is MLOps?
 
-Machine Learning Operations (MLOps) is based on [DevOps](https://azure.microsoft.com/overview/what-is-devops/) principles and practices that increase the efficiency of workflows. For example, continuous integration, delivery, and deployment. MLOps applies these principals to the machine learning process, with the goal of:
+Machine Learning Operations (MLOps) is based on [DevOps](https://azure.microsoft.com/overview/what-is-devops/) principles and practices that increase the efficiency of workflows. For example, continuous integration, delivery, and deployment. MLOps applies these principles to the machine learning process, with the goal of:
 
 * Faster experimentation and development of models
 * Faster deployment of models into production
@@ -66,6 +66,11 @@ Registered models are identified by name and version. Each time you register a m
 You can't delete a registered model that is being used in an active deployment.
 For more information, see the register model section of [Deploy models](how-to-deploy-and-where.md#registermodel).
 
+### Profile models
+
+Azure Machine Learning can help you understand the CPU and memory requirements of the service that will be created when you deploy your model. Profiling tests the service that runs your model and returns information such as the CPU usage, memory usage, and response latency. It also provides a CPU and memory recommendation based on the resource usage.
+For more information, see the profiling section of [Deploy models](how-to-deploy-and-where.md#profilemodel).
+
 ### Package and debug models
 
 Before deploying a model into production, it is packaged into a Docker image. In most cases, image creation happens automatically in the background during deployment. You can manually specify the image.
@@ -73,10 +78,6 @@ Before deploying a model into production, it is packaged into a Docker image. In
 If you run into problems with the deployment, you can deploy on your local development environment for troubleshooting and debugging.
 
 For more information, see [Deploy models](how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](how-to-troubleshoot-deployment.md).
-
-### Validate and profile models
-
-Azure Machine Learning can use profiling to determine the ideal CPU and memory settings to use when deploying your model. Model validation happens as part of this process, using data that you supply for the profiling process.
 
 ### Convert and optimize models
 
@@ -118,6 +119,16 @@ To deploy the model as a web service, you must provide the following items:
 
 For more information, see [Deploy models](how-to-deploy-and-where.md).
 
+#### Controlled rollout
+
+When deploying to Azure Kubernetes Service, you can use controlled rollout to enable the following scenarios:
+
+* Create multiple versions of an endpoint for a deployment
+* Perform A/B testing by routing traffic to different versions of the endpoint.
+* Switch between endpoint versions by updating the traffic percentage in endpoint configuration.
+
+For more information, see [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
+
 #### IoT Edge devices
 
 You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to a hardware device, which enables inference, or model scoring, on the device.
@@ -130,12 +141,20 @@ Microsoft Power BI supports using machine learning models for data analytics. Fo
 
 ## Capture the governance data required for capturing the end-to-end ML lifecycle
 
-Azure ML gives you the capability to track the end-to-end audit trail of all of your ML assets. Specifically:
+Azure ML gives you the capability to track the end-to-end audit trail of all of your ML assets by using metadata.
 
 - Azure ML [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
-- [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data. 
+- [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
+- [Interpretability](how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for given input.
 - Azure ML Run history stores a snapshot of the code, data, and computes used to train a model.
 - The Azure ML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
+- [Integration with Azure Event Grid](concept-event-grid-integration.md) allows you to act on events in the ML lifecycle. For example, model registration, deployment, data drift, and training (run) events.
+
+> [!TIP]
+> While some information on models and datasets is automatically captured, you can add additional information by using __tags__. When looking for registered models and datasets in your workspace, you can use tags as a filter.
+>
+> Associating a dataset with a registered model is an optional step. For information on referencing a dataset when registering a model, see the [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py) class reference.
+
 
 ## Notify, automate, and alert on events in the ML lifecycle
 Azure ML publishes key events to Azure EventGrid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](how-to-use-event-grid.md).
@@ -151,7 +170,7 @@ For more information, see [How to enable model data collection](how-to-enable-da
 
 ## Retrain your model on new data
 
-Often, you'll want to update your model, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](how-to-monitor-datasets.md), model performance can degrade in the face of such things as changes to a particular sensor, natural data changes such as seasonal effects, or features shifting in their relation to other features. 
+Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](how-to-monitor-datasets.md), model performance can degrade in the face of such things as changes to a particular sensor, natural data changes such as seasonal effects, or features shifting in their relation to other features. 
 
 There is no universal answer to "How do I know if I should retrain?" but Azure ML event and monitoring tools previously discussed are good starting points for automation. Once you have decided to retrain, you should: 
 
@@ -171,7 +190,11 @@ The [Azure Machine Learning extension](https://marketplace.visualstudio.com/item
 * Enables workspace selection when defining a service connection.
 * Enables release pipelines to be triggered by trained models created in a training pipeline.
 
-For more information on using Azure Pipelines with Azure Machine Learning, see the [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) article and the [Azure Machine Learning MLOps](https://aka.ms/mlops) repository.
+For more information on using Azure Pipelines with Azure Machine Learning, see the following links:
+
+* [Continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) 
+* [Azure Machine Learning MLOps](https://aka.ms/mlops) repository.
+* [Azure Machine Learning MLOpsPython](https://github.com/Microsoft/MLOpspython) repository.
 
 You can also use Azure Data Factory to create a data ingestion pipeline that prepares data for use with training. For more information, see [Data ingestion pipeline](how-to-cicd-data-ingestion.md).
 

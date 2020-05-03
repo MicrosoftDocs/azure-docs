@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 11/04/2019
+ms.date: 03/05/2020
 ms.custom: seoapril2019
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
@@ -77,7 +77,9 @@ The following example template demonstrates how to create a workspace with three
 
 * Enable high confidentiality settings for the workspace
 * Enable encryption for the workspace
-* Uses an existing Azure Key Vault
+* Uses an existing Azure Key Vault to retrieve customer-managed keys
+
+For more information, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
 
 ```json
 {
@@ -106,9 +108,9 @@ The following example template demonstrates how to create a workspace with three
         "description": "Specifies the location for all resources."
       }
     },
-	"sku":{
-	  "type": "string",
-	  "defaultValue": "basic",
+    "sku":{
+      "type": "string",
+      "defaultValue": "basic",
       "allowedValues": [
         "basic",
         "enterprise"
@@ -116,10 +118,10 @@ The following example template demonstrates how to create a workspace with three
       "metadata": {
         "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
       }
-	},
-	"hbi_workspace":{
-	  "type": "string",
-	  "defaultValue": "false",
+    },
+    "high_confidentiality":{
+      "type": "string",
+      "defaultValue": "false",
       "allowedValues": [
         "false",
         "true"
@@ -127,10 +129,10 @@ The following example template demonstrates how to create a workspace with three
       "metadata": {
         "description": "Specifies that the Azure Machine Learning workspace holds highly confidential data."
       }
-	},
-	"encryption_status":{
-	  "type": "string",
-	  "defaultValue": "Disabled",
+    },
+    "encryption_status":{
+      "type": "string",
+      "defaultValue": "Disabled",
       "allowedValues": [
         "Enabled",
         "Disabled"
@@ -138,19 +140,19 @@ The following example template demonstrates how to create a workspace with three
       "metadata": {
         "description": "Specifies if the Azure Machine Learning workspace should be encrypted with the customer managed key."
       }
-	},
-	"cmk_keyvault":{
-	  "type": "string",
-	  "metadata": {
+    },
+    "cmk_keyvault":{
+      "type": "string",
+      "metadata": {
         "description": "Specifies the customer managed keyvault Resource Manager ID."
       }
-	},
-	"resource_cmk_uri":{
-	  "type": "string",
-	  "metadata": {
+    },
+    "resource_cmk_uri":{
+      "type": "string",
+      "metadata": {
         "description": "Specifies the customer managed keyvault key uri."
       }
-	}
+    }
   },
   "variables": {
     "storageAccountName": "[concat('sa',uniqueString(resourceGroup().id))]",
@@ -235,44 +237,48 @@ The following example template demonstrates how to create a workspace with three
       "identity": {
         "type": "systemAssigned"
       },
-	  "sku": {
+      "sku": {
             "tier": "[parameters('sku')]",
             "name": "[parameters('sku')]"
       },
-	  "properties": {
+      "properties": {
         "friendlyName": "[parameters('workspaceName')]",
         "keyVault": "[resourceId('Microsoft.KeyVault/vaults',variables('keyVaultName'))]",
         "applicationInsights": "[resourceId('Microsoft.Insights/components',variables('applicationInsightsName'))]",
         "containerRegistry": "[resourceId('Microsoft.ContainerRegistry/registries',variables('containerRegistryName'))]",
         "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccountName'))]",
-		 "encryption": {
+         "encryption": {
                 "status": "[parameters('encryption_status')]",
                 "keyVaultProperties": {
                     "keyVaultArmId": "[parameters('cmk_keyvault')]",
                     "keyIdentifier": "[parameters('resource_cmk_uri')]"
                   }
             },
-		"hbi_workspace": "[parameters('hbi_workspace')]"
+        "hbiWorkspace": "[parameters('high_confidentiality')]"
       }
     }
   ]
 }
 ```
 
-To get the ID of the Key Vault, and the key URI needed by this template, you can use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID and URI:
+To get the ID of the Key Vault, and the key URI needed by this template, you can use the Azure CLI. The following command gets the Key Vault ID:
 
 ```azurecli-interactive
-az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id, properties.vaultUri]"
+az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
 ```
 
-This command returns a value similar to the following text. The first value is the ID and the second is the URI:
+This command returns a value similar to `"/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault"`.
 
-```text
-[
-  "/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault",
-  "https://mykeyvault.vault.azure.net/"
-]
+To get the URI for the customer managed key, use the following command:
+
+```azurecli-interactive
+az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
 ```
+
+This command returns a value similar to `"https://mykeyvault.vault.azure.net/keys/mykey/{guid}"`.
+
+> [!IMPORTANT]
+> Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
 ## Use the Azure portal
 

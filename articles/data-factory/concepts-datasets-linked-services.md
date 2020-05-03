@@ -19,6 +19,9 @@ ms.date: 04/25/2019
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Current version](concepts-datasets-linked-services.md)
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+
 This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines.
 
 If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview.

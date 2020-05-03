@@ -1,8 +1,8 @@
 ---
 title: Pricing tiers - Azure Database for PostgreSQL - Single Server
 description: This article describes the compute and storage options in Azure Database for PostgreSQL - Single Server.
-author: jan-eng
-ms.author: janeng
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
@@ -62,7 +62,7 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 
 ### Reaching the storage limit
 
-Servers with less than equal to 10 GB provisioned storage are marked read-only if the free storage is less than 512 MB of the provisioned storage size. Servers with less than equal to 100 GB provisioned storage are marked read-only if the free storage is less than 5% of the provisioned storage size. Servers with more than 100 GB provisioned storage are marked read only when the free storage is less than 5 GB.
+Servers with less than equal to 100 GB provisioned storage are marked read-only if the free storage is less than 512MB or 5% of the provisioned storage size. Servers with more than 100 GB provisioned storage are marked read only when the free storage is less than 5 GB.
 
 For example, if you have provisioned 110 GB of storage, and the actual utilization goes over 105 GB, the server is marked read-only. Alternatively, if you have provisioned 5 GB of storage, the server is marked read-only when the free storage reaches less than 512 MB.
 

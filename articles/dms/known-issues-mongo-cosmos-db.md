@@ -24,7 +24,7 @@ Known issues and limitations associated with migrations from MongoDB to Cosmos D
 
 | Cause         | Resolution |
 | ------------- | ------------- |
-| Using a self-signed certificate in Azure Database Migration Service may lead to the migration failing because of the incorrect SSL Cert. The Error message may include “The remote certificate is invalid according to the validation procedure.” | Use a genuine certificate from CA.  Self-signed certs are generally only used in internal tests. When you install a genuine cert from a CA authority, you can then use SSL in Azure Database Migration Service without issue (connections to Cosmos DB use SSL over Mongo API).<br><br> |
+| Using a self-signed certificate in Azure Database Migration Service may lead to the migration failing because of the incorrect SSL Cert. The Error message may include "The remote certificate is invalid according to the validation procedure." | Use a genuine certificate from CA.  Self-signed certs are generally only used in internal tests. When you install a genuine cert from a CA authority, you can then use SSL in Azure Database Migration Service without issue (connections to Cosmos DB use SSL over Mongo API).<br><br> |
 
 ## Unable to get the list of databases to map in DMS
 
@@ -36,9 +36,11 @@ Known issues and limitations associated with migrations from MongoDB to Cosmos D
 
 ## Using an unsupported version of the database
 
+* **Symptom**: The migration fails.
+
 | Cause         | Resolution |
 | ------------- | ------------- |
-| You attempt to migrate to Azure Cosmos DB from an unsupported version of MongoDB. | As new versions of MongoDB are released, they are tested to ensure compatibility with Azure Database Migration Service, and the  service is being updated periodically to accept the latest version(s). If there is an immediate need to migrate, as a workaround you can export the databases/collections to Azure Storage and the point the source to the resulting dump. Create the SAS on the blob container in Storage Explorer, and then use the URL with container SAS info as the source detail connection string.<br><br> |
+| You attempt to migrate to Azure Cosmos DB from an unsupported version of MongoDB. | As new versions of MongoDB are released, they are tested to ensure compatibility with Azure Database Migration Service, and the  service is being updated periodically to accept the latest version(s). If there is an immediate need to migrate, as a workaround you can export the databases/collections to Azure Storage and then point the source to the resulting dump. Create the SAS on the blob container in Storage Explorer, and then use the URL with container SAS info as the source detail connection string.<br><br> |
 
 ## Next steps
 

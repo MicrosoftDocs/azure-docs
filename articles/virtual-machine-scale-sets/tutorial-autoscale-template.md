@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Autoscale a scale set with Azure templates
 description: Learn how to use Azure Resource Manager templates to automatically scale a virtual machine scale set as CPU demands increases and decreases
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
 
 ---
@@ -170,13 +170,13 @@ The following example output shows the instance name, public IP address of the l
 
 SSH to your first VM instance. Specify your own public IP address and port number with the `-p` parameter, as shown from the preceding command:
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
 Once logged in, install the **stress** utility. Start *10* **stress** workers that generate CPU load. These workers run for *420* seconds, which is enough to cause the autoscale rules to implement the desired action.
 
-```azurecli-interactive
+```console
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
@@ -185,26 +185,26 @@ When **stress** shows output similar to *stress: info: [2688] dispatching hogs: 
 
 To confirm that **stress** generates CPU load, examine the active system load with the **top** utility:
 
-```azurecli-interactive
+```console
 top
 ```
 
 Exit **top**, then close your connection to the VM instance. **stress** continues to run on the VM instance.
 
-```azurecli-interactive
+```console
 Ctrl-c
 exit
 ```
 
 Connect to second VM instance with the port number listed from the previous [az vmss list-instance-connection-info](/cli/azure/vmss):
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50003
 ```
 
 Install and run **stress**, then start ten workers on this second VM instance.
 
-```azurecli-interactive
+```console
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
@@ -213,7 +213,7 @@ Again, when **stress** shows output similar to *stress: info: [2713] dispatching
 
 Close your connection to the second VM instance. **stress** continues to run on the VM instance.
 
-```azurecli-interactive
+```console
 exit
 ```
 
@@ -229,7 +229,7 @@ watch az vmss list-instances \
 
 Once the CPU threshold has been met, the autoscale rules increase the number of VM instances in the scale set. The following output shows three VMs created as the scale set autoscales out:
 
-```bash
+```output
 Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name myScaleSet --output table
 
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
@@ -243,7 +243,7 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
 
 Once **stress** stops on the initial VM instances, the average CPU load returns to normal. After another 5 minutes, the autoscale rules then scale in the number of VM instances. Scale in actions remove VM instances with the highest IDs first. When a scale set uses Availability Sets or Availability Zones, scale in actions are evenly distributed across those VM instances. The following example output shows one VM instance deleted as the scale set autoscales in:
 
-```bash
+```output
            6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 

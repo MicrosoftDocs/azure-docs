@@ -87,6 +87,7 @@ Use compute resources from your workspace to run your pipeline and host your dep
 | Compute target | Training | Deployment |
 | ---- |:----:|:----:|
 | Azure Machine Learning compute | ✓ | |
+| Azure Machine Learning compute instance | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
 Compute targets are attached to your [Azure Machine Learning workspace](concept-workspace.md). You manage your compute targets in your workspace in [Azure Machine Learning Studio (classic)](https://ml.azure.com).
@@ -131,13 +132,5 @@ You can convert existing visual interface experiments and web services to pipeli
 ## Next steps
 
 * Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
-* Use one of the samples and modify to suite your needs:
-
-- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
-- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
+* Learn how to modify existing [designer samples](samples-designer.md) to adapt them to your needs.
 

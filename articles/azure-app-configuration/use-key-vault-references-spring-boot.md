@@ -107,7 +107,6 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -138,6 +137,14 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Update your code to use a Key Vault reference
 
+1. Create an environment variable called **APP_CONFIGURATION_ENDPOINT**. Set its value to the endpoint for your App Configuration store. You can find the endpoint on the **Access Keys** blade in the Azure portal.
+
+1. Open *bootstrap.properties* in the *resources* folder. Update this file to use the App Configuration endpoint, rather than a connection string.
+
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+    ```
+
 1. Open *MessageProperties.java*. Add a new variable called *keyVaultMessage*:
 
     ```java
@@ -164,7 +171,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 1. Create a new file called *AzureCredentials.java* and add the code below.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import com.azure.core.credential.TokenCredential;
     import com.azure.identity.EnvironmentCredentialBuilder;
@@ -193,7 +200,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 1. Create a new file called *AppConfiguration.java*. And add the code below.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import org.springframework.context.annotation.Bean;
     import org.springframework.context.annotation.Configuration;
@@ -212,7 +219,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-    com.example.AppConfiguration
+    com.example.demo.AppConfiguration
     ```
 
 1. Build your Spring Boot application with Maven and run it, for example:

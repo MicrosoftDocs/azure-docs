@@ -27,6 +27,9 @@
     href: https://docs.microsoft.com/samples/browse/?products=azure-logic-apps
   - name: Resource Manager quickstart templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Connectors for Logic Apps
@@ -37,8 +40,10 @@
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
-  - name: Access to Azure Virtual Networks
+  - name: Access to Azure virtual networks
     href: connect-virtual-network-vnet-isolated-environment-overview.md
+  - name: Business continuity and disaster recovery
+    href: business-continuity-disaster-recovery-guidance.md
 - name: How-to guides
   items:
   - name: Develop
@@ -81,10 +86,12 @@
       href: logic-apps-author-definitions.md
     - name: Handle content types
       href: logic-apps-content-type.md
-    - name: Handle errors and exceptions
+    - name: Handle exceptions
       href: logic-apps-exception-handling.md
     - name: Handle large messages
       href: logic-apps-handle-large-messages.md
+    - name: Handle throttling problems or 429 errors
+      href: handle-throttling-problems-429-errors.md    
     - name: Secure
       items:
       - name: Improve security for logic apps
@@ -105,11 +112,13 @@
       href: logic-apps-diagnosing-failures.md
   - name: Access Azure virtual networks
     items: 
-      - name: Connect to virtual networks with integration service environments
+      - name: Create integration service environment - Azure portal
         href: connect-virtual-network-vnet-isolated-environment.md
+      - name: Create integration service environment - REST API
+        href: create-integration-service-environment-rest-api.md
       - name: Set up access for multiple integration service environments
         href: connect-virtual-network-vnet-set-up-single-ip-address.md
-      - name: Add artifacts to integration service environments
+      - name: Add resources to integration service environments
         href: add-artifacts-integration-service-environment-ise.md
       - name: Set up customer-managed encryption keys for integration service environments
         href: customer-managed-keys-integration-service-environment.md
@@ -199,8 +208,6 @@
         href: ../connectors/connectors-create-api-box.md
       - name: Custom APIs and web apps
         href: logic-apps-create-api-app.md
-      - name: DB2
-        href: ../connectors/connectors-create-api-db2.md
       - name: Delay
         href: ../connectors/connectors-native-delay.md
       - name: Dropbox
@@ -221,8 +228,8 @@
         href: ../connectors/connectors-create-api-ftp.md
       - name: GitHub
         href: ../connectors/connectors-create-api-github.md
-      - name: Google Drive
-        href: ../connectors/connectors-create-api-googledrive.md
+      - name: Gmail - Google data security & privacy policies
+        href: ../connectors/connectors-google-data-security-privacy-policy.md
       - name: HTTP
         href: ../connectors/connectors-native-http.md
       - name: HTTP + Swagger
@@ -231,8 +238,12 @@
         href: ../connectors/connectors-native-webhook.md
       - name: IBM 3270
         href: ../connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md
-      - name: Informix
+      - name: IBM DB2
+        href: ../connectors/connectors-create-api-db2.md
+      - name: IBM Informix
         href: ../connectors/connectors-create-api-informix.md
+      - name: IBM MQ
+        href: ../connectors/connectors-create-api-mq.md
       - name: Integration Account
         href: logic-apps-enterprise-integration-metadata.md
       - name: MailChimp
@@ -241,8 +252,6 @@
         href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
       - name: Microsoft Translator
         href: ../connectors/connectors-create-api-microsofttranslator.md
-      - name: MQ
-        href: ../connectors/connectors-create-api-mq.md
       - name: Office 365 Outlook
         href: ../connectors/connectors-create-api-office365-outlook.md
       - name: Office 365 Users
@@ -305,6 +314,8 @@
         href: ../connectors/connectors-create-api-yammer.md
   - name: Manage
     items: 
+    - name: Manage logic apps - Azure portal
+      href: manage-logic-apps-with-azure-portal.md
     - name: Manage logic apps - Visual Studio
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts

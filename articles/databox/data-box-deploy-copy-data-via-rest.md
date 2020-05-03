@@ -20,6 +20,7 @@ This tutorial describes procedures to connect to Azure Data Box Blob storage via
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Prerequisites
 > * Connect to Data Box Blob storage via *http* or *https*
 > * Copy data to Data Box
@@ -88,7 +89,7 @@ Use the Azure portal to download certificate.
  
 ### Import certificate 
 
-Accessing Data Box Blob storage over HTTPS requires an SSL certificate for the device. The way in which this certificate is made available to the client application varies from application to application and across operating systems and distributions. Some applications can access the certificate after it is imported into the system’s certificate store, while other applications do not make use of that mechanism.
+Accessing Data Box Blob storage over HTTPS requires a TLS/SSL certificate for the device. The way in which this certificate is made available to the client application varies from application to application and across operating systems and distributions. Some applications can access the certificate after it is imported into the system's certificate store, while other applications do not make use of that mechanism.
 
 Specific information for some applications is mentioned in this section. For more information on other applications, consult the documentation for the application and the operating system used.
 
@@ -105,16 +106,16 @@ Follow these steps to import the `.cer` file into the root store of a Windows or
 
 #### Use Windows Server UI
 
-1.	Right-click the `.cer` file and select **Install certificate**. This action starts the Certificate Import Wizard.
-2.	For **Store location**, select **Local Machine**, and then click **Next**.
+1.   Right-click the `.cer` file and select **Install certificate**. This action starts the Certificate Import Wizard.
+2.   For **Store location**, select **Local Machine**, and then click **Next**.
 
     ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
-3.	Select **Place all certificates in the following store**, and then click **Browse**. Navigate to the root store of your remote host, and then click **Next**.
+3.   Select **Place all certificates in the following store**, and then click **Browse**. Navigate to the root store of your remote host, and then click **Next**.
 
     ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
-4.	Click **Finish**. A message that tells you that the import was successful appears.
+4.   Click **Finish**. A message that tells you that the import was successful appears.
 
     ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
@@ -146,8 +147,9 @@ Follow the steps to [Configure partner software that you used while connecting o
 
 Once you are connected to the Data Box Blob storage, the next step is to copy data. Prior to data copy, review the following considerations:
 
--  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
-- If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, this may result in upload job failures and data corruption.
+* While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
+* If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, this may result in upload job failures and data corruption.
+* Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
 
 In this tutorial, AzCopy is used to copy data to Data Box Blob storage. You can also use Azure Storage Explorer (if you prefer a GUI-based tool) or a partner software to copy the data.
 

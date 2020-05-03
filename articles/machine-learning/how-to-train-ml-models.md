@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 11/08/2019
+ms.date: 03/09/2020
 ms.custom: seodec18
 
 ---
@@ -34,7 +34,7 @@ This article focuses on steps 4-5. For steps 1-3, refer to the [train a model tu
 
 ### Single-node training
 
-Use an `Estimator` for a single-node training run on remote compute in Azure for a scikit-learn model. You should have already created your [compute target](how-to-set-up-training-targets.md#amlcompute) object `compute_target` and your [datastore](how-to-access-data.md) object `ds`.
+Use an `Estimator` for a single-node training run on remote compute in Azure for a scikit-learn model. You should have already created your [compute target](how-to-set-up-training-targets.md#amlcompute) object `compute_target` and your [FileDataset](how-to-create-register-datasets.md) object `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -77,7 +77,7 @@ print(run.get_portal_url())
 >
 > To create artifacts during training (such as model files, checkpoints, data files, or plotted images) write these to the `./outputs` folder.
 >
-> Similarly, you can write any logs from your training run to the `./logs` folder. To utilize Azure Machine Learning's [TensorBoard integration](https://aka.ms/aml-notebook-tb) make sure you write your TensorBoard logs to this folder. While your run is in progress, you will be able to launch TensorBoard and stream these logs.  Later, you will also be able to restore the logs from any of your previous runs.
+> Similarly, you can write any logs from your training run to the `./logs` folder. To utilize Azure Machine Learning's [TensorBoard integration](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb) make sure you write your TensorBoard logs to this folder. While your run is in progress, you will be able to launch TensorBoard and stream these logs.  Later, you will also be able to restore the logs from any of your previous runs.
 >
 > For example, to download a file written to the *outputs* folder to your local machine after your remote training run: 
 > `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
@@ -141,7 +141,7 @@ For a notebook that shows the basics of an estimator pattern, see:
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
 For a notebook that trains a scikit-learn model by using estimator, see:
-* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 For notebooks on training models by using deep-learning-framework specific estimators, see:
 

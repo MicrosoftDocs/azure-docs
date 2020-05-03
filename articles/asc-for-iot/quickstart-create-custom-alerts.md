@@ -1,6 +1,5 @@
 ---
-
-title: "Quickstart: Create custom alerts for Azure Security Center for IoT"
+title: "Quickstart: Create custom alerts"
 description: Understand, create and assign custom device alerts for the Azure Security Center for IoT security service.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -17,14 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2020
 ms.author: mlottner
-
 ---
+
 # Quickstart: Create custom alerts
 
+Using custom security groups and alerts, takes full advantage of the end-to-end security information and categorical device knowledge to ensure better security across your IoT solution.
 
-Using custom security groups and alerts, takes full advantage of the end-to-end security information and categorical device knowledge to ensure better security across your IoT solution. 
-
-## Why use custom alerts? 
+## Why use custom alerts?
 
 You know your IoT devices best.
 
@@ -37,7 +35,7 @@ Security groups enable you to define logical groups of devices, and manage their
 These groups can represent devices with specific hardware, devices deployed in a certain location, or any other group suitable to your specific needs.
 
 Security groups are defined by a device twin tag property named **SecurityGroup**. By default, each IoT solution on IoT Hub has one security group named **default**. Change the value of the **SecurityGroup** property to change the security group of a device.
- 
+
 For example:
 
 ```
@@ -58,27 +56,24 @@ For example:
   "version": 4,
   "tags": {
     "SecurityGroup": "default"
-  }, 
+  },
 ```
 
-Use security groups to group your devices into logical categories. After creating the groups, assign them to the custom alerts of your choice, for the most effective end-to-end IoT security solution. 
+Use security groups to group your devices into logical categories. After creating the groups, assign them to the custom alerts of your choice, for the most effective end-to-end IoT security solution.
 
 ## Customize an alert
 
-1. Open your IoT Hub. 
-2. Click **Custom alerts** in the **Security** section. 
-3. Choose a security group you wish to apply the customization to. 
-4. Click **Add a custom alert**.
-5. Select a custom alert from the dropdown list. 
-6. Edit the required properties, click **OK**.
-7. Make sure to click **SAVE**. Without saving the new alert, the alert is deleted the next time you close IoT Hub.
+1. Open your IoT Hub.
+1. Click **Custom alerts** in the **Security** section.
+1. Choose a security group you wish to apply the customization to.
+1. Click **Add a custom alert**.
+1. Select a custom alert from the dropdown list.
+1. Edit the required properties, click **OK**.
+1. Make sure to click **SAVE**. Without saving the new alert, the alert is deleted the next time you close IoT Hub.
 
- 
 ## Alerts available for customization
 
-Azure Security Center for IoT offers a large number of alerts which can be customized according to your specific needs. Review the [customizable alert table](concept-customizable-security-alerts.md) for alert severity, data source, description and our suggested remediation steps if and when each alert is received. 
-|
-
+Azure Security Center for IoT offers a large number of alerts which can be customized according to your specific needs. Review the [customizable alert table](concept-customizable-security-alerts.md) for alert severity, data source, description and our suggested remediation steps if and when each alert is received.
 
 ## Next steps
 

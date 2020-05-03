@@ -61,7 +61,7 @@ The [Database Migration Service](/azure/dms/dms-overview) is an option for custo
 
 Disaster recovery solutions for EOS SQL Server on an Azure VM are as follows:
 
-- **SQL Server backups**: Use Azure Backup to help protect your EOS SQL Server against ransomware, accidental deletion, and corruption. The solution is currently in preview for EOS SQL Server and supports SQL Server 2008 and 2008 R2 running on Windows 2008 R2 SP1. For more details, see [this article](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support).
+- **SQL Server backups**: Use Azure Backup to help protect your EOS SQL Server 2008 and 2008 R2 against ransomware, accidental deletion, and corruption with 15-min RPO and point-in-time recovery. For more details, see [this article](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support).
 - **Log shipping**: You can create a log shipping replica in another zone or Azure region with continuous restores to reduce the RTO. You need to manually configure log shipping.
 - **Azure Site Recovery**: You can replicate your VM between zones and regions through Azure Site Recovery replication. SQL Server requires app-consistent snapshots to guarantee recovery in case of a disaster. Azure Site Recovery offers a minimum 1-hour RPO and a 2-hour (plus SQL Server recovery time) RTO for EOS SQL Server disaster recovery.
 

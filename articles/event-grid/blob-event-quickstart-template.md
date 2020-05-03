@@ -8,6 +8,7 @@ ms.author: spelluru
 ms.date: 02/27/2020
 ms.topic: quickstart
 ms.service: event-grid
+ms.custom: subject-armqs
 ---
 
 # Route Blob storage events to web endpoint by using Azure Resource Manager template
@@ -51,7 +52,7 @@ Two Azure resources are defined in the template:
 
 1. Select the following link to sign in to Azure and open a template. The template creates a key vault and a secret.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json"><img src="./media/blob-event-quickstart-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
 
 2. Specify the **endpoint**: provide the URL of your web app and add `api/updates` to the home page URL.
 3. Select **Purchase** to deploy the template.

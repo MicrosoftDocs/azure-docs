@@ -1,5 +1,5 @@
 ---
-title: Remote Monitoring access control - Azure | Microsoft Docs 
+title: Remote Monitoring access control - Azure | Microsoft Docs
 description: This article provides information about how you can configure role-based access controls (RBAC) in the Remote Monitoring solution accelerator
 author: dominicbetts
 manager: timlt
@@ -8,6 +8,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
+ms.custom: has-adal-ref
 
 # As an administrator, I want to understand how I can configure access rights in the Remote Monitoring solution accelerator.
 ---

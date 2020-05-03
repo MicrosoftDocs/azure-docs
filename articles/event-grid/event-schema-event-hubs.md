@@ -1,26 +1,26 @@
 ---
-title: Azure Event Grid event hubs event schema
+title: Azure Event Hubs as Event Grid source
 description: Describes the properties that are provided for event hubs events with Azure Event Grid
 services: event-grid
 author: spelluru
 
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
 ---
 
-# Azure Event Grid event schema for event hubs
+# Azure Event Hubs as an Event Grid source
 
 This article provides the properties and schema for event hubs events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
-For a list of sample scripts and tutorials, see [Event Hubs event source](event-sources.md#event-hubs).
+## Event Grid event schema
 
 ### Available event types
 
 Event Hubs emits the **Microsoft.EventHub.CaptureFileCreated** event type when a capture file is created.
 
-## Example event
+### Example event
 
 This sample event shows the schema of an event hubs event raised when the capture feature stores a file: 
 
@@ -49,7 +49,7 @@ This sample event shows the schema of an event hubs event raised when the captur
 ]
 ```
 
-## Event properties
+### Event properties
 
 An event has the following top-level data:
 
@@ -77,6 +77,12 @@ The data object has the following properties:
 | lastSequenceNumber | integer | The last sequence number from the queue. |
 | firstEnqueueTime | string | The first time from the queue. |
 | lastEnqueueTime | string | The last time from the queue. |
+
+## Tutorials and how-tos
+
+|Title  |Description  |
+|---------|---------|
+| [Tutorial: stream big data into a data warehouse](event-grid-event-hubs-integration.md) | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
 
 ## Next steps
 

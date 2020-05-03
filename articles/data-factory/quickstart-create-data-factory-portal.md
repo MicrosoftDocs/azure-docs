@@ -19,6 +19,8 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](quickstart-create-data-factory-portal.md)
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This quickstart describes how to use the Azure Data Factory UI to create and monitor a data factory. The pipeline that you create in this data factory *copies* data from one folder to another folder in Azure Blob storage. For a tutorial on how to *transform* data by using Azure Data Factory, see [Tutorial: Transform data by using Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
@@ -62,6 +64,10 @@ Watching this video helps you understand the Data Factory UI:
 1. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
    
    ![Home page for the data factory, with the "Author & Monitor" tile](./media/doc-common-process/data-factory-home-page.png)
+   
+   > [!NOTE]
+   > If you see that the web browser is stuck at "Authorizing", clear the **Block third-party cookies and site data** check box. Or keep it selected, create an exception for **login.microsoftonline.com**, and then try to open the app again.
+   
 1. On the **Let's get started** page, switch to the **Author** tab in the left panel. 
 
     !["Let's get started" page](./media/doc-common-process/get-started-page-author-button.png)

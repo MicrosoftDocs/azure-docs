@@ -25,7 +25,7 @@ In this quickstart, you set up Azure Dev Spaces with a managed Kubernetes cluste
 
 You need to create an AKS cluster in a [supported region][supported-regions]. The following commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
@@ -37,10 +37,11 @@ Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and fo
 > [!NOTE]
 > The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You can't install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
-```cmd
-$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
 
-
+```output
 'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
 
 Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
@@ -87,7 +88,7 @@ When Visual Studio Code also prompts you to configure your base images, exposed 
 This command prepares your project to run in Azure Dev Spaces by generating a Dockerfile and Helm chart. It also generates a *.vscode* directory with debugging configuration at the root of your project.
 
 > [!TIP]
-> The [Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and run.
+> The [Dockerfile and Helm chart](how-dev-spaces-works-prep.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and run.
 
 ## Build and run code in Kubernetes from Visual Studio Code
 
@@ -149,7 +150,7 @@ Instead of rebuilding and redeploying a new container image each time code edits
 
 ## Clean up your Azure resources
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
