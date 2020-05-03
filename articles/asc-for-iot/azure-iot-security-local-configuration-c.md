@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure Security Center for agent local configurations for C | Microsoft Docs
+title: Security agent local configuration (C)
 description: Learn about Azure Security Center for agent local configurations for C.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-
 ---
 
 # Understanding the LocalConfiguration.json file - C agent
@@ -24,14 +23,15 @@ ms.author: mlottner
 The Azure Security Center for IoT security agent uses configurations from a local configuration file.
 The security agent reads the configuration once,  at agent start-up.
 The configuration found in the local configuration file contains authentication configuration and other agent related configurations.
-The file contains configurations in "Key-Value" pairs in JSON notation and the configurations get populated when the agent is installed. 
+The file contains configurations in "Key-Value" pairs in JSON notation and the configurations get populated when the agent is installed.
 
 By default, the file is located at: /var/ASCIoTAgent/LocalConfiguration.json
 
-Changes to the configuration file take place when the agent is restarted. 
+Changes to the configuration file take place when the agent is restarted.
 
 ## Security agent configurations for C
-| Configuration Name | Possible values | Details | 
+
+| Configuration Name | Possible values | Details |
 |:-----------|:---------------|:--------|
 | AgentId | GUID | The agent Unique identifier |
 | TriggerdEventsInterval | ISO8601 string | Scheduler interval for triggered events collection |
@@ -50,6 +50,7 @@ Changes to the configuration file take place when the agent is restarted.
 | DiagnosticEventMinimumSeverity | 0 <= number <= 4 | log messages equal and above this severity will be sent as diagnostic events (0 is the lowest severity) |
 
 ## Security agent configurations code example
+
 ```JSON
 {
     "Configuration" : {
@@ -76,6 +77,7 @@ Changes to the configuration file take place when the agent is restarted.
 ```
 
 ## Next steps
+
 - Read the Azure Security Center for IoT service [Overview](overview.md)
 - Learn more about Azure Security Center for IoT [Architecture](architecture.md)
 - Enable the Azure Security Center for IoT [service](quickstart-onboard-iot-hub.md)

@@ -12,6 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
+ms.custom: fasttrack-edit
 ---
 
 # Name resolution for resources in Azure virtual networks
@@ -83,6 +84,7 @@ Reverse DNS is supported in all ARM based virtual networks. You can issue revers
 * Forward lookup on FQDNs of form \[vmname\].internal.cloudapp.net will resolve to IP address assigned to the virtual machine.
 * If the virtual network is linked to an [Azure DNS private zones](../dns/private-dns-overview.md) as a registration virtual network, the reverse DNS queries will return two records. One record will the of the form \[vmname\].[priatednszonename] and other would be of the form \[vmname\].internal.cloudapp.net
 * Reverse DNS lookup is scoped to a given virtual network even if it is peered to other virtual networks. Reverse DNS queries (PTR queries) for IP addresses of virtual machines located in peered virtual networks will return NXDOMAIN.
+* If you want to turn off reverse DNS function in a virtual network you can do so by creating a reverse lookup zone using [Azure DNS private zones](../dns/private-dns-overview.md) and link this zone to your virtual network. For example if the IP address space of your virtual network is 10.20.0.0/16 then you can create a empty private DNS zone 20.10.in-addr.arpa and link it to the virtual network. While linking the zone to your virtual network you should disable auto registration on the link. This zone will override the default reverse lookup zones for the virtual network and since this zone is empty you will get NXDOMAIN for your reverse DNS queries. See our [Quickstart guide](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) for details on how to create a private DNS zone and link it to a virtual network.
 
 > [!NOTE]
 > If you want reverse DNS lookup to span across virtual network you can create a reverse lookup zone (in-addr.arpa) [Azure DNS private zones](../dns/private-dns-overview.md) and links it to multiple virtual networks. You'll however have to manually manage the reverse DNS records for the virtual machines.
@@ -181,8 +183,7 @@ If forwarding queries to Azure doesn't suit your needs, you should provide your 
 * Be secured against access from the internet, to mitigate threats posed by external agents.
 
 > [!NOTE]
-> For best performance, when you are using Azure VMs as DNS servers, IPv6 should be disabled. A [public IP address](virtual-network-public-ip-address.md) should be assigned to each DNS server VM. 
-> 
+> For best performance, when you are using Azure VMs as DNS servers, IPv6 should be disabled.
 
 ### Web apps
 Suppose you need to perform name resolution from your web app built by using App Service, linked to a virtual network, to VMs in the same virtual network. In addition to setting up a custom DNS server that has a DNS forwarder that forwards queries to Azure (virtual IP 168.63.129.16), perform the following steps:
@@ -195,7 +196,7 @@ If you need to perform name resolution from your web app built by using App Serv
 
 * Set up a DNS server in your target virtual network, on a VM that can also forward queries to the recursive resolver in Azure (virtual IP 168.63.129.16). An example DNS forwarder is available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/301-dns-forwarder) and [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder). 
 * Set up a DNS forwarder in the source virtual network on a VM. Configure this DNS forwarder to forward queries to the DNS server in your target virtual network.
-* Configure your source DNS server in your source virtual network’s settings.
+* Configure your source DNS server in your source virtual network's settings.
 * Enable virtual network integration for your web app to link to the source virtual network, following the instructions in [Integrate your app with a virtual network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * In the Azure portal, for the App Service plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**.
 

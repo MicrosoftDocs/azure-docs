@@ -1,8 +1,6 @@
 ---
 title: Render a Blender scene using Azure Batch and Batch Explorer
 description: Tutorial - How to render multiple frames from a Blender scene using Azure Batch and the Batch Explorer client application
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018

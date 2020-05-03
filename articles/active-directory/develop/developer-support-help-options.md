@@ -1,11 +1,10 @@
 ---
-title: Support and help options for Azure AD app developers | Microsoft Docs
+title: Support and help options for Azure AD app developers
 description: Know how to obtain help and support for development-related questions and problems when creating application that integrate with Microsoft identities (Azure Active Directory and Microsoft account)
 services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual

@@ -84,8 +84,12 @@ There are multiple methods to install the Log Analytics agent and connect your m
 The following versions of the Windows operating system are officially supported for the Windows agent:
 
 * Windows Server 2019
-* Windows Server 2008 SP2 (x64), 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
-* Windows 7 SP1, Windows 8 Enterprise and Pro, and Windows 10 Enterprise and Pro
+* Windows Server 2016, version 1709 and 1803
+* Windows Server 2012, 2012 R2
+* Windows Server 2008 SP2 (x64), 2008 R2
+* Windows 10 Enterprise and Pro
+* Windows 8 Enterprise and Pro 
+* Windows 7 SP1
 
 >[!NOTE]
 >While the Log Analytics agent for Windows was designed to support server monitoring scenarios, we realize you may run Windows client to support workloads configured and optimized for the server operating system. The agent does support Windows client, however our monitoring solutions don't focus on client monitoring scenarios unless explicitly stated.
@@ -156,19 +160,23 @@ The agent for Linux and Windows communicates outbound to the Azure Monitor servi
 
 ![Log Analytics agent communication diagram](./media/log-analytics-agent/log-analytics-agent-01.png)
 
+The following table lists the proxy and firewall configuration information that's required for the Linux and Windows agents to communicate with Azure Monitor logs.
 
-## Network firewall requirements
-The information below list the proxy and firewall configuration information required for the Linux and Windows agent to communicate with Azure Monitor logs.  
+### Firewall requirements
 
 |Agent Resource|Ports |Direction |Bypass HTTPS inspection|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Outbound|Yes |  
-|*.oms.opinsights.azure.com |Port 443 |Outbound|Yes |  
-|*.blob.core.windows.net |Port 443 |Outbound|Yes |  
+|*.ods.opinsights.azure.com |Port 443 |Inbound and Outbound|Yes |  
+|*.oms.opinsights.azure.com |Port 443 |Inbound and Outbound|Yes |  
+|*.blob.core.windows.net |Port 443 |Inbound and Outbound|Yes |
+|*.azure-automation.net |Port 443 |Inbound and Outbound|Yes |
+|*.azure.com |Port 443|Inbound and Outbound|Yes |
 
 For firewall information required for Azure Government, see [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
 If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+
+### Proxy configuration
 
 The Windows and Linux agent supports communicating either through a proxy server or Log Analytics gateway to Azure Monitor using the HTTPS protocol.  Both anonymous and basic authentication (username/password) are supported.  For the Windows agent connected directly to the service, the proxy configuration is specified during installation or [after deployment](agent-manage.md#update-proxy-settings) from Control Panel or with PowerShell.  
 

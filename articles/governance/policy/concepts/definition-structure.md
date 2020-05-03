@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -76,12 +76,12 @@ a Resource Provider property.
 The **mode** determines which resource types will be evaluated for a policy. The supported modes
 are:
 
-- `all`: evaluate resource groups and all resource types
+- `all`: evaluate resource groups, subscriptions, and all resource types
 - `indexed`: only evaluate resource types that support tags and location
 
 For example, resource `Microsoft.Network/routeTables` supports tags and location and is evaluated in
-both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged and isn't evaluated
-in `Indexed` mode.
+both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged and isn't
+evaluated in `Indexed` mode.
 
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
@@ -91,10 +91,12 @@ support backwards compatibility.
 
 `indexed` should be used when creating policies that enforce tags or locations. While not required,
 it prevents resources that don't support tags and locations from showing up as non-compliant in the
-compliance results. The exception is **resource groups**. Policies that enforce location or tags on
-a resource group should set **mode** to `all` and specifically target the
-`Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource group
-tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see
+compliance results. The exception is **resource groups** and **subscriptions**. Policies that
+enforce location or tags on a resource group or subscription should set **mode** to `all` and
+specifically target the `Microsoft.Resources/subscriptions/resourceGroups` or
+`Microsoft.Resources/subscriptions` type. For an example, see
+[Enforce resource group tags](../samples/enforce-tag-rg.md). For a list of resources that support
+tags, see
 [Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes" />Resource Provider modes (preview)
@@ -108,7 +110,7 @@ The following Resource Provider modes are currently supported during preview:
   Policies using this Resource Provider mode **must** use the
   [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
-  [Azure Key Vault](../../../key-vault/key-vault-overview.md).
+  [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
 > Resource Provider modes only support built-in policy definitions and don't support initiatives
@@ -314,11 +316,15 @@ supported conditions are:
 - `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
-- `"less": "value"`
-- `"lessOrEquals": "value"`
-- `"greater": "value"`
-- `"greaterOrEquals": "value"`
+- `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
+- `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
+- `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
 - `"exists": "bool"`
+
+For **less**, **lessOrEquals**, **greater**, and **greaterOrEquals**, if the property type doesn't
+match the condition type, an error is thrown. String comparisons are made using
+`InvariantCultureIgnoreCase`.
 
 When using the **like** and **notLike** conditions, you provide a wildcard `*` in the value.
 The value shouldn't have more than one wildcard `*`.
@@ -447,7 +453,7 @@ This policy rule example uses **value** to check if the result of multiple neste
     "policyRule": {
         "if": {
             "value": "[less(length(field('tags')), 3)]",
-            "equals": true
+            "equals": "true"
         },
         "then": {
             "effect": "deny"
@@ -511,7 +517,8 @@ Conditions that count how many members of an array in the resource payload satis
 expression can be formed using **count** expression. Common scenarios are checking whether 'at least
 one of', 'exactly one of', 'all of', or 'none of' the array members satisfy the condition. **count**
 evaluates each [\[\*\] alias](#understanding-the--alias) array member for a condition expression and
-sums the _true_ results, which is then compared to the expression operator.
+sums the _true_ results, which is then compared to the expression operator. **Count** expressions
+may be added up to 3 times to a single **policyRule** definition.
 
 The structure of the **count** expression is:
 
@@ -695,6 +702,10 @@ use within a policy rule, except the following functions and user-defined functi
 - resourceId()
 - variables()
 
+> [!NOTE]
+> These functions are still available within the `details.deployment.properties.template` portion of
+> the template deployment in a **deployIfNotExists** policy definition.
+
 The following function is available to use in a policy rule, but differs from use in an Azure
 Resource Manager template:
 
@@ -711,12 +722,15 @@ The following functions are only available in policy rules:
 - `field(fieldName)`
   - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
   - Returns the value of that field from the resource that is being evaluated by the If condition
-  - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being evaluated. An example of this use can be seen in the [DeployIfNotExists example](effects.md#deployifnotexists-example).
+  - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference
+    fields on the resource that are being evaluated. An example of this use can be seen in the
+    [DeployIfNotExists example](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
-  - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`). This will be the API version that was used in the PUT/PATCH request for evaluations on resource creation/update. The latest API version is always used during compliance evaluation on existing resources.
+  - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`).
+    This will be the API version that was used in the PUT/PATCH request for evaluations on resource
+    creation/update. The latest API version is always used during compliance evaluation on existing
+    resources.
   
-
-
 #### Policy function example
 
 This policy rule example uses the `resourceGroup` resource function to get the **name** property,
@@ -752,7 +766,7 @@ Policy, use one of the following methods:
   Use the [Azure Policy extension for Visual Studio Code](../how-to/extension-for-vscode.md) to view
   and discover aliases for resource properties.
 
-  ![Azure Policy extension for Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy extension for Visual Studio Code" border="false":::
 
 - Azure Resource Graph
 
@@ -841,8 +855,6 @@ This sample rule checks for any matches of **ipRules\[\*\].value** to **10.0.4.1
     }
 }
 ```
-
-
 
 For more information, see [evaluating the [\*]
 alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).

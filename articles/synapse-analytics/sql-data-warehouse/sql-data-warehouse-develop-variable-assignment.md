@@ -1,6 +1,6 @@
 ---
 title: Assign variables
-description: Tips for assigning T-SQL variables in Azure SQL Data Warehouse for developing solutions.
+description: In this article, you'll find essential tips for assigning T-SQL variables in SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
@@ -13,20 +13,20 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Assigning variables in Azure SQL Data Warehouse
+# Assign variables in Synapse SQL pool
 
-Tips for assigning T-SQL variables in Azure SQL Data Warehouse for developing solutions.
+In this article, you'll find essential tips for assigning T-SQL variables in SQL pool.
 
-## Setting variables with DECLARE
+## Set variables with DECLARE
 
-Variables in SQL Data Warehouse are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL Data Warehouse.
+Variables in SQL pool are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL pool.
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-You can also use DECLARE to set more than one variable at a time. You cannot use SELECT or UPDATE to do the following:
+You can also use DECLARE to set more than one variable at a time. You can't use SELECT or UPDATE to do the following:
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -34,7 +34,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-You cannot initialize and use a variable in the same DECLARE statement. To illustrate the point, the following example is **not** allowed since @p1 is both initialized and used in the same DECLARE statement. The following example gives an error.
+You can't initialize and use a variable in the same DECLARE statement. To illustrate the point, the following example is **not** allowed since @p1 is both initialized and used in the same DECLARE statement. As such, the following example gives an error:
 
 ```sql
 DECLARE @p1 int = 0
@@ -42,7 +42,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## Setting values with SET
+## Set values with SET
 
 SET is a common method for setting a single variable.
 
@@ -59,7 +59,7 @@ You can only set one variable at a time with SET. However, compound operators ar
 
 ## Limitations
 
-You cannot use UPDATE for variable assignment.
+You can't use UPDATE for variable assignment.
 
 ## Next steps
 
