@@ -259,7 +259,7 @@
         - name: Log Analytics Linux agent
           displayname: troubleshoot, troubleshooting
           href: platform/agent-linux-troubleshoot.md
-    - name: Platform logs
+  - name: Platform logs
     items:
     - name: Overview
       displayName: Platform logs, Resource logs, Activity log
