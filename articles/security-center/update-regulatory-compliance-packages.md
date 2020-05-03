@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 ms.author: memildin
 
 ---
-# Update to dynamic compliance packages in your Regulatory Compliance dashboard
+# Using dynamic compliance packages in your Regulatory Compliance dashboard
 
 Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance controls and requirements.
 
