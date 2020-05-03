@@ -94,7 +94,7 @@ Login to the Azure portal.
 
 5. If you want to make changes to the replication settings, click on ‘Next: Advanced settings’.
 
-6. Change the settings away from default wherever appropriate. For users of Azure to Azure DR, this page might seem familiar. More details on the options presented on this blade can be found [here](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-enable-replication)
+6. Change the settings away from default wherever appropriate. For users of Azure to Azure DR, this page might seem familiar. More details on the options presented on this blade can be found [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)
 
     ![Advanced Settings page](./media/azure-to-azure-how-to-enable-zone-to-zone-dr/zone-to-zone-advanced-settings-blade.png)
 
@@ -103,7 +103,7 @@ Login to the Azure portal.
 ## FAQs
 
 1. How does pricing work for Zone to Zone Disaster Recovery?
-Pricing for Zone to Zone Disaster Recovery is identical to the pricing of Azure to Azure Disaster Recovery. You can find more details on the pricing page [here](https://azure.microsoft.com/en-in/pricing/details/site-recovery/) and [here](https://azure.microsoft.com/en-in/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/). Note that the egress charges that you would see in zone to zone disaster recovery would be lower than region to region disaster recovery.
+Pricing for Zone to Zone Disaster Recovery is identical to the pricing of Azure to Azure Disaster Recovery. You can find more details on the pricing page [here](https://azure.microsoft.com/pricing/details/site-recovery/) and [here](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/). Note that the egress charges that you would see in zone to zone disaster recovery would be lower than region to region disaster recovery.
 
 2. What is the SLA for RTO and RPO?
 The RTO SLA is the same as that for Site Recovery overall. We promise RTO <= 2 hours. There is no defined SLA for RPO.
@@ -112,14 +112,14 @@ The RTO SLA is the same as that for Site Recovery overall. We promise RTO <= 2 h
 The Site Recovery team and Azure capacity management team plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure VM instances that are protected by Site Recovery will deploy to the target zone.
 
 4. Which operating systems are supported?
-Zone to Zone DR supports the same operating systems as Azure to Azure DR. Refer to the support matrix [here](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-support-matrix).
+Zone to Zone DR supports the same operating systems as Azure to Azure DR. Refer to the support matrix [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
 
 ## Next steps
 
 The steps that need to be followed to run a DR drill, fail over, re-protect, and failback are the same as the steps in Azure to Azure DR scenario.
 
-To perform a DR drill, please follow the steps outlined [here](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-dr-drill).
+To perform a DR drill, please follow the steps outlined [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-dr-drill).
 
-To perform a fail over and re-protect VMs in the secondary zone, follow the steps outlined [here](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-failover-failback).
+To perform a fail over and re-protect VMs in the secondary zone, follow the steps outlined [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback).
 
-To failback to the primary zone, follow the steps outlined [here](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-tutorial-failback).
+To failback to the primary zone, follow the steps outlined [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failback).
