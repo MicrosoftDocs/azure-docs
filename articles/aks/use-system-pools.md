@@ -3,7 +3,7 @@ title: Use system node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage system node pools in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/06/2020
+ms.date: 04/28/2020
 
 ---
 
@@ -25,6 +25,8 @@ The following limitations apply when you create and manage AKS clusters that sup
 * See [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * The AKS cluster must be built with virtual machine scale sets as the VM type.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools, the length must be between 1 and 12 characters. For Windows node pools, the length must be between 1 and 6 characters.
+* An API version of 2020-03-01 or greater must be used to set a node pool mode.
+* The mode of a node pool is a required property and must be explicitly set when using ARM templates or direct API calls.
 
 ## System and user node pools
 

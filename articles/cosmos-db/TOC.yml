@@ -1051,22 +1051,26 @@
       items:
       - name: Monitor Cosmos DB
         href: monitor-cosmos-db.md
-      - name: Monitor server-side latency
-        href: monitor-server-side-latency.md
-      - name: Monitor request unit usage
-        href: monitor-request-unit-usage.md
-      - name: Monitor with diagnostic logs
-        href: cosmosdb-monitor-resource-logs.md
-      - name: Audit control plane logs
-        href: audit-control-plane-logs.md
-      - name: Azure Monitor for Cosmos (preview)
-        href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+      - name : Use Azure monitor metrics
+        items:
+        - name: Azure Monitor for Cosmos (preview)
+          href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Monitor server-side latency
+          href: monitor-server-side-latency.md
+        - name: Monitor request unit usage
+          href: monitor-request-unit-usage.md
+      - name : Use Azure monitor metrics
+        items:
+        - name: Monitor with diagnostic logs
+          href: cosmosdb-monitor-resource-logs.md
+        - name: Audit control plane logs
+          href: audit-control-plane-logs.md
       - name: View metrics from Cosmos DB account
         href: use-metrics.md
-      - name: Application logging with Logic Apps
-        href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Monitoring data reference
         href: monitor-cosmos-db-reference.md
+      - name: Application logging with Logic Apps
+        href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: Develop locally
       items:
       - name: Use the emulator
