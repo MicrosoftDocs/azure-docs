@@ -24,7 +24,7 @@ Application settings are also sometimes referred to as environment variables.
 
 ## Types of application settings
 
-There are typically two aspects to an Azure Static Web Apps application. The first is the web application, or static content, which is represented by HTML, CSS, JavaScript and images. The second is the back-end API, which is powered by an Azure Functions application.
+There are typically two aspects to an Azure Static Web Apps application. The first is the web application, or static content, which is represented by HTML, CSS, JavaScript, and images. The second is the back-end API, which is powered by an Azure Functions application.
 
 This article demonstrates how to manage application settings for the back-end API in Azure Functions.
 
@@ -47,7 +47,9 @@ For more information about how to use environment variables with your JavaScript
 
 ## About application settings
 
-Azure Functions, which powers the Static Apps API, allows you to define application settings in the _local.settings.json_ file in the root of the _api_ folder of your application. This file defines application settings in the `Values` property of the configuration. The following sample _local.settings.json_ shows how to add an application setting for the `DATABASE_CONNECTION_STRING`.
+APIs in Azure Static Web Apps are powered by Azure Functions, which allows you to define application settings in the _local.settings.json_ file. This file defines application settings in the `Values` property of the configuration.
+
+The following sample _local.settings.json_ shows how to add an application setting for the `DATABASE_CONNECTION_STRING`.
 
 ```json
 {
@@ -68,7 +70,7 @@ const connectionString = process.env.DATABASE_CONNECTION_STRING;
 
 The `local.settings.json` file is not tracked by the GitHub repository because sensitive information, like a database connection string, is often included in the file. Since the local settings remain on your machine, you need to manually upload your settings to Azure.
 
-Uploading your settings is usually done infrequently, and doesn't need to occur with every build. 
+Uploading your settings is done infrequently, and doesn't need to occur with every build.
 
 ## Upload settings
 
@@ -98,7 +100,7 @@ As this command executes, the settings from your _local.settings.json_ file are 
 
 ### Using the Azure CLI
 
-The `az rest` command uploads settings either as a string value, or by specifying a file. The command accepts application settings as JSON objects inside of a parent property called `properties`.
+The `az rest` command uploads settings either as a string value, or by specifying a file. The command accepts application settings as JSON objects in a parent property called `properties`.
 
 #### Uploading settings as string values
 
@@ -121,7 +123,7 @@ Ensure that your file is a JSON file in the proper format. It must be an object,
 }
 ```
 
-1. From a terminal or command line, execute the following command. Replace the values <YOUR_SUBSCRIPTION_ID>, <YOUR_RESOURCE_GROUP>, <YOUR_STATIC_SITE_NAME>, and <YOUR_FILE_NAME>.json**. You can find this information on the "Overview" tab for your application in the Azure Portal.
+1. From a terminal or command line, execute the following command. Replace the values <YOUR_SUBSCRIPTION_ID>, <YOUR_RESOURCE_GROUP>, <YOUR_STATIC_SITE_NAME>, and <YOUR_FILE_NAME>.json**. You can find this information on the "Overview" tab for your application in the Azure portal.
 
     ![Azure portal showing overview tab of an Azure Static Web Apps instance]()
 
