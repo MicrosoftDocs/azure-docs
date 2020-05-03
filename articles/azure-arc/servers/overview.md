@@ -49,7 +49,7 @@ The following versions of the Windows and Linux operating system are officially 
 - CentOS Linux 7
 - SUSE Linux Enterprise Server (SLES) 15
 - Red Hat Enterprise Linux (RHEL) 7
-- Amazon Linux 7
+- Amazon Linux 2
 
 >[!NOTE]
 >This preview release of the Connected Machine agent for Windows only supports Windows Server configured to use the English language.
@@ -138,11 +138,11 @@ You can download the Azure Connected Machine agent package for Windows and L
 >[!NOTE]
 >During this preview, only one package has been released, which is suitable for Ubuntu 16.04 or 18.04.
 
-The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. For more information, see [here](manage-agent.md)
+The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. For more information, see [here](manage-agent.md).
 
 ### Agent status
 
-The Connected Machine agent sends a regular heartbeat message to the service every 5 minutes. If one is not received for 15 minutes, the machine is considered offline and the status will automatically be changed to **Disconnected** in the portal. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed to **Connected**.
+The Connected Machine agent sends a regular heartbeat message to the service every 5 minutes. If the service stops receiving these heartbeat messages from a machine, that machine is considered offline and the status will automatically be changed to **Disconnected** in the portal within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed to **Connected**.
 
 ## Install and configure agent
 

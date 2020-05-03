@@ -138,7 +138,7 @@ public class Program
 
 ## Implement actor backup and restore
 
-A custom actor service can expose a method to back up actor data by taking advantage of the remoting listener already present in `ActorService`. For an example, see [Backup and restore actors](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+A custom actor service can expose a method to back up actor data by taking advantage of the remoting listener already present in `ActorService`. For an example, see [Backup and restore actors](service-fabric-reliable-actors-backup-and-restore.md).
 
 ## Actor that uses a remoting V2 (interface compatible) stack
 

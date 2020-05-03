@@ -71,7 +71,7 @@ Below is a network topology deployed in AKS clusters by default, which use an `o
 
 If `userDefinedRouting` is set, AKS will not automatically configure egress paths. The following is expected to be done by **the user**.
 
-Cluster must be deployed into an existing virtual network with a subnet that has been configured. A valid user-defined route (UDR) must exist on the subnet with outbound connectivity.
+The AKS cluster must be deployed into an existing virtual network with a subnet that has been configured. When using standard load balancer (SLB) architecture you must establish explicit egress. This requires sending egress requests to an appliance such as a firewall, gateway, on-prem or to allow the egress to be done by a public IP assigned to the standard load balancer or a given node.
 
 The AKS resource provider will deploy a standard load balancer (SLB). The load balancer is not configured with any rules and [does not incur a charge until a rule is placed](https://azure.microsoft.com/pricing/details/load-balancer/). AKS will **not** automatically provision a public IP address for the SLB frontend. AKS will **not** automatically configure the load balancer backend pool.
 
@@ -359,6 +359,12 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
 
 ```
 
+ Use the [az aks get-credentials][az-aks-get-credentials] command to configure `kubectl` to connect to your newly created Kubernetes cluster. 
+
+ ```azure-cli
+ az aks get-credentials -g $RG -n $AKS_NAME
+ ```
+
 ### Setup the internal load balancer
 
 AKS has deployed a load balancer with the cluster which can be setup as an [internal load balancer](internal-lb.md).
@@ -534,3 +540,6 @@ You should see an image of the Azure voting app.
 See [Azure networking UDR overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
 See [how to create, change, or delete a route table](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
+
+<!-- LINKS - internal -->
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

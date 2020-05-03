@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
 manager: gwallace
-editor: tysonn
+
 
 ms.service: virtual-machines-linux
 ms.workload: infrastructure

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 3/13/2020
+ms.date: 4/2/2020
 ms.author: swmachan
 ---
 
@@ -70,7 +70,7 @@ Here's an example request to call the Translator API using the global translator
 
 ```curl
 // Pass secret key using headers
-curl -X POST "https://api.cognitive.microsoft.com/translate?api-version=3.0&to=es" \
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=es" \
      -H "Ocp-Apim-Subscription-Key:<your-key>" \
      -H "Content-Type: application/json" \
      -d "[{'Text':'Hello, what is your name?'}]"
@@ -90,7 +90,7 @@ Here's an example request to call the Translator API using the regional translat
 
 ```curl
 // Pass secret key and region using headers
-curl -X POST "https://api.cognitive.microsoft.com/translate?api-version=3.0&to=es" \
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=es" \
      -H "Ocp-Apim-Subscription-Key:<your-key>" \
      -H "Ocp-Apim-Subscription-Region:<your-region>" \
      -H "Content-Type: application/json" \

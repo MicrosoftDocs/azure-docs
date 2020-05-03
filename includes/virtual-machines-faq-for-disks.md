@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 05/13/2019
+ ms.date: 03/31/2019
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -117,7 +117,7 @@ No. This is not supported currently as a lease is present to prevent accidental 
 No. You can't update the computer name property. The new VM inherits it from the parent VM, which was used to create the operating system disk. 
 
 **Where can I find sample Azure Resource Manager templates to create VMs with managed disks?**
-* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/)
 * https://github.com/chagarw/MDPP
 
 **When creating a disk from a blob, is there any continually existing relationship with that source blob?**
@@ -406,11 +406,11 @@ There is no downside to the use of TRIM on Azure disks on either premium or stan
 
 **What regions support bursting capability for applicable premium SSD disk size?**
 
-The bursting capability is currently supported in Azure West Central US.
+The bursting capability is currently supported in all regions in Azure Public Cloud, with support for sovereign clouds coming soon. 
 
 **What regions are 4/8/16 GiB Managed Disk sizes (P1/P2/P3, E1/E2/E3) supported in?**
 
-These new disk sizes are currently supported in Azure West Central US.
+These new disk sizes are currently supported in all regions in Azure Public Cloud, with support for sovereign clouds coming soon. 
 
 **Are P1/P2/P3 disk sizes supported for unmanaged disks or page blobs?**
 

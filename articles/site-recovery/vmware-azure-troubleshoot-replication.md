@@ -25,7 +25,7 @@ We recommend that you monitor the health of process servers in  portal, to ensur
 
 ## Step 2: Troubleshoot connectivity and replication issues
 
-Initial and ongoing replication failures often are caused by connectivity issues between the source server and the process server or between the process server and Azure. 
+Initial and ongoing replication failures often are caused by connectivity issues between the source server and the process server or between the process server and Azure.
 
 To solve these issues, [troubleshoot connectivity and replication](vmware-physical-azure-troubleshoot-process-server.md#check-connectivity-and-replication).
 
@@ -91,7 +91,7 @@ To resolve the issue, use the following steps to verify the network connectivity
 4. On the Source Machine, examine the logs at the location for error details:
 
        C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
-    
+
 ### Process server with no heartbeat [error 806]
 In case there is no heartbeat from the Process Server (PS), check that:
 1. PS VM is up and running
@@ -111,7 +111,7 @@ To resolve the issue, use the following steps to verify the service status:
 2. Sign in to the Master Target VM using an account that has administrator privileges.
     - Verify that the svagents service is running. If it is running, restart the service
     - Check the logs at the location for error details:
-        
+
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
 3. To register master target with configuration server, navigate to folder **%PROGRAMDATA%\ASR\Agent**, and run the following on command prompt:
    ```
@@ -127,38 +127,38 @@ To resolve the issue, use the following steps to verify the service status:
 
 ## Error ID 78144 - No app-consistent recovery point available for the VM in the last 'XXX' minutes
 
-Enhancements have been made in mobility agent [9.23](vmware-physical-mobility-service-overview.md#from-923-version-onwards) & [9.27](site-recovery-whats-new.md#update-rollup-39) versions to handle VSS installation failure behaviors. Ensure that you are on the latest versions for best guidance on troubleshooting VSS failures.
+Enhancements have been made in mobility agent [9.23](vmware-physical-mobility-service-overview.md#mobility-service-agent-version-923-and-higher) & [9.27](site-recovery-whats-new.md#update-rollup-39) versions to handle VSS installation failure behaviors. Ensure that you are on the latest versions for best guidance on troubleshooting VSS failures.
 
 Some of the most common issues are listed below
 
-#### Cause 1: Known issue in SQL server 2008/2008 R2 
+#### Cause 1: Known issue in SQL server 2008/2008 R2
 **How to fix** : There is a known issue with SQL server 2008/2008 R2. Please refer this KB article [Azure Site Recovery Agent or other non-component VSS backup fails for a server hosting SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
 
-#### Cause 2: Azure Site Recovery jobs fail on servers hosting any version of SQL Server instances with AUTO_CLOSE DBs 
-**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+#### Cause 2: Azure Site Recovery jobs fail on servers hosting any version of SQL Server instances with AUTO_CLOSE DBs
+**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser)
 
 
 #### Cause 3: Known issue in SQL Server 2016 and 2017
-**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
 
 ### More causes due to VSS related issues:
 
 To troubleshoot further, Check the files on the source machine to get the exact error code for failure:
-	
-	C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+
+    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
 
 How to locate the errors in the file?
 Search for the string "vacpError"  by opening the vacp.log file in an editor
-		
-	Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+
+    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
 
 In the above example **2147754994** is the error code that tells you about the failure as shown below
 
-#### VSS writer is not installed - Error 2147221164 
+#### VSS writer is not installed - Error 2147221164
 
 *How to fix*: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). It installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is not installed, the application consistency snapshot creation fails with the error id 0x80040154  "Class not registered". </br>
-Refer [article for VSS writer installation troubleshooting](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+Refer [article for VSS writer installation troubleshooting](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)
 
 #### VSS writer is disabled - Error 2147943458
 
@@ -173,13 +173,13 @@ Refer [article for VSS writer installation troubleshooting](https://docs.microso
 
 ####  VSS PROVIDER NOT_REGISTERED - Error 2147754756
 
-**How to fix**: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). 
+**How to fix**: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS).
 Check if the Azure Site Recovery  VSS Provider service is installed or not. </br>
 
 - Retry the Provider installation using the following commands:
 - Uninstall existing provider: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
 - Reinstall: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
- 
+
 Verify that the startup type of the VSS Provider service is set to **Automatic**.
     - Restart the following services:
         - VSS service

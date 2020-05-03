@@ -13,6 +13,9 @@
   - name: Live event with portal and Wirecast
     displayName: live, event, portal, wirecast
     href: live-events-wirecast-quickstart.md
+  - name: Live event with portal and OBS
+    displayName: live, event, portal, obs
+    href: live-events-obs-quickstart.md
 - name: Tutorials
   items:
   - name: Encode remote file and stream video
@@ -98,6 +101,7 @@
       href: live-events-outputs-concept.md    
       displayName: vanity, ingest 
     - name: Tested on-premises live encoders
+      displayName: recommended
       href: recommended-on-premises-live-encoders.md
     - name: Time-shifting and live-to-VOD
       displayName: archive, dvr
@@ -401,7 +405,9 @@
       href: https://aka.ms/ams-v3-ruby-sdk
   - name: Azure Media Services Explorer
     href: https://github.com/Azure/Azure-Media-Services-Explorer
-  - name: Quotas and limitations
+  - name: Quotas and limits
     href: limits-quotas-constraints.md       
   - name: Azure clouds and regions
     href: azure-clouds-regions.md
+  - name: Documentation updates
+    href: docs-release-notes.md

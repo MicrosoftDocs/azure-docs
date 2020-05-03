@@ -84,6 +84,9 @@ az deployment group create \
 
 ---
 
+> [!NOTE]
+> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
+
 ## Clean up resources
 
 If you're moving on to the next tutorial, you don't need to delete the resource group.

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for images REST API and PHP - Bing Image Search"
+title: "Quickstart: Search for images using the Bing Image Search REST API and PHP"
 titleSuffix: Azure Cognitive Services
 description:  Use this quickstart to send image search requests to the Bing Image Search REST API using PHP, and receive JSON responses.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 12/06/2019
+ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
