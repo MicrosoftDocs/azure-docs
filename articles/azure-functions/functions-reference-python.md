@@ -72,6 +72,7 @@ The recommended folder structure for a Python Functions project looks like the f
  | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
+ | - Dockerfile
  tests
 ```
 The main project folder (\_\_app\_\_) can contain the following files:
@@ -81,6 +82,7 @@ The main project folder (\_\_app\_\_) can contain the following files:
 * *host.json*: Contains global configuration options that affect all functions in a function app. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *.funcignore*: (Optional) declares files that shouldn't get published to Azure.
 * *.gitignore*: (Optional) declares files that are excluded from a git repo, such as local.settings.json.
+* *Dockerfile*: (Optional) used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
 
 Each function has its own code file and binding configuration file (function.json). 
 
@@ -625,42 +627,15 @@ from os import listdir
 
 We recommend that you maintain your tests in a folder separate from the project folder. This keeps you from deploying test code with your app. 
 
+## Cross-origin resource sharing
+
+Azure Functions supports cross-origin resource sharing (CORS). CORS is configured [in the portal](functions-how-to-use-azure-function-app-settings.md#cors) and through the [Azure CLI](/cli/azure/functionapp/cors). The CORS allowed origins list applies at the function app level. With CORS enabled, responses include the `Access-Control-Allow-Origin` header. For more information, see [Cross-origin resource sharing](functions-how-to-use-azure-function-app-settings.md#cors). 
+
+CORS is fully supported for Python function apps.
+
 ## Known issues and FAQ
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
-
-### Cross-origin resource sharing
-
-Azure Functions supports cross-origin resource sharing (CORS). CORS is configured [in the portal](functions-how-to-use-azure-function-app-settings.md#cors) and through the [Azure CLI](/cli/azure/functionapp/cors). The CORS allowed origins list applies at the function app level. With CORS enabled, responses include the `Access-Control-Allow-Origin` header. For more information, see [Cross-origin resource sharing](functions-how-to-use-azure-function-app-settings.md#cors).
-
-The allowed origins list [isn't currently supported](https://github.com/Azure/azure-functions-python-worker/issues/444) for Python function apps. Because of this limitation, you must expressly set the `Access-Control-Allow-Origin` header in your HTTP functions, as shown in the following example:
-
-```python
-def main(req: func.HttpRequest) -> func.HttpResponse:
-
-    # Define the allow origin headers.
-    headers = {"Access-Control-Allow-Origin": "https://contoso.com"}
-
-    # Set the headers in the response.
-    return func.HttpResponse(
-            f"Allowed origin '{headers}'.",
-            headers=headers, status_code=200
-    )
-``` 
-
-Make sure that you also update your function.json to support the OPTIONS HTTP method:
-
-```json
-    ...
-      "methods": [
-        "get",
-        "post",
-        "options"
-      ]
-    ...
-```
-
-This HTTP method is used by web browsers to negotiate the allowed origins list. 
 
 ## Next steps
 

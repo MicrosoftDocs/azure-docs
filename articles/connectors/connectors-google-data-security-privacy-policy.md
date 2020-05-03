@@ -35,7 +35,7 @@ Under this policy, when you use a Gmail consumer account, you can use the Gmail 
 
 * Approved Microsoft services: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive, and SharePoint Online
 
-* Connectors for customer-managed data sources: FTP, HTTP, RSS, SFTP, SMTP, and SQL Server
+* Connectors for customer-managed data sources: FTP, RSS, SFTP, SMTP, and SQL Server
 
 For the most recent information, see the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/).
 
