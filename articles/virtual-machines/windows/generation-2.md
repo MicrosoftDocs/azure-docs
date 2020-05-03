@@ -33,6 +33,7 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 * [HB-series](../hb-series.md)
 * [HC-series](../hc-series.md)
 * [Ls-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) and [Lsv2-series](../lsv2-series.md)
+* [M-series](../m-series.md)
 * [Mv2-series](../mv2-series.md)<sup>1</sup>
 * [NCv2-series](../ncv2-series.md) and [NCv3-series](../ncv3-series.md)
 * [ND-series](../nd-series.md)
