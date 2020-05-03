@@ -31,9 +31,10 @@ In this tutorial, you learn how to:
 
 ## Create a Gatsby App
 
-Create a Gatsby app using the Gatsby command line (CLI):
+Create a Gatsby app using the Gatsby Command Line Interface (CLI):
 
-1. Use the [npx](https://www.npmjs.com/package/npx) tool to run the Gatsby CLI.
+1. Open a terminal
+1. Use the [npx](https://www.npmjs.com/package/npx) tool to create a new app with the Gatsby CLI. This may take a few minutes.
 
    ```bash
    npx gatsby new static-web-app
@@ -48,16 +49,16 @@ Create a Gatsby app using the Gatsby command line (CLI):
 1. Initialize a git repo
 
    ```bash
-    git init
-    git add -A
-    git commit -m "initial commit"
+   git init
+   git add -A
+   git commit -m "initial commit"
    ```
 
 ## Push your application to GitHub
 
-You need to have a repository on GitHub to create a new Azure Static Web Apps resource:
+You need to have a repository on GitHub to create a new Azure Static Web Apps resource. 
 
-1. Create a blank GitHub repo (don't create a README) from [https://github.com/new](https://github.com/new) named **gatsby-static-web-app**.
+1. Create a blank GitHub repository (don't create a README) from [https://github.com/new](https://github.com/new) named **gatsby-static-web-app**.
 
 1. Next, add the GitHub repository you just created as a remote to your local repo. Make sure to add your GitHub username in place of the `<YOUR_USER_NAME>` placeholder in the following command.
 
@@ -65,10 +66,10 @@ You need to have a repository on GitHub to create a new Azure Static Web Apps re
    git remote add origin https://github.com/<YOUR_USER_NAME>/gatsby-static-web-app
    ```
 
-1. Push your local repo up to GitHub.
+1. Push your local repository up to GitHub.
 
    ```bash
-   git push --upstream origin master
+   git push --set-upstream origin master
    ```
 
 ## Deploy your web app
@@ -97,7 +98,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. Click the **Sign in with GitHub** button.
 
-1. Select the **Organization** under which you created the repo.
+1. Select the **Organization** under which you created the repository.
 
 1. Select the **gatsby-static-web-app** as the _Repository_ .
 
@@ -107,7 +108,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 ### Build
 
-Next, you add configuration settings that the build process uses to build your app.
+Next, add configuration settings that the build process uses to build your app.
 
 1. To configure the settings of the step in GitHub Actions, set the _App location_ to **/**.
 
