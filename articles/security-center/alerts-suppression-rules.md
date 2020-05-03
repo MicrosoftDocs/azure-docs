@@ -20,7 +20,7 @@ When a single alert isn't interesting or relevant, you can manually dismiss it. 
 
 - suppress alerts that you've identified as false positives
 
-- alerts that are being triggered too often to be useful
+- suppress alerts that are being triggered too often to be useful
 
 Your suppression rules define the criteria for which alerts should be automatically dismissed.
 
