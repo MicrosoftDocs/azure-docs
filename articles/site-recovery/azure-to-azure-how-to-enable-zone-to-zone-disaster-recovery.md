@@ -88,7 +88,7 @@ Login to the Azure portal.
 
 3. As shown below, in the Basics tab, select ‘Yes’ for ‘Disaster Recovery between Availability Zones?’
 
-    ![Basic Settings page](./media/azure-to-azure-how-to-enable-zone-to-zone-dr/zonal-dr-basic-settings-blade.png)
+    ![Basic Settings page](./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-basic-settings-blade.png)
 
 4. If you accept all defaults, click ‘Review + Start replication’ followed by ‘Start replication’.
 
@@ -96,7 +96,7 @@ Login to the Azure portal.
 
 6. Change the settings away from default wherever appropriate. For users of Azure to Azure Disaster Recovery, this page might seem familiar. More details on the options presented on this blade can be found [here](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)
 
-    ![Advanced Settings page](./media/azure-to-azure-how-to-enable-zone-to-zone-dr/zonal-dr-advanced-settings-blade.png)
+    ![Advanced Settings page](./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings-blade.png)
 
 7. Click on ‘Next: Review + Start replication’ and then ‘Start replication’.
 
