@@ -5,19 +5,16 @@ services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
-ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
+ROBOTS: NOINDEX
 ---
 
 # Azure Active Directory code samples (v1.0 endpoint)
@@ -50,7 +47,7 @@ This sample shows how to write a single-page application secured with Azure AD.
 
 The following samples illustrate Web applications signing users. Some of these applications also call the Microsoft Graph or your own Web API, in the name of the signed-in user.
 
- Platform | Only signs in users | Calls Microsoft Graph or AAD Graph| Calls another ASP.NET or ASP.NET Core 2.0 Web API
+ Platform | Only signs in users | Calls Microsoft Graph | Calls another ASP.NET or ASP.NET Core 2.0 Web API
  -------- | ------------------- | --------------------- | -------------------------
 ![This image shows the ASP.NET logo](media/sample-v2-code/logo-netcore.png)</p>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
 ![This image shows the ASP.NET logo](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 |  </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD Graph) |
@@ -121,10 +118,6 @@ For samples and tutorials that demonstrate different usage patterns for the Micr
 
 ## See also
 
-[Azure Active Directory Developer's Guide](v1-overview.md)
-
-[Azure Active Directory Authentication libraries](active-directory-authentication-libraries.md)
-
-[Azure AD Graph API Conceptual and Reference](https://msdn.microsoft.com/library/azure/hh974476.aspx)
-
-[Azure AD Graph API Helper Library](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
+- [Azure Active Directory Developer's Guide](v1-overview.md)
+- [Azure Active Directory Authentication libraries](active-directory-authentication-libraries.md)
+- [Microsoft Graph API conceptual and reference](https://docs.microsoft.com/graph/use-the-api)

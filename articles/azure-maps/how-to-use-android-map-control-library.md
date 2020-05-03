@@ -1,8 +1,8 @@
 ---
 title: Getting started with Android map control | Microsoft Azure Maps
 description: In this article you will learn, how to get started with the Android map control using the Microsoft Azure Maps Android SDK.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -104,7 +104,7 @@ The next step in building your application is to install the Azure Maps Android 
     * set your Azure Maps authentication information
     * get the map control instance in the **onCreate** method
 
-    Setting the authentication information on the `AzureMaps` class globally using the `setSubscriptionKey` or `setAadProperties` methods makes it so you won’t have to add your authentication information on every view. 
+    Setting the authentication information on the `AzureMaps` class globally using the `setSubscriptionKey` or `setAadProperties` methods makes it so you won't have to add your authentication information on every view. 
 
     The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle. These lifecycle methods must be called directly from the containing Activity. For your app to correctly call the map control's lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control. And, you must call the respective map control method. 
 
@@ -122,10 +122,8 @@ The next step in building your application is to install the Azure Maps Android 
     ```java
     package com.example.myapplication;
 
-    //For older versions use: import android.support.v7.app.AppCompatActivity;
+    //For older versions use: import android.support.v7.app.AppCompatActivity; 
     import androidx.appcompat.app.AppCompatActivity;
-
-    import android.os.Bundle;
     import com.microsoft.azure.maps.mapcontrol.AzureMaps;
     import com.microsoft.azure.maps.mapcontrol.MapControl;
     import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
@@ -265,12 +263,35 @@ Here is an example of Azure Maps with the language set to "fr-FR" and regional v
 
 A complete list of supported languages and regional views is documented [here](supported-languages.md).
 
+## Navigating the map
+
+There are several different ways in which the map can be zoomed, panned, rotated, and pitched. The following details all the different ways to navigate the map.
+
+**Zoom the map**
+
+- Touch the map with two fingers and pinch together to zoom out or spread the fingers apart to zoom in.
+- Double tap the map to zoom in one level.
+- Double tap with two fingers to zoom the map out one level.
+- Tap twice; on second tap, hold your finger on the map and drag up to zoom in, or down to zoom out.
+
+**Pan the map**
+
+- Touch the map and drag in any direction.
+
+**Rotate the map**
+
+- Touch the map with two fingers and rotate.
+
+**Pitch the map**
+
+- Touch the map with two fingers and drag them up or down together.
+
 ## Next steps
 
 Learn how to add overlay data on the map:
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer to an Android map](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
+> [Add a symbol layer to an Android map](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Add shapes to an Android map](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)

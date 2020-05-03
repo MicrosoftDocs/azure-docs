@@ -1,5 +1,6 @@
 ---
-title: Secure pods with network policies in Azure Kubernetes Service (AKS)
+title: Secure pod traffic with network policy
+titleSuffix: Azure Kubernetes Service
 description: Learn how to secure traffic that flows in and out of pods by using Kubernetes network policies in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
@@ -38,7 +39,7 @@ These network policy rules are defined as YAML manifests. Network policies can b
 
 Azure provides two ways to implement network policy. You choose a network policy option when you create an AKS cluster. The policy option can't be changed after the cluster is created:
 
-* Azure’s own implementation, called *Azure Network Policies*.
+* Azure's own implementation, called *Azure Network Policies*.
 * *Calico Network Policies*, an open-source network and network security solution founded by [Tigera][tigera].
 
 Both implementations use Linux *IPTables* to enforce the specified policies. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable filter rules.
@@ -77,6 +78,8 @@ The following example script:
 * Assigns *Contributor* permissions for the AKS cluster service principal on the virtual network.
 * Creates an AKS cluster in the defined virtual network and enables network policy.
     * The *azure* network policy option is used. To use Calico as the network policy option instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
+
+Note that instead of using a service principal, you can use a managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md).
 
 Provide your own secure *SP_PASSWORD*. You can replace the *RESOURCE_GROUP_NAME* and *CLUSTER_NAME* variables:
 
@@ -168,7 +171,7 @@ wget -qO- http://backend
 
 The following sample output shows that the default NGINX webpage returned:
 
-```
+```output
 <!DOCTYPE html>
 <html>
 <head>
@@ -200,14 +203,15 @@ spec:
   ingress: []
 ```
 
+Go to [https://shell.azure.com](https://shell.azure.com) to open Azure Cloud Shell in your browser.
+
 Apply the network policy by using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
-```azurecli-interactive
+```console
 kubectl apply -f backend-policy.yaml
 ```
 
 ### Test the network policy
-
 
 Let's see if you can use the NGINX webpage on the back-end pod again. Create another test pod and attach a terminal session:
 
@@ -218,8 +222,10 @@ kubectl run --rm -it --image=alpine network-policy --namespace development --gen
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage. This time, set a timeout value to *2* seconds. The network policy now blocks all inbound traffic, so the page can't be loaded, as shown in the following example:
 
 ```console
-$ wget -qO- --timeout=2 http://backend
+wget -qO- --timeout=2 http://backend
+```
 
+```output
 wget: download timed out
 ```
 
@@ -260,7 +266,7 @@ spec:
 
 Apply the updated network policy by using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
-```azurecli-interactive
+```console
 kubectl apply -f backend-policy.yaml
 ```
 
@@ -278,7 +284,7 @@ wget -qO- http://backend
 
 Because the ingress rule allows traffic with pods that have the labels *app: webapp,role: frontend*, the traffic from the front-end pod is allowed. The following example output shows the default NGINX webpage returned:
 
-```
+```output
 <!DOCTYPE html>
 <html>
 <head>
@@ -303,8 +309,10 @@ kubectl run --rm -it --image=alpine network-policy --namespace development --gen
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage. The network policy blocks the inbound traffic, so the page can't be loaded, as shown in the following example:
 
 ```console
-$ wget -qO- --timeout=2 http://backend
+wget -qO- --timeout=2 http://backend
+```
 
+```output
 wget: download timed out
 ```
 
@@ -339,7 +347,7 @@ wget -qO- http://backend.development
 
 Because the labels for the pod match what is currently permitted in the network policy, the traffic is allowed. The network policy doesn't look at the namespaces, only the pod labels. The following example output shows the default NGINX webpage returned:
 
-```
+```output
 <!DOCTYPE html>
 <html>
 <head>
@@ -383,7 +391,7 @@ In more complex examples, you could define multiple ingress rules, like a *names
 
 Apply the updated network policy by using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
-```azurecli-interactive
+```console
 kubectl apply -f backend-policy.yaml
 ```
 
@@ -398,8 +406,10 @@ kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend -
 At the shell prompt, use `wget` to see that the network policy now denies traffic:
 
 ```console
-$ wget -qO- --timeout=2 http://backend.development
+wget -qO- --timeout=2 http://backend.development
+```
 
+```output
 wget: download timed out
 ```
 
@@ -423,7 +433,7 @@ wget -qO- http://backend
 
 Traffic is allowed because the pod is scheduled in the namespace that matches what's permitted in the network policy. The following sample output shows the default NGINX webpage returned:
 
-```
+```output
 <!DOCTYPE html>
 <html>
 <head>

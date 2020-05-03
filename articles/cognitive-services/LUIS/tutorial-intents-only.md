@@ -1,16 +1,8 @@
 ---
 title: "Tutorial: Predict intentions - LUIS"
-titleSuffix: Azure Cognitive Services
 description: In this tutorial, create a custom app that predicts a user's intention. This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text such as email addresses or dates.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
+ms.date: 03/24/2020
 #Customer intent: As a new user, I want to create a custom app with intents, so that I can analyze user text in that subject domain.
 ---
 
@@ -49,9 +41,13 @@ These intentions are categorized into **Intents**.
 
 ## Create a new intent
 
-1. In the portal, inside the app's **Build** section, select **+ Create**. Enter the new intent name, `OrderPizza`, then select **Done**.
+An intent is used to classify user utterances based on the user's intention, determined from the natural language text.
 
-    The `OrderPizza` intent is predicted when: a user wants to order a pizza.
+In order to classify an utterance, the intent needs examples of user utterances that should be classified with this intent.
+
+1. In the **Build** section, on the **Intents** page, select **+ Create** to create a new intent. Enter the new intent name, `OrderPizza`, then select **Done**.
+
+    The `OrderPizza` intent is predicted when a user wants to order a pizza.
 
 1. Add several example utterances to this intent that you expect a user to ask:
 
@@ -66,7 +62,7 @@ These intentions are categorized into **Intents**.
 
     ![Add example utterances](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    By providing _example utterances_, you are training LUIS about what kinds of utterances should be predicted for this intent.
+    By providing _example utterances_, you are teaching LUIS about what kinds of utterances should be predicted for this intent.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 

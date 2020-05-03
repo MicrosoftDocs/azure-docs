@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
+ms.custom: [amqp, mqtt]
 ---
 
 # Reference - IoT Hub endpoints

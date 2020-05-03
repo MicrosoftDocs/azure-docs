@@ -7,6 +7,8 @@ tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 02/27/2020
+ms.custom: subject-armqs
+
 #Customer intent: As a database admin who is new to Azure, I want to use Azure Cosmos DB to store and manage my data.
 
 ---
@@ -49,7 +51,7 @@ More Azure Cosmos DB template samples can be found in the [quickstart template g
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cosmos account, a database, and a container.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create%2Fazuredeploy.json)
 
 2. Select or enter the following values.
 

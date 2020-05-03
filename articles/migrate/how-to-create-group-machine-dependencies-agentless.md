@@ -1,22 +1,32 @@
 ---
-title: Set up agentless dependency visualization in Azure Migrate
-description:  Set up groups using agentless dependency visualization in Azure Migrate Server Assessment.
-ms.topic: article
+title: Set up agentless dependency analysis in Azure Migrate Server Assessment
+description:  Set up agentless dependency analysis in Azure Migrate Server Assessment.
+ms.topic: how-to
 ms.date: 2/24/2020
 ---
 
 
 # Set up agentless dependency visualization 
 
-This article describes how to set up dependency visualization in Azure Migrate:Server Assessment. [Dependency visualization](concepts-dependency-visualization.md#what-is-dependency-visualization) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
+This article describes how to set up agentless dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
-Agentless dependency visualization helps you to identify machine dependencies without install any agents on machines. It works by capturing the TCP connection data from machines for which it's enabled.
 
 > [!IMPORTANT]
-> Agentless dependency visualization is currently in preview for Azure VMware VMs only, discovered with the Azure Migrate:Server Assessment tool.
+> Agentless dependency visualization is currently in preview for VMware VMs only, discovered with the Azure Migrate:Server Assessment tool.
 > Features might be limited or incomplete.
 > This preview is covered by customer support and can be used for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+
+## Before you start
+
+- [Learn about](concepts-dependency-visualization.md#agentless-analysis) agentless dependency analysis.
+- [Review](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) the prerequisites and support requirements for setting up agentless dependency visualization for VMware VMs
+- Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
+- If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool.
+- Make sure you've set up an [Azure Migrate appliance](migrate-appliance.md) to discover your on-premises machines. Learn how to set up an appliance for [VMware](how-to-set-up-appliance-vmware.md) VMs. The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment.
+
 
 ## Current limitations
 
@@ -24,21 +34,10 @@ Agentless dependency visualization helps you to identify machine dependencies wi
 - A dependency map for a group of servers isn't currently not available.
 - Currently, the dependency data can't be downloaded in tabular format.
 
-## Before you start
-
-- [Review](concepts-dependency-visualization.md#agentless-visualization) the requirements and costs associated with agentless dependency visualization.
-- Review the [support requirements](migrate-support-matrix-vmware.md#agentless-dependency-visualization) for setting up agentless dependency visualization.
-- Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
-- If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool.
-- Make sure you've set up an [Azure Migrate appliance](migrate-appliance.md) to discover your on-premises machines. Learn how to set up an appliance for [VMware](how-to-set-up-appliance-vmware.md) VMs. The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment.
-
-
 ## Create a user account for discovery
 
-Set up a user account so that Server Assessment can access the VM for discovery. You can specify one user account.
+Set up a user account so that Server Assessment can access the VM for discovery. [Learn](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) about account requirements.
 
-- **Windows VMs**: The user account needs to be a local or a domain administrator.
-- **Linux VMs**: The root privilege is required on the account. Alternately, the user account requires these two capabilities on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE.
 
 ## Add the user account to the appliance
 

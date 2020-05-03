@@ -148,7 +148,7 @@ Azure Blob storage is optimized for storing massive amounts of unstructured data
 
 The following diagram shows the relationship between these resources.
 
-![Diagram of Blob storage architecture](./media/storage-blob-introduction/blob1.png)
+![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
 
 Use the following Java classes to interact with these resources:
 
@@ -351,4 +351,4 @@ To see Blob storage sample apps, continue to:
 > [Azure Blob storage SDK v12 Java samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 * To learn more, see the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md).
-* For tutorials, samples, quickstarts, and other documentation, visit [Azure for Java cloud developers](/azure/java/).
+* For tutorials, samples, quickstarts, and other documentation, visit [Azure for Java cloud developers](/azure/developer/java/).

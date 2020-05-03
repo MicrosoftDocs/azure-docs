@@ -1,15 +1,12 @@
 ---
-title: Understand Azure Cost Management data | Microsoft Docs
+title: Understand Azure Cost Management data
 description: This article helps you better understand data that's included in Azure Cost Management and how frequently it's processed, collected, shown, and closed.
-
-keywords:
 author: bandersmsft
 ms.author: banders
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.custom:
 ---
 
 # Understand Cost Management data
@@ -18,7 +15,7 @@ This article helps you better understand Azure cost and usage data that's includ
 
 Cost Management includes all usage and purchases, including reservations and third-party offerings for Enterprise Agreement (EA) accounts. Microsoft Customer Agreement accounts and individual subscriptions with pay-as-you-go rates  only include usage from Azure and Marketplace services. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits.
 
-If you have a new subscription, you can’t immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
+If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
 ## Supported Microsoft Azure offers
 
@@ -92,9 +89,9 @@ The following tables show data that's included or isn't in Cost Management. All 
 
 _<sup>**5**</sup> Azure service usage is based on reservation and negotiated prices._
 
-_<sup>**6**</sup> Marketplace purchases are not available for Pay-As-You-Go, MSDN, and Visual Studio offers at this time._
+_<sup>**6**</sup> Marketplace purchases are not available for MSDN and Visual Studio offers at this time._
 
-_<sup>**7**</sup> Reservation purchases are only available for Enterprise Agreement (EA) accounts at this time._
+_<sup>**7**</sup> Reservation purchases are only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts at this time._
 
 ## How tags are used in cost and usage data
 
@@ -108,7 +105,7 @@ Azure Cost Management receives tags as part of each usage record submitted by th
 - Resource tags are only available in Cost Management when the resource is active/running and producing usage records (e.g. not when a VM is deallocated).
 - Managing tags requires contributor access to each resource.
 - Managing tag policies requires either owner or policy contributor access to a management group, subscription, or resource group.
-	
+    
 If you do not see a specific tag in Cost Management, consider the following:
 
 - Was the tag applied directly to the resource?
@@ -125,7 +122,7 @@ If you do not see a specific tag in Cost Management, consider the following:
     - Service Bus
     - Time Series Insights
     - VPN gateway
-	
+    
 Here are a few tips for working with tags:
 
 - Plan ahead and define a tagging strategy that allows you to break costs down by organization, application, environment, etc.
@@ -161,9 +158,9 @@ Whether you use the [Cost Management APIs](../index.yml), Power BI, or the Azure
 Costs shown in Cost Management are rounded. Costs returned by the Query API aren't rounded. For example:
 
 - Cost analysis in the Azure portal - Charges are rounded using standard rounding rules: values more than 0.5 and higher are rounded up, otherwise costs are rounded down. Rounding occurs only when values are shown. Rounding doesn't happen during data processing and aggregation. For example, cost analysis aggregates costs as follows:
-  -	Charge 1: $0.004
+  -    Charge 1: $0.004
   - Charge 2: $0.004
-  -	Aggregate charge rendered: 0.004 + 0.004 = 0.008. The charge shown is $0.01.
+  -    Aggregate charge rendered: 0.004 + 0.004 = 0.008. The charge shown is $0.01.
 - Query API - Charges are shown at eight decimal places and rounding doesn't occur.
 
 

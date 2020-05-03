@@ -200,12 +200,12 @@ Create a file share in the storage account with [az storage share create](/cli/a
 
 ```azurecli-interactive
 az storage share create \
-  --name my-file-share1 \
+  --name my-file-share \
   --quota 2048 \
   --connection-string $saConnectionString1 > /dev/null
 
 az storage share create \
-  --name my-file-share2 \
+  --name my-file-share \
   --quota 2048 \
   --connection-string $saConnectionString2 > /dev/null
 ```

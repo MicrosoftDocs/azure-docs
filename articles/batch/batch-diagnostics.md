@@ -1,19 +1,8 @@
 ---
-title: Metrics, alerts, and diagnostic logs - Azure Batch | Microsoft Docs
+title: Metrics, alerts, and diagnostic logs
 description: Record and analyze diagnostic log events for Azure Batch account resources like pools and tasks.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-
-ms.assetid: 
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 12/05/2018
-ms.author: labrenne
 ms.custom: seodec18
 
 ---
@@ -44,6 +33,11 @@ To view all Batch account metrics:
 2. Under **Monitoring**, click **Metrics**.
 3. Select one or more of the metrics. If you want, select additional resource metrics by using the **Subscriptions**, **Resource group**, **Resource type**, and **Resource** dropdowns.
     * For count-based metrics (like "Dedicated Core Count" or "Low-Priority Node Count"), use the "Average" aggregation. For event-based metrics (like "Pool Resize Complete Events"), use the "Count" aggregation.
+
+> [!WARNING]
+> Do not use the "Sum" aggregation, which adds up the values of all data points received over the period of the chart
+> 
+> 
 
     ![Batch metrics](media/batch-diagnostics/metrics-portal.png)
 

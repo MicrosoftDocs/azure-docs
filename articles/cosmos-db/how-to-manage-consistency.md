@@ -1,10 +1,10 @@
 ---
 title: Manage consistency in Azure Cosmos DB
-description: Learn how to configure and manage consistency levels in Azure Cosmos DB using Azure portal, .Net SDK, Java SDK and various other SDKs
+description: Learn how to configure and manage consistency levels in Azure Cosmos DB using Azure portal, .NET SDK, Java SDK and various other SDKs
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/24/2020
 ms.author: mjbrown
 ---
 
@@ -16,42 +16,32 @@ This article explains how to manage consistency levels in Azure Cosmos DB. You l
 
 ## Configure the default consistency level
 
-The [default consistency level](consistency-levels.md) is the consistency level that clients use by default. Clients can always override it.
+The [default consistency level](consistency-levels.md) is the consistency level that clients use by default.
 
 ### CLI
 
-```bash
-# create with a default consistency
-az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Session
+Create a Cosmos account with Session consistency, then update the default consistency.
+
+```azurecli
+# Create a new account with Session consistency
+az cosmosdb create --name $accountName --resource-group $resourceGroupName --default-consistency-level Session
 
 # update an existing account's default consistency
-az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Eventual
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --default-consistency-level Strong
 ```
 
 ### PowerShell
 
-This example creates a new Azure Cosmos account with multiple write regions enabled, in East US and West US regions. The default consistency level is set to *Session* consistency.
+Create a Cosmos account with Session consistency, then update the default consistency.
 
 ```azurepowershell-interactive
-$locations = @(@{"locationName"="East US"; "failoverPriority"=0},
-             @{"locationName"="West US"; "failoverPriority"=1})
+# Create a new account with Session consistency
+New-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
+  -Location $locations -Name $accountName -DefaultConsistencyLevel "Session"
 
-$iprangefilter = ""
-
-$consistencyPolicy = @{"defaultConsistencyLevel"="Session"}
-
-$CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
-                        "locations"=$locations;
-                        "consistencyPolicy"=$consistencyPolicy;
-                        "ipRangeFilter"=$iprangefilter;
-                        "enableMultipleWriteLocations"="true"}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-  -ApiVersion "2015-04-08" `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "East US" `
-  -Name "myCosmosDbAccount" `
-  -Properties $CosmosDBProperties
+# Update an existing account's default consistency
+Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
+  -Name $accountName -DefaultConsistencyLevel "Strong"
 ```
 
 ### Azure portal
@@ -62,8 +52,10 @@ To view or modify the default consistency level, sign in to the Azure portal. Fi
 
 ## Override the default consistency level
 
-Clients can override the default consistency level that is set by the service. 
-Consistency level can be set on a per request, which overrides the default consistency level set at the account level.
+Clients can override the default consistency level that is set by the service. Consistency level can be set on a per request, which overrides the default consistency level set at the account level.
+
+> [!TIP]
+> Consistency can only be **relaxed** at the request level. To move from weaker to stronger consistency, update the default consistency for the Cosmos account.
 
 ### <a id="override-default-consistency-dotnet"></a>.NET SDK V2
 
@@ -85,8 +77,8 @@ ItemRequestOptions requestOptions = new ItemRequestOptions { ConsistencyLevel = 
 
 var response = await client.GetContainer(databaseName, containerName)
     .CreateItemAsync(
-        item, 
-        new PartitionKey(itemPartitionKey), 
+        item,
+        new PartitionKey(itemPartitionKey),
         requestOptions);
 ```
 
@@ -230,7 +222,6 @@ item = client.ReadItem(doc_link, options)
 How eventual is eventual consistency? For the average case, can we offer staleness bounds with respect to version history and time. The [**Probabilistically Bounded Staleness (PBS)**](https://pbs.cs.berkeley.edu/) metric tries to quantify the probability of staleness and shows it as a metric. To view the PBS metric, go to your Azure Cosmos account in the Azure portal. Open the **Metrics** pane, and select the **Consistency** tab. Look at the graph named **Probability of strongly consistent reads based on your workload (see PBS)**.
 
 ![PBS graph in the Azure portal](./media/how-to-manage-consistency/pbs-metric.png)
-
 
 ## Next steps
 

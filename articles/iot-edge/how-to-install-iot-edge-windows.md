@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 04/09/2020
 ms.author: kgremban
 ---
 # Install the Azure IoT Edge runtime on Windows
@@ -34,15 +34,18 @@ Use this section to review whether your Windows device can support IoT Edge, and
 
 ### Supported Windows versions
 
-For development and test scenarios, Azure IoT Edge with Windows containers can be installed on any version of Windows 10 or Windows Server 2019 (build 17763) that supports the containers feature. For information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems).
+IoT Edge for Windows requires Windows version 1809/build 17763, which is the latest [Windows long term support build](https://docs.microsoft.com/windows/release-information/). For Windows SKU support, see what is supported based on whether you're preparing for production scenarios or development and test scenarios:
 
-IoT Core devices must include the IoT Core- Windows Containers optional feature to support the IoT Edge runtime. Use the following command in a [remote PowerShell session](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) to check that Windows containers are supported on your device:
+* **Production**: For the latest information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems).
+* **Development and test**: For development and test scenarios, Azure IoT Edge with Windows containers can be installed on any version of Windows 10 or Windows Server 2019 that supports the containers feature.
+
+IoT Core devices must include the IoT Core Windows Containers optional feature to support the IoT Edge runtime. Use the following command in a [remote PowerShell session](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) to check that Windows containers are supported on your device:
 
 ```powershell
 Get-Service vmcompute
 ```
 
-If the service is present, you should get a successful response with the service status listed as **running**. If the vmcompute service is not found, then your device does not meet the requirements for IoT Edge. Contact your hardware provider to ask about support for this feature.
+If the service is present, you should get a successful response with the service status listed as **running**. If the `vmcompute` service is not found, then your device does not meet the requirements for IoT Edge. Contact your hardware provider to ask about support for this feature.
 
 ### Prepare for a container engine
 
@@ -118,6 +121,7 @@ For more information about these installation options, skip ahead to learn about
 In this second option, you provision the device using the IoT Hub Device Provisioning Service. Provide the **Scope ID** from a Device Provisioning Service instance along with any other information specific to your preferred [attestation mechanism](../iot-dps/concepts-security.md#attestation-mechanism):
 
 * [Create and provision a simulated IoT Edge device with a virtual TPM on Windows](how-to-auto-provision-simulated-device-windows.md)
+* [Create and provision a simulated IoT Edge device using X.509 certificates](how-to-auto-provision-x509-certs.md)
 * [Create and provision an IoT Edge device using symmetric key attestation](how-to-auto-provision-symmetric-keys.md)
 
 When you install and provision a device automatically, you can use additional parameters to modify the installation including:
@@ -130,33 +134,45 @@ For more information about these installation options, continue reading this art
 
 ## Offline or specific version installation
 
-During installation two files are downloaded:
+During installation three files are downloaded:
 
-* Microsoft Azure IoT Edge cab, which contains the IoT Edge security daemon (iotedged), Moby container engine, and Moby CLI.
-* Visual C++ redistributable package (VC runtime) MSI
+* A PowerShell script, which contains the installation instructions
+* Microsoft Azure IoT Edge cab, which contains the IoT Edge security daemon (iotedged), Moby container engine, and Moby CLI
+* Visual C++ redistributable package (VC runtime) installer
 
-If your device will be offline during installation, or if you want to install a specific version of IoT Edge, you can download one or both of these files ahead of time to the device. When it's time to install, point the installation script at the directory that contains the downloaded files. The installer checks that directory first, and then only downloads components that aren't found. If all the files are available offline, you can install with no internet connection.
+If your device will be offline during installation, or if you want to install a specific version of IoT Edge, you can download these files ahead of time to the device. When it's time to install, point the installation script at the directory that contains the downloaded files. The installer checks that directory first, and then only downloads components that aren't found. If all the files are available offline, you can install with no internet connection.
 
-For the latest IoT Edge installation files along with previous versions, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
+You can also use the offline installation path parameter to update IoT Edge. For more information, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
 
-To install with offline components, use the `-OfflineInstallationPath` parameter as part of the Deploy-IoTEdge command and provide the absolute path to the file directory. For example,
+1. For the latest IoT Edge installation files along with previous versions, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
-```powershell
-. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
-```
+2. Find the version that you want to install, and download the following files from the **Assets** section of the release notes onto your IoT device:
 
->[!NOTE]
->The `-OfflineInstallationPath` parameter looks for a file named **Microsoft-Azure-IoTEdge.cab** in the directory provided. Starting with IoT Edge version 1.0.9-rc4, there are two .cab files available to use, one for AMD64 devices and one for ARM32. Download the correct file for your device, then rename the file to remove the architecture suffix.
+   * IoTEdgeSecurityDaemon.ps1
+   * Microsoft-Azure-IoTEdge-amd64.cab from releases 1.0.9 or newer, or Microsoft-Azure-IoTEdge.cab from releases 1.0.8 and older.
 
-The `Deploy-IoTEdge` command installs the IoT Edge components, and then you need to continue to the `Initialize-IoTEdge` command to provision the device with its IoT Hub device ID and connection. Either run the command directly and provide a connection string from IoT Hub, or use one of the links in the previous section to learn how to automatically provision devices with Device Provisioning Service.
+   Microsoft-Azure-IotEdge-arm32.cab is also available beginning in 1.0.9 for testing purposes only. IoT Edge is not currently supported on Windows ARM32 devices.
 
-```powershell
-. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-Initialize-IoTEdge
-```
+   It's important to use the PowerShell script from the same release as the .cab file that you use because the functionality changes to support the features in each release.
 
-You can also use the offline installation path parameter with the Update-IoTEdge command.
+3. If the .cab file you downloaded has an architecture suffix on it, rename the file to just **Microsoft-Azure-IoTEdge.cab**.
+
+4. Optionally, download an installer for Visual C++ redistributable. For example, the PowerShell script uses this version: [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Save the installer in the same folder on your IoT device as the IoT Edge files.
+
+5. To install with offline components, [dot source](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) the local copy of the PowerShell script. Then, use the `-OfflineInstallationPath` parameter as part of the `Deploy-IoTEdge` command and provide the absolute path to the file directory. For example,
+
+   ```powershell
+   . <path>\IoTEdgeSecurityDaemon.ps1
+   Deploy-IoTEdge -OfflineInstallationPath <path>
+   ```
+
+   The deployment command will use any components found in the local file directory provided. If either the .cab file or the Visual C++ installer is missing, it will attempt to download them.
+
+6. Run the `Initialize-IoTEdge` command to provision your device with an identity in IoT Hub. Either provide a device connection string for manual provisioning, or choose one of the methods described in the previous [automatically provision](#option-2-install-and-automatically-provision) section.
+
+   If your device restarted after running `Deploy-IoTEdge`, dot source the PowerShell script again before running `Initialize-IoTEdge`.
+
+For more information about the offline installation option, skip ahead to learn about [all installation parameters](#all-installation-parameters).
 
 ## Verify successful installation
 
@@ -223,6 +239,18 @@ The Uninstall-IoTEdge command does not work on Windows IoT Core. To remove IoT E
 
 For more information about uninstallation options, use the command `Get-Help Uninstall-IoTEdge -full`.
 
+## Verify installation script
+
+The installation commands provided in this article use the Invoke-WebRequest cmdlet to request the installation script from `aka.ms/iotedge-win`. This link points to the`IoTEdgeSecurityDaemon.ps1` script from the most recent [IoT Edge release](https://github.com/Azure/azure-iotedge/releases). You can also download this script, or a version of the script from a specific release, to run the installation commands on your IoT Edge device.
+
+The provided script is signed to increase security. You can verify the signature by downloading the script to your device then running the following PowerShell command:
+
+```powershell
+Get-AuthenticodeSignature "C:\<path>\IotEdgeSecurityDaemon.ps1"
+```
+
+The output status is **Valid** if the signature is verified.
+
 ## All installation parameters
 
 The previous sections introduced common installation scenarios with examples of how to use parameters to modify the installation script. This section provides reference tables of the common parameters used to install, update, or uninstall IoT Edge.
@@ -247,10 +275,12 @@ The Initialize-IoTEdge command configures IoT Edge with your device connection s
 | --------- | --------------- | -------- |
 | **Manual** | None | **Switch parameter**. If no provisioning type is specified, manual is the default value.<br><br>Declares that you will provide a device connection string to provision the device manually |
 | **Dps** | None | **Switch parameter**. If no provisioning type is specified, manual is the default value.<br><br>Declares that you will provide a Device Provisioning Service (DPS) scope ID and your device's Registration ID to provision through DPS.  |
-| **DeviceConnectionString** | A connection string from an IoT Edge device registered in an IoT Hub, in single quotes | **Required** for manual installation. If you don't provide a connection string in the script parameters, you will be prompted for one during installation. |
-| **ScopeId** | A scope ID from an instance of Device Provisioning Service associated with your IoT Hub. | **Required** for DPS installation. If you don't provide a scope ID in the script parameters, you will be prompted for one during installation. |
-| **RegistrationId** | A registration ID generated by your device | **Required** for DPS installation if using TPM or symmetric key attestation. |
-| **SymmetricKey** | The symmetric key used to provision the IoT Edge device identity when using DPS | **Required** for DPS installation if using symmetric key attestation. |
+| **DeviceConnectionString** | A connection string from an IoT Edge device registered in an IoT Hub, in single quotes | **Required** for manual provisioning. If you don't provide a connection string in the script parameters, you will be prompted for one. |
+| **ScopeId** | A scope ID from an instance of Device Provisioning Service associated with your IoT Hub. | **Required** for DPS provisioning. If you don't provide a scope ID in the script parameters, you will be prompted for one. |
+| **RegistrationId** | A registration ID generated by your device | **Required** for DPS provisioning if using TPM or symmetric key attestation. **Optional** if using X.509 certificate attestation. |
+| **X509IdentityCertificate** | The URI path to the X.509 device identity certificate on the device. | **Required** for DPS provisioning if using X.509 certificate attestation. |
+| **X509IdentityPrivateKey** | The URI path to the X.509 device identity certificate key on the device. | **Required** for DPS provisioning if using X.509 certificate attestation. |
+| **SymmetricKey** | The symmetric key used to provision the IoT Edge device identity when using DPS | **Required** for DPS provisioning if using symmetric key attestation. |
 | **ContainerOs** | **Windows** or **Linux** | If no container operating system is specified, Windows is the default value.<br><br>For Windows containers, IoT Edge uses the moby container engine included in the installation. For Linux containers, you need to install a container engine before starting the installation. |
 | **InvokeWebRequestParameters** | Hashtable of parameters and values | During installation, several web requests are made. Use this field to set parameters for those web requests. This parameter is useful to configure credentials for proxy servers. For more information, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md). |
 | **AgentImage** | IoT Edge agent image URI | By default, a new IoT Edge installation uses the latest rolling tag for the IoT Edge agent image. Use this parameter to set a specific tag for the image version, or to provide your own agent image. For more information, see [Understand IoT Edge tags](how-to-update-iot-edge.md#understand-iot-edge-tags). |

@@ -1,7 +1,7 @@
 ---
 title: Index of policy samples
 description: Index of built-ins for Azure Policy. Categories Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 01/31/2020
+ms.date: 03/25/2020
 ms.topic: sample
 ---
 # Azure Policy Samples
@@ -25,6 +25,10 @@ The following are examples of different patterns using the language and operator
 - [Count operator](./pattern-count-operator.md)
 - [Grouping policy definitions in an initiative](./pattern-group-with-initiative.md)
 - [Deploying resources with deployIfNotExists](./pattern-deploy-resources.md)
+
+## Other Samples
+
+- [GitHub - Community Policy repo](https://github.com/Azure/Community-Policy)
 
 ## Next steps
 

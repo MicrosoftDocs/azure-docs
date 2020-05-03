@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 03/15/2020
 ms.author: memildin
 
 ---
@@ -18,7 +18,7 @@ This topic explains about incidents in Security Center, and how to use remediate
 
 ## What is a security incident?
 
-In Security Center, a security incident is an aggregation of all alerts for a resource that align with [kill chain](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) list. Click on an incident to view the related alerts, which enables you to obtain more information about each occurrence.
+In Security Center, a security incident is an aggregation of all alerts for a resource that align with [kill chain](alerts-reference.md#intentions) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) list. Click on an incident to view the related alerts, which enables you to obtain more information about each occurrence.
 
 ## Managing security incidents
 
@@ -39,28 +39,10 @@ In Security Center, a security incident is an aggregation of all alerts for a re
 
 1. Follow the remediation steps given for each alert.
 
-For more information about alerts, [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md).
-
-The following topics guide you through the different alerts, according to resource types:
-
-* [Alerts for IaaS Windows machines](threat-protection.md#windows-machines)
-* [Alerts for IaaS Linux machines](threat-protection.md#linux-machines)
-* [Alerts for Azure App Service](threat-protection.md#app-services)
-* [Alerts for Azure containers](threat-protection.md#azure-containers)
-* [Alerts for SQL Database and SQL Data Warehouse](threat-protection.md#data-sql)
-* [Alerts for Azure Storage](threat-protection.md#azure-storage)
-* [Alerts for Cosmos DB](threat-protection.md#cosmos-db)
-
-The following topics explain how Security Center uses the different telemetry that it collects from integrating with the Azure infrastructure, in order to apply additional protection layers for resources deployed on Azure:
-
-* [Alerts for Azure management layer (Azure Resource Manager) (Preview)](threat-protection.md#management-layer)
-* [Alerts for Azure Key Vault (Preview)](threat-protection.md#azure-keyvault)
-* [Alerts for Azure network layer](threat-protection.md#network-layer)
-* [Alerts from other services](threat-protection.md#alerts-other)
 
 ## See also
-In this document, you learned how to use the security incident capability in Security Center. To learn more about Security Center, see the following:
+In this document, you learned how to use the security incident capability in Security Center. For related information, see the following:
 
-* [Security alerts in Azure Security Center](security-center-alerts-overview.md).
+* [Threat protection in Azure Security Center](threat-protection.md)
+* [Security alerts in Azure Security Center](security-center-alerts-overview.md)
 * [Manage security alerts](security-center-managing-and-responding-alerts.md)
-* [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)

@@ -4,16 +4,21 @@ description: Learn how to migrate a StorSimple 8100 or 8600 appliance to Azure F
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ---
 
 # StorSimple 8100 and 8600 migration to Azure File Sync
 
-The StorSimple 8000 series represents two separate SKUs and it is possible to migrate the data from either of these SKUs to an Azure File Sync environment. This article covers migrating both appliances to Azure File Sync and provides the necessary background knowledge and migrations steps to make your migration to Azure File Sync a success.
+The StorSimple 8000 series is represented by either the 8100 or the 8600 physical, on-premises appliances, and their cloud service components. It is possible to migrate the data from either of these appliances to an Azure File Sync environment. Azure File Sync is the default and strategic long-term Azure service that StorSimple appliances can be migrated to.
+
+StorSimple 8000 series will reach its [end-of-life](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%208000%20Series) in December 2022. It is important to begin planning your migration as soon as possible. This article provides the necessary background knowledge and migrations steps for a successful migration to Azure File Sync. 
 
 ## Azure File Sync
+
+> [!IMPORTANT]
+> Microsoft is committed to assist customers in their migration. Email AzureFilesMigration@microsoft .com for a customized migration plan as well as assistance during the migration.
 
 Azure File Sync is a Microsoft cloud service, based on two main components:
 
@@ -127,12 +132,21 @@ The specs you decide on need to encompass every share/path or the root of the St
 The overall size of the data is less of a bottleneck - it is the number of items you need to tailor the machine specs to.
 
 * [Learn how to size a Windows Server based on the number of items (files and folders) you need to sync.](storage-sync-files-planning.md#recommended-system-resources)
+
+    **Please note:** The previously linked article presents a table with a range for server memory (RAM). Orient towards the large number for the Azure VM. You can orient towards the smaller number for your on-premises machine.
+
 * [Learn how to deploy a Windows Sever VM.](../../virtual-machines/windows/quick-create-portal.md)
 
 > [!IMPORTANT]
 > Make sure that the VM is deployed in the same Azure region as the StorSimple 8020 virtual appliance. If as part of this migration, you also need to change the region of your cloud data from the region it is stored in today, you can do that at a later step, when you provision Azure file shares.
 
-### Expose the StorSimple 8020 volumes to the VM
+> [!IMPORTANT]
+> Often, an on-premises Windows Server is used to front your on-premises StorSimple appliance. In such a configuration, it is possible to enable the "[Data Deduplication](https://docs.microsoft.com/windows-server/storage/data-deduplication/install-enable)" feature on that Windows Server. **If you used Data Deduplication with your StorSimple data, ensure that you enable Data Deduplication on this Azure VM as well.** Don't confuse this file-level deduplication with StorSimples built-in block-level deduplication, for which no action is necessary.
+
+> [!IMPORTANT]
+> To optimize for performance, deploy a **fast OS disk** for your cloud VM. You will store the sync database on the OS disk for all of your data volumes. Furthermore, ensure that you create a **large OS disk**. Depending on the number of items (files and folders) on your StorSimple volumes, the OS disk might need a **several hundred GiB** of space to accommodate the sync database.
+
+### Expose the StorSimple 8020 volumes to the Azure VM
 
 In this phase, you are connecting one or several StorSimple volumes from the 8020 virtual appliance over iSCSI to the Windows Server VM you've provisioned.
 
@@ -233,10 +247,10 @@ During this migration process, you will mount several volume clones to your VM, 
 > [!IMPORTANT]
 > For this to work, a registry key must be set on the server before Azure File Sync is configured.
 
-1. Create a new directory on the system drive of the VM. Azure File Sync information will need to be persisted there instead of on the mounted volume clones. For example: `“C:\syncmetadata”`
+1. Create a new directory on the system drive of the VM. Azure File Sync information will need to be persisted there instead of on the mounted volume clones. For example: `"C:\syncmetadata"`
 2. Open regedit and locate the following registry hive: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. Create a new Key of type String, named: ***MetadataRootPath***
-4. Set the full path to the directory you created on the system volume, for example: `C:\syncmetadata”`
+4. Set the full path to the directory you created on the system volume, for example: `C:\syncmetadata"`
 
 ### Configure Azure File Sync on the Azure VM
 
@@ -329,7 +343,7 @@ We can bring the cache of the Windows Server up to the state of the appliance an
 RoboCopy command:
 
 ```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Background:
@@ -356,6 +370,14 @@ Background:
    :::column-end:::
    :::column span="1":::
       Outputs to console window. Used in conjunction with output to a log file.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /B
+   :::column-end:::
+   :::column span="1":::
+      Runs RoboCopy in the same mode a backup application would use. It allows RoboCopy to move files that the current user does not have permissions to.
    :::column-end:::
 :::row-end:::
 :::row:::

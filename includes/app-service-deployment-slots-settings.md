@@ -32,9 +32,9 @@ Features marked with an asterisk (*) are planned to be unswapped.
 * WebJobs schedulers
 * IP restrictions
 * Always On
-* Diagnostic log settings
+* Diagnostic settings
 * Cross-origin resource sharing (CORS)
 
 > [!NOTE]
-> Certain app settings that apply to unswapped settings are also not swapped. For example, since diagnostic log settings are not swapped, related app settings like `WEBSITE_HTTPLOGGING_RETENTION_DAYS` and `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` are also not swapped, even if they don't show up as slot settings.
+> Certain app settings that apply to unswapped settings are also not swapped. For example, since diagnostic settings are not swapped, related app settings like `WEBSITE_HTTPLOGGING_RETENTION_DAYS` and `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` are also not swapped, even if they don't show up as slot settings.
 >
