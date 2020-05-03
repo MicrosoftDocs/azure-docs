@@ -32,14 +32,14 @@ When you want to update the credentials for an AKS cluster, you can choose to:
 To update the credentials for the existing service principal, get the service principal ID of your cluster using the [az aks show][az-aks-show] command. The following example gets the ID for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. The service principal ID is set as a variable named *SP_ID* for use in additional command.
 
 ```azurecli-interactive
-SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
+$SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
 ```
 
 With a variable set that contains the service principal ID, now reset the credentials using [az ad sp credential reset][az-ad-sp-credential-reset]. The following example lets the Azure platform generate a new secure secret for the service principal. This new secure secret is also stored as a variable.
 
 ```azurecli-interactive
-SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
+$SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 ```
 
 Now continue on to [update AKS cluster with new service principal credentials](#update-aks-cluster-with-new-service-principal-credentials). This step is necessary for the Service Principal changes to reflect on the AKS cluster.
