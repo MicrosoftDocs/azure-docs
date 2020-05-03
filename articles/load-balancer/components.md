@@ -15,9 +15,7 @@ ms.author: allensu
 ---
 # Azure Load Balancer components
 
-Azure Load Balancer contains several key components for its operation.  
-
-These components can be configured in your subscription via Azure portal, Azure CLI, Azure PowerShell or Templates.
+Azure Load Balancer contains several key components for its operation. These components can be configured in your subscription via Azure portal, Azure CLI, Azure PowerShell or Templates.
 
 ## Frontend IP configurations
 
@@ -27,6 +25,14 @@ The IP address of the load balancer. It's the point of contact for clients. Thes
 - **Private IP Address**
 
 The selection of the IP address determines the **type** of load balancer created. Private IP address selection creates an internal load balancer. Public IP address selection creates a public load balancer.
+
+|  | Public Load Balancer  | Internal Load Balancer |
+| ---------- | ---------- | ---------- |
+| Frontend IP configuration| Public IP address | Private IP address|
+| Description | A public load balancer maps the public IP and port of incoming traffic to the private IP and port of the VM. Load balancer maps traffic the other way around for the response traffic from the VM. You can distribute specific types of traffic across multiple VMs or services by applying load balancing rules. For example, you can spread the load of web request traffic across multiple web servers.| An internal load balancer distributes traffic to resources that are inside a virtual network. Azure restricts access to the frontend IP addresses of a virtual network that are load balanced. Front-end IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources. |
+| SKUs supported | Basic, Standard | Basic, Standard |
+
+![Tiered load balancer example](./media/load-balancer-overview/load-balancer.png)
 
 ## Backend pool
 
