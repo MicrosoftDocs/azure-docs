@@ -30,10 +30,11 @@ In this tutorial, you learn how to:
 
 ## Create a Hugo App
 
-Create a Hugo app using the Hugo command line (CLI):
+Create a Hugo app using the Hugo Command Line Interface (CLI):
 
-1. Download the Hugo binary for your OS from their [GitHub Releases](https://github.com/gohugoio/hugo/releases) or follow their [installation guide](https://gohugo.io/getting-started/installing/).
+1. Download the Hugo binary for your OS from the [GitHub Releases](https://github.com/gohugoio/hugo/releases) or follow the [installation guide](https://gohugo.io/getting-started/installing/).
 
+1. Open a terminal
 1. Run the Hugo CLI to create a new app.
 
    ```bash
@@ -52,7 +53,7 @@ Create a Hugo app using the Hugo command line (CLI):
     git init
    ```
 
-1. Add a theme.
+1. Next, add a theme to the site.
 
    ```bash
    git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
@@ -68,7 +69,7 @@ Create a Hugo app using the Hugo command line (CLI):
 
 ## Push your application to GitHub
 
-You'll need to have a repository on GitHub to connect Azure Static Web Apps to:
+You need a repository on GitHub to connect to Azure Static Web Apps. The following steps show you how to create a repository for your site.
 
 1. Create a blank GitHub repo (don't create a README) from [https://github.com/new](https://github.com/new) named **hugo-static-app**.
 
@@ -81,7 +82,7 @@ You'll need to have a repository on GitHub to connect Azure Static Web Apps to:
 1. Push your local repo up to GitHub.
 
    ```bash
-   git push --upstream origin master
+   git push --set-upstream origin master
    ```
 
 ## Deploy your web app
@@ -117,12 +118,15 @@ The following steps show you how to create a new static site app and deploy it t
 1. For the _Branch_ select **master**.
 
    ![Completed GitHub information](./media/static-web-apps-publish-hugo/completed-github-info.png)
-
+1. Click **Next : Build >**
 ### Build
 
-Next, you add configuration settings that the build process uses to build your app.
+Next, you add configuration settings that the build process uses to build your app. The following settings configure the GitHub Action workflow file.
 
-1. To configure the settings of the GitHub Action, set the _App location_ to **/** and _App artifact location_ to **public**. A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
+1. Set _App location_ to **/**.
+1. Set _App artifact location_ to **public**.
+
+A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
 
    ![Build Settings](./media/static-web-apps-publish-hugo/build-details.png)
 
@@ -138,7 +142,7 @@ Next, you add configuration settings that the build process uses to build your a
    git pull
    ```
 
-1. Open the Hugo app in a text editor and open `.github/workflows/azure-pages-<WORKFLOW_NAME>.yml`.
+1. Open the Hugo app in a text editor and open the _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ file.
 
 1. Replace the line `- uses: actions/checkout@v1` (line 18) with the following, to build the Hugo application.
 
@@ -166,7 +170,7 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Wait for the GitHub Action to complete.
 
-1. In the Azure Portal for the newly created Azure Static Web Apps, click the _URL_ link to open your deployed application.
+1. In the Azure portal's _Overview_ window of newly created Azure Static Web Apps resource, click the _URL_ link to open your deployed application.
 
    ![Deployed application](./media/static-web-apps-publish-hugo/deployed-app.png)
 
