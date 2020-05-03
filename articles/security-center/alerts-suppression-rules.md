@@ -46,7 +46,7 @@ To create a rule directly in the Azure portal:
 
     - Or, select the **suppression rules** link at the top of the page, and from the suppression rules page select **Create new suppression rule**:
 
-        [![**Create new suppression rule** button](media/alerts-suppression-rules/create-new-suppression-rule.png)](media/alerts-suppression-rules/create-new-suppression-rule.png#lightbox)
+        ![Create new suppression rule** button](media/alerts-suppression-rules/create-new-suppression-rule.png)
 
 1. In the new suppression rule pane, enter the details of your new rule.
 
@@ -96,8 +96,7 @@ To delete one or more rules you've created, use the suppression rules page.
 
 1. To delete multiple rules, select the check boxes for the rules to be deleted and select **Delete**.
 
-    [![Deleting one or more suppression rules](media/alerts-suppression-rules/deleting-multiple-alerts.png)](media/alerts-suppression-rules/deleting-multiple-alerts.png#lightbox)
-
+    ![Deleting one or more suppression rules](media/alerts-suppression-rules/deleting-multiple-alerts.png)
 
 ## Viewing alerts that have been suppressed
 
