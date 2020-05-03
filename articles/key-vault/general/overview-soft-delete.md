@@ -19,7 +19,7 @@ Key Vault's soft-delete feature allows recovery of the deleted vaults and vault 
 
 ## Supporting interfaces
 
-The soft-delete feature is initially available through the [REST](/rest/api/keyvault/), [CLI](soft-delete-cli.md), [PowerShell](soft-delete-powershell.md) and [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) interfaces.
+The soft-delete feature is initially available through the [REST](/rest/api/keyvault/), [CLI](soft-delete-cli.md), [PowerShell](soft-delete-powershell.md), and [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) interfaces, as well as [ARM templates](https://docs.microsoft.com/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## Scenarios
 
@@ -41,7 +41,7 @@ You cannot reuse the name of a key vault that has been soft-deleted until the re
 
 ### Purge protection 
 
-Purge protection is an optional Key Vault behavior and is **not enabled by default**. It can be turned on via [CLI](soft-delete-cli.md#enabling-purge-protection) or [PowerShell](soft-delete-powershell.md#enabling-purge-protection).
+Purge protection is an optional Key Vault behavior and is **not enabled by default**. Purge protection can only be enabled once soft-delete is enabled.  It can be turned on via [CLI](soft-delete-cli.md#enabling-purge-protection) or [PowerShell](soft-delete-powershell.md#enabling-purge-protection).
 
 When purge protection is on, a vault or an object in the deleted state cannot be purged until the retention period has passed. Soft-deleted vaults and objects can still be recovered, ensuring that the retention policy will be followed. 
 

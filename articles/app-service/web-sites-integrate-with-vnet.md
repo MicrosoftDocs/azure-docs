@@ -19,6 +19,10 @@ Azure App Service has two variations:
 
 ## Enable VNet Integration
 
+> [!NOTE]
+> If the "Networking” blade is disabled (grayed out) in the menu for your Linux apps, it means that feature is currently not available.
+>
+
 1. Go to the **Networking** UI in the App Service portal. Under **VNet Integration**, select **Click here to configure**.
 
 1. Select **Add VNet**.

@@ -58,7 +58,7 @@ The configuration file defines:
 
 [appsettings.json](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) from the [.NET Core console daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) sample.
 
-```JSon
+```json
 {
   "Instance": "https://login.microsoftonline.com/{0}",
   "Tenant": "[Enter here the tenantID or domain name for your Azure AD tenant]",

@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 05/01/2020
 ---
 
 # Create an Azure virtual machine offer
@@ -14,7 +14,7 @@ ms.date: 04/10/2020
 > [!IMPORTANT]
 > We're moving the management of your Azure VM offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please continue to follow the instructions in [Create Virtual Machine offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer) in Cloud Partner Portal to manage your offers.
 
-This article describes how to create and publish an Azure virtual machine offer to [Azure Marketplace](https://azuremarketplace.microsoft.com/). It addresses both Windows- and Linux-based virtual machines that contain an operating system, virtual hard disk (VHD), and up to 16 data disks.
+This article describes how to create and publish an Azure virtual machine offer to [Azure Marketplace](https://azuremarketplace.microsoft.com/). It addresses both Windows- and Linux-based virtual machines that contain an operating system, virtual hard disk (VHD), and up to 16 data disks. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Introduction
 
@@ -29,19 +29,19 @@ Publishing to Azure Marketplace has the following benefits:
 
 ### Before you begin
 
-If you haven't done so yet, review the [Virtual machine offer publishing guide](https://aka.ms/Virtualmachineofferpublishingguide) and this Azure virtual machine material:
+If you haven't done so yet, review the [Virtual machine offer publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) and this Azure virtual machine material:
 
 - Quickstart guides
   - [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
   - [GitHub Azure Quickstart templates](https://github.com/azure/azure-quickstart-templates)
 - Tutorials
-  - [Linux VMs](https://aka.ms/LinuxVMtutorial)
-  - [Windows VMs](https://aka.ms/windowsvms)
+  - [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
+  - [Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - Samples
-  - [Azure CLI Samples for Linux VMs](https://aka.ms/linuxclisamples)
-  - [Azure PowerShell for Linux VMs](https://aka.ms/linuxpowershellsamples)
-  - [Azure CLI Samples for Windows VMs](https://aka.ms/windowsclisamples)
-  - [Azure PowerShell for Windows VMs](https://aka.ms/windowspowershellvmsamples)
+  - [Azure CLI Samples for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
+  - [Azure PowerShell for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
+  - [Azure CLI Samples for Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
+  - [Azure PowerShell for Windows VMs](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
 
 ### Fundamentals in technical knowledge
 
@@ -53,17 +53,18 @@ Your engineering team should understand the following Microsoft technologies:
 - How to [design and architect Azure applications](https://azure.microsoft.com/solutions/architecture/)
 - Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking)
 
-## Create an Azure virtual machine offer
+## Create a new offer
 
-Before you can create an Azure virtual machine offer, you must have a commercial marketplace account in Partner Center. If you haven't created one yet, see [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
+3. On the Overview page, select **+ New offer** > **Azure Virtual Machine**.
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home), and then from the top menu, select **Dashboard**.
-2. In the left-nav bar, select **Commercial Marketplace**, then **Overview**.
-3. On the **Overview** page, select **+ New offer**, then **Azure Virtual Machine**. The **New offer** dialog box appears.
+    ![Illustrates the left-navigation menu.](./media/new-offer-azure-vm.png)
 
-    ![Illustrates the Overview page in Partner Center with the New offer button and Azure Virtual Machine offer selected.](media/avm-create7.png)
+> [!NOTE]
+> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
 
-## Offer ID and alias
+## New offer
 
 Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
@@ -71,7 +72,9 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 - Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1** here, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - The Offer ID can't be changed after you select **Create**.
 
-Enter an **Offer alias**. This is the name used for the offer in Partner Center. This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
+Enter an **Offer alias**. This is the name used for the offer in Partner Center.
+
+- This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
 
 Select **Create** to generate the offer and continue.
 
@@ -79,27 +82,27 @@ Select **Create** to generate the offer and continue.
 
 ### Test drive
 
-Set up a demonstration (test drive) that lets customers try your offer before purchasing it. To create a demonstration environment that lets customers try your offer for a fixed period of time, see [Test Drive your offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
+A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
 
-To enable a test drive, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box.
+To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box.
 
 Additional test drive resources:
 
 - [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Marketing best practices](https://aka.ms/TestDriveMarketingBestPractices)
-- [Test Drives overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (make sure your pop-up blocker is off).
+- [Marketing best practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Test drives overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (make sure your pop-up blocker is off)
 
 ### Lead management
 
 When publishing your offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you will enable **Test Drive** (see prior section), otherwise it's optional.
 
 1. Select a lead destination where you want us to send customer leads. Partner Center supports the following CRM systems:
-    - [Dynamics 365](https://aka.ms/Dyn365LeadMgmt) for customer engagement
-    - [Marketo](https://aka.ms/LeadMgmtMarketo)
-    - [Salesforce](https://aka.ms/LeadMgmtSalesforce)
+    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for customer engagement
+    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
-    > If your CRM system isn't listed above, use [Azure Table](https://aka.ms/AzureTableLeadMgmt) or [Https Endpoint](https://aka.ms/LeadMgmtHTTPS) to store customer lead data. Then export the data to your CRM system.
+    > If your CRM system isn't listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data. Then export the data to your CRM system.
 
 2. Connect your offer to the lead destination when publishing in Partner Center.
 3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to deploy the offer yourself in the preview environment.
@@ -208,9 +211,13 @@ Here are some tips for writing your description:
 - Don't rely on features and functionality to sell your offer. Instead, focus on the value your offer provides.
 - Use industry-specific or benefit-based words.
 
-To make your offer description more engaging, use the rich text editor to format your description. The rich text editor lets you add numbers, bullets, bold, italics, and indents to make your description more readable.
+To make your offer description more engaging, use the rich text editor to apply formatting.
 
-![Illustrates the Overview page in Partner Center with the New offer button and Consulting service offer selected.](media/power-bi-rich-text-editor.png)
+![Using the rich text editor](./media/rich-text-editor.png)
+
+| <center>Change text format | <center>Add bullets or numbering | <center>Add or remove text indent |
+| --- | --- | --- |
+| <center>![Using the rich text editor to change text format](./media/text-editor3.png) |  <center>![Using the rich text editor to add lists](./media/text-editor4.png) |  <center>![Using the rich text editor to indent](./media/text-editor5.png) |
 
 #### Privacy policy link
 
@@ -250,6 +257,9 @@ Provide contact information for Microsoft to use when there are issues with your
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
+>[!Note]
+>If you have an issue uploading files, ensure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+
 #### Marketplace logos
 
 Provide PNG files of your offer's logo in the following four pixel sizes:
@@ -263,13 +273,13 @@ All four logos are required and are used in different places in the marketplace 
 
 #### Screenshots
 
-Add up to five screenshots that show how your offer works. Each screenshot must be 1280 x 720 pixels in size and in PNG format. You must also add a caption to describe your screenshot.
+Add up to five screenshots that show how your offer works. Each screenshot must be 1280 x 720 pixels in size and in PNG format. Each screenshot must include a caption.
 
 #### Videos
 
-Add up to five videos that demonstrate your offer. These should be hosted on an external video service. Enter each video's name, web address, and a thumbnail PNG image of the video at 1280 x 720 pixels in size.
+Add up to five videos that demonstrate your offer. These should be hosted on an external video service. Enter each video's name, web address, and a thumbnail PNG image of the video at 1280 x 720 pixels.
 
-For additional marketplace listing resources, see [Best practices for marketplace offer listings](https://aka.ms/LdMgmtOfferListingBestPractices).
+For additional marketplace listing resources, see [Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
 
 Select **Save draft** before continuing.
 
@@ -323,7 +333,7 @@ Select **Create**.
 
 Set the high-level configuration for the type of plan, whether it reuses technical configuration from another plan, and in which Azure regions the plan should be available. Your selections here determine which fields are displayed on other tabs for the same plan.
 
-#### Reuse technical configuration
+#### Re-use technical configuration
 
 If you have more than one plan of the same type, and the packages are identical between them, you can select **this plan reuses technical configuration from another plan**. This option lets you select one of the other plans of the same type for this offer and reuse its technical configuration.
 
@@ -334,7 +344,7 @@ If you have more than one plan of the same type, and the packages are identical 
 
 Your plan must be made available in at least one Azure region.
 
-Select the **Azure Global** option to make your plan available to customers in all public Azure regions that have commercial marketplace integration. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Select the **Azure Global** option to make your plan available to customers in all Azure Global regions that have commercial marketplace integration. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
 Select the **Azure Government** option to make your plan available in the [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) region. This region provides controlled access for customers from  U.S. federal, state, local, or tribal entities, as well as partners eligible to serve them. You, as the publisher, are responsible for any compliance controls, security measures, and best practices. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
 
@@ -345,7 +355,7 @@ Before publishing to [Azure Government](https://docs.microsoft.com/azure/azure-g
 
 #### Azure Government certifications
 
-This option is only visible if you select **Azure Government** under **Azure regions**.
+This option is only visible if you selected **Azure Government**.
 
 Azure Government services handle data that is subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. To bring awareness to your certifications for these programs, you can provide up to 100 links that describe them. These can be either links to your listing on the program directly or links to descriptions of your compliance with them on your own websites. These links visible to Azure Government customers only.
 
@@ -353,7 +363,7 @@ Select **Save draft** before continuing.
 
 ### Plan listing
 
-This is where you configure listing detail of the plan. This tab displays specific information that can differ between plans in the same offer.
+This is where you configure listing details of the plan. This tab displays specific information that can differ between plans in the same offer.
 
 #### Plan name
 
@@ -480,9 +490,9 @@ To enable a test drive, select the Enable a test drive check box on the [Offer s
 
 Additional test drive resources:
 
-- Technical best practices
-- Marketing best practices
-- Test Drives overview (PDF; make sure your pop-up blocker is off).
+- [Marketing best practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; make sure your pop-up blocker is off)
 
 Select **Save draft** before continuing.
 
@@ -549,4 +559,4 @@ These examples show how the offer appears in Azure Marketplace.
 
 ## Next step
 
-- [Update an existing offer in the commercial marketplace](https://aka.ms/UpdateOfferCM)
+- [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

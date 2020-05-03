@@ -4,10 +4,10 @@ description: Learn how to use Spot VMs to save on costs.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: cynthn
-#pmcontact: jagaveer
+ms.reviewer: jagaveer
 ---
 
 
