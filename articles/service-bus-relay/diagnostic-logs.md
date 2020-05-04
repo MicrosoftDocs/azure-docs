@@ -77,7 +77,7 @@ Here's a sample hybrid connections event in JSON format.
     "endpoint": "sb://myrelaynamespace.servicebus.windows.net/myhybridconnection/7006a0db-27eb-445c-939b-ce86133014cc_G5",
     "operationName": "Microsoft.Relay/HybridConnections/NewSenderRegistering",
     "EventTimeString": "2020-04-27T20:27:57.3842810Z",
-    "message": "A new on-premises sender is registering.",
+    "message": "A new sender is registering.",
     "category": "HybridConnectionsEvent"
 }
 ```
@@ -99,8 +99,8 @@ Here's a sample hybrid connections event in JSON format.
  ListenerSentHttpResponse | Relay service has received an HTTP response from the listener. | 
 | ListenerUnregistered | The listener is unregistered. | 
 | ListenerUnresponsive | The listener is unresponsive when returning a response. | 
-| MessageSendingToOnPremListener | Message is being sent to listener. |
-| MessageSentToOnPremListener | Message is sent to listener. | 
+| MessageSendingToListener | Message is being sent to listener. |
+| MessageSentToListener | Message is sent to listener. | 
 | NewListenerRegistered | New listener registered. |
 | NewSenderRegistering | New sender is registering. | 
 | ProcessingRequestFailed | The processing of a Hybrid Connection operation has failed. | 
