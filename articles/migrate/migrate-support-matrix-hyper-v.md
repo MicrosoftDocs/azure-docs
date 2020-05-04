@@ -49,7 +49,7 @@ Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for disco
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---hyper-v) for Hyper-V.
 - Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
-- In Azure Government, you must deploy the appliance using the script.
+- In Azure Government, you must deploy the appliance [using the script](deploy-appliance-script-government.md).
 
 ## Port access
 
