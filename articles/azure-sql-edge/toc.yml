@@ -52,4 +52,4 @@
   - name: Processing timeseries data
     items:
     - name: Date_Bucket (Transact-SQL)
-      href: data-bucket-tsql.md
+      href: date-bucket-tsql.md
