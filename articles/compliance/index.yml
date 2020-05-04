@@ -401,11 +401,11 @@ additionalContent:
             - text: Australian security and privacy requirements
               url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-0c790495
             - text: Singapore security and privacy requirements
-              url: https://aka.ms/azurecompliancesingapore
+              url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-ced8dbf9
             - text: Malaysian security and privacy requirements
-              url: https://aka.ms/azurecompliancemalaysia
+              url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-8b936d6a
             - text: New Zealand Security and Privacy Requirements
-              url: https://aka.ms/azurecompliancenewzealand
+              url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-f19e44c2
             - text: Navigating your way to the cloud in Europe 
               url: https://www.microsoft.com/en-ie/lcc_cloud/default.aspx
             - text: Navigating your way to the cloud in Asia
@@ -430,11 +430,11 @@ additionalContent:
             - text: FCA Microsoft's approach to cloud guidance
               url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=991d2ba5-da00-48ed-a95e-a16f61db384c&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
             - text: FERPA implementation guide
-              url: https://aka.ms/azureferpa
+              url: https://gallery.technet.microsoft.com/Azure-FERPA-Implementation-441b6b71
             - text: GDPR control mapping
               url: https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3?command=Download&downloadType=Document&downloadId=62d400be-b281-48a2-b40a-eb1a89e087cf&tab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913&docTab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913_AuditedControls
             - text: GXP guidelines
-              url: https://aka.ms/Azure-GxP-Guidelines
+              url: https://gallery.technet.microsoft.com/Azure-GxP-Guidelines-ab1b98d9
             - text: HIPAA/HITECH Act implementation
               url: https://gallery.technet.microsoft.com/Azure-HIPAAHITECH-Act-1d27efb0
 
@@ -452,7 +452,7 @@ additionalContent:
             - text: NEN7510-2011 standard coverage guide
               url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=3285c45c-921c-49ad-b881-be43e0b70490&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
             - text: NERC CIP standards
-              url: https://aka.ms/AzureNERC
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=f5362bc0-0594-4fd2-a4a9-9b74b6a33c20&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers
             - text: NZ GCIO cloud computing considerations
               url: https://gallery.technet.microsoft.com/Response-to-GCIO-Cloud-e117bbb9
             - text: PCI DSS 3.2.1 responsibility matrix
@@ -460,11 +460,13 @@ additionalContent:
             - text: SOX guidance
               url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=447ddef4-e55d-41f8-b233-328934efb461&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance%20Guides
             - text: UK OFFICIAL cloud security controls
-              url: https://aka.ms/complianceuk
+              url: https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1
  
         # Card
         - title: White papers and analyst reports
           links:
+            - text: Overview of Azure compliance
+              url: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
             - text: Azue security, privacy and compliance
               url: https://gallery.technet.microsoft.com/Response-to-GCIO-Cloud-e117bbb9
             - text: Data residency and security
@@ -475,8 +477,6 @@ additionalContent:
               url: https://gallery.technet.microsoft.com/Azure-and-Data-Compliance-bda1f632
             - text: IDC - Azure manages regulatory challenges 
               url: https://azure.microsoft.com/resources/azure-is-helping-organizations-manage-regulatory-challenges/
-            - text: Overview of Azure compliance
-              url: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
             - text: Azure risk compliance guide
               url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=edee9b14-3661-4a16-ba83-c35caf672bd7&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers
             - text: Shared responsibilities for cloud computing
