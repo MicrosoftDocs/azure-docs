@@ -81,7 +81,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Project support** |  An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
 **Discovery limits** | An appliance can discover up to 250 physical servers.
 **PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zipped folder from the portal. [Learn more](tutorial-assess-physical.md#set-up-the-appliance). Alternatively, [download directly](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Download size is 59.7 MB.
-**Software/hardware** |  The appliance should run on machine with Windows Server 2016, 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance on a physical machine, make sure that it's running Windows Server 2016, and meets hardware requirements. 
+**Software/hardware** |  The appliance should run on machine with Windows Server 2016, 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance on a physical machine, make sure that it's running Windows Server 2016, and meets hardware requirements.<br/> Running the appliance on a machine with Windows Server 2019 isn't supported.
 **Hash value** | [Verify](deploy-appliance-script.md#verify-file-security) the PowerShell script hash values.
 
 ## URL access
