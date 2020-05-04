@@ -128,7 +128,7 @@ Azure Blob storage is no longer supported as a lead destination, so you're missi
 
 ### I received an email from the commercial marketplace, but why can't I find the lead in my CRM?
 
-It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass personally identifiable information from the .edu domain. Submit a support ticket through [Partner Center Help and support](https://partner.microsoft.com/support/v2/?stage=1).
+It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass personal information from the .edu domain. Submit a support ticket through [Partner Center Help and support](https://partner.microsoft.com/support/v2/?stage=1).
 
 ### I configured an Azure table as my lead destination. How can I view the leads?
 
@@ -144,7 +144,7 @@ Check if the web-to-lead form is a mandatory field based on a pick list. If it i
 
 ### There was an issue with my lead destination, and I missed some leads. Can I have them sent to me in an email?
 
-Due to personally identifiable information policies, we can't share lead information through unsecured email.
+Due to personal information policies, we can't share lead information through unsecured email.
 
 ### I configured an Azure table as my lead destination. How much will it cost?
 

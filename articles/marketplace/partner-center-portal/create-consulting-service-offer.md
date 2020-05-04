@@ -106,7 +106,7 @@ Select **Save draft** before continuing.
 Here you'll define the offer details that are displayed in the marketplace. This includes the offer name, description, images, and so on. Be sure to follow the policies detailed on the [commercial marketplace certification policies page](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services) while configuring this offer.
 
 > [!NOTE]
-> Offer details aren't required to be in English if the offer description begins with the phrase, &quot;This application is available only in [non-English language].&quot; It's also okay to provide a Useful Link to offer content in a language that&'s different from the one used in the Offer listing details.
+> Offer details aren't required to be in English if the offer description begins with the phrase, &quot;This application is available only in [non-English language].&quot; It's also okay to provide a Useful Link to offer content in a language that's different from the one used in the Offer listing details.
 
 ### Name
 
