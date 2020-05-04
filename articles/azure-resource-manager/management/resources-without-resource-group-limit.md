@@ -93,6 +93,10 @@ For some resource types, you need to contact support to have the 800 instance li
 * softwareUpdateProfile
 * softwareUpdates
 
+## microsoft.insights
+
+* metricalerts
+
 ## Microsoft.Logic
 
 * integrationAccounts
@@ -182,10 +186,6 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * apiManagementAccounts/apis
 * sites
-
-## microsoft.insights
-
-* metricalerts
 
 ## Next steps
 
