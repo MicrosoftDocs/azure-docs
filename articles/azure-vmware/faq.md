@@ -52,6 +52,18 @@ on-premises environments for vMotion.
 
 Updates made to the service itself will follow Microsoft Azure’s standard change management process. Customers are responsible for any workload administration tasks and the associated change management processes.
 
+**How is this different from Azure VMware Solution by CloudSimple?**
+
+With the new Azure VMWare Solution Microsoft and VMware have a direct cloud provider partnership, and the new solution is entirely designed, built and supported by Microsoft, endorsed by VMware. Architecturally the solutions are consistent, with the VMware technology stack running on Azure dedicated infrastructure.
+
+**If Im an existing Azure VMware Solution customer, what does this preview mean for me?**
+
+There is no change to the existing Azure VMware Solution by CloudSimple. We continue to support the solution on Azure. Azure VMware Solution is backed by our service level agreement [SLAs](https://aka.ms/CSVMwareSLA). Customers should continue to use the service for production workloads, this is a generally available solution governed by [Microsoft’s service terms](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fsupport%2Flegal%2F&data=02%7C01%7Cv-pajenk%40microsoft.com%7C60cf54b9e4ca440be6d408d7f055fd6e%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637242124426347268&sdata=Cf6KODY75%2BMtmg2brAAoAbu4YnRK4hkidNwrf3iRwrM%3D&reserved=0).
+
+**Can I migrate from Azure VMware Solution by CloudSimple to this new solution?**
+
+Yes, Azure VMware Solution supports migration using familiar VMware tools such as HCX. For customers interested in migrating to the new solution at general availability, please work with your Microsoft account team to explore options and support available. 
+
 ## Compute, network, and storage
 
 **Is there more than one type of host available?**
