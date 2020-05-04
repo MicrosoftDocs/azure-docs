@@ -3,7 +3,7 @@ title: Azure Image Builder Service Permissions and Requirements
 description: Configuration requirements for Azure VM Image Builder Service including permissions and privileges
 author: cynthn
 ms.author: patricka
-ms.date: 05/01/2020
+ms.date: 05/04/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -11,32 +11,23 @@ ms.subservice: imaging
 
 # Configure Azure Image Builder Service requirements
 
-Azure Image Builder Service requires configuration of permissions and privileges prior to building an image.
-
-* Requirements
-    * Allowing Azure Image Builder to Distribute Images
-    * Allowing Azure Image Builder to Customize existing Custom Images
-    * Allowing Azure Image Builder to Customize Images on your existing VNETs
-* Creating Azure Image Builder Azure Role Definition and assignment to build image
-    * AZ CLI Examples
-    * Azure PowerShell Examples
-* Using Managed Identity to allowing Image Builder to Access Azure Storage
+Azure Image Builder Service requires configuration of permissions and privileges prior to building an image. The following sections detail the requirements for possible scenarios.
 
 ## Permissions
 
-When you register for the Azure Image Builder Service, you grant the service permission to create, manage and delete a staging resource group (IT_*), and have rights to add resources to it, that are required for the image build. 
+First, you must register for the Azure Image Builder Service. Registration grants the service permission to create, manage and delete a staging resource group (IT_*), and have rights to add resources to it, that are required for the image build. 
 
 Azure Image Builder **does not** have permission to access other resources in other resource groups in the subscription. You need to take explicit actions to allow access to avoid your builds from failing.
 
-To allow Azure Image Builder to create,manage and delete a staging resource group you must register for the service using a Azure CLI or PowerShell command.
+Use either a Azure CLI or PowerShell command to register Azure Image Builder Service.
 
-Using Azure CLI:
+Use Azure CLI:
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-Using PowerShell:
+Or, use PowerShell:
 
 ```powershell-interactive
 Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
@@ -89,7 +80,7 @@ Microsoft.Compute/galleries/images/versions/read
 
 Azure Image Builder has the capability to deploy and use an existing VNET in your subscription, thus allowing customizations access to connected resources.
 
-You can avoid granting the Azure Image Builder SPN contributor for it to deploy a VM to an existing VNET, but it's SPN will need these Azure Actions on the VNET resource group:
+You can avoid granting the Azure Image Builder service principal name contributor for it to deploy a VM to an existing VNET, but it's service principal name needs these Azure Actions on the VNET resource group:
 
 ```Actions
 Microsoft.Network/virtualNetworks/read
@@ -147,7 +138,7 @@ Use Azure CLI:
 az role definition create --role-definition ./aibRoleImageCreation.json
 ```
 
-Or use PowerShell:
+Or, use PowerShell:
 
 ```powershell
 New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
@@ -167,7 +158,7 @@ az role assignment create \
     --scope /subscriptions/$SUB_ID/resourceGroups/$RES_GROUP
 ```
 
-Or use PowerShell:
+Or, use PowerShell:
 
 ```powershell
 $sub_id = "<Subscription ID>"
@@ -232,7 +223,7 @@ az role definition create --role-definition ./aibRoleNetworking.json
 az role definition update --role-definition ./aibRoleNetworking.json
 ```
 
-Or use PowerShell:
+Or, use PowerShell:
 
 ```powershell
 New-AzRoleDefinition -InputFile  ./aibRoleNetworking.json
@@ -252,7 +243,7 @@ az role assignment create \
     --scope /subscriptions/$SUB_ID/resourceGroups/$RES_GROUP
 ```
 
-Or use PowerShell:
+Or, use PowerShell:
 
 ```powershell
 $sub_id = "<Subscription ID>"
@@ -274,32 +265,43 @@ Replace the following placeholder settings when executing the command.
 | \<Subscription ID\> | Azure subscription |
 | \<VNET resource group\> | VNET resource group |
 
-## Using Managed Identity to allowing Image Builder to Access Azure Storage
-If you want to seemlessly authenticate with Azure Storage, and use Private Containers, then you need to give Azure Image Builder an Azure User-Assigned Managed Identity, which it can use to authenticate with Azure Storage.
+## Using managed identity for Azure Storage access
 
->>> Note! Azure Image Builder only uses the identity at image template submission time, the build VM does not have access to the identity during image build!!!
+If you want to seemlessly authenticate with Azure Storage and use private containers, Azure Image Builder an Azure needs a user-assigned managed identity. Azure Image Builder uses the identity to authenticate with Azure Storage.
 
-We have a [quick start](XXXXXXXhttps://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage) that walks through how to connect to set this up, but in summary, once you have created User-Assigned Managed Identity, you then give rights for it to read from the storage account:
+> [!NOTE]
+> Azure Image Builder only uses the identity at image template submission time. The build VM does not have access to the identity during image build.
 
-```bash
+Use Azure CLI to create the user-assigned managed identity.
+
+```azurecli
 az role assignment create \
-    --assignee $imgBuilderCliId \
+    --assignee <Image Builder ID> \
     --role "Storage Blob Data Reader" \
-    --scope /subscriptions/$subscriptionID/resourceGroups/$strResourceGroup/providers/Microsoft.Storage/storageAccounts/$scriptStorageAcc/blobServices/default/containers/$scriptStorageAccContainer 
+    --scope /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Storage/storageAccounts/$scriptStorageAcc/blobServices/default/containers/<Storage account container>
 ```
 
-Then in the Image Builder Template you need to provide the User-Assigned Managed Identity:
+In the Image Builder template, you need to provide the user-assigned managed identity.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
     "apiVersion": "2019-05-01-preview",
-    "location": "<region>",
+    "location": "<Region>",
     ..
     "identity": {
     "type": "UserAssigned",
           "userAssignedIdentities": {
-            "<imgBuilderId>": {}     
+            "<Image Builder ID>": {}     
         }
 ```
 
-We are making service improvements to reduce the complexity of the existing security model.
+Replace the following placeholder settings:
+
+| Setting | Description |
+|---------|-------------|
+| \<Region\> | Template region |
+| \<Resource group\> | Resource group |
+| \<Storage account container\> | Storage account container name |
+| \<Subscription ID\> | Azure subscription |
+
+For more information using a user-assigned managed identity, see the [Create a Custom Image that will use an Azure User-Assigned Managed Identity to seemlessly access files Azure Storage](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage). The quickstart walks through how to create and configure the user-assigned managed identity to access a storage account.
