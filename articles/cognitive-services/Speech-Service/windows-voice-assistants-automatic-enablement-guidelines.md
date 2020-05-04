@@ -27,8 +27,8 @@ Developers creating Windows Voice Assistants must include clear user interface e
 
 Windows users can see and control the availability of their assistant applications in **`Settings > Privacy > Voice activation`**.
 
-[!div class="mx-imgBorder"]
-[![privacy-app-listing](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "A Windows voice activation privacy setting entry for an assistant application")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
+ > [!div class="mx-imgBorder"]
+ > [![privacy-app-listing](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "A Windows voice activation privacy setting entry for an assistant application")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
 
 To become eligible for inclusion in this list, an application must:
 
