@@ -5,10 +5,10 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/23/2020
 ms.author: diberry
 ---
 Use the Language Understanding (LUIS) runtime client library for Node.js to:
@@ -22,6 +22,7 @@ Use the Language Understanding (LUIS) runtime client library for Node.js to:
 
 * Language Understanding runtime resource: [Create one in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 * [Node.js](https://nodejs.org)
+* A LUIS app ID - use the public IoT app ID of `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. The user query used in the quickstart code is specific to that app.
 
 ## Setting up
 
@@ -31,9 +32,9 @@ Get your [runtime key](../luis-how-to-azure-subscription.md) by creating a LUIS 
 
 [!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
-### Create a new javascript (Node.js) file
+### Create a new JavaScript (Node.js) file
 
-Create a new javascript file in your preferred editor or IDE, named `luis_prediction.js`.
+Create a new JavaScript file in your preferred editor or IDE, named `luis_prediction.js`.
 
 ### Install the NPM library for the LUIS runtime
 

@@ -118,7 +118,7 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 
 2. After the reboot, open the Windows Server Backup snap-in. If you don't know where the snap-in was installed, search the computer or server for **Windows Server Backup**.
 
-    The desktop app appears in the search results.
+    The desktop app appears in the search results. If it doesn't appear, or you encounter errors when opening the application, you must install the **Windows Server Backup Features**, and dependent components below it, that are available in the **Add Features Wizard** in **Server Manager**.
 
 3. In the snap-in, select **Local Backup**.
 
@@ -153,7 +153,7 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 System State backup includes Active Directory data. Use the following steps to restore Active Directory Domain Service (AD DS) from its current state to a previous state.
 
 1. Restart the domain controller in Directory Services Restore Mode (DSRM).
-2. Follow the steps [here](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) to use Windows Server Backup cmdlets to recover AD DS.
+2. Follow the steps [here](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) to use Windows Server Backup cmdlets to recover AD DS.
 
 ## Troubleshoot failed System State restore
 

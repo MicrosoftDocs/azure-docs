@@ -1,11 +1,7 @@
 ---
 title: Application Insights for Worker Service apps (non-HTTP apps)
 description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monitor Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/16/2019
 
 ---
@@ -31,7 +27,7 @@ A valid Application Insights instrumentation key. This key is required to send a
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.12.0" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.13.1" />
     </ItemGroup>
 ```
 
@@ -208,9 +204,9 @@ Following is the code for `TimedHostedService` where the background task logic r
             {
                 _logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
                 _logger.LogInformation("Calling bing.com");
-                var res = await httpClient.GetAsync("https://bing.com");
+                var res = httpClient.GetAsync("https://bing.com").GetAwaiter().GetResult();
                 _logger.LogInformation("Calling bing completed with status:" + res.StatusCode);
-                telemetryClient.TrackEvent("Bing call event completed");
+                _telemetryClient.TrackEvent("Bing call event completed");
             }
         }
     }

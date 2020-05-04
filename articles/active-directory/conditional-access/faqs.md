@@ -37,7 +37,7 @@ A Conditional Access policy sets requirements for accessing a service. It's enfo
 
 Conditional Access policies apply to all user accounts. This includes user accounts that are used as service accounts. Often, a service account that runs unattended can't satisfy the requirements of a Conditional Access policy. For example, multi-factor authentication might be required. Service accounts can be excluded from a policy by using Conditional Access policy management settings. 
 
-## Are Graph APIs available for configuring Conditional Access policies?
+## Are Microsoft Graph APIs available for configuring Conditional Access policies?
 
 Currently, no. 
 

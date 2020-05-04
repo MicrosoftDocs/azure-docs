@@ -2,14 +2,14 @@
 title: Configure session behavior - Azure Active Directory B2C | Microsoft Docs
 description: Configure session behavior in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -55,3 +55,7 @@ The following use cases are enabled using these properties:
     ![Session behavior property settings in the Azure portal](./media/session-behavior/session-behavior.png)
 
 8. Click **Save**.
+
+## Next steps
+
+- Learn more about [Azure AD B2C session](session-overview.md).

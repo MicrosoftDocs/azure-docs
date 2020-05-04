@@ -1,6 +1,6 @@
 ---
-title: List role assignments using Azure RBAC and the Azure portal
-description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure role-based access control (RBAC) and the Azure portal.
+title: List Azure role assignments using the Azure portal - Azure RBAC
+description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2020
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# List role assignments using Azure RBAC and the Azure portal
+# List Azure role assignments using the Azure portal
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using the Azure portal.
 
@@ -112,7 +112,7 @@ To list access for a user, group, service principal, or managed identity, you li
 
 ## List role assignments for a user-assigned managed identity
 
-1. In the Azure portal, open a system-assigned managed identity.
+1. In the Azure portal, open a user-assigned managed identity.
 
 1. Click **Azure resources**.
 
@@ -124,15 +124,15 @@ To list access for a user, group, service principal, or managed identity, you li
 
 ## List number of role assignments
 
-You can have up to **2000** role assignments in each subscription. To help you keep track of these limits, the **Role assignments** tab includes a chart that lists the current number of role assignments.
+You can have up to **2000** role assignments in each subscription. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
 
 ![Access control - Number of role assignments chart](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
-If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. You can reduce the number of role assignments by deleting role assignments that are no longer needed or by assigning roles to groups instead of individual users.
+If you are getting close to the maximum number and you try to add more role assignments, you'll see a warning in the **Add role assignment** pane. For ways that you can reduce the number of role assignments, see [Troubleshoot Azure RBAC](troubleshooting.md#azure-role-assignments-limit).
 
 ![Access control - Add role assignment warning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
 ## Next steps
 
-- [Add or remove role assignments using Azure RBAC and the Azure portal](role-assignments-portal.md)
-- [Troubleshoot RBAC for Azure resources](troubleshooting.md)
+- [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
+- [Troubleshoot Azure RBAC](troubleshooting.md)

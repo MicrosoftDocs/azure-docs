@@ -6,7 +6,6 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
@@ -74,7 +73,7 @@ Like application objects, service principals can also be created through multipl
 * When an admin adds an application from the app gallery (this will also create an underlying app object)
 * Add an application to use the [Azure AD Application Proxy](/azure/active-directory/manage-apps/application-proxy)
 * Connect an application for single sign on using SAML or password single sign-on (SSO)
-* Programmatically via the Azure AD Graph API or PowerShell
+* Programmatically via the Microsoft Graph API or PowerShell
 
 ## How are application objects and service principals related to each other?
 
@@ -97,13 +96,13 @@ Applications that you add yourself (represented as **App (yours)** in the diagra
 
 ### Notes and exceptions
 
-* Not all service principals point back to an application object. When Azure AD was originally built the services provided to applications were more limited and the service principal was sufficient for establishing an application identity. The original service principal was closer in shape to the Windows Server Active Directory service account. For this reason, it's still possible to create service principals through different pathways, such as using Azure AD PowerShell, without first creating an application object. The Azure AD Graph API requires an application object before creating a service principal.
+* Not all service principals point back to an application object. When Azure AD was originally built the services provided to applications were more limited and the service principal was sufficient for establishing an application identity. The original service principal was closer in shape to the Windows Server Active Directory service account. For this reason, it's still possible to create service principals through different pathways, such as using Azure AD PowerShell, without first creating an application object. The Microsoft Graph API requires an application object before creating a service principal.
 * Not all of the information described above is currently exposed programmatically. The following are only available in the UI:
   * Claims transformation rules
   * Attribute mappings (User provisioning)
-* For more detailed information on the service principal and application objects, see the Azure AD Graph REST API reference documentation:
-  * [Application](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Service Principal](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+* For more detailed information on the service principal and application objects, see the Microsoft Graph API reference documentation:
+  * [Application](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
+  * [Service Principal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## Why do applications integrate with Azure AD?
 

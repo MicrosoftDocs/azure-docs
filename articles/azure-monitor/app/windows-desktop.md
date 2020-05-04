@@ -1,11 +1,7 @@
 ---
 title: Monitoring usage and performance for Windows desktop apps
 description: Analyze usage and performance of your Windows desktop app with Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/29/2019
 
 ---
@@ -109,6 +105,6 @@ Instantiate the initializer in the `Program.cs` `Main()` method below setting th
 ## Next steps
 * [Create a dashboard](../../azure-monitor/app/overview-dashboard.md)
 * [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
-* [Explore metrics](../../azure-monitor/app/metrics-explorer.md)
+* [Explore metrics](../../azure-monitor/platform/metrics-charts.md)
 * [Write Analytics queries](../../azure-monitor/app/analytics.md)
 

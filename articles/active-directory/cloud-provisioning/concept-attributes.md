@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -64,12 +64,15 @@ The following table lists common attributes and how they're synchronized to Azur
 |ProxyAdress|Direct|ProxyAddress|
 
 ## View the schema
+> [!WARNING]
+> The cloud provisioning configuration creates a service principal. The service principal is visible in the Azure portal. You should not modify the attribute mappings using the service principal experience in the Azure portal.  This is not supported.
+
 To view the schema and verify it, follow these steps.
 
 1.  Go to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1.  Sign in with your global administrator account.
 1.  On the left, select **modify permissions** and ensure that **Directory.ReadWrite.All** is *Consented*.
-1.  Run the query https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active'). This query returns a filtered list of service principals.
+1.  Run the query `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')`. This query returns a filtered list of service principals.
 1.  Locate `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` and note the value for `"id"`.
     ```
     "value": [

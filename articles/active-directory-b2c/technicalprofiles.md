@@ -3,14 +3,14 @@ title: TechnicalProfiles
 titleSuffix: Azure AD B2C
 description: Specify the TechnicalProfiles element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/29/2020
-ms.author: marsma
+ms.date: 03/05/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -97,7 +97,7 @@ The **TechnicalProfile** contains the following elements:
 | SubjectNamingInfo | 0:1 | Controls the production of the subject name in tokens where the subject name is specified separately from claims. For example, OAuth or SAML.  |
 | IncludeInSso | 0:1 |  Whether usage of this technical profile should apply single sign-on (SSO) behavior for the session, or instead require explicit interaction. This element is valid only in SelfAsserted profiles used within a Validation technical profile. Possible values: `true` (default), or `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | An identifier of a technical profile from which you want all of the input and output claims to be added to this technical profile. The referenced technical profile must be defined in the same policy file. |
-| IncludeTechnicalProfile |0:1 | An identifier of a technical profile from which you want all data to be added to this technical profile. The referenced technical profile must exist in the same policy file. |
+| IncludeTechnicalProfile |0:1 | An identifier of a technical profile from which you want all data to be added to this technical profile. |
 | UseTechnicalProfileForSessionManagement | 0:1 | A different technical profile to be used for session management. |
 |EnabledForUserJourneys| 0:1 |Controls if the technical profile is executed in a user journey.  |
 
@@ -107,7 +107,7 @@ The **Protocol** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Name | Yes | The name of a valid protocol supported by Azure AD B2C that is used as part of the technical profile. Possible values: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, `session management`, `self-asserted`, or `None`. |
+| Name | Yes | The name of a valid protocol supported by Azure AD B2C that is used as part of the technical profile. Possible values: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, or `None`. |
 | Handler | No | When the protocol name is set to `Proprietary`, specify the fully-qualified name of the assembly that is used by Azure AD B2C to determine the protocol handler. |
 
 ## Metadata
@@ -282,7 +282,7 @@ The **IncludeTechnicalProfile** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | An identifier of a technical profile already defined in the policy file or parent policy file. |
+| ReferenceId | Yes | An identifier of a technical profile already defined in the policy file, or parent policy file. |
 
 ## UseTechnicalProfileForSessionManagement
 

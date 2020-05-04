@@ -3,7 +3,7 @@ title: Set up customer-managed keys in Azure Sentinel| Microsoft Docs
 description: Learn how to set up customer-managed keys (CMK) in Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Set up Azure Sentinel customer-managed key
@@ -61,11 +61,11 @@ To provision CMK, follow these steps: 
     > [!NOTE]
     >  Azure Key Vault must be configured as recoverable to protect your key and the access.
 
-1.  [Turn on recovery options:](../key-vault/key-vault-best-practices.md#turn-on-recovery-options)
+1.  [Turn on recovery options:](../key-vault/general/best-practices.md#turn-on-recovery-options)
 
-    -   Make sure [Soft Delete](../key-vault/key-vault-ovw-soft-delete.md) is turned on.
+    -   Make sure [Soft Delete](../key-vault/general/overview-soft-delete.md) is turned on.
 
-    -   Turn on [Purge protection](../key-vault/key-vault-ovw-soft-delete.md#purge-protection) to guard against forced deletion of the secret/vault even after soft delete.
+    -   Turn on [Purge protection](../key-vault/general/overview-soft-delete.md#purge-protection) to guard against forced deletion of the secret/vault even after soft delete.
 
 ### STEP 2: Enable CMK on your Log Analytics workspace
 

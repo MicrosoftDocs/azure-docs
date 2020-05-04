@@ -11,7 +11,7 @@ ms.author: danlep
 ms.custom: include file
 ---
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | :--- |
 | Maximum clusters per subscription | 100 |
 | Maximum nodes per cluster with Virtual Machine Availability Sets and Basic Load Balancer SKU  | 100 |

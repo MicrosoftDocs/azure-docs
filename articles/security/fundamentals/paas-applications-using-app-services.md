@@ -1,5 +1,6 @@
 ---
-title: Securing PaaS web and mobile applications using Azure App Service | Microsoft Docs
+title: Securing PaaS web & mobile applications
+titleSuffix: Azure App Service
 description: "Learn about Azure App Service security best practices for securing your PaaS web and mobile applications. "
 services: security
 documentationcenter: na
@@ -31,7 +32,7 @@ App Service provides an OAuth 2.0 service for your identity provider. OAuth 2.0 
 Restricting access is imperative for organizations that want to enforce security policies for data access. You can use role-based access control (RBAC) to assign permissions to users, groups, and applications at a certain scope, such as the need to know and least privilege security principles. To learn more about granting users access to applications, see [What is role-based access control](/azure/role-based-access-control/overview).
 
 ## Protect your keys
-It doesn't matter how good your security is if you lose your subscription keys. Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs. You can also use Key Vault to manage your TLS certificates with auto-renewal. See [What is Azure Key Vault](../../key-vault/key-vault-overview.md) to learn more.
+It doesn't matter how good your security is if you lose your subscription keys. Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. With Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs. You can also use Key Vault to manage your TLS certificates with auto-renewal. See [What is Azure Key Vault](../../key-vault/general/overview.md) to learn more.
 
 ## Restrict incoming source IP addresses
 [App Service Environments](../../app-service/environment/intro.md) has a virtual network integration feature that helps you restrict incoming source IP addresses through network security groups (NSGs). If you are unfamiliar with Azure Virtual Networks (VNETs), this is a capability that allows you to place many of your Azure resources in a non-internet, routable network that you control access to. To learn more, see [Integrate your app with an Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md).

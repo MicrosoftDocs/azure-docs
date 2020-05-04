@@ -3,7 +3,7 @@ title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 8/19/2019
+ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
 ---
@@ -46,7 +46,7 @@ For information on how to use Azure Resource Manager templates to configure acti
 
     1. **Name**: Enter a unique identifier for this action.
 
-    1. **Action Type**: Select Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
+    1. **Action Type**: Select Automation Runbook, Azure Function, Email Azure Resource Manager Role, Email/SMS/Push/Voice, ITSM, Logic App, Secure Webhook, Webhook.
 
     1. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
     
@@ -83,7 +83,7 @@ Emails will be sent from the following email addresses. Ensure that your email f
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
 
 ### Email Azure Resource Manager Role
-Send email to the members of the subscription's role.
+Send email to the members of the subscription's role. Email will only be sent to **Azure AD user** members of the role. Email will not be sent to Azure AD groups or service principals.
 
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
 
@@ -101,8 +101,6 @@ You may have a limited number of ITSM actions in an Action Group.
 You may have a limited number of Logic App actions in an Action Group.
 
 ### Secure Webhook
-**The Secure Webhook functionality is currently in Preview.**
-
 The Action Groups Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
 1. Create an Azure AD Application for your protected web API. See https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
@@ -192,14 +190,20 @@ Write-Host $myApp.AppRoles
 ```
 
 ### SMS
-See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) and [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md) for additional important information.
+See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) and [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md) for additional important information. 
 
-You may have a limited number of SMS actions in an Action Group.  
+You may have a limited number of SMS actions in an Action Group.
+
+If the Azure portal action group user interface does not let you select your country code, then SMS is not supported for your country. Pricing for supported countries is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). If your country code is not available, you can vote to have your country added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  
+
+  
 
 ### Voice
 See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
 
 You may have a limited number of Voice actions in an Action Group.
+
+If the Azure portal action group user interface does not let you select your country code, then voice calls are not supported for your country. Pricing for supported countries is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). If your country code is not available, you can vote to have your country added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  
 
 ### Webhook
 Webhooks are retried using the following rules. The webhook call is retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second retry happens after 100 seconds. After two failures, no action group will call the endpoint for 30 minutes. 

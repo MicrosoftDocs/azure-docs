@@ -2,10 +2,9 @@
 Description: To understand your tax considerations for price selection, payout implications, and tax responsibility, see your countries/regions of distribution in the tables below.
 title: Tax details | Azure Marketplace
 ms.date: 2/13/2020
-ms.topic: article
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+ms.topic: conceptual
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ---
 
@@ -264,13 +263,13 @@ The following applies only to Azure Marketplace Publishers, notwithstanding anyt
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
 | Australia (for purchases made through all customer purchase scenarios except Enterprise Agreement) | Price being selected is the final sale price and includes any applicable taxes. | Microsoft |
 | Australia (only for purchases made through the Enterprise Agreement customer purchase scenario) | Price being selected is the final sale price and includes any applicable taxes. | Publisher |
-| Brazil | Price being selected is the final sale price and includes any applicable taxes. | Publisher **(See Reseller countries/regions)** |
-| Mexico | Price being selected is the final sale price and includes any applicable taxes. | Publisher **(See Reseller countries/regions)** |
+| Brazil | Price being selected is the final sale price and includes any applicable taxes. | Publisher (**See Reseller countries/regions**) |
+| Mexico | Price being selected is the final sale price and includes any applicable taxes. | Publisher (**See Reseller countries/regions**) |
 
 ## Mixed remittance countries/regions for publishers
 
 
-Certain Microsoft billing partners may collect and remit sales, use, goods and services, value added or similar taxes, if any, applicable to Customers' acquisition of your App(s) or In-App Product(s) through the Store in the countries/regions listed below. The [reports](payout-summary.md#transaction-history-download-export) that Microsoft makes available to you will identify the transactions for which a billing partner has collected sales, use, goods and services, value added or similar taxes applicable to Customers' acquisition of your App(s) or In-App Product(s) through the Store. Except for the transactions described in such reporting, neither Microsoft nor its billing services providers will remit any sales, use, goods and services, value added or other similar tax in connection with Customers' acquisition of your App(s) or In-App Product(s) in these country(s). You are responsible for reviewing the reporting provided to you and determining and complying with your obligations, if any, to register, collect, and remit taxes in connection with transactions involving your App(s) or In-App Product(s).
+Certain Microsoft billing partners may collect and remit sales, use, goods and services, value added or similar taxes, if any, applicable to Customers' acquisition of your App(s) or In-App Product(s) through the Store in the countries/regions listed below. The [reports](payout-summary-overview.md#transaction-history-download-export) that Microsoft makes available to you will identify the transactions for which a billing partner has collected sales, use, goods and services, value added or similar taxes applicable to Customers' acquisition of your App(s) or In-App Product(s) through the Store. Except for the transactions described in such reporting, neither Microsoft nor its billing services providers will remit any sales, use, goods and services, value added or other similar tax in connection with Customers' acquisition of your App(s) or In-App Product(s) in these country(s). You are responsible for reviewing the reporting provided to you and determining and complying with your obligations, if any, to register, collect, and remit taxes in connection with transactions involving your App(s) or In-App Product(s).
 
 | Mixed remittance countries/regions |
 |------------------------------------|

@@ -129,9 +129,11 @@ Below are two examples of complete templates to set up NSG Flow Logs.
       "storageId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/MyCanaryFlowLog/providers/Microsoft.Storage/storageAccounts/storagev2ira",
       "enabled": true,
       "flowAnalyticsConfiguration": {
-		    "enabled": true,
-        "workspaceResourceId": "91a3d1e9-698e-4a49-96dc-f6fc585ae888",
-        "trafficAnalyticsInterval": 10
+		"networkWatcherFlowAnalyticsConfiguration": {
+			"enabled": true,
+			"workspaceResourceId": "/subscriptions/56abfbd6-ec72-4ce9-831f-bc2b6f2c5505/resourceGroups/defaultresourcegroup-wcus/providers/Microsoft.OperationalInsights/workspaces/1c4f42e5-3a02-4146-ac9b-3051d8501db0",
+			"trafficAnalyticsInterval": 10
+				}
 	  },
       "retentionPolicy": {
         "days": 5,
@@ -139,7 +141,7 @@ Below are two examples of complete templates to set up NSG Flow Logs.
       },
       "format": {
         "type": "JSON",
-        "version": 1
+        "version": 2			
       }
     }
 
@@ -164,6 +166,8 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 There are a couple of ways to check if your deployment has Succeeded. Your PowerShell console should show "ProvisioningState" as "Succeeded". Additionally, you can visit the [NSG Flow Logs portal page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) to confirm your changes. If there were issues with the deployment, take a look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
 
+## Deleting your resource
+Azure enables resource deletion through the "Complete" deployment mode. To delete a Flow Logs resource, specify a deployment in Complete mode without including the resource you wish to delete. Read more about the [Complete deployment mode](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode)
 
 ## Next steps
 

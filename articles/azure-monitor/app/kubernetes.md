@@ -1,8 +1,6 @@
 ---
 title: Use Application Insights to monitor your Azure Kubernetes Service (AKS) or other Kubernetes hosted applications - Azure Monitor | Microsoft Docs
 description: Azure Monitor uses service mesh technology, Istio, on your Kubernetes cluster to provide application monitoring for any Kubernetes hosted application. This allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your cluster.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
@@ -57,7 +55,7 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 ```
 
 > [!NOTE]
-> Since service mesh lifts data off the wire, we cannot intercept the encrypted traffic. For traffic that doesn't leave the cluster, use  an unencrypted protocol (for example, HTTP). For external traffic that must be encrypted, consider [setting up SSL termination](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) at the ingress controller.
+> Since service mesh lifts data off the wire, we cannot intercept the encrypted traffic. For traffic that doesn't leave the cluster, use  an unencrypted protocol (for example, HTTP). For external traffic that must be encrypted, consider [setting up TLS termination](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) at the ingress controller.
 
 Applications running outside of the service mesh are not affected.
 

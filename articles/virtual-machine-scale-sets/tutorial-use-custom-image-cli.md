@@ -46,7 +46,7 @@ az vm create \
 
 The public IP address of your VM is shown in the output of the [az vm create](/cli/azure/vm) command. SSH to the public IP address of your VM as follows:
 
-```azurecli-interactive
+```console
 ssh azureuser@<publicIpAddress>
 ```
 

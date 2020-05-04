@@ -3,7 +3,7 @@ title: Monitor XTP In-memory storage
 description: Estimate and monitor XTP In-memory storage use, capacity; resolve capacity error 41823
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

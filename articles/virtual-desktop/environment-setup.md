@@ -6,16 +6,19 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/30/2020
 ms.author: helohr
+manager: lizross
 ---
 # Windows Virtual Desktop environment
 
+>[!IMPORTANT]
+>This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/environment-setup-2019.md).
+>
+> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Windows Virtual Desktop is a service that gives users easy and secure access to their virtualized desktops and RemoteApps. This topic will tell you a bit more about the general structure of the Windows Virtual Desktop environment.
-
-## Tenants
-
-The Windows Virtual Desktop tenant is the primary interface for managing your Windows Virtual Desktop environment. Each Windows Virtual Desktop tenant must be associated with the Azure Active Directory containing the users who will sign in to the environment. From the Windows Virtual Desktop tenant, you can begin creating host pools to run your users' workloads.
 
 ## Host pools
 
@@ -39,12 +42,12 @@ By default, a desktop app group (named "Desktop Application Group") is automatic
 
 To publish resources to users, you must assign them to app groups. When assigning users to app groups, consider the following things:
 
-- A user can't be assigned to both a desktop app group and a RemoteApp app group in the same host pool.
+- A user can be assigned to both a desktop app group and a RemoteApp app group in the same host pool. However, users can only launch one type of app group per session. Users can't launch both types of app groups at the same time in a single session.
 - A user can be assigned to multiple app groups within the same host pool, and their feed will be an accumulation of both app groups.
 
-## Tenant groups
+## Workspaces
 
-In Windows Virtual Desktop, the Windows Virtual Desktop tenant is where most of the setup and configuration happens. The Windows Virtual Desktop tenant contains the host pools, app groups, and app group user assignments. However, there may be certain situations where you need to manage multiple Windows Virtual Desktop tenants at once, particularly if you're a Cloud Service Provider (CSP) or a hosting partner. In these situations, you can use a custom Windows Virtual Desktop tenant group to place each of the customers' Windows Virtual Desktop tenants and centrally manage access. However, if you're only managing a single Windows Virtual Desktop tenant, the tenant group concept doesn't apply and you can continue to operate and manage your tenant that exists in the default tenant group.
+A workspace is a logical grouping of application groups in Windows Virtual Desktop. Each Windows Virtual Desktop application group must be associated with a workspace for users to see the remote apps and desktops published to them.  
 
 ## End users
 
@@ -54,9 +57,12 @@ After you've assigned users to their app groups, they can connect to a Windows V
 
 Learn more about delegated access and how to assign roles to users at [Delegated Access in Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
-To learn how to set up your Windows Virtual Desktop tenant, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+To learn how to set up your Windows Virtual Desktop host pool, see [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 
 To learn how to connect to Windows Virtual Desktop, see one of the following articles:
 
-- [Connect from Windows 10 or Windows 7](connect-windows-7-and-10.md)
-- [Connect from a web browser](connect-web.md)
+- [Connect with Windows 10 or Windows 7](connect-windows-7-and-10.md)
+- [Connect with a web browser](connect-web.md)
+- [Connect with the Android client](connect-android.md)
+- [Connect with the macOS client](connect-macos.md)
+- [Connect with the iOS client](connect-ios.md)

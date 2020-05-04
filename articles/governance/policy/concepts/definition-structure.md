@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 11/26/2019
+ms.date: 04/03/2020
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -76,12 +76,12 @@ a Resource Provider property.
 The **mode** determines which resource types will be evaluated for a policy. The supported modes
 are:
 
-- `all`: evaluate resource groups and all resource types
+- `all`: evaluate resource groups, subscriptions, and all resource types
 - `indexed`: only evaluate resource types that support tags and location
 
 For example, resource `Microsoft.Network/routeTables` supports tags and location and is evaluated in
-both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged isn't evaluated
-in `Indexed` mode.
+both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged and isn't
+evaluated in `Indexed` mode.
 
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
@@ -91,10 +91,12 @@ support backwards compatibility.
 
 `indexed` should be used when creating policies that enforce tags or locations. While not required,
 it prevents resources that don't support tags and locations from showing up as non-compliant in the
-compliance results. The exception is **resource groups**. Policies that enforce location or tags on
-a resource group should set **mode** to `all` and specifically target the
-`Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource group
-tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see
+compliance results. The exception is **resource groups** and **subscriptions**. Policies that
+enforce location or tags on a resource group or subscription should set **mode** to `all` and
+specifically target the `Microsoft.Resources/subscriptions/resourceGroups` or
+`Microsoft.Resources/subscriptions` type. For an example, see
+[Enforce resource group tags](../samples/enforce-tag-rg.md). For a list of resources that support
+tags, see
 [Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes" />Resource Provider modes (preview)
@@ -108,7 +110,7 @@ The following Resource Provider modes are currently supported during preview:
   Policies using this Resource Provider mode **must** use the
   [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
-  [Azure Key Vault](../../../key-vault/key-vault-overview.md).
+  [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
 > Resource Provider modes only support built-in policy definitions and don't support initiatives
@@ -140,6 +142,16 @@ A parameter has the following properties that are used in the policy definition:
   - `description`: The explanation of what the parameter is used for. Can be used to provide
     examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
+  - `version`: (Optional) Tracks details about the version of the contents of a policy definition.
+
+    > [!NOTE]
+    > The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey
+    > level of change to a built-in policy definition or initiative and state. The format of
+    > `version` is: `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_,
+    > are appended to the `version` property or in another property as a **boolean**.
+
+  - `category`: (Optional) Determines under which category in Azure portal the policy definition is
+    displayed.
   - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides
     a context aware list. For more information, see [strongType](#strongtype).
   - `assignPermissions`: (Optional) Set as _true_ to have Azure portal create role assignments
@@ -192,20 +204,22 @@ properties](#parameter-properties).
 
 ### strongType
 
-Within the `metadata` property, you can use **strongType** to provide a multi-select list of
-options within the Azure portal. Allowed values for **strongType** currently include:
+Within the `metadata` property, you can use **strongType** to provide a multi-select list of options
+within the Azure portal. **strongType** can be a supported _resource type_ or an allowed
+value. To determine if a _resource type_ is valid for **strongType**, use
+[Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+
+Some _resource types_ not returned by **Get-AzResourceProvider** are supported. Those are:
+
+- `Microsoft.RecoveryServices/vaults/backupPolicies`
+
+The non _resource type_ allowed values for **strongType** are:
 
 - `location`
 - `resourceTypes`
 - `storageSkus`
 - `vmSKUs`
 - `existingResourceGroups`
-- `omsWorkspace`
-- `Microsoft.EventHub/Namespaces/EventHubs`
-- `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
-- `Microsoft.EventHub/Namespaces/AuthorizationRules`
-- `Microsoft.RecoveryServices/vaults`
-- `Microsoft.RecoveryServices/vaults/backupPolicies`
 
 ## Definition location
 
@@ -302,11 +316,15 @@ supported conditions are:
 - `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
-- `"less": "value"`
-- `"lessOrEquals": "value"`
-- `"greater": "value"`
-- `"greaterOrEquals": "value"`
+- `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
+- `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
+- `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
 - `"exists": "bool"`
+
+For **less**, **lessOrEquals**, **greater**, and **greaterOrEquals**, if the property type doesn't
+match the condition type, an error is thrown. String comparisons are made using
+`InvariantCultureIgnoreCase`.
 
 When using the **like** and **notLike** conditions, you provide a wildcard `*` in the value.
 The value shouldn't have more than one wildcard `*`.
@@ -395,7 +413,11 @@ Conditions can also be formed using **value**. **value** checks conditions again
 
 > [!WARNING]
 > If the result of a _template function_ is an error, policy evaluation fails. A failed evaluation
-> is an implicit **deny**. For more information, see [avoiding template failures](#avoiding-template-failures).
+> is an implicit **deny**. For more information, see
+> [avoiding template failures](#avoiding-template-failures). Use
+> [enforcementMode](./assignment-structure.md#enforcement-mode) of **DoNotEnforce** to prevent
+> impact of a failed evaluation on new or updated resources while testing and validating a new
+> policy definition.
 
 #### Value examples
 
@@ -431,7 +453,7 @@ This policy rule example uses **value** to check if the result of multiple neste
     "policyRule": {
         "if": {
             "value": "[less(length(field('tags')), 3)]",
-            "equals": true
+            "equals": "true"
         },
         "then": {
             "effect": "deny"
@@ -495,7 +517,8 @@ Conditions that count how many members of an array in the resource payload satis
 expression can be formed using **count** expression. Common scenarios are checking whether 'at least
 one of', 'exactly one of', 'all of', or 'none of' the array members satisfy the condition. **count**
 evaluates each [\[\*\] alias](#understanding-the--alias) array member for a condition expression and
-sums the _true_ results, which is then compared to the expression operator.
+sums the _true_ results, which is then compared to the expression operator. **Count** expressions
+may be added up to 3 times to a single **policyRule** definition.
 
 The structure of the **count** expression is:
 
@@ -679,22 +702,35 @@ use within a policy rule, except the following functions and user-defined functi
 - resourceId()
 - variables()
 
-The following functions are available to use in a policy rule, but differ from use in an Azure
+> [!NOTE]
+> These functions are still available within the `details.deployment.properties.template` portion of
+> the template deployment in a **deployIfNotExists** policy definition.
+
+The following function is available to use in a policy rule, but differs from use in an Azure
 Resource Manager template:
 
-- addDays(dateTime, numberOfDaysToAdd)
-  - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
-    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
-  - **numberOfDaysToAdd**: [Required] integer - Number of days to add
-- utcNow() - Unlike a Resource Manager template, this can be used outside defaultValue.
+- `utcNow()` - Unlike a Resource Manager template, this can be used outside defaultValue.
   - Returns a string that is set to the current date and time in Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
-Additionally, the `field` function is available to policy rules. `field` is primarily used with
-**AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being
-evaluated. An example of this use can be seen in the [DeployIfNotExists
-example](effects.md#deployifnotexists-example).
+The following functions are only available in policy rules:
 
+- `addDays(dateTime, numberOfDaysToAdd)`
+  - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
+    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: [Required] integer - Number of days to add
+- `field(fieldName)`
+  - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
+  - Returns the value of that field from the resource that is being evaluated by the If condition
+  - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference
+    fields on the resource that are being evaluated. An example of this use can be seen in the
+    [DeployIfNotExists example](effects.md#deployifnotexists-example).
+- `requestContext().apiVersion`
+  - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`).
+    This will be the API version that was used in the PUT/PATCH request for evaluations on resource
+    creation/update. The latest API version is always used during compliance evaluation on existing
+    resources.
+  
 #### Policy function example
 
 This policy rule example uses the `resourceGroup` resource function to get the **name** property,
@@ -730,7 +766,7 @@ Policy, use one of the following methods:
   Use the [Azure Policy extension for Visual Studio Code](../how-to/extension-for-vscode.md) to view
   and discover aliases for resource properties.
 
-  ![Azure Policy extension for Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy extension for Visual Studio Code" border="false":::
 
 - Azure Resource Graph
 
@@ -820,8 +856,6 @@ This sample rule checks for any matches of **ipRules\[\*\].value** to **10.0.4.1
 }
 ```
 
-
-
 For more information, see [evaluating the [\*]
 alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
@@ -831,6 +865,10 @@ Initiatives enable you to group several related policy definitions to simplify a
 management because you work with a group as a single item. For example, you can group related
 tagging policy definitions into a single initiative. Rather than assigning each policy individually,
 you apply the initiative.
+
+> [!NOTE]
+> Once an initiative is assigned, initiative level parameters can't be altered. Due to this, the
+> recommendation is to set a **defaultValue** when defining the parameter.
 
 The following example illustrates how to create an initiative for handling two tags: `costCenter`
 and `productName`. It uses two built-in policies to apply the default tag value.
@@ -846,13 +884,15 @@ and `productName`. It uses two built-in policies to apply the default tag value.
                 "type": "String",
                 "metadata": {
                     "description": "required value for Cost Center tag"
-                }
+                },
+                "defaultValue": "DefaultCostCenter"
             },
             "productNameValue": {
                 "type": "String",
                 "metadata": {
                     "description": "required value for product Name tag"
-                }
+                },
+                "defaultValue": "DefaultProduct"
             }
         },
         "policyDefinitions": [{

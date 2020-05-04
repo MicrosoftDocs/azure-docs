@@ -83,8 +83,6 @@
     items:
     - name: Get started in the Azure EA portal
       href: ea-portal-get-started.md
-    - name: Understand your EA bill
-      href: ../understand/review-enterprise-agreement-bill.md
     - name: EA roles in Azure
       href: understand-ea-roles.md
     - name: Azure EA portal administration
@@ -109,7 +107,7 @@
     href: billing-troubleshoot-azure-payment-issues.md
   - name: Declined card
     href: troubleshoot-declined-card.md
-  - name: Sign up issues
+  - name: Azure account sign-up issues
     href: troubleshoot-azure-sign-up.md
   - name: Subscription sign-in issues
     href: troubleshoot-sign-in-issue.md
@@ -128,13 +126,13 @@
     - name: Review resource usage
       href: review-service-usage-api.md
   - name: .NET samples
-  items:
-  - name: Invoice API code sample
-    href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
-  - name: Usage API code sample
-    href: https://github.com/Azure-Samples/billing-dotnet-usage-api
-  - name: RateCard API code sample
-    href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
+    items:
+    - name: Invoice API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
+    - name: Usage API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-usage-api
+    - name: RateCard API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
 - name: Reference
   items:
   - name: Billing Automation Scenarios

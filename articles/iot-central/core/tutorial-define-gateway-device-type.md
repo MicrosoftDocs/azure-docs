@@ -13,7 +13,9 @@ manager: peterpr
 
 # Define a new IoT gateway device type in your Azure IoT Central application
 
-This tutorial shows you, as a builder, how to use a gateway device template to define a gateway device in your IoT Central application. You then configure several downstream devices that connect to your IoT Central application through the gateway device. 
+*This article applies to solution builders and device developers.*
+
+This tutorial shows you, as a solution builder, how to use a gateway device template to define a gateway device in your IoT Central application. You then configure several downstream devices that connect to your IoT Central application through the gateway device. 
 
 In this tutorial, you create a **Smart Building** gateway device template. A **Smart Building** gateway device has relationships with other downstream devices.
 
@@ -35,7 +37,7 @@ This tutorial uses device templates for an **S1 Sensor** device and an **RS40 Oc
 
 To create a device template for an **S1 Sensor** device:
 
-1. In the left navigation, select **Device Templates**. Then select **+** to start adding the template.
+1. In the left pane, select **Device Templates**. Then select **+** to start adding the template.
 
 1. Scroll down until you can see the tile for the **S1 Sensor** device. Select the tile and then select **Next: Customize**.
 
@@ -43,7 +45,7 @@ To create a device template for an **S1 Sensor** device:
 
 To create a device template for an ***RS40 Occupancy Sensor** device:
 
-1. In the left navigation, select **Device Templates**. Then select **+** to start adding the template.
+1. In the left pane, select **Device Templates**. Then select **+** to start adding the template.
 
 1. Scroll down until you can see the tile for the ***RS40 Occupancy Sensor** device. Select the tile and then select **Next: Customize**.
 
@@ -60,7 +62,7 @@ In this tutorial you create a device template for a gateway device from scratch.
 
 To add a new gateway device template to your application:
 
-1. In the left navigation, select **Device Templates**. Then select **+** to start adding the template.
+1. In the left pane, select **Device Templates**. Then select **+** to start adding the template.
 
 1. On the **Select template type** page, select the **IoT Device** tile, and then select **Next: Customize**.
 
@@ -199,7 +201,10 @@ In this tutorial, you learned how to:
 * Add relationships.
 * Publish your device template.
 
-Next, you can:
+> [!NOTE]
+> VS Code based code generation is currently not supported for gateway devices modeled in IoT Central.
+
+Next, as a device developer, you can learn how to:
 
 > [!div class="nextstepaction"]
-> [Connect a device](tutorial-connect-pnp-device.md)
+> [Add an Azure IoT Edge device to your Azure IoT Central application](tutorial-add-edge-as-leaf-device.md)

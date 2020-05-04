@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create a management VM and install the required tools to connect to and manage an Azure Active Directory Domain Services instance.
@@ -27,14 +27,14 @@ In this tutorial, you learn how to:
 > * Install the Active Directory administrative tools on a Windows Server VM
 > * Use the Active Directory Administrative Center to perform common tasks
 
-If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 To complete this tutorial, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
@@ -42,6 +42,8 @@ To complete this tutorial, you need the following resources and privileges:
 * A Windows Server VM that is joined to the Azure AD DS managed domain.
     * If needed, see the previous tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+* An Azure Bastion host deployed in your Azure AD DS virtual network.
+    * If needed, [create an Azure Bastion host][azure-bastion].
 
 ## Sign in to the Azure portal
 
@@ -55,7 +57,6 @@ Azure AD DS provides a managed domain for your users, applications, and services
 
 Members of the *AAD DC Administrators* group are granted privileges on the Azure AD DS managed domain that enables them to do tasks such as:
 
-* Join machines to the managed domain.
 * Configure the built-in group policy object (GPO) for the *AADDC Computers* and *AADDC Users* containers in the managed domain.
 * Administer DNS on the managed domain.
 * Create and administer custom organizational units (OUs) on the managed domain.
@@ -82,16 +83,15 @@ In the previous tutorial, a Windows Server VM was created and joined to the Azur
 To get started, connect to the Windows Server VM as follows:
 
 1. In the Azure portal, select **Resource groups** on the left-hand side. Choose the resource group where your VM was created, such as *myResourceGroup*, then select the VM, such as *myVM*.
-1. In the **Overview** windows of the VM, select **Connect**.
+1. In the **Overview** pane for your VM, select **Connect**, then **Bastion**.
 
-    ![Connect to Windows virtual machine in the Azure portal](./media/tutorial-create-management-vm/connect-vm.png)
+    ![Connect to Windows virtual machine using Bastion in the Azure portal](./media/join-windows-vm/connect-to-vm.png)
 
-    You can also [create and use an Azure Bastion host (currently in preview)][azure-bastion] to allow access only through the Azure portal over SSL.
+1. Enter the credentials for your VM, then select **Connect**.
 
-1. Select the option to *Download RDP File*. Save this RDP file in your web browser.
-1. To connect to your VM, open the downloaded RDP file. If prompted, select **Connect**.
-1. Enter the credentials of a user that's part of the *Azure AD DC administrators* group, such as *contoso\dee*
-1. If you see a certificate warning during the sign in process, select **Yes** or **Continue** to connect.
+   ![Connect through the Bastion host in the Azure portal](./media/join-windows-vm/connect-to-bastion.png)
+
+If needed, allow your web browser to open pop-ups for the Bastion connection to be displayed. It takes a few seconds to make the connection to your VM.
 
 ## Install Active Directory administrative tools
 
@@ -103,7 +103,7 @@ To install the Active Directory Administration tools on a domain-joined VM, comp
 1. In the *Dashboard* pane of the **Server Manager** window, select **Add Roles and Features**.
 1. On the **Before You Begin** page of the *Add Roles and Features Wizard*, select **Next**.
 1. For the *Installation Type*, leave the **Role-based or feature-based installation** option checked and select **Next**.
-1. On the **Server Selection** page, choose the current VM from the server pool, such as *myvm.aadds.contoso.com*, then select **Next**.
+1. On the **Server Selection** page, choose the current VM from the server pool, such as *myvm.aaddscontoso.com*, then select **Next**.
 1. On the **Server Roles** page, click **Next**.
 1. On the **Features** page, expand the **Remote Server Administration Tools** node, then expand the **Role Administration Tools** node.
 
@@ -123,7 +123,7 @@ With the administrative tools installed, let's see how to use them to administer
     ![List of Administrative Tools installed on the server](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. Select **Active Directory Administrative Center**.
-1. To explore the Azure AD DS managed domain, choose the domain name in the left pane, such as *aadds.contoso.com*. Two containers named *AADDC Computers* and *AADDC Users* are at the top of the list.
+1. To explore the Azure AD DS managed domain, choose the domain name in the left pane, such as *aaddscontoso.com*. Two containers named *AADDC Computers* and *AADDC Users* are at the top of the list.
 
     ![List the available containers part of the Azure AD DS managed domain](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 

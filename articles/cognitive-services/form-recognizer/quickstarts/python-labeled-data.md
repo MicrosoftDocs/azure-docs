@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 02/19/2020
 ms.author: pafarley
 
 ---
@@ -25,15 +25,19 @@ To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
 - A set of at least six forms of the same type. You will use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
 
+## Create a Form Recognizer resource
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
+
 ## Set up training data
 
-First you'll need to set up the required input data. The labeled data feature has special input requirements beyond those needed to train a custom model. 
+Next you'll need to set up the required input data. The labeled data feature has special input requirements beyond those needed to train a custom model. 
 
 Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into sub-folders based on common format. When you train, you'll need to direct the API to a sub-folder.
 
 In order to train a model using labeled data, you'll need the following files as inputs in the sub-folder. You will learn how to create these file below.
 
-* **Source forms** – the forms to extract data from. Supported types are JPEG, PNG, BMP, PDF, or TIFF.
+* **Source forms** – the forms to extract data from. Supported types are JPEG, PNG, PDF, or TIFF.
 * **OCR layout files** - JSON files that describe the sizes and positions of all readable text in each source form. You'll use the Form Recognizer Layout API to generate this data. 
 * **Label files** - JSON files that describe data labels which a user has entered manually.
 
@@ -212,7 +216,7 @@ headers = {
     'Ocp-Apim-Subscription-Key': '<subsription key>',
 }
 
-body = 	{
+body =     {
     "source": source,
     "sourceFilter": {
         "prefix": prefix,
@@ -343,202 +347,193 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
 
 ```json
 { 
-	"analyzeResult":{ 
-	  "version":"2.0.0",
-	  "readResults":[ 
-		{ 
-		  "page":1,
-		  "language":"en",
-		  "angle":0,
-		  "width":8.5,
-		  "height":11,
-		  "unit":"inch",
-		  "lines":[ 
-			{ 
-			  "language":"en",
-			  "boundingBox":[ 
-				0.5375,
-				1.1349,
-				2.6064,
-				1.1349,
-				2.6064,
-				1.354,
-				0.5375,
-				1.354
-			  ],
-			  "text":"Contoso Suites",
-			  "words":[ 
-				{ 
-				  "boundingBox":[ 
-					0.5375,
-					1.1402,
-					1.6595,
-					1.1402,
-					1.6595,
-					1.354,
-					0.5375,
-					1.354
-				  ],
-				  "text":"Contoso",
-				  "confidence":1
-				},
-				{ 
-				  "boundingBox":[ 
-					1.758,
-					1.1349,
-					2.6064,
-					1.1349,
-					2.6064,
-					1.3534,
-					1.758,
-					1.3534
-				  ],
-				  "text":"Suites",
-				  "confidence":1
-				}
-			  ]
-            },
-            ...
-		  ]
-		}
-	  ],
-	  "pageResults":[ 
-		{ 
-		  "page":1,
-		  "tables":[ 
-			{ 
-			  "rows":2,
-			  "columns":6,
-			  "cells":[ 
-				{ 
-				  "rowIndex":0,
-				  "columnIndex":0,
-				  "text":"Invoice Number",
-				  "boundingBox":[ 
-					0.5075,
-					2.8088,
-					1.9061,
-					2.8088,
-					1.9061,
-					3.3219,
-					0.5075,
-					3.3219
-				  ],
-				  "elements":[ 
-					"#/readResults/0/lines/7/words/0",
-					"#/readResults/0/lines/7/words/1"
-				  ]
-				},
-				{ 
-				  "rowIndex":0,
-				  "columnIndex":1,
-				  "text":"Invoice Date",
-				  "boundingBox":[ 
-					1.9061,
-					2.8088,
-					3.3074,
-					2.8088,
-					3.3074,
-					3.3219,
-					1.9061,
-					3.3219
-				  ],
-				  "elements":[ 
-					"#/readResults/0/lines/8/words/0",
-					"#/readResults/0/lines/8/words/1"
-				  ]
+    "analyzeResult":{ 
+      "version":"2.0.0",
+      "readResults":[ 
+        { 
+          "page":1,
+          "language":"en",
+          "angle":0,
+          "width":8.5,
+          "height":11,
+          "unit":"inch",
+          "lines":[ 
+            { 
+              "language":"en",
+              "boundingBox":[ 
+                0.5375,
+                1.1349,
+                2.6064,
+                1.1349,
+                2.6064,
+                1.354,
+                0.5375,
+                1.354
+              ],
+              "text":"Contoso Suites",
+              "words":[ 
+                { 
+                  "boundingBox":[ 
+                    0.5375,
+                    1.1402,
+                    1.6595,
+                    1.1402,
+                    1.6595,
+                    1.354,
+                    0.5375,
+                    1.354
+                  ],
+                  "text":"Contoso",
+                  "confidence":1
                 },
-                ...		
-			  ]
-			}
-		  ]
-		}
-	  ],
-	  "documentResults":[ 
-		{ 
-		  "docType":"Analyze",
-		  "pageRange":[ 
-			1,
-			1
-		  ],
-		  "fields":{ 
-			"total":{ 
-			  "type":"string",
-			  "valueString":"$22,123.24",
-			  "text":"$22,123.24",
-			  "boundingBox":[ 
-				5.29,
-				3.41,
-				5.9750000000000009,
-				3.41,
-				5.9750000000000009,
-				3.54,
-				5.29,
-				3.54
-			  ],
-			  "page":1,
-			  "confidence":1,
-			  "elements":[ 
-				{ 
-				  "$ref":"#/analyzeResult/readResults/0/lines/15/words/0"
-				}
-			  ],
-			  "fieldName":"total"
-			},
-			"invoice #":{ 
-			  "type":"string",
-			  "valueString":"7689302",
-			  "text":"7689302",
-			  "boundingBox":[ 
-				0.54,
-				3.41,
-				1.065,
-				3.41,
-				1.065,
-				3.515,
-				0.54,
-				3.515
-			  ],
-			  "page":1,
-			  "confidence":1,
-			  "elements":[ 
-				{ 
-				  "$ref":"#/analyzeResult/readResults/0/lines/12/words/0"
-				}
-			  ],
-			  "fieldName":"invoice #"
-			},
-			"vat":{ 
-			  "type":"string",
-			  "valueString":"QR",
-			  "text":"QR",
-			  "boundingBox":[ 
-				6.2250000000000009,
-				3.41,
-				6.425,
-				3.41,
-				6.425,
-				3.52,
-				6.2250000000000009,
-				3.52
-			  ],
-			  "page":1,
-			  "confidence":0.9839357733726502,
-			  "elements":[ 
-				{ 
-				  "$ref":"#/analyzeResult/readResults/0/lines/16/words/0"
-				}
-			  ],
-			  "fieldName":"vat"
+                { 
+                  "boundingBox":[ 
+                    1.758,
+                    1.1349,
+                    2.6064,
+                    1.1349,
+                    2.6064,
+                    1.3534,
+                    1.758,
+                    1.3534
+                  ],
+                  "text":"Suites",
+                  "confidence":1
+                }
+              ]
             },
             ...
-		  }
-		}
-	  ]
-	},
-	"status":"succeeded",
-	"createdDateTime":"2019-11-12T21:26:19+00:00",
-	"lastUpdatedDateTime":"2019-11-12T21:27:27.0488571+00:00"
+          ]
+        }
+      ],
+      "pageResults":[ 
+        { 
+          "page":1,
+          "tables":[ 
+            { 
+              "rows":2,
+              "columns":6,
+              "cells":[ 
+                { 
+                  "rowIndex":0,
+                  "columnIndex":0,
+                  "text":"Invoice Number",
+                  "boundingBox":[ 
+                    0.5075,
+                    2.8088,
+                    1.9061,
+                    2.8088,
+                    1.9061,
+                    3.3219,
+                    0.5075,
+                    3.3219
+                  ],
+                  "elements":[ 
+                    "#/readResults/0/lines/7/words/0",
+                    "#/readResults/0/lines/7/words/1"
+                  ]
+                },
+                { 
+                  "rowIndex":0,
+                  "columnIndex":1,
+                  "text":"Invoice Date",
+                  "boundingBox":[ 
+                    1.9061,
+                    2.8088,
+                    3.3074,
+                    2.8088,
+                    3.3074,
+                    3.3219,
+                    1.9061,
+                    3.3219
+                  ],
+                  "elements":[ 
+                    "#/readResults/0/lines/8/words/0",
+                    "#/readResults/0/lines/8/words/1"
+                  ]
+                },
+                ...        
+              ]
+            }
+          ]
+        }
+      ],
+      "documentResults":[ 
+        { 
+          "docType":"Analyze",
+          "pageRange":[ 
+            1,
+            1
+          ],
+          "fields":{ 
+            "total":{ 
+              "type":"string",
+              "valueString":"$22,123.24",
+              "text":"$22,123.24",
+              "boundingBox":[ 
+                5.29,
+                3.41,
+                5.9750000000000009,
+                3.41,
+                5.9750000000000009,
+                3.54,
+                5.29,
+                3.54
+              ],
+              "page":1,
+              "confidence":1,
+              "elements":[ 
+                "#/analyzeResult/readResults/0/lines/15/words/0"
+              ]
+            },
+            "invoice #":{ 
+              "type":"string",
+              "valueString":"7689302",
+              "text":"7689302",
+              "boundingBox":[ 
+                0.54,
+                3.41,
+                1.065,
+                3.41,
+                1.065,
+                3.515,
+                0.54,
+                3.515
+              ],
+              "page":1,
+              "confidence":1,
+              "elements":[ 
+                "#/analyzeResult/readResults/0/lines/12/words/0"
+              ]
+            },
+            "vat":{ 
+              "type":"string",
+              "valueString":"QR",
+              "text":"QR",
+              "boundingBox":[ 
+                6.2250000000000009,
+                3.41,
+                6.425,
+                3.41,
+                6.425,
+                3.52,
+                6.2250000000000009,
+                3.52
+              ],
+              "page":1,
+              "confidence":0.9839357733726502,
+              "elements":[ 
+                "#/analyzeResult/readResults/0/lines/16/words/0"
+              ]
+            },
+            ...
+          }
+        }
+      ]
+    },
+    "status":"succeeded",
+    "createdDateTime":"2019-11-12T21:26:19+00:00",
+    "lastUpdatedDateTime":"2019-11-12T21:27:27.0488571+00:00"
 }
 ```
 

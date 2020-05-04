@@ -45,7 +45,6 @@ To find out if your Azure US Government cloud tenant supports B2B collaboration,
 
    - If `"tenant_region_scope":"USGOV”` appears, B2B is supported.
    - If `"tenant_region_scope":"USG"` appears, B2B is not supported.
- 
 
 ## Next steps
 

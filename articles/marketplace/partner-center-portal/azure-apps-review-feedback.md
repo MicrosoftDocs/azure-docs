@@ -1,16 +1,15 @@
 ---
-title: Handling review feedback for Azure Apps offer in the Commercial Marketplace 
-description: How to handle review feedback for Azure Apps offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
-author: MaggiePucciEvans 
-manager: evansma
-ms.author: evansma
+title: Handling review feedback for Azure Apps offer in the Microsoft commercial marketplace 
+description: How to handle review feedback for Azure Apps offer to list or sell in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
+author: dsindona 
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
 ---
 
-# Handling review feedback
+# Handling review feedback for Azure Apps offer before publishing in the Azure Marketplace
 
 This article explains how to access the Azure DevOps environment used by the Microsoft Azure Marketplace review team. If critical issues are found in your Azure application offer during the **Microsoft review** step, you can sign into this system to view detailed information about these issues (review feedback). After you fix all these issues, you must resubmit your offer to continue to publish it on the Azure Marketplace. The following diagram illustrates how this feedback process relates to the publishing process.
 

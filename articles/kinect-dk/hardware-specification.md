@@ -1,15 +1,22 @@
-﻿---
-title: Azure Kinect DK hardware specification
+---
+title: Azure Kinect DK hardware specifications
 description: Understand the components, specifications, and capabilities of the Azure Kinect DK.
 author: tesych
 ms.author: tesych
+ms.reviewer: jarrettr
 ms.prod: kinect-dk
-ms.date: 06/26/2019
+ms.date: 02/14/2020
 ms.topic: article
 keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, IMU, microphone, array, depth
+ms.custom: 
+- CI 114092
+- CSSTroubleshooting
+audience: ITPro
+manager: dcscontentpm
+ms.localizationpriority: high
 ---
 
-# Azure Kinect DK hardware specifications 
+# Azure Kinect DK hardware specifications
 
 This article provides details about how Azure Kinect hardware integrates Microsoft's latest sensor technology into a single, USB-connected accessory.
 
@@ -39,7 +46,7 @@ The Azure Kinect device consists of the following size and weight dimensions.
 
 Azure Kinect DK is intended for developers and commercial businesses operating under the following ambient conditions:
 
-- **Temperature**: 10-25⁰C
+- **Temperature**: 10-25<sup>0</sup>C
 - **Humidity**: 8-90% (non-condensing) Relative Humidity
 
 > [!NOTE]
@@ -59,7 +66,7 @@ Azure Kinect DK integrates a Microsoft designed 1-Megapixel Time-of-Flight (ToF)
 | WFOV unbinned   | 1024x1024  | 120°x120° | 0, 5, 15           | 0.25 - 2.21 m      | 20.3 ms        |
 | Passive IR      | 1024x1024  | N/A       | 0, 5, 15, 30       | N/A              | 1.6 ms         |
 
-\*15% to 95% reflectivity at 850nm, 2.2 μW/cm<sup>2</sup>/nm, random error std. dev. ≤ 17 mm, typical systematic error < 11 mm + 0.1% of distance without multi-path interference. Depth provided outside of indicated range depending on object reflectivity.
+\*15% to 95% reflectivity at 850nm, 2.2 μW/cm<sup>2</sup>/nm, random error std. dev. ≤ 17 mm, typical systematic error < 11 mm + 0.1% of distance without multi-path interference. Depth may be provided outside of the operating range indicated above. It depends on an object's reflectivity.
 
 ## Color camera supported operating modes
 
@@ -138,7 +145,7 @@ Azure Kinect DK embeds a high-quality, seven microphone circular array that iden
 
 Azure Kinect DK is a USB3 composite device that exposes the following hardware endpoints to the operating system:
 
-Vendor ID is 0x045E (Microsoft), Product ID table below:
+Vendor ID is 0x045E (Microsoft). Product ID table is shown below:
 
 |    USB Interface        |    PNP IP    |     Notes            |
 |-------------------------|--------------|----------------------|
@@ -157,7 +164,7 @@ The status LED behind the device indicates device state:
 | When the light is     | It means                                                   |
 |-----------------------|------------------------------------------------------------|
 | Solid white           | Device is on and working properly.                         |
-| Flashing white        | Device is on but doesn’t have a USB 3.0 data connection.   |
+| Flashing white        | Device is on but doesn't have a USB 3.0 data connection.   |
 | Flashing amber        | Device doesn't have enough power to operate.               |
 | Amber flashing white  | Firmware update or recovery in progress                    |
 
@@ -165,7 +172,7 @@ The status LED behind the device indicates device state:
 
 The device can be powered in two ways:
 
-1. Using the in-box power supply. Data is connected by a separate USB Type-C to Type-A cable.
+1. Using the in-box power supply. The power connector is a 4.5mm OD with 3.0mm ID and a pin diameter of 0.6mm.
 2. Using a Type-C to Type-C cable for both power and data.
 
 A Type-C to Type-C cable isn't included with the Azure Kinect DK.
@@ -178,7 +185,7 @@ A Type-C to Type-C cable isn't included with the Azure Kinect DK.
 > To select a good Type-C to Type-C cable:
 > - The [USB certified cable](https://www.usb.org/products) must support both power and data.
 > - A passive cable should be less than 1.5m in length. If longer, use an active cable. 
-> - The cable needs to support no less than >1.5A. Otherwise you need to connect an external power supply.
+> - The cable needs to support at least 1.5A. Otherwise you need to connect an external power supply.
 
 Verify cable:
 
@@ -229,7 +236,7 @@ Device firmware can be reset to original firmware using button underneath the lo
 
 ![Azure Kinect DK recovery button](./media/resources/hardware-specs-media/recovery.png)
 
-To recover the device, see [instructions here](https://support.microsoft.com/help/4494277).
+To recover the device, see [instructions here](reset-azure-kinect-dk.md).
 
 ## Next steps
 

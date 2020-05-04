@@ -58,7 +58,6 @@ Answer the following questions to help select a data transfer solution:
 - Are you looking for on-going, continuous data transfer?
 
     If yes, use the options in [Scenario 4: Periodic data transfers](storage-solution-periodic-data-transfer.md).
- 
 
 ## Data transfer feature in Azure portal
 
@@ -68,8 +67,8 @@ You can also go to your Azure Storage account in Azure portal and select the **D
 
 - [Get an introduction to Azure Storage Explorer](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
 - [Read an overview of AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
-- [Use Azure PowerShell with Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-powershell-guide-full)
-- [Use Azure CLI with Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
+- [Quickstart: Upload, download, and list blobs with PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
+- [Quickstart: Create, download, and list blobs with Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 - Learn about:
 
     - [Azure Data Box, Azure Data Box Disk, and Azure Data Box Heavy for offline transfers](https://docs.microsoft.com/azure/databox/).

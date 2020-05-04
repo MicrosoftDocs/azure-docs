@@ -23,7 +23,7 @@ Use the Azure Queue storage client library v12 for Java to:
 * Receive and delete messages from a queue
 * Delete a queue
 
-[API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples)
+[API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## Prerequisites
 
@@ -362,6 +362,6 @@ In this quickstart, you learned how to create a queue and add messages to it usi
 For tutorials, samples, quick starts, and other documentation, visit:
 
 > [!div class="nextstepaction"]
-> [Azure for Java cloud developers](https://docs.microsoft.com/azure/java/)
+> [Azure for Java cloud developers](https://docs.microsoft.com/azure/developer/java/)
 
 * To see more Azure Queue storage sample apps, continue to [Azure Queue storage SDK v12 Java client library samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).

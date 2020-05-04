@@ -4,7 +4,7 @@ description: This article describes how to backup and restore model metadata and
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 04/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -18,6 +18,9 @@ Backing up tabular model databases in Azure Analysis Services is much the same a
 > Creating a storage account can result in a new billable service. To learn more, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 > 
 > 
+
+> [!NOTE]
+> If the storage account is in a different region, firewall settings must be configured to allow access from **All networks**. Firewall settings configured for Selected networks with whitelisted IP addresses and Allow trusted Microsoft services exception is not supported.
 
 Backups are saved with an .abf extension. For in-memory tabular models, both model data and metadata are stored. For DirectQuery tabular models, only model metadata is stored. Backups can be compressed and encrypted, depending on the options you choose.
 
@@ -100,5 +103,5 @@ Use [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/
 ## Related information
 
 [Azure storage accounts](../storage/common/storage-create-storage-account.md)  
-[High availability](analysis-services-bcdr.md)     
-[Manage Azure Analysis Services](analysis-services-manage.md)
+[High availability](analysis-services-bcdr.md)      
+[Analysis Services network connectivity FAQ](analysis-services-network-faq.md)
