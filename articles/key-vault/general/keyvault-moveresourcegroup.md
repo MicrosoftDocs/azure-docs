@@ -22,11 +22,11 @@ Moving a key vault across resource groups is a supported key vault feature. Movi
 
 ## Design Considerations
 
-Your organization may have implemented Azure Policy with enforcement or exclusions at the resource group level. There may be a different set of policy assignments in the resource group where your key vault currently exists and the resource group where you are moving your key vault. This has the potential to break your applications.
+Your organization may have implemented Azure Policy with enforcement or exclusions at the resource group level. There may be a different set of policy assignments in the resource group where your key vault currently exists and the resource group where you are moving your key vault. A conflict in policy requirements has the potential to break your applications.
 
 ### Example
 
-You have an application connected to key vault that creates certificates that are valid for 2 years. The resource group where you are attempting to move your key vault has a policy assignment that blocks the creation of certificates that are valid for longer than 1 year. After moving your key vault to the new resource group the operation to create a certificate that is valid for 2 years will be blocked by an Azure policy assignment.
+You have an application connected to key vault that creates certificates that are valid for two years. The resource group where you are attempting to move your key vault has a policy assignment that blocks the creation of certificates that are valid for longer than one year. After moving your key vault to the new resource group the operation to create a certificate that is valid for two years will be blocked by an Azure policy assignment.
 
 ### Solution
 
@@ -34,7 +34,7 @@ Make sure that you go to the Azure Policy page on the Azure portal and look at t
 
 ## Procedure
 
-1. Log in to the Azure Portal
+1. Log in to the Azure portal
 2. Navigate to your key vault
 3. Click on the "Overview" tab
 4. Select the "Move" button
@@ -43,4 +43,4 @@ Make sure that you go to the Azure Policy page on the Azure portal and look at t
 7. Acknowledge the warning regarding moving resources
 8. Select "OK"
 
-Key Vault will now evaluate the validity of the resource move, and alert you if there are any errors. If there are no errors, the resource move will be completed. 
+Key Vault will now evaluate the validity of the resource move, and alert you of any errors. If no errors are found, the resource move will be completed. 
