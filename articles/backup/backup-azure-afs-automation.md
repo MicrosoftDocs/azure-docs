@@ -21,7 +21,6 @@ This article explains how to:
 ## Before you start
 
 * [Learn more](backup-azure-recovery-services-vault-overview.md) about Recovery Services vaults.
-* Read about the preview capabilities for [backing up Azure file shares](backup-afs.md).
 * Review the PowerShell object hierarchy for Recovery Services.
 
 ## Recovery Services object hierarchy
@@ -40,12 +39,12 @@ Set up PowerShell as follows:
 
 1. [Download the latest version of Az PowerShell](/powershell/azure/install-az-ps). The minimum version required is 1.0.0.
 
-> [!WARNING]
-> The minimum version of PS required for preview was 'Az 1.0.0'. Due to upcoming changes for GA, the minimum PS version required will be 'Az.RecoveryServices 2.6.0'. It is very important to upgrade all existing PS versions to this version. Otherwise, the existing scripts will break after GA. Install the minimum version with the following PS commands
+    > [!WARNING]
+    > The minimum PS version required for Azure file share backup is **Az.RecoveryServices 2.6.0**. Please upgrade your version to avoid any issues with the existing scripts. Install the minimum version with the following PS command:
 
-```powershell
-Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
-```
+    ```powershell
+    Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+    ```
 
 2. Find the Azure Backup PowerShell cmdlets with this command:
 
@@ -282,14 +281,12 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 
 Azure file share snapshots are used while the backups are taken, so usually the job completes by the time the command returns this output.
 
-### Using on-demand backups to extend retention
+### Using a runbook to schedule backups
 
-On-demand backups can be used to retain your snapshots for 10 years. Schedulers can be used to run on-demand PowerShell scripts with chosen retention and thus take snapshots at regular intervals every week, month, or year. While taking regular snapshots, refer to the [limitations of on-demand backups](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) using Azure backup.
+If you are looking for sample scripts, you can refer to the [sample script on GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) using an Azure Automation runbook.
 
-If you are looking for sample scripts, you can refer to the sample script on GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) using Azure Automation runbook that enables you to schedule backups on a periodic basis and retain them even up to 10 years.
-
-> [!WARNING]
-> Make sure the PS version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups in your automation runbooks. You will have to replace the old 'AzureRM' module with 'Az' module. With this version, the 'friendlyName' filter is available for ```Get-AzRecoveryServicesBackupItem``` command. Pass the azure file share name to friendlyName parameter. If you pass the azure file share name to the 'Name' parameter, this version throws a warning to pass this friendly name to the friendly name parameter.
+>[!NOTE]
+> Azure File share Backup Policy now supports configuring backup with daily/weekly/monthly/yearly retention.
 
 ## Next steps
 

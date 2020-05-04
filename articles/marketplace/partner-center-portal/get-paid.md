@@ -1,14 +1,15 @@
 ---
-title: Getting paid in commercial marketplace | Azure Marketplace
-description: Learn about receiving payments for your earnings in the commercial marketplace.
+title: Getting paid in Microsoft commercial marketplace 
+description: Learn about receiving payments for your earnings in the Microsoft commercial marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
 ---
-# Getting paid
-Here’s some important info about receiving payment for your offers, add-ons, and advertising earnings.
+# Getting paid in commercial marketplace
+
+Here's some important info about receiving payment for your offers, add-ons, and advertising earnings.
 
 > [!IMPORTANT]
 > Before you can receive money from offer sales in the commercial marketplace, you need to [set up your payout account and fill out the necessary tax forms](set-up-your-payout-account-tax-forms.md).
@@ -32,7 +33,7 @@ You can offer your app for free, or you can pick a price that customers must pay
 
 Each price tier has a corresponding value in each of the currencies offered by the Store. We use these values to help you sell your offer at a comparable price point worldwide. However, due to changes in foreign exchange rates, the exact sales amount may vary slightly from one currency to another.
 
-You also have the option to enter a free-form price of your choosing in a specific market’s local currency. When you do this, the price will not be adjusted (even if conversion rates change) unless you submit an update with a new price. 
+You also have the option to enter a free-form price of your choosing in a specific market's local currency. When you do this, the price will not be adjusted (even if conversion rates change) unless you submit an update with a new price. 
 
 Keep in mind that the price you select may include sales or value-added tax that your customers must pay. See [Tax details for paid offer](tax-details-paid-transactions.md) for more info.
 
@@ -44,16 +45,16 @@ You can access details about your payment info and download reports in the **Pay
 
 ## Payout timeframe
 
-Payments are made on a monthly basis (provided the applicable payment threshold has been met and you haven’t placed your payout on hold as described below). We'll typically send any payment due in a given month by the 15th day of that month. Note that payments generally take between 3 to 10 additional business days to reach your payout account. For more info, see [Payment thresholds, methods, and timeframes](payment-thresholds-methods-timeframes.md).
+Payments are made on a monthly basis (provided the applicable payment threshold has been met and you haven't placed your payout on hold as described below). We'll typically send any payment due in a given month by the 15th day of that month. Note that payments generally take between 3 to 10 additional business days to reach your payout account. For more info, see [Payment thresholds, methods, and timeframes](payment-thresholds-methods-timeframes.md).
 
 
 ##  Payout hold status
 
-By default, we’ll send payments on a monthly basis as described above. However, you have the option to put your payouts for a program on hold, which will prevent us from sending payments to your account. If you choose to put your payouts on hold, we’ll continue to record any revenue that you earn and provide the details in your **Payout summary**. However, we won’t send any payments to your account until you remove the hold.
+By default, we'll send payments on a monthly basis as described above. However, you have the option to put your payouts for a program on hold, which will prevent us from sending payments to your account. If you choose to put your payouts on hold, we'll continue to record any revenue that you earn and provide the details in your **Payout summary**. However, we won't send any payments to your account until you remove the hold.
 
-To place your payments on hold, go to **Developer settings**. Under **Payout and tax**, in the **Payout and tax profile assignment** section, locate the program for which you would like payments held. Click the **Hold my Payment** checkbox to hold payments for this program. You can change your payout hold status at any time, but be aware that your decision will impact the next monthly payout. For example, if you want to hold April’s payout, make sure to set your payout hold status to **On** before the end of March.
+To place your payments on hold, go to **Developer settings**. Under **Payout and tax**, in the **Payout and tax profile assignment** section, locate the program for which you would like payments held. Click the **Hold my Payment** checkbox to hold payments for this program. You can change your payout hold status at any time, but be aware that your decision will impact the next monthly payout. For example, if you want to hold April's payout, make sure to set your payout hold status to **On** before the end of March.
 
-Once you have set your payout hold status to **On**, all payouts for this program will be on hold until you toggle the slider back to **Off**. When you do so, you’ll be included during the next monthly payout cycle (provided any applicable payment thresholds have been met). For example, if you’ve had your payouts on hold, but would like to have a payout generated in June, then make sure to toggle the payout hold status to **Off** before the end of May.
+Once you have set your payout hold status to **On**, all payouts for this program will be on hold until you toggle the slider back to **Off**. When you do so, you'll be included during the next monthly payout cycle (provided any applicable payment thresholds have been met). For example, if you've had your payouts on hold, but would like to have a payout generated in June, then make sure to toggle the payout hold status to **Off** before the end of May.
 
 > [!NOTE]
 > Your **Payout hold status** applies to each program individually (Microsoft Store, advertising, Azure Marketplace, etc.). If you wish to hold payments on all of your programs, you must hold payments on each program individually.

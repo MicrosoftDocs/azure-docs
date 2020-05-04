@@ -116,7 +116,7 @@
       items:
       - name: Azure SQL Auditing
         href: sql-database-auditing.md
-      - name: To storage behind VNet or firewall
+      - name: Audit to storage account behind VNet or firewall
         href: create-auditing-storage-account-vnet-firewall.md
       - name: Audit log format
         href: sql-database-audit-log-format.md
@@ -128,7 +128,11 @@
       - name: Data discovery and classification
         href: sql-database-data-discovery-and-classification.md
       - name: Vulnerability assessment
-        href: sql-vulnerability-assessment.md
+        items:
+        - name: Vulnerability assessment  
+          href: sql-vulnerability-assessment.md
+        - name: Storing VA scans behind firewalls and VNets
+          href: sql-database-vulnerability-assessment-storage.md
       - name: Advanced Threat Protection
         href: sql-database-threat-detection-overview.md
       - name: Security attributes

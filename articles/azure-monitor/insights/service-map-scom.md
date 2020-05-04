@@ -105,7 +105,7 @@ The Service Map folder has four nodes:
 You can edit or delete the configured workspace through the **Service Map Overview** pane (**Administration** pane > **Operations Management Suite** > **Service Map**).
 
 >[!NOTE]
->[Operations Management Suite was a collection of services](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) that included Log Analytics, which is now part of [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
+>[Operations Management Suite was a collection of services](https://docs.microsoft.com/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand) that included Log Analytics, which is now part of [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/azure-monitor/overview.md).
 
 You can configure only one Log Analytics workspace in this current release.
 

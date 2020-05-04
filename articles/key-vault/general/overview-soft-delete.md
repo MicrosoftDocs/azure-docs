@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault soft delete | Microsoft Docs
+title: Azure Key Vault soft-delete | Microsoft Docs
 description: Soft-delete in Azure Key Vault allows you to recover deleted key vaults and key vault objects, such as keys, secrets, and certificates.
 ms.service: key-vault
 ms.subservice: general
@@ -12,14 +12,14 @@ ms.date: 03/19/2019
 
 # Azure Key Vault soft-delete overview
 
-Key Vault's soft delete feature allows recovery of the deleted vaults and vault objects, known as soft-delete. Specifically, we address the following scenarios:
+Key Vault's soft-delete feature allows recovery of the deleted vaults and vault objects, known as soft-delete. Specifically, we address the following scenarios:
 
 - Support for recoverable deletion of a key vault
 - Support for recoverable deletion of key vault objects (ex. keys, secrets, certificates)
 
 ## Supporting interfaces
 
-The soft-delete feature is initially available through the [REST](/rest/api/keyvault/), [CLI](soft-delete-cli.md), [PowerShell](soft-delete-powershell.md) and [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) interfaces.
+The soft-delete feature is initially available through the [REST](/rest/api/keyvault/), [CLI](soft-delete-cli.md), [PowerShell](soft-delete-powershell.md), and [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) interfaces, as well as [ARM templates](https://docs.microsoft.com/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## Scenarios
 
@@ -33,7 +33,7 @@ Azure Key Vaults are tracked resources, managed by Azure Resource Manager. Azure
 
 When soft-delete is enabled, resources marked as deleted resources are retained for a specified period (90 days by default). The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion.
 
-When creating a new key vault, soft-delete is on by default. You can create a key vault without soft-delete through the [Azure CLI](soft-delete-cli.md) or [Azure Powershell](soft-delete-powershell.md). Once soft-delete is enabled on a key vault it cannot be disabled
+When creating a new key vault, soft-delete is on by default. You can create a key vault without soft-delete through the [Azure CLI](soft-delete-cli.md) or [Azure PowerShell](soft-delete-powershell.md). Once soft-delete is enabled on a key vault it cannot be disabled
 
 The default retention period is 90 days but, during key vault creation, it is possible to set the retention policy interval to a value from 7 to 90 days through the Azure portal. The purge protection retention policy uses the same interval. Once set, the retention policy interval cannot be changed.
 
@@ -41,7 +41,7 @@ You cannot reuse the name of a key vault that has been soft-deleted until the re
 
 ### Purge protection 
 
-Purge protection is an optional Key Vault behavior and is **not enabled by default**. It can be turned on via [CLI](soft-delete-cli.md#enabling-purge-protection) or [Powershell](soft-delete-powershell.md#enabling-purge-protection).
+Purge protection is an optional Key Vault behavior and is **not enabled by default**. Purge protection can only be enabled once soft-delete is enabled.  It can be turned on via [CLI](soft-delete-cli.md#enabling-purge-protection) or [PowerShell](soft-delete-powershell.md#enabling-purge-protection).
 
 When purge protection is on, a vault or an object in the deleted state cannot be purged until the retention period has passed. Soft-deleted vaults and objects can still be recovered, ensuring that the retention policy will be followed. 
 
@@ -53,7 +53,7 @@ Permanently deleting, purging, a key vault is possible via a POST operation on t
 
 Exceptions are:
 - When the Azure subscription has been marked as *undeletable*. In this case, only the service may then perform the actual deletion, and does so as a scheduled process. 
-- When the --enable-purge-protection flag is enabled on the vault itself. In this case, Key Vault will wait for 90 days from when the original secret object was marked for deletion to permanently delete the object.
+- When the `--enable-purge-protection flag` is enabled on the vault itself. In this case, Key Vault will wait for 90 days from when the original secret object was marked for deletion to permanently delete the object.
 
 ### Key vault recovery
 
@@ -67,7 +67,7 @@ At the same time, Key Vault will schedule the deletion of the underlying data co
 
 ### Soft-delete retention period
 
-Soft deleted resources are retained for a set period of time, 90 days. During the soft-delete retention interval, the following apply:
+Soft-deleted resources are retained for a set period of time, 90 days. During the soft-delete retention interval, the following apply:
 
 - You may list all of the key vaults and key vault objects in the soft-delete state for your subscription as well as access deletion and recovery information about them.
     - Only users with special permissions can list deleted vaults. We recommend that our users create a custom role with these special permissions for handling deleted vaults.

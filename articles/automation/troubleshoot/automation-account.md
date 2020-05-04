@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ---
-# Automation account troubleshooting
+# Troubleshoot the Automation account
 
 This article discusses solutions to issues that you might encounter when you use an Automation account. The following sections highlight specific error messages and possible resolutions for each. For general information about Automation accounts, see [Create an Azure account](../automation-quickstart-create-account.md).
 
@@ -39,11 +39,11 @@ To register the Automation Resource Provider, follow these steps in the Azure po
 
 4. From the list of resource providers, verify that the **Microsoft.Automation** resource provider is registered.
 
-5. If it's not listed, register the **Microsoft.Automation** provider by following the steps at [Resolve errors for resource provider registration](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+5. If the provider isn't listed, register it as described in [Resolve errors for resource provider registration](/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
 ## Next steps
 
-If you didn't see your problem or can't resolve your issue, try one of the following channels for additional support:
+If you don't see your problem above or can't resolve your issue, try one of the following channels for additional support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
