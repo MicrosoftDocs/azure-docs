@@ -59,33 +59,21 @@ In addition to manual or programmatic way of provisioning throughput, you can al
 
 The advantage of this approach is that it is the easiest way to manage the scaling needs in your system. It guarantees not to apply rate-limiting **within the configured RU ranges**. The disadvantage is that, if the scaling needs in your system are predictable, autoscale may be a less cost-effective way of handling your scaling needs than using the bespoke control plane or SDK level approaches mentioned above.
 
-To set or alter max throughput (RUs) for autoscale using CQL, you can use the following commands (replacing keyspace/table name accordingly).
+To set or alter max throughput (RUs) for autoscale using CQL, use the following (replacing keyspace/table name accordingly):
 
-Set max throughput (RUs) for autoscale at keyspace level:
-```shell
+```Bash
+# to set max throughput (RUs) for autoscale at keyspace level:
 create keyspace <keyspace name> WITH cosmosdb_autoscale_max_throughput=5000;
-```
 
-
-Alter max throughput (RUs) for autoscale at keyspace level:
-```shell
+# to alter max throughput (RUs) for autoscale at keyspace level:
 alter keyspace <keyspace name> WITH cosmosdb_autoscale_max_throughput=4000;
-```
 
-
-Set max throughput (RUs) for autoscale at table level:
-```shell
+# to set max throughput (RUs) for autoscale at table level:
 create table <keyspace name>.<table name> (pk int PRIMARY KEY, ck int) WITH cosmosdb_autoscale_max_throughput=5000;
-```
 
-
-Alter max throughput (RUs) for autoscale at table level:
-```shell
+# to alter max throughput (RUs) for autoscale at table level:
 alter table <keyspace name>.<table name> WITH cosmosdb_autoscale_max_throughput=4000;
 ```
-
-
-
 
 ## Next steps
 
