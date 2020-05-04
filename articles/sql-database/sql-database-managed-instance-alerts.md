@@ -57,7 +57,7 @@ You can configure and get information about alert rules using the following inte
 
 ## Create an alert rule on a metric with the Azure portal
 
-1. In the [portal](https://portal.azure.com/), locate SQL managed instance resource you are interested in monitoring and select it.
+1. In Azure [portal](https://portal.azure.com/), locate SQL managed instance you are interested in monitoring, and select it.
 
 2. Select **Metrics** in the Monitoring section. The text and icon may vary slightly for different resources.  
 
