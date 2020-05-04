@@ -11,6 +11,7 @@ ms.author: kasparks
 ---
 
 # Improve performance of Azure applications with Azure Advisor
+
 Azure Advisor performance recommendations help improve the speed and responsiveness of your business-critical applications. You can get performance recommendations from Advisor on the **Performance** tab of the Advisor dashboard.
 
 ## Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
