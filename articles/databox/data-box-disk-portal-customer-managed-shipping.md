@@ -67,17 +67,21 @@ For detailed information regarding prerequisites and Azure Portal usage, see [Qu
    >
    > Do not share the authorization code over email. This is only to be verified at the distribution center during drop off.
 
-9. You should now be at Ready to receive success state of the Azure portal. This means that you have scheduled an appointment for drop off and shared the drop off point of contact's details. They have also confirmed that they have the authorization code available.
+9. You should now be at **Ready to receive** success state of the Azure portal. This means that you have scheduled an appointment for drop off and shared the drop off point of contact's details. You will also need to confirm that the distribution center also has the authorization code available.
    ![Authorization Code](media\data-box-disk-portal-customer-managed-shipping\receiveAzureDatacenterAuthCode-disk-02b.png)
 
 10. Customer or point of contact has dropped off the device at the DC and their ID and authorization code have been verified.
 
     ![Received Complete](media\data-box-disk-portal-customer-managed-shipping\selfManageDB-Received-disk-01.png)
 
-11. Copy in progress
+11. From this point on Microsoft will copy your data to their servers. From the UI you will be able to see the **Copy in progress**.
 
-12. Copy complete
+    ![Data Copy](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-copy-data-01.png)
 
-13. Order Complete
+12. When your data and finished copying successfully, Azure portal will indicate that the copy of your data is complete.
+
+    ![Data Copy Complete](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-copy-data-complete-01.png)
 
 ## Next steps
+
+[Quickstart: Deploy Azure Data Box Heavy using the Azure portal](data-box-heavy-quickstart-portal.md)

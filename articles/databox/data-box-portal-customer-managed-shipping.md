@@ -37,20 +37,20 @@ For detailed information regarding prerequisites and Azure Portal usage, see [Qu
 
 3. Ready for Pick-up in progress. You need to click on **Schedule Pickup**.
 
-   ![Ordering a Data Box device for pickup](media\data-box-portal-customer-managed-shipping\pendingUserPickup-01b.png)
+   ![Ordering a Data Box device for pickup](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-01b.png)
 
 4. Follow the instructions in the **Schedule pickup for Azure**. Before you can get your authorization code, you must email [adbops@microsoft.com](mailto:adbops@microsoft.com) to schedule the device pickup from your region's distribution center.
-   ![Schedule pickup](media\data-box-portal-customer-managed-shipping\pendingUserPickup-02b.png)
+   ![Schedule pickup](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-02b.png)
 
 5. After you have made contact with ADBOPs, you will be able to view your **Authorization Code** for your device in the **Schedule pickup for Azure**.
-   ![Authorization Code](media\data-box-portal-customer-managed-shipping\selfManageDBDReadyToDisp-01-b-Auth.png)
+   ![Authorization Code](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
 
    Write this number down or print it.
 
 6. Ready for pickup in progress.
    Your order automatically moves to this state once the device prep has completed. You will receive an email instructing you to contact ADB ops to schedule an appointment to come to the distribution center for pick up.
 
-   ![Picked up](media\data-box-portal-customer-managed-shipping\selfManageDBDReadyToRece-01.png)
+   ![Picked up](media\data-box-portal-customer-managed-shipping\data-box-portal-picked-up-01.png)
 
    You also need to provide details of who will be coming for the pick up. You or the point of contact has to carry a Government approved photo ID that will be validated at the DC. Ops will need to include this person's details so that it can be verified during pick up.
 
@@ -67,16 +67,20 @@ For detailed information regarding prerequisites and Azure Portal usage, see [Qu
     > The authorization code will no longer be available on the portal once **Prepare to ship** is globally enabled on all orders. It will only be available on the device local UI.
 
 9. You should now be at Ready to receive success state of the Azure portal. This means that you have scheduled an appointment for drop off and shared the drop off point of contact's details. They have also confirmed that they have the authorization code available.
-   ![Authorization Code](media\data-box-portal-customer-managed-shipping\receiveAzureDatacenterAuthCode-02b.png)
+   ![Authorization Code](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
 10. Customer or point of contact has dropped off the device at the DC and their ID and authorization code have been verified.
 
-    ![Received Complete](media\data-box-portal-customer-managed-shipping\selfManageDB-Received-01.png)
+    ![Received Complete](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-01.png)
 
-11. Copy in progress
+11. From this point on Microsoft will copy your data to their servers. From the UI you will be able to see the **Copy in progress**.
 
-12. Copy complete
+    ![Data Copy](media\data-box-portal-customer-managed-shipping\data-box-copy-data-01.png)
 
-13. Order Complete
+12. When your data and finished copying successfully, Azure portal will indicate that the copy of your data is complete.
+
+    ![Data Copy Complete](media\data-box-portal-customer-managed-shipping\data-box-copy-data-complete-01.png)
 
 ## Next steps
+
+[Quickstart: Deploy Azure Data Box Heavy using the Azure portal](data-box-heavy-quickstart-portal.md)
