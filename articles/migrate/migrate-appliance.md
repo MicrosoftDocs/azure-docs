@@ -368,7 +368,7 @@ Here's the Linux server performance data that the appliance collects and sends t
 
 **Data** | **Linux** 
 --- | --- 
-CPU usage | cat /proc/stat/|grep 'cpu' /proc/stat
+CPU usage | cat /proc/stat/|grep 'cpu' \/proc/stat
 Memory usage | free \| grep Mem \| awk '{print $3/$2 * 100.0}'
 NIC count | lshw -class network \| grep eth[0-60] \| wc -l
 Data received per NIC | cat /sys/class/net/eth$nic/statistics/rx_bytes
