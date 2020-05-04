@@ -53,7 +53,7 @@
         href: streaming-catalog-views.md
       - name: sys.external_job_streams (Transact-SQL)
         href: sys-external-job-streams.md
-      - name: sys.externalstreaming_jobs (Transact-SQL)
+      - name: sys.external-streaming_jobs (Transact-SQL)
         href: sys-external-streaming-jobs.md
       - name: sys.external_streams (Transact-SQL)
         href: sys-external-streams.md
