@@ -66,7 +66,7 @@ Utterance normalization is the process of ignoring the effects of types of text,
 
 The utterance normalization settings are turned off by default. These settings include:
 
-* Word stems
+* Word forms
 * Diacritics
 * Punctuation
 
@@ -76,13 +76,13 @@ When you clone a version in the LUIS portal, the version settings continue to th
 
 Set the version settings via the LUIS portal, on the **Manage** section, on the **Application Settings** page, or the [Update Version Settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings). Learn more about these normalization changes in the [Reference](luis-reference-application-settings.md).
 
-### Word stems
+### Word forms
 
-Normalizing **word stems** ignores the stemming in utterances.
+Normalizing **word forms** ignores the differences in words that expand beyond the root word in utterances.
 
-Word stems are forms of a word, where the meaning of the word hasn't changed for the stem has changed to follow rules of the language.
+Word forms include where the meaning of the word hasn't changed when the stem changes.
 
-For example, the words `run`, `running`, and `ran` change based on verb tense.
+For example, the words `run`, `running`, and `runs` change based on verb tense.
 
 <a name="utterance-normalization-for-diacritics-and-punctuation"></a>
 
