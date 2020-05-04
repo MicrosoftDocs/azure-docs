@@ -9,7 +9,7 @@ ms.date: 10/18/2019
 ms.author: dsindona
 ---
 
-# SaaS fulfillment APIs version 2 in Microsoft Commercial Marketplace
+# SaaS fulfillment APIs version 2 in Microsoft commercial marketplace
 
 This article details the fulfillment APIs that enable partners to sell their SaaS applications in Microsoft AppSource and Azure Marketplace. These APIs are required for transactable SaaS offers.
 
