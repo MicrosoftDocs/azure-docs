@@ -32,7 +32,7 @@ az sig image-definition list \
 
 Create a scale set using [az vmss create](/cli/azure/vmss#az-vmss-create) using the --specialized parameter to indicate the the image is a specialized image.
 
-Use the image definition ID for `--image` to create the scale set instances from the latest version of the image that is available. You can also create the scale set instances from a specific version by supplying the image version ID for `--image`. 
+Use the image definition ID for `--image` to create the scale set instances from the latest version of the image that is available. You can also create the scale set instances from a specific version by supplying the image version ID for `--image`. Be aware that using a specific image version means automation could fail if that specific image version isn't available because it was deleted or removed from the region. We recommend using the image definition ID for creating your new VM, unless a specific image version is required.
 
 In this example, we are creating instances from the latest version of the *myImageDefinition* image.
 

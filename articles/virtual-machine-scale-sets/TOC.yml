@@ -65,8 +65,6 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: Images
-    href: shared-image-galleries.md
   - name: Azure Resource Manager
     href: ../azure-resource-manager/management/overview.md
     maintainContext: true
@@ -83,6 +81,8 @@
       href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
     - name: Manage fault domains in scale sets
       href: virtual-machine-scale-sets-manage-fault-domains.md
+  - name: Images
+    href: shared-image-galleries.md
   - name: VM types and sizes
     href: ../virtual-machines/windows/sizes.md
     maintainContext: true
@@ -207,9 +207,9 @@
         - name: Create a scale-set
           items:
           - name: Specialized
-            href: instance-generalized-image-version-powershell.md
-          - name: Generalized
             href: instance-specialized-image-version-powershell.md
+          - name: Generalized
+            href: instance-generalized-image-version-powershell.md
         - name: Update image resources
           href: ../virtual-machines/update-image-resources-powershell.md
       - name: CLI
@@ -226,16 +226,12 @@
             href: ../virtual-machines/image-version-another-gallery-cli.md
         - name: Create a scale-set
           items:
+          - name: Specialized
+            href: instance-specialized-image-version-cli.md
           - name: Generalized
             href: instance-generalized-image-version-cli.md
         - name: Update image resources
           href: ../virtual-machines/update-image-resources-cli.md
-      - name: Portal
-        items:
-        - name: Windows
-          href: ../virtual-machines/windows/shared-images-portal.md
-        - name: Linux
-          href: ../virtual-machines/linux/shared-images-portal.md
   - name: Create a template
     items:
     - name: Learn about scale set templates
