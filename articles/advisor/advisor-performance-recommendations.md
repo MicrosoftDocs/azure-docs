@@ -29,6 +29,10 @@ Advisor provides you with a consistent, consolidated view of recommendations for
 
 For more information about SQL Database Advisor, see [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
 
+## Upgrade your Storage Client Library to the latest version for better reliability and performance
+
+The latest version of Storage Client Library/ SDK contains fixes to issues reported by customers and proactively identified through our QA process. The latest version also carries reliability and performance optimization in addition to new features that can improve your overall experience using Azure Storage. Advisor provides you recommendations and steps to upgrade to latest version of SDK if you are on a stale version. The recommendations is for supported languages - C++ and .Net.
+
 ## Improve App Service performance and reliability
 
 Azure Advisor integrates best practices recommendations for improving your App Services experience and discovering relevant platform capabilities. Examples of App Services recommendations are:
