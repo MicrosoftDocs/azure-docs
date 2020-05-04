@@ -56,7 +56,7 @@
       - name: sys.externalstreaming_jobs (Transact-SQL)
         href: sys-external-streaming-jobs.md
       - name: sys.external_streams (Transact-SQL)
-        href: sys-external_streams.md
+        href: sys-external-streams.md
   - name: Processing timeseries data
     items:
     - name: Date_Bucket (Transact-SQL)
