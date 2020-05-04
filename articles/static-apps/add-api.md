@@ -237,7 +237,7 @@ Next, add the following the build details.
 | Setting | Description             | Required |
 | -------- | ----------------------- |
 |  App location | The location of the static application source code | Yes |
-|  Api location | The location of the API backend. This points to the root folder of the Azure Functions App project (optional) | No |
+|  Api location | The location of the API backend. This points to the root folder of the Azure Functions App project | No |
 |  App artifact location | The location of of the build output folder. Some front-end JavaScript frameworks have a build step that places production files in a folder. This setting points to the build output folder. | No |
 
 :::image type="content" source="media/add-api/create-static-app-on-azure-portal-3.png" alt-text="Create static app on Azure Portal - screen 3":::
