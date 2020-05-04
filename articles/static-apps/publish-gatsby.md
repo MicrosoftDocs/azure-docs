@@ -56,7 +56,7 @@ Create a Gatsby app using the Gatsby Command Line Interface (CLI):
 
 ## Push your application to GitHub
 
-You need to have a repository on GitHub to create a new Azure Static Web Apps resource. 
+You need to have a repository on GitHub to create a new Azure Static Web Apps resource.
 
 1. Create a blank GitHub repository (don't create a README) from [https://github.com/new](https://github.com/new) named **gatsby-static-web-app**.
 
@@ -82,11 +82,11 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. Select **Create a Resource** and search for **Static Web Apps**.
 
-   ![Create a Static Web App (Preview) in the portal](./media/static-web-apps-publish-gatsby/create-in-portal.png)
+   ![Create a Static Web Apps (Preview) in the portal](./media/static-web-apps-publish-gatsby/create-in-portal.png)
 
 1. For _Subscription_, accept the subscription that is listed or select a new one from the drop-down list.
 
-1. In _Resource group_, select **New**. In _New resource group name_, enter **myStaticApp** and select **OK**.
+1. In _Resource group_, select **New**. In _New resource group name_, enter **gatsby-static-web-app** and select **OK**.
 
 1. Next, provide a globally unique name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`. This value is used as the URL prefix for your Static Web App in the format of `https://<YOUR_APP_NAME>.azurestaticapps.net`.
 
@@ -126,7 +126,7 @@ Next, add configuration settings that the build process uses to build your app.
 
 1. Once the deployment completes click, **Go to resource**.
 
-1. On the resource screen, click the _URL_ link to open your deployed application.
+1. On the resource screen, click the _URL_ link to open your deployed application. You may need to wait a minute or two for the GitHub Action to complete.
 
    ![Deployed application](./media/static-web-apps-publish-gatsby/deployed-app.png)
 
@@ -138,5 +138,4 @@ Next, add configuration settings that the build process uses to build your app.
 
 > [!div class="nextstepaction"]
 
-> [!div class="nextstepaction"]
-> [Add a custom domain](custom-domain.md)
+> [!div class="nextstepaction"][add a custom domain](custom-domain.md)
