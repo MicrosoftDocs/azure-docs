@@ -17,7 +17,10 @@ ms.service: digital-twins
 
 # How has Azure Digital Twins changed since the previous release (2018)?
 
-The first public preview of Azure Digital Twins was released in October of 2018. While the core concepts from that previous release are still the same in the current public preview, some of the interfaces and implementation details have changed with the new release. The new release also aims to be more flexible and accessible. These changes were motivated by customer feedback.
+The first public preview of Azure Digital Twins was released in October of 2018. While the core concepts from that previous release are still the same in the current public preview, many of the interfaces and implementation details have changed with the new release. The new release also aims to be more flexible and accessible. These changes were motivated by customer feedback.
+
+> [!IMPORTANT]
+> Due to the scope of these changes across many features that will affect different Azure Digital Twins customers in different ways, there is no direct migration path for existing Azure Digital Twins solutions built during the previous release. Instead, it is recommended that you start fresh with the new service.
 
 If you used Azure Digital Twins during the previous public preview, use the information and best practices in this article to learn how to work with the new version differently.
 
