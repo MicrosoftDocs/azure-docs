@@ -13,6 +13,6 @@ ms.date: 5/04/2020
 |Version|Normalize punctuation|`NormalizePunctuation`|Normalizing punctuation means that before your models get trained and before your endpoint queries get predicted, punctuation will be removed from the utterances.|
 |Version|Normalize word forms|`NormalizeWordForm`|Ignore word stemming.|
 
-Learn [concepts](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) of diacritics, punctuation, and word stems.
+Learn [concepts](../luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) of diacritics, punctuation, and word stems.
 
 Use [app](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58aeface39e2bb03dcd5909e) and [version](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) APIs to update these settings or use the LUIS portal's **Manage** section, **Application Settings** page.
