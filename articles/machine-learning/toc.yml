@@ -190,6 +190,8 @@
     - name: Set up dev environments
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
+    - name: Run Jupyter Notebooks
+      href: how-to-run-jupyter-notebooks.md
     - name: Set up software environments
       displayName: pip, Conda, anaconda
       href: how-to-use-environments.md
