@@ -22,9 +22,9 @@ Java SDK v4 provides client-side logical representation to access the Azure Cosm
 Start with this list:
 
 * Take a look at the [Common issues and workarounds] section in this article.
-* Look at the SDK, which is available [open source on GitHub](https://github.com/Azure/azure-cosmosdb-java). It has an [issues section](https://github.com/Azure/azure-cosmosdb-java/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed.
+* Look at the Java SDK in the Azure Cosmos DB monorepo, which is available [open source on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). It has an [issues section](https://github.com/Azure/azure-sdk-for-java/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed. One helpful tip is to filter issues by the *cosmos:v4-item* tag.
 * Review the [performance tips for Java SDK v4](), and follow the suggested practices.
-* Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-sdk-for-java/issues).
+* Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-sdk-for-java/issues). If there is an option to add tags to your GitHub issue, add a *cosmos:v4-item* tag.
 
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
 
@@ -78,77 +78,62 @@ The SDK uses the [Netty](https://netty.io/) IO library to communicate with Azure
 
 The Netty IO threads are meant to be used only for non-blocking Netty IO work. The SDK returns the API invocation result on one of the Netty IO threads to the app's code. If the app performs a long-lasting operation after it receives results on the Netty thread, the SDK might not have enough IO threads to perform its internal IO work. Such app coding might result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation takes time.
 
-For example, take a look at the following code snippet. You might perform long-lasting work that takes more than a few milliseconds on the Netty thread. If so, you eventually can get into a state where no Netty IO thread is present to process IO work. As a result, you get a ReadTimeoutException failure.
+For example, take a look at the following code snippet which adds items to a container (look [here](create-sql-api-java.md) for guidance on setting up the database and container.) You might perform long-lasting work that takes more than a few milliseconds on the Netty thread. If so, you eventually can get into a state where no Netty IO thread is present to process IO work. As a result, you get a ReadTimeoutException failure.
+
+### <a id="java4-readtimeout"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
 ```java
 @Test
 public void badCodeWithReadTimeoutException() throws Exception {
-    int requestTimeoutInSeconds = 10;
-
-    ConnectionPolicy policy = new ConnectionPolicy();
-    policy.setRequestTimeoutInMillis(requestTimeoutInSeconds * 1000);
-
-    AsyncDocumentClient testClient = new AsyncDocumentClient.Builder()
-            .withServiceEndpoint(TestConfigurations.HOST)
-            .withMasterKeyOrResourceToken(TestConfigurations.MASTER_KEY)
-            .withConnectionPolicy(policy)
-            .build();
-
-    int numberOfCpuCores = Runtime.getRuntime().availableProcessors();
-    int numberOfConcurrentWork = numberOfCpuCores + 1;
-    CountDownLatch latch = new CountDownLatch(numberOfConcurrentWork);
-    AtomicInteger failureCount = new AtomicInteger();
-
-    for (int i = 0; i < numberOfConcurrentWork; i++) {
-        Document docDefinition = getDocumentDefinition();
-        Observable<ResourceResponse<Document>> createObservable = testClient
-                .createDocument(getCollectionLink(), docDefinition, null, false);
-        createObservable.subscribe(r -> {
-                    try {
-                        // Time-consuming work is, for example,
-                        // writing to a file, computationally heavy work, or just sleep.
-                        // Basically, it's anything that takes more than a few milliseconds.
-                        // Doing such operations on the IO Netty thread
-                        // without a proper scheduler will cause problems.
-                        // The subscriber will get a ReadTimeoutException failure.
-                        TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
-                    } catch (Exception e) {
-                    }
-                },
-
-                exception -> {
-                    //It will be io.netty.handler.timeout.ReadTimeoutException.
-                    exception.printStackTrace();
-                    failureCount.incrementAndGet();
-                    latch.countDown();
-                },
-                () -> {
-                    latch.countDown();
-                });
-    }
-
-    latch.await();
-    assertThat(failureCount.get()).isGreaterThan(0);
+  int requestTimeoutInSeconds = 10;
+  ConnectionPolicy policy = new ConnectionPolicy();
+  policy.setRequestTimeout(Duration.ofMillis(requestTimeoutInSeconds * 1000));
+  AtomicInteger failureCount = new AtomicInteger();
+  // Max number of concurrent item inserts is # CPU cores + 1
+  Flux<Family> familyPub = 
+      Flux.just(Families.getAndersenFamilyItem(), Families.getWitherspoonFamilyItem(), Families.getCarltonFamilyItem());
+  familyPub.flatMap(family -> {
+      return container.createItem(family);
+  }).flatMap(r -> {
+      try {
+          // Time-consuming work is, for example,
+          // writing to a file, computationally heavy work, or just sleep.
+          // Basically, it's anything that takes more than a few milliseconds.
+          // Doing such operations on the IO Netty thread
+          // without a proper scheduler will cause problems.
+          // The subscriber will get a ReadTimeoutException failure.
+          TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
+      } catch (Exception e) {
+      }
+      return Mono.empty();
+  }).doOnError(Exception.class, exception -> {
+      failureCount.incrementAndGet();
+  }).blockLast();
+  assert(failureCount.get() > 0);
 }
 ```
-   The workaround is to change the thread on which you perform work that takes time. Define a singleton instance of the scheduler for your app.
-   ```java
+
+The workaround is to change the thread on which you perform work that takes time. Define a singleton instance of the scheduler for your app.
+
+### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
+```java
 // Have a singleton instance of an executor and a scheduler.
 ExecutorService ex  = Executors.newFixedThreadPool(30);
-Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
-   ```
-   You might need to do work that takes time, for example, computationally heavy work or blocking IO. In this case, switch the thread to a worker provided by your `customScheduler` by using the `.observeOn(customScheduler)` API.
-```java
-Observable<ResourceResponse<Document>> createObservable = client
-        .createDocument(getCollectionLink(), docDefinition, null, false);
-
-createObservable
-        .observeOn(customScheduler) // Switches the thread.
-        .subscribe(
-            // ...
-        );
+Scheduler customScheduler = Schedulers.fromExecutor(ex);
 ```
-By using `observeOn(customScheduler)`, you release the Netty IO thread and switch to your own custom thread provided by the custom scheduler. 
-This modification solves the problem. You won't get a `io.netty.handler.timeout.ReadTimeoutException` failure anymore.
+You might need to do work that takes time, for example, computationally heavy work or blocking IO. In this case, switch the thread to a worker provided by your `customScheduler` by using the `.publishOn(customScheduler)` API.
+
+### <a id="java4-apply-custom-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
+```java
+container.createItem(family)
+    .publishOn(customScheduler) // Switches the thread.
+    .subscribe(
+        // ...
+    );
+```
+By using `publishOn(customScheduler)`, you release the Netty IO thread and switch to your own custom thread provided by the custom scheduler. This modification solves the problem. You won't get a `io.netty.handler.timeout.ReadTimeoutException` failure anymore.
 
 ### Connection pool exhausted issue
 
@@ -163,31 +148,27 @@ The Azure Cosmos DB emulator HTTPS certificate is self-signed. For the SDK to wo
 
 ### Dependency Conflict Issues
 
-```console
-Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
-```
+With Java SDK v4 Async API, you may find that your project has a dependency on an older version of Reactor (<3.3.0). Our SDK relies on Reactor 3.3.0 which has APIs not available in earlier versions of Reactor.
 
-The above exception suggests you have a dependency on an older version of RxJava lib (e.g., 1.2.2). Our SDK relies on RxJava 1.3.8 which has APIs not available in earlier version of RxJava. 
+The workaround for such issues is to identify which other dependency brings in the old version of Reactor and exclude the transitive dependency on that older version, and allow CosmosDB SDK to bring in the newer version.
 
-The workaround for such issuses is to identify which other dependency brings in RxJava-1.2.2 and exclude the transitive dependency on RxJava-1.2.2, and allow CosmosDB SDK bring the newer version.
-
-To identify which library brings in RxJava-1.2.2 run the following command next to your project pom.xml file:
+To identify which library brings in an older version of Reactor run the following command next to your project pom.xml file:
 ```bash
 mvn dependency:tree
 ```
 For more information, see the [maven dependency tree guide](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
 
-Once you identify  RxJava-1.2.2 is transitive dependency of which other dependency of your project, you can modify the dependency on that lib in your pom file and exclude RxJava transitive dependency it:
+Once you which dependency of your project depends on an older version of Reactor, you can modify the dependency on that lib in your pom file and exclude the Reactor transitive dependency:
 
 ```xml
 <dependency>
-  <groupId>${groupid-of-lib-which-brings-in-rxjava1.2.2}</groupId>
-  <artifactId>${artifactId-of-lib-which-brings-in-rxjava1.2.2}</artifactId>
-  <version>${version-of-lib-which-brings-in-rxjava1.2.2}</version>
+  <groupId>${groupid-of-lib-which-brings-in-reactor}</groupId>
+  <artifactId>${artifactId-of-lib-which-brings-in-reactor}</artifactId>
+  <version>${version-of-lib-which-brings-in-reactor}</version>
   <exclusions>
     <exclusion>
-      <groupId>io.reactivex</groupId>
-      <artifactId>rxjava</artifactId>
+      <groupId>io.projectreactor</groupId>
+      <artifactId>reactor-core</artifactId>
     </exclusion>
   </exclusions>
 </dependency>
