@@ -594,11 +594,13 @@
       href: ./partner-center-portal/get-paid.md
     - name: Set up your payout account and tax forms
       href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
-    - name: Billing details
-      href: ./partner-center-portal/billing-details.md
-    - name: Payment thresholds, methods, and time frames
+    - name: Payment thresholds, methods, and time-frames
       href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
-    - name: Payout summary
+    - name: Payout summary overview
+      href: ./partner-center-portal/payout-summary-overview.md
+    - name: Payout summaries
       href: ./partner-center-portal/payout-summary.md
+    - name: Payout policy details
+      href: ./partner-center-portal/payout-policy-details.md
     - name: Tax details
       href: ./partner-center-portal/tax-details-paid-transactions.md

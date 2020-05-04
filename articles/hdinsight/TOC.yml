@@ -907,6 +907,8 @@
       href: ./transport-layer-security.md
     - name: Plan VNETs for HDInsight
       href: ./hdinsight-plan-virtual-network-deployment.md
+    - name: Control network traffic
+      href: ./control-network-traffic.md
     - name: Required IP Addresses for NSGs and UDRs
       href: ./hdinsight-management-ip-addresses.md
     - name: Service tags for Azure firewall
