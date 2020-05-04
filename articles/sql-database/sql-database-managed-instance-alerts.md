@@ -69,19 +69,19 @@ You can configure and get information about alert rules using the following inte
 
 5. Select **New alert rule**
 
-6. In the Create alert rule pane click on **Conition name** (Storage space used is shown in the example)
+6. In the Create alert rule pane click on **Condition name** (Storage space used is shown in the example)
 
    ![Define condition](media/sql-database-managed-instance-alerts/manged-instance-create-metrics-alert-annotated.png)
 
-7. On the Configure signal logic pane, define Operator, Aggregation type, and Treshold value
+7. On the Configure signal logic pane, define Operator, Aggregation type, and Threshold value
 
-   * Operator type options are greater than, equal and less than (the treshold value)
-   * Aggregation tupe options are min, max or average (in the aggregation granularity period)
-   * Treshold value is the value which will based on the operator trigger an alert.
+   * Operator type options are greater than, equal and less than (the threshold value)
+   * Aggregation type options are min, max or average (in the aggregation granularity period)
+   * Threshold value is the value which will based on the operator trigger an alert.
    
-   In the example shown in the the screenshot, value of 1840876 MB is used representing a treshold value of 1.8 TB. As the operator is set in the exapmple to greater than, the alert will be created if the storage space consumption on the managed instance goes over 1.8TB. Please note that the value needs to be expressed in MB.
+   In the example shown in the screenshot, value of 1840876MB is used representing a threshold value of 1.8TB. As the operator in the example is set to greater than, the alert will be created if the storage space consumption on the managed instance goes over 1.8TB. Please note that the value needs to be expressed in MB.
 
-8. Set the evaluation period - aggregation granularity in minutes and frequency of evaluation. The frequency of evalution will denote time the alerting system will periodically check if the treshold condition has been met.
+8. Set the evaluation period - aggregation granularity in minutes and frequency of evaluation. The frequency of evaluation will denote time the alerting system will periodically check if the threshold condition has been met.
 
 9. Select action group. Action group pane will show up through which you will be able to select an existing, or create a new action. This action defines that will happen upon triggering an alert (e.g. sending email, calling you on the phone, executing a webhook, Azure function or a runbook, for example).
 
@@ -93,7 +93,7 @@ You can configure and get information about alert rules using the following inte
 
       ![define_how_to_be_alerted](media/sql-database-managed-instance-alerts/managed-instance-alerts-add-action-group-annotated.png)
 
-10. Fill in the alert rule details for your records, and select the severitity type.
+10. Fill in the alert rule details for your records, and select the severity type.
 
 Within a few minutes new alert rule is active, and alerts are triggered as defined as previously described.
 
