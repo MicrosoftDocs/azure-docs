@@ -44,8 +44,8 @@ The following metrics you can alert on are available for SQL managed instance:
 | IO bytes read | IO bytes read in the selected time period. | Bytes |
 | IO bytes written | IO bytes written in the selected time period. | Bytes |
 | IO requests count | Count of IO requests in the selected time period. | Numerical |
-| Storage space reserved | Current max. storage space reserved for the managed instance. Changes with resource scaling operation. | MB |
-| Storage space used | Storage space used in the selected period. Changes with storage consumption by databases and the instance. | MB |
+| Storage space reserved | Current max. storage space reserved for the managed instance. Changes with resource scaling operation. | MB (Megabytes) |
+| Storage space used | Storage space used in the selected period. Changes with storage consumption by databases and the instance. | MB (Megabytes) |
 | Virtual core count | vCores provisioned for the managed instance. Changes with resource scaling operation. | 4-80 (vCores) |
 
 You can configure and get information about alert rules using the following interfaces:
