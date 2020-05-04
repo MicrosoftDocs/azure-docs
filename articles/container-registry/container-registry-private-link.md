@@ -2,7 +2,7 @@
 title: Set up private link
 description: Set up a private endpoint on a container registry and enable a private link in a local virtual network
 ms.topic: article
-ms.date: 03/10/2020
+ms.date: 05/04/2020
 ---
 
 # Configure Azure Private Link for an Azure container registry 
@@ -13,12 +13,9 @@ You can [configure DNS settings](../private-link/private-endpoint-overview.md#dn
 
 This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
 
-> [!IMPORTANT]
-> This feature is currently in preview, and some [limitations](#preview-limitations) apply. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+## Things to know
 
-## Preview limitations
-
-* Currently, you can't set up a private link with a private endpoint on a [geo-replicated registry](container-registry-geo-replication.md). 
+* Currently, image scanning using Azure Security Center isn't available in a registry configured with a private endpoint.
 
 ## Prerequisites
 
@@ -257,7 +254,7 @@ The following steps assume you already have a virtual network and subnet set up 
 ### Create a private endpoint
 
 1. In the portal, navigate to your container registry.
-1. Under **Settings**, select **Private endpoint connections (Preview)**.
+1. Under **Settings**, select **Private endpoint connections**.
 1. Select **+ Private endpoint**.
 1. In the **Basics** tab, enter or select the following information:
 
@@ -378,7 +375,6 @@ To clean up your resources in the portal, navigate to your resource group. Once 
 * An alternative to private link is to set up network access rules to restrict registry access. To learn more, see [Restrict access to an Azure container registry using an Azure virtual network or firewall rules](container-registry-vnet.md).
 
 <!-- LINKS - external -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-login]: https://docs.docker.com/engine/reference/commandline/login/
 [docker-mac]: https://docs.docker.com/docker-for-mac/
