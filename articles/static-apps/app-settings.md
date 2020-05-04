@@ -74,29 +74,25 @@ Generally, uploading your settings is done infrequently, and isn't required with
 
 ## Upload settings
 
-You can upload settings via a third-party utility or with the Azure CLI.
+You can upload settings via the Azure Portal or with the Azure CLI.
 
-### Using upload-env
+### Using the Azure Portal
 
-The [upload-env](https://github.com/burkeholland/static-apps-env) Node.js module automatically uploads application settings specified in the `Values` section of the _local.settings.json_ file. During an upload, the module does not delete any settings, but does add or overwrite existing settings.
+The Azure Portal provides an interface for creating, updating and deleting App Settings.
 
-1. Open a terminal and navigate to the folder that contains the _api_ of your Azure Static Web Apps application.
+1. Navigate to the [Azure Portal](https://portal.azure.com).
 
-1. Execute the following command to begin the upload process
+1. In the search bar, type "static web apps". Select "Static Web Apps" from the dropdown menu.
 
-    ```bash
-    npx upload-env
-    ```
+1. Select your Static Web App from the list.
 
-1. Select the Azure subscription associated with your Azure Static Web Apps instance, and press **Enter**
+1. Click on the "Configuration" option in the sidebar.
 
-1. Enter the Resource Group where your Azure Static Web Apps instance is located, and press **Enter**
+1. Click on the "Add Button" to add a new app setting.
 
-1. Enter the name of your Azure Static Web Apps instance and press **Enter**
+:::image type="content" source="media/app-settings/configuration-env-variables.png" alt-text="Azure Static Web Apps configuration view":::
 
-As this command executes, the settings from your _local.settings.json_ file are uploaded to your app.
-
-    ![terminal confirming settings have been uploaded]()
+1. Enter a **Name** and **Value** and press "OK".
 
 ### Using the Azure CLI
 
@@ -106,23 +102,23 @@ The easiest way to create a JSON file with the appropriate values is to create a
 
 1. To ensure your new file with sensitive data isn't exposed publicly, add the following entry into your _.gitignore_ file.
 
-    ```bash
-    local.settings*.json
-    ```
+   ```bash
+   local.settings*.json
+   ```
 
 2. Next, make a copy of your _local.settings.json_ file and name it _local.settings.properties.json_.
 
 3. Inside the new file, remove all other data from the file except for the application settings and rename `Values` to `properties`.
 
-    Your file should now look similar to the following example:
+   Your file should now look similar to the following example:
 
-    ```json
-    {
-      "properties": {
-        "DATABASE_CONNECTION_STRING": "<YOUR_DATABASE_CONNECTION_STRING>"
-      }
-    }
-    ```
+   ```json
+   {
+     "properties": {
+       "DATABASE_CONNECTION_STRING": "<YOUR_DATABASE_CONNECTION_STRING>"
+     }
+   }
+   ```
 
 The Azure CLI command requires a number of values specific to your account to run the upload. From the _Overview_ window of your Static Web Apps resource, you have access to the following information:
 
@@ -134,14 +130,14 @@ The Azure CLI command requires a number of values specific to your account to ru
 
 4. From a terminal or command line, execute the following command. Make sure to replace the placeholders of `<YOUR_STATIC_SITE_NAME>`, `<YOUR_RESOURCE_GROUP_NAME>`, and `<YOUR_SUBSCRIPTION_ID>` with your values from the _Overview_ window.
 
-    ```bash
-    az rest --method put --headers "Content-Type=application/json" --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/config/functionappsettings?api-version=2019-12-01-preview" --body @local.settings.properties.json
-    ```
+   ```bash
+   az rest --method put --headers "Content-Type=application/json" --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/config/functionappsettings?api-version=2019-12-01-preview" --body @local.settings.properties.json
+   ```
 
 > [!IMPORTANT]
-> The .json file that you reference in the <YOUR_FILE_NAME>.json setting file must in the same directory where this command is run.
+> The "local.settings.properties.json" file must be in the same directory where this command is run. This file can be named anything you like. The name is not significant.
 
-## Viewing app settings
+### Viewing app settings with the Azure CLI
 
 Application settings are available to view through the Azure CLI.
 
@@ -150,4 +146,4 @@ Application settings are available to view through the Azure CLI.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Setup local development for Azure Static Web Apps](local-development.md)
+> [setup local development for azure static web apps](local-development.md)
