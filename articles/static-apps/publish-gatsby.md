@@ -137,5 +137,4 @@ Next, add configuration settings that the build process uses to build your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-
 > [Add a custom domain](custom-domain.md)
