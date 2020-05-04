@@ -25,7 +25,7 @@ If you’re just getting started, check out the [Microsoft identity platform doc
 Use the following checklist to ensure that your application is effectively integrated with the [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/).
 
 > [!TIP]
-> The *Integration assistant* in the Azure portal can help you apply many of these best practices and recommendations. Select the **Integration assistant (preview)** menu item in any app registration in the Azure portal to start the assistant. For more information, see [BLOG POST LINK HERE](https://aka.ms/integrationassistantblog).
+> The *Integration assistant* in the Azure portal can help you apply many of these best practices and recommendations. Select any of your [app registrations](https://aka.ms/appregistrations) in the Azure portal, and select the **Integration assistant (preview)** menu item to get started with the assistant.
 
 ## Basics
 
