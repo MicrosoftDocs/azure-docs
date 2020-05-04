@@ -124,8 +124,12 @@
       items:
       - name: Beginning
         href: storage-files-identity-auth-active-directory-enable.md
+      - name: Assign permissions
+        href: storage-files-identity-ad-ds-enable.md
       - name: Configure permissions
         href: storage-files-identity-ad-ds-configure-permissions.md
+      - name: Mount file share
+        href: storage-files-identity-ad-ds-mount-file-share.md
       - name: Update password
         href: storage-files-identity-ad-ds-update-password.md
     - name: Enable Azure AD DS authentication and authorization
