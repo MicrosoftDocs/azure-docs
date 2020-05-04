@@ -94,4 +94,4 @@ console.log(getUser());
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure environment variables](environment-variables.md)
+> [Configure app settings](app-settings.md)
