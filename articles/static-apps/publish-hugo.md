@@ -32,9 +32,10 @@ In this tutorial, you learn how to:
 
 Create a Hugo app using the Hugo Command Line Interface (CLI):
 
-1. Download the Hugo binary for your OS from the [GitHub Releases](https://github.com/gohugoio/hugo/releases) or follow the [installation guide](https://gohugo.io/getting-started/installing/).
+1. Follow the [installation guide](https://gohugo.io/getting-started/installing/) for Hugo on your OS.
 
 1. Open a terminal
+
 1. Run the Hugo CLI to create a new app.
 
    ```bash
@@ -53,7 +54,7 @@ Create a Hugo app using the Hugo Command Line Interface (CLI):
     git init
    ```
 
-1. Next, add a theme to the site.
+1. Next, add a theme to the site by installing a theme as a git submodule and then specifying it in the Hugo config file.
 
    ```bash
    git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
@@ -95,11 +96,11 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. Select **Create a Resource** and search for **Static App**.
 
-   ![Create a Static App (Preview) in the portal](./media/static-web-apps-publish-hugo/create-in-portal.png)
+   ![Create a Static Apps (Preview) in the portal](./media/static-web-apps-publish-hugo/create-in-portal.png)
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 
-1. In _Resource group_, select **New**. In _New resource group name_, enter **myStaticApp** and select **OK**.
+1. In _Resource group_, select **New**. In _New resource group name_, enter **hugo-static-app** and select **OK**.
 
 1. Next, provide a globally unique name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`. This value is used as the URL prefix for your static app in the format of `https://<APP_NAME>....`.
 
@@ -118,15 +119,18 @@ The following steps show you how to create a new static site app and deploy it t
 1. For the _Branch_ select **master**.
 
    ![Completed GitHub information](./media/static-web-apps-publish-hugo/completed-github-info.png)
+
 1. Click **Next : Build >**
+
 ### Build
 
 Next, you add configuration settings that the build process uses to build your app. The following settings configure the GitHub Action workflow file.
 
 1. Set _App location_ to **/**.
+
 1. Set _App artifact location_ to **public**.
 
-A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
+   A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
 
    ![Build Settings](./media/static-web-apps-publish-hugo/build-details.png)
 
