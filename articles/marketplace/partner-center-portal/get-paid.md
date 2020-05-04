@@ -47,7 +47,6 @@ You can access details about your payment info and download reports in the **Pay
 
 Payments are made on a monthly basis (provided the applicable payment threshold has been met and you haven’t placed your payout on hold as described below). We'll typically send any payment due in a given month by the 15th day of that month. Note that payments generally take between 3 to 10 additional business days to reach your payout account. For details, see [Payment thresholds, methods, and time frames](payment-thresholds-methods-timeframes.md).
 
-
 ##  Payout hold status
 
 By default, we'll send payments on a monthly basis as described above. However, you have the option to put your payouts for a program on hold, which will prevent us from sending payments to your account. If you choose to put your payouts on hold, we'll continue to record any revenue that you earn and provide the details in your **Payout summary**. However, we won't send any payments to your account until you remove the hold.
