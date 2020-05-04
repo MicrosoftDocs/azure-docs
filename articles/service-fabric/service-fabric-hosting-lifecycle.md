@@ -40,7 +40,7 @@ Configs with defaults impacting the activation/decativation. Their impacts will 
 **DeploymentMaxFailureCount**: Default 20. Application deployment will be retried for DeploymentMaxFailureCount times before failing the deployment of that application on the node.
 
 ## Deactivation
-**DeactivationScanInterval**: Default 600 sec. Minimum time given to ServicePackage to host a replica if it has never hosted any replica i.e if it is unused.
+**DeactivationScanInterval**: Default 600 sec. Minimum time given to ServicePackage to host a replica if it has never hosted any replica i.e if not used.
 **DeactivationGraceInterval**: Default 60 sec. The time given to a ServicePackage to host a replica once it has hosted any replica in case of **Shared** Process model.
 **ExclusiveModeDeactivationGraceInterval**: Default 1 sec. The time given to a ServicePackage to host a replica once it has hosted any replica in case of **Exclusive** Process model.
 
@@ -51,13 +51,13 @@ The pipeline for activation is as follows:
 1. Download the ApplicationPackage. Includes files for ex: ApplicationManifest.xml etc.
 2. Set up environment for Application for ex: create users etc.
 3. Create an entry in Deactivator to track the Application entity.
-4. Download ServicePackage. Iincludes files like: ServicePackage.xml, code, config, dat packages etc.
+4. Download ServicePackage. Includes files like: ServicePackage.xml, code, config, dat packages etc.
 5. Set up environment for Service Package for ex: setup firewall, allocate ports for dynamic endpoints etc.
 6. Create an entry in Deactivator to track the ServicePackage entity. 
 7. Start your CodePackage.
 
 ### ServiceType Disabling
-In SF, when activation/download operation encounters errors or CodePackage crashes, it schedules the ServiceType to be disabled on that node depending on two other hosting configs **ServiceTypeDisableFailureThreshold** and **ServiceTypeDisableGraceInterval**. So first activation/downlaod failure or CodePackage crash should trigger ServiceTypeDisabled to be scheduled. The **ServiceTypeDisableGraceInterval** config determines the grace interval after which ServiceType is finally marked as disabled on that node. Note, that for all this to happen activation/download/CodePackage restart should still be in retrying mode and being tracked by Hosting SubSystem. 
+In SF, when activation/download operation finds errors or CodePackage crashes, it schedules the ServiceType to be disabled on that node depending on two other hosting configs **ServiceTypeDisableFailureThreshold** and **ServiceTypeDisableGraceInterval**. So first activation/downlaod failure or CodePackage crash should trigger ServiceTypeDisabled to be scheduled. The **ServiceTypeDisableGraceInterval** config determines the grace interval after which ServiceType is finally marked as disabled on that node. Note, that for all this to happen activation/download/CodePackage restart should still be in retrying mode and being tracked by Hosting SubSystem. 
 
 ServiceType will be enabled back on the node 
 - If activation succeeds or reaches **ActivationMaxFailureCount** retries upon failure.
@@ -83,7 +83,7 @@ Your CodePackage can MAX back-off for **ActivationMaxRetryInterval**.
 If your CodePackage crashes and comes back up, it needs to stay up for **CodePackageContinuousExitFailureResetInterval** for SF to consider it as healthy at which point it will overwrite the health report as OK and reset the ContinousFailureCount.
 
 ### Activation Failure
-SF always uses a linear back-off (same as CodePackage crash) when it encounters error during activation. This means that the activation operation will give up after (0+ 10 + 20 + 30 + 40) = 100 sec (first retry is immediate). After this activation is not retried and operation is untracked.
+SF always uses a linear back-off (same as CodePackage crash) when it finds error during activation. This means that the activation operation will give up after (0+ 10 + 20 + 30 + 40) = 100 sec (first retry is immediate). After this activation is not retried and operation is untracked.
 	
 Max Activation backoff can be **ActivationMaxRetryInterval** and retry **ActivationMaxFailureCount**.
 
@@ -93,9 +93,9 @@ SF always uses a linear back-off when it encounters error during download. This 
 > [!NOTE]
 > Before you change the configs, here are a few examples you should keep in mind.
 
-1. In case of CodePackage crashes because the CodePackage keeps crashing and backs off, you will see ServiceType disabled. But if the activations config is such that it has a quick restart then the CodePackage can come up for a few times before it can see the disable of ServiceType. For ex: assume your CodePackage comes up and registers the ServiceType with us and then crashes. In that case, once Hosting receives a type registration the **ServiceTypeDisableGraceInterval** period is canceled. And this can repeat until your CodePackage backs offs to a value greater than  **ServiceTypeDisableGraceInterval**. So, it may be a while before your ServiceType is disabled on the node.
+1. In case of CodePackage crashes because the CodePackage keeps crashing and backs off, ServiceType will be disabled. But if the activations config is such that it has a quick restart then the CodePackage can come up for a few times before it can see the disable of ServiceType. For ex: assume your CodePackage comes up and registers the ServiceType with us and then crashes. In that case, once Hosting receives a type registration the **ServiceTypeDisableGraceInterval** period is canceled. And this can repeat until your CodePackage backs offs to a value greater than  **ServiceTypeDisableGraceInterval**. So, it may be a while before your ServiceType is disabled on the node.
 
-2. In case of activations, when SF system needs to place a Replica on a node, it asks Hosting SubSystem to activate the application and retries the activation request every 15 sec(**RAPMessageRetryInterval**). For SF system to know that ServiceType has been disabled, the activation operation in hosting needs to live for a longer period than retry interval and **ServiceTypeDisableGraceInterval**. For example: let the cluster has the configs **ActivationMaxFailureCount** set to 5 and **ActivationRetryBackoffInterval** set to 1 sec. This means that the activation operation will give up after (0 + 1 + 2 + 3 + 4) = 10 sec (first retry is immediate). After this Hosting gives up retrying and activation operation is untracked. In this case, the activation operation will get completed and untracked before next retry after 15 seconds. This happened because SF exhausted all retries within 15 seconds. Hence, every retry created a new activation operation in Hosting SubSystem and the pattern will keep repeating and ServiceType will never be disabled on the node. Since the ServiceType will not get disabled on the node Sf System's component FM(FailoverManager) will not move the Replica to a different node.
+2. In case of activations, when SF system needs to place a Replica on a node, it asks Hosting SubSystem to activate the application and retries the activation request every 15 sec(**RAPMessageRetryInterval**). For SF system to know that ServiceType has been disabled, the activation operation in hosting needs to live for a longer period than retry interval and **ServiceTypeDisableGraceInterval**. For example: let the cluster has the configs **ActivationMaxFailureCount** set to 5 and **ActivationRetryBackoffInterval** set to 1 sec. This means that the activation operation will give up after (0 + 1 + 2 + 3 + 4) = 10 sec (first retry is immediate). After this Hosting gives up retrying and activation operation is untracked. In this case, the activation operation will get completed and untracked before next retry after 15 seconds. This happened because SF exhausted all retries within 15 seconds. So, every retry created a new activation operation in Hosting SubSystem and the pattern will keep repeating and ServiceType will never be disabled on the node. Since the ServiceType will not get disabled on the node Sf System's component FM(FailoverManager) will not move the Replica to a different node.
 > 
 
 ## Deactivation
@@ -121,14 +121,14 @@ Example 4: Let's say your SP is big, like 10 GB, then it can take a bit of time 
 >
 
 ### Replica Close:
-Deactivator keeps count of Replicas that a SP holds. If a SP is holding a Replica and the Replica is closed/down, Hosting gets a DecrementUsageCount. When a Replica is opened Hosting gets an IncrementUsageCount. The Decrement means that this SP is now hosting one less Replica. If the count drops to 0, then the SP is scheduled for deactivation and the time after which it will be deactivated is **DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval**. 
+Deactivator keeps count of Replicas that a SP holds. If a SP is holding a Replica and the Replica is closed/down, Hosting gets a DecrementUsageCount. When a Replica is opened Hosting gets an IncrementUsageCount. The Decrement means that this SP is now hosting one less Replica and when the count drops to 0, then the SP is scheduled for deactivation and the time after which it will be deactivated is **DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval**. 
 
 For ex: let’s say a Decrement happens at T1 and SP is scheduled to deactivate at T1+Y(**DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval**). If during, this time Hosting gets an IncrementUsage meaning a Replica is created then this deactivation is canceled.
 
 > [!NOTE]
 >So what does these config basically means:
 **DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval**: The time given to a SP to host a Replica once it has hosted any Replica. 
-**DeactivationScanInterval**: The minimum time given to SP to host a Replica if it has NEVER hosted any Replica i.e if it is unused.
+**DeactivationScanInterval**: The minimum time given to SP to host a Replica if it has NEVER hosted any Replica i.e if not used.
 >
 
 ### Ctrl+C
