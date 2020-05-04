@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Managed Service offers in Azure Marketplace
 
-This article describes the **Managed Service** offer type in [Azure Marketplace](https://azuremarketplace.microsoft.com). Managed service offers allow you to offer resource management services to customers through [Azure delegated resource management](azure-delegated-resource-management.md). You can make these offers available to all potential customers, or only to one or more specific customers. Since you bill customers directly for costs related to these managed services, there are no fees charged by Microsoft.
+This article describes the **Managed Service** offer type in [Azure Marketplace](https://azuremarketplace.microsoft.com). Managed Service offers allow you to offer resource management services to customers through [Azure delegated resource management](azure-delegated-resource-management.md). You can make these offers available to all potential customers, or only to one or more specific customers. Since you bill customers directly for costs related to these managed services, there are no fees charged by Microsoft.
 
 ## Understand Managed Service offers
 
@@ -17,7 +17,7 @@ After that, users in your organization will be able to work on those resources f
 
 ## Public and private offers
 
-Each managed services offer includes one or more plans. Plans can be either private or public.
+Each Managed Services offer includes one or more plans. Plans can be either private or public.
 
 If you want to limit your offer to specific customers, you can publish a private plan. When you do so, the plan can only be purchased for the specific] subscription IDs that you provide. For more info, see [Private offers](../../marketplace/private-offers.md).
 
@@ -28,11 +28,11 @@ If appropriate, you can include both public and private plans in the same offer.
 > [!IMPORTANT]
 > Once a plan has been published as public, you can't change it to private. To control which customers can accept your offer and delegate resources, use a private plan. With a public plan, you can't restrict availability to certain customers or even to a certain number of customers (although you can stop selling the plan completely if you choose to do so). You can [remove access to a delegation](../how-to/remove-delegation.md) after a customer accepts an offer only if you included an **Authorization** with the **Role Definition** set to [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when you published the offer. You can also reach out to the  customer and ask them to [remove your access](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
-## Publish managed service offers
+## Publish Managed Service offers
 
-To learn how to publish a managed services offer, see [Publish a Managed Services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
+To learn how to publish a Managed Services offer, see [Publish a Managed Services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
 ## Next steps
 
 - Learn about [Azure delegated resource management](azure-delegated-resource-management.md) and [cross-tenant management experiences](cross-tenant-management-experience.md).
-- [Publish managed services offers](../how-to/publish-managed-services-offers.md) to Azure Marketplace.
+- [Publish Managed Services offers](../how-to/publish-managed-services-offers.md) to Azure Marketplace.
