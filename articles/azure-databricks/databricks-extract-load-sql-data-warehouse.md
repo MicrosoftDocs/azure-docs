@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial - Perform ETL operations using Azure Databricks'
-description: In this tutorial, learn how to extract data from Data Lake Storage Gen2 into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse. 
+description: In this tutorial, learn how to extract data from Data Lake Storage Gen2 into Azure Databricks, transform the data, and then load the data into Azure Synapse Analytics. 
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
@@ -11,13 +11,13 @@ ms.date: 01/29/2020
 ---
 # Tutorial: Extract, transform, and load data by using Azure Databricks
 
-In this tutorial, you perform an ETL (extract, transform, and load data) operation by using Azure Databricks. You extract data from Azure Data Lake Storage Gen2 into Azure Databricks, run transformations on the data in Azure Databricks, and load the transformed data into Azure SQL Data Warehouse.
+In this tutorial, you perform an ETL (extract, transform, and load data) operation by using Azure Databricks. You extract data from Azure Data Lake Storage Gen2 into Azure Databricks, run transformations on the data in Azure Databricks, and load the transformed data into Azure Synapse Analytics.
 
-The steps in this tutorial use the SQL Data Warehouse connector for Azure Databricks to transfer data to Azure Databricks. This connector, in turn, uses Azure Blob Storage as temporary storage for the data being transferred between an Azure Databricks cluster and Azure SQL Data Warehouse.
+The steps in this tutorial use the Azure Synapse connector for Azure Databricks to transfer data to Azure Databricks. This connector, in turn, uses Azure Blob Storage as temporary storage for the data being transferred between an Azure Databricks cluster and Azure Synapse.
 
 The following illustration shows the application flow:
 
-![Azure Databricks with Data Lake Store and SQL Data Warehouse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks with Data Lake Store and SQL Data Warehouse")
+![Azure Databricks with Data Lake Store and Azure Synapse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks with Data Lake Store and Azure Synapse")
 
 This tutorial covers the following tasks:
 
@@ -29,9 +29,9 @@ This tutorial covers the following tasks:
 > * Create a service principal.
 > * Extract data from the Azure Data Lake Storage Gen2 account.
 > * Transform data in Azure Databricks.
-> * Load data into Azure SQL Data Warehouse.
+> * Load data into Azure Synapse.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!Note]
 > This tutorial cannot be carried out using **Azure Free Trial Subscription**.
@@ -41,9 +41,9 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 Complete these tasks before you begin this tutorial:
 
-* Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create and query an Azure SQL data warehouse in the Azure portal](../sql-data-warehouse/create-data-warehouse-portal.md).
+* Create an Azure Synapse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create and query a Synapse SQL pool using the Azure portal](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
-* Create a master key for the Azure SQL data warehouse. See [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
+* Create a master key for the Azure Synapse. See [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
 * Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. See [Quickstart: Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
@@ -57,7 +57,7 @@ Complete these tasks before you begin this tutorial:
 
       If you'd prefer to use an access control list (ACL) to associate the service principal with a specific file or directory, reference [Access control in Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
-   * When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and secret values into a text file. You'll need those soon.
+   * When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and secret values into a text file.
 
 * Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -67,7 +67,7 @@ Make sure that you complete the prerequisites of this tutorial.
 
    Before you begin, you should have these items of information:
 
-   :heavy_check_mark:  The database name, database server name, user name, and password of your Azure SQL Data warehouse.
+   :heavy_check_mark:  The database name, database server name, user name, and password of your Azure Synapse.
 
    :heavy_check_mark:  The access key of your blob storage account.
 
@@ -149,13 +149,13 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
    ```scala
    val appID = "<appID>"
-   val password = "<password>"
+   val secret = "<secret>"
    val tenantID = "<tenant-id>"
 
    spark.conf.set("fs.azure.account.auth.type", "OAuth")
    spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
    spark.conf.set("fs.azure.account.oauth2.client.id", "<appID>")
-   spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret", "<secret>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    ```
@@ -310,11 +310,11 @@ The raw sample data **small_radio_json.json** file captures the audience for a r
    +---------+----------+------+--------------------+-----------------+
    ```
 
-## Load data into Azure SQL Data Warehouse
+## Load data into Azure Synapse
 
-In this section, you upload the transformed data into Azure SQL Data Warehouse. You use the Azure SQL Data Warehouse connector for Azure Databricks to directly upload a dataframe as a table in a SQL data warehouse.
+In this section, you upload the transformed data into Azure Synapse. You use the Azure Synapse connector for Azure Databricks to directly upload a dataframe as a table in a Synapse Spark pool.
 
-As mentioned earlier, the SQL Data Warehouse connector uses Azure Blob storage as temporary storage to upload data between Azure Databricks and Azure SQL Data Warehouse. So, you start by providing the configuration to connect to the storage account. You must already have already created the account as part of the prerequisites for this article.
+As mentioned earlier, the Azure Synapse connector uses Azure Blob storage as temporary storage to upload data between Azure Databricks and Azure Synapse. So, you start by providing the configuration to connect to the storage account. You must already have already created the account as part of the prerequisites for this article.
 
 1. Provide the configuration to access the Azure Storage account from Azure Databricks.
 
@@ -324,7 +324,7 @@ As mentioned earlier, the SQL Data Warehouse connector uses Azure Blob storage a
    val blobAccessKey =  "<access-key>"
    ```
 
-2. Specify a temporary folder to use while moving data between Azure Databricks and Azure SQL Data Warehouse.
+2. Specify a temporary folder to use while moving data between Azure Databricks and Azure Synapse.
 
    ```scala
    val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
@@ -337,10 +337,10 @@ As mentioned earlier, the SQL Data Warehouse connector uses Azure Blob storage a
    sc.hadoopConfiguration.set(acntInfo, blobAccessKey)
    ```
 
-4. Provide the values to connect to the Azure SQL Data Warehouse instance. You must have created a SQL data warehouse as a prerequisite. Use the fully qualified server name for **dwServer**. For example, `<servername>.database.windows.net`.
+4. Provide the values to connect to the Azure Synapse instance. You must have created an Azure Synapse Analytics service as a prerequisite. Use the fully qualified server name for **dwServer**. For example, `<servername>.database.windows.net`.
 
    ```scala
-   //SQL Data Warehouse related settings
+   //Azure Synapse related settings
    val dwDatabase = "<database-name>"
    val dwServer = "<database-server-name>"
    val dwUser = "<user-name>"
@@ -351,7 +351,7 @@ As mentioned earlier, the SQL Data Warehouse connector uses Azure Blob storage a
    val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ":" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
    ```
 
-5. Run the following snippet to load the transformed dataframe, **renamedColumnsDF**, as a table in a SQL data warehouse. This snippet creates a table called **SampleTable** in the SQL database.
+5. Run the following snippet to load the transformed dataframe, **renamedColumnsDF**, as a table in Azure Synapse. This snippet creates a table called **SampleTable** in the SQL database.
 
    ```scala
    spark.conf.set(
@@ -362,9 +362,9 @@ As mentioned earlier, the SQL Data Warehouse connector uses Azure Blob storage a
    ```
 
    > [!NOTE]
-   > This sample uses the `forward_spark_azure_storage_credentials` flag, which causes SQL Data Warehouse to access data from blob storage using an Access Key. This is the only supported method of authentication.
+   > This sample uses the `forward_spark_azure_storage_credentials` flag, which causes Azure Synapse to access data from blob storage using an Access Key. This is the only supported method of authentication.
    >
-   > If your Azure Blob Storage is restricted to select virtual networks, SQL Data Warehouse requires [Managed Service Identity instead of Access Keys](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). This will cause the error "This request is not authorized to perform this operation."
+   > If your Azure Blob Storage is restricted to select virtual networks, Azure Synapse requires [Managed Service Identity instead of Access Keys](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). This will cause the error "This request is not authorized to perform this operation."
 
 6. Connect to the SQL database and verify that you see a database named **SampleTable**.
 
@@ -392,7 +392,7 @@ In this tutorial, you learned how to:
 > * Create a notebook in Azure Databricks
 > * Extract data from a Data Lake Storage Gen2 account
 > * Transform data in Azure Databricks
-> * Load data into Azure SQL Data Warehouse
+> * Load data into Azure Synapse
 
 Advance to the next tutorial to learn about streaming real-time data into Azure Databricks using Azure Event Hubs.
 

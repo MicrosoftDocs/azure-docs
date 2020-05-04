@@ -19,6 +19,8 @@ Microsoft strives to ensure that Azure services are always available. However, u
 
 Azure Storage supports account failover (preview) for geo-redundant storage accounts. With account failover, you can initiate the failover process for your storage account if the primary endpoint becomes unavailable. The failover updates the secondary endpoint to become the primary endpoint for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoint.
 
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+
 This article describes the concepts and process involved with an account failover and discusses how to prepare your storage account for recovery with the least amount of customer impact. To learn how to initiate an account failover in the Azure portal or PowerShell, see [Initiate an account failover (preview)](storage-initiate-account-failover.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -48,8 +50,8 @@ It's important to design your application for high availability from the start. 
 Additionally, keep in mind these best practices for maintaining high availability for your Azure Storage data:
 
 - **Disks:** Use [Azure Backup](https://azure.microsoft.com/services/backup/) to back up the VM disks used by your Azure virtual machines. Also consider using [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to protect your VMs in the event of a regional disaster.
-- **Block blobs:** Turn on [soft delete](../blobs/storage-blob-soft-delete.md) to protect against object-level deletions and overwrites, or copy block blobs to another storage account in a different region using [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-- **Files:** Use [AzCopy](storage-use-azcopy.md) or [Azure PowerShell](storage-powershell-guide-full.md) to copy your files to another storage account in a different region.
+- **Block blobs:** Turn on [soft delete](../blobs/storage-blob-soft-delete.md) to protect against object-level deletions and overwrites, or copy block blobs to another storage account in a different region using [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+- **Files:** Use [AzCopy](storage-use-azcopy.md) or [Azure PowerShell](/powershell/module/az.storage/) to copy your files to another storage account in a different region.
 - **Tables:** use [AzCopy](storage-use-azcopy.md) to export table data to another storage account in a different region.
 
 ## Track outages
@@ -120,7 +122,7 @@ Review the additional considerations described in this section to understand how
 
 #### Storage account containing archived blobs
 
-Storage accounts containing archived blobs support account failover. Once failover is complete, to convert the account back to GRS or RA-GRS all archieved blobs need to be rehydrated to an online tier first.
+Storage accounts containing archived blobs support account failover. Once failover is complete, to convert the account back to GRS or RA-GRS all archived blobs need to be rehydrated to an online tier first.
 
 #### Storage resource provider
 
@@ -161,7 +163,7 @@ The following features and services are not supported for account failover for t
 
 ## Copying data as an alternative to failover
 
-If your storage account is configured for RA-GRS, then you have read access to your data using the secondary endpoint. If you prefer not to fail over in the event of an outage in the primary region, you can use tools such as [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) to copy data from your storage account in the secondary region to another storage account in an unaffected region. You can then point your applications to that storage account for both read and write availability.
+If your storage account is configured for RA-GRS, then you have read access to your data using the secondary endpoint. If you prefer not to fail over in the event of an outage in the primary region, you can use tools such as [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) to copy data from your storage account in the secondary region to another storage account in an unaffected region. You can then point your applications to that storage account for both read and write availability.
 
 > [!CAUTION]
 > An account failover should not be used as part of your data migration strategy.

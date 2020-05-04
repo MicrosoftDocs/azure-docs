@@ -162,7 +162,7 @@ We recommend that you set up and validate a full HADR solution and security desi
 	        -   [SAP support note #2772999 - Red Hat Enterprise Linux 8.x: Installation and Configuration](https://launchpad.support.sap.com/#/notes/2772999)
 	        -   [SAP support note #2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
 	        -   [SAP support note #2578899 - SUSE Linux Enterprise Server 15: Installation Note](https://launchpad.support.sap.com/#/notes/2578899)
-	        -   [SAP support note #https://launchpad.support.sap.com/#/notes/0002455582)(https://launchpad.support.sap.com/#/notes/0002455582)
+	        -   [SAP support note #2455582 - Linux: Running SAP applications compiled with GCC 6.x](https://launchpad.support.sap.com/#/notes/0002455582)
 	        -    [SAP support note #2729475 - HWCCT Failed with Error "Hypervisor is not supported" on Azure VMs certified for SAP HANA](https://launchpad.support.sap.com/#/notes/2729475)
 1. Test your high availability and disaster recovery procedures.
    1. Simulate failover situations by shutting down VMs (Windows guest operating systems) or putting operating systems in panic mode (Linux guest operating systems). This step will help you figure out whether your failover configurations work as designed.
@@ -180,7 +180,7 @@ We recommend that you set up and validate a full HADR solution and security desi
 1. Performance testing. In SAP, based on SAP tracing and measurements, make these comparisons:
    - Where applicable, compare the top 10 online reports to your current implementation.
    - Where applicable, compare the top 10 batch jobs to your current implementation.
-   - Compare data transfers through interfaces into the SAP system. Focus on interfaces where you know the transfer is now going between different locations, like from on-premises to Azure.
+   - Compare data transfers through interfaces into the SAP system. Focus on interfaces where you know the transfer is going between different locations, like from on-premises to Azure.
 
 
 ## Non-production phase 

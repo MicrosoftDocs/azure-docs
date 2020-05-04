@@ -17,7 +17,7 @@ ms.custom: seodec18
 # What are field-programmable gate arrays (FPGA) and how to deploy
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This article provides an introduction to field-programmable gate arrays (FPGA), and shows you how to deploy your models using Azure Machine Learning to an Azure FPGA. 
+This article provides an introduction to field-programmable gate arrays (FPGA), and shows you how to deploy your models using Azure Machine Learning to an Azure FPGA.
 
 FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways after manufacturing. Compared to other chips, FPGAs provide a combination of programmability and performance.
 
@@ -47,8 +47,8 @@ Microsoft Azure is the world's largest cloud investment in FPGAs. Using this FPG
 FPGAs on Azure supports:
 
 + Image classification and recognition scenarios
-+ TensorFlow deployment
-+ Intel FPGA hardware 
++ TensorFlow deployment (requires Tensorflow 1.x)
++ Intel FPGA hardware
 
 These DNN models are currently available:
   - ResNet 50
@@ -77,12 +77,9 @@ The following scenarios use FPGAs:
 
 + [Land cover mapping](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
 
-
-
-## Example: Deploy models on FPGAs 
+## Example: Deploy models on FPGAs
 
 You can deploy a model as a web service on FPGAs with Azure Machine Learning Hardware Accelerated Models. Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
-
 
 ### Prerequisites
 
@@ -90,7 +87,7 @@ You can deploy a model as a web service on FPGAs with Azure Machine Learning Har
 
 - FPGA quota. Use the Azure CLI to check whether you have quota:
 
-    ```shell
+    ```azurecli-interactive
     az vm list-usage --location "eastus" -o table --query "[?localName=='Standard PBS Family vCPUs']"
     ```
 
@@ -113,10 +110,9 @@ You can deploy a model as a web service on FPGAs with Azure Machine Learning Har
  
 - The Python SDK for hardware-accelerated models:
 
-    ```shell
-    pip install --upgrade azureml-accel-models
+    ```bash
+    pip install --upgrade azureml-accel-models[cpu]
     ```
-
 
 ## 1. Create and containerize models
 

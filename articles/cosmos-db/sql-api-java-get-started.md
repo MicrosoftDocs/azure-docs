@@ -45,7 +45,7 @@ Make sure you have the following:
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Git](https://git-scm.com/downloads).
-* [Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks).
+* [Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable).
 * [Maven](https://maven.apache.org/download.cgi).
 
 ## Step 1: Create an Azure Cosmos DB account

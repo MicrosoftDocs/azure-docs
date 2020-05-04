@@ -50,10 +50,10 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |yes | yes - support from package version: *18.2-1.el7_6.2*|
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | yes (note this is a preview image, and once all RHEL 7.7 images support cloud-init, this will be removed mid 2020, notice will be given) | yes - support from package version: *18.5-3.el7*|
-|RedHat 7.7 |RHEL |7-RAW | n/a| no - image updates to start Feb 2020| yes - support from package version: *18.5-3.el7*|
-|RedHat 7.7 |RHEL |7-LVM | n/a| no - image updates to start Feb 2020| yes - support from package version: *18.5-3.el7*|
-|RedHat 7.7 |RHEL |7.7 | n/a| no - image updates to start Feb 2020 | yes - support from package version: *18.5-3.el7*|
-|RedHat 7.7 |rhel-byos | rhel-lvm77 | n/a|no - image updates to start Feb 2020  | yes - support from package version: *18.5-3.el7*|
+|RedHat 7.7 |RHEL |7-RAW | n/a| no - image updates to complete end of April 2020| yes - support from package version: *18.5-3.el7*|
+|RedHat 7.7 |RHEL |7-LVM | n/a| no - image updates to complete end of April| yes - support from package version: *18.5-3.el7*|
+|RedHat 7.7 |RHEL |7.7 | n/a| no - image updates to complete end of April | yes - support from package version: *18.5-3.el7*|
+|RedHat 7.7 |rhel-byos | rhel-lvm77 | n/a|no - image updates to complete end of April  | yes - support from package version: *18.5-3.el7*|
 
 ### CentOS
 
@@ -61,7 +61,7 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |yes (note this is a preview image, and once all CentOS 7.7 images support cloud-init, this will be removed mid 2020, notice will be given) | yes - support from package version: *18.5-3.el7.centos*|
 
-* CentOS 7.7 images that will be cloud-init enabled be updated here in Feb 2020 
+* CentOS 7.7 images that will be cloud-init enabled be updated here in March 2020 
 
 ### Oracle
 

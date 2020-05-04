@@ -1,8 +1,8 @@
 ---
 title:  Read and write spatial data | Microsoft Azure Maps
 description: Learn how to read and write data using the Spatial IO module, provided by Azure Maps Web SDK.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 03/01/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -24,13 +24,13 @@ The table below lists the spatial file formats that are supported for reading an
 | KML               | ✓  |  ✓  |
 | KMZ               | ✓  |  ✓  |
 | Spatial CSV       | ✓  |  ✓  |
-| Well Known Text   | ✓  |  ✓  |
+| Well-Known Text   | ✓  |  ✓  |
 
 These next sections outline all the different tools for reading and writing spatial data using the Spatial IO module.
 
 ## Read spatial data
 
-The `atlas.io.read` function is the main function used to read common spatial data formats such as KML, GPX, GeoRSS, GeoJSON, and CSV files with spatial data. This function can also read compressed versions of these formats, as a zip file or a KMZ file. The KMZ file format is a compressed version of KML that can also include assets such as images. Alternatively, the read function can take in a URL that points to a file in any of these formats. URLs should be hosted on a CORs enabled endpoint, or a proxy service should be provided in the read options. The proxy service is used to load resources on domains that aren't CORs enabled. The read function returns a promise to add the image icons to the map, and processes data asynchronously to minimize impact to the UI thread.
+The `atlas.io.read` function is the main function used to read common spatial data formats such as KML, GPX, GeoRSS, GeoJSON, and CSV files with spatial data. This function can also read compressed versions of these formats, as a zip file or a KMZ file. The KMZ file format is a compressed version of KML that can also include assets such as images. Alternatively, the read function can take in a URL that points to a file in any of these formats. URLs should be hosted on a CORS enabled endpoint, or a proxy service should be provided in the read options. The proxy service is used to load resources on domains that aren't CORS enabled. The read function returns a promise to add the image icons to the map, and processes data asynchronously to minimize impact to the UI thread.
 
 When reading a compressed file, either as a zip or a KMZ, it will be unzipped and scanned for the first valid file. For example, doc.kml, or a file with other valid extension, such as: .kml, .xml, geojson, .json, .csv, .tsv, or .txt. Then, images referenced in KML and GeoRSS files are preloaded to ensure they're accessible. Inaccessible image data may load an alternative fallback image or will be removed from the styles. Images extracted from KMZ files will be converted to data URIs.
 
@@ -44,11 +44,11 @@ The result from the read function is a `SpatialDataSet` object. This object exte
 | `icons` | Record&lt;string, string&gt; | A set of icon URLs. Key = icon name, Value = URL. |
 | properties | any | Property information provided at the document level of a spatial data set. |
 | `stats` | `SpatialDataSetStats` | Statistics about the content and processing time of a spatial data set. |
-| `type` | `'FeatureCollection'` | Read only GeoJSON type value. |
+| `type` | `'FeatureCollection'` | Read-only GeoJSON type value. |
 
 ## Examples of reading spatial data
 
-The following code shows how to read a simple spatial data set, and render it on the map using the `SimpleDataLayer` class. The code uses a GPX file pointed to by a URL.
+The following code shows how to read a spatial data set, and render it on the map using the `SimpleDataLayer` class. The code uses a GPX file pointed to by a URL.
 
 <br/>
 
@@ -62,17 +62,13 @@ The next code demo shows how to read and load KML, or KMZ, to the map. KML can c
 <iframe height='500' scrolling='no' title='Load KML Onto Map' src='//codepen.io/azuremaps/embed/XWbgwxX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/XWbgwxX/'>Load KML Onto Map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-You may optionally provide a proxy service for accessing cross domain assets that may not have CORs enabled. This snippet of code shows you could provide a proxy service:
+You may optionally provide a proxy service for accessing cross domain assets that may not have CORS enabled. The read function will try to access files on another domain using CORS first. After the first time it fails to access any resource on another domain using CORS it will only request additional files if a proxy service has been provided. The read function appends the file URL to the end of the proxy URL provided. This snippet of code shows how to pass a proxy service into the read function:
 
 ```javascript
-
-//Set the location of your proxyServiceUrl file 
-var proxyServiceUrl = window.location.origin + '/CorsEnabledProxyService.ashx?url=';
-
-//Read a KML file from a URL or pass in a raw KML string.
-atlas.io.read('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1717245/2007SanDiegoCountyFires.kml', {
+//Read a file from a URL or pass in a raw data as a string.
+atlas.io.read('https://nonCorsDomain.example.com/mySuperCoolData.xml', {
     //Provide a proxy service
-    proxyService: proxyServiceUrl
+    proxyService: window.location.origin + '/YourCorsEnabledProxyService.ashx?url='
 }).then(async r => {
     if (r) {
         // Some code goes here . . .
@@ -81,7 +77,7 @@ atlas.io.read('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1717245/2007SanDiego
 
 ```
 
-The last demo below shows how to read a delimited file and render it on the map. In this case, the code uses a CSV file that has spatial data columns.
+The demo below shows how to read a delimited file and render it on the map. In this case, the code uses a CSV file that has spatial data columns.
 
 <br/>
 
@@ -108,57 +104,48 @@ The following sample allows you to drag and drop and then load spatial files on 
 <iframe height='700' scrolling='no' title='Drag and drop spatial files onto map' src='//codepen.io/azuremaps/embed/zYGdGoO/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/zYGdGoO/'>Drag and drop spatial files onto map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-You may optionally provide a proxy service for accessing cross domain assets that may not have CORs enabled. This snippet of code shows you could incorporate a proxy service:
+You may optionally provide a proxy service for accessing cross domain assets that may not have CORS enabled. This snippet of code shows you could incorporate a proxy service:
 
 ```javascript
-
-//Set the location of your proxyServiceUrl file 
-var proxyServiceUrl = window.location.origin + '/CorsEnabledProxyService.ashx?url=';
-
-function readData(data, fileName) {
-    loadingIcon.style.display = '';
-    fileCount++;
-    //Attempt to parse the file and add the shapes to the map.
-    atlas.io.read(data, {
-        //Provide a proxy service
-        proxyService: proxyServiceUrl
-    }).then(
-        //Success
-        function(r) {
-            //some code goes here ...
-        }
-    );
-}
+atlas.io.read(data, {
+    //Provide a proxy service
+    proxyService: window.location.origin + '/YourCorsEnabledProxyService.ashx?url='
+}).then(
+    //Success
+    function(r) {
+        //some code goes here ...
+    }
+);
 ```
 
-## Read and write Well Known Text (WKT)
+## Read and write Well-Known Text (WKT)
 
-[Well Known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) (WKT) is an Open Geospatial Consortium (OGC) standard for representing spatial geometries as text. Many geospatial systems support WKT, such as Azure SQL and Azure PostgreSQL using the PostGIS plugin. Like most OGC standards, coordinates are formatted as "longitude latitude" to align with the "x y" convention. As an example, a point at longitude -110 and latitude 45 can be written as `POINT(-110 45)` using the WKT format.
+[Well-Known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) (WKT) is an Open Geospatial Consortium (OGC) standard for representing spatial geometries as text. Many geospatial systems support WKT, such as Azure SQL and Azure PostgreSQL using the PostGIS plugin. Like most OGC standards, coordinates are formatted as "longitude latitude" to align with the "x y" convention. As an example, a point at longitude -110 and latitude 45 can be written as `POINT(-110 45)` using the WKT format.
 
 Well-known text can be read using the `atlas.io.ogc.WKT.read` function, and written using the `atlas.io.ogc.WKT.write` function.
 
-## Examples of reading and writing Well Known Text (WKT)
+## Examples of reading and writing Well-Known Text (WKT)
 
 The following code shows how to read the well-known text string `POINT(-122.34009 47.60995)` and render it on the map using a bubble layer.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Read Well Known Text' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>Read Well Known Text</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Read Well-Known Text' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>Read Well-Known Text</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 The following code demonstrates reading and writing well-known text back and forth.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Read and write Well Known Text' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>Read and write Well Known Text</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Read and write Well-Known Text' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>Read and write Well-Known Text</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Read and write GML
 
 GML is a spatial XML file specification that's often used as an extension to other XML specifications. GeoJSON data can be written as XML with GML tags using the `atlas.io.core.GmlWriter.write` function. The XML that contains GML can be read using the `atlas.io.core.GmlReader.read` function. The read function has two options:
 
-- The `isAxisOrderLonLat` option - The axis order of coordinates "latitude, longitude" or "longitude, latitude" can vary between data sets, and it isn't always well-defined. By default the GML reader reads the coordinate data as "latitude, longitude", but setting this option to true will read it as "longitude, latitude".
-- The `propertyTypes` option - This option is a key value lookup table where the key is the name of a property in the data set. The value is the object type to cast the value to when parsing. The supported type values are: `string`, `number`, `boolean`, and  `date`. If a property isn't in the look up table or the type isn't defined, the property will be parsed as a string.
+- The `isAxisOrderLonLat` option - The axis order of coordinates "latitude, longitude" or "longitude, latitude" can vary between data sets, and it isn't always well defined. By default the GML reader reads the coordinate data as "latitude, longitude", but setting this option to true will read it as "longitude, latitude".
+- The `propertyTypes` option - This option is a key value lookup table where the key is the name of a property in the data set. The value is the object type to cast the value to when parsing. The supported type values are: `string`, `number`, `boolean`, and  `date`. If a property isn't in the lookup table or the type isn't defined, the property will be parsed as a string.
 
 The `atlas.io.read` function will default to the `atlas.io.core.GmlReader.read` function when it detects that the input data is XML, but the data isn't one of the other support spatial XML formats.
 

@@ -189,6 +189,8 @@
         href: azure-to-azure-how-to-reprotect.md
       - name: Set up disaster recovery for Azure VMs after migration to Azure
         href: azure-to-azure-replicate-after-migration.md
+      - name: Enable Zone to Zone disaster recovery
+        href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
     - name: Manage
       items:
       - name: Update the Mobility Service for Azure VMs
@@ -397,7 +399,7 @@
     - name: Dynamics AX
       href: site-recovery-dynamicsax.md
     - name: RDS
-      href: site-recovery-workload.md#protect-rds
+      href: site-recovery-workload.md#protect-remote-desktop-services
     - name: Exchange
       href: site-recovery-workload.md#protect-exchange
     - name: SAP

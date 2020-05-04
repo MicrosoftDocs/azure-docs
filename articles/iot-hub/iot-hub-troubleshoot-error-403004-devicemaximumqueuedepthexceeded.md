@@ -8,6 +8,7 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
+ms.custom: [amqp, mqtt]
 # As a developer or operator for Azure IoT Hub, I want to resolve 403004 DeviceMaximumQueueDepthExceeded errors.
 ---
 
@@ -31,4 +32,4 @@ The supported pattern for cloud-to-device messages with HTTPS is intermittently 
 
 Alternatively, enhance device side logic to complete, reject, or abandon queued messages quickly, shorten the time to live, or consider sending fewer messages. See [C2D message time to live](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
-Lastly, consider using the [Purge Queue API](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) to periodically clean up pending messages before the limit is reached.
+Lastly, consider using the [Purge Queue API](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) to periodically clean up pending messages before the limit is reached.

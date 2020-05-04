@@ -5,7 +5,6 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-monikerRange: 'vsts'
 ---
 
 # Deployment Center for Azure Kubernetes

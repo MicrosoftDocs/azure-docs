@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 04/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -29,7 +29,7 @@ The following example shows a technical profile for `Saml2AssertionIssuer`:
 ```XML
 <TechnicalProfile Id="Saml2AssertionIssuer">
   <DisplayName>Token Issuer</DisplayName>
-  <Protocol Name="None"/>
+  <Protocol Name="SAML2"/>
   <OutputTokenFormat>SAML2</OutputTokenFormat>
   <Metadata>
     <Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>
@@ -40,7 +40,7 @@ The following example shows a technical profile for `Saml2AssertionIssuer`:
   </CryptographicKeys>
   <InputClaims/>
   <OutputClaims/>
-  <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-sp"/>
+  <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-issuer"/>
 </TechnicalProfile>
 ```
 
@@ -66,6 +66,12 @@ The CryptographicKeys element contains the following attributes:
 ## Session management
 
 To configure the Azure AD B2C SAML sessions between a relying party application, the attribute of the `UseTechnicalProfileForSessionManagement` element, reference to [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider) SSO session.
+
+## Next steps
+
+See the following article for example of using a SAML issuer technical profile:
+
+- [Register a SAML application in Azure AD B2C](connect-with-saml-service-providers.md)
 
 
 
