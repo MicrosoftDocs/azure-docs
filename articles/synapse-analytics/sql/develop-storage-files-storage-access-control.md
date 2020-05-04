@@ -14,7 +14,7 @@ ms.reviewer: jrasnick, carlrab
 # Control storage account access for SQL on-demand (preview)
 
 A SQL on-demand query reads files directly from Azure Storage. Permissions to access the files on Azure storage are controlled at two levels:
-- **Storage level** - User should have permission to access underlying storage files. Your storage administrator should allow AAD principal to read/write files, or generate SAS key that will be used to to access storage.
+- **Storage level** - User should have permission to access underlying storage files. Your storage administrator should allow Azure AD principal to read/write files, or generate SAS key that will be used to to access storage.
 - **SQL service level** - User should have `ADMINISTER BULK ADMIN` permission to execute `OPENROWSET` and also permission to use credentials that will be used to access storage.
 
 This article describes the types of credentials you can use and how credential lookup is enacted for SQL and Azure AD users.
@@ -28,9 +28,9 @@ A user that has logged into a SQL on-demand resource must be authorized to acces
 - [User Identity](#user-identity)
 
 > [!NOTE]
-> [Azure AD pass-through](#force-azure-ad-pass-through) is the default behavior when you create a workspace. If you use it, you don't need to create credentials for each storage account accessed using AAD logins. You can [disable this behavior](#disable-forcing-azure-ad-pass-through).
+> [Azure AD pass-through](#force-azure-ad-pass-through) is the default behavior when you create a workspace. If you use it, you don't need to create credentials for each storage account accessed using Azure AD logins. You can [disable this behavior](#disable-forcing-azure-ad-pass-through).
 
-In the table below you'll find the different authorization types that are either supported or will be supported soon.
+In the table below you can find the available authorization types:
 
 | Authorization type                    | *SQL user*    | *Azure AD user*     |
 | ------------------------------------- | ------------- | -----------    |
@@ -62,7 +62,7 @@ SQL on-demand is used to authorize data access. Before accessing the data, the A
 > To learn more about access control in Azure Data Lake Store Gen2, review the [Access control in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) article.
 >
 
-Currently, you need to configure AAD pass-through authentication for AAd users. This is current issue that will be removed in future.
+You need to explicitly enable Azure AD pass-through authentication to enable Azure AD users to access storage using their identities.
 
 #### Force Azure AD pass-through
 
@@ -163,7 +163,7 @@ Depending on the [authorization type](#supported-storage-authorization-types), y
 **Server-level 
 with Shared Access Signature for Blob Storage**
 
-Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
+The following script creates a server-level credential that can be used to access any file on Azure storage using SAS token. Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
 
 ```sql
 CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
@@ -174,13 +174,15 @@ GO
 
 **Database scoped credential with Managed Identity**
 
-Database scoped credential don't need to match the name of storage account because it will be explicitly used in DATA SOURCE with some location of storage.
+The following script creates a credential that can be used to impersonate current Azure AD user as Managed Identity of service. 
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
 WITH IDENTITY = 'Managed Identity';
 GO
 ```
+
+The database scoped credential don't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
 
 ## Next steps
 
