@@ -221,8 +221,10 @@
         href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
       - name: Monitor cluster performance
         href: ./hdinsight-key-scenarios-to-monitor.md
-      - name: Monitor cluster availability with Ambari and Azure Monitor logs
+      - name: Cluster availability - Apache Ambari
         href: ./hdinsight-cluster-availability.md
+      - name: Cluster availability - Azure Monitor logs
+        href: ./cluster-availability-monitor-logs.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot script actions
@@ -905,6 +907,8 @@
       href: ./transport-layer-security.md
     - name: Plan VNETs for HDInsight
       href: ./hdinsight-plan-virtual-network-deployment.md
+    - name: Control network traffic
+      href: ./control-network-traffic.md
     - name: Required IP Addresses for NSGs and UDRs
       href: ./hdinsight-management-ip-addresses.md
     - name: Service tags for Azure firewall
