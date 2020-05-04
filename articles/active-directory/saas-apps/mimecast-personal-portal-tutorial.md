@@ -204,7 +204,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Mimecast Personal Portal Configuration](./media/mimecast-personal-portal-tutorial/user-information.png)
 
-	a. In the **Email Address** textbox, enter the email address of the user like **B.Simon@yourdomainname.com**.
+	a. In the **Email Address** textbox, enter the email address of the user like `B.Simon@yourdomainname.com`.
 
 	b. In the **GLobal Name** textbox, enter the **Full name** of the user.
 
