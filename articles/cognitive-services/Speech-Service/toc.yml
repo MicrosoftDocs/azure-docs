@@ -431,7 +431,7 @@
         - name: How-to guides
           items:
             - name: 'Start developing your assistant with Windows'
-              href: windows-voice-assistants-get-started.md
+              href: how-to-windows-voice-assistants-get-started.md
             - name: 'Enable an assistant on the lock screen'
               href: windows-voice-assistants-implement-above-lock.md
         - name: Resources
