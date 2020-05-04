@@ -146,6 +146,22 @@ You might also need to update the date and/or time zone of your computer. If you
 
 The Linux Hybrid Runbook Worker depends on the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error:
 
+### <a name="prompt-for-password"></a>Scenario: Linux Hybrid Runbook Worker receives prompt for a password when signing a runbook
+
+#### Issue
+
+Running the `sudo` command for a Linux Hybrid Runbook Worker retrieves an unexpected prompt for a password.
+
+#### Cause
+
+The **nxautomationuser** account for the Log Analytics agent for Linux is not correctly configured in the **sudoers** file. The Hybrid Runbook Worker needs the appropriate configuration of account permissions and other data so that it can sign runbooks on the Linux Runbook Worker.
+
+#### Resolution
+
+* Ensure that the Hybrid Runbook Worker has the GnuPG (GPG) executable on the machine.
+
+* Verify the configuration of the **nxautomationuser** account in the **sudoers** file. See [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+
 ### <a name="oms-agent-not-running"></a>Scenario: The Log Analytics agent for Linux isn't running
 
 #### Issue
@@ -289,7 +305,7 @@ Machine is already registered
 
 #### Cause
 
-This issue can be caused if the machine is already registered with a different Automation account or if you try to readd the Hybrid Runbook Worker after removing it from a machine.
+This issue can be caused if the machine is already registered with a different Automation account or if you try to re-add the Hybrid Runbook Worker after removing it from a machine.
 
 #### Resolution
 

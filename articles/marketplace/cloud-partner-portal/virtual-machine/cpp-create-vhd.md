@@ -12,7 +12,7 @@ ms.author: dsindona
 # Create an Azure-compatible VHD
 
 > [!IMPORTANT]
-> Starting April 13, 2020, we'll begin the moving management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create your Azure Virtual Machine technical assets](https://aka.ms/AzureVMTechAsset) to manage your migrated offers.
+> Starting April 13, 2020, we'll begin the moving management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create your Azure Virtual Machine technical assets](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) to manage your migrated offers.
 
 This article details the steps required to create a virtual hard disk (VHD) for a virtual machine (VM) offer in the Azure Marketplace.  It also includes best practices for various aspects, such as using the Remote Desktop Protocol (RDP), selecting a size for the VM, installing the latest Windows updates, and generalizing the VHD image.  The following sections mainly focus on windows-based VHDs; for more information about creating Linux-based VHDs, see 
 [Linux on distributions endorsed by Azure](../../../virtual-machines/linux/endorsed-distros.md). 

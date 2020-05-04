@@ -510,12 +510,12 @@ productDirectory:
         - web
       url: spring-cloud/index.yml
     # Card
-    - title: Azure VMware Solution by CloudSimple
+    - title: Azure VMware Solution
       summary: Run your VMware workloads natively on Azure
-      imageSrc: ./media/index/cs_dedicatedcloudnode.svg
+      imageSrc: ./media/index/azure-vmware.svg
       azureCategories:
         - compute
-      url: vmware-cloudsimple/index.md
+      url: azure-vmware/index.yml
     # Card
     - title: Batch
       summary: Cloud-scale job scheduling and compute management
@@ -546,16 +546,6 @@ productDirectory:
         - featured
         - compute
       url: virtual-machines/linux/index.yml
-    # Card
-    - title: Mobile Apps
-      summary: Build and host the backend for any mobile app
-      imageSrc: https://docs.microsoft.com/media/common/i_mobileapp.svg
-      azureCategories:
-        - compute
-        - containers
-        - mobile
-        - web
-      url: app-service-mobile/index.yml
     # Card
     - title: SAP HANA on Azure Large Instances
       summary: Run the largest SAP HANA workloads of any hyperscale cloud provider
@@ -1464,15 +1454,15 @@ tools:
     # Card
     - title: Jenkins
       imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
-      url: jenkins/index.yml
+      url: /azure/developer/jenkins
     # Card
     - title: Terraform
       imageSrc: https://docs.microsoft.com/media/logos/logo_terraform.svg
-      url: terraform/index.yml
+      url: /azure/developer/terraform/
     # Card
     - title: Ansible
       imageSrc: ./media/index/ansible.svg
-      url: https://docs.microsoft.com/azure/developer/ansible
+      url: /azure/developer/ansible
 
 additionalContent:
   sections:

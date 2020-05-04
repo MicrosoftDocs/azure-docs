@@ -46,7 +46,7 @@ Run enterprise applications in Azure on supported Oracle operating systems. The 
 
 * Use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) to orchestrate and manage disaster recovery for your Oracle Linux VMs in Azure and your on-premises or physical servers. 
 
-* Enable Oracle Real Application Clusters (RAC) in Azure using [Azure VMWare Solution](https://docs.azure.cloudsimple.com/oracle-rac/) or [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+* Enable Oracle Real Application Clusters (RAC) in Azure using [Azure VMWare Solution](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) or [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## Backup Oracle Workloads
 
