@@ -34,7 +34,7 @@ You can configure an alert to do the following when it triggers:
 * Call an external ticketing ITSM compatible system
 
 > [!NOTE]
-> Please note that metrics alerting is available for the entire managed instance resource. Metrics for individual databases are not available.
+> Please note that alerting metrics are available for managed instance only. Alerting metrics for individual databases are not available.
 
 The following managed instance metrics are available for alerting configuration:
 
