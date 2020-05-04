@@ -62,27 +62,54 @@ You can configure and get information about alert rules using the following inte
 
    ![Monitoring](media/sql-database-managed-instance-alerts/managed-instance-alerting-menu-annotated.png)
   
-3. Select the **metrics** from one of the available you wish to alert on (in the screenshot example of Storage space used is shown).
+3. Select the **metrics** from one of the available you wish to alert on (in the screenshot, Storage space used example is shown).
 
 4. Select aggregation period - average, minimum or maximum reached in the given time period (Avg, Min or Max). 
 
 5. Select **New alert rule**
 
-6. In the **Condition** section, select **Add**.
-   ![Define condition](media/sql-database-insights-alerts-portal/create-rule.png)
+6. In the Create alert rule pane click on **Conition name** (in the screenshot, Storage space used example is shown)
+
+   ![Define condition](media/sql-database-managed-instance-alerts/manged-instance-create-metrics-alert-annotated.png)
+
+7. On the Configure signal logic pane, define Operator, Aggregation type, and Treshold value
+
+   * Operator type options are greater than, equal and less than (the treshold value)
+   * Aggregation tupe options are min, max or average (in the aggregation granularity period)
+   * Treshold value is the value which will based on the operator trigger an alert.
    
-7. In the **Configure signal logic** page, select a signal.
-   ![Select signal](media/sql-database-insights-alerts-portal/select-signal.png)
-6. After selecting a signal, such as **CPU percentage**, the **Configure signal logic** page appears.
-   ![Configure signal logic](media/sql-database-insights-alerts-portal/configure-signal-logic.png)
-7. On this page, configure that threshold type, operator, aggregation type, threshold value, aggregation granularity, and frequency of evaluation. Then click **Done**.
-8. On the **Create rule**, select an existing **Action group** or create a new group. An action group enables you to define the action to be taken when an alert condition occurs.
-  ![Define action group](media/sql-database-insights-alerts-portal/action-group.png)
+   In the example shown in the the screenshot, value of 1840876 MB is used representing a treshold value of 1.8 TB. As the operator is set in the exapmple to greater than, the alert will be created if the storage space consumption on the managed instance goes over 1.8TB. Please note that the value needs to be expressed in MB.
 
-9. Define a name for the rule, provide an optional description, choose a severity level for the rule, choose whether to enable the rule upon rule creation, and then click **Create rule alert** to create the metric rule alert.
+8. Set the evaluation period - aggregation granularity in minutes and frequency of evaluation. The frequency of evalution will denote time the alerting system will periodically check if the treshold condition has been met.
 
-Within 10 minutes, the alert is active and triggers as previously described.
+9. Select action group. Action group pane will show up through which you will be able to select an existing, or create a new action. This action defines that will happen upon triggering an alert (e.g. sending email, calling you on the phone, executing a webhook or a Azure function, for example).
+
+
+10. Fill in the alert rule details for your records, and select the severitity type.
+
+Within a few minutes new alert rule is active, and alerts are triggered as defined as previously described.
+
+## Modify existing alert rules
+
+> [!NOTE] Existing alerts need to be managed from Alerts menu from Azure portal dashboard. Existing alerts cannot be modified from Managed Instance resource blade.
+
+To view, modify and delete existing alerts:
+
+1. Search for Alerts using Azure portal search. Click on Alerts.
+   ![find_alerts](media/sql-database-managed-instance-alerts/managed-instance-edit-alerts-browse-annotated.png)
+
+   Alternatively, you could also click on Alerts on the Azure navigation bar, if you have it configured.
+
+2. On the Alerts pane select Manage alert rules.
+
+![modify_alerts](media/sql-database-managed-instance-alerts/managed-instance-managed-alert-rules-annotated.png)
+
+   List of existing alerts will show up. Select an individual existing alert rule to view, modify or delete it.
 
 ## Next steps
 
-* Learn more about [configuring webhooks in alerts](../azure-monitor/platform/alerts-webhooks.md).
+* Learn about Azure Monitor alerting system, see [Overview of alerts in Microsoft Azure](../azure-monitor/platform/alerts-overview.md)
+* Learn more about metric alerts, see [Understand how metric alerts work in Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md)
+* Learn about configuring a webhook in alerts, see [Call a webhook with a classic metric alert](../azure-monitor/platform/alerts-webhooks.md).
+* Learn about configuring and managing alerts using PowerShell, see [Action rules](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2d)
+* Learn about configuring and managing alerts using API, see [Azure Monitor REST API reference](https://docs.microsoft.com/rest/api/monitor/) 
