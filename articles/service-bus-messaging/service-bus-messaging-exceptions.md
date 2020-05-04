@@ -139,7 +139,34 @@ Since the lock on the session has expired, it would go back on the Queue (or Sub
 
 ### Cause
 
+A **SocketException** is thrown in the below cases -
+   * When a connection attempt fails because the host did not properly respond after a specified time (TCP error code 10060).
+   * An established connection failed because connected host has failed to respond.
+   * There was an error processing the message or the timeout is exceeded by the remote host.
+   * Underlying network resource issue.
+
 ### Resolution
+
+The **SocketException** errors indicate that the VM hosting the applications is unable to convert the name `<mynamespace>.servicebus.windows.net` to the corresponding IP address. 
+
+Check to see if below command succeeds in mapping to an IP address.
+
+```Powershell
+PS C:\> nslookup <mynamespace>.servicebus.windows.net
+```
+
+which should provide an output as below
+
+```bash
+Name:    <cloudappinstance>.cloudapp.net
+Address:  XX.XX.XXX.240
+Aliases:  <mynamespace>.servicebus.windows.net
+```
+
+If the above name **does not resolve** to an IP and the namespace alias, check which the network administrator to investigate further. Name resolution is done through a DNS server typically a resource in the customer network. If the DNS resolution is done by Azure DNS please contact Azure support.
+
+If name resolution **works as expected**, check if connections to Azure Service Bus is allowed [here](service-bus-troubleshooting-guide.md#connectivity-certificate-or-timeout-issues)
+
 
 ## MessagingException
 
