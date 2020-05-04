@@ -30,9 +30,12 @@ To execute the sample scripts, you need a functional setup of [Azure PowerShell]
 
 1. [Prepare an Azure Storage account](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
-1. Log into the subscription containing your Azure Remote Rendering account:
+1. Log into your subscription containing your Azure Remote Rendering account:
     1. Open a PowerShell
-    1. Run: `Connect-AzAccount -Subscription "<your Azure subscription id>"`
+    1. Run: `Connect-AzAccount` and follow the on-screen directions.
+
+> [!NOTE]
+> In case your organization has more than one subscription you might need to specify the SubscriptionId and Tenant arguments. Find details in the [Connect-AzAccount documentation](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
 1. Download the *Scripts* folder from the [Azure Remote Rendering GithHub repository](https://github.com/Azure/azure-remote-rendering).
 

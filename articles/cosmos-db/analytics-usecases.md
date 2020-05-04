@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.topic: conceptual
 ms.service: cosmos-db
-ms.date: 09/26/2019
+ms.date: 04/20/2020
 ms.reviewer: sngun
 ---
 
@@ -32,7 +32,7 @@ With natively built-in Apache Spark, Azure Cosmos DB provides a fast, simple, an
 
 In some cases, you may need to answer questions based on data as at a specific point in time over events completed in the past. For example, to get the count of CRM activity statuses at a certain date. If you ran the report a week ago, the count of the statuses would be as per the statuses of each activity at that point in time. Running the same report today will give you the count of the activities whose statuses are as they are today, which may have changed since last week, as they go through their life cycle from open to close. So, you need to report on the snapshot at each stage of the case’s life cycle.
 
-In traditional data warehouse scenarios, the concept of snapshot isn’t possible because the data warehouses aren’t designed to incorporate it and the data only provides a current view of what’s happening. With Azure Cosmos DB, users have the possibility to implement the concept of time travel, being able to query and run analytics on the data retrospectively and ask for how the data looked at a specific point of time in the history. This means users can easily view both the current and historic views of the data and run analytics on it.
+With Azure Cosmos DB, users have the possibility to implement the concept of time travel, being able to query and run analytics on the data retrospectively and ask for how the data looked at a specific point of time in the history. This means users can easily view both the current and historic views of the data and run analytics on it.
 
 ## Globally distributed machine learning and AI
 

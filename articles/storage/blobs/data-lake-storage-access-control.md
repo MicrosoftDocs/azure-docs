@@ -49,7 +49,7 @@ SAS tokens include allowed permissions as part of the token. The permissions inc
 You can associate a security principal with an access level for files and directories. These associations are captured in an *access control list (ACL)*. Each file and directory in your storage account has an access control list.
 
 > [!NOTE]
-> ACLs apply only to security principals in the same tenant. You can't associate a guest user with an access level.  
+> ACLs apply only to security principals in the same tenant. 
 
 If you assigned a role to a security principal at the storage account-level, you can use access control lists to grant that security principal elevated access to specific files and directories.
 

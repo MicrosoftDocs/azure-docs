@@ -44,7 +44,7 @@ In the Azure Virtual WAN architecture, virtual WAN hubs are provisioned in Azure
 
 You can establish a virtual WAN by creating a single virtual WAN hub in the region that has the largest number of spokes (branches, VNets, users), and then connecting the spokes that are in other regions to the hub. This is a good option when an enterprise footprint is mostly in one region with a few remote spokes.  
   
-## <a name="hubtohub"></a>Hub-to-hub connectivity
+## <a name="hubtohub"></a>Hub-to-hub connectivity (Preview)
 
 An Enterprise cloud footprint can span multiple cloud regions and it is optimal (latency-wise) to access the cloud from a region closest to their physical site and users. One of the key principles of global transit network architecture is to enable cross-region connectivity between all cloud and on-premises network endpoints. This means that traffic from a branch that is connected to the cloud in one region can reach another branch or a VNet in a different region using hub-to-hub connectivity enabled by [Azure Global Network](https://azure.microsoft.com/global-infrastructure/global-network/).
 
@@ -95,6 +95,11 @@ In this model, each branch that is connected to the virtual WAN hub using Expres
 Branches can be connected to an Azure virtual WAN hub using ExpressRoute circuits and/or site-to-site VPN connections. You can connect the branches to the virtual WAN hub that is in the region closest to the branch.
 
 This option lets enterprises leverage the Azure backbone to connect branches. However, even though this capability is available, you should weigh the benefits of connecting branches over Azure Virtual WAN vs. using a private WAN.  
+
+### Disabling Branch-to-Branch Connectivity in Virtual WAN
+Virtual WAN can be configured to disable Branch-to-Branch connectivity. This configuation will block route propagation between VPN (S2S and P2S) and Express Route connected sites. This configuration will not affect branch-to-Vnet and Vnet-to-Vnet route propogation and connectivity.
+
+In the Azure Portal, under Virtual WAN Configuration menu, Choose Setting: Branch-to-Branch -> Disabled. 
 
 ### Remote User-to-VNet (c)
 

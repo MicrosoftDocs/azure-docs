@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/30/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -86,7 +86,14 @@ The following sections list available claim resolvers.
 | {Context:IPAddress} | The user IP address. | 11.111.111.11 |
 | {Context:KMSI} | Indicates whether [Keep me signed in](custom-policy-keep-me-signed-in.md) checkbox is selected. |  true |
 
-### Non-protocol parameters
+### Claims 
+
+| Claim | Description | Example |
+| ----- | ----------- | --------|
+| {Claim:claim type} | An identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file.  For example: `{Claim:displayName}`, or `{Claim:objectId}`. | A claim type value.|
+
+
+### OAuth2 key-value parameters
 
 Any parameter name included as part of an OIDC or OAuth2 request can be mapped to a claim in the user journey. For example, the request from the application might include a query string parameter with a name of `app_session`, `loyalty_number`, or any custom query string.
 
@@ -114,6 +121,7 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | {SAML:AllowCreate} | The `AllowCreate` attribute value, from the `NameIDPolicy` element of the SAML request. | True |
 | {SAML:ForceAuthn} | The `ForceAuthN` attribute value, from the `AuthnRequest` element of the SAML request. | True |
 | {SAML:ProviderName} | The `ProviderName` attribute value, from the `AuthnRequest` element of the SAML request.| Contoso.com |
+| {SAML:RelayState} | The `RelayState` query string parameter.| 
 
 ## Using claim resolvers
 
@@ -127,7 +135,7 @@ You can use claims resolvers with the following elements:
 |[OpenID Connect](openid-connect-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[Claims transformation](claims-transformation-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[RESTful provider](restful-technical-profile.md) technical profile| `InputClaim`| 1, 2|
-|[SAML2](saml-technical-profile.md)  technical profile| `OutputClaim`| 1, 2|
+|[SAML identity provider](saml-identity-provider-technical-profile.md)  technical profile| `OutputClaim`| 1, 2|
 |[Self-Asserted](self-asserted-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
 |[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
