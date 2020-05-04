@@ -43,13 +43,7 @@ See [language support](../language-support.md) for information.
 
 Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3 can recognize entities in the [general entity category](../named-entity-types.md).
 
-Named Entity Recognition v3.1 preview includes the detection capabilities of v3.0, and the ability to detect personal information using the `v3.1/entities/recognition/pii` endpoint. You can use the optional `domain=phi` parameter to detect confidential health information. See the [request endpoints](#request-endpoints) section below for more information.
-
-Currently, NER v3.1 can recognize the following [entity categories](../named-entity-types.md).
-
-* General
-* Personal information
-* Confidential health information
+Named Entity Recognition v3.1 preview includes the detection capabilities of v3.0, and the ability to detect personal information (`PII`) using the `v3.1/entities/recognition/pii` endpoint. You can use the optional `domain=phi` parameter to detect confidential health information (`PHI`). See the [entity categories](../named-entity-types.md) article, and [request endpoints](#request-endpoints) section below for more information.
 
 ---
 
@@ -79,7 +73,7 @@ Entity linking
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
 
 NER
-* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
 #### [Version 3.1-preview](#tab/version-3-preview)
 
@@ -91,9 +85,9 @@ Entity linking
 NER
 * General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/general`
 
-* Personal information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii`
+* Personal (`PII`) information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii`
 
-You can also use the optional `domain=phi` parameter to detect confidential health information in text. 
+You can also use the optional `domain=phi` parameter to detect health (`PHI`) information in text. 
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii?domain=phi`
 
@@ -109,12 +103,13 @@ The following is an example of content you might send to the API. The request fo
 {
   "documents": [
     {
-      "language": "en",
-      "id": "1",
-      "text": "I had a wonderful trip to Seattle last week."
+        "id": "1",
+        "language": "en",
+        "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
     }
   ]
 }
+
 ```
 
 ## Post the request
@@ -136,26 +131,55 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
 #### Example NER response
 
 ```json
+
+```json
 {
-    "documents": [{
-    "id": "1",
-    "entities": [{
-        "text": "Seattle",
-        "type": "Location",
-        "offset": 26,
-        "length": 7,
-        "confidenceScore": 0.81
-    }, {
-        "text": "last week",
-        "type": "DateTime",
-        "subtype": "DateRange",
-        "offset": 34,
-        "length": 9,
-        "confidenceScore": 0.80
-    }]
-    }],
-    "errors": [],
-    "modelVersion": "2019-10-01"
+  "documents": [
+    {
+        "id": "1",
+        "entities": [
+          {
+            "text": "tour guide",
+            "type": "PersonType",
+            "offset": 4,
+            "length": 10,
+            "score": 0.45
+          },
+          {
+            "text": "Space Needle",
+            "type": "Location",
+            "offset": 30,
+            "length": 12,
+            "score": 0.38
+          },
+          {
+              "text": "trip",
+              "type": "Event",
+              "offset": 54,
+              "length": 4,
+              "score": 0.78
+          },
+          {
+              "text": "Seattle",
+              "type": "Location",
+              "subtype": "GPE",
+              "offset": 62,
+              "length": 7,
+              "score": 0.78
+          },
+          {
+              "text": "last week",
+              "type": "DateTime",
+              "subtype": "DateRange",
+              "offset": 70,
+              "length": 9,
+              "score": 0.8
+          }
+        ]
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
 }
 ```
 
