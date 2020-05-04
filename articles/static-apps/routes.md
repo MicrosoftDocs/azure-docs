@@ -29,10 +29,34 @@ The following table lists the appropriate location to put your _routes.json_ fil
 
 |Framework / library | Location  |
 |---------|----------|
-| Angular | _dist/<NAME_OF_ANGULAR_APP>_   |
-| React   | _build_  |
-| Svelte  | _dist_   |
+| Angular | _src_   |
+| React   | _public_  |
+| Svelte  | _public_   |
 | Vue     | _public_ |
+
+### Angular
+
+Angular apps do not copy files in the _src_ folder to the artifact folder by default. So you will have to configure Angular to copy your _routes.json_ file to the artifact folder.
+
+1. In Visual Studio Code, open the _angular.json_ file
+1. Go to the property at:
+
+    ```bash
+     projects
+      | - angular-app
+        | - architect
+         | - build
+           | - options
+             | - assets
+    ```
+
+1. Extend the `assets` array to include the _src/routes.json_ file:
+
+    ```json
+    "assets": ["src/favicon.ico", "src/assets", "src/routes.json"],
+    ```
+
+Now Angular will copy the _routes.json_ file to your artifact location when your app builds.
 
 ## Defining routes
 
