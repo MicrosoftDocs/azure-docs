@@ -1,5 +1,5 @@
 ---
-title: Autocomplete and suggestions
+title: C# tutorial on autocomplete and suggestions
 titleSuffix: Azure Cognitive Search
 description:  This tutorial demonstrates autocomplete and suggestions as a way to collect search term input from users using dropdown list. It builds on an existing hotels project.
 
