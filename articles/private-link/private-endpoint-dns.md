@@ -105,7 +105,7 @@ In this scenario there's a [hub & spoke](https://docs.microsoft.com/azure/archit
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="hub and spoke with azure provided dns":::
 
-## On premises workloads using a custom DNS forwarder
+## On premises workloads using a DNS forwarder
  
 For on premises workloads to be able to resolve an FQDN of a private endpoint into the private IP address, you must use a DNS forwarder to make the resolution of the Azure service [public DNS zone](#azure-services-dns-zone-configuration) deployed in Azure.
 
