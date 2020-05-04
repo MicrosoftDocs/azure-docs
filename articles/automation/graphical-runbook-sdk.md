@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 ## Prerequisites
 
-Import the [Microsoft.Azure.Management.Automation.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.automation.models?view=azure-dotnet) package into your project.
+Import the `Orchestrator.GraphRunbook.Model.dll` package into your project.
 
 ## Create a runbook object instance
 
