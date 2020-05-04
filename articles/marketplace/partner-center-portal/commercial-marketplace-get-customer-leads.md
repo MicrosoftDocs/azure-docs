@@ -1,6 +1,6 @@
 ---
-title: Configure leads from your Microsoft commercial marketplace offer
-description: Configure customer leads in the Microsoft commercial marketplace.
+title: Lead management from Microsoft commercial marketplace
+description: Learn about generating and receiving customer leads from your Microsoft AppSource and Azure Marketplace offers
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,11 +9,11 @@ ms.date: 03/30/2020
 ms.author: dsindona
 ---
 
-# Customer leads from your marketplace offer
+# Customer leads from your commercial marketplace offer
 
-Leads are customers interested in or deploying your offers from Microsoft [AppSource](https://appsource.microsoft.com) and [Azure Marketplace](https://azuremarketplace.microsoft.com). You'll receive customer leads after your offer is published to the marketplace. This article explains:
+Leads are customers interested in or deploying your offers from [Microsoft AppSource](https://appsource.microsoft.com) and [Azure Marketplace](https://azuremarketplace.microsoft.com). You can receive customer leads after your offer is published to the commercial marketplace. This article explains the following lead management concepts:
 
-* How your marketplace offer generates customer leads to ensure that you don't miss business opportunities. 
+* How your commercial marketplace offer generates customer leads to ensure that you don't miss business opportunities. 
 * How to connect your customer relationship management (CRM) system to your offer so that you can manage your leads in one central location.
 * The lead data we send you so that you can follow up on customers who reached out to you.
 
@@ -87,7 +87,7 @@ The customer's information is sent via multiple fields. The following example sh
 - **Follow-up**: Don't forget to follow up. Expect the typical transaction to require 5 to 12 follow-up calls.
 - **Nurture**: Nurture your leads to get you on the way to a higher profit margin.
 
-## Leads frequently asked questions
+## Common questions about lead management
 
 ### Where can I get help in setting up my lead destination?
 
