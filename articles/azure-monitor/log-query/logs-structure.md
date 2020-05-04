@@ -50,16 +50,17 @@ Unlike a Log Analytics workspace, an Application Insights application has a fixe
 
 | Table | Description | 
 |:---|:---|
-| availabilityResults | Summary data from availability tests. |
-| browserTimings      | Data about client performance, such as the time taken to process the incoming data. |
-| customEvents        | Custom events created by your application. |
-| customMetrics       | Custom metrics created by your application. |
-| dependencies        | Calls from the application to external components. |
-| exceptions          | Exceptions thrown by the application runtime. |
-| pageViews           | Data about each website view with browser information. |
-| performanceCounters | Performance measurements from the compute resources supporting the application. |
-| requests            | Details of each application request.  |
-| traces              | Results from distributed tracing. |
+| availabilityResults	| Summary data from availability tests.
+| browserTimings      | 	Data about client performance, such as the time taken to process the incoming data.
+| customEvents	      | Custom events created by your application.
+| customMetrics	      | Custom metrics created by your application.
+| dependencies	      | Calls from the application to other components (including external components) recorded via TrackDependency() – for example, calls to REST API, database or a file system. 
+| exceptions	        | Exceptions thrown by the application runtime, captures both server side and client-side (browsers) exceptions.
+| pageViews	          | Data about each website view with browser information.
+| performanceCounters	| Performance measurements from the compute resources supporting the application, for example, Windows performance counters.
+| requests	          | Requests received by your application. For example, a separate request record is logged for each HTTP request that your web app receives. 
+| traces	            | Detailed logs (traces) emitted through application code/logging frameworks recorded via TrackTrace().
+
 
 You can view the schema for each table in the **Schema** tab in Log Analytics for the application.
 

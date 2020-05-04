@@ -98,7 +98,7 @@ landingContent:
     - linkListType: concept
       links:
       - text: Payout reporting
-        url: ./partner-center-portal/payout-summary.md
+        url: ./partner-center-portal/payout-summary-overview.md
       - text: Payment thresholds, methods and time frames
         url: ./partner-center-portal/payment-thresholds-methods-timeframes.md
       - text: Set up your payout account and tax forms

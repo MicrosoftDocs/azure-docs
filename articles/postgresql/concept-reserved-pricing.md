@@ -5,7 +5,7 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 05/02/2020
 ---
 
 # Prepay for Azure Database for PostgreSQL compute resources with reserved capacity
@@ -17,7 +17,7 @@ You do not need to assign the reservation to specific Azure Database for Postgre
 > [!IMPORTANT]
 > Reserved capacity pricing is only available for the Azure Database for PostgreSQL [Single server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) deployment and not for [Hyperscale Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) deployment.
 
-You can buy Azure Database for PostgreSQL reserved capacity in the [Azure portal](https://portal.azure.com/). To buy the reserved capacity:
+You can buy Azure Database for PostgreSQL reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/monthly-payments-reservations.md). To buy the reserved capacity:
 
 * You must be in the owner role for at least one Enterprise or individual subscription with pay-as-you-go rates.
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin on the subscription.
