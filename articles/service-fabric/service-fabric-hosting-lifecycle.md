@@ -8,7 +8,7 @@ ms.date: 05/1/2020
 ms.author: tugup
 ---
 # Azure Service Fabric hosting lifecycle
-This article provides an overview of events that happen when a application is activated on a node and various cluster level configs used to control the behavior.
+This article provides an overview of events that happen when an application is activated on a node and various cluster configs used to control the behavior.
 
 Before proceeding further, be sure that you understand the various concepts and relationships explained in [Model an application in Service Fabric][a1]. 
 
@@ -29,7 +29,7 @@ Configs with defaults impacting the activation/decativation. Their impacts will 
 
 ### Activation
 **ActivationRetryBackoffInterval**: Default 10 sec. Backoff interval on every activation failure.
-**ActivationMaxFailureCount**: Default 20. This is the maximum count for which system will retry failed activation before giving up. 
+**ActivationMaxFailureCount**: Default 20. Maximum count for which system will retry failed activation before giving up. 
 **ActivationRetryBackoffExponentiationBase**: Default 1.5. 
 **ActivationMaxRetryInterval**: Default 3600 sec. Max back-off for Activation on failures.
 **CodePackageContinuousExitFailureResetInterval**: Default 300 sec. The timeout to reset the continuous exit failure count for CodePackage.
@@ -40,19 +40,19 @@ Configs with defaults impacting the activation/decativation. Their impacts will 
 **DeploymentMaxFailureCount**: Default 20. Application deployment will be retried for DeploymentMaxFailureCount times before failing the deployment of that application on the node.
 
 ## Deactivation
-**DeactivationScanInterval**: Default 600 sec. The minimum time given to SP to host a replica if it has never hosted any replica i.e if it is unused.
-**DeactivationGraceInterval**: Default 60 sec. The time given to a SP to host a replica once it has hosted any replica in case of **Shared** Process model.
-**ExclusiveModeDeactivationGraceInterval**: Default 1 sec. The time given to a SP to host a replica once it has hosted any replica in case of **Exclusive** Process model.
+**DeactivationScanInterval**: Default 600 sec. Minimum time given to ServicePackage to host a replica if it has never hosted any replica i.e if it is unused.
+**DeactivationGraceInterval**: Default 60 sec. The time given to a ServicePackage to host a replica once it has hosted any replica in case of **Shared** Process model.
+**ExclusiveModeDeactivationGraceInterval**: Default 1 sec. The time given to a ServicePackage to host a replica once it has hosted any replica in case of **Exclusive** Process model.
 
 ## Activation of Application/ServicePackage
 
 The pipeline for activation is as follows:
 
-1. Download the ApplicationPackage. This includes files for ex: ApplicationManifest.xml etc.
-2. Setup environment for Application for ex: create users etc.
+1. Download the ApplicationPackage. Includes files for ex: ApplicationManifest.xml etc.
+2. Set up environment for Application for ex: create users etc.
 3. Create an entry in Deactivator to track the Application entity.
-4. Download ServicePackage. This includes files like: ServicePackage.xml, code, config, dat packages etc.
-5. Setup environment for Service Package for ex: setup firewall, allocate ports for dynamic endpoints etc.
+4. Download ServicePackage. Iincludes files like: ServicePackage.xml, code, config, dat packages etc.
+5. Set up environment for Service Package for ex: setup firewall, allocate ports for dynamic endpoints etc.
 6. Create an entry in Deactivator to track the ServicePackage entity. 
 7. Start your CodePackage.
 
@@ -68,15 +68,15 @@ ServiceType will be enabled back on the node
 > If your CodePackage which is a watchdog is crashing, then it doesn't impact the ServiceType. Only the CodePackage hosting a Replica crash will impact the ServcieType.
 
 ### CodePackage crash
-When a CodePackage crashes SF, uses a back-off which is calculated:
+When a CodePackage crashes SF, uses a back-off that is calculated:
 
-The value is  always Min(RetryTime , **ActivationMaxRetryInterval**) and this value can be constant, linear or exponential based on **ActivationRetryBackoffExponentiationBase** config.
+The value is  always Min(RetryTime, **ActivationMaxRetryInterval**) and this value can be constant, linear or exponential based on **ActivationRetryBackoffExponentiationBase** config.
 
-- Constant : If **ActivationRetryBackoffExponentiationBase** == 0 then RetryTime = **ActivationRetryBackoffInterval**;
-- Linear :  If  **ActivationRetryBackoffExponentiationBase** == 0  then RetryTime = ContinuousFailureCount* **ActivationRetryBackoffInterval** where ContinousFailureCount is the number of times a CodePackage crashes or fails to activate.
-- Exponential : RetryTime = (**ActivationRetryBackoffInterval** in seconds) * (**ActivationRetryBackoffExponentiationBase** ^ ContinuousFailureCount);
+- Constant: If **ActivationRetryBackoffExponentiationBase** == 0 then RetryTime = **ActivationRetryBackoffInterval**;
+- Linear:  If  **ActivationRetryBackoffExponentiationBase** == 0  then RetryTime = ContinuousFailureCount* **ActivationRetryBackoffInterval** where ContinousFailureCount is the number of times a CodePackage crashes or fails to activate.
+- Exponential: RetryTime = (**ActivationRetryBackoffInterval** in seconds) * (**ActivationRetryBackoffExponentiationBase** ^ ContinuousFailureCount);
 	
-You can control the behavior as you want like quick restarts. Let's talk about Linear. That means if a CodePackage crashes then the start interval will be after 10, 20, 30 40 sec till the CodePackage is deactivated. 
+You can control the behavior as you want like quick restarts. Let's talk about Linear. That means if a CodePackage crashes then the start interval will be after 10, 20, 30 40 sec until the CodePackage is deactivated. 
 	
 Your CodePackage can MAX back-off for **ActivationMaxRetryInterval**.
 	
@@ -85,7 +85,7 @@ If your CodePackage crashes and comes back up, it needs to stay up for **CodePac
 ### Activation Failure
 SF always uses a linear back-off (same as CodePackage crash) when it encounters error during activation. This means that the activation operation will give up after (0+ 10 + 20 + 30 + 40) = 100 sec (first retry is immediate). After this activation is not retried and operation is untracked.
 	
-Your activation can max backoff for **ActivationMaxRetryInterval** and can retry for **ActivationMaxFailureCount**.
+Max Activation backoff can be **ActivationMaxRetryInterval** and retry **ActivationMaxFailureCount**.
 
 ### Download Failure
 SF always uses a linear back-off when it encounters error during download. This means that the activation operation will give up after (0+ 10 + 20 + 30 + 40) = 100 sec (first retry is immediate). After this download is not retried and operation is untracked. The linear back-off for download is equal to ContinuousFailureCount***DeploymentRetryBackoffInterval** and can max back-off to **DeploymentMaxRetryInterval**. Like activations, download operation can retry for **ActivationMaxFailureCount**.
@@ -104,35 +104,35 @@ When a ServicePackage(SP) is activated on a node, Deactivator keeps track of it.
 
 The Deactivator works in two ways:
 
-1.	Periodically:  At every **DeactivationScanInterval** it check for ServicePackages which has NEVER hosted a Replica. .
-2.	ReplicaClose: If a Replica is closed, Deactivator gets a DecrementUsageCount. If the count goes to 0 that means the SP is not hosting any Replica and hence it schedules it for deactivation after **DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval**.
+1.	Periodically:  At every **DeactivationScanInterval**, it checks for ServicePackages, which have NEVER hosted a Replica. .
+2.	ReplicaClose: If a Replica is closed, Deactivator gets a DecrementUsageCount. If the count goes to 0 that means the SP is not hosting any Replica and hence, it schedules it for deactivation after **DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval**.
 
 ### Periodically:
-Example 1: Let’s say the Deactivator does a scan at Time T1. It’s next scan will be at T1+X(**DeactivationScanInterval**). Assume a SP activation happened at T1+1. This SP is not hosting a Replica and hence needs to be deactivated. For the SP to be a candidate for deactivation it needs to be in the state of no Replica for atleast X time. That means, it will be eligible for deactivation at T1+1+X. So, the scan at T1+X won’t find this SP as a candidate for deactivation. The next deactivation cycle T1+ 2X will schedule this SP for deactivation because now it has been in no Replica state for time X.  
+Example 1: Let’s say the Deactivator does a scan at Time T1. Its next scan will be at T1+X(**DeactivationScanInterval**). Assume a SP activation happened at T1+1. This SP is not hosting a Replica and hence needs to be deactivated. For the SP to be a candidate for deactivation, it needs to be in the state of no Replica for atleast X time. That means, it will be eligible for deactivation at T1+1+X. So, the scan at T1+X won’t find this SP as a candidate for deactivation. The next deactivation cycle T1+ 2X will schedule this SP for deactivation because now it has been in no Replica state for time X.  
 
 Example 2: Let’s say a SP gets activated at T1–1 and Deactivator does a scan at T1. The SP doesn’t host a Replica. Then at next scan T1+X this SP will be found as a candidate for deactivation and hence will be scheduled for deactivation.  
 
-Example 3: Let’s say a SP gets activated at T1–1 and Deactivator does a scan at T1. The SP doesn’t host a Replica Yet. Now at T1+1 a Replica get’s placed, i.e Hosting gets an IncrementUsageCount which means a Replica is created. Now at T1+X this SP will not be scheduled for deactivation. Now, the deactivation will move the ReplicaClose logic explained below.
+Example 3: Let’s say a SP gets activated at T1–1 and Deactivator does a scan at T1. The SP doesn’t host a Replica Yet. Now at T1+1 a Replica get’s placed, i.e Hosting gets an IncrementUsageCount, which means a Replica is created. Now at T1+X this SP will not be scheduled for deactivation. Now, the deactivation will move the ReplicaClose logic explained below.
 
-Example 4: Let's say your SP is really big, like 10GB, then it can take a bit of time to download on the node. Once an application is activated, the Deactivator tracks it's lifecycle. Now, if you have the **DeactivationScanInterval** config really small then you may run into issues where your ServicePackage is not getting time to activate on the node because all the time went into downloading. To overcome this problem, you can [pre-download the SP on the node][p1]. 
+Example 4: Let's say your SP is big, like 10 GB, then it can take a bit of time to download on the node. Once an application is activated, the Deactivator tracks its lifecycle. Now, if you have the **DeactivationScanInterval** config small then you may run into issues where your ServicePackage is not getting time to activate on the node because all the time went into downloading. To overcome this problem, you can [pre-download the SP on the node][p1]. 
 
 > [!NOTE]
 > So a SP can get deactivated anywhere between (**DeactivationScanInterval** To 2***DeactivationScanInterval**) + **DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval**. 
 >
 
 ### Replica Close:
-Deactivator keeps count of Replicas that a SP holds. If a SP is holding a Replica and the Replica is closed/down, Hosting gets a DecrementUsageCount. When a Replica is opened Hosting gets an IncrementUsageCount. The Decrement means that this SP is now hosting one less Replica. If the count drops to 0 then the SP is scheduled for deactivation and the time after which it will be deactivated is **DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval**. 
+Deactivator keeps count of Replicas that a SP holds. If a SP is holding a Replica and the Replica is closed/down, Hosting gets a DecrementUsageCount. When a Replica is opened Hosting gets an IncrementUsageCount. The Decrement means that this SP is now hosting one less Replica. If the count drops to 0, then the SP is scheduled for deactivation and the time after which it will be deactivated is **DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval**. 
 
 For ex: let’s say a Decrement happens at T1 and SP is scheduled to deactivate at T1+Y(**DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval**). If during, this time Hosting gets an IncrementUsage meaning a Replica is created then this deactivation is canceled.
 
 > [!NOTE]
 >So what does these config basically means:
 **DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval**: The time given to a SP to host a Replica once it has hosted any Replica. 
-**DeactivationScanInterval**: The time given to SP to host a Replica if it has NEVER hosted any Replica i.e if it is unused.
+**DeactivationScanInterval**: The minimum time given to SP to host a Replica if it has NEVER hosted any Replica i.e if it is unused.
 >
 
 ### Ctrl+C
-Once a SP passes the **DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval** and is still not hosting a Replica, the deactivation is non-cancellable. CodePackage are issued a Ctrl+C handler which means that now the deactivation pipeline has to go through to bring the process down. 
+Once a SP passes the **DeactivationGraceInterval**/**ExclusiveModeDeactivationGraceInterval** and is still not hosting a Replica, the deactivation is non-cancellable. CodePackage are issued a Ctrl+C handler that means that now the deactivation pipeline has to go through to bring the process down. 
 During this time if a new Replica for the same SP is trying to get places it will fail because we cannot transition from Deactivation to Activation.
 
 ## Next steps
