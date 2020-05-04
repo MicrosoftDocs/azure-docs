@@ -4,7 +4,7 @@ description: Learn more about Azure Image Builder for virtual machines in Azure.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
-ms.topic: concept
+ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.reviewer: danis
