@@ -913,6 +913,8 @@
         href: how-to-manage-consistency.md
       - name: Configure conflict resolution policies
         href: how-to-manage-conflicts.md
+      - name: Convert session token format
+        href: how-to-convert-session-token.md
     - name: Provisioned throughput
       items:
       - name: Provision throughput on a container

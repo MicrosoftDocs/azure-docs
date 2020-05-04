@@ -13,14 +13,14 @@ ms.author: vitrinh
 This article explains how to convert between different session token formats to ensure compatibility between SDK versions.
 
 > [!NOTE]
-> By default, the SDK keeps track of the session token automatically and it will use the most recent session token.  For more information, please visit [Utilize session tokens](how-to-manage-consistency.md#utilize-session-tokens). This article only applies to the following conditions:
-> * The Azure Cosmos DB account has Session consistency
-> * The session tokens are managed manually
-> * Multiple versions of the SDK are used at the same time
+> By default, the SDK keeps track of the session token automatically and it will use the most recent session token.  For more information, please visit [Utilize session tokens](how-to-manage-consistency.md#utilize-session-tokens). The instructions in this article only apply with the following conditions:
+> * Your Azure Cosmos DB account uses Session consistency.
+> * You are managing the session tokens are manually.
+> * You are using multiple versions of the SDK at the same time.
 
 ## Session token formats
 
-There are two session token formats: **simple** and **vector**.  These two formats are not interchangeable and will need to be converted when passing to the client with different versions.
+There are two session token formats: **simple** and **vector**.  These two formats are not interchangeable so, the format should be converted when passing to the client application with different versions.
 - The **simple** session token format is used by the .NET SDK V1 
 - The **vector** session token format is used by the .NET SDK V2.  
 
@@ -41,6 +41,7 @@ To pass a session token to client using .NET SDK V1, use a **simple** session to
 private static readonly char[] SegmentSeparator = (new[] { '#' });
 private static readonly char[] PkRangeSeparator = (new[] { ':' });
 
+// sessionTokenToConvert = session token from previous response
 string[] items = sessionTokenToConvert.Split(PkRangeSeparator, StringSplitOptions.RemoveEmptyEntries);
 string[] sessionTokenSegments = items[1].Split(SessionTokenHelpers.SegmentSeparator, StringSplitOptions.RemoveEmptyEntries);
 
