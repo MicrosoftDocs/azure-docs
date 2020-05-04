@@ -97,6 +97,10 @@ You can configure and get information about alert rules using the following inte
 
 Within a few minutes new alert rule is active, and alerts are triggered as defined as previously described.
 
+For the example shown on this page for setting up an alert on storage space, if your alerting option was email, you might receive email such is the one shown below. The email shows the alert name, details of the treshold and why the alert was triggered. You can use See in Azure portal button to view this alert in the web browser. Please note email formatting is subject to change.
+
+      ![example_alerting_email](media/sql-database-managed-instance-alerts/managed-instance-email-alert-example-annotated.png)
+
 ## Modify existing alert rules
 
 > [!NOTE] Existing alerts need to be managed from Alerts menu from Azure portal dashboard. Existing alerts cannot be modified from Managed Instance resource blade.
@@ -104,6 +108,7 @@ Within a few minutes new alert rule is active, and alerts are triggered as defin
 To view, modify and delete existing alerts:
 
 1. Search for Alerts using Azure portal search. Click on Alerts.
+
    ![find_alerts](media/sql-database-managed-instance-alerts/managed-instance-edit-alerts-browse-annotated.png)
 
    Alternatively, you could also click on Alerts on the Azure navigation bar, if you have it configured.
