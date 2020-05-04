@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/04/2020
 ms.author: sstein
 ---
 # SQL Database release notes
@@ -72,6 +72,7 @@ The following features are enabled in Managed instance deployment model in H1 20
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
+|[Agent becomes unresponsive upon modifying, disabling or enabling existing jobs](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|May 2020|No Workaround||
 |[Permissions on resource group not applied to Managed Instance](#permissions-on-resource-group-not-applied-to-managed-instance)|Feb 2020|Has Workaround||
 |[Limitation of manual failover via portal for failover groups](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Has Workaround||
 |[SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Has Workaround||
@@ -96,6 +97,12 @@ The following features are enabled in Managed instance deployment model in H1 20
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
 |Database Mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
 |Contained databases not supported in managed instance||Resolved|Aug 2019|
+
+### Agent becomes unresponsive upon modifying, disabling or enabling existing jobs
+
+In certain circumstances modifying an existing job, disabling, or enabling it can cause the agent to become unresponsive. Please refrain, if you can, from these activities until the issue is marked as resolved on this page. 
+
+Customers experiencing this issue requiring prompt resolution should create an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/), choose technical issue, for SQL Database Managed Instance service, and for problem type search for SQL Server Agent. Support engineers will assist with your issue, which likely could result in agent restart.
 
 ### Permissions on resource group not applied to managed instance
 

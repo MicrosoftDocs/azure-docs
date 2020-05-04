@@ -18,10 +18,15 @@ This article introduces you to Change Tracking and Inventory in Azure Automation
 - Microsoft services
 - Linux daemons
 
-Change Tracking and Inventory obtains its data from the Azure Monitor service in the cloud. Azure sends changes to installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers to Azure Monitor for processing. The cloud service applies logic to the received data, records it, and makes it available. 
-
 > [!NOTE]
 > To track Azure Resource Manager property changes, see the Azure Resource Graph [change history](../governance/resource-graph/how-to/get-resource-changes.md).
+
+Change Tracking and Inventory obtains its data from Azure Monitor. Virtual machines connected to Log Analytics workspaces use Log Analytics agents to collect data about changes to installed software, Microsoft services, Windows registry and files, and any Linux daemons on monitored servers. When data is available, the agents send it to Azure Monitor for processing. Azure Monitor applies logic to the received data, records it, and makes it available. 
+
+The Change Tracking and Inventory feature enables both the change tracking and inventory functional areas in Azure Automation. Since both areas use the same Log Analytics agent, the process to add a VM is the same in either functional area. 
+
+> [!NOTE]
+> To use the Change Tracking and Inventory feature, you must locate all your VMs in the same subscription and region of the Automation account.
 
 Change Tracking and Inventory currently doesn't support the following items:
 
@@ -33,7 +38,7 @@ Change Tracking and Inventory currently doesn't support the following items:
 Other limitations:
 
 * The **Max File Size** column and values are unused in the current implementation.
-* If you collect more than 2500 files in a 30-minute collection cycle, solution performance might be degraded.
+* If you collect more than 2500 files in a 30-minute collection cycle, change tracking and inventory performance might be degraded.
 * When network traffic is high, change records can take up to six hours to display.
 * If you modify a configuration while a computer is shut down, the computer might post changes belonging to the previous configuration.
 
@@ -44,33 +49,7 @@ Change Tracking and Inventory currently is experiencing the following issues:
 
 ## Supported operating systems
 
-Change Tracking and Inventory and the Azure Monitor Log Analytics agents are supported on both Windows and Linux operating systems.
-
-### Windows operating systems
-
-The version of the Windows operating system that is supported officially is Windows Server 2008 R2 or later.
-
-### Linux operating systems
-
-The Linux distributions discussed below are officially supported for the Log Analytics agent for Linux. However, the Linux agent might also run on other distributions not listed. Unless otherwise noted, all minor releases are supported for each major version listed.
-
-#### 64-bit Linux operating systems
-
-* CentOS 6 and 7
-* Amazon Linux 2017.09
-* Oracle Linux 6 and 7
-* Red Hat Enterprise Linux Server 6 and 7
-* Debian GNU/Linux 8 and 9
-* Ubuntu Linux 14.04 LTS, 16.04 LTS, and 18.04 LTS
-* SUSE Linux Enterprise Server 12
-
-#### 32-bit Linux operating systems
-
-* CentOS 6
-* Oracle Linux 6
-* Red Hat Enterprise Linux Server 6
-* Debian GNU/Linux 8 and 9
-* Ubuntu Linux 14.04 LTS and 16.04 LTS
+Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. The versions of the Windows operating system that are supported officially are Windows Server 2008 SP1 or later and Windows 7 SP1 or later. A number of Linux operating systems are also supported. See [Log Analytics agent overview](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
 
 ## Network requirements
 
@@ -85,7 +64,7 @@ Change Tracking and Inventory specifically requires the network addresses listed
 
 ## Change Tracking and Inventory user interface
 
-Use Change Tracking and Inventory in the Azure portal to view the summary of changes for monitored computers. The feature is available by selecting **Change tracking** under **Configuration Management** in your Automation account. 
+Use Change Tracking and Inventory in the Azure portal to view the summary of changes for monitored computers. The feature is available by selecting one of the add VMs options for either **Change tracking** or **Inventory** under **Configuration Management** in your Automation account.  
 
 ![Change Tracking dashboard](./media/change-tracking/change-tracking-dash01.png)
 
@@ -181,7 +160,7 @@ The following table shows the tracked item limits per machine for Change Trackin
 |Services|250|
 |Daemons|250|
 
-The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month. This value is only an approximation and is subject to change based on your environment. It's recommended that you monitor your environment to see the exact usage that you have.
+The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month, depending on your environment. Using the Usage and estimated costs feature of the Log Analytics workspace, you can view the data ingested by Change Tracking and Inventory in a usage chart. You can use this data view to evaluate your data usage and determine how it's affecting your bill. See [Understand your usage and estimate costs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).  
 
 ### Microsoft service data
 
