@@ -47,7 +47,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 1. Inside the _my-vanilla-api_ project, create a sub-folder named **api**.
 
 > [!NOTE]
-> You can give this folder any name. We are using `api` as an example.
+> You can give this folder any name. This example uses `api` 
 
 2. Press **F1** to open the Command Palette
 3. Type **Azure Functions: Create New Project...**
@@ -143,11 +143,11 @@ Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.mic
 
    <http://localhost:7071/api/message>
 
-4. A response is returned, which looks like the following in the browser:
+A response is returned, which looks like the following in the browser:
 
 :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
-After you've verified that the function runs correctly, you can now call the API from the JavaScript application.
+After you've verified that the function runs correctly, you can call the API from the JavaScript application.
 
 ### Call the API from the application
 
