@@ -36,7 +36,7 @@ You can configure an alert to do the following when it triggers:
 > [!NOTE]
 > Please note that metrics alerting is available for the entire managed instance resource. Metrics for individual databases are not available.
 
-The following metrics you can alert on are available for SQL managed instance:
+The following managed instance metrics are available for alerting configuration:
 
 | Metric | Description | Unit of measure \ possible values |
 | :--------- | --------------------- | ----------- |
