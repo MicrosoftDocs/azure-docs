@@ -3,11 +3,11 @@ title: Reduce service costs using Azure Advisor | Microsoft Docs
 description: Use Azure Advisor to optimize the cost of your Azure deployments.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: sagupt
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
+ms.author: sagupt
 ---
 
 # Reduce service costs using Azure Advisor
