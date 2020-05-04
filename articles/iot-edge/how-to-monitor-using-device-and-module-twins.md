@@ -4,7 +4,7 @@ description: How to interpret device twins and module twins to determine connect
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/30/2020
+ms.date: 05/4/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -14,25 +14,40 @@ services: iot-edge
 
 Azure IoT Edge provides reporting on the data collected from the device and module twins on the various states that devices and modules may have, as described in [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md). This information enables you to monitor the status, conditions, and configurations you set for modules be deployed to IoT Edge devices and how reported property values compare with their desired property counterparts.
 
-Going beyond the reporting capabilities in Azure IoT Hub, you may at times need to examine the device and module twins themselves. A device twin and a module twin are both JSON documents maintained in your IoT hub. 
+For in-depth overviews on these twins, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md) and [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
-Device twins are implicitly created and deleted when a device identity is created or deleted in IoT Hub. Similarly, once a module identity is created, a module twin is implicitly created in IoT Hub.
+## Monitor the edgeAgent module twin for connectivity and health
 
-Device twins store device state information including metadata, configurations, and conditions. You can use a device twin to monitor:
+The [IoT Edge agent](iot-edge-runtime.md#iot-edge-agent) is particularly important to monitor, as it is responsible for instantiating modules, ensuring their operations, and reporting connection and status data to IoT Hub. Interestingly, When you examine the module identity twin for the edgeAgent runtime module, the connection is always in a disconnected state: `"connectionState": "Disconnected"`. The reason is that the connection state pertains to device cloud (D2C) messages and the edgeAgent does not send D2C messages. However, you can [ping](how-to-edgeagent-direct-method.nd#ping) built-in direct method to get the edgeAgent status.
 
-* The synchronization of device conditions and configuration.
-* Query long-running operations from the solution back end.
+To determine the connectivity of your custom code modules, check their status in the `modules` section of the edgeAgent module twin.
 
-Module twins store module-related information that allows you to monitor:
+| Status | Description |
+| --- | --- |
+| unknown | Default state until deployment is created. |
+| backoff | The module is scheduled to be started but is not currently running. This value is useful when we have a failing module that is undergoing state changes as part of the implementation of its restart policy. For example, when a failing module is awaiting restart during the cool-off period as dictated by the exponential back-off restart strategy, the module will be in this backoff state. |
+| running | Indicates that module is currently running. |
+| unhealthy | Indicates a health-probe check failed or timed out. |
+| stopped | Indicates that the module exited successfully (with a zero exit code). |
+| failed | Indicates that the module exited with a failure exit code (non-zero). The module can transition back to backoff from this state depending on the restart policy in effect. This state can indicate that the module has experienced an unrecoverable error. This happens when the MMA has given up on trying to resuscitate the module and user action is required to update its configuration in order for it to work again that would mean that a new deployment is required. |
 
-* The operations that the modules and back ends can perform on module twins.
-* Runtime data from the edgeHub and edgeAgent system modules.
+## Monitor the custom code module twin for connectivity and health
 
-A module twin defines capabilities for individual components of a device. On devices with multiple components, such as operating system-based devices or firmware devices, module twins allow for isolated configuration and conditions for each component.
+You can obtain more granular status information by checking the following values in the module twin for the modules themselves. If the module has been deployed, the JSON in the module twin will have the following data at the top of the file:
 
-For in-depth overviews, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md) and [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
+* **exitcode**
 
-## Monitoring the device and module twins in the Azure portal
+    Value is 0 if the module is running or the module ended running (no foreground process), a value different than 0 if the module stopped with a failure. Please note that there are two codes which are not actually failures, but they are reported as failures at the moment: 137 or 143 which are used when a module was set to stopped status because this failure will trigger SIGKILL or SIGTERM.
+
+* **lastStartTimeUtc**
+
+    The datetime that the container was last started (which can be 0001-01-01T00:00:00Z if the container was not started).
+
+* **lastExitTimeUtc**
+
+    The datetime that the container last finished at (which can be 0001-01-01T00:00:00Z if the container is running and was never stopped)
+
+## Monitor device and module twins in the Azure portal
 
 To view the JSON for the device and module twins:
 
@@ -48,11 +63,13 @@ To view the JSON for the device and module twins:
 
         ![Select Module Twin from the module details page](media/how-to-monitor-using-device-and-module-twins/select-module-twin.png)
 
-    If you see the message "A module identity does not exist for this module", this error indicates that the back end solution is no longer available that originally created the identity.
+    If you see the message "A module identity does not exist for this module", this error indicates that the back-end solution is no longer available that originally created the identity.
 
-## Pertinent device twin values to monitor
+## Monitor device and module twins in Visual Studio code
 
-## Pertinent module twin values to monitor
+In Visual Studio Code, use the following commands in the **View** > **Command Palette** to view the JSON for the device and module twins:
+
+## Monitor device and module twins in Azure CLI
 
 ## Next steps
 
