@@ -66,7 +66,7 @@ You can use Azure Machine Learning compute clusters for training and for batch i
 
 ### Supported VM series and sizes
 
-When you select a node size for a managed compute resource in Azure Machine Learning, you can choose from among select VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows for different workloads. To learn more about the different VM types and sizes, refer [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes).
+When you select a node size for a managed compute resource in Azure Machine Learning, you can choose from among select VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows for different workloads. Refer here to learn more about the different [VM types and sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 There are a few exceptions and limitations to choosing a VM size:
 * Some VM series are not supported in Azure Machine Learning.
@@ -90,7 +90,7 @@ See the following table to learn more about supported series and restrictions.
 | NVv3 | Requires approval | 
 
 
-While Azure Machine Learning supports these VM series, they may not be available in all Azure regions. You can check with VM series are available here: [Products Available by Region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines).
+While Azure Machine Learning supports these VM series, they may not be available in all Azure regions. You can check with VM series are available here: [Products Available by Region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 ## Unmanaged compute
 
