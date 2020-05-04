@@ -74,8 +74,7 @@ DNS is a critical component to make the application work correctly by resolving 
 Based on your preferences, the following scenarios are available for DNS resolution integrated:
 
 - [Virtual network workloads without custom DNS server](#virtual-network-workloads-without-custom-dns-server)
-- [On premises workloads using a custom DNS server](#on-premises-workloads-using-a-custom-dns-server)
-
+- [On premises workloads using a DNS forwarder](#on-premises-workloads-using-a-dns-forwarder)
 
 ## Virtual network workloads without custom DNS server
 
@@ -106,9 +105,9 @@ In this scenario there's a [hub & spoke](https://docs.microsoft.com/azure/archit
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="hub and spoke with azure provided dns":::
 
-## On premises workloads using a custom DNS server
+## On premises workloads using a custom DNS forwarder
  
-For on premises workloads to be able to resolve an FQDN of a private endpoint into the private IP address, you must use a custom DNS server to forward the resolution for Azure service [public DNS zones](#azure-services-dns-zone-configuration) deployed in Azure.
+For on premises workloads to be able to resolve an FQDN of a private endpoint into the private IP address, you must use a DNS forwarder to make the resolution of the Azure service [public DNS zone](#azure-services-dns-zone-configuration) deployed in Azure.
 
 
 The following scenario is appropriate for an on premises network that has a DNS forwarder in Azure, which in turn is responsible for resolving all the DNS queries via a server level forwarder to the Azure provided DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) 
@@ -119,17 +118,18 @@ The following scenario is appropriate for an on premises network that ha
 To configure properly you would need the following resources:
 
 - On premises network
-- Virtual network [connected to on premises](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) 
+- Virtual network [connected to on premises](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- DNS forwarder deployed in Azure 
 - Private DNS zones [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)  with [type A Record](../dns/dns-zones-records.md#record-types)
 - Private endpoint information (FQDN record name and Private IP Address)
 
-The following diagram illustrates the DNS resolution sequence from an on premise network that use a DNS server deployed in Azure,
+The following diagram illustrates the DNS resolution sequence from an on premise network that use a DNS forwarder deployed in Azure,
 where the resolution is made by an private DNS zone linked to a virtual network.
 
 :::image type="content" source="media/private-endpoint-dns/on-premise-using-azure-dns.png" alt-text="on premise using azure dns":::
 
 This configuration can be extended for an on premise network that has already a DNS solution in place. 
-The on premises DNS solution needs to be configured to forward DNS traffic to the Azure DNS via a [conditional forwarder](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) referencing the custom DNS deployed in Azure.
+The on premises DNS solution needs to be configured to forward DNS traffic to the Azure DNS via a [conditional forwarder](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) referencing the DNS forwarder deployed in Azure.
 
  > [!NOTE]
 > This scenario is using Azure SQL database recommended Private DNS zone. For other services you can adjust the model using the following reference [Azure services DNS zone configuration](#azure-services-dns-zone-configuration).
@@ -138,7 +138,8 @@ To configure properly you would need the following resources :
 
 
 - On premises network with a custom DNS solution in place 
-- Virtual network [connected to on premises](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) 
+- Virtual network [connected to on premises](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- DNS forwarder deployed in Azure
 - Private DNS zones [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)  with [type A Record](../dns/dns-zones-records.md#record-types)
 - Private endpoint information (FQDN record name and Private IP Address)
 
