@@ -15,7 +15,7 @@ To learn about creating Guest Configuration policies for Linux, see the page
 When auditing Windows, Guest Configuration uses a
 [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) resource module to
 and configuration file. The DSC configuration defines the condition that the machine should be in.
-If the evaluation of the configuration fails, the policy effect **auditIfNotExists** is triggered
+If the evaluation of the configuration fails, the policy effect **auditIfNotExists are triggered
 and the machine is considered **non-compliant**.
 
 [Azure Policy Guest Configuration](../concepts/guest-configuration.md) can only be used to audit
@@ -29,9 +29,15 @@ non-Azure machine.
 
 ## Install the PowerShell module
 
-Creating a Guest Configuration artifact, automated testing of the artifact, creating a policy
-definition, and publishing the policy, is entirely automatable using the Guest Configuration module
-in PowerShell. The module can be installed on a machine running Windows, macOS, or Linux with
+The Guest Configuration module automates the process of creating custom content
+including:
+
+- Creating a Guest Configuration content artifact (.zip)
+- Automated testing of the artifact
+- Creating a policy definition
+- Publishing the policy
+
+The module can be installed on a machine running Windows, macOS, or Linux with
 PowerShell 6.2 or later running locally, or with [Azure Cloud Shell](https://shell.azure.com), or
 with the
 [Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
@@ -380,7 +386,7 @@ initiative with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-poli
 > assigned, the prerequisites aren't deployed and the policy always shows that '0' servers are
 > compliant.
 
-Assigning an policy definition with _DeployIfNotExists_ effect requires an additional level of
+Assigning a policy definition with _DeployIfNotExists_ effect requires an additional level of
 access. To grant the least privilege, you can create a custom role definition that extends
 **Resource Policy Contributor**. The example below creates a role named **Resource Policy
 Contributor DINE** with the additional permission _Microsoft.Authorization/roleAssignments/write_.
@@ -434,6 +440,140 @@ New-GuestConfigurationPolicy
     -Path '.\policyDefinitions' `
     -Parameters $PolicyParameterInfo `
     -Version 1.0.0
+```
+
+## Extending Guest Configuration with third-party tools
+
+> [!Note] This feature is currently in preview and is currently only available 
+> for policies that audit Windows machines
+
+The artifact packages for Guest Configuration can be extended to include third-party tools.
+Extending Guest Configuration requires development of two components.
+
+- A Desired State Configuration resource that handles all activity related to managing the third-party tool
+  - Install
+  - Invoke
+  - Convert output
+- Content in the correct format for the tool to natively consume
+
+The DSC resource will require custom development if a community solution does not already exist.
+Community solutions can be discovered by searching the PowerShell Gallery for tag
+[GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22).
+
+> [!Note] Guest Configuration extensibility is currently a "bring your own
+> license" scenario. Ensure you have met the terms and conditions of any third
+> party tools before use.
+
+After the DSC resource has been installed in the development environment, use the
+`-FilesToInclude` parameter for `New-GuestConfigurationPackage` to include
+content for the third-party platform in the content artifact.
+
+### Step by step, creating a content artifact that uses third-party tools
+
+Only the `New-GuestConfigurationPackage` cmdlet will require a change from
+the step-by-step guidance for DSC content artifacts. For this example,
+use the `gcInSpec` module to extend Guest Configuration to audit Windows machines
+using the InSpec platform rather than the built-in module used on Linux. The
+community module is maintained as an
+[open source project in GitHub](https://github.com/microsoft/gcinspec).
+
+Install required modules in your development environment:
+
+```azurepowershell-interactive
+Install-Module GuestConfiguration, gcInSpec
+```
+
+First, create the YaML file used by InSpec. The file provides basic information about the
+environment. An example is given below:
+
+```YaML
+name: wmi_service
+title: Verify WMI service is running
+maintainer: Microsoft Corporation
+summary: Validates that the Windows Service 'winmgmt' is running
+copyright: Microsoft Corporation
+license: MIT
+version: 1.0.0
+supports:
+  - os-family: windows
+```
+
+Save this file to a folder named `wmi_service` in your project directory.
+
+Next, create the Ruby file with the InSpec language abstraction used to audit the machine.
+
+```Ruby
+control 'wmi_service' do
+  impact 1.0
+  title 'Verify windows service: winmgmt'
+  desc 'Validates that the service, is installed, enabled, and running'
+
+  describe service('winmgmt') do
+    it { should be_installed }
+    it { should be_enabled }
+    it { should be_running }
+  end
+end
+
+```
+
+Save this file in a new folder named `controls` inside the `wmi_service` directory.
+
+Finally, create a configuration, import the **GuestConfiguration** resource module, and use the
+`gcInSpec` resource to set the name of the InSpec profile.
+
+```powershell
+# Define the configuration and import GuestConfiguration
+Configuration wmi_service
+{
+    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.0.0'}
+    node 'wmi_service'
+    {
+        gcInSpec wmi_service
+        {
+            InSpecProfileName       = 'wmi_service'
+            InSpecVersion           = '3.9.3'
+            WindowsServerVersion    = '2016'
+        }
+    }
+}
+
+# Compile the configuration to create the MOF files
+wmi_service -out ./Config
+```
+
+Run the You should now have a project structure as below:
+
+```file
+/ wmi_service
+    / Config
+        wmi_service.mof
+    / wmi_service
+        wmi_service.yml
+        / controls
+            wmi_service.rb 
+```
+
+The supporting files must be packaged together. The completed package is used by Guest Configuration
+to create the Azure Policy definitions.
+
+The `New-GuestConfigurationPackage` cmdlet creates the package. For third-party content, use the
+`-FilesToInclude` parameter to add the InSpec content to the package. You do not need to specify the `-ChefProfilePath`
+as for Linux packages.
+
+- **Name**: Guest Configuration package name.
+- **Configuration**: Compiled configuration document full path.
+- **Path**: Output folder path. This parameter is optional. If not specified, the package is created
+  in current directory.
+- **FilesoInclude**: Full path to InSpec profile.
+
+Run the following command to create a package using the configuration given in the previous step:
+
+```azurepowershell-interactive
+New-GuestConfigurationPackage `
+  -Name 'AuditFilePathExists' `
+  -Configuration './Config/AuditFilePathExists.mof'
+  -FilesToInclude './wmi_service'
 ```
 
 ## Policy lifecycle

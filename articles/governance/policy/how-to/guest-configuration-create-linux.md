@@ -28,9 +28,15 @@ non-Azure machine.
 
 ## Install the PowerShell module
 
-Creating a Guest Configuration artifact, automated testing of the artifact, creating a policy
-definition, and publishing the policy, is entirely automatable using the Guest Configuration module
-in PowerShell. The module can be installed on a machine running Windows, macOS, or Linux with
+The Guest Configuration module automates the process of creating custom content
+including:
+
+- Creating a Guest Configuration content artifact (.zip)
+- Automated testing of the artifact
+- Creating a policy definition
+- Publishing the policy
+
+The module can be installed on a machine running Windows, macOS, or Linux with
 PowerShell 6.2 or later running locally, or with [Azure Cloud Shell](https://shell.azure.com), or
 with the
 [Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).

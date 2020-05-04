@@ -29,36 +29,6 @@ To limit the extension from impacting applications running inside the machine, t
 Configuration isn't allowed to exceed more than 5% of CPU utilization. This limitation exists for
 both built-in and custom definitions.
 
-## Register Guest Configuration resource provider
-
-Before you can use Guest Configuration, you must register the resource provider. You can register
-through the portal or through PowerShell. The resource provider is registered automatically if
-assignment of a Guest Configuration policy is done through the portal.
-
-### Registration - Portal
-
-To register the resource provider for Guest Configuration through the Azure portal, follow these
-steps:
-
-1. Launch the Azure portal and click on **All services**. Search for and select **Subscriptions**.
-
-1. Find and click on the subscription that you want to enable Guest Configuration for.
-
-1. In the left menu of the **Subscription** page, click **Resource providers**.
-
-1. Filter for or scroll until you locate **Microsoft.GuestConfiguration**, then click **Register**
-   on the same row.
-
-### Registration - PowerShell
-
-To register the resource provider for Guest Configuration through PowerShell, run the following
-command:
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
-```
-
 ## Validation tools
 
 Inside the machine, the Guest Configuration client uses local tools to run the audit.
@@ -95,11 +65,6 @@ The following table shows a list of supported operating system on Azure images:
 |Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6|
 |Suse|SLES|12 SP3|
 
-> [!IMPORTANT]
-> Guest Configuration can audit nodes running a supported OS. If you would like to audit virtual
-> machines that use a custom image, you need to duplicate the **DeployIfNotExists** definition and
-> modify the **If** section to include your image properties.
-
 ### Unsupported client types
 
 Windows Server Nano Server isn't supported in any version.
@@ -112,6 +77,39 @@ doesn't allow outbound traffic, configure exceptions with [Network Security
 Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules.
 The [service tag](../../../virtual-network/service-tags-overview.md)
 "GuestAndHybridManagement" can be used to reference the Guest Configuration service.
+
+> [!Important]
+> 
+
+## Register Guest Configuration resource provider
+
+Before you can use Guest Configuration, you must register the resource provider. You can register
+through the portal or through PowerShell. The resource provider is registered automatically if
+assignment of a Guest Configuration policy is done through the portal.
+
+### Registration - Portal
+
+To register the resource provider for Guest Configuration through the Azure portal, follow these
+steps:
+
+1. Launch the Azure portal and click on **All services**. Search for and select **Subscriptions**.
+
+1. Find and click on the subscription that you want to enable Guest Configuration for.
+
+1. In the left menu of the **Subscription** page, click **Resource providers**.
+
+1. Filter for or scroll until you locate **Microsoft.GuestConfiguration**, then click **Register**
+   on the same row.
+
+### Registration - PowerShell
+
+To register the resource provider for Guest Configuration through PowerShell, run the following
+command:
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
+```
 
 ## Guest Configuration definition requirements
 
