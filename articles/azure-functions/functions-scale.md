@@ -222,14 +222,7 @@ The following comparison table shows all important aspects to help the decision 
 
 ### Networking limits
 
-| Feature | [Consumption plan](#consumption-plan) | [Premium plan](#premium-plan) | [Dedicated (App Service) plan](#app-service-plan)<sup>1</sup> | [Isolated Service Plan (App Service Environment)](#app-service-plan)<sup>1</sup> | [Kubernetes](../aks/quotas-skus-regions.md) |
-| --- | --- | --- | --- | --- | --- |
-| Inbound IP restrictions & private site access |Yes |Yes |Yes | Yes | Yes |
-| Virtual network integration |No |Yes (Regional) |Yes (Regional and Gateway) | Yes | Yes |
-| Virtual network triggers (non-HTTP) |Yes |Yes |Yes | Yes | Yes |
-| Hybrid connections (Windows only) |No |Yes |Yes | Yes | Yes |
-| Outbound IP restrictions |No |No |Yes | Yes | Yes |
-| Regional virtual network integration |No |Yes |Yes | Yes | Yes |
+[!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
 ### Billing
 
