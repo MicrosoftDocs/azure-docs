@@ -69,6 +69,8 @@ For more information, see [Configure kubenet networking for an AKS cluster][aks-
 
 With Azure CNI, every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be unique across your network space, and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, as can otherwise lead to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
 
+Unlike kubenet, traffic to endpoints within the same Vnet will not be NAT'd to the node's primary IP. The traffic will instead be seen with the Pod IP as the source address. Traffic external to the Vnet will still NAT to the node's primary IP.
+
 Nodes use the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin.
 
 ![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram]
