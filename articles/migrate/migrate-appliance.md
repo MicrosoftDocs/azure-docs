@@ -331,13 +331,12 @@ NIC MAC address | Win32_NetworkAdapterConfiguration | MACAddress
 
 Here's the full list of Linux server metadata that the appliance collects and sends to Azure.
 
-
 **DATA** | **LINUX** 
 --- | --- 
-FQDN | cat /proc/sys/kernel/hostname , hostname -f
+FQDN | cat /proc/sys/kernel/hostname, hostname -f
 Processor core count |  /proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
 Memory allocated | cat /proc/meminfo \| grep MemTotal \| awk '{printf "%.0f", $2/1024}'
-BIOS serial number | lshw | grep "serial:" \| head -n1 \| awk '{print $2}' <br/> /usr/sbin/dmidecode -t 1 \| grep 'Serial' \| awk '{ $1="" ; $2=""; print}’
+BIOS serial number | lshw \| grep "serial:" \| head -n1 \| awk '{print $2}' <br/> /usr/sbin/dmidecode -t 1 \| grep 'Serial' \| awk '{ $1="" ; $2=""; print}’
 BIOS GUID | cat /sys/class/dmi/id/product_uuid
 Boot type | [ -d /sys/firmware/efi ] && echo EFI \|\| echo BIOS
 OS name/version | We access these files for the OS version and name:<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oracle-release<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> /etc/debian_version
@@ -363,13 +362,13 @@ Data transmitted per NIC | BWin32_PerfFormattedData_Tcpip_NetworkInterface | Byt
 Disk count | BWin32_PerfFormattedData_PerfDisk_PhysicalDisk | Count of disks
 Disk details | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesPerSec, DiskWriteBytesPerSec, DiskReadsPerSec, DiskReadBytesPerSec.
 
-### Windows performance data
+### Linux performance data
 
 Here's the Linux server performance data that the appliance collects and sends to Azure.
 
 **Data** | **Linux** 
 --- | --- 
-CPU usage | cat /proc/stat|grep 'cpu ' /proc/stat
+CPU usage | cat /proc/stat/|grep 'cpu ' /proc/stat
 Memory usage | free \| grep Mem \| awk '{print $3/$2 * 100.0}'
 NIC count | lshw -class network \| grep eth[0-60] \| wc -l
 Data received per NIC | cat /sys/class/net/eth$nic/statistics/rx_bytes
