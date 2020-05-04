@@ -14,8 +14,8 @@ ms.reviewer: jrasnick, carlrab
 # Control storage account access for SQL on-demand (preview)
 
 A SQL on-demand query reads files directly from Azure Storage. Permissions to access the files on Azure storage are controlled at two levels:
-- **Storage level** - User should have permission to access underlying storage files. Your storage administrator shoudl allow AAd principal to rea/write files or generate SAS key that will be used to to access storage.
-- **SQL service level** - User should have `ADMINISTER BULK ADMIN` permission to execute `OPENROWSET` and also permission to use crednentials that will be used to access storage.
+- **Storage level** - User should have permission to access underlying storage files. Your storage administrator should allow AAD principal to read/write files, or generate SAS key that will be used to to access storage.
+- **SQL service level** - User should have `ADMINISTER BULK ADMIN` permission to execute `OPENROWSET` and also permission to use credentials that will be used to access storage.
 
 This article describes the types of credentials you can use and how credential lookup is enacted for SQL and Azure AD users.
 
@@ -102,9 +102,9 @@ Before accessing the data, the Azure Storage administrator must grant permission
 
 ## Credentials
 
-To query a file located in Azure Storage, your SQL on-demand end point needs a credential that contains the authentication information. Two types of crednetials are used:
+To query a file located in Azure Storage, your SQL on-demand end point needs a credential that contains the authentication information. Two types of credentials are used:
 - Server-level CREDENTIAL is used for ad-hoc queries executed using `OPENROWSET` function. Credential name must match the storage URL.
-- DATABASE SCOPED CREDENTIAL is used for external tables. External table references `DATA SOURCE` with the credential that should be used to acces storage.
+- DATABASE SCOPED CREDENTIAL is used for external tables. External table references `DATA SOURCE` with the credential that should be used to access storage.
 
 A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below).
 
@@ -123,7 +123,7 @@ Server-level CREDENTIAL name must match the full path to the storage account (an
 
 
 > [!NOTE]
-> There is special server-level CREDENTIAL `UserIdentity` that [forces Azure AD pass-through](#force-azure-ad-pass-through). Please read about the effect it has on [credential lookup](#credential-lookup) while executing queries.
+> There is special server-level CREDENTIAL `UserIdentity` that [forces Azure AD pass-through](#force-azure-ad-pass-through).
 
 Optionally, to allow a user to create or drop a credential, admin can GRANT/DENY ALTER ANY CREDENTIAL permission to a user:
 
@@ -160,7 +160,8 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 
 Depending on the [authorization type](#supported-storage-authorization-types), you can create credentials using the T-SQL syntax below.
 
-**Server-level crednetial with Shared Access Signature for Blob Storage**
+**Server-level 
+with Shared Access Signature for Blob Storage**
 
 Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
 
@@ -173,7 +174,7 @@ GO
 
 **Database scoped credential with Managed Identity**
 
-Database scoped crednetial don't need to match the name of storage account because it will be explicitly used in DATA SOURCE with some location of storage.
+Database scoped credential don't need to match the name of storage account because it will be explicitly used in DATA SOURCE with some location of storage.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
