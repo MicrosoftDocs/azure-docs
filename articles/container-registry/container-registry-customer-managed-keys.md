@@ -415,6 +415,7 @@ For example, to generate and configure a new key version:
 1. In the portal, navigate to your registry. 
 1. Under **Settings**, select  **Encryption** > **Change key**.
 1. Select **Select key**
+    
     ![Rotate key in the Azure portal](./media/container-registry-customer-managed-keys/rotate-key.png)
 1. In the **Select key from Azure Key Vault** window, select the key vault and key you configured previously, and in **Version**, select **Create new**.
 1. In the **Create a key** window, select **Generate**, and then **Create**.
