@@ -56,7 +56,7 @@ Once you can connect to your Azure Storage and Video Indexer accounts, go to the
 
 Next, go to the “Create SAS URI by path” action, and select List of Files Path from the Dynamic content options.  
 
-![SAS uri by path](./media/logic-apps-connector-tutorial/sas-uri-by-path.png)
+![SAS uri by path](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
 Fill out [your account Location and ID](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location) to get the Video Indexer account token.
 
@@ -88,13 +88,13 @@ Fill out [your account Location and ID](https://docs.microsoft.com/azure/cogniti
 
 Go to the “Get Video Index” action and fill out the required parameters. For Video ID, put in the following expression: triggerOutputs()['queries']['id'] 
 
-![video indexer action info](./media/logic-apps-connector-tutorial/video-indexer-action-info.png)
+![video indexer action info](./media/logic-apps-connector-tutorial/video-indexer-action-info.jpg)
 
 This expression tells the connecter to get the Video ID from the output of your trigger. In this case, the output of your trigger will be the output of “Upload video and index” in your first trigger. 
 
 Go to the “Create blob” action and select the path to the folder in which you will save the insights to. Set the name of the blob you are creating. For Blob content, put in the following expression: body(‘Get_Video_Index’) 
 
-![Create blob action](./media/logic-apps-connector-tutorial/create-blob-action.png)
+![Create blob action](./media/logic-apps-connector-tutorial/create-blob-action.jpg)
 
 This expression takes the output of the “Get Video Index” action from this flow. 
 
