@@ -41,13 +41,13 @@ Angular apps do not copy files in the _src_ folder to the artifact folder by def
 1. In Visual Studio Code, open the _angular.json_ file
 1. Go to the property at:
 
-    ```bash
-     projects
-      | - <ANGULAR_APP_NAME>
-        | - architect
-         | - build
-           | - options
-             | - assets
+    ```schema
+    projects
+    └── angular-app
+      └── architect
+        └── build
+          └── options
+            └── assets
     ```
 
 1. Extend the `assets` array to include the _src/routes.json_ file:
