@@ -59,17 +59,17 @@ You can configure and get information about alert rules using the following inte
 
 1. In Azure [portal](https://portal.azure.com/), locate SQL managed instance you are interested in monitoring, and select it.
 
-2. Select **Metrics** in the Monitoring section. The text and icon may vary slightly for different resources.  
+2. Select **Metrics** menu item in the Monitoring section.
 
    ![Monitoring](media/sql-database-managed-instance-alerts/managed-instance-alerting-menu-annotated.png)
   
-3. Select the **metrics** from one of the available you wish to alert on (in the screenshot, Storage space used example is shown).
+3. On the drop-down menu, select one of the metrics you wish to setup your alert on (Storage space used is shown in the example).
 
 4. Select aggregation period - average, minimum or maximum reached in the given time period (Avg, Min or Max). 
 
 5. Select **New alert rule**
 
-6. In the Create alert rule pane click on **Conition name** (in the screenshot, Storage space used example is shown)
+6. In the Create alert rule pane click on **Conition name** (Storage space used is shown in the example)
 
    ![Define condition](media/sql-database-managed-instance-alerts/manged-instance-create-metrics-alert-annotated.png)
 
