@@ -13,7 +13,7 @@ ms.date: 03/12/2020
 ms.author: donkim
 ---
 
-# Fulfill commands from a client with the Speech SDK
+# Fulfill commands from a client with the Speech SDK (Preview)
 
 To complete tasks using a Custom Commands application you can send custom payloads to a connected client device.
 
@@ -23,14 +23,14 @@ In this article, you'll:
 - Receive and visualize the custom JSON payload contents from a C# UWP Speech SDK client application
 
 ## Prerequisites
-
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- An Azure subscription key for Speech service
-  - [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
-- A previously created Custom Commands app
-  - [Quickstart: Create a Custom Command with Parameters](./quickstart-custom-speech-commands-create-parameters.md)
-- A Speech SDK enabled client application
-  - [Quickstart: Connect to a Custom Command application with the Speech SDK](./quickstart-custom-speech-commands-speech-sdk.md)
+[!div class="checklist"]
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+* An Azure subscription key for Speech service:
+[Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+* A previously created Custom Commands app:
+[Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+* A Speech SDK enabled client application:
+[Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
 
 ## Optional: Get started fast
 

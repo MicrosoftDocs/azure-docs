@@ -12,7 +12,7 @@ ms.date: 12/10/2019
 ms.author: anhoang
 ---
 
-# Quickstart: Use Custom Commands with Custom Voice
+# Quickstart: Use Custom Commands with Custom Voice (Preview)
 
 In the [previous article](./quickstart-custom-speech-commands-create-parameters.md), we created a new Custom Commands project to respond to commands with parameters.
 
