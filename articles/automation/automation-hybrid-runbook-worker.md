@@ -25,7 +25,7 @@ The process to install a Hybrid Runbook Worker depends on the operating system. 
 |OS  |Deployment types  |
 |---------|---------|
 |Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
-|Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
+|Linux     | [Python](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker)        |
 
 The recommended installation method is to use an Automation runbook to completely automate the process of configuring a Windows computer. The second method is to follow a step-by-step procedure to manually install and configure the role. For Linux machines, you run a Python script to install the agent on the machine.
 

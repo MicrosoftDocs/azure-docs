@@ -42,7 +42,7 @@ Restart-Computer -ComputerName $Computer -Credential $Cred
 
 You can also use an [InlineScript](automation-powershell-workflow.md#inlinescript) activity. `InlineScript` allows you to run blocks of code on another computer with credentials specified by the [PSCredential common parameter](/powershell/module/psworkflow/about/about_workflowcommonparameters).
 
-## Use runbook authentication with managed identities
+## <a name="runbook-authentication-managed-identities"></a>Use runbook authentication with managed identities
 
 Hybrid Runbook Workers on Azure virtual machines can use managed identities for Azure resources to authenticate to Azure resources. Using managed identities for Azure resources instead of Run As accounts provides benefits because you don't need to:
 
