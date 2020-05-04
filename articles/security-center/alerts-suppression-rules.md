@@ -24,6 +24,9 @@ When a single alert isn't interesting or relevant, you can manually dismiss it. 
 
 Your suppression rules define the criteria for which alerts should be automatically dismissed.
 
+> [!CAUTION]
+> Suppressing security alerts reduces the threat protection of Security Center. You should carefully check the potential impact of any suppression rule, and monitor it over time.
+
 [![Azure Security Center security alerts page with alerts suppression options](media/alerts-suppression-rules/alerts-screen-with-options.png)](media/alerts-suppression-rules/alerts-screen-with-options.png#lightbox)
 
 ## Creating a suppression rule
