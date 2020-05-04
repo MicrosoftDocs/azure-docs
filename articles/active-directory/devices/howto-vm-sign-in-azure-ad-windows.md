@@ -130,12 +130,20 @@ Finally, install the Azure AD login VM extension to enable Azure AD login for Wi
 > [!NOTE]
 > You can install AADLoginForWindows extension on an existing Windows Server 2019 or Windows 10 1809 and later VM to enable it for Azure AD authentication. An example of AZ CLI is shown below.
 
+### [Azure CLI](#tab/azure-cli)
+
 ```AzureCLI
 az vm extension set \
     --publisher Microsoft.Azure.ActiveDirectory \
     --name AADLoginForWindows \
     --resource-group myResourceGroup \
     --vm-name myVM
+```
+
+### [PowerShell](#tab/azure-powershell)
+
+```
+Set-AzVMExtension -Location <location> -ResourceGroupName <ResourceGroupName> -VMName <VMName> -Name AADLoginForWindows -Publisher Microsoft.Azure.ActiveDirectory -Type "AADLoginForWindows" -TypeHandlerVersion "0.4" -Verbose
 ```
 
 The `provisioningState` of `Succeeded` is shown, once the extension is installed on the VM.
