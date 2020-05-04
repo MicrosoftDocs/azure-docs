@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: C# and AI over Azure blobs'
+title: C# tutorial using AI on Azure blobs
 titleSuffix: Azure Cognitive Search
 description: Step through an example of text extraction and natural language processing over content in Blob storage using C# and the Azure Cognitive Search .NET SDK. 
 
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 02/27/2020
 ---
 
-# Tutorial: Use C# and AI to generate searchable content from Azure blobs
+# Tutorial: AI-generated searchable content from Azure blobs using the .NET SDK
 
 If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. In this C# tutorial, apply Optical Character Recognition (OCR) on images and perform natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
