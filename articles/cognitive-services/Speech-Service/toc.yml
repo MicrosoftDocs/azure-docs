@@ -434,12 +434,12 @@
               href: windows-voice-assistants-get-started.md
             - name: 'Enable an assistant on the lock screen'
               href: windows-voice-assistants-implement-above-lock.md
-        - name: Tutorials
+        - name: Resources
           items:
             - name: 'Explore the Windows assistant sample'
               href: windows-voice-assistants-sample-info.md
-        - name: Resources
-          items:
+            - name: 'Voice Activation Walkthrough'
+              href: windows-voice-assistants-voice-activation.md
             - name: 'Privacy requirements and guidelines'
               href: windows-voice-assistants-automatic-enablement-guidelines.md
             - name: 'Best practices for assistant experiences'
