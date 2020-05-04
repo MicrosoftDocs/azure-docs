@@ -33,11 +33,12 @@ You can configure an alert to do the following when it triggers:
 * Call an external ticketing ITSM compatible system
 
 > [!NOTE]
-> Please note that metrics alerting is available for the entire managed instance resource. Metrics for individual databases are not availble.
+> Please note that metrics alerting is available for the entire managed instance resource. Metrics for individual databases are not available.
 
 The following metrics you can alert on are available for SQL managed instance:
 
 | metric | description |
+| :--------- | --------------------- |
 | Average CPU percentage | Average percentage (0-100%) of CPU utilization in selected time period. |
 | IO bytes read | IO bytes read in the selected time period. |
 | IO bytes written | IO bytes written in the selected time period. |
