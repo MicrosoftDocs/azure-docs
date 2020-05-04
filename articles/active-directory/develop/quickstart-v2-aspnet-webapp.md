@@ -40,7 +40,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET web app to sig
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ASPNET-Quickstart`.
->      - Add `http://localhost:44368/` in **Redirect URI**, and click **Register**.
+>      - Add `https://localhost:44368/` in **Redirect URI**, and click **Register**.
 >      - From the left navigation pane under the Manage section, select **Authentication**
 >          - Under the **Implicit Grant** sub-section, select **ID tokens**.
 >          - And then select **Save**.
