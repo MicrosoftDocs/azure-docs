@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ---
 
-# Tutorial: Create your first search app using the .NET SDK - Azure Cognitive Search
+# Tutorial: Create your first search app using the .NET SDK
 
 Learn how to create a web interface to query and present search results from an index using Azure Cognitive Search. This tutorial starts with an existing, hosted index so that you can focus on building a search page. The index contains fictitious hotel data. Once you have a basic page, you can enhance it in subsequent lessons to include paging, facets, and a type-ahead experience.
 
