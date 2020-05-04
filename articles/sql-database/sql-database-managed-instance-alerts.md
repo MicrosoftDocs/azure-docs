@@ -38,15 +38,15 @@ You can configure an alert to do the following when it triggers:
 
 The following metrics you can alert on are available for SQL managed instance:
 
-| Metric | Description | Unit of measurement |
-| :--------- | --------------------- | ------- |
-| Average CPU percentage | Average percentage of CPU utilization in selected time period. | Numerical (0-100) |
+| Metric | Description | Unit of measure \ possible values |
+| :--------- | --------------------- | ----------- |
+| Average CPU percentage | Average percentage of CPU utilization in selected time period. | 0-100 (percent) |
 | IO bytes read | IO bytes read in the selected time period. | Bytes |
 | IO bytes written | IO bytes written in the selected time period. | Bytes |
 | IO requests count | Count of IO requests in the selected time period. | Numerical |
 | Storage space reserved | Current max. storage space reserved for the managed instance. Changes with resource scaling operation. | MB |
 | Storage space used | Storage space used in the selected period. Changes with storage consumption by databases and the instance. | MB |
-| Virtual core count | vCores provisioned for the managed instance. Changes with resource scaling operation. | Numerical (4-80) |
+| Virtual core count | vCores provisioned for the managed instance. Changes with resource scaling operation. | 4-80 (vCores) |
 
 You can configure and get information about alert rules using the following interfaces:
 
