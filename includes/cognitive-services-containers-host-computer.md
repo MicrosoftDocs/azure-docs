@@ -19,7 +19,7 @@ The following table describes the minimum and recommended specifications for the
 |  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
 |---|---------|-------------|--|--|
 | **Language detection, key phrase extraction**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30|
-| **Sentiment Analysis v3**   | 1 core, 2GB memory | 4 cores, 4GB memory |15 | 30|
+| **Sentiment Analysis v3**   | 1 core, 2GB memory | 4 cores, 8GB memory |15 | 30|
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
