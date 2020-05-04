@@ -185,6 +185,8 @@
     - name: Azure resources
       displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction
       href: luis-how-to-azure-subscription.md
+    - name: Application settings
+      href: how-to-application-settings-portal.md
     - name: Migrate to authoring resource
       items:
         - name: Overview

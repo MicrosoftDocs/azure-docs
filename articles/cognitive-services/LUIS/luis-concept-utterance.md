@@ -2,7 +2,7 @@
 title: Good example utterances - LUIS
 description: Utterances are input from the user that your app needs to interpret. Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/04/2020
 ---
 # Understand what good utterances are for your LUIS app
 
@@ -62,11 +62,33 @@ It is better to start with a few utterances, then [review endpoint utterances](l
 
 ## Utterance normalization
 
-Utterance normalization is the process of ignoring the effects of punctuation and diacritics during training and prediction. Use [application settings](luis-reference-application-settings.md) to control how utterance normalization impacts utterance predictions.
+Utterance normalization is the process of ignoring the effects of punctuation and diacritics during training and prediction.
 
-## Utterance normalization for diacritics and punctuation
+Utterance normalization is defined when you create or import the app because it is a setting in the app JSON file. The utterance normalization settings are turned off by default. These settings include:
 
-Utterance normalization is defined when you create or import the app because it is a setting in the app JSON file. The utterance normalization settings are turned off by default.
+* Word stems
+* Diacritics
+* Punctuation
+
+### Normalization with APIS
+
+Use the [application settings](luis-reference-application-settings.md) API to control how utterance normalization impacts utterance predictions.
+
+### Normalization with the LUIS portal
+
+In the [LUIS portal](http://www.luis.ai), on the **Manage** section, select the  **Application Settings** page.
+
+### Word stems
+
+Word stems are forms of a word, where the meaning of the word hasn't changed for the stem has changed to follow rules of the language.
+
+For example, the words `run`, `running`, and `ran` change based on verb tense.
+
+In LUIS, when the word stem application setting is used, LUIS preprocesses word stems before prediction.
+
+<a name="utterance-normalization-for-diacritics-and-punctuation"></a>
+
+### Diacritics
 
 Diacritics are marks or signs within the text, such as:
 

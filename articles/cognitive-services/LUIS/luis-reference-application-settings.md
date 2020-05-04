@@ -2,7 +2,7 @@
 title: Application settings - LUIS
 description: Applications settings for Azure Cognitive Services language understanding apps are stored in the app and portal.
 ms.topic: reference
-ms.date: 04/14/2020
+ms.date: 05/04/2020
 ---
 
 # Application settings
@@ -11,10 +11,13 @@ These application settings are stored in the [exported](https://westus.dev.cogni
 
 Learn [concepts](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) of diacritics and punctuation.
 
-|Setting|Default value|Notes|
-|--|--|--|
-|NormalizePunctuation|True|Removes punctuation.|
-|NormalizeDiacritics|True|Removes diacritics.|
+|Portal setting|API setting|Default value|Notes|
+|--|--|--|--|
+|Normalize punctuation|`NormalizePunctuation`|True|Removes punctuation.|
+|Normalize diacritics|`NormalizeDiacritics`|True|When set to true, diacritics does not impact prediction score.|
+|Normalize word forms|`NormalizeWordForm`|False|Preprocess text to use word stems.|
+|Public endpoint|`Public`|False|App prediction endpoint is publicly available to anyone that has a LUIS prediction key and has the App ID.|
+|Use non-deterministic training|`UseAllTrainingData`|False|When set to true, uses all training data, instead of small negative sampling when training.|
 
 ## Diacritics normalization
 
@@ -129,6 +132,11 @@ This includes both spanish and canadian mexican.
 |`ñ`|`u`|
 
 
+
+## Non-deterministic training
+
+## Make endpoints public 
+
 ## Punctuation normalization
 
 Turn on utterance normalization for punctuation to your LUIS JSON app file in the `settings` parameter.
@@ -172,6 +180,10 @@ The following punctuation is removed with `NormalizePunctuation` is set to true.
 |`}`|
 |`+`|
 |`¡`|
+
+
+## Word form normalization
+
 
 ## Next steps
 
