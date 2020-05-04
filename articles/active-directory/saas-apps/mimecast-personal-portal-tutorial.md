@@ -178,7 +178,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	b. In the **Metadata URL** textbox, paste the **App Federation Metadata URL** value, which you have copied from the Azure portal.
 
-	c. Click **Import**. After importing the Metadata URL, the fileds will be populated automatically, no need to perform any action on these fileds.
+	c. Click **Import**. After importing the Metadata URL, the fields will be populated automatically, no need to perform any action on these fields.
 
 	d. Make sure you uncheck **Use Password protected Context** and **Use Integrated Authentication Context** checkboxes.
 
