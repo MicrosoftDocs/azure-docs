@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 04/15/2020
+ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -77,7 +77,7 @@ The following table provides a brief description and the unique ID of each built
 > | [Storage Queue Data Message Sender](#storage-queue-data-message-sender) | Add messages to an Azure Storage queue. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | [Storage Queue Data Reader](#storage-queue-data-reader) | Read and list Azure Storage queues and queue messages. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Web** |  |  |
-> | [Azure Maps Data Reader (Preview)](#azure-maps-data-reader-preview) | Grants access to read map related data from an Azure maps account. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | [Azure Maps Data Reader](#azure-maps-data-reader) | Grants access to read map related data from an Azure maps account. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Search Service Contributor](#search-service-contributor) | Lets you manage Search services, but not access to them. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Web Plan Contributor](#web-plan-contributor) | Lets you manage the web plans for websites, but not access to them. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Website Contributor](#website-contributor) | Lets you manage websites (not web plans), but not access to them. | de139f84-1756-47ae-9be6-808fbbe84772 |
@@ -143,10 +143,10 @@ The following table provides a brief description and the unique ID of each built
 > | [Azure Sentinel Reader](#azure-sentinel-reader) | Azure Sentinel Reader | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Azure Sentinel Responder](#azure-sentinel-responder) | Azure Sentinel Responder | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
 > | [Key Vault Contributor](#key-vault-contributor) | Lets you manage key vaults, but not access to them. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
-> | [Security Admin](#security-admin) | Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Security Admin](#security-admin) | View and update permissions for Security Center. Same permissions as the Security Reader role and can also update the security policy and dismiss alerts and recommendations. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Security Assessment Contributor](#security-assessment-contributor) | Lets you push assessments to Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Security Manager (Legacy)](#security-manager-legacy) | This is a legacy role. Please use Security Admin instead. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [Security Reader](#security-reader) | Can view recommendations and alerts, view security policies, view security states, but cannot make changes. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Security Reader](#security-reader) | View permissions for Security Center. Can view recommendations, alerts, a security policy, and security states, but cannot make changes. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **DevOps** |  |  |
 > | [DevTest Labs User](#devtest-labs-user) | Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | [Lab Creator](#lab-creator) | Lets you create, manage, delete your managed labs under your Azure Lab Accounts. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
@@ -2539,7 +2539,7 @@ Read and list Azure Storage queues and queue messages. To learn which actions ar
 ## Web
 
 
-### Azure Maps Data Reader (Preview)
+### Azure Maps Data Reader
 
 Grants access to read map related data from an Azure maps account.
 
@@ -2551,7 +2551,7 @@ Grants access to read map related data from an Azure maps account.
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Maps/accounts/data/read | Grants data read access to a maps account. |
+> | Microsoft.Maps/accounts/*/read |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -2568,12 +2568,12 @@ Grants access to read map related data from an Azure maps account.
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.Maps/accounts/data/read"
+        "Microsoft.Maps/accounts/*/read"
       ],
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Maps Data Reader (Preview)",
+  "roleName": "Azure Maps Data Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -5706,7 +5706,7 @@ Lets you manage key vaults, but not access to them.
 
 ### Security Admin
 
-Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations.
+View and update permissions for Security Center. Same permissions as the Security Reader role and can also update the security policy and dismiss alerts and recommendations.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5864,7 +5864,7 @@ This is a legacy role. Please use Security Admin instead.
 
 ### Security Reader
 
-Can view recommendations and alerts, view security policies, view security states, but cannot make changes.
+View permissions for Security Center. Can view recommendations, alerts, a security policy, and security states, but cannot make changes.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -6213,6 +6213,9 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Create and manage Insights web tests |
 > | Microsoft.Insights/workbooks/* |  |
+> | Microsoft.Insights/privateLinkScopes/* |  |
+> | Microsoft.Insights/privateLinkScopeOperationStatuses/* |  |
+> | Microsoft.OperationalInsights/workspaces/write | Creates a new workspace or links to an existing workspace by providing the customer id from the existing workspace. |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Read/write/delete log analytics solution packs. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Read/write/delete log analytics saved searches. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Executes a search query |
@@ -6259,6 +6262,9 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
         "Microsoft.Insights/scheduledqueryrules/*",
         "Microsoft.Insights/webtests/*",
         "Microsoft.Insights/workbooks/*",
+        "Microsoft.Insights/privateLinkScopes/*",
+        "Microsoft.Insights/privateLinkScopeOperationStatuses/*",
+        "Microsoft.OperationalInsights/workspaces/write",
         "Microsoft.OperationalInsights/workspaces/intelligencepacks/*",
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationalInsights/workspaces/search/action",
