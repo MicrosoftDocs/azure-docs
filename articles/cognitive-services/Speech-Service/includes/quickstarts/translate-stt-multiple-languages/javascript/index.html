@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Microsoft Cognitive Services Speech SDK JavaScript Quickstart</title>
+  <meta charset="utf-8" />
+</head>
+<body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:13px;">
+	<!-- <uidiv> -->
+  <div id="warning">
+    <h1 style="font-weight:500;">Speech Recognition Speech SDK not found (microsoft.cognitiveservices.speech.sdk.bundle.js missing).</h1>
+  </div>
+  
+  <div id="content" style="display:none">
+    <table width="100%">
+      <tr>
+        <td></td>
+        <td><h1 style="font-weight:500;">Microsoft Cognitive Services Speech SDK JavaScript Quickstart</h1></td>
+      </tr>
+      <tr>
+        <td align="right"><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started" target="_blank">Subscription</a>:</td>
+        <td><input id="subscriptionKey" type="text" size="40" value="subscription"></td>
+      </tr>
+      <tr>
+        <td align="right">Region</td>
+        <td><input id="serviceRegion" type="text" size="40" value="YourServiceRegion"></td>
+      </tr>
+      <tr>
+        <td align="right">Source Language</td>
+        <td><select id="languageSourceOptions">
+          <option value="ar-EG">Arabic - EG</option>
+          <option selected="selected" value="de-DE">German - DE</option>
+          <option value="en-US">English - US</option>
+          <option value="es-ES">Spanish - ES</option>
+          <option value="fi-FI">Finnish - FI</option>
+          <option value="fr-FR">French - FR</option>
+          <option value="hi-IN">Hindi - IN</option>
+          <option value="it-IT">Italian - IT</option>
+          <option value="ja-JP">Japanese - JP</option>
+          <option value="ko-KR">Korean - KR</option>
+          <option value="pl-PL">Polish - PL</option>
+          <option value="pt-BR">Portuguese - BR</option>
+          <option value="ru-RU">Russian - RU</option>
+          <option value="sv-SE">Swedish - SE</option>
+          <option value="zh-CN">Chinese - CN</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td align="right">Target Language 1</td>
+        <td><select id="languageTargetOptions1">
+          <option value="ar-EG">Arabic - EG</option>
+          <option selected="selected" value="de-DE">German - DE</option>
+          <option value="en-US">English - US</option>
+          <option value="es-ES">Spanish - ES</option>
+          <option value="fi-FI">Finnish - FI</option>
+          <option value="fr-FR">French - FR</option>
+          <option value="hi-IN">Hindi - IN</option>
+          <option value="it-IT">Italian - IT</option>
+          <option value="ja-JP">Japanese - JP</option>
+          <option value="ko-KR">Korean - KR</option>
+          <option value="pl-PL">Polish - PL</option>
+          <option value="pt-BR">Portuguese - BR</option>
+          <option value="ru-RU">Russian - RU</option>
+          <option value="sv-SE">Swedish - SE</option>
+          <option value="zh-CN">Chinese - CN</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td align="right">Target Language 2</td>
+        <td><select id="languageTargetOptions2">
+          <option value="ar-EG">Arabic - EG</option>
+          <option selected="selected" value="de-DE">German - DE</option>
+          <option value="en-US">English - US</option>
+          <option value="es-ES">Spanish - ES</option>
+          <option value="fi-FI">Finnish - FI</option>
+          <option value="fr-FR">French - FR</option>
+          <option value="hi-IN">Hindi - IN</option>
+          <option value="it-IT">Italian - IT</option>
+          <option value="ja-JP">Japanese - JP</option>
+          <option value="ko-KR">Korean - KR</option>
+          <option value="pl-PL">Polish - PL</option>
+          <option value="pt-BR">Portuguese - BR</option>
+          <option value="ru-RU">Russian - RU</option>
+          <option value="sv-SE">Swedish - SE</option>
+          <option value="zh-CN">Chinese - CN</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button id="startRecognizeOnceAsyncButton">Start recognition</button></td>
+      </tr>
+      <tr>
+        <td align="right" valign="top">Language 1 Translation</td>
+        <td><textarea id="phraseDiv1" style="display: inline-block;width:500px;height:150px"></textarea></td>
+      </tr>
+      <tr>
+        <td align="right" valign="top">Language 2 Translation</td>
+        <td><textarea id="phraseDiv2" style="display: inline-block;width:500px;height:150px"></textarea></td>
+      </tr>
+    </table>
+  </div>
+	<!-- </uidiv> -->
+
+	<!-- <speechsdkdiv> -->
+  <!-- Speech SDK reference sdk. -->
+  <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>
+	<!-- </speechsdkdiv> -->
+
+	<!-- <authorizationfunction> -->
+  <!-- Speech SDK Authorization token -->
+  <script>
+  // Note: Replace the URL with a valid endpoint to retrieve
+  //       authorization tokens for your subscription.
+  var authorizationEndpoint = "token.php";
+
+  function RequestAuthorizationToken() {
+    if (authorizationEndpoint) {
+      var a = new XMLHttpRequest();
+      a.open("GET", authorizationEndpoint);
+      a.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      a.send("");
+      a.onload = function() {
+        var token = JSON.parse(atob(this.responseText.split(".")[1]));
+        serviceRegion.value = token.region;
+        authorizationToken = this.responseText;
+        subscriptionKey.disabled = true;
+        subscriptionKey.value = "using authorization token (hit F5 to refresh)";
+        console.log("Got an authorization token: " + token);
+      }
+    }
+  }
+  </script>
+	<!-- </authorizationfunction> -->
+
+	<!-- <quickstartcode> -->
+  <!-- Speech SDK USAGE -->
+  <script>
+    // status fields and start button in UI
+    var resultsDivs;
+    var startRecognizeOnceAsyncButton;
+
+    // subscription key and region for speech services.
+    var subscriptionKey, serviceRegion, languageTargetOptions;
+    var authorizationToken;
+    var SpeechSDK;
+    var recognizer;
+
+    document.addEventListener("DOMContentLoaded", function () {
+      startRecognizeOnceAsyncButton = document.getElementById("startRecognizeOnceAsyncButton");
+      subscriptionKey = document.getElementById("subscriptionKey");
+      serviceRegion = document.getElementById("serviceRegion");
+      languageSourceOptions = document.getElementById("languageSourceOptions");
+			languageTargetOptions = [
+				document.getElementById("languageTargetOptions1"),
+				document.getElementById("languageTargetOptions2")
+			];
+			resultsDivs = [
+				document.getElementById("phraseDiv1"),
+				document.getElementById("phraseDiv2")
+			]
+
+			startRecognizeOnceAsyncButton.addEventListener("click", function () {
+				startRecognizeOnceAsyncButton.disabled = true;
+				resultsDivs.forEach(function (elem) {
+					elem.innerHTML = "";
+				})
+
+				// if we got an authorization token, use the token. Otherwise use the provided subscription key
+				var speechConfig;
+				if (authorizationToken) {
+					speechConfig = SpeechSDK.SpeechTranslationConfig.fromAuthorizationToken(authorizationToken, serviceRegion.value);
+				} else {
+					if (subscriptionKey.value === "" || subscriptionKey.value === "subscription") {
+						alert("Please enter your Microsoft Cognitive Services Speech subscription key!");
+						startRecognizeOnceAsyncButton.disabled = false;
+						return;
+					}
+					speechConfig = SpeechSDK.SpeechTranslationConfig.fromSubscription(subscriptionKey.value, serviceRegion.value);
+				}
+
+				speechConfig.speechRecognitionLanguage = languageSourceOptions.value;
+				var languageKeys = {};
+				languageTargetOptions.forEach(function (langElem, index) {
+					var language = langElem.value;
+					languageKeys[language.substring(0, 2)] = resultsDivs[index];
+					speechConfig.addTargetLanguage(language);
+				});
+
+				var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+				recognizer = new SpeechSDK.TranslationRecognizer(speechConfig, audioConfig);
+
+				recognizer.recognizeOnceAsync(
+					function (result) {
+						startRecognizeOnceAsyncButton.disabled = false;
+						for (var key in languageKeys) {
+							var translation = result.translations.get(key);
+							window.console.log(key + ": " + translation);
+							languageKeys[key].innerHTML += translation;
+						}
+
+						recognizer.close();
+						recognizer = undefined;
+					},
+					function (err) {
+						startRecognizeOnceAsyncButton.disabled = false;
+						resultsDiv[0].innerHTML += err;
+						window.console.log(err);
+
+						recognizer.close();
+						recognizer = undefined;
+					});
+			});
+
+      if (!!window.SpeechSDK) {
+        SpeechSDK = window.SpeechSDK;
+        startRecognizeOnceAsyncButton.disabled = false;
+
+        document.getElementById('content').style.display = 'block';
+        document.getElementById('warning').style.display = 'none';
+
+        // in case we have a function for getting an authorization token, call it.
+        if (typeof RequestAuthorizationToken === "function") {
+          RequestAuthorizationToken();
+        }
+      }
+    });
+  </script>
+	<!-- </quickstartcode> -->
+</body>
+</html>
