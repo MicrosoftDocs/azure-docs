@@ -202,7 +202,7 @@ The following comparison table shows all important aspects to help the decision 
 | --- | --- | --- | --- | --- |
 | Instead of starting from scratch every time, we’ve implemented a way to keep a pool of servers warm and draw workers from that pool. What this means is that at any point in time there are idle workers that have been preconfigured with the Functions runtime up and running. Making these “pre-warmed sites” happen has given us measurable  improvements on our cold start times.  | Perpetually warm instances to avoid any cold start. | When using Azure Functions in the dedicated plan, the Functions host is always running, which means that cold start isn’t really an issue. |When using Azure Functions in the dedicated plan, the Functions host is always running, which means that cold start isn’t really an issue. | Depends on KEDA configuration. Apps can be configured to always run and never have cold start, or configured to scale to zero which would cause cold start on new events. |
 
-### Features limits
+### Service limits
 
 | Feature | [Consumption plan](#consumption-plan) | [Premium plan](#premium-plan) | [Dedicated (App Service) plan](#app-service-plan)<sup>1</sup> | [Isolated Service Plan (App Service Environment)](#app-service-plan)<sup>1</sup> | [Kubernetes](../aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
