@@ -3,10 +3,11 @@ title: Create a Shared Image Gallery with Azure PowerShell
 description: Learn how to use Azure PowerShell to create a Shared Image Gallery in Azure
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 04/02/2020
+ms.date: 05/04/2020
 ms.author: cynthn
+ms.reviewer: akjosh
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---

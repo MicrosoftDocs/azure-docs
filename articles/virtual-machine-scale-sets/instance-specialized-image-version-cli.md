@@ -8,6 +8,7 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
+ms.reviewer: akjosh
 ---
 
 # Create a scale set using a specialized image version with the Azure CLI

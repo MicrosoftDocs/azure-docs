@@ -6,10 +6,9 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 04/28/2020
+ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.custom: 
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---

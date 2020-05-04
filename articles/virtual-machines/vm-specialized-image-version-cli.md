@@ -3,10 +3,12 @@ title: Create a VM from a specialized image version using the Azure CLI
 description: Create a VM using a specialized image version in a Shared Image Gallery using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: cynthn
+ms.reviewer: akjosh
 ---
 
 # Create a VM using a specialized image version with the Azure CLI

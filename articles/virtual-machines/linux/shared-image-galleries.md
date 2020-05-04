@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 04/22/2020
+ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 

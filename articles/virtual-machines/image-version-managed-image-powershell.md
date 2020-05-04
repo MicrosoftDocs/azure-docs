@@ -2,13 +2,13 @@
 title: Migrate a managed image to a Shared Image Gallery
 description: Learn how to use Azure PowerShell to migrate a managed image to a image version in a Shared Image Gallery.
 author: cynthn
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure
-ms.date: 04/09/2020
+ms.date: 05/04/2020
 ms.author: cynthn
-
+ms.reviewer: akjosh
 ---
 
 # Migrate from a managed image to a Shared Image Gallery image

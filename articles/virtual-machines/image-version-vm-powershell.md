@@ -2,13 +2,13 @@
 title: Create an image from a VM (Preview)
 description: Learn how to use Azure PowerShell to create an image in a Shared Image Gallery from an existing VM in Azure.
 author: cynthn
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure
-ms.date: 04/02/2020
+ms.date: 05/04/2020
 ms.author: cynthn
-
+ms.reviewer: akjosh
 ---
 
 # Preview: Create an image from a VM

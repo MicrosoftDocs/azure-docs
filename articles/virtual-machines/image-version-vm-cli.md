@@ -4,11 +4,11 @@ description: Learn how to create an image in a Shared Image Gallery from a VM in
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 04/10/2020
+ms.date: 05/01/2020
 ms.author: cynthn
-#PMcontact: akjosh
+ms.reviewer: akjosh
 
 ---
 
@@ -29,7 +29,7 @@ If the VM has a data disk attached, the data disk size cannot be more than 1 TB.
 
 When working through this article, replace the resource names where needed.
 
-## Get infornation about the VM
+## Get information about the VM
 
 You can see a list of VMs that are available using [az vm list](/cli/azure/vm#az-vm-list). 
 

@@ -5,9 +5,10 @@ author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.topic: article
-ms.date: 05/01/2020
+ms.topic: how-to
+ms.date: 05/04/2020
 ms.author: cynthn
+ms.reviewer: akjosh
 ---
 
 # Create a scale set from a specialized image using PowerShell 

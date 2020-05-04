@@ -4,10 +4,9 @@ description: Create virtual machine image using Azure Image Builder, that can ac
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-manager: gwallace
 ---
 
 # Create an image and use a user-assigned managed identity to access files in Azure Storage 

@@ -4,7 +4,7 @@ description: Capture a managed image of an Azure VM to use for mass deployments 
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy

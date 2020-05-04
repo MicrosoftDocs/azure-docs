@@ -4,11 +4,11 @@ description: Learn how to migrate from a managed image to an image version in a 
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 04/13/2020
+ms.date: 05/04/2020
 ms.author: cynthn
-#PMcontact: akjosh
+ms.reviewer: akjosh
 #Need to show how to get the gallery and definition
 ---
 

@@ -1,13 +1,13 @@
 ---
 title: Use shared VM images to create a scale set in Azure
 description: Learn how to use the Azure PowerShell to create shared VM images to use for deploying virtual machine scale sets in Azure.
-author: axayjo
-tags: azure-resource-manager
+author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 04/25/2019
-ms.author: akjosh
-ms.reviewer: cynthn
+ms.subservice: imaging
+ms.topic: how-to
+ms.date: 05/04/2020
+ms.author: cynthn
+ms.reviewer: akjosh
 ---
 # Create and use shared images for virtual machine scale sets with the Azure PowerShell
 

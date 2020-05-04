@@ -3,10 +3,12 @@ title: List, update, and delete image resources using PowerShell
 description: List, update, and delete image resources within your shared image gallery using Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: cynthn
+ms.reviewer: akjosh
 
 ---
 

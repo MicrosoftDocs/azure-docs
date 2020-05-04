@@ -2,13 +2,13 @@
 title: Tutorial - Use a custom VM image in a scale set with Azure CLI
 description: Learn how to use the Azure CLI to create a custom VM image that you can use to deploy a virtual machine scale set
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
+ms.subservice: imaging
 ms.topic: tutorial
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-
+ms.reviewer: akjosh
 ---
 # Tutorial: Create and use a custom image for virtual machine scale sets with the Azure CLI
 When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this tutorial you learn how to:
@@ -138,9 +138,9 @@ az sig image-version create \
 
 
 ## Create a scale set from the image
-Create a scale set from the specialized image using [az vmss create](/cli/azure/vmss#az-vmss-create). 
+Create a scale set from the specialized image using [`az vmss create`](/cli/azure/vmss#az-vmss-create). 
 
-Create the scale set using [az vmss create](/cli/azure/vmss#az-vmss-create) using the --specialized parameter to indicate the the image is a specialized image. 
+Create the scale set using [`az vmss create`](/cli/azure/vmss#az-vmss-create) using the --specialized parameter to indicate the the image is a specialized image. 
 
 Use the image definition ID for `--image` to create the scale set instances from the latest version of the image that is available. You can also create the scale set instances from a specific version by supplying the image version ID for `--image`. 
 
@@ -191,7 +191,7 @@ Type the public IP address into your web browser. The default NGINX web page is 
 
 ## Share the gallery
 
-You can share images across subscriptions using Role-Based Access Control (RBAC). You can share images at the gallery, image definition or image version leve. Any user that has read permissions to an image version, even across subscriptions, will be able to deploy a VM using the image version.
+You can share images across subscriptions using Role-Based Access Control (RBAC). You can share images at the gallery, image definition or image version. Any user that has read permissions to an image version, even across subscriptions, will be able to deploy a VM using the image version.
 
 We recommend that you share with other users at the gallery level. To get the object ID of your gallery, use [az sig show](/cli/azure/sig#az-sig-show).
 

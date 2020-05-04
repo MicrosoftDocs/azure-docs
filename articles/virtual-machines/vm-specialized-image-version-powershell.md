@@ -3,10 +3,12 @@ title: Create a VM from a specialized image
 description: Create a VM using a specialized image in a Shared Image Gallery.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.topic: article
-ms.date: 04/08/2020
+ms.topic: how-to
+ms.date: 05/04/2020
 ms.author: cynthn
+ms.reviewer: akjosh
 ---
 
 # Create a VM using a specialized image 

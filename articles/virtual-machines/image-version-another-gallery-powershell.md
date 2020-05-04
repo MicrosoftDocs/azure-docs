@@ -6,9 +6,9 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 04/22/2020
+ms.date: 05/04/2020
 ms.author: cynthn
-#PMcontact: akjosh
+ms.reviewer: akjosh
 #SIG to SIG
 ---
 
