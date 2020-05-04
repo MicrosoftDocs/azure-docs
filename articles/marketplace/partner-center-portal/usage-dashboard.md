@@ -1,6 +1,6 @@
 ---
 title: Usage dashboard in commercial marketplace analytics on Partner Center
-description: Learn how to access usage and metered billing metrics for all VM offers.
+description: Learn how to access all VM offers usage and metered billing metrics.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace 
