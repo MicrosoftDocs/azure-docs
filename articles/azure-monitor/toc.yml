@@ -125,8 +125,6 @@
       href: insights/monitor-vm-azure.md
   - name: Manage and configure
     items:
-    - name: Design a workspace deployment
-      href: platform/design-logs-deployment.md
     - name: Roles permissions and security
       href: platform/roles-permissions-security.md
     - name: IP addresses
@@ -134,6 +132,8 @@
       displayname: firewall, firewall exceptions, whitelist
     - name: Log Analytics workspaces
       items:
+      - name: Design a workspace deployment
+        href: platform/design-logs-deployment.md
       - name: Create a workspace
         items:
         - name: Use Azure portal
@@ -299,7 +299,7 @@
         href: platform/resource-logs-blob-format.md
     - name: Stream data to Event Hubs
       href: platform/stream-monitoring-data-event-hubs.md 
-  - name: Log analytics
+  - name: Log queries
     items:
     - name: Log query overview
       displayname: log query, log queries, query, queries
@@ -320,6 +320,8 @@
         href: log-query/scope.md
       - name: Standard properties
         href: platform/log-standard-properties.md
+      - name: Computer groups
+        href: platform/computer-groups.md
     - name: Query language
       items:
       - name: Query language Documentation
@@ -390,6 +392,32 @@
       href: platform/metric-chart-samples.md
     - name: Troubleshooting metric charts
       href: platform/metrics-troubleshoot.md
+  - name: Autoscale
+    items:
+    - name: Overview
+      href: platform/autoscale-overview.md
+    - name: Walkthrough
+      href: platform/autoscale-get-started.md
+    - name: Configuration settings
+      href: platform/autoscale-understanding-settings.md
+    - name: Best practices
+      href: platform/autoscale-best-practices.md
+    - name: Common metrics
+      href: platform/autoscale-common-metrics.md
+    - name: Common patterns
+      href: platform/autoscale-common-scale-patterns.md
+    - name: Scale with custom metrics
+      href: platform/autoscale-custom-metric.md
+    - name: Scale VM scale sets
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
+    - name: Scale VM scale sets using Resource Manager templates
+      href: platform/autoscale-virtual-machine-scale-sets.md
+    - name: Use webhooks and email notifications
+      href: platform/autoscale-webhook-email.md
+    - name: Troubleshooting
+      href: platform/autoscale-troubleshoot.md
+    - name: Resource Log schemas
+      href: platform/autoscale-resource-log-schema.md 
   - name: Alerts
     items:
     - name: Troubleshoot alerts
@@ -925,34 +953,28 @@
           href: insights/container-insights-optout-hybrid.md
     - name: Troubleshooting
       href: insights/container-insights-troubleshoot.md
-  - name: Monitor Azure resources
+  - name: Other solutions
     items:
-    - name: Monitor resource groups
+    - name: Overview
+      href: insights/solutions.md
+    - name: Target solutions
+      href: insights/solution-targeting.md
+    - name: Resource groups
       href: insights/resource-group-insights.md
-  - name: Monitor VMs and guest OS
-    items: 
-    - name: Solutions
-      items:
-      - name: Capacity and performance solution
-        href: insights/capacity-performance.md
-      - name: VMware Analytics solution
-        href: insights/vmware.md
-      - name: Wire Data solution
-        href: insights/wire-data.md
-      - name: Service Map solution
-        href: insights/service-map.md
-      - name: Service Map and Operations Manager
-        href: insights/service-map-scom.md
-    - name: Computer groups
-      href: platform/computer-groups.md
-  - name: Monitor containers
-    items:
-    - name: Docker and Windows Container monitoring
-      href: insights/containers.md
-  - name: Monitor other resources
-    items:
     - name: Key Vault
       href: insights/key-vault-insights-overview.md
+    - name: Docker and Windows Container monitoring
+      href: insights/containers.md
+    - name: Capacity and performance solution
+      href: insights/capacity-performance.md
+    - name: VMware Analytics solution
+      href: insights/vmware.md
+    - name: Wire Data solution
+      href: insights/wire-data.md
+    - name: Service Map solution
+      href: insights/service-map.md
+    - name: Service Map and Operations Manager
+      href: insights/service-map-scom.md
     - name: Storage
       items:
       - name: Azure Monitor for Storage
@@ -988,12 +1010,6 @@
           href: insights/network-performance-monitor-pricing-faq.md
         - name: FAQ
           href: insights/network-performance-monitor-faq.md
-    - name: Monitoring solutions
-      items:
-      - name: Overview
-        href: insights/solutions.md
-      - name: Target solutions
-        href: insights/solution-targeting.md
       - name: Assess AD Health
         href: insights/ad-assessment.md
       - name: AD Replication Status
@@ -1004,6 +1020,9 @@
         href: insights/solution-office-365.md
       - name: Surface Hub
         href: insights/surface-hubs.md
+  - name: Monitor containers
+    items:
+
   - name: Collect custom data 
     items:
     - name: Custom metrics
@@ -1016,8 +1035,6 @@
       href: platform/create-pipeline-datacollector-api.md
   - name: Analyze data
     items:
-
-
     - name: Logic Apps
       items: 
       - name: Azure Monitor Logs connector
@@ -1094,33 +1111,7 @@
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
   - name: Automate 
-    items:
-    - name: Autoscale
-      items:
-      - name: Overview
-        href: platform/autoscale-overview.md
-      - name: Walkthrough
-        href: platform/autoscale-get-started.md
-      - name: Configuration settings
-        href: platform/autoscale-understanding-settings.md
-      - name: Best practices
-        href: platform/autoscale-best-practices.md
-      - name: Common metrics
-        href: platform/autoscale-common-metrics.md
-      - name: Common patterns
-        href: platform/autoscale-common-scale-patterns.md
-      - name: Scale with custom metrics
-        href: platform/autoscale-custom-metric.md
-      - name: Scale VM scale sets
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale VM scale sets using Resource Manager templates
-        href: platform/autoscale-virtual-machine-scale-sets.md
-      - name: Use webhooks and email notifications
-        href: platform/autoscale-webhook-email.md
-      - name: Troubleshooting
-        href: platform/autoscale-troubleshoot.md
-      - name: Resource Log schemas
-        href: platform/autoscale-resource-log-schema.md    
+    items:   
     - name: PowerShell
       items:  
       - name: Managing with PowerShell
