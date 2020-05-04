@@ -2,7 +2,7 @@
 title: VMware assessment support in Azure Migrate
 description: Learn about support for VMware VM assessment with Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 05/04/2020
 ---
 
 # Support matrix for VMware assessment 
@@ -57,7 +57,7 @@ Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for disco
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---vmware) for VMware.
 - Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
-- In Azure Government, you must deploy the appliance using the script.
+- In Azure Government, you must deploy the appliance [using the script](deploy-appliance-script-government.md).
 
 
 ## Port access
@@ -67,6 +67,23 @@ Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for disco
 Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443 (HTTPS), to send discovery and performance metadata to Azure Migrate.
 vCenter server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br/><br/> The appliance connects to vCenter on port 443 by default. If the vCenter server listens on a different port, you can modify the port when you set up discovery.
 ESXi hosts (app discovery/agentless dependency analysis) | If you want to do [app discovery](how-to-discover-applications.md) or [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), then the appliance connects to ESXi hosts on TCP port 443, to discover applications, to and run agentless dependency visualization on VMs.
+
+## Application discovery
+
+In addition to discovering machines, Server Assessment can discover apps, role, and features running on machines. Discovering your app inventory allows you to identify and plan a migration path tailored for your on-premises workloads. 
+
+**Support** | **Details**
+--- | ---
+**Supported machines** | App discovery is currently supported for VMware VMs only.
+**Discovery** | App discovery is agentless. It uses machine guest credentials, and remotely accesses machines using WMI and SSH calls.
+**VM support** | App-discovery is supported for all  Windows and Linux versions.
+**vCenter credentials** | App discovery needs a vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations.
+**VM credentials** | App discovery currently supports the use of one credential for all Windows servers, and one credential for all Linux servers.<br/><br/> You create a guest user account for Windows VMs, and a regular/normal user account (non-sudo access) for all Linux VMs.
+**VMware tools** | VMware tools must be installed and running on VMs you want to discover. <br/> The VMware tools version must be later than 10.2.0.
+**PowerShell** | VMs must have PowerShell version 2.0 or later installed.
+**Port access** | On ESXi hosts running VMs you want to discover, the Azure Migrate appliance must be able to connect to TCP port 443.
+**Limits** | For app-discovery, you can discover up to 10000 VMs on each Azure Migrate appliance.
+
 
 ## Agentless dependency analysis requirements
 

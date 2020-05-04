@@ -2,7 +2,7 @@
 title: Azure Migrate appliance 
 description: Provides an overview of the Azure Migrate appliance used in server assessment and migration.
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/04/2020
 ---
 
 
@@ -38,6 +38,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 
 **Requirement** | **VMware** 
 --- | ---
+**Permissions** | To access the appliance web app locally or remotely, you need to be a domain admin, or local admin on the appliance machine.
 **Appliance components** | The appliance has the following components:<br/><br/> - **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.<br/> - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure.<br/>- **Assessment agent**: The agent collects performance data. Used when assessing machines for migration to Azure.<br/>- **Auto update service**: Updates appliance components (runs every 24 hours).<br/>- **DRA agent**: Orchestrates VM replication, and coordinates communication between replicated machines and Azure. Used only when replicating VMware VMs to Azure using agentless migration.<br/>- **Gateway**: Sends replicated data to Azure. Used only when replicating VMware VMs to Azure using agentless migration.
 **Supported deployment** | Deploy as VMware VM using OVA template.<br/><br/> Deploy as a VMware VM or physical machine using PowerShell installation script.
 **Project support** |  An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
@@ -57,6 +58,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 
 **Requirement** | **Hyper-V** 
 --- | ---
+**Permissions** | To access the appliance web app locally or remotely, you need to be a domain admin, or local admin on the appliance machine.
 **Appliance components** | The appliance has the following components:<br/><br/>- **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.<br/> - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure.<br/>- **Assessment agent**: The agent collects performance data. Used when assessing machines for migration to Azure.<br/>- **Auto update service**: Updates appliance components (runs every 24 hours).
 **Supported deployment** | Deploy as Hyper-V VM using a VHD template.<br/><br/> Deploy as a Hyper-V VM or physical machine using a PowerShell installation script.
 **Project support** |  An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
@@ -73,6 +75,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 
 **Requirement** | **Physical** 
 --- | ---
+**Permissions** | To access the appliance web app locally or remotely, you need to be a domain admin, or local admin on the appliance machine.
 **Appliance components** | The appliance has the following components: <br/><br/> - **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.<br/> - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure.<br/>- **Assessment agent**: The agent collects performance data. Used when assessing machines for migration to Azure.<br/>- **Auto update service**: Updates appliance components (runs every 24 hours).
 **Supported deployment** | Deploy as a dedicated physical machine, or a VM, using a PowerShell installation script. The script is available for download from the portal.
 **Project support** |  An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
@@ -96,7 +99,7 @@ The Azure Migrate appliance needs connectivity to the internet.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Sign in to your Azure subscription.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
 management.azure.com | Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
-dc.services.visualstudio.com | Upload app logs used for internal monitoring.
+*.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.
 aka.ms/* | Allow access to aka links. Used for Azure Migrate appliance updates.
 download.microsoft.com/download | Allow downloads from Microsoft download.
@@ -253,7 +256,7 @@ Metadata discovered by the Azure Migrate appliance helps you to figure out wheth
 
 Here's the full list of Hyper-V VM metadata that the appliance collects and sends to Azure.
 
-**DATA* | **WMI CLASS** | **WMI CLASS PROPERTY**
+**DATA** | **WMI CLASS** | **WMI CLASS PROPERTY**
 --- | --- | ---
 **Machine details** | 
 Serial number of BIOS _ Msvm_BIOSElement | BIOSSerialNumber
@@ -294,6 +297,84 @@ Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for VM size
 - CPU utilization is the sum of all usage, for all virtual processors attached to a VM.
 - Memory utilization is (Current Pressure * Guest Visible Physical Memory) / 100.
 - Disk and network utilization values are collected from the listed Hyper-V performance counters.
+
+
+## Collected data - Physical
+
+The appliance collects metadata, performance data, and dependency analysis data (if agentless [dependency analysis](concepts-dependency-visualization.md) is used).
+
+### Windows metadata
+
+Metadata discovered by the Azure Migrate appliance helps you to figure out whether machines and apps are ready for migration to Azure, right-size machines and apps, plans costs, and analyze application dependencies. Microsoft doesn't use this data in any license compliance audit.
+
+Here's the full list of Windows server metadata that the appliance collects and sends to Azure.
+
+**DATA** | **WMI CLASS** | **WMI CLASS PROPERTY**
+--- | --- | ---
+FQDN | Win32_ComputerSystem | Domain, Name, PartOfDomain
+Processor core count | Win32_PRocessor | NumberOfCores
+Memory allocated | Win32_ComputerSystem | TotalPhysicalMemory
+BIOS serial number | Win32_ComputerSystemProduct | IdentifyingNumber
+BIOS GUID | Win32_ComputerSystemProduct | UUID
+Boot type | Win32_DiskPartition | Check for partition with Type = **GPT:System** for EFI/BIOS
+OS name | Win32_OperatingSystem | Caption
+OS version |Win32_OperatingSystem | Version
+OS architecture | Win32_OperatingSystem | OSArchitecture
+Disk count | Win32_DiskDrive | Model, Size, DeviceID, MediaType, Name
+Disk size | Win32_DiskDrive | Size
+NIC list | Win32_NetworkAdapterConfiguration | Description, Index
+NIC IP address | Win32_NetworkAdapterConfiguration | IPAddress
+NIC MAC address | Win32_NetworkAdapterConfiguration | MACAddress
+
+### Linux metadata
+
+Here's the full list of Linux server metadata that the appliance collects and sends to Azure.
+
+
+**DATA** | **LINUX** 
+--- | --- 
+FQDN | ```cat /proc/sys/kernel/hostname , hostname -f```
+Processor core count | ```cat /proc/cpuinfo | awk '/^processor/{print $3}' | wc -l```
+Memory allocated | ```cat /proc/meminfo | grep MemTotal | awk '{printf "%.0f", $2/1024}' ```
+BIOS serial number | ```lshw | grep "serial:" | head -n1 | awk '{print $2}' ```<br/> ```/usr/sbin/dmidecode -t 1 | grep 'Serial' | awk '{ $1="" ; $2=""; print}’```
+BIOS GUID | ```cat /sys/class/dmi/id/product_uuid```
+Boot type | ```[ -d /sys/firmware/efi ] && echo EFI || echo BIOS```
+OS name/version | We access these files for the OS version and name:<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oracle-release<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> /etc/debian_version
+OS architecture | ```Uname -m```
+Disk count | ```fdisk -l | egrep 'Disk.*bytes' | awk '{print $2}' | cut -f1 -d ':'``` 
+Boot disk | ```df /boot | sed -n 2p | awk '{print $1}'```
+Disk size | ```fdisk -l | egrep 'Disk.*bytes' | egrep $disk: | awk '{print $5}'```
+NIC list | ```ip -o -4 addr show | awk '{print $2}'``` 
+NIC IP address | ```ip addr show $nic | grep inet | awk '{print $2}' | cut -f1 -d "/"``` 
+NIC MAC address | ```ip addr show $nic | grep ether  | awk '{print $2}'``` 
+### Windows performance data
+
+Here's the Windows server performance data that the appliance collects and sends to Azure.
+
+**Data** | **WMI class** | **WMI class property**
+--- | --- | ---
+CPU usage | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
+Memory usage | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
+NIC count | Win32_PerfFormattedData_Tcpip_NetworkInterface | Get the network device count.
+Data received per NIC | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
+Data transmitted per NIC | BWin32_PerfFormattedData_Tcpip_NetworkInterface | BytesSentPersec
+Disk count | BWin32_PerfFormattedData_PerfDisk_PhysicalDisk | Count of disks
+Disk details | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesPerSec, DiskWriteBytesPerSec, DiskReadsPerSec, DiskReadBytesPerSec.
+
+### Windows performance data
+
+Here's the Linux server performance data that the appliance collects and sends to Azure.
+
+**Data** | **Linux** 
+--- | --- 
+CPU usage | ```cat /proc/stat|grep 'cpu ' /proc/stat```
+Memory usage | ```free | grep Mem | awk '{print $3/$2 * 100.0}'```
+NIC count | ```lshw -class network | grep eth[0-60] | wc -l```
+Data received per NIC | ```cat /sys/class/net/eth$nic/statistics/rx_bytes```
+Data transmitted per NIC | ```cat /sys/class/net/eth$nic/statistics/tx_bytes```
+Disk count | ```fdisk -l | egrep 'Disk.*bytes' | awk '{print $2}' | cut -f1 -d ':'```
+Disk details | ```cat /proc/diskstats```
+
 
 ## Appliance upgrades
 
