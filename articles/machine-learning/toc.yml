@@ -91,49 +91,56 @@
   items: 
     - name: Plan and manage costs
       href: concept-plan-manage-cost.md
+    - name: Designer (drag-n-drop ML)
+      items:
+      - name: Designer overview 
+        displayName: studio
+        href: concept-designer.md
+      - name: Algorithm cheat sheet
+        href: /azure/machine-learning/algorithm-cheat-sheet
+      - name: How to select algorithms
+        href: /azure/machine-learning/how-to-select-algorithms
+    - name: Automated ML
+      displayName: automl, auto ml
+      href: concept-automated-ml.md
     - name: Workspace
       href: concept-workspace.md
     - name: Environments
       href: concept-environments.md
-    - name: Data ingestion
-      href: concept-data-ingestion.md
-    - name: Data access
-      href: concept-data.md
+    - name: Compute instance
+      displayName: resource, dsvm, Data Science Virtual Machine
+      href: concept-compute-instance.md
+    - name: Compute target
+      displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
+      href: concept-compute-target.md      
+    - name: Data
+      items:
+      - name: Data access
+        href: concept-data.md
+      - name: Data ingestion
+        href: concept-data-ingestion.md
+      - name: Common pitfalls
+        displayName: automl, auto ml, risks
+        href: concept-manage-ml-pitfalls.md
     - name: Model training
       displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
       href: concept-train-machine-learning-model.md
     - name: Distributed training
       displayName: parallellization, deep learning, deep neural network, dnn
       href: concept-distributed-training.md
+    - name: Deep learning
+      displayName: deep learning vs machine learning, deep learning, vs, versus
+      href: concept-deep-learning-vs-machine-learning.md
     - name: Model management (MLOps)
       displayName: deploy, deployment, publish, production, operationalize, operationalization
       href: concept-model-management-and-deployment.md
-    - name: Interpretability
+    - name: Model portability (ONNX)
+      href: concept-onnx.md
+    - name: Model interpretability
       displayName: explainability
       href: how-to-machine-learning-interpretability.md
-    - name: "Designer: no-code ML"
-      displayName: studio
-      href: concept-designer.md
-    - name: Algorithm cheat sheet
-      href: /azure/machine-learning/algorithm-cheat-sheet
-    - name: How to select algorithms
-      href: /azure/machine-learning/how-to-select-algorithms
-    - name: Automated ML
-      displayName: automl, auto ml
-      href: concept-automated-ml.md
-    - name: Overfitting & imbalanced data
-      displayName: automl, auto ml, risks
-      href: concept-manage-ml-pitfalls.md
-    - name: Compute instance
-      displayName: resource, dsvm, Data Science Virtual Machine
-      href: concept-compute-instance.md
-    - name: Compute target
-      displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
-      href: concept-compute-target.md
     - name: ML pipelines
       href: concept-ml-pipelines.md
-    - name: ONNX
-      href: concept-onnx.md
     - name: Enterprise readiness & security
       items: 
         - name: Enterprise security
@@ -165,9 +172,6 @@
           href: monitor-azure-machine-learning.md
     - name: Event grid integration
       href: concept-event-grid-integration.md
-    - name: Deep learning
-      displayName: deep learning vs machine learning, deep learning, vs, versus
-      href: concept-deep-learning-vs-machine-learning.md
 - name: How-to guides
   items:
   - name: Create & manage workspaces
