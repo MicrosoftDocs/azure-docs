@@ -59,7 +59,18 @@ You now need to register your application in Azure AD, as follows:
 
 For more detailed information about creating a new application registration, see [Integrating applications with Azure Active Directory](../develop/quickstart-register-app.md).
 
-## Step 3: Add the Microsoft Authentication Library to your code (.NET C# sample)
+## Step 3: Grant access to your proxy application
+
+Now that you've registered your native application, you can give it access to other applications in your directory, in this case to access the proxy application. To enable the native application to be exposed to the proxy application:
+
+1. In the sidebar of the new application registration page, select **API permissions**. The **API permissions** page for the new application registration appears.
+1. Select **Add a permission**. The **Request API permissions** page appears.
+1. Under the **Select an API** setting, select **APIs my organization uses**. A list appears, containing the applications in your directory that expose APIs.
+1. Type in the search box or scroll to find the proxy application that you published in [Step 1: Publish your proxy application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-configure-native-client-application#step-1-publish-your-proxy-application), and then select the proxy application.
+1. In the **What type of permissions does your application require?** heading, select the permission type. If your native application needs to access the proxy application API as the signed-in user, choose **Delegated permissions**.
+1. In the **Select permissions** heading, select the desired permission, and select **Add permissions**. The API permissions page for your native application now shows the proxy application and permission API that you added.
+
+## Step 4: Add the Microsoft Authentication Library to your code (.NET C# sample)
 
 Edit the native application code in the authentication context of the Microsoft Authentication Library (MSAL) to include the following text: 
 
