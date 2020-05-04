@@ -104,7 +104,7 @@ Following are queries that you can use to help you monitor your Azure Cosmos dat
 
     ```Kusto
     AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+    | where ResourceProvider=="Microsoft.DocumentDb" and Category=="DataPlaneRequests"
 
     ```
 
