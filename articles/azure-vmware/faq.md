@@ -184,7 +184,7 @@ For general questions on pricing see the Azure VMware Solution [pricing](https:/
 
 **Who supports AVS?**
 
-Support for AVS is delivered by Microsoft. Please note as per our preview guidelines support parameters are scoped. Details on support for this specific service during preview is available on request to your account team.
+Support for AVS is delivered by Microsoft. Please note, per our preview guidelines, we will provide support during 9 to 5 pm PST business hours Monday thru Friday. You can raise a Support ticket from [this link](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 **What accounts do I need to create an AVS private cloud?**
 
