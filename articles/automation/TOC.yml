@@ -229,7 +229,7 @@
         - name: Integrate with Configuration Manager
           href: updatemgmt-mecmintegration.md
         - name: Configure Windows Update client
-          href: automation-configure-windows-update.md
+          href: https://docs.microsoft.com/azure/architecture/example-scenario/wsus/
         - name: Use dynamic groups
           href: automation-update-management-groups.md
         - name: Query Update Management logs
