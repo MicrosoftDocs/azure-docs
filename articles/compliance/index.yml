@@ -404,7 +404,7 @@ additionalContent:
               url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-ced8dbf9
             - text: Malaysian security and privacy requirements
               url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-8b936d6a
-            - text: New Zealand Security and Privacy Requirements
+            - text: New Zealand security and privacy requirements
               url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-f19e44c2
             - text: Navigating your way to the cloud in Europe 
               url: https://www.microsoft.com/en-ie/lcc_cloud/default.aspx
@@ -433,7 +433,7 @@ additionalContent:
               url: https://gallery.technet.microsoft.com/Azure-FERPA-Implementation-441b6b71
             - text: GDPR control mapping
               url: https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3?command=Download&downloadType=Document&downloadId=62d400be-b281-48a2-b40a-eb1a89e087cf&tab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913&docTab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913_AuditedControls
-            - text: GXP guidelines
+            - text: GxP guidelines
               url: https://gallery.technet.microsoft.com/Azure-GxP-Guidelines-ab1b98d9
             - text: HIPAA/HITECH Act implementation
               url: https://gallery.technet.microsoft.com/Azure-HIPAAHITECH-Act-1d27efb0
@@ -445,7 +445,7 @@ additionalContent:
               url: https://servicetrust.microsoft.com/ViewPage/Blueprint?command=Download&downloadType=Document&downloadId=3ccde498-4761-4be0-be8b-cd8d379a3a4f&docTab=fc060920-cdb8-11e7-bacf-0bf52b09d912_Healthcare_Blueprint
             - text: ISO 27001 security controls
               url: https://gallery.technet.microsoft.com/13-Effective-Security-72447e11
-            - text: IT Grundschutz workbook
+            - text: IT-Grundschutz workbook
               url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=2b6fa69b-4cab-4f15-8e7b-560e0291e7f7&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_GRC_Assessment_Reports
             - text: NEN7510-2011 standard coverage guide
               url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=3285c45c-921c-49ad-b881-be43e0b70490&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
