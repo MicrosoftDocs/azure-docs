@@ -31,7 +31,7 @@ There are many benefits of using pre-production environments. For example, you c
 
 ## Make a change
 
-Begin by making a change either to a local clone of your repository or directly on GitHub. If you make local changes, first create a new branch. Then commit your changes to the branch and push it up to GitHub. Alternatively, you can make a change directly on GitHub as shown in the following steps.
+Begin by making a change in your repository. You can do it directly on GitHub as shown in the following steps.
 
 1. Navigate to your project repository on GitHub, then click on the **Branch** button to create a new branch.
 
@@ -39,7 +39,7 @@ Begin by making a change either to a local clone of your repository or directly 
 
     Type in a branch name and click on **Create branch**.
 
-1. Go to your _app_ folder and make a content change. For example, you can change a title or paragraph. Once you found the file you want to edit, click on **Edit** to make the change.
+1. Go to your _app_ folder and change some text content. For example, you can change a title or paragraph. Once you found the file you want to edit, click on **Edit** to make the change.
     
     :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Edit file button in GitHub interface":::
 
@@ -49,7 +49,7 @@ Begin by making a change either to a local clone of your repository or directly 
 
 ## Create a pull request
 
-Next, create a pull request from this change. If you made the local changes, make sure to push your branch to remote.
+Next, create a pull request from this change.
 
 1. Open the **Pull request** tab of your project on GitHub:
     :::image type="content" source="./media/review-publish-pull-requests/pr-tab.png" alt-text="Pull request tab in a GitHub repository":::
