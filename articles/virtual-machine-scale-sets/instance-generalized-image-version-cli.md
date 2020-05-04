@@ -15,9 +15,6 @@ ms.reviewer: akjosh
 
 Create a scale set from a generalized image version stored in a [Shared Image Gallery](shared-image-galleries.md) using the Azure CLI. If want to create a scale set using a specialized image version, see [Create scale set instances from a specialized image](instance-specialized-image-version-cli.md).
 
-Once you have a generalized image version, you can create a virtual machine scale set using the [New-AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet. 
-
-
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.4.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 Replace resource names as needed in this example. 
@@ -34,7 +31,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Create the scale set using [az vmss create](/cli/azure/vmss#az-vmss-create). 
+Create the scale set using [`az vmss create`](/cli/azure/vmss#az-vmss-create). 
 
 Use the image definition ID for `--image` to create the scale set instances from the latest version of the image that is available. You can also create the scale set instances from a specific version by supplying the image version ID for `--image`. Be aware that using a specific image version means automation could fail if that specific image version isn't available because it was deleted or removed from the region. We recommend using the image definition ID for creating your new VM, unless a specific image version is required.
 

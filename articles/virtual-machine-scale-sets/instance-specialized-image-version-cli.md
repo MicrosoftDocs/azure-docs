@@ -13,7 +13,7 @@ ms.reviewer: akjosh
 
 # Create a scale set using a specialized image version with the Azure CLI
 
-Create a scale set from a [specialized image version](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) stored in a Shared Image Gallery. If want to create a scale set using a generalized image version, see [Create a VM from a generalized image version](instance-generalized-image-version-cli.md).
+Create a scale set from a [specialized image version](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) stored in a Shared Image Gallery. If you want to create a scale set using a generalized image version, see [Create a VM from a generalized image version](instance-generalized-image-version-cli.md).
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.4.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -31,7 +31,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Create a scale set using [`az vmss create`](/cli/azure/vmss#az-vmss-create) using the --specialized parameter to indicate the the image is a specialized image.
+Create a scale set using [`az vmss create`](/cli/azure/vmss#az-vmss-create) using the `--specialized` parameter to indicate the image is a specialized image.
 
 Use the image definition ID for `--image` to create the scale set instances from the latest version of the image that is available. You can also create the scale set instances from a specific version by supplying the image version ID for `--image`. Be aware that using a specific image version means automation could fail if that specific image version isn't available because it was deleted or removed from the region. We recommend using the image definition ID for creating your new VM, unless a specific image version is required.
 
