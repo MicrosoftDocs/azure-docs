@@ -336,10 +336,6 @@ parallelrun_step = ParallelRunStep(
     allow_reuse=True
 )
 ```
-
-> [!NOTE] 
-> `models`, `tags` and `properties` are removed from `ParallelRunStep`. You can directly load the models in your python script. 
-
 ### Submit the pipeline
 
 Now, run the pipeline. First, create a [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) object by using your workspace reference and the pipeline step that you created. The `steps` parameter is an array of steps. In this case, there's only one step for batch scoring. To build pipelines that have multiple steps, place the steps in order in this array.
@@ -368,7 +364,7 @@ RunDetails(pipeline_run).show()
 pipeline_run.wait_for_completion(show_output=True)
 ```
 
-## Resubmit a batch inference pipeline run with a different dataset and parameters
+## Resubmit a run with new parameters
 
 You can resubmit a run with a different dataset without having to create an entirely new experiment. 
 
