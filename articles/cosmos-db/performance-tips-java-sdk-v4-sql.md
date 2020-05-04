@@ -174,7 +174,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     For example the following code executes a cpu intensive work on the event loop IO netty thread:
 
-    ### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+    ### <a id="java4-noscheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
     Mono<CosmosAsyncItemResponse<CustomPOJO>> createItemPub = asyncContainer.createItem(item);
@@ -254,7 +254,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     To improve the performance of point writes, specify item partition key in the point write API call, as shown below:
 
-    ### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+    ### <a id="java4-createitem-good"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
     container.createItem(item,new PartitionKey(pk),new CosmosItemRequestOptions());
@@ -262,7 +262,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     rather than providing only the item instance:
 
-    ### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+    ### <a id="java4-createitem-bad"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
     container.createItem(item);

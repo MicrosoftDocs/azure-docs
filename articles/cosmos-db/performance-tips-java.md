@@ -43,6 +43,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
       The ConnectionMode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. 
 
+    ### <a id="syncjava2-connectionpolicy"></a>Legacy Sync Java SDK V2 (Maven com.microsoft.azure::azure-documentdb)
+
       ```Java
       public ConnectionPolicy getConnectionPolicy() {
         ConnectionPolicy policy = new ConnectionPolicy();
@@ -118,6 +120,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     Azure Cosmos DB’s indexing policy allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) and [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths)). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section of the documents (a.k.a. a subtree) from indexing using the "*" wildcard.
 
+
+    ### <a id="syncjava2-indexing"></a>Legacy Sync Java SDK V2 (Maven com.microsoft.azure::azure-documentdb)
+
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
     numberIndex.set("precision", -1);
@@ -142,6 +147,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
     The complexity of a query impacts how many request units are consumed for an operation. The number of predicates, nature of the predicates, number of UDFs, and the size of the source data set all influence the cost of query operations.
 
     To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header (or the equivalent RequestCharge property in [ResourceResponse\<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) or [FeedResponse\<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) to measure the number of request units consumed by these operations.
+
+
+    ### <a id="syncjava2-requestcharge"></a>Legacy Sync Java SDK V2 (Maven com.microsoft.azure::azure-documentdb)
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);
