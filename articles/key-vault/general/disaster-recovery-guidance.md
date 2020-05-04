@@ -30,9 +30,9 @@ There are a few caveats to be aware of:
 * After a failover is complete, your key vault is in read-only mode. Requests that are supported in this mode are:
   * List key vaults
   * Get properties of key vaults
-  * List secrets
+   * List certificates
   * Get certificates
-  * List certificates
+  * List secrets
   * Get secrets
   * List keys
   * Get (properties of) keys
