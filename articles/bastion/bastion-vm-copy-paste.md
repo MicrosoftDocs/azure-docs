@@ -18,8 +18,8 @@ This article helps you copy and paste text to and from virtual machines when usi
 
 For browsers that support the advanced Clipboard API access, you can copy and paste text between your local device and the remote session in the same way you copy and paste between applications on your local device. For other browsers, you can use the Bastion clipboard access tool palette.
 
-> [NOTE!]
-> Only text copy/paste is supported.
+>[!NOTE]
+>Only text copy/paste is currently supported.
 >
 
    ![Allow clipboard](./media/bastion-vm-manage/allow.png)
