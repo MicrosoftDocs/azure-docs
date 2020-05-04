@@ -23,9 +23,9 @@ The topic of routing significantly overlaps with authentication and authorizatio
 
 ## Location
 
-The _routes.json_ file must exist at the root of app's build artifact folder. If your web app includes a build step that copies built files to a specific folder, then the _routes.json_ file needs to exist in this folder.
+The _routes.json_ file must exist at the root of app's build artifact folder. If your web app includes a build step that copies built files from a specific folder to your build artifact folder, then the _routes.json_ file needs to exist in that specific folder.
 
-The following table lists the appropriate location for a number of front-end JavaScript frameworks and libraries.
+The following table lists the appropriate location to put your _routes.json_ file for a number of front-end JavaScript frameworks and libraries.
 
 |Framework / library | Location  |
 |---------|----------|
