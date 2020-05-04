@@ -30,7 +30,7 @@ For a simple Resource Manager based Virtual Machine add the extension configurat
 "resources": [
     {
         "name": "Microsoft.Insights.VMDiagnosticsSettings",
-        "type": "extensions",
+        "type": "Microsoft.Compute/virtualMachines/extensions",
         "location": "[resourceGroup().location]",
         "apiVersion": "2015-06-15",
         "dependsOn": [
