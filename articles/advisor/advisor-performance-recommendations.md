@@ -77,6 +77,9 @@ Advisor can detect that you can increase load performance and throughput by incr
 ## Co-locate the storage account within the same region to minimize latency when loading
 Advisor can detect that you are loading from a region that is different from your SQL pool. You should consider loading from a storage account that is within the same region as your SQL pool to minimize latency when loading data. This will help minimize latency and increase load performance.
 
+## Unsupported Kubernetes version is detected
+Advisor can detect if an unsupported Kubernetes version is detected. The recommendation will help to ensure Kubernetes cluster runs with a supported version.
+
 ## Optimize the performance of your Azure MySQL, Azure PostgreSQL, and Azure MariaDB servers 
 
 ### Fix the CPU pressure of your Azure MySQL, Azure PostgreSQL, and Azure MariaDB servers with CPU bottlenecks
