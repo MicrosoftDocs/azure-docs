@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy remove c
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 05/04/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -84,11 +84,15 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## Options
 
-**--exclude-path string**      Exclude these paths when removing. This option does not support wildcard characters (*). Checks relative path prefix. For example: myFolder;myFolder/subDirName/file.pdf.
+**--delete-snapshots** string   By default, the delete operation fails if a blob has snapshots. Specify 'include' to remove the root blob and all its snapshots; alternatively specify 'only' to remove only the snapshots but keep the root blob.
+
+**--exclude-path** string      Exclude these paths when removing. This option does not support wildcard characters (*). Checks relative path prefix. For example: myFolder;myFolder/subDirName/file.pdf.
 
 **--exclude-pattern** string   Exclude files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
 
-**-h, --help**                     help for remove
+**--force-if-read-only**    When deleting an Azure Files file or folder, force the deletion to work even if the existing object is has its read-only attribute set
+
+**-h, --help**   help for remove
 
 **--include-path** string      Include only these paths when removing. This option does not support wildcard characters (*). Checks relative path prefix. For example: myFolder;myFolder/subDirName/file.pdf
 
@@ -106,6 +110,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 |---|---|
 |--cap-mbps uint32|Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.|
 |--output-type string|Format of the command's output. The choices include: text, json. The default value is "text".|
+|--trusted-microsoft-suffixes string   | Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.|
 
 ## See also
 
