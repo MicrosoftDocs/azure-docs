@@ -449,6 +449,8 @@
       items:
         - name: Create an Azure application offer
           href: ./partner-center-portal/create-new-azure-apps-offer.md
+        - name: Azure application metered billing
+          href: ./partner-center-portal/azure-app-metered-billing.md
         - name: Handling review feedback
           href: ./partner-center-portal/azure-apps-review-feedback.md
         - name: API for onboarding
@@ -515,11 +517,6 @@
         href: ./partner-center-portal/create-new-saas-offer.md
       - name: SaaS metered billing
         href: ./partner-center-portal/saas-metered-billing.md
-        items:
-        - name: Marketplace metering service APIs - FAQ
-          href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-        - name: Marketplace metering service APIs
-          href: ./partner-center-portal/marketplace-metering-service-apis.md   
       - name: SaaS Fulfillment APIs
         href: ./partner-center-portal/pc-saas-fulfillment-apis.md
         items:
@@ -545,7 +542,15 @@
       - name: Marketo
         href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
       - name: Salesforce
-        href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md       
+        href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md 
+    - name: Marketplace metering service
+      items:
+        - name: Authentication strategies
+          href: ./partner-center-portal/marketplace-metering-service-authentication.md
+        - name: Marketplace metering service APIs
+          href: ./partner-center-portal/marketplace-metering-service-apis.md   
+        - name: Marketplace metering service APIs - FAQ
+          href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
     - name: Test Drive your offer
       href: ./partner-center-portal/test-drive.md
     - name: Co-sell option
