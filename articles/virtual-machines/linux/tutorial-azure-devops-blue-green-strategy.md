@@ -27,7 +27,7 @@ This article shows how to set up a CI/CD pipeline that uses the blue-green strat
 
 ### Configure CI/CD on virtual machines
 
-You can add virtual machines as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commitment.
+You can add virtual machines as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commitment.
 
 ### Blue-green deployments
 

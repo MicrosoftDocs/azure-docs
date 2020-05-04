@@ -19,15 +19,7 @@ ms.custom: devops
 
 # Tutorial - Configure the rolling deployment strategy for Azure Linux virtual machines
 
-Azure DevOps services automate each part of the DevOps process. They support continuous integration and delivery for Azure resources like virtual machines, web apps, and Kubernetes.
-
-Whatever the resource, with Azure and Azure DevOps you can implement infrastructure as:
-
-- Code
-- Continuous integration
-- Continuous testing
-- Continuous delivery
-- Continuous monitoring
+Azure DevOps is a built-in Azure service that automates each part of the DevOps process for any Azure resource. Whether your app uses virtual machines, web apps, Kubernetes, or any other resource, you can implement infrastructure as code (IaaC), continuous integration, continuous testing, continuous delivery, and continuous monitoring with Azure and Azure DevOps.
 
 ![The Azure portal with Azure DevOps selected under Services](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png)
 
@@ -39,7 +31,7 @@ This article shows how to set up a CI/CD pipeline for rolling multimachine deplo
 
 ### Configure CI/CD on virtual machines
 
-You can add virtual machines as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commitment.
+You can add virtual machines as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commitment.
 
 ### Rolling deployments
 
@@ -61,13 +53,13 @@ Using the continuous-delivery option, you can configure rolling updates to your 
 1. In **Deployment strategy**, select **Rolling**.
 1. Optionally, you can tag each machine with its role. The tags "web" and "db" are examples. These tags help you target only VMs that have a specific role.
 1. Select **OK** to configure the continuous-delivery pipeline.
-1. Once configuration finishes, you have a continuous-delivery pipeline configured to deploy to the virtual machine.  
+1. After configuration finishes, you have a continuous-delivery pipeline configured to deploy to the virtual machine.  
 
    ![The Continuous delivery panel showing Deployment history](media/tutorial-devops-azure-pipelines-classic/azure-devops-deployment-history.png)
 
 1. The deployment to the virtual machine is in progress. You can select the link to go to the pipeline. Select **Release-1** to view the deployment. Or select **Edit** to modify the release-pipeline definition.
 1. If you're configuring multiple VMs, repeat steps 2 through 4 for other VMs to add to the deployment group. If you select a deployment group that already has a pipeline run, the VMs are just added to the deployment group. No new pipelines are created.
-1. Once configuration is done, select the pipeline definition, navigate to the Azure DevOps organization, and select **Edit** for the release pipeline.
+1. After configuration is done, select the pipeline definition, navigate to the Azure DevOps organization, and select **Edit** for the release pipeline.
 
    ![Editing the rolling pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline.png)
 
