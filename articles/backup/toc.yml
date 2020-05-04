@@ -347,10 +347,18 @@
       href: security-overview.md
     - name: Role-Based Access Control
       href: backup-rbac-rs-vault.md
-    - name: Security for cloud workloads
-      href: backup-azure-security-feature-cloud.md
+    - name: Soft delete 
+      items:
+      - name: Overview
+        href: backup-azure-security-feature-cloud.md
+      - name: Soft delete for virtual machines
+        href: soft-delete-virtual-machines.md
+      - name: Soft delete for SQL Server and SAP HANA in Azure VMs
+        href: soft-delete-sql-saphana-in-azure-vm.md
     - name: Security for hybrid backups
       href: backup-azure-security-feature.md
+    - name: Encryption
+      href: backup-encryption.md
     - name: Built-in security controls
       href: backup-security-controls.md
     - name: Security baseline
