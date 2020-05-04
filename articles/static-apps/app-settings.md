@@ -28,7 +28,7 @@ There are typically two aspects to an Azure Static Web Apps application. The fir
 
 This article demonstrates how to manage application settings for the back-end API in Azure Functions.
 
-Many frontend frameworks and static site generators allow the use of environment variables during development time. At build time, these variables are replaced by their values in the generated HTML or JavaScript. As such it's a good idea to avoid putting sensitive information into the frontend portion of your application. These settings should be moved to the API portion if possible.
+Many front-end frameworks and static site generators allow the use of environment variables during development. At build time, these variables are replaced by their values in the generated HTML or JavaScript. Since data in HTML and JavaScript is easily discoverable by site visitor, you want to avoid putting sensitive information in the front-end application. Settings that hold sensitive data are best located in API app.
 
 For more information about how to use environment variables with your JavaScript framework or library, refer to the following articles for more detail.
 
@@ -57,7 +57,7 @@ The following sample _local.settings.json_ shows how to add an application setti
   "Values": {
     "AzureWebJobsStorage": "",
     "FUNCTIONS_WORKER_RUNTIME": "node",
-    "DATABASE_CONNECTION_STRING": "the-connection-string",
+    "DATABASE_CONNECTION_STRING": "<YOUR_DATABASE_CONNECTION_STRING>"
   }
 }
 ```
@@ -68,9 +68,9 @@ Settings defined in the `Values` property can be referenced from code as environ
 const connectionString = process.env.DATABASE_CONNECTION_STRING;
 ```
 
-The `local.settings.json` file is not tracked by the GitHub repository because sensitive information, like a database connection string, is often included in the file. Since the local settings remain on your machine, you need to manually upload your settings to Azure.
+The `local.settings.json` file is not tracked by the GitHub repository because sensitive information, like database connection strings, are often included in the file. Since the local settings remain on your machine, you need to manually upload your settings to Azure.
 
-Uploading your settings is done infrequently, and doesn't need to occur with every build.
+Generally, uploading your settings is done infrequently, and isn't required with every build.
 
 ## Upload settings
 
@@ -88,7 +88,7 @@ The [upload-env](https://github.com/burkeholland/static-apps-env) Node.js module
     npx upload-env
     ```
 
-1. Select the Azure subscription associated with your Azure Static Web Apps instance,  and press **Enter**
+1. Select the Azure subscription associated with your Azure Static Web Apps instance, and press **Enter**
 
 1. Enter the Resource Group where your Azure Static Web Apps instance is located, and press **Enter**
 
@@ -100,36 +100,43 @@ As this command executes, the settings from your _local.settings.json_ file are 
 
 ### Using the Azure CLI
 
-The `az rest` command uploads settings either as a string value, or by specifying a file. The command accepts application settings as JSON objects in a parent property called `properties`.
+You can use the `az rest` command to upload your settings to Azure. The command accepts application settings as JSON objects in a parent property called `properties`.
 
-#### Uploading settings as string values
+The easiest way to create a JSON file with the appropriate values is to create a modified version of your _local.settings.json_ file.
 
-1. From a terminal or command line, execute the following command. Make sure to replace the values `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP>`, and `<YOUR_STATIC_SITE_NAME>` with the appropriate values.
+1. To ensure your new file with sensitive data isn't exposed publicly, add the following entry into your _.gitignore_ file.
 
-```bash
-az rest --method put --headers "Content-Type=application/json" --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/config/functionappsettings?api-version=2019-12-01-preview" --body "{\"properties\": { \"SETTING_NAME\": \"setting value\" }}"
-```
+    ```bash
+    local.settings*.json
+    ```
 
-#### Uploading settings from a file
+2. Next, make a copy of your _local.settings.json_ file and name it _local.settings.properties.json_.
 
-Ensure that your file is a JSON file in the proper format. It must be an object, with a parent property called "properties".
+3. Inside the new file, remove all other data from the file except for the application settings and rename `Values` to `properties`.
 
-```json
-{
-   "properties": {
-      "SETTING_NAME_1": "setting value 1",
-      "SETTING_NAME_2": "setting value 2",
-   }
-}
-```
+    Your file should now look similar to the following example:
 
-1. From a terminal or command line, execute the following command. Replace the values <YOUR_SUBSCRIPTION_ID>, <YOUR_RESOURCE_GROUP>, <YOUR_STATIC_SITE_NAME>, and <YOUR_FILE_NAME>.json**. You can find this information on the "Overview" tab for your application in the Azure portal.
+    ```json
+    {
+      "properties": {
+        "DATABASE_CONNECTION_STRING": "<YOUR_DATABASE_CONNECTION_STRING>"
+      }
+    }
+    ```
 
-    ![Azure portal showing overview tab of an Azure Static Web Apps instance]()
+The Azure CLI command requires a number of values specific to your account to run the upload. From the _Overview_ window of your Static Web Apps resource, you have access to the following information:
 
-```bash
-az rest --method put --headers "Content-Type=application/json" --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/config/functionappsettings?api-version=2019-12-01-preview" --body @<YOUR_FILE_NAME>.json
-```
+1. Static site name
+2. Resource group name
+3. Subscription ID
+
+:::image type="content" source="media/app-settings/azure-static-web-apps-overview.png" alt-text="Azure Static Web Apps Overview":::
+
+4. From a terminal or command line, execute the following command. Make sure to replace the placeholders of `<YOUR_STATIC_SITE_NAME>`, `<YOUR_RESOURCE_GROUP_NAME>`, and `<YOUR_SUBSCRIPTION_ID>` with your values from the _Overview_ window.
+
+    ```bash
+    az rest --method put --headers "Content-Type=application/json" --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/config/functionappsettings?api-version=2019-12-01-preview" --body @local.settings.properties.json
+    ```
 
 > [!IMPORTANT]
 > The .json file that you reference in the <YOUR_FILE_NAME>.json setting file must in the same directory where this command is run.
@@ -138,7 +145,7 @@ az rest --method put --headers "Content-Type=application/json" --uri "/subscript
 
 Application settings are available to view through the Azure CLI.
 
-1. From a terminal or command line, execute the following command. Make sure to replace the placeholders <YOUR_SUBSCRIPTION_ID>, <YOUR_RESOURCE_GROUP>, <YOUR_STATIC_SITE_NAME> with your values.
+1. From a terminal or command line, execute the following command. Make sure to replace the placeholders `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>`, `<YOUR_STATIC_SITE_NAME>` with your values.
 
 ## Next steps
 
