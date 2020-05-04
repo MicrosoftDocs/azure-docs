@@ -143,6 +143,10 @@ Application settings are available to view through the Azure CLI.
 
 1. From a terminal or command line, execute the following command. Make sure to replace the placeholders `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>`, `<YOUR_STATIC_SITE_NAME>` with your values.
 
+    ```bash
+    az rest --method post --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/listFunctionAppSettings?api-version=2019-12-01-preview"
+    ```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
