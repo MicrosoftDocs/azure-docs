@@ -37,6 +37,8 @@ The following limits and quotas apply to a model repository:
 |-----|-----|
 | Number of unpublished interfaces per Azure Active Directory tenant| 1500  |
 | Number of published interfaces per Azure Active Directory tenant| 1500  |
+| Number of unpublished interfaces that can be shared externally per Azure Active Directory tenant| 1500  |
+| Number of shared interfaces can be received per Azure Active Directory tenant| 1500  |
 | Number of model repositories being created/updated by a tenant| 1 QPS |
 | Number of interfaces being published | 10 QPS|
 | Number of interfaces being created | 10 QPS|
