@@ -60,7 +60,8 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
     2. Select the **resource group** you created in the previous step. 
     3. Enter a **name** for the namespace. The system immediately checks to see if the name is available.
     4. Select a **location** for the namespace.    
-    5. Choose the **pricing tier** (Basic or Standard).    
+    5. Choose the **pricing tier** (Basic or Standard).  
+    6. Leave the **throughput units** settings as it is. To learn about throughput units, see [Event Hubs scalability](event-hubs-scalability.md#throughput-units)  
     5. Select **Review + Create** at the bottom of the page.
 
        ![Create an event hub namespace](./media/event-hubs-quickstart-portal/create-event-hub1.png)
