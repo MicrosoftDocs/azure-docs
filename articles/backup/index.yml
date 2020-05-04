@@ -63,7 +63,7 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Soft Delete for Azure VM backup data
+          - text: Soft Delete for Azure Backup
             url: backup-azure-security-feature-cloud.md
           - text: SQL Server on Azure VMs restore as files
             url: restore-sql-database-azure-vm.md#restore-as-files

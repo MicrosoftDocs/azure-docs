@@ -32,7 +32,7 @@ For topics, the metrics are:
 For subscriptions, the metrics are:
 
 * **Delivery Succeeded**: Event successfully delivered to the subscription's endpoint, and received a 2xx response.
-* **Delivery Failed**: Event sent to subscription's endpoint, but received a 4xx or 5xx response.
+* **Delivery Failed**: Every time the service tries to deliver and the event handler doesn't return a success 2xx code, the **Delivery Failed** counter is incremented. If we attempt to deliver the same event multiple times and fail, the **Delivery Failed** counter is incremented for each failure.
 * **Expired Events**: Event was not delivered and all retry attempts were sent. The event was dropped.
 * **Matched Events**: Event in the topic was matched by the event subscription.
 

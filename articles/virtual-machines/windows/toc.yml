@@ -225,7 +225,7 @@
         href: ../nvv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: NVv4-series
         href: ../nvv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-      - name: Setup GPU drivers
+      - name: Setup NVIDIA GPU drivers
         href: n-series-driver-setup.md
       - name: Setup AMD GPU drivers
         href: n-series-amd-driver-setup.md
@@ -501,10 +501,14 @@
         href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Maintenance control
       items:
-      - name: PowerShell
-        href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Overview
+        href: ../maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: CLI
         href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: PowerShell
+        href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Portal
+        href: ../maintenance-control-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Scheduled events
       href: scheduled-events.md
     - name: Windows scheduled event service

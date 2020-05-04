@@ -103,7 +103,7 @@ For more information, see the [global Azure documentation](../cognitive-services
 
 Variations in Azure Government:
 
-- Endpoint: https://virginia.api.cognitive.microsoft.us/luis/v2.0
+- Endpoint: https:\//virginia.api.cognitive.microsoft.us/luis/v2.0
 - LUIS portal: https://luis.azure.us
 - Speech Requests and Prebuilt Domains are not currently available
 - Speech Priming is not currently available
@@ -114,7 +114,7 @@ For more information, see [global Azure documentation](../cognitive-services/lui
 
 Variations in Azure Government:
 
-- Endpoint: https://virginia.api.cognitive.microsoft.us/qnamaker/v4.0
+- Endpoint: https:\//virginia.api.cognitive.microsoft.us/qnamaker/v4.0
 - QnA Maker portal: https://qnamaker.azure.us
 
 For more information, see [global Azure documentation](../cognitive-services/QnAMaker/Overview/overview.md) for QnA Maker.

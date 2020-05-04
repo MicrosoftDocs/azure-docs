@@ -1,6 +1,6 @@
 ---
-title: Create an Azure IoT Edge module offer with Partner Center - Azure Marketplace
-description: Learn how to create an IoT Edge module offer in Azure Marketplace using Partner Center
+title: Create an Azure IoT Edge module offer with Partner Center in Azure Marketplace
+description: Learn how to create, configure, and publish an IoT Edge module offer in Azure Marketplace using Partner Center
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
@@ -9,23 +9,20 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ---
 
-# Create an IoT Edge module offer
+# Create, configure, and publish an IoT Edge module offer in Azure Marketplace
 
 > [!IMPORTANT]
 > We're moving the management of your IoT Edge module offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [IoT Edge module offer publishing overview](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) for Cloud Partner Portal to manage your offers.
 
-This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace.
-
-Before you can create an IoT Edge module offer, you must have a commercial marketplace account in Partner Center. If you haven't created one yet, see [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
-1. Sign in to Partner Center.
-2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
+3. On the Overview page, select **+ New offer** > **IoT Edge module**.
 
-    ![Illustrates the left-navigation menu.](./media/cs-menu-overview.png)
-
-3. Select **+ New offer** > **IoT Edge module**. The **New offer** dialog box appears.
+    ![Illustrates the left-navigation menu.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
@@ -36,14 +33,14 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 
 - This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
 - Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- The Offer ID can't be changed after you select Create.
+- The Offer ID can't be changed after you select **Create**.
 
-Enter an **Offer alias**. This is the name used to refer to the offer in Partner Center.
+Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
 - This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
 - This can't be changed after you select **Create**.
 
-After you enter these two values, select **Create** before continuing to the next page, Offer overview.
+Select **Create** to generate the offer and continue.
 
 ## Offer overview
 
@@ -81,10 +78,10 @@ Here are some additional lead management resources:
 
 - [Lead management overview](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
 
-Select **Save draft** before continuing to the next section, Properties.
+Select **Save draft** before continuing.
 
 ### Properties
 
@@ -218,6 +215,9 @@ To learn more about creating offer listings, see [Offer listing best practices](
 ### Marketplace images
 
 Provide logos and images to use with your offer. All images must be in .png format. Blurry images will be rejected.
+
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 

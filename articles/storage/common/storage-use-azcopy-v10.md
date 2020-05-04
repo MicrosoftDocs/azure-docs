@@ -79,7 +79,7 @@ If you just want to download files, then verify that the [Storage Blob Data Read
 
 If you want to upload files, then verify that one of these roles has been assigned to your security principal:
 
-- [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
 - [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 These roles can be assigned to your security principal in any of these scopes:

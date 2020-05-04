@@ -1,20 +1,19 @@
 ﻿---
-title: Security controls for Azure Storage
-description: A checklist of security controls for evaluating Azure Storage
+title: Security controls
+titleSuffix: Azure Storage
+description: A checklist of security controls for evaluating Azure Storage.
 services: storage
-
 author: msmbaldwin
-
+ms.author: mbaldwin
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: mbaldwin
-
+ms.date: 03/11/2020
 ---
+
 # Security controls for Azure Storage
 
-This article documents the security controls built into Azure Storage. 
+This article documents the security controls built into Azure Storage.
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
@@ -33,8 +32,9 @@ This article documents the security controls built into Azure Storage.
 | Security control | Yes/No | Notes |
 |---|---|--|
 | Service endpoint support| Yes |  |
+| Service tags support| Yes | See [Azure service tags overview](../../virtual-network/service-tags-overview.md) for more information about service tags supported by Azure Storage. |
 | VNet injection support| N/A |  |
-| Network isolation and firewalling support| Yes | |
+| Network isolation and firewall support| Yes | |
 | Forced tunneling support| N/A |  |
 
 ## Monitoring & logging
@@ -42,8 +42,8 @@ This article documents the security controls built into Azure Storage.
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | Azure Monitor Metrics|
-| Control and management plane logging and audit | Yes | Azure Resource Manager Activity Log |
-| Data plane logging and audit| Yes | Service Diagnostic Logs.|
+| Control and management plane logging and audit | Yes | Azure Activity Log |
+| Data plane logging and audit| Yes | Azure Monitor Resource Logs |
 
 ## Identity
 

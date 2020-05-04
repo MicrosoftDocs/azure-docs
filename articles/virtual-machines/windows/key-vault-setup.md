@@ -1,19 +1,12 @@
 ---
-title: Set up Key Vault for Windows VMs in Azure Resource Manager 
-description: How to set up Key Vault for use with an Azure Resource Manager virtual machine.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Set up Key Vault 
+description: How to set up Key Vault for use with a virtual machine.
 author: mimckitt
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 33a483e2-cfbc-4c62-a588-5d9fd52491e2
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/24/2017
 ms.author: mimckitt
 
