@@ -125,7 +125,7 @@ To create and manage update deployments, you need specific permissions. To learn
 
 ## Update Management components
 
-Update Management uses the resources described in this section. These resources are automatically added to your Automation account when you enable Update Management. 
+Update Management uses the resources described in this section. These resources are automatically added to your Automation account when you enable Update Management.
 
 ### Hybrid Runbook Worker groups
 
@@ -228,7 +228,7 @@ To classify updates on Red Hat Enterprise version 6, you need to install the yum
 
 ## Integrate Update Management with Configuration Manager
 
-Customers who have invested in Microsoft Endpoint Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help them manage software updates. Configuration Manager is part of their software update management (SUM) cycle. To learn how to integrate Update Management with Configuration Manager, see [Integrate Configuration Manager with Update Management](updatemgmt-mecmintegration.md).
+Customers who have invested in Microsoft Endpoint Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help manage software updates. To learn how to integrate Update Management with Configuration Manager, see [Integrate Configuration Manager with Update Management](updatemgmt-mecmintegration.md).
 
 ## Third-party updates on Windows
 
