@@ -185,7 +185,7 @@
     - name: Azure resources
       displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction
       href: luis-how-to-azure-subscription.md
-    - name: Application settings
+    - name: App and version settings
       href: how-to-application-settings-portal.md
     - name: Migrate to authoring resource
       items:
@@ -318,7 +318,7 @@
     displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
   - name: Limits
     href: luis-limits.md
-  - name: Application settings
+  - name: App and version settings
     href: luis-reference-application-settings.md
   - name: Prebuilt entity reference
     items:
