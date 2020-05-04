@@ -35,18 +35,17 @@ Each price tier has a corresponding value in each of the currencies offered by t
 
 You also have the option to enter a free-form price of your choosing in a specific market's local currency. When you do this, the price will not be adjusted (even if conversion rates change) unless you submit an update with a new price. 
 
-Keep in mind that the price you select may include sales or value-added tax that your customers must pay. See [Tax details for paid offer](tax-details-paid-transactions.md) for more info.
+Keep in mind that the price you select may include sales or value-added tax that your customers must pay. For details, see [Tax details for paid offer](tax-details-paid-transactions.md).
 
 
 ## Payout reporting
 
-You can access details about your payment info and download reports in the **Payout summary** of [Partner Center](https://partner.microsoft.com/dashboard). For more about the info shown here, and how we categorize the money you earn, see [Payout summary](payout-summary.md).
+You can access details about your payment info and download reports in the **Payout summary** of [Partner Center](https://partner.microsoft.com/dashboard). For details on the info shown here and how we categorize the money you earn, see [Payout summary overview](payout-summary-overview.md).
 
 
-## Payout timeframe
+## Payout time frame
 
-Payments are made on a monthly basis (provided the applicable payment threshold has been met and you haven't placed your payout on hold as described below). We'll typically send any payment due in a given month by the 15th day of that month. Note that payments generally take between 3 to 10 additional business days to reach your payout account. For more info, see [Payment thresholds, methods, and timeframes](payment-thresholds-methods-timeframes.md).
-
+Payments are made on a monthly basis (provided the applicable payment threshold has been met and you haven’t placed your payout on hold as described below). We'll typically send any payment due in a given month by the 15th day of that month. Note that payments generally take between 3 to 10 additional business days to reach your payout account. For details, see [Payment thresholds, methods, and time frames](payment-thresholds-methods-timeframes.md).
 
 ##  Payout hold status
 
@@ -58,12 +57,3 @@ Once you have set your payout hold status to **On**, all payouts for this progra
 
 > [!NOTE]
 > Your **Payout hold status** applies to each program individually (Microsoft Store, advertising, Azure Marketplace, etc.). If you wish to hold payments on all of your programs, you must hold payments on each program individually.
-
-
- 
-
- 
-
-
-
-
