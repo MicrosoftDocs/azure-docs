@@ -79,7 +79,7 @@ You can configure and get information about alert rules using the following inte
    * Aggregation type options are min, max or average (in the aggregation granularity period)
    * Threshold value is the value which will based on the operator trigger an alert.
    
-   In the example shown in the screenshot, value of 1840876MB is used representing a threshold value of 1.8TB. As the operator in the example is set to greater than, the alert will be created if the storage space consumption on the managed instance goes over 1.8TB. Please note that the value needs to be expressed in MB.
+   In the example shown in the screenshot, value of 1840876MB is used representing a threshold value of 1.8TB. As the operator in the example is set to greater than, the alert will be created if the storage space consumption on the managed instance goes over 1.8TB. Please note that the threshold value for storage space metrics must to be expressed in MB.
 
 8. Set the evaluation period - aggregation granularity in minutes and frequency of evaluation. The frequency of evaluation will denote time the alerting system will periodically check if the threshold condition has been met.
 
