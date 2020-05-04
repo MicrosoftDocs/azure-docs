@@ -31,9 +31,13 @@ You must store customer-managed keys in [Azure Key Vault](../key-vault/general/o
 
 ## Configure your Azure Key Vault instance
 
-Using customer-managed keys with Azure Cosmos DB requires you to set two properties on the Azure Key Vault instance that you plan to use to host your encryption keys. These properties include **Soft Delete** and **Do Not Purge**. These properties aren't enabled by default. You can enable them by using either PowerShell or the Azure CLI.
+Using customer-managed keys with Azure Cosmos DB requires you to set two properties on the Azure Key Vault instance that you plan to use to host your encryption keys: **Soft Delete** and **Purge Protection**.
 
-To learn how to enable these properties on an existing Azure Key Vault instance, see the "Enabling soft-delete" and "Enabling Purge Protection" sections in one of the following articles:
+If you create a new Azure Key Vault instance, enable these properties during creation:
+
+![Enabling soft delete and purge protection for a new Azure Key Vault instance](./media/how-to-setup-cmk/portal-akv-prop.png)
+
+If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the **Properties** section on the Azure portal. If either of these properties aren't enabled, see the "Enabling soft-delete" and "Enabling Purge Protection" sections in one of the following articles:
 
 - [How to use soft-delete with PowerShell](../key-vault/general/soft-delete-powershell.md)
 - [How to use soft-delete with Azure CLI](../key-vault/general/soft-delete-cli.md)
@@ -223,9 +227,9 @@ When using customer-managed keys, [Request Units](./request-units.md) consumed b
 
 | Operation type | Request Unit increase |
 |---|---|
-| Point-reads (fetching items by their ID) | + 5% |
-| Any write operation | + 6 to 15% depending on the number of properties to index |
-| Queries, reading change feed or conflict feed | + 15% |
+| Point-reads (fetching items by their ID) | + 5% per operation |
+| Any write operation | + 6% per operation<br/>+ 0.06 RU per indexed property |
+| Queries, reading change feed or conflict feed | + 15% per operation |
 
 ### What data gets encrypted with the customer-managed keys?
 
