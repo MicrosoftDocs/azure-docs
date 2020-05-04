@@ -3,21 +3,23 @@ title: Start/stop VMs during off-hours solution
 description: This VM management solution starts and stops your Azure virtual machines on a schedule and proactively monitors from Azure Monitor logs.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 04/28/2020
 ms.topic: conceptual
 ---
 # Start/stop VMs during off-hours solution in Azure Automation
 
 The **Start/stop VMs during off-hours** solution starts or stops your Azure virtual machines. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). The solution supports both Azure Resource Manager and classic VMs for most scenarios. 
 
-This solution provides a decentralized low-cost automation option for users who want to optimize their VM costs. With this solution, you can:
+This solution uses [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) cmdlet to start VMs. It uses [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) for stopping VMs.
+
+> [!NOTE]
+> The **Start/stop VMs during off-hours** solution has been updated to support the newest versions of the Azure modules that are available. The updated version of this solution, available in the Marketplace, doesn’t support AzureRM modules because we have migrated from AzureRM to Az modules.
+
+The solution provides a decentralized low-cost automation option for users who want to optimize their VM costs. With this solution, you can:
 
 - [Schedule VMs to start and stop](automation-solution-vm-management-config.md#schedule).
 - Schedule VMs to start and stop in ascending order by [using Azure Tags](automation-solution-vm-management-config.md#tags) (not supported for classic VMs).
 - Autostop VMs based on [low CPU usage](automation-solution-vm-management-config.md#cpuutil).
-
-> [!NOTE]
-> The **Start/stop VMs during off-hours** solution has been updated to support the newest versions of the Azure modules that are available.
 
 The following are limitations with the current solution:
 
@@ -140,7 +142,7 @@ The following table lists the variables created in your Automation account. Only
 >[!NOTE]
 >For the variable `External_WaitTimeForVMRetryInSeconds`, the default value has been updated from 600 to 2100. 
 
-Across all scenarios, the variables `External_Start_ResourceGroupNames`,  `External_Stop_ResourceGroupNames`, and `External_ExcludeVMNames` are necessary for targeting VMs, except for the comma-separated VM lists for the **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**, and **ScheduledStartStop_Parent** runbooks. That is, your VMs must belong to target resource groups for start and stop actions to occur. The logic works similar to Azure policy, in that you can target the subscription or resource group and have actions inherited by newly created VMs. This approach avoids having to maintain a separate schedule for every VM and manage starts and stops in scale.
+Across all scenarios, the variables `External_Start_ResourceGroupNames`,  `External_Stop_ResourceGroupNames`, and `External_ExcludeVMNames` are necessary for targeting VMs, except for the comma-separated VM lists for the **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**, and **ScheduledStartStop_Parent** runbooks. That is, your VMs must belong to target resource groups for start and stop actions to occur. The logic works similar to Azure Policy, in that you can target the subscription or resource group and have actions inherited by newly created VMs. This approach avoids having to maintain a separate schedule for every VM and manage starts and stops in scale.
 
 ### Schedules
 
