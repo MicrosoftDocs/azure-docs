@@ -15,7 +15,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 ## Things to know
 
-* Currently, image scanning using Azure Security Center isn't available in a registry configured with a private endpoint.
+Currently, image scanning using Azure Security Center isn't available in a registry configured in a virtual network with a private endpoint.
 
 ## Prerequisites
 
@@ -135,7 +135,7 @@ az network vnet subnet update \
 
 ### Configure the private DNS zone
 
-Create a private DNS zone for the priviate Azure container registry domain. In later steps, you create DNS records for your registry domain inside this DNS zone.
+Create a private DNS zone for the private Azure container registry domain. In later steps, you create DNS records for your registry domain inside this DNS zone.
 
 To use a private zone to override the default DNS resolution for your Azure container registry, the zone must be named **privatelink.azurecr.io**. Run the following [az network private-dns zone create][az-network-private-dns-zone-create] command to create the private zone:
 
@@ -299,6 +299,23 @@ After the private endpoint is created, DNS settings in the private zone appear o
 ![Endpoint DNS settings](./media/container-registry-private-link/private-endpoint-overview.png)
 
 Your private link is now configured and ready for use.
+
+## Disable public access
+
+For many scenarios, also configure the registry to disable access from public networks. This configuration prevents clients outside the virtual network from reaching the registry endpoints.
+
+### Disable public access - CLI
+
+Substitute the name of your registry in the following [az acr update][az-acr-update] command:
+```azurecli
+az acr update  --name $registryName \
+ --default-action Deny
+```
+
+### Disable public access - Portal
+
+1. In the portal, navigate to your container registry and select **Settings > Networking**.
+1. In **Allow public access**, select **Disabled**.
 
 ## Validate private link connection
 

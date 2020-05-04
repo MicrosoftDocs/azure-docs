@@ -10,7 +10,8 @@ ms.date: 05/04/2020
 An Azure container registry by default accepts connections over the internet from hosts on any network. This article shows how configure your container registry to allow access from specific IP addresses or address ranges. Equivalent steps using the Azure CLI and Azure portal are provided.
 
 * If you don't already have a container registry, create one (Premium SKU required) and push a sample image such as `hello-world` from Docker Hub. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry. 
-* To test access to a registry from a public IP address
+
+[!INCLUDE [Set up Docker-enabled VM](../../includes/container-registry-docker-vm-setup.md)]
 
 ## Access from selected public network - CLI
 
@@ -69,7 +70,7 @@ In certain scenarios, you might want to disable all public network access to reg
 
 Substitute the name of your registry in the following [az acr update][az-acr-update] command:
 ```azurecli
-az acr update --name myContainerRegistry --default-action Allow
+az acr update --name myContainerRegistry --default-action Deny
 ```
 
 ### Disable public access - Portal
