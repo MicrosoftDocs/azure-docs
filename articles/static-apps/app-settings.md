@@ -80,19 +80,19 @@ You can upload settings via the Azure Portal or with the Azure CLI.
 
 The Azure Portal provides an interface for creating, updating and deleting App Settings.
 
-1. Navigate to the [Azure Portal](https://portal.azure.com).
+1. Navigate to the [Azure portal](https://portal.azure.com).
 
-1. In the search bar, type "static web apps". Select "Static Web Apps" from the dropdown menu.
+1. In the search bar, search for and select **Static Web Apps**.
 
-1. Select your Static Web App from the list.
+1. Click on the **Configuration** option in the sidebar.
 
-1. Click on the "Configuration" option in the sidebar.
-
-1. Click on the "Add Button" to add a new app setting.
+1. Click on the **Add Button** to add a new app setting.
 
 :::image type="content" source="media/app-settings/configuration-env-variables.png" alt-text="Azure Static Web Apps configuration view":::
 
-1. Enter a **Name** and **Value** and press "OK".
+1. Enter a **Name** and **Value**
+
+1. Click **OK**
 
 ### Using the Azure CLI
 
