@@ -107,7 +107,7 @@ The following steps show you how to create a new Static Web Apps application and
 
 1. Select **Create a Resource** and search for **Static Web Apps**.
 
-   ![Create a Static Web Apps (Preview) in the portal](./media/static-web-apps-publish-vuepress/create-in-portal.png)
+   :::image type="content" source="./media/static-web-apps-publish-vuepress/create-in-portal.png" alt-text="Create a Static Web Apps (Preview) in the portal":::
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 
@@ -119,7 +119,7 @@ The following steps show you how to create a new Static Web Apps application and
 
 1. For _SKU_, select **Free**.
 
-   ![Details filled out](./media/static-web-apps-publish-vuepress/basic-app-details.png)
+   :::image type="content" source="./media/static-web-apps-publish-vuepress/basic-app-details.png" alt-text="Details filled out":::
 
 1. Click the **Sign in with GitHub** button.
 
@@ -129,7 +129,7 @@ The following steps show you how to create a new Static Web Apps application and
 
 1. For the _Branch_ select **master**.
 
-   ![Completed GitHub information](./media/static-web-apps-publish-vuepress/completed-github-info.png)
+   :::image type="content" source="./media/static-web-apps-publish-vuepress/completed-github-info.png" alt-text="Completed GitHub information":::
 
 1. Click **Next : Build >**
 
@@ -143,7 +143,7 @@ Next, you add configuration settings that the build process uses to build your a
 
 A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
 
-   ![Build Settings](./media/static-web-apps-publish-vuepress/build-details.png)
+   :::image type="content" source="./media/static-web-apps-publish-vuepress/build-details.png" alt-text="Build Settings":::
 
 ### Review and create
 
@@ -155,7 +155,7 @@ A value for _API location_ isn't necessary as you aren't deploying an API at the
 
 1. On the resource screen, click the _URL_ link to open your deployed application. You may need to wait a minute or two for the GitHub Action to complete.
 
-   ![Deployed application](./media/static-web-apps-publish-vuepress/deployed-app.png)
+   :::image type="content" source="./media/static-web-apps-publish-vuepress/deployed-app.png" alt-text="Deployed application":::
 
 ### Clean up resources
 
@@ -164,5 +164,4 @@ A value for _API location_ isn't necessary as you aren't deploying an API at the
 ## Next steps
 
 > [!div class="nextstepaction"]
-
 > [Add a custom domain](custom-domain.md)
