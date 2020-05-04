@@ -16,7 +16,7 @@ ms.date: 05/04/2020
 
 ## Overview
 
-This article shows you how to set up alerts for databases in Azure SQL Managed Instance Database using the Azure portal. Alerts can send you an email, call a web hook, execute Azure Function, call an external ITSM compatible ticketing system, call you on the phone or send a text message when when some metric (for example instance storage size or CPU usage) reaches a predefined threshold. This article also provides best practices for setting alert periods.
+This article shows you how to set up alerts for databases in Azure SQL Managed Instance Database using the Azure portal. Alerts can send you an email, call a web hook, execute Azure Function, runbook, call an external ITSM compatible ticketing system, call you on the phone or send a text message when when some metric (for example instance storage size or CPU usage) reaches a predefined threshold. This article also provides best practices for setting alert periods.
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
@@ -30,6 +30,7 @@ You can configure an alert to do the following when it triggers:
 * Send text message to a phone number
 * Call a webhook
 * Call Azure Function
+* Call Azure runbook
 * Call an external ticketing ITSM compatible system
 
 > [!NOTE]
@@ -37,15 +38,15 @@ You can configure an alert to do the following when it triggers:
 
 The following metrics you can alert on are available for SQL managed instance:
 
-| metric | description |
-| :--------- | --------------------- |
-| Average CPU percentage | Average percentage (0-100%) of CPU utilization in selected time period. |
-| IO bytes read | IO bytes read in the selected time period. |
-| IO bytes written | IO bytes written in the selected time period. |
-| IO requests count | Count of IO requests in the selected time period. |
-| Storage space reserved | Current max. storage space reserved for the managed instance. Changes with resource scaling operation. |
-| Storage space used | Storage space used in the selected period. Changes with storage consumption by databases and the instance. |
-| Virtual core count | vCores provisioned for the managed instance. Changes with resource scaling operation. |
+| Metric | Description | Unit of measurement |
+| :--------- | --------------------- | ------- |
+| Average CPU percentage | Average percentage of CPU utilization in selected time period. | Numerical (0-100) |
+| IO bytes read | IO bytes read in the selected time period. | Bytes |
+| IO bytes written | IO bytes written in the selected time period. | Bytes |
+| IO requests count | Count of IO requests in the selected time period. | Numerical |
+| Storage space reserved | Current max. storage space reserved for the managed instance. Changes with resource scaling operation. | MB |
+| Storage space used | Storage space used in the selected period. Changes with storage consumption by databases and the instance. | MB |
+| Virtual core count | vCores provisioned for the managed instance. Changes with resource scaling operation. | Numerical (4-80) |
 
 You can configure and get information about alert rules using the following interfaces:
 
@@ -82,8 +83,15 @@ You can configure and get information about alert rules using the following inte
 
 8. Set the evaluation period - aggregation granularity in minutes and frequency of evaluation. The frequency of evalution will denote time the alerting system will periodically check if the treshold condition has been met.
 
-9. Select action group. Action group pane will show up through which you will be able to select an existing, or create a new action. This action defines that will happen upon triggering an alert (e.g. sending email, calling you on the phone, executing a webhook or a Azure function, for example).
+9. Select action group. Action group pane will show up through which you will be able to select an existing, or create a new action. This action defines that will happen upon triggering an alert (e.g. sending email, calling you on the phone, executing a webhook, Azure function or a runbook, for example).
 
+   * To create new action group, select **+Create action group**
+
+      ![create_action_group_alerts](media/sql-database-managed-instance-alerts/managed-instance-alert-create-action-group-annotated.png)
+   
+   * Define how do you want to be alerted: Enter action group name, short name, action name and select Action Type. The Action Type defines if you will be notified via email, text message, voice call, or if perhaps webhook, Azure function, runbook will be executed, or ITSM ticket will be created in your compatible system.
+
+      ![define_how_to_be_alerted](media/sql-database-managed-instance-alerts/managed-instance-alerts-add-action-group-annotated.png)
 
 10. Fill in the alert rule details for your records, and select the severitity type.
 
