@@ -127,7 +127,7 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
 
 ## Create a pool from a Shared Image using Python
 
-You can also create a pool from a Shared Image using Python SDK. 
+You also can create a pool from a Shared Image by using the Python SDK: 
 
 ```python
 # Import the required modules from the
