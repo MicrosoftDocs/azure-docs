@@ -37,7 +37,7 @@ Create a VuePress app from the Command Line Interface (CLI):
    mkdir static-site
    ```
 
-1. Add a _README_ file the folder.
+1. Add a _README.md_ file the folder.
 
    ```bash
    echo '# Hello From VuePress' > README.md
@@ -64,6 +64,12 @@ Create a VuePress app from the Command Line Interface (CLI):
    }
    ...
    ```
+
+1. Create a _.gitignore_ file to exclude the _node\_modules_ folder.
+
+    ```bash
+    echo 'node_modules' > .gitignore
+    ```
 
 1. Initialize a git repo.
 
@@ -101,11 +107,11 @@ The following steps show you how to create a new Static Web Apps application and
 
 1. Select **Create a Resource** and search for **Static Web Apps**.
 
-   ![Create a Static Web Apps (Preview) in the portal](./media/static-apps-publish-vuepress/create-in-portal.png)
+   ![Create a Static Web Apps (Preview) in the portal](./media/static-web-apps-publish-vuepress/create-in-portal.png)
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 
-1. In _Resource group_, select **New**. In _New resource group name_, enter **myStaticApp** and select **OK**.
+1. In _Resource group_, select **New**. In _New resource group name_, enter **vuepress-static-app** and select **OK**.
 
 1. Next, provide a globally unique name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`. This value is used as the URL prefix for your static app in the format of `https://<APP_NAME>.azurestaticapps.net`.
 
@@ -123,8 +129,10 @@ The following steps show you how to create a new Static Web Apps application and
 
 1. For the _Branch_ select **master**.
 
-   ![Completed GitHub information](./media/static-apps-publish-vuepress/completed-github-info.png)
+   ![Completed GitHub information](./media/static-web-apps-publish-vuepress/completed-github-info.png)
+
 1. Click **Next : Build >**
+
 ### Build
 
 Next, you add configuration settings that the build process uses to build your app. The following settings configure the GitHub Action workflow file.
@@ -145,7 +153,7 @@ A value for _API location_ isn't necessary as you aren't deploying an API at the
 
 1. Once the deployment completes click, **Go to resource**.
 
-1. On the resource screen, click the _URL_ link to open your deployed application.
+1. On the resource screen, click the _URL_ link to open your deployed application. You may need to wait a minute or two for the GitHub Action to complete.
 
    ![Deployed application](./media/static-web-apps-publish-vuepress/deployed-app.png)
 
