@@ -69,18 +69,21 @@ For more information, see the [global Azure documentation](../cognitive-services
 
 Variations in Azure Government:
 
-- Endpoint:  https://virginia.stt.speech.azure.us
-- Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken 
-- Custom Speech Portal: https://virginia.cris.azure.us/Home/CustomSpeech
-- Supported features:
-  - Speech-to-Text 
-  - Text-to-Speech 
-  - Speech Translator
-  - Custom Speech (Acoustic/language adaptation)
-  - Custom Voice
-  - Neural voices for text to speech
+**Endpoints**:
 
-See details of supported locales by features in [Language and region support for the Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+* [Virginia] https://usgovvirginia.stt.speech.azure.us
+* [Arizona] https://usgovarizona.stt.speech.azure.us
+
+**Auth Token Service**:
+
+* [Virginia] https://usgovvirginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
+* [Arizona] https://usgovarizona.api.cognitive.microsoft.us/sts/v1.0/issueToken
+
+**Custom Speech Portal**:
+
+* https://speech.azure.us
+ 
+For more information, see What is the Speech service.  
 
 ## Language
  
