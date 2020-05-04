@@ -25,7 +25,7 @@ All IoT Plug and Play devices are expected to implement some common interfaces. 
 - Must be declared in device model - If 'yes', this interface must be declared within the `"implements":` section of the device model for this IoT Plug and Play device.
 
 ## Retrieve interface definitions 
-You can log into [Plug and Play Model Repository (Preview)] (https://iotmodels.azure.com) to retrieve the definition of common interfaces. These common interfaces can be found under Public Models. For more information, see [Understand Plug and Play Model Repository (Preview)](concepts-model-repository.md).
+You can log into [Plug and Play Model Repository (Preview)](https://iotmodels.azure.com) to retrieve the definition of common interfaces. These common interfaces can be found under Public Models. For more information, see [Understand Plug and Play Model Repository (Preview)](concepts-model-repository.md).
 
 
 ## Next steps
