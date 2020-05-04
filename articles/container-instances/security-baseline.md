@@ -4,7 +4,7 @@ description: Azure security baseline for Container Instances
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,7 +30,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18871).
 
-**Guidance**: Azure Virtual Network provides secure, private networking for your Azure and on-premises resources. By limiting access to your private Azure container registry from an Azure virtual network, you ensure that only resources in the virtual network access the registry. For cross-premises scenarios, you can also configure firewall rules to allow registry access only from specific IP addresses. From behind a firewall, configure firewall access rules and service tags to access your container registry.
+**Guidance**: Azure Virtual Network provides secure, private networking for your Azure and on-premises resources. If using a cloud-based private registry like Azure container registry with Azure Container Instances, you can limit access to your private registry from an Azure virtual network by ensuring that only resources in the virtual network access the registry. For cross-premises scenarios, you can also configure firewall rules to allow registry access only from specific IP addresses. From behind a firewall, configure firewall access rules and service tags to access your container registry.
 
 Restrict access to an Azure container registry using an Azure virtual network or firewall rules: https://docs.microsoft.com/azure/container-registry/container-registry-vnet
 
