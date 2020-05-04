@@ -24,7 +24,7 @@ To create any of the Azure Cosmos DB resources below, copy the following example
 
 <a id="create-autoscale"></a>
 
-## Azure Cosmos account for Cassandra with autoscale throughput
+## Azure Cosmos account for Cassandra with autoscale provisioned throughput
 
 This template creates an Azure Cosmos account in two regions with options for consistency and failover, with a keyspace and table configured for autoscale throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
@@ -34,9 +34,9 @@ This template creates an Azure Cosmos account in two regions with options for co
 
 <a id="create-manual"></a>
 
-## Azure Cosmos account for Cassandra with manual throughput
+## Azure Cosmos account for Cassandra with standard (manual) provisioned throughput
 
-This template creates an Azure Cosmos account in two regions with options for consistency and failover, with a keyspace and table configured for manual throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
+This template creates an Azure Cosmos account in two regions with options for consistency and failover, with a keyspace and table configured for standard throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-cassandra%2Fazuredeploy.json)
 
