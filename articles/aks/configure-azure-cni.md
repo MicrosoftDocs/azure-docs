@@ -147,6 +147,10 @@ The following questions and answers apply to the **Azure CNI** networking config
 
   No. Deploying VMs in the subnet used by your Kubernetes cluster is not supported. VMs may be deployed in the same virtual network, but in a different subnet.
 
+* *What source IP will external systems see for traffic originating from an Azure CNI enabled Pod?*
+
+  Systems within the same Vnet as the AKS cluster will see the Pod IP as the source address for any traffic from the Pod. Systems outside of the AKS cluster Vnet will see the Node IP as the source address for any traffic from the Pod. 
+
 * *Can I configure per-pod network policies?*
 
   Yes, Kubernetes network policy is available in AKS. To get started, see [Secure traffic between pods by using network policies in AKS][network-policy].
