@@ -24,16 +24,19 @@ In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) generated 
 
 Rather than using the Next.js CLI to create an app, you can use a starter repository that includes an existing Next.js app. This repository features a Next.js app with dynamic routes, which highlights a common deployment issue. Dynamic routes need an extra deployment configuration which you will learn more about in a moment.
 
-1. Clone starter repository:
+1. Create a new repository under your GitHub account from a template repository. 
+1. Navigate to <http://github.com/staticwebdev/nextjs-starter/generate>
+1. Name the repository **nextjs-starter**
+1. Next, clone the new repo to your machine. Make sure to replace <YOUR_GITHUB_ACCOUNT_NAME> with your account name.
 
-   ```bash
-   git clone https://github.com/christiannwamba/nextjs-static-websites-starter
-   ```
+    ```bash
+    git clone http://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/nextjs-starter
+    ```
 
 1. Navigate to the newly cloned Next.js app:
 
    ```bash
-   cd nextjs-static-websites-starter
+   cd nextjs-starter
    ```
 
 1. Install dependencies:
@@ -48,7 +51,7 @@ Rather than using the Next.js CLI to create an app, you can use a starter reposi
     npm run dev
     ```
 
-You should see the following website open in your preferred browser:
+Navigate to <http://localhost:3000> to open the app, where you should see the following website open in your preferred browser:
 
 ![Start Next.js app](./media/deploy-nextjs/start-nextjs-app.png)
 
@@ -60,7 +63,7 @@ When you click on a framework/library, you should see a details page about the s
 
 When you build a Next.js site using `npm run build`, the app is built as a traditional web app, not a static site. To generate a static site, use the following application configuration.
 
-1. To configure static routes, create file named _next.config.js_ at the root of your project.
+1. To configure static routes, create file named _next.config.js_ at the root of your project and add the following code..
 
     ```javascript
     module.exports = {
@@ -99,53 +102,41 @@ When you build a Next.js site using `npm run build`, the app is built as a tradi
 
 ## Push your static website to GitHub
 
-Azure Static Web Apps deploys your app from a GitHub repository and keeps doing so for every pushed commit to a designated branch. Use the following command to set up a repository.
+Azure Static Web Apps deploys your app from a GitHub repository and keeps doing so for every pushed commit to a designated branch. Use the following commands sync your changes to GitHub.
 
-1. Initialize a git repo
-
+1. Stage all changed files
     ```bash
-    # Remove existing .git
-    rm -rf .git
-    # Initialize git
-    git init
-    # Add all files
     git add .
-    # Commit changes
-    git commit -m "initial commit"
+    ```
+1. Commit all changes
+    ```bash
+    git commit -m "Update build config"
     ```
 
-1. Create a blank GitHub repo (don't create a README) from [https://github.com/new](https://github.com/new) and name it whatever you like for example, **nextjs-static-website**.
-
-1. Add the GitHub repo as a remote to your local repo.
-    
-    ```bash
-    git remote add origin https://github.com/<YOUR_USER_NAME>/<YOUR_REPO_NAME>
-    ```
-
-1. Push your local repo up to GitHub.
+1. Push your changes to GitHub.
 
     ```bash
-    git push --upstream origin master
+    git push origin master
     ```
 
 ## Deploy your static website
 
-The following steps show how to deploy the app you just pushed to GitHub to Azure Static Web Apps. Once in Azure you can deploy the application to a production environment.
+The following steps show how to link the app you just pushed to GitHub to Azure Static Web Apps. Once in Azure you can deploy the application to a production environment.
 
 ### Create Azure App Service Static App
 
 1. Navigate to the [Azure Portal](https://portal.azure.com).
 1. Click **Create a Resource** then search for **Static Web Apps** and select the matching result.
 
-  [Image of Static App]
+<!--- TODO: Add screenshot for navigating to static web apps --->
 
-1. Select a subscription from the *Subscription* dropdown list or use the default one.
-1. Click the **New** link below the *Resource group* dropdown. In *New resource group name*, type **nextjsstaticsite** and click **OK**
+1. Select a subscription from the *Subscription* drop-down list or use the default value.
+1. Click the **New** link below the *Resource group* drop-down. In *New resource group name*, type **mystaticsite** and click **OK**
 1. Provide a globally unique name for your app in the **Name** text box. Valid characters include `a-z`, `A-Z`, `0-9`, and `-`. This value is used as the URL prefix for your static app in the format of `https://<APP_NAME>.azurestaticapps.net`.
 1. In the *Region* drop-down, choose a region closest to you.
 1. Select **Free** from the SKU drop-down.
 
-  [Image of static app form]
+  ![Create Static Web App](./media/deploy-nextjs/create-static-web-app.png)
 
 ### Add a GitHub repository
 
@@ -156,7 +147,7 @@ The new Static Web Apps account needs access to the repository with your Next.js
 1. Find and select the name of the repository you created earlier.
 1. Choose **master** as the branch from the *Branch* drop-down.
 
-  [Image of new repo form]
+  ![Connect GitHub](./media/deploy-nextjs/connect-github.png)
 
 ### Configure the build process
 
@@ -164,7 +155,7 @@ Azure Static Web Apps is built to automatically carry out common tasks like inst
 
 1. Click on the **Build** tab to configure the static output folder.
 
-  [Image highlighting the Build tab]
+  ![Build tab](./media/deploy-nextjs/build-tab.png)
 
 1. Type **out** in the *App artifact location* text box.
 
@@ -173,7 +164,21 @@ Azure Static Web Apps is built to automatically carry out common tasks like inst
 1. Click the **Review + Create** button to verify the details are all correct.
 1. Click **Create** to start the creation of the resource and also provision a GitHub Action for deployment.
 1. Once the deployment is completed, click **Go to resource**
-1. On the resource screen, click the *URL* link to open your deployed application. 
+1. On the _Overview_ window, click the *URL* link to open your deployed application. 
+
+If the website does note immediately load, then the background GitHub Actions workflow is still running. Once the workflow is complete you can then click refresh the browser to view your web app.
+
+You can check the status of the Actions workflows by navigating to the Actions for your repository:
+
+```bash
+https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
+```
+
+### Sync changes
+
+When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. You need to bring this file down to your local repository so your git history is synchronized.
+
+Return to the terminal and run the following command `git pull origin maser`.
 
 ## Configure dynamic routes
 
@@ -182,17 +187,6 @@ Navigate to the newly-deployed site and click on one of the framework or library
 ![404 on dynamic routes](./media/deploy-nextjs/404-in-production.png)
 
 The reason for this error is because Next.js only generated the home page based on the application configuration.
-
-```javascript
-module.exports = {
-  exportTrailingSlash: true,
-  exportPathMap: function() {
-    return {
-      '/': { page: '/' }
-    };
-  }
-};
-```
 
 ## Generate static pages from dynamic routes
 
@@ -224,7 +218,7 @@ module.exports = {
   > [!NOTE]
   > The `exportPathMap` function is an async function, so you can make a request to an API in this function and use the returned list to generate the paths.
 
-1. Push the new changes to your GitHub repository and wait for a few minutes while GitHub Actions builds your site again. After the build is complete, the 404 error disappears.
+2. Push the new changes to your GitHub repository and wait for a few minutes while GitHub Actions builds your site again. After the build is complete, the 404 error disappears.
 
   ![404 on dynamic routes fixed](./media/deploy-nextjs/404-in-production-fixed.png)
 
