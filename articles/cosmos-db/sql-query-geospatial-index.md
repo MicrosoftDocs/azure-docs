@@ -23,7 +23,7 @@ If you specify an indexing policy that includes spatial index for /* (all paths)
 
 ## Modifying geospatial data type
 
-In your container, the **Geospatial Configuration** specifies how the spatial data will be indexed. You should specify one **Geospatial Configuration** per container: geography or geometry.
+In your container, the **Geospatial Configuration** specifies how the spatial data will be indexed. Specify one **Geospatial Configuration** per container: geography or geometry.
 
 You can toggle between the **geography** and **geometry** spatial type in the Azure Portal. It's important that you create a [valid spatial geometry indexing policy with a bounding box](#geometry-data-indexing-examples) before switching to the geometry spatial type.
 
@@ -31,7 +31,7 @@ Here's how to set the **Geospatial Configuration** in **Data Explorer** within t
 
 ![Setting geospatial configuration](./media/sql-query-geospatial-index/geospatialconfiguration.png)
 
-You can also modify the `geospatialConfig` in the .NET SDK in order to adjust the **Geospatial Configuration**:
+You can also modify the `geospatialConfig` in the .NET SDK to adjust the **Geospatial Configuration**:
 
 If not specified, the `geospatialConfig` will default to the geography data type. When you modify the `geospatialConfig`, all existing geospatial data in the container will be reindexed.
 
@@ -113,7 +113,7 @@ The bounding box consists of the following properties:
 
 A bounding box is required because geometric data occupies a plane that can be infinite. Spatial indexes, however, require a finite space. For the **geography** data type, the Earth is the boundary and you do not need to set a bounding box.
 
-You should create a bounding box that contains all (or most) of your data. Only operations computed on the objects that are entirely inside the bounding box will be able to utilize the spatial index. You should not make the bounding box significantly larger than necessary because this will negatively impact query performance.
+Create a bounding box that contains all (or most) of your data. Only operations computed on the objects that are entirely inside the bounding box will be able to utilize the spatial index. Making the bounding box larger than necessary will negatively impact query performance.
 
 Here is an example indexing policy that indexes **geometry** data with **geospatialConfig** set to `geometry`:
 
