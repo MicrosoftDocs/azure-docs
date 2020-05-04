@@ -68,9 +68,9 @@ Azure Bastion currently supports en-us-qwerty keyboard layout inside the VM.  Su
 No. UDR is not supported on an Azure Bastion subnet.
 For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual Appliance (NVA) in the same virtual network, you don’t need to force traffic from an Azure Bastion subnet to Azure Firewall because the communication between Azure Bastion and your VMs is private. For more information, see [Accessing VMs behind Azure Firewall with Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
-### <a name="filetransfer"></a>Is file-transfer supported with Azure Bastion RDP session?
+### <a name="rdpfeaturesupport"></a>What features are supported in an RDP session?
 
-We are working hard to add new features. As of now, file transfer is not supported but is part of our roadmap. Please feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+At this time, only text copy/paste is supported. Features such as file copy are not supported. Please feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/forums/217313-networking?category_id=367303).
 
 ### <a name="udr"></a>How do I handle deployment failures?
 
