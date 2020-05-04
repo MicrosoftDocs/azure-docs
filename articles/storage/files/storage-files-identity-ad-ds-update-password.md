@@ -9,7 +9,7 @@ ms.date: 04/20/2020
 ms.author: rogarana
 ---
 
-## 5. Update the password of your storage account identity in AD DS
+# Update the password of your storage account identity in AD DS
 
 If you registered the AD DS identity/account representing your storage account under an OU that enforces password expiration time, you must rotate the password before the maximum password age. Failing to update the password of the AD DS account will result in authentication failures to access Azure file shares.  
 

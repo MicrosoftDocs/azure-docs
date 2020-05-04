@@ -11,7 +11,7 @@ ms.author: rogarana
 
 ## 4. Mount a file share from a domain-joined VM
 
-The following process verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM. Be aware that the share level RBAC role assignment can take some time to be in effect. 
+The following process verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM. Be aware that the share level RBAC role assignment can take some time to take effect. 
 
 Sign in to the VM by using the Azure AD identity to which you have granted permissions, as shown in the following image. If you have enabled on-premises AD DS authentication for Azure Files, use your AD DS credentials. For Azure AD DS authentication, sign in with Azure AD credentials.
 
@@ -25,4 +25,4 @@ net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<
 
 ## Next steps
 
-[5. Update the password of your storage account identity in AD DS](storage-files-identity-ad-ds-update-password.md)
+[Update the password of your storage account identity in AD DS](storage-files-identity-ad-ds-update-password.md)
