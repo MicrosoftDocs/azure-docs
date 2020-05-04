@@ -1,5 +1,5 @@
 ---
-title: Create a Managed Service offer in the Commercial Marketplace 
+title: Create a Managed Service offer in the Microsoft commercial marketplace 
 description: How to create a new Managed Service offer for listing in Azure Marketplace using the Commercial Marketplace portal in Partner Center. 
 author: JnHs 
 ms.author: jenhayes
@@ -11,9 +11,6 @@ ms.date: 04/08/2020
 ---
 
 # Create a Managed Service offer
-
-> [!IMPORTANT]
-> We're moving the management of your Managed Service offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Publish a Managed Service offer to Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) to manage your offers in Cloud Partner Portal.
 
 Managed Service offers help to enable [Azure Lighthouse](../../lighthouse/overview.md) scenarios. When a customer accepts a Managed Service offer, they are then able to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md). Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 

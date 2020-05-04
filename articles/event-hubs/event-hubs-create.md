@@ -8,7 +8,7 @@ author: spelluru
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/11/2020
+ms.date: 05/04/2020
 ms.author: spelluru
 #Customer intent: How do I stream data and process telemetry from an event hub? 
 
@@ -56,21 +56,27 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
 
    ![Add button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. On the **Create namespace** page, take the following steps:
-    1. Enter a **name** for the namespace. The system immediately checks to see if the name is available.
-    2. Choose the **pricing tier** (Basic or Standard).
-    3. Notice that **Enable Kafka** option is automatically enabled. Azure Event Hubs provides you with a Kafka endpoint. This endpoint enables your Event Hubs namespace to natively understand [Apache Kafka](https://kafka.apache.org/intro) message protocol and APIs. With this capability, you can communicate with your event hubs as you would with Kafka topics without changing your protocol clients or running your own clusters. Event Hubs supports [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) and later.
-    4. Select the **subscription** in which you want to create the namespace.
-    5. Select an existing **resource group** or create a new resource group. 
-    4. Select a **location** for the namespace.
-    5. Select **Create**. You may have to wait a few minutes for the system to fully provision the resources.
+    1. Select the **subscription** in which you want to create the namespace.
+    2. Select the **resource group** you created in the previous step. 
+    3. Enter a **name** for the namespace. The system immediately checks to see if the name is available.
+    4. Select a **location** for the namespace.    
+    5. Choose the **pricing tier** (Basic or Standard).  
+    6. Leave the **throughput units** settings as it is. To learn about throughput units, see [Event Hubs scalability](event-hubs-scalability.md#throughput-units)  
+    5. Select **Review + Create** at the bottom of the page.
 
        ![Create an event hub namespace](./media/event-hubs-quickstart-portal/create-event-hub1.png)
-5. Refresh the **Event Hubs** page to see the event hub namespace. You can check the status of the event hub creation in the alerts. 
+   6. On the **Review + Create** page, review the settings, and select **Create**. Wait for the deployment to complete. 
 
-    ![Create an event hub namespace](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
-6. Select the namespace. You see the home page for your **Event Hubs namespace** in the portal. 
+       ![Review + create page](./media/event-hubs-quickstart-portal/review-create.png)
+   7. On the **Deployment** page, select **Go to resource** to navigate to the page for your namespace. 
 
-   ![Home page for the namespace](./media/event-hubs-quickstart-portal/namespace-home-page.png)
+      ![Deployment complete - go to resource](./media/event-hubs-quickstart-portal/deployment-complete.png)
+   8. Confirm that you see the **Event Hubs Namespace** page similar to the following example: 
+
+       ![Home page for the namespace](./media/event-hubs-quickstart-portal/namespace-home-page.png)       
+
+       > [!NOTE]
+       > Azure Event Hubs provides you with a Kafka endpoint. This endpoint enables your Event Hubs namespace to natively understand [Apache Kafka](https://kafka.apache.org/intro) message protocol and APIs. With this capability, you can communicate with your event hubs as you would with Kafka topics without changing your protocol clients or running your own clusters. Event Hubs supports [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) and later. For more information, see [Use Event Hubs from Apache Kafka applications](event-hubs-for-kafka-ecosystem-overview.md).
     
 ## Create an event hub
 
@@ -86,8 +92,6 @@ To create an event hub within the namespace, do the following actions:
 4. You can check the status of the event hub creation in alerts. After the event hub is created, you see it in the list of event hubs as shown in the following image:
 
     ![Event hub created](./media/event-hubs-quickstart-portal/event-hub-created.png)
-
-Congratulations! You have used the portal to create an Event Hubs namespace, and an event hub within that namespace. 
 
 ## Next steps
 
