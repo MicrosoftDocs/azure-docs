@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -25,17 +25,7 @@ This article shows you how to enable sign-in for users from an Amazon account by
 - Complete the steps in [Get started with custom policies](custom-policy-get-started.md).
 - If you don't already have an Amazon account, create one at [https://www.amazon.com/](https://www.amazon.com/).
 
-## Register the application
-
-To enable sign-in for users from an Amazon account, you need to create an Amazon application.
-
-1. Sign in to the [Amazon Developer Center](https://login.amazon.com/) with your Amazon account credentials.
-2. If you have not already done so, click **Sign Up**, follow the developer registration steps, and accept the policy.
-3. Select **Register new application**.
-4. Enter a **Name**, **Description**, and **Privacy Notice URL**, and then click **Save**. The privacy notice is a page that you manage that provides privacy information to users.
-5. In the **Web Settings** section, copy the values of **Client ID**. Select **Show Secret** to get the client secret and then copy it. You need both of them to configure an Amazon account as an identity provider in your tenant. **Client Secret** is an important security credential.
-6. In the **Web Settings** section, select **Edit**, and then enter `https://your-tenant-name.b2clogin.com` in **Allowed JavaScript Origins** and `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Allowed Return URLs**. Replace `your-tenant-name` with the name of your tenant. Use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
-7. Click **Save**.
+[!INCLUDE [active-directory-b2c-identity-provider-amazon](../../includes/active-directory-b2c-identity-provider-amazon.md)]
 
 ## Create a policy key
 

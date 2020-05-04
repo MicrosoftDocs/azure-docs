@@ -16,17 +16,7 @@ ms.subservice: B2C
 
 # Set up sign-up and sign-in with an Amazon account using Azure Active Directory B2C
 
-## Create an Amazon application
-
-To use an Amazon account as an [identity provider](authorization-code-flow.md) in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your tenant that represents it. If you don't already have an Amazon account you can sign up at [https://www.amazon.com/](https://www.amazon.com/).
-
-1. Sign in to the [Amazon Developer Center](https://login.amazon.com/) with your Amazon account credentials.
-1. If you have not already done so, click **Sign Up**, follow the developer registration steps, and accept the policy.
-1. Select **Register new application**.
-1. Enter a **Name**, **Description**, and **Privacy Notice URL**, and then click **Save**. The privacy notice is a page that you manage that provides privacy information to users.
-1. In the **Web Settings** section, copy the values of **Client ID**. Select **Show Secret** to get the client secret and then copy it. You need both of them to configure an Amazon account as an identity provider in your tenant. **Client Secret** is an important security credential.
-1. In the **Web Settings** section, select **Edit**, and then enter `https://your-tenant-name.b2clogin.com` in **Allowed JavaScript Origins** and `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Allowed Return URLs**. Replace `your-tenant-name` with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
-1. Click **Save**.
+[!INCLUDE [active-directory-b2c-identity-provider-amazon](../../includes/active-directory-b2c-identity-provider-amazon.md)]
 
 ## Configure an Amazon account as an identity provider
 
