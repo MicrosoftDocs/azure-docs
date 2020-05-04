@@ -19,7 +19,7 @@ Application settings are also sometimes referred to as environment variables.
 
 - An Azure Static Web Apps application
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- [Node.js and npm][https://nodejs.org/en/download/), the Node.js package manager.
+- [Node.js and npm](https://nodejs.org/en/download/), the Node.js package manager.
   - This requirement is used only to run the simple upload solution. It is not needed if the Azure CLI `rest` command is used to sync application settings to Azure.
 
 ## Types of application settings
