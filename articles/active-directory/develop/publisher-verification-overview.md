@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform accounts & tenant profiles on Android | Azure
+title: Publisher verification overview
 description: An overview of publisher verification for Microsoft identity platform.
 services: active-directory
 author: rwike77

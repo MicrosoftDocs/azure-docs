@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity platform accounts & tenant profiles on Android | Azure
-description: An overview of publisher verification for Microsoft identity platform.
+title: Troubleshoot publisher verification 
+description: Describles how to troubleshoot publisher verification for Microsoft identity platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,16 +14,16 @@ ms.custom: aaddev
 ms.reviewer: jesakowi
 ---
 
-# Troubleshoot publisher verfication
-Please do the following if you are receiving errors or seeing unexpected behavior: 
+# Troubleshoot publisher verification
+Do the following if you are receiving errors or seeing unexpected behavior: 
 
-1. See if your issue is covered in the [Frequently Asked Questions](publisher-verification-overview.md#frequently-asked-questions).  
+1. See if your issue is covered in the [frequently asked questions](publisher-verification-overview.md#frequently-asked-questions).  
 
-1. Ensure that you have met all of the Requirements and are following the Step-by-Step Instructions.  
+1. Ensure that you have met all of the [requirements](publisher-verification-overview.md#requirements) and are following the Step-by-Step Instructions.  
 
-If you are still unsure why the error is occurring, you can try making a request by Making Microsoft API Graph calls to gather additional and rule out any issues in the UI. Or, if you have access, you can use Internal Logs to troubleshoot further. 
+If you are still unsure why the error is occurring, you can try making a request by [making Microsoft Graph API calls](#making-microsoft-graph-api-calls) to gather additional and rule out any issues in the UI. Or, if you have access, you can use [Internal Logs](#internal-logs) to troubleshoot further. 
 
-If you are still receiving an error from Microsoft Graph, please gather as much of the following information as possible related to the failing call and reach out to Microsoft: 
+If you are still receiving an error from Microsoft Graph, gather as much of the following information as possible related to the failing call and reach out to Microsoft: 
 
 - Timestamp 
 - CorrelationId 
@@ -32,13 +32,13 @@ If you are still receiving an error from Microsoft Graph, please gather as much 
 - REST request being made 
 - Error code and message being returned 
 
-## Making Microsoft API Graph calls 
+## Making Microsoft Graph API calls 
 
 If you are having an issue but unable to understand why based on what you are seeing in the UI, it may be helpful to perform further troubleshooting by using Microsoft Graph calls to perform the same operations you can perform in the App Registration portal. During the preview phase, these APIs will only be available on the /beta endpoint of Microsoft Graph.  
 
-The easiest way to make these requests is using Graph Explorer. You may also consider other options like using Postman, or using PowerShell to invoke a web request. PowerShell cmdlets will be available soon.  
+The easiest way to make these requests is using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You may also consider other options like using [Postman](https://www.postman.com/), or using PowerShell to [invoke a web request](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7). PowerShell cmdlets will be available soon.  
 
-You can use Microsoft Graph to both set and unset your app’s Verified Publisher and check the result after performing one of these operations. The result can be seen on both the Application object corresponding to your app registration and any Service Principals that have been instantiated from that app. For more information on the relationship between those objects see: Application and service principal objects in Azure Active Directory.  
+You can use Microsoft Graph to both set and unset your app’s Verified Publisher and check the result after performing one of these operations. The result can be seen on both the [application](/graph/api/resources/application?view=graph-rest-beta) object corresponding to your app registration and any [service principals](/graph/api/resources/serviceprincipal?view=graph-rest-beta) that have been instantiated from that app. For more information on the relationship between those objects, see: [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).  
 
 Here are examples of some useful requests:  
 
@@ -121,43 +121,43 @@ The following is a list of the potential error codes you may receive when troubl
 
 HTTP 400	 
 
-The MPN ID you provided (<MPNID>) does not exist, or you do not have access to it. Please provide a valid MPN ID and try again. 
+The MPN ID you provided (<MPNID>) does not exist, or you do not have access to it. Provide a valid MPN ID and try again. 
 
 ### MPNGlobalAccountNotFound	 
 
 HTTP 400	 
 
-The MPN ID you provided (<MPNID>) is not valid. Please provide a valid MPN ID and try again. 
+The MPN ID you provided (<MPNID>) is not valid. Provide a valid MPN ID and try again. 
 
 ### MPNAccountInvalid	 
 
 HTTP 400	 
 
-The MPN ID you provided (<MPNID>) is not valid. Please provide a valid MPN ID and try again. 
+The MPN ID you provided (<MPNID>) is not valid. Provide a valid MPN ID and try again. 
 
 ### MPNAccountNotVetted	 
 
 HTTP 400	 
 
-The MPN ID (<MPNID>) you provided has not completed the vetting process. Please complete this process in Partner Center and try again. 
+The MPN ID (<MPNID>) you provided has not completed the vetting process. Complete this process in Partner Center and try again. 
 
 ### NoPublisherIdOnAssociatedMPNAccount	 
 
 HTTP 400	 
 
-The MPN ID you provided (<MPNID>) is not valid. Please provide a valid MPN ID and try again. 
+The MPN ID you provided (<MPNID>) is not valid. Provide a valid MPN ID and try again. 
 
 ### MPNIdDoesNotMatchAssociatedMPNAccount	 
 
 HTTP 400	 
 
-The MPN ID you provided (<MPNID>) is not valid. Please provide a valid MPN ID and try again. 
+The MPN ID you provided (<MPNID>) is not valid. Provide a valid MPN ID and try again. 
 
 ### ApplicationNotFound	 
 
 HTTP 404	 
 
-The target application (<AppId>) cannot be found. Please provide a valid application id and try again. 
+The target application (<AppId>) cannot be found. Provide a valid application ID and try again. 
 
 ### B2CTenantNotAllowed	 
 
@@ -175,13 +175,13 @@ This capability is not supported in an email verified tenant.
 
 HTTP 400	 
 
-The target application (<AppId>) does must have a Publisher Domain set. Please set a Publisher Domain and try again. 
+The target application (<AppId>) does must have a Publisher Domain set. Set a Publisher Domain and try again. 
 
 ### PublisherDomainIsNotDNSVerified	 
 
 HTTP 400	 
 
-The target application's Publisher Domain (<publisherDomain>) is not a verified domain in this tenant. Please verify a tenant domain using DNS verificaiton and try again. 
+The target application's Publisher Domain (<publisherDomain>) is not a verified domain in this tenant. Verify a tenant domain using DNS verification and try again. 
 ### PublisherDomainMismatch	 
 
 HTTP 400	 
@@ -198,7 +198,7 @@ You are not authorized to set the verified publisher property on application (<A
 
 HTTP 400	 
 
-The MPN Id was not provided in the request body or the request content type was not "application/json". 
+The MPN ID was not provided in the request body or the request content type was not "application/json". 
 
 ### MSANotSupported	 
 
@@ -206,7 +206,7 @@ HTTP 400
 
 This feature is not supported for Microsoft consumer accounts. Only applications registered in Azure AD by an Azure AD user are supported. 
 
-## Internal Logs 
+## Internal logs 
 
 ### AAD Graph Logs  
 
