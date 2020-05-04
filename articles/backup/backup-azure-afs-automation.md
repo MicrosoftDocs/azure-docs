@@ -36,10 +36,10 @@ Set up PowerShell as follows:
 
     > [!NOTE]
     > The minimum PowerShell version required for backup of Azure file shares is Az.RecoveryServices 2.6.0. Using the latest version, or at least the minimum version, helps you avoid issues with existing scripts. Install the minimum version by using the following PowerShell command:
-
-    ```powershell
-    Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
-    ```
+    >
+    > ```powershell
+    > Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+    > ```
 
 2. Find the PowerShell cmdlets for Azure Backup by using this command:
 
@@ -54,7 +54,7 @@ Set up PowerShell as follows:
 4. Sign in to your Azure account by using **Connect-AzAccount**.
 5. On the webpage that appears, you're prompted to enter your account credentials.
 
-    Alternately, you can include your account credentials as a parameter in the **Connect-AzAccount** cmdlet by using **-Credential**.
+    Alternatively, you can include your account credentials as a parameter in the **Connect-AzAccount** cmdlet by using **-Credential**.
    
     If you're a CSP partner working on behalf of a tenant, specify the customer as a tenant. Use their tenant ID or tenant primary domain name. An example is **Connect-AzAccount -Tenant "fabrikam.com"**.
 
