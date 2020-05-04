@@ -1,9 +1,9 @@
 ---
 title: Routes in Azure Static Web Apps
 description: Learn about back-end routing rules and how to secure routes with roles.
-services: azure-functions
+services: static-web-apps
 author: craigshoemaker
-ms.service: azure-functions
+ms.service: static-web-apps
 ms.topic:  conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
