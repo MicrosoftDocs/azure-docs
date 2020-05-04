@@ -41,16 +41,21 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     The *ConnectionMode* is configured during the construction of the *DocumentClient* instance with the *ConnectionPolicy* parameter.
     
-    ```java
-        public ConnectionPolicy getConnectionPolicy() {
-          ConnectionPolicy policy = new ConnectionPolicy();
-          policy.setConnectionMode(ConnectionMode.Direct);
-          policy.setMaxPoolSize(1000);
-          return policy;
-        }
+    ### <a id="java4-connection-policy"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-        ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-        DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
+    ```java
+    public ConnectionPolicy getConnectionPolicy() {
+        ConnectionPolicy policy = new ConnectionPolicy();
+        policy.setMaxPoolSize(1000);
+        return policy;
+    }
+
+    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+    CosmosAsyncClient client = new CosmosClientBuilder()
+        .setEndpoint(HOST)
+        .setKey(MASTER)
+        .setConnectionPolicy(connectionPolicy)
+        .buildAsyncClient();
     ```
 
 * **Collocate clients in same Azure region for performance**
@@ -59,6 +64,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
     When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
     ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
+
+    An app that interacts with a multi-region Azure Cosmos DB account needs to configure [preferred locations]() to ensure that requests are going to a collocated region.
+
+* **Enable [Accelerated Networking](https://www.360visibility.com/azure-accelerated-networking-and-how-to-enable-it/) for lower latency.**
 
 ## SDK Usage
 * **Install the most recent SDK**
@@ -70,6 +79,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
     Each AsyncDocumentClient instance is thread-safe and performs efficient connection management and address caching. To allow efficient connection management and better performance by AsyncDocumentClient, it is recommended to use a single instance of AsyncDocumentClient per AppDomain for the lifetime of the application.
 
    <a id="max-connection"></a>
+
+* **Use the lowest consistency level required for your application**
+
+    When you create a *CosmosClient*, the default consistency used if not explicitly set is *Session*. If *Session* consistency is not required by your application logic set the *Consistency* to *Eventual*. Note: it is recommended to use at least *Session* consistency in applications employing the Azure Cosmos DB Change Feed.
 
 * **Tuning ConnectionPolicy**
 
@@ -145,10 +158,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
 
-* **Use name based addressing**
-
-    Use name-based addressing, where links have the format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, instead of SelfLinks (\_self), which have the format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` to avoid retrieving ResourceIds of all the resources used to construct the link. Also, as these resources get recreated (possibly with same name), caching them may not help.
-
    <a id="tune-page-size"></a>
 
 * **Tune the page size for queries/read feeds for better performance**
@@ -161,41 +170,41 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 * **Use Appropriate Scheduler (Avoid stealing Event loop IO Netty threads)**
 
-    The Async Java SDK uses [netty](https://netty.io/) for non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Observable returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
+    The asynchronous functionality of Java SDK is based on [netty](https://netty.io/) non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Flux/Observable returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
 
     For example the following code executes a cpu intensive work on the event loop IO netty thread:
 
-    ```java
-    Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
-      collectionLink, document, null, true);
+    ### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-    createDocObs.subscribe(
-      resourceResponse -> {
-        //this is executed on eventloop IO netty thread.
-        //the eventloop thread is shared and is meant to return back quickly.
-        //
-        // DON'T do this on eventloop IO netty thread.
-        veryCpuIntensiveWork();
-      });
+    ```java
+    Mono<CosmosAsyncItemResponse<CustomPOJO>> createItemPub = asyncContainer.createItem(item);
+    createItemPub.subscribe(
+        itemResponse -> {
+            //this is executed on eventloop IO netty thread.
+            //the eventloop thread is shared and is meant to return back quickly.
+            //
+            // DON'T do this on eventloop IO netty thread.
+            veryCpuIntensiveWork();                
+        });
     ```
 
     After result is received if you want to do CPU intensive work on the result you should avoid doing so on event loop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work.
 
+    ### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
     ```java
-    import rx.schedulers;
-
-    Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
-      collectionLink, document, null, true);
-
-    createDocObs.subscribeOn(Schedulers.computation())
-    subscribe(
-      resourceResponse -> {
-        // this is executed on threads provided by Scheduler.computation()
-        // Schedulers.computation() should be used only when:
-        //   1. The work is cpu intensive 
-        //   2. You are not doing blocking IO, thread sleep, etc. in this thread against other resources.
-        veryCpuIntensiveWork();
-      });
+    import reactor.core.scheduler.Schedulers;
+    Mono<CosmosAsyncItemResponse<CustomPOJO>> createItemPub = asyncContainer.createItem(item);
+    createItemPub
+        .subscribeOn(Schedulers.elastic())
+        .subscribe(
+        itemResponse -> {
+            //this is executed on eventloop IO netty thread.
+            //the eventloop thread is shared and is meant to return back quickly.
+            //
+            // DON'T do this on eventloop IO netty thread.
+            veryCpuIntensiveWork();                
+        });
     ```
 
     Based on the type of your work you should use the appropriate existing RxJava Scheduler for your work. Read here
@@ -203,13 +212,21 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 	For More Information, Please look at the [GitHub page](https://github.com/Azure/azure-cosmosdb-java) for Async Java SDK.
 
-* **Disable netty's logging**
+* **Optimize logging settings in your application**
 
-    Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
+    For a variety of reasons, you may want or need to add logging in a thread which is generating high request throughput. If your goal is to fully saturate a container's provisioned throughput with requests generated by this thread, logging optimizations can greatly improve performance.
 
-    ```java
-    org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
-    ```
+    * ***Configure an async logger***
+
+        The latency of a synchronous logger necessarily factors into the overall latency calculation of your request-generating thread. An async logger such as [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0) is recommended to decouple logging overhead from your high-performance application threads.
+
+    * ***Disable netty's logging***
+
+        Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
+
+        ```java
+        org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
+        ```
 
  * **OS Open files Resource Limit**
  
@@ -233,27 +250,25 @@ So if you're asking "How can I improve my database performance?" consider the fo
     * - nofile 100000
     ```
 
-* **Use native TLS/SSL implementation for netty**
+* **Specify partition key in point writes**
 
-    Netty can use OpenSSL directly for TLS implementation stack to achieve better performance. In the absence of this configuration netty will fall back to Java's default TLS implementation.
+    To improve the performance of point writes, specify item partition key in the point write API call, as shown below:
 
-    on Ubuntu:
-    ```bash
-    sudo apt-get install openssl
-    sudo apt-get install libapr1
+    ### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
+    ```java
+    container.createItem(item,new PartitionKey(pk),new CosmosItemRequestOptions());
     ```
 
-    and add the following dependency to your project maven dependencies:
-    ```xml
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-tcnative</artifactId>
-      <version>2.0.20.Final</version>
-      <classifier>linux-x86_64</classifier>
-    </dependency>
+    rather than providing only the item instance:
+
+    ### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
+    ```java
+    container.createItem(item);
     ```
 
-For other platforms (Red Hat, Windows, Mac, etc.) refer to these instructions https://netty.io/wiki/forked-tomcat-native.html
+    The latter is supported but will add latency to your application; the SDK must parse the item and extract the partition key.
 
 ## Indexing Policy
  
@@ -261,15 +276,15 @@ For other platforms (Red Hat, Windows, Mac, etc.) refer to these instructions ht
 
     Azure Cosmos DB’s indexing policy allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (setIncludedPaths and setExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed. For example, the following code shows how to exclude an entire section of the documents (also known as a subtree) from indexing using the "*" wildcard.
 
-    ```Java
+    ### <a id="java4-indexing"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+    ```java
     Index numberIndex = Index.Range(DataType.Number);
-    numberIndex.set("precision", -1);
     indexes.add(numberIndex);
     includedPath.setIndexes(indexes);
     includedPaths.add(includedPath);
-    indexingPolicy.setIncludedPaths(includedPaths);
-    collectionDefinition.setIndexingPolicy(indexingPolicy);
-    ```
+    indexingPolicy.setIncludedPaths(includedPaths);        
+    containerProperties.setIndexingPolicy(indexingPolicy);
+    ``` 
 
     For more information, see [Azure Cosmos DB indexing policies](indexing-policies.md).
 
@@ -286,11 +301,13 @@ For other platforms (Red Hat, Windows, Mac, etc.) refer to these instructions ht
 
     To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) header to measure the number of request units consumed by these operations. You can also look at the equivalent RequestCharge property in ResourceResponse\<T> or FeedResponse\<T>.
 
-    ```Java
-    ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null,
-                                                     false).toBlocking.single();
+    ### <a id="java4-request-charge"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
+    ```java
+    CosmosAsyncItemResponse<CustomPOJO> response = asyncContainer.createItem(item).block();
+
     response.getRequestCharge();
-    ```
+    ```     
 
     The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
 
@@ -311,7 +328,7 @@ For other platforms (Red Hat, Windows, Mac, etc.) refer to these instructions ht
 
 * **Design for smaller documents for higher throughput**
 
-    The request charge (the request processing cost) of a given operation is directly correlated to the size of the document. Operations on large documents cost more than operations for small documents.
+    The request charge (the request processing cost) of a given operation is directly correlated to the size of the document. Operations on large documents cost more than operations for small documents. Ideally, architect your application and workflows to have your item size be ~1KB, or similar order or magnitude. For latency-sensitive applications large items should be avoided - multi-MB documents will slow down your application.
 
 ## Next steps
 
