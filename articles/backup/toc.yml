@@ -342,7 +342,7 @@
       href: security-overview.md
     - name: Role-Based Access Control
       href: backup-rbac-rs-vault.md
-    - name: Soft delete for cloud backups
+    - name: Soft delete 
       items:
       - name: Overview
         href: backup-azure-security-feature-cloud.md

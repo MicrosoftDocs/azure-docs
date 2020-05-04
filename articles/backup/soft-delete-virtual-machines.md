@@ -52,10 +52,6 @@ Soft delete is currently supported in the West Central US, East Asia, Canada Cen
 
    ![Screenshot of Azure portal, Resume backup option](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
-This flow chart shows the different steps and states of a backup item when Soft Delete is enabled:
-
-![Lifecycle of soft-deleted backup item](./media/backup-azure-security-feature-cloud/lifecycle.png)
-
 ## Soft delete for VMs using Azure PowerShell
 
 > [!IMPORTANT]
@@ -108,6 +104,10 @@ The 'DeleteState' of the backup item will revert to 'NotDeleted'. But the protec
 
 - Delete the backups using REST API as mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 - If user wishes to undo these delete operations, refer to steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+
+## How to disable soft delete
+
+Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) For instructions on how to disable soft delete, see [Enabling and disabling soft delete](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
 
 ## Next steps
 

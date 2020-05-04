@@ -72,19 +72,13 @@ These instructions also apply to SAP HANA in Azure VM.
 
    ![Undelete warning](./media/soft-delete-sql-saphana-in-azure-vm/undelete-warning.png)
 
-5. At this point, you can also restore the VM by selecting **Restore VM** from the chosen restore point.
+5. At this point, you can also restore the data by selecting **Restore VM** for the chosen restore point.
 
    ![Restore VM](./media/soft-delete-sql-saphana-in-azure-vm/restore-vm.png)
 
 6. After the undelete process is completed, the status will return to “Stop backup with retain data” and then you can choose **Resume backup**. The **Resume backup** operation brings back the backup item in the active state, associated with a backup policy selected by the user defining the backup and retention schedules.
 
    ![Resume backup](./media/soft-delete-sql-saphana-in-azure-vm/resume-backup.png)
-
-## How to disable soft delete
-
-Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) Only a Backup Administrator can disable this feature. To disable soft delete, disable the button under **Vault properties** > **Security settings** for the given vault. It's important to remember that once the button is disabled, the feature is disabled for all the workloads including virtual machines. Once enabled in preview (according to the safelisting steps), there's no way to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault.
-
-![Disable soft delete](./media/soft-delete-sql-saphana-in-azure-vm/disable-soft-delete.png)
 
 ## Soft delete for SQL server in VM using Azure PowerShell
 
@@ -121,19 +115,9 @@ Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -
 
 The **DeleteState** of the backup item will revert to **NotDeleted**. But the protection is still stopped. Resume the backup to re-enable the protection.
 
-### Disabling soft delete using Azure PowerShell
+## How to disable soft delete
 
-To disable, use the [Set-AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) PS cmdlet.
-
-```powershell
-Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
-```
-
-Points to note:
-
-1. If any soft-deleted backup items are present in the vault, the vault can't be deleted at that time. Try vault deletion after the backup items are permanently deleted, and there are no items in the soft deleted state left in the vault. To permanently delete soft deleted items, see [here](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#permanently-deleting-soft-deleted-backup-items).
-2. The **Soft Delete** button under Vault properties has to be enabled (it's enabled by default for all the vaults) along with subscription safelisting (as mentioned in the steps above) to get the soft delete preview enabled for SQL Server and SAP HANA Databases running in VMs.
-3. All the points and steps mentioned in the doc apply to both SQL server and SAP HANA databases running in virtual machines.
+Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) For instructions on how to disable soft delete, see [Enabling and disabling soft delete](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
 
 ## Next steps
 
