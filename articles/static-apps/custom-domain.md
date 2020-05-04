@@ -114,7 +114,7 @@ Sometimes you want all traffic sent to a subdomain to route to another domain. A
 
 Now that the wildcard domain is configured, it may take several hours for the changes to propagate worldwide. You can check the status of the propagation by going to [dnspropagation.net](https://dnspropagation.net). Enter your domain custom domain with any subdomain (other than `www`), select CNAME from the drop-down, and select **Start**.
 
-If your DNS changes have populated, the website returns your custom domain configured for your Static Web App (for instance, _www.example.com_).
+If your DNS changes have populated, the website returns your custom domain configured for your Static Web App (for instance, `www.example.com`).
 
 ## Next steps
 
