@@ -20,14 +20,14 @@ The following steps are required when using audio input streams:
 
 - Identify the format of the audio stream. The format must be supported by the Speech SDK and the Speech service. Currently, only the following configuration is supported:
 
-  Audio samples in PCM format, one channel, 16000 samples per second, 32000 bytes per second, two block align (16 bit including padding for a sample), 16 bits per sample.
+  Audio samples in PCM format, one channel, 16 bits per sample, 8000 or 16000 samples per second (16000 or 32000 bytes per second), two block align (16 bit including padding for a sample).
 
   The corresponding code in the SDK to create the audio format looks like this:
 
   ```csharp
   byte channels = 1;
   byte bitsPerSample = 16;
-  int samplesPerSecond = 16000;
+  int samplesPerSecond = 16000; // or 8000
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
