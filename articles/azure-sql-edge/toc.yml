@@ -8,12 +8,14 @@
     href: whats-new.md
   - name: Release notes
     href: release-notes.md
+  - name: Supported editions and features
+    href: features.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Deploy SQL Edge
     href: deploy-portal.md 
-  - name: Deploy ONNX on SQL Edge
+  - name: Deploy ONNX Models on SQL Edge
     href: deploy-onnx.md 
 - name: Tutorials
   items:
@@ -21,6 +23,8 @@
     href: tutorial-sync-data-factory.md
   - name: Sync data with SQL Data Sync
     href: tutorial-sync-data-sync.md
+  - name: Build an end-to-end machine learning solution
+    href: onnx-demo.md
 - name: How to
   items:
   - name: DAC packages and Stream Analytics jobs
@@ -29,12 +33,18 @@
   items:
   - name: Machine learning and AI with ONNX
     href: onnx-overview.md
-- name: Resources
-  items:
-  - name: ONNX demo
-    href: onnx-demo.md
   - name: Backup and restore
     href: backup-restore.md
+  - name: Data Streaming
+    items:
+    - name: T-SQL Streaming views and DMVs
+      href: streamong-catalog-views.md
+  - name: Processing timeseries data
+    items:
+    - name: Date_Bucket (Transact-SQL)
+      href: data-bucket-tsql.md
+- name: Resources
+  items:
   - name: Configure replication
     href: configure-replication.md
   - name: Connect
@@ -43,7 +53,5 @@
     href: create-stream-analytics-job.md
   - name: Stream data
     href: stream-data.md
-  - name: Features
-    href: features.md
   - name: Track data changes
     href: track-data-changes.md
