@@ -21,8 +21,8 @@ This article explains how to convert between different session token formats to 
 ## Session token formats
 
 There are two session token formats: **simple** and **vector**.  These two formats are not interchangeable so, the format should be converted when passing to the client application with different versions.
-- The **simple** session token format is used by the .NET SDK V1 
-- The **vector** session token format is used by the .NET SDK V2.  
+- The **simple** session token format is used by the .NET SDK V1 (Microsoft.Azure.DocumentDB -version 1.x)
+- The **vector** session token format is used by the .NET SDK V2 (Microsoft.Azure.DocumentDB -version 2.x)
 
 ### Simple session token
 
