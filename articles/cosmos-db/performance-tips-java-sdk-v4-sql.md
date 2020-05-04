@@ -32,14 +32,14 @@ So if you're asking "How can I improve my database performance?" consider the fo
 * **Connection mode: Use Direct mode**
 <a id="direct-connection"></a>
     
-    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of client-side latency. The *ConnectionMode* is a key configuration setting available for configuring the client *ConnectionPolicy*. For Async Java SDK, the two available ConnectionModes are:  
+    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of client-side latency. The *ConnectionMode* is a key configuration setting available for configuring the client *ConnectionPolicy*. For Java SDK v4, the two available ConnectionModes are:  
       
     * [Gateway (default)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
     * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
 
     Gateway mode is supported on all SDK platforms and it is the configured option by default. If your applications run within a corporate network with strict firewall restrictions, Gateway mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, Direct mode offers better performance due to fewer network hops.
 
-    The *ConnectionMode* is configured during the construction of the *DocumentClient* instance with the *ConnectionPolicy* parameter.
+    The *ConnectionMode* is configured during the construction of the Azure Cosmos DB client instance with the *ConnectionPolicy* parameter.
     
     ### <a id="java4-connection-policy"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
@@ -58,6 +58,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
         .buildAsyncClient();
     ```
 
+<a name="collocate-clients"></a>
 * **Collocate clients in same Azure region for performance**
    <a id="same-region"></a>
 
@@ -76,7 +77,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 * **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
-    Each AsyncDocumentClient instance is thread-safe and performs efficient connection management and address caching. To allow efficient connection management and better performance by AsyncDocumentClient, it is recommended to use a single instance of AsyncDocumentClient per AppDomain for the lifetime of the application.
+    Each Azure Cosmos DB client instance is thread-safe and performs efficient connection management and address caching. To allow efficient connection management and better performance by the Azure Cosmos DB client, it is recommended to use a single instance of the Azure Cosmos DB client per AppDomain for the lifetime of the application.
 
    <a id="max-connection"></a>
 
@@ -84,11 +85,51 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     When you create a *CosmosClient*, the default consistency used if not explicitly set is *Session*. If *Session* consistency is not required by your application logic set the *Consistency* to *Eventual*. Note: it is recommended to use at least *Session* consistency in applications employing the Azure Cosmos DB Change Feed.
 
+* **Use Async API to max out provisioned throughput**
+
+    Java SDK v4 bundles two APIs, Sync and Async. Roughly speaking, the Async API implements SDK functionality, whereas the Sync API is a thin wrapper that makes blocking calls to the Async API. This stands in contrast to the older Async Java SDK v2, which was Async-only, and to the older Legacy Sync Java SDK v2, which was Sync-only and had a completely separate implementation. 
+    
+    The choice of API is determined during client initialization; a *CosmosAsyncClient* supports Async API while a *CosmosClient* supports Sync API. 
+    
+    The Async API implements non-blocking IO and is the optimal choice if your goal is to max out throughput when issuing requests to Azure Cosmos DB. 
+    
+    Using Sync API can be the right choice if you want or need an API which blocks on the response to each request, or if synchronous operation is the dominant paradigm in your application. For example, you might want the Sync API when you are persisting data to Azure Cosmos DB in a microservices application, provided throughput is not critical.  
+    
+    Just be aware that Sync API throughput degrades with increasing request response-time, whereas the Async API can saturate the full bandwidth capabilities of your hardware. 
+    
+    Geographic collocation can give you higher and more consistent throughput when using Sync API (see [Collocate clients in same Azure region for performance](#collocate-clients)) but still is not expected to exceed Async API attainable throughput.
+
+    Some users may also be unfamiliar with [Project Reactor](https://projectreactor.io/), the Reactive Streams framework used to implement Java SDK v4 Async API. If this is a concern, we recommend you read our introductory [Reactor Pattern Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) and then take a look at this [Introduction to Reactive Programming](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) in order to familiarize yourself. If you have already used Azure Cosmos DB with an Async interface, and the SDK you used was Async Java SDK v2, then you may be familiar with [ReactiveX](http://reactivex.io/)/[RxJava](https://github.com/ReactiveX/RxJava) but be unsure what has changed in Project Reactor. In that case, please take a look at our [Reactor vs. RxJava Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) to become familiarized.
+
+    The following code snippets show how to initialize your Azure Cosmos DB client for Async API or Sync API operation, respectively:
+
+    ### <a id="java4-async-client"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
+    ```java
+    CosmosAsyncClient client = new CosmosClientBuilder()
+        .setEndpoint(HOSTNAME)
+        .setKey(MASTERKEY)
+        .setConnectionPolicy(CONNECTIONPOLICY)
+        .setConsistencyLevel(CONSISTENCY)
+        .buildAsyncClient();
+    ```
+
+    ### <a id="java4-sync-client"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
+
+    ```java
+    CosmosClient client = new CosmosClientBuilder()
+        .setEndpoint(HOSTNAME)
+        .setKey(MASTERKEY)
+        .setConnectionPolicy(CONNECTIONPOLICY)
+        .setConsistencyLevel(CONSISTENCY)
+        .buildClient();
+    ```    
+
 * **Tuning ConnectionPolicy**
 
-    By default, Direct mode Cosmos DB requests are made over TCP when using the Async Java SDK. Internally the SDK uses a special Direct mode architecture to dynamically manage network resources and get the best performance.
+    By default, Direct mode Cosmos DB requests are made over TCP when using Java SDK v4. Internally the SDK uses a special Direct mode architecture to dynamically manage network resources and get the best performance.
 
-    In the Async Java SDK, Direct mode is the best choice to improve database performance with most workloads. 
+    In Java SDK v4, Direct mode is the best choice to improve database performance with most workloads. 
 
     * ***Overview of Direct mode***
 
@@ -121,7 +162,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     * ***Programming tips for Direct mode***
 
-        Review the Azure Cosmos DB [Async Java SDK Troubleshooting](troubleshoot-java-async-sdk.md) article as a baseline for resolving any Async Java SDK issues.
+        Review the Azure Cosmos DB [Java SDK v4 Troubleshooting](troubleshoot-java-sdk-v4-sql.md) article as a baseline for resolving any Java SDK v4 issues.
 
         Some important programming tips when using Direct mode:
 
@@ -129,14 +170,14 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
         + **Carry out compute-intensive workloads on a dedicated thread** - For similar reasons to the previous tip, operations such as complex data processing are best placed in a separate thread. A request that pulls in data from another data store (for example if the thread utilizes Azure Cosmos DB and Spark data stores simultaneously) may experience increased latency and it is recommended to spawn an additional thread that awaits a response from the other data store.
 
-            + The underlying network IO in the Async Java SDK is managed by Netty, see these [tips for avoiding coding patterns that block Netty IO threads](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
+            + The underlying network IO in Java SDK v4 is managed by Netty, see these [tips for avoiding coding patterns that block Netty IO threads](troubleshoot-java-sdk-v4-sql.md#invalid-coding-pattern-blocking-netty-io-thread).
 
         + **Data modeling** - The Azure Cosmos DB SLA assumes document size to be less than 1KB. Optimizing your data model and programming to favor smaller document size will generally lead to decreased latency. If you are going to need storage and retrieval of docs larger than 1KB, the recommended approach is for documents to link to data in Azure Blob Storage.
 
 
 * **Tuning parallel queries for partitioned collections**
 
-    Azure Cosmos DB SQL Async Java SDK supports parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) related to working with the SDKs. Parallel queries are designed to improve query latency and throughput over their serial counterpart.
+    Azure Cosmos DB SQL Java SDK v4 supports parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) related to working with Java SDK v4. Parallel queries are designed to improve query latency and throughput over their serial counterpart.
 
     * ***Tuning setMaxDegreeOfParallelism\:***
     
@@ -170,7 +211,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 * **Use Appropriate Scheduler (Avoid stealing Event loop IO Netty threads)**
 
-    The asynchronous functionality of Java SDK is based on [netty](https://netty.io/) non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Flux/Observable returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
+    The asynchronous functionality of Java SDK is based on [netty](https://netty.io/) non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Flux returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
 
     For example the following code executes a cpu intensive work on the event loop IO netty thread:
 
@@ -207,10 +248,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
         });
     ```
 
-    Based on the type of your work you should use the appropriate existing RxJava Scheduler for your work. Read here
-    [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
+    Based on the type of your work you should use the appropriate existing Reactor Scheduler for your work. Read here
+    [``Schedulers``](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html).
 
-	For More Information, Please look at the [GitHub page](https://github.com/Azure/azure-cosmosdb-java) for Async Java SDK.
+	For more information on Java SDK v4, please look at the [Cosmos DB directory of the Azure SDK for Java monorepo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos).
 
 * **Optimize logging settings in your application**
 
@@ -322,7 +363,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     The SDKs all implicitly catch this response, respect the server-specified retry-after header, and retry the request. Unless your account is being accessed concurrently by multiple clients, the next retry will succeed.
 
-    If you have more than one client cumulatively operating consistently above the request rate, the default retry count currently set to 9 internally by the client may not suffice; in this case, the client throws a DocumentClientException with status code 429 to the application. The default retry count can be changed by using setRetryOptions on the ConnectionPolicy instance. By default, the DocumentClientException with status code 429 is returned after a cumulative wait time of 30 seconds if the request continues to operate above the request rate. This occurs even when the current retry count is less than the max retry count, be it the default of 9 or a user-defined value.
+    If you have more than one client cumulatively operating consistently above the request rate, the default retry count currently set to 9 internally by the client may not suffice; in this case, the client throws a *CosmosClientException* with status code 429 to the application. The default retry count can be changed by using setRetryOptions on the ConnectionPolicy instance. By default, the *CosmosClientException* with status code 429 is returned after a cumulative wait time of 30 seconds if the request continues to operate above the request rate. This occurs even when the current retry count is less than the max retry count, be it the default of 9 or a user-defined value.
 
     While the automated retry behavior helps to improve resiliency and usability for the most applications, it might come at odds when doing performance benchmarks, especially when measuring latency. The client-observed latency will spike if the experiment hits the server throttle and causes the client SDK to silently retry. To avoid latency spikes during performance experiments, measure the charge returned by each operation and ensure that requests are operating below the reserved request rate. For more information, see [Request units](request-units.md).
 
