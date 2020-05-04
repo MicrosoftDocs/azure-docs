@@ -35,7 +35,6 @@
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-cli",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md",
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file",
@@ -10532,6 +10531,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/saas-apps/directions-microsoft-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-clarizen-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/clarizen-tutorial",
       "redirect_document_id": true
@@ -20684,6 +20688,11 @@
     {
       "source_path": "articles/marketplace/cloud-partner-portal/index.md",
       "redirect_url": "https://go.microsoft.com/fwlink/?linkid=847458",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/billing-details.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations",
       "redirect_document_id": false
     },
     {

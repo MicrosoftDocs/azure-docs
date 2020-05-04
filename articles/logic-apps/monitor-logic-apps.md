@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 05/04/2020
 ---
 
 # Monitor run status, review trigger history, and set up alerts for Azure Logic Apps
@@ -14,7 +14,13 @@ After you [create and run a logic app](../logic-apps/quickstart-create-first-log
 
 For real-time event monitoring and richer debugging, set up diagnostics logging for your logic app by using [Azure Monitor logs](../azure-monitor/overview.md). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md), you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps by using Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!NOTE]
+> If your logic apps run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 
+> that was created to use an [internal access endpoint](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), 
+> you can view and access inputs and outputs from logic app's runs history *only from inside your virtual network*. Make sure that you have network 
+> connectivity between the private endpoints and the computer from where you want to access runs history. For example, your client computer can exist 
+> inside the ISE's virtual network or inside a virtual network that's connected to the ISE's virtual network, for example, through peering or a virtual 
+> private network. For more information, see [ISE endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
 
 <a name="review-runs-history"></a>
 
