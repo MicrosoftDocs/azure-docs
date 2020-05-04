@@ -29,6 +29,14 @@
   items:
   - name: DAC packages and Stream Analytics jobs
     href: stream-analytics.md
+  - name: Configure replication
+    href: configure-replication.md
+  - name: Track data changes
+    href: track-data-changes.md
+  - name: Manage T-SQL streaming jobs
+    href: create-stream-analytics-job.md
+  - name: Connect to SQL Edge
+    href: connect.md
 - name: Concepts
   items:
   - name: Machine learning and AI with ONNX
@@ -37,21 +45,11 @@
     href: backup-restore.md
   - name: Data Streaming
     items:
+    - name: Stream data
+      href: stream-data.md
     - name: T-SQL Streaming views and DMVs
-      href: streamong-catalog-views.md
+      href: streaming-catalog-views.md
   - name: Processing timeseries data
     items:
     - name: Date_Bucket (Transact-SQL)
       href: data-bucket-tsql.md
-- name: Resources
-  items:
-  - name: Configure replication
-    href: configure-replication.md
-  - name: Connect
-    href: connect.md
-  - name: Create Stream Analytics job
-    href: create-stream-analytics-job.md
-  - name: Stream data
-    href: stream-data.md
-  - name: Track data changes
-    href: track-data-changes.md
