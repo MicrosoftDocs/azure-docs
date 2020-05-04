@@ -1,6 +1,6 @@
 ---
-title: Commercial marketplace billing | Azure Marketplace
-description: This article covers commerce-related topics for commercial marketplace.
+title: Commercial marketplace billing in Azure Marketplace
+description: Learn about the marketplace publishing options and transact billing models for the commercial marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,7 +8,7 @@ ms.topic: guide
 ms.date: 12/12/2019
 ---
 
-# Commercial marketplace billing
+# Commercial marketplace billing with transact billing models
 
 This article covers commerce-related topics for the commercial marketplace:
 
