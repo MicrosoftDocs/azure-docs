@@ -569,13 +569,13 @@ productDirectory:
         - compute
         - databases
       url: https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json
-    - title: Static Web Sites
+    - title: Static Web Apps
       summary: Build and deploy full stack web apps to Azure from a GitHub repository
       imageSrc: ./media/index/static-apps.svg
       azureCategories:
         - compute
         - web
-      url: static-apps/index.yml
+      url: static-web-apps/index.yml
     # Card
     - title: Virtual Machine Scale Sets
       summary: Manage and scale up to thousands of Linux and Windows virtual machines
