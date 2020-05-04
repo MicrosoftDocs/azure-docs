@@ -15,27 +15,9 @@ manager: philmea
 
 Definitions of common terms as used in the IoT Plug and Play articles.
 
-## Azure CLI
-
-The Azure CLI is a cross-platform, command-line tool for managing Azure resources. The Azure IoT extension for the Azure CLI is a command-line tool for interacting with, and testing [IoT Plug and Play devices](#iot-plug-and-play-device). You can use the extension to:
-
-- Connect to an IoT Plug and Play device.
-- View the [telemetry](#telemetry) the device sends.
-- Work with device [properties](#properties).
-- Call device [commands](#commands).
-- Manage [model repositories](#model-repository), [interfaces](#interface), and [device capability models](#device-capability-model).
-
-## Azure IoT Central
-
-Azure IoT Central is a fully managed software-as-a-service solution that makes it easy to connect, monitor, and manage your [IoT Plug and Play devices](#iot-plug-and-play-device). You can use [device capability models](#device-capability-model) to automatically configure an IoT Central application to monitor and manage your devices.
-
 ## Azure IoT Tools extension
 
-Azure IoT Tools is a a collection of extensions in [Visual Studio code](#visual-studio-code) that help you interact with IoT Hub and develop IoT devices. For IoT Plug and Play device development, it helps you to:
-
-- Author [device capability models](#device-capability-model) and [interfaces](#interface).
-- Publish to [model repositories](#model-repository).
-- Generate skeleton code to implement the device application.
+Azure IoT Tools is a a collection of extensions in [Visual Studio code](#visual-studio-code) that help you interact with IoT Hub and develop IoT devices. For IoT Plug and Play device development, it helps you to author [device models](#device-model) and [interfaces](#interface)..
 
 ## Azure IoT explorer tool
 
@@ -66,41 +48,32 @@ Commands defined in an [interface](#interface) represent methods that can be exe
 
 All [IoT Plug and Play devices](#iot-plug-and-play-device) are expected to implement some common [interfaces](#interface). For example, the device information interface defines hardware and operating system information about the device. You can retrieve common interface definitions from the public model repository.
 
-## Company model repository
-
-An organization can use a company [model repository](#model-repository) as a private store for [device capability models](#device-capability-model) and [interfaces](#interface).
-
 ## Connection string
 
 A connection string encapsulates the information required to connect to an endpoint. A connection string typically includes the address of the endpoint and security information, but connection string formats vary across services. There are two types of connection string associated with the IoT Hub service:
 
 - Device connection strings enable [IoT Plug and Play devices](#iot-plug-and-play-device) to connect to the device-facing endpoints on an IoT hub. Client code on a device uses the connection string to establish a secure connection with an IoT hub.
 - IoT Hub connection strings enable back-end solutions and tools to connect securely to the service-facing endpoints on an IoT hub. These solutions and tools manage the IoT hub and the devices connected to it.
-- Company model repository connection strings enable back-end solutions and tools to connect securely to a [Company model repository](#company-model-repository). These solutions and tools consume or manage the [device capability models](#device-capability-model) and [interfaces](#interface) in the repository.
 
-## Device capability model
+## Device model
 
-A device capability model describes an [IoT Plug and Play device](#iot-plug-and-play-device) and defines the set of [interfaces](#interface) implemented by the device. A device capability model typically corresponds to a physical device, product, or SKU. You use the [Digital Twin Definition Language](#digital-twin-definition-language) to define a device capability model.
+A device model describes an [IoT Plug and Play device](#iot-plug-and-play-device) and defines the set of [interfaces](#interface) implemented by the device. A device model typically corresponds to a physical device, product, or SKU. You use the [Digital Twin Definition Language](#digital-twin-definition-language) to define a device model.
 
 ## Device developer
 
-A device developer uses a [device capability model](#device-capability-model), [interfaces](#interface), and an [Azure IoT device SDK](#azure-iot-device-sdk) to implement code to run on an [IoT Plug and Play device](#iot-plug-and-play-device).
+A device developer uses a [device model](#device-model), [interfaces](#interface), and an [Azure IoT device SDK](#azure-iot-device-sdk) to implement code to run on an [IoT Plug and Play device](#iot-plug-and-play-device).
 
 ## Device modeling
 
-A [device developer](#device-developer) uses the [Digital Twin Definition Language](#digital-twin-definition-language) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). The model can be shared using a model repository. A device developer can generate skeleton device code from the model. A [solution developer](#solution-developer) can configure an IoT solution from the model.
+A [device developer](#device-developer) uses the [Digital Twin Definition Language](#digital-twin-definition-language) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). The model can be shared using the model repository. A [solution developer](#solution-developer) can configure an IoT solution from the model.
 
 ## Device Provisioning Service
 
-[Azure IoT Central](#azure-iot-central) uses the Device Provisioning Service to manage all device registration and connection. For more information, see [Device connectivity in Azure IoT Central](../iot-central/core/concepts-get-connected.md). You can also use the Device Provisioning Service to manage device registration and connection to your IoT Hub-based IoT solution. For more information, see [Provisioning devices with Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
+Azure IoT Central uses the Device Provisioning Service to manage all device registration and connection. For more information, see [Device connectivity in Azure IoT Central](../iot-central/core/concepts-get-connected.md). You can also use the Device Provisioning Service to manage device registration and connection to your IoT Hub-based IoT solution. For more information, see [Provisioning devices with Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
 ## Device registration
 
-Before an [IoT Plug and Play device](#iot-plug-and-play-device) can connect to an IoT solution, it must be registered with the solution. [Azure IoT Central](#azure-iot-central) uses the [Device Provisioning Service](#device-provisioning-service) to manage device registration. In a custom IoT solution, you can register devices with your IoT hub in the Azure portal or programmatically.
-
-## Device-first
-
-[Azure IoT Central](#azure-iot-central) supports a device-first registration and connection scenario. In this scenario, an [IoT Plug and Play device](#iot-plug-and-play-device) can connect to an IoT Central application without being registered in advance. Registration happens automatically when a device first connects to the application.
+Before an [IoT Plug and Play device](#iot-plug-and-play-device) can connect to an IoT solution, it must be registered with the solution. Azure IoT Central uses the [Device Provisioning Service](#device-provisioning-service) to manage device registration. In a custom IoT solution, you can register devices with your IoT hub in the Azure portal or programmatically.
 
 ## Digital twin
 
@@ -120,7 +93,7 @@ A route set up in an [IoT hub](#azure-iot-hub) to deliver [digital twin change e
 
 ## Interface
 
-An interface describes related capabilities that are implemented by a [IoT Plug and Play device](#iot-plug-and-play-device) or [digital twin](#digital-twin). You can reuse interfaces across different [device capability models](#device-capability-model).
+An interface describes related capabilities that are implemented by a [IoT Plug and Play device](#iot-plug-and-play-device) or [digital twin](#digital-twin). You can reuse interfaces across different [device models](#device-model).
 
 ## IoT Hub query language
 
@@ -128,27 +101,23 @@ The IoT Hub query language is used for multiple purposes. For example, you can u
 
 ## IoT Plug and Play device
 
-An IoT Plug and Play device is typically a small-scale, standalone computing device that collects data or controls other devices, and that runs software or firmware that implements a [device capability model](#device-capability-model).  For example, an IoT Plug and Play device might be an environmental monitoring device, or a controller for a smart-agriculture irrigation system. You can write a cloud-hosted IoT solution to command, control, and receive data from IoT Plug and Play devices.
+An IoT Plug and Play device is typically a small-scale, standalone computing device that collects data or controls other devices, and that runs software or firmware that implements a [device model](#device-model).  For example, an IoT Plug and Play device might be an environmental monitoring device, or a controller for a smart-agriculture irrigation system. You can write a cloud-hosted IoT solution to command, control, and receive data from IoT Plug and Play devices.
 
 ## Model discovery
 
-When an [IoT Plug and Play device](#iot-plug-and-play-device) connects to an IoT solution, the solution can discover the capabilities of the device by finding the [device capability model](#device-capability-model). A device can send its capability model to the solution, or the solution can find a device capability model in a [model repository](#model-repository).
+When an [IoT Plug and Play device](#iot-plug-and-play-device) connects to an IoT solution, the solution can discover the capabilities of the device by finding the [device model](#device-model). A device can send its model to the solution, or the solution can find a device model in the [model repository](#model-repository).
 
 ## Model repository
 
-A model repository stores [device capability models](#device-capability-model) and [interfaces](#interface). There's a single [public model repository](#public-model-repository). Organizations can create their own organizational model repositories.
+The model repository stores [device models](#device-model) and [interfaces](#interface). Organizations can store their own models and interfaces in the repository and manage access with RBAC.
 
 ## Model repository REST API
 
-An API for managing and interacting with model repositories. For example, you can use the API to add [device capability models](#device-capability-model) and search for capability models.
+An API for managing and interacting with the model repository. For example, you can use the API to add and search for [device models](#device-model).
 
 ## Properties
 
 Properties are data fields defined in an [interface](#interface) that represent some state of a digital twin. You can declare properties as read-only or writable. Read-only properties, such as serial number, are set by code running on the [IoT Plug and Play device](#iot-plug-and-play-device) itself.  Writable properties, such as an alarm threshold, are typically set from the cloud-based IoT solution.
-
-## Public model repository
-
-There is a single public model repository that stores [device capability models](#device-capability-model) and [interfaces](#interface). The public model repository also stores [common interface](#common-interface) definitions.
 
 ## Registration ID
 
@@ -164,7 +133,7 @@ Shared access signatures are an authentication mechanism based on SHA-256 secure
 
 ## Solution developer
 
-A solution developer creates the solution back end. A solution developer typically works with Azure resources such as [IoT Hub](#azure-iot-hub) and  [model repositories](#model-repository), or works with [IoT Central](#azure-iot-central).
+A solution developer creates the solution back end. A solution developer typically works with Azure resources such as [IoT Hub](#azure-iot-hub) and  [model repositories](#model-repository).
 
 ## Telemetry
 

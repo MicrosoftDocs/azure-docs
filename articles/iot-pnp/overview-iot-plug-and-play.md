@@ -37,7 +37,7 @@ This article outlines:
 
 IoT Plug and Play is useful for two types of developers:
 
-- A _solution developer_ is responsible for developing an IoT solution using Azure IoT Hub and other Azure resources and for identifying IoT devices to integrate.
+- A _solution developer_ is responsible for developing an IoT solution using Azure IoT Hub and other Azure resources, and for identifying IoT devices to integrate.
 - A _device developer_ creates the code that runs on a device connected to your solution.
 
 ## Use IoT Plug and Play devices
@@ -48,7 +48,7 @@ When you connect an IoT Plug and Play device to an IoT hub, you can view the int
 
 ## Develop an IoT device application
 
-As a device developer, you can develop an IoT hardware product that supports IoT Plug and Play. The process involves two key steps:
+As a device developer, you can develop an IoT hardware product that supports IoT Plug and Play. The process includes two key steps:
 
 1. Define the device model and interfaces. You author a set of JSON files that define your device's capabilities using the [DTDL](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). A model describes a complete entity such as a physical product, and defines the set of interfaces implemented by that entity. Interfaces are shared contracts that uniquely identify the telemetry, properties, and commands supported by a device. Interfaces can be reused across different models.
 
