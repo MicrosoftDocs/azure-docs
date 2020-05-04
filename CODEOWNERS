@@ -1,4 +1,11 @@
 # Testing the new code owners feature in GitHub. Please contact Cory Fowler if you have questions.
+
+# Horizontals
+
+## Azure Policy: Samples
+articles/**/policy-samples.md @DCtheGeek
+includes/policy/ @DCtheGeek
+
 # Cognitive Services
 articles/cognitive-services/ @diberry @erhopf @aahill @ievangelist @patrickfarley @nitinme
 
@@ -9,7 +16,7 @@ articles/jenkins/ @TomArcherMsft
 articles/terraform/ @TomArcherMsft
 
 # Requires Internal Review
-articles/best-practices-availability-paired-regions.md @jpconnock @martinekuan @syntaxc4 @tysonn @snoviking
+articles/best-practices-availability-paired-regions.md @martinekuan @syntaxc4 @snoviking
 
 # Governance
 articles/governance/ @DCtheGeek
