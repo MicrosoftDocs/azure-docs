@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
@@ -23,6 +23,9 @@ This article highlights best practices, recommendations, and common oversights w
 If you’re just getting started, check out the [Microsoft identity platform documentation](index.yml) to learn about authentication basics, application scenarios in the Microsoft identity platform, and more.
 
 Use the following checklist to ensure that your application is effectively integrated with the [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/).
+
+> [!TIP]
+> The **integration assistant (preview)** in the Azure portal can help you apply many of these best practices and recommendations. Select the **Integration assistant (preview)** menu item in any app registration in the Azure portal to start the assistant. For more information, see [BLOG POST LINK HERE](https://aka.ms/integrationassistantblog).
 
 ## Basics
 
