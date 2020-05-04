@@ -18,25 +18,22 @@ From NoSQL migration to application development, you can choose from a variety o
 |---------|---------|---------|
 |[Striim](https://www.striim.com/)    |  Continuous, real-time data movement; Data migration|   USA   |
 | [10thMagnitude](https://www.10thmagnitude.com/) | IoT, Retail (inventory), Operational Analytics (Spark); Serverless architecture; App development | USA |
-|[Altoros Development LLC](https://www.altoros.com/)  |  IoT, Personalization Retail (inventory), Serverless architctures NoSQL migration; App development
- |   USA, Norway, Finland, Belarus, Argentina |
+|[Altoros Development LLC](https://www.altoros.com/)  |  IoT, Personalization Retail (inventory), Serverless architctures NoSQL migration; App development|   USA, Norway, Finland, Belarus, Argentina |
 |[Attunix Redapt](https://www.attunix.com/)    |   IoT, Personalization Retail (inventory), Serverless architctures NoSQL migration; App development      |    USA     |  
 |[Avanade](https://www.avanade.com/) | IoT, Retail (inventory), Serverless Architecture; App development | Austria, Germany, Switzerland, Italy, Norway, Spain, UK |
 |[Accenture](https://www.accenture.com/) | IoT, Retail (inventory), Serverless Architecture; App development |Global|
-
 |[Bluemetal](https://www.bluemetal.com/)     |  IoT, Personalization Retail (inventory), Operational Analytics for Enterprise & SMC; AI image annotation; Asset control; NoSQL migration; App development     |    North America, Asia-Pacific     |
 |[Capax Global LLC](https://www.capaxglobal.com/) | IoT, Personalization, Retail (inventory), Operational Analytics (Spark); Serverless architecture; App development|    USA     |  
 | [Capgemini](https://www.capgemini.com/) | Retail (inventory), IoT, Operational Analytics (Spark) ; App development | USA, France, UK, Netherlands, Finland  |
 | [Cognizant](https://www.cognizant.com/) | IoT, Personalization, Retail (inventory), Operational Analytics  (Spark) ; App development |USA, Canada, UK, Denmark, Netherlands, Switzerland, Australia, Japan |
 |[Infosys](https://www.infosys.com/)     | App development      |    USA    |  
 | [Lagash Systems](https://www.lagash.com/) | IoT; Serverless architecture; App development | Argentina, Chile, Colombia, Mexico|
-| [Lambda3 Informatics](https://www.lambda3.com.br/) | Real-time personalization; Retail inventory, App development; 
- | Brazil|
+| [Lambda3 Informatics](https://www.lambda3.com.br/) | Real-time personalization; Retail inventory, App development | Brazil|
 |[Neal Analytics](https://www.nealanalytics.com/)    |     Personalization, Retail (inventory), Operational Analytics (Spark) ; App development  |    USA     |  
 |[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   NoSQL migration      |   USA      |
 | [Ricoh Digital Services](https://www.ricoh.com/) | IoT, Real-time personalization; Retail inventory; NoSQL migration | UK  |
 |[SNP Technologies](https://www.snp.com/) | NoSQL migration| USA |
-| [Solidsoft Reply](https://www.reply.com/solidsoft-reply/) | NoSQL migration | Croatia, Sweden, Denmark, Ireland, Bulgaria, Slovenia, Cyprus, Malta, Lithuania, the Czech Republic, Iceland and Switzerland and Liechtenstein| 
+| [Solidsoft Reply](https://www.reply.com/solidsoft-reply/) | NoSQL migration | Croatia, Sweden, Denmark, Ireland, Bulgaria, Slovenia, Cyprus, Malta, Lithuania, the Czech Republic, Iceland and Switzerland and Liechtenstein|
 | [Spanish Point Technologies](https://www.spanishpoint.ie/) | NoSQL migration| Ireland|
 | [Syone](https://www.syone.com/) | NoSQL migration| Portugal|
 |[Tallan](https://www.tallan.com/)    |  App development      |    USA     |
