@@ -40,9 +40,9 @@ zone_pivot_groups: programming-languages-set-sixteen
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Header](../includes/quickstarts/tts/header.md)]
-[!INCLUDE [Header](../includes/quickstarts/tts/javascript/header.md)]
-[!INCLUDE [javascript](../includes/quickstarts/tts/javascript/javascript.md)]
+[!INCLUDE [Header](../includes/quickstarts/tts-audio-file/header.md)]
+[!INCLUDE [Header](../includes/quickstarts/tts-audio-file/javascript/header.md)]
+[!INCLUDE [javascript](../includes/quickstarts/tts-audio-file/javascript/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

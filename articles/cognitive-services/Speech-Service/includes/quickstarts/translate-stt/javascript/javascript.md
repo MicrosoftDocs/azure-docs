@@ -68,7 +68,6 @@ To launch the app, double-click on the index.html file or open index.html with y
 
 To launch your app, open your favorite web browser and point it to the public URL that you host the folder on, enter your [region](../../../../regions.md), and trigger synthesis of the input text. If configured, it will acquire a token from your token source.
 
-
 ## Next steps
 
 [!INCLUDE [footer](./footer.md)]
