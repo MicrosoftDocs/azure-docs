@@ -57,12 +57,3 @@ Once you have set your payout hold status to **On**, all payouts for this progra
 
 > [!NOTE]
 > Your **Payout hold status** applies to each program individually (Microsoft Store, advertising, Azure Marketplace, etc.). If you wish to hold payments on all of your programs, you must hold payments on each program individually.
-
-
- 
-
- 
-
-
-
-
