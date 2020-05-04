@@ -221,8 +221,10 @@
         href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
       - name: Monitor cluster performance
         href: ./hdinsight-key-scenarios-to-monitor.md
-      - name: Monitor cluster availability with Ambari and Azure Monitor logs
+      - name: Cluster availability - Apache Ambari
         href: ./hdinsight-cluster-availability.md
+      - name: Cluster availability - Azure Monitor logs
+        href: ./cluster-availability-monitor-logs.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot script actions
