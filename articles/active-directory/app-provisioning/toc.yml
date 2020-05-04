@@ -79,6 +79,8 @@
     items:
     - name: SCIM 2.0 protocol compliance
       href: application-provisioning-config-problem-scim-compatibility.md
+    - name: SCIM and Graph scenarios
+      href: scim-graph-scenarios.md
     - name: Choose a provisioning method
       href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Cloud HR provisioning

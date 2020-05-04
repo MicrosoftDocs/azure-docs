@@ -14,6 +14,7 @@ ms.date: 04/01/2020
 ms.author: juliako
 ---
 
+<!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # Azure Media Services quotas and limits
 
 This article lists some of the most common Microsoft Azure Media Services limits, which are also sometimes called quotas.

@@ -4,15 +4,13 @@ description: This article provides information on how to connect Akka Streams to
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
-manager: timlt
 editor: ''
 
 ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 04/02/2020
 ms.author: shvija
 
 ---
@@ -137,22 +135,11 @@ If the event hub has events (for instance, if your producer is also running), th
 Check out the [Akka Streams Kafka Guide](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) for more detailed information about Akka Streams.
 
 ## Next steps
-In this tutorial, you learned how to connect Akka Streams to the event hub without changing your protocol clients or running your own clusters. Azure Event Hubs for the Kafka supports [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html). You did the following actions as part of this tutorial: 
+To learn more about Event Hubs for Kafka, see the following articles:  
 
-> [!div class="checklist"]
-> * Create an Event Hubs namespace
-> * Clone the example project
-> * Run Akka Streams producer 
-> * Run Akka Streams consumer
-
-To learn more about Event Hubs and Event Hubs for Kafka, see the following topic:  
-
-- [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [How to create an event hub](event-hubs-create.md)
-- [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Mirror a Kafka broker in an event hub](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Connect Apache Spark to an event hub](event-hubs-kafka-spark-tutorial.md)
 - [Connect Apache Flink to an event hub](event-hubs-kafka-flink-tutorial.md)
 - [Integrate Kafka Connect with an event hub](event-hubs-kafka-connect-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md)

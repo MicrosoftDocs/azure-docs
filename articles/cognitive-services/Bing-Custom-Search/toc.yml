@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: What is the Bing Custom Search API?
-      href: overview.md  
+      href: overview.md
     - name: Compare the Bing Search APIs
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
@@ -108,7 +108,7 @@
     href: https://aka.ms/bingcustomsearchtryit
   - name: Bing Custom Search endpoint
     href: endpoint-custom.md
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

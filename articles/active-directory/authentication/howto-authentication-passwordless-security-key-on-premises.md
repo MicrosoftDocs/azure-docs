@@ -5,7 +5,7 @@ description: Learn how to enable passwordless security key sign-in to on-premise
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
 
 ms.author: iainfou
@@ -50,7 +50,7 @@ Organizations must also meet the following software requirements.
   - For more information on the available Azure AD hybrid authentication options, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../../security/fundamentals/choose-ad-authn.md) and [Select which installation type to use for Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Your Windows Server domain controllers must have the following patches installed:
     - For Windows Server 2016 - https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
-	- For Windows Server 2019 - https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
+    - For Windows Server 2019 - https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
 
 ### Supported scenarios
 
@@ -110,7 +110,7 @@ This command outputs the properties of the Azure AD Kerberos Server. You can rev
 
 | Property | Description |
 | --- | --- |
-| ID | The unique ID of the AD DS DC object. This ID is sometimes referred to as it’s "slot" or it’s "branch ID". |
+| ID | The unique ID of the AD DS DC object. This ID is sometimes referred to as it's "slot" or it's "branch ID". |
 | DomainDnsName | The DNS domain name of the Active Directory Domain. |
 | ComputerAccount | The computer account object of the Azure AD Kerberos Server object (the DC). |
 | UserAccount | The disabled user account object that holds the Azure AD Kerberos Server TGT encryption key. The DN of this account is `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>` |
@@ -124,7 +124,7 @@ This command outputs the properties of the Azure AD Kerberos Server. You can rev
 
 ### Rotating the Azure AD Kerberos Server key
 
-The Azure AD Kerberos Server encryption krbtgt keys should be rotated on a regular basis. It’s recommended that you follow the same schedule you use to rotate all other Active Directory Domain Controller krbtgt keys.
+The Azure AD Kerberos Server encryption krbtgt keys should be rotated on a regular basis. It's recommended that you follow the same schedule you use to rotate all other Active Directory Domain Controller krbtgt keys.
 
 > [!WARNING]
 > There are other tools that could rotate the krbtgt keys, however, you must use the tools mentioned in this document to rotate the krbtgt keys of your Azure AD Kerberos Server. This ensures the keys are updated in both on-premises AD and Azure AD.

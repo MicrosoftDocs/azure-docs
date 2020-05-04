@@ -3,7 +3,7 @@ title: Tutorial - Create and manage rules in your Azure IoT Central application
 description: This tutorial shows you how Azure IoT Central rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 04/06/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -14,7 +14,7 @@ manager: philmea
 
 *This article applies to operators, builders, and administrators.*
 
-You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules enable you to monitor your devices in near real time and automatically invoke actions, such as send an email. In just a few clicks, you can define a condition to monitor telemetry from your devices and configure a corresponding action. This article explains how to create rules to monitor telemetry sent by the device.
+You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules let you monitor your devices in near real time and automatically invoke actions, such as sending an email. This article explains how to create rules to monitor the telemetry your devices send.
 
 Devices use telemetry to send numerical data from the device. A  rule triggers when the selected device telemetry crosses a specified threshold.
 
@@ -29,11 +29,11 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, you should complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) quickstarts to create the **MXChip IoT DevKit** device template to work with.
+Before you begin, complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md) quickstarts to create the **MXChip IoT DevKit** device template to work with.
 
 ## Create a rule
 
-To create a telemetry rule, the device template must have at least one telemetry measurement defined. This tutorial uses an environmental sensor device that sends temperature and humidity telemetry. You added this device template and created a simulated device in the [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) quickstart. The rule monitors the temperature reported by the device and sends an email when it goes above 70 degrees.
+To create a telemetry rule, the device template must include at least one telemetry value. This tutorial uses a simulated **MXChip IoT DevKit** device that sends temperature and humidity telemetry. You added this device template and created a simulated device in the [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md) quickstart. The rule monitors the temperature reported by the device and sends an email when it goes above 70 degrees.
 
 1. In the left pane, select **Rules**.
 
@@ -61,8 +61,8 @@ Conditions define the criteria that the rule monitors. In this tutorial, you con
 
 1. Optionally, you can set a **Time aggregation**. When you select a time aggregation, you must also select an aggregation type, such as average or sum from the aggregation drop-down.
 
-    * Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if the rule is configured to trigger when temperature is above 70 then the rule triggers almost instantly when the device reports temperature > 70.
-    * With aggregation, the rule triggers if the aggregate value of the telemetry data points in the time window meets the condition. For example, if the rule is configured to trigger when temperature is above 70, time aggregation is set to 10 minutes, and the aggregation type is average, then the rule triggers when the device reports an average temperature > 70, calculated over a 10-minute interval.
+    * Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if you configure the rule to trigger when temperature is above 70 then the rule triggers almost instantly when the device temperature exceeds this value.
+    * With aggregation, the rule triggers if the aggregate value of the telemetry data points in the time window meets the condition. For example, if you configure the rule to trigger when temperature is above 70 and with an average time aggregation of 10 minutes, then the rule triggers when the device reports an average temperature greater than 70, calculated over a 10-minute interval.
 
      ![Aggregate condition](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
 
@@ -95,11 +95,11 @@ If you no longer need a rule, delete it by opening the rule and choosing **Delet
 
 ## Enable or disable a rule
 
-Choose the rule you want to enable or disable. Toggle the **Enable** or **Disable** button in the rule to enable or disable the rule for all devices that are scoped in the rule.
+Choose the rule you want to enable or disable. Toggle the **Enabled/Disabled** button in the rule to enable or disable the rule for all devices that are scoped in the rule.
 
-## Enable or disable a rule for a device
+## Enable or disable a rule for specific devices
 
-Choose the rule you want to enable or disable. Add a filter in the **Scopes** section to include or exclude a certain device in the device template.
+Choose the rule you want to customize. Use one or more filters in the **Target devices** section to narrow the scope of the rule to the devices you want to monitor.
 
 ## Next steps
 

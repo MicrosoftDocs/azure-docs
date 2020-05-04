@@ -14,6 +14,9 @@ ms.date: 01/16/2018
 ---
 
 # Azure Data Factory - naming rules
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 The following table provides naming rules for Data Factory artifacts.
 
 | Name | Name Uniqueness | Validation Checks |
