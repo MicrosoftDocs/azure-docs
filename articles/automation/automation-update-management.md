@@ -3,7 +3,7 @@ title: Update Management in Azure Automation
 description: This article describes the Update Management feature that manages updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 02/27/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
 ---
 # Update Management in Azure Automation
@@ -19,11 +19,6 @@ You can enable Update Management for virtual machines (VMs) using the following 
 
 > [!NOTE]
 > Update Management requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
-
-> [!NOTE]
-> This article was recently updated to use the term Azure Monitor logs instead of Log Analytics. Log data is still stored in a Log Analytics workspace and is still collected and analyzed by the same Log Analytics service. We are updating the terminology to better reflect the role of [logs in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs). See [Azure Monitor terminology changes](https://docs.microsoft.com/azure/azure-monitor/terminology) for details.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 An [Azure Resource Manager template](automation-update-management-deploy-template.md) is available to help you deploy Update Management to a new or existing Automation account and Log Analytics workspace in your subscription.
 
@@ -57,9 +52,9 @@ Update Management reports how up to date the machine is based on what source you
 
 You can deploy and install software updates on machines that require the updates by creating a scheduled deployment. Updates classified as optional aren't included in the deployment scope for Windows machines. Only required updates are included in the deployment scope.
 
-The scheduled deployment defines which target machines receive the applicable updates. It does so either by explicitly specifying certain machines or by selecting a [computer group](https://docs.microsoft.com/azure/azure-monitor/platform/computer-groups) that's based on log searches of a specific set of machines (or on an [Azure query](automation-update-management-query-logs.md) that dynamically selects Azure VMs based on specified criteria). These groups differ from [scope configuration](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting), which is used only to determine which machines get the management packs that enable Update Management.
+The scheduled deployment defines which target machines receive the applicable updates. It does so either by explicitly specifying certain machines or by selecting a [computer group](https://docs.microsoft.com/azure/azure-monitor/platform/computer-groups) that's based on log searches of a specific set of machines (or on an [Azure query](automation-update-management-query-logs.md) that dynamically selects Azure VMs based on specified criteria). These groups differ from [scope configuration](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting), which is used to control the targeting of machines that receive the configuration to enable Update Management. This prevents them from performing and reporting update compliance, and install approved required updates.
 
-You also specify a schedule to approve and set a time period during which updates can be installed. This period is called the maintenance window. A 20-minute span of the maintenance window is reserved for reboots, assuming one is needed and you selected the appropriate reboot option. If patching takes longer than expected and there's less than 20 minutes in the maintenance window, a reboot won't occur.
+While defining a deployment, you also specify a schedule to approve and set a time period during which updates can be installed. This period is called the maintenance window. A 20-minute span of the maintenance window is reserved for reboots, assuming one is needed and you selected the appropriate reboot option. If patching takes longer than expected and there's less than 20 minutes in the maintenance window, a reboot won't occur.
 
 Updates are installed by runbooks in Azure Automation. You can't view these runbooks, and they don't require any configuration. When an update deployment is created, it creates a schedule that starts a master update runbook at the specified time for the included machines. The master runbook starts a child runbook on each agent to install the required updates.
 
@@ -106,7 +101,7 @@ The following information describes operating system-specific client requirement
 
 Windows agents must be configured to communicate with a WSUS server, or they require access to Microsoft Update. For information about how to install the Log Analytics agent for Windows, see [Connect Windows computers to Azure Monitor](../log-analytics/log-analytics-windows-agent.md).
 
-You can use Update Management with Configuration Manager. To learn more about integration scenarios, see [Integrate Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). The [Log Analytics agent for Windows](../azure-monitor/platform/agent-windows.md) is required. The agent is installed automatically if you're onboarding an Azure VM.
+You can use Update Management with Microsoft Endpoint Configuration Manager. To learn more about integration scenarios, see [Integrate Configuration Manager with Update Management](updatemgmt-mecmintegration.md#configuration). The [Log Analytics agent for Windows](../azure-monitor/platform/agent-windows.md) is required for Windows servers managed by sites in your Configuration Manager environment. 
 
 By default, Windows VMs that are deployed from the Azure Marketplace are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add Windows VMs to your workspace. If you don't actively manage updates by using Update Management, the default behavior (to automatically apply updates) applies.
 
@@ -130,7 +125,7 @@ To create and manage update deployments, you need specific permissions. To learn
 
 ## Update Management components
 
-Update Management uses the resources described in this section. These resources are automatically added to your Automation account when you enable Update Management. 
+Update Management uses the resources described in this section. These resources are automatically added to your Automation account when you enable Update Management.
 
 ### Hybrid Runbook Worker groups
 
@@ -233,7 +228,7 @@ To classify updates on Red Hat Enterprise version 6, you need to install the yum
 
 ## Integrate Update Management with Configuration Manager
 
-Customers who have invested in Microsoft Endpoint Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help them manage software updates. Configuration Manager is part of their software update management (SUM) cycle. To learn how to integrate Update Management with Configuration Manager, see [Integrate Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md).
+Customers who have invested in Microsoft Endpoint Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help manage software updates. To learn how to integrate Update Management with Configuration Manager, see [Integrate Configuration Manager with Update Management](updatemgmt-mecmintegration.md).
 
 ## Third-party updates on Windows
 
@@ -241,12 +236,13 @@ Update Management relies on the locally configured update repository to update s
 
 ## Enable Update Management
 
-An Azure [Resource Manager template](automation-update-management-deploy-template.md) is available to help you deploy Update Management to a new or existing Automation account and Azure Monitor Log Analytics workspace in your subscription. Here are the ways that you can enable Update Management:
+An Azure [Resource Manager template](automation-update-management-deploy-template.md) is available to help you deploy Update Management to a new or existing Automation account and Azure Monitor Log Analytics workspace in your subscription. It does not configure the scope of machines that should be managed, this is performed as a separate step after using the template.
+
+Here are the ways that you can enable Update Management and select machines to be managed:
 
 * [From a virtual machine](automation-onboard-solutions-from-vm.md).
 * [From browsing multiple machines](automation-onboard-solutions-from-browse.md).
-* [With an Azure Automation runbook](automation-onboard-solutions.md).
-* [With the Azure Resource Manager template](automation-update-management-deploy-template.md).
+* [From an Azure Automation account](automation-onboard-solutions.md).
 
 ## Next steps
 

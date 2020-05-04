@@ -519,6 +519,10 @@
           href: speech-devices-sdk-roobo-v1.md
         - name: Roobo v2 details
           href: speech-devices-sdk-roobo-v2.md
+    - name: How-to guides
+      items:
+        - name: How to configure a Microphone Array
+          href: how-to-devices-microphone-array-configuration.md
     - name: Quickstart
       items:
         - name: Use Speech devices SDK
