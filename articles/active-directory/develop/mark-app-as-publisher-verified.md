@@ -14,8 +14,12 @@ ms.custom: aaddev
 ms.reviewer: jesakowi
 ---
 
-# Publisher verification
-If you are already enrolled in the Microsoft Partner Network (MPN), you can get started right away: 
+# Mark your app as publisher verified
+
+This article describes how to mark your app as publisher verified.
+
+## Quickstart
+If you are already enrolled in the Microsoft Partner Network (MPN) and have met the [pre-requisites](publisher-verification-overview.md#requirements), you can get started right away: 
 
 1. Navigate to the preview version of the App Registration portal.
 
@@ -29,7 +33,7 @@ For more details on specific benefits, requirements, and frequent asked question
 
 
 ## Mark your app as publisher verified
-Make sure you have met the pre-requisites, then follow these steps to mark your app(s) as Publisher Verified.  
+Make sure you have met the [pre-requisites](publisher-verification-overview.md#requirements), then follow these steps to mark your app(s) as Publisher Verified.  
 
 1. Ensure you are signed in with an organizational (Azure AD) account that is authorized to make changes to the app(s) you want to mark as Publisher Verified and on the MPN Account in Partner Center. 
 
