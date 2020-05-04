@@ -87,6 +87,9 @@
       href: cli-samples.md
     - name: Azure Resource Manager
       href: resource-manager-samples.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-samples.md
   - name: Concepts
     items:
     - name: NoSQL vs. relational databases
@@ -1059,7 +1062,7 @@
           href: monitor-server-side-latency.md
         - name: Monitor request unit usage
           href: monitor-request-unit-usage.md
-      - name : Use Azure monitor metrics
+      - name : Use diagnostic logs
         items:
         - name: Monitor with diagnostic logs
           href: cosmosdb-monitor-resource-logs.md
