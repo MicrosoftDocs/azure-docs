@@ -13,7 +13,7 @@ manager: eliotgra
 
 # IoT Plug and Play Preview - May 2020
 
-This article describes the key changes in the IoT Plug and Play May 2020 preview release SDKs, libraries, tools, and services. The previous IoT Plug and Play preview release was in August 2019.
+This article describes the key changes in the SDKS, libraries, tools, and services in IoT Plug and Play May 2020 preview release. The previous IoT Plug and Play preview release was in August 2019.
 
 ## Digital Twin Definition Language (DTDL)
 
@@ -71,9 +71,7 @@ The event structure of the **DigitalTwinChangeEvents** [event source](../iot-hub
 
 The [Azure IoT Device Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) extension now provides authoring support for DTDL v2.
 
-The extension no longer provides integration with the model repository or code generation.
-
-Managing models in the repository is now done using a web UI.
+The extension no longer provides integration with the model repository or code generation. Managing models in the repository is now done using a web UI.
 
 If you require DTDL v1 support in VS Code, including the model repository UI and code generation, install the last version of the extension that supports DTDL v1.
 

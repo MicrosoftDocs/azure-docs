@@ -43,10 +43,10 @@ In this article, you use a sample environmental sensor written in Node.js to sim
 1. Open a local command-prompt window and navigate to a folder of your choice. Execute the following command to clone the [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node) GitHub repository into this location:
 
     ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-node
+    git clone -b digitaltwins-preview https://github.com/Azure/azure-iot-sdk-node
     ```
 
-1. This terminal window is your _device_ terminal. Navigate to the **/azure-iot-samples-node/digitaltwins/samples/device/javascript** folder in the cloned repository. Install all the dependencies by running the following command:
+1. This terminal window is your _device_ terminal. Navigate to the **azure-iot-sdk-node/digitaltwins/samples/device/javascript** folder in the cloned repository. Install all the dependencies by running the following command:
 
     ```cmd
     npm install
@@ -70,7 +70,7 @@ In this article, you use a sample environmental sensor written in Node.js to sim
 
 In this article, you use a sample IoT solution written in Node.js to interact with the sample device.
 
-1. Open another local command-prompt window to use as your _service_ terminal. Navigate to the **/azure-iot-samples-node/azure-iot-sdk-node/digitaltwins/samples/service** folder in the cloned repository.
+1. Open another local command-prompt window to use as your _service_ terminal. Navigate to the **azure-iot-sdk-node/digitaltwins/samples/service** folder in the cloned repository.
 
 1. Install all the dependencies by running the following command:
 
@@ -106,7 +106,7 @@ In this article, you use a sample IoT solution written in Node.js to interact wi
     Reporting environmentalSensor properties...
     ```
 
-1. In the **/azure-iot-samples-node/digital-twins/Quickstarts/Service** folder, open the file **get_digital_twin.js** in a text editor. Replace the `<DEVICE_ID_GOES_HERE>` placeholder with your device ID and save the file.
+1. In the **azure-iot-sdk-node/digitaltwins/samples/service** folder, open the file **get_digital_twin.js** in a text editor. Replace the `<DEVICE_ID_GOES_HERE>` placeholder with your device ID and save the file.
 
 1. Go to the _service_ terminal and use the following command to run the sample that reads device information:
 
