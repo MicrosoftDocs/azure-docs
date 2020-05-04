@@ -68,7 +68,7 @@ Now that you've registered your native application, you can give it access to ot
 1. Under the **Select an API** setting, select **APIs my organization uses**. A list appears, containing the applications in your directory that expose APIs.
 1. Type in the search box or scroll to find the proxy application that you published in [Step 1: Publish your proxy application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-configure-native-client-application#step-1-publish-your-proxy-application), and then select the proxy application.
 1. In the **What type of permissions does your application require?** heading, select the permission type. If your native application needs to access the proxy application API as the signed-in user, choose **Delegated permissions**.
-1. In the **Select permissions** heading, select the desired permission, and select **Add permissions**. The API permissions page for your native application now shows the proxy application and permission API that you added.
+1. In the **Select permissions** heading, select the desired permission, and select **Add permissions**. The **API permissions** page for your native application now shows the proxy application and permission API that you added.
 
 ## Step 4: Add the Microsoft Authentication Library to your code (.NET C# sample)
 
@@ -112,11 +112,11 @@ The required info in the sample code can be found in the Azure AD portal, as fol
 | Info required | How to find it in the Azure AD portal |
 | --- | --- |
 | \<Tenant ID> | **Azure Active Directory** > **Properties** > **Directory ID** |
-| \<App ID of the Native app> | **Enterprise applications** > *your native application* > **Properties** > **Application ID** |
-| \<Scope> | consists of the External Url of Proxy App (**Enterprise applications** > *your proxy application* > **Application proxy** > **External Url**) + "/user_impersonation"
+| \<App ID of the Native app> | **Application registration** > *your native application* > **Overview** > **Application ID** |
+| \<Scope> | **Application registration** > *your native application* > **API permissions** > Click on the Permission API (user_impersonation) > A panel with the caption **user_impersonation** appears on the right hand side. > The scope is the URL in the edit box.
 | \<Proxy App Url> | the External Url and path to the API
 
-After you edit the MSAL code with these parameters, your users can authenticate to native client applications even when they're outside of the corporate network.
+After you edit the MSAL code with these parameters, your users can authenticate to native client applications even when they are outside of the corporate network.
 
 ## Next steps
 
