@@ -103,7 +103,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> The Identifier value is not real. Update the value with the actual Identifier. Contact [Mimecast Personal Portal Client support team](https://www.mimecast.com/customer-success/technical-support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. If you wish to configure the application in **SP** initiated mode:
-https://login-us.mimecast.com/administration/app/#/administration-dashboard
+
     In the **Sign-on URL** textbox, type a URL: 
 
 	| Region  |  Value | 
@@ -204,7 +204,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Mimecast Admin Console Configuration](./media/mimecast-admin-console-tutorial/user-information.png)
 
-	a. In the **Email Address** textbox, enter the email address of the user like **B.Simon@yourdomainname.com**.
+	a. In the **Email Address** textbox, enter the email address of the user like `B.Simon@yourdomainname.com`.
 
 	b. In the **GLobal Name** textbox, enter the **Full name** of the user.
 
