@@ -37,11 +37,9 @@ Returns a row for each external streaming job created within the scope of the da
 
 The visibility of the metadata in catalog views is limited to securables that a user either owns or on which the user has been granted some permission. For more information, see [Metadata Visibility Configuration](/sql/relational-databases/security/metadata-visibility-configuration/).
 
-## See Also
+## See also
 
-[T-SQL Streaming Catalog Views](overview.md)
-
-[Catalog Views (Transact-SQL)](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql/)
-
-[System Views (Transact-SQL)](/sql/t-sql/language-reference/)
+- [T-SQL Streaming Catalog Views](overview.md)
+- [Catalog Views (Transact-SQL)](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql/)
+- [System Views (Transact-SQL)](/sql/t-sql/language-reference/)
 

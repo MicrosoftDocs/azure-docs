@@ -23,7 +23,7 @@ This section contains the available catalog views and functions that are related
 |[sys.external_streaming_jobs](sys-external-streaming-jobs.md) |Returns a row for each external streaming job created within the scope of the database.|
 |[sys.external_job_streams](sys-external-job-streams.md)|Returns a row each for the input or output external stream object mapped to an external streaming job.|
 
-## See Also
+## See also
 
 - [Catalog Views (Transact-SQL)](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql/)
 - [System Views (Transact-SQL)](/sql/t-sql/language-reference/)

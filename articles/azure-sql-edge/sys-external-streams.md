@@ -31,8 +31,8 @@ Returns a row for each external stream object created within the scope of the da
 |**is_schema_published**|**bit**|Only the schema of the object is published.|
 |**max_column_id_used**|**bit**| This column is used for internal purposes and will be removed in future|  
 |**uses_ansi_nulls**|**bit**| Stream object was created with the SET ANSI_NULLS database option ON|
-|**data_source_id**|**int**| The object id for the external data source represented by the stream object |  
-|**file_format_id**|**int**| The object id for the external file format used by the stream object. The external file format is required to specify the actual layout of the data referenced by an external stream| 
+|**data_source_id**|**int**| The object ID for the external data source represented by the stream object |  
+|**file_format_id**|**int**| The object ID for the external file format used by the stream object. The external file format is required to specify the actual layout of the data referenced by an external stream| 
 |**location**|**varchar(max)**| The target for the external stream object. For more information, refer [Create External Stream](overview.md) |
 |**input_option**|**varchar(max)**| The input options used during the creation of the external stream. For more information, refer [Create External Stream](overview.md) |
 |**output_option**|**varchar(max)**| The output options used during the creation of the external stream. For more information, refer [Create External Stream](overview.md) | 
@@ -41,7 +41,7 @@ Returns a row for each external stream object created within the scope of the da
 
 The visibility of the metadata in catalog views is limited to securables that a user either owns or on which the user has been granted some permission. For more information, see [Metadata Visibility Configuration](/sql/relational-databases/security/metadata-visibility-configuration/).
 
-## See Also
+## See also
 
 - [Catalog Views (Transact-SQL)](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql/)
 - [System Views (Transact-SQL)](/sql/t-sql/language-reference/)
