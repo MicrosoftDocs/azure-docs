@@ -136,7 +136,7 @@
       - name: Provision throughput on containers and databases
         displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
         href: set-throughput.md
-      - name: Provision throughput - autoscale mode
+      - name: Provision throughput - autoscale
         href: provision-throughput-autoscale.md
       - name: Autoscale FAQ
         href: autoscale-faq.md
@@ -1059,7 +1059,7 @@
           href: monitor-server-side-latency.md
         - name: Monitor request unit usage
           href: monitor-request-unit-usage.md
-      - name : Use diagnostic logs
+      - name : Use Azure monitor logs
         items:
         - name: Monitor with diagnostic logs
           href: cosmosdb-monitor-resource-logs.md
