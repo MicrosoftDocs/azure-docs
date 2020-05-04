@@ -43,12 +43,20 @@
     href: onnx-overview.md
   - name: Backup and restore
     href: backup-restore.md
-  - name: Data Streaming
+  - name: Data Streaming in SQL Edge
     items:
     - name: Stream data
       href: stream-data.md
-    - name: T-SQL Streaming views and DMVs
-      href: streaming-catalog-views.md
+    - name: Streaming views and DMVs
+      items:
+      - name: Streaming views and DMVs
+        href: streaming-catalog-views.md
+      - name: sys.external_job_streams (Transact-SQL)
+        href: sys.external-job-streams.md
+      - name: sys.externalstreaming_jobs (Transact-SQL)
+        href: sys.external-streaming-jobs.md
+      - name: sys.external_streams (Transact-SQL)
+        href: sys.external_streams.md
   - name: Processing timeseries data
     items:
     - name: Date_Bucket (Transact-SQL)

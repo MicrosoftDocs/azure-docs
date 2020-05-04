@@ -17,10 +17,11 @@ This section contains the available catalog views and functions that are related
   
 ## In This Section  
   
-|||  
-|-|-|
-|[sys.external_streams](sys-external-streams.md) | [sys.external_streaming_jobs](sys-external-streaming-jobs.md) |
-|[sys.external_job_streams](sys-external-job-streams.md) |
+|View|Description|  
+|:---|:---|
+|[sys.external_streams](sys-external-streams.md) |Returns a row for each external stream object created within the scope of the database.|
+|[sys.external_streaming_jobs](sys-external-streaming-jobs.md) |Returns a row for each external streaming job created within the scope of the database.|
+|[sys.external_job_streams](sys-external-job-streams.md)|Returns a row each for the input or output external stream object mapped to an external streaming job.|
 
 ## See Also
 
