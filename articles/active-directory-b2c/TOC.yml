@@ -228,7 +228,7 @@
       - name: Customize tokens
         href: configure-tokens-custom-policy.md
       - name: Configure session behavior
-        href: session-behavior-custom.md
+        href: session-behavior-custom-policy.md
     - name: Pass through external IdP token
       href: idp-pass-through-custom.md
     - name: Adaptive experience

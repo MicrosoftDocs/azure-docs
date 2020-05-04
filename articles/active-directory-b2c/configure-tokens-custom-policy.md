@@ -87,5 +87,5 @@ The following values are set in the previous example:
 ## Next steps
 
 - Learn more about [Azure AD B2C session](session-overview.md).
-- Learn how to [configure session behavior in custom policy](session-behavior-custom.md).
+- Learn how to [configure session behavior in custom policy](session-behavior-custom-policy.md).
 - Reference: [JwtIssuer](jwt-issuer-technical-profile.md).

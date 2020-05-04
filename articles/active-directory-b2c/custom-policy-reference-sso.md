@@ -168,4 +168,4 @@ The following `SM-Saml-issuer` technical profile is used by [SAML issuer technic
 ## Next steps
 
 - Learn more about [Azure AD B2C session](session-overview.md).
-- Learn how to [configure session behavior in custom policy](session-behavior-custom.md).
+- Learn how to [configure session behavior in custom policy](session-behavior-custom-policy.md).
