@@ -23,7 +23,7 @@ The HBase heap size specifies the maximum amount of heap to be used in megabytes
 
 1. Change the default value to 5,000 MB.
 
-    ![`Apache Ambari HBase memory heapsize`](./optimize-hbase-ambari/ambari-hbase-heapsize.png)
+    ![`Apache Ambari HBase memory heapsize`](./media/optimize-hbase-ambari/ambari-hbase-heapsize.png)
 
 ## Optimize read-heavy workloads
 
