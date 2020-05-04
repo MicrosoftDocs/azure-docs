@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -102,15 +102,9 @@ Upon a sign-out request, Azure AD B2C:
 
 When you redirect the user to the Azure AD B2C sign-out endpoint (for both OAuth2 and SAML protocols), Azure AD B2C clears the user's session from the browser. However, the user might still be signed in to other applications that use Azure AD B2C for authentication. To enable those applications to sign the user out simultaneously, Azure AD B2C sends an HTTP GET request to the registered `LogoutUrl` of all the applications that the user is currently signed in to.
 
-Applications must respond to this request by clearing any session that identifies the user and returning a `200` response. If you want to support single sign-out in your application, you must implement a `LogoutUrl` in your application's code. You can set the `LogoutUrl` from the Azure portal:
-
-1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Choose your Active B2C directory by clicking your account in the top right corner of the page.
-1. From the left hand navigation panel, choose **Azure AD B2C**, select **App registrations**, and then select your application.
-1. Select **Settings**, select **Properties**, and then find the **Logout URL** text box. 
-
+Applications must respond to this request by clearing any session that identifies the user and returning a `200` response. If you want to support single sign-out in your application, you must implement a `LogoutUrl` in your application's code. 
 
 ## Next steps
 
 - Learn how to [configure session behavior in user flow](session-behavior.md).
-- Learn how to [configure session behavior in custom policy](custom-policy-manage-sso-and-token-config.md#session-behavior-and-sso).
+- Learn how to [configure session behavior in custom policy](session-behavior-custom-policy.md).

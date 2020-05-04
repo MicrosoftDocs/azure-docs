@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 This article provides information about how you can manage your token, session, and single sign-on (SSO) configurations using [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C).
 
-## Token lifetimes and claims configuration
+## JTW token lifetimes and claims configuration
 
 To change the settings on your token lifetimes, you add a [ClaimsProviders](claimsproviders.md) element in the relying party file of the policy you want to impact.  The **ClaimsProviders** element is a child of the [TrustFrameworkPolicy](trustframeworkpolicy.md) element.
 
@@ -28,21 +28,21 @@ Inside, you'll need to put the information that affects your token lifetimes. Th
 
 ```XML
 <ClaimsProviders>
-   <ClaimsProvider>
-      <DisplayName>Token Issuer</DisplayName>
-      <TechnicalProfiles>
-         <TechnicalProfile Id="JwtIssuer">
-            <Metadata>
-               <Item Key="token_lifetime_secs">3600</Item>
-               <Item Key="id_token_lifetime_secs">3600</Item>
-               <Item Key="refresh_token_lifetime_secs">1209600</Item>
-               <Item Key="rolling_refresh_token_lifetime_secs">7776000</Item>
-               <Item Key="IssuanceClaimPattern">AuthorityAndTenantGuid</Item>
-               <Item Key="AuthenticationContextReferenceClaimPattern">None</Item>
-            </Metadata>
-         </TechnicalProfile>
-      </TechnicalProfiles>
-   </ClaimsProvider>
+  <ClaimsProvider>
+    <DisplayName>Token Issuer</DisplayName>
+    <TechnicalProfiles>
+      <TechnicalProfile Id="JwtIssuer">
+        <Metadata>
+          <Item Key="token_lifetime_secs">3600</Item>
+          <Item Key="id_token_lifetime_secs">3600</Item>
+          <Item Key="refresh_token_lifetime_secs">1209600</Item>
+          <Item Key="rolling_refresh_token_lifetime_secs">7776000</Item>
+          <Item Key="IssuanceClaimPattern">AuthorityAndTenantGuid</Item>
+          <Item Key="AuthenticationContextReferenceClaimPattern">None</Item>
+        </Metadata>
+      </TechnicalProfile>
+    </TechnicalProfiles>
+  </ClaimsProvider>
 </ClaimsProviders>
 ```
 
@@ -84,20 +84,8 @@ The following values are set in the previous example:
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
 
-## Session behavior and SSO
+## Next steps
 
-To change your session behavior and SSO configurations, you add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element.  The **UserJourneyBehaviors** element must immediately follow the **DefaultUserJourney**. The inside of your **UserJourneyBehavors** element should look like this example:
-
-```XML
-<UserJourneyBehaviors>
-   <SingleSignOn Scope="Application" />
-   <SessionExpiryType>Absolute</SessionExpiryType>
-   <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
-</UserJourneyBehaviors>
-```
-
-The following values are configured in the previous example:
-
-- **Single sign on (SSO)** - Single sign-on is configured with the **SingleSignOn**. The applicable values are `Tenant`, `Application`, `Policy`, and `Suppressed`.
-- **Web app session time-out** - The web app session timeout is set with the **SessionExpiryType** element. The applicable values are `Absolute` and `Rolling`.
-- **Web app session lifetime** - The web app session lifetime is set with the **SessionExpiryInSeconds** element. The default value is 86400 seconds (1440 minutes).
+- Learn more about [Azure AD B2C session](session-overview.md).
+- Learn how to [configure session behavior in custom policy](session-behavior-custom.md).
+- Reference: [JwtIssuer](jwt-issuer-technical-profile.md).
