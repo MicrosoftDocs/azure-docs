@@ -119,4 +119,4 @@ If your DNS changes have populated, the website returns your custom domain confi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings for app service static apps](app-settings.md)
+> [Configure app settings](einvironment-variables.md)
