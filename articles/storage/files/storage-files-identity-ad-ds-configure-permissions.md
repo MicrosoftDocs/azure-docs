@@ -17,7 +17,7 @@ Azure Files supports the full set of NTFS basic and advanced permissions. You ca
 
 To configure NTFS with superuser permissions, you must mount the share by using your storage account key from your domain-joined VM. Follow the instructions in the next section to mount an Azure file share from the command prompt and to configure NTFS permissions accordingly.
 
-The following sets of permissions are supported on the root directory of a file share:
+The following permissions are supported on the root directory of a file share:
 
 - BUILTIN\Administrators:(OI)(CI)(F)
 - NT AUTHORITY\SYSTEM:(OI)(CI)(F)
@@ -27,7 +27,7 @@ The following sets of permissions are supported on the root directory of a file 
 - NT AUTHORITY\SYSTEM:(F)
 - CREATOR OWNER:(OI)(CI)(IO)(F)
 
-### Mount a file share from the command prompt
+## Mount a file share from the command prompt
 
 Use the Windows **net use** command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
 
@@ -39,18 +39,20 @@ If you experience issues in connecting to Azure Files, please refer to [the trou
 
 
 ### Configure NTFS permissions with Windows File Explorer
+
 Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
 
 1. Open Windows File Explorer and right click on the file/directory and select **Properties**.
-2. Select the **Security** tab.
-3. Select **Edit..** to change permissions.
-4. You can change the permissions of existing users or select **Add...** to grant permissions to new users.
-5. In the prompt window for adding new users, enter the target user name you want to grant permission to in the **Enter the object names to select** box, and select **Check Names** to find the full UPN name of the target user.
-7.    Select **OK**.
-8.    In the **Security** tab, select all permissions you want to grant your new user.
-9.    Select **Apply**.
+1. Select the **Security** tab.
+1. Select **Edit..** to change permissions.
+1. You can change the permissions of existing users or select **Add...** to grant permissions to new users.
+1. In the prompt window for adding new users, enter the target user name you want to grant permission to in the **Enter the object names to select** box, and select **Check Names** to find the full UPN name of the target user.
+1.    Select **OK**.
+1.    In the **Security** tab, select all permissions you want to grant your new user.
+1.    Select **Apply**.
 
-### Configure NTFS permissions with icacls
+## Configure NTFS permissions with icacls
+
 Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
 
 ```
