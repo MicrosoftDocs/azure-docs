@@ -46,4 +46,4 @@ After performing this configuration change, you create a new deployment followin
 
 ## Next steps
 
-Create a new deployment following the steps described in [Creating an Update Deployment](automation-tutorial-update-management#schedule-an-update-deployment).
+Create a new deployment following the steps described in [Creating an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment).
