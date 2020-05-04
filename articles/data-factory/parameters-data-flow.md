@@ -64,6 +64,14 @@ If data flow parameter `stringParam` references a pipeline parameter with value 
 - If expression is checked, `$stringParam` evaluates to the value of column1 all uppercase.
 - If expression is not checked (default behavior),  `$stringParam` evaluates to `'upper(column1)'`
 
+#### Passing in timestamps
+
+In the pipeline expression language, System variables such as `pipeline().TriggerTime` and functions like `utcNow()` return timestamps as strings in format 'yyyy-MM-dd\'T\'HH:mm:ss.SSSSSSZ'. To convert these into data flow parameters of type timestamp, use string interpolation to include the desired timestamp in a `toTimestamp()` function. For example, to convert the pipeline trigger time into a data flow parameter, you can use `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')`. 
+
+![Setting a Data Flow parameter](media/data-flow/parameter-timestamp.png "Setting a Data Flow parameter")
+
+> [!NOTE]
+> Data Flows can only support up to 3 millisecond digits. The `left()` function is used trim off additional digits.
 
 #### Pipeline parameter example
 
