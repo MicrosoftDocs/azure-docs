@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 05/04/2020
 tags: connectors
 ---
 
