@@ -95,11 +95,11 @@ You can configure and get information about alert rules using the following inte
 
 10. Fill in the alert rule details for your records, and select the severity type.
 
-Within a few minutes new alert rule is active, and alerts are triggered as defined as previously described.
+   * Within a few minutes new alert rule is active, and alerts are triggered as defined as previously described.
 
-For the example shown on this page for setting up an alert on storage space, if your alerting option was email, you might receive email such is the one shown below. The email shows the alert name, details of the treshold and why the alert was triggered. You can use See in Azure portal button to view this alert in the web browser. Please note email formatting is subject to change.
+   * For the example shown on this page for setting up an alert on storage space, if your alerting option was email, you might receive email such is the one shown below. The email shows the alert name, details of the treshold and why the alert was triggered. You can use See in Azure portal button to view this alert in the web browser. Please note email formatting is subject to change.
 
-   ![alert_example](media/sql-database-managed-instance-alerts/managed-instance-email-alert-example-smaller-annotated.png)
+      ![alert_example](media/sql-database-managed-instance-alerts/managed-instance-email-alert-example-smaller-annotated.png)
 
 ## Modify existing alert rules
 
