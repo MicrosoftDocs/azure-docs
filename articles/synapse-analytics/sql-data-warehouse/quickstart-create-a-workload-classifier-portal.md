@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: 
-ms.date: 04/30/2020
+ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
@@ -70,14 +70,17 @@ Classification allows you to route requests, based on a set of rules, to a workl
 1.	Click **Azure Synapse Analytics (formerly SQL DW)** in the left page of the Azure portal.
 2.	Select **mySampleDataWarehouse** from the **Azure Synapse Analytics (formerly SQL DW)** page. The SQL pool opens.
 3.	Click **Workload management**.
+
+    ![Click Menu](./media/quickstart-create-a-workload-classifier-portal/menu.png)
+
 4.	Click **Settings & classifiers** on the right-hand side of the `DataLoads` workload group.
 
-    ![Click Create](./media/quickstart-create-a-workload-classifier-portal/quickstart-configure-workload-classifier-portal.png)
+    ![Click Create](./media/quickstart-create-a-workload-classifier-portal/settings-classifiers.png)
 
 5. Click on **Classifiers**.
 6. Click on **Add classifier**.
 
-    ![Click Add](./media/quickstart-create-a-workload-classifier-portal/quickstart-workload-classifier-add-portal.png)
+    ![Click Add](./media/quickstart-create-a-workload-classifier-portal/add-wc.png)
 
 7.	Enter `ELTLoginDataLoads` for **Name**.
 8.	Enter `ELTLogin` for **Member**.
@@ -86,7 +89,7 @@ Classification allows you to route requests, based on a set of rules, to a workl
 11.	Click **Add**.
 12.	Click **Save**.
 
-    ![Click Add](./media/quickstart-create-a-workload-classifier-portal/quickstart-workload-classifier-add-config-portal.png)
+    ![Click Config](./media/quickstart-create-a-workload-classifier-portal/config-wc.png)
 
 ## Verify and test classification
 Check the [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest)
@@ -136,15 +139,14 @@ To delete the `ELTLoginDataLoads` workload classifier created in this tutorial:
 
 1. Click on **1 Classifier** on the right-hand side of the `DataLoads` workload group.
 
-    ![Click Delete](./media/quickstart-create-a-workload-classifier-portal/quickstart-workload-classifier-delete.png)
+    ![Click Delete](./media/quickstart-create-a-workload-classifier-portal/delete-wc.png)
 
 2. Click on **Classifiers**.
 3. Click on the **`...`** to the right of the `ELTLoginDataLoads` workload classifier.
 4. Click on **Delete**.
 5. Click on **Save**.
 
-    ![Click Delete](./media/quickstart-create-a-workload-classifier-portal/quickstart-workload-classifier-delete-save.png)
-
+    ![Click Save](./media/quickstart-create-a-workload-classifier-portal/delete-save-wc.png)
 
 You're being charged for data warehouse units and data stored in your data warehouse. These compute and storage resources are billed separately.
 

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: 
-ms.date: 04/30/2020
+ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
@@ -45,7 +45,7 @@ To create a workload group with 20% isolation:
 4.	Click **New workload group**.
 5.	Click **Custom**.
 
-    ![Click Custom](./media/quickstart-configure-workload-isolation-portal/quickstart-create-workload-group-portal.png)
+    ![Click Custom](./media/quickstart-configure-workload-isolation-portal/create-wg.png)
 
 6.	Enter `DataLoads` for the **Workload group**.
 7.	Enter `20` for **Min. resources %**.
@@ -53,11 +53,11 @@ To create a workload group with 20% isolation:
 9.	Enter `100` for **Cap resources %**.
 10.   Click **Save**.
 
-   ![Click Save](./media/quickstart-configure-workload-isolation-portal/quickstart-configure-workload-group-portal.png)
+   ![Click Save](./media/quickstart-configure-workload-isolation-portal/configure-wg.png)
 
 A portal notification appears when the workload group is created.  The workload group resources are displayed in the charts below the configured values.
 
-   ![Click Final](./media/quickstart-configure-workload-isolation-portal/quickstart-workload-group-final-portal.png)
+   ![Click Final](./media/quickstart-configure-workload-isolation-portal/display-wg.png)
 
 ## Clean up resources
 
@@ -67,7 +67,7 @@ To delete the `DataLoads` workload group created in this tutorial:
 3. Click on **Yes** when prompted to confirm deletion of the workload group.
 4. Click on **Save**.
 
-   ![Click Delete](./media/quickstart-configure-workload-isolation-portal/quickstart-delete-workload-group-portal.png)
+   ![Click Delete](./media/quickstart-configure-workload-isolation-portal/delete-wg.png)
 
 
 
