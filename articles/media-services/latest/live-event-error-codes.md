@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services live event error codes | Microsoft Docs
 description: This article lists live event error codes.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2020
-ms.author: juliako
+ms.author: inhenkel
 
 ---
 
