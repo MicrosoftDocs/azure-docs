@@ -50,7 +50,7 @@ Virtual network support for Cognitive Services listed below is limited to the *C
 
 Virtual network support for Cognitive Services listed below is limited to the *Central US EUAP*, *South Central US*, *East US*, *West US 2*, *Global*, and *US Gov Virginia* Azure regions.
 > [!div class="checklist"]
-> * [Translator Text](./translator/index.yml)
+> * [Translator Text](./translator/reference/v3-0-reference#virtual-network-support)
 
 ## Service Tags
 In addition to supporting virtual network service endpoints for the services above, Cognitive Services also supports a service tag for outbound network rules configuration. The following services are included in the CognitiveServicesManagement service tag.

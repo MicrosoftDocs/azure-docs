@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Tutorial: Connect SQL on-demand (preview) to Power BI Desktop & create report
+# Tutorial: Use SQL on-demand (preview) with Power BI Desktop & create a report
 
 In this tutorial, you learn how to:
 
@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 >
 > - Create demo database
 > - Create view used for report
-> - Connect to Power BI Desktop
+> - Connect Power BI Desktop to SQL on-demand
 > - Create report based on view
 
 ## Prerequisites
@@ -46,7 +46,7 @@ Create the demo database (and drop an existing database if necessary) by running
 
 ```sql
 -- Drop database if it exists
-IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'Demo')
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Demo')
 BEGIN
     DROP DATABASE Demo
 END;
@@ -125,11 +125,11 @@ Create the report for Power BI Desktop using the following steps:
 
     - Example for AAD 
   
-    ![Click Sign in.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
+        ![Click Sign in.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
 
     - Example for SQL Login - Type your User name and password.
 
-    ![Use SQL login.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
+        ![Use SQL login.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
 
 
 5. Select the view `usPopulationView`, and then select **Load**. 

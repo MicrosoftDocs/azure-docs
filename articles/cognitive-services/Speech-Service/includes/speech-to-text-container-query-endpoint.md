@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 04/29/2020
 ms.author: aahi
 ---
 
@@ -31,6 +31,7 @@ to this call using the container [host](https://docs.microsoft.com/dotnet/api/mi
 var config = SpeechConfig.FromHost(
     new Uri("ws://localhost:5000"));
 ```
+
 # [Python](#tab/python)
 
 Change from using this Azure-cloud initialization call:
@@ -40,11 +41,4 @@ speech_config = speechsdk.SpeechConfig(
     subscription=speech_key, region=service_region)
 ```
 
-to this call using the container [host](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python):
-
-```python
-speech_config = speechsdk.SpeechConfig(
-    host="ws://localhost:5000")
-```
-
-***
+---

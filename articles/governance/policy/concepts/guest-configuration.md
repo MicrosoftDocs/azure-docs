@@ -32,8 +32,8 @@ applicable policy assignment and the corresponding configuration definition.
 > [!Important]
 > The Guest Configuration extension is required to perform audits in Azure virtual machines.
 > To deploy the extension at scale, assign the following policy definitions:
->   - Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.
->   - Deploy prerequisites to enable Guest Configuration Policy on Linux VMs.
+>   - [Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+>   - [Deploy prerequisites to enable Guest Configuration Policy on Linux VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ### Limits set on the extension
 
@@ -78,6 +78,8 @@ shows a list of supported operating systems on Azure images:
 |OpenLogic|CentOS|7.3 and later|
 |Red Hat|Red Hat Enterprise Linux|7.4 and later|
 |Suse|SLES|12 SP3 and later|
+
+Custom virtual machine images are supported by Guest Configuration policies as long as they are one of the operating systems in the table above.
 
 ### Unsupported client types
 

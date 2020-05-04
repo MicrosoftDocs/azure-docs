@@ -13,30 +13,14 @@
     items:
     - name: Using the web portal
       href: getting-started-build-a-classifier.md
-    - name: Using the .NET SDK
-      href: csharp-tutorial.md
-    - name: Using the Python SDK
-      href: python-tutorial.md
-    - name: Using the Java SDK
-      href: java-tutorial.md
-    - name: Using the Node.js SDK
-      href: node-tutorial.md
-    - name: Using the Go SDK
-      href: go-tutorial.md
+    - name: Using the Custom Vision SDK
+      href: quickstarts/image-classification.md
   - name: Build an object detector
     items:
     - name: Using the web portal
       href: get-started-build-detector.md
-    - name: Using the .NET SDK
-      href: csharp-tutorial-od.md
-    - name: Using the Python SDK
-      href: python-tutorial-od.md
-    - name: Using the Java SDK
-      href: java-tutorial-od.md
-    - name: Using the Node.js SDK
-      href: node-tutorial-object-detection.md
-    - name: Using the Go SDK
-      href: go-tutorial-object-detection.md
+    - name: Using the Custom Vision SDK
+      href: quickstarts/object-detection.md
 - name: Tutorials
   items:
   - name: Report visual states on IoT device

@@ -219,8 +219,6 @@
         href: box-tutorial.md
       - name: Boxcryptor
         href: boxcryptor-tutorial.md
-      - name: Bpm’online
-        href: bpmonline-tutorial.md
       - name: Brandfolder
         href: brandfolder-tutorial.md
       - name: Braze
@@ -383,6 +381,8 @@
         href: coupa-tutorial.md
       - name: CPQSync by Cincom
         href: cpqsync-by-cincom-tutorial.md
+      - name: Creatio
+        href: bpmonline-tutorial.md
       - name: CrossKnowledge Learning Suite
         href: crossknowledge-learning-suite-tutorial.md
       - name: CS Stars
@@ -413,6 +413,8 @@
         href: digicert-tutorial.md
       - name: Direct
         href: direct-tutorial.md
+      - name: Directions on Microsoft
+        href: directions-microsoft-tutorial.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
@@ -491,6 +493,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: EasySSO for Jira
+        href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
       - name: Euromonitor Passport
@@ -554,6 +558,8 @@
         href: five9-tutorial.md
       - name: Flatter Files
         href: flatter-files-tutorial.md
+      - name: Float
+        href: float-tutorial.md
       - name: Flock
         href: flock-tutorial.md
       - name: FloQast
@@ -790,6 +796,8 @@
         href: invision-tutorial.md
       - name: iWellnessNow
         href: iwellnessnow-tutorial.md
+      - name: IWT Procurement Suite
+        href: iwt-procurement-suite-tutorial.md
     - name: J - K
       items:
       - name: Jamf Pro
@@ -1000,6 +1008,8 @@
         href: myaryaka-tutorial.md
       - name: My Award Points Top Sub/Top Team
         href: myawardpoints-tutorial.md
+      - name: My IBISWorld
+        href: my-ibisworld-tutorial.md
       - name: myPolicies
         href: mypolicies-tutorial.md
       - name: MyVR
@@ -1030,9 +1040,9 @@
         href: netsuite-tutorial.md
       - name: Netvision Compas
         href: netvision-compas-tutorial.md
-      - name: New Relic
+      - name: New Relic by Account
         href: new-relic-tutorial.md
-      - name: New Relic (Limited Release)
+      - name: New Relic (By Organization)
         href: new-relic-limited-release-tutorial.md
       - name: Nexonia
         href: nexonia-tutorial.md
@@ -1172,6 +1182,8 @@
         href: predictixpricereporting-tutorial.md
       - name: PressPage
         href: presspage-tutorial.md
+      - name: Prezi
+        href: prezi-tutorial.md
       - name: Printix
         href: printix-tutorial.md
       - name: Prisma Cloud SSO
@@ -1829,8 +1841,8 @@
       items:
       - name: Netskope Administrator Console
         href: netskope-administrator-console-provisioning-tutorial.md
-      - name: New Relic(Limited Release)
-        href: new-relic-limited-release-provisioning-tutorial.md
+      - name: New Relic by Organization
+        href: new-relic-by-organization-provisioning-tutorial.md
       - name: Netsuite
         href: netsuite-provisioning-tutorial.md
       - name: OfficeSpace Software

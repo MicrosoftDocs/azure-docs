@@ -8,7 +8,6 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: timlt
 ---
 
 # What is Azure IoT Central?
@@ -55,7 +54,7 @@ As a solution builder, you use IoT Central to create a custom, cloud-hosted IoT 
 - A cloud-based application that receives telemetry from your devices and enables you to manage those devices.
 - Multiple devices running custom code connected to your cloud-based application.
 
-You can quickly deploy a new IoT Central application and then customize it to your specific requirements in your browser. You can start with a generic _application template_ or with one of the industry-focused application templates for [Retail](../retail/overview-iot-central-retail-pnp.md), [Energy](../energy/overview-iot-central-energy.md), [Government](../government/overview-iot-central-government.md), or [Healthcare](../healthcare/overview-iot-central-healthcare.md).
+You can quickly deploy a new IoT Central application and then customize it to your specific requirements in your browser. You can start with a generic _application template_ or with one of the industry-focused application templates for [Retail](../retail/overview-iot-central-retail.md), [Energy](../energy/overview-iot-central-energy.md), [Government](../government/overview-iot-central-government.md), or [Healthcare](../healthcare/overview-iot-central-healthcare.md).
 
 As a solution builder, you use the web-based tools to create a _device template_ for the devices that connect to your application. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
 
@@ -152,11 +151,11 @@ With any IoT solution designed to operate at scale, a structured approach to dev
 
 Built-in [dashboards](./howto-set-up-template.md#generate-default-views) provide a customizable UI to monitor device health and telemetry. Start with a pre-built dashboard in an [application template](howto-use-app-templates.md) or create your own dashboards tailored to the needs of your operators. You can share dashboards with all users in your application, or keep them private.
 
-### Rules and actions 
+### Rules and actions
 
 Build [custom rules](tutorial-create-telemetry-rules.md) based on device state and telemetry to identify devices in need of attention. Configure actions to notify the right people and ensure corrective measures are taken in a timely fashion.
 
-### Jobs 
+### Jobs
 
 [Jobs](howto-run-a-job.md) let you apply single or bulk updates to devices by setting properties or calling commands. 
 

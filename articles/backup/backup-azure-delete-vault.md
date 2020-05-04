@@ -1,12 +1,12 @@
 ﻿---
 title: Delete a Microsoft Azure Recovery Services vault 
-description: In this article, learn how to remove dependencies and then delete a Microsoft Azure Backup Recovery Services (MARS) vault.
+description: In this article, learn how to remove dependencies and then delete an Azure Backup Recovery Services vault.
 ms.topic: conceptual
 ms.date: 09/20/2019
 ---
 # Delete an Azure Backup Recovery Services vault
 
-This article describes how to delete a Microsoft [Azure Backup](backup-overview.md) Recovery Services (MARS) vault. It contains instructions for removing dependencies and then deleting a vault.
+This article describes how to delete an [Azure Backup](backup-overview.md) Recovery Services vault. It contains instructions for removing dependencies and then deleting a vault.
 
 ## Before you start
 
@@ -84,6 +84,7 @@ First, read the **[Before you start](#before-you-start)** section to understand 
 
      Review the warning message and the instructions in the consent check box.
     > [!NOTE]
+    >
     >- If the protected server is synced with Azure services and backup items exist, the consent check box will display the number of dependent backup items and the link to view the backup items.
     >- If the protected server is not synced with Azure services and backup items exist, the consent check box will display only the number of backup items.
     >- If there are no backup items, the consent check box will ask for deletion.

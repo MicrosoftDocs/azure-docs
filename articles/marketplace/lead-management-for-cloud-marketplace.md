@@ -43,7 +43,7 @@ Once you have configured your lead destination properly and have hit Publish on 
 
 Once the technical setup is in place, you should incorporate these leads into your current sales & marketing strategy and operational processes. We are interested in better understanding your overall sales process and want to work closely with you on providing high-quality leads and enough data to make you successful. We welcome your feedback on how we can optimize and enhance the leads we send you with additional data to help make these customers successful. Let us know if you're interested in providing feedback and suggestions to enable your sales team to be more successful with Marketplace Leads.
 
-## Common lead configuration errors during publishing in Partner Center
+## <a id="publishing-config-errors"></a> Common lead configuration errors during publishing in Partner Center
 
 **Could not save the lead to Dynamics CRM. Check the Dynamics CRM account settings. LastCRMError: Unable to sign in to Dynamics CRM, LastCRMException:** 
 
@@ -85,7 +85,7 @@ Leads are customers who are deploying your products from the Marketplace. Whethe
 
 **Where can I get help in setting up my lead destination?** 
 
-You can find documentation here: [Get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) or submit a support ticket through aka.ms/marketplacepublishersupport select offer type and lead management. 
+You can find documentation at [Get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) or submit a support ticket at [Help and support](https://partner.microsoft.com/support/v2/?stage=1). Select offer type and lead management. 
 
 **Am I required to configure a lead destination in order to publish an offer on Marketplace?**
 
@@ -182,7 +182,7 @@ The lead only gets written when you select Azure BLOB storage as your lead desti
 
 **I received an email from Marketplace, why can't I find the lead in my CRM?**  
 
-It's possible that the end user's email domain is from .edu. For privacy reasons we don't pass personal identifiable data from .edu domain. Submit a [support ticket](https://aka.ms/marketplacepublishersupport).
+It's possible that the end user's email domain is from .edu. For privacy reasons we don't pass personal identifiable data from .edu domain. Submit a support ticket at [Help and support](https://partner.microsoft.com/support/v2/?stage=1).
 
 **I have configured Azure Table/Azure BLOB as my lead destination, how can I view the leads?** 
 
