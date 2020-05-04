@@ -1,27 +1,34 @@
 ---
-title: Authentication methods - Azure Active Directory
-description: Authentication methods available in Azure AD for MFA and SSPR
+title: Authentication methods and features - Azure Active Directory
+description: Learn about the different authentication methods and features available in Azure Active Directory to help improve and secure sign-in events
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 05/04/2020
 
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry, michmcla
 
 ms.collection: M365-identity-device-management
+ms.custom: contperfq4
+
+# Customer intent: As an identity administrator, I want to understand what authentication options are available in Azure AD and how or why I can use them to improve and secure user sign-in events.
 ---
-# What are authentication methods?
+# What authentication methods and features are available in Azure Active Directory?
 
-As an administrator, choosing authentication methods for Azure Multi-Factor Authentication and self-service password reset (SSPR) it is recommended that you require users to register multiple authentication methods. When an authentication method is not available for a user, they can choose to authenticate with another method.
+As part of the sign-in experience for accounts in Azure Active Directory (Azure AD), there are different ways that a user can authenticate themselves. A username and password is the most common way a user would historically provide credentials. With modern authentication and security features in Azure AD, that basic password can be supplemented or replaced with additional authentication methods.
 
-Administrators can define in policy which authentication methods are available to users of SSPR and MFA. Some authentication methods may not be available to all features. For more information about configuring your policies see the articles [How to successfully roll out self-service password reset](howto-sspr-deployment.md) and [Planning a cloud-based Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+A user could choose to authenticate using one of the following authentication methods:
 
-Microsoft highly recommends Administrators enable users to select more than the minimum required number of authentication methods in case they do not have access to one.
+* Traditional username and password
+* Microsoft Authenticator App passwordless sign-in
+* OATH hardware token, such as FIDO2 security key
+* SMS-based passwordless sign-in
+
+Many accounts in Azure AD are enabled for self-service password reset (SSPR) or Azure Multi-Factor Authentication. These features include additional authentication methods such as voice call or security questions. It's recommended that you require users to register multiple authentication methods. When an authentication method isn't available for a user, they can choose to authenticate with another method. The following table outlines what authentication methods are available for the different scenarios:
 
 |Authentication Method|Usage|
 | --- | --- |
@@ -36,11 +43,6 @@ Microsoft highly recommends Administrators enable users to select more than the 
 
 ![Authentication methods in use at the sign-in screen](media/concept-authentication-methods/overview-login.png)
 
-|     |
-| --- |
-| OATH Hardware tokens for MFA and SSPR are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
-
 ## Password
 
 Your Azure AD password is considered an authentication method. It is the one method that **cannot be disabled**.
@@ -53,7 +55,6 @@ If you use security questions, we recommend using them in conjunction with anoth
 
 > [!NOTE]
 > Security questions are stored privately and securely on a user object in the directory and can only be answered by users during registration. There is no way for an administrator to read or modify a user's questions or answers.
->
 
 ### Predefined questions
 
