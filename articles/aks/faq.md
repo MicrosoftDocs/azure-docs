@@ -202,7 +202,7 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 [multi-node-pools]: ./use-multiple-node-pools.md
 [availability-zones]: ./availability-zones.md
 [private-clusters]: ./private-clusters.md
-[bcdr-bestpractices]: ./operator-best-practices-multi-region.md
+[bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
 
