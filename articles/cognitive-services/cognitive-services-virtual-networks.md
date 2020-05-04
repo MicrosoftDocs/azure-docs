@@ -520,12 +520,6 @@ We create a [private DNS zone](../dns/private-dns-overview.md) attached to the V
 
 When using private endpoints with the Speech Service, you must use a custom endpoint to call the Speech Service API. You cannot use the global endpoint. You should use an endpoint of the form {account}.{stt|tts|voice|dls}.speech.microsoft.com.
 
-Here's an example on using private endpoints with the Speech Service.
-
-```curl
-example code
-```
-
 ### DNS changes for private endpoints
 
 When you create a private endpoint, the DNS CNAME resource record for the Cognitive Services resource is updated to an alias in a subdomain with the prefix '*privatelink*'. By default, we also create a [private DNS zone](../dns/private-dns-overview.md), corresponding to the '*privatelink*' subdomain, with the DNS A resource records for the private endpoints.
