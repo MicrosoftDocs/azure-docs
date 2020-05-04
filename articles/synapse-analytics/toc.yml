@@ -16,7 +16,7 @@
   items:
   - name: Create an Azure Synapse workspace
     href: quickstart-create-workspace.md
-  - name: Use Azure Synapse Studio
+  - name: Use Azure Synapse Studio 
     href: quickstart-synapse-studio.md
   - name: Create pools
     items:
@@ -30,6 +30,8 @@
     href: quickstart-sql-on-demand.md
 - name: Tutorials
   items:
+  # - name: Get started
+  #   href: get-started.md
   - name: Run Apache Spark applications for Spark pools
     href: ./spark/intellij-tool-synapse.md
   - name: Spark job definitions
