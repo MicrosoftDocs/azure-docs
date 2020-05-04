@@ -43,7 +43,7 @@ Angular apps do not copy files in the _src_ folder to the artifact folder by def
 
     ```bash
      projects
-      | - angular-app
+      | - <ANGULAR_APP_NAME>
         | - architect
          | - build
            | - options
