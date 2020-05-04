@@ -103,7 +103,8 @@ You can configure and get information about alert rules using the following inte
 
 ## Modify existing alert rules
 
-> [!NOTE] Existing alerts need to be managed from Alerts menu from Azure portal dashboard. Existing alerts cannot be modified from Managed Instance resource blade.
+> [!NOTE]
+> Existing alerts need to be managed from Alerts menu from Azure portal dashboard. Existing alerts cannot be modified from Managed Instance resource blade.
 
 To view, modify and delete existing alerts:
 
