@@ -36,7 +36,7 @@ The following table lists the appropriate location to put your _routes.json_ fil
 
 ### Angular
 
-Angular apps do not copy files in the _src_ folder to the artifact folder by default. So you will have to configure Angular to copy your _routes.json_ file to the artifact folder.
+Angular apps do not copy files in the _src_ folder to the artifact folder by default. Use the following steps to ensure the _routes.json_ is copied to the appropriate location.
 
 1. In Visual Studio Code, open the _angular.json_ file
 1. Go to the property at:
@@ -56,7 +56,7 @@ Angular apps do not copy files in the _src_ folder to the artifact folder by def
     "assets": ["src/favicon.ico", "src/assets", "src/routes.json"],
     ```
 
-Now Angular will copy the _routes.json_ file to your artifact location when your app builds.
+Now Angular is configured to copy the _routes.json_ file to your artifact location when your app builds.
 
 ## Defining routes
 
