@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 05/01/2020
 ms.author: spelluru
 
 ---
@@ -54,6 +54,9 @@ See [Azure IP Ranges and Service Tags — Public Cloud](https://www.microsoft.co
 ### As a lab creator, why can't I enable additional image options in the virtual machine images dropdown when creating a new lab?
 
 When an administrator adds you as a lab creator to a lab account, you're given the permissions to create labs. But, you don't have the permissions to edit any settings inside the lab account, including the list of enabled virtual machine images. To enable additional images, contact your lab account administrator to do it for you, or ask the administrator to add you as a Contributor role to the lab account. The Contributor role will give you the permissions to edit the virtual machine image list in the lab account.
+
+### Can I attach additional disks to a virtual machine?
+No. it's not possible to attach additional disks to a VM in a classroom lab. 
 
 ## Users
 

@@ -5,7 +5,7 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 05/20/2020
 ---
 
 # Prepay for Azure Database for MySQL compute resources with reserved capacity
@@ -14,7 +14,7 @@ Azure Database for MySQL now helps you save money by prepaying for compute resou
 
 You do not need to assign the reservation to specific Azure Database for MySQL servers. An already running Azure Database for MySQL or ones that are newly deployed, will automatically get the benefit of reserved pricing. By purchasing a reservation, you are pre-paying for the compute costs for a period of one or three years. As soon as you buy a reservation, the Azure database for MySQL compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the MySQL Database server. At the end of the reservation term, the billing benefit expires, and the Azure Database for MySQL are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [Azure Database for MySQL reserved capacity offering](https://azure.microsoft.com/pricing/details/mysql/). </br>
 
-You can buy Azure Database for MySQL reserved capacity in the [Azure portal](https://portal.azure.com/). To buy the reserved capacity:
+You can buy Azure Database for MySQL reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/monthly-payments-reservations.md). To buy the reserved capacity:
 
 * You must be in the owner role for at least one Enterprise or individual subscription with pay-as-you-go rates.
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin on the subscription.
