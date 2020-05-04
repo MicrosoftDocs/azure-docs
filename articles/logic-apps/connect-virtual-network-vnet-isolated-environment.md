@@ -81,25 +81,18 @@ To make sure that your ISE is accessible and that the logic apps in that ISE can
 
 * If you created a new Azure virtual network and subnets without any constraints, you don't need to set up [network security groups (NSGs)](../virtual-network/security-overview.md#network-security-groups) in your virtual network to control traffic across subnets.
 
-* On an existing virtual network, you can *optionally* set up NSGs by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you want to go this route, or if you're already using NSGs, make sure that you [open the ports described in this table](#network-ports-for-ise) on the virtual network where you have NSGs or want to set up NSGs.
+* For an existing virtual network, you can *optionally* set up [network security groups (NSGs)](../virtual-network/security-overview.md#network-security-groups) to [filter network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you want to go this route, or if you're already using NSGs, make sure that you [open the ports described in this table](#network-ports-for-ise) for those NSGs.
 
-  > [!NOTE]
-  > If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), 
-  > you need to use *both* the TCP and UDP protocols. NSG security rules describe the ports 
-  > that you must open for the IP addresses that need access to those ports. Make sure that 
-  > any firewalls, routers, or other items that exist between these endpoints also keep those 
-  > ports accessible to those IP addresses.
+  When you set up [NSG security rules](../virtual-network/security-overview.md#security-rules), you need to use *both* the **TCP** and **UDP** protocols. NSG security rules describe the ports that you must open for the IP addresses that need access to those ports. Make sure that any firewalls, routers, or other items that exist between these endpoints also keep those ports accessible to those IP addresses.
 
 <a name="network-ports-for-ise"></a>
 
 ### Network ports used by your ISE
 
-This table describes the ports in your Azure virtual network that your ISE uses and where those ports get used. To help reduce complexity when you create security rules, the [service tags](../virtual-network/service-tags-overview.md) in the table represent groups of IP address prefixes for a specific Azure service.
+This table describes the ports that your ISE requires to be accessible and the purpose for those ports. To help reduce complexity when you set up security rules, the table uses [service tags](../virtual-network/service-tags-overview.md) that represent groups of IP address prefixes for a specific Azure service. Where noted, *internal ISE* and *external ISE* refer to the [access endpoint that's selected during ISE creation](connect-virtual-network-vnet-isolated-environment.md#create-environment). For more information, see [Endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
 
 > [!IMPORTANT]
-> Source ports are ephemeral, so make sure that you set them to `*` for all rules. Where noted, internal ISE and external ISE refer to the 
-> [endpoint that's selected at ISE creation](connect-virtual-network-vnet-isolated-environment.md#create-environment). 
-> For more information, see [Endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
+> For all rules, make sure that you set source ports to `*` because source ports are ephemeral.
 
 #### Inbound security rules
 
@@ -118,7 +111,7 @@ This table describes the ports in your Azure virtual network that your ISE uses 
 | Access Azure Cache for Redis Instances between Role Instances | **VirtualNetwork** | * | **VirtualNetwork** | 6379 - 6383 | And, for ISE to work with Azure Cache for Redis, you must also open these [outbound and inbound ports described by the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 |||||||
 
-#### Outbound
+#### Outbound security rules
 
 | Purpose | Source service tag or IP addresses | Source ports | Destination service tag or IP addresses | Destination ports | Notes |
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
