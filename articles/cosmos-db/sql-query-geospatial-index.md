@@ -4,7 +4,7 @@ description: Index spatial data with Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 05/03/2020
 ms.author: tisande
 
 ---
@@ -23,11 +23,17 @@ If you specify an indexing policy that includes spatial index for /* (all paths)
 
 ## Modifying geospatial data type
 
-In your container, the `geospatialConfig` specifies how the geospatial data will be indexed. You should specify one `geospatialConfig` per container: geography or geometry. If not specified, the `geospatialConfig` will default to the geography data type. When you modify the `geospatialConfig`, all existing geospatial data in the container will be reindexed.
+In your container, the **Geospatial Configuration** specifies how the spatial data will be indexed. You should specify one **Geospatial Configuration** per container: geography or geometry.
 
-> [!NOTE]
-> Azure Cosmos DB currently supports modifications to the geospatialConfig in the .NET SDK only in versions 3.6 and above.
->
+You can toggle between the **geography** and **geometry** spatial type in the Azure Portal. It's important that you create a [valid spatial geometry indexing policy with a bounding box](#geometry-data-indexing-examples) before switching to the geometry spatial type.
+
+Here's how to set the **Geospatial Configuration** in **Data Explorer** within the Azure Portal:
+
+![Setting geospatial configuration](./media/sql-query-geospatial-index/geospatialconfiguration.png)
+
+You can also modify the `geospatialConfig` in the .NET SDK in order to adjust the **Geospatial Configuration**:
+
+If not specified, the `geospatialConfig` will default to the geography data type. When you modify the `geospatialConfig`, all existing geospatial data in the container will be reindexed.
 
 Here is an example for modifying the geospatial data type to `geometry` by setting the `geospatialConfig` property and adding a **boundingBox**:
 
