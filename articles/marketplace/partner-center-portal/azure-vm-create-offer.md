@@ -1,6 +1,6 @@
 ---
-title: Create an Azure virtual machine offer - Azure Marketplace
-description: Learn how to create a virtual machine offer in the commercial marketplace.
+title: Create an Azure virtual machine offer in the Azure Marketplace
+description: Learn how to create a virtual machine offer in the Azure Marketplace with the required SKU.
 author: emuench
 ms.author: mingshen
 ms.service: marketplace 
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 05/01/2020
 ---
 
-# Create an Azure virtual machine offer
+# Create an Azure virtual machine offer in the Azure Marketplace
 
 > [!IMPORTANT]
 > We're moving the management of your Azure VM offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please continue to follow the instructions in [Create Virtual Machine offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer) in Cloud Partner Portal to manage your offers.

@@ -42,11 +42,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 This tutorial uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
 
-Follow along with this video or use the detailed steps below to clone and run the tutorial from your workspace. 
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
-
-
+ Use the detailed steps below to clone and run the tutorial from your workspace. 
 
 ### Clone a notebook folder
 
@@ -58,7 +54,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. Select **Notebooks** on the left.
 
-1. Open the **Samples** folder.
+1. Select the **Samples** tab at the top.
 
 1. Open the **Python** folder.
 
@@ -66,20 +62,21 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. Select the **"..."** at the right of the **tutorials** folder and then select **Clone**.
 
-    ![Clone folder](./media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Clone tutorials folder":::
 
 1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **tutorials**  folder there.
 
-### <a name="open">Open the cloned notebook
+### <a name="open"></a>Open the cloned notebook
 
-1. Under **User Files** open your folder and then open the cloned **tutorials** folder.
-
-    ![Open tutorials folder](./media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+1. Open the **tutorials** folder that was just closed into your **User files** section.
 
     > [!IMPORTANT]
     > You can view notebooks in the **samples** folder but you cannot run a notebook from there.  In order to run a notebook, make sure you open the cloned version of the notebook in the **User Files** section.
     
 1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials/create-first-ml-experiment** folder.
+
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Open tutorials folder":::
+
 
 1. On the top bar, select a compute instance to use to run the notebook. These VMs are pre-configured with [everything you need to run Azure Machine Learning](concept-compute-instance.md#contents). 
 
