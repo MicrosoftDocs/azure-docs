@@ -447,8 +447,6 @@ additionalContent:
               url: https://gallery.technet.microsoft.com/13-Effective-Security-72447e11
             - text: IT Grundschutz workbook
               url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=2b6fa69b-4cab-4f15-8e7b-560e0291e7f7&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_GRC_Assessment_Reports
-            - text: MPAA cloud security guidelines
-              url: https://aka.ms/AzureMPAAApplicationandCloudSecurityGuidelines
             - text: NEN7510-2011 standard coverage guide
               url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=3285c45c-921c-49ad-b881-be43e0b70490&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
             - text: NERC CIP standards
