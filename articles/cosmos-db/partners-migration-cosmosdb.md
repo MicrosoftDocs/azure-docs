@@ -18,9 +18,8 @@ From NoSQL migration to application development, you can choose from a variety o
 |---------|---------|---------|
 |[Striim](https://www.striim.com/)    |  Continuous, real-time data movement; Data migration|   USA   |
 | [10thMagnitude](https://www.10thmagnitude.com/) | IoT, Retail (inventory), Operational Analytics (Spark); Serverless architecture; App development | USA |
-|[Altoros Development LLC](https://www.altoros.com/)  |  IoT, Personalization Retail (inventory), Serverless architctures NoSQL migration; App development|   USA, Norway, Finland, Belarus, Argentina |
-|[Attunix Redapt](https://www.attunix.com/)    |   IoT, Personalization Retail (inventory), Serverless architctures NoSQL migration; App development      |    USA     |  
-|[Avanade](https://www.avanade.com/) | IoT, Retail (inventory), Serverless Architecture; App development | Austria, Germany, Switzerland, Italy, Norway, Spain, UK |
+|[Altoros Development LLC](https://www.altoros.com/)  |  IoT, Personalization Retail (inventory), Serverless architctures NoSQL migration; App development|   USA |
+|[Avanade](https://www.avanade.com/) | IoT, Retail (inventory), Serverless Architecture; App development | Austria, Germany, Switzerland, Italy, Norway, Spain, UK, Canada |
 |[Accenture](https://www.accenture.com/) | IoT, Retail (inventory), Serverless Architecture; App development |Global|
 |[Bluemetal](https://www.bluemetal.com/)     |  IoT, Personalization Retail (inventory), Operational Analytics for Enterprise & SMC; AI image annotation; Asset control; NoSQL migration; App development     |    North America, Asia-Pacific     |
 |[Capax Global LLC](https://www.capaxglobal.com/) | IoT, Personalization, Retail (inventory), Operational Analytics (Spark); Serverless architecture; App development|    USA     |  
