@@ -47,6 +47,9 @@ Azure Advisor will detect Azure Data Factory pipelines that repeatedly fail and 
 ## Use Standard Snapshots for Managed Disks
 To save 60% of cost, we recommend storing your snapshots in Standard Storage, regardless of the storage type of the parent disk. This is the default option for Managed Disks snapshots. Azure Advisor will identify snapshots that are stored Premium Storage and recommend migrating your snapshot from Premium to Standard Storage. [Learn more about Managed Disk pricing](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
+## Create an Ephemeral OS Disk recommendation
+With [Ephemeral OS Disk](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks), Customers get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It is more preferrable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads. Advisor has recommendation for resources which can take benefits with Ephemeral OS Disk. 
+
 ## How to access Cost recommendations in Azure Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
