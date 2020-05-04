@@ -18,7 +18,7 @@ For in-depth overviews on these twins, see [Understand and use device twins in I
 
 ## Monitor the edgeAgent module twin for connectivity and health
 
-The [IoT Edge agent](iot-edge-runtime.md#iot-edge-agent) is particularly important to monitor, as it is responsible for instantiating modules, ensuring their operations, and reporting connection and status data to IoT Hub. Interestingly, When you examine the module identity twin for the edgeAgent runtime module, the connection is always in a disconnected state: `"connectionState": "Disconnected"`. The reason is that the connection state pertains to device cloud (D2C) messages and the edgeAgent does not send D2C messages. However, you can [ping](how-to-edgeagent-direct-method.nd#ping) built-in direct method to get the edgeAgent status.
+The [IoT Edge agent](iot-edge-runtime.md#iot-edge-agent) is particularly important to monitor, as it is responsible for instantiating modules, ensuring their operations, and reporting connection and status data to IoT Hub. Interestingly, When you examine the module identity twin for the edgeAgent runtime module, the connection is always in a disconnected state: `"connectionState": "Disconnected"`. The reason is that the connection state pertains to device cloud (D2C) messages and the edgeAgent does not send D2C messages. However, you can [ping](how-to-edgeagent-direct-method.md#ping) built-in direct method to get the edgeAgent status.
 
 To determine the connectivity of your custom code modules, check their status in the `modules` section of the edgeAgent module twin.
 
