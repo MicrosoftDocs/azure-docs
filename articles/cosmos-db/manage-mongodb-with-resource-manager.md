@@ -16,17 +16,17 @@ This article has examples for Azure Cosmos DB's API for MongoDB only, to find ex
 
 > [!IMPORTANT]
 >
-> * When you add or remove locations to an Azure Cosmos account, you can't simultaneously modify other properties. These operations must be done separately.
 > * Account names are limited to 44 characters, all lowercase.
 > * To change the throughput values, redeploy the template with updated RU/s.
+> * When you add or remove locations to an Azure Cosmos account, you can't simultaneously modify other properties. These operations must be done separately.
 
-To create any of the Azure Cosmos DB resources below, copy the following example template into a new json file. You can optionally create a parameters json file to use when deploying multiple instances of the same resource with different names and values. There are many ways to deploy Azure Resource Manager templates including, [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
+To create any of the Azure Cosmos DB resources below, copy the following example template into a new json file. You can optionally create a parameters json file to use when deploying multiple instances of the same resource with different names and values. There are many ways to deploy Azure Resource Manager templates including, [Azure portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
 
 <a id="create-autoscale"></a>
 
-## Create Azure Cosmos DB API for MongoDB account, database and collection with autoscale throughput
+## Azure Cosmos account for MongoDB with autoscale throughput
 
-This template will create an Azure Cosmos account for MongoDB API (3.2 or 3.6) with two collections that share 400 RU/s throughput at the database level. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
+This template will create an Azure Cosmos account for MongoDB API (3.2 or 3.6) with two collections that share autoscale throughput at the database level. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-mongodb-autoscale%2Fazuredeploy.json)
 
@@ -34,9 +34,9 @@ This template will create an Azure Cosmos account for MongoDB API (3.2 or 3.6) w
 
 <a id="create-manual"></a>
 
-## Create Azure Cosmos DB API for MongoDB account, database and collection with manual throughput
+## Azure Cosmos account for MongoDB with manual throughput
 
-This template will create an Azure Cosmos account for MongoDB API (3.2 or 3.6) with two collections that share 400 RU/s throughput at the database level. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
+This template will create an Azure Cosmos account for MongoDB API (3.2 or 3.6) with two collections that share 400 RU/s manual throughput at the database level. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-mongodb%2Fazuredeploy.json)
 

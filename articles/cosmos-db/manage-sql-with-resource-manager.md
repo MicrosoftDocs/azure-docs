@@ -17,15 +17,15 @@ This article only shows Azure Resource Manager template examples for Core (SQL) 
 
 > [!IMPORTANT]
 >
-> * When you add or remove locations to an Azure Cosmos account, you can't simultaneously modify other properties. These operations must be done separately.
 > * Account names are limited to 44 characters, all lowercase.
 > * To change the throughput values, redeploy the template with updated RU/s.
+> * When you add or remove locations to an Azure Cosmos account, you can't simultaneously modify other properties. These operations must be done separately.
 
-To create any of the Azure Cosmos DB resources below, copy the following example template into a new json file. You can optionally create a parameters json file to use when deploying multiple instances of the same resource with different names and values. There are many ways to deploy Azure Resource Manager templates including, [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
+To create any of the Azure Cosmos DB resources below, copy the following example template into a new json file. You can optionally create a parameters json file to use when deploying multiple instances of the same resource with different names and values. There are many ways to deploy Azure Resource Manager templates including, [Azure portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
 
 <a id="create-autoscale"></a>
 
-## Create an Azure Cosmos account, database, and container with autoscale throughput
+## Azure Cosmos account with autoscale throughput
 
 This template creates an Azure Cosmos account in two regions with options for consistency and failover, with database and container configured for autoscale throughput that has most policy options enabled. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
@@ -35,7 +35,7 @@ This template creates an Azure Cosmos account in two regions with options for co
 
 <a id="create-manual"></a>
 
-## Create an Azure Cosmos account, database, and container with manual throughput
+## Azure Cosmos account with manual throughput
 
 This template creates an Azure Cosmos account in two regions with options for consistency and failover, with database and container configured for manual throughput that has most policy options enabled. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
@@ -45,7 +45,7 @@ This template creates an Azure Cosmos account in two regions with options for co
 
 <a id="create-sproc"></a>
 
-## Create an Azure Cosmos DB container with server-side functionality
+## Azure Cosmos DB container with server-side functionality
 
 This template creates an Azure Cosmos account, database and container with with a stored procedure, trigger, and user-defined function. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
@@ -55,7 +55,7 @@ This template creates an Azure Cosmos account, database and container with with 
 
 <a id="free-tier"></a>
 
-## Create a free tier Azure Cosmos DB account
+## Free tier Azure Cosmos DB account
 
 This template creates a free-tier Azure Cosmos account and a database with shared throughput that can be shared with up to 25 containers. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 

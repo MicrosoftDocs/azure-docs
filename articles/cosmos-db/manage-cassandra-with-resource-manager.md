@@ -16,15 +16,15 @@ This article has examples for Cassandra API accounts only, to find examples for 
 
 > [!IMPORTANT]
 >
-> * When you add or remove locations to an Azure Cosmos account, you can't simultaneously modify other properties. These operations must be done separately.
 > * Account names are limited to 44 characters, all lowercase.
 > * To change the throughput values, redeploy the template with updated RU/s.
+> * When you add or remove locations to an Azure Cosmos account, you can't simultaneously modify other properties. These operations must be done separately.
 
-To create any of the Azure Cosmos DB resources below, copy the following example template into a new json file. You can optionally create a parameters json file to use when deploying multiple instances of the same resource with different names and values. There are many ways to deploy Azure Resource Manager templates including, [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
+To create any of the Azure Cosmos DB resources below, copy the following example template into a new json file. You can optionally create a parameters json file to use when deploying multiple instances of the same resource with different names and values. There are many ways to deploy Azure Resource Manager templates including, [Azure portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
 
 <a id="create-autoscale"></a>
 
-## Create Azure Cosmos account for Cassandra, keyspace and table with autoscale
+## Azure Cosmos account for Cassandra with autoscale throughput
 
 This template creates an Azure Cosmos account in two regions with options for consistency and failover, with a keyspace and table configured for autoscale throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
@@ -34,7 +34,7 @@ This template creates an Azure Cosmos account in two regions with options for co
 
 <a id="create-manual"></a>
 
-## Create Azure Cosmos account, keyspace and table
+## Azure Cosmos account for Cassandra with manual throughput
 
 This template creates an Azure Cosmos account in two regions with options for consistency and failover, with a keyspace and table configured for manual throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 

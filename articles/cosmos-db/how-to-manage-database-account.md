@@ -24,7 +24,7 @@ Please see [Create an Azure Cosmos DB account with Azure CLI](manage-with-cli.md
 
 ### <a id="create-database-account-via-ps"></a>Azure PowerShell
 
-Please see [Create an Azure Cosmos DB account with Powershell](manage-with-powershell.md#create-account)
+Please see [Create an Azure Cosmos DB account with PowerShell](manage-with-powershell.md#create-account)
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager template
 
@@ -56,7 +56,7 @@ Please see [Add or remove regions with Azure CLI](manage-with-cli.md#add-or-remo
 
 ### <a id="add-remove-regions-via-ps"></a>Azure PowerShell
 
-Please see [Add or remove regions with Powershell](manage-with-powershell.md#update-account)
+Please see [Add or remove regions with PowerShell](manage-with-powershell.md#update-account)
 
 ## <a id="configure-multiple-write-regions"></a>Configure multiple write-regions
 
@@ -72,7 +72,7 @@ Please see [Enable multiple-write regions with Azure CLI](manage-with-cli.md#ena
 
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
-Please see [Enable multiple-write regions with Powershell](manage-with-powershell.md#multi-master)
+Please see [Enable multiple-write regions with PowerShell](manage-with-powershell.md#multi-master)
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager template
 
@@ -158,7 +158,7 @@ Please see [Enable automatic failover with Azure CLI](manage-with-cli.md#enable-
 
 ### <a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
 
-Please see [Enable automatic failover with Powershell](manage-with-powershell.md#enable-automatic-failover)
+Please see [Enable automatic failover with PowerShell](manage-with-powershell.md#enable-automatic-failover)
 
 ## Set failover priorities for your Azure Cosmos account
 
@@ -189,7 +189,7 @@ Please see [Set failover priority with Azure CLI](manage-with-cli.md#set-failove
 
 ### <a id="set-failover-priorities-via-ps"></a>Azure PowerShell
 
-Please see [Set failover priority with Powershell](manage-with-powershell.md#modify-failover-priority)
+Please see [Set failover priority with PowerShell](manage-with-powershell.md#modify-failover-priority)
 
 ## <a id="manual-failover"></a>Perform manual failover on an Azure Cosmos account
 
@@ -221,7 +221,7 @@ Please see [Trigger manual failover with Azure CLI](manage-with-cli.md#trigger-m
 
 ### <a id="enable-manual-failover-via-ps"></a>Azure PowerShell
 
-Please see [Trigger manual failover with Powershell](manage-with-powershell.md#trigger-manual-failover)
+Please see [Trigger manual failover with PowerShell](manage-with-powershell.md#trigger-manual-failover)
 
 ## Next steps
 
