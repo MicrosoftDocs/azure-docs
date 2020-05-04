@@ -42,6 +42,9 @@ You can access an existing TabularDataset from the training script of an experim
 
 The following code uses the [`get_context()`]() method in the [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) class to access the existing input TabularDataset, `titanic`, in the training script. Then uses the [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) method to load that dataset into a pandas dataframe for further data exploration and preparation prior to training.
 
+> [!Note]
+> If your original data source contains NaN, empty strings or blank values, when you use the to_pandas_dataframe(), then those values are replaced as a *Null* value. 
+
 ```Python
 %%writefile $script_folder/train_titanic.py
 
