@@ -20,7 +20,7 @@ ms.author: anfeldma
 > 
 
 > [!IMPORTANT]  
-> These performance tips are for Java SDK v4 only. Please view the Java SDK v4 __[Release notes]()__ and __[Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos)__ for more information.
+> These performance tips are for Java SDK v4 only. Please view the Java SDK v4 __[Release notes](sql-api-sdk-java-v4-sql.md)__ and __[Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos)__ for more information.
 >
 
 Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using the [SQL Java SDK v4](sql-api-sdk-async-java.md).
