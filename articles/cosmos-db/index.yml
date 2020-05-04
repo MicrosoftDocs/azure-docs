@@ -10,9 +10,9 @@ metadata:
   ms.service: cosmos-db #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: SnehaGunda #Required; your GitHub user alias, with correct capitalization.
-  ms.author: sngun #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/10/2019 #Required; mm/dd/yyyy format.
+  author: anfeldma-ms #Required; your GitHub user alias, with correct capitalization.
+  ms.author: anfeldma #Required; microsoft alias of author; optional team alias.
+  ms.date: 05/04/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

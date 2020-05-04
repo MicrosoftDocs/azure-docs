@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB performance tips for Async Java SDK v2
-description: Learn client configuration options to improve Azure Cosmos database performance for Async Java SDK v2
+title: Azure Cosmos DB performance tips for Java SDK v4
+description: Learn client configuration options to improve Azure Cosmos database performance for Java SDK v4
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
@@ -10,7 +10,7 @@ ms.author: anfeldma
 
 ---
 
-# Performance tips for Azure Cosmos DB and Async Java
+# Performance tips for Azure Cosmos DB and Java SDK v4
 
 > [!div class="op_single_selector"]
 > * [Java v4 Async API](performance-tips-java-sdk-v4-sql.md)
@@ -20,10 +20,10 @@ ms.author: anfeldma
 > 
 
 > [!IMPORTANT]  
-> These performance tips are for Async Java SDK v2 only. Please view the Async Java SDK v2 __[Release notes](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-sdk-async-java)__ and __[Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)__ for more information.
+> These performance tips are for Java SDK v4 only. Please view the Java SDK v4 __[Release notes]()__ and __[Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos)__ for more information.
 >
 
-Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using the [SQL Async Java SDK v2](sql-api-sdk-async-java.md).
+Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using the [SQL Java SDK v4](sql-api-sdk-async-java.md).
 
 So if you're asking "How can I improve my database performance?" consider the following options:
 

@@ -1,24 +1,29 @@
 ---
-title: Azure Cosmos DB performance tips for Java
-description: Learn client configuration options to improve Azure Cosmos database performance
-author: SnehaGunda
+title: Azure Cosmos DB performance tips for Legacy Sync Java SDK v2
+description: Learn client configuration options to improve Azure Cosmos database performance for Legacy Sync Java SDK v2
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: sngun
+ms.date: 05/04/2020
+ms.author: anfeldma
 
 ---
 
-# Performance tips for Azure Cosmos DB and Java
+# Performance tips for Azure Cosmos DB and Legacy Sync Java SDK v2
 
 > [!div class="op_single_selector"]
-> * [Async Java](performance-tips-async-java.md)
-> * [Java](performance-tips-java.md)
+> * [Java v4 Async API](performance-tips-java-sdk-v4-sql.md)
+> * [Async Java v2](performance-tips-async-java.md)
+> * [Legacy Sync Java v2](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
 
-Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using the [SQL Java SDK](documentdb-sdk-java.md).
+> [!IMPORTANT]  
+> These performance tips are for Legacy Sync Java SDK v2 only. Please view the Legacy Sync Java SDK v2 __[Release notes](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-sdk-java)__ and __[Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)__ for more information.
+>
+
+Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using the [SQL Legacy Sync Java SDK v2](documentdb-sdk-java.md).
 
 So if you're asking "How can I improve my database performance?" consider the following options:
 

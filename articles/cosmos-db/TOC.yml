@@ -967,10 +967,12 @@
           href: sql-api-query-metrics.md
         - name: Performance tips for .NET SDK
           href: performance-tips.md
-        - name: Performance tips for Java SDK
+        - name: Performance tips for Java SDK v4
+          href: performance-tips-java-sdk-v4-sql.md          
+        - name: Performance tips for Async Java SDK v2
+          href: performance-tips-async-java.md          
+        - name: Performance tips for Legacy Sync Java SDK v2
           href: performance-tips-java.md
-        - name: Performance tips for Async Java SDK
-          href: performance-tips-async-java.md
         - name: Performance test - sample app
           href: performance-testing.md
       - name: Cost-effective reads and writes
