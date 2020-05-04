@@ -1,6 +1,6 @@
 ---
-title: Diagnose and troubleshoot Azure Cosmos DB Async Java SDK v2
-description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Async Java SDK v2.
+title: Diagnose and troubleshoot Azure Cosmos DB Java SDK v4
+description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Java SDK v4.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.date: 05/04/2020
@@ -8,24 +8,23 @@ ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
-ms.reviewer: sngun
 ---
 
-# Troubleshoot issues when you use the Java Async SDK with Azure Cosmos DB SQL API accounts
+# Troubleshoot issues when you use Java SDK v4 with Azure Cosmos DB SQL API accounts
 
 > [!IMPORTANT]
-> This article covers troubleshooting for Async Java SDK v2 only. Please see the __[Release Notes]()__ and __[Maven repository]()__ for more information.
+> This article covers troubleshooting for Java SDK v4 only. Please see the __[Release Notes]()__ and __[Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos)__ for more information.
 >
 
-This article covers common issues, workarounds, diagnostic steps, and tools when you use the [Java Async SDK](sql-api-sdk-async-java.md) with Azure Cosmos DB SQL API accounts.
-The Java Async SDK provides client-side logical representation to access the Azure Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
+This article covers common issues, workarounds, diagnostic steps, and tools when you use [Java SDK v4]() with Azure Cosmos DB SQL API accounts.
+Java SDK v4 provides client-side logical representation to access the Azure Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
 
 Start with this list:
 
 * Take a look at the [Common issues and workarounds] section in this article.
 * Look at the SDK, which is available [open source on GitHub](https://github.com/Azure/azure-cosmosdb-java). It has an [issues section](https://github.com/Azure/azure-cosmosdb-java/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed.
-* Review the [performance tips](performance-tips-async-java.md), and follow the suggested practices.
-* Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-cosmosdb-java/issues).
+* Review the [performance tips for Java SDK v4](), and follow the suggested practices.
+* Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-sdk-for-java/issues).
 
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
 
@@ -45,7 +44,7 @@ Run the following command.
 ```bash
 ulimit -a
 ```
-The number of max allowed open files, which are identified as "nofile," needs to be at least double your connection pool size. For more information, see [Performance tips](performance-tips-async-java.md).
+The number of max allowed open files, which are identified as "nofile," needs to be at least double your connection pool size. For more information, see [Performance tips]().
 
 ##### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
 
@@ -75,7 +74,7 @@ Otherwise, you face connection issues.
 
 #### Invalid coding pattern: Blocking Netty IO thread
 
-The SDK uses the [Netty](https://netty.io/) IO library to communicate with Azure Cosmos DB. The SDK has Async APIs and uses non-blocking IO APIs of Netty. The SDK's IO work is performed on IO Netty threads. The number of IO Netty threads is configured to be the same as the number of CPU cores of the app machine. 
+The SDK uses the [Netty](https://netty.io/) IO library to communicate with Azure Cosmos DB. The SDK has an Async API and uses non-blocking IO APIs of Netty. The SDK's IO work is performed on IO Netty threads. The number of IO Netty threads is configured to be the same as the number of CPU cores of the app machine. 
 
 The Netty IO threads are meant to be used only for non-blocking Netty IO work. The SDK returns the API invocation result on one of the Netty IO threads to the app's code. If the app performs a long-lasting operation after it receives results on the Netty thread, the SDK might not have enough IO threads to perform its internal IO work. Such app coding might result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation takes time.
 
@@ -170,7 +169,7 @@ Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()
 
 The above exception suggests you have a dependency on an older version of RxJava lib (e.g., 1.2.2). Our SDK relies on RxJava 1.3.8 which has APIs not available in earlier version of RxJava. 
 
-The workaround for such issues is to identify which other dependency brings in RxJava-1.2.2 and exclude the transitive dependency on RxJava-1.2.2, and allow CosmosDB SDK bring the newer version.
+The workaround for such issuses is to identify which other dependency brings in RxJava-1.2.2 and exclude the transitive dependency on RxJava-1.2.2, and allow CosmosDB SDK bring the newer version.
 
 To identify which library brings in RxJava-1.2.2 run the following command next to your project pom.xml file:
 ```bash
