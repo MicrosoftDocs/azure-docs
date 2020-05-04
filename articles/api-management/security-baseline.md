@@ -183,7 +183,7 @@ Caution: When configuring an NSG on the API Management subnet, there are a set o
 **Guidance**: Define and implement standard security configurations for network settings related to your Azure API Management deployments. Use Azure Policy aliases in the "Microsoft.ApiManagement" and "Microsoft.Network" namespaces to create custom policies to audit or enforce network configuration of your Azure API Management deployments and related resources. You may also make use of built-in policy definitions for Azure Virtual Networks, such as:
 - DDoS Protection Standard should be enabled
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource manager templates, role-based access control (RBAC), and policies in a single blueprint definition. You can easily apply the blueprint to new subscriptions, environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control (RBAC), and policies in a single blueprint definition. You can easily apply the blueprint to new subscriptions, environments, and fine-tune control and management through versioning.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -289,7 +289,7 @@ For data plane audit logging, diagnostic logs provide rich information about ope
 
 ### 2.6: Monitor and review Logs
 
-**Guidance**: Azure API Management continuously emits logs and metrics to Azure Monitor, giving you anear real-time visibility into the state and health of your APIs. With Azure Monitor and Log Analytics workspace(s), you can review, query, visualize, route, archive, configure alerts, and take actions on metrics and logs coming from API Management and related resources. Analyze and monitor logs for anomalous behaviors and regularly review results.
+**Guidance**: Azure API Management continuously emits logs and metrics to Azure Monitor, giving you a near real-time visibility into the state and health of your APIs. With Azure Monitor and Log Analytics workspace(s), you can review, query, visualize, route, archive, configure alerts, and take actions on metrics and logs coming from API Management and related resources. Analyze and monitor logs for anomalous behaviors and regularly review results.
 
 Optionally, integrate API Management with Azure Application Insights and use it as primary or secondary monitoring, tracing, reporting, and alerting tool.
 
@@ -556,7 +556,7 @@ Configure advanced monitoring with API Management by using the `log-to-eventhub`
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
-**Guidance**: Not yet available; Customer Lockbox is not yet supported for Azure API Management.
+**Guidance**: Not currently available; Customer Lockbox is not currently supported for Azure API Management.
 
 * [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
 
@@ -596,7 +596,7 @@ Configure advanced monitoring with API Management by using the `log-to-eventhub`
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
-**Guidance**: Not yet available; data identification, classification, and loss prevention features are not yet available for Azure API Management.
+**Guidance**: Not currently available; data identification, classification, and loss prevention features are not currently available for Azure API Management.
 
 Microsoft manages the underlying infrastructure for Azure API Management and has implemented strict controls to prevent the loss or exposure of customer data.
 
@@ -624,7 +624,7 @@ Microsoft manages the underlying infrastructure for Azure API Management and has
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
-**Guidance**: Not yet available; data identification, classification, and loss prevention features are not yet available for Azure API Management. Tag Azure API Management services that may be processing sensitive information as such and implement third-party solution if required for compliance purposes.
+**Guidance**: Not currently available; data identification, classification, and loss prevention features are not currently available for Azure API Management. Tag Azure API Management services that may be processing sensitive information as such and implement third-party solution if required for compliance purposes.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
@@ -684,7 +684,7 @@ Microsoft manages the underlying infrastructure for Azure API Management and has
 
 ### 5.1: Run automated vulnerability scanning tools
 
-**Guidance**: Not yet available; vulnerability assessment in Azure Security Center is not yet available for Azure API Management.
+**Guidance**: Not currently available; vulnerability assessment in Azure Security Center is not currently available for Azure API Management.
 
 Underlying platform scanned and patched by Microsoft. Review security controls available to reduce service configuration related vulnerabilities.
 
@@ -720,7 +720,7 @@ Underlying platform scanned and patched by Microsoft. Review security controls a
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
-**Guidance**: Not yet available; vulnerability assessment in Azure Security Center is not yet available for Azure API Management.
+**Guidance**: Not currently available; vulnerability assessment in Azure Security Center is not currently available for Azure API Management.
 
 Underlying platform scanned and patched by Microsoft. Customer to review security controls available to them to reduce service configuration related vulnerabilities.
 

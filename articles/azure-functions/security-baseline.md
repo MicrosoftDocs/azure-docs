@@ -514,7 +514,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
-**Guidance**: Not yet available; Customer Lockbox is not yet supported for Azure Functions.
+**Guidance**: Not currently available; Customer Lockbox is not currently supported for Azure Functions.
 
 - [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
 
@@ -582,7 +582,7 @@ Microsoft manages the underlying infrastructure for Azure Functions and has impl
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
-**Guidance**: Not yet available; data identification, classification, and loss prevention features are not yet available for Azure Functions. Tag Function apps that may be processing sensitive information as such and implement third-party solution if required for compliance purposes.
+**Guidance**: Not currently available; data identification, classification, and loss prevention features are not currently available for Azure Functions. Tag Function apps that may be processing sensitive information as such and implement third-party solution if required for compliance purposes.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 

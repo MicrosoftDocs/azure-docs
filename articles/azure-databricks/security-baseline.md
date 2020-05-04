@@ -300,7 +300,7 @@ Note: Azure Databricks diagnostic logs require the Azure Databricks Premium Plan
 
 * [How to use the SCIM APIs](https://docs.microsoft.com/azure/databricks/dev-tools/api/latest/scim/)
 
-* [How to add and removes users in Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/users-groups/users)
+* [How to add and remove users in Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/users-groups/users)
 
 **Azure Security Center monitoring**: Yes
 
@@ -504,7 +504,7 @@ Microsoft manages the underlying infrastructure for Azure Databricks and has imp
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
-**Guidance**: Currently not available; data identification, classification, and loss prevention features are not yet available for Azure Databricks. Tag Azure Databricks instances and related resources that may be processing sensitive information as such and implement third-party solution if required for compliance purposes.
+**Guidance**: Currently not available; data identification, classification, and loss prevention features are not currently available for Azure Databricks. Tag Azure Databricks instances and related resources that may be processing sensitive information as such and implement third-party solution if required for compliance purposes.
 
 The Databricks platform is compute-only, and all the data is stored on other Azure data services. For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
@@ -626,7 +626,7 @@ If you have a vulnerability management platform subscription, you may use Azure 
 
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions exist in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
-Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use ARM resources going forward.
+Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
 * [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
@@ -738,7 +738,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Responsibility**: Customer
 
-### 6.11: Limit users' ability to interact with ARM via scripts
+### 6.11: <div>Limit users' ability to interact with Azure Resource Manager via scripts</div>
 
 **Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
