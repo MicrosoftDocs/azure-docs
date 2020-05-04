@@ -84,28 +84,25 @@ Here's a sample hybrid connections event in JSON format.
 
 ## Events and operations captured in diagnostic logs
 
-> [!NOTE]
-> A client listener/sender could be running on-premises or on Azure. 
-
 | Operation | Description | 
 | --------- | ----------- | 
 | AuthorizationFailed | Authorization failed.|
 | InvalidSasToken | Invalid SAS token. | 
-| ListenerAcceptingConnection | The client listener is accepting connection. |
-| ListenerAcceptingConnectionTimeout | The client listener accepting connection has timed out. |
+| ListenerAcceptingConnection | The listener is accepting connection. |
+| ListenerAcceptingConnectionTimeout | The listener accepting connection has timed out. |
 | ListenerAcceptingHttpRequestFailed | The listener accepting HTTP request failed due to an exception. |
 | ListenerAcceptingRequestTimeout | The listener accepting request has timed out. |  
 | ListenerClosingFromExpiredToken | The listener is closing because the security token has expired. | 
-| ListenerRejectedConnection | The client listener has rejected the connection. |
-| ListenerReturningHttpResponse | The client listener is returning an HTTP response. |  
+| ListenerRejectedConnection | The listener has rejected the connection. |
+| ListenerReturningHttpResponse | The listener is returning an HTTP response. |  
 | ListenerReturningHttpResponseFailed | The listener is returning an HTTP response with a failure code. | 
- ListenerSentHttpResponse | Relay service has received an HTTP response from the client listener. | 
+ ListenerSentHttpResponse | Relay service has received an HTTP response from the listener. | 
 | ListenerUnregistered | The listener is unregistered. | 
-| ListenerUnresponsive | The client listener is unresponsive when returning a response. | 
-| MessageSendingToOnPremListener | Message is being sent to client listener. |
-| MessageSentToOnPremListener | Message is sent to client listener. | 
+| ListenerUnresponsive | The listener is unresponsive when returning a response. | 
+| MessageSendingToOnPremListener | Message is being sent to listener. |
+| MessageSentToOnPremListener | Message is sent to listener. | 
 | NewListenerRegistered | New listener registered. |
-| NewSenderRegistering | New client sender is registering. | 
+| NewSenderRegistering | New sender is registering. | 
 | ProcessingRequestFailed | The processing of a Hybrid Connection operation has failed. | 
 | SenderConnectionClosed | The sender connection is closed. |
 | SenderListenerConnectionEstablished | The sender and listener established connection successfully. |
