@@ -552,11 +552,7 @@ All your data is accessible after the key rotation operation including data inge
 
 - Update *capacity reservation* in *Cluster* resource -- when the data volume to your associated workspaces change and you want to update the capacity reservation level for billing considerations, follow the [update *Cluster* resource](#update-cluster-resource-with-key-identifier-details) and provide your new capacity value. The capacity reservation level can be in the range of 1,000 to 2,000 GB per day and in steps of 100. For level higher than 2,000 GB per day, reach your Microsoft contact to enable it.
 
-- Delete your *Cluster* resource -- 
-
-You need 'write' permissions on the *Cluster* resource to perform this operation. 
-
-A soft-delete operation is performed to allow the recovery of your *Cluster* resource including its data within 14 days, whether the deletion was accidental or intentional. The *Cluster* resource name remains reserved during the soft-delete period and you can't create a new cluster with that name. After the soft-delete period, The *Cluster* resource name is released, your *Cluster* resource and data are permanently deleted and are non-recoverable. Any associated workspace gets de-associated from the *Cluster* resource on delete operation. New ingested data is stored in shared Log Analytics storage and encrypted with Microsoft key. The workspaces de-associated operation is asynchronous.
+- Delete your *Cluster* resource -- You need 'write' permissions on the *Cluster* resource to perform this operation. A soft-delete operation is performed to allow the recovery of your *Cluster* resource including its data within 14 days, whether the deletion was accidental or intentional. The *Cluster* resource name remains reserved during the soft-delete period and you can't create a new cluster with that name. After the soft-delete period, The *Cluster* resource name is released, your *Cluster* resource and data are permanently deleted and are non-recoverable. Any associated workspace gets de-associated from the *Cluster* resource on delete operation. New ingested data is stored in shared Log Analytics storage and encrypted with Microsoft key. The workspaces de-associated operation is asynchronous.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
