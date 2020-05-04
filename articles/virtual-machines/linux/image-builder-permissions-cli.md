@@ -92,40 +92,26 @@ The image actions allow read and write. Decide what is appropriate for your envi
 
 The following example creates an Azure role to use and distribute a source custom image. Use the custom role to set the Azure Image Builder service principal name permissions.
 
-To simplify the replacement of values in the example, set the following variables first.
+To simplify the replacement of values in the example, set the following variables first. Replace the placeholder settings to set your variables.
 
-# set your variables
-subscriptionID=<subID>
-imageResourceGroup=<distributionRG>
+| Setting | Description |
+|---------|-------------|
+| \<Subscription ID\> | Your Azure subscription ID |
+| \<Resource group\> | Resource group for custom image |
 
-```azurecli
-# Resource group name - For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image.
-sigResourceGroup=ibLinuxGalleryRG
-
-# Datacenter location
-location=westus2
-
-# Additional region to replicate the image to
-additionalregion=eastus
-
-# name of the shared image gallery - in this example we are using myGallery
-sigName=myIbGallery
-
-# name of the image definition to be created - in this example we are using myImageDef
-imageDefName=myIbImageDef
-
-# image distribution metadata reference name
-runOutputName=aibLinuxSIG
-
-# Subscription ID. You can get this using `az account show | grep id` or from the Azure portal.
-
+```bash
+# Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
 subscriptionID=<Subscription ID>
+
+# Resource group - For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image.
+imageResourceGroup=<Resource group>
 ```
 
-First, create a role definition using the following JSON description. 
+First, use a sample JSON description as a role definition. Use *cURL* to download the JSON description and *sed* stream editor to replace the subscription ID and resource group values.
 
 ```azurecli-interactive
-# download preconfigured example
+# Download a role definition example
+
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 # update the definition
@@ -133,20 +119,34 @@ sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" aibRoleImageCreation.json
 ```
 
-The preconfigured template.
+The following is an example definition.
 
 
-[!code-json[<Preconfigured example>](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json)]
+```json
+{
+    "Name": "Azure Image Builder Service Image Creation Role",
+    "IsCustom": true,
+    "Description": "Image Builder access to create resources for the image build, you should delete or split out as appropriate",
+    "Actions": [
+        "Microsoft.Compute/galleries/read",
+        "Microsoft.Compute/galleries/images/read",
+        "Microsoft.Compute/galleries/images/versions/read",
+        "Microsoft.Compute/galleries/images/versions/write",
 
+        "Microsoft.Compute/images/write",
+        "Microsoft.Compute/images/read",
+        "Microsoft.Compute/images/delete"
+    ],
+    "NotActions": [
+  
+    ],
+    "AssignableScopes": [
+      "/subscriptions/<subscriptionID>/resourceGroups/<rgName>"
+    ]
+  }
+```
 
-Replace the following placeholder settings in the JSON description.
-
-| Setting | Description |
-|---------|-------------|
-| \<Subscription ID\> | Azure subscription ID for the custom role |
-| \<Distribution resource group\> | Resource group for distribution |
-
-Create a custom role from the `aibRoleImageCreation.json` description file.
+Create a custom role from the sample `aibRoleImageCreation.json` description file.
 
 ```azurecli
 az role definition create --role-definition ./aibRoleImageCreation.json
@@ -155,22 +155,11 @@ az role definition create --role-definition ./aibRoleImageCreation.json
 Next, assign the custom role to Azure Image Builder service principal name to grant permission.
 
 ```bash
-SUB_ID="<Subscription ID>"
-RES_GROUP="<Distribution resource group>"
-
 az role assignment create \
     --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
     --role "Azure Image Builder Service Image Creation Role" \
-    --scope /subscriptions/$SUB_ID/resourceGroups/$RES_GROUP
+    --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
-
-Replace the following placeholder settings when executing the command.
-
-| Setting | Description |
-|---------|-------------|
-| \<Subscription ID\> | Azure subscription |
-| \<Distribution resource group\> | Distribution resource group |
-
 
 ### Existing VNET Azure role example
 
