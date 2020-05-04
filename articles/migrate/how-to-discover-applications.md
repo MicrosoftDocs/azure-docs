@@ -47,7 +47,7 @@ Create an account to use for discovery, and add it to the appliance.
 
 ### Create a user account for discovery
 
-Set up a user account so that Server Assessment can access the VM for discovery. [Learn](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) about account requirements.
+Set up a user account so that Server Assessment can access the VM for discovery. [Learn](migrate-support-matrix-vmware.md#application-discovery) about account requirements.
 
 
 ### Add the user account to the appliance
