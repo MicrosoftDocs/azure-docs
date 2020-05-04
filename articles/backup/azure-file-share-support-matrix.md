@@ -13,7 +13,7 @@ You can use the [Azure Backup service](https://docs.microsoft.com/azure/backup/b
 
 Backup for Azure file shares is available in the following GEOS:
 
-| GA regions | Supported regions but not GA                                                      |
+| GA regions | Supported regions (as part of preview) but not yet GA                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Australia South East (ASE), Canada Central (CNC), West Central US (WCUS), West US 2 (WUS 2), India South (INS), North Central US (NCUS), Japan East (JPE), Brazil South (BRS), South East Asia (SEA),Switzerland West (SZW), UAE Central (UAC), Norway East (NWE),India West (INW), Australia Central (ACL), Korea Central (KRC), Japan West (JPW), South Africa North (SAN), UK West (UKW), Korea South (KRS)                                                  |Australia East (AE), Canada East (CE), East Asia (EA), East US (EUS), East US 2 (EUS2),  India Central (INC), North Europe (NE), South Central US (SCUS), UK South (UKS),  West Europe (WE), West US (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov Virginia (UGV),   UAE North(UAN), France Central (FRC), Germany North (GN), Germany West Central (GWC), South Africa West (SAW),  Norway West (NWW), Switzerland North (SZN) , Central US (CUS)           |
 
