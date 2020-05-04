@@ -14,7 +14,7 @@ ms.custom: aaddev
 ms.reviewer: jesakowi
 ---
 
-# Troubleshoot Publisher verfication
+# Troubleshoot publisher verfication
 Please do the following if you are receiving errors or seeing unexpected behavior: 
 
 1. See if your issue is covered in the [Frequently Asked Questions](publisher-verification-overview.md#frequently-asked-questions).  
@@ -212,7 +212,7 @@ This feature is not supported for Microsoft consumer accounts. Only applications
 
 These should be a rarity as these properties should only be modified by the App Publisher Service. If any of these errors are reported by customers, the likely answer is that the customer should not be attempting to modify the Verified Publisher properties as they are system properties. 
 
-- "Properties cannot be modified as VerifiedPublisherIsRevoked." - Error that will be received if an attempt is made to modify the Verified Publisher properties when the Publisher Verification status was marked as Fraudulent, internally by Microsoft. 
+- "Properties cannot be modified as VerifiedPublisherIsRevoked." - Error that will be received if an attempt is made to modify the Verified Publisher properties when the publisher verification status was marked as Fraudulent, internally by Microsoft. 
 
 - “verifiedPublisher  properties cannot be set during Application creation.” - Error that will be received if an attempt is made to set the VerifiedPublisher properties during application create. 
 

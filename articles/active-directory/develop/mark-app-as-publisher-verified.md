@@ -59,7 +59,7 @@ After you have ensured the above pre-requisites have been met, please follow the
 
 1. Wait for the request to process- this may take a few minutes. 
 
-1. If the verification was successful, the Publisher verification window will close, returning you to the Branding blade. You will see a blue verified badge next to your verified Publisher display name. 
+1. If the verification was successful, the publisher verification window will close, returning you to the Branding blade. You will see a blue verified badge next to your verified Publisher display name. 
 
 1. Users who get prompted to consent to your app will start seeing the badge soon after you have gone through the process successfully, although it may take some time for this to replicate throughout the system. 
 
