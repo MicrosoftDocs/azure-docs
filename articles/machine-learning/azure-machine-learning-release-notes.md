@@ -21,7 +21,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 **New Notebook Experience**
 
 You can now create, edit, and share machine learning notebooks and files directly inside the studio web experience of Azure Machine Learning. You can use all the classes and methods available in [Azure Machine Learning Python SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py) from inside these notebooks
-Get started [here](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-run-jupyter-notebooks)
+Get started [here](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks)
 
 **New Features Introduced:**
 
