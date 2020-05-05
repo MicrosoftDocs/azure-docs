@@ -88,21 +88,23 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 ## Service limits in public preview
 
 The table below lists the functional limits that Azure Digital Twins currently has.
-Some of the limits can be increased upon request. This capability is represented by the "Adjustable" column.
 
-| Area | Capability | Limit | Adjustable |
-| --- | --- | --- | --- |
-| Azure Resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes |
-| DigitalTwins | Number of twins in an Azure Digital Twins instance | 200,000 | Yes |
-| Endpoints | Number of endpoints for a single Azure Digital Twins instance | 6 | No |
-| Endpoints | Number of routes for a single Azure Digital Twins instance | 6 | Yes |
-| Models | Number of models within a single Azure Digital Twins instance | 10,000 | Yes |
-| Models | Number of items returned in a single page | 100 | No |
-| Query | Number of items returned in a single page | 100 | No |
-| Query | Number of `AND` / `OR` expressions in a query | 50 | Yes |
-| Query | Number of array items in an `IN` / `NOT IN` clause | 50 | Yes |
-| Query | Number of characters in a query | 8,000 | Yes |
-| Query | Number of `JOINS` in a query | 1 | Yes |
+| Area | Capability | Limit |
+| --- | --- | --- |
+| Azure resource | Number of Azure Digital Twins instances in a region, per subscription | 10 |
+| Digital twins | Number of twins in an Azure Digital Twins instance | 200,000 |
+| Endpoints | Number of endpoints for a single Azure Digital Twins instance | 6 |
+| Endpoints | Number of routes for a single Azure Digital Twins instance | 6 |
+| Models | Number of models within a single Azure Digital Twins instance | 10,000 |
+| Models | Number of items returned in a single page | 100 |
+| Query | Number of items returned in a single page | 100 |
+| Query | Number of `AND` / `OR` expressions in a query | 50 |
+| Query | Number of array items in an `IN` / `NOT IN` clause | 50 |
+| Query | Number of characters in a query | 8,000 |
+| Query | Number of `JOINS` in a query | 1 |
+
+> [!NOTE]
+> If your business requires more than the limit of 10 Azure Digital Twins instances in a region per subscription, you can  request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Next steps
 
