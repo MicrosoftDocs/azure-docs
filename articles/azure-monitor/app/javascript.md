@@ -72,7 +72,7 @@ By default the Application Insights JavaScript SDK autocollects a number of tele
     - ID (if any) of user making the request
     - Correlation context (if any) where request is made
 - **User information** (for example, Location, network, IP)
-- **Device information** (for example, Browser, OS, version, language, resolution, model)
+- **Device information** (for example, Browser, OS, version, language, model)
 - **Session information**
 
 ### Telemetry initializers
