@@ -134,13 +134,7 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 This section provides additional considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Event Hubs in general, see [Integrate Azure Event Hubs with Azure Private Link](private-link-service.md).
 
 ### New pairings
-You can't pair a primary namespace with private endpoint and a secondary namespace without a private endpoint. Also, the pairing will succeed only if both primary and secondary namespaces have private endpoints. So, follow these steps: 
-
-1. Create a private endpoint on the secondary namespace. 
-2. Create a private endpoint on the primary namespace. 
-3. Create a pairing between the namespaces. 
-
-We recommend that you use same configurations on the primary and secondary namespaces and on virtual networks used by them for creating private endpoints.  
+If you try to create a pairing between a primary namespace with a private endpoint to a secondary namespace without a private endpoint, the pairing will fail. The pairing will success only if both primary and secondary namespaces have private endpoints. We recommend that you use same configurations on the primary and secondary namespaces and on virtual networks in which private endpoints are created.  
 
 > [!NOTE]
 > When you try to pair a primary namespace with private endpoint to a secondary namespace, the validation process only checks whether the private endpoint exists on the secondary namespace. It doesn't check whether the endpoint works or will work after failover. It's your responsibility to ensure that the secondary namespace with private endpoint will work as expected after failover.
