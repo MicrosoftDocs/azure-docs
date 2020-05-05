@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.date: 2/13/2020
+ms.date: 05/04/2020
 ---
 
 # Tax details for commercial marketplace publishers
