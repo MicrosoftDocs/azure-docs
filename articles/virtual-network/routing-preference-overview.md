@@ -40,7 +40,7 @@ The new routing choice **Internet routing** minimizes travel on Microsoft global
 
 **Egress traffic:** The egress traffic follows the same principle. Traffic exits Microsoft network in the same region that the service is hosted. For example, if traffic from your service in Azure Chicago is destined to a user from Singapore, then traffic exits Microsoft network in Chicago and travels over public internet to the user in Singapore.
 
-![Routing over public Interne](media/routing-preference-overview/route-via-isp-network.png)
+![Routing over public Internet](media/routing-preference-overview/route-via-isp-network.png)
 
 ## Supported services
 
@@ -59,8 +59,6 @@ For storage, primary endpoints always use the **Microsoft global network**. You 
 * Files
 * Web
 * Azure DataLake
-
-visit [storage account properties](./storageaccount.md) to learn more.
 
 ## Pricing
 
