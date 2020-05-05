@@ -2,7 +2,7 @@
 title: Upgrade composite entity - LUIS
 description: Upgrade composite entity to machine-learned entity with upgrade process in the LUIS portal.
 ms.topic: how-to
-ms.date: 04/22/2020
+ms.date: 05/04/2020
 ---
 
 # Upgrade composite entity to machine-learned entity
