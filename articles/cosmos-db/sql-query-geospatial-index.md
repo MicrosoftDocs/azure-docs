@@ -25,9 +25,9 @@ If you specify an indexing policy that includes spatial index for /* (all paths)
 
 In your container, the **Geospatial Configuration** specifies how the spatial data will be indexed. Specify one **Geospatial Configuration** per container: geography or geometry.
 
-You can toggle between the **geography** and **geometry** spatial type in the Azure Portal. It's important that you create a [valid spatial geometry indexing policy with a bounding box](#geometry-data-indexing-examples) before switching to the geometry spatial type.
+You can toggle between the **geography** and **geometry** spatial type in the Azure portal. It's important that you create a [valid spatial geometry indexing policy with a bounding box](#geometry-data-indexing-examples) before switching to the geometry spatial type.
 
-Here's how to set the **Geospatial Configuration** in **Data Explorer** within the Azure Portal:
+Here's how to set the **Geospatial Configuration** in **Data Explorer** within the Azure portal:
 
 ![Setting geospatial configuration](./media/sql-query-geospatial-index/geospatialconfiguration.png)
 
