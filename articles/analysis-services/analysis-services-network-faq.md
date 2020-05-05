@@ -22,7 +22,7 @@ This article provides answers to common questions about connecting to storage ac
 **Answer** - If the storage account is in a different region, configure storage account firewall settings to allow access from **Selected networks**. In Firewall **Address range**, specify the IP address range for the region the Analysis Services server is in. To get the IP ranges for Azure regions, see [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Configuring storage account firewall settings to allow access from All networks is supported, however choosing Selected networks and specifying an IP address range is preferred. 
 
 **Question** - My Azure storage account is in the same region as my Analysis Services server. How can I configure storage account firewall settings?   
-**Answer** – Because your Analysis Services server and storage account are in the same region, communications between them use internal IP address ranges, therefore, configuring a firewall to use Selected networks and specifying an IP address range is not supported. If organization policies require a firewall be configured, the firewall must be configured to allow access from All networks.
+**Answer** – Because your Analysis Services server and storage account are in the same region, communications between them use internal IP address ranges, therefore, configuring a firewall to use Selected networks and specifying an IP address range is not supported. If organization policies require a firewall, it must be configured to allow access from All networks.
 
 
 ## Data source connections
