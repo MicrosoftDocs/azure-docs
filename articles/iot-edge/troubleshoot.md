@@ -128,6 +128,20 @@ On Windows:
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog -StartTime ([datetime]::Now.AddMinutes(-5))
    ```
 
+* View more detailed logs of the IoT Edge security manager:
+
+  * Add a system-level environment variable:
+
+      ```powershell
+      [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "edgelet=debug", [EnvironmentVariableTarget]::Machine)
+      ```
+
+  * Restart the IoT Edge Security Daemon:
+
+      ```powershell
+      Restart-Service iotedge
+      ```
+
 ### If the IoT Edge security manager is not running, verify your yaml configuration file
 
 > [!WARNING]
