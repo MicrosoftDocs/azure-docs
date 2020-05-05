@@ -168,7 +168,7 @@ An Azure Virtual Machine with a static public IP address can be used as an Azure
 > [!IMPORTANT]
 > Ensure the Virtual Machine public IP address is configured as static.
 >
->To learn more about configuring Azure Automation Hybrid Workers, see [Automate resources in your datacenter or cloud by using Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
+>To learn more about configuring Azure Automation Hybrid Workers, see [Installation of a Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#installation-of-a-hybrid-runbook-worker).
 
 Once a Hybrid Worker is configured, create a Webhook as described in the section [Consume with Data Factory](#consume-with-data-factory).  The only difference here is to select the **Run on** > **Hybrid Worker** option when configuring the Webhook.
 

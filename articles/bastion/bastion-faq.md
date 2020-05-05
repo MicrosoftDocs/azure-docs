@@ -6,7 +6,7 @@ author: charwen
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 05/04/2020
 ms.author: charwen
 ---
 # Azure Bastion FAQ

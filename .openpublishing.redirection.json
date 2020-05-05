@@ -251,6 +251,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/shared-images.md",
+      "redirect_url": "/azure/virtual-machines/shared-images-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/shared-images.md",
+      "redirect_url": "/azure/virtual-machines/shared-images-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/encrypt-disks.md",
       "redirect_url": "/azure//virtual-machines/windows/disk-encryption-overview",
       "redirect_document_id": false
