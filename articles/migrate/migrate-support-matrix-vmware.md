@@ -2,7 +2,7 @@
 title: VMware assessment support in Azure Migrate
 description: Learn about support for VMware VM assessment with Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 03/29/2020
+ms.date: 05/04/2020
 ---
 
 # Support matrix for VMware assessment 
@@ -56,7 +56,9 @@ In addition to discovering machines, Server Assessment can discover apps, role, 
 Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. You can deploy the appliance as a VMWare VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---vmware) for VMware.
-- Learn about [URLs](migrate-appliance.md#url-access) the appliance needs to access.
+- Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
+- In Azure Government, you must deploy the appliance [using the script](deploy-appliance-script-government.md).
+
 
 ## Port access
 
@@ -65,6 +67,23 @@ Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for disco
 Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443 (HTTPS), to send discovery and performance metadata to Azure Migrate.
 vCenter server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br/><br/> The appliance connects to vCenter on port 443 by default. If the vCenter server listens on a different port, you can modify the port when you set up discovery.
 ESXi hosts (app discovery/agentless dependency analysis) | If you want to do [app discovery](how-to-discover-applications.md) or [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), then the appliance connects to ESXi hosts on TCP port 443, to discover applications, to and run agentless dependency visualization on VMs.
+
+## Application discovery
+
+In addition to discovering machines, Server Assessment can discover apps, role, and features running on machines. Discovering your app inventory allows you to identify and plan a migration path tailored for your on-premises workloads. 
+
+**Support** | **Details**
+--- | ---
+**Supported machines** | App discovery is currently supported for VMware VMs only.
+**Discovery** | App discovery is agentless. It uses machine guest credentials, and remotely accesses machines using WMI and SSH calls.
+**VM support** | App-discovery is supported for all  Windows and Linux versions.
+**vCenter credentials** | App discovery needs a vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations.
+**VM credentials** | App discovery currently supports the use of one credential for all Windows servers, and one credential for all Linux servers.<br/><br/> You create a guest user account for Windows VMs, and a regular/normal user account (non-sudo access) for all Linux VMs.
+**VMware tools** | VMware tools must be installed and running on VMs you want to discover. <br/> The VMware tools version must be later than 10.2.0.
+**PowerShell** | VMs must have PowerShell version 2.0 or later installed.
+**Port access** | On ESXi hosts running VMs you want to discover, the Azure Migrate appliance must be able to connect to TCP port 443.
+**Limits** | For app-discovery, you can discover up to 10000 VMs on each Azure Migrate appliance.
+
 
 ## Agentless dependency analysis requirements
 
@@ -75,7 +94,7 @@ ESXi hosts (app discovery/agentless dependency analysis) | If you want to do [ap
 **Before deployment** | You should have an Azure Migrate project in place, with the Server Assessment tool added to the project.<br/><br/>  You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises VMWare machines.<br/><br/> [Learn how](create-manage-projects.md) to create a project for the first time.<br/> [Learn how](how-to-assess.md) to add an assessment tool to an existing project.<br/> [Learn how](how-to-set-up-appliance-vmware.md) to set up the Azure Migrate appliance for assessment of VMware VMs.
 **VM support** | Currently supported for VMware VMs only.
 **Windows VMs** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bit).
-**Windows account** |  For dependency analysis, the Azure Migrate appliance needs a local or a domain Administrator account to access Windows VMs.
+**Windows account** |  For dependency analysis, the Azure Migrate appliance needs a domain administrator account, or a local admin account, to access Windows VMs.
 **Linux VMs** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
 **Linux account** | For dependency analysis, on Linux machines the Azure Migrate appliance needs a user account with Root privilege.<br/><br/> Alternately, the user account needs these permissions on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE.
 **Required agents** | No agent required on machines you want to analyze.
@@ -83,6 +102,7 @@ ESXi hosts (app discovery/agentless dependency analysis) | If you want to do [ap
 **vCenter Server credentials** | Dependency visualization needs a vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations. 
 **PowerShell** | VMs must have PowerShell version 2.0 or above installed.
 **Port access** | On ESXi hosts running VMs you want to analyze, the Azure Migrate appliance must be able to connect to TCP port 443.
+
 
 ## Agent-based dependency analysis requirements
 
@@ -98,6 +118,7 @@ ESXi hosts (app discovery/agentless dependency analysis) | If you want to do [ap
 **Costs** | The Service Map solution doesn't incur any charges for the first 180 days (from the day that you associate the Log Analytics workspace with the Azure Migrate project)/<br/><br/> After 180 days, standard Log Analytics charges will apply.<br/><br/> Using any solution other than Service Map in the associated Log Analytics workspace will incur [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br/><br/> When the Azure Migrate project is deleted, the workspace is not deleted along with it. After deleting the project, Service Map usage isn't free, and each node will be charged as per the paid tier of Log Analytics workspace/<br/><br/>If you have projects that you created before Azure Migrate general availability (GA- 28 February 2018), you might have incurred additional Service Map charges. To ensure payment after 180 days only, we recommend that you create a new project, since existing workspaces before GA are still chargeable.
 **Management** | When you register agents to the workspace, you use the ID and key provided by the Azure Migrate project.<br/><br/> You can use the Log Analytics workspace outside Azure Migrate.<br/><br/> If you delete the associated Azure Migrate project, the workspace isn't deleted automatically. [Delete it manually](../azure-monitor/platform/manage-access.md).<br/><br/> Don't delete the workspace created by Azure Migrate, unless you delete the Azure Migrate project. If you do, the dependency visualization functionality will not work as expected.
 **Internet connectivity** | If machines aren't connected to the internet, you need to install the Log Analytics gateway on them.
+**Azure Government** | Agent-based dependency analysis isn't supported.
 
 
 ## Next steps

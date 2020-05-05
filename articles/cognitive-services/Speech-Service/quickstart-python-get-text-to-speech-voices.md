@@ -3,13 +3,13 @@ title: "List text-to-speech voices, Python - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this article, you'll learn how to get the full list of standard and neural voices for a region/endpoint using Python. The list is returned as JSON, and voice availability varies by region.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/13/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 # Get the list of text-to-speech voices using Python

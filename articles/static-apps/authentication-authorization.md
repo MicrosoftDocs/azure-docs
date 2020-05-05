@@ -1,60 +1,165 @@
 ---
-title: Authentication and authorization for App Service Static Apps
-description: #Required; article description that is displayed in search results. 
-services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
+title: Authentication and authorization for Azure Static Web Apps
+description: Learn to use different authorization providers to secure your static app.
+services: static-web-apps
 author: craigshoemaker
-
-ms.service: azure-functions
+ms.service: static-web-apps
 ms.topic:  conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
+# Authentication and authorization for Azure Static Web Apps
 
-# Authentication and authorization for App Service Static Apps
+Azure Static Web Apps streamlines the authentication experience by managing authentication with the following providers:
 
-Introductory paragraph.
+- Azure Active Directory
+- GitHub
+- Facebook
+- Google
+- Twitter
 
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental "why would I want to do this?" question.
---->
+Provider-specific [invitations](#invitations) associate users with roles, and authorized users are granted access to [routes](routes.md) by rules defined in the _routes.json_ file.
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+The topics of authentication and authorization significantly overlap with routing concepts. Make sure to read the [routing guide](routes.md) along with this article.
 
-## Prerequisites
+## Roles
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!--- Make Prerequisites your first H2 if you have them.
-If there's something a customer needs to take care of before they start (for example, creating a VM) it's OK to link to that content before they begin.
---->
+Every user who accesses a static web app belongs to one or more roles.  There are two built-in roles that users can belong to:
 
-## <section>
+- **anonymous**: All users automatically belong to the _anonymous_ role.
+- **authenticated**: All users who are logged in belong to the _authenticated_ role.
 
-<!---Detail what the reader needs to know in each section
---->
+Beyond the built-in roles, you can create new roles, assign them to users via invitations, and reference them in the _routes.json_ file.
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+## Role management
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
-   <!---   ![Browser](media/contribute-how-to-mvc-quickstart/browser.png) --->
-      <!---Use screenshots but be judicious to maintain a reasonable length. Make sure screenshots align to the [current standards](contribute-mvc-screen-shots.md).
-      If users access your product/service via a web browser the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.--->
-1. Step four of the procedure
+### Add a user to a role
+
+To add users to your web site, you generate invitations which allow you to associate users to specific roles. Roles are defined and maintained in the _routes.json_ file.
+
+<a name="invitations" id="invitations"></a>
+
+#### Create an invitation
+
+Invitations are specific to individual authorization-providers, so consider the needs of your app as you select which providers to support. Some providers expose a user's email address, while others only provide the site's username.
+
+<a name="provider-user-details" id="provider-user-details"></a>
+
+| Authorization provider | Exposes a user's  |
+| ---------------------- | ----------------- |
+| Azure Active Directory | email address     |
+| Facebook               | email address     |
+| GitHub                 | username          |
+| Google                 | email address     |
+| Twitter                | username          |
+
+1. Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+1. Under _Settings_, click on **Role Management**.
+1. Click on the **Invite** button.
+1. Select an _Authorization provider_ from the list of options.
+1. Add either the username or email address of the recipient in the _Invitee details_ box.
+    - For GitHub and Twitter, you enter the username. For all others, enter the recipient's email address.
+1. Select the domain of your static site from the _Domain_ drop-down.
+    - The domain you select is the domain that appears in the invitation. If you have a custom domain associated with your site, you probably want to choose the custom domain.
+1. Add a comma-separated list of role names in the _Role_ box.
+1. Enter the maximum number of hours you want the invitation to remain valid.
+    - The maximum possible limit is 168 hours, which is 7 days.
+1. Click the **Generate** button.
+1. Copy the link from the _Invite link_ box.
+1. Email the invitation link to the person you're granting access to your app.
+
+When the user clicks the link in the invitation, they're prompted to log in with their corresponding account. Once successfully logged-in, the user is associated with the selected roles.
+
+> [!CAUTION]
+> Make sure your route rules don't conflict with your selected authentication providers. Blocking a provider with a route rule would prevent users from accepting invitations.
+
+### Update role assignments
+
+1. Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+1. Under _Settings_, click on **Role Management**.
+1. Click on the user in the list.
+1. Edit the list of roles in the _Role_ box.
+1. Click the **Update** button.
+
+### Remove user
+
+1. Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+1. Under _Settings_, click on **Role Management**.
+1. Locate the user in the list.
+1. Check the checkbox on the user's row.
+1. Click the **Delete** button.
+
+As you remove a user, keep in mind the following items:
+
+1. Removing a user invalidates their permissions.
+1. Worldwide propagation may take a few minutes.
+1. If the user is added back to the app, the [`userId` changes](user-information.md).
+
+## System folder
+
+Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end users, consider creating [routing rules](routes.md) to create friendly URLs.
+
+## Login
+
+Use the following table to find the provider-specific login route.
+
+| Authorization provider | Login route             |
+| ---------------------- | ----------------------- |
+| Azure Active Directory | `/.auth/login/aad`      |
+| Facebook               | `/.auth/login/facebook` |
+| GitHub                 | `/.auth/login/github`   |
+| Google                 | `/.auth/login/google`   |
+| Twitter                | `/.auth/login/twitter`  |
+
+For example, to login with GitHub you could include a login link like the following snippet:
+
+```html
+<a href="/.auth/login/github">Login</a>
+```
+
+If you chose to support more than one provider, then you need to expose a provider-specific link for each on your website.
+
+You can use a [route rule](routes.md) to map a default provider to a friendly route like _/login_.
+
+```json
+{
+  "route": "/login",
+  "serve": "/.auth/login/github"
+}
+```
+
+## Logout
+
+The `/.auth/logout` route logs users out from the website. You can add a link to your site navigation to allow the user to log out as shown in the following example.
+
+```html
+<a href="/.auth/logout">Log out</a>
+```
+
+You can use a [route rule](routes.md) to map a friendly route like _/logout_.
+
+```json
+{
+  "route": "/logout",
+  "serve": "/.auth/logout"
+}
+```
+
+## Block an authorization provider
+
+You may want to restrict your app from using an authorization provider. For instance, your app may want to standardize only on [providers that expose email addresses](#provider-user-details).
+
+To block a provider, you can create [route rules](routes.md) to return a 404 for requests to the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
+
+```json
+{
+  "route": "/.auth/login/twitter",
+  "statusCode": "404"
+}
+```
 
 ## Next steps
 
-<!-- Uncomment this block and add the appropriate link
-
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
--->
-
-<!--- Required:
-A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn't fit.
---->
+> [Access user authentication and authorization data](user-information.md)

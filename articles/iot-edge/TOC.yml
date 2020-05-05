@@ -168,13 +168,15 @@
     - name: Deploy at scale
       items:
       - name: Azure portal
-        href: how-to-deploy-monitor.md
+        href: how-to-deploy-at-scale.md
       - name: Azure CLI
-        href: how-to-deploy-monitor-cli.md
+        href: how-to-deploy-cli-at-scale.md
       - name: Visual Studio Code
-        href: how-to-deploy-monitor-vscode.md
+        href: how-to-deploy-vscode-at-scale.md
   - name: Monitor and diagnose deployments
     items:
+      - name: Monitor IoT Edge deployments
+        href: how-to-monitor-iot-edge-deployments.md
       - name: EdgeAgent direct methods
         href: how-to-edgeagent-direct-method.md
   - name: Use IoT Edge devices as gateways
@@ -204,7 +206,11 @@
     - name: IoT Edge plugin for Jenkins
       href: how-to-devops-plugins.md
   - name: Troubleshoot
-    href: troubleshoot.md
+    items:
+    - name: Standard diagnostic steps
+      href: troubleshoot.md
+    - name: Common error resolutions
+      href: troubleshoot-common-errors.md
 - name: Resources
   items:
   - name: Support and help options

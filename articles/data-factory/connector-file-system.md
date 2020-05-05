@@ -19,6 +19,7 @@ ms.author: jingwang
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-file-system-connector.md)
 > * [Current version](connector-file-system.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to copy data to and from file system. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 

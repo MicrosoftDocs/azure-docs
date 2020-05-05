@@ -1,4 +1,4 @@
-- name: App Service Static Apps Documentation
+- name: Azure Static Web Apps Documentation
   href: index.yml
 - name: Overview
   items:
@@ -17,9 +17,9 @@
       href: routes.md
     - name: Authentication and authorization
       href: authentication-authorization.md
-    - name: Accessing user information
+    - name: Access user information
       href: user-information.md
-    - name: Review pull requests in preproduction environments
+    - name: Review pull requests in pre-production environments
       href: review-publish-pull-requests.md
     - name: Custom domain
       href: custom-domain.md
@@ -31,10 +31,6 @@
       href: add-api.md
     - name: Configure environment variables
       href: environment-variables.md
-    - name: Add a database
-      href: add-database.md
-    - name: Connect and disconnect from a GitHub repo
-      href: connect-disconnect-repo.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator

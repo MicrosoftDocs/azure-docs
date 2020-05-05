@@ -511,24 +511,24 @@ Log entries:
 
 | Request ID | Operation Text |
 | --- | --- |
-| 07b26a5d-... |Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |Starting synchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Waiting for response. |
 | 07b26a5d-... |Response received. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag =    &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Response headers were processed successfully, proceeding with the rest of the operation. |
 | 07b26a5d-... |Downloading response body. |
 | 07b26a5d-... |Operation completed successfully. |
-| 07b26a5d-... |Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |Starting synchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Waiting for response. |
 | 07b26a5d-... |Response received. Status code = 202, Request ID = 6ab2a4cf-..., Content-MD5 = , ETag = . |
 | 07b26a5d-... |Response headers were processed successfully, proceeding with the rest of the operation. |
 | 07b26a5d-... |Downloading response body. |
 | 07b26a5d-... |Operation completed successfully. |
-| e2d06d78-... |Starting asynchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
+| e2d06d78-... |Starting asynchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`.</td> |
 | e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Waiting for response. |
-| de8b1c3c-... |Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
+| de8b1c3c-... |Starting synchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt`. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Preparing to write request data. |
 | e2d06d78-... |Exception thrown while waiting for response: The remote server returned an error: (404) Not Found.. |
@@ -536,7 +536,7 @@ Log entries:
 | e2d06d78-... |Response headers were processed successfully, proceeding with the rest of the operation. |
 | e2d06d78-... |Downloading response body. |
 | e2d06d78-... |Operation completed successfully. |
-| e2d06d78-... |Starting asynchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| e2d06d78-... |Starting asynchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Waiting for response. |
 | de8b1c3c-... |Writing request data. |
@@ -561,12 +561,12 @@ The following table shows a sample server-side log message from the Storage Logg
 | --- | --- |
 | Request start time | 2014-05-30T06:17:48.4473697Z |
 | Operation type     | GetBlobProperties            |
-| Request status     | SASAuthorizationError		|
-| HTTP status code   | 404							|
+| Request status     | SASAuthorizationError        |
+| HTTP status code   | 404                            |
 | Authentication type| Sas                          |
-| Service type       | Blob 						|
-| Request URL		 | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| &nbsp;				 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| Service type       | Blob                         |
+| Request URL         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
+| &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Request ID header  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | Client request ID  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 

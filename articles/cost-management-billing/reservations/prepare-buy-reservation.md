@@ -5,7 +5,7 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/30/2020
 ms.author: banders
 ---
 
@@ -62,13 +62,13 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Azure Cache for Redis](../../azure-cache-for-redis/cache-reserved-pricing.md)
 - [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Databricks](prepay-databricks-reserved-capacity.md)
-- [Data Explorer](../../data-explorer/pricing-reserved-capacity.md)
+- [Data Explorer](/azure/data-explorer/pricing-reserved-capacity)
 - [Disk Storage](../../virtual-machines/linux/disks-reserved-capacity.md)
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
 - [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Storage](../../storage/blobs/storage-blob-reserved-capacity.md)
 - [SQL Database](../../sql-database/sql-database-reserved-capacity.md)
-- [SQL Data Warehouse](prepay-sql-data-warehouse-charges.md)
+- [Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md)
 - [Virtual machines](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
 
 ## Buy reservations with monthly payments
