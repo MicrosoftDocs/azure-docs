@@ -16,7 +16,7 @@ Azure Static Web Apps streamlines the authentication experience by managing auth
 - Azure Active Directory
 - GitHub
 - Facebook
-- Google
+- Google<sup>1</sup>
 - Twitter
 
 Provider-specific [invitations](#invitations) associate users with roles, and authorized users are granted access to [routes](routes.md) by rules defined in the _routes.json_ file.
@@ -51,7 +51,7 @@ Invitations are specific to individual authorization-providers, so consider the 
 | Azure Active Directory | email address     |
 | Facebook               | email address     |
 | GitHub                 | username          |
-| Google                 | email address     |
+| Google<sup>1</sup>     | email address     |
 | Twitter                | username          |
 
 1. Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
@@ -96,6 +96,14 @@ As you remove a user, keep in mind the following items:
 1. Worldwide propagation may take a few minutes.
 1. If the user is added back to the app, the [`userId` changes](user-information.md).
 
+When you grant consent to an application as an end-user, the application has access to your email address or your username depending on the identity provider. Once this information is provided, the owner of the application decides how to manage personally identifying information.
+
+End-users need to contact administrators of individual web apps to to revoke this information from their systems. To remove personally identifying information from the Azure Static Web Apps platform, and prevent the platform from providing this information on future requests, submit a request using the URL:
+
+```url
+https://<WEB_APP_DOMAIN_NAME>/identity/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
+```
+
 ## System folder
 
 Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end users, consider creating [routing rules](routes.md) to create friendly URLs.
@@ -109,7 +117,7 @@ Use the following table to find the provider-specific login route.
 | Azure Active Directory | `/.auth/login/aad`      |
 | Facebook               | `/.auth/login/facebook` |
 | GitHub                 | `/.auth/login/github`   |
-| Google                 | `/.auth/login/google`   |
+| Google<sup>1</sup>     | `/.auth/login/google`   |
 | Twitter                | `/.auth/login/twitter`  |
 
 For example, to login with GitHub you could include a login link like the following snippet:
@@ -163,3 +171,5 @@ To block a provider, you can create [route rules](routes.md) to return a 404 for
 
 > [!div class="nextstepaction"]
 > [Access user authentication and authorization data](user-information.md)
+
+<sup>1</sup> Pending external certification.
