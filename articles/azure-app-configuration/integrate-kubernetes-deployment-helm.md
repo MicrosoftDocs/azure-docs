@@ -179,7 +179,7 @@ settings:
 	message: myMessage
 ```
 
-## Pass configuration from App Configuration during Helm install ##
+## Pass configuration from App Configuration in Helm install ##
 First, download the configuration from App Configuration to a *myConfig.yaml* file. Use a key filter to only download those keys that start with **settings.**. If in your case the key filter is not sufficient to exclude keys of Key Vault references, you may use the argument **--skip-keyvault** to exclude them. 
 
 > [!TIP]
