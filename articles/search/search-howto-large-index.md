@@ -13,7 +13,7 @@ ms.date: 5/8/2020
 
 # How to index large data sets in Azure Cognitive Search
 
-Azure Cognitive Search supports [two basic approaches](https://docs.microsoft.com/en-us/azure/search/search-what-is-data-import) for importing data into a search index: *pushing* your data into the index programmatically, or pointing an [Azure Cognitive Search indexer](https://docs.microsoft.com/en-us/azure/search/search-indexer-overview) at a supported data source to *pull* in the data.
+Azure Cognitive Search supports [two basic approaches](search-what-is-data-import.md) for importing data into a search index: *pushing* your data into the index programmatically, or pointing an [Azure Cognitive Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
 
 As data volumes grow or processing needs change, you might find that simple or default indexing strategies are no longer practical. For Azure Cognitive Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
 
@@ -64,14 +64,14 @@ The optimal number of threads is determined by the tier of your search service, 
 > [!NOTE]
 > As you increase the tier of your search service or increase the partitions, you should also increase the number of concurrent threads.
 
-As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](https://docs.microsoft.com/en-us/rest/api/searchservice/http-status-codes) indicating the request did not fully succeed. During indexing, two common HTTP status codes are:
+As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](http-status-codes.md) indicating the request did not fully succeed. During indexing, two common HTTP status codes are:
 
 * **503 Service Unavailable** - This error means that the system is under heavy load and your request can't be processed at this time.
 * **207 Multi-Status** - This error means that some documents succeeded, but at least one failed.
 
 ### Retry strategy 
 
-If a failure happens, requests should be retried using an [exponential backoff retry strategy](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
+If a failure happens, requests should be retried using an [exponential backoff retry strategy](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
 Azure Cognitive Search's .NET SDK automatically retries 503s and other failed requests but you'll need to implement your own logic to retry 207s. Open-source tools such as [Polly](https://github.com/App-vNext/Polly) can also be used to implement a retry strategy. In this sample, we implement our own exponential backoff retry strategy.
 

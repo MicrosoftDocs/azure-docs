@@ -1,5 +1,5 @@
 ---
-title: 'C# Tutorial: Optimize indexing with the push API'
+title: 'C# tutorial optimize indexing with the push API'
 titleSuffix: Azure Cognitive Search
 description: Learn how to efficiently index data using Azure Cognitive Search's push API. This tutorial and sample code are in C#.
 
@@ -13,9 +13,9 @@ ms.date: 05/08/2020
 
 # Tutorial: Optimize indexing with the push API
 
-Azure Cognitive Search supports [two basic approaches](https://docs.microsoft.com/en-us/azure/search/search-what-is-data-import) for importing data into a search index: *pushing* your data into the index programmatically, or pointing an [Azure Cognitive Search indexer](https://docs.microsoft.com/en-us/azure/search/search-indexer-overview) at a supported data source to *pull* in the data.
+Azure Cognitive Search supports [two basic approaches](search-what-is-data-import.md) for importing data into a search index: *pushing* your data into the index programmatically, or pointing an [Azure Cognitive Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
 
-This tutorial describes how to efficiently index data using the [push model](https://docs.microsoft.com/en-us/azure/search/search-what-is-data-import#pushing-data-to-an-index). A .NET Core C# console application has been created so you can [download and run the  application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). This article explains the key aspects of the application as well as factors to consider when indexing data.
+This tutorial describes how to efficiently index data using the [push model](search-what-is-data-import.md#pushing-data-to-an-index) by batching requests and leveraging an exponential backoff retry strategy. You can [download and run the application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). This article explains the key aspects of the application as well as factors to consider when indexing data.
 
 This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
 
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-The following services and tools are required for this quickstart.
+The following services and tools are required for this tutorial.
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
@@ -88,7 +88,7 @@ API calls require the service URL and an access key. A search service is created
 
 Once you update *appsettings.json*, the sample program in **OptimizeDataIndexing.sln** should be ready to build and run.
 
-This code is derived from the [C# Quickstart](https://docs.microsoft.com/en-us/azure/search/search-get-started-dotnet) and you can find more detailed information on creating indexes and the basics of working with the .NET SDK in that article.
+This code is derived from the [C# Quickstart](search-get-started-dotnet.md) and you can find more detailed information on creating indexes and the basics of working with the .NET SDK in that article.
 
 This simple C#/.NET console app performs the following tasks:
 
@@ -167,7 +167,7 @@ Determining the optimal batch size for your data is a key component of optimizin
 1. The schema of your index
 1. The size of your data
 
-Because, the optimal batch size is dependent on your index and your data, the best approach is to test different batch sizes to determine what results in the fastest indexing speeds in terms of MB/s for your scenario.
+Because the optimal batch size is dependent on your index and your data, the best approach is to test different batch sizes to determine what results in the fastest indexing speeds in terms of MB/s for your scenario.
 
 The following function demonstrates a simple approach to testing batch sizes.
 
@@ -256,14 +256,14 @@ The optimal number of threads is determined by the tier of your search service, 
 > [!NOTE]
 > As you increase the tier of your search service or increase the partitions, you should also increase the number of concurrent threads.
 
-As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](https://docs.microsoft.com/en-us/rest/api/searchservice/http-status-codes) indicating the request did not fully succeed. During indexing, two common HTTP status codes are:
+As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](http-status-codes.md) indicating the request did not fully succeed. During indexing, two common HTTP status codes are:
 
 * **503 Service Unavailable** - This error means that the system is under heavy load and your request can't be processed at this time.
 * **207 Multi-Status** - This error means that some documents succeeded, but at least one failed.
 
 ### Implement an exponential backoff retry strategy
 
-If a failure happens, requests should be retried using an [exponential backoff retry strategy](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
+If a failure happens, requests should be retried using an [exponential backoff retry strategy](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
 Azure Cognitive Search's .NET SDK automatically retries 503s and other failed requests but you'll need to implement your own logic to retry 207s. Open-source tools such as [Polly](https://github.com/App-vNext/Polly) can also be used to implement a retry strategy. In this sample, we implement our own exponential backoff retry strategy.
 
@@ -279,7 +279,7 @@ TimeSpan delay = delay = TimeSpan.FromSeconds(2);
 int maxRetryAttempts = 5;
 ```
 
-It's important to catch [IndexBatchException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet) as this indicates that the indexing operation only partially succeeded (207s). Failed items should be retried using the `FindFailedActionsToRetry` method which making it easy to create a new batch containing only the failed items.
+It's important to catch [IndexBatchException](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet) as this indicates that the indexing operation only partially succeeded (207s). Failed items should be retried using the `FindFailedActionsToRetry` method which making it easy to create a new batch containing only the failed items.
 
 Exceptions other than `IndexBatchException` should also be caught and indicate the request failed completely. These exceptions are less common, particularly with the .NET SDK as it retries 503s automatically.
 
@@ -343,7 +343,7 @@ You can explore the populated search index after the program has run programatic
 
 ### Programatically
 
-There are two main options for checking the number of documents in an index: the [Count Documents API](https://docs.microsoft.com/en-us/rest/api/searchservice/count-documents) and the [Get Index Statistics API](https://docs.microsoft.com/en-us/rest/api/searchservice/get-index-statistics). Both paths 
+There are two main options for checking the number of documents in an index: the [Count Documents API](https://docs.microsoft.com/rest/api/searchservice/count-documents) and the [Get Index Statistics API](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics). Both paths 
 
 #### Count Documents
 
@@ -365,9 +365,9 @@ IndexGetStatisticsResult indexStats = serviceClient.Indexes.GetStatistics(config
 
 In Azure portal, open the search service **Overview** page, and find the **optimize-indexing** index in the **Indexes** list.
 
-  ![List of Azure Cognitive Search indexes](media/tutorial-optimize-data-indexing/portal-output2.png "List of Azure Cognitive Search indexes")
+  ![List of Azure Cognitive Search indexes](media/tutorial-optimize-data-indexing/portal-output.png "List of Azure Cognitive Search indexes")
 
-The *Document Count* and *Storage Size* are based on [Get Index Statistics API](https://docs.microsoft.com/en-us/rest/api/searchservice/get-index-statistics) and may take several minutes to update.
+The *Document Count* and *Storage Size* are based on [Get Index Statistics API](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) and may take several minutes to update.
 
 ## Reset and rerun
 
