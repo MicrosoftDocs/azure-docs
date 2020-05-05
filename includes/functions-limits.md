@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 05/04/2020	
 ms.author: glenga
 ---
-| Resource |[Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan)|[Premium plan](../articles/azure-functions/functions-scale.md#premium-plan)|[Dedicated plan](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](.../articles/aks/quotas-skus-regions.md) |
+| Resource |[Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan)|[Premium plan](../articles/azure-functions/functions-scale.md#premium-plan)|[Dedicated plan](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
 |Default [timeout duration](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> | 30 | 30 |
 |Max [timeout duration](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | unbounded<sup>8</sup> | unbounded<sup>3</sup> | unbounded | unbounded |

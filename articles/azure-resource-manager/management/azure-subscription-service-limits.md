@@ -120,7 +120,7 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
-[!INCLUDE [functions-limits-notes](../../includes/functions-limits-notes.md)]
+[!INCLUDE [functions-limits-notes](../../../includes/functions-limits-notes.md)]
 
 For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md#hosting-plans-comparison).
 

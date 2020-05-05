@@ -206,7 +206,7 @@ The following comparison table shows all important aspects to help the decision 
 
 ### Service limits
 
-[!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]
 
 ### Networking features
 
