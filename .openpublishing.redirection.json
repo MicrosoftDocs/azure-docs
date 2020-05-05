@@ -20701,6 +20701,56 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md",
+      "redirect_url": "articles/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-prerequisites.md",
+      "redirect_url": "articles/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer.md",
+      "redirect_url": "https://docs.microsoft.com//azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md",
+      "redirect_url": "articles/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-skus-tab.md",
+      "redirect_url": "articles/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md",
+      "redirect_url": "articles/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-support-tab.md",
+      "redirect_url": "articles/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-publish-offer.md",
+      "redirect_url": "articles/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md",
+      "redirect_url": "articles/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md",
+      "redirect_url": "articles/marketplace/partner-center-portal/create-iot-edge-module-asset",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/partner-center-portal/billing-details.md",
       "redirect_url": "https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations",
       "redirect_document_id": false
