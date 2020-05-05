@@ -88,15 +88,21 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 ## Service limits in public preview
 
 The table below lists the functional limits that Azure Digital Twins currently has.
+Some of the limits can be increased upon request. This capability is represented by the "Adjustable" column.
 
-| Area | Capability | Limit |
-| --- | --- | --- |
-| Azure Resource | Number of Azure Digital Twins instances in a region, per subscription | 10 |
-| DigitalTwins | Number of Twins in an Azure Digital Twins instance | 200,000 |
-| DigitalTwins | Number of incoming relationships for a twin | 500 |
-| DigitalTwins | Number of outgoing relationships for a twin | 500 |
-| Query | Number of items returned in a single page | 100 |
-| Models | Number of models within a single Azure Digital Twins instance | 10,000 |
+| Area | Capability | Limit | Adjustable |
+| --- | --- | --- | --- |
+| Azure Resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes |
+| DigitalTwins | Number of twins in an Azure Digital Twins instance | 200,000 | Yes |
+| Endpoints | Number of endpoints for a single Azure Digital Twins instance | 6 | No |
+| Endpoints | Number of routes for a single Azure Digital Twins instance | 6 | Yes |
+| Models | Number of models within a single Azure Digital Twins instance | 10,000 | Yes |
+| Models | Number of items returned in a single page | 100 | No |
+| Query | Number of items returned in a single page | 100 | No |
+| Query | Number of `AND` / `OR` expressions in a query | 50 | Yes |
+| Query | Number of array items in an `IN` / `NOT IN` clause | 50 | Yes |
+| Query | Number of characters in a query | 8,000 | Yes |
+| Query | Number of `JOINS` in a query | 1 | Yes |
 
 ## Next steps
 
