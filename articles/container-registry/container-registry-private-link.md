@@ -1,13 +1,13 @@
 ---
 title: Set up private link
-description: Set up a private endpoint on a container registry and enable a private link in a local virtual network
+description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network
 ms.topic: article
 ms.date: 05/04/2020
 ---
 
 # Configure Azure Private Link for an Azure container registry 
 
-Set up a [private endpoint](../private-link/private-endpoint-overview.md) for your Azure container registry so that clients on an Azure virtual network securely access the registry over a [private link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the virtual network address space for your registry. Network traffic between the clients on the virtual network and the registry traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+Set up a [private endpoint](../private-link/private-endpoint-overview.md) for your Azure container registry so that clients on an Azure virtual network securely access the registry over a [private link](../private-link/private-link-overview.md). The private endpoint uses a private IP address from the virtual network address space for your registry. Network traffic between the clients on the virtual network and the registry traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 You can [configure DNS settings](../private-link/private-endpoint-overview.md#dns-configuration) for your private endpoint, so that the settings resolve to the registry's allocated private IP address. With DNS configuration, clients and services in the network can continue to access the registry at the registry's fully qualified domain name, such as *myregistry.azurecr.io*.
 
@@ -197,6 +197,7 @@ Set up a private link when you create a registry, or add a private link to an ex
 1. Select the **Networking** tab.
 1. In **Network connectivity**, select **Private endpoint** > **+ Add**.
 1. Enter or select the following information:
+
     | Setting | Value |
     | ------- | ----- |
     | Subscription | Select your subscription. |
@@ -212,7 +213,7 @@ Set up a private link when you create a registry, or add a private link to an ex
     |||
 1. Configure the remaining registry settings, and then select **Review + Create**.
 
-![Create registry with private endpoint](./media/container-registry-private-link/private-link-create-portal.png)
+  ![Create registry with private endpoint](./media/container-registry-private-link/private-link-create-portal.png)
 
 ### Create a private endpoint - existing registry
 
@@ -263,7 +264,7 @@ After the private endpoint is created, DNS settings in the private zone appear o
 1. On the **Private endpoints** tab, select the private endpoint you created.
 1. On the **Overview** page, review the link settings and custom DNS settings.
 
-![Endpoint DNS settings](./media/container-registry-private-link/private-endpoint-overview.png)
+  ![Endpoint DNS settings](./media/container-registry-private-link/private-endpoint-overview.png)
 
 Your private link is now configured and ready for use.
 
@@ -357,7 +358,7 @@ To clean up your resources in the portal, navigate to your resource group. Once 
 ## Next steps
 
 * To learn more about Private Link, see the [Azure Private Link](../private-link/private-link-overview.md) documentation.
-* An alternative to private link is to set up network access rules to restrict registry access. To learn more, see [Restrict access to an Azure container registry using an Azure virtual network or firewall rules](container-registry-vnet.md).
+* If you need to set up registry access rules from behind a client firewall, see [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md).
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

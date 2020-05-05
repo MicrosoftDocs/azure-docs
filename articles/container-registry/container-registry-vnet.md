@@ -12,7 +12,7 @@ ms.date: 05/04/2020
 This article shows how to configure a container registry service endpoint in a virtual network. 
 
 > [!IMPORTANT]
-> Azure Container Registry also supports [Azure Private Link](container-registry-private-link.md), enabling private endpoints from a virtual network to be placed on a registry. Private endpoints are accessible from within the virtual network, using private IP addresses. We recommend using private endpoints instead of service endpoints in most network scenarios.
+> Azure Container Registry now supports [Azure Private Link](container-registry-private-link.md), enabling private endpoints from a virtual network to be placed on a registry. Private endpoints are accessible from within the virtual network, using private IP addresses. We recommend using private endpoints instead of service endpoints in most network scenarios.
 
 Configuring a registry service endpoint is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
 
@@ -128,7 +128,7 @@ docker pull mycontainerregistry.azurecr.io/hello-world:v1
 
 Docker successfully pulls the image to the VM.
 
-This example demonstrates that you can access the private container registry through the network access rule. However, the registry can't be accessed from a different login host that doesn't have a network access rule configured. If you attempt to login from another host using the `az acr login` command or `docker login` command, output is similar to the following:
+This example demonstrates that you can access the private container registry through the network access rule. However, the registry can't be accessed from a login host that doesn't have a network access rule configured. If you attempt to login from another host using the `az acr login` command or `docker login` command, output is similar to the following:
 
 ```Console
 Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden
@@ -145,7 +145,7 @@ To restore the registry to allow,  access by default, remove any network rules t
 To see a list of network rules configured for your registry, run the following [az acr network-rule list][az-acr-network-rule-list] command:
 
 ```azurecli
-az acr network-rule list--name mycontainerregistry 
+az acr network-rule list --name mycontainerregistry 
 ```
 
 For each rule that is configured, run the [az acr network-rule remove][az-acr-network-rule-remove] command to remove it. For example:
@@ -157,12 +157,6 @@ az acr network-rule remove \
   --name mycontainerregistry \
   --subnet /subscriptions/ \
   xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
-
-# Remove a rule that allows access for an IP address or CIDR range such as 23.45.1.0/24.
-
-az acr network-rule remove \
-  --name mycontainerregistry \
-  --ip-address 23.45.1.0/24
 ```
 
 #### Allow access
@@ -184,14 +178,8 @@ To clean up your resources in the portal, navigate to the myResourceGroup resour
 
 ## Next steps
 
-Several virtual network resources and features were discussed in this article, though briefly. The Azure Virtual Network documentation covers these topics extensively:
-
-* [Virtual network](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network)
-* [Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)
-* [Service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
-
-
-If instead you need to set up access rules for resources to reach a container registry from behind a client firewall, see [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md).
+* To restrict access to a registry using a private endpoint in a virtual network, see [Configure Azure Private Link for an Azure container registry](container-registry-private-link.md).
+* If you need to set up registry access rules from behind a client firewall, see [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md).
 
 
 <!-- IMAGES -->
