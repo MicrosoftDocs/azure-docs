@@ -54,7 +54,7 @@ If you want the Azure-SSIS IR to point to a read/write listener endpoint, you ne
 
 #### Solution
 
-When failover occurs:
+When failover occurs, take the following steps:
 
 1. Stop the Azure-SSIS IR in the primary region.
 
@@ -75,7 +75,7 @@ This scenario is suitable if the Azure-SSIS IR is pointing to a primary server e
 
 #### Solution
 
-When failover occurs:
+When failover occurs, take the following steps:
 
 1. Stop the Azure-SSIS IR in the primary region.
 
@@ -92,13 +92,13 @@ When failover occurs:
 
 3. Restart the Azure-SSIS IR.
 
-### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of an Azure SQL Database managed instance
+### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Database managed instance
 
 This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of an Azure SQL Database managed instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
 
 #### Solution
 
-When failover occurs:
+When failover occurs, take the following steps:
 
 1. Stop the Azure-SSIS IR in the primary region.
 
@@ -119,7 +119,7 @@ This scenario is suitable if you want to provision a new Azure-SSIS IR in a seco
 
 #### Solution
 
-When failover occurs:
+When failover occurs, take the following steps.
 
 > [!NOTE]
 > Use PowerShell for step 4 (creation of the IR). If you don't, the Azure portal will report an error that says SSISDB already exists.
@@ -190,7 +190,7 @@ This scenario is suitable if the Azure-SSIS IR is pointing to a primary server e
 
 #### Solution
 
-When failover occurs:
+When failover occurs, take the following steps:
 
 1. Stop the Azure-SSIS IR in the primary region.
 
@@ -212,6 +212,8 @@ When failover occurs:
 This scenario is suitable if you want to provision a new Azure-SSIS IR in a secondary region. It's also suitable if you want your SSISDB to keep working with a new Azure-SSIS IR in a new region when an Azure Data Factory or Azure-SSIS IR disaster occurs in the current region.
 
 #### Solution
+
+When failover occurs, take the following steps.
 
 > [!NOTE]
 > Use PowerShell for step 4 (creation of the IR). If you don't, the Azure portal will report an error that says SSISDB already exists.
