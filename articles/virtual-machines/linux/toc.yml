@@ -69,6 +69,8 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Images
+    href: shared-image-galleries.md
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Regions
@@ -457,17 +459,64 @@
     - name: Create log alerts
       href: ../../azure-monitor/platform/alerts-log.md
   - name: Use Images
+    displayName: SIG, AMI, image
     items:
-    - name: Shared image galleries
+    - name: Shared Image Galleries
       items:
-      - name: Overview
-        href: shared-image-galleries.md
       - name: CLI
-        href: shared-images.md
+        items:
+        - name: Create a gallery
+          href: ../shared-images-cli.md
+        - name: Create an image
+          items:
+          - name: From a VM
+            href: ../image-version-vm-cli.md
+          - name: Migrate from a managed image
+            href: ../image-version-managed-image-cli.md 
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-cli.md
+        - name: Create a VM
+          items:
+          - name: Generalized
+            href: ../vm-generalized-image-version-cli.md
+        - name: Update image resources
+          href: ../update-image-resources-cli.md
+        - name: App registration for sharing
+          href: share-images-across-tenants.md
+      - name: PowerShell
+        items:
+        - name: Create a gallery
+          href: ../shared-images-powershell.md
+        - name: Create an image version
+          items:
+          - name: From a VM
+            href: ../image-version-vm-powershell.md
+          - name: Migrate from a managed image
+            href: ../image-version-managed-image-powershell.md 
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-powershell.md            
+        - name: Create a VM
+          items:
+          - name: Generalized
+            href: ../vm-generalized-image-version-powershell.md
+          - name: Specialized
+            href: ../vm-specialized-image-version-powershell.md
+        - name: Update image resources
+          href: ../update-image-resources-powershell.md
       - name: Portal
-        href: shared-images-portal.md
-      - name: App registration for sharing
-        href: share-images-across-tenants.md
+        items:
+        - name: Create a gallery, image and VM
+          href: shared-images-portal.md
+      - name: Resource Manager Templates
+        items:
+        - name: Create a Shared Image Gallery
+          href: https://azure.microsoft.com/resources/templates/101-sig-create/
+        - name: Create an Image Definition in a Shared Image Gallery
+          href: https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/
+        - name: Create an Image Version in a Shared Image Gallery
+          href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
+        - name: Create a VM from Image Version
+          href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Image builder (preview)
@@ -544,9 +593,9 @@
     - name: Terraform
       items:
       - name: Install and configure
-        href: ../../terraform/terraform-install-configure.md
+        href: /azure/developer/terraform/install-configure
       - name: Create a complete VM
-        href: ../../terraform/terraform-create-complete-vm.md
+        href: /azure/developer/terraform/create-linux-virtual-machine-with-infrastructure
     - name: Cloud-init
       items:
       - name: Cloud-init overview
@@ -564,14 +613,14 @@
       - name: Prepare existing VM for cloud-init
         href: cloudinit-prepare-custom-image.md
     - name: Jenkins
-      href: /azure/developer/jenkins/overview.md
+      href: /azure/developer/jenkins/overview
       items:
       - name: Create a Jenkins server
-        href: /azure/developer/jenkins/configure-on-linux-vm.md
+        href: /azure/developer/jenkins/configure-on-linux-vm
       - name: Scale with VM agents
-        href: /azure/developer/jenkins/scale-deployments-using-vm-agents.md
+        href: /azure/developer/jenkins/scale-deployments-using-vm-agents
       - name: Publish artifacts to Storage
-        href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository.md
+        href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository
       - name: Secure Jenkins
         href: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
   - name: Run containers
