@@ -82,10 +82,12 @@
         href: container-registry-webhook.md
     - name: Security and authentication
       items:
-      - name: Limit access with virtual network (preview)
-        href: container-registry-vnet.md
-      - name: Integrate with Azure Private Link (preview)
+      - name: Restrict access using private endpoint
         href: container-registry-private-link.md
+      - name: Restrict access from public networks
+        href: container-registry-access-selected-networks.md
+      - name: Restrict access using service endpoint (preview)
+        href: container-registry-vnet.md
       - name: Access behind a firewall
         href: container-registry-firewall-access-rules.md
       - name: Authentication

@@ -1,13 +1,13 @@
 ---
-title: Restrict access from public networks
-description: Restrict access to an Azure container registry from selected public IP addresses or address ranges.
+title: Allow access from public networks
+description: Allow access to an Azure container registry from selected public IP addresses or address ranges.
 ms.topic: article
 ms.date: 05/04/2020
 ---
 
-# Restrict access from selected public networks
+# Allow access from selected public networks
 
-An Azure container registry by default accepts connections over the internet from hosts on any network. This article shows how to configure your container registry to allow access from specific IP addresses or address ranges. Equivalent steps using the Azure CLI and Azure portal are provided.
+An Azure container registry by default accepts connections over the internet from hosts on any network. This article shows how to configure your container registry to allow access from only specific public IP addresses or address ranges. Equivalent steps using the Azure CLI and Azure portal are provided.
 
 Ub IP network rules, provide allowed internet address ranges using CIDR notation such as *16.17.18.0/24* or an individual IP addresses like *16.17.18.19*. IP network rules are only allowed for *public* internet IP addresses. IP address ranges reserved for private networks (as defined in RFC 1918) aren't allowed.
 
