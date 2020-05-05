@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 05/05/2020
 ---
 
 # Introduction to knowledge stores in Azure Cognitive Search

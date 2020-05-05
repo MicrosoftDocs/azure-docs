@@ -8,7 +8,7 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 05/05/2020
 ---
 
 # Connect a knowledge store with Power BI
