@@ -35,7 +35,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixes an accidentally left behind warning log in my previous PR. The log was used for debugging and accidentally was left behind.
     + Bug fix: inform clients about partial failure during profiling
   + **azureml-automl-core**
-    + Speed up Prophet/AutoArima model in automl forecasting by enabling parallel fitting for the time series when data sets has multiple time series.
+    + Speed up Prophet/AutoArima model in automl forecasting by enabling parallel fitting for the time series when data sets has multiple time series. In order to benefit from this new feature, you are recommended to set "max_cores_per_iteration = -1" (i.e., using all the available cpu cores) in AutoMLConfig.
     + Fix KeyError on printing guardrails in console interface
     + Fixed error message for experimentation_timeout_hours
     + Deprecated Tensorflow models for AutoML.
