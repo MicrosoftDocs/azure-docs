@@ -13,6 +13,11 @@ ms.author: buhollan
 
 Environment variables hold configuration settings for values that may change, such as database connection strings. Adding environment variables allows you to modify the configuration input to your app, without having to change application code.
 
+Environment variables are:
+
+- Encrypted at rest
+- Copied to [staging](review-publish-pull-requests.md) and production environments
+
 Environment variables are also sometimes referred to as application settings.
 
 ## Prerequisites
