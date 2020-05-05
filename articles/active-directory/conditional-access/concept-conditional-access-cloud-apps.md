@@ -68,7 +68,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 
 Office 365 provides cloud-based productivity and collaboration services like Exchange, SharePoint, and Microsoft Teams. Office 365 cloud services are deeply integrated to ensure smooth and collaborative experiences. This integration can cause confusion when creating policies as some apps such as Microsoft Teams have dependencies on others such as SharePoint or Exchange.
 
-The Office 365 (preview) app makes it possible to target these services all at once. We recommend using the new Office 365 (preview) app, instead of targeting individual cloud apps. Targeting this group of applications helps to avoid issues that may arise due to inconsistent policies and dependencies.
+The Office 365 (preview) app makes it possible to target these services all at once. We recommend using the new Office 365 (preview) app, instead of targeting individual cloud apps to avoid issues with [service dependencies](service-dependencies.md). Targeting this group of applications helps to avoid issues that may arise due to inconsistent policies and dependencies.
 
 Administrators can choose to exclude specific apps from policy if they wish by including the Office 365 (preview) app and excluding the specific apps of their choice in policy.
 
@@ -117,7 +117,7 @@ In addition to the Microsoft apps, administrators can add any Azure AD registere
 
 ## User actions
 
-User actions are tasks that can be performed by a user. The only currently supported action is **Register security information (preview)**, which allows Conditional Access policy to enforce when users who are enabled for combined registration attempt to register their security information. More information can be found in the article, [Combined security information registration (preview)](../authentication/concept-registration-mfa-sspr-combined.md).
+User actions are tasks that can be performed by a user. The only currently supported action is **Register security information**, which allows Conditional Access policy to enforce when users who are enabled for combined registration attempt to register their security information. More information can be found in the article, [Combined security information registration](../authentication/concept-registration-mfa-sspr-combined.md).
 
 ## Next steps
 

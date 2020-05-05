@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2020
+ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -42,16 +42,16 @@ This article contains instructions for using Azure Active Directory (Azure AD) P
         $AzureAdCred = Get-Credential  
         Connect-AzureAD -Credential $AzureAdCred
 
-1. Find your tenant ID by going to **Azure Active Directory** > **Properties** > **Directory ID**. In the cmdlets section, use this ID whenever you need to supply the resourceId.
+1. Find the tenant ID for your Azure AD organization by going to **Azure Active Directory** > **Properties** > **Directory ID**. In the cmdlets section, use this ID whenever you need to supply the resourceId.
 
-    ![Find the tenant ID in the properties for the Azure AD organization](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
+    ![Find the organization ID in the properties for the Azure AD organization](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> The following sections are simple examples that can help get you up and running. You can find more detailed documentation regarding the following cmdlets at https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management. However, you will need to replace "azureResources" in the providerID parameter with "aadRoles". You will also need to remember to use the tenant ID for your Azure AD organization as the resourceId parameter.
+> The following sections are simple examples that can help get you up and running. You can find more detailed documentation regarding the following cmdlets at https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management. However, you will need to replace "azureResources" in the providerID parameter with "aadRoles". You will also need to remember to use the organization ID for your Azure AD organization as the resourceId parameter.
 
 ## Retrieving role definitions
 
-Use the following cmdlet to get all built-in and custom Azure AD roles in your Azure AD organization (tenant). This important step gives you the mapping between the role name and the roleDefinitionId. The roleDefinitionId is used throughout these cmdlets in order to reference a specific role.
+Use the following cmdlet to get all built-in and custom Azure AD roles in your Azure AD organization. This important step gives you the mapping between the role name and the roleDefinitionId. The roleDefinitionId is used throughout these cmdlets in order to reference a specific role.
 
 The roleDefinitionId is specific to your Azure AD organization and is different from the roleDefinitionId returned by the role management API.
 
@@ -93,6 +93,8 @@ The schedule, which defines the start and end time of the assignment, is an obje
     $schedule.Type = "Once"
     $schedule.StartDateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
     $schedule.endDateTime = "2020-07-25T20:49:11.770Z"
+> [!Note]
+> If the value of endDateTime is set to null, it indicates a permanent assignment.
 
 ## Activate a role assignment
 

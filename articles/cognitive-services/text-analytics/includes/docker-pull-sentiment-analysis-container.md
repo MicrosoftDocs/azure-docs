@@ -3,12 +3,12 @@ title: Docker pull for the Sentiment Analysis container
 titleSuffix: Azure Cognitive Services
 description: Docker pull command for Sentiment Analysis container
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/12/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 #### Docker pull for the Sentiment Analysis container

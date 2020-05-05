@@ -16,6 +16,8 @@ ms.date: 03/11/2020
 
 # Troubleshoot copy activity performance
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to troubleshoot copy activity performance issue in Azure Data Factory. 
 
 After you run a copy activity, you can collect the run result and performance statistics in [copy activity monitoring](copy-activity-monitoring.md) view. The following is an example.
@@ -83,7 +85,7 @@ When the copy activity performance doesn't meet your expectation, to troubleshoo
 
   - Check your copy source and sink pattern: 
 
-    - If your copy pattern supports larger than 4 Data Integration Units (DIUs) - refer to [this section](copy-activity-performance.md#data-integration-units) on details, generally you can try increasing DIUs to get better performance. 
+    - If your copy pattern supports larger than 4 Data Integration Units (DIUs) - refer to [this section](copy-activity-performance-features.md#data-integration-units) on details, generally you can try increasing DIUs to get better performance. 
 
     - Otherwise, consider to split single large data set into several smaller data sets, and let those copy jobs run concurrently each tackles portion of data. You can do this with Lookup/GetMetadata + ForEach + Copy. Refer to [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md), [Migrate data from Amazon S3 to ADLS Gen2](solution-template-migration-s3-azure.md), or [Bulk copy with a control table](solution-template-bulk-copy-with-control-table.md) solution templates as general example.
 
@@ -97,7 +99,7 @@ When the copy activity performance doesn't meet your expectation, to troubleshoo
 
   - Check your copy source and sink pattern: 
 
-    - If your copy pattern supports larger than 4 Data Integration Units (DIUs) - refer to [this section](copy-activity-performance.md#data-integration-units) on details, generally you can try increasing DIUs to get better performance. 
+    - If your copy pattern supports larger than 4 Data Integration Units (DIUs) - refer to [this section](copy-activity-performance-features.md#data-integration-units) on details, generally you can try increasing DIUs to get better performance. 
 
     - Otherwise, gradually tune the [parallel copies](copy-activity-performance-features.md), note that too many parallel copies may even hurt the performance.
 

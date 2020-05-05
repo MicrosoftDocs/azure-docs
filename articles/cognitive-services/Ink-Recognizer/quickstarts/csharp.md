@@ -34,7 +34,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
         3. Search for `Newtonsoft.Json` and install the package
 - If you are using Linux/MacOS, this application can be ran using [Mono](https://www.mono-project.com/).
 
-- The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
+- The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Vision/InkRecognition/quickstart/example-ink-strokes.json).
 
 ### Create an Ink Recognizer resource
 
@@ -85,7 +85,7 @@ Create a function called `LoadJson()` to load the ink data JSON file. Use a `Str
 
 ## Run the application and view the response
 
-Run the application. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json).
+Run the application. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Vision/InkRecognition/quickstart/example-response.json).
 
 
 ## Next steps

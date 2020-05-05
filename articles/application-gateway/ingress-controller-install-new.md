@@ -266,7 +266,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
 
    > [!NOTE]
    > The `identityResourceID` and `identityClientID` are values that were created
-   during the [Create an Identity](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-new.md#create-an-identity)
+   during the [Deploy Components](ingress-controller-install-new.md#deploy-components)
    steps, and could be obtained again using the following command:
    > ```azurecli
    > az identity show -g <resource-group> -n <identity-name>

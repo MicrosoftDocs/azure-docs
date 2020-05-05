@@ -49,7 +49,7 @@ SAS tokens include allowed permissions as part of the token. The permissions inc
 You can associate a security principal with an access level for files and directories. These associations are captured in an *access control list (ACL)*. Each file and directory in your storage account has an access control list.
 
 > [!NOTE]
-> ACLs apply only to security principals in the same tenant. You can't associate a guest user with an access level.  
+> ACLs apply only to security principals in the same tenant. 
 
 If you assigned a role to a security principal at the storage account-level, you can use access control lists to grant that security principal elevated access to specific files and directories.
 
@@ -282,7 +282,7 @@ If HNS is turned OFF, the Azure RBAC authorization rules still apply.
 
 ### What is the best way to apply ACLs?
 
-Always use Azure AD security groups as the assigned principal in ACLs. Resist the opportunity to directly assign individual users or service principals. Using this structure will allow you to add and remove users or service principals without the need to reapply ACLs to an entire directory structure. ) Instead, you simply need to add or remove them from the appropriate Azure AD security group. Keep in mind that ACLs are not inherited and so reapplying ACLs requires updating the ACL on every file and subdirectory. 
+Always use Azure AD security groups as the assigned principal in ACLs. Resist the opportunity to directly assign individual users or service principals. Using this structure will allow you to add and remove users or service principals without the need to reapply ACLs to an entire directory structure. Instead, you simply need to add or remove them from the appropriate Azure AD security group. Keep in mind that ACLs are not inherited and so reapplying ACLs requires updating the ACL on every file and subdirectory. 
 
 ### Which permissions are required to recursively delete a directory and its contents?
 
