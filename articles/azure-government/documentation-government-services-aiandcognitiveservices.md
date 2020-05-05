@@ -116,9 +116,6 @@ Variations in Azure Government:
 - Auth Token Service: 
      - https://usgovvirginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
      - https://usgovarizona.api.cognitive.microsoft.us/sts/v1.0/issueToken
-- [Virtual Network support](../cognitive-services/cognitive-services-virtual-networks.md) for Translator service is limited to only US Gov Virginia region. The URI for accessing the API is:
-     - `https://<your-custom-domain>.cognitiveservices.azure.us`
-     - You can find your custom domain endpoint in the overview blade on the Azure portal once the resource is created.
 - Available SKUs: S1
 - Custom Translator and Translator Hub are not supported.
  
