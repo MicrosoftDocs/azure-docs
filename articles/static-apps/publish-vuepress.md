@@ -131,8 +131,6 @@ The following steps show you how to create a new Static Web Apps application and
 
    :::image type="content" source="./media/static-web-apps-publish-vuepress/completed-github-info.png" alt-text="Completed GitHub information":::
 
-1. Click **Next : Build >**
-
 ### Build
 
 Next, you add configuration settings that the build process uses to build your app. The following settings configure the GitHub Action workflow file.
