@@ -313,7 +313,6 @@ The below chaincode operations can be carried out:
 •	[Instantiate chaincode](#instantiate-chaincode)  
 
 •	[Invoke chaincode](#invoke-chaincode)
-
 •	[Query chaincode](#query-chaincode)
 
 ### Install chaincode  
