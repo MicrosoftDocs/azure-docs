@@ -50,10 +50,10 @@ You can think of the models as nouns in a description of your world, and the rel
 Azure Digital Twins digital representations are meant to be live, up-to-date representations of the state of the real world. To keep digital twins updated, Azure Digital Twins provides an event processing system through which you can [**route events**](concepts-route-events.md) to different locations, both within and beyond your Azure Digital Twins instance. You can, for example, process events to manage incoming telemetry from devices, state changes within your twin graph, or life-cycle events generated when digital twins are created or modified. Azure Digital Twins can be part of a data processing framework that applies custom code to incoming streams of IoT and business data. 
 
 Routing data and events through custom code processing allows you to:
-* Compute properties on a digital twin from sensor input (such as aggregating data from temperature, humidity, and noise sensors into a *comfort* property on a "room" twin)
-* Update the twin graph based on event data (such as calculating an average *comfort* for a floor in a building, when the *comfort* property of any of the rooms on the floor changes)
-* Apply complex external simulation or machine learning processors (such as calculating the energy efficiency of a wind turbine based on current operational parameters)
-* Send data to downstream destinations (such as storing it for long-term bulk analytics or triggering workflow integrations)
+* Compute properties on a digital twin from sensor input (such as aggregating data from temperature, humidity, and noise sensors into a *comfort* property on a "room" twin).
+* Update the twin graph based on event data (such as calculating an average *comfort* for a floor in a building, when the *comfort* property of any of the rooms on the floor changes).
+* Apply complex external simulation or machine learning processors (such as calculating the energy efficiency of a wind turbine based on current operational parameters).
+* Send data to downstream destinations (such as storing it for long-term bulk analytics or triggering workflow integrations).
 
 ### Query the digital representation of your environment to answer business questions
 
@@ -68,7 +68,7 @@ Here are some examples of insights you can gather:
 
 [**Security in Azure Digital Twins**](concepts-security.md) uses role-based access control (RBAC) to allow you to manage your instance at a twin level. You can define the policies for data access, using built-in roles or defining your own.
 
-### Work with with IoT Hub for device-centric scenarios
+### Work with IoT Hub for device-centric scenarios
 
 Azure Digital Twins can represent IoT devices managed by [IoT Hub](../iot-hub/about-iot-hub.md) as part of your twin graph, where you can connect them via relationships and query them like all other digital twins.
 
@@ -88,21 +88,23 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 ## Service limits in public preview
 
 The table below lists the functional limits that Azure Digital Twins currently has.
-Some of the limits can be increased upon request. This capability is represented by the "Adjustable" column.
 
-| Area | Capability | Limit | Adjustable |
-| --- | --- | --- | --- |
-| Azure Resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes |
-| DigitalTwins | Number of twins in an Azure Digital Twins instance | 200,000 | Yes |
-| Endpoints | Number of endpoints for a single Azure Digital Twins instance | 6 | No |
-| Endpoints | Number of routes for a single Azure Digital Twins instance | 6 | Yes |
-| Models | Number of models within a single Azure Digital Twins instance | 10,000 | Yes |
-| Models | Number of items returned in a single page | 100 | No |
-| Query | Number of items returned in a single page | 100 | No |
-| Query | Number of `AND` / `OR` expressions in a query | 50 | Yes |
-| Query | Number of array items in an `IN` / `NOT IN` clause | 50 | Yes |
-| Query | Number of characters in a query | 8,000 | Yes |
-| Query | Number of `JOINS` in a query | 1 | Yes |
+| Area | Capability | Limit |
+| --- | --- | --- |
+| Azure resource | Number of Azure Digital Twins instances in a region, per subscription | 10 |
+| Digital twins | Number of twins in an Azure Digital Twins instance | 200,000 |
+| Endpoints | Number of endpoints for a single Azure Digital Twins instance | 6 |
+| Endpoints | Number of routes for a single Azure Digital Twins instance | 6 |
+| Models | Number of models within a single Azure Digital Twins instance | 10,000 |
+| Models | Number of items returned in a single page | 100 |
+| Query | Number of items returned in a single page | 100 |
+| Query | Number of `AND` / `OR` expressions in a query | 50 |
+| Query | Number of array items in an `IN` / `NOT IN` clause | 50 |
+| Query | Number of characters in a query | 8,000 |
+| Query | Number of `JOINS` in a query | 1 |
+
+> [!NOTE]
+> If your business requires more than the limit of 10 Azure Digital Twins instances in a region per subscription, you can  request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Next steps
 
