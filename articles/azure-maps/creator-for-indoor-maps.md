@@ -31,7 +31,7 @@ Use the [Azure Maps Data Upload API](https://docs.microsoft.com/rest/api/maps/da
 
 ## Convert a Drawing package
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts an uploaded Drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types: errors and warnings. If any errors are detected, the conversion process fails. Should warnings be detected, the conversion will succeed.
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts an uploaded Drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types: errors and warnings. If any errors are detected, the conversion process fails. Should warnings be detected, the conversion will succeed, but it’s recommended that you review and/or resolve all warnings. A warning means that part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes. For more details, see [Drawing package warnings and errors](drawing-conversion-error-codes.md).
 
 When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer](azure-maps-drawing-errors-visualizer.md) stand-alone web application. You can use the Drawing Error Visualizer to inspect [Drawing package warnings and errors](drawing-conversion-error-codes.md) that occurred during the conversion process. Once you have fixed the errors, you can then attempt to upload and convert the package.
 

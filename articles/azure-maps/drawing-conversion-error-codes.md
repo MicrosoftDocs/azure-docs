@@ -3,7 +3,7 @@ title: Drawing Conversion Error and Warning in Azure Maps | Microsoft Docs
 description: Learn about the Conversion errors and warnings you may meet while you're using the Azure Maps Conversion service. Read the recommendations on how to resolve the errors and the warnings, with some examples.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/01/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -14,7 +14,7 @@ manager: philMea
 
 The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert uploaded Drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If one or more requirements are not met, then the Conversion service will return errors and/or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
 
-## Codes overview
+## Conversion Errors
 
 This table contains the possible errors.  The conversion will not succeed unless all conversion errors are resolved. To see more details, click on an error category or a specific error.
 
@@ -33,6 +33,7 @@ This table contains the possible errors.  The conversion will not succeed unless
 
 This table contains the possible warning codes. The Conversion service will succeed if there are any conversion warnings, but it’s recommended that you review and/or resolve all warnings. A warning means part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes. To see more details, click on an error category or a specific error.
 
+## Conversion Warnings
 
 | Warning | Location |
 |:-------|:----------|
@@ -40,54 +41,181 @@ This table contains the possible warning codes. The Conversion service will succ
 | [unexpectedGeometryInLayer](#unexpectedgeometryinlayer) | [General](#general-warnings) |
 | [unsupportedFeatureRepresentation](#unsupportedfeaturerepresentation) | [General](#general-warnings) |
 | [automaticRepairPerformed](#automaticrepairperformed) | [General](#general-warnings) |
+| [redundantAttribution](#redundantAttribution) | [Manifest](#manifest-warnings) |
 | [wallOutsideLevel](#walloutsidelevel ) | [Level](#level-warnings) |
 | [unitOutsideLevel](#unitoutsidelevel) | [Unit](#unit-warnings) |
 | [partiallyOverlappingUnit](#partiallyoverlappingunit) | [Unit](#unit-warnings) |
 | [doorOutsideLevel](#dooroutsidelevel) | [Door](#door-warnings) |
 | [zoneWarning](#zonewarning ) | [Zone](#zone-warnings) |
 
-## General warnings
+## General Warnings
 
 ### geometryWarning
 
-Failed to build a feature from an entity because a geometric constraint isn't met. For example, a self-intersecting polygon or other invalid topologies is used.
+#### Description for geometryWarning
 
-Manually inspect the `geometryWarning` warning for each geometry to ensure the geometry is the correct type. Check for topological errors; such as, PolyLine features not meeting perfectly at a point. Other mistakes include: unclosed polygons, gaps between polygon borders, or overlapping polygon border.
+The **geometryWarning** occurs when a geometric constraint is not being met by an entity in a DWG file. As a result, the Conversion service is unable to create a map feature from that entity.
+
+#### Example scenarios for geometryWarning
+
+A DWG file contains geometric errors, such as PolyLine features not meeting perfectly at a point, a self-intersecting polygon, unclosed polygon, gaps between polygon borders, or overlapping polygon borders.
+
+ ![Example of a geometric error](./media/drawing-conversion-error-codes/placeholder.png)
+
+#### How to fix geometryWarning
+
+Inspect each **geometryWarning** warning for each entity to ensure that it follows geometric constraints.
 
 ### unexpectedGeometryInLayer
 
-The Conversion service came across a geometry of an unexpected type, and the service ignored it. For example:
+#### Description for unexpectedGeometryInLayer
 
-* Non-closed PolyLine is found in the level outline layer, unit layer, zone layer, or wall layer.
-* Non-text entity is found in the zoneLabel layer or the unitLabel layer.
+The **unexpectedGeometryInLayer** occurs when the Conversion service finds a geometry that is incompatible with its current layer. When the Conversion service throws an **unexpectedGeometryInLayer** warning, it will simply ignore that geometry.
 
-Inspect each error and remove the incompatible geometry. Otherwise, move the incompatible geometry to a layer in which it's compatible.
+#### Example scenarios for unexpectedGeometryInLayer
+
+* A non-closed PolyLine is found in the level outline layer, unit layer, zone layer, or wall layer.
+
+    ![Example of a non-closed Polyline](./media/drawing-conversion-error-codes/placeholder.png)
+
+* A non-text entity is found in the zoneLabel layer or the unitLabel layer.
+
+    ![Example of a non-text entity](./media/drawing-conversion-error-codes/placeholder.png)
+
+#### How to fix unexpectedGeometryInLayer
+
+Inspect each **unexpectedGeometryInLayer** warning and move the geometry of unexpected type to a compatible layer. If it is not compatible with any of the other layers, it should be removed.
 
 ### unsupportedFeatureRepresentation
 
-The Conversion service came across an entity of an unsupported type. For example:
+#### Description for unsupportedFeatureRepresentation
 
-* A multi-line text object in a label layer.
-* A 3D Face in the unit layer.
-* An old-style Polyline2D entity that hasn't been converted to a regular Polyline.
+The **unsupportedFeatureRepresentation** warning occurs when the Conversion service finds an unsupported entity type.
 
-Only use the supported entity types listed under the [Drawing files requirements section in the Drawing package requirements article](drawing-requirements.md#drawing-package-requirements).
+#### Example scenarios for unsupportedFeatureRepresentation
+
+* The Conversion service found a multi-line text object on a label layer.
+  
+    ![Example of a multi-line text object on label layer](./media/drawing-conversion-error-codes/placeholder.png)
+
+* The Conversion service found a 3D Face in the unit layer.
+
+    ![Example of a 3D Face on unit layer](./media/drawing-conversion-error-codes/placeholder.png)
+
+* The Conversion service found an old-style Polyline2D entity that hasn't been converted to a regular Polyline.
+
+    ![Example of a Polyline2D entity](./media/drawing-conversion-error-codes/placeholder.png)
+
+#### How to fix unsupportedFeatureRepresentation
+
+Ensure that your DWG files contain only the supported entity types listed under the [Drawing files requirements section in the Drawing package requirements article](drawing-requirements.md#drawing-package-requirements).
 
 ### automaticRepairPerformed
 
-Geometry, which would have otherwise caused an error, was automatically modified to resolve the potential error. The following are cases that raise an `automaticRepairPerformed` warning:
+#### Description for automaticRepairPerformed
+
+The **automaticRepairPerformed** warning occurs when invalid geometry, which would have otherwise caused an error, was automatically repaired.
+
+#### Example scenarios for automaticRepairPerformed
 
 * A self-intersecting polygon was repaired.
-* A non-closed PolyLine with first and last vertices closer than 1 mm were snapped to make a closed PolyLine.
-* In a layer that only supports closed PolyLines, multiple non-closed PolyLines were combined to create a single closed Polyline. This fix was done to avoid discarding the PolyLines.
 
-To resolve an `automaticRepairPerformed` warning:
+    ![Example of a self-intersecting polygon repaired](./media/drawing-conversion-error-codes/placeholder.png)
+
+* A non-closed Polyline with first and last vertices closer than 1 mm were snapped to make a closed Polyline.
+
+    ![Example of a snapped Polyline](./media/drawing-conversion-error-codes/placeholder.png)
+
+* In a layer that only supports closed Polylines, multiple non-closed Polylines were combined to create a single closed Polyline. This fix was done to avoid discarding the Polylines.
+
+    ![Example of non-closed Polylines converted to closed Polyline](./media/drawing-conversion-error-codes/placeholder.png)
+
+#### How to fix automaticRepairPerformed
+
+To fix an `automaticRepairPerformed` warning:
 
 1. Inspect each warning's geometry and the specific warning text.
 2. Determine if the automated repair is correct.
 3. If the repair is correct, continue. Otherwise, go to the design file and resolve the warning manually.
 
-To suppress a warning in the future, make changes to the original drawing such that the original drawing matches the repaired drawing.
+>[!TIP]
+>To suppress a warning in the future, make changes to the original drawing such that the original drawing matches the repaired drawing.
+
+## Manifest warnings
+
+### redundantAttribution
+
+#### Description for redundantAttribution
+
+The **redundantAttribution** warning occurs when the Conversion service finds redundant or conflicting object properties.
+
+#### Example scenarios for redundantAttribution
+
+* Two or more `unitProperties` objects with the same `name`.
+
+    ![Example of unitProperty objects with same name](./media/drawing-conversion-error-codes/placeholder.png)
+
+* Two or more `zoneProperties` objects with the same `name`.
+    ![Example of zoneProperty objects with same name](./media/drawing-conversion-error-codes/placeholder.png)
+
+#### How to fix redundantAttribution
+
+To fix a **redundantAttribution* warning, remove redundant or conflicting object properties.
+
+## Level warnings
+
+### wallOutsideLevel
+
+#### Description for wallOutsideLevel
+
+The **wallOutsideLevel** warning occurs when a Wall geometry occurs outside the bounds of a level outline.
+
+#### Example scenarios for wallOutsideLevel
+
+* An interior wall, shown in red, is outside the yellow level boundary.
+
+    ![Interior wall goes outside the level boundary](./media/drawing-conversion-error-codes/interior-wall-outside-level-boundary.png)
+
+* An exterior wall, shown in red, is outside the yellow level boundary.
+
+    ![Exterior wall goes outside the level boundary](./media/drawing-conversion-error-codes/exterior-wall-outside-level-boundary.png)
+
+#### How to fix wallOutsideLeve
+
+To fix an **wallOutsideLevel** warning, expand the level geometry to include all walls. Or, modify wall boundaries to fit inside the level boundary.
+
+## Unit warnings
+
+### unitOutsideLevel
+
+#### Description for unitOutsideLevel
+
+An **unitOutsideLevel** warning occurs when a unit geometry occurs outside the bounds of the level outline.
+
+#### Example scenarios for unitOutsideLevel
+
+ In the following image, a unit geometry, shown in red, exceeds the bounds of the yellow level boundary.
+
+ ![Unit goes outside the level boundary](./media/drawing-conversion-error-codes/unit-outside-level-boundary.png)
+
+#### How to fix unitOutsideLevel
+
+To fix an **unitOutsideLevel** warning, expand the level boundary to include all units. Or, modify unit geometry to fit inside the level boundary.
+
+### partiallyOverlappingUnit
+
+#### Description for partiallyOverlappingUnit
+
+A **partiallyOverlappingUnit** occurs when the Conversion service finds a unit geometry partially overlapping on another unit geometry. The Conversion service ignores all overlapping units.
+
+#### Example scenarios for partiallyOverlappingUnit
+
+In the following image, the overlapping units are highlighted in red. UNIT 136 overlaps CIRC103, UNIT 126, and UNIT 135.
+![Unit overlap](./media/drawing-conversion-error-codes/unit-overlap.png)
+
+#### How to fix partiallyOverlappingUnit
+
+In order to fix a **partiallyOverlappingUnit** warning, redraw each partially overlapping unit so that it doesn't overlap any other units.
 
 ## Package errors
 
@@ -173,48 +301,7 @@ Check your georeferenced values.
 
 For GeoJSON, the coordinates order is longitude and latitude. If you don't use the correct order, you may accidentally refer to an out of range latitude or longitude value.
 
-## Manifest warnings
 
-### redundantAttribution
-
-More than one definition was found for a given zone or unit. For example, the manifest contains:
-
-* Two `unitProperties` objects with the same `name`
-* Two `zoneProperties` objects with the same `name`
-
-Remove redundant or conflicting object properties.
-
-## Level warnings
-
-### wallOutsideLevel
-
-Wall geometry occurs outside the bounds of the level outline.
-
-The following two images show the error in red. The interior wall, shown in red, is outside the yellow level boundary in the first image. In the second image, the exterior wall, also shown in red, is outside the yellow level boundary.
-
-![Interior wall goes outside the level boundary](./media/drawing-conversion-error-codes/interior-wall-outside-level-boundary.png)
-
-![Exterior wall goes outside the level boundary](./media/drawing-conversion-error-codes/exterior-wall-outside-level-boundary.png)
-
-To fix `wallOutsideLevel` warnings, expand the level geometry to include all walls. Or, modify walls to fit inside level.
-
-## Unit warnings
-
-### unitOutsideLevel
-
-Unit geometry occurs outside the bounds of the level outline. The image below shows one example. The red segments of the unit are outside the level yellow boundary.
-
-![Unit goes outside the level boundary](./media/drawing-conversion-error-codes/unit-outside-level-boundary.png)
-
-Expand level geometry to include all units or modify unit to fit inside level.
-
-### partiallyOverlappingUnit
-
-The Conversion service came across a unit that's partially overlapping on another unit. Below is an example image, the overlaps are highlighted in red. UNIT 136 overlaps CIRC103, UNIT 126, and UNIT 135.
-
-![Unit overlap](./media/drawing-conversion-error-codes/unit-overlap.png)
-
-The Conversion service ignores any partially overlapping units. Redraw each partially overlapping unit, so that it doesn't overlap any other units.
 
 ## Wall errors
 
