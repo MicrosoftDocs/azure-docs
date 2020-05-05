@@ -25,7 +25,7 @@ In this article, you learn how to:
 1. Export the resulting datasets to a datastore.
 1. View results.
 
-This how-to is a prerequisite for the [how to retrain designer models](how-to-retrain-designer.md) article. In that article, you will learn how to use the transformed datasets to train multiple models.
+This how-to is a prerequisite for the [how to retrain designer models](how-to-retrain-designer.md) article. In that article, you will learn how to use the transformed datasets to train multiple models with pipeline parameters.
 
 ## Transform a dataset
 
@@ -76,7 +76,7 @@ Your pipeline should look like this:
 
 ## Save the datasets
 
-Now that your pipeline is set up to split the data, you need to specify where to persist the datasets. For this example, use the **Export Data** module to save your dataset to a datastore.
+Now that your pipeline is set up to split the data, you need to specify where to persist the datasets. For this example, use the **Export Data** module to save your dataset to a datastore. For more information on datastores, see [Connect to Azure storage services](how-to-access-data.md)
 
 1. In the module palette to the left of the canvas, expand the **Data Input and Output** section and find the **Export Data** module.
 
