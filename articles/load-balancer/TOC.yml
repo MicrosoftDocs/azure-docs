@@ -40,6 +40,8 @@
     href: components.md
   - name: Concepts
     href: concepts.md
+  - name: SKUs
+    href: skus.md
   - name: Health monitoring
     items:
     - name: Health probes

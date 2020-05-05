@@ -111,7 +111,7 @@ This error occurs when you attempt to use a [Run As account](../manage-runas-acc
 
 #### Resolution
 
-If your Hybrid Runbook Worker is an Azure VM, you can use [Managed identities for Azure resources](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) instead. This scenario simplifies authentication by allowing you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As account. When the Hybrid Runbook Worker is an on-premises machine, you need to install the Run As account certificate on the machine. To learn how to install the certificate, see the steps to run the PowerShell runbook **Export-RunAsCertificateToHybridWorker** in [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+If your Hybrid Runbook Worker is an Azure VM, you can use [runbook authentication with managed identities](../automation-hrw-run-runbooks.md#runbook-auth-managed-identities) instead. This scenario simplifies authentication by allowing you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As account. When the Hybrid Runbook Worker is an on-premises machine, you need to install the Run As account certificate on the machine. To learn how to install the certificate, see the steps to run the PowerShell runbook **Export-RunAsCertificateToHybridWorker** in [Run runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
 ### <a name="error-403-on-registration"></a>Scenario: Error 403 during registration of Hybrid Runbook Worker
 
