@@ -6,8 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/13/2020
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/27/2020
 ---
 
 # Create Linux-based clusters in HDInsight by using the Azure portal
@@ -136,11 +136,6 @@ Some of the icons in the window are explained as follows:
 |SSH + Cluster login|Provides information needed to access the cluster by using SSH.|
 |Delete|Deletes the HDInsight cluster.|
 
-## Customize clusters
-
-* [Customize HDInsight clusters by using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
-* [Customize Linux-based HDInsight clusters by using script actions](hdinsight-hadoop-customize-cluster-linux.md)
-
 ## Delete the cluster
 
 See [Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI](./hdinsight-delete-cluster.md).
@@ -155,5 +150,4 @@ You've successfully created an HDInsight cluster. Now learn how to work with you
 
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
 * [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Develop Java topologies for Apache Storm on HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Create a standalone application by using Scala](spark/apache-spark-create-standalone-application.md)
+* [Customize Linux-based HDInsight clusters by using script actions](hdinsight-hadoop-customize-cluster-linux.md)

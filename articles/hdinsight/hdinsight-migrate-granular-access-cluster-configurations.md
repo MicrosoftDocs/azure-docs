@@ -6,7 +6,7 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 04/20/2020
 ---
     
 # Migrate to granular role-based access for cluster configurations
@@ -27,10 +27,10 @@ permissions of Contributor or Owner. To summarize:
 
 | Role                                  | Previously                                                                                       | Going Forward       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Reader                                | - Read access, including secrets                                                                   | - Read access, **excluding** secrets |           |   |   |
+| Reader                                | - Read access, including secrets.                                                                   | - Read access, **excluding** secrets |           |   |   |
 | HDInsight Cluster Operator<br>(New Role) | N/A                                                                                              | - Read/write access, including secrets         |   |   |
-| Contributor                           | - Read/write access, including secrets<br>- Create and manage all of types of Azure resources.     | No change |
-| Owner                                 | - Read/write access including secrets<br>- Full access to all resources<br>- Delegate access to others | No change |
+| Contributor                           | - Read/write access, including secrets.<br>- Create and manage all of types of Azure resources.<br>- Execute script actions.     | No change |
+| Owner                                 | - Read/write access including secrets.<br>- Full access to all resources<br>- Delegate access to others.<br>- Execute script actions. | No change |
 
 For information on how to add the HDInsight Cluster Operator role assignment to a user to grant them read/write access to cluster secrets, see the below section, [Add the HDInsight Cluster Operator role assignment to a user](#add-the-hdinsight-cluster-operator-role-assignment-to-a-user).
 

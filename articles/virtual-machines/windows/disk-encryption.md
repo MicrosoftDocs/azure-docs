@@ -184,7 +184,7 @@ Update-AzVM -ResourceGroupName $ResourceGroupName -VM $vm
 
 ```
 
-#### Encrypt existing unattached managed disks 
+#### Encrypt existing managed disks 
 
 Your existing disks must not be attached to a running VM in order for you to encrypt them using the following script:
 

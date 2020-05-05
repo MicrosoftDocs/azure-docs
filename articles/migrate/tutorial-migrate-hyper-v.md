@@ -33,7 +33,7 @@ Before you begin this tutorial, you should:
 1. [Review](hyper-v-migration-architecture.md) the Hyper-V migration architecture.
 2. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) Hyper-V host requirements, and the Azure URLs that the Hyper-V hosts need to access.
 3. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) requirements for Hyper-V VMs that you want to migrate. Hyper-V VMs must conform with [Azure VM requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
-2. We recommend that you complete the previous tutorials in this series. The [first tutorial](tutorial-prepare-hyper-v.md) shows you how to set up Azure and Hyper-V for migration. The second tutorial shows you how to [assess Hyper-V VMs](tutorial-assess-hyper-v.md before migration, using Azure Migrate:Server Assessment. 
+2. We recommend that you complete the previous tutorials in this series. The [first tutorial](tutorial-prepare-hyper-v.md) shows you how to set up Azure and Hyper-V for migration. The second tutorial shows you how to [assess Hyper-V VMs](tutorial-assess-hyper-v.md) before migration, using Azure Migrate:Server Assessment. 
     > [!NOTE]
     > Although we recommend that you try out an assessment, you don't have to run an assessment before you migrate VMs.
     > For migrating Hyper-V VMs, Azure Migrate:Server Migration runs software agents (Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent) on Hyper-V Hosts or cluster nodes, to orchestrate and replicate data to Azure Migrate. The [Azure Migrate appliance](migrate-appliance.md) isn't used for Hyper-V migration.

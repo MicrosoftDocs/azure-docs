@@ -4,12 +4,11 @@ titleSuffix: Azure Storage
 description: A checklist of security controls for evaluating Azure Storage.
 services: storage
 author: msmbaldwin
-
+ms.author: mbaldwin
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: mbaldwin
 ---
 
 # Security controls for Azure Storage
@@ -43,8 +42,8 @@ This article documents the security controls built into Azure Storage.
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | Azure Monitor Metrics|
-| Control and management plane logging and audit | Yes | Azure Resource Manager Activity Log |
-| Data plane logging and audit| Yes | Service Diagnostic Logs.|
+| Control and management plane logging and audit | Yes | Azure Activity Log |
+| Data plane logging and audit| Yes | Azure Monitor Resource Logs |
 
 ## Identity
 

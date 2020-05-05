@@ -68,6 +68,8 @@
       href: cognitive-search-tutorial-blob.md
     - name: Python
       href: cognitive-search-tutorial-blob-python.md
+  - name: Query from Power Apps   
+    href: search-howto-powerapps.md  
 - name: Samples
   items:
   - name: C# samples
@@ -80,6 +82,9 @@
     href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python
   - name: REST samples
     href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Full-text search
@@ -234,8 +239,6 @@
         href: index-add-suggesters.md
       - name: Add autocomplete and suggestions
         href: search-autocomplete-tutorial.md
-    - name: Query from Power Apps   
-      href: search-howto-powerapps.md  
     - name: Syntax reference
       items:
       - name: Simple query syntax
@@ -262,9 +265,11 @@
     items:
     - name: Work with results
       href: search-pagination-page-layout.md
-    - name: Relevance tuning (scoring profiles)    
+    - name: Relevance scoring
+      href: index-similarity-and-scoring.md
+    - name: Scoring profiles 
       href: index-add-scoring-profiles.md
-    - name: Relevance tuning (similarity algorithm)  
+    - name: Similarity algorithm
       href: index-ranking-similarity.md
   - name: Plan
     items:

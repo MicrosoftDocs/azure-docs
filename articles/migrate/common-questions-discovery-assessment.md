@@ -104,6 +104,11 @@ Data | Source machine server name, process, application name.<br/><br/> Destinat
 Visualization | Dependency map of single server can be viewed over a duration of one hour to 30 days. | Dependency map of a single server.<br/><br/> Map can be viewed over an hour only.<br/><br/> Dependency map of a group of servers.<br/><br/> Add and remove servers in a group from the map view.
 Data export | Can't currently be downloaded in tabular format. | Data can be queried with Log Analytics.
 
+
+## Do I need to deploy the appliance for agentless dependency analysis?
+
+Yes, the [Azure Migrate appliance](migrate-appliance.md) must be deployed.
+
 ## Do I pay for dependency visualization?
 
 No. Learn more about [Azure Migrate pricing](https://azure.microsoft.com/pricing/details/azure-migrate/).

@@ -140,7 +140,6 @@ enum CookiePolicy { Disable, Enable }
 | Font Styles | Bold, Italic, Underline, Code, Strikethrough, Superscript, Subscript |
 | Unordered Lists | Disc, Circle, Square |
 | Ordered Lists | Decimal, Upper-Alpha, Lower-Alpha, Upper-Roman, Lower-Roman |
-| Hyperlinks | Coming Soon |
 
 Unsupported tags will be rendered comparably. Images and tables are currently not supported.
 

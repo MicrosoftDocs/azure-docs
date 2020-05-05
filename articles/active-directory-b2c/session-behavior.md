@@ -55,3 +55,7 @@ The following use cases are enabled using these properties:
     ![Session behavior property settings in the Azure portal](./media/session-behavior/session-behavior.png)
 
 8. Click **Save**.
+
+## Next steps
+
+- Learn more about [Azure AD B2C session](session-overview.md).

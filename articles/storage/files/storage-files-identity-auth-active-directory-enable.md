@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 05/04/2020
 ms.author: rogarana
 ---
 
@@ -49,13 +49,11 @@ Before you enable AD DS authentication for Azure file shares, make sure you have
 
     To access a file share by using AD credentials from a machine or VM, your device must be domain-joined to AD DS. For information about how to domain-join, refer to [Join a Computer to a Domain](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain). 
 
-- Select or create an Azure storage account in [a supported region](#regional-availability). 
+- Select or create an Azure storage account.  For optimal performance, we recommend that you deploy the storage account in the same region as the VM from which you plan to access the share.
 
     Make sure that the storage account containing your file shares is not already configured for Azure AD DS Authentication. If Azure Files Azure AD DS authentication is enabled on the storage account, it needs to be disabled before changing to use on-premises AD DS. This implies that existing ACLs configured in Azure AD DS environment will need to be reconfigured for proper permission enforcement.
     
     For information about creating a new file share, see [Create a file share in Azure Files](storage-how-to-create-file-share.md).
-    
-    For optimal performance, we recommend that you deploy the storage account in the same region as the VM from which you plan to access the share. 
 
 - Verify connectivity by mounting Azure file shares using your storage account key. 
 
@@ -65,23 +63,23 @@ Before you enable AD DS authentication for Azure file shares, make sure you have
 
 Azure Files authentication with AD DS (preview) is available in [all Public regions and Azure Gov regions](https://azure.microsoft.com/global-infrastructure/locations/).
 
-## Workflow overview
-
-Before you enable AD DS authentication over SMB for Azure file shares, we recommend that you read and complete the [prerequisite](#prerequisites) section. The prerequisites validate that your AD, Azure AD, and Azure Storage environments are properly configured. 
+## Overview
 
 If you plan to enable any networking configurations on your file share, we recommend you to evaluate the [networking consideration](https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview) and complete the related configuration first before enabling AD DS authentication.
 
-Next, follow the steps below to set up Azure Files for AD Authentication: 
+Enabling AD DS authentication for your Azure file shares allows you to authenticate to your Azure file shares with your on-prem AD DS credentials. Further, it allows you to better manage your permissions to allow granular access control. Doing this requires synching identities from on-prem AD DS to Azure AD with AD connect. You control the share level access with identities synched to Azure AD while managing file/share level access with on-prem AD DS credentials.
 
-1. Enable Azure Files AD DS authentication on your storage account. 
+Next, follow the steps below to set up Azure Files for AD DS Authentication: 
 
-2. Assign access permissions for a share to the Azure AD identity (a user, group, or service principal) that is in sync with the target AD identity. 
+1. [Enable Azure Files AD DS authentication on your storage account](#1-enable-ad-ds-authentication-for-your-account)
 
-3. Configure ACLs over SMB for directories and files. 
+1. [Assign access permissions for a share to the Azure AD identity (a user, group, or service principal) that is in sync with the target AD identity](#2-assign-access-permissions-to-an-identity)
+
+1. [Configure ACLs over SMB for directories and files](#3-configure-ntfs-permissions-over-smb)
  
-4. Mount an Azure file share to a VM joined to your AD DS. 
+1. [Mount an Azure file share to a VM joined to your AD DS](#4-mount-a-file-share-from-a-domain-joined-vm)
 
-5. Update the password of your storage account identity in AD DS.
+1. [Update the password of your storage account identity in AD DS](#5-update-the-password-of-your-storage-account-identity-in-ad-ds)
 
 The following diagram illustrates the end-to-end workflow for enabling Azure AD authentication over SMB for Azure file shares. 
 
@@ -90,9 +88,9 @@ The following diagram illustrates the end-to-end workflow for enabling Azure AD 
 > [!NOTE]
 > AD DS authentication over SMB for Azure file shares is only supported on machines or VMs running on OS versions newer than Windows 7 or Windows Server 2008 R2. 
 
-## 1. Enable AD authentication for your account 
+## 1 Enable AD DS authentication for your account 
 
-To enable AD DS authentication over SMB for Azure file shares, you need to first register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account. Use `join-AzStorageAccountForAuth` to enable the feature. You can find the detailed description of the end-to-end workflow in the script inside this section. 
+To enable AD DS authentication over SMB for Azure file shares, you need to first register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account. Download the AzFilesHybrid Powershell module and use `join-AzStorageAccountForAuth` to enable the feature. You can find the detailed description of the end-to-end workflow in the script inside this section. 
 
 > [!IMPORTANT]
 > The `Join-AzStorageAccountForAuth` cmdlet will make modifications to your AD environment. Read the following explanation to better understand what it is doing to ensure you have the proper permissions to execute the command and that the applied changes align with the compliance and security policies. 
@@ -113,7 +111,7 @@ You can use the following script to perform the registration and enable the feat
 Remember to replace the placeholder values with your own in the parameters below before executing it in PowerShell.
 > [!IMPORTANT]
 > The domain join cmdlet will create an AD account to represent the storage account (file share) in AD. You can choose to register as a computer account or service logon account, see [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) for details. For computer accounts, there is a default password expiration age set in AD at 30 days. Similarly, the service logon account may have a default password expiration age set on the AD domain or Organizational Unit (OU).
-> For both account types, we strongly recommend you to check what is the password expiration age configured in your AD environment and plan to [Update the password of your storage account identity in AD](#5-update-the-password-of-your-storage-account-identity-in-ad-ds) of the AD account below before the maximum password age. Failing to update AD account password will result in authentication failures when accessing Azure file shares. You can consider to [create a new AD Organizational Unit (OU) in AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) and disable password expiration policy on [computer accounts](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) or service logon accounts accordingly. 
+> For both account types, we strongly recommend you to check what is the password expiration age configured in your AD environment and plan to [Update the password of your storage account identity in AD](#5-update-the-password-of-your-storage-account-identity-in-ad-ds) of the AD account below before the maximum password age. You can consider to [create a new AD Organizational Unit (OU) in AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) and disable password expiration policy on [computer accounts](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) or service logon accounts accordingly. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -139,12 +137,12 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
 # You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
 # You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
-#You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
+# You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
 
 Join-AzStorageAccountForAuth `
         -ResourceGroupName $ResourceGroupName `
         -Name $StorageAccountName `
-        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` #Default set to "ComputerAccount"
+        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` # Default set to "ComputerAccount" if this parameter is not provided
         -OrganizationalUnitName "<ou-name-here>" #You can also use -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" instead. If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
 
 #You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, go to Azure Files FAQ.
@@ -215,7 +213,7 @@ You've now successfully enabled the feature on your storage account. Now that th
 
 You have now successfully enabled AD DS authentication over SMB and assigned a custom role that provides access to an Azure file share with an AD DS identity. To grant additional users access to your file share, follow the instructions in the [Assign access permissions](#2-assign-access-permissions-to-an-identity) to use an identity and [Configure NTFS permissions over SMB](#3-configure-ntfs-permissions-over-smb) sections.
 
-## 5. Update the password of your storage account identity in AD DS
+## 5 Update the password of your storage account identity in AD DS
 
 If you registered the AD DS identity/account representing your storage account under an OU that enforces password expiration time, you must rotate the password before the maximum password age. Failing to update the password of the AD DS account will result in authentication failures to access Azure file shares.  
 
