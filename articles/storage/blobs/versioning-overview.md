@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -240,7 +240,7 @@ In scenario 1, the blob has a prior version. The blob has not been updated since
 
 #### Scenario 2
 
-In scenario 2, one block (block 3 in the diagram) in the blob has been updated. Even though the updated block contains the same data and the same ID, it is not the same as block 3 in the previous version. As a result, the account is charged for four blocks. ???here, the blob shown in #1 should have two versions - do we want to show that here?
+In scenario 2, one block (block 3 in the diagram) in the blob has been updated. Even though the updated block contains the same data and the same ID, it is not the same as block 3 in the previous version. As a result, the account is charged for four blocks.
 
 ![Azure Storage resources](./media/versioning-overview/versions-billing-scenario-2.png)
 
@@ -252,7 +252,7 @@ In scenario 3, the blob has been updated, but the version has not. Block 3 was r
 
 #### Scenario 4
 
-In scenario 4, the base blob has been completely updated and contains none of its original blocks. As a result, the account is charged for all eight unique blocks -- four in the base blob, and four in the previous version. This scenario can occur if you are using an update method such as [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], or [UploadFromByteArray][dotnet_UploadFromByteArray], because these methods replace all of the contents of a blob.
+In scenario 4, the base blob has been completely updated and contains none of its original blocks. As a result, the account is charged for all eight unique blocks &mdash; four in the base blob, and four in the previous version. This scenario can occur if you are writing to a blob with the Put Blob operation, because it replaces the entire contents of the base blob.
 
 ![Azure Storage resources](./media/versioning-overview/versions-billing-scenario-4.png)
 
