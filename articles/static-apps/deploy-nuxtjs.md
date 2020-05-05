@@ -51,11 +51,11 @@ You can set up a new Nuxt.js project using `create-nuxt-app`. Instead of a new p
 
 Navigate to <http://localhost:3000> to open the app, where you should see the following website open in your preferred browser:
 
-![Start Nuxt.js app](./media/deploy-nuxtjs/start-nuxtjs-app.png)
+:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-app.png" alt-text="Start Nuxt.js app":::
 
 When you click on a framework/library, you should see a details page about the selected item:
 
-![Details page](./media/deploy-nuxtjs/start-nuxtjs-details.png)
+:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-details.png" alt-text="Details page":::
 
 ## Generate a static website from Nuxt.js build
 
@@ -119,7 +119,7 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 1. In the *Region* drop-down, choose a region closest to you.
 1. Select **Free** from the SKU drop-down.
 
-  ![Create Static Web App](./media/deploy-nuxtjs/create-static-web-app.png)
+  :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Create Static Web App":::
 
 ### Add a GitHub repository
 
@@ -130,7 +130,7 @@ The new Static Web Apps account needs access to the repository with your Nuxt.js
 1. Find and select the name of the repository you created earlier.
 1. Choose **master** as the branch from the *Branch* drop-down.
 
-  ![Connect GitHub](./media/deploy-nuxtjs/connect-github.png)
+  :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Connect GitHub":::
 
 ### Configure the build process
 
@@ -138,7 +138,7 @@ Azure Static Web Apps is built to automatically carry out common tasks like inst
 
 1. Click on the **Build** tab to configure the static output folder.
 
-  ![Build tab](./media/deploy-nuxtjs/build-tab.png)
+  :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Build tab":::
 
 1. Type **dist** in the *App artifact location* text box.
 
@@ -167,7 +167,7 @@ Return to the terminal and run the following command `git pull origin maser`.
 
 Navigate to the newly-deployed site and click on one of the framework or library logos. Instead of getting a details page, you get a 404 error page.
 
-![404 on dynamic routes](./media/deploy-nuxtjs/404-in-production.png)
+:::image type="content" source="media/deploy-nuxtjs/404-in-production.png" alt-text="404 on dynamic routes":::
 
 The reason for this is, Nuxt.js generated the static site, it only did so for the home page. Nuxt.js can generate equivalent static `.html` files for every `.vue` pages file, but there's an exception. 
 
@@ -204,8 +204,7 @@ If the page is a dynamic page, for example `_id.vue`, it won't have enough infor
 
 2. Push the new changes to your GitHub repository and wait for a few minutes while GitHub Actions builds your site again. After the build is complete, the 404 error disappears.
 
-  ![404 on dynamic routes fixed](./media/deploy-nuxtjs/404-in-production-fixed.png)
-
+:::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="404 on dynamic routes fixed":::
 
 ## Next Steps
 > [!div class="nextstepaction"]

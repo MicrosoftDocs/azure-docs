@@ -53,11 +53,11 @@ Rather than using the Next.js CLI to create an app, you can use a starter reposi
 
 Navigate to <http://localhost:3000> to open the app, where you should see the following website open in your preferred browser:
 
-![Start Next.js app](./media/deploy-nextjs/start-nextjs-app.png)
+:::image type="content" source="media/deploy-nextjs/start-nextjs-app.png" alt-text="Start Next.js app":::
 
 When you click on a framework/library, you should see a details page about the selected item:
 
-![Details page](./media/deploy-nextjs/start-nextjs-details.png)
+:::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Details page":::
 
 ## Generate a static website from Next.js build
 
@@ -136,7 +136,8 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 1. In the *Region* drop-down, choose a region closest to you.
 1. Select **Free** from the SKU drop-down.
 
-  ![Create Static Web App](./media/deploy-nextjs/create-static-web-app.png)
+  
+  :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Create Static Web App":::
 
 ### Add a GitHub repository
 
@@ -147,7 +148,7 @@ The new Static Web Apps account needs access to the repository with your Next.js
 1. Find and select the name of the repository you created earlier.
 1. Choose **master** as the branch from the *Branch* drop-down.
 
-  ![Connect GitHub](./media/deploy-nextjs/connect-github.png)
+  :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Connect GitHub":::
 
 ### Configure the build process
 
@@ -155,7 +156,7 @@ Azure Static Web Apps is built to automatically carry out common tasks like inst
 
 1. Click on the **Build** tab to configure the static output folder.
 
-  ![Build tab](./media/deploy-nextjs/build-tab.png)
+  :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Build tab":::
 
 1. Type **out** in the *App artifact location* text box.
 
@@ -184,7 +185,7 @@ Return to the terminal and run the following command `git pull origin maser`.
 
 Navigate to the newly-deployed site and click on one of the framework or library logos. Instead of getting a details page, you get a 404 error page.
 
-![404 on dynamic routes](./media/deploy-nextjs/404-in-production.png)
+:::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="404 on dynamic routes":::
 
 The reason for this error is because Next.js only generated the home page based on the application configuration.
 
@@ -220,8 +221,8 @@ The reason for this error is because Next.js only generated the home page based 
 
 2. Push the new changes to your GitHub repository and wait for a few minutes while GitHub Actions builds your site again. After the build is complete, the 404 error disappears.
 
-  ![404 on dynamic routes fixed](./media/deploy-nextjs/404-in-production-fixed.png)
-
+  
+:::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="404 on dynamic routes fixed":::
 
 > [!div class="nextstepaction"]
 > [Set up a custom domain](custom-domain.md)
