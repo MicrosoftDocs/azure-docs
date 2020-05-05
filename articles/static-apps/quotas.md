@@ -19,7 +19,7 @@ The following quotas exist for Azure Static Web Apps Preview.
 
 | Feature                     | Free plan        |
 |-----------------------------|------------------|
-| Included bandwidth          | 100 DB per month |
+| Included bandwidth          | 100 GB per month |
 | Overage bandwidth           | Unavailable      |
 | Apps per Azure subscription | 10               |
 | App size                    | 100 MB           |
