@@ -29,8 +29,6 @@ To view a latency report for a specific Peering Service connection, follow these
 
 2. A latency report page for all the prefixes associated with that Peering Service connection appears. 
 
-     ![Latency report page](./media/peering-service-measure/peering-service-latency-report.png)
-
 3. By default, the report is updated for every hour that's displayed on this page. To view the report for different timelines, choose the appropriate option from **Show data for last**. 
 
 4. To view events for a specific prefix, select the prefix name and select **Prefix Events** in the left pane. The events that are captured are displayed.
