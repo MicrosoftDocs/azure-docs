@@ -384,6 +384,9 @@
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: 'Designer transform data'
+      displayName: pipeline
+      href: how-to-designer-transform-data.md
     - name: 'Designer retrain using published pipelines'
       displayName: retrain, designer, published pipeline
       href: how-to-retrain-designer.md
