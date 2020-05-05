@@ -57,7 +57,7 @@
 - name: Reference
   items:
   - name: Customer data requests
-    href: digital-twins-customer-data-requests.md
+    href: customer-data-requests.md
 - name: Resources
   items:
 - name: Related
