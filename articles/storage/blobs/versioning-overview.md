@@ -53,7 +53,7 @@ For simplicity, the diagrams shown in this article display the version ID as a s
 
 The following diagram shows how write operations affect blob versions. When a blob is created, that blob is the current version. When the same blob is modified, a new version is created to save the blob's previous state, and the updated blob becomes the current version.
 
-:::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagram showing how write operations affect versioned blobs":::
+:::image type="content" source="media/versioning-overview/write-operations-blob-versions.svg" alt-text="Diagram showing how write operations affect versioned blobs":::
 
 > [!NOTE]
 > A blob that was created prior to versioning being enabled for the storage account does not have a version ID. When that blob is modified, the modified blob becomes the current version, and a version is created to save the blob's state before the update. The version is assigned a version ID that is its creation time.
@@ -66,11 +66,11 @@ You can also delete a specific version of the blob by specifying its version ID.
 
 The following diagram shows the effect of a delete operation on a versioned blob. The current version blob is deleted, but the prior versions persist.
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram showing deletion of versioned blob":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.svg" alt-text="Diagram showing deletion of versioned blob":::
 
 Writing new data to the blob creates a new version of the blob. Any existing versions are unaffected, as shown in the following diagram.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram showing re-creation of versioned blob after deletion":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.svg" alt-text="Diagram showing re-creation of versioned blob after deletion":::
 
 ### Blob types
 
@@ -109,7 +109,7 @@ You can read or delete versions using the version ID after versioning is disable
 
 The following diagram shows how modifying a blob after versioning is disabled creates a blob that is not versioned. Any existing versions associated with the blob persist.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram showing base blob modified after versioning disabled":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.svg" alt-text="Diagram showing base blob modified after versioning disabled":::
 
 ## Blob versioning and soft delete
 
@@ -125,7 +125,7 @@ To remove a previous version of a blob, explicitly delete it by specifying the v
 
 The following diagram shows what happens when you delete a blob or a blob version.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram showing deletion of a version with soft delete enabled":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.svg" alt-text="Diagram showing deletion of a version with soft delete enabled":::
 
 If both versioning and soft delete are enabled on a storage account, then no soft-deleted snapshot is created when a blob or blob version is modified or deleted.
 
@@ -137,7 +137,7 @@ Restoring soft-deleted versions with the **Undelete Blob** operation does not pr
 
 The following diagram shows how to restore soft-deleted blob versions with the **Undelete Blob** operation, and how to restore the current version of the blob with the **Copy Blob** operation.
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagram showing how to restore soft-deleted versions":::
+:::image type="content" source="media/versioning-overview/undelete-version.svg" alt-text="Diagram showing how to restore soft-deleted versions":::
 
 After the soft-delete retention period has elapsed, any soft-deleted blob versions are permanently deleted.
 
@@ -156,7 +156,7 @@ When you take a snapshot of a versioned blob, a new version is created at the sa
 
 The following diagram shows what happens when you take a snapshot of a versioned blob. In the diagram, blob versions and snapshots with version ID 2 and 3 contain identical data.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram showing snapshots of a versioned blob ":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.svg" alt-text="Diagram showing snapshots of a versioned blob ":::
 
 ## Authorize operations on blob versions
 
