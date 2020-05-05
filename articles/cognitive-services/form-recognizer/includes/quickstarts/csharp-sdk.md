@@ -16,7 +16,7 @@ ms.author: pafarley
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
-* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
+* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 ## Setting up
@@ -31,13 +31,13 @@ ms.author: pafarley
 > The endpoints for non-trial resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
 
 Using your key and endpoint from the resource you created, create two environment variables for authentication:
-<!-- replace the below variable names with the names expected in the code sample.-->
+
 * `FORM_RECOGNIZER_KEY` - The resource key for authenticating your requests.
 * `FORM_RECOGNIZER_ENDPOINT` - The resource endpoint for sending API requests. It will look like this: 
   * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
 
 Use the instructions for your operating system.
-<!-- replace the below endpoint and key examples -->
+
 #### [Windows](#tab/windows)
 
 ```console
@@ -50,8 +50,8 @@ After you add the environment variables, close and reopen the console window.
 #### [Linux](#tab/linux)
 
 ```bash
-export PRODUCT_NAME_KEY=<replace-with-your-product-name-key>
-export PRODUCT_NAME_ENDPOINT=<replace-with-your-product-name-endpoint>
+export FORM_RECOGNIZER_KEY=<replace-with-your-product-name-key>
+export FORM_RECOGNIZER_ENDPOINT=<replace-with-your-product-name-endpoint>
 ```
 
 After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
@@ -61,11 +61,11 @@ After you add the environment variable, run `source ~/.bashrc` from your console
 Edit your `.bash_profile`, and add the environment variable:
 
 ```bash
-export PRODUCT_NAME_KEY=<replace-with-your-product-name-key>
-export PRODUCT_NAME_ENDPOINT=<replace-with-your-product-name-endpoint>
+export FORM_RECOGNIZER_KEY=<replace-with-your-product-name-key>
+export FORM_RECOGNIZER_ENDPOINT=<replace-with-your-product-name-endpoint>
 ```
 
-After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
+After you add the environment variables, run `source .bash_profile` from your console window to make the changes effective.
 ***
 
 ### Create a new C# application
@@ -92,12 +92,18 @@ Build succeeded.
 ...
 ```
 
-From the project directory, open the *program.cs* file in your preferred editor or IDE. Add the following `using` directives:
+From the project directory, open the *Program.cs* file in your preferred editor or IDE. Add the following `using` directives:
 
+```csharp
+using Azure.AI.FormRecognizer;
+using Azure.AI.FormRecognizer.Models;
 
+using System;
+using System.IO;
+using System.Threading.Tasks;
+```
 
-In the application's `Main` method, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. You will define the methods later.
-
+Then add the following code in the application's **Main** method. You'll define this asynchronous task later on. TBD
 
 ### Install the client library
 
@@ -110,63 +116,286 @@ dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.1
 If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
 
 
-## Object model
+<!-- Objet model TBD -->
 
-<!-- 
-    Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages.
-    Briefly explain the object hierarchy and how the classes work together to manipulate resources in the service.
--->
+## Define variables
+TBD
 
 ## Code examples
 
-<!--
-    Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
+These code snippets show you how to do the following tasks with the Form Recognizer client library for .NET:
 
-    Include links to the service's reference content when introducing a class for the first time
--->
-
-These code snippets show you how to do the following tasks with the [Product Name] client library for .NET:
-
-* [Authenticate the client](#)
-* [Example task 1 (anchor link)](#)
-* [Example task 2 (anchor link)](#)
-* [Example task 3 (anchor link)](#)
-
-<!--
-    change the environment key variable to something descriptive for your service.
-    For example: TEXT_ANALYTICS_KEY
--->
+* [Authenticate the client](#authenticate-the-client)
+* [Recognize form contents](#detect-contents)
+* [Recognize receipts](#receipts)
+* [Train a custom Form Recognizer model](#train-a-custom-model)
+* [Get a list of extracted keys](#get-a-list-of-extracted-keys)
+* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
+* [Manage your custom models](#manage-custom-models)
 
 ## Authenticate the client
 
-<!-- 
-    The authentication section (and its H3) is required and must be the first code example in the section if your library requires authentication for use.
--->
 
-> [!NOTE]
-> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your [Product Name] key, named `TBD_KEY`.
-
-
-In a new method, instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials]() object with your key, and use it with your endpoint to create an [ApiClient]() object.
+In a new method, instantiate a client with your endpoint and key. In the sample below you'll use a Form Recognizer API key credential by creating an AzureKeyCredential object, that if needed, will allow you to update the API key without creating a new client.
 
 ```csharp
+string endpoint = Environment.GetEnvironmentVariable("FORM_RECOGNIZER_ENDPOINT");
+string apiKey = Environment.GetEnvironmentVariable("FORM_RECOGNIZER_SUBSCRIPTION_KEY");
+var credential = new AzureKeyCredential(apiKey);
 
+var trainingClient = new FormTrainingClient(new Uri(endpoint), credential);
+var recognizerClient = new FormRecognizerClient(new Uri(endpoint), credential);
 ```
 
-## Example task 1
+## Recognize form contents
 
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
+You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model.
+
+To recognize the content from a given file at a URI, use the **StartRecognizeContentFromUri** method. The returned value is a collection of **FormPage** objects: one for each page in the submitted document.
 
 ```csharp
-
+Response<IReadOnlyList<FormPage>> formPages = await recognizerClient.StartRecognizeContentFromUri(new Uri(invoiceUri)).WaitForCompletionAsync();
 ```
 
-## Example task 2
-
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
+tbd print key/value pairs and table data
 
 ```csharp
+foreach (FormPage page in formPages.Value)
+{
+    Console.WriteLine($"Form Page {page.PageNumber} has {page.Lines.Count} lines.");
 
+    for (int i = 0; i < page.Lines.Count; i++)
+    {
+        FormLine line = page.Lines[i];
+        Console.WriteLine($"    Line {i} has {line.Words.Count} word{(line.Words.Count > 1 ? "s" : "")}, and text: '{line.Text}'.");
+    }
+
+    for (int i = 0; i < page.Tables.Count; i++)
+    {
+        FormTable table = page.Tables[i];
+        Console.WriteLine($"Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
+        foreach (FormTableCell cell in table.Cells)
+        {
+            Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) contains text: '{cell.Text}'.");
+        }
+    }
+}
+```
+
+## Recognize receipts
+
+This section demonstrates how to recognize and extract common fields from US receipts, using a pre-trained receipt model.
+
+To recognize receipts from a URI, use the **StartRecognizeReceiptsFromUri** method. The returned value is a collection of **RecognizedReceipt** objects: one for each page in the submitted document. The following code processes a receipt at the given URI and prints the major fields and values to the console.
+
+```csharp
+Response<IReadOnlyList<RecognizedReceipt>> receipts = await recognizerClient.StartRecognizeReceiptsFromUri(new Uri(receiptUri)).WaitForCompletionAsync();
+foreach (var receipt in receipts.Value)
+{
+    USReceipt usReceipt = receipt.AsUSReceipt();
+
+    string merchantName = usReceipt.MerchantName?.Value ?? default;
+    DateTime transactionDate = usReceipt.TransactionDate?.Value ?? default;
+    IReadOnlyList<USReceiptItem> items = usReceipt.Items ?? default;
+
+    Console.WriteLine($"Recognized USReceipt fields:");
+    Console.WriteLine($"    Merchant Name: '{merchantName}', with confidence {usReceipt.MerchantName.Confidence}");
+    Console.WriteLine($"    Transaction Date: '{transactionDate}', with confidence {usReceipt.TransactionDate.Confidence}");
+```
+
+The next block of code iterates through the individual items detected on the receipt and prints their details to the console.
+
+```csharp
+    for (int i = 0; i < items.Count; i++)
+    {
+        USReceiptItem item = usReceipt.Items[i];
+        Console.WriteLine($"    Item {i}:  Name: '{item.Name.Value}', Quantity: '{item.Quantity?.Value}', Price: '{item.Price?.Value}'");
+        Console.WriteLine($"    TotalPrice: '{item.TotalPrice.Value}'");
+    }
+```
+
+Finally, the last block of code prints the rest of the major receipt details.
+
+```csharp
+    float subtotal = usReceipt.Subtotal?.Value ?? default;
+    float tax = usReceipt.Tax?.Value ?? default;
+    float tip = usReceipt.Tip?.Value ?? default;
+    float total = usReceipt.Total?.Value ?? default;
+
+    Console.WriteLine($"    Subtotal: '{subtotal}', with confidence '{usReceipt.Subtotal.Confidence}'");
+    Console.WriteLine($"    Tax: '{tax}', with confidence '{usReceipt.Tax.Confidence}'");
+    Console.WriteLine($"    Tip: '{tip}', with confidence '{usReceipt.Tip?.Confidence ?? 0.0f}'");
+    Console.WriteLine($"    Total: '{total}', with confidence '{usReceipt.Total.Confidence}'");
+}
+```
+
+## Train a custom Form Recognizer model
+
+This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
+
+Please note that models can also be trained using a graphical user interface such as the [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md).
+
+### Train a model without labels
+
+Train custom models to recognize all fields and values found in your custom forms without manually labeling the training documents.
+
+The following code trains a model on a given set of documents and prints the model's status to the console. TBD this uses your blob storage container. get the SAS URL.
+
+```csharp
+CustomFormModel model = await trainingClient.StartTrainingAsync(new Uri(trainingFileUrl)).WaitForCompletionAsync();
+
+Console.WriteLine($"Custom Model Info:");
+Console.WriteLine($"    Model Id: {model.ModelId}");
+Console.WriteLine($"    Model Status: {model.Status}");
+Console.WriteLine($"    Created On: {model.CreatedOn}");
+Console.WriteLine($"    Last Modified: {model.LastModified}");
+```
+
+The returned **CustomFormModel** indicates the form types the model can recognize and the fields it can extract from each form type.
+
+```csharp
+foreach (CustomFormSubModel subModel in model.Models)
+{
+    Console.WriteLine($"SubModel Form Type: {subModel.FormType}");
+    foreach (CustomFormModelField field in subModel.Fields.Values)
+    {
+        Console.Write($"    FieldName: {field.Name}");
+        if (field.Label != null)
+        {
+            Console.Write($", FieldLabel: {field.Label}");
+        }
+        Console.WriteLine("");
+    }
+}
+```
+
+### Train a model with labels
+
+Train custom models to recognize specific fields and values you specify by labeling your custom forms. 
+
+
+TBD SAS URL
+```csharp
+CustomFormModel model = await trainingClient.StartTrainingAsync(new Uri(trainingFileUrl), useLabels: true).WaitForCompletionAsync();
+
+Console.WriteLine($"Custom Model Info:");
+Console.WriteLine($"    Model Id: {model.ModelId}");
+Console.WriteLine($"    Model Status: {model.Status}");
+Console.WriteLine($"    Created On: {model.CreatedOn}");
+Console.WriteLine($"    Last Modified: {model.LastModified}");
+```
+
+The returned **CustomFormModel** indicates the fields the model can extract, as well as the estimated accuracy for each field.
+
+```csharp
+foreach (CustomFormSubModel subModel in model.Models)
+{
+    Console.WriteLine($"SubModel Form Type: {subModel.FormType}");
+    foreach (CustomFormModelField field in subModel.Fields.Values)
+    {
+        Console.Write($"    FieldName: {field.Name}");
+        if (field.Accuracy != null)
+        {
+            Console.Write($", Accuracy: {field.Accuracy}");
+        }
+        Console.WriteLine("");
+    }
+}
+```
+
+## Analyze forms with a custom model
+
+This sample demonstrates how to recognize form fields and other content from your custom forms, using models you trained with your own form types. For more information on how to do the training, see train a model.
+
+To recognize form fields and other content from your custom forms from a given file at a URI, use the **StartRecognizeCustomFormsFromUri** method. The returned value is a collection of **RecognizedForm** objects: one for each page in the submitted document.
+
+```csharp
+string modelId = "<modelId>";
+
+Response<IReadOnlyList<RecognizedForm>> forms = await client.StartRecognizeCustomFormsFromUri(modelId, new Uri(formUri)).WaitForCompletionAsync();
+```
+
+tbd print
+```csharp
+foreach (RecognizedForm form in forms.Value)
+{
+    Console.WriteLine($"Form of type: {form.FormType}");
+    foreach (FormField field in form.Fields.Values)
+    {
+        Console.WriteLine($"Field '{field.Name}: ");
+
+        if (field.LabelText != null)
+        {
+            Console.WriteLine($"    Label: '{field.LabelText.Text}");
+        }
+
+        Console.WriteLine($"    Value: '{field.ValueText.Text}");
+        Console.WriteLine($"    Confidence: '{field.Confidence}");
+    }
+}
+```
+
+## Manage your custom models
+
+This sample demonstrates how to manage the custom models stored in your account.
+
+
+### Check the number of models in the FormRecognizer resource account
+
+```csharp
+// Check number of models in the FormRecognizer account, and the maximum number of models that can be stored.
+AccountProperties accountProperties = client.GetAccountProperties();
+Console.WriteLine($"Account has {accountProperties.CustomModelCount} models.");
+Console.WriteLine($"It can have at most {accountProperties.CustomModelLimit} models.");
+```
+
+### List the models currently stored in the resource account
+
+```csharp
+// List the first ten or fewer models currently stored in the account.
+Pageable<CustomFormModelInfo> models = client.GetModelInfos();
+
+foreach (CustomFormModelInfo modelInfo in models.Take(10))
+{
+    Console.WriteLine($"Custom Model Info:");
+    Console.WriteLine($"    Model Id: {modelInfo.ModelId}");
+    Console.WriteLine($"    Model Status: {modelInfo.Status}");
+    Console.WriteLine($"    Created On: {modelInfo.CreatedOn}");
+    Console.WriteLine($"    Last Modified: {modelInfo.LastModified}");
+}
+```
+
+### Get a specific model using the model's Id
+
+```csharp
+// Create a new model to store in the account
+CustomFormModel model = await client.StartTrainingAsync(new Uri(trainingFileUrl)).WaitForCompletionAsync();
+
+// Get the model that was just created
+CustomFormModel modelCopy = client.GetCustomModel(model.ModelId);
+
+Console.WriteLine($"Custom Model {modelCopy.ModelId} recognizes the following form types:");
+
+foreach (CustomFormSubModel subModel in modelCopy.Models)
+{
+    Console.WriteLine($"SubModel Form Type: {subModel.FormType}");
+    foreach (CustomFormModelField field in subModel.Fields.Values)
+    {
+        Console.Write($"    FieldName: {field.Name}");
+        if (field.Label != null)
+        {
+            Console.Write($", FieldLabel: {field.Label}");
+        }
+        Console.WriteLine("");
+    }
+}
+```
+
+### Delete a model from the resource account
+
+```csharp
+// Delete the model from the account.
+client.DeleteModel(model.ModelId);
 ```
 
 ## Run the application
