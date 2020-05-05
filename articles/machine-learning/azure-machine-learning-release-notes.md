@@ -56,8 +56,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-contrib-mir**
     + Adds a class azureml.contrib.mir.RevisionStatus which relays information about the currently deployed MIR revision and the most recent version specified by the user. This class is included in the MirWebservice object under 'deployment_status' attribute.
     + Enables update on Webservices of type MirWebservice and its child class SingleModelMirWebservice.
-  + **azureml-contrib-pipeline-steps**
-    + ParallelRunStep is now out of public preview! The classes ParallelRunstep and ParallelRunConfig been moved from azureml.contrib.pipeline.steps to azureml.pipeline.steps.
   + **azureml-contrib-reinforcementlearning**
     + AmlWindowsCompute only supports Azure Files as mounted storage
   + **azureml-core**
@@ -84,12 +82,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-opendatasets**
     + Fix issue of MNIST's columns are parsed as string which should be int.
   + **azureml-pipeline-core**
-    + Enable user to leverage azure-cli-ml extension to create pipeline which contains ParallelRunStep from yml file
-    + ParallelRunStep is now out of public preview! The classes ParallelRunstep and ParallelRunConfig been moved from azureml.contrib.pipeline.steps to azureml.pipeline.steps.
     + Allowing the option to regenerate_outputs when using a module that is embedded in a ModuleStep.
-  + **azureml-pipeline-steps**
-    + Enable user to leverage azure-cli-ml extension to create pipeline which contains ParallelRunStep from yml file
-    + ParallelRunStep is now out of public preview! The classes ParallelRunstep and ParallelRunConfig been moved from azureml.contrib.pipeline.steps to azureml.pipeline.steps.
   + **azureml-train-automl-client**
     + Deprecated Tensorflow models for AutoML.
     + Fix users whitelisting unsupported algorithms in local mode
