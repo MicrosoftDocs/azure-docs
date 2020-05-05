@@ -45,6 +45,8 @@ landingContent:
       links:
         - text: Model discovery
           url: concepts-model-discovery.md
+        - text: Model parser
+          url: concepts-model-parser.md
         - text: Common interfaces
           url: concepts-common-interfaces.md
     - linkListType: how-to-guide
