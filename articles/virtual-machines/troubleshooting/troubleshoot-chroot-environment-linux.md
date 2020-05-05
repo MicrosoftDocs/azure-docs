@@ -518,4 +518,4 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
 
 ## Next Steps
 
-- [Troubleshoot ssh connection](troubleshoot-ssh-connection.md.md)
+- [Troubleshoot ssh connection](troubleshoot-ssh-connection.md)
