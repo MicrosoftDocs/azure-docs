@@ -47,6 +47,12 @@
     items:
     - name: Stream data
       href: stream-data.md
+    - name: Create External Stream (Transact-SQL)
+      href: create-external-stream-transact-sql.md
+    - name: Alter External Stream (Transact-SQL)
+      href: alter-external-stream-transact-sql.md
+    - name: Drop External Stream (Transact-SQL)
+      href: drop-external-stream-transact-sql.md
     - name: Streaming views and DMVs
       items:
       - name: Streaming views and DMVs
