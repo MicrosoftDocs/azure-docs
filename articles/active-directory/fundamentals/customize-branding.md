@@ -62,13 +62,13 @@ Your custom branding won't immediately appear when your users go to sites such a
 
             - **Sign-in page text formatting.** You can format text to include bold, italics, an underline or clickable link. Use the following syntax to add formatting to text: 
 
-             > Hyperlink: ```[text](link)``` 
+                 > Hyperlink: ```[text](link)``` 
 
-             > Bold: ``` **text** ``` or ``` __text__ ``` 
+                 > Bold: ``` **text** ``` or ``` __text__ ``` 
 
-             > Italics: ``` *text* ``` or ``` _text_ ``` 
+                 > Italics: ``` *text* ``` or ``` _text_ ``` 
 
-             > Underline: ``` ++text++ ``` 
+                 > Underline: ``` ++text++ ``` 
 
             In addition to formatting text, you can also begin a new paragraph by using the enter key twice.
 
