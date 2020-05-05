@@ -38,7 +38,7 @@ Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale se
 If your cluster has multiple node types, then repeat this for each node types/virtual machine scale sets that you want to scale (in or out). Take into account the number of nodes that you must have before you set up auto-scaling. The minimum number of nodes that you must have for the primary node type is driven by the reliability level you have chosen. Read more about [reliability levels](service-fabric-cluster-capacity.md).
 
 > [!NOTE]
-> Scaling down the primary node type to less than the minimum number make the cluster unstable or bring it down. This could result in data loss for your applications and for the system services.
+> Scaling in the primary node type to less than the minimum number will make the cluster unstable or even bring it down. This could result in data loss for your applications and for the system services.
 > 
 > 
 
@@ -47,7 +47,7 @@ Currently the auto-scale feature is not driven by the loads that your applicatio
 Follow these instructions [to set up auto-scale for each virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> In a scale down scenario, unless your node type has a [durability level][durability] of Gold or Silver you need to call the [Remove-ServiceFabricNodeState cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) with the appropriate node name. For the Bronze durability, it’s not recommended to scale down more than one node at a time.
+> In a scale in scenario, unless your node type has a [durability level][durability] of Gold or Silver you need to call the [Remove-ServiceFabricNodeState cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) with the appropriate node name. For the Bronze durability, it’s not recommended to scale in more than one node at a time.
 > 
 > 
 
@@ -56,7 +56,7 @@ Follow these instructions [to set up auto-scale for each virtual machine scale s
 When you scale out, you add more virtual machine instances to the scale set. These instances become the nodes that Service Fabric uses. Service Fabric knows when the scale set has more instances added (by scaling out) and reacts automatically. 
 
 > [!NOTE]
-> Adding VMs takes time, so do not expect the additions to be instantaneous. So plan to add capacity well in advance, to allow for over 10 minutes before the VM capacity is available for the replicas/service instances to get placed.
+> Adding VMs takes time, so do not expect the additions to be instantaneous. Plan to add capacity well in advance, allowing for over 10 minutes before the VM capacity is available for the replicas/service instances to get placed.
 > 
 
 ### Add VMs using a template
@@ -85,7 +85,7 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 ## Manually remove VMs from a node type/virtual machine scale set
 When you scale in a node type, you remove VM instances from the scale set. If the node type is Bronze durability level, Service Fabric is unaware what has happened and reports that a node has gone missing. Service Fabric then reports an unhealthy state for the cluster. To prevent that bad state, you must explicitly remove the node from the cluster and remove the node state.
 
-The service fabric system services run in the primary node type in your cluster. When scaling down the primary node type, never scale down the number of instances to less than what the [reliability tier](service-fabric-cluster-capacity.md) warrants. 
+The service fabric system services run in the primary node type in your cluster. When scaling in the primary node type, never scale in the number of instances to less than what the [reliability tier](service-fabric-cluster-capacity.md) warrants. 
  
 For a stateful service, you need a certain number of nodes to be always up to maintain availability and preserve state of your service. At the very minimum, you need the number of nodes equal to the target replica set count of the partition/service.
 
@@ -224,18 +224,18 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 ```
 
 ## Behaviors you may observe in Service Fabric Explorer
-When you scale up a cluster the Service Fabric Explorer will reflect the number of nodes (virtual machine scale set instances) that are part of the cluster.  However, when you scale a cluster down you will see the removed node/VM instance displayed in an unhealthy state unless you call [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) with the appropriate node name.   
+When you scale out a cluster the Service Fabric Explorer will reflect the number of nodes (virtual machine scale set instances) that are part of the cluster.  However, when you scale a cluster in you will see the removed node/VM instance displayed in an unhealthy state unless you call [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) with the appropriate node name.   
 
 Here is the explanation for this behavior.
 
-The nodes listed in Service Fabric Explorer are a reflection of what the Service Fabric system services (FM specifically) knows about the number of nodes the cluster had/has. When you scale the virtual machine scale set down, the VM was deleted but FM system service still thinks that the node (that was mapped to the VM that was deleted) will come back. So Service Fabric Explorer continues to display that node (though the health state may be error or unknown).
+The nodes listed in Service Fabric Explorer are a reflection of what the Service Fabric system services (FM specifically) knows about the number of nodes the cluster had/has. When you scale the virtual machine scale set in, the VM was deleted but FM system service still thinks that the node (that was mapped to the VM that was deleted) will come back. So Service Fabric Explorer continues to display that node (though the health state may be error or unknown).
 
 In order to make sure that a node is removed when a VM is removed, you have two options:
 
-1. Choose a durability level of Gold or Silver for the node types in your cluster, which gives you the infrastructure integration. Which will then automatically remove the nodes from our system services (FM) state when you scale down.
+1. Choose a durability level of Gold or Silver for the node types in your cluster, which gives you the infrastructure integration. Which will then automatically remove the nodes from our system services (FM) state when you scale in.
 Refer to [the details on durability levels here](service-fabric-cluster-capacity.md)
 
-2. Once the VM instance has been scaled down, you need to call the [Remove-ServiceFabricNodeState cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate).
+2. Once the VM instance has been scaled in, you need to call the [Remove-ServiceFabricNodeState cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate).
 
 > [!NOTE]
 > Service Fabric clusters require a certain number of nodes to be up at all the time in order to maintain availability and preserve state - referred to as "maintaining quorum." So, it is typically unsafe to shut down all the machines in the cluster unless you have first performed a [full backup of your state](service-fabric-reliable-services-backup-restore.md).
@@ -250,7 +250,7 @@ Read the following to also learn about planning cluster capacity, upgrading a cl
 * [Partition stateful services for maximum scale](service-fabric-concepts-partitioning.md)
 
 <!--Image references-->
-[BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
-[ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
+[BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-in-out/BrowseServiceFabricClusterResource.png
+[ClusterResources]: ./media/service-fabric-cluster-scale-in-out/ClusterResources.png
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
