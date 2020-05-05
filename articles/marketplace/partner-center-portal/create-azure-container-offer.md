@@ -1,6 +1,6 @@
 ---
-title: Create an Azure container offer in Partner Center - Azure Marketplace
-description: This article describes how to create and publish a Container offer for Azure Marketplace. 
+title: Create an Azure container offer - Azure Marketplace
+description: This article explains how to create and publish a container offer to Azure Marketplace. 
 author: mingshen 
 ms.author: mingshen 
 ms.service: marketplace 
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ---
 
-# Create an Azure Container offer
+# Create an Azure container offer
 
 > [!IMPORTANT]
-> We're moving the management of your Azure Container offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Containers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) for Cloud Partner Portal to manage your offers.
+> We're moving the management of your Azure container offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Containers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) for Cloud Partner Portal to manage your offers.
 
-This article describes how to create and publish a Container offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+This article describes how to create and publish a container offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
@@ -59,7 +59,7 @@ Follow these steps to set up your offer.
 
 ### Connect lead management – optional
 
-When publishing your offer to the marketplace with Partner Center, you can
+When publishing your offer to the commercial marketplace with Partner Center, you can
 connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product.
 
 1. **Select a lead destination where you want us to send customer leads**. Partner Center supports the following CRM systems:
@@ -79,7 +79,7 @@ Here are some additional lead management resources:
 
 - [Lead management overview](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off)
 
 Select **Save draft** before continuing.
@@ -430,4 +430,4 @@ To publish your offer to the public (or if a private offer, to a private audienc
 
 ## Next step
 
-- [Update an existing offer in the Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
