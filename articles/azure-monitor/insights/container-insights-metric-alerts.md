@@ -6,11 +6,11 @@ ms.date: 05/05/2020
 
 ---
 
-# Pre-defined metric alerts from Azure Monitor for containers
+# Pre-defined metric alerts (preview) from Azure Monitor for containers
 
-To alert on performance issues with Azure Monitor for containers, you would create a log alert based on performance data stored in Azure Monitor Logs. Azure Monitor for containers now includes pre-configured metric alert rules for your AKS clusters. This article reviews the experience and provides guidance on configuring and managing these alert rules.
+To alert on performance issues with Azure Monitor for containers, you would create a log alert based on performance data stored in Azure Monitor Logs. Azure Monitor for containers now includes pre-configured metric alert rules for your AKS clusters, which is in public preview. This article reviews the experience and provides guidance on configuring and managing these alert rules.
 
-## Alert rules included
+## Alert rules overview
 
 To alert on what matters, Azure Monitor for containers includes the following metric alerts for your AKS clusters:
 
@@ -25,8 +25,15 @@ There are common properties across all of these alert rules:
 
 * All alert rules are metric based.
 
+* All alert rules are disabled by default.
+
 * All alert rules are evaluated once per minute and they look back at last 5 minutes of data.
 
 * Alerts rules do not have an action group assigned to them by default. You can add an [action group](../platform/action-groups.md) to the alert either by selecting an existing action group or creating a new action group while editing the alert rule.
 
 * You can modify the threshold for alert rules by directly editing them. However, refer to the guidance provided in each alert rule before modifying the threshold
+
+## Alert rule walkthrough
+
+This section walks through enabling the alert rules Azure Monitor for VMs.
+
