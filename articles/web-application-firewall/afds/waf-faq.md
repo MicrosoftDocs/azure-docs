@@ -12,7 +12,7 @@ ms.author: victorh
 
 # Frequently asked questions for Azure Web Application Firewall on Azure Front Door Service
 
-This article answers common questions about Azure web application firewall (WAF) features and functionality. 
+This article answers common questions about Azure Web Application Firewall (WAF) on Azure Front Door Service features and functionality. 
 
 ## What is Azure WAF?
 
