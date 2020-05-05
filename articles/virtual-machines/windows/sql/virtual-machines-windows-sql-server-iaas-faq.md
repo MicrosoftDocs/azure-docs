@@ -47,8 +47,12 @@ This article provides answers to some of the most common questions about running
 1. **Is it possible to deploy an older image of SQL Server that is not visible in the Azure portal?**
 
    Yes, by using PowerShell. For more information about deploying SQL Server VMs using PowerShell, see [How to provision SQL Server virtual machines with Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+   
+1. **Is it possible to create a generalized Azure SQL Server Marketplace image of my SQL Server VM and use it to deploy VMs?**
 
-1. **How can I generalize SQL Server on Azure VM and use it to deploy new VMs?**
+Yes, but you must then [register each SQL Server VM with the SQL Server VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) to manage your SQL Server VM in the portal, as well as utilize features such as automated patching and automatic backups. When registering with the resource provider, you will also need to specify the license type for each SQL Server VM.
+
+1. **How do I generalize SQL Server on Azure VM and use it to deploy new VMs?**
 
    You can deploy a Windows Server VM (without any SQL Server installed on it) and use the [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) process to generalize SQL Server on Azure VM (Windows) with the SQL Server installation media. Customers who have [software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers who don't have software assurance can use the setup media from a Marketplace SQL Server VM image that has the desired edition.
 
@@ -149,10 +153,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Is it possible to register self-deployed SQL Server VMs with the SQL Server VM resource provider?**
 
-    Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension. However, you are unable to convert a self-deployed SQL Server VM to pay-as-you-go.
-
-
-   
+    Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension.    
 
 
 ## Administration
