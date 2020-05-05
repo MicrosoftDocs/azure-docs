@@ -382,6 +382,15 @@ The following files are created by `New-GuestConfigurationPolicy`:
 The cmdlet output returns an object containing the initiative display name and path of the policy
 files.
 
+> [!Note]
+> The latest Guest Configuration module includes a new parameters:
+> - `-Tag` adds one or more tag filters to the policy definition
+>   - See the section [Filtering Guest Configuration policies using Tags](#Filtering-Guest-Configuration-policies-using-Tags).
+> - `-Category` sets the category metadata field in the policy definition
+>   - If the parameter is not included, the category will default to Guest Configuration.
+> These features are currently in preview and require Guest Configuration module
+> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
+
 Finally, publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet. The
 cmdlet only has the **Path** parameter that points to the location of the JSON files created by
 `New-GuestConfigurationPolicy`.
