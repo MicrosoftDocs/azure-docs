@@ -5,7 +5,7 @@ description: Learn about the data and resources collected for Azure Machine Lear
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 
 ms.reviewer: larryfr
 ms.author: aashishb
