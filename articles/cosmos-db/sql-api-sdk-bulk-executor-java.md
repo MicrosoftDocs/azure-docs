@@ -36,3 +36,26 @@ ms.author: ramkris
 |**Get started**|[Get started with the bulk executor library Java SDK](bulk-executor-java.md)|
 |**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
 
+## Release notes
+
+### <a name="2.10.0"/>2.10.0
+
+* Fix for DocumentAnalyzer.java to correctly extract nested partition key values from json.
+
+### <a name="2.9.4"/>2.9.4
+
+* Add functionality in BulkDelete operations to retry on specific failures and also return a list of retriable failures to the user.
+
+### <a name="2.9.3"/>2.9.3
+
+* Update for Cosmos SDK version 2.4.7.
+
+### <a name="2.9.2"/>2.9.2
+
+* Fix for 'getUpdateItemFromPatchDocument' to continue on 'id' and 'pkey' so that any patchDoc fields which is placed after 'id' and 'pkey' gets added to the 'updateItem'.
+
+### <a name="2.9.1"/>2.9.1
+
+* Update start degree of consurrency to 1 and added debug logs for minibatch.
+
+
