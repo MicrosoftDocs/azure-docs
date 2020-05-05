@@ -9,7 +9,7 @@ ms.date: 05/04/2020
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking for your Azure and on-premises resources. A [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) allows you to secure your container registry's public IP address to only your virtual network. This endpoint gives traffic an optimal route to the resource over the Azure backbone network. The identities of the virtual network and the subnet are also transmitted with each request.
 
-This article shows how to configure a container registry service endpoint in a virtual network. 
+This article shows how to configure a container registry service endpoint (preview) in a virtual network. 
 
 > [!IMPORTANT]
 > Azure Container Registry now supports [Azure Private Link](container-registry-private-link.md), enabling private endpoints from a virtual network to be placed on a registry. Private endpoints are accessible from within the virtual network, using private IP addresses. We recommend using private endpoints instead of service endpoints in most network scenarios.
