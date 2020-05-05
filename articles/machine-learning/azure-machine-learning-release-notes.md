@@ -57,7 +57,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Adds a class azureml.contrib.mir.RevisionStatus which relays information about the currently deployed MIR revision and the most recent version specified by the user. This class is included in the MirWebservice object under 'deployment_status' attribute.
     + Enables update on Webservices of type MirWebservice and its child class SingleModelMirWebservice.
   + **azureml-contrib-reinforcementlearning**
+    + Added support for Ray 0.8.3
     + AmlWindowsCompute only supports Azure Files as mounted storage
+    + Renamed health_check_timeout to health_check_timeout_seconds
+    + Fixed some class/method descriptions.
   + **azureml-core**
     + Enabled WASB -> Blob conversions in USGovernment and China clouds.
     + Fixes bug to allow Reader roles to use az ml run CLI commands to get run information
