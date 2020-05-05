@@ -1,7 +1,7 @@
 ---
-title: 'Input and output data from ML pipelines'
+title: 'Moving data in ML pipelines'
 titleSuffix: Azure Machine Learning
-description: Prepare, consume, and generate data in Azure Machine Learning pipelines
+description: Learn about input & output of data in Azure Machine Learning pipelines.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
