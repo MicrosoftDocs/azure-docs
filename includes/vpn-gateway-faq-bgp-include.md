@@ -83,7 +83,15 @@ For example, if you have two redundant tunnels between your Azure VPN gateway an
 Yes, but at least one of the virtual network gateways must be in active-active configuration.
 
 ### Can I use BGP for S2S VPN in an ExpressRoute/S2S VPN co-existence configuration?
-Yes. 
+Yes. When deploying both Gateway types within the same Gateway Subnet, ExpressRoute BGP routes will take precedent. Because of this, any BGP routes required by any VPN Gateways, including P2S client IP ranges, must also be advertised by the ExpressRoute Gateway. To ensure this is possible iBGP is used for communication between Gateways.
+
+When forced tunneling is implemented on the Gateway Subnet it is important to ensure that communication between the Gateways is not interrupted, this will result in VPN Gateway BGP routes not being advertised correctly.
+
+If user-defined routes are being associated with the Gateway Subnet, a UDR for the gateway subnet range and a next hop of Virtual network is necessary.
+
+| Name  	| Address Prefix   	|  Next Hop 	|
+|---	|---	|---	|
+|  BGP Gateway Communication	| 10.10.0.0/27  	|  Virtual Network 	|
 
 ### What address does Azure VPN gateway use for BGP Peer IP?
 The Azure VPN gateway will allocate a single IP address from the GatewaySubnet range for active-standby VPN gateways, or two IP addresses for active-active VPN gateways. You can get the actual BGP IP address(es) allocated by using PowerShell (Get-AzVirtualNetworkGateway, look for the “bgpPeeringAddress” property), or in the Azure portal (under the “Configure BGP ASN” property on the Gateway Configuration page).
