@@ -2,7 +2,7 @@
 title: Developer resources - Language Understanding
 description: SDKs, REST APIs, CLI, help you develop Language Understanding (LUIS) apps in your programming language. Manage your Azure resources and LUIS predictions.
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 05/05/2020
 ---
 
 # SDK, REST, and CLI developer resources for Language Understanding (LUIS)
@@ -66,6 +66,10 @@ The following table explains the parameters, denoted with curly braces `{}`, in 
 |`q` or `query`|utterance text sent from client application such as chat bot|
 |`version`|10 character version name|
 |`slot`| `production` or `staging`|
+
+## App schema
+
+The [app schema](app-schema-definition.md) is imported and exported in a `.json` or `.lu` format.
 
 ### Language-based SDKs
 

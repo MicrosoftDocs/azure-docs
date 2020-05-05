@@ -203,6 +203,8 @@
     items:
     - name: For Developers
       href: developer-reference-resource.md
+    - name: App schema
+      href: app-schema-definition.md
     - name: Migrate to V3 Authoring APIs
       href: luis-migration-authoring-entities.md
     - name: Migrate to V3 Prediction APIs
@@ -246,6 +248,8 @@
     - name: Overview
       href: developer-reference-resource.md
       displayName: SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot
+    - name: App schema
+      href: app-schema-definition.md
     - name: Azure CLI
       href: https://go.microsoft.com/fwlink/?linkid=2092156
     - name: Azure RM PowerShell
