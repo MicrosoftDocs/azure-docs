@@ -17,6 +17,93 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-05-11
+
+### Azure Machine Learning SDK for Python v1.5.0
+
++ **New features**
+  + [Insert new features below. Reference articles and/or doc pages]
+  
+  + **Preview features**
+    + [Contrib features below] 
+
++ **Breaking changes**
+  + [Reference upcoming breaking changes and old API support drop date]
+
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Fixes an accidentally left behind warning log in my previous PR. The log was used for debugging and accidentally was left behind.
+    + Bug fix: inform clients about partial failure during profiling
+  + **azureml-automl-core**
+    + Speed up Prophet/AutoArima model in automl forecasting by enabling parallel fitting for the time series when data sets has multiple time series.
+    + Fix KeyError on printing guardrails in console interface
+    + Fixed error message for experimentation_timeout_hours
+    + Deprecated Tensorflow models for AutoML.
+  + **azureml-automl-runtime**
+    + Fixed error message for experimentation_timeout_hours
+    + Fixed unclassified exception when trying to deserialize from cache store
+    + Speed up Prophet/AutoArima model in automl forecasting by enabling parallel fitting for the time series when data sets has multiple time series.
+    + Fixed the forecasting with enabled rolling window on the data sets where test/prediction set does not contain one of grains from the training set.
+    + Improved handling of missing data
+    + Fixed issue with prediction intervals during forecasting on data sets, containing time series, which are not aligned in time.
+    + Added better validation of data shape for the forecasting tasks.
+    + Improved the frequency detection.
+    + Created better error message if the cross validation folds for forecasting tasks can not be generated.
+    + Fix console interface to print missing value guardrail correctly.
+    + Enforcing datatype checks on cv_split_indices input in AutoMLConfig.
+  + **azureml-cli-common**
+    + Bug fix: inform clients about partial failure during profiling
+  + **azureml-contrib-mir**
+    + Adds a class azureml.contrib.mir.RevisionStatus which relays information about the currently deployed MIR revision and the most recent version specified by the user. This class is included in the MirWebservice object under 'deployment_status' attribute.
+    + Enables update on Webservices of type MirWebservice and its child class SingleModelMirWebservice.
+  + **azureml-contrib-pipeline-steps**
+    + ParallelRunStep is now out of public preview! The classes ParallelRunstep and ParallelRunConfig been moved from azureml.contrib.pipeline.steps to azureml.pipeline.steps.
+  + **azureml-contrib-reinforcementlearning**
+    + AmlWindowsCompute only supports Azure Files as mounted storage
+  + **azureml-core**
+    + Enabled WASB -> Blob conversions in USGovernment and China clouds.
+    + Fixes bug to allow Reader roles to use az ml run CLI commands to get run information
+    + Removed unnecessary logging during Azure ML Remote Runs with input Datasets.
+    + RCranPackage now supports "version" parameter for the CRAN package version.
+    + Bug fix: inform clients about partial failure during profiling
+    + Added European-style float handling for azureml-core.
+  + **azureml-datadrift**
+    + Data Drift results query from the SDK had a bug that didn't differentiate the minimum, maximum, and mean feature metrics, resulting in duplicate values. We have fixed this bug by prefixing target or baseline to the metric names. Before: duplicate min, max, mean. After: target_min, target_max, target_mean, baseline_min, baseline_max, baseline_mean.
+  + **azureml-dataprep**
+    + When creating a TabularDataset using `from_delimited_files`, you can specify whether empty values should be loaded as None or as empty string by setting the boolean argument `empty_as_string`.
+    + Improve handling of write restricted python environments when ensuring .NET Dependencies required for data delivery.
+    + Fixed a documentation bug in the "add-column-from-expression" Dataprep how-to-guide.
+    + Fixed Dataflow creation on file with leading empty records.
+    + Added error handling options for `to_partition_iterator` similar to `to_pandas_dataframe`
+    + Added European-style float handling for azureml-core.
+    + ParallelRunStep is now out of public preview! The classes ParallelRunstep and ParallelRunConfig been moved from azureml.contrib.pipeline.steps to azureml.pipeline.steps.
+    + Improved error messaging on dataset mount failures.
+  + **azureml-interpret**
+    + Reduced explanation path length limits to reduce likelihood of going over Windows limit
+    + Bugfix for sparse explanations created with the mimic explainer using a linear surrogate model.
+  + **azureml-opendatasets**
+    + Fix issue of MNIST's columns are parsed as string which should be int.
+  + **azureml-pipeline-core**
+    + Enable user to leverage azure-cli-ml extension to create pipeline which contains ParallelRunStep from yml file
+    + ParallelRunStep is now out of public preview! The classes ParallelRunstep and ParallelRunConfig been moved from azureml.contrib.pipeline.steps to azureml.pipeline.steps.
+    + Allowing the option to regenerate_outputs when using a module that is embedded in a ModuleStep.
+  + **azureml-pipeline-steps**
+    + Enable user to leverage azure-cli-ml extension to create pipeline which contains ParallelRunStep from yml file
+    + ParallelRunStep is now out of public preview! The classes ParallelRunstep and ParallelRunConfig been moved from azureml.contrib.pipeline.steps to azureml.pipeline.steps.
+  + **azureml-train-automl-client**
+    + Deprecated Tensorflow models for AutoML.
+    + Fix users whitelisting unsupported algorithms in local mode
+    + Doc fixes to AutoMLConfig.
+    + Enforcing datatype checks on cv_split_indices input in AutoMLConfig.
+    + Fixed issue with AutoML run failing in show_output
+  + **azureml-train-automl-runtime**
+    + Fixing a bug in Ensemble iterations which was preventing model download timeout from kicking in successfully.
+  + **azureml-train-core**
+    + Fix typo in azureml.train.dnn.Nccl class.
+    + Supporting PyTorch version 1.5 in the PyTorch Estimator
+    + Fix the issue that framework image can't be fetched in fairfax region when using training framework estimators
+
+  
 ## 2020-05-04
 **New Notebook Experience**
 
