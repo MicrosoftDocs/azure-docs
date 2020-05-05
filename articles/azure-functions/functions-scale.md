@@ -222,7 +222,7 @@ The following comparison table shows all important aspects to help the decision 
 | Custom domains per app</a> |500<sup>7</sup> |500 |500 | 500 | n/a |
 | Custom domain [SSL support](../app-service/configure-ssl-bindings.md) |unbounded SNI SSL connection included | unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | unbounded SNI SSL and 1 IP SSL connections included | n/a |
 
-### Networking limits
+### Networking features
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
