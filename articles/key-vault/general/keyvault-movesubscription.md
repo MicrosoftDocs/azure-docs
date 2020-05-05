@@ -13,18 +13,17 @@ ms.date: 04/29/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
 ---
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 # Moving an Azure Key Vault to another subscription
 
 ## Overview
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 **Moving a key vault to another subscription will cause a breaking change to your environment.**
 
-Please make sure you understand the impact of this change and follow the guidance in this article carefully before deciding to move key vault to a new subscription.
+Make sure you understand the impact of this change and follow the guidance in this article carefully before deciding to move key vault to a new subscription.
 
-When you create a key vault it is automatically tied to the default Azure Active Directory tenant ID for the subscription in which it is created. All access policy entries are also tied to this tenant ID. If you move your Azure subscription from tenant A to tenant B, your existing key vaults will be inaccessible by the service principals (users and applications) in tenant B. To fix this issue, you need to:
+When you create a key vault, it is automatically tied to the default Azure Active Directory tenant ID for the subscription in which it is created. All access policy entries are also tied to this tenant ID. If you move your Azure subscription from tenant A to tenant B, your existing key vaults will be inaccessible by the service principals (users and applications) in tenant B. To fix this issue, you need to:
 
 * Change the tenant ID associated with all existing key vaults in the subscription to tenant B.
 * Remove all existing access policy entries.
@@ -32,7 +31,7 @@ When you create a key vault it is automatically tied to the default Azure Active
 
 ## Limitations
 
-Some service principals (users and applications) are bound to a specific tenant. If you move your key vault to a subscription in another tenant, there is a chance that you will not be able to restore access to a specific service principal. You should check to make sure that all essential service principals exist in the tenant where you are moving your key vault.
+Some service principals (users and applications) are bound to a specific tenant. If you move your key vault to a subscription in another tenant, there is a chance that you will not be able to restore access to a specific service principal. Check to make sure that all essential service principals exist in the tenant where you are moving your key vault.
 
 ## Design Considerations
 
@@ -54,7 +53,7 @@ Make sure that you go to the Azure Policy page on the Azure portal and look at t
 
 ## Procedure
 
-### Initial Steps
+### Initial Steps (Moving Key Vault)
 
 1. Log in to the Azure portal
 2. Navigate to your key vault
@@ -68,7 +67,7 @@ Make sure that you go to the Azure Policy page on the Azure portal and look at t
 
 ### Additional Steps (Post Move)
 
-Now that you have moved your key vault to the new subscription, you need to update the tenant id and remove old access policies. Here are tutorials for these steps in Powershell and Azure CLI.
+Now that you have moved your key vault to the new subscription, you need to update the tenant id and remove old access policies. Here are tutorials for these steps in PowerShell and Azure CLI.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription
