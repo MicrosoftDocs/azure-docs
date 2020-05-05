@@ -4,7 +4,7 @@ description: Learn how to use security features in Azure Backup to make backups 
 ms.topic: conceptual
 ms.date: 04/30/2020
 ---
-# Security features to help protect cloud workloads that use Azure Backup
+# Soft delete for Azure Backup
 
 Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect backup data even after deletion.
 
@@ -20,7 +20,7 @@ This flow chart shows the different steps and states of a backup item when Soft 
 
 Soft delete is enabled by default on newly created vaults to protect backup data from accidental or malicious deletes.  Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) Only the vault owner can disable this feature. If you disable this feature, all future deletions of protected items will result in immediate removal, without the ability to restore. Backup data that exists in soft deleted state before disabling this feature, will remain in soft deleted state for the period of 14 days. If you wish to permanently delete these immediately, then you need to undelete and delete them again to get permanently deleted.
 
- It's important to remember that once soft delete is disabled, the feature is disabled for all the types of workloads, including virtual machines. For example, once the preview is enabled for a subscription it is not possible to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault. You can create separate vaults for granular control.
+ It's important to remember that once soft delete is disabled, the feature is disabled for all the types of workloads, including SQL server and SAP HANA workloads. For example, once the [SQL Server/ SAP HANA preview](https://docs.microsoft.com/azure/backup/soft-delete-sql-saphana-in-azure-vm#steps-to-enroll-in-preview) is enabled for a subscription it is not possible to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault. You can create separate vaults for granular control.
 
 ### Disabling soft delete using Azure portal
 
