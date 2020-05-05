@@ -48,4 +48,4 @@ You can also customize cluster settings in one of the following ways with Azure 
 
 ## Next steps
 * Learn about the [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md).
-* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md).
+* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-in-out.md).
