@@ -58,7 +58,7 @@ The following preprocessing steps will help build a better LUIS app:
 
 * **Label text as if it was correct**: The example utterances should have all forms of an entity labeled. This includes test that is misspelled, mistyped, and mistranslated.
 
-### Data review
+### Data review after LUIS app is in production
 
 [Review endpoint utterances](luis-concept-review-endpoint-utterances.md) to monitor real utterance traffic once you have deployed an app to production.  This allows you to update your training utterances with real data, which will improve your app. Any app built with crowd-sourced or non-real scenario data will need to be improved based on its real use.
 
