@@ -50,14 +50,14 @@ The pipeline for activation is as follows:
 
 1. Download the ApplicationPackage. For example: ApplicationManifest.xml etc.
 2. Set up environment for Application for ex: create users etc.
-3. Start tracking Appplication for deactivation.
+3. Start tracking Application for deactivation.
 4. Download ServicePackage. For example: ServicePackage.xml, code, config, dat packages etc.
 5. Set up environment for Service Package for ex: setup firewall, allocate ports for dynamic endpoints etc.
 6. Start tracking ServicePackage for deactivation.
 7. Start your CodePackage.
 
 ### ServiceType Disabling
-In Service Fabric, when activation/download operation finds errors or CodePackage crashes, it schedules the ServiceType to be disabled on the node depending on two other hosting configs, **ServiceTypeDisableFailureThreshold** and **ServiceTypeDisableGraceInterval**. So first activation/download failure, or CodePackage crash, should trigger ServiceTypeDisabled to be scheduled. The **ServiceTypeDisableGraceInterval** config determines the grace interval after which ServiceType is finally marked as disabled on that node. Note, that for all this to happen activation/download/CodePackage restart should still be in retrying mode internally and being tracked by Hosting subSystem. retrying, means for example: CodePackage wil be scheduled to start again after the crash, or Service Fabric will try to download packages again.
+In Service Fabric, when activation/download operation finds errors or CodePackage crashes, it schedules the ServiceType to be disabled on the node depending on two other hosting configs, **ServiceTypeDisableFailureThreshold** and **ServiceTypeDisableGraceInterval**. So first activation/download failure, or CodePackage crash, should trigger ServiceTypeDisabled to be scheduled. The **ServiceTypeDisableGraceInterval** config determines the grace interval after which ServiceType is finally marked as disabled on that node. Note, that for all this to happen activation/download/CodePackage restart should still be in retrying mode internally and being tracked by Hosting subSystem. retrying, means for example: CodePackage will be scheduled to start again after the crash, or Service Fabric will try to download packages again.
 
 ServiceType will be enabled back on the node 
 - If activation operation succeeds or reaches **ActivationMaxFailureCount** retries upon failure.
