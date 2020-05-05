@@ -42,4 +42,4 @@ Azure Static Web Apps provides an API through Azure Functions. The capabilities 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add API](add-api.md)
+> [Add an API](add-api.md)
