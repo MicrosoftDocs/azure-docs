@@ -6,11 +6,11 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 05/04/2020
 ms.author: dsindona
 ---
 
-# Microsoft commercial marketplace FAQ
+# Common questions about the Microsoft commercial marketplace
 
 This article answers commonly asked questions about the Microsoft commercial marketplace.
 
