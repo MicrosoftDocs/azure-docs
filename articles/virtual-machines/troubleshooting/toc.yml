@@ -136,7 +136,7 @@
     - name: SSH troubleshooting
       href: troubleshoot-ssh-connection.md
     - name: Steps to take chroot for troubleshooting
-    - href: steps to take chroot for trobleshooting.md
+      href: steps to take chroot for troubleshooting.md
     - name: Troubleshoot file system errors
       href: linux-recovery-cannot-start-file-system-errors.md
     - name: Troubleshoot kernel-related boot problems

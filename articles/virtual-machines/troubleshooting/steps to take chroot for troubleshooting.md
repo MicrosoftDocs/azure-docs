@@ -1,12 +1,19 @@
 ---
-title: How to take Chroot environment in linux.
+title: How to take chroot environment in linux.
 description: This article provides instructions to take chroot environment for troubleshooting issues in the Rescue VM.
+mservices: virtual-machines-linux
+documentationcenter: ''
 author: kailashmsft
-ms.topic: article
-ms.author: kaib
-ms.date: 05/04/2020
+manager: dcscontentpm
+editor: ''
+tags: ''
 
-ms.custom: seodec18
+ms.service: virtual-machines-linux
+ms.topic: troubleshooting
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.date: 05/05/2020
+ms.author: kailashmsft
 
 ---
 
