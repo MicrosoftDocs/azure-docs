@@ -13,11 +13,11 @@ ms.author: buhollan
 
 An Azure Static Web Apps instance is made up of two different types of applications. The first is a web app for your static content. Web apps are often created with front-end frameworks and libraries or with static site generators. The second aspect is the API, which is an Azure Functions app that provides a rich back-end development environment.
 
-When running in the cloud, Azure Static Web Apps seamlessly maps requests to the `api` route from the web app to the Azure Functions app without requiring CORS configuration. Locally, you need to configure your application to mimic this behavior. 
+When running in the cloud, Azure Static Web Apps seamlessly maps requests to the `api` route from the web app to the Azure Functions app without requiring CORS configuration. Locally, you need to configure your application to mimic this behavior.
 
 This article demonstrates recommended best-practices for local development, including the following concepts:
 
-- Setup the web app for static content 
+- Setup the web app for static content
 - Configuring the Azure Functions app for your application's API
 - Debugging and running the application
 - Best-practices for your app's file and folder structure
@@ -61,7 +61,7 @@ The Live Server extension for Visual Studio Code provides a local development we
 
 1. Navigate to [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) and create a new GitHub project named **vanilla-api**, using this template.
 
-   ![Github new repo screen](media/local-development/vanilla-api.png)
+    :::image type="content" source="media/local-development/vanilla-api.png" alt-text="GitHub new repo window":::
 
 1. Open Visual Studio Code.
 
@@ -69,7 +69,7 @@ The Live Server extension for Visual Studio Code provides a local development we
 
 1. Type **clone** in the search box and select **Git: Clone**.
 
-   ![Git: Clone option in VS Code](media/local-development/command-palette-git-clone.png)
+    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="git clone option in Visual Studio Code":::
 
 1. Enter the following value for **Repository URL**
 
@@ -81,7 +81,7 @@ The Live Server extension for Visual Studio Code provides a local development we
 
 1. When prompted to open the cloned repository, select **Open**.
 
-   ![](media/local-development/open-in-new-window.png)
+    :::image type="content" source="media/local-development/open-in-new-window.png" alt-text="Open in new window":::
 
 Visual Studio Code will open the cloned project in the editor.
 
@@ -93,7 +93,7 @@ Visual Studio Code will open the cloned project in the editor.
 
     A browser tab will open and display the application.
 
-    ![Simple Static Site running in the browser](media/local-development/vanilla-api-site.png)
+    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Simple static site running in the browser":::
 
     This application makes an HTTP request to the `api/message` endpoint. Right now, that request is failing because the API portion of this application needs to be started.
 
@@ -107,13 +107,13 @@ As part of the API creation process, a launch configuration is created for Visua
 
 1. A new terminal instance opens showing the output from the API build process.
 
-   ![API running in VS Code terminal](media/local-development/terminal-api-debug.png)
+    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="API running in Visual Studio Code terminal":::
 
    The status bar in Visual Studio Code is now orange. This indicates that the API is now running and the debugger is attached.
 
 1. Next, press <kbd>Ctrl/Cmd</kbd> and click on the URL in the terminal to open a browser window that calls the API.
 
-   ![Browser displaying result of API call](media/local-development/hello-from-the-api.png)
+    :::image type="content" source="media/local-development/hello-from-the-api.png" alt-text="Browser display result of API call":::
 
 ### Debugging the API
 
@@ -121,19 +121,19 @@ As part of the API creation process, a launch configuration is created for Visua
 
 1. Click in the left-hand margin on line 2 to set a breakpoint. A red dot appears which indicates the breakpoint is set.
 
-   ![Breakpoint in VS Code](media/local-development/breakpoint-set.png)
+    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Breakpoint in Visual Studio Code":::
 
-1. In the browser, refresh the page running at `http://127.0.0.1:7071/api/message`.
+1. In the browser, refresh the page running at <http://127.0.0.1:7071/api/message>.
 
 1. The breakpoint is hit in Visual Studio Code and program execution is paused.
 
-   ![Breakpoint hit in VS Code](media/local-development/breakpoint-hit.png)
+   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Breakpoint hit in Visual Studio Code":::
 
    A complete [debugging experience is available in Visual Studio Code](https://code.visualstudio.com/Docs/editor/debugging) for your API.
 
 1. Press the **Continue** button in the debug bar to continue execution.
 
-   ![Breakpoint hit in VS Code](media/local-development/continue-button.png)
+    :::image type="content" source="media/local-development/continue-button.png" alt-text="Continue button in Visual Studio Code":::
 
 ### Calling the API from the application
 
@@ -184,7 +184,7 @@ For more information on configuring environment files for front-end JavaScript f
 
 1. Type **Live Server** and select **Live Server: Stop Live Server**.
 
-   ![Stop Live Server command in VS Code Command Palette](media/local-development/stop-live-server.png)
+    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Stop Live Server command in Visual Studio command palatte":::
 
 1. Press <kbd>F1</kbd> to open the Command Palette
 
@@ -192,7 +192,7 @@ For more information on configuring environment files for front-end JavaScript f
 
 1. Refresh the application running at `http://locahost:3000`. The browser now displays the message returned from the API.
 
-   ![Hello from API displayed in browser](media/local-development/hello-from-api.png)
+    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Hello from API displayed in the browser":::
 
 ## Next steps
 
