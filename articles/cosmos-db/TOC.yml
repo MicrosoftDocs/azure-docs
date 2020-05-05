@@ -926,6 +926,9 @@
       - name: Provision throughput on a database
         displayName: request units, RUs, RU, shared throughput, database level
         href: how-to-provision-database-throughput.md
+      - name: Provision autoscale throughput on a database or container
+        displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
+        href: how-to-provision-autoscale-throughput.md
       - name: Estimate RU/s with Cosmos capacity planner
         displayName: request units, RUs, RU, capacity
         href: estimate-ru-with-capacity-planner.md
