@@ -37,19 +37,21 @@ Use the following steps to import the sample dataset.
 
 1. Sign in to <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a>, and select the workspace you want to work with.
 
-1. Go to the designer and create a new pipeline by selecting **Easy-to-use prebuilt modules**.
+1. Go to the designer. Select **Easy-to-use-prebuild modules** to create a new pipeline.
 
 1. Select a default compute target to run the pipeline.
 
-1. To the left of the pipeline canvas is a palette of datasets and modules. Select **Datasets**, and then view the **Samples** section.
+1. To the left of the pipeline canvas is a palette of datasets and modules. Select **Datasets**. Then view the **Samples** section.
 
 1. Drag and drop the **Adult Census Income Binary classification** dataset onto the canvas.
 
 1. Select the **Adult Census Income** dataset module.
 
-1. In the details pane that appears to the right of the canvas, select **Outputs**. Select the visualize icon ![visualize icon](media/how-to-designer-transform-data/visualize-icon.png).
+1. In the details pane that appears to the right of the canvas, select **Outputs**.
 
-1. Use the data preview window to explore the dataset. Take note of the "native-country" column values.
+1. Select the visualize icon ![visualize icon](media/how-to-designer-transform-data/visualize-icon.png).
+
+1. Use the data preview window to explore the dataset. Take special note of the "native-country" column values.
 
 ### Split the data
 
@@ -90,7 +92,7 @@ Now that your pipeline is set up to split the data, you need to specify where to
 
 1. Select the **Export Data** module that is connected to the *left*-most port of the **Split Data** module.
 
-    The order of the output ports matter for the **Split Data** module. The first output port contains the rows where the regular expression is true. In this case, the first port contains rows for the US-based income, and the second port contains rows for the non-US based income.
+    The order of the output ports matter for the **Split Data** module. The first output port contains the rows where the regular expression is true. In this case, the first port contains rows for US-based income, and the second port contains rows for non-US based income.
 
 1. In the module details pane to the right of the canvas, set the following options:
     
@@ -133,7 +135,9 @@ Now that your pipeline is setup to split and export the data, submit a pipeline 
 
 1. At the top of the canvas, select **Submit**.
 
-1. In the **Set up pipeline run** dialog, select **Create new**.
+1. In the **Set up pipeline run** dialog, select **Create new** to createa n experiment.
+
+    Experiments logically group together related pipeline runs. If you run this pipeline in the future, you should use the same experiment for logging and tracking purposes.
 
 1. Provide a descriptive experiment name like "split-census-data".
 
@@ -141,7 +145,7 @@ Now that your pipeline is setup to split and export the data, submit a pipeline 
 
 ## View results
 
-After the pipeline finishes running, you can view your results by navigating to your blob storage in the Azure portal. You can also view the intermediary results of the **Split Data** module to confirm that your data has split correctly.
+After the pipeline finishes running, you can view your results by navigating to your blob storage in the Azure portal. You can also view the intermediary results of the **Split Data** module to confirm that your data has been split correctly.
 
 1. Select the **Split Data** module.
 
