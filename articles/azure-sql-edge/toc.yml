@@ -37,6 +37,8 @@
     href: create-stream-analytics-job.md
   - name: Connect to SQL Edge
     href: connect.md
+  - name: Configure SQL Edge
+    href: configure.md
 - name: Concepts
   items:
   - name: Machine learning and AI with ONNX
