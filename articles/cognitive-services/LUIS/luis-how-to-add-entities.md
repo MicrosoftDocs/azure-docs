@@ -1,6 +1,5 @@
 ---
 title: Add entities - LUIS
-titleSuffix: Azure Cognitive Services
 description: Create entities to extract key data from user utterances in Language Understanding (LUIS) apps. Extracted entity data is used by the client application to fullfil customer requests.
 services: cognitive-services
 author: diberry
@@ -9,7 +8,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 05/04/2020
 ms.author: diberry
 ---
 
@@ -63,7 +62,7 @@ Use text-matching entities provide several ways to extract data:
 |Regular expression entity|match text using a regular expression entity|
 |[Prebuilt entity](luis-reference-prebuilt-entities.md)|match common data types such as number, email, date|
 |Prebuilt domain entity|match using selected subject domains|
-|[Pattern.any](reference-entity.pattern-any.md)| to match entities that may be easily confused with the surrounding text|
+|[Pattern.any](reference-entity-pattern-any.md)| to match entities that may be easily confused with the surrounding text|
 
 Prebuilt entities work without providing any custom training data. The other entities need you to provide either customer training data (such as List entity's items) or an expression (such as a regular expression or pattern.any).
 
