@@ -2,7 +2,7 @@
 title: Synapse Link for Cosmos DB supported features
 description: Understand the current list of actions supported by Synapse Link for Cosmos DB
 services: synapse-analytics 
-author: acomet
+author: ArnoMicrosoft
 ms.service: synapse-analytics 
 ms.topic: quickstart
 ms.subservice: 
