@@ -8,7 +8,7 @@ ms.topic: guide
 ms.date: 12/10/2019
 ---
 
-# Payout reporting
+# Payout reporting details
 
 The [**Payout summary**](https://docs.microsoft.com/windows/uwp/publish/payout-summary) shows you details about the money you’ve earned with Microsoft. It also lets you know when you’ll receive payments and how much you'll be paid.
 
@@ -20,7 +20,7 @@ If you sell offerings in the Azure Marketplace, you’ll also see info on succes
 - [Roles and permission to access the payout report](#roles-and-permission-to-access-the-payout-report)
 - [Payout report: difference between Cloud Partner Portal and Partner Center](#payout-report-difference-between-cloud-partner-portal-and-partner-center)
 - [Customer types](#customer-types)
-- [Corelation between payout and usage](#corelation-between-payout-and-usage)
+- [Correlation between payout and usage](#correlation-between-payout-and-usage)
 - [Transaction history download](#transaction-history-download-export)
 - [Billing questions and support](#billing-questions-and-support)
 
@@ -60,7 +60,7 @@ Customers can also pay using a credit card and a monthly invoice. In this case, 
 
 For example, if the customer purchases using a credit card.
 
-## Corelation between payout and usage
+## Correlation between payout and usage
 
 |Description    |    Date  | Orders/Usage  | Payout |
 |----------|----------|-----------|-------------|

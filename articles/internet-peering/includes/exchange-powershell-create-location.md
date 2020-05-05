@@ -25,7 +25,7 @@ Exchange peering locations contain the following fields:
 * MicrosoftIPv4Address
 * MicrosoftIPv6Address
 
-Validate that you are present at the desired peering facility by referring to [PeeringDB](https://wwww.peeringdb.com).
+Validate that you are present at the desired peering facility by referring to [PeeringDB](https://www.peeringdb.com).
 
 This example shows how to use Seattle as the peering location to create a peering.
 

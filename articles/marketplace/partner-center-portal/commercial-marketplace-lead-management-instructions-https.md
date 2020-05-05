@@ -22,22 +22,24 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
 1. Sign in, and select **My flows** in the menu.
 
-1. Select **+ Automated--from blank**.
+    ![Sign in My flows](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-    ![My flows + Automated--from blank](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
+1. Under **+ New**, select **+ Instant—from blank**.
 
-1. In the **Build an automated flow** window, select **Skip**. 
+    ![My flows + Automated--from blank](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-    ![Build an automated flow window Skip button](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
+1. Name your flow, and then under **Choose how to trigger this flow**, select **When a HTTP request is received**.
 
-1. In the **Search connectors and triggers** field, enter **request** to find the request connector.
-1. Under **Triggers**, select **When a HTTP request is received**. 
+    ![Build an automated flow window Skip button](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
-    ![Triggers menu](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
+1. Click the flow step to expand it.
 
-1. In the **When a HTTP request is received** window, copy and paste the following JSON schema into the **Request Body JSON Schema** text box. This schema is used by Microsoft to contain your lead data.
+    ![Expand the flow step](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
 
-    ![Request Body JSON Schema text box](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
+1. Use one of the following methods to configure the **Request Body JSON Schema**:
+
+    - Copy the JSON schema into the **Request Body JSON Schema** text box.
+    - Select **Use sample payload to generate schema**. In the **Enter or paste a sample JSON payload** text box, paste in the JSON example. Select **Done** to create the schema.
 
     **JSON schema**
 
@@ -95,6 +97,26 @@ If your customer relationship management (CRM) system isn't explicitly supported
         }
       },
       "type": "object"
+    }
+    ```
+
+    **JSON example**
+    
+    ```json
+    {
+      "UserDetails": {
+        "FirstName": "Some",
+        "LastName": "One",
+        "Email": "someone@contoso.com",
+        "Phone": "16175555555",
+        "Country": "USA",
+        "Company": "Contoso",
+        "Title": "Esquire"
+     },
+      "LeadSource": "AzureMarketplace",
+      "ActionCode": "INS",
+      "OfferTitle": "Test Microsoft",
+      "Description": "Test run through Power Automate"
     }
     ```
 

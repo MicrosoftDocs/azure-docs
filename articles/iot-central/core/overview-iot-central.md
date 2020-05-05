@@ -8,7 +8,6 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: timlt
 ---
 
 # What is Azure IoT Central?
@@ -152,11 +151,11 @@ With any IoT solution designed to operate at scale, a structured approach to dev
 
 Built-in [dashboards](./howto-set-up-template.md#generate-default-views) provide a customizable UI to monitor device health and telemetry. Start with a pre-built dashboard in an [application template](howto-use-app-templates.md) or create your own dashboards tailored to the needs of your operators. You can share dashboards with all users in your application, or keep them private.
 
-### Rules and actions 
+### Rules and actions
 
 Build [custom rules](tutorial-create-telemetry-rules.md) based on device state and telemetry to identify devices in need of attention. Configure actions to notify the right people and ensure corrective measures are taken in a timely fashion.
 
-### Jobs 
+### Jobs
 
 [Jobs](howto-run-a-job.md) let you apply single or bulk updates to devices by setting properties or calling commands. 
 
