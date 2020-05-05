@@ -78,7 +78,7 @@ Note that if you have Private Endpoints attached to your storage account, you ca
 
 **Guidance**: Network Watcher packet capture allows you to create capture sessions to track traffic between Storage account and a virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps to diagnose network anomalies, both reactively, and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communication, and much more. Being able to remotely trigger packet captures, eases the burden of running a packet capture manually on a desired virtual machine, which saves valuable time. 
 
-- [Manage packet captures with Azure Network Watcher using the portal](https://docs.microsoft.comazure/network-watcher/network-watcher-packet-capture-manage-portal)
+- [Manage packet captures with Azure Network Watcher using the portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal)
 
 **Azure Security Center monitoring**: Yes
 
