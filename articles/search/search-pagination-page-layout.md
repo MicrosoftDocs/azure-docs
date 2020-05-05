@@ -88,9 +88,15 @@ Another option is using a [custom scoring profile](index-add-scoring-profiles.md
 
 ## Hit highlighting
 
-Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching term in a result, making it easy to spot the match. Hit highlighting instructions are provided on the [query request](https://docs.microsoft.com/rest/api/searchservice/search-documents). The search engine encloses the matching term in tags, `highlightPreTag` and `highlightPostTag`, and your code handles the response (for example, applying a bold font).
+Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Hit highlighting instructions are provided on the [query request](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
-Formatting is applied to whole term queries. In the following example, the terms "sandy", "sand", "beaches", "beach" found within the Description field are tagged for highlighting. Queries that trigger query expansion in the engine, such as fuzzy and wildcard search, have limited support for hit highlighting.
+To enable hit highlighting, add `highlight=[comma-delimited list of string fields]` to specify which fields will use highlighting. Highlighting is useful for longer content fields, such as a description field, where the match is not immediately obvious. Only field definitions that are attributed as **searchable** qualify for hit highlighting.
+
+By default, Azure Cognitive Search returns up to five highlights per field. You can adjust this number by appending to the field a dash followed by an integer. For example, `highlight=Description-10` returns up to 10 highlights on matching content in the Description field.
+
+Formatting is applied to whole term queries. The type of formatting is determined by tags, `highlightPreTag` and `highlightPostTag`, and your code handles the response (for example, applying a bold font or a yellow background).
+
+In the following example, the terms "sandy", "sand", "beaches", "beach" found within the Description field are tagged for highlighting. Queries that trigger query expansion in the engine, such as fuzzy and wildcard search, have limited support for hit highlighting.
 
 ```http
 GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 

@@ -1,5 +1,5 @@
 ---
-title: Model training methods
+title: 'Build & train models'
 titleSuffix: Azure Machine Learning
 description: Learn the different methods you can use to train model with Azure Machine Learning. Estimators provide an easy way to work with popular frameworks like Scikit-learn, TensorFlow, Keras, PyTorch, and Chainer. Machine Learning pipelines make it easy to schedule unattended runs, use heterogeneous compute environments, and reuse parts of your workflow. And run configurations provide granular control over the compute targets that the training process runs on.
 services: machine-learning

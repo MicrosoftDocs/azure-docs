@@ -41,7 +41,7 @@ The following table lists some runbook execution tasks with the recommended exec
 
 |Task|Recommendation|Notes|
 |---|---|---|
-|Integrate with Azure resources|Azure Sandbox|Hosted in Azure, authentication is simpler. If you're using a Hybrid Runbook Worker on an Azure VM, you can use [managed identities for Azure resources](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources).|
+|Integrate with Azure resources|Azure Sandbox|Hosted in Azure, authentication is simpler. If you're using a Hybrid Runbook Worker on an Azure VM, you can [use runbook authentication with managed identities](automation-hrw-run-runbooks.md#runbook-auth-managed-identities).|
 |Obtain optimal performance to manage Azure resources|Azure Sandbox|Script is run in the same environment, which has less latency.|
 |Minimize operational costs|Azure Sandbox|There is no compute overhead and no need for a VM.|
 |Execute long-running script|Hybrid Runbook Worker|Azure sandboxes have [resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
