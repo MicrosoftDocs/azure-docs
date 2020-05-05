@@ -11,9 +11,9 @@ One of the most important steps you can take to protect your data is to have a r
 
 ## Management and control of identity and user access
 
-Azure Backup enables you to manage fine-grained access using [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). RBAC allows you to segregate duties within your team and grant only the amount of access to users necessary to do their jobs.
+Storage accounts used by recovery services vaults are isolated and cannot be accessed by users for any malicious purposes. The access is only allowed through Azure Backup management operations, such as restore. Azure Backup enables you to control the managed operations through fine-grained access using [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault). RBAC allows you to segregate duties within your team and grant only the amount of access to users necessary to do their jobs.
 
-Azure Backup provides three built-in roles to control backup management operations:
+Azure Backup provides three [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) to control backup management operations:
 
 * Backup Contributor - to create and manage backups, except deleting Recovery Services vault and giving access to others
 * Backup Operator - everything a contributor does except removing backup and managing backup policies
@@ -42,13 +42,13 @@ You can now use [Private Endpoints](https://docs.microsoft.com/azure/private-lin
 
 Encryption protects your data and helps you to meet your organizational security and compliance commitments. Within Azure, data in transit between Azure storage and the vault is protected by HTTPS. This data remains on the Azure backbone network.
 
-* Backup data is automatically encrypted using Microsoft-managed keys. You can also encrypt your backed up managed disk VMs in the Recovery Services Vault using [customer managed keys](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#encryption-of-backup-data-using-customer-managed-keys) stored in the Azure Key Vault. You don't need to take any explicit action to enable this encryption. It applies to all workloads being backed up to your Recovery Services vault.
+* Backup data is automatically encrypted using Microsoft-managed keys. You can also encrypt your backed up managed disk VMs in the Recovery Services Vault using [customer managed keys](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) stored in the Azure Key Vault. You don't need to take any explicit action to enable this encryption. It applies to all workloads being backed up to your Recovery Services vault.
 
 * Azure Backup supports backup and restore of Azure VMs that have their OS/data disks encrypted with Azure Disk Encryption (ADE). [Learn more about encrypted Azure VMs and Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
 ## Protection of backup data from unintentional deletes
 
-Azure Backup provides security features to help protect backup data even after deletion. With soft delete, if user deletes the backup of a VM, the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state doesn't incur any cost to the customer. [Learn more about soft delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete).
+Azure Backup provides security features to help protect backup data even after deletion. With soft delete, if user deletes the backup of a VM, the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state doesn't incur any cost to the customer. [Learn more about soft delete](backup-azure-security-feature-cloud.md).
 
 ## Monitoring and alerts of suspicious activity
 
