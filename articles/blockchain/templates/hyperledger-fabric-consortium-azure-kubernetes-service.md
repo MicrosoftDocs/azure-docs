@@ -130,7 +130,7 @@ Follow the below commands for the initial setup of the client application: 
 
 1.	[Download client application files](#download-client-application-files)
 2.	[Setup environment variables](#setup-environment-variables)
-3.	[Import organization connection profile, admin user, and MSP](#import-organization-connection-profil-admin-user-identity-and-msp)
+3.	[Import organization connection profile, admin user, and MSP](#import-organization-connection-profile-admin-user-identity-and-msp)
 
 After completing the initial setup, you can use the client application to achieve the below operations:  
 
