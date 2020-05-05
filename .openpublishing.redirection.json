@@ -49015,12 +49015,7 @@
       "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell",
       "redirect_document_id": false
     },
-    {
-      "source_path": "articles/marketplace/cloud-partner-portal/power-bi/cpp-power-bi-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
-      "redirect_document_id": false
-    },
-    {
+        {
       "source_path": "articles/marketplace/cloud-partner-portal/power-bi/cpp-prerequisites.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
       "redirect_document_id": false
