@@ -136,6 +136,43 @@ Expand the **User-Defined Code Configuration** section, and fill out the configu
    |Custom Code Assembly Source|Existing assembly packages from the cloud|
    |Custom Code Assembly Source|UserCustomCode.zip|
 
+## User Logging
+The logging mechanism allow users to capture custom information during job run. Log data can be used to debug or assess the correctness of the custom code at real time.
+
+The `StreamingContext` class provides a mechanism for publishing diagnostics information using the `StreamingDiagnostics.WriteError` function. The code below shows the interface exposed by Azure Stream Analytics.
+
+```csharp
+    public abstract class StreamingContext
+    {
+        public abstract StreamingDiagnostics Diagnostics { get; }
+    }
+    
+    public abstract class StreamingDiagnostics
+    {
+        public abstract void WriteError(string briefMessage, string detailedMessage);
+    }
+```
+
+`StreamingContext` is passed as an input parameter to the user UDF method and can be used within the UDF to publish user custom log information. In the example below `MyUdfMethod` defines a **data** input which the value will be provided by the query and a **context** input as the `StreamingContext` provided by the runtime engine. 
+
+```csharp
+    public static long MyUdfMethod(long data, StreamingContext context)
+    {
+        // write log
+        context.Diagnostics.WriteError("User Log", "This is a log message");
+        
+        return data;
+    }
+```
+
+`StreamingContext` value does not need to be passed by the user in the SQL query, Azure Stream Analytics will provide a context object automatically if input parameter is present. The use of the `MyUdfMethod` does not change as shown below.
+
+```SQL
+    SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
+```
+
+Log messages can be accessed through the [Diagnostic Logs](data-errors.md).
+
 ## Limitations
 The UDF preview currently has the following limitations:
 
