@@ -79,22 +79,29 @@ You can configure and get information about alert rules using the following inte
    * Aggregation type options are min, max or average (in the aggregation granularity period)
    * Threshold value is the alert value which will be evaluated based on the operator and aggregation criteria
    
+   ![Configure_signal_logic](media/sql-database-managed-instance-alerts/mi-configure-signal-logic-annotated.png)
+   
    In the example shown in the screenshot, value of 1840876 MB is used representing a threshold value of 1.8 TB. As the operator in the example is set to greater than, the alert will be created if the storage space consumption on the managed instance goes over 1.8 TB. Note that the threshold value for storage space metrics must be expressed in MB.
 
 8. Set the evaluation period - aggregation granularity in minutes and frequency of evaluation. The frequency of evaluation will denote time the alerting system will periodically check if the threshold condition has been met.
 
 9. Select action group. Action group pane will show up through which you will be able to select an existing, or create a new action. This action defines that will happen upon triggering an alert (for example, sending email, calling you on the phone, executing a webhook, Azure function, or a runbook, for example).
 
+   ![Select_action_group](media/sql-database-managed-instance-alerts/mi-select-action-group-annotated.png)
+
    * To create new action group, select **+Create action group**
 
-      ![create_action_group_alerts](media/sql-database-managed-instance-alerts/mi-create-alert-action-group-annotated.png)
+   ![Create_action_group_alerts](media/sql-database-managed-instance-alerts/mi-create-alert-action-group-annotated.png)
    
    * Define how do you want to be alerted: Enter action group name, short name, action name and select Action Type. The Action Type defines if you will be notified via email, text message, voice call, or if perhaps webhook, Azure function, runbook will be executed, or ITSM ticket will be created in your compatible system.
 
-      ![define_how_to_be_alerted](media/sql-database-managed-instance-alerts/mi-add-alerts-action-group-annotated.png)
+   ![Define_how_to_be_alerted](media/sql-database-managed-instance-alerts/mi-add-alerts-action-group-annotated.png)
 
-10. Fill in the alert rule details for your records, and select the severity type.
+10. Fill in the alert rule details for your records, select the severity type.
 
+   ![Rule_description](media/sql-database-managed-instance-alerts/mi-rule-details-complete-annotated.pngg)
+
+   * Complete creating the alert rule by clicking on **Create alert rule** button.
    * Within a few minutes new alert rule is active, and alerts are triggered as defined as previously described.
 
    * For the example shown on this page for setting up an alert on storage space, if your alerting option was email, you might receive email such is the one shown below. The email shows the alert name, details of the threshold and why the alert was triggered. You can use See in Azure portal button to view this alert in the web browser. Note email formatting is subject to change.
