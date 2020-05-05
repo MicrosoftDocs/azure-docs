@@ -74,7 +74,7 @@ To stop .NET Core at any time, press `Ctrl+C` in the terminal.
 
 ## Create a database in Azure SQL Database
 
-In this step, you create a database in [Azure SQL Database](/azure/sql-database/). When your app is deployed to Azure, it uses this database.
+In this step, you create a database in [Azure SQL Database](../sql-database/). When your app is deployed to Azure, it uses this database.
 
 ### Create a resource group
 
@@ -82,7 +82,7 @@ In this step, you create a database in [Azure SQL Database](/azure/sql-database/
 
 ### Create a server in Azure SQL Database
 
-In the Cloud Shell, create a [server](../sql-database/sql-database-servers.md) in Azure SQL Database with the [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) command. A server is a logical construct that contains a group of databases managed as a group.
+In the Cloud Shell, create a [server](../../sql-database/sql-database-servers.md) in Azure SQL Database with the [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) command. A server is a logical construct that contains a group of databases managed as a group.
 
 Replace the *\<server-name>* placeholder with a *unique* SQL Database name. This name is used as the part of the globally unique SQL Database endpoint, `<server-name>.database.windows.net`. Valid characters are `a`-`z`, `0`-`9`, `-`. Also, replace *\<db-username>* and *\<db-password>* with a username and password of your choice.
 
