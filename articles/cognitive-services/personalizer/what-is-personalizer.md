@@ -1,15 +1,8 @@
 ---
 title: What is Personalizer?
-titleSuffix: Azure Cognitive Services
 description: Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
 ms.topic: overview
-ms.date: 01/21/2020
-ms.author: diberry
+ms.date: 04/20/2020
 #Customer intent:
 ---
 

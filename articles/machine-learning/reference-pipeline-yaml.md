@@ -362,7 +362,7 @@ pipeline:
 
 | YAML key | Description |
 | ----- | ----- |
-| `steps` | Sequence of one or more PipelineStep definitions. Note that the `destination` of one step's `outputs` become the keys to the `inputs` of the .| 
+| `steps` | Sequence of one or more PipelineStep definitions. Note that the `destination` keys of one step's `outputs` become the `source` keys to the `inputs` of the next step.| 
 
 ```yaml
 pipeline:

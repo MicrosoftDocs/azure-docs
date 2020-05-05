@@ -19,6 +19,8 @@ zone_pivot_groups: programming-languages-set-two
 
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
 
+> [!VIDEO https://channel9.msdn.com/Blogs/One-Dev-Minute/How-to-use-the-Azure-Cognitive-Services-NET-Speech-SDK-for-recognition/player?format=ny]
+
 [!INCLUDE [C# Header](../includes/quickstarts/from-microphone/csharp/header.md)]
 
 [!INCLUDE [csharp](../includes/quickstarts/from-microphone/csharp/csharp.md)]

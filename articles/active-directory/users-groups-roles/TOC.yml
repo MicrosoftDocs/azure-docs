@@ -155,11 +155,11 @@
       href: directory-assign-admin-roles.md
     - name: View and assign roles   
       href: directory-manage-roles-portal.md
-    - name: Custom role      
+    - name: Custom roles
       items:
-      - name: Custom role        
+      - name: Custom roles        
         href: roles-custom-overview.md
-      - name: Create custom role
+      - name: Create a custom role
         href: roles-create-custom.md
       - name: View custom role assignments
         href: roles-view-assignments.md
@@ -167,7 +167,7 @@
         href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
       - name: Assign custom roles in PowerShell
         href: roles-assign-powershell.md
-      - name: Custom rolpermissions
+      - name: Custom role permissions
         href: roles-custom-available-permissions.md
       - name: Delegate app admin permissions
         href: roles-delegate-app-roles.md

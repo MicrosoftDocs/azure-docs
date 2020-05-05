@@ -6,7 +6,7 @@ ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/27/2020
 ---
 
 # Manage your commercial marketplace account in Partner Center
@@ -61,15 +61,12 @@ In the Contact info section, you can see your **Publisher display name**, **Sell
 
 A payout account is the bank account to which proceeds are sent from your sales. This bank account must be in the same country where you registered your Partner Center account.
 
-To set up your payout account, you need to **associate your Microsoft Account**:
-1. Go to the [commercial marketplace overview page](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
-2. Under the Profile section, select **Associate your Microsoft Account**.
-3. When prompted, sign in with your Microsoft Account (MSA). This account cannot already be associated with another Partner Center account.
-4. To complete the setup of your payout account, log out of Partner Center, then log back in with your Microsoft Account (rather than your work account).
+To set up your payout account:
 
-Now that your Microsoft Account is associated, to add a payout account, you will need to:
-- **Choose a payment method**: Bank account or PayPal
-- **Add payment information**: This may include choosing an account type (checking or savings), entering the account holder name, account number, and routing number, billing address, phone number, or PayPal email address. *For more information about using PayPal as your account payment method and to find out whether it is supported in your market region, see [PayPal info](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+1. Go to the [commercial marketplace overview page](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
+2. Under the Profile section, beside **Payout Profile**, select **Update**.
+3. **Choose a payment method**: Bank account or PayPal.
+4. **Add payment information**: This may include choosing an account type (checking or savings), entering the account holder name, account number, and routing number, billing address, phone number, or PayPal email address. *For more information about using PayPal as your account payment method and to find out whether it is supported in your market region, see [PayPal info](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we do when first setting up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one.  
@@ -115,11 +112,11 @@ The device management settings apply only to UWP publishing. [Learn more](https:
 
 Globally Unique Identifiers (GUIDs) are unique reference numbers (with 32 hexadecimal digits) that can be used for tracking your Azure usage. 
 
-To create GUIDs for tracking, you should use a GUID generator. The Azure Storage team has created a [GUID generator form](https://aka.ms/StoragePartners) that will email you a GUID of the correct format and can be reused across the different tracking systems.
+To create GUIDs for tracking, you should use a GUID generator. The Azure Storage team has created a [GUID generator form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) that will email you a GUID of the correct format and can be reused across the different tracking systems.
 
 We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
 
-If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register two distinct GUIDS:
+If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register two distinct GUIDs:
 
 *    Product A in Azure Marketplace
 *    Product A on GitHub

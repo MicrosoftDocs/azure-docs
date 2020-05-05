@@ -21,6 +21,20 @@ Once configured to be bound to at least one virtual network subnet service endpo
 
 The result is a private and isolated relationship between the workloads bound to the subnet and the respective Service Bus namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range.
 
+>[!WARNING]
+> Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus.
+>
+> Trusted Microsoft services are not supported when Virtual Networks are implemented.
+>
+> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
+> - Integration with Azure Event Grid
+> - Azure IoT Hub Routes
+> - Azure IoT Device Explorer
+>
+> The below Microsoft services are required to be on a virtual network
+> - Azure App Service
+> - Azure Functions
+
 > [!IMPORTANT]
 > Virtual Networks are supported only in [Premium tier](service-bus-premium-messaging.md) Service Bus namespaces.
 > 

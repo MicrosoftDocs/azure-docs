@@ -2,7 +2,7 @@
 title: Create template - Visual Studio Code
 description: Use Visual Studio Code and the Azure Resource Manager tools extension to work on Resource Manager templates.
 author: neilpeterson
-ms.date: 03/27/2019
+ms.date: 04/17/2020
 ms.topic: quickstart
 ms.author: nepeters
 

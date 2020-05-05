@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
+ms.custom: [amqp, mqtt]
 ---
 
 # Understand the identity registry in your IoT hub

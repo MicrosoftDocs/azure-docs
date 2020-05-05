@@ -210,7 +210,7 @@
     items:
     - name: Set up alerts based on metrics
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
-    - name: Set up alerts based on diagnostic log
+    - name: Set up alerts based on resource logs
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md 
   - name: Configure packet captures 
     href: packet-capture.md

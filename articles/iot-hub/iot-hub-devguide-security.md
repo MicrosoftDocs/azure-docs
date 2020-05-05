@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
+ms.custom: [amqp, mqtt]
 ---
 
 # Control access to IoT Hub

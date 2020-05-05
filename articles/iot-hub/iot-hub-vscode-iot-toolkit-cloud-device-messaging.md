@@ -35,7 +35,7 @@ You learn how to use Azure IoT Tools for Visual Studio Code to monitor device-to
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or [open this link in Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
+* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or copy and paste this URL into a browser window: `vscode:extension/vsciot-vscode.azure-iot-tools`
 
 ## Sign in to access your IoT hub
 

@@ -189,10 +189,10 @@ You can replicate 16 virtual machines together in a replication group.
 Because multi-VM consistency is CPU intensive, enabling it can affect workload performance. Use multi-VM consistency only if machines are running the same workload and you need consistency across multiple machines. For example, if you have two SQL Server instances and two web servers in an application, you should have multi-VM consistency for the SQL Server instances only.
 
 ### Can you add an already replicating VM to a replication group?
-
 You can add a VM to a new replication group while enabling replication. You can also add a VM to an existing replication group while enabling replication. However, you cannot add an already replicating VM to a new replication group or existing replication group.
-
+ 
 ## Failover
+
 
 ### How is capacity ensured in the target region for Azure VMs?
 

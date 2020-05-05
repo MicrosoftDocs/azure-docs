@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer:
-ms.date: 01/15/2019
+ms.date: 04/19/2020
 ---
 # Getting started with JSON features in Azure SQL Database
 Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text. The following JSON scenarios are available in Azure SQL Database:
@@ -24,7 +24,7 @@ If you have a web service that takes data from the database layer and provides a
 
 In the following example, rows from the Sales.Customer table are formatted as JSON by using the FOR JSON clause:
 
-```
+```sql
 select CustomerName, PhoneNumber, FaxNumber
 from Sales.Customers
 FOR JSON PATH
@@ -32,7 +32,7 @@ FOR JSON PATH
 
 The FOR JSON PATH clause formats the results of the query as JSON text. Column names are used as keys, while the cell values are generated as JSON values:
 
-```
+```json
 [
 {"CustomerName":"Eric Torres","PhoneNumber":"(307) 555-0100","FaxNumber":"(307) 555-0101"},
 {"CustomerName":"Cosmina Vlad","PhoneNumber":"(505) 555-0100","FaxNumber":"(505) 555-0101"},
@@ -44,7 +44,7 @@ The result set is formatted as a JSON array where each row is formatted as a sep
 
 PATH indicates that you can customize the output format of your JSON result by using dot notation in column aliases. The following query changes the name of the "CustomerName" key in the output JSON format, and puts phone and fax numbers in the "Contact" sub-object:
 
-```
+```sql
 select CustomerName as Name, PhoneNumber as [Contact.Phone], FaxNumber as [Contact.Fax]
 from Sales.Customers
 where CustomerID = 931
@@ -53,7 +53,7 @@ FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 
 The output of this query looks like this:
 
-```
+```json
 {
     "Name":"Nada Jovanovic",
     "Contact":{
@@ -67,7 +67,7 @@ In this example, we returned a single JSON object instead of an array by specify
 
 The main value of the FOR JSON clause is that it lets you return complex hierarchical data from your database formatted as nested JSON objects or arrays. The following example shows how to include the rows from the `Orders` table that belong to the `Customer` as a nested array of `Orders`:
 
-```
+```sql
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
         Orders.OrderID, Orders.OrderDate, Orders.ExpectedDeliveryDate
 from Sales.Customers Customer
@@ -75,12 +75,11 @@ from Sales.Customers Customer
         on Customer.CustomerID = Orders.CustomerID
 where Customer.CustomerID = 931
 FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
-
 ```
 
 Instead of sending separate queries to get Customer data and then to fetch a list of related Orders, you can get all the necessary data with a single query, as shown in the following sample output:
 
-```
+```json
 {
   "Name":"Nada Jovanovic",
   "Phone":"(215) 555-0100",
@@ -89,7 +88,7 @@ Instead of sending separate queries to get Customer data and then to fetch a lis
     {"OrderID":382,"OrderDate":"2013-01-07","ExpectedDeliveryDate":"2013-01-08"},
     {"OrderID":395,"OrderDate":"2013-01-07","ExpectedDeliveryDate":"2013-01-08"},
     {"OrderID":1657,"OrderDate":"2013-01-31","ExpectedDeliveryDate":"2013-02-01"}
-]
+  ]
 }
 ```
 
@@ -98,7 +97,7 @@ If you don’t have strictly structured data, if you have complex sub-objects, a
 
 JSON is a textual format that can be used like any other string type in Azure SQL Database. You can send or store JSON data as a standard NVARCHAR:
 
-```
+```sql
 CREATE TABLE Products (
   Id int identity primary key,
   Title nvarchar(200),
@@ -114,7 +113,7 @@ END
 
 The JSON data used in this example is represented by using the NVARCHAR(MAX) type. JSON can be inserted into this table or provided as an argument of the stored procedure using standard Transact-SQL syntax as shown in the following example:
 
-```
+```sql
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
@@ -125,7 +124,7 @@ If you have data formatted as JSON stored in Azure SQL tables, JSON functions le
 
 JSON functions that are available in Azure SQL database let you treat data formatted as JSON as any other SQL data type. You can easily extract values from the JSON text, and use JSON data in any query:
 
-```
+```sql
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
 from Products
 where JSON_VALUE(Data, '$.Color') = 'White'
@@ -143,7 +142,7 @@ The JSON_MODIFY function lets you specify the path of the value in the JSON text
 
 Since JSON is stored in a standard text, there are no guarantees that the values stored in text columns are properly formatted. You can verify that text stored in JSON column is properly formatted by using standard Azure SQL Database check constraints and the ISJSON function:
 
-```
+```sql
 ALTER TABLE Products
     ADD CONSTRAINT [Data should be formatted as JSON]
         CHECK (ISJSON(Data) > 0)
@@ -162,7 +161,7 @@ In the example above, we can specify where to locate the JSON array that should 
 
 We can transform a JSON array in the @orders variable into a set of rows, analyze this result set, or insert rows into a standard table:
 
-```
+```sql
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))
 AS BEGIN
 
@@ -175,9 +174,9 @@ AS BEGIN
             Customer varchar(200),
             Quantity int
      )
-
 END
 ```
+
 The collection of orders formatted as a JSON array and provided as a parameter to the stored procedure can be parsed and inserted into the Orders table.
 
 ## Next steps

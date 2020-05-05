@@ -1,5 +1,5 @@
 ---
-title: Mapping data flow Select Transformation
+title: Select transformation in mapping data flow
 description: Azure Data Factory mapping data flow Select Transformation
 author: kromerm
 ms.author: makromer

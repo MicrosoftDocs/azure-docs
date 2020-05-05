@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/05/2020
+ms.date: 04/21/2020
 tags: azure-synapse
 ---
 # Data Discovery & Classification for Azure SQL Database and Azure Synapse Analytics

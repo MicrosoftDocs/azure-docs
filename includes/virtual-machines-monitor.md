@@ -1,4 +1,6 @@
 ---
+title: include file
+description: include file
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include

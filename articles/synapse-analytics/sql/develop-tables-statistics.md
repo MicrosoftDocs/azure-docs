@@ -7,12 +7,11 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice:
-ms.date: 04/15/2020
+ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: 
 ---
-
 # Statistics in Synapse SQL
 
 Provided in this article are recommendations and examples for creating and updating query-optimization statistics using the Synapse SQL resources: SQL pool and SQL on-demand (preview).
@@ -158,13 +157,15 @@ To create statistics on a column, provide a name for the statistics object and t
 This syntax uses all of the default options. By default, SQL pool samples **20 percent** of the table when it creates statistics.
 
 ```sql
-CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
+CREATE STATISTICS [statistics_name]
+    ON [schema_name].[table_name]([column_name]);
 ```
 
 For example:
 
 ```sql
-CREATE STATISTICS col1_stats ON dbo.table1 (col1);
+CREATE STATISTICS col1_stats
+    ON dbo.table1 (col1);
 ```
 
 #### Create single-column statistics by examining every row
@@ -172,13 +173,17 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 The default sampling rate of 20 percent is sufficient for most situations. However, you can adjust the sampling rate. To sample the full table, use this syntax:
 
 ```sql
-CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
+CREATE STATISTICS [statistics_name]
+    ON [schema_name].[table_name]([column_name])
+    WITH FULLSCAN;
 ```
 
 For example:
 
 ```sql
-CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
+CREATE STATISTICS col1_stats
+    ON dbo.table1 (col1)
+    WITH FULLSCAN;
 ```
 
 #### Create single-column statistics by specifying the sample size
@@ -186,7 +191,9 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 Another option you have is to specify the sample size as a percent:
 
 ```sql
-CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
+CREATE STATISTICS col1_stats
+    ON dbo.table1 (col1)
+    WITH SAMPLE = 50 PERCENT;
 ```
 
 #### Create single-column statistics on only some of the rows
@@ -198,7 +205,9 @@ For example, you can use filtered statistics when you plan to query a specific p
 This example creates statistics on a range of values. The values can easily be defined to match the range of values in a partition.
 
 ```sql
-CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
+CREATE STATISTICS stats_col1
+    ON table1(col1)
+    WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
 > [!NOTE]
@@ -209,7 +218,10 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 You can also combine the options together. The following example creates a filtered statistics object with a custom sample size:
 
 ```sql
-CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
+CREATE STATISTICS stats_col1
+    ON table1 (col1)
+    WHERE col1 > '2000101' AND col1 < '20001231'
+    WITH SAMPLE = 50 PERCENT;
 ```
 
 For the full reference, see [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
@@ -224,7 +236,10 @@ To create a multi-column statistics object, use the previous examples, but speci
 In this example, the histogram is on *product\_category*. Cross-column statistics are calculated on *product\_category* and *product\_sub_category*:
 
 ```sql
-CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
+CREATE STATISTICS stats_2cols
+    ON table1 (product_category, product_sub_category)
+    WHERE product_category > '2000101' AND product_category < '20001231'
+    WITH SAMPLE = 50 PERCENT;
 ```
 
 Because a correlation exists between *product\_category* and *product\_sub\_category*, a multi-column statistics object can be useful if these columns are accessed at the same time.
@@ -258,7 +273,7 @@ The following example will help you get started with your database design. Feel 
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
-(   @create_type    tinyint -- 1 default 2 Fullscan 3 Sample
+(   @create_type    tinyint -- 1 default, 2 Fullscan, 3 Sample
 ,   @sample_pct     tinyint
 )
 AS
@@ -465,8 +480,8 @@ JOIN    sys.stats_columns   AS sc ON    st.[stats_id]       = sc.[stats_id]
 JOIN    sys.columns         AS co ON    sc.[column_id]      = co.[column_id]
                             AND         sc.[object_id]      = co.[object_id]
 JOIN    sys.types           AS ty ON    co.[user_type_id]   = ty.[user_type_id]
-JOIN    sys.tables          AS tb ON  co.[object_id]        = tb.[object_id]
-JOIN    sys.schemas         AS sm ON  tb.[schema_id]        = sm.[schema_id]
+JOIN    sys.tables          AS tb ON    co.[object_id]      = tb.[object_id]
+JOIN    sys.schemas         AS sm ON    tb.[schema_id]      = sm.[schema_id]
 WHERE   1=1
 AND     st.[user_created] = 1
 ;
@@ -501,18 +516,20 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 If you're only interested in viewing specific parts, use the `WITH` clause and specify which parts you want to see:
 
 ```sql
-DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
+DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
+    WITH stat_header, histogram, density_vector
 ```
 
 For example:
 
 ```sql
-DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
+DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
+    WITH histogram, density_vector
 ```
 
 ### DBCC SHOW_STATISTICS() differences
 
-DBCC SHOW_STATISTICS() is more strictly implemented in SQL pool compared to SQL Server:
+`DBCC SHOW_STATISTICS()` is more strictly implemented in SQL pool compared to SQL Server:
 
 - Undocumented features aren't supported.
 - Can't use Stats_stream.
@@ -599,7 +616,7 @@ Arguments:
 [ @stmt = ] N'statement_text' -
 Specifies a Transact-SQL statement that will return column values to be used for statistics. You can use TABLESAMPLE to specify samples of data to be used. If TABLESAMPLE isn't specified, FULLSCAN will be used.
 
-```sql
+```syntaxsql
 <tablesample_clause> ::= TABLESAMPLE ( sample_number PERCENT )
 ```
 
@@ -747,14 +764,18 @@ SAMPLE cannot be used with the FULLSCAN option.
 #### Create single-column statistics by examining every row
 
 ```sql
-CREATE STATISTICS sState on census_external_table (STATENAME) WITH FULLSCAN, NORECOMPUTE
+CREATE STATISTICS sState
+    on census_external_table (STATENAME)
+    WITH FULLSCAN, NORECOMPUTE
 ```
 
 #### Create single-column statistics by specifying the sample size
 
 ```sql
 -- following sample creates statistics with sampling 20%
-CREATE STATISTICS sState on census_external_table (STATENAME) WITH SAMPLE 5 percent, NORECOMPUTE
+CREATE STATISTICS sState
+    on census_external_table (STATENAME)
+    WITH SAMPLE 5 percent, NORECOMPUTE
 ```
 
 ### Examples: Update statistics
@@ -768,7 +789,9 @@ DROP STATISTICS census_external_table.sState
 And create statistics:
 
 ```sql
-CREATE STATISTICS sState on census_external_table (STATENAME) WITH FULLSCAN, NORECOMPUTE
+CREATE STATISTICS sState
+    on census_external_table (STATENAME)
+    WITH FULLSCAN, NORECOMPUTE
 ```
 
 ## Next steps

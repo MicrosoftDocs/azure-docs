@@ -19,9 +19,6 @@ ms.custom: aaddev
 
 The Microsoft identity platform (v2.0) endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Microsoft identity platform, regardless of your preferred language or platform. The information is designed to help you understand high-level scenarios before you [start working with the code](v2-overview.md#getting-started).
 
-> [!NOTE]
-> The Microsoft identity platform endpoint doesn't support all Azure Active Directory (Azure AD) scenarios and features. To determine whether you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md).
-
 ## The basics
 
 You must register each app that uses the Microsoft identity platform endpoint in the new [App registrations portal](https://go.microsoft.com/fwlink/?linkid=2083908). The app registration process collects and assigns these values for your app:

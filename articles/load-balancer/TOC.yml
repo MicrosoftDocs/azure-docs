@@ -36,8 +36,12 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: Components and limitations
-    href: concepts-limitations.md
+  - name: Components
+    href: components.md
+  - name: Concepts
+    href: concepts.md
+  - name: SKUs
+    href: skus.md
   - name: Health monitoring
     items:
     - name: Health probes
@@ -133,6 +137,8 @@
     items:
     - name: Troubleshoot Azure Load Balancer
       href: load-balancer-troubleshoot.md
+    - name: Troubleshoot common deployment errors
+      href: load-balancer-common-deployment-errors.md
 - name: Reference
   items:
   - name: Code samples
