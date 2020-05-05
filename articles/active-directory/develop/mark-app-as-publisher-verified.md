@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/30/2020
+ms.date: 05/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
@@ -21,7 +21,7 @@ This article describes how to mark your app as publisher verified.
 ## Quickstart
 If you are already enrolled in the Microsoft Partner Network (MPN) and have met the [pre-requisites](publisher-verification-overview.md#requirements), you can get started right away: 
 
-1. Navigate to the preview version of the App Registration portal.
+1. Navigate to the preview [App Registration portal](https://aka.ms/PublisherVerificationPreview).
 
 1. Choose an app and click **Branding**. 
 
