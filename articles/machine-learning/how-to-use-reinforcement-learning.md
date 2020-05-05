@@ -52,11 +52,13 @@ Run this code in either of the following environments. We recommend you try  Azu
 
 Reinforcement learning (RL) is an approach to machine learning that learns by doing. While other machine learning techniques learn by passively taking input data and finding patterns within it, RL uses training agents to actively make decisions and learn from their outcomes.
 
-Your training agents will learn to play Pong in a simulated environment. The training agent will make a decision every frame of the game to move the paddle up, down, or stay in place. To do this, it will look at the state of the game (an RGB image of the screen) to make a decision.
+Your training agents will learn to play Pong in a simulated environment. The training agent will make a decision every frame of the game to move the paddle up, down, or stay in place. It will look at the state of the game (an RGB image of the screen) to make a decision.
 
 RL uses rewards to tell the agent if its decisions are successful. In this environment, the agent gets a reward when it scores a point. Over many iterations, the training agent learns to choose the action, based on its current state, that has the highest probability of earning the reward.
 
-It's common to use a deep neural network (DNN) model to calculate these probabilities in RL. Each iteration helps train the model to decide which action to take. The process of iterating through simulation and retraining a  DNN is highly computationally expensive, and requires large amounts of data.
+It's common to use a deep neural network (DNN) model to calculate these probabilities in RL. Initially, the learning agent will perform poorly, but every game will generate additional samples to further train the model.
+
+The process of iterating through simulation and retraining a  DNN is highly computationally expensive, and requires large amounts of data.
 
 One way to improve performance of RL jobs is by parallelizing work so that multiple training agents can learn simultaneously. However, managing a distributed RL environment can be complex.
 
@@ -120,7 +122,7 @@ This example uses separate compute clusters for the Ray head and workers nodes. 
 
 ### Head computing cluster
 
-This example uses a GPU-equipped head cluster to optimize deep learning training performance.
+This example uses a GPU-equipped head cluster to optimize deep learning performance. The head node trains the neural network that the agent uses to make decisions. The head node also collects data points from the worker nodes to further train the neural network.
 
 The head cluster uses a single [`STANDARD_NC6` virtual machine](https://docs.microsoft.com/azure/virtual-machines/nc-series) (VM). It has 6 virtual CPUs, which means that it can distribute work across 6 working CPUs.
 
@@ -163,6 +165,8 @@ else:
 ### Worker computing cluster
 
 This example uses four [`STANDARD_D2_V2` VMs](https://docs.microsoft.com/azure/virtual-machines/nc-series) for the worker compute target. Each worker node has 2 available CPUs for a total of 8 available CPUs to parallelize work.
+
+GPUs aren't necessary for the worker nodes since they aren't performing deep learning. The workers run the game simulations and collects data.
 
 ```python
 # choose a name for your Ray worker cluster
@@ -366,6 +370,8 @@ if __name__ == "__main__":
         '--checkpoint__at_end', required=False, type=bool, default=True, help='if a checkpoint should be taken at the end')
 
     # Intitialize ray and submit run
+
+    # Address ensures the head node script connects to the Ray instance that is already started for the user on the head node by AML. 'Localhost' refers to the head node.
     ray.init(address = 'localhost:6379')
     
     tune.run(run_or_experiment=args.algorithm,
@@ -389,7 +395,7 @@ if __name__ == "__main__":
                 "time_total_s": args.stop__time_total_s
              },
              checkpoint_freq=args.checkpoint__frequency,
-             local_dir='./logs')
+             local_dir='./logs') # logs specification ensures that Azure Machine Learning stream and collects the logs into run history.
 ```
 
 ## Submit a run
@@ -400,7 +406,7 @@ The [Run object](https://docs.microsoft.com/python/api/azureml-core/azureml.core
 run = exp.submit(config=rl_estimator)
 ```
 > [!NOTE]
-> The run may take up to 30 to 45 mintues to complete.
+> The run may take up to 30 to 45 minutes to complete.
 
 ## Monitor and view results
 
