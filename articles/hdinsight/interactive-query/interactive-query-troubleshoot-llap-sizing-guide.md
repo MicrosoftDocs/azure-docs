@@ -1,4 +1,15 @@
 
+---
+title: HDInsight Interactive Query Cluster(LLAP) sizing guide
+description: LLAP sizing guide 
+ms.service: hdinsight
+ms.topic: troubleshooting
+author: aniket-ms
+ms.author: aadnaik
+ms.reviewer: HDI HiveLLAP Team
+ms.date: 05/05/2020
+---
+
 # Azure HDInsight Interactive Query Cluster (Hive LLAP) sizing guide
 
 This document describes the sizing of the HDInsight Interactive Query Cluster (Hive LLAP cluster) for a typical workload to achieve reasonable performance. Please note that the recommendations provided in this document are generic guidelines and specific workloads may need specific tuning.
