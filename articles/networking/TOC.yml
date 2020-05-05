@@ -48,7 +48,7 @@
       - name: Azure network latency
         href: azure-network-latency.md
       - name: About Internet routing preference in Azure
-        href: routing-preference-overview.md
+        href: ../virtual-network/routing-preference-overview.md
     - name: Virtual networks
       href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Network load balancing
