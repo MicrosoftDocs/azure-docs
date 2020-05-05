@@ -604,7 +604,7 @@ Adds a step to a job.
 The name of the job to which to add the step. job_name is nvarchar(128).
 
 [ **\@step_id =** ] step_id  
-The sequence identification number for the job step. Step identification numbers start at 1 and increment without gaps. If an existing step already has this id, then that step and all following steps will have their id's incremented so that this new step can be inserted into the sequence. If not specified, the step_id will be automatically assigned to the last in the sequence of steps. step_id is an int.
+The sequence identification number for the job step. Step identification numbers start at 1 and increment without gaps. If an existing step already has this ID, then that step and all following steps will have their ID's incremented so that this new step can be inserted into the sequence. If not specified, the step_id will be automatically assigned to the last in the sequence of steps. step_id is an int.
 
 [ **\@step_name =** ] step_name  
 The name of the step. Must be specified, except for the first step of a job that (for convenience) has a default name of 'JobStep'. step_name is nvarchar(128).
@@ -878,7 +878,7 @@ Starts executing a job.
 The name of the job from which the step will be removed. job_name is nvarchar(128), with no default.
 
 [ **\@job_execution_id =** ] job_execution_id OUTPUT  
-Output parameter that will be assigned the job execution's id. job_version is uniqueidentifier.
+Output parameter that will be assigned the job execution's ID. job_version is uniqueidentifier.
 
 #### Return Code Values
 

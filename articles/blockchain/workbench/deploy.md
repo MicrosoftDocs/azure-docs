@@ -190,7 +190,7 @@ Next, you need to modify the manifest to use application roles within Azure AD t
 
 1. A GUID is required for the manifest. You can generate a GUID using the PowerShell command `[guid]::NewGuid()` or `New-GUID` cmdlet. Another option is to use a GUID generator website.
 1. For the application you registered, select **Manifest** in the **Manage** section.
-1. Next, update the **appRoles** section of the manifest. Replace `"appRoles": []` with the provided JSON. Be sure to replace the value for the **id** field with the GUID you generated.
+1. Next, update the **appRoles** section of the manifest. Replace `"appRoles": []` with the provided JSON. Be sure to replace the value for the `id` field with the GUID you generated.
     ![Edit manifest](media/deploy/edit-manifest.png)
 
     ``` json
