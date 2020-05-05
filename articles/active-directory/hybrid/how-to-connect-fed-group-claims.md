@@ -14,12 +14,12 @@ ms.author: billmath
 author: billmath
 ---
 
-# Configure group claims for applications with Azure Active Directory (Public Preview)
+# Configure group claims for applications with Azure Active Directory
 
 Azure Active Directory can provide a users group membership information in tokens for use within applications.  Two main patterns are supported:
 
 - Groups identified by their Azure Active Directory object identifier (OID) attribute (Generally Available)
-- Groups identified by sAMAccountName or GroupSID attributes for Active Directory (AD) synchronized groups and users (Public Preview)
+- Groups identified by sAMAccountName or GroupSID attributes for Active Directory (AD) synchronized groups and users
 
 > [!IMPORTANT]
 > There are a number of caveats to note for this preview functionality:
