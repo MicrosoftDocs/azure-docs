@@ -15,7 +15,7 @@
       href: quick-setup-auto-provision-cli.md
     - name: Azure RM template
       href: quick-setup-auto-provision-rm.md
-  - name: Provision a single simulated device 
+  - name: Provision a single device 
     items:
     - name: Symmetric Key attestation
       items:
@@ -95,10 +95,6 @@
     href: concepts-device.md
   - name: Security
     href: concepts-security.md
-  - name: TLS support
-    href: iot-dps-tls-support.md  
-  - name: Virtual networks support
-    href: virtual-network-support.md  
   - name: Service
     href: concepts-service.md
   - name: Understanding DPS IP addresses
