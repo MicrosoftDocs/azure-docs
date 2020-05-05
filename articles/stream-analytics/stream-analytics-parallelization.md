@@ -122,9 +122,10 @@ If the input partition count doesn't match the output partition count, the topol
 
 Power BI output doesn't currently support partitioning. Therefore, this scenario is not embarrassingly parallel.
 
-### Multi-step query with different PARTITION BY values - Compatibility level 1.0 or 1.1
+### Multi-step query with different PARTITION BY values
 * Input: Event hub with 8 partitions
 * Output: Event hub with 8 partitions
+* Compatibility level: 1.0 or 1.1
 
 Query:
 
@@ -142,9 +143,10 @@ Query:
 
 As you can see, the second step uses **TollBoothId** as the partitioning key. This step is not the same as the first step, and it therefore requires us to do a shuffle. 
 
-### Multi-step query with different PARTITION BY values - Compatibility level 1.2 or above
+### Multi-step query with different PARTITION BY values
 * Input: Event hub with 8 partitions
 * Output: Event hub with 8 partitions ("Partition key column" must be set to use "TollBoothId")
+* Compatibility level - 1.2 or above
 
 Query:
 
