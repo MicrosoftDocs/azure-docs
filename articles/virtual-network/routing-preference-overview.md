@@ -18,15 +18,15 @@ ms.author: mnayak
 
 # What is routing preference?
 
-Azure routing preference enables you to choose how your traffic routes between Azure and the Internet. You can choose to route traffic either via the Microsoft network, or, via the ISP network (public internet). These options are also referred to as *cold potato routing* and *hot potato routing* respectively. Egress data transfer price varies based on the routing selection. You get the choose the routing option while creating a public IP address. The public IP address can be associated with resources such as virtual machine, virtual machine scale sets, internet-facing load balancer, etc. You can also set the routing preference for Azure storage resources such as blobs, files, web, and Azure DataLake. By default, traffic is routed via the Microsoft global network for all Azure services.
+Azure routing preference enables you to choose how your traffic routes between Azure and the Internet. You can choose to route traffic either via the Microsoft network, or, via the ISP network (public internet). These options are also referred to as *cold potato routing* and *hot potato routing* respectively. Egress data transfer price varies based on the routing selection. You can choose the routing option while creating a public IP address. The public IP address can be associated with resources such as virtual machine, virtual machine scale sets, internet-facing load balancer, etc. You can also set the routing preference for Azure storage resources such as blobs, files, web, and Azure DataLake. By default, traffic is routed via the Microsoft global network for all Azure services.
 
 ## Routing via Microsoft global network
 
-When you route your traffic via *Microsoft global network*, traffic is delivered over one of the largest networks on the globe spanning over 130,000 miles of fiber with over 165 edge POPs. The network is well provisioned with multiple redundant fiber paths to ensure exceptionally high reliability and availability. The traffic engineering is managed by a software defined WAN control that ensure low latency path selection for your traffic and offers the premium network performance.
+When you route your traffic via *Microsoft global network*, traffic is delivered over one of the largest networks on the globe spanning over 130,000 miles of fiber with over 165 edge POPs. The network is well provisioned with multiple redundant fiber paths to ensure exceptionally high reliability and availability. The traffic engineering is managed by a software defined WAN control that ensures low latency path selection for your traffic and offers the premium network performance.
 
-**Ingress traffic:** The global BGP Anycast announcement ensures ingress traffic enters Microsoft network closest to the user. For example, if an user from Singapore accesses azure resources hosted in Chicago,USA then traffic is entered into Microsoft global network in Singapore Edge Point Of Presence (PoP) and travels on Microsoft network to the service hosted in Chicago.
+**Ingress traffic:** The global BGP Anycast announcement ensures ingress traffic enters Microsoft network closest to the user. For example, if a user from Singapore accesses Azure resources hosted in Chicago, USA then traffic is entered into Microsoft global network in Singapore Edge Point Of Presence (PoP) and travels on Microsoft network to the service hosted in Chicago.
 
-**Egress traffic:** The egress traffic follows the same principle. Traffic travels majority of its journey on Microsoft global network and exists closest to the user. For example, if traffic from Azure Chicago is destined to an user from Singapore, then traffic travels on Microsoft network from Chicago to SIngapore, and exits the network in Singapore Edge Point Of Presence (PoP).
+**Egress traffic:** The egress traffic follows the same principle. Traffic travels majority of its journey on Microsoft global network and exists closest to the user. For example, if traffic from Azure Chicago is destined to a user from Singapore, then traffic travels on Microsoft network from Chicago to SIngapore, and exits the network in Singapore Edge Point Of Presence (PoP).
 
 Both ingress and egress traffic stays bulk of the travel on Microsoft global network. This is also called cold potato routing.
 
@@ -36,9 +36,9 @@ Both ingress and egress traffic stays bulk of the travel on Microsoft global net
 
 The new routing choice **Internet routing** minimizes travel on Microsoft global network, and extensively uses transit ISP network. This cost optimized routing option offers network performance comparable to other cloud providers.
 
-**Ingress traffic:** The ingress path uses hot potato routing i.e. traffic enters Microsoft network closest to the hosted service region. For example, if an user from Singapore accesses azure resources hosted in Chicago then traffic travels over public internet and enters Microsoft global network in Chicago.
+**Ingress traffic:** The ingress path uses hot potato routing that means that traffic enters Microsoft network closest to the hosted service region. For example, if a user from Singapore accesses Azure resources hosted in Chicago then traffic travels over public internet and enters Microsoft global network in Chicago.
 
-**Egress traffic:** The egress traffic follows the same principle. Traffic exits Microsoft network in the same region that the service is hosted. For example, if traffic from your service in Azure Chicago is destined to an user from Singapore, then traffic exits Microsoft network in Chicago and travels over public internet to the user in Singapore.
+**Egress traffic:** The egress traffic follows the same principle. Traffic exits Microsoft network in the same region that the service is hosted. For example, if traffic from your service in Azure Chicago is destined to a user from Singapore, then traffic exits Microsoft network in Chicago and travels over public internet to the user in Singapore.
 
 ![Routing over public Interne](media/routing-preference-overview/route-via-isp-network.png)
 
@@ -83,7 +83,7 @@ The price difference between both options is reflected in internet egress data t
 Routing Preference support is available in the following regions for services such as virtual machine, internet facing load balancer that uses public ip for internet egress:
 * North Europe, West Europe, France Central, UK South, Central US, East US, East US 2, North Central US, South Central US, West US, West US 2, West Central US, Southeast Asia, Australia East
 
-Routing Preference support for storage account is available in the following azure regions:
+Routing Preference support for storage account is available in the following Azure regions:
 * France Central, North Central US, West Central US
 
 ## Limitations
