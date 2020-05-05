@@ -593,9 +593,9 @@
     - name: Terraform
       items:
       - name: Install and configure
-        href: ../../terraform/terraform-install-configure.md
+        href: /azure/developer/terraform/install-configure
       - name: Create a complete VM
-        href: ../../terraform/terraform-create-complete-vm.md
+        href: /azure/developer/terraform/create-linux-virtual-machine-with-infrastructure
     - name: Cloud-init
       items:
       - name: Cloud-init overview
@@ -613,14 +613,14 @@
       - name: Prepare existing VM for cloud-init
         href: cloudinit-prepare-custom-image.md
     - name: Jenkins
-      href: /azure/developer/jenkins/overview.md
+      href: /azure/developer/jenkins/overview
       items:
       - name: Create a Jenkins server
-        href: /azure/developer/jenkins/configure-on-linux-vm.md
+        href: /azure/developer/jenkins/configure-on-linux-vm
       - name: Scale with VM agents
-        href: /azure/developer/jenkins/scale-deployments-using-vm-agents.md
+        href: /azure/developer/jenkins/scale-deployments-using-vm-agents
       - name: Publish artifacts to Storage
-        href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository.md
+        href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository
       - name: Secure Jenkins
         href: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
   - name: Run containers

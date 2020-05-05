@@ -239,7 +239,7 @@ Repeat steps 2 – 7 for all the new disks required for the Oracle data, logs, a
 VM-to-host affinity rules ensure that the VM runs on the desired host.  You can define rules on vCenter to ensure the Oracle VM runs on the host with adequate resources and to meet any specific licensing requirements.
 
 1. In the CloudSimple portal, [escalate the privileges](escalate-private-cloud-privileges.md) of the cloudowner user.
-2. [Log in to the vSphere client](https://docs.azure.cloudsimple.com/vsphere-access) of your Private Cloud.
+2. Log in to the vSphere client of your Private Cloud.
 3. In the vSphere client, select the cluster where Oracle VMs are deployed and click **Configure**.
 4. Under Configure, select **VM/Host Groups**.
 5. Click **+**.
