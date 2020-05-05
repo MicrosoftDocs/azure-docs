@@ -26,6 +26,9 @@ Azure offers a variety of RHEL images for different use cases.
 ## List of RHEL images
 This is a list of RHEL images available in Azure. Unless otherwise stated, all images are LVM-partitioned and attached to regular RHEL repositories (not EUS, not E4S). The following images are currently available for general use:
 
+> [!NOTE]
+> RAW images are no longer being produced in favor of LVM-partitioned images. LVM provides several advantages over the older raw (non-LVM) partitioning scheme, including significantly more flexible partition resizing options.
+
 Offer| SKU | Partitioning | Provisioning | Notes
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 6.7      | RAW    | Linux Agent |
