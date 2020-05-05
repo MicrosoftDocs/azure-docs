@@ -18,8 +18,6 @@ Azure Image Builder Service requires configuration of permissions and privileges
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Permissions
-
 First, you must register for the Azure Image Builder Service. Registration grants the service permission to create, manage, and delete a staging resource group. The service also has rights to add resources the group that are required for the image build. 
 
 Azure Image Builder **does not** have permission to access other resources in other resource groups in the subscription. You need to take explicit actions to allow access to avoid your builds from failing.
@@ -99,7 +97,7 @@ To simplify the replacement of values in the example, set the following variable
 | \<Subscription ID\> | Your Azure subscription ID |
 | \<Resource group\> | Resource group for custom image |
 
-```bash
+```azurecli-interactive
 # Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
 subscriptionID=<Subscription ID>
 
@@ -147,13 +145,13 @@ The following is an example definition.
 
 Create a custom role from the sample `aibRoleImageCreation.json` description file.
 
-```azurecli
+```azurecli-interactive
 az role definition create --role-definition ./aibRoleImageCreation.json
 ```
 
 Next, assign the custom role to Azure Image Builder service principal name to grant permission.
 
-```bash
+```azurecli-interactive
 az role assignment create \
     --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
     --role "Azure Image Builder Service Image Creation Role" \
@@ -171,7 +169,7 @@ To simplify the replacement of values in the example, set the following variable
 | \<Subscription ID\> | Your Azure subscription ID |
 | \<Resource group\> | Resource group for custom image |
 
-```bash
+```azurecli-interactive
 # Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
 subscriptionID=<Subscription ID>
 
@@ -212,17 +210,14 @@ The following is an example definition.
 
 Create a custom role from the `aibRoleNetworking.json` description file.
 
-```azurecli
+```azurecli-interactive
 az role definition create --role-definition ./aibRoleNetworking.json
 az role definition update --role-definition ./aibRoleNetworking.json
 ```
 
 Next, assign the custom role to Azure Image Builder service principal name to grant permission.
 
-```bash
-SUB_ID="<Subscription ID>"
-RES_GROUP="<VNET resource group>"
-
+```azurecli-interactive
 az role assignment create \
     --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
     --role "Azure Image Builder Service Networking Role" \
