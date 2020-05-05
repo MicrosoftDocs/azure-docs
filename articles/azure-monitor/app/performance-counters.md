@@ -70,7 +70,7 @@ To collect system performance counters and send them to Application Insights, yo
 ```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec")));
+      @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
 
