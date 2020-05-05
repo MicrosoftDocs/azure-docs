@@ -137,12 +137,12 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
 # You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
 # You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
-#You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
+# You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
 
 Join-AzStorageAccountForAuth `
         -ResourceGroupName $ResourceGroupName `
         -Name $StorageAccountName `
-        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` #Default set to "ComputerAccount"
+        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` # Default set to "ComputerAccount" if this parameter is not provided
         -OrganizationalUnitName "<ou-name-here>" #You can also use -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" instead. If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
 
 #You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, go to Azure Files FAQ.
