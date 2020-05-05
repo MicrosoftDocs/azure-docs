@@ -164,27 +164,30 @@ After ingesting some data, it is possible to use the  **Data** pillar to discove
        ![Spark](./media/get-started-synapse-analytics/run-spark.png)
        * Because Spark pool is probably not running yet, it will take up to 3 minutes to get the Spark pool running and the notebook to be executed. This time to spin-up pool from a cold stage is an industry-leading benchmark in the Big Data space.
 
-## Prep and Transform
-<!--- Euan --->
+
+<!-- ## Prep and Transform
+ Euan  
 
 ## Create tables
-<!--- Euan --->
+<!--- Euan 
 
 ## Analyze
 ### Analyze with a notebook
-<!--- Euan --->
+<!--- Euan 
 
 ### Analyze with SQL script
-<!--- Josh --->
+<!--- Josh 
 
 ### Analyze with Power BI
-<!--- Josh --->
+<!--- Josh 
 
 ## Serve via Power BI
-<!--- Josh --->
+<!--- Josh 
 
 ## Serve via SQL pool
-<!--- Matthew --->
+<!--- Matthew
+--->
+
 
 ## Orchestrate using a pipeline
 After ingesting, exploring, analyzing, and serving your data, you can schedule these activities to automatically run using pipeline orchestration.
