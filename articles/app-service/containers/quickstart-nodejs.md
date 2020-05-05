@@ -82,7 +82,7 @@ Next, ensure that the application runs. From the terminal, start the application
 npm start
 ```
 
-Now, open your browser and navigate to [http://localhost:3000](http://localhost:3000), where you should see something like this:
+Now, open your browser and navigate to `http://localhost:3000`, where you should see something like this:
 
 ![Running Express Application](./media/quickstart-nodejs/express.png)
 
@@ -150,7 +150,7 @@ In this section, you learn how to view (or "tail") the logs from the running App
 
 Find the app in the **AZURE APP SERVICE** explorer, right-click the app, and choose **View Streaming Logs**.
 
-When prompted, choose to enable logging and restart the application. Once the app is restarted, the VS Code output window opens with a connection to the log stream.
+The VS Code output window opens with a connection to the log stream.
 
 ![View Streaming Logs](./media/quickstart-nodejs/view-logs.png)
 

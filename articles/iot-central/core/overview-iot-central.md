@@ -8,7 +8,6 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: timlt
 ---
 
 # What is Azure IoT Central?
@@ -25,19 +24,6 @@ This article outlines, for IoT Central:
 - How to manage your application.
 - Azure IoT Edge capabilities in IoT Central.
 - How to connect your Azure IoT Edge runtime powered devices to your application.
-
-## Known issues
-
-- Continuous data export doesn't support the Avro format (incompatibility).
-- GeoJSON isn't currently supported.
-- Map tile isn't currently supported.
-- Jobs don't support complex types.
-- Array schema types aren't supported.
-- Only the C device SDK and the Node.js device and service SDKs are supported.
-- IoT Central is currently available in the United States, Europe, Asia Pacific, Australia, United Kingdom, and Japan locations.
-- You cannot use the **Custom application (legacy)** application template in the United Kingdom and Japan locations.
-- Device capability models must have all the interfaces defined inline in the same file.
-- Support for [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) is in preview and is only supported only in selected regions.
 
 ## Personas
 
@@ -148,15 +134,15 @@ Administrators manage access to your application with [user roles and permission
 
 With any IoT solution designed to operate at scale, a structured approach to device management is important. It's not enough just to connect your devices to the cloud, you need to keep your devices connected and healthy. An operator can use the following IoT Central capabilities to manage your devices throughout the application life cycle:
 
-### Dashboards 
+### Dashboards
 
 Built-in [dashboards](./howto-set-up-template.md#generate-default-views) provide a customizable UI to monitor device health and telemetry. Start with a pre-built dashboard in an [application template](howto-use-app-templates.md) or create your own dashboards tailored to the needs of your operators. You can share dashboards with all users in your application, or keep them private.
 
-### Rules and actions 
+### Rules and actions
 
 Build [custom rules](tutorial-create-telemetry-rules.md) based on device state and telemetry to identify devices in need of attention. Configure actions to notify the right people and ensure corrective measures are taken in a timely fashion.
 
-### Jobs 
+### Jobs
 
 [Jobs](howto-run-a-job.md) let you apply single or bulk updates to devices by setting properties or calling commands. 
 
@@ -189,6 +175,18 @@ Build IoT solutions such as:
 ## Quotas
 
 Each Azure subscription has default quotas that could impact the scope of your IoT solution. Currently, IoT Central limits the number of applications you can deploy in a subscription to 10. If you need to increase this limit, contact [Microsoft support](https://azure.microsoft.com/support/options/).
+
+## Known issues
+
+- Continuous data export doesn't support the Avro format (incompatibility).
+- GeoJSON isn't currently supported.
+- Map tile isn't currently supported.
+- Array schema types aren't supported.
+- Only the C device SDK and the Node.js device and service SDKs are supported.
+- IoT Central is currently available in the United States, Europe, Asia Pacific, Australia, United Kingdom, and Japan locations.
+- You cannot use the **Custom application (legacy)** application template in the United Kingdom and Japan locations.
+- Device capability models must have all the interfaces defined inline in the same file.
+- Support for [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) is in preview and is only supported only in selected regions.
 
 ## Next steps
 

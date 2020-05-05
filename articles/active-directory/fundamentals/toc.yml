@@ -30,7 +30,9 @@
     - name: Block legacy authentication
       href: concept-fundamentals-block-legacy-authentication.md
     - name: Identity secure score
-      href: identity-secure-score.md 
+      href: identity-secure-score.md
+    - name: Secure remote workers
+      href: concept-secure-remote-workers.md
     - name: Continuous access evaluation
       href: concept-fundamentals-continuous-access-evaluation.md
   - name: Groups and users
@@ -48,7 +50,7 @@
   - name: Deployment guide
     items:
     - name: Deployment 30, 90, and beyond
-    href: active-directory-deployment-checklist-p2.md
+      href: active-directory-deployment-checklist-p2.md
   - name: Data storage
     items:
     - name: Identity data storage for Europe

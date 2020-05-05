@@ -214,6 +214,7 @@
       - name: Web pages
         items:
         - name: Client-side JavaScript
+          displayname: SPA, Single Page Applications, React, JS, Angular
           href: app/javascript.md
         - name: Source map for JavaScript
           href: app/source-map-support.md
@@ -241,13 +242,15 @@
         displayname: aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks
         href: app/kubernetes.md
       - name: Standalone - any environment
-        items: 
+        items:  
           - name: Java (preview)
-            href: app/java-in-process-agent.md
-          - name: Java JVM configuration 
-            href: app/java-standalone-arguments.md
-          - name: Java configuration options
-            href: app/java-standalone-config.md 
+            items:
+            - name: Overview
+              href: app/java-in-process-agent.md
+            - name: Configuration options
+              href: app/java-standalone-config.md 
+            - name: JVM arguments setup 
+              href: app/java-standalone-arguments.md
       - name: On-Premises servers
         items:
         - name: ASP.NET
@@ -439,6 +442,11 @@
         href: app/custom-data-correlation.md
       - name: Connection strings
         href: app/sdk-connection-string.md
+      - name: Connection strings
+        href: app/sdk-connection-string.md
+      - name: GetMetric
+        displayname: get metric, custom metrics, metrics, TrackMetric
+        href: app/get-metric.md
       - name: Special topics
         items:
         - name: Deep diagnostics for web apps and services

@@ -40,8 +40,12 @@
   items: 
     - name: Understanding Azure Spring Cloud quotas and limits
       href: spring-cloud-quotas.md
-    - name: Understanding metrics in the Azure Spring Cloud
+    - name: Understanding metrics in Azure Spring Cloud
       href: spring-cloud-concept-metrics.md
+    - name: Security controls for Azure Spring Cloud Service
+      href: spring-cloud-concept-security-controls.md
+    - name: Understanding app status in Azure Spring Cloud
+      href: spring-cloud-concept-app-status.md
     - name: Plan for disaster recovery
       href: disaster-recovery.md
 - name: How-to guides
@@ -60,6 +64,9 @@
       href: spring-cloud-howto-log-streaming.md
     - name: Use persistent storage in Azure Spring Cloud
       href: spring-cloud-howto-persistent-storage.md
+    - name: DevOps Deployment to Azure Spring Cloud
+    - name: Integrate Azure Spring Cloud with Azure Load Balance Solutions
+      href: spring-cloud-howto-integrate-azure-load-balancers.md
 - name: DevOps Deployment to Azure Spring Cloud
   items:
     - name: CI/CD with Azure DevOps
