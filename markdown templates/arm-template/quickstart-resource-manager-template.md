@@ -60,7 +60,7 @@ Notice the resourceType and sort elements in the URL.
 <!--
  One of the following options must be included:
 
-  - **CLI**: In an Azure CLI Interactive codefence must contain **az group deployment create**. For example:
+  - **CLI**: In an Azure CLI Interactive codefence must contain **az deployment group create**. For example:
 
     ```azurecli-interactive
     read -p "Enter a project name that is used for generating resource names:" projectName &&
@@ -68,7 +68,7 @@ Notice the resourceType and sort elements in the URL.
     templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" &&
     resourceGroupName="${projectName}rg" &&
     az group create --name $resourceGroupName --location "$location" &&
-    az group deployment create --resource-group $resourceGroupName --template-uri  $templateUri
+    az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri
     echo "Press [ENTER] to continue ..." &&
     read
     ```
@@ -101,7 +101,9 @@ Notice the resourceType and sort elements in the URL.
 
 ## Review deployed resources
 
-<!-- You can also use the title "Validate the deployment"-->
+<!-- You can also use the title "Validate the deployment". -->
+
+You can either use the Azure portal to check the deployed resources, or use Azure CLI or Azure PowerShell script to list the deployed resources.
 
 ## Clean up resources
 
@@ -109,7 +111,9 @@ When no longer needed, delete the resource group, which deletes the resources in
 
 <!--
 
-Choose Azure CLI, Azure PowerShell, or Azure portal to delete the resource group. Use [Zone pivots](https://review.docs.microsoft.com/help/contribute/zone-pivots?branch=master) if you want to use multiple options.  Here are the samples for Azure CLI and Azure PowerShell:
+Choose Azure CLI, Azure PowerShell, or Azure portal to delete the resource group.
+
+Here are the samples for Azure CLI and Azure PowerShell:
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
