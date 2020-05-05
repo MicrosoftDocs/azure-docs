@@ -140,6 +140,8 @@
           href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
 - name: Concepts
   items:
+  - name: Images
+    href: shared-image-galleries.md
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Regions
@@ -524,19 +526,64 @@
     - name: Get usage metrics with REST
       href: ../linux/metrics-vm-usage-rest.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Use Images
+    displayName: SIG, AMI, image
     items:
-    - name: Shared images
+    - name: Create and share images
       items:
-      - name: Overview
-        href: shared-image-galleries.md
       - name: PowerShell
-        href: shared-images.md
-      - name: Portal
-        href: shared-images-portal.md
+        items:
+        - name: Create a gallery
+          href: ../shared-images-powershell.md
+        - name: Create an image
+          items:
+          - name: From a VM
+            href: ../image-version-vm-powershell.md
+          - name: Migrate from a managed image
+            href: ../image-version-managed-image-powershell.md
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-powershell.md             
+        - name: Create a VM
+          items:
+          - name: Generalized
+            href: ../vm-generalized-image-version-powershell.md
+          - name: Specialized
+            href: ../vm-specialized-image-version-powershell.md
+        - name: Update image resources
+          href: ../update-image-resources-powershell.md
       - name: CLI
-        href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-      - name: App registration for sharing
-        href: share-images-across-tenants.md
+        items:
+        - name: Create a gallery
+          href: ../linux/shared-images.md
+        - name: Create an image
+          items:
+          - name: From a VM
+            href: ../image-version-vm-cli.md
+          - name: Migrate from a managed image
+            href: ../image-version-managed-image-cli.md 
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-cli.md
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-cli.md   
+        - name: Create a VM
+          items:
+          - name: Generalized
+            href: ../vm-generalized-image-version-cli.md
+        - name: Update image resources
+          href: ../update-image-resources-cli.md
+      - name: Portal
+        items:
+        - name: Create a gallery, image and VM
+          href: shared-images-portal.md
+      - name: Resource Manager Templates
+        items:
+        - name: Create a Shared Image Gallery
+          href: https://azure.microsoft.com/resources/templates/101-sig-create/
+        - name: Create an Image Definition in a Shared Image Gallery
+          href: https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/
+        - name: Create an Image Version in a Shared Image Gallery
+          href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
+        - name: Create a VM from Image Version
+          href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Image builder (preview)
