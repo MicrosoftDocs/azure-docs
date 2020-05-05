@@ -15,7 +15,7 @@ As a prerequisite, you may want to be familiar with the notion of Streaming Unit
 ## What are the parts of a Stream Analytics job?
 A Stream Analytics job definition includes at least one streaming input, a query, and output. Inputs are where the job reads the data stream from. The query is used to transform the data input stream, and the output is where the job sends the job results to.
 
-## Partitions in sources and sinks
+## Partitions in inputs and outputs
 Partitioning lets you divide data into subsets based on a [partition key](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions). If your input (for example Event Hubs) is partitioned by a key, it is highly recommended to specify this partition key when adding input to your Stream Analytics job. Scaling a Stream Analytics job takes advantage of partitions in the input and output. A Stream Analytics job can consume and write different partitions in parallel, which increases throughput. 
 
 ### Inputs
@@ -122,7 +122,7 @@ If the input partition count doesn't match the output partition count, the topol
 
 Power BI output doesn't currently support partitioning. Therefore, this scenario is not embarrassingly parallel.
 
-### Multi-step query with different PARTITION BY values
+### Multi-step query with different PARTITION BY values - Compatibility level 1.0 or 1.1
 * Input: Event hub with 8 partitions
 * Output: Event hub with 8 partitions
 
@@ -142,7 +142,7 @@ Query:
 
 As you can see, the second step uses **TollBoothId** as the partitioning key. This step is not the same as the first step, and it therefore requires us to do a shuffle. 
 
-### Compatibility level 1.2 - Multi-step query with different PARTITION BY values 
+### Multi-step query with different PARTITION BY values - Compatibility level 1.2 or above
 * Input: Event hub with 8 partitions
 * Output: Event hub with 8 partitions ("Partition key column" must be set to use "TollBoothId")
 
@@ -160,7 +160,7 @@ Query:
     GROUP BY TumblingWindow(minute, 3), TollBoothId
 ```
 
-Compatibility level 1.2 enables parallel query execution by default. For example, query from the previous section will be partitioned as long as "TollBoothId" column is set as input Partition Key. PARTITION BY PartitionId clause is not required.
+Compatibility level 1.2 or above enables parallel query execution by default. For example, query from the previous section will be partitioned as long as "TollBoothId" column is set as input Partition Key. PARTITION BY PartitionId clause is not required.
 
 ## Calculate the maximum streaming units of a job
 The total number of streaming units that can be used by a Stream Analytics job depends on the number of steps in the query defined for the job and the number of partitions for each step.
