@@ -19,13 +19,13 @@ This guide walks through important implementation details for creating a voice a
 
 ## Implementing voice activation
 
-After [setting up your environment](how-to-windows-voice-assistants-get-started) and learning [how voice activation works](windows-voice-assistants-voice-activation), you can start implementing voice activation for your own voice assistant application.
+After [setting up your environment](how-to-windows-voice-assistants-get-started.md) and learning [how voice activation works](windows-voice-assistants-voice-activation.md), you can start implementing voice activation for your own voice assistant application.
 
 ### Registration
 
 #### Ensure that the microphone is available and accessible, then monitor its state
 
-MVA needs a microphone to be present and accessible to be able to detect a voice activation. Use the [AppCapability](https://docs.microsoft.com/en-us/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability?view=winrt-18362), [DeviceWatcher](https://docs.microsoft.com/en-us/uwp/api/windows.devices.enumeration.devicewatcher?view=winrt-18362), and [MediaCapture](https://docs.microsoft.com/en-us/uwp/api/windows.media.capture.mediacapture?view=winrt-18362) classes to check for microphone privacy access, device presence, and device status (like volume and mute) respectively.
+MVA needs a microphone to be present and accessible to be able to detect a voice activation. Use the [AppCapability](https://docs.microsoft.com/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability?view=winrt-18362), [DeviceWatcher](https://docs.microsoft.com/uwp/api/windows.devices.enumeration.devicewatcher?view=winrt-18362), and [MediaCapture](https://docs.microsoft.com/uwp/api/windows.media.capture.mediacapture?view=winrt-18362) classes to check for microphone privacy access, device presence, and device status (like volume and mute) respectively.
 
 ### Register the application with the background service
 
@@ -33,7 +33,7 @@ In order for MVA to launch the application in the background, the application ne
 
 ### Unlock the Limited Access Feature
 
-Use your Microsoft-provided Limited Access Feature key to unlock the voice assistant feature. Use the [LimitedAccessFeature](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-18362) class from the Windows SDK to do this.
+Use your Microsoft-provided Limited Access Feature key to unlock the voice assistant feature. Use the [LimitedAccessFeature](https://docs.microsoft.com/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-18362) class from the Windows SDK to do this.
 
 ### Register the keyword for the application
 
@@ -82,7 +82,7 @@ Once a voice agent application is activated by voice, the next step is to verify
 
 ### Retrieve activation audio
 
-Create an [AudioGraph](https://docs.microsoft.com/en-us/uwp/api/windows.media.audio.audiograph) and pass it to the `CreateAudioDeviceInputNodeAsync` of the `ConversationalAgentSession`. This will load the graph's audio buffer with the audio *starting approximately 3 seconds before the keyword was detected*. This additional leading audio is included to accommodate a wide range of keyword lengths and speaker speeds. Then, handle the [QuantumStarted](https://docs.microsoft.com/en-us/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) event from the audio graph to retrieve the audio data.
+Create an [AudioGraph](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph) and pass it to the `CreateAudioDeviceInputNodeAsync` of the `ConversationalAgentSession`. This will load the graph's audio buffer with the audio *starting approximately 3 seconds before the keyword was detected*. This additional leading audio is included to accommodate a wide range of keyword lengths and speaker speeds. Then, handle the [QuantumStarted](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) event from the audio graph to retrieve the audio data.
 
 ```csharp
 var inputNode = await agentSession.CreateAudioDeviceInputNodeAsync(audioGraph);
@@ -99,7 +99,7 @@ When keyword verification succeeds, the application needs to move to the foregro
 
 ### Transition from compact view to full view
 
-When your application is first activated by voice, it is started in a compact view. Please read the [Design guidance for voice activation preview](windows-voice-assistants-best-practices#Design-guidance-for-voice-activation-preview) for guidance on the different views and transitions between them for voice assistants on Windows.
+When your application is first activated by voice, it is started in a compact view. Please read the [Design guidance for voice activation preview](windows-voice-assistants-best-practices#design-guidance-for-voice-activation-preview) for guidance on the different views and transitions between them for voice assistants on Windows.
 
 To make the transition from compact view to full app view, use the ApplicationView API `TryEnterViewModeAsync`:
 
@@ -110,7 +110,7 @@ await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);
 
 ## Implementing above lock activation
 
-The following steps cover the requirements to enable a voice assistant on Windows to run above lock, including references to example code and guidelines for managing the application lifecycle. For guidance on designing above lock experiences, visit the [best practices guide](windows-voice-assistants-best-practices).
+The following steps cover the requirements to enable a voice assistant on Windows to run above lock, including references to example code and guidelines for managing the application lifecycle. For guidance on designing above lock experiences, visit the [best practices guide](windows-voice-assistants-best-practices.md).
 
 ### Detecting lock screen transitions
 

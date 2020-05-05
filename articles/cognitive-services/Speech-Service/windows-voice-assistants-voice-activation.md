@@ -51,7 +51,7 @@ AAR still signals active applications when their keyword is spoken. Rather than 
 
 ## Voice Activation Example
 
-For a walk through of example code that completes registration and handles voice activation and keyword verification, visit the [UWP Voice Assistant Sample App](windows-voice-assistants-sample-info).
+For a walk through of example code that completes registration and handles voice activation and keyword verification, visit the [UWP Voice Assistant Sample App](windows-voice-assistants-sample-info.md).
 
 ## Next steps
 

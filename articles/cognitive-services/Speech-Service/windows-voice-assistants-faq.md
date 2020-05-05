@@ -21,7 +21,7 @@ ms.author: travisw
 
 ## My app is showing in a small window when I activate it by voice. How can I transition from the compact view to a full application window?
 
-When your application is first activated by voice, it is started in a compact view. Please read the [Design guidance for voice activation preview](windows-voice-assistants-best-practices#Design-guidance-for-voice-activation-preview) for guidance on the different views and transitions between them for voice assistants on Windows.
+When your application is first activated by voice, it is started in a compact view. Please read the [Design guidance for voice activation preview](windows-voice-assistants-best-practices.md#design-guidance-for-voice-activation-preview) for guidance on the different views and transitions between them for voice assistants on Windows.
 
 To make the transition from compact view to full app view, use the appView API `TryEnterViewModeAsync`:
 

@@ -19,12 +19,12 @@ Voice assistants developed on Windows 10 must implement the user experience guid
 
 ## Contents
 
-- [Summary of voice activation views supported in Windows 10](Summary-of-voice-activation-views-supported-in-Windows-10)
-- [Requirements summary](Requirements-summary)
-- [Best practices for good listening experiences](Best-practices-for-good-listening-experiences)
-- [Design guidance for in-app voice activation](Design-guidance-for-in-app-voice-activation)
-- [Design guidance for voice activation above lock](Design-guidance-for-voice-activation-above-lock)
-- [Design guidance for voice activation preview](Design-guidance-for-voice-activation-preview)
+- [Summary of voice activation views supported in Windows 10](summary-of-voice-activation-views-supported-in-windows-10)
+- [Requirements summary](requirements-summary)
+- [Best practices for good listening experiences](best-practices-for-good-listening-experiences)
+- [Design guidance for in-app voice activation](design-guidance-for-in-app-voice-activation)
+- [Design guidance for voice activation above lock](design-guidance-for-voice-activation-above-lock)
+- [Design guidance for voice activation preview](design-guidance-for-voice-activation-preview)
 
 ## Summary of voice activation views supported in Windows 10
 
@@ -81,7 +81,7 @@ Available with 19H2, assistants built on Windows voice activation platform are a
 
 ### Customer opt-in
 
-Voice activation above lock is always disabled by default. Customers opt-in through the Windows settings>Privacy>Voice Activation. For details on monitoring and prompting for this setting, see the [above lock implementation guide](windows-voice-assistants-implement-above-lock#Detect-user-preference).
+Voice activation above lock is always disabled by default. Customers opt-in through the Windows settings>Privacy>Voice Activation. For details on monitoring and prompting for this setting, see the [above lock implementation guide](windows-voice-assistants-implementation-guide.md#detect-user-preference).
 
 ### Not a lock-screen replacement
 
@@ -105,7 +105,7 @@ The assistant must implement the dismissal guidance in this section to make it e
 - **Pressing any key must also dismiss the assistant app**. Keyboard input is a traditional lock app signal that the customer wants to log-in, so any keyboard/text input should not be directed to the app. Instead, the app should self-dismiss when keyboard input is detected, so the customer can easily log-in to their device.
 - **If the screen goes off, the app must self-dismiss.** This ensures that the next time the customer uses their PC, the log-in screen will be ready and waiting for them.
 - If the app is &quot;in use&quot;, it may continue above lock. &quot;in use&quot; constitutes any input or output. For example, when streaming music or video the app may continue above lock. &quot;Follow on&quot; and other multiturn dialog steps are permitted to keep the app above lock.
-- **Implementation details on dismissing the application** can be found [in the above lock implementation guide](windows-voice-assistants-implement-above-lock#Closing-the-application).
+- **Implementation details on dismissing the application** can be found [in the above lock implementation guide](windows-voice-assistants-implementation-guide.md#closing-the-application).
 
 ![Screenshot of voice assistant on Windows before activation](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
@@ -135,7 +135,7 @@ In order to further secure the experience, **weblinks or other app-to-app launch
 
 Below lock, when the assistant app does _not_ have focus, Windows provides a less intrusive voice activation UI to help keep the customer in flow. This is especially true for the case of false activations which would be highly disruptive if they launched the full app. The core idea is that each assistant has another home in the Shell, the assistant taskbar icon. When the request for background activation occurs, a small view above the assistant taskbar icon appears. Assistants should provide a small listening experience in this canvas. After processing the requests, assistants can choose to resize this view to show an in-context answer or to hand off their main app view to show larger, more detailed visuals.
 
-- In order to stay minimal, the preview does not have a title bar, so **the assistant must draw an X in the top right to allow customers to dismiss the view.** Refer to [Closing the Application](windows-voice-assistants-implement-above-lock#Closing-the-application) for the specific APIs to call when the dismiss button is pressed.
+- In order to stay minimal, the preview does not have a title bar, so **the assistant must draw an X in the top right to allow customers to dismiss the view.** Refer to [Closing the Application](windows-voice-assistants-implementation-guide.md#closing-the-application) for the specific APIs to call when the dismiss button is pressed.
 - To support voice activation previews, assistants may invite customers to pin the assistant to the taskbar during first run.
 
 **Voice activation preview: Initial state**
@@ -156,7 +156,7 @@ The Contoso assistant has a home on the taskbar: their swirling, circular icon.
 
 ![Screenshot of voice assistant on Windows replying in compact view](media/voice-assistants/windows_voice_assistant/compact_view_response.png)
 
-**Hand-off**. At any point, the assistant may handoff to its main app view to provide more information or answers or dialogue that require more screen real estate. Please refer to the [Transition from compact view to full view](windows-voice-assistants-implementation-guide#Transition-from-compact-view-to-full-view) section for implementation details.
+**Hand-off**. At any point, the assistant may handoff to its main app view to provide more information or answers or dialogue that require more screen real estate. Please refer to the [Transition from compact view to full view](windows-voice-assistants-implementation-guide.md#Transition-from-compact-view-to-full-view) section for implementation details.
 
 ![Screenshots of voice assistant on Windows before and after expanding the compact view](media/voice-assistants/windows_voice_assistant/compact_transition.png)
 
