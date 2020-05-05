@@ -100,7 +100,7 @@ The following features are enabled in Managed instance deployment model in H1 20
 
 ### Agent becomes unresponsive upon modifying, disabling or enabling existing jobs
 
-In certain circumstances modifying an existing job, disabling, or enabling it can cause the agent to become unresponsive. The issue is automatically mitigated in about one hour of being detected with automatic restart of the agent process.
+In certain circumstances modifying an existing job, disabling, or enabling it can cause the agent to become unresponsive. The issue is automatically mitigated upon detection resulting in restart of the agent process.
 
 ### Permissions on resource group not applied to managed instance
 
