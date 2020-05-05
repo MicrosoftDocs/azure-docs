@@ -385,7 +385,7 @@ files.
 > [!Note]
 > The latest Guest Configuration module includes a new parameters:
 > - `-Tag` adds one or more tag filters to the policy definition
->   - See the section [Filtering Guest Configuration policies using Tags](#Filtering-Guest-Configuration-policies-using-Tags).
+>   - See the section [Filtering Guest Configuration policies using Tags](#filtering-guest-configuration-policies-using-tags).
 > - `-Category` sets the category metadata field in the policy definition
 >   - If the parameter is not included, the category will default to Guest Configuration.
 > These features are currently in preview and require Guest Configuration module
