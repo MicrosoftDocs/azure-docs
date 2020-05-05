@@ -1,5 +1,5 @@
 ---
-title: Publishing guide for Azure applications solution template offers | Azure Marketplace
+title: Publishing guide for Azure applications solution template offers - Azure Marketplace
 description: This article describes the requirements for publishing solution templates on Azure Marketplace.
 author: dsindona
 ms.service: marketplace
@@ -9,7 +9,7 @@ ms.date: 04/22/2020
 ms.author: dsindona
 ---
 
-# Publishing guide for Azure apps solution template offers
+# Publishing guide for Azure applications solution template offers
 
 This article explains the requirements for publishing solution template offers, which is one way to publish Azure application offers in Azure Marketplace. The solution template offer type requires an [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md) to automatically deploy your solution infrastructure.
 
