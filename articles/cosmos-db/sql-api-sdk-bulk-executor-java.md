@@ -44,7 +44,7 @@ ms.author: ramkris
 
 ### <a name="2.9.4"/>2.9.4
 
-* Add functionality in BulkDelete operations to retry on specific failures and also return a list of retriable failures to the user.
+* Add functionality in BulkDelete operations to retry on specific failures and also return a list of failures to the user that could be retried.
 
 ### <a name="2.9.3"/>2.9.3
 
@@ -52,7 +52,7 @@ ms.author: ramkris
 
 ### <a name="2.9.2"/>2.9.2
 
-* Fix for 'getUpdateItemFromPatchDocument' to continue on 'id' and 'pkey' so that any patchDoc fields which is placed after 'id' and 'pkey' gets added to the 'updateItem'.
+* Fix for 'mergeAll' to continue on 'id' and partition key value so that any patched document fields which are placed after 'id' and partition key value get added to the updated item list.
 
 ### <a name="2.9.1"/>2.9.1
 
