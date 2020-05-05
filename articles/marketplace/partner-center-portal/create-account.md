@@ -1,6 +1,6 @@
 ---
 title: Create a commercial marketplace account in Partner Center
-description: Learn how to create a commercial marketplace account in Partner Center.
+description: Learn how to create a Microsoft commercial marketplace account in Partner Center.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace

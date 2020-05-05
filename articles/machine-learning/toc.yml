@@ -101,8 +101,13 @@
       - name: How to select algorithms
         href: /azure/machine-learning/how-to-select-algorithms
     - name: Automated ML
-      displayName: automl, auto ml
-      href: concept-automated-ml.md
+      items:
+      - name: Automated ML overview
+        displayName: automl, auto ml
+        href: concept-automated-ml.md
+      - name: Overfitting & imbalanced data
+        displayName: automl, auto ml, risks
+        href: concept-manage-ml-pitfalls.md
     - name: Workspace
       href: concept-workspace.md
     - name: Environments
@@ -119,9 +124,6 @@
         href: concept-data.md
       - name: Data ingestion
         href: concept-data-ingestion.md
-      - name: Common pitfalls
-        displayName: automl, auto ml, risks
-        href: concept-manage-ml-pitfalls.md
     - name: Model training
       displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
       href: concept-train-machine-learning-model.md
@@ -384,6 +386,9 @@
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: 'Designer transform data'
+      displayName: pipeline
+      href: how-to-designer-transform-data.md
     - name: 'Designer retrain using published pipelines'
       displayName: retrain, designer, published pipeline
       href: how-to-retrain-designer.md

@@ -179,8 +179,8 @@ The availability of your offers and plans is defined by customers' billing locat
 ### What billing models are supported in the commercial marketplace?
 
 - VM images are billed based on hourly usage, and the price is set per hour.
-- Managed applications, and any VM images used in the applications, are billed with an optional monthly flat fee.
-- SaaS apps are billed as a flat rate, per user, or by custom metering on a monthly or annual basis.
+- Managed applications are billed based on an optional monthly flat fee, plus metered billing and any usage costs for VM images that are used by the app.
+- SaaS applications are billed based on a flat rate, per user, or by custom metering on a monthly or annual basis.
 
 ### Can I monetize offer types that are not transactable?
 
@@ -266,7 +266,7 @@ For Azure Marketplace, the customer must have an active Azure subscription and a
 
 ### When are customers billed for their purchases in the commercial marketplace?
 
-Customers are usually billed monthly for any purchases in the previous billing cycle. Consumption-based offers with metered billing plans, such as VM images or SaaS applications, are charged after they’ve been used. Subscription-based plans are charged at the beginning of the term.
+Customers are usually billed monthly for any purchases in the previous billing cycle. Consumption-based offers with metered billing plans, such as VM images, SaaS applications, and managed applications, are charged after they’ve been used. Subscription-based plans are charged at the beginning of the term.
 
 ### How often will I receive payouts for sales through the commercial marketplace?
 

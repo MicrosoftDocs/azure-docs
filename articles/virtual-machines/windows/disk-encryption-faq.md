@@ -16,7 +16,7 @@ This article provides answers to frequently asked questions (FAQ) about Azure Di
 
 ## What is Azure Disk Encryption for Windows VMs?
 
-Azure Disk Encryption for Windows VMs uses the Bitlocker feature of Windows to provide full disk encryption of the OS disk and data disks. Additionally, it provides encryption of the ephemeral resource disk when the [VolumeType parameter is All](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  The content flows encrypted from the VM to the Storage backend. Thereby, providing end-to-end encryption with a customer-managed key.
+Azure Disk Encryption for Windows VMs uses the BitLocker feature of Windows to provide full disk encryption of the OS disk and data disks. Additionally, it provides encryption of the temporary disk when the [VolumeType parameter is All](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  The content flows encrypted from the VM to the Storage backend. Thereby, providing end-to-end encryption with a customer-managed key.
  
 See [Supported VMs and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems).
  
@@ -56,7 +56,7 @@ Storage server-side encryption encrypts Azure managed disks in Azure Storage. Ma
  
 ## How is Azure Disk Encryption different from Storage server-side encryption with customer-managed key and when should I use each solution?
 
-Azure Disk Encryption provides end-to-end encryption for the OS disk, data disks, and the ephemeral resource disk with a customer-managed key.
+Azure Disk Encryption provides end-to-end encryption for the OS disk, data disks, and the temporary disk with a customer-managed key.
 
 - If your requirements include encrypting all of the above and end-to-end encryption, use Azure Disk Encryption. 
 - If your requirements include encrypting only data at rest with customer-managed key, then use [Server-side encryption with customer-managed keys](disk-encryption.md). You cannot encrypt a disk with both Azure Disk Encryption and Storage server-side encryption with customer managed keys.
