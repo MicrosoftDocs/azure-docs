@@ -249,29 +249,30 @@ From orderer organization client, issue command to create a new channel. This co
 
 Execute below commands in the given order to add a peer organization in a channel and consortium
 1.	From peer organization client, upload peer organization MSP on azure storage
-  ```bash
-  ./azhlf msp export toAzureStorage -f  $AZURE_FILE_CONNECTION_STRING -o $PEER_ORG_NAME
-  ```
+
+      ```bash
+      ./azhlf msp export toAzureStorage -f  $AZURE_FILE_CONNECTION_STRING -o $PEER_ORG_NAME
+      ```
 2.	From orderer organization client, download peer organization MSP from azure storage and then issue command to add peer organization in channel/consortium.
 
-  ```bash
-  ./azhlf msp import fromAzureStorage -o $PEER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
-  ./azhlf channel join -c  $CHANNEL_NAME -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
-  ./azhlf consortium join -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
-  ```
+      ```bash
+      ./azhlf msp import fromAzureStorage -o $PEER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
+      ./azhlf channel join -c  $CHANNEL_NAME -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
+      ./azhlf consortium join -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
+      ```
 
 3.	From orderer organization client, upload orderer connection profile on azure storage so that peer organization can connect to orderer nodes using this connection profile
 
-  ```bash
-  ./azhlf connectionProfile  export toAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
-  ```
+      ```bash
+      ./azhlf connectionProfile  export toAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
+      ```
 
 4.	From peer organization client, download orderer connection profile from azure storage and then issue command to add peer nodes in the channel
 
-  ```bash
-  ./azhlf connectionProfile  import fromAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
-  ./azhlf channel joinPeerNodes -o $PEER_ORG_NAME  -u $PEER_ADMIN_IDENTITY -c $CHANNEL_NAME --ordererOrg $ORDERER_ORG_NAME
-  ```
+      ```bash
+      ./azhlf connectionProfile  import fromAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
+      ./azhlf channel joinPeerNodes -o $PEER_ORG_NAME  -u $PEER_ADMIN_IDENTITY -c $CHANNEL_NAME --ordererOrg $ORDERER_ORG_NAME
+      ```
 
 Similarly, to add more peer organizations in the channel, update peer environment variables as per the required peer organization and execute the steps 1 to 4.
 
@@ -304,8 +305,11 @@ CHANNEL_NAME=<channelName>
 The below chaincode operations can be carried out:  
 
 •	[Install chaincode](#install-chaincode)  
+
 •	[Instantiate chaincode](#instantiate-chaincode)  
+
 •	[Invoke chaincode](#invoke-chaincode)
+
 •	[Query chaincode](#query-chaincode)
 
 ### Install chaincode  
