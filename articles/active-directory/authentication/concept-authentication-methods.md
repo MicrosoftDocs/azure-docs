@@ -32,14 +32,14 @@ Many accounts in Azure AD are enabled for self-service password reset (SSPR) or 
 
 |Authentication Method|Usage|
 | --- | --- |
-| Password | MFA and SSPR |
-| Microsoft Authenticator app | MFA and SSPR |
-| OATH Hardware token | Public preview for MFA and SSPR |
-| SMS | MFA and SSPR |
-| Voice call | MFA and SSPR |
-| Security questions | SSPR Only |
-| Email address | SSPR Only |
-| App passwords | MFA only in certain cases |
+| [Password](#password) | MFA and SSPR |
+| [Microsoft Authenticator app](#microsoft-authenticator-app) | MFA and SSPR |
+| [OATH Hardware token](#oath-hardware-tokens-preview) | Public preview for MFA and SSPR |
+| [SMS](#phone-options) | MFA and SSPR |
+| [Voice call](#phone-options) | MFA and SSPR |
+| [Security questions](#security-questions) | SSPR Only |
+| [Email address](#email-address) | SSPR Only |
+| [App passwords](#app-passwords) | MFA only in certain cases |
 
 This article outlines these different authentication methods and any specific limitations or restrictions, such as what can be used for security questions.
 
@@ -49,11 +49,11 @@ This article outlines these different authentication methods and any specific li
 
 An Azure AD password is often one of the primary authentication methods. You can't disable the password authentication method.
 
-Even if you use an authentication methods such as SMS-based sign-in when the user doesn't use their password to sign, a password remains as an available authentication method.
+Even if you use an authentication method such as SMS-based sign-in when the user doesn't use their password to sign, a password remains as an available authentication method.
 
 ## Microsoft Authenticator app
 
-With the Microsoft Authenticator app, users can authenticate passwordless during sign in, or as an additional authentication / verification option during self-service password reset of Azure Multi-Factor Authentication events.
+With the Microsoft Authenticator app, users can authenticate passwordless during sign-in, or as an additional authentication / verification option during self-service password reset of Azure Multi-Factor Authentication events.
 
 The Authenticator app provides an additional level of security to your Azure AD work or school account or your Microsoft account and is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
@@ -80,11 +80,13 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 >
 > When two methods are required, users can reset using either a notification or verification code in addition to any other enabled methods.
 
-## OATH hardware tokens (public preview)
+## OATH hardware tokens (preview)
 
-OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD supports the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can purchase these tokens from the vendor of their choice. Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret key can only contain the characters *a-z* or *A-Z* and digits *1-7*, and must be encoded in *Base32*. OATH hardware tokens in Azure AD are currently in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD supports the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can purchase these tokens from the vendor of their choice. Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret key can only contain the characters *a-z* or *A-Z* and digits *1-7*, and must be encoded in *Base32*.
 
-![Uploading OATH tokens to the MFA OATH tokens blade](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
+OATH hardware tokens in Azure AD are currently in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+![Uploading OATH tokens to the MFA OATH tokens window](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
 Once tokens are acquired they must be uploaded in a comma-separated values (CSV) file format including the UPN, serial number, secret key, time interval, manufacturer, and model as shown in the following example:
 
@@ -156,7 +158,7 @@ If you have problems with phone authentication for Azure AD, review the followin
 * SMS is not subscribed on the device.
    * Have the user change methods or activate SMS on the device.
 * Faulty telecom providers such as no phone input detected, missing DTMF tones issues, blocked caller ID on multiple devices, or blocked SMS across multiple devices.
-   * Microsoft uses multiple telecom providers to route phone calls and SMS messages for authentication. If you see any of the above issues, have a user attempt to use the method at least 5 times within 5 minutes and have that user's information available when contacting Microsoft support.
+   * Microsoft uses multiple telecom providers to route phone calls and SMS messages for authentication. If you see any of the above issues, have a user attempt to use the method at least five times within 5 minutes and have that user's information available when contacting Microsoft support.
 
 ## Security questions
 
@@ -167,7 +169,7 @@ When users register for SSPR, they're prompted to choose the authentication / ve
 > [!NOTE]
 > Security questions are stored privately and securely on a user object in the directory and can only be answered by users during registration. There's no way for an administrator to read or modify a user's questions or answers.
 
-Security questions can be less secure than other methods because some people might know the answers to another user's questions. If you use security questions with SSPR, it's recommend to use them in conjunction with another method. A user can be prompted to use the Microsoft Authenticator App or phone authentication to verify their identity during the SSPR process, and choose security questions only if they don't have their phone or registered device with them.
+Security questions can be less secure than other methods because some people might know the answers to another user's questions. If you use security questions with SSPR, it's recommended to use them in conjunction with another method. A user can be prompted to use the Microsoft Authenticator App or phone authentication to verify their identity during the SSPR process, and choose security questions only if they don't have their phone or registered device with them.
 
 ### Predefined questions
 
@@ -187,7 +189,7 @@ The following predefined security questions are available for use as an authenti
 * What is your favorite food?
 * What is your maternal grandmother's first and last name?
 * What is your mother's middle name?
-* What is your oldest sibling's birthday month and year? (e.g. November 1985)
+* What is your oldest sibling's birthday month and year? (for example, November 1985)
 * What is your oldest sibling's middle name?
 * What is your paternal grandfather's first and last name?
 * What is your youngest sibling's middle name?
@@ -230,9 +232,9 @@ For both default and custom security questions, the following requirements and l
 
 An email address can't be used as a direct authentication method. Email address is only available as an authentication / verification option for self-service password reset (SSPR). When email address is selected during SSPR, an email is sent to the user to complete the authentication / verification process.
 
-During registration for SSPR, a user provides the email address to use. It's recommended that they use an a different email account than their corporate account to make sure they can access it during SSPR.
+During registration for SSPR, a user provides the email address to use. It's recommended that they use a different email account than their corporate account to make sure they can access it during SSPR.
 
-## App Passwords
+## App passwords
 
 Certain older, non-browser apps don't understand pauses or breaks in the authentication process. If a user is enabled for multi-factor authentication and attempts to use one of these older, non-browser apps, they usually can't successfully authenticate. An app password allows users to continue to successfully authenticate with older, non-browser apps without interruption.
 
