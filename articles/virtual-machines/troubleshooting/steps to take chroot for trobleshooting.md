@@ -14,7 +14,7 @@ ms.custom: seodec18
 # How to take chroot environment for troubleshooting issues in Rescue VM
 
  
-This article describes the steps to take chroot environemnt in Rescue VM for troubleshooting.
+This article describes the steps to take chroot environment in Rescue VM for troubleshooting.
 
 ## Environment
 
@@ -26,10 +26,10 @@ This article describes the steps to take chroot environemnt in Rescue VM for tro
 ## Ubuntu 16.x && Ubuntu 18.x 
 
 1. We need to stop/deallocate the affected VM.
-2. Create a Rescue VM of same OS version in same RSG and location using managed disk.
+2. Create a Rescue VM of the same OS version in same RSG and location using managed disk.
 3. Take a snapshot of the OS disk of the affected VM. You can use the portal to perform this action.
 4. Create a disk out of the snapshot of the OS disk taken above and attach it to the Rescue VM. You can use the portal to perform this action
-5. Perform the below steps to take a chroot environemnt in the Rescue VM.
+5. Perform the below steps to take a chroot environment in the Rescue VM.
 
 	 5.1 Access your VM and become root user using below command.
 
@@ -88,17 +88,17 @@ This article describes the steps to take chroot environemnt in Rescue VM for tro
 		> umount -l /rescue
 
 				
-6. Dettach the disk from rescue VM and do a disk swap to the original VM.
+6. Detach the disk from rescue VM and do a disk swap to the original VM.
 7. Star the original VM and check the connectivity part.
 
 
 ## RHEL/Centos/Oracle 6.x && Oracle 8.x && RHEL/Centos 7.x with RAW Partitions.
 
 1. We need to stop/deallocate the affected VM.
-2. Create a Rescue VM of same OS version in same RSG and location using managed disk.
+2. Create a Rescue VM of the same OS version in same RSG and location using managed disk.
 3. Take a snapshot of the OS disk of the affected VM. You can use the portal to perform this action.
 4. Create a disk out of the snapshot of the OS disk taken above and attach it to the Rescue VM. You can use the portal to perform this action
-5. Perform the below steps to take a chroot environemnt in the Rescue VM.
+5. Perform the below steps to take a chroot environment in the Rescue VM.
 
 	 5.1 Access your VM and become root user using below command.
 
@@ -157,7 +157,7 @@ This article describes the steps to take chroot environemnt in Rescue VM for tro
 		> umount -l /rescue
 
 				
-6. Dettach the disk from rescue VM and do a disk swap to the original VM.
+6. Detach the disk from rescue VM and do a disk swap to the original VM.
 7. Star the original VM and check the connectivity part.
 
 
@@ -168,10 +168,10 @@ This article describes the steps to take chroot environemnt in Rescue VM for tro
 
 
 1. We need to stop/deallocate the affected VM.
-2. Create a Rescue VM of same OS version in same RSG and location using managed disk.
+2. Create a Rescue VM of the same OS version in same RSG and location using managed disk.
 3. Take a snapshot of the OS disk of the affected VM. You can use the portal to perform this action.
 4. Create a disk out of the snapshot of the OS disk taken above and attach it to the Rescue VM. You can use the portal to perform this action
-5. Perform the below steps to take a chroot environemnt in the Rescue VM.
+5. Perform the below steps to take a chroot environment in the Rescue VM.
 
 	 5.1 Access your VM and become root user using below command.
 
@@ -272,7 +272,7 @@ This article describes the steps to take chroot environemnt in Rescue VM for tro
 		> umount -l /rescue
 
 		
-6. Dettach the disk from rescue VM and do a disk swap to the original VM.
+6. Detach the disk from rescue VM and do a disk swap to the original VM.
 7. Star the original VM and check the connectivity part.
 
 
@@ -285,10 +285,10 @@ This article describes the steps to take chroot environemnt in Rescue VM for tro
 
 
 1. We need to stop/deallocate the affected VM.
-2. Create a Rescue VM of same OS version in same RSG and location using managed disk.
+2. Create a Rescue VM of the same OS version in same RSG and location using managed disk.
 3. Take a snapshot of the OS disk of the affected VM. You can use the portal to perform this action.
 4. Create a disk out of the snapshot of the OS disk taken above and attach it to the Rescue VM. You can use the portal to perform this action
-5. Perform the below steps to take a chroot environemnt in the Rescue VM.
+5. Perform the below steps to take a chroot environment in the Rescue VM.
 
 	 5.1 Access your VM and become root user using below command.
 
@@ -386,16 +386,16 @@ This article describes the steps to take chroot environemnt in Rescue VM for tro
 		> umount -l /rescue
 
 		
-6. Dettach the disk from rescue VM and do a disk swap to the original VM.
+6. Detach the disk from rescue VM and do a disk swap to the original VM.
 7. Star the original VM and check the connectivity part.
 
 ## Oracle 7.x 
 
 1. We need to stop/deallocate the affected VM.
-2. Create a Rescue VM of same OS version in same RSG and location using managed disk.
+2. Create a Rescue VM of the same OS version in same RSG and location using managed disk.
 3. Take a snapshot of the OS disk of the affected VM. You can use the portal to perform this action.
 4. Create a disk out of the snapshot of the OS disk taken above and attach it to the Rescue VM. You can use the portal to perform this action
-5. Perform the below steps to take a chroot environemnt in the Rescue VM.
+5. Perform the below steps to take a chroot environment in the Rescue VM.
 
 	 5.1 Access your VM and become root user using below command.
 
@@ -456,17 +456,17 @@ This article describes the steps to take chroot environemnt in Rescue VM for tro
 		> umount -l /rescue
 
 				
-6. Dettach the disk from rescue VM and do a disk swap to the original VM.
+6. Detach the disk from rescue VM and do a disk swap to the original VM.
 7. Star the original VM and check the connectivity part.
 
 
-## SUSE SLES 12 SP4,SUSE SLES 12 SP4 For SAP && ## SUSE SLES 15 SP1,SUSE SLES 15 SP1 For SAP
+## SUSE-SLES 12 SP4, SUSE-SLES 12 SP4 For SAP && ## SUSE-SLES 15 SP1, SUSE-SLES 15 SP1 For SAP
 
 1. We need to stop/deallocate the affected VM.
-2. Create a Rescue VM of same OS version in same RSG and location using managed disk.
+2. Create a Rescue VM of the same OS version in same RSG and location using managed disk.
 3. Take a snapshot of the OS disk of the affected VM. You can use the portal to perform this action.
 4. Create a disk out of the snapshot of the OS disk taken above and attach it to the Rescue VM. You can use the portal to perform this action
-5. Perform the below steps to take a chroot environemnt in the Rescue VM.
+5. Perform the below steps to take a chroot environment in the Rescue VM.
 
 	 5.1 Access your VM and become root user using below command.
 
@@ -527,6 +527,6 @@ This article describes the steps to take chroot environemnt in Rescue VM for tro
 		> umount -l /rescue
 
 				
-6. Dettach the disk from rescue VM and do a disk swap to the original VM.
+6. Detach the disk from rescue VM and do a disk swap to the original VM.
 7. Star the original VM and check the connectivity part.
 
