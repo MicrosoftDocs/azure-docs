@@ -176,7 +176,7 @@ Because the primary purpose of the Hybrid Runbook Worker is to manage local reso
 
 Modules that are installed must be in a location referenced by the `PSModulePath` environment variable so that the hybrid worker can automatically import them. For more information, see [Install Modules in PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
 
-## <a name="remove-a-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker from an on-premises Windows computer
+## <a name="remove-windows-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker from an on-premises Windows computer
 
 1. In the Azure portal, go to your Automation account.
 2. Under **Account Settings**, select **Keys** and note the values for **URL** and **Primary Access Key**.

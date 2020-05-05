@@ -104,7 +104,7 @@ By default, Linux Hybrid Runbook Workers require signature validation. If you ru
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
  ```
 
-## Remove the Hybrid Runbook Worker from an on-premises Linux computer
+## <a name="remove-linux-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker from an on-premises Linux computer
 
 You can use the command `ls /var/opt/microsoft/omsagent` on the Hybrid Runbook Worker to get the workspace ID. A folder is created that is named with the workspace ID.
 
