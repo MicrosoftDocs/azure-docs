@@ -143,9 +143,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 
 ## Authenticate the client
 
-Below the `Main` method, define the task that is referenced in `Main`. Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you'll be able to update the API key without creating new client objects. You'll define the other methods later on.
-
-TBD this uses your blob storage container. get the SAS URL.
+Below the `Main` method, define the task that is referenced in `Main`. Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you'll be able to update the API key without creating new client objects.
 
 ```csharp
 static async Task RunFormRecognizerClient()
@@ -156,6 +154,26 @@ static async Task RunFormRecognizerClient()
     
     var trainingClient = new FormTrainingClient(new Uri(endpoint), credential);
     var recognizerClient = new FormRecognizerClient(new Uri(endpoint), credential);
+```
+
+### Call client-specific methods
+
+The next block of code uses the client objects to call methods for each of the major tasks available in the Form Recognizer SDK. You'll define these methods later on.
+
+You'll also need to add the URLs for your training and testing data. 
+* To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* To get a URL of a form to test, you can use the above steps to get the SAS URL of an individual document in blob storage. Or, use the URL of a document located elsewhere.
+* Use the above method to get the URL of a receipt image as well.
+
+> [!NOTE]
+> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/1.0.0-preview.1/api/index.html).
+
+```csharp
+
+    string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
+    string formUrl = "<SAS-URL-of-a-form-in-blob-storage>";
+    string receiptUrl = "<SAS-URL-of-a-form-in-blob-storage>";
+
 
     // Call Form Recognizer scenarios:
     Console.WriteLine("Get form contents...");
@@ -165,13 +183,13 @@ static async Task RunFormRecognizerClient()
     await AnalyzeReceipt(recognizerClient, receiptUrl);
 
     Console.WriteLine("Train Model with training data...");
-    Guid modelId = await TrainModelAsync(formClient, trainingDataUrl);
+    Guid modelId = await TrainModelAsync(trainingClient, trainingDataUrl);
 
     Console.WriteLine("Analyze PDF form...");
     await AnalyzePdfForm(recognizerClient, modelId, formUrl);
 
     Console.WriteLine("Manage models...");
-    await ManageModels(formClient, trainingDataUrl) ;
+    await ManageModels(trainingClient, trainingDataUrl) ;
 }
 ```
 
@@ -356,7 +374,7 @@ The returned **CustomFormModel** indicates the fields the model can extract, as 
 
 ## Analyze forms with a custom model
 
-This sample demonstrates how to recognize form fields and other content from your custom form types, using models you trained with your own forms. For more information on how to do the training, see train a model.
+This section demonstrates how to recognize form fields and other content from your custom form types, using models you trained with your own forms. For more information on how to do the training, see train a model.
 
 You'll use the **StartRecognizeCustomFormsFromUri** method. The returned value is a collection of **RecognizedForm** objects: one for each page in the submitted document.
 
@@ -371,7 +389,8 @@ private static async Task AnalyzeForm(
     Response<IReadOnlyList<RecognizedForm>> forms = await recognizerClient.StartRecognizeCustomFormsFromUri(modelId, new Uri(formUri)).WaitForCompletionAsync();
 ```
 
-tbd print
+The following code prints the analysis results to the console. It prints each recognizes field and corresponding value, along with a confidence score.
+
 ```csharp
     foreach (RecognizedForm form in forms.Value)
     {
