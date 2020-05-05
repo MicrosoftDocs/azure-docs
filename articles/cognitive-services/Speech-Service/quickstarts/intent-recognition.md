@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: erhopf
-zone_pivot_groups: programming-languages-set-sixteen
+zone_pivot_groups: programming-languages-set-two-with-js
 ---
 
 # Quickstart: Recognize speech, intents, and entities with Language Understanding (LUIS)
@@ -42,7 +42,7 @@ zone_pivot_groups: programming-languages-set-sixteen
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [Header](../includes/quickstarts/intent-recognition/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/intent-recognition/javascript/header.md)]
-[!INCLUDE [python](../includes/quickstarts/intent-recognition/javascript/javascript.md)]
+[!INCLUDE [javascript](../includes/quickstarts/intent-recognition/javascript/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

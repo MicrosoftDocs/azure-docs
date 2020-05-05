@@ -61,9 +61,9 @@ zone_pivot_groups: programming-languages-set-sixteen
 
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
 
-[!INCLUDE [Python Header](../includes/quickstarts/from-microphone/go/header.md)]
+[!INCLUDE [Go Header](../includes/quickstarts/from-microphone/go/header.md)]
 
-[!INCLUDE [python](../includes/quickstarts/from-microphone/go/go.md)]
+[!INCLUDE [go](../includes/quickstarts/from-microphone/go/go.md)]
 
 ::: zone-end
 
