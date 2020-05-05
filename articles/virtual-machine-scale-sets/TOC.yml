@@ -63,6 +63,9 @@
     href: cli-samples.md
   - name: PowerShell
     href: powershell-samples.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Azure Resource Manager
