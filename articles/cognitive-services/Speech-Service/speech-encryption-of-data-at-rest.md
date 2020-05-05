@@ -8,7 +8,7 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/11/2020
 ms.author: egeaney
 #Customer intent: As a user of the Translator service, I want to learn how encryption at rest works.
 ---
@@ -38,6 +38,9 @@ To request access to bring your own storage, fill out and submit the [Speech s
 
 > [!IMPORTANT]
 > If you disable system assigned managed identities, access to the storage account will be removed. This will cause the parts of the Speech service that require access to the storage account to stop working.  
+
+> [!NOTE]
+> Microsoft Azure offers [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) to provide an interface for customers to review and approve or reject customer data access requests by Microsoft. In Speech Services, customer data can be stored on the customer's own storage via BYOS (Bring Your Own Storage). Data controls equivalent to Customer Lockbox can be achieved on the customer's own storage.
 
 ## Regional availability
 
