@@ -1,6 +1,6 @@
 ---
-title: Create an Azure IoT Edge module offer with Partner Center - Azure Marketplace
-description: Learn how to create an IoT Edge module offer in Azure Marketplace using Partner Center
+title: Create an Azure IoT Edge module offer with Partner Center in Azure Marketplace
+description: Learn how to create, configure, and publish an IoT Edge module offer in Azure Marketplace using Partner Center
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ---
 
-# Create an IoT Edge module offer
+# Create, configure, and publish an IoT Edge module offer in Azure Marketplace
 
 > [!IMPORTANT]
 > We're moving the management of your IoT Edge module offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [IoT Edge module offer publishing overview](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) for Cloud Partner Portal to manage your offers.
@@ -78,7 +78,7 @@ Here are some additional lead management resources:
 
 - [Lead management overview](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
 
 Select **Save draft** before continuing.
