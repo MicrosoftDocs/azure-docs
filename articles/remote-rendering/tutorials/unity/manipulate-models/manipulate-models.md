@@ -33,9 +33,9 @@ Once MRTK is included in the project, we'll copy the default HoloLens 2 profile 
 
 1. Select the **MixedRealityToolkit** GameObject in the scene hierarchy.
 1. In the Inspector, under the **MixedRealityToolkit** component, switch the configuration profile to *DefaultHoloLens2ConfigurationProfile* and press the **Clone** button.
- ![Clone profile](./media/profile-clone.png)\
+ ![Clone profile](./media/profile-clone.png)
 1. In the clone dialog window, the default settings are suitable, so press **Clone**
- ![Confirm clone](./media/confirm-clone.png)\
+ ![Confirm clone](./media/confirm-clone.png)
 1. With your new configuration profile selected, select **Diagnostics** and press the **Clone** button to clone the diagnostics profile. Confirm the default settings in the clone dialog window by pressing **Clone**.
 1. With your new diagnostic profile selected, un-check **Show Profiler**. The profiler is a very useful tool and can be toggled at run-time using the voice command "Toggle Profiler" or the '9' key on the keyboard's number row.
 
@@ -56,7 +56,7 @@ With the introduction of MRTK, there are a number of scripts, prefabs, and asset
 
 Most of view controllers in this tutorial operate against abstract base classes instead of against concrete classes. This pattern provides better flexibility and allows the tutorial to provide the view controllers for you, while still allowing you to implement and learn the Azure Remote Rendering specific code yourself. For the simplicity of the tutorial, the **RemoteRenderingCoordinator** class does not have an abstract class provided and its view controller operates directly against the concrete class.
 
-An abstract class has been provided for the **RemoteRenderedModel** script we created in a previous tutorial. To enable the view controller for models, modify the **RemoteRenderedModel** script to implement the abstract class by adding `IRemoteRenderedModel` to the class signature. It should look as follows:
+An abstract class has been provided for the **RemoteRenderedModel** script we created in a previous tutorial. To enable the view controller for models, modify the **RemoteRenderedModel** script to implement the abstract class by adding `BaseRemoteRenderedModel` to the class signature. It should look as follows:
 
 ```csharp
 public class RemoteRenderedModel : BaseRemoteRenderedModel

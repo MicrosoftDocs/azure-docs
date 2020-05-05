@@ -63,7 +63,7 @@ You need to modify the file `Packages/manifest.json` that is located in your Uni
     ],
     "dependencies": {
     "com.microsoft.azure.remote-rendering": "0.1.22",
-    "com.unity.render-pipelines.universal": "7.2.1",
+    "com.unity.render-pipelines.universal": "7.3.1",
     ...existing dependencies...
     }
 }
