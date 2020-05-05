@@ -12,9 +12,7 @@ ms.author: dsindona
 
 # Support for Microsoft commercial marketplace
 
-Here is a list of support options for the Marketplace.  
-
-Additionally, you can get many of your questions answered in the [Marketplace channel of C+AI Community Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
+Do you have questions about getting started as a Micorosft commercial marketplace publisher? Here's a list of support options for the commercial marketplace. In addition to the following resources, you can also get many of your questions answered in the [Marketplace channel of C+AI Community Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
 ## Onboarding
 
