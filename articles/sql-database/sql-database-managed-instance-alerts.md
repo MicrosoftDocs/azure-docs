@@ -16,7 +16,7 @@ ms.date: 05/04/2020
 
 ## Overview
 
-This article shows you how to set up alerts for databases in Azure SQL Managed Instance Database using the Azure portal. Alerts can send you an email, call a web hook, execute Azure Function, runbook, call an external ITSM compatible ticketing system, call you on the phone or send a text message when when some metric (for example instance storage size or CPU usage) reaches a predefined threshold. This article also provides best practices for setting alert periods.
+This article shows you how to set up alerts for databases in Azure SQL Managed Instance Database using the Azure portal. Alerts can send you an email, call a web hook, execute Azure Function, runbook, call an external ITSM compatible ticketing system, call you on the phone or send a text message when some metric, such is for example instance storage size, or CPU usage, reaches a predefined threshold. This article also provides best practices for setting alert periods.
 
 You can receive an alert based on monitoring metrics for, or events on, your Azure services.
 
@@ -24,7 +24,7 @@ You can receive an alert based on monitoring metrics for, or events on, your Azu
 
 You can configure an alert to do the following when it triggers:
 
-* Send email notifications to the service administrator and co-administrators
+* Send email notifications to the service administrator and coadministrators
 * Send email to additional emails that you specify.
 * Call a phone number with voice prompt
 * Send text message to a phone number
@@ -34,7 +34,7 @@ You can configure an alert to do the following when it triggers:
 * Call an external ticketing ITSM compatible system
 
 > [!NOTE]
-> Please note that alerting metrics are available for managed instance only. Alerting metrics for individual databases are not available.
+> Alerting metrics are available for managed instance as the entire resource. Alerting metrics for individual databases in managed instance are not available.
 
 The following managed instance metrics are available for alerting configuration:
 
@@ -63,9 +63,9 @@ You can configure and get information about alert rules using the following inte
 
    ![Monitoring](media/sql-database-managed-instance-alerts/managed-instance-alerting-menu-annotated.png)
   
-3. On the drop-down menu, select one of the metrics you wish to setup your alert on (Storage space used is shown in the example).
+3. On the drop-down menu, select one of the metrics you wish to set up your alert on (Storage space used is shown in the example).
 
-4. Select aggregation period - average, minimum or maximum reached in the given time period (Avg, Min or Max). 
+4. Select aggregation period - average, minimum, or maximum reached in the given time period (Avg, Min, or Max). 
 
 5. Select **New alert rule**
 
@@ -77,13 +77,13 @@ You can configure and get information about alert rules using the following inte
 
    * Operator type options are greater than, equal and less than (the threshold value)
    * Aggregation type options are min, max or average (in the aggregation granularity period)
-   * Threshold value is the value which will based on the operator trigger an alert.
+   * Threshold value is the alert value which will be evaluated based on the operator and aggregation criteria
    
-   In the example shown in the screenshot, value of 1840876MB is used representing a threshold value of 1.8TB. As the operator in the example is set to greater than, the alert will be created if the storage space consumption on the managed instance goes over 1.8TB. Please note that the threshold value for storage space metrics must to be expressed in MB.
+   In the example shown in the screenshot, value of 1840876 MB is used representing a threshold value of 1.8 TB. As the operator in the example is set to greater than, the alert will be created if the storage space consumption on the managed instance goes over 1.8 TB. Note that the threshold value for storage space metrics must be expressed in MB.
 
 8. Set the evaluation period - aggregation granularity in minutes and frequency of evaluation. The frequency of evaluation will denote time the alerting system will periodically check if the threshold condition has been met.
 
-9. Select action group. Action group pane will show up through which you will be able to select an existing, or create a new action. This action defines that will happen upon triggering an alert (e.g. sending email, calling you on the phone, executing a webhook, Azure function or a runbook, for example).
+9. Select action group. Action group pane will show up through which you will be able to select an existing, or create a new action. This action defines that will happen upon triggering an alert (for example, sending email, calling you on the phone, executing a webhook, Azure function, or a runbook, for example).
 
    * To create new action group, select **+Create action group**
 
@@ -97,7 +97,7 @@ You can configure and get information about alert rules using the following inte
 
    * Within a few minutes new alert rule is active, and alerts are triggered as defined as previously described.
 
-   * For the example shown on this page for setting up an alert on storage space, if your alerting option was email, you might receive email such is the one shown below. The email shows the alert name, details of the treshold and why the alert was triggered. You can use See in Azure portal button to view this alert in the web browser. Please note email formatting is subject to change.
+   * For the example shown on this page for setting up an alert on storage space, if your alerting option was email, you might receive email such is the one shown below. The email shows the alert name, details of the threshold and why the alert was triggered. You can use See in Azure portal button to view this alert in the web browser. Note email formatting is subject to change.
 
       ![alert_example](media/sql-database-managed-instance-alerts/managed-instance-email-alert-example-smaller-annotated.png)
 
@@ -114,11 +114,11 @@ To view, modify and delete existing alerts:
 
    Alternatively, you could also click on Alerts on the Azure navigation bar, if you have it configured.
 
-2. On the Alerts pane select Manage alert rules.
+2. On the Alerts pane, select Manage alert rules.
 
    ![modify_alerts](media/sql-database-managed-instance-alerts/managed-instance-managed-alert-rules-annotated.png)
 
-   List of existing alerts will show up. Select an individual existing alert rule to view, modify or delete it.
+   List of existing alerts will show up. Select an individual existing alert rule to view, modify, or delete it.
 
 ## Next steps
 
