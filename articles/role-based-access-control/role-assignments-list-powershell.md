@@ -1,6 +1,6 @@
 ---
-title: List role assignments using Azure RBAC and Azure PowerShell
-description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure role-based access control (RBAC) and Azure PowerShell.
+title: List Azure role assignments using Azure PowerShell - Azure RBAC
+description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure PowerShell and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,7 +16,7 @@ ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# List role assignments using Azure RBAC and Azure PowerShell
+# List Azure role assignments using Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using Azure PowerShell.
 
@@ -147,7 +147,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## List role assignments for a managed identity
 
-1. Get the the object ID of the system-assigned or user-assigned managed identity. 
+1. Get the object ID of the system-assigned or user-assigned managed identity. 
 
     To get the object ID of a user-assigned managed identity, you can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
 
@@ -163,4 +163,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## Next steps
 
-- [Add or remove role assignments using Azure RBAC and Azure PowerShell](role-assignments-powershell.md)
+- [Add or remove Azure role assignments using Azure PowerShell](role-assignments-powershell.md)
