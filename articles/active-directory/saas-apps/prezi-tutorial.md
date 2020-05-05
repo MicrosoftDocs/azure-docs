@@ -74,16 +74,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Prezi** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
-
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL:
-    `https://prezi.com/login/sso/`
 
 1. Click **Save**.
 
