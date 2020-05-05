@@ -60,7 +60,7 @@ Once your workspaces are linked, you can browse your Power BI datasets, edit/cre
 
 New reports can be created clicking **+** at the top of the **Develop** tab. Existing reports can be edited by clicking on the report name. Any saved changes will be written back to the Power BI workspace.
 
-    ![View and edit Power BI report.](media/quickstart-link-powerbi/powerbi-report.png)
+![View and edit Power BI report.](media/quickstart-link-powerbi/powerbi-report.png)
 
 
 ## Next steps
