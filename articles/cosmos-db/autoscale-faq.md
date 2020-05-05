@@ -104,6 +104,6 @@ For example, if you select the 20,000 RU/s max throughput option and have 200 GB
 
 ## Next steps
 
-* Learn how to [enable autoscale on an Azure Cosmos container or database](provision-throughput-autoscale.md#create-db-container-autoscale).
-* Learn about the [benefits of provisioned throughput with autoscale](provision-throughput-autoscale.md#autoscale-benefits).
+* Learn how to [enable autoscale on an Azure Cosmos container or database](how-to-provision-autoscale-throughput.md).
+* Learn about the [benefits of provisioned throughput with autoscale](provision-throughput-autoscale.md#benefits-of-autoscale).
 * Learn more about [logical and physical partitions](partition-data.md).
