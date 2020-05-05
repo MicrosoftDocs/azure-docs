@@ -1,6 +1,6 @@
 - name: Viewing a remotely rendered model
   href: unity/view-remote-models/view-remote-models.md
-- name: Loading custom models
+- name: Interfaces and loading custom models
   href: unity/custom-models/custom-models.md
 - name: Manipulating models
   href: unity/manipulate-models/manipulate-models.md

@@ -241,11 +241,11 @@ public class RemoteCutPlane : BaseRemoteCutPlane
         RemoteRenderingCoordinator_CoordinatorStateChange(RemoteRenderingCoordinator.instance.CurrentCoordinatorState);
     }
 
-    private void RemoteRenderingCoordinator_CoordinatorStateChange(RemoteRenderingState state)
+    private void RemoteRenderingCoordinator_CoordinatorStateChange(RemoteRenderingCoordinator.RemoteRenderingState state)
     {
         switch (state)
         {
-            case RemoteRenderingState.RuntimeConnected:
+            case RemoteRenderingCoordinator.RemoteRenderingState.RuntimeConnected:
                 if (AutomaticallyCreate)
                     CreateCutPlane();
                 break;

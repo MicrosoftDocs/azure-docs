@@ -76,7 +76,6 @@ using Microsoft.Azure.RemoteRendering.Unity;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-using static RemoteRenderingCoordinator;
 
 public class RemoteRenderedModel : BaseRemoteRenderedModel
 {
@@ -117,8 +116,6 @@ public class RemoteRenderedModel : BaseRemoteRenderedModel
     public UnityEvent OnModelLoaded = new UnityEvent();
     public UnityEvent OnModelUnloading = new UnityEvent();
 
-    [Serializable] public class UnityFloatEvent : UnityEvent<float> { }
-
     public UnityFloatEvent OnLoadProgress = new UnityFloatEvent();
 
     public void Awake()
@@ -152,11 +149,11 @@ public class RemoteRenderedModel : BaseRemoteRenderedModel
     /// Listen for state changes on the coordinator, clean up this model's remote objects if we're no longer connected.
     /// Automatically load if required
     /// </summary>
-    private void Instance_CoordinatorStateChange(RemoteRenderingState state)
+    private void Instance_CoordinatorStateChange(RemoteRenderingCoordinator.RemoteRenderingState state)
     {
         switch (state)
         {
-            case RemoteRenderingState.RuntimeConnected:
+            case RemoteRenderingCoordinator.RemoteRenderingState.RuntimeConnected:
                 CurrentModelState = ModelState.Ready;
                 if (AutomaticallyLoad)
                     LoadModel();
@@ -208,7 +205,7 @@ public class RemoteRenderedModel : BaseRemoteRenderedModel
             ModelEntity = null;
         }
 
-        if (RemoteRenderingCoordinator.instance.CurrentCoordinatorState == RemoteRenderingState.RuntimeConnected)
+        if (RemoteRenderingCoordinator.instance.CurrentCoordinatorState == RemoteRenderingCoordinator.RemoteRenderingState.RuntimeConnected)
             CurrentModelState = ModelState.Ready;
         else
             CurrentModelState = ModelState.NotReady;
