@@ -20,6 +20,11 @@ You can create a virtual machine with a public IP address with a routing prefere
 
 This article shows you how to create a virtual machine with a public IP that is set to route traffic via the Internet using Azure PowerShell.
 
+> [!IMPORTANT]
+> Routing preference is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Create a resource group
 1. If using the Cloud Shell, skip to step 2. Open a command session and sign into Azure with `Connect-AzAccount`.
 2. Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. The following example creates a resource group in the East US Azure region:
