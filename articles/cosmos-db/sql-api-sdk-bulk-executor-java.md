@@ -52,10 +52,10 @@ ms.author: adrianmi
 
 ### <a name="2.9.2"/>2.9.2
 
-* Fix for 'mergeAll' to continue on 'id' and partition key value so that any patched document fields which are placed after 'id' and partition key value get added to the updated item list.
+* Fix for 'mergeAll' to continue on 'id' and partition key value so that any patched document properties which are placed after 'id' and partition key value get added to the updated item list.
 
 ### <a name="2.9.1"/>2.9.1
 
-* Update start degree of consurrency to 1 and added debug logs for minibatch.
+* Update start degree of concurrency to 1 and added debug logs for minibatch.
 
 
