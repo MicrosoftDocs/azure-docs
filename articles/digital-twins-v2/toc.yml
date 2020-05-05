@@ -56,6 +56,8 @@
     href: how-to-use-cli.md
 - name: Reference
   items:
+  - name: Service limits
+    href: reference-service-limits.md
   - name: Customer data requests
     href: customer-data-requests.md
 - name: Resources
