@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: qiohu
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-speech-services-one-nomore
 ---
 
 # Specify source language for speech to text
@@ -137,7 +137,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(
 
 ::: zone-end
 
-::: zone pivot="programming-language-more"
+::: zone pivot="programming-language-javascript"
 
 ## How to specify source language in Javascript
 
@@ -158,7 +158,9 @@ If you're using a custom model for recognition, you can specify the endpoint wit
 ```Javascript
 speechConfig.endpointId = "The Endpoint ID for your custom model.";
 ```
+::: zone-end
 
+::: zone pivot="programming-language-javascript"
 ## How to specify source language in Objective-C
 
 The first step is to create a `speechConfig`:

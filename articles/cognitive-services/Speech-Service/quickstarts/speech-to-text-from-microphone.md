@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-set-sixteen
+zone_pivot_groups: programming-languages-speech-services-one
 ---
 
 # Quickstart: Recognize speech from a microphone
@@ -64,6 +64,16 @@ zone_pivot_groups: programming-languages-set-sixteen
 [!INCLUDE [Go Header](../includes/quickstarts/from-microphone/go/header.md)]
 
 [!INCLUDE [go](../includes/quickstarts/from-microphone/go/go.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
+
+[!INCLUDE [JavaScript Header](../includes/quickstarts/from-microphone/javascript/header.md)]
+
+[!INCLUDE [javascript](../includes/quickstarts/from-microphone/javascript/javascript.md)]
 
 ::: zone-end
 
