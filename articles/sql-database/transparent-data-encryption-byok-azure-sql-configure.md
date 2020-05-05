@@ -23,9 +23,9 @@ This article walks through how to use a key from Azure Key Vault for Transparent
 - [Recommended but Optional] Have a hardware security module (HSM) or local key store for creating a local copy of the TDE Protector key material.
 - You must have Azure PowerShell installed and running.
 - Create an Azure Key Vault and Key to use for TDE.
-  - [Instructions for using a hardware security module (HSM) and Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+  - [Instructions for using a hardware security module (HSM) and Key Vault](../key-vault/keys/hsm-protected-keys.md)
     - The key vault must have the following property to be used for TDE:
-  - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md) and purge protection
+  - [soft-delete](../key-vault/general/overview-soft-delete.md) and purge protection
 - The key must have the following attributes to be used for TDE:
    - No expiration date
    - Not disabled
@@ -35,7 +35,7 @@ This article walks through how to use a key from Azure Key Vault for Transparent
 
 For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
 
-For specifics on Key Vault, see [PowerShell instructions from Key Vault](../key-vault/quick-create-powershell.md) and [How to use Key Vault soft-delete with PowerShell](../key-vault/key-vault-soft-delete-powershell.md).
+For specifics on Key Vault, see [PowerShell instructions from Key Vault](../key-vault/secrets/quick-create-powershell.md) and [How to use Key Vault soft-delete with PowerShell](../key-vault/general/soft-delete-powershell.md).
 
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
@@ -118,7 +118,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 To install the required Command-Line Interface version 2.0 or later and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-For specifics on Key Vault, see [Manage Key Vault using CLI 2.0](../key-vault/key-vault-manage-with-cli2.md) and [How to use Key Vault soft-delete with CLI](../key-vault/key-vault-soft-delete-cli.md).
+For specifics on Key Vault, see [Manage Key Vault using CLI 2.0](../key-vault/general/manage-with-cli2.md) and [How to use Key Vault soft-delete with CLI](../key-vault/general/soft-delete-cli.md).
 
 ## Assign an Azure AD identity to your server
 

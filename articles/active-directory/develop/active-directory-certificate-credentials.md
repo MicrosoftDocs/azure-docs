@@ -3,7 +3,7 @@ title: Microsoft identity platform certificate credentials
 titleSuffix: Microsoft identity platform
 description: This article discusses the registration and use of certificate credentials for application authentication.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.author: ryanwi
+ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ---

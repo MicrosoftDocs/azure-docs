@@ -39,6 +39,9 @@
     - name: Python
       href: /azure/databricks/languages/python
       maintainContext: true
+    - name: Koalas
+      href: /azure/databricks/languages/koalas
+      maintainContext: true
     - name: R
       items:
       - name: R guide
@@ -1007,6 +1010,8 @@
     - name: Security overview
       href: /azure/databricks/security/index
       maintainContext: true
+    - name: Security baseline
+      href: security-baseline.md
     - name: Access control
       items:
       - name: Access control overview
@@ -1058,6 +1063,8 @@
       - name: Secret workflow example
         href: /azure/databricks/security/secrets/example-secret-workflow
         maintainContext: true
+    - name: GDPR best practices
+      href: /azure/databricks/security/privacy/gdpr-delta
     - name: Encrypt traffic between cluster worker nodes
       href: /azure/databricks/security/encryption/encrypt-otw
     - name: Enable customer-managed keys for notebooks
@@ -1293,6 +1300,9 @@
         maintainContext: true 
     - name: Data sources 
       items:
+      - name: ABFS client hangs if incorrect client ID or wrong path used
+        href: /azure/databricks/kb/data-sources/abfs-client-hang
+        maintainContext: true 
       - name: Error reading data from ADLS Gen1 with Sparklyr
         href: /azure/databricks/kb/data-sources/access-adls1-from-sparklyr
         maintainContext: true 
@@ -1509,6 +1519,9 @@
       - name: Command fails with AttributeError
         href: /azure/databricks/kb/python/python-exec-display-cancelled
         maintainContext: true 
+      - name: Python REPL fails to start in Docker
+        href: /azure/databricks/kb/python/python-repl-fails-dcs
+        maintainContext: true
       - name: Run C++ code
         href: /azure/databricks/kb/python/running-c-plus-plus-code
         maintainContext: true
@@ -1562,6 +1575,12 @@
         maintainContext: true  
     - name: Streaming
       items:
+      - name: Checkpoint files not being deleted when using display()
+        href: /azure/databricks/kb/streaming/checkpoint-no-cleanup-display
+        maintainContext: true 
+      - name: Checkpoint files not being deleted when using foreachBatch()
+        href: /azure/databricks/kb/streaming/checkpoint-no-cleanup-foreachbatch
+        maintainContext: true 
       - name: Recovery after checkpoint or output directory   change
         href: /azure/databricks/kb/streaming/file-sink-streaming
         maintainContext: true 
@@ -1578,9 +1597,14 @@
     - name: Databricks Connect
       href: /azure/databricks/dev-tools/databricks-connect
       maintainContext: true
-    - name: CI/CD with Jenkins
-      href: /azure/databricks/dev-tools/ci-cd
-      maintainContext: true
+    - name: CI/CD
+      items:
+      - name: CI/CD with Azure DevOps
+        href: /azure/databricks/dev-tools/ci-cd/ci-cd-azure-devops
+        maintainContext: true
+      - name: CI/CD with Jenkins
+        href: /azure/databricks/dev-tools/ci-cd/ci-cd-jenkins
+        maintainContext: true
     - name: Manage dependencies in data pipelines
       href: /azure/databricks/dev-tools/data-pipelines
       maintainContext: true
@@ -1594,8 +1618,24 @@
         href: /azure/databricks/dev-tools/api/latest/examples
         maintainContext: true
       - name: Authentication
-        href: /azure/databricks/dev-tools/api/latest/authentication
-        maintainContext: true 
+        items:
+        - name: Personal access tokens
+          href: /azure/databricks/dev-tools/api/latest/authentication
+          maintainContext: true
+        - name: Azure Active Directory (AAD) tokens
+          items:
+          - name: AAD token authentication overview
+            href: /azure/databricks/dev-tools/api/latest/aad/index
+            maintainContext: true
+          - name: Get an AAD token using the AAD Authentication Library
+            href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
+            maintainContext: true
+          - name: Get an AAD token using a service principal
+            href: /azure/databricks/dev-tools/api/latest/aad/service-prin-aad-token
+            maintainContext: true
+          - name: Troubleshoot AAD access tokens
+            href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
+            maintainContext: true
       - name: Clusters
         href: /azure/databricks/dev-tools/api/latest/clusters
         maintainContext: true 
@@ -1618,7 +1658,15 @@
         href: /azure/databricks/dev-tools/api/latest/mlflow
         maintainContext: true
       - name: SCIM
-        href: /azure/databricks/dev-tools/api/latest/scim
+        items:
+          - name: SCIM API overview
+            href: /azure/databricks/dev-tools/api/latest/scim/index
+          - name: SCIM API (Me)
+            href: /azure/databricks/dev-tools/api/latest/scim/scim-me
+          - name: SCIM API (Users)
+            href: /azure/databricks/dev-tools/api/latest/scim/scim-users
+          - name: SCIM API (Groups)
+            href: /azure/databricks/dev-tools/api/latest/scim/scim-group
         maintainContext: true 
       - name: Secrets
         href: /azure/databricks/dev-tools/api/latest/secrets
@@ -1803,16 +1851,19 @@
         - name: Runtime releases
           href: /azure/databricks/release-notes/runtime/releases
           maintainContext: true
+        - name: Databricks Runtime 7.0 ML (Beta)
+          href: /azure/databricks/release-notes/runtime/7.0ml
+          maintainContext: true
         - name: Databricks Runtime 7.0 (Beta)
           href: /azure/databricks/release-notes/runtime/7.0
           maintainContext: true
-        - name: Databricks Runtime 6.5 (Beta)
+        - name: Databricks Runtime 6.5
           href: /azure/databricks/release-notes/runtime/6.5
           maintainContext: true
-        - name: Databricks Runtime 6.5 ML (Beta)
+        - name: Databricks Runtime 6.5 ML
           href: /azure/databricks/release-notes/runtime/6.5ml
           maintainContext: true
-        - name: Databricks Runtime 6.5 Genomics (Beta)
+        - name: Databricks Runtime 6.5 Genomics
           href: /azure/databricks/release-notes/runtime/6.5genomics
           maintainContext: true
         - name: Databricks Runtime 6.4

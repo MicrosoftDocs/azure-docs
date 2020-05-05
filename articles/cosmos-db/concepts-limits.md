@@ -65,7 +65,7 @@ You can [provision and manage your Azure Cosmos account](how-to-manage-database-
 > [!NOTE]
 > Regional failovers only apply to single region writes accounts. Multi-region write accounts do not require or have any limits on changing the write region.
 
-Cosmos DB automatically takes backups of your data at regular intervals. For details on backup retention intervals and windows, see [Online backup and on-demand data restore in Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Cosmos DB automatically takes backups of your data at regular intervals. For details on backup retention intervals and windows, see [Online backup and on-demand data restore in Azure Cosmos DB](online-backup-and-restore.md).
 
 ## Per-account limits
 
@@ -133,9 +133,9 @@ Cosmos DB uses HMAC for authorization. You can use either a master key, or a [re
 
 Cosmos DB supports execution of triggers during writes. The service supports a maximum of one pre-trigger and one post-trigger per write operation. 
 
-## Autopilot mode limits
+## Limits for autoscale provisioned throughput
 
-See the [Autopilot](provision-throughput-autopilot.md#autopilot-limits) article for the throughput and storage limits in autopilot mode.
+See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article for the throughput and storage limits with autoscale.
 
 ## SQL query limits
 

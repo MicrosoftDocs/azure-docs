@@ -1,5 +1,5 @@
 ---
-title: What is Video Indexer?
+title: What is Azure Media Services Video Indexer?
 titleSuffix: Azure Media Services
 description: This article gives an overview of the Azure Media Services Video Indexer service.
 services: media-services
@@ -9,11 +9,11 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/02/2020
+ms.date: 04/12/2020
 ms.author: juliako
 ---
 
-# What is Video Indexer?
+# What is Azure Media Services Video Indexer?
 
 Video Indexer (VI) is the Azure Media Services AI solution and part of the Azure Cognitive Services brand. Video Indexer provides ability to extract deep insights (with no need for data analysis or coding skills) using machine learning models based on multiple channels (voice, vocals, visual). You can further customize and train the models. The service enables deep search, reduces operational costs, enables new monetization opportunities, and creates new user experiences on large archives of videos (with low entry barriers).
 
@@ -66,9 +66,9 @@ The following list shows the insights you can retrieve from your videos using Vi
 
 ### Audio insights
 
-* **Automatic language detection**: Automatically identifies the dominant spoken language. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, and Brazilian Portuguese. If the language can't be identified with confidence, Video Indexer assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
+* **Audio transcription**: Converts speech to text in 12 languages and allows extensions. Supported languages include English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Arabic, Russian, Brazilian Portuguese, Hindi, and Korean.
+* **Automatic language detection**: Automatically identifies the dominant spoken language. Supported languages include English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Russian, and Brazilian Portuguese. If the language can't be identified with confidence, Video Indexer assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
 * **Multi-language speech identification and transcription** (preview): Automatically identifies the spoken language in different segments from audio. It sends each segment of the media file to be transcribed and then combines the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
-* **Audio transcription**: Converts speech to text in 12 languages and allows extensions. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Arabic, Russian, Brazilian Portuguese, Hindi, and Korean.
 * **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.
 * **Two channel processing**: Auto detects separate transcript and merges to single timeline.
 * **Noise reduction**: Clears up telephony audio or noisy recordings (based on Skype filters).

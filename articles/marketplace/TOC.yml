@@ -8,13 +8,6 @@
   - name: Commercial marketplace overview and benefits
     href: ./marketplace-publishers-guide.md
     items:
-#    - name: Become a publisher on the marketplace
-#      href: ./become-publisher.md
-#      items:
-#      - name: Create a Microsoft account
-#        href: ./guidelines.md
-#      - name: Register in Dev Center
-#        href: ./register-dev-center.md
     - name: One marketplace, two storefronts
       href: ./comparing-appsource-azure-marketplace.md
     - name: Publishing options and considerations
@@ -30,7 +23,7 @@
         href: ./standard-contract.md
       - name: Azure partner customer usage attribution
         href: ./azure-partner-customer-usage-attribution.md
-    - name: Publishing guide by offer type
+    - name: Publishing guides by offer type
       href: ./publisher-guide-by-offer-type.md
       items:
       - name: Virtual Machines
@@ -45,13 +38,13 @@
         href: ./marketplace-containers.md
       - name: IoT Edge modules
         href: ./iot-edge-module.md
-      - name: Consulting Service
+      - name: Consulting services
         href: ./consulting-services.md
-      - name: Office 365, Dynamics 365, and Power BI publishing guide
+      - name: Office 365, Dynamics 365, and Power BI
         href: ./appsource-offer-publishing-guide.md
       - name: Enable an AppSource and Marketplace listing by using Azure Active Directory
         href: ./enable-appsource-marketplace-using-azure-ad.md
-      - name: Integrated Solutions
+      - name: Integrated solutions
         href: ./integrated-solutions-for-publishers.md
     - name: Marketing best practices
       href: ./gtm-marketing-best-practices.md
@@ -67,8 +60,6 @@
     - name: Your marketplace benefits
       href: ./gtm-your-marketplace-benefits.md
       items:
-#      - name: Promote your business with Microsoft
-#        href: ./gtm-promote-your-business.md
       - name: Co-sell partner engagement
         href: ./marketplace-co-sell.md
       - name: Preferred solutions
@@ -78,7 +69,7 @@
     - name: Support for the commercial marketplace
       href: ./support-azure-marketplace.md
       items:
-      - name: Marketplace FAQs
+      - name: Marketplace FAQ
         href: ./marketplace-faq-publisher-guide.md
       - name: Geographic availability and currencies
         href: ./marketplace-geo-availability-currencies.md
@@ -87,6 +78,8 @@
   items:
   - name: Cloud Partner Portal migration to Partner Center
     href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
+  - name: Migration FAQ
+    href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
   - name: Portal Tour
     href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
     items:
@@ -448,7 +441,7 @@
       href: ./partner-center-portal/manage-account.md
     - name: Find or create a company work account
       href: ./partner-center-portal/company-work-accounts.md
-    - name: Account Migration from CPP to Partner Center
+    - name: Account migration from CPP to Partner Center
       href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
   - name: Create a new offer
     items:
@@ -456,6 +449,8 @@
       items:
         - name: Create an Azure application offer
           href: ./partner-center-portal/create-new-azure-apps-offer.md
+        - name: Azure application metered billing
+          href: ./partner-center-portal/azure-app-metered-billing.md
         - name: Handling review feedback
           href: ./partner-center-portal/azure-apps-review-feedback.md
         - name: API for onboarding
@@ -473,16 +468,16 @@
         - name: Create Azure VM technical asset
           items:
             - name: Create Azure VM technical asset
-              href: ./partner-center-portal/create-azure-container-technical-assets.md
+              href: ./partner-center-portal/create-azure-vm-technical-asset.md
             - name: Azure VM technical asset FAQ
               href: ./partner-center-portal/common-issues-during-vhd-creation.md
             - name: Certify Azure VM image
               href: ./partner-center-portal/azure-vm-image-certification.md
-            - name: SaS URI
+            - name: SAS URI
               items:
-                - name: Get SaS URI
+                - name: Get SAS URI
                   href: ./partner-center-portal/get-sas-uri.md
-                - name: SaS URI FAQ
+                - name: SAS URI FAQ
                   href: ./partner-center-portal/common-sas-uri-issues.md
     - name: Consulting services
       items: 
@@ -522,11 +517,6 @@
         href: ./partner-center-portal/create-new-saas-offer.md
       - name: SaaS metered billing
         href: ./partner-center-portal/saas-metered-billing.md
-        items:
-        - name: Marketplace metering service APIs - FAQ
-          href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-        - name: Marketplace metering service APIs
-          href: ./partner-center-portal/marketplace-metering-service-apis.md   
       - name: SaaS Fulfillment APIs
         href: ./partner-center-portal/pc-saas-fulfillment-apis.md
         items:
@@ -552,7 +542,15 @@
       - name: Marketo
         href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
       - name: Salesforce
-        href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md       
+        href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md 
+    - name: Marketplace metering service
+      items:
+        - name: Authentication strategies
+          href: ./partner-center-portal/marketplace-metering-service-authentication.md
+        - name: Marketplace metering service APIs
+          href: ./partner-center-portal/marketplace-metering-service-apis.md   
+        - name: Marketplace metering service APIs - FAQ
+          href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
     - name: Test Drive your offer
       href: ./partner-center-portal/test-drive.md
     - name: Co-sell option
@@ -566,6 +564,8 @@
     href: ./partner-center-portal/publishing-status.md
   - name: Update existing offers
     href: ./partner-center-portal/update-existing-offer.md
+  - name: Activate benefits
+    href: ./partner-center-portal/marketplace-rewards.md
   - name: Support options
     href: ./partner-center-portal/support.md
   - name: Partner Center Analytics
@@ -594,11 +594,13 @@
       href: ./partner-center-portal/get-paid.md
     - name: Set up your payout account and tax forms
       href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
-    - name: Billing details
-      href: ./partner-center-portal/billing-details.md
-    - name: Payment thresholds, methods, and time frames
+    - name: Payment thresholds, methods, and time-frames
       href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
-    - name: Payout summary
+    - name: Payout summary overview
+      href: ./partner-center-portal/payout-summary-overview.md
+    - name: Payout summaries
       href: ./partner-center-portal/payout-summary.md
+    - name: Payout policy details
+      href: ./partner-center-portal/payout-policy-details.md
     - name: Tax details
       href: ./partner-center-portal/tax-details-paid-transactions.md
