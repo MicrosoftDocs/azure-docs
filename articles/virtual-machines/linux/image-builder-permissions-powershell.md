@@ -153,11 +153,11 @@ New-AzRoleDefinition -InputFile $role_definition
 
 Next, assign the custom role to Azure Image Builder service principal name to grant permission.
 
-```powershell
+```powershell-interactive
 $parameters = @{
     ObjectId = 'ef511139-6170-438e-a6e1-763dc31bdf74'
     RoleDefinitionName = 'Azure Image Builder Service Image Creation Role'
-    Scope = '/subscriptions/$sub_id/resourceGroups/$res_group'
+    Scope = '/subscriptions/' + $sub_id + '/resourceGroups/' + $res_group
 }
 
 New-AzRoleAssignment @parameters
@@ -228,7 +228,7 @@ Next, assign the custom role to Azure Image Builder service principal name to gr
 $parameters = @{
     ObjectId = 'ef511139-6170-438e-a6e1-763dc31bdf74'
     RoleDefinitionName = 'Azure Image Builder Service Networking Role'
-    Scope = '/subscriptions/$sub_id/resourceGroups/$res_group'
+    Scope = '/subscriptions/' + $sub_id + '/resourceGroups/' + $res_group
 }
 
 New-AzRoleAssignment @parameters
