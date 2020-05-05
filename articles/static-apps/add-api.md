@@ -151,13 +151,11 @@ After you've verified that the function runs correctly, you can call the API fro
 
 ### Call the API from the application
 
-1. TODO: include local proxy config docs once they are ready
+[!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
 
-```
-[!INCLUDE [](./static-web-apps-local-proxy.md)]
-```
 
-2. Next, update the content of the _index.html_ file with the following code to fetch the text from the API function and display it on the screen:
+#### Update files to access the API
+1. Next, update the content of the _index.html_ file with the following code to fetch the text from the API function and display it on the screen:
 
 ```html
 <!DOCTYPE html>
@@ -189,7 +187,7 @@ After you've verified that the function runs correctly, you can call the API fro
 
 With Core Tools running, use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Visual Studio Code extension to serve the _index.html_ file and open it a in browser. 
 
-3. Press **F1** and choose **Live Server: Open with Live Server**.
+2. Press **F1** and choose **Live Server: Open with Live Server**.
 
 :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
