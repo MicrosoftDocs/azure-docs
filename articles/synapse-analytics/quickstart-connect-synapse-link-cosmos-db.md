@@ -37,7 +37,7 @@ From the Data Object Explorer, you can directly connect an Azure Cosmos DB datab
 4. Select ***Continue***
 5. Name the linked service. The name will be displayed in the Object Explorer and used by Synapse run-times to connect to the database and containers. We recommend using a friendly name.
 6. Select the **Cosmos DB account name** and **database name**
-7. We recommend to set which region you want your users to access Cosmos DB analytical store so they don't need to specify that region when using Spark or SQL. Select **Additional connection properties** and then **New**. Under **Property Name**, write ***PreferredRegions*** and set the **Value** to the region you want (example: WestUS2, there is no space between words and number)
+7. (Optional) If no region is specified, Synapse run-time operations will be routed toward the nearest region where the analytical store is enabled. However you can set manually which region you want your users to access Cosmos DB analytical store. Select **Additional connection properties** and then **New**. Under **Property Name**, write ***PreferredRegions*** and set the **Value** to the region you want (example: WestUS2, there is no space between words and number)
 8. Select ***Create***
 
 Azure Cosmos DB database are visible under the tab **Linked** in the Azure Cosmos DB section. You can differentiate an HTAP enabled Azure Cosmos DB container from an OLTP only container with the following icons:
