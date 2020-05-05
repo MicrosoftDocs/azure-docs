@@ -1,7 +1,7 @@
 ---
-title: 'C# Tutorial: Optimize Indexing with the Push API'
+title: 'C# Tutorial: Optimize indexing with the push API'
 titleSuffix: Azure Cognitive Search
-description: Learn how to efficiently index data using Azure Cognitive Search's Push API and an exponential backoff retry strategy. This tutorial and sample code are in C#.
+description: Learn how to efficiently index data using Azure Cognitive Search's push API. This tutorial and sample code are in C#.
 
 manager: liamca
 author: dereklegenzoff
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ---
 
-# Tutorial: Optimize Indexing with the Push API
+# Tutorial: Optimize indexing with the push API
 
 Azure Cognitive Search supports [two basic approaches](https://docs.microsoft.com/en-us/azure/search/search-what-is-data-import) for importing data into a search index: *pushing* your data into the index programmatically, or pointing an [Azure Cognitive Search indexer](https://docs.microsoft.com/en-us/azure/search/search-indexer-overview) at a supported data source to *pull* in the data.
 
