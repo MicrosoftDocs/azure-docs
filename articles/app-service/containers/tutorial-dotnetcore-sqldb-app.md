@@ -74,7 +74,7 @@ To stop .NET Core at any time, press `Ctrl+C` in the terminal.
 
 ## Create a database in Azure SQL Database
 
-In this step, you create a database in [Azure SQL Database](../sql-database/). When your app is deployed to Azure, it uses this database.
+In this step, you create a database in [Azure SQL Database](/azure/sql-database/). When your app is deployed to Azure, it uses this database.
 
 ### Create a resource group
 
