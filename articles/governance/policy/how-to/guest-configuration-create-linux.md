@@ -316,9 +316,9 @@ files.
 
 > [!Note]
 > The latest Guest Configuration module includes a new parameters:
-> - `-Tag` adds one or more tag filters to the policy definition
+> - **Tag** adds one or more tag filters to the policy definition
 >   - See the section [Filtering Guest Configuration policies using Tags](#filtering-guest-configuration-policies-using-tags).
-> - `-Category` sets the category metadata field in the policy definition
+> - **Category** sets the category metadata field in the policy definition
 >   - If the parameter is not included, the category will default to Guest Configuration.
 > These features are currently in preview and require Guest Configuration module
 > version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
@@ -474,7 +474,7 @@ updated.
 > version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
 
 The policies created by cmdlets in the Guest Configuration module can optionally include
-a filter for tags. The `-Tag` parameter of `New-GuestConfigurationPolicy` supports
+a filter for tags. The **-Tag** parameter of `New-GuestConfigurationPolicy` supports
 an array of hashtables containing individual tag entires. The tags will be added
 to the `If` section of the policy definition and cannot be modified by a policy assignment.
 

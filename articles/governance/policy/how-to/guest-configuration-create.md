@@ -384,9 +384,9 @@ files.
 
 > [!Note]
 > The latest Guest Configuration module includes a new parameters:
-> - `-Tag` adds one or more tag filters to the policy definition
+> - **Tag** adds one or more tag filters to the policy definition
 >   - See the section [Filtering Guest Configuration policies using Tags](#filtering-guest-configuration-policies-using-tags).
-> - `-Category` sets the category metadata field in the policy definition
+> - **Category** sets the category metadata field in the policy definition
 >   - If the parameter is not included, the category will default to Guest Configuration.
 > These features are currently in preview and require Guest Configuration module
 > version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
@@ -450,7 +450,7 @@ New-AzRoleDefinition -Role $role
 > version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
 
 The policies created by cmdlets in the Guest Configuration module can optionally include
-a filter for tags. The `-Tag` parameter of `New-GuestConfigurationPolicy` supports
+a filter for tags. The **Tag** parameter of `New-GuestConfigurationPolicy` supports
 an array of hashtables containing individual tag entires. The tags will be added
 to the `If` section of the policy definition and cannot be modified by a policy assignment.
 
@@ -543,7 +543,7 @@ Community solutions can be discovered by searching the PowerShell Gallery for ta
 > party tools before use.
 
 After the DSC resource has been installed in the development environment, use the
-`-FilesToInclude` parameter for `New-GuestConfigurationPackage` to include
+**FilesToInclude** parameter for `New-GuestConfigurationPackage` to include
 content for the third-party platform in the content artifact.
 
 ### Step by step, creating a content artifact that uses third-party tools
@@ -632,12 +632,12 @@ Run the You should now have a project structure as below:
             wmi_service.rb 
 ```
 
-The supporting files must be packaged together. The completed package is used by Guest Configuration
-to create the Azure Policy definitions.
+The supporting files must be packaged together. The completed package is used by
+Guest Configuration to create the Azure Policy definitions.
 
-The `New-GuestConfigurationPackage` cmdlet creates the package. For third-party content, use the
-`-FilesToInclude` parameter to add the InSpec content to the package. You do not need to specify the `-ChefProfilePath`
-as for Linux packages.
+The `New-GuestConfigurationPackage` cmdlet creates the package. For third-party
+content, use the **FilesToInclude** parameter to add the InSpec content to the
+package. You do not need to specify the **ChefProfilePath** as for Linux packages.
 
 - **Name**: Guest Configuration package name.
 - **Configuration**: Compiled configuration document full path.
@@ -645,7 +645,8 @@ as for Linux packages.
   in current directory.
 - **FilesoInclude**: Full path to InSpec profile.
 
-Run the following command to create a package using the configuration given in the previous step:
+Run the following command to create a package using the configuration given in
+the previous step:
 
 ```azurepowershell-interactive
 New-GuestConfigurationPackage `
