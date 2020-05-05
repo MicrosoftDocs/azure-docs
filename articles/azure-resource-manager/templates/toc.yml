@@ -291,7 +291,7 @@
     items:
     - name: All functions
       href: template-functions.md
-    - name: Array and object functions
+    - name: Array functions
       href: template-functions-array.md
     - name: Comparison functions
       href: template-functions-comparison.md
@@ -303,6 +303,8 @@
       href: template-functions-logical.md
     - name: Numeric functions
       href: template-functions-numeric.md
+    - name: Object functions
+      href: template-functions-object.md
     - name: Resource functions
       href: template-functions-resource.md
     - name: String functions

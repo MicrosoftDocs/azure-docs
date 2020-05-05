@@ -18,7 +18,7 @@ ms.author: pafarley
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* The latest version of the [.NET Core SDK](https://dotnet.microsoft.com/download/).
 
 ## Setting up
 
@@ -37,13 +37,13 @@ Create a new .NET Core application in your preferred editor or IDE.
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `computer-vision-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *ComputerVisionQuickstart.cs*.
 
-```console
+```dotnetcli
 dotnet new console -n computer-vision-quickstart
 ```
 
 Change your directory to the newly created app folder. You can build the application with:
 
-```console
+```dotnetcli
 dotnet build
 ```
 
@@ -69,7 +69,7 @@ In the application's **Program** class, create variables for your resource's Azu
 
 Within the application directory, install the Computer Vision client library for .NET with the following command:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 5.0.0
 ```
 
@@ -248,7 +248,7 @@ Add the following code to parse and display the retrieved text data, and finish 
 
 Run the application from your application directory with the `dotnet run` command.
 
-```dotnet
+```dotnetcli
 dotnet run
 ```
 

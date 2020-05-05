@@ -131,7 +131,7 @@ For more information about optimizing your network, see [Network topology consid
 
 Connectors can run on a machine that is not domain-joined. However, if you want single sign-on (SSO) to applications that use Integrated Windows Authentication (IWA), you need a domain-joined machine. In this case, the connector machines must be joined to a domain that can perform [Kerberos](https://web.mit.edu/kerberos) Constrained Delegation on behalf of the users for the published applications.
 
-Connectors can also be joined to domains or forests that have a partial trust, or to read-only domain controllers.
+Connectors can also be joined to domains in forests that have a partial trust, or to read-only domain controllers.
 
 ## Connector deployments on hardened environments
 
