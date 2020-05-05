@@ -205,7 +205,7 @@ Using Visual Studio Code, commit and push your changes to the remote git reposit
 
 ## Create a static web app
 
-:::image type="content" source="media/add-api/create-static-app-on-azure-portal-1.png" alt-text="Create static app on Azure Portal - screen 1":::
+:::image type="content" source="media/add-api/create-static-app-on-azure-portal-1.png" alt-text="Create static app on the Azure portal - screen 1":::
 
 1. Navigate to the [Azure portal](https://portal.azure.com)
 1. Type **Static Web Apps** in the top search bar
@@ -222,7 +222,7 @@ Using Visual Studio Code, commit and push your changes to the remote git reposit
 1. Select **master** from the _Branch_ drop-down
 1. Click the **Next: Build >** button to edit the build configuration
 
-:::image type="content" source="media/add-api/create-static-app-on-azure-portal-2.png" alt-text="Create static app on Azure Portal - screen 2":::
+:::image type="content" source="media/add-api/create-static-app-on-azure-portal-2.png" alt-text="Create static app on the Azure portal - screen 2":::
 
 Next, add the following the build details.
 
@@ -238,7 +238,7 @@ Next, add the following the build details.
 |  Api location | The location of the API backend. This points to the root folder of the Azure Functions App project | No |
 |  App artifact location | The location of of the build output folder. Some front-end JavaScript frameworks have a build step that places production files in a folder. This setting points to the build output folder. | No |
 
-:::image type="content" source="media/add-api/create-static-app-on-azure-portal-3.png" alt-text="Create static app on Azure Portal - screen 3":::
+:::image type="content" source="media/add-api/create-static-app-on-azure-portal-3.png" alt-text="Create static app on the Azure portal - screen 3":::
 
 1. Click **Create**
 1. Wait for deployment to finish (this may take a minute)
@@ -251,9 +251,9 @@ The deployed API will be available at `https://<STATIC_APP_NAME>.azurestaticapps
 
 :::image type="content" source="media/add-api/github-workflow-1.png" alt-text="GitHub Workflow":::
 
-You can also find the application URL from the Azure Portal:
+You can also find the application URL from the Azure portal:
 
-:::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Access static app URL from Azure Portal":::
+:::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Access static app URL from the Azure portal":::
 
 Alternatively you can directly access your Azure Static Web App at `https://<STATIC_APP_NAME>.azurestaticapps.net` and check the result in the browser.
 
