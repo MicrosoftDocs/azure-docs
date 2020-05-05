@@ -14,7 +14,7 @@ ms.date: 12/11/2019
 This article provides information on the Ratings & Reviews dashboard in Partner Center. This dashboard displays a consolidated view of customer feedback for offers on Microsoft AppSource and Azure Marketplace. As customers browse, search, and purchase offers in both marketplaces, they can leave ratings and reviews for the offers they've acquired.
 
 - Customers can submit a new rating or review and update or delete an existing rating or review they have submitted. Customers can make changes only to the ratings and reviews they own.  
-- Reviews are posted on the Reviews tab on the product display page of the offer in Azure marketplace or AppSource. Customers can include their name or post anonymously.  
+- Reviews are posted on the Reviews tab on the product display page of the offer in Azure Marketplace or AppSource. Customers can include their name or post anonymously.  
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
