@@ -37,7 +37,7 @@ When you subscribe to the [Event Grid](https://docs.microsoft.com/azure/event-gr
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. |
 | MPE_INGEST_FRAMERATE_EXCEEDED | The incoming encoder ingested streams with framerates exceeded the maximum allowed 30fps for encoding live events/channels.|
 | MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | The incoming encoder ingested streams exceeded the following allowed resolutions: 1920x1088 for encoding live events/channels and 4096 x 2160 for pass-through live events/channels.|
-| MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV | Too many FLV tags in the internal buffer are waiting to be processed. For video data, a typical cause is that the key frames did not arrive in time. LiveEvent server may disconnect from the contribution encoder. The contribution encoder should reconnect and ensure key frames are sent with less than 20 seconds in GOP length. |
+| MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV | The live event has received a large amount of audio data at once, or a large amount of video data without any key frames. We have disconnected the encoder in order to give it a chance to retry with correct data. |
 
 ## LiveEventEncoderDisconnected
 
