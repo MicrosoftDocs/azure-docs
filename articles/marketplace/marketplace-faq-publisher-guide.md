@@ -160,7 +160,7 @@ The commercial marketplace doesn’t have the ability to specify margin for rese
 
 ### How does geographic availability work with resellers?
 
-The availability of your offers and plans is defined by the customer’s billing location. So, resellers first select the customer they’re selling to and then select your offer. If the customer is in an unsupported location, your offer won’t be available to them.
+The availability of your offers and plans is defined by customers' billing locations. Resellers first select the customers they’re selling to and then select your offer. If a customer is in an unsupported location, your offer won’t be available to them.
 
 ## Billing capabilities
 
