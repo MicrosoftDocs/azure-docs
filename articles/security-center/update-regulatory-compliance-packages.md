@@ -15,28 +15,35 @@ ms.date: 11/04/2019
 ms.author: memildin
 
 ---
-# Using dynamic compliance packages in your Regulatory Compliance dashboard
+# Customizing the set of standards in your regulatory compliance dashboard
 
 Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance controls and requirements.
 
-With the **dynamic compliance packages** feature, Security Center *automatically improves its coverage of industry standards over time*. 
 
-One standard for which you can track your compliance posture is [Azure CIS 1.1.0](https://www.cisecurity.org/benchmark/azure/) (more formally, the "CIS Microsoft Azure Foundations Benchmark version 1.1.0"). The representation of Azure CIS that initially appears in your compliance dashboard relies on a static set of rules that is included with Security Center.
+## Overview of compliance packages
 
-Compliance packages are essentially initiatives defined in Azure Policy. They can be assigned to your selected scope (subscription, management group, and so on). To see compliance data mapped as assessments in your dashboard, add a compliance package to your management group or subscription from within the Security Policy. Adding a compliance package effectively assigns the regulatory compliance initiative to your selected scope. In this way, you can track newly published regulatory initiatives as compliance standards in your dashboard. When Microsoft releases new content for the initiative (new policies that map to more controls in the standard), the additional content appears automatically in your dashboard.
+Compliance 'packages' are essentially initiatives defined in Azure Policy. To see compliance data mapped as assessments in your dashboard, add a compliance package to your management group or subscription from within the **Security policy** page. 
 
-The dynamic compliance package for the Azure CIS benchmark, **Azure CIS 1.1.0 (new)**, improves on the original *static* version by:
+Adding a compliance package effectively assigns the regulatory compliance initiative to your selected scope. In this way, you can track newly published regulatory initiatives as compliance standards in your dashboard. 
 
-* Including more policies
-* Automatically updating with new coverage as it's added 
+When you've onboarded a standard or benchmark, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. You can also download summary reports for any of the standards that have been onboarded.
 
-Update to the new dynamic package as described below.
+Microsoft also tracks the regulatory standards themselves and automatically improves its coverage in some of the packages over time. When Microsoft releases new content for the initiative (new policies that map to more controls in the standard), the additional content appears automatically in your dashboard.
 
-## Adding a dynamic compliance package
+> [!TIP]
+> One standard which improves over time as Microsoft releases new content is **Azure CIS 1.1.0 (new)** (more formally, the [CIS Microsoft Azure Foundations Benchmark version 1.1.0](https://www.cisecurity.org/benchmark/azure/)). You'll need to add this to your dashboard alongside "Azure CIS 1.1.0", the representation of Azure CIS that is configured by default in every Security Center environment. That package relies on a static set of rules. The newer package includes more policies and will automatically update over time. Update to the new dynamic package as described below.
 
-The following steps explain how to add the dynamic package for monitoring your compliance with the Azure CIS benchmark v1.1.0.   
 
-### Update to the Azure CIS 1.1.0 (new) dynamic compliance package 
+## Available packages
+
+You can add standards such as NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official and UK NHS, Canada Federal PBMM, and Azure CIS 1.1.0 (new) (which is a more complete representation of Azure CIS 1.1.0). 
+
+In addition, you can add Azure Security Benchmark, the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
+
+
+## Adding a regulatory standard to your dashboard
+
+The following steps explain how to add a package to monitor your compliance with one of the supported regulatory standards.
 
 1. From Security Center's sidebar, select **Regulatory compliance** to open the regulatory compliance dashboard. Here you can see the compliance standards currently assigned to the currently selected subscriptions.   
 
@@ -47,9 +54,9 @@ The following steps explain how to add the dynamic package for monitoring your c
     > [!TIP]
     > We recommend selecting the highest scope for which the standard is applicable so that compliance data is aggregated and tracked for all nested resources. 
 
-1. In the Industry & regulatory standards section, you'll see that Azure CIS 1.1.0 can be updated for new content. Click **Update now**. 
+1. To update Azure CIS 1.1.0 with new content, select **Update now** alongside it in the Industry & regulatory standards section. 
 
-1. Optionally, click **Add more standards** to open the **Add regulatory compliance standards** page. There, you can search manually for **Azure CIS 1.1.0 (New)** and dynamic packages for other compliance standards such as:
+1. Optionally, click **Add more standards** to open the **Add regulatory compliance standards** page. There, you can search manually for packages for any of the available standards. These include:
 
     - **Azure Security Benchmark** ([details here](https://docs.microsoft.com/azure/security/benchmarks/introduction))
     - **NIST SP 800-53 R4**
@@ -64,8 +71,8 @@ The following steps explain how to add the dynamic package for monitoring your c
 
 
 1. From Security Center's sidebar, select **Regulatory compliance** again to go back to the regulatory compliance dashboard.
-    * **Azure CIS 1.1.0 (New)** now appears in your list of Industry & regulatory standards. 
-    * The original *static* view of your Azure CIS 1.1.0 compliance will also remain alongside it. It may be automatically removed in the future.
+    * Your new standard appears in your list of Industry & regulatory standards. 
+    * If you've added **Azure CIS 1.1.0 (New)**, the original *static* view of your Azure CIS 1.1.0 compliance will also remain alongside it. It may be automatically removed in the future.
 
     > [!NOTE]
     > It may take a few hours for a newly added standard to appear in the compliance dashboard.
