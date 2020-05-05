@@ -47,3 +47,5 @@
     href: features.md
   - name: Track data changes
     href: track-data-changes.md
+  - name: Configure SQL Edge
+    href: configure.md
