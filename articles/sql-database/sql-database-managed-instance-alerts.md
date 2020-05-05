@@ -109,11 +109,11 @@ The following managed instance metrics are available for alerting configuration:
 ## Verifying alerts
 
 > [!NOTE]
-> To supress noisy alerts, see [Supression of alerts using action rules](../azure-monitor/platform/alerts-action-rules#suppression-of-alerts.md)
+> To supress noisy alerts, see [Supression of alerts using action rules](../azure-monitor/platform/alerts-action-rules#suppression-of-alerts.md).
 
 Upon setting up an alerting rule, verify that you are satisfied with the alerting trigger and its frequency. For the example shown on this page for setting up an alert on storage space used, if your alerting option was email, you might receive email such is the one shown below. The email shows the alert name, details of the threshold and why the alert was triggered helping you to verify and troubleshoot your alert. You can use **See in Azure portal** button to view this alert in the web browser. 
 
-      ![alert_example](media/sql-database-managed-instance-alerts/mi-email-alert-example-smaller-annotated.png)
+   ![alert_example](media/sql-database-managed-instance-alerts/mi-email-alert-example-smaller-annotated.png)
 
 ## View, modify and delete existing alert rules
 
