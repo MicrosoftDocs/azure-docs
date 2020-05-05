@@ -55,7 +55,7 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 | **Required package** | **Description** | **Minimum version**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C Library| 2.5-12 |
-|Openssl| OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported|
+|Openssl| OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported)|
 |Curl | cURL web client | 7.15.5|
 |Python-ctypes | Python 2.x is required |
 |PAM | Pluggable Authentication Modules|
@@ -117,7 +117,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 ## Remove a Hybrid Worker group
 
-To remove a Hybrid Runbook Worker group of Linux computers, you use the same steps as for a Windows hybrid worker group. See Remove a Hybrid Worker group (automation-windows-hrw-install.md#remove-a-hybrid-worker-group)
+To remove a Hybrid Runbook Worker group of Linux computers, you use the same steps as for a Windows hybrid worker group. See [Remove a Hybrid Worker group](automation-windows-hrw-install.md#remove-a-hybrid-worker-group).
 
 ## Next steps
 
