@@ -109,7 +109,7 @@ traceflag1 = 3605
 traceflag2 = 1204
 ```
 
-## Next Step
+## Next step
 
 - [Connect to Azure SQL Edge](connect.md)
 - [Building an end-to-end IoT solution with SQL Edge](onnx-demo.md)
