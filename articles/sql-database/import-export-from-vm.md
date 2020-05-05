@@ -14,7 +14,7 @@ ms.date: 01/08/2020
 ---
 # Import or export an Azure SQL Database without allowing Azure services to access the server
 
-This article shows you how to import or export an Azure SQL Database when *Allow Azure Services* is set to *OFF* on the Azure SQL server. The workflow uses an Azure virtual machine to run SqlPackage to perform the import or export operation.
+This article shows you how to import or export an Azure SQL Database when *Allow Azure Services* is set to *OFF* on the Azure SQL Database server. The workflow uses an Azure virtual machine to run SqlPackage to perform the import or export operation.
 
 ## Sign in to the Azure portal
 
@@ -33,14 +33,13 @@ This template allows you to deploy a simple Windows virtual machine using a few 
 
 For more information, see [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows).
 
-
 ## Connect to the virtual machine
 
 The following steps show you how to connect to your virtual machine using a remote desktop connection.
 
 1. After deployment completes, go to the virtual machine resource.
 
-    ![VM](./media/import-export-from-vm/vm.png)  
+   ![VM](./media/import-export-from-vm/vm.png)  
 
 2. Select **Connect**.
 
@@ -61,20 +60,15 @@ The following steps show you how to connect to your virtual machine using a remo
 
 8. You might receive a certificate warning during the sign-in process. Choose **Yes** or **Continue** to proceed with the connection.
 
-
-
 ## Install SqlPackage
 
 [Download and install the latest version of SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
-
-
-
 
 For additional information, see [SqlPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage).
 
 ## Create a firewall rule to allow the VM access to the database
 
-Add the virtual machine's public IP address to the Azure SQL Database logical server's firewall.
+Add the virtual machine's public IP address to the server's firewall.
 
 The following steps create a server-level IP firewall rule for your virtual machine's public IP address and enables connectivity from the virtual machine.
 
@@ -90,11 +84,9 @@ The following steps create a server-level IP firewall rule for your virtual mach
 
 4. Choose **Add client IP** on the toolbar to add your virtual machine's public IP address to a new server-level IP firewall rule. A server-level IP firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-5. Select **Save**. A server-level IP firewall rule is created for your virtual machine's public IP address opening port 1433 on the logical server.
+5. Select **Save**. A server-level IP firewall rule is created for your virtual machine's public IP address opening port 1433 on the server.
 
 6. Close the **Firewall settings** page.
-
-
 
 ## Export a database using SqlPackage
 
@@ -107,9 +99,6 @@ This example shows how to export a database using SqlPackage.exe with Active Dir
 ```cmd
 SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=<servername>.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"
 ```
-
-
-
 
 ## Import a database using SqlPackage
 
@@ -124,7 +113,7 @@ sqlpackage.exe /a:import /tcs:"Data Source=<serverName>.database.windows.net;Ini
 ```
 
 > [!IMPORTANT]
-> To connect to the logical server managing a single database from behind a corporate firewall, the firewall must have port 1433 open. To connect to an Azure SQL Managed Instance, you must have a [point-to-site connection](sql-database-managed-instance-configure-p2s.md) or an express route connection.
+> To connect to tAzure SQL Database from behind a corporate firewall, the firewall must have port 1433 open.
 
 This example shows how to import a database using SqlPackage with Active Directory Universal Authentication.
 
@@ -140,14 +129,14 @@ To get the best performance you can try the following strategies:
 
 1. Make sure no other workload is running on the database. Create a copy before export may be the best solution to ensure no other workloads are running.
 2. Increase database service level objective (SLO) to better handle the export workload (primarily read I/O). If the database is currently GP_Gen5_4, perhaps a Business Critical tier would help with read workload.
-3. Make sure there are clustered indexes particularly for large tables. 
+3. Make sure there are clustered indexes particularly for large tables.
 4. Virtual machines (VMs) should be in the same region as the database to help avoid network constraints.
 5. VMs should have SSD with adequate size for generating temp artifacts before uploading to blob storage.
 6. VMs should have adequate core and memory configuration for the specific database.
 
 ## Store the imported or exported .BACPAC file
 
-The .BACPAC file can be stored in [Azure Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview), or [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction). 
+The .BACPAC file can be stored in [Azure Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview), or [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
 To achieve the best performance, use Azure Files. SqlPackage operates with the filesystem so it can access Azure Files directly.
 
