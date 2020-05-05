@@ -81,6 +81,8 @@
       href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
     - name: Manage fault domains in scale sets
       href: virtual-machine-scale-sets-manage-fault-domains.md
+  - name: Images
+    href: shared-image-galleries.md
   - name: VM types and sizes
     href: ../virtual-machines/windows/sizes.md
     maintainContext: true
@@ -184,6 +186,52 @@
       href: virtual-machine-scale-sets-design-overview.md
     - name: Understand instance IDs
       href: virtual-machine-scale-sets-instance-ids.md
+
+  - name: Use Images
+    displayName: SIG, AMI, image
+    items:
+    - name: Shared Image Galleries
+      items:
+      - name: PowerShell
+        items:
+        - name: Create a gallery
+          href: ../virtual-machines/shared-images-powershell.md
+        - name: Create an image 
+          items:
+          - name: From a VM
+            href: ../virtual-machines/image-version-vm-powershell.md
+          - name: Migrate from a managed image
+            href: ../virtual-machines/image-version-managed-image-powershell.md
+          - name: Copy from another gallery
+            href: ../virtual-machines/image-version-another-gallery-powershell.md             
+        - name: Create a scale-set
+          items:
+          - name: Specialized
+            href: instance-specialized-image-version-powershell.md
+          - name: Generalized
+            href: instance-generalized-image-version-powershell.md
+        - name: Update image resources
+          href: ../virtual-machines/update-image-resources-powershell.md
+      - name: CLI
+        items:
+        - name: Create a gallery
+          href: ../virtual-machines/shared-images-cli.md
+        - name: Create an image
+          items:
+          - name: From a VM
+            href: ../virtual-machines/image-version-vm-cli.md
+          - name: Migrate from a managed image
+            href: ../virtual-machines/image-version-managed-image-cli.md 
+          - name: Copy from another gallery
+            href: ../virtual-machines/image-version-another-gallery-cli.md
+        - name: Create a scale-set
+          items:
+          - name: Specialized
+            href: instance-specialized-image-version-cli.md
+          - name: Generalized
+            href: instance-generalized-image-version-cli.md
+        - name: Update image resources
+          href: ../virtual-machines/update-image-resources-cli.md
   - name: Create a template
     items:
     - name: Learn about scale set templates
