@@ -63,6 +63,9 @@ The route query, data source, symbol, line layers, and camera bounds are created
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Best practices for using the routing service](how-to-use-best-practices-for-search.md)
+
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
