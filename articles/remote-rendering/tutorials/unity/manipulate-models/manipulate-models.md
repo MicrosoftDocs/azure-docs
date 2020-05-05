@@ -56,19 +56,32 @@ With the introduction of MRTK, there are a number of scripts, prefabs, and asset
 
 Most of view controllers in this tutorial operate against abstract base classes instead of against concrete classes. This pattern provides better flexibility and allows the tutorial to provide the view controllers for you, while still allowing you to implement and learn the Azure Remote Rendering specific code yourself. For the simplicity of the tutorial, the **RemoteRenderingCoordinator** class does not have an abstract class provided and its view controller operates directly against the concrete class.
 
-An abstract class has been provided for the **RemoteRenderedModel** script we created in a previous tutorial. To enable the view controller for models, modify the **RemoteRenderedModel** script to implement the abstract class by adding `IRemoteRenderedModel` to the class signature. It should look as follows:
+An abstract class has been provided for the **RemoteRenderedModel** script we created in a previous tutorial. To enable the view controller for models, modify the **RemoteRenderedModel** script to implement the abstract class by replacing `MonoBehaviour` with `BaseRemoteRenderedModel` in the class signature. It should look as follows when complete:
 
 ```csharp
 public class RemoteRenderedModel : BaseRemoteRenderedModel
 ```
 
-This modification allows the view controller to operate against the **RemoteRenderedModel** component.
+Then you'll need to add the `override` modifier to the properties and methods defined in `BaseRemoteRenderedModel`. These properties and methods are already defined in our code, but need the `override` modifier to make the compiler happy. Insert the `override` modifier just after the scope (for example: `public`) on each of the properties and methods listed indie the `BaseRemoteRenderedModel` class. Those signatures for those properties and methods should look like the following when complete:
+
+
+- `public override string ModelDisplayName`
+- `public override string ModelPath`
+- `public override ModelState CurrentModelState`
+- `public override Entity ModelEntity`
+- `public override event Action<float> LoadProgress`
+- `public override event Action<ModelState> ModelStateChange`
+- `public override void SetLoadingProgress(float progressValue)`
+- `public override void LoadModel()`
+- `public override void UnloadModel()`
+
+This modification allows the view controller to view and control the **RemoteRenderedModel** component.
 
 You can now add the prefab **RemoteRenderingViewController** to the scene, for visual feedback of the current session state.
 
 ## Query remote object bounds and apply to local bounds
 
-To interact with remote objects, we need a local representation to interact with first. The [objects bounds](../../../concepts/object-bounds.md) are useful for quick manipulation of a remote object. We can query the bounds of a remotely rendered model from the current session, using the entity object created when loading a remotely rendered model. The bounds are queried after the model has been loaded into the remote session. The bounds of a model defined by the box or cuboid that contains the entire model. Exactly like Unity's [**BoxCollider**](https://docs.unity3d.com/Manual/class-BoxCollider.html), which has a center and size defined for the x,y,z axes. In fact, we'll use Unity's **BoxCollider** to represent the bounds of the remote model.
+To interact with remote objects, we need a local representation to interact with first. The [objects bounds](../../../concepts/object-bounds.md) are useful for quick manipulation of a remote object. We can query the bounds of a remotely rendered model from the current session, using the entity object created when loading a remotely rendered model. The bounds are queried after the model has been loaded into the remote session. The bounds of a model are defined by the box or cuboid that contains the entire model. Exactly like Unity's [**BoxCollider**](https://docs.unity3d.com/Manual/class-BoxCollider.html), which has a center and size defined for the x,y,z axes. In fact, we'll use Unity's **BoxCollider** to represent the bounds of the remote model.
 
 1. Create a new script in the same directory as **RemoteRenderedModel** and name it **RemoteBounds**.
 2. Replace the contents of the script with the following code:
@@ -81,19 +94,12 @@ using Microsoft.Azure.RemoteRendering;
 using Microsoft.Azure.RemoteRendering.Unity;
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(BaseRemoteRenderedModel))]
 public class RemoteBounds : BaseRemoteBounds
 {
     //Remote bounds works with a specific remotely rendered model
     private BaseRemoteRenderedModel targetModel = null;
-
-    //Update a bounding box with the remote bounds
-    [HideInInspector]
-    public BoxCollider boxCollider = null;
-
-    public override BoxCollider BoundsBoxCollider => boxCollider;
 
     private BoundsQueryAsync remoteBoundsQuery = null;
 
@@ -107,35 +113,20 @@ public class RemoteBounds : BaseRemoteBounds
             if (currentBoundsState != value)
             {
                 currentBoundsState = value;
-                OnBoundsStateChange?.Invoke(value);
+                BoundsStateChange?.Invoke(value);
             }
         }
     }
 
-    public override event Action<RemoteBoundsState> OnBoundsStateChange;
+    public override event Action<RemoteBoundsState> BoundsStateChange;
 
-    public UnityEvent OnBoundsReady = new UnityEvent();
-    public UnityEvent OnBoundsNotReady = new UnityEvent();
     public void Awake()
     {
-        OnBoundsStateChange += HandleUnityEvents;
+        BoundsStateChange += HandleUnityEvents;
         targetModel = GetComponent<BaseRemoteRenderedModel>();
 
-        targetModel.OnModelStateChange += TargetModel_OnModelStateChange;
+        targetModel.ModelStateChange += TargetModel_OnModelStateChange;
         TargetModel_OnModelStateChange(targetModel.CurrentModelState);
-    }
-
-    private void HandleUnityEvents(RemoteBoundsState boundsState)
-    {
-        switch (boundsState)
-        {
-            case RemoteBoundsState.Ready:
-                OnBoundsReady?.Invoke();
-                break;
-            default:
-                OnBoundsNotReady?.Invoke();
-                break;
-        }
     }
 
     private void TargetModel_OnModelStateChange(ModelState state)
@@ -146,8 +137,7 @@ public class RemoteBounds : BaseRemoteBounds
                 QueryBounds();
                 break;
             default:
-                if (boxCollider != null)
-                    boxCollider.enabled = false;
+                BoundsBoxCollider.enabled = false;
                 CurrentBoundsState = RemoteBoundsState.NotReady;
                 break;
         }
@@ -194,9 +184,9 @@ private void ProcessQueryResult(BoundsQueryAsync remoteBounds)
     if (remoteBounds.IsRanToCompletion)
     {
         var newBounds = remoteBounds.Result.toUnity();
-        boxCollider.center = newBounds.center;
-        boxCollider.size = newBounds.size;
-        boxCollider.enabled = true;
+        BoundsBoxCollider.center = newBounds.center;
+        BoundsBoxCollider.size = newBounds.size;
+        BoundsBoxCollider.enabled = true;
         CurrentBoundsState = RemoteBoundsState.Ready;
     }
     else
@@ -242,12 +232,18 @@ First let's create a static wrapper around the remote ray cast queries. This scr
 1. Create a new script called **RemoteRayCaster** and replace its contents with the following code:
 
 ```csharp
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using Microsoft.Azure.RemoteRendering;
 using Microsoft.Azure.RemoteRendering.Unity;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
+/// <summary>
+/// Wraps the Azure Remote Rendering RayCast queries to easily send requests using Unity data types
+/// </summary>
 public class RemoteRayCaster
 {
     public static double maxDistance = 30.0;
@@ -288,37 +284,31 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class RemoteRayCastPointerHandler : BaseRemoteRayCastPointerHandler, IMixedRealityPointerHandler
 {
-    public UnityRemoteEntityEvent RemoteEntityClicked = new UnityRemoteEntityEvent();
+    public UnityRemoteEntityEvent OnRemoteEntityClicked = new UnityRemoteEntityEvent();
 
-    private event Action<Entity> onRemoteEntityClicked;
-    public override event Action<Entity> OnRemoteEntityClicked
-    {
-        add => onRemoteEntityClicked += value;
-        remove => onRemoteEntityClicked -= value;
-    }
+    public override event Action<Entity> RemoteEntityClicked;
 
     public override void ClearClickedEvents()
     {
-        onRemoteEntityClicked = null;
+        RemoteEntityClicked = null;
     }
 
     public void Awake()
     {
         // Forward events to Unity events
-        onRemoteEntityClicked += (entity) => RemoteEntityClicked?.Invoke(entity);
+        RemoteEntityClicked += (entity) => RemoteEntityClicked?.Invoke(entity);
     }
 
     public async void OnPointerClicked(MixedRealityPointerEventData eventData)
     {
-        if (onRemoteEntityClicked != null) //Ensure someone is listening before we do the work
+        if (RemoteEntityClicked != null) //Ensure someone is listening before we do the work
         {
             var firstHit = await PointerDataToRemoteRayCast(eventData.Pointer);
             if (firstHit.success)
-                onRemoteEntityClicked.Invoke(firstHit.hit.HitEntity);
+                RemoteEntityClicked.Invoke(firstHit.hit.HitEntity);
         }
     }
 
@@ -336,7 +326,6 @@ public class RemoteRayCastPointerHandler : BaseRemoteRayCastPointerHandler, IMix
         {
             var endPoint = result.Details.Point;
             var direction = pointer.Rays[pointer.Result.RayStepIndex].Direction;
-            Debug.DrawRay(endPoint, direction, Color.green, 0);
             hit = (await RemoteRayCaster.RemoteRayCast(endPoint, direction, hitPolicy)).FirstOrDefault();
         }
         else
@@ -348,13 +337,13 @@ public class RemoteRayCastPointerHandler : BaseRemoteRayCastPointerHandler, IMix
 }
 ```
 
-**RemoteRayCastPointerHandler**'s `OnPointerClicked` method is called by MRTK when a Pointer 'clicks' on a local collider. After that, `PointerDataToRemoteRayCast` is called to convert the pointer's result into a point and direction. That point and direction are then used to cast a remote ray in the remote session.
+**RemoteRayCastPointerHandler**'s `OnPointerClicked` method is called by MRTK when a Pointer 'clicks' on a collider, like our box collider. After that, `PointerDataToRemoteRayCast` is called to convert the pointer's result into a point and direction. That point and direction are then used to cast a remote ray in the remote session.
 
 ![Bounds updated](./media/raycast-local-remote.png)
 
 Sending requests for ray casting on click is an efficient strategy for querying remote objects. However, it's not an ideal user experience, since the cursor is rendered colliding with the box collider and not the model itself. A more complex approach, but better user experience would be to create a new MRTK pointer that casts its rays in the remote session much more frequently. This more complex strategy is outside the scope of this tutorial, but an example of this approach can be seen in the Showcase App, found in the [ARR samples repository](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
 
-When a successful ray cast is completed in the **RemoteRayCastPointerHandler**, the hit `Entity` is emitted with the `OnRemoteEntityClicked` event. To respond to that event, we'll create a helper script that accepts the `Entity` and performs an action on it. Starting simple, the script will print the name of the `Entity` to the debug log.
+When a successful ray cast is completed in the **RemoteRayCastPointerHandler**, the hit `Entity` is emitted from the `OnRemoteEntityClicked` Unity event. To respond to that event, we'll create a helper script that accepts the `Entity` and performs an action on it. Starting simple, the script will print the name of the `Entity` to the debug log.
 
 1. Create a new script named **RemoteEntityHelper** and replace its contents with the below:
 

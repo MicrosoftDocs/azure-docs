@@ -146,7 +146,7 @@ Select the **Main Camera** node.
 
 1. In **Supported Device Families**, enable **Holographic** and **Desktop**
 
-1. If you want to use the Mixed Reality Toolkit, see the [MRTK documentation](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview), for more information on recommended settings and capabilities.
+1. Later in this tutorial we will use the Mixed Reality Toolkit, see the [MRTK documentation](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview), for more information on recommended settings and capabilities.
 
 ## Validate project setup
 
@@ -168,10 +168,11 @@ To progress through these stages and track the state of the application, this tu
 1. Create a new folder called *RemoteRenderingCore*. Then inside *RemoteRenderingCore*, create another folder named *Scripts*.
 
 1. Create a [new C# script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) named **RemoteRenderingState**.
-Your project should look like this:\
-\
-![Project hierarchy](./media/project-structure.png)\
-1. Open **RemoteRenderingState** in your code editor.
+Your project should look like this:
+
+![Project hierarchy](./media/project-structure.png)
+
+3. Open **RemoteRenderingState** in your code editor.
 1. Replace the entire contents of the script with the code below:
 
 ```csharp
@@ -222,20 +223,24 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     public static RemoteRenderingCoordinator instance;
 
     [Header("Account Credentials")]
+
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
     // For most people '<region>' is either 'westus2' or 'westeurope'
     public string AccountDomain = "westus2.mixedreality.azure.com";
+
     public string AccountId = "<enter your account id here>";
     public string AccountKey = "<enter your account key here>";
 
     // These settings are important. All three should be set as low as possible, while maintaining a good user experience
     // See the documentation around session management and the technical differences in session VM size
     [Header("New Session Defaults")]
+
     public RenderingSessionVmSize renderingSessionVmSize = RenderingSessionVmSize.Standard;
     public uint maxLeaseHours = 0;
     public uint maxLeaseMinutes = 20;
 
     [Header("Other Configuration")]
+
     [Tooltip("If you have a known active SessionID, you can fill it in here before connecting")]
     public string sessionIDOverride;
 
@@ -252,17 +257,12 @@ public class RemoteRenderingCoordinator : MonoBehaviour
             {
                 currentCoordinatorState = value;
                 Debug.Log($"State changed to: {currentCoordinatorState}");
-                onCoordinatorStateChange?.Invoke(currentCoordinatorState);
+                CoordinatorStateChange?.Invoke(currentCoordinatorState);
             }
         }
     }
 
-    private event Action<RemoteRenderingState> onCoordinatorStateChange;
-    public event Action<RemoteRenderingState> OnCoordinatorStateChange
-    {
-        add => onCoordinatorStateChange += value;
-        remove => onCoordinatorStateChange -= value;
-    }
+    public static event Action<RemoteRenderingState> CoordinatorStateChange;
 
     public static AzureSession CurrentSession => instance?.ARRSessionService?.CurrentActiveSession;
 
@@ -306,7 +306,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         else
             Destroy(this);
 
-        OnCoordinatorStateChange += AutomaticMode;
+        CoordinatorStateChange += AutomaticMode;
 
         CurrentCoordinatorState = RemoteRenderingState.NotInitialized;
     }
@@ -342,7 +342,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// </summary>
     public void InitializeARR()
     {
-        //Implement me!
+        //Implement me
     }
 
     /// <summary>
@@ -350,12 +350,12 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// </summary>
     public async void JoinRemoteSession()
     {
-        //Implement me!
+        //Implement me
     }
 
     public void StopRemoteSession()
     {
-        //Implement me!
+        //Implement me
     }
 
     private async Task<bool> IsSessionAvailable(string sessionID)
@@ -369,12 +369,12 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// </summary>
     public void ConnectRuntimeToRemoteSession()
     {
-        //Implement me!
+        //Implement me
     }
 
     public void DisconnectRuntimeFromRemoteSession()
     {
-        //Implement me!
+        //Implement me
     }
 
     /// <summary>
@@ -389,13 +389,13 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// <summary>
     /// Loads a model into the remote session for rendering
     /// </summary>
-    /// <param name="modelName">The model's path</param>
+    /// <param name="modelPath">The model's path</param>
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <returns>An awaitable Remote Rendering Entity</returns>
-    public async Task<Entity> LoadModel(string modelName, Transform parent = null, ProgressHandler progress = null)
+    public async Task<Entity> LoadModel(string modelPath, Transform parent = null, ProgressHandler progress = null)
     {
-        //Implement me!
+        //Implement me
         return null;
     }
 
@@ -683,7 +683,7 @@ public enum ModelState
 
 Next create the **RemoteRenderedModel** script.
 
-1. In the same folder as **RemoteRenderingCoordinator**, create a new script called **RemoteRenderedModel** and replace its contents with the following code:
+2. In the same folder as **RemoteRenderingCoordinator**, create a new script called **RemoteRenderedModel** and replace its contents with the following code:
 
 ```csharp
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -704,39 +704,29 @@ public class RemoteRenderedModel : MonoBehaviour
     [Tooltip("The URI for this model")]
     private string modelPath;
 
-    public string ModelDisplayName { get => modelDisplayName; set => modelDisplayName = value; }
-    public string ModelPath { get => modelPath; set => modelPath = value; }
-
     public bool AutomaticallyLoad = true;
 
     private ModelState currentModelState = ModelState.NotReady;
 
+    public string ModelDisplayName { get => modelDisplayName; set => modelDisplayName = value; }
+    public string ModelPath { get => modelPath; set => modelPath = value; }
+
     public ModelState CurrentModelState
     {
         get => currentModelState;
-        private set
+        protected set
         {
             if (currentModelState != value)
             {
                 currentModelState = value;
-                onModelStateChange?.Invoke(value);
+                ModelStateChange?.Invoke(value);
             }
         }
     }
 
-    private event Action<ModelState> onModelStateChange;
-    public event Action<ModelState> OnModelStateChange
-    {
-        add => onModelStateChange += value;
-        remove => onModelStateChange -= value;
-    }
-
-    private event Action<float> loadProgress;
-    public event Action<float> LoadProgress
-    {
-        add => loadProgress += value;
-        remove => loadProgress -= value;
-    }
+    public event Action<ModelState> ModelStateChange;
+    public event Action<float> LoadProgress;
+    public Entity ModelEntity { get; protected set; }
 
     public UnityEvent OnModelNotReady = new UnityEvent();
     public UnityEvent OnModelReady = new UnityEvent();
@@ -747,46 +737,57 @@ public class RemoteRenderedModel : MonoBehaviour
     [Serializable] public class UnityFloatEvent : UnityEvent<float> { }
 
     public UnityFloatEvent OnLoadProgress = new UnityFloatEvent();
-    public Entity ModelEntity { get; private set; }
 
     public void Awake()
     {
-        OnModelStateChange += HandleUnityStateEvents;
+        // Hook up the event to the Unity event
         LoadProgress += (progress) => OnLoadProgress?.Invoke(progress);
+
+        ModelStateChange += HandleUnityStateEvents;
     }
 
     private void HandleUnityStateEvents(ModelState modelState)
     {
         switch (modelState)
         {
-            case ModelState.NotReady:
-                OnModelNotReady?.Invoke();
-                break;
-            case ModelState.Ready:
-                OnModelReady?.Invoke();
-                break;
-            case ModelState.Loading:
-                OnStartLoading?.Invoke();
-                break;
-            case ModelState.Loaded:
-                OnModelLoaded?.Invoke();
-                break;
-            case ModelState.Unloading:
-                OnModelUnloading?.Invoke();
-                break;
+            case ModelState.NotReady:  OnModelNotReady?.Invoke();  break;
+            case ModelState.Ready:     OnModelReady?.Invoke();     break;
+            case ModelState.Loading:   OnStartLoading?.Invoke();   break;
+            case ModelState.Loaded:    OnModelLoaded?.Invoke();    break;
+            case ModelState.Unloading: OnModelUnloading?.Invoke(); break;
         }
     }
 
     private void Start()
     {
         //Attach to and initialize current state (in case we're attaching late)
-        RemoteRenderingCoordinator.instance.OnCoordinatorStateChange += Instance_OnCoordinatorStateChange;
-        Instance_OnCoordinatorStateChange(RemoteRenderingCoordinator.instance.CurrentCoordinatorState);
+        RemoteRenderingCoordinator.CoordinatorStateChange += Instance_CoordinatorStateChange;
+        Instance_CoordinatorStateChange(RemoteRenderingCoordinator.instance.CurrentCoordinatorState);
+    }
+
+    /// <summary>
+    /// Listen for state changes on the coordinator, clean up this model's remote objects if we're no longer connected.
+    /// Automatically load if required
+    /// </summary>
+    private void Instance_CoordinatorStateChange(RemoteRenderingState state)
+    {
+        switch (state)
+        {
+            case RemoteRenderingState.RuntimeConnected:
+                CurrentModelState = ModelState.Ready;
+                if (AutomaticallyLoad)
+                    LoadModel();
+                break;
+            default:
+                UnloadModel();
+                break;
+        }
     }
 
     private void OnDestroy()
     {
-        RemoteRenderingCoordinator.instance.OnCoordinatorStateChange -= Instance_OnCoordinatorStateChange;
+        RemoteRenderingCoordinator.CoordinatorStateChange -= Instance_CoordinatorStateChange;
+        UnloadModel();
     }
 
     /// <summary>
@@ -806,25 +807,6 @@ public class RemoteRenderedModel : MonoBehaviour
             CurrentModelState = ModelState.Loaded;
         else
             CurrentModelState = ModelState.Error;
-    }
-
-    /// <summary>
-    /// Listen for state changes on the coordinator, clean up this model's ARR objects if we're no longer connected.
-    /// Automatically load if required
-    /// </summary>
-    private void Instance_OnCoordinatorStateChange(RemoteRenderingState state)
-    {
-        switch (state)
-        {
-            case RemoteRenderingState.RuntimeConnected:
-                CurrentModelState = ModelState.Ready;
-                if (AutomaticallyLoad)
-                    LoadModel();
-                break;
-            default:
-                UnloadModel();
-                break;
-        }
     }
 
     /// <summary>
@@ -853,10 +835,10 @@ public class RemoteRenderedModel : MonoBehaviour
     /// Update the Unity progress event
     /// </summary>
     /// <param name="progressValue"></param>
-    private void SetLoadingProgress(float progressValue)
+    public void SetLoadingProgress(float progressValue)
     {
         Debug.Log($"Loading {ModelPath} progress: {Math.Round(progressValue * 100, 2)}%");
-        loadProgress?.Invoke(progressValue);
+        LoadProgress?.Invoke(progressValue);
     }
 }
 ```
