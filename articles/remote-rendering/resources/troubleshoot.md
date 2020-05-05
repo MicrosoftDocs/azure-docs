@@ -93,7 +93,7 @@ If these two steps did not help, it is required to find out whether video frames
 
 ### Common client-side issues
 
-**The model excceds the limits of the selected VM, specifically the maximum number of polygons:**
+**The model exceeds the limits of the selected VM, specifically the maximum number of polygons:**
 
 See specific [VM size limitations](../reference/limits.md#overall-number-of-polygons).
 
