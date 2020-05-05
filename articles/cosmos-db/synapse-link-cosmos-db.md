@@ -1,8 +1,8 @@
 ---
-title: Synapse Link for Azure Cosmos DB 
-description: 
-author: 
-ms.author: 
+title: Synapse Link for Azure Cosmos DB, benefits, and when to use it
+description: Learn what is Synapse Link for Azure Cosmos DB, benefits of Synapse Link, when to use it, and how to enable HTAP scenarios for your operational data.
+author: srchi
+ms.author: srchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
