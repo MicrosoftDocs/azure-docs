@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting - Azure Automation Hybrid Runbook Workers
-description: This article provides information troubleshooting Azure Automation Hybrid Runbook Workers
+title: Troubleshooting Azure Automation Hybrid Runbook Workers
+description: This article provides information for troubleshooting Azure Automation Hybrid Runbook Workers.
 services: automation
 ms.service: automation
 ms.subservice:
@@ -14,9 +14,12 @@ manager: carmonm
 
 This article provides information on troubleshooting issues with Hybrid Runbook Workers.
 
+>[!NOTE]
+>This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+
 ## General
 
-The Hybrid Runbook Worker depends on an agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Log Analytics agent for Windows, also referred to as the Microsoft Monitoring Agent (MMA). For Linux, it's the Log Analytics agent for Linux.
+The Hybrid Runbook Worker depends on an agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Log Analytics agent for Windows. For Linux, it's the Log Analytics agent for Linux.
 
 ### <a name="runbook-execution-fails"></a>Scenario: Runbook execution fails
 
@@ -35,10 +38,8 @@ Your runbook is suspended shortly after it attempts to execute three times. Ther
 The following are possible causes:
 
 * The runbooks can't authenticate with local resources.
-
 * The hybrid worker is behind a proxy or firewall.
-
-* The computer configured to run the Hybrid Runbook Worker feature doesn't meet the minimum hardware requirements.
+* The computer configured to run the Hybrid Runbook Worker doesn't meet the minimum hardware requirements.
 
 #### Resolution
 
@@ -97,20 +98,20 @@ Start the worker machine and then rereregister it with Azure Automation. See ins
 A runbook running on a Hybrid Runbook Worker fails with the following error message.
 
 ```error
-Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
+Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
 At line:3 char:1
-+ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Connect-AzureRmAccount], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+    + CategoryInfo          : CloseError: (:) [Connect-AzAccount], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
 ```
 #### Cause
 
-This error occurs when you attempt to use a [Run As account](../manage-runas-account.md) in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate's not present. Hybrid Runbook Workers don't have the certificate asset locally by default, which is required by the Run As account to operate properly.
+This error occurs when you attempt to use a [Run As account](../manage-runas-account.md) in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate is not present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
 
 #### Resolution
 
-If your Hybrid Runbook Worker is an Azure VM, you can use [Managed identities for Azure resources](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) instead. This scenario simplifies authentication by allowing you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As account. When the Hybrid Runbook Worker is an on-premises machine, you need to install the Run As account certificate on the machine. To learn how to install the certificate, see the steps to run the PowerShell runbook Export-RunAsCertificateToHybridWorker in [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+If your Hybrid Runbook Worker is an Azure VM, you can use [runbook authentication with managed identities](../automation-hrw-run-runbooks.md#runbook-auth-managed-identities) instead. This scenario simplifies authentication by allowing you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As account. When the Hybrid Runbook Worker is an on-premises machine, you need to install the Run As account certificate on the machine. To learn how to install the certificate, see the steps to run the PowerShell runbook **Export-RunAsCertificateToHybridWorker** in [Run runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
 ### <a name="error-403-on-registration"></a>Scenario: Error 403 during registration of Hybrid Runbook Worker
 
@@ -125,7 +126,9 @@ The worker's initial registration phase fails and you receive the following erro
 #### Cause
 
 The following are possible causes:
+
 * There's a mistyped workspace ID or workspace key (primary) in the agent's settings. 
+
 * The Hybrid Runbook Worker can't download the configuration, causing an account linking error. When Azure enables solutions, it supports only certain regions for linking a Log Analytics workspace and an Automation account. It's also possible that an incorrect date and/or time is set on the computer. If the time is +/-15 minutes from the current time, onboarding fails.
 
 #### Resolution
@@ -137,11 +140,27 @@ To verify if the agent's workspace ID or workspace key has been mistyped, see [A
 
 Your Log Analytics workspace and Automation account must be in a linked region. For a list of supported regions, see [Azure Automation and Log Analytics workspace mappings](../how-to/region-mappings.md).
 
-You might also need to update the date and or time zone of your computer. If you select a custom time range, make sure that the range is in UTC, which can differ from your local time zone.
+You might also need to update the date and/or time zone of your computer. If you select a custom time range, make sure that the range is in UTC, which can differ from your local time zone.
 
 ## Linux
 
 The Linux Hybrid Runbook Worker depends on the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error:
+
+### <a name="prompt-for-password"></a>Scenario: Linux Hybrid Runbook Worker receives prompt for a password when signing a runbook
+
+#### Issue
+
+Running the `sudo` command for a Linux Hybrid Runbook Worker retrieves an unexpected prompt for a password.
+
+#### Cause
+
+The **nxautomationuser** account for the Log Analytics agent for Linux is not correctly configured in the **sudoers** file. The Hybrid Runbook Worker needs the appropriate configuration of account permissions and other data so that it can sign runbooks on the Linux Runbook Worker.
+
+#### Resolution
+
+* Ensure that the Hybrid Runbook Worker has the GnuPG (GPG) executable on the machine.
+
+* Verify the configuration of the **nxautomationuser** account in the **sudoers** file. See [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
 ### <a name="oms-agent-not-running"></a>Scenario: The Log Analytics agent for Linux isn't running
 
@@ -185,15 +204,15 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 The Windows Hybrid Runbook Worker depends on the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, this section includes some possible reasons.
 
-### <a name="mma-not-running"></a>Scenario: The Microsoft Monitoring Agent isn't running
+### <a name="mma-not-running"></a>Scenario: The Log Analytics agent for Windows isn't running
 
 #### Issue
 
-The `healthservice` service isn't running on the Hybrid Runbook Worker machine.
+The `healthservice` isn't running on the Hybrid Runbook Worker machine.
 
 #### Cause
 
-If the Microsoft Monitoring Agent service isn't running, the Hybrid Runbook Worker is prevented from communicating with Azure Automation.
+If the Log Analytics for Windows service isn't running, the Hybrid Runbook Worker can't communicate with Azure Automation.
 
 #### Resolution
 
@@ -215,6 +234,35 @@ Logs are stored locally on each hybrid worker at **C:\ProgramData\Microsoft\Syst
 
 Hybrid workers send [Runbook output and messages](../automation-runbook-output-and-messages.md) to Azure Automation in the same way that runbook jobs running in the cloud send output and messages. You can enable the Verbose and Progress streams just as you do for runbooks.
 
+### <a name="no-orchestrator-sandbox-connect-O365"></a>Scenario: Orchestrator.Sandbox.exe can't connect to Office 365 through proxy
+
+#### Issue
+
+A script running on a Windows Hybrid Runbook Worker can't connect as expected to Office 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) for connection. 
+
+If you adjust **Orchestrator.Sandbox.exe.config** to set the proxy and the bypass list, the sandbox still doesn't connect properly. A **Powershell_ise.exe.config** file with the same same proxy and bypass list settings seems to work as you expect. Service Management Automation (SMA) logs and PowerShell logs don't provide any information regarding proxy.​
+
+#### Cause
+
+The connection to the Active Directory Federation Services (ADFS) on the server can't bypass the proxy. Remember that a PowerShell sandbox runs as the logged user. However, an Orchestrator sandbox is heavily customized and might ignore the **Orchestrator.Sandbox.exe.config** file settings. It has special code for handling machine or MMA proxy settings, but not for handling other custom proxy settings. 
+
+#### Resolution
+
+You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Azure AD modules instead of the MSOnline module for PowerShell cmdlets. See [Migrating from Orchestrator to Azure Automation (Beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+
+​If you want to continue to use the MSOnline module cmdlets, change your script to use [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Specify values for the `ComputerName` and `Credential` parameters. 
+
+```powershell
+$Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential​
+Invoke-Command -ComputerName $env:COMPUTERNAME -Credential $Credential 
+{ Connect-MsolService … }​
+```
+
+This code change starts an entirely new PowerShell session under the context of the specified credentials. It should enable the traffic to flow through a proxy server that is authenticating the active user.
+
+>[!NOTE]
+>This solution makes it unnecessary to manipulate the sandbox configuration file. Even if you succeed in making the configuration file work with your script, the file gets wiped out each time the Hybrid Runbook Worker agent is updated.​
+
 ### <a name="corrupt-cache"></a>Scenario: Hybrid Runbook Worker not reporting
 
 #### Issue
@@ -235,7 +283,7 @@ This issue can be caused by a corrupt cache on the Hybrid Runbook Worker.
 
 #### Resolution
 
-To resolve this issue, sign in to the Hybrid Runbook Worker and run the following script. This script stops the Microsoft Monitoring Agent, removes its cache, and restarts the service. This action forces the Hybrid Runbook Worker to re-download its configuration from Azure Automation.
+To resolve this issue, sign in to the Hybrid Runbook Worker and run the following script. This script stops the Log Analytics agent for Windows, removes its cache, and restarts the service. This action forces the Hybrid Runbook Worker to re-download its configuration from Azure Automation.
 
 ```powershell
 Stop-Service -Name HealthService
@@ -257,7 +305,7 @@ Machine is already registered
 
 #### Cause
 
-This issue can be caused if the machine is already registered with a different Automation account or if you try to readd the Hybrid Runbook Worker after removing it from a machine.
+This issue can be caused if the machine is already registered with a different Automation account or if you try to re-add the Hybrid Runbook Worker after removing it from a machine.
 
 #### Resolution
 
@@ -267,8 +315,8 @@ To resolve this issue, remove the following registry key, restart the `HealthSer
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
+If you don't see your problem above or can't resolve your issue, try one of the following channels for additional support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
-* If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
+* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
+* File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

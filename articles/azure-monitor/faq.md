@@ -173,7 +173,7 @@ Specify an existing or new [Action Group](platform/action-groups.md) so that whe
 
 
 ### What are the firewall requirements for Azure Monitor agents?
-See [Network firewall requirements](platform/log-analytics-agent.md#network-firewall-requirements)for details on firewall requirements.
+See [Network firewall requirements](platform/log-analytics-agent.md#network-requirements)for details on firewall requirements.
 
 
 ## Visualizations
@@ -250,6 +250,10 @@ See the [release notes](app/release-notes.md) for the SDK appropriate to your ty
 
 ### <a name="update"></a>How can I change which Azure resource my project sends data to?
 In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the key where it appears in your web pages.
+
+### Can I use `providers('Microsoft.Insights', 'components').apiVersions[0]` in my Azure Resource Manager deployments?
+
+We do not recommend using this method of populating the API version. The newest version can represent preview releases which may contain breaking changes. Even with newer non-preview releases, the API versions are not always backwards compatible with existing templates, or in some cases the API version may not be available to all subscriptions.
 
 ### What is Status Monitor?
 
@@ -408,7 +412,7 @@ This doesn't depend on where your Application Insights resource is hosted. It ju
 
 ### Can I send telemetry to the Application Insights portal?
 
-We recommend you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
+We recommend you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
 
 ### Can I monitor an intranet web server?
 

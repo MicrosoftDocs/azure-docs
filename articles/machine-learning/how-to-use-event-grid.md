@@ -22,7 +22,7 @@ For more information on event types, see [Azure Machine Learning integration wit
 Use Event Grid to enable common scenarios such as:
 
 * Send emails on run failure and run completion
-* Use an azure function after a model is registered
+* Use an Azure function after a model is registered
 * Streaming events from Azure Machine Learning to various of endpoints
 * Trigger an ML pipeline when drift is detected
 
@@ -83,15 +83,13 @@ When setting up your events, you can apply filters to only trigger on specific e
 
 1. Go to the Azure portal, select a new subscription or an existing one. 
 
-1. Select the filters tab and scroll down to Advanced filters. In the **Key** and **Value** provide the property types you want to filter by. Here you can see the event will only trigger when the run type is a pipeline run or pipeline step run.  
+1. Select the filters tab and scroll down to Advanced filters. For the **Key** and **Value**, provide the property types you want to filter by. Here you can see the event will only trigger when the run type is a pipeline run or pipeline step run.  
 
     :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="filter events":::
 
-## Sample scenarios
+## Sample: Send email alerts
 
-### Use a Logic App to send email alerts
-
-Leverage [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to configure emails for all your events. Customize with conditions and specify recipients to enable collaboration and awareness across teams working together.
+Use [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to configure emails for all your events. Customize with conditions and specify recipients to enable collaboration and awareness across teams working together.
 
 1. In the Azure portal, go to your Azure Machine Learning workspace and select the events tab from the left bar. From here, select __Logic apps__. 
 
@@ -122,7 +120,7 @@ Leverage [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to con
     ![confirm-logic-app-create](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 
-### Use a Logic App to trigger retraining workflows when data drift occurs
+## Sample: Trigger retraining when data drift occurs
 
 Models go stale over time, and not remain useful in the context it is running in. One way to tell if it's time to retrain the model is detecting data drift. 
 
@@ -169,7 +167,7 @@ Now the data factory pipeline is triggered when drift occurs. View details on yo
 
 ![view-in-workspace](./media/how-to-use-event-grid/view-in-workspace.png)
 
-### Use Azure Functions to deploy a model based on tags
+## Sample: Deploy a model based on tags
 
 An Azure Machine Learning model object contains parameters you can pivot deployments on such as model name, version, tag, and property. The model registration event can trigger an endpoint and you can use an Azure Function to deploy a model based on the value of those parameters.
 

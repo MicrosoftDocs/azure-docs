@@ -76,6 +76,8 @@
     href: user-overview.md
   - name: User profile attributes
     href: user-profile-attributes.md
+  - name: SSO sessions
+    href: session-overview.md
 - name: How-to guides
   items:
   - name: App integration
@@ -335,8 +337,8 @@
             href: phone-factor-technical-profile.md 
           - name: REST
             href: restful-technical-profile.md
-          - name: SAML
-            href: saml-technical-profile.md
+          - name: SAML identity provider 
+            href: saml-identity-provider-technical-profile.md
           - name: SAML token issuer
             href: saml-issuer-technical-profile.md
           - name: Self-asserted
@@ -404,7 +406,7 @@
     href: error-codes.md
   - name: Extensions app
     href: extensions-app.md
-  - name: Identity Experience Framework release notes
+  - name: IEF release notes
     href: custom-policy-developer-notes.md
   - name: Microsoft Graph API operations
     href: microsoft-graph-operations.md

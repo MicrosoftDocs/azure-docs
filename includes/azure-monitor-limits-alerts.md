@@ -15,6 +15,6 @@ ms.custom: "include file"
 | Metric alerts (classic) |100 active alert rules per subscription. | Call support. |
 | Metric alerts |2,000 active alert rules per subscription in Azure public, Azure China 21Vianet and Azure Government clouds. | Call support. |
 | Activity log alerts | 100 active alert rules per subscription. | Same as default. |
-| Log alerts | 512 | Call support. |
+| Log alerts | 512 active alert rules per subscription. 200 active alert rules per resource. | Call support. |
 | Action groups |2,000 action groups per subscription. | Call support. |
 | Autoscale settings |100 per region per subscription. | Same as default. |
