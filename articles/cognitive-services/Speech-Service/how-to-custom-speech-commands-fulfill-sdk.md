@@ -3,14 +3,14 @@ title: How to fulfill commands from a client with the Speech SDK
 titleSuffix: Azure Cognitive Services
 description: In this article, we explain how to handle Custom Commands activities on a client with the Speech SDK.
 services: cognitive-services
-author: don-d-kim
-manager: yetian
+author: trevorbye
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.author: donkim
+ms.date: 05/04/2020
+ms.author: trbye
 ---
 
 # Fulfill commands from a client with the Speech SDK (Preview)
@@ -23,13 +23,13 @@ In this article, you'll:
 - Receive and visualize the custom JSON payload contents from a C# UWP Speech SDK client application
 
 ## Prerequisites
-[!div class="checklist"]
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-* An Azure subscription key for Speech service:
+> [!div class = "checklist"]
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * An Azure subscription key for Speech service:
 [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
-* A previously created Custom Commands app:
+> * A previously created Custom Commands app:
 [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
-* A Speech SDK enabled client application:
+> * A Speech SDK enabled client application:
 [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
 
 ## Optional: Get started fast

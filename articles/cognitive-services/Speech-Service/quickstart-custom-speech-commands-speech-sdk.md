@@ -22,7 +22,7 @@ In this article, you'll:
 - Create a UWP client app using the Speech SDK to allow you to talk to your Custom Commands application
 
 ## Prerequisites
-[!div class="checklist"]
+[!div class = "checklist"]
 A Custom Commands application is required to complete this article. If you haven't created a Custom Commands application yet, you can do so in these previous quickstarts:
 
 * [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
@@ -423,4 +423,4 @@ Add the code-behind source as follows:
 > [How To: Add validations to Custom Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)
 
 ## Sample source code
-Check out our client sample codes at [GitHub-VoiceAssistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/releases/)
+Check out our client sample codes at [GitHub-VoiceAssistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
