@@ -18,7 +18,7 @@ author: billmath
 
 Azure Active Directory can provide a users group membership information in tokens for use within applications.  Two main patterns are supported:
 
-- Groups identified by their Azure Active Directory object identifier (OID) attribute (Generally Available)
+- Groups identified by their Azure Active Directory object identifier (OID) attribute
 - Groups identified by sAMAccountName or GroupSID attributes for Active Directory (AD) synchronized groups and users
 
 > [!IMPORTANT]
