@@ -37,7 +37,7 @@ If you create a new Azure Key Vault instance, enable these properties during cre
 
 ![Enabling soft delete and purge protection for a new Azure Key Vault instance](./media/how-to-setup-cmk/portal-akv-prop.png)
 
-If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the **Properties** section on the Azure portal. If either of these properties aren't enabled, see the "Enabling soft-delete" and "Enabling Purge Protection" sections in one of the following articles:
+If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the **Properties** section on the Azure portal. If any of these properties isn't enabled, see the "Enabling soft-delete" and "Enabling Purge Protection" sections in one of the following articles:
 
 - [How to use soft-delete with PowerShell](../key-vault/general/soft-delete-powershell.md)
 - [How to use soft-delete with Azure CLI](../key-vault/general/soft-delete-cli.md)
@@ -228,7 +228,7 @@ When using customer-managed keys, [Request Units](./request-units.md) consumed b
 | Operation type | Request Unit increase |
 |---|---|
 | Point-reads (fetching items by their ID) | + 5% per operation |
-| Any write operation | + 6% per operation<br/>+ 0.06 RU per indexed property |
+| Any write operation | + 6% per operation<br/>approx. + 0.06 RU per indexed property |
 | Queries, reading change feed or conflict feed | + 15% per operation |
 
 ### What data gets encrypted with the customer-managed keys?
