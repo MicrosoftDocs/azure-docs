@@ -39,7 +39,7 @@ To request access to bring your own storage, fill out and submit the [Speech s
 > [!IMPORTANT]
 > If you disable system assigned managed identities, access to the storage account will be removed. This will cause the parts of the Speech service that require access to the storage account to stop working.  
 
-The Speech service doesn't currently support Customer Lockbox. However, customer data can be stored using BYOS, allowing you to achieve equivalent data controls to [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md). Keep in mind that Speech service data stays and is processed in the region where the Speech resource was created. This applies to any data in transit. When using customization features, like Custom Speech and Custom Voice, all customer data is transferred, stored, and process in the same region where your BYOS and subscription reside.
+The Speech service doesn't currently support Customer Lockbox. However, customer data can be stored using BYOS, allowing you to achieve equivalent data controls to [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md). Keep in mind that Speech service data stays and is processed in the region where the Speech resource was created. This applies to any data in transit. When using customization features, like Custom Speech and Custom Voice, all customer data is transferred, stored, and processed in the same region where your BYOS and subscription reside.
 
 ## Regional availability
 
