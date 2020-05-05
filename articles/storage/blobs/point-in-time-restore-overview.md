@@ -16,23 +16,23 @@ ms.subservice: blobs
 
 Point-in-time restore for block blobs provides protection against accidental deletion or corruption by enabling you to restore a storage account to its previous state at a given point in time. Point-in-time restore is useful in scenarios where a user or application accidentally deletes data or where an application error corrupts data. Point-in-time restore also enables testing scenarios that require reverting a data set to a known state before running further tests.
 
-After you enable point-in-time restore for a storage account, you can restore one or more blob containers to their previous state at a specified point in time.
+After you enable point-in-time restore for a storage account, you can restore one or more blob containers to their previous state at a specified point in time. To learn how to enable point-in-time restore, see [Enable and manage point-in-time restore for block blobs (preview)](point-in-time-restore-manage.md).
 
 ## About point-in-time restore
 
-To enable point-in-time restore, you create a management policy for the storage account and specify a retention period. During the retention period, you can restore one or more containers in a specified range to a previous state within the retention period.
+To enable point-in-time restore, you create a management policy for the storage account and specify a retention period. During the retention period, you can restore one or more containers to a previous state at a given point in time.
 
-To initiate a point-in-time restore, call the [Restore Blob Ranges](/rest/api/storagerp/storageaccounts/restoreblobranges) operation and specify a restore point in UTC time. You can specify a lexicographical range of container names to restore, or omit the range to restore all containers in the storage account. The **Restore Blob Ranges** operation returns a restore ID that uniquely identifies the operation.
+To initiate a point-in-time restore, call the [Restore Blob Ranges](/rest/api/storagerp/storageaccounts/restoreblobranges) operation and specify a restore point in UTC time. You can specify a lexicographical range of container and blob names to restore, or omit the range to restore all containers in the storage account. The **Restore Blob Ranges** operation returns a restore ID that uniquely identifies the operation.
 
-When you request a restore operation, Azure Storage blocks read and write operations to the specified set of containers for the duration of the operation in the primary location, and also in the secondary location if the storage account is geo-replicated. Azure Storage then analyzes the changes that have been made to the data from the present moment to the requested restore point. If there are any blobs that cannot be restored, the operation fails and traffic to the specified set of containers resumes. The restore operation is atomic, so it either succeeds completely in restoring all changes, or it fails.
+When you request a restore operation, Azure Storage blocks read and write operations to the specified set of containers for the duration of the operation in the primary location, and also in the secondary location if the storage account is geo-replicated. (???is it granular enough to block subset of blobs in container, or does traffic blocking happen only at container level???) Azure Storage then analyzes the changes that have been made to the data between the requested restore point and the present moment. If there are any blobs that cannot be restored, the operation fails and traffic to the specified set of containers resumes. The restore operation is atomic, so it either succeeds completely in restoring all changes, or it fails.
 
 When the restore operation begins, a system table named `$RestoreTable-{RestoreID}` is created in the storage account. This table is deleted when the restore operation completes successfully, or if it fails.
 
 To check the status of a point-in-time restore, call the [Get Restore Status](???this is in the spec, but i don't see it in the SRP REST API) operation with the restore ID.
 
-Only one restore operation can be run on a storage account at a time.
+Only one restore operation can be run on a storage account at a time. A restore operation cannot be canceled once it is in progress, but a second restore operation can be performed to undo the first operation.
 
-### Requirements for point-in-time restore
+### Prerequisites for point-in-time restore
 
 Point-in-time restore requires that the following Azure Storage features are enabled:
 
@@ -40,19 +40,23 @@ Point-in-time restore requires that the following Azure Storage features are ena
 - [Change feed (preview)](storage-blob-change-feed.md)
 - [Blob versioning (preview)](versioning-overview.md)
 
-Enable these features for the storage account before you enable point-in-time restore (???spec says that they should be enabled automatically, but i haven't seen this).
+Enable these features for the storage account before you enable point-in-time restore. Be sure to register for the change feed preview before you enable it.
+
+### Permissions for point-in-time restore
+
+To initiate a restore operation, a client must have write permissions to all containers in the storage account. To grant permissions to authorize a restore operation with Azure Active Directory (Azure AD), assign the **Storage Blob Data Contributor** role to the security principal at the level of the storage account, resource group, or subscription. ???or could be granted perms scoped to every container - is that a realistic scenario???
 
 ### Retention period for point-in-time restore
 
 When you enable point-in-time restore for a storage account, you specify a retention period. Block blobs in your storage account can be restored during the retention period.
 
-The retention period begins when you enable point-in-time restore. Keep in mind that you cannot restore containers to a state that they were in prior to the beginning of the retention period. For example, if you enabled point-in-time restore on May 1st with a retention of 30 days, then on May 15th you can restore to a maximum of 15 days. On June 1st, you can restore data from between 1 and 30 days.
+The retention period begins when you enable point-in-time restore. Keep in mind that you cannot restore containers and blobs to a state that they were in prior to the beginning of the retention period. For example, if you enabled point-in-time restore on May 1st with a retention of 30 days, then on May 15th you can restore to a maximum of 15 days. On June 1st, you can restore data from between 1 and 30 days.
 
 The retention period for point-in-time restore must be greater than (or equal to???) the retention period specified for soft delete and change feed.
 
 ### Supported operations
 
-Point-in-time restore will restore data affected by the following operations on block blobs, if these operations have been called during the period between the present moment and the restore point:
+Point-in-time restore will restore data affected by the following operations on block blobs, if these operations have been called during the interval between the restore point and the present moment:
 
 - [Put Blob](/rest/api/storageservices/put-blob)
 - [Put Block List](/rest/api/storageservices/put-block-list)
@@ -80,11 +84,12 @@ Point-in-time restore supports only operations on block blobs. Operations on con
 
 The point-in-time restore preview is available in the West Central US region. Point-in-time restore is supported for general-purpose v2 storage accounts only. Only data in the hot and cool access tiers can be restored with point-in-time restore.
 
-Not supported:
+The preview includes the following limitations:
 
-- Premium block blobs are not supported.
-- Restoring data in the archive tier is not supported.
-- Azure Data Lake Storage Gen2 flat and hierarchical namespaces are not supported.
+- Restoring premium block blobs is not supported.
+- Restoring blobs in the archive tier is not supported. For example, if a blob in the hot tier was moved to the archive tier two days ago, and a restore operation restores to a point three days ago, the blob is not restored to the hot tier.
+- Restoring Azure Data Lake Storage Gen2 flat and hierarchical namespaces is not supported.
+- Restoring storage accounts using customer-provided keys is not supported.
 
 > [!IMPORTANT]
 > The point-in-time restore preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
@@ -104,6 +109,8 @@ Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
 
+### Check registration status
+
 To check the status of your registration, run the following commands:
 
 ```powershell
@@ -115,3 +122,8 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
 ```
 
 ## Next steps
+
+- [Enable and manage point-in-time restore for block blobs (preview)](point-in-time-restore-manage.md)
+- [Change feed support in Azure Blob Storage (Preview)](storage-blob-change-feed.md)
+- [Enable soft delete for blobs](soft-delete-enable.md)
+- [Enable and manage blob versioning](versioning-enable.md)

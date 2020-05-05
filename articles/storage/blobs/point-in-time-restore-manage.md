@@ -14,6 +14,7 @@ ms.subservice: blobs
 
 # Enable and manage point-in-time restore for block blobs (preview)
 
+You can use point-in-time restore (preview) to restore block blobs to their state at a given point in time. This article describes how to enable point-in-time restore and how to restore one or more containers to a previous state.
 
 ## Install the preview module
 
@@ -48,13 +49,13 @@ For more information about installing Azure PowerShell, see [Install Azure Power
 
 ## Enable and configure point-in-time restore
 
-Before you enable and configure point-in-time restore, enable the other required features: soft delete, change feed, and blob versioning. For more information about each of these features, see these articles:
+Before you enable and configure point-in-time restore, enable the other required features: soft delete, change feed, and blob versioning. For more information about enabling each of these features, see these articles:
 
-- [Soft delete](soft-delete-overview.md).
-- [Change feed (preview)](storage-blob-change-feed.md). You must register for the change feed preview before you can enable it.
-- [Blob versioning (preview)](versioning-overview.md). To learn how to enable blob versioning in the Azure portal, see [Enable and manage blob versioning](versioning-enable.md).
+- [Enable soft delete for blobs](soft-delete-enable.md)
+- [Enable and disable the change feed](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
+- [Enable and manage blob versioning](versioning-enable.md)
 
-To configure Azure point-in-time restore with PowerShell, call the Enable-AzStorageBlobRestorePolicy command. The following example enables soft delete and sets the soft-delete retention period, enables change feed, and enables point-in-time restore. Note that the retention period for point-in-time restore must be one or more days less than that set for soft delete.
+To configure Azure point-in-time restore with PowerShell, call the Enable-AzStorageBlobRestorePolicy command. The following example enables soft delete and sets the soft-delete retention period, enables change feed, and then enables point-in-time restore. Note that the retention period for point-in-time restore must be less than that set for soft delete.
 
 When running the example, remember to replace the values in angle brackets with your own values:
 
@@ -88,7 +89,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## Restore all containers in the account
 
-To restore all containers in the storage account, call the Restore-AzStorageBlobRange command, specifying a UTC **DateTime** value that indicates the restore point. The following example restores containers in the storage account to their state 12 hours before the present moment:
+To restore all containers and blobs in the storage account, call the Restore-AzStorageBlobRange command, specifying a UTC **DateTime** value that indicates the restore point. The following example restores containers in the storage account to their state 12 hours before the present moment:
 
 ```powershell
 Restore-AzStorageBlobRange -ResourceGroupName $rgName `
@@ -98,36 +99,39 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 ## Restore a range of containers
 
-To restore a range of containers, call the Restore-AzStorageBlobRange command and specify a lexicographical range of container names for the **-BlobRestoreRange** parameter. The start of the range is in inclusive, and the end of the range is exclusive. A container prefix specified as part of a range must include a minimum of three characters. Wildcards are not supported.
+To restore a range of containers and blobs, call the Restore-AzStorageBlobRange command and specify a lexicographical range of container and blob names for the **-BlobRestoreRange** parameter. The start of the range is in inclusive, and the end of the range is exclusive.
 
-For example, to restore a single container named *sample-container*, you can specify a range that starts with *sample-container* and ends with *sample-container1*. There is no requirement for the container named in the end range to exist. Because the end of the range is exclusive, even if the storage account includes a container named *sample-container1*, only the container named *sample-container* will be restored by the restore operation:
+For example, to restore a single container named *sample-container*, you can specify a range that starts with *sample-container* and ends with *sample-container1*. There is no requirement for the containers named in the start and end range to exist. Because the end of the range is exclusive, even if the storage account includes a container named *sample-container1*, only the container named *sample-container* will be restored by the restore operation:
 
 ```powershell
-$range1 = New-AzStorageBlobRangeToRestore -StartRange sample-container -EndRange sample-container1
+$range = New-AzStorageBlobRangeToRestore -StartRange sample-container -EndRange sample-container1
 ```
 
+To specify a subset of blobs in a container to restore, use a forward slash (/) to separate the container name from the blob pattern. For example, the following range selects blobs in the container whose names begin with the letters d through f:
 
+```powershell
+$range = New-AzStorageBlobRangeToRestore -StartRange sample-container/d -EndRange sample-container/g
+```
 
-, specifying a **DateTime** value that indicates the restore point. The following example restores containers in the storage account to their state 12 hours before the present moment:
+The following example restores blobs in the specified range to their state 3 days before the present moment:
 
 ```powershell
 Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -TimeToRestore (Get-Date).AddHours(-12)
+    -BlobRestoreRange $range `
+    -TimeToRestore (Get-Date).AddDays(-3)
 ```
 
+Keep in mind the following rules when specifying a range of containers to restore:
 
-## Restore block blob data with point-in-time restore - storage account
+- The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) does not count toward this minimum.
+- Only one container range can be specified per restore operation.
+- Wildcard characters are not supported.
+- You can restore the `$root` and `$web` containers by explicitly specifying them in a range pass to a restore operation. The `$root` and `$web` containers are not restored unless they are explicitly specified, so they are not restored when a restore operation is called without a range. Other system containers cannot restored.
 
+## Next steps
 
-## Restore block blob data with point-in-time restore
-
-
-```powershell
-# Set the range(s) that you want to restore (specific containers e.g. a container called “one”):
-$range1 = New-AzStorageBlobRangeToRestore -StartRange one/a -EndRange one/z
-
-# Call the restore
-Restore-AzStorageBlobRange -ResourceGroupName $rgName -StorageAccountName $accountName -BlobRestoreRange $range1 -TimeToRestore (Get-Date).AddSeconds(-3600)
-```
-
+- [Point-in-time restore for block blobs (preview)](point-in-time-restore-overview.md)
+- [Soft delete](soft-delete-overview.md)
+- [Change feed (preview)](storage-blob-change-feed.md)
+- [Blob versioning (preview)](versioning-overview.md)
