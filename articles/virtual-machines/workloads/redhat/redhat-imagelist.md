@@ -45,6 +45,9 @@ RHEL          | 6.7      | RAW    | Linux Agent |
 |             | 7.6      | RAW    | Linux Agent | Attached to EUS repositories by default as of May 2019.
 |             | 76-gen2  | RAW    | Linux Agent | Attached to EUS repositories by default.
 |             | 7.7      | LVM    | Linux Agent | Attached to EUS repositories by default.
+|             | 77-gen2  | LVM    | Linux Agent | Attached to EUS repositories by default.
+|             | 7.8      | LVM    | Linux Agent | Attached to regular repositories (EUS unavailable for RHEL 7.8)
+|             | 78-gen2  | LVM    | Linux Agent | Attached to regular repositories (EUS unavailable for RHEL 7.8)
 |             | 8-LVM    | LVM    | Linux Agent | RHEL 8.x family of images. Attached to regular repositories.
 |             | 8-lvm-gen2| LVM    | Linux Agent | Hyper-V Generation 2 - RHEL 8.x family of images. Attached to regular repositories.
 |             | 8        | LVM    | Linux Agent | RHEL 8.0 images
