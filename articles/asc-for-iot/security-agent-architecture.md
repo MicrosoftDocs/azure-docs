@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure Security Center for IoT security agent architecture| Microsoft Docs
+title: Security agent architecture
 description: Understand security agent architecture for the agents used in the Azure Security Center for IoT service.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-
 ---
+
 # Security agent reference architecture
 
 Azure Security Center for IoT provides reference architecture for security agents that log, process, aggregate, and send security data through IoT Hub.
@@ -34,9 +34,9 @@ Security agents support the following features:
 
 - Configure remotely through use of the **azureiotsecurity** module twin. To learn more, see [Configure an Azure Security Center for IoT agent](how-to-agent-configuration.md).
 
-Azure Security Center for IoT Security agents are developed as open-source projects, and are available from GitHub: 
+Azure Security Center for IoT Security agents are developed as open-source projects, and are available from GitHub:
 
-- [Azure Security Center for IoT C-based agent](https://github.com/Azure/Azure-IoT-Security-Agent-C) 
+- [Azure Security Center for IoT C-based agent](https://github.com/Azure/Azure-IoT-Security-Agent-C)
 - [Azure Security Center for IoT C#-based agent](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
 ## Agent supported platforms

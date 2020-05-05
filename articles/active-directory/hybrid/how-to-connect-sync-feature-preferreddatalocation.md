@@ -46,6 +46,7 @@ The geos in Office 365 available for Multi-Geo are:
 | Japan | JPN |
 | Korea | KOR |
 | South Africa | ZAF |
+| Switzerland | CHE |
 | United Arab Emirates | ARE |
 | United Kingdom | GBR |
 | United States | NAM |

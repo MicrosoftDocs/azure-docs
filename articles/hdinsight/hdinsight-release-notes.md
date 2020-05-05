@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 04/27/2020
 ---
 # Release notes
 
@@ -28,7 +28,7 @@ This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made a
 ### TLS 1.2 enforcement
 Transport Layer Security (TLS) and Secure Sockets Layer (SSL) are cryptographic protocols that provide communications security over a computer network. Learn more about [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HDInsight uses TLS 1.2 on public HTTPs endpoints but TLS 1.1 is still supported for backward compatibility. 
 
-With this release, customers can opt into TLS 1.2 only for all connections through the public cluster endpoint. To support this, the new property **minSupportedTlsVersion** is introduced and can be specified during cluster creation. If the property is not set, the cluster still supports TLS 1.0, 1.1 and 1.2, which is the same as today's behavior. Customers can set the value for this property to "1.2", which means that the cluster only supports TLS 1.2 and above. For more information, see [Plan a virtual network - Transport Layer Security](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#transport-layer-security).
+With this release, customers can opt into TLS 1.2 only for all connections through the public cluster endpoint. To support this, the new property **minSupportedTlsVersion** is introduced and can be specified during cluster creation. If the property is not set, the cluster still supports TLS 1.0, 1.1 and 1.2, which is the same as today's behavior. Customers can set the value for this property to "1.2", which means that the cluster only supports TLS 1.2 and above. For more information, see [Transport Layer Security](./transport-layer-security.md).
 
 ### Bring your own key for disk encryption
 All managed disks in HDInsight are protected with Azure Storage Service Encryption (SSE). Data on those disks is encrypted by Microsoft-managed keys by default. Starting from this release, you can Bring Your Own Key (BYOK) for disk encryption and manage it using Azure Key Vault. BYOK encryption is a one-step configuration during cluster creation with no additional cost. Just register HDInsight as a managed identity with Azure Key Vault and add the encryption key when you create your cluster. For more information, see [Customer-managed key disk encryption](https://docs.microsoft.com/azure/hdinsight/disk-encryption).
@@ -42,8 +42,20 @@ No behavior changes for this release. To get ready for upcoming changes, see [Up
 ## Upcoming changes
 The following changes will happen in upcoming releases. 
 
+### Deprecate Spark 2.1 and 2.2 for HDInsight 3.6 Spark cluster
+Starting from July 1 2020, customers will not be able to create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6. Existing clusters will run as is without the support from Microsoft. Consider to move to Spark 2.3 on HDInight 3.6 by June 30 2020 to avoid potential system/support interruption.
+
+### Deprecate Spark 2.3 for HDInsight 4.0 Spark cluster
+Starting from July 1 2020, customers will not be able to create new Spark clusters with Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider to move to Spark 2.4 on HDInight 4.0 by June 30 2020 to avoid potential system/support interruption.
+
+### Deprecate Kafka 1.1 for HDInsight 4.0 Kafka cluster
+Starting from July 1 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider to move to Kafka 2.1 on HDInight 4.0 by June 30 2020 to avoid potential system/support interruption.
+
+### HBase 2.0 to 2.1
+In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.
+
 ### A minimum 4-core VM is required for Head Node 
-A minimum 4-core VM is required for Head Node to ensure the high availability and reliability of HDInsight clusters. Starting from April 6th 2020, customers can only choose 4-core or above VM as Head Node for the new HDInsight clusters. Existing clusters will continue to run as expected. 
+A minimum 4-core VM is required for Head Node to ensure the high availability and reliability of HDInsight clusters. Starting from April 6 2020, customers can only choose 4-core or above VM as Head Node for the new HDInsight clusters. Existing clusters will continue to run as expected. 
 
 ### ESP Spark cluster node size change 
 In the upcoming release, the minimum allowed node size for ESP Spark cluster will be changed to Standard_D13_V2. 
@@ -52,23 +64,9 @@ A-series VMs could cause ESP cluster issues because of relatively low CPU and me
 ### Moving to Azure virtual machine scale sets
 HDInsight now uses Azure virtual machines to provision the cluster. In the upcoming release, HDInsight will use Azure virtual machine scale sets instead. See more about Azure virtual machine scale sets.
 
-### HBase 2.0 to 2.1
-In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.
-
 ## Bug fixes
 HDInsight continues to make cluster reliability and performance improvements. 
 
 ## Component version change
 No component version change for this release. You could find the current component versions for HDInsight 4.0 ad HDInsight 3.6 here.
 
-## Known issues
-
-As of March 18th, 2020 some Azure HDInsight customers in West Europe or North Europe have received error notifications when creating or scaling HDInsight clusters in these regions. Errors related to this issue include:
-
-- Internal server error occurred while processing the request. Please retry the request or contact support.
-- At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details
-- User SubscriptionId '\<Subscription ID\>' does not have cores left to create resource '\<cluster name>'. Required: \<X\>, Available: 0.
-
-Engineers are aware of this issue and are actively investigating.
-
-For additional help, create a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

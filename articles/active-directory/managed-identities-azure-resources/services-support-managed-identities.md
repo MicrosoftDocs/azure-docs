@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 04/03/2020
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -104,7 +104,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 Refer to the following list to configure managed identity for Azure Logic Apps (in regions where available):
 
 - [Azure portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Azure Resource Manager template](/azure/app-service/overview-managed-identity)
+- [Azure Resource Manager template](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
 ### Azure Data Factory V2
 
@@ -265,6 +265,9 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Available][check] |
 | Azure Germany | `https://*.asazure.cloudapi.de` | ![Available][check] |
 | Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Available][check] |
+
+> [!Note]
+> Microsoft Power BI also [supports managed identities](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
 
 
 [check]: media/services-support-managed-identities/check.png "Available"

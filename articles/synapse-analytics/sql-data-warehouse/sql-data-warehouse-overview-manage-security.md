@@ -99,4 +99,4 @@ You can encrypt your database using the [Azure portal](sql-data-warehouse-encryp
 
 ## Next steps
 
-For details and examples on connecting to your warehouse with different protocols, see [Connect to SQL pool](sql-data-warehouse-connect-overview.md).
+For details and examples on connecting to your warehouse with different protocols, see [Connect to SQL pool](../sql/connect-overview.md).

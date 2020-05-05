@@ -26,14 +26,14 @@ The following sections show you how to further protect your App Service app from
 
 ## HTTPS and Certificates
 
-App Service lets you secure your apps with [HTTPS](https://wikipedia.org/wiki/HTTPS). When your app is created, its default domain name (\<app_name>.azurewebsites.net) is already accessible using HTTPS. If you [configure a custom domain for your app](app-service-web-tutorial-custom-domain.md), you should also [secure it with an SSL certificate](configure-ssl-bindings.md) so that client browsers can make secured HTTPS connections to your custom domain. There are several types of certificates supported by App Service:
+App Service lets you secure your apps with [HTTPS](https://wikipedia.org/wiki/HTTPS). When your app is created, its default domain name (\<app_name>.azurewebsites.net) is already accessible using HTTPS. If you [configure a custom domain for your app](app-service-web-tutorial-custom-domain.md), you should also [secure it with a TLS/SSL certificate](configure-ssl-bindings.md) so that client browsers can make secured HTTPS connections to your custom domain. There are several types of certificates supported by App Service:
 
 - Free App Service Managed Certificate
 - App Service certificate
 - Third-party certificate
 - Certificate imported from Azure Key Vault
 
-For more information, see [Add an SSL certificate in Azure App Service](configure-ssl-certificate.md).
+For more information, see [Add a TLS/SSL certificate in Azure App Service](configure-ssl-certificate.md).
 
 ## Insecure protocols (HTTP, TLS 1.0, FTP)
 

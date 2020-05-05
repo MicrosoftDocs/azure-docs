@@ -1,18 +1,14 @@
 ---
-title: Configure application single sign-on | Microsoft Docs
+title: Configure application single sign-on
 description: How to configure single sign-on for a custom application you are developing and registering with Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi

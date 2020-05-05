@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/24/2020
+ms.date: 04/14/2020
 
 ---
 
@@ -21,7 +21,8 @@ Collecting the Activity Log in a Log Analytics workspace provides the following 
 - Store Activity log entries for longer than 90 days.
 - Consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together.
 
-
+> [!IMPORTANT]
+> Collecting logs across tenants requires [Azure Lighthouse](/azure/lighthouse).
 
 ## Collecting Activity log
 The Activity log is collected automatically for [viewing in the Azure portal](activity-log-view.md). To collect it in a Log Analytics workspace or to send it Azure storage or event hubs, create a [diagnostic setting](diagnostic-settings.md). This is the same method used by resource logs making it consistent for all [platform logs](platform-logs-overview.md).  

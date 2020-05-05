@@ -2,7 +2,7 @@
 title: Support for physical server assessment in Azure Migrate
 description: Learn about support for physical server assessment with Azure Migrate Server Assessment
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ---
 
 # Support matrix for physical server assessment 
@@ -29,16 +29,18 @@ To assess physical servers, you create an Azure Migrate project, and add the Ser
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
 | **Physical server deployment**       | The physical server can be standalone, or deployed in a cluster. |
-| **Permissions**           | **Windows:** You need a local or domain user account on all the Windows servers you want to discover. The user account should be added to these groups: Remote Desktop Users, Performance Monitor Users, and Performance Log users. <br/><br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
-| **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems that are supported by Azure, except for Windows Server 2003, and SUSE Linux.|
+| **Permissions**           | **Windows:** You need to be a domain admin, or local admin on all the Windows servers you want to discover. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log users. <br/><br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
+| **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) server operating systems that are supported by Azure, except for Windows Server 2003, and SUSE Linux.<br/><br/> Windows 10 and Windows 8 client operating systems. |
 
 
 ## Azure Migrate appliance requirements
 
-Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for physical servers can run on a VM or a physical machine. You set the appliance up using a PowerShell script that you download from the Azure portal.
+Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for physical servers can run on a VM or a physical machine. 
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---physical) for physical servers.
-- Learn about [URLs](migrate-appliance.md#url-access) the appliance needs to access.
+- Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
+- You set the appliance up using a [PowerShell script](how-to-set-up-appliance-physical.md) that you download from the Azure portal.
+In Azure Government, deploy the appliance [using this script](deploy-appliance-script-government.md).
 
 ## Port access
 
@@ -63,6 +65,7 @@ The following table summarizes port requirements for assessment.
 **Costs** | The Service Map solution doesn't incur any charges for the first 180 days (from the day that you associate the Log Analytics workspace with the Azure Migrate project)/<br/><br/> After 180 days, standard Log Analytics charges will apply.<br/><br/> Using any solution other than Service Map in the associated Log Analytics workspace will incur [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br/><br/> When the Azure Migrate project is deleted, the workspace is not deleted along with it. After deleting the project, Service Map usage isn't free, and each node will be charged as per the paid tier of Log Analytics workspace/<br/><br/>If you have projects that you created before Azure Migrate general availability (GA- 28 February 2018), you might have incurred additional Service Map charges. To ensure payment after 180 days only, we recommend that you create a new project, since existing workspaces before GA are still chargeable.
 **Management** | When you register agents to the workspace, you use the ID and key provided by the Azure Migrate project.<br/><br/> You can use the Log Analytics workspace outside Azure Migrate.<br/><br/> If you delete the associated Azure Migrate project, the workspace isn't deleted automatically. [Delete it manually](../azure-monitor/platform/manage-access.md).<br/><br/> Don't delete the workspace created by Azure Migrate, unless you delete the Azure Migrate project. If you do, the dependency visualization functionality will not work as expected.
 **Internet connectivity** | If machines aren't connected to the internet, you need to install the Log Analytics gateway on them.
+**Azure Government** | Agent-based dependency analysis isn't supported.
 
 ## Next steps
 

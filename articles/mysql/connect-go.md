@@ -284,7 +284,7 @@ func main() {
 	rows, err := db.Exec("UPDATE inventory SET quantity = ? WHERE name = ?", 200, "banana")
 	checkError(err)
 	rowCount, err := rows.RowsAffected()
-	fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
+	fmt.Printf("Updated %d row(s) of data.\n", rowCount)
 	fmt.Println("Done.")
 }
 ```

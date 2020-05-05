@@ -27,6 +27,9 @@ For SQL Database elastic pools, the following tables show the resources availabl
 > [!NOTE]
 > The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier. For example, the max concurrent workers for an S2 database is 120 workers. So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
 
+> [!NOTE]
+> The storage per pool resource limit in each of the following tables do not include tempdb and log storage.
+
 ### Basic elastic pool limits
 
 | eDTUs per pool | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |

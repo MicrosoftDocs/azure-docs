@@ -3,13 +3,13 @@ title: Deploy LUIS container on Azure Container instances
 titleSuffix: Azure Cognitive Services
 description: Deploy the LUIS container to an Azure Container instance, and test it in a web browser.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.author: dapine
+ms.date: 04/07/2020
+ms.author: aahi
 ---
 
 # Deploy the Language Understanding (LUIS) container to Azure Container instances

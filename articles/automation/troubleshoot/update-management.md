@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot errors with Azure Update Management
-description: Learn how to troubleshoot and resolve issues with the Update Management solution in Azure.
+title: Troubleshooting Azure Automation Update Management
+description: Learn how to troubleshoot and resolve issues with the Update Management solution in Azure Automation.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ---
-# Troubleshooting issues with Update Management
 
-This article discusses solutions to issues that you might come across when using Update Management.
+# Troubleshoot issues with the Update Management solution
 
-There's an agent troubleshooter for the Hybrid Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md). For all other issues, use the following troubleshooting guidance.
+This article discusses issues that you might run into when using the Update Management solution. There's an agent troubleshooter for the Hybrid Runbook Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot Windows update agent issues](update-agent-issues.md) and [Troubleshoot Linux update agent issues](update-agent-issues-linux.md). For other onboarding issues, see [Troubleshoot solution onboarding](onboarding.md).
 
-If you find issues when onboarding the solution on a virtual machine (VM), check the **Operations Manager** log under **Application and Services Logs** on the local machine. Look for events with event ID 4502 and event details that contain `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+>[!NOTE]
+>If you find issues when onboarding the solution on a virtual machine (VM), check the **Operations Manager** log under **Application and Services Logs** on the local machine. Look for events with event ID 4502 and event details that contain `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
-The following section highlights specific error messages and possible resolutions for each. For other onboarding issues, see [Troubleshoot solution onboarding](onboarding.md).
+>[!NOTE]
+>This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
 ## Scenario: You receive the error "Failed to enable the Update solution"
 
@@ -43,13 +44,13 @@ This error can occur for the following reasons:
 
 * Run the troubleshooter for [Windows](update-agent-issues.md#troubleshoot-offline) or [Linux](update-agent-issues-linux.md#troubleshoot-offline), depending on the OS.
 
-* Go to [Network planning](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports must be allowed for Update Management to work.  
+* Go to [Network configuration](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports must be allowed for Update Management to work.  
 
-* Go to [Network planning](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) to learn about which addresses and ports must be allowed for the Log Analytics agent to work.
+* Go to [Network configuration](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) to learn about which addresses and ports must be allowed for the Log Analytics agent to work.
 
 * Check for scope configuration problems. [Scope configuration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determines which machines get configured for the solution. If your machine is showing up in your workspace but not in the **Update Management Portal, you'll need to set the scope configuration to target the machines. To learn about the scope configuration, see [Onboard machines in the workspace](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
-* Remove the worker configuration by following the steps in [Deleting the hybrid runbook worker](../automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker). 
+* Remove the worker configuration by following the steps in [Remove a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) or [Remove a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 
 ## Scenario: Superseded update indicated as missing in Update Management
 
@@ -214,15 +215,15 @@ Use the following procedure if your subscription is configured for the Automatio
 
 ### Issue
 
-Virtual machines for selected scopes of a dynamic group are not showing up in the Azure portal preview list. This list consists of all machines retrieved by an ARG query for the selected scopes. The scopes are filtered by machines that have Hybrid Runbook Workers installed and for which you have access permissions. 
+Virtual machines for selected scopes of a dynamic group are not showing up in the Azure portal preview list. This list consists of all machines retrieved by an ARG query for the selected scopes. The scopes are filtered for machines that have Hybrid Runbook Workers installed and for which you have access permissions. 
 
 ### Cause
  
 Here are possible causes for this issue:
 
 * You don't have the correct access on the selected scopes.
-* The ARG query does not retrieve the expected machines.
-* Hybrid Runbook Worker is not installed on the machines.
+* The ARG query doesn't retrieve the expected machines.
+* Hybrid Runbook Worker isn't installed on the machines.
 
 ### Resolution 
 
@@ -257,9 +258,9 @@ Follow the steps below to find out if your queries are working correctly.
 
 3. If the machines aren't listed, there is probably an issue with the filter selected in the dynamic group. Adjust the group configuration as needed.
 
-#### ARG query retrieves expected machines, but they don't appear in dynamic group preview
+#### Hybrid Runbook Worker not installed on machines
 
-A machine that is not showing up in the dynamic group preview might not be listed in the Hybrid Runbook Worker group. Therefore, it can't run Azure Automation and Update Management jobs. To ensure that the machines you're expecting to see are set up as Hybrid Runbook Workers:
+Machines do appear in ARG query results but still don't show up in the dynamic group preview. In this case, the machines might not be designated as hybrid workers and thus can't run Azure Automation and Update Management jobs. To ensure that the machines you're expecting to see are set up as Hybrid Runbook Workers:
 
 1. In the Azure portal, go to the Automation account for a machine that is not appearing correctly.
 
@@ -293,7 +294,7 @@ This error can occur for the following reasons:
 
 * There is a duplicate computer name with different source computer IDs. This scenario occurs when a VM with a particular computer name is created in different resource groups and is reporting to the same Logistics Agent workspace in the subscription.
 
-* The VM image being onboarded might come from a cloned machine that wasn't prepared with System Preparation (sysprep) with the Microsoft Monitoring Agent (MMA) installed.
+* The VM image being onboarded might come from a cloned machine that wasn't prepared with System Preparation (sysprep) with the Log Analytics agent for Windows installed.
 
 ### Resolution
 
@@ -345,17 +346,16 @@ This error occurs when you create an update deployment that has Azure VMs in ano
 
 ### Resolution
 
-Use the following workaround to get these items scheduled. You can use the [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet with the `ForUpdate` parameter to create a schedule. Then, use the [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) cmdlet and pass the machines in the other tenant to the `NonAzureComputer` parameter. The following example shows how to do this:
+Use the following workaround to get these items scheduled. You can use the [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) cmdlet with the `ForUpdateConfiguration` parameter to create a schedule. Then, use the [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) cmdlet and pass the machines in the other tenant to the `NonAzureComputer` parameter. The following example shows how to do this:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
 
 $startTime = ([DateTime]::Now).AddMinutes(10)
 
-$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+$s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
 
-New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
 ## <a name="node-reboots"></a>Scenario: Unexplained reboots
@@ -443,7 +443,7 @@ The machine has already been onboarded to another workspace for Update Managemen
 ### Resolution
 
 1. Follow the steps under [Machines don't show up in the portal under Update Management](#nologs) to make sure the machine is reporting to the correct workspace.
-2. Clean up artifacts on the machine by [deleting the hybrid runbook group](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group), and then try again.
+2. Clean up artifacts on the machine by [deleting the hybrid runbook group](../automation-windows-hrw-install.md#remove-a-hybrid-worker-group), and then try again.
 
 ## <a name="machine-unable-to-communicate"></a>Scenario: Machine can't communicate with the service
 
@@ -608,7 +608,7 @@ KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/
 
 ## Next steps
 
-If you didn't see your problem or can't resolve your issue, try one of the following channels for additional support.
+If you don't see your problem or can't resolve your issue, try one of the following channels for additional support.
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience.
