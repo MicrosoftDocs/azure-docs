@@ -188,7 +188,7 @@ Examine service logs from the last 5 minutes. If you just finished installing th
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Run the [troubleshooting tool](troubleshoot.md#run-the-check-command)to check for the most common configuration and networking errors.
+Run the [troubleshooting tool](troubleshoot.md#run-the-check-command) to check for the most common configuration and networking errors.
 
 ```powershell
 iotedge check
