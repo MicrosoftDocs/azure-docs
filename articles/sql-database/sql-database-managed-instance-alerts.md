@@ -42,8 +42,9 @@ You can configure and get information about alert rules using the following inte
 
 ## Alerting metrics available for managed instance
 
-> [!NOTE]
-> Alerting metrics are available for managed instance only. Alerting metrics for individual databases in managed instance are not available.
+> [!IMPORTANT]
+> Alerting metrics are available for managed instance only. Alerting metrics for individual databases in managed instance are not available. 
+> Database diagnostics telemetry is on the other hand available in the form of [diagnostics logs](sql-database-metrics-diag-logging.md#diagnostic-telemetry-for-export-for-azure-sql-database). Alerts on diagnostics logs can be setup from within [SQL Analytics solution](../azure-monitor/insights/azure-sql.md) product using [log alert scripts](../azure-monitor/insights/azure-sql.md#creating-alerts-for-managed-instances) for managed instance.
 
 The following managed instance metrics are available for alerting configuration:
 
@@ -118,12 +119,12 @@ Upon setting up an alerting rule, verify that you are satisfied with the alertin
 
 The email shows the alert name, details of the threshold and why the alert was triggered helping you to verify and troubleshoot your alert. You can use **See in Azure portal** button to view alert received via email in Azure portal. 
 
-## View, modify and delete existing alert rules
+## View, suspend, activate, modify and delete existing alert rules
 
 > [!NOTE]
 > Existing alerts need to be managed from Alerts menu from Azure portal dashboard. Existing alerts cannot be modified from Managed Instance resource blade.
 
-To view, modify and delete existing alerts:
+To view, suspend, activate, modify and delete existing alerts:
 
 1. Search for Alerts using Azure portal search. Click on Alerts.
 
@@ -135,7 +136,7 @@ To view, modify and delete existing alerts:
 
    ![modify_alerts](media/sql-database-managed-instance-alerts/mi-manage-alert-rules-smaller-annotated.png)
 
-   List of existing alerts will show up. Select an individual existing alert rule to view, modify, or delete it.
+   List of existing alerts will show up. Select an individual existing alert rule to manage it. Existing active rules can be modified and tuned to your preference. Active rules can also be suspended without being deleted. 
 
 ## Next steps
 
