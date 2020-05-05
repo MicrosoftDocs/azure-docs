@@ -14,39 +14,7 @@ manager: philMea
 
 The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert uploaded Drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If one or more requirements are not met, then the Conversion service will return errors and/or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
 
-## Conversion Errors
-
-This table contains the possible errors.  The conversion will not succeed unless all conversion errors are resolved. To see more details, click on an error category or a specific error.
-
-| Error | Location |
-|:----------|:----------|
-| [invalidArchiveFormat](#invalidarchiveformat) | [Package](#package-errors) |
-| [invalidUserData](#invaliduserdata) | [Package](#package-errors) |
-| [dwgError](#dwgerror) | [Package](#package-errors) |
-| [invalidJsonFormat](#invalidjsonformat) | [Manifest](#manifest-errors) |
-| [missingRequiredField](#missingrequiredfield) | [Manifest](#manifest-errors) |
-| [missingManifest](#missingmanifest) | [Manifest](#manifest-errors) |
-| [conflict](#conflict) | [Manifest](#manifest-errors) |
-| [invalidGeoreference](#invalidgeoreference) | [Manifest](#manifest-errors) |
-| [wallError](#wallerror) | [wall](#wall-errors) |
-| [verticalPenetrationError](#verticalpenetrationerror) | [Vertical Penetration](#vertical-penetration-errors) |
-
-This table contains the possible warning codes. The Conversion service will succeed if there are any conversion warnings, but it’s recommended that you review and/or resolve all warnings. A warning means part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes. To see more details, click on an error category or a specific error.
-
-## Conversion Warnings
-
-| Warning | Location |
-|:-------|:----------|
-| [geometryWarning](#geometrywarning) | [General](#general-warnings) |
-| [unexpectedGeometryInLayer](#unexpectedgeometryinlayer) | [General](#general-warnings) |
-| [unsupportedFeatureRepresentation](#unsupportedfeaturerepresentation) | [General](#general-warnings) |
-| [automaticRepairPerformed](#automaticrepairperformed) | [General](#general-warnings) |
-| [redundantAttribution](#redundantAttribution) | [Manifest](#manifest-warnings) |
-| [wallOutsideLevel](#walloutsidelevel ) | [Level](#level-warnings) |
-| [unitOutsideLevel](#unitoutsidelevel) | [Unit](#unit-warnings) |
-| [partiallyOverlappingUnit](#partiallyoverlappingunit) | [Unit](#unit-warnings) |
-| [doorOutsideLevel](#dooroutsidelevel) | [Door](#door-warnings) |
-| [zoneWarning](#zonewarning ) | [Zone](#zone-warnings) |
+The Conversion service will succeed if there are any conversion warnings, but it’s recommended that you review and/or resolve all warnings. A warning means part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes.
 
 ## General Warnings
 
@@ -64,7 +32,7 @@ A DWG file contains geometric errors, such as PolyLine features not meeting perf
 
 #### How to fix geometryWarning
 
-Inspect each **geometryWarning** warning for each entity to ensure that it follows geometric constraints.
+Inspect each **geometryWarning** warning for each entity to verify that it follows geometric constraints.
 
 ### unexpectedGeometryInLayer
 
@@ -132,7 +100,7 @@ The **automaticRepairPerformed** warning occurs when invalid geometry, which wou
 
 #### How to fix automaticRepairPerformed
 
-To fix an `automaticRepairPerformed` warning:
+To fix an `automaticRepairPerformed` warning, do the following:
 
 1. Inspect each warning's geometry and the specific warning text.
 2. Determine if the automated repair is correct.
@@ -180,7 +148,7 @@ The **wallOutsideLevel** warning occurs when a Wall geometry occurs outside the 
 
     ![Exterior wall goes outside the level boundary](./media/drawing-conversion-error-codes/exterior-wall-outside-level-boundary.png)
 
-#### How to fix wallOutsideLeve
+#### How to fix wallOutsideLevel
 
 To fix an **wallOutsideLevel** warning, expand the level geometry to include all walls. Or, modify wall boundaries to fit inside the level boundary.
 
@@ -208,141 +176,241 @@ To fix an **unitOutsideLevel** warning, expand the level boundary to include all
 
 A **partiallyOverlappingUnit** occurs when the Conversion service finds a unit geometry partially overlapping on another unit geometry. The Conversion service ignores all overlapping units.
 
-#### Example scenarios for partiallyOverlappingUnit
+#### Example scenarios partiallyOverlappingUnit
 
 In the following image, the overlapping units are highlighted in red. UNIT 136 overlaps CIRC103, UNIT 126, and UNIT 135.
+
 ![Unit overlap](./media/drawing-conversion-error-codes/unit-overlap.png)
 
 #### How to fix partiallyOverlappingUnit
 
-In order to fix a **partiallyOverlappingUnit** warning, redraw each partially overlapping unit so that it doesn't overlap any other units.
-
-## Package errors
-
-### invalidArchiveFormat
-
-Invalid archive format detected. Archive isn't a valid ZIP file. For example:
-
-* When the user called the Data upload service, the data wasn't inside a zip file or the data wasn't inside a supported zip format. GZip and 7-Zip aren't supported file formats.
-
-To resolve this error:
-
-1. Make sure your archive file name ends in .zip.
-2. Make sure you can open your zip file.
-
-### invalidUserData
-
-Unable to read user data object from storage. For example:
-
-* User provided an incorrect `udid` parameter.
-
-To resolve this error, confirm all of the following:
-
-1. That you have provide a correct `udid` for the uploaded package.
-2. That Azure Maps Creator has been enabled for the Azure Maps account you used for uploading the Drawing package.
-3. That the API request to the Conversion service contains the subscription key to the Azure Maps account you used for uploading the Drawing package.
-
-### dwgError
-
-Error when reading one or more DWG files from the archive. For example, the DWG file is:
-
-* Not a valid AutoCAD DWG file format drawing.
-* Corrupt.
-* Listed in the manifest, but it's missing from the archive.
-
-Check your manifest.json file, and make sure to only list the DWG files in your folder. Repair your corrupt DWG file or discard it.
-
-
-## Manifest errors
-
-### invalidJsonFormat
-
-The JSON file can't be read. For example:
-
-* Manifest.json doesn't contain any JSON text.
-* Manifest.json contains non-JSON text.
-* Manifest.json has JSON syntax errors.
-
-Use a JSON linter to detect any JSON errors and resolve them.
-
-### missingRequiredField
-
-Manifest is missing a required data. For example:
-
-* Manifest is missing a "version" object.
-* Manifest is missing a "dwgLayers" object.
-
-Verify that the manifest contains all required properties. For a full list of required manifest object, see the [manifest section in the Drawing package requirements](drawing-requirements.md#manifest-file-requirements)  
-
-### missingManifest
-
-Manifest is missing from archive. It could be because manifest.json is:
-
-* Misspelled.
-* Missing.
-* Not inside the root directory of the archive.
-
-Ensure the archive has a file named _manifest.json_ at the root level.
-
-### conflict
-
-Manifest contains conflicting information. For example, it could be that more than one level is defined with the same level ordinal.
-
-Read through your _manifest.json_ and remove conflicts.
-
-### invalidGeoreference
-
-Manifest georeference is invalid. For example, the user could be georeferencing:
-
-* Out of range latitude or longitude value.
-* Out of range rotation value.
-
-Check your georeferenced values.
-
-For GeoJSON, the coordinates order is longitude and latitude. If you don't use the correct order, you may accidentally refer to an out of range latitude or longitude value.
-
-
-
-## Wall errors
-
-### wallError
-
-Error creating a wall feature. This error occurs when a wall feature doesn't overlap any units.
-
-Redraw the wall so that it overlaps at least one unit. Otherwise, create a new unit that overlaps the wall.
+To fix a **partiallyOverlappingUnit** warning, redraw each partially overlapping unit so that it doesn't overlap any other units.
 
 ## Door warnings
 
 ### doorOutsideLevel
 
-Door geometry occurs completely outside the bounds of the level geometry. Resolve this warning by placing your door inside the level geometry.
+#### Description for doorOutsideLevel
+
+The **doorOutsideLevel** warning occurs when a door geometry occurs completely outside the bounds of the level geometry.
+
+#### Example scenarios for doorOutsideLevel
+
+In the following image, the door geometry, highlighted in red, is overlapping the yellow level boundary.
+
+![Example of a door outside level boundary](./media/drawing-conversion-error-codes/placeholder.png)
+
+#### How to fix doorOutsideLevel
+
+To fix a **doorOutsideLevel** warning, redraw your door geometry so that it is inside the level boundaries.
 
 ## Zone warnings
 
 ### zoneWarning
 
-Error creating a zone feature. For example, this warning is raised when a zone contains multiple zone labels or no zone labels.
+#### Description for zoneWarning
 
-Make sure each zone has one and only one label.
+The **zoneWarning** warning occurs when the Conversion service encounters an error while attempting to create a zone feature.
+
+#### Example scenarios for zoneWarning
+
+The **zoneWarning** warning can occur when a zone contains multiple zone labels or no zone labels.
+
+![Example of a zone that contains multiple zone labels or no zone labels](./media/drawing-conversion-error-codes/placeholder.png)
+
+#### How to fix zoneWarning
+
+To fix a **zoneWarning**, verify that each zone has only one label.
+
+## Drawing Package errors
+
+### invalidArchiveFormat
+
+#### Description for invalidArchiveFormat
+
+The **invalidArchiveFormat** error occurs when the Conversion service detects an invalid archive.
+
+#### Example scenario for invalidArchiveFormat
+
+The **invalidArchiveFormat** error can occur when when a user uploads a file that is not a ZIP archive or is a ZIP archive that is empty. GZip and 7-Zip aren't supported file formats.
+
+#### How to fix invalidArchiveFormat
+
+To fix an **invalidArchiveFormat** error, do the following:
+
+* Verify that your archive file name ends in _.zip_.
+* Verify that your ZIP archive contains data.
+* Verify that you can open your ZIP archive.
+
+### invalidUserData
+
+#### Description for invalidUserData
+
+An **invalidUserData** error occurs when the Conversion service is unable to read a user data object from storage.
+
+#### Example scenario for invalidUserData
+
+The **invalidUserData** error can occur when a user attempts to upload a Drawing package with an incorrect `udid` parameter.
+
+#### How to fix invalidUserData
+
+To fix a **invalidUserData** error, verify all of the following:
+
+* That you have provide a correct `udid` for the uploaded package.
+* That Azure Maps Creator has been enabled for the Azure Maps account you used for uploading the Drawing package.
+* That the API request to the Conversion service contains the subscription key to the Azure Maps account you used for uploading the Drawing package.
+
+### dwgError
+
+#### Description for dwgError
+
+The **dwgError** occurs when the Conversion service finds an issue with one or more DWG files in the uploaded ZIP archive.
+
+#### Example scenario for dwgError
+
+The **dwgError** can occur in the following scenerios:
+
+* A DWG file isn't a valid AutoCAD DWG file format drawing.
+* A DWG file is corrupt.
+* A DWG file is listed in the _manifest.json_ file, but it's missing from the ZIP archive.
+
+#### How to fix dwgError
+
+To fix a **dwgError** error, inspect your _manifest.json_ file and do one or more of the following:
+
+* Confirm that all DWG files in your ZIP archive are valid AutoCAD DWG file format drawings. Remove or fix all invalid drawings.
+* If the _manifest.json_ is corrupted, repair your corrupt DWG file. Or, discard it and create a new one.
+* Confirm that the list of  DWG files in the _manifest.json_  matches the DWG files in the ZIP archive.
+
+## Manifest errors
+
+### invalidJsonFormat
+
+#### Description for invalidJsonFormat
+
+The **invalidJsonFormat** error occurs when the _manifest.json_ file cannot be read.
+
+#### Example scenario for invalidJsonFormat
+
+The _manifest.json_file cannot be read under the following scenerios:
+
+* The _manifest.json_ doesn't contain any JSON text.
+* The _manifest.json_ contains non-JSON text.
+* The _manifest.json_ has JSON syntax errors.
+
+#### How to fix invalidJsonFormat
+
+To fix a **invalidJsonFormat** error, use a JSON linter to detect and resolve any JSON errors.
+
+### missingRequiredField
+
+#### Description for missingRequiredField
+
+A **missingRequiredField** error occurs when the _manifest.json_ file is missing required data.
+
+#### Example scenario for missingRequiredField
+
+A **missingRequiredField** error will occur in the following scenarios:
+
+* The _manifest.json_ is missing a "version" object.
+* The _manifest.json_ is missing a "dwgLayers" object.
+
+#### How to fix missingRequiredField
+
+To fix a **missingRequiredField** error, verify that the manifest contains all required properties. For a full list of required manifest object, see the [manifest section in the Drawing package requirements](drawing-requirements.md#manifest-file-requirements)  
+
+### missingManifest
+
+#### Description for missingManifest
+
+The **missingManifest** error occurs when the _manifest.json_ file is missing from the ZIP archive.
+
+#### Example scenario for missingManifest
+
+The **missingManifest** error can occur under the following scenarios:
+
+* The _manifest.json_ file is misspelled.
+* The _manifest.json_ is missing.
+* The _manifest.json_ is not inside the root directory of the ZIP archive.
+
+#### How to fix missingManifest
+
+To fix a **missingManifest** error, confirm that the archive has a file named _manifest.json_ at the root level of the ZIP archive.
+
+### conflict
+
+#### Description for conflict
+
+The **conflict** error occurs when the _manifest.json_ file contains conflicting information.
+
+#### Example scenario for conflict
+
+The **conflict** error will occur if more than one level is defined with the same level ordinal.
+
+#### How to fix conflict
+
+To fix a **conflict** error, inspect your _manifest.json_ and remove any conflicts.
+
+### invalidGeoreference
+
+#### Description for invalidGeoreference
+
+The **invalidGeoreference** error occurs when a _manifest.json_ file contains an invalid georeference.
+
+#### Example scenario for invalidGeoreference
+
+The **invalidGeoreference** error can occur in the following scenarios:
+
+* The user is georeferencing a latitude or longitude value that is out of range.
+* The user is georeferencing a rotation value that is out of range.
+
+#### How to fix invalidGeoreference
+
+To fix an **invalidGeoreference** error, verify that the georeferenced values are within range.
+
+>[!IMPORTANT]
+>In GeoJSON, the coordinates order is longitude and latitude. If you don't use the correct order, you may accidentally refer a latitude or longitude value that is out of range.
+
+## Wall errors
+
+### wallError
+
+#### Description for wallError
+
+The **wallError** error occurs when the Conversion service finds an error while attempting to create a wall feature.
+
+#### Example scenario for wallError
+
+The **wallError** occurs when a wall feature doesn't overlap any units.
+![Example of Wall feature that doesn't overlap any units](./media/drawing-conversion-error-codes/placeholder.png)
+
+#### How to fix wallError
+
+To fix a **wallError** error, redraw the wall so that it overlaps at least one unit. Or, create a new unit that overlaps the wall.
 
 ## Vertical Penetration errors
 
 ### verticalPenetrationError
 
-Error creating a vertical penetration feature. For example:
+#### Description for verticalPenetrationError
 
-* A vertical penetration area with no overlapping vertical penetration areas on any levels above or below it.
-* There exists a level with two or more vertical penetration features on it that overlap this one.
+The **verticalPenetrationError** error occurs when the Conversion services finds an error while creating a vertical penetration feature.
 
-Read about how to use a vertical penetration feature in the [Drawing package requirements](drawing-requirements.md) article.
+#### Example scenario for verticalPenetrationError
+
+The **verticalPenetrationError** error can occur in the following scenarios:
+
+* The Conversion service finds a vertical penetration area with no overlapping vertical penetration areas on any levels above or below it.
+* The Conversion service finds a level that exists with two or more vertical penetration features on it that overlap this one.
+
+#### How to fix verticalPenetrationError
+
+To fix a **verticalPenetrationError** error, read about how to use a vertical penetration feature in the [Drawing package requirements](drawing-requirements.md) article.
 
 ## Next steps
 
-After you resolve your Drawing conversion errors, try to resolve your warnings.
-
-Once you successfully convert your uploaded Drawing package into map data, you can use your converted data to render indoor maps. Learn more by reading the following articles:
-
 > [!div class="nextstepaction"]
 > [How to use Azure Maps Drawing error visualizer](azure-maps-drawing-errors-visualizer.md)
+
 > [!div class="nextstepaction"]
 > [Creator for indoor mapping](creator-for-indoor-maps.md)
