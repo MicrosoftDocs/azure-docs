@@ -2,14 +2,14 @@
 title: Deploy Resource Manager templates by using GitHub Actions
 description: Describes how to deploy Azure Resource Manager templates by using GitHub Actions.
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/05/2020
 ---
 
 # Deploy Azure Resource Manager templates by using GitHub Actions
 
-[GitHub Actions](https://help.github.com/en/actions) enables you to create custom software development life-cycle workflows directly in your GitHub repository where your Azure Resource Manager (ARM) templates are stored. A [workflow](https://help.github.com/actions/reference/workflow-syntax-for-github-actions) is defined by a YAML file. Workflows have one or more jobs with each job containing a set of steps that perform individual tasks. Steps can run commands or use an action. You can create your own actions or use actions shared by the [GitHub community](https://github.com/marketplace?type=actions) and customize them as needed. This article shows how to use an action called [Azure Resource Manager Template Deployment JS](https://github.com/marketplace/actions/azure-resource-manager-arm-template-deployment-js) to deploy Resource Manager templates.
+[GitHub Actions](https://help.github.com/en/actions) enables you to create custom software development life-cycle workflows directly in your GitHub repository where your Azure Resource Manager (ARM) templates are stored. A [workflow](https://help.github.com/actions/reference/workflow-syntax-for-github-actions) is defined by a YAML file. Workflows have one or more jobs with each job containing a set of steps that perform individual tasks. Steps can run commands or use an action. You can create your own actions or use actions shared by the [GitHub community](https://github.com/marketplace?type=actions) and customize them as needed. This article shows how to use [Azure CLI Action](https://github.com/marketplace/actions/azure-cli-action) to deploy Resource Manager templates.
 
-The [ARM Template Deployment JS action](https://github.com/marketplace/actions/azure-resource-manager-arm-template-deployment-js) has two dependent actions:
+Azure CLI Action has two dependent actions:
 
 - **[Checkout](https://github.com/marketplace/actions/checkout)**: Check out your repository so the workflow can access any specified Resource Manager template.
 - **[Azure Login](https://github.com/marketplace/actions/azure-login)**: Log in with your Azure credentials
@@ -110,11 +110,12 @@ You can either create a workflow file and then push/upload the file to the repos
             with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+
           - name: Deploy ARM Template
-            uses: whiteducksoftware/azure-arm-action-js@v1
+            uses: azure/CLI@v1
             with:
-              resourceGroupName: myResourceGroup
-              templateLocation: ./templates/azuredeploy.json
+              inlineScript: |
+                az deployment group create --resource-group myResourceGroup --template-file ./templates/azuredeploy.json
     ```
 
     The workflow file has three sections:
@@ -134,7 +135,8 @@ You can either create a workflow file and then push/upload the file to the repos
         - **Deploy ARM template**. Replace the value of **resourceGroupName**.  If you used the Azure CLI script in [Configure deployment credentials](#configure-deployment-credentials), the generated resource group name is the project name with **rg** appended. Verify the value of **templateLocation**.
 
 1. Select **Start commit**.
-1. Select **Commit new file**.
+1. Select **Commit directly to the master branch**.
+1. Select **Commit new file** (or **Commit changes**).
 
 Because the workflow is configured to be triggered by either the workflow file or the template file being updated, the workflow starts right after you commit the changes.
 
