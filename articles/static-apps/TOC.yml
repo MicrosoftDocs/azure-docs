@@ -29,8 +29,8 @@
       href: local-development.md
     - name: Add an API
       href: add-api.md
-    - name: Configure app settings
-      href: app-settings.md
+    - name: Configure environment variables
+      href: environment-variables.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator

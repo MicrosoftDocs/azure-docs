@@ -1,5 +1,5 @@
 ---
-title: Configure application settings for Azure Static Web Apps
+title: Configure environment variables for Azure Static Web Apps
 description: #Required; article description that is displayed in search results.
 services: static-web-apps
 author: burkeholland
@@ -9,24 +9,22 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ---
 
-# Configure application settings for Azure Static Web Apps
+# Configure environment variables for Azure Static Web Apps
 
-Application settings hold configuration settings for values that may change, such as database connection strings. Adding application settings allow you to modify the configuration input to your app, without having to change application code.
+Environment variables hold configuration settings for values that may change, such as database connection strings. Adding environment variables allows you to modify the configuration input to your app, without having to change application code.
 
-Application settings are also sometimes referred to as environment variables.
+Environment variables are also sometimes referred to as application settings.
 
 ## Prerequisites
 
 - An Azure Static Web Apps application
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- [Node.js and npm](https://nodejs.org/en/download/), the Node.js package manager.
-  - This requirement is used only to run the simple upload solution. It is not needed if the Azure CLI `rest` command is used to sync application settings to Azure.
 
-## Types of application settings
+## Types of environment variables
 
 There are typically two aspects to an Azure Static Web Apps application. The first is the web application, or static content, which is represented by HTML, CSS, JavaScript, and images. The second is the back-end API, which is powered by an Azure Functions application.
 
-This article demonstrates how to manage application settings for the back-end API in Azure Functions.
+This article demonstrates how to manage environment variables for the back-end API in Azure Functions.
 
 Many front-end frameworks and static site generators allow the use of environment variables during development. At build time, these variables are replaced by their values in the generated HTML or JavaScript. Since data in HTML and JavaScript is easily discoverable by site visitor, you want to avoid putting sensitive information in the front-end application. Settings that hold sensitive data are best located in API app.
 
@@ -45,11 +43,11 @@ For more information about how to use environment variables with your JavaScript
 - [Hugo](https://gohugo.io/getting-started/configuration/)
 - [Jekyll](https://jekyllrb.com/docs/configuration/environments/)
 
-## About application settings
+## About environment variables
 
-APIs in Azure Static Web Apps are powered by Azure Functions, which allows you to define application settings in the _local.settings.json_ file. This file defines application settings in the `Values` property of the configuration.
+APIs in Azure Static Web Apps are powered by Azure Functions, which allows you to define environment variables in the _local.settings.json_ file. This file defines environment variables in the `Values` property of the configuration.
 
-The following sample _local.settings.json_ shows how to add an application setting for the `DATABASE_CONNECTION_STRING`.
+The following sample _local.settings.json_ shows how to add a value for the `DATABASE_CONNECTION_STRING`.
 
 ```json
 {
@@ -96,7 +94,7 @@ The Azure Portal provides an interface for creating, updating and deleting App S
 
 ### Using the Azure CLI
 
-You can use the `az rest` command to upload your settings to Azure. The command accepts application settings as JSON objects in a parent property called `properties`.
+You can use the `az rest` command to do bulk uploads of your settings to Azure. The command accepts environment variables as JSON objects in a parent property called `properties`.
 
 The easiest way to create a JSON file with the appropriate values is to create a modified version of your _local.settings.json_ file.
 
@@ -108,7 +106,7 @@ The easiest way to create a JSON file with the appropriate values is to create a
 
 2. Next, make a copy of your _local.settings.json_ file and name it _local.settings.properties.json_.
 
-3. Inside the new file, remove all other data from the file except for the application settings and rename `Values` to `properties`.
+3. Inside the new file, remove all other data from the file except for the environment variables and rename `Values` to `properties`.
 
    Your file should now look similar to the following example:
 
@@ -137,9 +135,9 @@ The Azure CLI command requires a number of values specific to your account to ru
 > [!IMPORTANT]
 > The "local.settings.properties.json" file must be in the same directory where this command is run. This file can be named anything you like. The name is not significant.
 
-### Viewing app settings with the Azure CLI
+### View environment variables with the Azure CLI
 
-Application settings are available to view through the Azure CLI.
+Environment variables are available to view through the Azure CLI.
 
 1. From a terminal or command line, execute the following command. Make sure to replace the placeholders `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>`, `<YOUR_STATIC_SITE_NAME>` with your values.
 
@@ -149,4 +147,5 @@ Application settings are available to view through the Azure CLI.
 
 ## Next steps
 
-> [!div class="nextstepaction"][setup local development for azure static web apps](local-development.md)
+> [!div class="nextstepaction"]
+> [Setup local development](local-development.md)
