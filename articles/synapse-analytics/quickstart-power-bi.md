@@ -42,7 +42,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 5. Enter a name for the linked service and select a workspace from the dropdown list.
 
-    ![Displaying Power BI linked service setup.](media/quickstart-link-powerbi/powerbi-linked-service.png)
+    ![Displaying Power BI linked service setup.](media/quickstart-link-powerbi/workspace-link-dialog.png)
 
 6. Click **Create**.
 
