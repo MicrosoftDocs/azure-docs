@@ -92,7 +92,7 @@ To learn more about self-service password reset concepts, see [How Azure AD self
 To learn more about multi-factor authentication concepts, see [How Azure Multi-Factor Authentication works][concept-mfa].
 
 <!-- INTERNAL LINKS -->
-[tutorial-sspr]: tutorial-enable-sspr
-[tutorial-azure-mfa]: tutorial-enable-azure-mfa
+[tutorial-sspr]: tutorial-enable-sspr.md
+[tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
 [concept-sspr]: concept-sspr-howitworks.md
 [concept-mfa]: concept-mfa-howitworks.md
