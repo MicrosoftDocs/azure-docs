@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/30/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -23,8 +23,9 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and is the
 
 ## Frequently asked questions
 
-| Question | Solution |
-| -------- | -------- |
+| Question | Answer |
+| -------- | ------ |
+| Is registering a device agreeing to give the company or service access to my device? | Registering a device gives your device access to your organization's services and doesn't allow your organization access to your device. |
 | Can I take screenshots of my OTP codes on the Android Microsoft Authenticator? | As of Microsoft Authenticator Android release 6.2003.1704, by default, when a screenshot of the Authenticator is taken, all OTP codes are hidden to better protect our users. If a user would like to see their OTP codes in screenshots or allow other apps to capture the Authenticator's screen, they can do so by enabling the "Screen Capture" setting in their Authenticator app and then restarting the app. |
 | What data does the Authenticator store on my behalf and how can I delete it? | The Microsoft Authenticator app collects three types of information:<ul><li>Account info you provide when you add your account. This data can be removed by removing your account.</li><li>Diagnostic log data that stays only in the app until you select **Send Logs** the app's **Help** menu to send logs to Microsoft. These log files contain personal data, like your email addresses (such as, alain@contoso.com), server or IP addresses, and device data (such as, device name and operating system version), with the personal data limited to info necessary to help troubleshoot app issues. You can view these log files in the app at any time to see the info being gathered. If you send the log files, the Authentication app engineers can use it to troubleshoot customer-reported issues.</li><li>Non-personally identifiable usage data, such "started add account flow/successfully added account," or "notification approved." This data is an integral part of our engineering decisions and helps us determine what features are important to you, and where improvements need to be made in the form of updates to the apps. You, as an app user, see a notification of this data collection on first launch of the app, and are informed that it can be turned off on the app's **Settings** page. You can enable or disable this setting at any time.</li></ul> |
 | What are the codes in the app for? | When you open the Microsoft Authenticator app, you'll see your added accounts as tiles.<li>On an iOS device, your work or school accounts and your personal Microsoft accounts will have six – or eight - digit numbers visible in the full screen view of the account (accessed by tapping on the account tile).<br><br>![Accounts screen in the app](./media/user-help-auth-app-faq/auth-app-accounts.png)<li>For other accounts on an iOS device and all accounts on an Android device, you'll see a six- or eight-digit numbers in the Accounts page of the app. You'll use these codes as verification that you are who you say you are. After you sign in with your username and password, you'll type in the verification code that's associated with that account. For example, if you're Katy signing in to your Contoso account and you are using an iOS device, you'd tap on the account tile and then use the verification code to verify your identity. If you are Katy signing into your Outlook account, you'd follow the same steps.<br><br>![after tapping the account tile in the app](./media/user-help-auth-app-faq/katy-signin.png)<br><br>After tapping the Contoso account tile, Katy sees the verification code in the full screen view and enters 895823 to finish signing in.<br><br>![verification code screen in the app](./media/user-help-auth-app-faq/verification-code.png) |

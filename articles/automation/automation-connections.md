@@ -35,9 +35,9 @@ Azure Automation makes the following built-in connection types available:
 
 In most cases, you don't need to create a connection resource because it is created when you create a [Run As account](manage-runas-account.md).
 
-## Windows PowerShell cmdlets to access connections
+## PowerShell cmdlets to access connections
 
-The cmdlets in the following table create and manage Automation connections with Windows PowerShell. They ship as part of the [Az modules](shared-resources/modules.md#az-modules).
+The cmdlets in the following table create and manage Automation connections with PowerShell. They ship as part of the [Az modules](shared-resources/modules.md#az-modules).
 
 |Cmdlet|Description|
 |---|---|

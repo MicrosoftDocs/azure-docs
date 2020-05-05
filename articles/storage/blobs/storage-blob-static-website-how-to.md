@@ -154,7 +154,7 @@ Upload objects to the *$web* container from a source directory.
 This example assumes that you're running commands from Azure Cloud Shell session.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
+az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
 ```
 
 * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
@@ -173,7 +173,6 @@ Upload objects to the *$web* container from a source directory.
 ```powershell
 # upload a file
 set-AzStorageblobcontent -File "<path-to-file>" `
--Properties @{ ContentType = "text/html; charset=utf-8";} `
 -Container `$web `
 -Blob "<blob-name>" `
 -Context $ctx

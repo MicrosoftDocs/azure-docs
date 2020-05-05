@@ -15,7 +15,7 @@ You can use Azure Automation Update Management to manage updates and patches for
 - Schedule installation of required updates.
 - Review deployment results to verify that updates were applied successfully to all virtual machines for which Update Management is enabled.
 
-To learn about the system requirements for Update Management, see [Update Management client requirements](automation-update-management.md#clients).
+To learn about the system requirements for Update Management, see [Update Management client requirements](automation-update-management.md#client-requirements).
 
 ## Prerequisites
 

@@ -11,9 +11,6 @@
   items:
   - name: Replicate an Azure VM to another region
     href: azure-to-azure-quickstart.md
-  - name: Create a vault - ARM template
-    displayName: Resource Manager
-    href: quickstart-create-vault-template.md
 - name: Tutorials
   items:
   - name: Azure VM disaster recovery to Azure
@@ -168,8 +165,6 @@
         href: azure-to-azure-about-networking.md
       - name: Customize networking configurations of the target Azure VM
         href: azure-to-azure-customize-networking.md
-      - name: Configure mobility service proxy settings
-        href: configure-mobility-service-proxy-settings.md
       - name: Set up network mapping and retain IP addresses after failover
         href: azure-to-azure-network-mapping.md
       - name: Examples for retaining IP addresses after failover
@@ -194,6 +189,8 @@
         href: azure-to-azure-how-to-reprotect.md
       - name: Set up disaster recovery for Azure VMs after migration to Azure
         href: azure-to-azure-replicate-after-migration.md
+      - name: Enable Zone to Zone disaster recovery
+        href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
     - name: Manage
       items:
       - name: Update the Mobility Service for Azure VMs
@@ -244,7 +241,7 @@
         href: vmware-azure-set-up-replication.md
       - name: Deploy the Mobility service
         items:
-        - name: About Mobility service installation
+        - name: Mobility service overview and installation
           href: vmware-physical-mobility-service-overview.md
         - name: Prepare for push installation
           href: vmware-azure-install-mobility-service.md
@@ -423,8 +420,8 @@
         href: vmware-physical-secondary-disaster-recovery.md
     - name: Hyper-V VMs
       items:
-      - name: Deprecation of site-to-site scenario for Hyper-V VMs
-        href: site-to-site-deprecation.md
+      - name: Deprecation of site-to-site scenario for Hyper-V VMs 
+        href: site-to-site-deprecation.md 
       - name: Walkthrough-Disaster recovery of Hyper-V VMs in VMM clouds to a secondary site
         href: hyper-v-vmm-disaster-recovery.md
       - name: Run a disaster recovery drill for Hyper-V VMs to a secondary site

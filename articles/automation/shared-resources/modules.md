@@ -112,7 +112,7 @@ This section includes considerations to take into account when migrating to the 
 
  We don't recommend running AzureRM modules and Az modules in the same Automation account. When you're sure you want to migrate from AzureRM to Az, it's best to fully commit to a complete migration. The most important reason for this is that Azure Automation often reuses sandboxes within the Automation account to save on startup times. If you don't make a full module migration, you might start a job using only AzureRM modules, then start another job using only Az modules. The sandbox soon crashes and you receive a fatal error stating that the modules aren’t compatible. This situation results in randomly occurring crashes for any given runbook or configuration. 
 
-#### Import of Az modules into the PowerShell session
+#### Importing Az modules into the PowerShell session
 
 Importing an Az module into your Automation account doesn't automatically import the module into the PowerShell session that runbooks use. Modules are imported into the PowerShell session in the following situations:
 
@@ -120,7 +120,7 @@ Importing an Az module into your Automation account doesn't automatically import
 * When a runbook imports the module explicitly with the [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7) cmdlet
 * When a runbook imports another dependent module
 
-#### Testing for your runbooks and DSC configurations prior to module migration
+#### Testing your runbooks and DSC configurations prior to module migration
 
 Be sure to test all runbooks and DSC configurations carefully in a separate Automation account before migrating to the Az modules. 
 
@@ -304,7 +304,7 @@ Your module should not depend on any unique registry settings on a host. Example
 
 Make sure that all files in the module have paths with fewer than 140 characters. Any paths over 140 characters in length cause issues with importing runbooks. Azure Automation can't import a file with path size over 140 characters into the PowerShell session with `Import-Module`.
 
-## Importing modules
+## Import modules
 
 This section defines several ways that you can import a module into your Automation account. 
 
@@ -355,7 +355,7 @@ To import a PowerShell Gallery module directly from your Automation account:
 
 ![PowerShell Gallery import from Azure portal](../media/modules/gallery-azure-portal.png)
 
-## Deleting modules
+## Delete modules
 
 If you have issues with a module or you need to roll back to a previous version of a module, you can delete it from your Automation account. You can't delete the original versions of the [default modules](#default-modules) that are imported when you create an Automation account. If the module to delete is a newer version of one of the [default modules](#default-modules), it rolls back to the version that was installed with your Automation account. Otherwise, any module you delete from your Automation account is removed.
 

@@ -99,8 +99,8 @@ My application is built into Microsoft Teams and relies on message data. In addi
 I need to be able to track changes to Teams and Outlook messages and react to them in real time. How can I get these changes pushed to my application?
 
 **Recommendation:** The Microsoft Graph provides [change notifications](https://docs.microsoft.com/graph/webhooks) and [change tracking](https://docs.microsoft.com/graph/delta-query-overview) for various resources. Note the following limitations of change notifications:
-- If an event receiver acknowledges an event, but fails to act on it for any reason, the event may be lost
-- If an event receiver acknowledges an event, but fails to act on it for any reason, the event may be lost
+- If an event receiver acknowledges an event, but fails to act on it for any reason, the event may be lost.
+- The order in which changes are received are not guaranteed to be chronological.
 - Change notifications don't always contain the [resource data](https://docs.microsoft.com/graph/webhooks-with-resource-data)
 For the reasons above, developers often use change notifications along with change tracking for synchronization scenarios. 
 

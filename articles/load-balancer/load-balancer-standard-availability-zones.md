@@ -35,7 +35,7 @@ When a public IP resource or a private IP address has been guaranteed to a zone,
 
 In a region with availability zones, a Standard Load Balancer frontend can be zone-redundant.  Zone-redundant means that all inbound or outbound flows are served by multiple availability zones in a region simultaneously using a single IP address. DNS redundancy schemes aren't required. A single frontend IP address can survive zone failure and can be used to reach all (non-impacted) backend pool members irrespective of the zone. One or more availability zones can fail and the data path survives as long as one zone in the region remains healthy. The frontend's single IP address is served simultaneously by multiple independent infrastructure deployments in multiple availability zones.  This doesn't mean hitless data path, but any retries or reestablishment will succeed in other zones not impacted by the zone failure.   
 
-### Optional zone isolation
+### Zonal
 
 You can choose to have a frontend guaranteed to a single zone, which is known as a *zonal frontend*.  This means any inbound or outbound flow is served by a single zone in a region.  Your frontend shares fate with the health of the zone.  The data path is unaffected by failures in zones other than where it was guaranteed. You can use zonal frontends to expose an IP address per Availability Zone.  
 
@@ -46,12 +46,6 @@ If you wish to blend these concepts (zone-redundant and zonal for same backend),
 For a public Load Balancer frontend, you add a *zones* parameter to the public IP resource referenced by the frontend IP configuration used by the respective rule.
 
 For an internal Load Balancer frontend, add a *zones* parameter to the internal Load Balancer frontend IP configuration. The zonal frontend causes the Load Balancer to guarantee an IP address in a subnet to a specific zone.
-
-## Cross-zone Load-Balancing
-
-Cross-zone load-balancing is the ability of Load Balancer to reach a backend endpoint in any zone and is independent of frontend and its zonality.  Any load balancing rule can target backend instance in any availability zone or regional instances.
-
-You need to take care to construct your scenario in a manner which expressed an availability zones notion. For example, you need guarantee your virtual machine deployment within a single zone or multiple zones, and align zonal frontend and zonal backend resources to the same zone.  If you cross availability zones with only zonal resources, the scenario will work but may not have a clear failure mode with respect to availability zones. 
 
 ## Backend
 

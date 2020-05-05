@@ -212,6 +212,8 @@
               href: api-management-transformation-policies.md
       - name: Manage in production
         items:
+            - name: Export APIs to the Power Platform
+              href: export-api-power-platform.md
             - name: Manage groups
               href: api-management-howto-create-groups.md
             - name: Retrieve IP addresses
