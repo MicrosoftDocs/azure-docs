@@ -7,13 +7,27 @@ ms.date: 05/04/2020
 
 # Restrict access from selected public networks
 
-An Azure container registry by default accepts connections over the internet from hosts on any network. This article shows how configure your container registry to allow access from specific IP addresses or address ranges. Equivalent steps using the Azure CLI and Azure portal are provided.
+An Azure container registry by default accepts connections over the internet from hosts on any network. This article shows how to configure your container registry to allow access from specific IP addresses or address ranges. Equivalent steps using the Azure CLI and Azure portal are provided.
+
+Ub IP network rules, provide allowed internet address ranges using CIDR notation such as *16.17.18.0/24* or an individual IP addresses like *16.17.18.19*. IP network rules are only allowed for *public* internet IP addresses. IP address ranges reserved for private networks (as defined in RFC 1918) aren't allowed.
+
+## Prerequisites
 
 * If you don't already have a container registry, create one (Premium SKU required) and push a sample image such as `hello-world` from Docker Hub. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry. 
 
 [!INCLUDE [Set up Docker-enabled VM](../../includes/container-registry-docker-vm-setup.md)]
 
 ## Access from selected public network - CLI
+
+### Change default network access to registry
+
+By default, an Azure container registry allows connections from hosts on any network. To limit access to a selected network, change the default action to deny access. Substitute the name of your registry in the following [az acr update][az-acr-update] command:
+
+```azurecli
+az acr update --name myContainerRegistry --default-action Deny
+```
+
+### Add network rule to registry
 
 Use the [az acr network-rule add][az-acr-network-rule-add] command to add a network rule to your registry that allows access from a public IP address or range. For example, substitute the container registry's name and the public IP address of the VM in the following command.
 
@@ -29,14 +43,14 @@ Continue to [Verify access to the registry](#verify-access-to-the-registry).
 
 1. In the portal, navigate to your container registry.
 1. Under **Settings**, select **Networking**.
-1. On the **Public access** tab, select to allow public access from **Selected networks**
+1. On the **Public access** tab, select to allow public access from **Selected networks**.
 1. Under **Firewall**, enter a public IP address, such as your test VM's public IP address. Or, enter an address range in CIDR notation that contains the VM's IP address.
 1. Select **Save**.
 
 ![Configure firewall rule for container registry][acr-access-selected-networks]
 
 > [!TIP]
-> Optionally, enable registry access from a local client computer or IP address range. To allow this access, you need the computer's public IPv4 address. You can find this address using a search like "what is my IP address" in an Internet browser. The current client IPv4 address is also displayed automatically when you configure registry access using the **Networking** page in the Azure portal.
+> Optionally, enable registry access from a local client computer or IP address range. To allow this access, you need the computer's public IPv4 address. You can find this address using a search like "what is my IP address" in an Internet browser. The current client IPv4 address also appears automatically when you configure firewall settings on the **Networking** page in the portal.
 
 Continue to [Verify access to the registry](#verify-access-to-the-registry).
 
@@ -76,7 +90,7 @@ az acr update --name myContainerRegistry --default-action Deny
 ### Disable public access - Portal
 
 1. In the portal, navigate to your container registry and select **Settings > Networking**.
-1. In **Allow public access**, select **Disabled**.
+1. On the **Public access** tab, in **Allow public access**, select **Disabled**. Then select **Save**.
 
 ## Restore default registry access
 
@@ -94,7 +108,7 @@ az acr update --name myContainerRegistry --default-action Allow
 
 1. In the portal, navigate to your container registry and select **Settings > Networking**.
 1. Under **Firewall**, select each address range, and then select the Delete icon.
-1. In **Allow public access**, select **All networks**. Then select **Save.
+1. On the **Public access** tab, in **Allow public access**, select **All networks**. Then select **Save**.
 
 ## Clean up resources
 

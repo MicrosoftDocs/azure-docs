@@ -7,7 +7,7 @@ ms.date: 05/04/2020
 
 # Configure Azure Private Link for an Azure container registry 
 
-You can set up a [private endpoint](../private-link/private-endpoint-overview.md) for your Azure container registry so that clients on an Azure virtual network securely access the registry over a [private link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the virtual network address space for your registry. Network traffic between the clients on the virtual network and the registry traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+Set up a [private endpoint](../private-link/private-endpoint-overview.md) for your Azure container registry so that clients on an Azure virtual network securely access the registry over a [private link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the virtual network address space for your registry. Network traffic between the clients on the virtual network and the registry traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 You can [configure DNS settings](../private-link/private-endpoint-overview.md#dns-configuration) for your private endpoint, so that the settings resolve to the registry's allocated private IP address. With DNS configuration, clients and services in the network can continue to access the registry at the registry's fully qualified domain name, such as *myregistry.azurecr.io*.
 
@@ -21,7 +21,7 @@ Currently, image scanning using Azure Security Center isn't available in a regis
 
 * To use the Azure CLI steps in this article, Azure CLI version 2.2.0 or later is recommended. If you need to install or upgrade, see [Install Azure CLI][azure-cli]. Or run in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 * If you don't already have a container registry, create one (Premium tier required) and push a sample image such as `hello-world` from Docker Hub. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry.
-* If you want to configure registry access using a private link in a different Azure subscription, you need to register the resource provider for Azure Container Registry in that subscription. For example:
+* To configure registry access using a private link in a different Azure subscription, you need to register the resource provider for Azure Container Registry in that subscription. For example:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of private link>
@@ -38,67 +38,7 @@ resourceGroup=<resource-group-name>
 vmName=<virtual-machine-name>
 ```
 
-## Create a Docker-enabled virtual machine
-
-For test purposes, use a Docker-enabled Ubuntu VM to access an Azure container registry. To use Azure Active Directory authentication to the registry, also install the [Azure CLI][azure-cli] on the VM. If you already have an Azure virtual machine, skip this creation step.
-
-You may use the same resource group for your virtual machine and your container registry. This setup simplifies clean-up at the end but isn't required. If you choose to create a separate resource group for the virtual machine and virtual network, run [az group create][az-group-create]:
-
-```azurecli
-az group create --name $resourceGroup --location $registryLocation
-```
-
-Now deploy a default Ubuntu Azure virtual machine with [az vm create][az-vm-create]. The following example creates a VM named *myDockerVM*.
-
-```azurecli
-az vm create \
-  --resource-group $resourceGroup \
-  --name $vmName \
-  --image UbuntuLTS \
-  --admin-username azureuser \
-  --generate-ssh-keys
-```
-
-It takes a few minutes for the VM to be created. When the command completes, take note of the `publicIpAddress` displayed by the Azure CLI. Use this address to make SSH connections to the VM.
-
-### Install Docker on the VM
-
-After the VM is running, make an SSH connection to the VM. Replace *publicIpAddress* with the public IP address of your VM.
-
-```bash
-ssh azureuser@publicIpAddress
-```
-
-Run the following commands to install Docker on the Ubuntu VM:
-
-```bash
-sudo apt-get update
-sudo apt install docker.io -y
-```
-
-After installation, run the following command to verify that Docker is running properly on the VM:
-
-```bash
-sudo docker run -it hello-world
-```
-
-Output:
-
-```
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-[...]
-```
-
-### Install the Azure CLI
-
-Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) to install the Azure CLI on your Ubuntu virtual machine. For example:
-
-```bash
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-```
-
-Exit the SSH connection.
+[!INCLUDE [Set up Docker-enabled VM](../../includes/container-registry-docker-vm-setup.md)]
 
 ## Set up private link - CLI
 
@@ -135,7 +75,7 @@ az network vnet subnet update \
 
 ### Configure the private DNS zone
 
-Create a private DNS zone for the private Azure container registry domain. In later steps, you create DNS records for your registry domain inside this DNS zone.
+Create a private DNS zone for the private Azure container registry domain. In later steps, you create DNS records for your registry domain in this DNS zone.
 
 To use a private zone to override the default DNS resolution for your Azure container registry, the zone must be named **privatelink.azurecr.io**. Run the following [az network private-dns zone create][az-network-private-dns-zone-create] command to create the private zone:
 
@@ -249,13 +189,36 @@ The private link is now configured and ready for use.
 
 ## Set up private link - portal
 
-The following steps assume you already have a virtual network and subnet set up with a VM for testing. You can also [create a new virtual network and subnet](../virtual-network/quick-create-portal.md).
+Set up a private link when you create a registry, or add a private link to an existing registry. The following steps assume you already have a virtual network and subnet set up with a VM for testing. You can also [create a new virtual network and subnet](../virtual-network/quick-create-portal.md).
 
-### Create a private endpoint
+### Create a private endpoint - new registry
+
+1. When creating a registry in the portal, on the **Basics** tab, in **SKU**, select **Premium**.
+1. Select the **Networking** tab.
+1. In **Network connectivity**, select **Private endpoint** > **+ Add**.
+1. Enter or select the following information:
+    | Setting | Value |
+    | ------- | ----- |
+    | Subscription | Select your subscription. |
+    | Resource group | Enter the name of an existing group or create a new one.|
+    | Name | Enter a unique name. |
+    | Subresource |Select **registry**|
+    | **Networking** | |
+    | Virtual network| Select the virtual network where your virtual machine is deployed, such as *myDockerVMVNET*. |
+    | Subnet | Select a subnet, such as *myDockerVMSubnet* where your virtual machine is deployed. |
+    |**Private DNS Integration**||
+    |Integrate with private DNS zone |Select **Yes**. |
+    |Private DNS Zone |Select *(New) privatelink.azurecr.io* |
+    |||
+1. Configure the remaining registry settings, and then select **Review + Create**.
+
+![Create registry with private endpoint](./media/container-registry-private-link/private-link-create-portal.png)
+
+### Create a private endpoint - existing registry
 
 1. In the portal, navigate to your container registry.
-1. Under **Settings**, select **Private endpoint connections**.
-1. Select **+ Private endpoint**.
+1. Under **Settings**, select **Networking**.
+1. On the **Private endpoints** tab, select **+ Private endpoint**.
 1. In the **Basics** tab, enter or select the following information:
 
     | Setting | Value |
@@ -264,8 +227,8 @@ The following steps assume you already have a virtual network and subnet set up 
     | Subscription | Select your subscription. |
     | Resource group | Enter the name of an existing group or create a new one.|
     | **Instance details** |  |
-    | Name | Enter a unique name. |
-    |Region|Select a region.|
+    | Name | Enter a name. |
+    |Target subresource |Select **registry**|
     |||
 5. Select **Next: Resource**.
 6. Enter or select the following information:
@@ -294,7 +257,11 @@ The following steps assume you already have a virtual network and subnet set up 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 2. When you see the **Validation passed** message, select **Create**.
 
-After the private endpoint is created, DNS settings in the private zone appear on the endpoint's **Overview** page.
+After the private endpoint is created, DNS settings in the private zone appear on the **Private endpoints** page in the portal:
+
+1. In the portal, navigate to your container registry and select **Settings > Networking**.
+1. On the **Private endpoints** tab, select the private endpoint you created.
+1. On the **Overview** page, review the link settings and custom DNS settings.
 
 ![Endpoint DNS settings](./media/container-registry-private-link/private-endpoint-overview.png)
 
@@ -307,6 +274,7 @@ For many scenarios, also configure the registry to disable access from public ne
 ### Disable public access - CLI
 
 Substitute the name of your registry in the following [az acr update][az-acr-update] command:
+
 ```azurecli
 az acr update  --name $registryName \
  --default-action Deny
@@ -315,7 +283,7 @@ az acr update  --name $registryName \
 ### Disable public access - Portal
 
 1. In the portal, navigate to your container registry and select **Settings > Networking**.
-1. In **Allow public access**, select **Disabled**.
+1. On the **Public access** tab, in **Allow public access**, select **Disabled**. Then select **Save**.
 
 ## Validate private link connection
 
