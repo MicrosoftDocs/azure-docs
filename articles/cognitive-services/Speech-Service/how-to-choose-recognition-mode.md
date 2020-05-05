@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-speech-services-one-nomore
+zone_pivot_groups: programming-languages-set-two-with-js
 ---
 
 # Choose a speech recognition mode
@@ -59,11 +59,7 @@ result = speech_recognizer.recognize_once()
 ```
 
 ::: zone-end
-::: zone pivot="programming-language-more"
 
-For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
-
-::: zone-end
 ::: zone pivot="programming-language-javascript"
 
 For more information on using the `recognizeOnceAsync` function, see the [JavaScript Speech SDK docs](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-).
@@ -73,6 +69,13 @@ recognizer.recognizeOnceAsync((result)=>{}, (error)=>{}));
 ```
 
 ::: zone-end
+
+::: zone pivot="programming-language-more"
+
+For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
+
+::: zone-end
+
 ## Continuous
 
 If you need long-running recognition, use the start and corresponding stop functions for continuous recognition. The start function will start and continue processing all utterances until you invoke the stop function, or until too much time in silence has passed. When using the continuous mode, be sure to register to the various events that will fire upon occurrence. For example, the "recognized" event fires when speech recognition occurs. You need to have an event handler in place to handle recognition.
@@ -155,11 +158,7 @@ speech_recognizer.stop_continuous_recognition()
 ```
 
 ::: zone-end
-::: zone pivot="programming-language-more"
 
-For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
-
-::: zone-end
 ::: zone pivot="programming-language-javascript"
 
 ```JavaScript
@@ -176,6 +175,12 @@ recognizer.startContinuousRecognitionAsync(()=>{}, (error)=>{});
 // Stop continuous speech recognition
 recognizer.stopContinuousRecognitionAsync(()=>{}, (error)=>{});
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-more"
+
+For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
 
 ::: zone-end
 
@@ -223,11 +228,7 @@ SpeechConfig.enable_dictation()
 ```
 
 ::: zone-end
-::: zone pivot="programming-language-more"
 
-For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
-
-::: zone-end
 ::: zone pivot="programming-language-javascript"
 
 For more information on using the `enableDictation` function, see the [JavaScript Speech SDK docs](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#enabledictation--).
@@ -236,6 +237,12 @@ For more information on using the `enableDictation` function, see the [JavaScrip
 // Enable diction
 speechConfig.enableDictation();
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-more"
+
+For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
 
 ::: zone-end
 

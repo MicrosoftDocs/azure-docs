@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: qiohu
-zone_pivot_groups: programming-languages-speech-services-one-nomore
+zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
 # Specify source language for speech to text
@@ -160,7 +160,8 @@ speechConfig.endpointId = "The Endpoint ID for your custom model.";
 ```
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-objectivec"
+
 ## How to specify source language in Objective-C
 
 The first step is to create a `speechConfig`:

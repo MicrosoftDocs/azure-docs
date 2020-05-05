@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-speech-services-one-nomore
+zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
 ---
 
 # Phrase Lists for speech-to-text
@@ -120,7 +120,7 @@ phrase_list_grammar.clear()
 
 ::: zone-end
 
-::: zone pivot="programming-language-more"
+::: zone pivot="programming-language-javascript"
 
 ```JavaScript
 phraseListGrammar.clear();

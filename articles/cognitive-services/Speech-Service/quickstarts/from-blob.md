@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-speech-services-one
+zone_pivot_groups: programming-languages-set-two-with-js
 ---
 
 # Quickstart: Recognize speech stored in blob storage
