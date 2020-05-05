@@ -39,10 +39,7 @@ The chart below provides a side-by-side view of major concepts that have changed
 
 ## Next steps
 
-Next, start looking at the concept documentation to learn more about the key elements in the current release:
-* [Concepts: Twin models](concepts-models.md)
-
-Or, go ahead and dive into working with Azure Digital Twins in the quickstart:
+Next dive into working with Azure Digital Twins in the quickstart:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Get started with Azure Digital Twins](quickstart.md)
