@@ -77,7 +77,21 @@ while (enumerator.MoveNext()){
 
 enumerator.Dispose();
 ```
-
+```java
+	Bson match=Aggregates.match(Filters.in("operationType", 
+					asList("update", "replace", "insert")));
+			Bson project=Aggregates.project(fields(include("_id","ns","documentKey","fullDocument")));
+			
+			List<Bson> pipeline =Arrays.asList(match,project);
+			MongoChangeStreamCursor<ChangeStreamDocument<org.bson.Document>> cursor  = 
+					collection.watch(pipeline).fullDocument(FullDocument.UPDATE_LOOKUP).cursor();
+			
+			while (cursor.hasNext()) {
+				System.out.println(cursor.next());
+			}
+			cursor.close();
+```
+Refer [here](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream), for full sample in Java.
 ## Changes within a single shard
 
 The following example shows how to get changes to the items within a single shard. This example gets the changes of items that have shard key equal to "a" and the shard key value equal to "1". It is possible to have different clients reading changes from different shards in parallel.
@@ -112,7 +126,7 @@ var cursor = db.coll.watch(
 			}
 			cursor.close();
 ```
-Refer [here](https://github.com/Azure-Samples/mongo-changestream), for full sample in Java.
+Refer [here](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream), for full sample in Java.
 ## Current limitations
 
 The following limitations are applicable when using change streams:
