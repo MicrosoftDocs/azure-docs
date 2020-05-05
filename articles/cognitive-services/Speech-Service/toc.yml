@@ -426,6 +426,8 @@
               href: faq-voice-assistants.md
     - name: Custom Keyword
       items:
+        - name: Custom keyword overview
+          href: custom-keyword-overview.md
         - name: Custom keyword naming guidelines
           href: speech-devices-sdk-kws-guidelines.md
         - name: Custom keyword spotting

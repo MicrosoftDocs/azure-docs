@@ -16,7 +16,7 @@ ms.author: allensu
 ---
 
 # Troubleshoot Azure Load Balancer
-
+<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=fb23185b-6c56-d9f1-7ce1-758c978e08e1" target='_blank'>Start</a></span><span class="has-padding-small">Solve your issue fast by using our virtual agent to run <b>automated diagnostics.</b></span><span class="has-padding-small"><a href="https://privacy.microsoft.com/privacystatement" target='_blank'><div align="right"><sub>Privacy Statement</sub></div></a></span></p>
 This page provides troubleshooting information for Basic and Standard common Azure Load Balancer questions. For more information about Standard Load Balancer, see [Standard Load Balancer overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
 
 When the Load Balancer connectivity is unavailable, the most common symptoms are as follows: 
@@ -94,7 +94,7 @@ If a VM does not respond to the data traffic, it may be because either the targe
 1. Log in to the backend VM. 
 2. Open a command prompt and run the following command to validate there is an application listening on the data port:  
             netstat -an 
-3. If the port is not listed with State “LISTENING”, configure the proper listener port 
+3. If the port is not listed with State "LISTENING", configure the proper listener port 
 4. If the port is marked as Listening, then check the target application on that port for any possible issues.
 
 ### Cause 2: Network security group is blocking the port on the Load Balancer backend pool VM  
@@ -127,7 +127,7 @@ If an internal Load Balancer is configured inside a VNet, and one of the partici
 There are several ways to unblock this scenario, including using a proxy. Evaluate Application Gateway or other 3rd party proxies (for example, nginx or haproxy). For more information about Application Gateway, see [Overview of Application Gateway](../application-gateway/application-gateway-introduction.md)
 
 ## Symptom: Cannot change backend port for existing LB rule of a load balancer which has VM Scale Set deployed in the backend pool. 
-### Cause : The backend port cannot be modified for a load balancing rule that’s used by a health probe for load balancer referenced by VM Scale Set.
+### Cause : The backend port cannot be modified for a load balancing rule that's used by a health probe for load balancer referenced by VM Scale Set.
 **Resolution** 
 In order to change the port, you can remove the health probe by updating the VM Scale Set, update the port and then configure the health probe again.
 
