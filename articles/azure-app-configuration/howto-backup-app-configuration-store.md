@@ -43,24 +43,29 @@ Create a resource group with the [az group create](/cli/azure/group) command.
 The following example creates a resource group named `<resource_group_name>` in the *westus* location.  Replace `<resource_group_name>` with a unique name for your resource group.
 
 ```azurecli-interactive
-az group create --name <resource_group_name> --location westus
+resourceGroupName="<resource_group_name>"
+az group create --name $resourceGroupName --location westus
 ```
 
 ## Create App Configuration stores
 
 Create two app configuration stores, primary and secondary store, preferably in different regions to achieve resilience to regional failures.
-Replace `<primary_appconfig_name>` and `<secondary_appconfig_name>` with unique names for your configuration stores, and `<resource_group_name>` with the resource group you created earlier. The store name must be unique because it's used as a DNS name.
+Replace `<primary_appconfig_name>` and `<secondary_appconfig_name>` with unique names for your configuration stores. The store name must be unique because it's used as a DNS name.
 
 ```azurecli-interactive
+primaryAppConfigName="<primary_appconfig_name>"
+secondaryAppConfigName="<secondary_appconfig_name>"
 az appconfig create \
-  --name <primary_appconfig_name> \
+  --name $primaryAppConfigName \
   --location westus \
-  --resource-group <resource_group_name>
+  --resource-group $resourceGroupName\
+  --sku standard
 
 az appconfig create \
-  --name <secondary_appconfig_name> \
+  --name $secondaryAppConfigName \
   --location centralus \
-  --resource-group <resource_group_name>
+  --resource-group $resourceGroupName\
+  --sku standard
 ```
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
@@ -70,10 +75,10 @@ az appconfig create \
 Create a storage account and a storage queue for collecting the events published by Event Grid.
 
 ```azurecli-interactive
-storagename="<unique_storage_name>"
-queuename="<queue_name>"
-az storage account create -n $storagename -g <resource_group_name> -l centralus --sku Standard_LRS
-az storage queue create --name $queuename --account-name $storagename
+storageName="<unique_storage_name>"
+queueName="<queue_name>"
+az storage account create -n $storageName -g $resourceGroupName -l centralus --sku Standard_LRS
+az storage queue create --name $queueName --account-name $storageName --auth-mode login
 ```
 
 ## Subscribe to your App Configuration store
@@ -83,24 +88,24 @@ You subscribe to a topic to tell Event Grid which events you want to track and w
 - Microsoft.AppConfiguration.KeyValueModified
 - Microsoft.AppConfiguration.KeyValueDeleted
 
-The following script subscribes to these two events from primary App Configuration store, sets the endpoint type to `storagequeue` and uses queue ID as the endpoint. Replace `<event_subscription_name>` with a name for your event subscription. For `<resource_group_name>` and `<primary_appconfig_name>`, use the values you created earlier.
+The following script subscribes to these two events from primary App Configuration store, sets the endpoint type to `storagequeue` and uses queue ID as the endpoint. Replace `<event_subscription_name>` with a name for your event subscription.
 
 ```azurecli-interactive
-storageid=$(az storage account show --name $storagename --resource-group  <resource_group_name> --query id --output tsv)
-queueid="$storageid/queueservices/default/queues/$queuename"
-appconfigId=$(az appconfig show --name <primary_appconfig_name> --resource-group <resource_group_name> --query id --output tsv)
+storageId=$(az storage account show --name $storageName --resource-group  $resourceGroupName --query id --output tsv)
+queueId="$storageId/queueservices/default/queues/$queueName"
+appconfigId=$(az appconfig show --name $primaryAppConfigName --resource-group $resourceGroupName --query id --output tsv)
+eventSubscriptionName="<event_subscription_name>"
 az eventgrid event-subscription create \
   --source-resource-id $appconfigId \
-  --name <event_subscription_name> \
+  --name $eventSubscriptionName \
   --endpoint-type storagequeue \
-  --endpoint $queueid \
-  --expiration-date "<yyyy-mm-dd>" \
+  --endpoint $queueId \
   --included-event-types Microsoft.AppConfiguration.KeyValueModified Microsoft.AppConfiguration.KeyValueDeleted 
 ```
 
 ## Create Azure Function for handling events from Storage Queue
 
-We need to create a function which will update secondary store with any key value changes in the primary store. You can leverage Azure App Configuration SDK to read updated key values from primary store and write them to secondary store. 
+We need to create a function which will update the secondary store with any key value changes in the primary store. You can leverage the Azure App Configuration SDK to read updated key values from the primary store and write them to the secondary store. 
 
 In this tutorial, we are working with a C# Azure Function which has the following properties:
 - Runtime stack .NET Core 3.1
@@ -110,20 +115,28 @@ In this tutorial, we are working with a C# Azure Function which has the followin
 To learn more about creating Azure Functions, see: [Create a function in Azure that is triggered by a timer](/azure/azure-functions/functions-create-scheduled-function) and [Develop Azure Functions using Visual Studio](/azure/azure-functions/functions-develop-vs).
 
 For a quickstart, you can download the project files for a sample function and publish it to your own Azure Function App:
-- [Azure Function sample code](https://github.com/Azure/AppConfiguration/tree/master/examples)
+- [Azure Function sample code](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup)
+- Learn how to [publish to Azure from Visual Studio](/azure/azure-functions/functions-develop-vs#publish-to-azure)
+
+> [!IMPORTANT]
+> The sample Azure Function will run every 10 minutes. Use your best judgement to adjust this schedule based on how frequently you make changes to your primary config store. Remember, running the function too frequently could end up throttling requests for your store.
+>
 
 > [!NOTE]
 > In this code sample, we have used `ConfigurationStoreBackup` as the Azure Function App name and `BackupAppConfigurationStore` as the Azure Function name. 
 
 ## Update Azure Function App settings
 
-We recommend storing the following settings in the App Settings of your Azure Function app. Replace `<resource_group_name>` with the resource group you created earlier, along with the following replacements:
-- `<PrimaryStoreEndpoint>`: Endpoint for the primary App Configuration store. For example, `https://{primary_appconfig_name}.azconfig.io`
-- `<SecondaryStoreEndpoint>`: Endpoint for the secondary App Configuration store. For example, `https://{secondary_appconfig_name}.azconfig.io`
-- `<StorageQueueUri>`: Storage queue URI. For example, `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`
+We recommend storing the following settings in the App Settings of your Azure Function app:
+- `PrimaryStoreEndpoint`: Endpoint for the primary App Configuration store. For example, `https://{primary_appconfig_name}.azconfig.io`
+- `SecondaryStoreEndpoint`: Endpoint for the secondary App Configuration store. For example, `https://{secondary_appconfig_name}.azconfig.io`
+- `StorageQueueUri`: Storage queue URI. For example, `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`
 
 ```azurecli-interactive
-az functionapp config appsettings set --name ConfigurationStoreBackup --resource-group <resource_group_name> --settings StorageQueueUri=<StorageQueueUri> PrimaryStoreEndpoint=<PrimaryStoreEndpoint> SecondaryStoreEndpoint=<SecondaryStoreEndpoint>
+primaryStoreEndpoint="https://$primaryAppConfigName.azconfig.io"
+secondaryStoreEndpoint="https://$secondaryAppConfigName.azconfig.io"
+storageQueueUri="https://$storageName.queue.core.windows.net/$queueName"
+az functionapp config appsettings set --name ConfigurationStoreBackup --resource-group $resourceGroupName --settings StorageQueueUri=$storageQueueUri PrimaryStoreEndpoint=$primaryStoreEndpoint SecondaryStoreEndpoint=$secondaryStoreEndpoint
 ```
 
 > [!IMPORTANT]
@@ -132,11 +145,10 @@ az functionapp config appsettings set --name ConfigurationStoreBackup --resource
 
 ## Integrate with Azure Managed Identities
 
-Create a system-assigned managed identity for your Azure Function app. Replace `<resource_group_name>` with the resource group you created earlier. For more information, see [Add a system-assigned identity](/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity).
-
+Create a system-assigned managed identity for your Azure Function app. For more information, see [Add a system-assigned identity](/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity).
 
 ```azurecli-interactive
-az webapp identity assign --name ConfigurationStoreBackup --resource-group <resource_group_name>
+az functionapp identity assign --name ConfigurationStoreBackup --resource-group $resourceGroupName
 ```
 
 Grant access to primary and secondary App Configuration stores by following instructions here: [Grant access to App Configuration](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core3x#grant-access-to-app-configuration). 
@@ -149,21 +161,20 @@ Repeat the process for granting access to the storage queue by following instruc
 ## Trigger an App Configuration event
 
 To test that everything works, you can create/update/delete a key value from primary store. You should automatically see this change in the backup store a few seconds after your Azure Function is triggered by the timer.
-Replace `<primary_appconfig_name>` and `<secondary_appconfig_name>` with the name of your config stores from earlier.
-
 
 ```azurecli-interactive
-az appconfig kv set --name <primary_appconfig_name> --key Foo --value Bar --yes
+az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-You've triggered the event, and Event Grid sent the message to your Azure Storage Queue. ***After the next scheduled run of your Azure Function***, view configuration settings in your secondary store to see if it contains the updated key value from primary store.
+You've triggered the event, and in a few moments Event Grid will send the event notification to your Azure Storage Queue. ***After the next scheduled run of your Azure Function***, view configuration settings in your secondary store to see if it contains the updated key value from primary store.
 
+Alternatively, you can manually trigger your Azure Function to start the backup process if you don't want to wait for the scheduled trigger. Learn how to [manually run a non HTTP-triggered function](/azure/azure-functions/functions-manually-run-non-http). 
+
+After making sure that the backup function ran successfully, you can see that the key is now present in your secondary store.
 
 ```azurecli-interactive
-az appconfig kv show --name <secondary_appconfig_name> --key Foo
+az appconfig kv show --name $secondaryAppConfigName --key Foo
 ```
-
-You should see the key is now present in your secondary store.
 
 ```json
 {
@@ -178,13 +189,15 @@ You should see the key is now present in your secondary store.
 }
 ```
 
+> [!NOTE]
+> If you don't see the new setting in your secondary store even after making sure the backup function was triggered ***after*** creating the setting in your primary store, it's possible that Event Grid was not able to send the event notification to your storage queue in time. Trigger the backup function again if your storage queue still contains the event notification from your primary store.
+
+
 ## Clean up resources
 If you plan to continue working with this App Configuration and event subscription, do not clean up the resources created in this article. If you do not plan to continue, use the following command to delete the resources you created in this article.
 
-Replace `<resource_group_name>` with the resource group you created above.
-
 ```azurecli-interactive
-az group delete --name <resource_group_name>
+az group delete --name $resourceGroupName
 ```
 
 ## Next steps
