@@ -196,7 +196,6 @@ NSString* value =
 Customer Lockbox is available for these Cognitive Services:
 
 * Translator
-* Speech
 
 For the remaining Cognitive Services, Microsoft engineers will not access customer data.
 
