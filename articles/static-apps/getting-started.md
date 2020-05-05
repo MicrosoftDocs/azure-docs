@@ -148,7 +148,9 @@ There are two aspects to deploying a static app. The first provisions the underl
 > [!NOTE]
 > You can ensure that the GitHub Actions workflow is complete by checking the status of your commits available at `https://github.com/<YOUR_GITHUB_USERNAME>/my-first-static-app/actions`.
 
-Once the provisioning and deployment is complete, you can click on the _URL_ link in the Azure portal to launch your app in the browser.
+Once the provisioning and deployment is complete, you can click on the _URL_ link in the Azure portal _Overview_ window to launch your app in the browser.
+
+:::image type="content" source="media/getting-started/overview-window.png" alt-text="Overview window":::
 
 ## Clean up resources
 
