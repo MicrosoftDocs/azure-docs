@@ -33,6 +33,15 @@ You can configure an alert to do the following when it triggers:
 * Call Azure runbook
 * Call an external ticketing ITSM compatible system
 
+You can configure and get information about alert rules using the following interfaces:
+
+* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [Command-Line Interface (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+
+## Alerting metrics available for managed instance
+
 > [!NOTE]
 > Alerting metrics are available for managed instance as the entire resource. Alerting metrics for individual databases in managed instance are not available.
 
@@ -47,13 +56,6 @@ The following managed instance metrics are available for alerting configuration:
 | Storage space reserved | Current max. storage space reserved for the managed instance. Changes with resource scaling operation. | MB (Megabytes) |
 | Storage space used | Storage space used in the selected period. Changes with storage consumption by databases and the instance. | MB (Megabytes) |
 | Virtual core count | vCores provisioned for the managed instance. Changes with resource scaling operation. | 4-80 (vCores) |
-
-You can configure and get information about alert rules using the following interfaces:
-
-* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
-* [Command-Line Interface (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## Create an alert rule on a metric with the Azure portal
 
@@ -104,11 +106,13 @@ You can configure and get information about alert rules using the following inte
    * Complete creating the alert rule by clicking on **Create alert rule** button.
    * Within a few minutes new alert rule is active, and alerts are triggered as defined as previously described.
 
-   * For the example shown on this page for setting up an alert on storage space, if your alerting option was email, you might receive email such is the one shown below. The email shows the alert name, details of the threshold and why the alert was triggered. You can use See in Azure portal button to view this alert in the web browser. Note email formatting is subject to change.
+## Alerts received
+
+   * For the example shown on this page for setting up an alert on storage space used, if your alerting option was email, you might receive email such is the one shown below. The email shows the alert name, details of the threshold and why the alert was triggered. You can use See in Azure portal button to view this alert in the web browser. Note email formatting is subject to change.
 
       ![alert_example](media/sql-database-managed-instance-alerts/mi-email-alert-example-smaller-annotated.png)
 
-## Modify existing alert rules
+## View, modify and delete existing alert rules
 
 > [!NOTE]
 > Existing alerts need to be managed from Alerts menu from Azure portal dashboard. Existing alerts cannot be modified from Managed Instance resource blade.
