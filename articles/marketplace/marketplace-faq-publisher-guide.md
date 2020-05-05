@@ -336,4 +336,4 @@ For information about the Microsoft Admin Center, see [Manage third-party app su
 - [Microsoft Trust Center](https://www.microsoft.com/trust-center)
 - [Azure Government documentation](https://docs.microsoft.com/azure/azure-government/)
 - [Azure Government marketplace](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace)
-- [Azure Government compliance](https://docs.microsoft.com/azure/azure-government/documentation-government-plan-compliance).
+- [Azure Government compliance](https://docs.microsoft.com/azure/azure-government/documentation-government-plan-compliance)
