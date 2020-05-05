@@ -1,5 +1,5 @@
 ---
-title: Azure Peering Service Preview overview
+title: Azure Peering Service overview
 description: Learn about Azure Peering Service overview
 services: peering-service
 author: derekolo
@@ -8,11 +8,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 11/04/2019
+ms.date: 05/18/2020
 ms.author: derekol
 ---
 
-# Azure Peering Service Preview Overview
+# Azure Peering Service Overview
 
 Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. Microsoft has partnered with internet service providers (ISPs), internet exchange partners (IXPs), and software-defined cloud interconnect (SDCI) providers worldwide to provide reliable and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
 
@@ -22,18 +22,13 @@ With Peering Service, customers can select a well-connected partner service prov
 
 Customers can also opt for Peering Service telemetry such as user latency measures to the Microsoft network, BGP route monitoring, and alerts against leaks and hijacks by registering the Peering Service connection in the Azure portal. 
 
-To use Peering Service, customers aren't required to register with Microsoft. The only requirement is to contact a [Peering Service partner](location-partners.md) to get the service. To opt for Peering Service telemetry, customers must register for it in the Azure portal.
+To use Peering Service, customers aren't required to register with Microsoft. The only requirement is to contact a [Peering Service partner](location-partners.md) to get the service. To opt in for Peering Service telemetry, customers must register for it in the Azure portal.
 
-For instructions on how to register Peering Service, see [Register Peering Service Preview by using the Azure portal](azure-portal.md). 
+For instructions on how to register Peering Service, see [Register Peering Service by using the Azure portal](azure-portal.md). 
 
 > [!NOTE]
 > This article is intended for network architects in charge of enterprise connectivity to the cloud and to the internet.
 
->
-> [!IMPORTANT]
-> Peering Service is currently in public preview.
-> This preview version is provided without a service level agreement. We don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## What is Peering Service?
 

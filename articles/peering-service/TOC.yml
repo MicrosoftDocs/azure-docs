@@ -4,6 +4,14 @@
   items:
   - name: About Peering Service
     href: about.md
+- name: Tutorials
+  items:
+  - name: Register a Peering Service connection
+    href: create-powershell.md
+  - name: Create a Peering Service Connection
+    href: create-connection.md
+  - name: Measure Peering Service connection telemetry
+    href: prefix-telemetry.md
 - name: Concepts
   items:
   - name: Locations and partners

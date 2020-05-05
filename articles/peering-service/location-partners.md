@@ -2,26 +2,22 @@
 title: Azure Peering Service locations and partners
 description: Learn about Azure Peering Service locations and partners
 services: peering-service
-author: ypitsch
+author: derekolo
 ms.service: peering-service
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 11/04/2019
-ms.author: ypitsch
+ms.date: 05/18/2020
+ms.author: derekol
 ---
 
-# Peering Service Preview partners
+# Peering Service partners
 
 Microsoft has partnered with internet service providers (ISPs), internet exchange providers (IXPs), and software-defined cloud interconnect (SDCI) providers worldwide to provide reliable and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
 
 This article provides information on the connectivity providers that are partnered with Microsoft to offer Azure Peering Service connection to customers.
 
-> [!IMPORTANT]
-> Peering Service is currently in public preview.
-> This preview version is provided without a service level agreement. We don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Peering Service partners list
 
