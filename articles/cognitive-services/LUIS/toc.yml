@@ -180,6 +180,18 @@
     href: luis-how-to-publish-app.md
   - name: Query prediction runtime
     href: luis-get-started-get-intent-from-browser.md
+  - name: Migrate
+    items:
+    - name: Migrate from composite entity
+      href: migrate-from-composite-entity.md
+    - name: Migrate to authoring resource
+      items:
+      - name: Overview
+        href: luis-migration-authoring.md
+      - name: How to Migrate
+        href: luis-migration-authoring-steps.md
+    - name: Migrate to V3 API
+      href: luis-migration-api-v3.md
   - name: Manage app
     items:
     - name: Azure resources
