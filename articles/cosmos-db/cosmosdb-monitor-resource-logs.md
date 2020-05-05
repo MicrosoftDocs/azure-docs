@@ -215,6 +215,16 @@ For detailed information about how to create a diagnostic setting by using the A
    count()
    by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
+ 
+ 1. How to get Controlplane logs?
+ Please rememeber to switch on flag as described (here)[https://docs.microsoft.com/en-us/azure/cosmos-db/audit-control-plane-logs#disable-key-based-metadata-write-access] and execute operations via powershell, CLI or ARM. 
+ 
+   ```Kusto  
+   AzureDiagnostics 
+   | where Category =="ControlPlaneRequests"
+   | summarize by OperationName 
+   ```
+
 
 ## Next steps
 
