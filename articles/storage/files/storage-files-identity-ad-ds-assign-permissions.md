@@ -25,7 +25,7 @@ There are three Azure built-in roles for granting share-level permissions to use
 You can use the Azure portal, Azure PowerShell, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions.
 
 > [!NOTE]
-> Remember to [sync your AD DS credentials to Azure AD](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) if you plan to use your on-premises AD DS for authentication. Password hash sync from AD DS to Azure AD is optional. Share level permission will be granted to the Azure AD identity that is synced from your on-premises AD DS.
+> Remember to [sync your AD DS credentials to Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) if you plan to use your on-premises AD DS for authentication. Password hash sync from AD DS to Azure AD is optional. Share level permission will be granted to the Azure AD identity that is synced from your on-premises AD DS.
 
 Generally, we recommend using share level permission for high level access management to an AD group representing a group of users and identities, then leveraging NTFS permissions for granular access control to the directory/file level. 
 
@@ -33,7 +33,7 @@ Generally, we recommend using share level permission for high level access manag
 
 To assign an RBAC role to an Azure AD identity, using the [Azure portal](https://portal.azure.com), follow these steps:
 
-1. In the Azure portal, go to your file share, or [Create a file share](../articles/storage/files/storage-how-to-create-file-share.md).
+1. In the Azure portal, go to your file share, or [create a file share](storage-how-to-create-file-share.md).
 1. Select **Access Control (IAM)**.
 1. Select **Add a role assignment**
 1. In the **Add role assignment** blade, select the appropriate built-in role (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) from the **Role** list. Leave **Assign access to** at the default setting: **Azure AD user, group, or service principal**. Select the target Azure AD identity by name or email address.
@@ -41,7 +41,7 @@ To assign an RBAC role to an Azure AD identity, using the [Azure portal](https:/
 
 ## PowerShell
 
-The following PowerShell sample shows how to assign an RBAC role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
+The following PowerShell sample shows how to assign an RBAC role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Before you run the following sample script, replace placeholder values, including brackets, with your values.
 
@@ -56,7 +56,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ## CLI
   
-The following CLI 2.0 command assigns an RBAC role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with Azure CLI, see [Manage access by using RBAC and Azure CLI](../articles/role-based-access-control/role-assignments-cli.md). 
+The following CLI 2.0 command assigns an RBAC role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with Azure CLI, see [Manage access by using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 Before you run the following sample script, remember to replace placeholder values, including brackets, with your own values.
 
