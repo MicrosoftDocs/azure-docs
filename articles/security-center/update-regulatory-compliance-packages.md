@@ -45,6 +45,9 @@ In addition, you can add Azure Security Benchmark, the Microsoft-authored, Azure
 
 The following steps explain how to add a package to monitor your compliance with one of the supported regulatory standards.
 
+> [!NOTE]
+> Only users who are owner or policy contributor have the necessary permissions to add compliance standards. 
+
 1. From Security Center's sidebar, select **Regulatory compliance** to open the regulatory compliance dashboard. Here you can see the compliance standards currently assigned to the currently selected subscriptions.   
 
 1. From the top of the page, select **Manage compliance policies**. The Policy Management page appears.
@@ -54,19 +57,18 @@ The following steps explain how to add a package to monitor your compliance with
     > [!TIP]
     > We recommend selecting the highest scope for which the standard is applicable so that compliance data is aggregated and tracked for all nested resources. 
 
-1. To update Azure CIS 1.1.0 with new content, select **Update now** alongside it in the Industry & regulatory standards section. 
+1. Select standards relevant to you:
 
-1. Optionally, click **Add more standards** to open the **Add regulatory compliance standards** page. There, you can search manually for packages for any of the available standards. Some of the standards available are:
+    - To update Azure CIS 1.1.0 with new content, select **Update now** alongside it in the Industry & regulatory standards section. 
 
-    - **Azure Security Benchmark** ([details here](https://docs.microsoft.com/azure/security/benchmarks/introduction))
-    - **NIST SP 800-53 R4**
-    - **SWIFT CSP CSCF-v2020**
-    - **UKO and UK NHS**
-    - **Canada PBMM**
+    - Optionally, click **Add more standards** to open the **Add regulatory compliance standards** page. There, you can search manually for packages for any of the available standards. Some of the standards available are:
+
+        - **Azure Security Benchmark** ([details here](https://docs.microsoft.com/azure/security/benchmarks/introduction))
+        - **NIST SP 800-53 R4**
+        - **SWIFT CSP CSCF-v2020**
+        - **UKO and UK NHS**
+        - **Canada PBMM**
     
-    > [!TIP]
-    > Only users who are owner or policy contributor have the necessary permissions to add compliance standards. 
-
     ![Adding regulatory packages to Azure Security Center's regulatory compliance dashboard](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
 
