@@ -444,7 +444,8 @@ New-GuestConfigurationPolicy
 
 ## Extending Guest Configuration with third-party tools
 
-> [!Note] This feature is currently in preview and is currently only available 
+> [!Note]
+> This feature is currently in preview and is currently only available 
 > for policies that audit Windows machines
 
 The artifact packages for Guest Configuration can be extended to include third-party tools.
@@ -460,7 +461,8 @@ The DSC resource will require custom development if a community solution does no
 Community solutions can be discovered by searching the PowerShell Gallery for tag
 [GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22).
 
-> [!Note] Guest Configuration extensibility is currently a "bring your own
+> [!Note]
+> Guest Configuration extensibility is currently a "bring your own
 > license" scenario. Ensure you have met the terms and conditions of any third
 > party tools before use.
 
