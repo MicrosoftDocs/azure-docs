@@ -13,9 +13,9 @@ ms.date: 05/01/2020
 
 ## Configure Apprentice mode
 
-1. Sign in to the Azure portal, for your Personalizer resource.
+1. Sign in to the [Azure portal](https://portal.azure.com), for your Personalizer resource.
 
-1. On the **Configuration** page, on the **Learning behavior** tab, select **Learn as an apprentice** then select **Save**.
+1. On the **Configuration** page, on the **Learning behavior** tab, select **Return baseline action, learn as an apprentice** then select **Save**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of configuring apprentice mode learning behavior in Azure portal](media/settings/configure-learning-behavior-azure-portal.png)
@@ -48,7 +48,7 @@ In the Azure portal, on the **Evaluations** page for your Personalizer resource,
 Apprentice mode provides the following **evaluation metrics**:
 * **Baseline – average reward**:  Average rewards of the application’s default (baseline).
 * **Personalizer – average reward**: Average of total rewards Personalizer would potentially have reached.
-* **Average rolling reward**: Ratio of Baseline and Personalizer reward – normalized over the most recent 1000 events.
+* **Reward achievement ratio over most recent 1000 events**: Ratio of Baseline and Personalizer reward – normalized over the most recent 1000 events.
 
 ## Evaluate Apprentice mode features
 
