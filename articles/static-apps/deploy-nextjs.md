@@ -178,6 +178,7 @@ You can check the status of the Actions workflows by navigating to the Actions f
 
 ```url
 https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
+```
 
 ### Sync changes
 
@@ -203,19 +204,19 @@ The reason for this error is because Next.js only generated the home page based 
   module.exports = {
     exportTrailingSlash: true,
     exportPathMap: async function () {
-    const { projects } = data;
-    const paths = {
-      '/': { page: '/' },
-    };
-
-    projects.forEach((project) => {
-      paths[`/project/${project.slug}`] = {
-        page: '/project/[path]',
-        query: { path: project.slug },
+      const { projects } = data;
+      const paths = {
+        '/': { page: '/' },
       };
-    });
-
-    return paths;
+  
+      projects.forEach((project) => {
+        paths[`/project/${project.slug}`] = {
+          page: '/project/[path]',
+          query: { path: project.slug },
+        };
+      });
+  
+      return paths;
     },
   };
   ```
