@@ -724,10 +724,10 @@
         href: insights/container-insights-log-search.md
       - name: Alerts
         items:
-          name: Create log alert rules
-          href: insights/container-insights-log-alerts.md
-          name: Enable metric alert rules
-          href: insights/container-insights-metric-alerts.md
+         - name: Create log alert rules
+           href: insights/container-insights-log-alerts.md
+         - name: Enable metric alert rules
+           href: insights/container-insights-metric-alerts.md
       - name: Agent management
         href: insights/container-insights-manage-agent.md
       - name: Configure Prometheus metric scraping
