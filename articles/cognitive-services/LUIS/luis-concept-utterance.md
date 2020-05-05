@@ -78,11 +78,7 @@ Set the version settings via the LUIS portal, on the **Manage** section, on the 
 
 ### Word forms
 
-Normalizing **word forms** ignores the differences in words that expand beyond the root word in utterances.
-
-Word forms include where the meaning of the word hasn't changed when the stem changes.
-
-For example, the words `run`, `running`, and `runs` change based on verb tense.
+Normalizing **word forms** ignores the differences in words that expand beyond the root. For example, the words `run`, `running`, and `runs` change based on verb tense.
 
 <a name="utterance-normalization-for-diacritics-and-punctuation"></a>
 
