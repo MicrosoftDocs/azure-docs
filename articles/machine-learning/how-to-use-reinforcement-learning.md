@@ -50,19 +50,17 @@ Run this code in either of the following environments. We recommend you try  Azu
 
 ## How to train a Pong-playing agent
 
-Reinforcement learning (RL) is an approach to machine learning that learns by doing. While other machine learning techniques learn by passively taking input data and finding patterns within it, RL uses training agents to actively make decisions and learn from their outcomes.
+Reinforcement learning (RL) is an approach to machine learning that learns by doing. While other machine learning techniques learn by passively taking input data and finding patterns within it, RL uses **training agents** to actively make decisions and learn from their outcomes.
 
-Your training agents will learn to play Pong in a simulated environment. The training agent will make a decision every frame of the game to move the paddle up, down, or stay in place. It will look at the state of the game (an RGB image of the screen) to make a decision.
+Your training agents will learn to play Pong in a **simulated environment**. The training agent will make a decision every frame of the game to move the paddle up, down, or stay in place. It will look at the state of the game (an RGB image of the screen) to make a decision.
 
-RL uses rewards to tell the agent if its decisions are successful. In this environment, the agent gets a reward when it scores a point. Over many iterations, the training agent learns to choose the action, based on its current state, that has the highest probability of earning the reward.
+RL uses **rewards** to tell the agent if its decisions are successful. In this environment, the agent gets a reward when it scores a point. Over many iterations, the training agent learns to choose the action, based on its current state, that has the highest probability of earning the reward.
 
-It's common to use a deep neural network (DNN) model to calculate these probabilities in RL. Initially, the learning agent will perform poorly, but every game will generate additional samples to further train the model.
+It's common to use a **deep neural network** (DNN) model to calculate these probabilities in RL. Initially, the learning agent will perform poorly, but every game will generate additional samples to further train the model.
 
-The process of iterating through simulation and retraining a  DNN is highly computationally expensive, and requires large amounts of data.
+The process of iterating through simulation and retraining a  DNN is highly computationally expensive, and requires large amounts of data. One way to improve performance of RL jobs is by **parallelizing work** so that multiple training agents can act and learn simultaneously. However, managing a distributed RL environment can be a complex undertake.
 
-One way to improve performance of RL jobs is by parallelizing work so that multiple training agents can learn simultaneously. However, managing a distributed RL environment can be complex.
-
-Azure Machine Learning provides the framework to manage these complexities to scale out RL workloads.
+Azure Machine Learning provides the framework to manage these complexities to scale out your RL workloads.
 
 ## Set up the environment
 
