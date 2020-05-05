@@ -160,6 +160,8 @@ Advantage of this approach is that failover can happen at the application layer 
 
 **Event Hubs namespace-only failover**: Here again, since both private endpoints are configured on both virtual networks for both primary and secondary namespaces, the application will just work. 
 
+> [!NOTE]
+> For guidance on geo-disaster recovery of a virtual network, see [Virtual Network - Business Continuity](../virtual-network/virtual-network-disaster-recovery-guidance.md).
  
 ## Next steps
 

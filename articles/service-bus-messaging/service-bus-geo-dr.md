@@ -147,16 +147,12 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 This section provides additional considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Service Bus in general, see [Integrate Azure Service Bus with Azure Private Link](private-link-service.md).
 
 ### New pairings
-If primary namespace with a private endpoint is paired with secondary namespace without a private endpoint, pairing them will fail. The pairing will succeed only if both primary and secondary namespaces have private endpoints. 
+If you try to create a pairing between a primary namespace with a private endpoint to a secondary namespace without a private endpoint, the pairing will fail. The pairing will success only if both primary and secondary namespaces have private endpoints. We recommend that you use same configurations on the primary and secondary namespaces and on virtual networks in which private endpoints are created. 
 
 > [!NOTE]
-> When you try to pair primary namespace with a private endpoint to the secondary namespace, the validation process only checks whether the private endpoint exists on the secondary namespace. It doesn't check whether the endpoint works or will work after failover. 
-> 
-> It's your responsibility to ensure that the secondary namespace with private endpoint will work as expected after failover.
+> When you try to pair primary namespace with a private endpoint to the secondary namespace, the validation process only checks whether the private endpoint exists on the secondary namespace. It doesn't check whether the endpoint works or will work after failover. It's your responsibility to ensure that the secondary namespace with private endpoint will work as expected after failover.
 >
 > To test that the private endpoint configurations are same, send a [Get queues](/rest/api/servicebus/queues/get) request to the secondary namespace from outside the virtual network, and verify that you receive an error message from the service (not just from the private link network resource provider).
-
-We recommend that you use same configurations on the primary and secondary namespaces and on virtual networks used by them for creating private endpoints. 
 
 ### Existing pairings
 If pairing between primary and secondary namespace already exists, private endpoint creation on the primary namespace will fail. Create a private endpoint on the secondary namespace first and then create one for the primary namespace.
@@ -176,6 +172,9 @@ Advantage of this approach is that failover can happen at the application layer 
 **Application-only failover:** Here, the application won't exist in VNET-1 but will move to VNET-2. As both private endpoints are configured on both VNET-1 and VNET-2 for both primary and secondary namespaces, the application will just work. 
 
 **Service Bus namespace-only failover**: Here again, since both private endpoints are configured on both virtual networks for both primary and secondary namespaces, the application will just work. 
+
+> [!NOTE]
+> For guidance on geo-disaster recovery of a virtual network, see [Virtual Network - Business Continuity](../virtual-network/virtual-network-disaster-recovery-guidance.md).
 
 ## Next steps
 
