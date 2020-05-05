@@ -86,7 +86,7 @@ The Azure Portal provides an interface for creating, updating and deleting App S
 
 1. Click on the **Add Button** to add a new app setting.
 
-:::image type="content" source="media/app-settings/configuration-env-variables.png" alt-text="Azure Static Web Apps configuration view":::
+:::image type="content" source="media/environment-variables/configuration-env-variables.png" alt-text="Azure Static Web Apps configuration view":::
 
 1. Enter a **Name** and **Value**
 
@@ -124,7 +124,7 @@ The Azure CLI command requires a number of values specific to your account to ru
 2. Resource group name
 3. Subscription ID
 
-:::image type="content" source="media/app-settings/azure-static-web-apps-overview.png" alt-text="Azure Static Web Apps Overview":::
+:::image type="content" source="media/environment-variables/azure-static-web-apps-overview.png" alt-text="Azure Static Web Apps Overview":::
 
 4. From a terminal or command line, execute the following command. Make sure to replace the placeholders of `<YOUR_STATIC_SITE_NAME>`, `<YOUR_RESOURCE_GROUP_NAME>`, and `<YOUR_SUBSCRIPTION_ID>` with your values from the _Overview_ window.
 
