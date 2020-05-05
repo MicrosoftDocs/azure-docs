@@ -383,7 +383,7 @@
     - name: Protect your data
       items:
       - name: Enable point-in-time restore
-        href: point-in-time-restore-enable.md  
+        href: point-in-time-restore-manage.md  
       - name: Enable blob versioning
         href: versioning-enable.md
       - name: Enable soft delete
