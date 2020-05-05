@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/05/2020
 ms.author: aahi
 ---
 
@@ -42,7 +42,7 @@ The following prerequisites before using Speech containers:
 
 ## Request access to the container registry
 
-Fill out and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/speechcontainerspreview/) to request access to the container. 
+Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 

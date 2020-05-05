@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 03/04/2020
 ---
 
-Fill out and submit the [Cognitive Services containers request form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u) to request access to the container. The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team reviews it to make sure that you meet the criteria for access to the private container registry.
+Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container. The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team reviews it to make sure that you meet the criteria for access to the private container registry.
 
 > [!IMPORTANT]
 > You must use an email address associated with either a Microsoft Account (MSA) or an Azure Active Directory (Azure AD) account in the form. For more information on the acceptance criteria, see [Cognitive Services - Gating process](../articles/cognitive-services/cognitive-services-gating-process.md).
