@@ -19,7 +19,7 @@ Speech Service automatically encrypts your data when it is persisted it to the c
 
 ## About Cognitive Services encryption
 
-Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) compliant [256-bit AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption. Encryption and decryption are transparent, meaning encryption and access are managed for you. Your data is secure by default and you don’t need to modify your code or applications to take advantage of encryption.
+Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) compliant [256-bit AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption. Encryption and decryption are transparent, meaning encryption and access are managed for you. Your data is secure by default and you don't need to modify your code or applications to take advantage of encryption.
 
 ## About encryption key management
 
@@ -28,7 +28,7 @@ When you use Custom Speech and Custom Voice, Speech service may store following 
 * Speech trace data - only if your turn the trace on for your custom endpoint
 * Uploaded training and test data
 
-By default, your data are stored in Microsoft’s storage and your subscription uses Microsoft-managed encryption keys. You also have an option to prepare your own storage account. Access to the store is managed by the Managed Identity, and Speech service cannot directly access to your own data, such as speech trace data, customization training data and custom models.
+By default, your data are stored in Microsoft's storage and your subscription uses Microsoft-managed encryption keys. You also have an option to prepare your own storage account. Access to the store is managed by the Managed Identity, and Speech service cannot directly access to your own data, such as speech trace data, customization training data and custom models.
 
 For more information about Managed Identity, see [What are managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -39,8 +39,7 @@ To request access to bring your own storage, fill out and submit the [Speech s
 > [!IMPORTANT]
 > If you disable system assigned managed identities, access to the storage account will be removed. This will cause the parts of the Speech service that require access to the storage account to stop working.  
 
-> [!NOTE]
-> Microsoft Azure offers [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) to provide an interface for customers to review and approve or reject customer data access requests by Microsoft. In Speech Services, customer data can be stored on the customer's own storage via BYOS (Bring Your Own Storage). Data controls equivalent to Customer Lockbox can be achieved on the customer's own storage.
+The Speech service doesn't currently support Customer Lockbox. However, customer data can be stored using BYOS, allowing you to achieve equivalent data controls to [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md). Keep in mind that Speech service data stays and is processed in the region where the Speech resource was created. This applies to any data in transit. When using customization features, like Custom Speech and Custom Voice, all customer data is transferred, stored, and process in the same region where your BYOS and subscription reside.
 
 ## Regional availability
 
