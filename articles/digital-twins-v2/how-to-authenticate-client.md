@@ -132,5 +132,5 @@ namespace Azure Digital TwinsGettingStarted
 Read more about how security works in Azure Digital Twins:
 * [Concepts: Securing Azure Digital Twins solutions](concepts-security.md)
 
-Or, now that authentication is set up, read the APIs you can use with your Azure Digital Twin instance:
-* [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)
+Or, now that authentication is set up, move on to creating models in your instance:
+* [How-to: Manage a twin model](how-to-manage-model.md)

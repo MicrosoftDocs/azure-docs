@@ -329,6 +329,5 @@ Azure Digital Twins does not prevent this state, so be careful to patch twins ap
 
 ## Next steps
 
-Learn about managing the other key elements of an Azure Digital Twins solution:
+See how to create and manage digital twins based on your models:
 * [How-to: Manage a digital twin](how-to-manage-twin.md)
-* [How-to: Manage a twin graph with relationships](how-to-manage-graph.md)
