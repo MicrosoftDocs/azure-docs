@@ -43,7 +43,7 @@ You can configure and get information about alert rules using the following inte
 ## Alerting metrics available for managed instance
 
 > [!NOTE]
-> Alerting metrics are available for managed instance as the entire resource. Alerting metrics for individual databases in managed instance are not available.
+> Alerting metrics are available for managed instance only. Alerting metrics for individual databases in managed instance are not available.
 
 The following managed instance metrics are available for alerting configuration:
 
