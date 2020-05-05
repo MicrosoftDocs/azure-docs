@@ -2,7 +2,7 @@
 title: What is Language Understanding (LUIS)?
 description: Language Understanding (LUIS) is a cloud-based API service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
 ms.topic: overview
-ms.date: 02/23/2020
+ms.date: 05/05/2020
 ---
 
 # What is Language Understanding (LUIS)?
