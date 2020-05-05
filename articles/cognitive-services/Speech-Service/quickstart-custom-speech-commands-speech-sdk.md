@@ -22,17 +22,17 @@ In this article, you'll:
 - Create a UWP client app using the Speech SDK to allow you to talk to your Custom Commands application
 
 ## Prerequisites
-[!div class = "checklist"]
-A Custom Commands application is required to complete this article. If you haven't created a Custom Commands application yet, you can do so in these previous quickstarts:
 
-* [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
-* [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+A Custom Commands application is required to complete this article. If you haven't created a Custom Commands application yet, you can do so in these previous quickstarts:
+> [!div class = "checklist"]
+> * [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
+> * [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
 
 You'll also need:
-
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-* An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
-* [Enable your device for development](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
+> [!div class = "checklist"]
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+> * [Enable your device for development](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## Optional: Get started fast
 
