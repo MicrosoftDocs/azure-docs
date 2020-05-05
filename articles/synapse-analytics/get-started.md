@@ -1,6 +1,6 @@
 ---
-title: Getting Started Tutorial 
-description: Steps by steps to quickly understand basic concepts in Synapse
+title: Getting started tutorial 
+description: Steps by steps to quickly understand basic concepts in Azure Synapse
 services: synapse-analytics
 author: julieMSFT
 ms.author: jrasnick
