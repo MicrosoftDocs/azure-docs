@@ -105,6 +105,9 @@ The following table provides a high-level overview of the major JSON elements th
 | **dependsOn: size** | The size of the dependency tumbling window. | Timespan<br/>(hh:mm:ss)  | A positive timespan value where the default is the window size of the child trigger  | No |
 | **dependsOn: offset** | The offset of the dependency trigger. | Timespan<br/>(hh:mm:ss) |  A timespan value that must be negative in a self-dependency. If no value specified, the window is the same as the trigger itself. | Self-Dependency: Yes<br/>Other: No  |
 
+> [!NOTE]
+> After a tumbling window trigger is published, **interval** and **frequency** can't be edited.
+
 ### WindowStart and WindowEnd system variables
 
 You can use the **WindowStart** and **WindowEnd** system variables of the tumbling window trigger in your **pipeline** definition (that is, for part of a query). Pass the system variables as parameters to your pipeline in the **trigger** definition. The following example shows you how to pass these variables as parameters:

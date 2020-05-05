@@ -5,6 +5,7 @@ keywords: postgresql connection,connection string,connectivity issues,transient 
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 10/8/2019
 ---

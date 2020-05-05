@@ -2,11 +2,11 @@
 title: Custom metrics in Azure Monitor
 description: Learn about custom metrics in Azure Monitor and how they are modeled.
 author: ancav
-services: azure-monitor
-
-ms.topic: conceptual
-ms.date: 09/09/2019
 ms.author: ancav
+services: azure-monitor
+ms.topic: conceptual
+ms.date: 04/23/2020
+
 ms.subservice: metrics
 ---
 # Custom metrics in Azure Monitor
@@ -207,6 +207,11 @@ During the public preview, the ability to publish custom metrics is available on
 |East Asia | https:\//eastasia.monitoring.azure.com
 |Korea Central   | https:\//koreacentral.monitoring.azure.com
 
+## Latency and storage retention
+
+Adding a brand new metric or a new dimension being added to a metric may take up to 2 to 3 minutes to appear. Once in the system, data should apear in less than 30 seconds 99% of the time. 
+
+If you delete a metric or remove a dimension, the change can take a week to a month to be deleted from the system.
 
 ## Quotas and limits
 Azure Monitor imposes the following usage limits on custom metrics:

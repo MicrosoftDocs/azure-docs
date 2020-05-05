@@ -5,7 +5,7 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 7/30/2019
+ms.date: 05/01/2020
 ms.author: dsindona
 ---
 
@@ -14,8 +14,10 @@ ms.author: dsindona
 >[!Caution]
 >The Azure Blob option to process leads from your marketplace offer has been deprecated. If you currently have an offer published with lead management configuration for Azure Blob, you are no longer receiving customer leads. Please update your lead management configuration to any of the other lead management options. Learn about the other options on the [lead management landing page](./commercial-marketplace-get-customer-leads.md)."
 
-If your Customer Relationship Management (CRM) system is not explicitly supported in Partner Center for receiving Azure Marketplace and AppSource leads, you can use an Azure Blob to handle these leads. You can then choose to export the data and import it into your CRM system. The instructions in this article will give you through the process of creating an Azure Storage account, and an Azure Blob under that account. In addition, you can create a new flow using Microsoft Flow to send an email notification when your offer receives a lead.
+ If your Customer Relationship Management (CRM) system is not explicitly supported in Partner Center for receiving Azure Marketplace and AppSource leads, you can use an Azure Blob to handle these leads. You can then choose to export the data and import it into your CRM system. The instructions in this article will give you through the process of creating an Azure Storage account, and an Azure Blob under that account. In addition, you can create a new flow using Power Automate to send an email notification when your offer receives a lead.
 
+>[!NOTE]
+>The Power Automate connector used in these instructions requires a paid subscription to Power Automate. Make sure you account for this before you follow the instructions in this article.
 
 ## How to configure Azure Blob
 

@@ -262,9 +262,11 @@
     items:
     - name: Work with results
       href: search-pagination-page-layout.md
-    - name: Relevance tuning (scoring profiles)    
+    - name: Relevance scoring
+      href: index-similarity-and-scoring.md
+    - name: Scoring profiles 
       href: index-add-scoring-profiles.md
-    - name: Relevance tuning (similarity algorithm)  
+    - name: Similarity algorithm
       href: index-ranking-similarity.md
   - name: Plan
     items:

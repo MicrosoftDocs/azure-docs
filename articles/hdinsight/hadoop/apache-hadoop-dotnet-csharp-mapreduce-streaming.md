@@ -6,8 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/15/2020
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
 ---
 
 # Use C# with MapReduce streaming on Apache Hadoop in HDInsight
@@ -46,7 +46,7 @@ For more information on streaming, see [Hadoop Streaming](https://hadoop.apache.
 
 * An Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This scheme would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
+* The URI scheme for your clusters primary storage. This scheme would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively.
 
 ## Create the mapper
 
@@ -264,8 +264,6 @@ youth   17
 
 ## Next steps
 
-For more information on using MapReduce with HDInsight, see [Use MapReduce in Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md).
-
-For information on using C# with Hive and Pig, see [Use a C# user-defined function with Apache Hive and Apache Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
-
-For information on using C# with Storm on HDInsight, see [Develop C# topologies for Apache Storm on HDInsight](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
+* [Use MapReduce in Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md).
+* [Use a C# user-defined function with Apache Hive and Apache Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
+* [Develop Java MapReduce programs](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

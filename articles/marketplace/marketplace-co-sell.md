@@ -11,7 +11,7 @@ ms.date: 04/16/2020
 
 # Co-sell partner engagement
 
-If you're a partner, you can use the Microsoft co-sell program to work directly with Microsoft on joint selling opportunities. You can reach a vast community of customers and create new sales opportunities that can help accelerate business growth.
+If you're a partner, you can use the Microsoft co-sell program to work directly with Microsoft on joint selling opportunities. The program helps our partners reach a vast community of customers and create new sales opportunities that can help accelerate business growth.
 
 ## Partner selling motions
 
@@ -19,9 +19,9 @@ Microsoft offers three partner selling motions:
 
 * *Sell through partner*: You can resell Microsoft technology through your own sellers.
 * *Services co-sell*: Sellers and partners collaborate to sell your project or managed services with Microsoft technology embedded.
-* *IP co-sell*: Sellers and partners collaborate to sell your repeatable, packaged IP solution*.
+* *IP co-sell*: Sellers and partners collaborate to sell your repeatable, packaged IP solution.*
 
-\* Some of these IP co-sell solutions might receive additional incentives when they're successfully sold and deployed with Microsoft field sales teams.
+\*Some of these IP co-sell solutions might receive additional incentives when they're successfully sold and deployed with Microsoft field sales teams.
 
 ![Diagram showing how co-sell happens when sales leads are shared, accepted, and won against Microsoft-managed customers.](./media/marketplace-publishers-guide/marketplace-co-sell.png)
 

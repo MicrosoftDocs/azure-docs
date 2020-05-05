@@ -1,6 +1,11 @@
 ---
+<<<<<<< HEAD
 title: Azure Marketplace SaaS Applications Publishing Guide
 description: Step-by-step guide and publishing checklists for publishing SaaS applications to Azure Marketplace
+=======
+title: Publishing guide for SaaS applications on Azure Marketplace
+description: A step-by-step guide and checklist for publishing SaaS applications to Azure Marketplace.
+>>>>>>> c5aaa491221eac13b3b29b9854d5869af2a61797
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: dsindona
 ms.service: marketplace
@@ -10,6 +15,7 @@ ms.date: 04/23/2020
 ms.author: dsindona
 ---
 
+<<<<<<< HEAD
 # SaaS applications Offer Publishing Guide
 
 SaaS applications can be published in the marketplace with three different calls to action: "Contact Me," "Try it now," and "Get it Now." This guide explains these three options, including requirements for each. 
@@ -17,6 +23,15 @@ SaaS applications can be published in the marketplace with three different calls
 ## Offer overview  
 
 SaaS applications are available in Microsoft AppSource and Azure Marketplace.  Both storefronts support list, trial, and transact offers.
+=======
+# Publishing guide for SaaS application offers
+
+You can publish software as a service (SaaS) applications to Azure Marketplace with three different calls to action: *Contact Me*, *Try it Now*, and *Get it Now*. This guide explains these call-to-action options, including the requirements for each. 
+
+## Offer overview  
+
+SaaS applications are available on Azure Marketplace and Microsoft AppSource.  Both storefronts support *List*, *Trial*, and *Transaction* offers.
+>>>>>>> c5aaa491221eac13b3b29b9854d5869af2a61797
 
 **List:**  The Listing publishing option consists of a Contact Me offer type and is used when a Trial- or Transaction-level participation is not feasible. The benefit of this approach is that it enables publishers with a solution in-market to immediately begin receiving leads that can be turned into deals to increase your business.  
 **Trial/Transaction:**  The customer has the option to directly buy or request a trial for your solution. Providing a Trial experience increases the engagement level offered to customers and enables customers to explore your solution before buying. With a Trial experience, you will have better chances of promotion in the storefronts, and you should expect more and richer leads from customer engagements. Trials must include free support at least for the duration of the trial period.  
@@ -83,7 +98,11 @@ Free Azure Active Directory training is available at
 In addition, Azure Active Directory provides a site to check for Service Updates   
 * [Azure AD Service updates](https://azure.microsoft.com/updates/?product=active-directory)
 
+<<<<<<< HEAD
 ## Using Azure Active Directory to enable trials  
+=======
+Microsoft authenticates all Azure Marketplace users with Azure AD. When authenticated customers click through your Trial listing on Azure Marketplace and are redirected to your Trial environment, you can set up their Trial without requiring an additional sign-in step. 
+>>>>>>> c5aaa491221eac13b3b29b9854d5869af2a61797
 
 Microsoft authenticates all Marketplace users with Azure AD, so when an authenticated user clicks through your Trial listing in Marketplace and is redirected to your Trial environment, you can provision the user directly into a Trial without requiring an additional sign-in step. The token that your app receives from Azure AD during authentication includes valuable user information that you can use to create a user account in your app, enabling you to automate the provisioning experience and increase the likelihood of conversion. For more information about the token, see [Sample Tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
@@ -125,8 +144,13 @@ Microsoft hosts the commerce transaction. Microsoft bills your customer on your 
 |:--- |:--- |  
 |Billing and metering | Your offer is priced based on the pricing model you select before publishing (flat rate or per-user).  If using the flat rate model, you can optionally include additional dimensions used to charge customers for usage not included in the flat rate. |  
 |Cancellation | Your offer is cancelable by the customer at any time. |  
+<<<<<<< HEAD
 |Transaction landing page | You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account. |   
 | Subscription API | You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. |  
+=======
+|Transaction landing page | You host an Azure co-branded transaction landing page where customers can create and manage their SaaS service accounts. |   
+| Subscription API | You expose a service that can interact with the SaaS subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. |  
+>>>>>>> c5aaa491221eac13b3b29b9854d5869af2a61797
 
 >[!Note]
 >Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.

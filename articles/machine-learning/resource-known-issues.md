@@ -51,7 +51,23 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
         pip install azure-ml-datadrift
         pip install azureml-train-automl 
      ```
-     
+
+* **Panda errors: Typically seen during AutoML Experiment:**
+   
+   When manually setting up your environmnet using pip, you will notice attribute errors (especially from pandas) due to unsupported package versions being installed. In order to prevent such errors, [please install the AutoML SDK using the automl_setup.cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
+   
+    1. Open an Anaconda prompt and clone the GitHub repository for a set of sample notebooks.
+
+    ```bash
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+    
+    2. cd to the how-to-use-azureml/automated-machine-learning folder where the sample notebooks were extracted and then run:
+    
+    ```bash
+    automl_setup
+    ```
+  
 * **Error message: Cannot uninstall 'PyYAML'**
 
     Azure Machine Learning SDK for Python: PyYAML is a `distutils` installed project. Therefore, we cannot accurately determine which files belong to it if there is a partial uninstall. To continue installing the SDK while ignoring this error, use:

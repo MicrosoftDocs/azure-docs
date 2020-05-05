@@ -49,7 +49,7 @@ For Azure services, use the recommended zone names as described in the following
 |Azure Database for MySQL (Microsoft.DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
 |Azure Database for MariaDB (Microsoft.DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
 |Azure Key Vault (Microsoft.KeyVault/vaults)|vault|privatelink.vaultcore.azure.net|
-|Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters)    | managedCluster | {guid}.privatelink.<region>.azmk8s.io|
+|Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters)    | managedCluster | {guid}.privatelink.{region}.azmk8s.io|
 |Azure Search (Microsoft.Search/searchServices)|searchService|privatelink.search.windows.net|   
 |Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.io |
 |Azure App Configuration (Microsoft.Appconfiguration/configurationStores)| configurationStore | privatelink.azconfig.io|

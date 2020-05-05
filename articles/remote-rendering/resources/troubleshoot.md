@@ -93,6 +93,10 @@ If these two steps did not help, it is required to find out whether video frames
 
 ### Common client-side issues
 
+**The model excceds the limits of the selected VM, specifically the maximum number of polygons:**
+
+See specific [VM size limitations](../reference/limits.md#overall-number-of-polygons).
+
 **The model is not inside the view frustum:**
 
 In many cases, the model is displayed correctly but located outside the camera frustum. A common reason is that the model has been exported with a far off-center pivot so it is clipped by the camera's far clipping plane. It helps to query the model's bounding box programmatically and visualize the box with Unity as a line box or print its values to the debug log.
@@ -134,8 +138,20 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 
 ## Unity code using the Remote Rendering API doesn't compile
 
+### Use Debug when compiling for Unity Editor
+
 Switch the *build type* of the Unity solution to **Debug**. When testing ARR in the Unity editor the define `UNITY_EDITOR` is only available in 'Debug' builds. Note that this is unrelated to the build type used for [deployed applications](../quickstarts/deploy-to-hololens.md), where you should prefer 'Release' builds.
 
+### Compile failures when compiling Unity samples for HoloLens 2
+
+We have seen spurious failures when trying to compile Unity samples (quickstart, ShowCaseApp, ..) for HoloLens 2. Visual Studio complains about not being able to copy some files albeit they are there. If you hit this problem:
+* Remove all temporary Unity files from the project and try again.
+* Make sure the projects are located in a directory on disk with reasonably short path, since the copy step sometimes seems to run into problems with long filenames.
+* If that does not help, it could be that MS Sense interferes with the copy step. To set up an exception, run this registry command from command line (requires admin rights):
+    ```cmd
+    reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
+    ```
+    
 ## Unstable Holograms
 
 In case rendered objects seem to be moving along with head movements, you might be encountering issues with *Late Stage Reprojection* (LSR). Refer to the section on [Late Stage Reprojection](../overview/features/late-stage-reprojection.md) for guidance on how to approach such a situation.

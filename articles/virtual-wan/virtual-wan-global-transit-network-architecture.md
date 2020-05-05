@@ -96,6 +96,11 @@ Branches can be connected to an Azure virtual WAN hub using ExpressRoute circuit
 
 This option lets enterprises leverage the Azure backbone to connect branches. However, even though this capability is available, you should weigh the benefits of connecting branches over Azure Virtual WAN vs. using a private WAN.  
 
+### Disabling Branch-to-Branch Connectivity in Virtual WAN
+Virtual WAN can be configured to disable Branch-to-Branch connectivity. This configuation will block route propagation between VPN (S2S and P2S) and Express Route connected sites. This configuration will not affect branch-to-Vnet and Vnet-to-Vnet route propogation and connectivity.
+
+In the Azure Portal, under Virtual WAN Configuration menu, Choose Setting: Branch-to-Branch -> Disabled. 
+
 ### Remote User-to-VNet (c)
 
 You can enable direct, secure remote access to Azure using point-to-site connection from a remote user client to a virtual WAN. Enterprise remote users no longer have to hairpin to the cloud using a corporate VPN.
