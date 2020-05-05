@@ -250,7 +250,7 @@ Read the following to also learn about planning cluster capacity, upgrading a cl
 * [Partition stateful services for maximum scale](service-fabric-concepts-partitioning.md)
 
 <!--Image references-->
-[BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
-[ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
+[BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-in-out/BrowseServiceFabricClusterResource.png
+[ClusterResources]: ./media/service-fabric-cluster-scale-in-out/ClusterResources.png
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

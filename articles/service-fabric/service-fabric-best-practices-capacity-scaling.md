@@ -70,7 +70,7 @@ With the node properties and placement constraints declared, do the following st
 
 ## Horizontal scaling
 
-You can do horizontal scaling either [manually](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) or [programmatically](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
+You can do horizontal scaling either [manually](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out) or [programmatically](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
 
 > [!NOTE]
 > If you're scaling a node type that has Silver or Gold durability, scaling will be slow.
@@ -162,7 +162,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> When you scale down a cluster, you'll see the removed node/VM instance displayed in an unhealthy state in Service Fabric Explorer. For an explanation of this behavior, see [Behaviors you may observe in Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer). You can:
+> When you scale down a cluster, you'll see the removed node/VM instance displayed in an unhealthy state in Service Fabric Explorer. For an explanation of this behavior, see [Behaviors you may observe in Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#behaviors-you-may-observe-in-service-fabric-explorer). You can:
 > * Call the [Remove-ServiceFabricNodeState command](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) with the appropriate node name.
 > * Deploy the [Service Fabric autoscale helper application](https://github.com/Azure/service-fabric-autoscale-helper/) on your cluster. This application ensures that the scaled-down nodes are cleared from Service Fabric Explorer.
 
