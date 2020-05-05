@@ -14,8 +14,7 @@ services: digital-twins
 
 Azure Digital Twins is a developer platform for creating secure digital representations of a business environment. Representations are driven by live state data from IoT devices and other data sources.
 
-> [!NOTE]
-> This article provides steps for how to delete personal data from the device or service and can be used to support your obligations under the GDPR. If you’re looking for general info about GDPR, see the GDPR section of the Service Trust portal.
+[!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
 ## Identifying customer data
 
@@ -27,5 +26,3 @@ Azure Digital Twins is a developer platform for creating secure digital represen
 
 
 ## Links to additional documentation
-
-<relevant links>
