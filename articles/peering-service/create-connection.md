@@ -41,9 +41,7 @@ This tutorial shows you how to create a Peering Service resource and how to conf
 
 1. Select the **Review + create** button at the lower left of the page. The **Review + create** page appears, and Azure validates your configuration.
 
-    ![Register Peering Service validation](./media/peering-service-portal/Prefix-Key-Peering-Service-Connection.png) 
-
-1. When you see the **Validation passed** message as shown, select **Create**.
+ 1. When you see the **Validation passed** message as shown, select **Create**.
 
 1. After you register a Peering Service connection, additional validation is performed on the included prefixes. You can review the validation status under the **Prefixes** section of the resource name. If the validation fails, one of the following error messages is displayed:
 
