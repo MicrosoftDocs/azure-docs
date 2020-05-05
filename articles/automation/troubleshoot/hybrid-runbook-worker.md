@@ -111,7 +111,7 @@ This error occurs when you attempt to use a [Run As account](../manage-runas-acc
 
 #### Resolution
 
-If your Hybrid Runbook Worker is an Azure VM, you can use [Managed identities for Azure resources](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) instead. This scenario simplifies authentication by allowing you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As account. When the Hybrid Runbook Worker is an on-premises machine, you need to install the Run As account certificate on the machine. To learn how to install the certificate, see the steps to run the PowerShell runbook **Export-RunAsCertificateToHybridWorker** in [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+If your Hybrid Runbook Worker is an Azure VM, you can use [runbook authentication with managed identities](../automation-hrw-run-runbooks.md#runbook-auth-managed-identities) instead. This scenario simplifies authentication by allowing you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As account. When the Hybrid Runbook Worker is an on-premises machine, you need to install the Run As account certificate on the machine. To learn how to install the certificate, see the steps to run the PowerShell runbook **Export-RunAsCertificateToHybridWorker** in [Run runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
 ### <a name="error-403-on-registration"></a>Scenario: Error 403 during registration of Hybrid Runbook Worker
 
@@ -145,6 +145,22 @@ You might also need to update the date and/or time zone of your computer. If you
 ## Linux
 
 The Linux Hybrid Runbook Worker depends on the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error:
+
+### <a name="prompt-for-password"></a>Scenario: Linux Hybrid Runbook Worker receives prompt for a password when signing a runbook
+
+#### Issue
+
+Running the `sudo` command for a Linux Hybrid Runbook Worker retrieves an unexpected prompt for a password.
+
+#### Cause
+
+The **nxautomationuser** account for the Log Analytics agent for Linux is not correctly configured in the **sudoers** file. The Hybrid Runbook Worker needs the appropriate configuration of account permissions and other data so that it can sign runbooks on the Linux Runbook Worker.
+
+#### Resolution
+
+* Ensure that the Hybrid Runbook Worker has the GnuPG (GPG) executable on the machine.
+
+* Verify the configuration of the **nxautomationuser** account in the **sudoers** file. See [Running runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
 ### <a name="oms-agent-not-running"></a>Scenario: The Log Analytics agent for Linux isn't running
 
@@ -289,7 +305,7 @@ Machine is already registered
 
 #### Cause
 
-This issue can be caused if the machine is already registered with a different Automation account or if you try to readd the Hybrid Runbook Worker after removing it from a machine.
+This issue can be caused if the machine is already registered with a different Automation account or if you try to re-add the Hybrid Runbook Worker after removing it from a machine.
 
 #### Resolution
 
