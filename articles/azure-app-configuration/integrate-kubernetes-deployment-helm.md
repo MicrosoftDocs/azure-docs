@@ -12,7 +12,7 @@ ms.author: shuawan
 
 #Customer intent: I want to use Azure App Configuration data in Kubernetes deployment with Helm. 
 ---
-# Integrate with Kubernetes Deployment Using Helm
+# Integrate with Kubernetes Deployment using Helm
 
 Helm provides a way to define, install, and upgrade applications running in Kubernetes. A Helm chart contains the information necessary to create an instance of a Kubernetes application. Configuration is stored outside of the chart itself, in a file called *values.yaml*. 
 
@@ -179,7 +179,7 @@ settings:
 	message: myMessage
 ```
 
-## Pass configuration data from App Configuration during Helm install ##
+## Pass configuration from App Configuration during Helm install ##
 First, download the configuration from App Configuration to a *myConfig.yaml* file. Use a key filter to only download those keys that start with **settings.**. If in your case the key filter is not sufficient to exclude keys of Key Vault references, you may use the argument **--skip-keyvault** to exclude them. 
 
 > [!TIP]
