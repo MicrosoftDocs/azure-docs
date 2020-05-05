@@ -34,7 +34,7 @@ You can create an AVS private cloud by using the [Azure portal](#azure-portal) o
 ### Azure portal
 
 In the Azure portal, select **+ Create a new resource**. In the **Search the Marketplace**
-text box type `vmcp`, and select **VMCP - Private Cloud** from the list. On the **VMCP - Private Cloud** window, select **Create**
+text box type `Azure VMware Solution`, and select **Azure VMware Solution** from the list. On the **Azure VMware Solution** window, select **Create**
 
 On the **Basics** tab, enter values for the fields. The following table shows a detailed list of the properties.
 
