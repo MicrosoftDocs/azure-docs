@@ -1,5 +1,5 @@
 ---
-title: Azure Web Application Firewall on Application Gateway - Frequently Asked Questions
+title: Azure Web Application Firewall on Application Gateway - frequently asked questions
 description: This article provides answers to frequently asked questions about Web Application Firewall on Application Gateway
 services: web-application-firewall
 author: vhorne
@@ -19,9 +19,9 @@ Azure WAF is a web application firewall that helps protect your web applications
 
 An Azure WAF policy can be applied to web applications hosted on Application Gateway or Azure Front Doors.
 
-## Does the WAF SKU offer all the features available in the Standard SKU?
+## What features does the WAF SKU support?
 
-Yes. WAF supports all the features in the Standard SKU.
+The WAF SKU supports all the features available in the Standard SKU.
 
 ## How do I monitor WAF?
 

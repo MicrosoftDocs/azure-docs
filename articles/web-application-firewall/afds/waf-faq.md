@@ -1,5 +1,5 @@
 ---
-title: Azure Web Application Firewall on Azure Front Door Service - Frequently Asked Questions
+title: Azure Web Application Firewall on Azure Front Door Service - frequently asked questions
 description: This article provides answers to frequently asked questions about Web Application Firewall on Azure Front Door
 services: web-application-firewall
 author: vhorne
