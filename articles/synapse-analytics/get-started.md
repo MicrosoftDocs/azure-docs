@@ -94,7 +94,7 @@ Connecting to an external data store happens through linked services. Currently 
 |---|------|-----|-----|
 | ADLSg2 | Storage account | Read/Write | SQL on-demand, SQL pool, Spark |
 | Blob Storage | Storage account | Read/Write | SQL on-demand, SQL pool, Spark |
-| Cosmos DB | Database | Coming soon | Spark |
+| Cosmos DB | Database |  | Spark |
 
 For the tutorial, we assume that a Data Lake Storage account, called **Contosolake**, with its container, called **datasets**, have been created. 
 
