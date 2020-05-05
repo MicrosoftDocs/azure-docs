@@ -257,10 +257,14 @@ If your organization is federated for SSO with Azure AD and you are going to be 
 
 ## Next steps
 
-[Enable self service password reset for your organization](quickstart-sspr.md)
+To get started, see the [tutorial for self-service password reset (SSPR)][tutorial-sspr] and [Azure Multi-Factor Authentication][tutorial-azure-mfa].
 
-[Enable Azure Multi-Factor Authentication for your organization](howto-mfa-getstarted.md)
+To learn more about SSPR concepts, see [How Azure AD self-service password reset works][concept-sspr].
 
-[Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
+To learn more about MFA concepts, see [How Azure Multi-Factor Authentication works][concept-mfa].
 
-[End-user authentication method configuration documentation](https://aka.ms/securityinfoguide)
+<!-- INTERNAL LINKS -->
+[tutorial-sspr]: tutorial-enable-sspr.md
+[tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
+[concept-sspr]: concept-sspr-howitworks.md
+[concept-mfa]: concept-mfa-howitworks.md
