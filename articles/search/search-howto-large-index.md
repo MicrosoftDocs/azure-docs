@@ -77,7 +77,7 @@ Azure Cognitive Search's .NET SDK automatically retries 503s and other failed re
 
 ### Network data transfer speeds
 
-data transfer speeds can be a limiting factor; index data from within your Azure environment to increase data transfer speeds.
+Network data transfer speeds can be a limiting factor when indexing data. Indexing data from within your Azure environment is an easy way to speed up indexing.
 
 ## Indexers
 
