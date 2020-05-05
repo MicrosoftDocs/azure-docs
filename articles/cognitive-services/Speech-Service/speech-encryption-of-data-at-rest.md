@@ -42,7 +42,7 @@ To request access to bring your own storage, fill out and submit the [Speech s
 The Speech service doesn't currently support Customer Lockbox. However, customer data can be stored using BYOS, allowing you to achieve equivalent data controls to [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md). Keep in mind that Speech service data stays and is processed in the region where the Speech resource was created. This applies to any data at rest and data in transit. When using customization features, like Custom Speech and Custom Voice, all customer data is transferred, stored, and processed in the same region where your BYOS (if used) and Speech service resource reside.
 
 > [!IMPORTANT]
-> Microsoft **does not** use customer data to improve its Speech models. Additionally, if endpoint logging is disabled and no customizations are used, no customer data is stored. 
+> Microsoft **does not** use customer data to improve its Speech models. Additionally, if endpoint logging is disabled and no customizations are used, then no customer data is stored. 
 
 ## Next steps
 
