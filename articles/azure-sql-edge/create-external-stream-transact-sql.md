@@ -13,13 +13,10 @@ ms.date: 05/04/2020
 
 # CREATE EXTERNAL STREAM (Transact-SQL)
 
-The EXTERNAL STREAM object has a dual purpose of both an input and output. It can be used as an input to query streaming data from event ingestion services such as Azure Event or IoT hubs or used as an output to specify where and how to store results from a streaming query.  
-
-IMAGE
+The EXTERNAL STREAM object has a dual purpose of both an input and output. It can be used as an input to query streaming data from event ingestion services such as Azure Event or IoT hubs or used as an output to specify where and how to store results from a streaming query.
 
 An EXTERNAL STREAM can also be specified and created as both an output and input for services such as Event Hub or Blob storage. This is for chaining scenarios where a streaming query is persisting results to the external stream as output and another streaming query reading from the same external stream as input. 
 
-IMAGE
 
 ## Syntax
 
@@ -666,5 +663,8 @@ WITH (
 ```
 
 
+## See also
 
+- [ALTER EXTERNAL STREAM (Transact-SQL)](alter-external-stream-transact-sql.md) 
+- [DROP EXTERNAL STREAM (Transact-SQL)](drop-external-stream-transact-sql.md) 
 

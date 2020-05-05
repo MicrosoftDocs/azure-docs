@@ -35,3 +35,7 @@ Modifies the definition of an External Stream. Modifying an External Stream that
 ALTER EXTERNAL STREAM returns 0 if successful. A non-zero return value indicates failure.
 
 
+## See also
+
+- [CREATE EXTERNAL STREAM (Transact-SQL)](create-external-stream-transact-sql.md) 
+- [DROP EXTERNAL STREAM (Transact-SQL)](drop-external-stream-transact-sql.md) 

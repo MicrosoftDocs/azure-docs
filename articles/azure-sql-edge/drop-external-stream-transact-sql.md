@@ -21,3 +21,7 @@ Drops a streaming job.
 DROP EXTERNAL STREAM {external_stream_name}  
 ```
 
+## See also
+
+- [CREATE EXTERNAL STREAM (Transact-SQL)](create-external-stream-transact-sql.md) 
+- [ALTER EXTERNAL STREAM (Transact-SQL)](alter-external-stream-transact-sql.md) 
