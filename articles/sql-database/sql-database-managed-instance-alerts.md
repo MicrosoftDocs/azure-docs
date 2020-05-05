@@ -61,7 +61,7 @@ You can configure and get information about alert rules using the following inte
 
 2. Select **Metrics** menu item in the Monitoring section.
 
-   ![Monitoring](media/sql-database-managed-instance-alerts/managed-instance-alerting-menu-annotated.png)
+   ![Monitoring](media/sql-database-managed-instance-alerts/mi-alerting-menu-annotated.png)
   
 3. On the drop-down menu, select one of the metrics you wish to set up your alert on (Storage space used is shown in the example).
 
@@ -71,7 +71,7 @@ You can configure and get information about alert rules using the following inte
 
 6. In the Create alert rule pane click on **Condition name** (Storage space used is shown in the example)
 
-   ![Define condition](media/sql-database-managed-instance-alerts/manged-instance-create-metrics-alert-annotated.png)
+   ![Define condition](media/sql-database-managed-instance-alerts/mi-create-metrics-alert-annotated.png)
 
 7. On the Configure signal logic pane, define Operator, Aggregation type, and Threshold value
 
@@ -87,11 +87,11 @@ You can configure and get information about alert rules using the following inte
 
    * To create new action group, select **+Create action group**
 
-      ![create_action_group_alerts](media/sql-database-managed-instance-alerts/managed-instance-alert-create-action-group-annotated.png)
+      ![create_action_group_alerts](media/sql-database-managed-instance-alerts/mi-create-alert-action-group-annotated.png)
    
    * Define how do you want to be alerted: Enter action group name, short name, action name and select Action Type. The Action Type defines if you will be notified via email, text message, voice call, or if perhaps webhook, Azure function, runbook will be executed, or ITSM ticket will be created in your compatible system.
 
-      ![define_how_to_be_alerted](media/sql-database-managed-instance-alerts/managed-instance-alerts-add-action-group-annotated.png)
+      ![define_how_to_be_alerted](media/sql-database-managed-instance-alerts/mi-add-alerts-action-group-annotated.png)
 
 10. Fill in the alert rule details for your records, and select the severity type.
 
@@ -99,7 +99,7 @@ You can configure and get information about alert rules using the following inte
 
    * For the example shown on this page for setting up an alert on storage space, if your alerting option was email, you might receive email such is the one shown below. The email shows the alert name, details of the threshold and why the alert was triggered. You can use See in Azure portal button to view this alert in the web browser. Note email formatting is subject to change.
 
-      ![alert_example](media/sql-database-managed-instance-alerts/managed-instance-email-alert-example-smaller-annotated.png)
+      ![alert_example](media/sql-database-managed-instance-alerts/mi-email-alert-example-smaller-annotated.png)
 
 ## Modify existing alert rules
 
@@ -110,13 +110,13 @@ To view, modify and delete existing alerts:
 
 1. Search for Alerts using Azure portal search. Click on Alerts.
 
-   ![find_alerts](media/sql-database-managed-instance-alerts/managed-instance-edit-alerts-browse-annotated.png)
+   ![find_alerts](media/sql-database-managed-instance-alerts/mi-edit-alerts-browse-annotated.png)
 
    Alternatively, you could also click on Alerts on the Azure navigation bar, if you have it configured.
 
 2. On the Alerts pane, select Manage alert rules.
 
-   ![modify_alerts](media/sql-database-managed-instance-alerts/managed-instance-managed-alert-rules-annotated.png)
+   ![modify_alerts](media/sql-database-managed-instance-alerts/mi-manage-alert-rules-annotated.png)
 
    List of existing alerts will show up. Select an individual existing alert rule to view, modify, or delete it.
 
