@@ -149,7 +149,8 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.29 | All stock SUSE 12 SP1
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 and 15 SP1 | 9.32 | All stock SUSE 15 and 15 kernels are supported.</br></br> 4.12.14-5.5-azure to 4.12.14-8.22-azure |
+SUSE Linux Enterprise Server 15 and 15 SP1 | 9.32 | By default, all [stock SUSE 15 and 15 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.12.14-5.5-azure to 4.12.14-8.22-azure |
+
 
 ## Replicated machines - Linux file system/guest storage
 
