@@ -36,9 +36,9 @@ Microsoft also tracks the regulatory standards themselves and automatically impr
 
 ## Available packages
 
-You can add standards such as NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official and UK NHS, Canada Federal PBMM, and Azure CIS 1.1.0 (new) (which is a more complete representation of Azure CIS 1.1.0). 
+You can add standards such as NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official and UK NHS, Canada Federal PBMM, and Azure CIS 1.1.0 (new), which is a more complete representation of Azure CIS 1.1.0. 
 
-In addition, you can add Azure Security Benchmark, the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
+In addition, you can add Azure Security Benchmark, the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
 
 
 ## Adding a regulatory standard to your dashboard
@@ -47,7 +47,7 @@ The following steps explain how to add a package to monitor your compliance with
 
 1. From Security Center's sidebar, select **Regulatory compliance** to open the regulatory compliance dashboard. Here you can see the compliance standards currently assigned to the currently selected subscriptions.   
 
-1. From the top of the page, select **Manage compliance policies**. This opens the Policy Management page.
+1. From the top of the page, select **Manage compliance policies**. The Policy Management page appears.
 
 1. Select the subscription or management group for which you want to manage the regulatory compliance posture. 
 
@@ -56,7 +56,7 @@ The following steps explain how to add a package to monitor your compliance with
 
 1. To update Azure CIS 1.1.0 with new content, select **Update now** alongside it in the Industry & regulatory standards section. 
 
-1. Optionally, click **Add more standards** to open the **Add regulatory compliance standards** page. There, you can search manually for packages for any of the available standards. These include:
+1. Optionally, click **Add more standards** to open the **Add regulatory compliance standards** page. There, you can search manually for packages for any of the available standards. Some of the standards available are:
 
     - **Azure Security Benchmark** ([details here](https://docs.microsoft.com/azure/security/benchmarks/introduction))
     - **NIST SP 800-53 R4**
