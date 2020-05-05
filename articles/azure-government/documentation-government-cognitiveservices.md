@@ -626,7 +626,7 @@ For more information, please see [public documentation](../cognitive-services/Fa
   - `https://api.cognitive.microsofttranslator.us`
 * [Virtual Network support](../cognitive-services/cognitive-services-virtual-networks.md) for Translator service is limited to only `US Gov Virginia` region. 
   The URI for accessing the API is:
-  - `https://<your-custom-domain>.cognitiveservices.azure.us`
+  - `https://<your-custom-domain>.cognitiveservices.azure.us/translator/text/v3.0`
   - You can find your custom domain endpoint in the overview blade on the Azure portal once the resource is created. 
 * There are 2 regions `USGovVirginia` and `USGovArizona`
 ### Text Translation Method
