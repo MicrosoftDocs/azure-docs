@@ -483,6 +483,8 @@
           href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
         - name: Speech devices SDK samples (GitHub)
           href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
+        - name: Voice Assistant samples (GitHub)
+          href: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
     - name: Reference
       items:
         - name: C++
@@ -517,6 +519,10 @@
           href: speech-devices-sdk-roobo-v1.md
         - name: Roobo v2 details
           href: speech-devices-sdk-roobo-v2.md
+    - name: How-to guides
+      items:
+        - name: How to configure a Microphone Array
+          href: how-to-devices-microphone-array-configuration.md
     - name: Quickstart
       items:
         - name: Use Speech devices SDK

@@ -2,7 +2,7 @@
 title: "Tutorial: extract structured data with machine-learned entity - LUIS"
 description: Extract structured data from an utterance using the machine-learned entity. To increase the extraction accuracy, add subentities with features and constraints.
 ms.topic: tutorial
-ms.date: 04/22/2020
+ms.date: 04/30/2020
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
 ---
 
@@ -136,6 +136,7 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
 The order information should also include how many of an item are in the order, such as how many pizzas. To extract this data, a new machine-learned subentity needs to be added to `Order` and that subentity needs a required feature of a prebuilt number. By using a feature of a prebuilt entity the entity to a prebuilt number, the entity will find and extract numbers whether the text is a digit, `2`, or text, `two`.
 
 ## Add prebuilt number entity to app
+The order information should also include how many items are in the order, such as how many pizzas. To extract this data, a new machine-learned subcomponent needs to be added to `Order` and that component needs a constraint of a prebuilt number. By constraining the entity to a prebuilt number, the entity will find and extract numbers whether the text is a digit, `2`, or text, `two`.
 
 Begin by adding the prebuilt number entity to the app.
 

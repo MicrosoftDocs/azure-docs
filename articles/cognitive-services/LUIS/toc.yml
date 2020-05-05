@@ -45,18 +45,6 @@
       displayName: n-depth, constraint, descriptor, phrase list, entity
     - name: 3. Get sentiment from user utterances
       href: tutorial-publish-settings.md
-  - name: Create and use entities
-    items:
-    - name: Regular expression entities
-      href: tutorial-regex-entity.md
-    - name: List entities
-      href: tutorial-list-entity.md
-    - name: Entity roles
-      href: tutorial-entity-roles.md
-      displayName: roles, geographyV2, context
-    - name: Group and extract related data with composite entities
-      href: luis-tutorial-composite-entity.md
-      displayName: roles
   - name: Improve app
     items:
     - name: Fix unsure predictions
@@ -84,13 +72,13 @@
     items:
     - name: Types
       href: luis-concept-model.md
-    - name: Intents
+    - name: Intents classify utterances
       href: luis-concept-intent.md
-    - name: Utterances
-      href: luis-concept-utterance.md
-    - name: Entities
+    - name: Entities extract data
       displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles
       href: luis-concept-entity-types.md
+    - name: Example utterances
+      href: luis-concept-utterance.md
     - name: Prebuilt models
       href: luis-concept-prebuilt-model.md
     - name: Patterns
@@ -161,8 +149,6 @@
       items:
       - name: Build app programmatically using Node.js
         href: luis-tutorial-node-import-utterances-csv.md
-      - name: Use list entity to match exact text using Node.js
-        href: luis-tutorial-list-entity.md
   - name: Integrate
     items:
     - name: With Bing Spell Check v7
@@ -329,7 +315,7 @@
     href: luis-reference-regions.md
     displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
   - name: Limits
-    href: luis-boundaries.md
+    href: luis-limits.md
   - name: Application settings
     href: luis-reference-application-settings.md
   - name: Prebuilt entity reference
@@ -388,7 +374,7 @@
       href: reference-entity-simple.md
   - name: Pattern syntax
     href: reference-pattern-syntax.md
-  - name: Sentiment
+  - name: Sentiment reference
     href: luis-reference-prebuilt-sentiment.md
 - name: Resources
   items:

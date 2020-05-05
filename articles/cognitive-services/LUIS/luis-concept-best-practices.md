@@ -2,7 +2,7 @@
 title: Best practices for building your LUIS app
 description: Learn the best practices to get the best results from your LUIS app's model.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/01/2020
 ms.author: diberry
 ---
 # Best practices for building a language understanding (LUIS) app
@@ -67,15 +67,15 @@ Model decomposition has a typical process of:
 * create **Intent** based on client-app's user intentions
 * add 15-30 example utterances based on real-world user input
 * label top-level data concept in example utterance
-* break data concept into subcomponents
-* add descriptors (features) to subcomponents
+* break data concept into subentities
+* add descriptors (features) to subentities
 * add descriptors (features) to intent
 
 Once you have created the intent and added example utterances, the following example describes entity decomposition.
 
-Start by identifying complete data concepts you want to extract in an utterance. This is your machine-learned entity. Then decompose the phrase into its parts. This includes identifying subcomponents (as entities), along with descriptors and constraints.
+Start by identifying complete data concepts you want to extract in an utterance. This is your machine-learned entity. Then decompose the phrase into its parts. This includes identifying subentities (as entities), along with descriptors and constraints.
 
-For example if you want to extract an address, the top machine-learned entity could be called `Address`. While creating the address, identify some of its subcomponents such as street address, city, state, and postal code.
+For example if you want to extract an address, the top machine-learned entity could be called `Address`. While creating the address, identify some of its subentities such as street address, city, state, and postal code.
 
 Continue decomposing those elements by **constraining** the postal code to a regular expression. Decompose the street address into parts of a street number (using a prebuilt number), a street name, and a street type. The street type can be described with a **descriptor** list such as avenue, circle, road, and lane.
 

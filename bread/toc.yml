@@ -180,6 +180,9 @@
   - name: Azure NetApp Files
     tocHref: /azure/azure-netapp-files/
     topicHref: /azure/azure-netapp-files/
+  - name: Azure VMware Solution
+    tocHref: /azure/azure-vmware/
+    topicHref: /azure/azure-vmware/
   - name: Azure VMware Solution by CloudSimple
     tocHref: /azure/vmware-cloudsimple/
     topicHref: /azure/vmware-cloudsimple/
@@ -866,6 +869,9 @@
           - name: SQL VM
             tocHref: /azure/virtual-machines/windows/sql
             topicHref: /azure/virtual-machines/windows/sql
+  - name: Confidential Computing
+    tocHref: /azure/confidential-computing/
+    topicHref: /azure/confidential-computing/
   - name: Windows Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/

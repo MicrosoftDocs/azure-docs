@@ -50,6 +50,8 @@
     href: authentication-requests-and-responses.md
   - name: Azure Key Vault throttling guidance
     href: overview-throttling.md
+  - name: Azure Key Vault availability and redundancy
+    href: disaster-recovery-guidance.md
   - name: Virtual network service endpoints for Azure Key Vault - Azure Key Vault
     href: overview-vnet-service-endpoints.md
 
@@ -95,6 +97,12 @@
       href: soft-delete-cli.md
     - name: Use soft-delete with PowerShell
       href: soft-delete-powershell.md
+  - name: Move Key Vault
+    items: 
+    - name: Move Key Vault to Another Resource Group
+      href: keyvault-moveresourcegroup.md
+    - name: Move Key Vault to Another Region
+      href: keyvault-moveregion.md
   - name: Troubleshoot
     items:
     - name: Change the key vault tenant ID after a subscription move
