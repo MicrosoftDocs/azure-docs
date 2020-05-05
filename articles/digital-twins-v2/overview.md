@@ -85,6 +85,25 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 
 :::image type="content" source="media/overview/solution-context.png" alt-text="Azure Digital Twins shown connecting to other services in a solution context. Devices connect through IoT Hub to Azure Digital Twins; client apps connect to Azure Digital Twins directly; and Azure Digital Twins exchanges data with other Azure services like compute resources and cold storage." border="false":::
 
+## Service limits in public preview
+
+The table below lists the functional limits that Azure Digital Twins currently has.
+Some of the limits can be increased upon request. This capability is represented by the "Adjustable" column.
+
+| Area | Capability | Limit | Adjustable |
+| --- | --- | --- | --- |
+| Azure Resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes |
+| DigitalTwins | Number of twins in an Azure Digital Twins instance | 200,000 | Yes |
+| Endpoints | Number of endpoints for a single Azure Digital Twins instance | 6 | No |
+| Endpoints | Number of routes for a single Azure Digital Twins instance | 6 | Yes |
+| Models | Number of models within a single Azure Digital Twins instance | 10,000 | Yes |
+| Models | Number of items returned in a single page | 100 | No |
+| Query | Number of items returned in a single page | 100 | No |
+| Query | Number of `AND` / `OR` expressions in a query | 50 | Yes |
+| Query | Number of array items in an `IN` / `NOT IN` clause | 50 | Yes |
+| Query | Number of characters in a query | 8,000 | Yes |
+| Query | Number of `JOINS` in a query | 1 | Yes |
+
 ## Next steps
 
 If you have worked with the previous preview release of Azure Digital Twins, learn what has changed:
