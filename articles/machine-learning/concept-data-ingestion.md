@@ -18,9 +18,9 @@ ms.date: 02/26/2020
 In this article, you learn the pros and cons of data ingestion options available with Azure Machine Learning. 
 
 Choose from:
-+ [Azure Data Factory](#use-azure-data-factory) pipelines, specifically built to extract, load, and transform data
++ [Azure Data Factory](#azure-data-factory) pipelines, specifically built to extract, load, and transform data
 
-+ [Azure Machine Learning Python SDK](#use-the-python-sdk), providing a custom code solution for basic data ingestion tasks.
++ [Azure Machine Learning Python SDK](#azure-machine-learning-python-sdk), providing a custom code solution for basic data ingestion tasks.
 
 + a combination of both
 
