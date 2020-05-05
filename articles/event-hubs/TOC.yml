@@ -78,7 +78,12 @@
     href: ../azure-databricks/databricks-stream-from-eventhubs.md
     maintainContext: true
 - name: Samples
-  href: event-hubs-samples.md
+  items:
+  - name: Code samples
+    href: event-hubs-samples.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Event Hubs terminology

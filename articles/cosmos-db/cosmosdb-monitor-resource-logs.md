@@ -68,6 +68,40 @@ For detailed information about how to create a diagnostic setting by using the A
 
 ## <a id="diagnostic-queries"></a> Troubleshoot issues with diagnostics queries
 
+1. How to query for the operations that are taking longer than 3 milliseconds to run:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | summarize count() by clientIpAddress_s, TimeGenerated
+   ```
+
+1. How to query for the user agent that is running the operations:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | summarize count() by OperationName, userAgent_s
+   ```
+
+1. How to query for the long running operations:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | project TimeGenerated , duration_s 
+   | summarize count() by bin(TimeGenerated, 5s)
+   | render timechart
+   ```
+    
+1. How to get partition Key statistics to evaluate skew across top 3 partitions for database account:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+   ```
+
 1. How to get the request charges for expensive queries?
 
    ```Kusto
@@ -91,6 +125,22 @@ For detailed information about how to create a diagnostic setting by using the A
    | where TimeGenerated >= ago(2h) 
    | summarize max(responseLength_s), max(requestLength_s), max(requestCharge_s), count = count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
+
+1. How to get all queries that are consuming more then 100 RU/s joined with data from **DataPlaneRequests** and **QueryRunTimeStatistics**.
+
+   ```Kusto
+   AzureDiagnostics
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
+   | project activityId_g, requestCharge_s
+   | join kind= inner (
+           AzureDiagnostics
+           | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
+           | project activityId_g, querytext_s
+   ) on $left.activityId_g == $right.activityId_g
+   | order by requestCharge_s desc
+   | limit 100
+   ```
+
 1. How to get the distribution for different operations?
 
    ```Kusto
