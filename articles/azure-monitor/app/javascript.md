@@ -141,7 +141,14 @@ Most configuration fields are named such that they can be defaulted to false. Al
 
 By default, this SDK will **not** handle state-based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration.
 
-Currently, we offer a separate [React plugin](#react-extensions) which you can initialize with this SDK. It will also accomplish route change tracking for you, as well as collect [other React specific telemetry](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
+Currently, we offer a separate [React plugin](#react-extensions), which you can initialize with this SDK. It will also accomplish route change tracking for you, as well as collect [other React specific telemetry](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
+
+> [!NOTE]
+> Use `enableAutoRouteTracking: true` only if you are **not** using the React plugin. Both are capable of sending new PageViews when the route changes. If both are enabled, duplicate PageViews may be sent.
+
+## Configuration: autoTrackPageVisitTime
+
+By setting `autoTrackPageVisitTime: true`, the time a user spends on each page is tracked. On each new PageView, the duration the user spent on the *previous* page is sent as a [custom metric](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) named `PageVisitTime`. This custom metric is viewable in the [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) as a "log-based metric".
 
 ## React extensions
 
