@@ -27,11 +27,11 @@ Yes. WAF supports all the features in the Standard SKU.
 
 Monitor WAF through diagnostic logging. For more information, see [Diagnostic logging and metrics for Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
 
-### Does detection mode block traffic?
+## Does detection mode block traffic?
 
 No. Detection mode only logs traffic that triggers a WAF rule.
 
-### Can I customize WAF rules?
+## Can I customize WAF rules?
 
 Yes. For more information, see [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md).
 
