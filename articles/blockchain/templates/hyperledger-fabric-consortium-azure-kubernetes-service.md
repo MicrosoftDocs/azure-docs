@@ -34,11 +34,11 @@ The template on deployment spins up various Azure resources in your subscription
 
   - **Fabric tools**: The fabric tool is responsible for configuring the Hyperledger Fabric components.
   - **Orderer/peer pods**: The nodes of the HLF network.
-  - **Proxy**: A NGNIX proxy pod through which the client applications can interface with the AKS cluster.
+  - **Proxy**: An NGNIX proxy pod through which the client applications can interface with the AKS cluster.
   - **Fabric CA**: The pod that runs the Fabric CA.
 - **PostgreSQL**: An instance of PostgreSQL is deployed to maintain the Fabric CA identities.
 
-- **Azure Key vault**: A key vault instance is deployed to save the Fabric CA credentials and the root certificates provided by customer, which is used in case of template deployment retry, this is to handle the mechanics of the template.
+- **Azure Key vault**: A key vault instance is deployed to save the Fabric CA credentials and the root certificates provided by customer, which is used in case of template deployment retry, to handle the mechanics of the template.
 - **Azure Managed disk**: Azure Managed disk is for persistent store for ledger and peer node world state database.
 - **Public IP**: A public IP endpoint of the AKS cluster deployed for interfacing with the cluster.
 
@@ -50,7 +50,6 @@ Setup Hyperledger Fabric Blockchain network using the following steps:
 
 - [Deploy the orderer/peer organization](#deploy-the-ordererpeer-organization)
 - [Build the consortium](#build-the-consortium)
-- [Run native HLF operations](#run-native-hlf-operations)
 
 ## Deploy the orderer/peer organization
 
@@ -83,7 +82,7 @@ To get started with the HLF network components deployment, navigate to the [Azur
     - **Fabric username**: Enter the username that is used for the Fabric CA authentication.
     - **Fabric CA password**: Enter the password for Fabric CA authentication.
     - **Confirm password**: Confirm the Fabric CA password.
-    - **Certificates**: If you want to use your own root certificates to initialize the Fabric CA then choose Upload root certificate for Fabric CA option, else by default Fabric CA creates self-signed certificates.
+    - **Certificates**: If you want to use your own root certificates to initialize the Fabric CA, then choose Upload root certificate for Fabric CA option, else by default Fabric CA creates self-signed certificates.
     - **Root Certificate**: Upload root certificate (public key) with which Fabric CA needs to be initialized. Certificates of .pem format are supported, the certificates should be valid in UTC time zone.
     - **Root Certificate private key**: Upload the private key of the root certificate. If you have a .pem certificate, which has both public and private key combined, upload it here as well.
 
@@ -123,7 +122,7 @@ See [Azure shell](https://docs.microsoft.com/azure/cloud-shell/overview) for mor
 
 ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
 
-The following image shows the step by step process to build consortium between an orderer organization and peer organization. Detailed commands to execute these steps are captured in the following sections.
+The following image shows the step-by-step process to build consortium between an orderer organization and peer organization. Detailed commands to execute these steps are captured in the following sections.
 
 ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
@@ -131,13 +130,13 @@ Follow the below commands for the initial setup of the client application: 
 
 1.	[Download client application files](#download-client-application-files)
 2.	[Setup environment variables](#setup-environment-variables)
-3.	[Import connection profile, admin user and MSP](#import-organization-connection-profil-admin-user-identity-and-msp)
+3.	[Import organization connection profile, admin user, and MSP](#import-organization-connection-profil-admin-user-identity-and-msp)
 
 After completing the initial setup, you can use the client application to achieve the below operations:  
 
-- [Channel management](#channel-management)
-- [Consortium management](#consortium-managment)
-- [Chaincode management](#chaincode-managment)
+- [Channel management commands](#channel-management-commands)
+- [Consortium management commands](#consortium-management-commands)
+- [Chaincode management commands](#chaincode-management-commands)
 
 ### Download client application files
 
@@ -213,9 +212,9 @@ SAS_TOKEN=$(az storage account generate-sas --account-key $STORAGE_KEY --account
 AZURE_FILE_CONNECTION_STRING="https://$STORAGE_ACCOUNT.file.core.windows.net/$STORAGE_FILE_SHARE?$SAS_TOKEN"
 ```
 
-### Import organization connection profile, admin user identity and MSP
+### Import organization connection profile, admin user identity, and MSP
 
-Issue below commands to fetch organization’s connection profile, admin user identity and MSP from Azure Cluster and store these identities in client application local store i.e. in “azhlfTool/stores” directory.
+Issue below commands to fetch organization’s connection profile, admin user identity, and MSP from Azure Cluster and store these identities in client application local store i.e. in “azhlfTool/stores” directory.
 
 For orderer organization:
 
@@ -233,7 +232,7 @@ For peer organization:
 ./azhlf msp import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ```
 
-### Channel Management Commands
+### Channel management commands
 
 > [!NOTE]
 > Before starting with any channel operation, ensure that the initial setup of the client application is done.  
@@ -243,7 +242,7 @@ From orderer organization client, issue command to create a new channel. This co
 ```bash
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
-### Consortium Management Commands
+### Consortium management commands
 
 >[!NOTE]
 > Before starting with any consortium operation, ensure that the initial setup of the client application is done.  
