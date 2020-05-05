@@ -46,16 +46,16 @@ T-SQL Streaming works in exactly the same manner as [Azure Stream Analytics](htt
 > [!NOTE]
 > T-SQL Streaming only supports a subset of language surface area supported by Azure Stream Analytics. For more information on Azure Stream Analytics query language, refer [Stream Analytics Query Language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?).
 
-## Limitations and Restrictions
+## Limitations and restrictions
 
 The following limitations and restrictions apply to SQL Streaming. 
 
 - Only one streaming job can be active at any give time. Users will have to stop and already executing job before starting another job.
 - Each streaming job execution is single threaded. If the streaming job contains multiple queries, each query will be evaluated in serial order.
 
-## Next Steps
+## Next steps
 
-[Create a Stream Analytics job in Azure SQL Edge Preview](create-stream-analytics-job.md)
-[Start, Stop, Drop a stream analytics job in Azure SQL Edge Preview]()
-[Viewing metadata associated with stream jobs in Azure SQL Edge Preview]()
-[Create External Stream]()
+- [Create a Stream Analytics job in Azure SQL Edge Preview](create-stream-analytics-job.md)
+- [Start, Stop, Drop a stream analytics job in Azure SQL Edge Preview](overview.md)
+- [Viewing metadata associated with stream jobs in Azure SQL Edge Preview](overview.md)
+- [Create External Stream](overview.md)
