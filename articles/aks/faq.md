@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 05/04/2020
 
 ---
 
@@ -14,21 +14,20 @@ This article addresses frequent questions about Azure Kubernetes Service (AKS).
 
 For a complete list of available regions, see [AKS regions and availability][aks-regions].
 
-## Does AKS support node autoscaling?
+## Can I spread an AKS cluster across regions?
 
-Yes, the ability to automatically scale agent nodes horizontally in AKS is currently available in preview. See [Automatically scale a cluster to meet application demands in AKS][aks-cluster-autoscaler] for instructions. AKS autoscaling is based on the [Kubernetes autoscaler][auto-scaler].
+No. AKS clusters are regional resources and cannot span regions. See [best practices for business continuity and disaster recovery][bcdr-bestpractices] for guidance on how to create an architecture that includes multiple regions.
 
-## Can I deploy AKS into my existing virtual network?
+## Can I spread an AKS cluster across availability zones?
 
-Yes, you can deploy an AKS cluster into an existing virtual network by using the [advanced networking feature][aks-advanced-networking].
+Yes. You can deploy an AKS cluster across one or more [availability zones][availability-zones] in [regions that support them][az-regions].
 
 ## Can I limit who has access to the Kubernetes API server?
 
-Yes, you can limit access to the Kubernetes API server using [API Server Authorized IP Ranges][api-server-authorized-ip-ranges].
+Yes. There are two options for limiting access to the API server:
 
-## Can I make the Kubernetes API server accessible only within my virtual network?
-
-Not at this time, but this is planned. You can track progress on the [AKS GitHub repo][private-clusters-github-issue].
+- Use [API Server Authorized IP Ranges][api-server-authorized-ip-ranges] if you want to maintain a public endpoint for the API server but restrict access to a set of trusted IP ranges.
+- Use [a private cluster][private-clusters] if you want to limit the API server to *only* be accessible from within your virtual network.
 
 ## Can I have different VM sizes in a single cluster?
 
@@ -128,21 +127,6 @@ In a service-level agreement (SLA), the provider agrees to reimburse the custome
 
 It is important to recognize the distinction between AKS service availability which refers to uptime of the Kubernetes control plane and the availability of your specific workload which is running on Azure Virtual Machines. Although the control plane may be unavailable if the control plane is not ready, your cluster workloads running on Azure VMs can still function. Given Azure VMs are paid resources they are backed by a financial SLA. Read [here for more details](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) on the Azure VM SLA and how to increase that availability with features like [Availability Zones][availability-zones].
 
-## Why can't I set maxPods below 30?
-
-In AKS, you can set the `maxPods` value when you create the cluster by using the Azure
-CLI and Azure Resource Manager templates. However, both Kubenet and Azure CNI require a *minimum value* (validated at creation time):
-
-| Networking | Minimum | Maximum |
-| -- | :--: | :--: |
-| Azure CNI | 30 | 250 |
-| Kubenet | 30 | 110 |
-
-Because AKS is a managed service, we deploy and manage add-ons and pods as part of the cluster. In the past, users could define a `maxPods` value lower than the value that the managed pods required to run (for example, 30). AKS now calculates the minimum number of
-pods by using this formula: ((maxPods or (maxPods * vm_count)) > managed add-on pods minimum.
-
-Users can't override the minimum `maxPods` validation.
-
 ## Can I apply Azure reservation discounts to my AKS agent nodes?
 
 AKS agent nodes are billed as standard Azure virtual machines, so if you've purchased [Azure reservations][reservation-discounts] for the VM size that you are using in AKS, those discounts are automatically applied.
@@ -179,7 +163,7 @@ Most commonly, this is caused by users having one or more Network Security Group
 
 Please confirm your service principal has not expired.  Please see: [AKS service principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) and [AKS update credentials](https://docs.microsoft.com/azure/aks/update-credentials).
 
-## My cluster was working, but suddenly can not provision LoadBalancers, mount PVCs, etc.? 
+## My cluster was working, but suddenly cannot provision LoadBalancers, mount PVCs, etc.? 
 
 Please confirm your service principal has not expired.  Please see: [AKS service principal](https://docs.microsoft.com/azure/aks/kubernetes-service-principal)  and [AKS update credentials](https://docs.microsoft.com/azure/aks/update-credentials).
 
@@ -217,6 +201,10 @@ No AKS is a managed service, and manipulation of the IaaS resources is not suppo
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md
 [availability-zones]: ./availability-zones.md
+[private-clusters]: ./private-clusters.md
+[bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
+[availability-zones]: ./availability-zones.md
+[az-regions]: ../availability-zones/az-region.md
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
