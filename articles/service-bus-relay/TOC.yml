@@ -38,6 +38,8 @@
       href: relay-authentication-and-authorization.md
     - name: Built-in security controls
       href: service-bus-relay-security-controls.md
+    - name: Network security
+      href: network-security.md      
   - name: Hybrid Connections protocol
     href: relay-hybrid-connections-protocol.md
 - name: How To
@@ -59,6 +61,12 @@
         href: relay-hybrid-connections-dotnet-api-overview.md
       - name: Node
         href: relay-hybrid-connections-node-ws-api-overview.md
+  - name: Secure
+    items: 
+    - name: Configure IP firewall and virtual networks
+      href: ip-firewall-virtual-networks.md
+    - name: Configure private endpoints (preview)
+      href: private-link-service.md        
   - name: Manage and monitor
     items:
     - name: Monitor Azure Relay with Azure Monitoring
