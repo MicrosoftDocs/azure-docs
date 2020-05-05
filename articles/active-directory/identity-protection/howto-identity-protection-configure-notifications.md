@@ -47,9 +47,8 @@ Configure the users at risk email in the **Azure portal** under **Azure Active D
 The weekly digest email contains a summary of new risk detections.  
 It includes:
 
-- Users at risk
-- Suspicious activities
-- Detected vulnerabilities
+- New risky users detected
+- New risky sign-ins detected (in real-time)
 - Links to the related reports in Identity Protection
 
 ![Weekly digest email](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
