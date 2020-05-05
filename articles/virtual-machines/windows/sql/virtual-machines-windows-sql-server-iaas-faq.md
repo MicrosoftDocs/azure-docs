@@ -50,7 +50,7 @@ This article provides answers to some of the most common questions about running
    
 1. **Is it possible to create a generalized Azure SQL Server Marketplace image of my SQL Server VM and use it to deploy VMs?**
 
-Yes, but you must then [register each SQL Server VM with the SQL Server VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) to manage your SQL Server VM in the portal, as well as utilize features such as automated patching and automatic backups. When registering with the resource provider, you will also need to specify the license type for each SQL Server VM.
+   Yes, but you must then [register each SQL Server VM with the SQL Server VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) to manage your SQL Server VM in the portal, as well as utilize features such as automated patching and automatic backups. When registering with the resource provider, you will also need to specify the license type for each SQL Server VM.
 
 1. **How do I generalize SQL Server on Azure VM and use it to deploy new VMs?**
 
