@@ -36,6 +36,12 @@
       href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: SQL Database
       href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Database for PostgreSQL
+      href: ../../postgresql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Database for MySQL
+      href: ../../mysql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Database for MariaDB
+      href: ../../mariadb/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Synapse Analytics
       href: prepay-sql-data-warehouse-charges.md
     - name: Virtual machines
