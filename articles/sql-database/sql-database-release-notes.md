@@ -72,37 +72,35 @@ The following features are enabled in Managed instance deployment model in H1 20
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
-|[Agent becomes unresponsive upon modifying, disabling or enabling existing jobs](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|May 2020|No Workaround||
-|[Permissions on resource group not applied to Managed Instance](#permissions-on-resource-group-not-applied-to-managed-instance)|Feb 2020|Has Workaround||
-|[Limitation of manual failover via portal for failover groups](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Has Workaround||
-|[SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Has Workaround||
+|[Agent becomes unresponsive upon modifying, disabling or enabling existing jobs](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|May 2020|Automatically mitigated| |
+|[Permissions on resource group not applied to Managed Instance](#permissions-on-resource-group-not-applied-to-managed-instance)|Feb 2020|Has Workaround| |
+|[Limitation of manual failover via portal for failover groups](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Has Workaround| |
+|[SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Has Workaround| |
 |[SQL Agent jobs can be interrupted by Agent process restart](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|Resolved|Mar 2020|
-|[AAD logins and users are not supported in SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Nov 2019|No Workaround||
-|[In-memory OLTP memory limits are not applied](#in-memory-oltp-memory-limits-are-not-applied)|Oct 2019|Has Workaround||
-|[Wrong error returned while trying to remove a file that is not empty](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Oct 2019|Has Workaround||
-|[Change service tier and create instance operations are blocked by ongoing database restore](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Sep 2019|Has Workaround||
-|[Resource Governor on Business Critical service tier might need to be reconfigured after failover](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Sep 2019|Has Workaround||
-|[Cross-database Service Broker dialogs must be re-initialized after service tier upgrade](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|Aug 2019|Has Workaround||
-|[Impersonification of Azure AD login types is not supported](#impersonification-of-azure-ad-login-types-is-not-supported)|Jul 2019|No Workaround||
-|[@query parameter not supported in sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|No Workaround||
-|[Transactional Replication must be reconfigured after geo-failover](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|No Workaround||
-|[Temporary database is used during RESTORE operation](#temporary-database-is-used-during-restore-operation)||Has Workaround||
-|[TEMPDB structure and content is re-created](#tempdb-structure-and-content-is-re-created)||No Workaround||
-|[Exceeding storage space with small database files](#exceeding-storage-space-with-small-database-files)||Has Workaround||
-|[GUID values shown instead of database names](#guid-values-shown-instead-of-database-names)||Has Workaround||
-|[Error logs aren't persisted](#error-logs-arent-persisted)||No Workaround||
+|[AAD logins and users are not supported in SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Nov 2019|No Workaround| |
+|[In-memory OLTP memory limits are not applied](#in-memory-oltp-memory-limits-are-not-applied)|Oct 2019|Has Workaround| |
+|[Wrong error returned while trying to remove a file that is not empty](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Oct 2019|Has Workaround| |
+|[Change service tier and create instance operations are blocked by ongoing database restore](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Sep 2019|Has Workaround| |
+|[Resource Governor on Business Critical service tier might need to be reconfigured after failover](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Sep 2019|Has Workaround| |
+|[Cross-database Service Broker dialogs must be re-initialized after service tier upgrade](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|Aug 2019|Has Workaround| |
+|[Impersonification of Azure AD login types is not supported](#impersonification-of-azure-ad-login-types-is-not-supported)|Jul 2019|No Workaround| |
+|[@query parameter not supported in sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|No Workaround| |
+|[Transactional Replication must be reconfigured after geo-failover](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|No Workaround| |
+|[Temporary database is used during RESTORE operation](#temporary-database-is-used-during-restore-operation)||Has Workaround| |
+|[TEMPDB structure and content is re-created](#tempdb-structure-and-content-is-re-created)||No Workaround| |
+|[Exceeding storage space with small database files](#exceeding-storage-space-with-small-database-files)||Has Workaround| |
+|[GUID values shown instead of database names](#guid-values-shown-instead-of-database-names)||Has Workaround| |
+|[Error logs aren't persisted](#error-logs-arent-persisted)||No Workaround| |
 |[Transaction scope on two databases within the same instance isn't supported](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Has Workaround|Mar 2020|
-|[CLR modules and linked servers sometimes can't reference a local IP address](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Has Workaround||
-|Database consistency not verified using DBCC CHECKDB after restore database from Azure Blob Storage.||Resolved|Nov 2019|
-|Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
-|Database Mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
-|Contained databases not supported in managed instance||Resolved|Aug 2019|
+|[CLR modules and linked servers sometimes can't reference a local IP address](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Has Workaround| |
+|Database consistency not verified using DBCC CHECKDB after restore database from Azure Blob Storage.| |Resolved|Nov 2019|
+|Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.| |Resolved|Oct 2019|
+|Database Mail feature with external (non-Azure) mail servers using secure connection| |Resolved|Oct 2019|
+|Contained databases not supported in managed instance| |Resolved|Aug 2019|
 
 ### Agent becomes unresponsive upon modifying, disabling or enabling existing jobs
 
-In certain circumstances modifying an existing job, disabling, or enabling it can cause the agent to become unresponsive. Please refrain, if you can, from these activities until the issue is marked as resolved on this page. 
-
-Customers experiencing this issue requiring prompt resolution should create an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/), choose technical issue, for SQL Database Managed Instance service, and for problem type search for SQL Server Agent. Support engineers will assist with your issue, which likely could result in agent restart.
+In certain circumstances modifying an existing job, disabling, or enabling it can cause the agent to become unresponsive. The issue is automatically mitigated upon detection resulting in restart of the agent process.
 
 ### Permissions on resource group not applied to managed instance
 
