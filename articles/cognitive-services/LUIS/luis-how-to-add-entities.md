@@ -76,7 +76,7 @@ Prebuilt entities work without providing any custom training data. The other ent
 
 ### Add list entities for exact matches
 
-List entities represent a fixed, closed set of related words. While you, as the author, can change the list, LUIS won't grow or shrink the list. You can also import to an existing list entity using a [list entity .json format(reference-entity-list.md#example-json-to-import-into-list-entity).
+List entities represent a fixed, closed set of related words. While you, as the author, can change the list, LUIS won't grow or shrink the list. You can also import to an existing list entity using a [list entity .json format](reference-entity-list.md#example-json-to-import-into-list-entity).
 
 The following list demonstrates the canonical name and the synonyms.
 
