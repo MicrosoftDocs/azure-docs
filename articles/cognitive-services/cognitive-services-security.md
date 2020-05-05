@@ -196,6 +196,10 @@ NSString* value =
 Customer Lockbox is available for these Cognitive Services:
 
 * Translator
+* Language Understanding 
+
+> [!IMPORTANT]
+> Customer Lockbox for Language Understanding is only available in the E0 SKU. To request the ability to use Customer Lockbox, fill out and submit the [LUIS Service Request Form](https://aka.ms/cogsvc-cmk). It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using Customer Lockbox with LUIS, you'll need to create a new Language Understanding resource from the Azure portal and select E0 as the Pricing Tier. Users won’t be able to upgrade from the F0 to the new E0 SKU.
 
 For the remaining Cognitive Services, Microsoft engineers will not access customer data.
 
