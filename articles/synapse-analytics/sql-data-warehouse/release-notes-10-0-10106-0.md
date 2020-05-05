@@ -26,7 +26,7 @@ For tooling improvements, make sure you have the correct version installed speci
 
 
 > [!NOTE]
-> The product name returned by SELECT @@VERSION will change from Microsoft Azure SQL Data Warehouse to Azure Synapse Analytics. We will send advanced notice before the change is made. This change is relevant for customers who parse product name from the result of SELECT @@VERSION in their application code. To avoid application code changes due to product rebranding, please use these commands to query SERVERPROPERTY for the database product name and version:
+> The product name returned by SELECT @@VERSION will change from Microsoft Azure SQL Data Warehouse to Microsoft Azure Synapse Analytics. We will send advanced notice before the change is made. This change is relevant for customers who parse product name from the result of SELECT @@VERSION in their application code. To avoid application code changes due to product rebranding, please use these commands to query SERVERPROPERTY for the database product name and version:
 > To return version number XX.X.XXXXX.X (without product name) use this command:
 >
 > ```sql

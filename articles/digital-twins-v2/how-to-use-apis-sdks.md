@@ -209,7 +209,5 @@ From here, you can view the metrics for your instance and create custom views.
 
 ## Next steps
 
-See how to use the APIs to manage models, digital twins, and twin graphs:
-* [How-to: Manage a twin model](how-to-manage-model.md)
-* [How-to: Manage a digital twin](how-to-manage-twin.md)
-* [How-to: Manage a twin graph with relationships](how-to-manage-graph.md)
+See how to use the APIs to create an Azure Digital Twins instance:
+* [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md)

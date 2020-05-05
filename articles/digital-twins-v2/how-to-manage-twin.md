@@ -419,6 +419,5 @@ static async Task<List<object>> ListTwins()
 
 ## Next steps
 
-Learn about managing the other key elements of an Azure Digital Twins solution:
-* [How-to: Manage a twin model](how-to-manage-model.md)
+See how to create and manage relationships between your digital twins:
 * [How-to: Manage a twin graph with relationships](how-to-manage-graph.md)

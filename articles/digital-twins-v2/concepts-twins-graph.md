@@ -190,4 +190,3 @@ See how to manage graph elements with Azure Digital Twin APIs:
 
 Or, learn about querying the Azure Digital Twins twin graph for information:
 * [Concepts: Azure Digital Twins query language](concepts-query-language.md)
-* [How-to: Query the twin graph](how-to-query-graph.md)

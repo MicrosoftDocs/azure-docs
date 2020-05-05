@@ -280,7 +280,7 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
-[azure-lb-comparison]: ../load-balancer/types.md#skus
+[azure-lb-comparison]: ../load-balancer/skus.md
 [azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview.md#snatports
 [azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#snat
 [azure-lb-outbound-preallocatedports]: ../load-balancer/load-balancer-outbound-connections.md#preallocatedports
