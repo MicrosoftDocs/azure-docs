@@ -8,7 +8,7 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 5/8/2020
 ---
 
 # How to index large data sets in Azure Cognitive Search
@@ -29,15 +29,16 @@ In addition to the guidance in this article, you can also take advantage of the 
 
 ### Service tier and number of partitions/replicas
 
-Adding partitions is a great way to improve the indexing throughput of your search service.
+Adding partitions or increasing the tier of your search service will both increase indexing speeds.
 
-Adding additional replicas may also increase indexing speeds but it is not guaranteed.
+Adding additional replicas may also increase indexing speeds but it is not guaranteed. On the other hand, additional replicas will increase the query volume your search service can handle.
 
-Before adding partition/replicas or upgrading 
+Before adding partition/replicas or upgrading to a higher tier, consider the cost and allocation time. Adding partitions can significantly increase indexing speed but adding/removing them can take anywhere from 15 minutes to several hours.
+For additional guidance, see the documentation on [adjusting capacity](search-capacity-planning.md)
 
 ### Index Schema
 
-adding fields and adding additional properties to fields (such as *searchable*, *facetable*, or *filterable*) both decrease indexing speeds.
+The schema of your index plays an important role in indexing data. Adding fields and adding additional properties to those fields (such as *searchable*, *facetable*, or *filterable*) both reduce indexing speeds.
 
 In general, we recommend only adding additional properties to fields if you intend to use them.
 
