@@ -66,7 +66,7 @@ You can pass in a parameter value that indicates whether a condition is allowed.
 }
 ```
 
-For the complete template, see [Azure SQL logical server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
+For the complete template, see [Azure SQL Database server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
 
 ## Runtime functions
 
