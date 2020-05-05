@@ -111,10 +111,9 @@ First, use a sample JSON description as a role definition. Use *cURL* to downloa
 
 ```azurecli-interactive
 # Download a role definition example
-
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
-# update the definition
+# Update the definition using stream editor
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" aibRoleImageCreation.json
 ```
@@ -163,11 +162,35 @@ az role assignment create \
 
 ### Existing VNET Azure role example
 
-Setting Azure Image Builder service principal name permissions to allow it to use an existing VNET
+The following example creates an Azure role to use and distribute an existing VNET image. Use the custom role to set the Azure Image Builder service principal name permissions.
 
-The following example creates an Azure role to use and distribute a source custom image. Use the custom role to set the Azure Image Builder service principal name permissions.
+To simplify the replacement of values in the example, set the following variables first. Replace the placeholder settings to set your variables.
 
-First, create a role definition using the following JSON description. Name the file `aibRoleNetworking.json`.
+| Setting | Description |
+|---------|-------------|
+| \<Subscription ID\> | Your Azure subscription ID |
+| \<Resource group\> | Resource group for custom image |
+
+```bash
+# Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
+subscriptionID=<Subscription ID>
+
+# Resource group - For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image.
+imageResourceGroup=<Resource group>
+```
+
+First, use a sample JSON description as a role definition. Use *cURL* to download the JSON description and *sed* stream editor to replace the subscription ID and resource group values.
+
+```azurecli-interactive
+# Download a role definition example
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
+
+# Update the definition using stream editor
+sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleNetworking.json
+sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
+```
+
+The following is an example definition.
 
 ```json
 {
@@ -182,17 +205,10 @@ First, create a role definition using the following JSON description. Name the f
   
     ],
     "AssignableScopes": [
-      "/subscriptions/<Subscription ID>/resourceGroups/<VNET resource group>"
+      "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>"
     ]
   }
 ```
-
-Replace the following placeholder settings in the JSON description.
-
-| Setting | Description |
-|---------|-------------|
-| \<Subscription ID\> | Azure subscription ID for the custom role |
-| \<VNET resource group\> | VNET resource group  |
 
 Create a custom role from the `aibRoleNetworking.json` description file.
 
@@ -210,15 +226,8 @@ RES_GROUP="<VNET resource group>"
 az role assignment create \
     --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
     --role "Azure Image Builder Service Networking Role" \
-    --scope /subscriptions/$SUB_ID/resourceGroups/$RES_GROUP
+    --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
-
-Replace the following placeholder settings when executing the command.
-
-| Setting | Description |
-|---------|-------------|
-| \<Subscription ID\> | Azure subscription |
-| \<VNET resource group\> | VNET resource group |
 
 ## Using managed identity for Azure Storage access
 
