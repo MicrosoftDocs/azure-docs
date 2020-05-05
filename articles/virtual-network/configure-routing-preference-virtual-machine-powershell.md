@@ -14,11 +14,11 @@ ms.date: 05/18/2020
 ms.author: mnayak
 
 ---
-# Configure a virtual machine to route traffic via the internet using using Azure PowerShell
+# Configure a virtual machine to route traffic via the internet using Azure PowerShell
 
 You can create a virtual machine with a public IP address with a routing preference choice. Internet bound traffic from the VM will be routed to and from internet via respective network based on the routing preference selection. The default routing is via Microsoft global network.
 
-This article shows you how to create a virtual machine with a public IP that is set to route traffic via the Internet.
+This article shows you how to create a virtual machine with a public IP that is set to route traffic via the Internet using Azure PowerShell.
 
 ## Create a resource group
 1. If using the Cloud Shell, skip to step 2. Open a command session and sign into Azure with `Connect-AzAccount`.
