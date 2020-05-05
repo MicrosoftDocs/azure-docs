@@ -26,7 +26,7 @@ The UWP Voice Assistant sample is a Windows Conversational Agent application tha
 The documentation provided with the sample app walks through the code path of voice activation and agent management, from the prerequisites of startup through proper cleanup.
 
 ## Links
-[The UWP Voice Assistant Sample](aka.ms/MVA/sample)
+[The UWP Voice Assistant Sample](https://aka.ms/MVA/sample)
 
 [Readme with startup instructions](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-uwp/README.md)
 

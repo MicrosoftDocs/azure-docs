@@ -13,9 +13,11 @@ ms.date: 04/15/2020
 ms.author: travisw
 ---
 
-## Voice Activation
+# Voice Activation
 
-Windows supports voice activation for UWP applications. The following is a walk-through of the voice activation system.
+## Walk through of voice activation
+
+Windows supports voice activation for UWP applications. The following summarizes the steps of the voice activation process, including the steps an application must take to register as activatable by voice.
 
 ### Agent Activation Runtime
 
@@ -25,7 +27,7 @@ The Agent Activation Runtime (AAR) is the ongoing process in Windows that manage
 
 The first time a voice activated application is run, it registers its app id and keyword information in a global signal configuration mapping through the ConversationalAgent APIs. Keyword information includes the location of the keyword model file, the language the keyword is in, and an ID to assign to the keyword. AAR registers all configurations in the global mapping with the hardware or software keyword spotter on the system, allowing them to detect the application's keyword.
 
-The application also [registers with the Background Service](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/register-a-background-task), another process within Windows.
+The application also [registers with the Background Service](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task), another process within Windows.
 
 Note that this means an application cannot be activated by voice until it has been run once and registration has been allowed to complete.
 

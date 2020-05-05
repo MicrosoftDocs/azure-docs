@@ -11,15 +11,17 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ---
-## Overview
+# Getting started with voice assistants on Windows
 
 This guide will take you through the steps to begin developing a voice assistant on Windows.
 
 ## Set up your development environment
+
 To start developing a voice assistant for Windows, you will need to make sure you have the proper development environment.
+
 - **Visual Studio:** You will need to install [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/), Community Edition or higher
 - **Windows version**: A PC with a Windows Insider fast ring build of Windows and the Windows Insider version of the Windows SDK. This sample code is verified as working on Windows Insider Release Build 19025.vb_release_analog.191112-1600 using Windows SDK 19018. Any Build or SDK above the specified versions should be compatible.
-- **UWP development tools**: The Universal Windows Platform development workload in Visual Studio. See the UWP [Get set up](https://docs.microsoft.com/en-us/windows/uwp/get-started/get-set-up) page to get your machine ready for developing UWP Applications.
+- **UWP development tools**: The Universal Windows Platform development workload in Visual Studio. See the UWP [Get set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) page to get your machine ready for developing UWP Applications.
 - **A working microphone and audio output**
 
 ## Obtain resources from Microsoft
@@ -40,8 +42,8 @@ For a complete voice assistant experience, the application will need a dialog se
 
 The following provides the requirements to create a simple dialog service using Direct Line Speech.
 
-- **Speech Services subscription:** A subscription for Cognitive Speech Services for speech-to-text and text-to-speech conversions. Try Speech Services for free [here](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started).
-- **Bot Framework bot:**  A bot created using Bot Framework version 4.2 or above that's subscribed to to [Direct Line Speech](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/direct-line-speech) to enable voice input and output. [This guide](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) contains step-by-step instructions to make a simple "echo bot" and subscribe it to Direct Line Speech. You can also go go [here](https://blog.botframework.com/2018/05/07/build-a-microsoft-bot-framework-bot-with-the-bot-builder-sdk-v4/) for steps on how to create a customized bot, then follow the same steps [here](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) to subscribe it to Direct Line Speech, but with your new bot rather than the "echo bot".
+- **Speech Services subscription:** A subscription for Cognitive Speech Services for speech-to-text and text-to-speech conversions. Try Speech Services for free [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started).
+- **Bot Framework bot:**  A bot created using Bot Framework version 4.2 or above that's subscribed to to [Direct Line Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) to enable voice input and output. [This guide](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) contains step-by-step instructions to make a simple "echo bot" and subscribe it to Direct Line Speech. You can also go go [here](https://blog.botframework.com/2018/05/07/build-a-microsoft-bot-framework-bot-with-the-bot-builder-sdk-v4/) for steps on how to create a customized bot, then follow the same steps [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) to subscribe it to Direct Line Speech, but with your new bot rather than the "echo bot".
 
 ## Try out the sample app
 

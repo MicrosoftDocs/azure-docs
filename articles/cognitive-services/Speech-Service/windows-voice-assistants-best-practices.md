@@ -19,12 +19,12 @@ Voice assistants developed on Windows 10 must implement the user experience guid
 
 ## Contents
 
-- [Summary of voice activation views supported in Windows 10](summary-of-voice-activation-views-supported-in-windows-10)
-- [Requirements summary](requirements-summary)
-- [Best practices for good listening experiences](best-practices-for-good-listening-experiences)
-- [Design guidance for in-app voice activation](design-guidance-for-in-app-voice-activation)
-- [Design guidance for voice activation above lock](design-guidance-for-voice-activation-above-lock)
-- [Design guidance for voice activation preview](design-guidance-for-voice-activation-preview)
+- [Summary of voice activation views supported in Windows 10](#summary-of-voice-activation-views-supported-in-windows-10)
+- [Requirements summary](#requirements-summary)
+- [Best practices for good listening experiences](#best-practices-for-good-listening-experiences)
+- [Design guidance for in-app voice activation](#design-guidance-for-in-app-voice-activation)
+- [Design guidance for voice activation above lock](#design-guidance-for-voice-activation-above-lock)
+- [Design guidance for voice activation preview](#design-guidance-for-voice-activation-preview)
 
 ## Summary of voice activation views supported in Windows 10
 
@@ -81,7 +81,7 @@ Available with 19H2, assistants built on Windows voice activation platform are a
 
 ### Customer opt-in
 
-Voice activation above lock is always disabled by default. Customers opt-in through the Windows settings>Privacy>Voice Activation. For details on monitoring and prompting for this setting, see the [above lock implementation guide](windows-voice-assistants-implementation-guide.md#detect-user-preference).
+Voice activation above lock is always disabled by default. Customers opt-in through the Windows settings>Privacy>Voice Activation. For details on monitoring and prompting for this setting, see the [above lock implementation guide](windows-voice-assistants-implementation-guide.md#detecting-above-lock-activation-user-preference).
 
 ### Not a lock-screen replacement
 
@@ -156,7 +156,7 @@ The Contoso assistant has a home on the taskbar: their swirling, circular icon.
 
 ![Screenshot of voice assistant on Windows replying in compact view](media/voice-assistants/windows_voice_assistant/compact_view_response.png)
 
-**Hand-off**. At any point, the assistant may handoff to its main app view to provide more information or answers or dialogue that require more screen real estate. Please refer to the [Transition from compact view to full view](windows-voice-assistants-implementation-guide.md#Transition-from-compact-view-to-full-view) section for implementation details.
+**Hand-off**. At any point, the assistant may handoff to its main app view to provide more information or answers or dialogue that require more screen real estate. Please refer to the [Transition from compact view to full view](windows-voice-assistants-implementation-guide.md#transition-from-compact-view-to-full-view) section for implementation details.
 
 ![Screenshots of voice assistant on Windows before and after expanding the compact view](media/voice-assistants/windows_voice_assistant/compact_transition.png)
 

@@ -29,7 +29,7 @@ MVA needs a microphone to be present and accessible to be able to detect a voice
 
 ### Register the application with the background service
 
-In order for MVA to launch the application in the background, the application needs to be registered with the Background Service. See a full guide for Background Service registration [here](https://docs.microsoft.com/en-us/windows/uwp/launch-resume/register-a-background-task).
+In order for MVA to launch the application in the background, the application needs to be registered with the Background Service. See a full guide for Background Service registration [here](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task).
 
 ### Unlock the Limited Access Feature
 
@@ -99,7 +99,7 @@ When keyword verification succeeds, the application needs to move to the foregro
 
 ### Transition from compact view to full view
 
-When your application is first activated by voice, it is started in a compact view. Please read the [Design guidance for voice activation preview](windows-voice-assistants-best-practices#design-guidance-for-voice-activation-preview) for guidance on the different views and transitions between them for voice assistants on Windows.
+When your application is first activated by voice, it is started in a compact view. Please read the [Design guidance for voice activation preview](windows-voice-assistants-best-practices.md#design-guidance-for-voice-activation-preview) for guidance on the different views and transitions between them for voice assistants on Windows.
 
 To make the transition from compact view to full app view, use the ApplicationView API `TryEnterViewModeAsync`:
 
