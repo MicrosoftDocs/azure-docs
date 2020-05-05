@@ -24,7 +24,7 @@ To create any of the Azure Cosmos DB resources below, copy the following example
 
 <a id="create-autoscale"></a>
 
-## Azure Cosmos DB account for Gremlin with autoscale throughput
+## Azure Cosmos DB account for Gremlin with autoscale provisioned throughput
 
 This template will create an Azure Cosmos account for Gremlin API with a database and graph with autoscale throughput.
 
@@ -36,9 +36,9 @@ This template is also available for one-click deploy from Azure Quickstart Templ
 
 <a id="create-manual"></a>
 
-## Azure Cosmos DB account for Gremlin with manual throughput
+## Azure Cosmos DB account for Gremlin with standard provisioned throughput
 
-This template will create an Azure Cosmos account for Gremlin API with a database and graph with manual throughput.
+This template will create an Azure Cosmos account for Gremlin API with a database and graph with standard (manual) throughput.
 
 This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
