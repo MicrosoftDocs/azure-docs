@@ -7,7 +7,7 @@ ms.date: 04/24/2020
 ---
 # Get resource events in Azure App Service
 
-Azure App Service provides built-in tools to monitor the status and health of your resources. Resource events help you understand any changes that were made to your underlying web app resources and take action as necessary. Event examples include: scaling of instances, updates to application settings, restarting of the web app, and many more. In this article, you'll learn how to view [Azure Activity Logs]((https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) and enable [Event Grid](https://docs.microsoft.com/azure/event-grid/) to monitor resource events related to your App Service web app.
+Azure App Service provides built-in tools to monitor the status and health of your resources. Resource events help you understand any changes that were made to your underlying web app resources and take action as necessary. Event examples include: scaling of instances, updates to application settings, restarting of the web app, and many more. In this article, you'll learn how to view [Azure Activity Logs](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) and enable [Event Grid](https://docs.microsoft.com/azure/event-grid/) to monitor resource events related to your App Service web app.
 
 > [!NOTE]
 > App Service integration with Event Grid is in preview.
@@ -36,8 +36,9 @@ While Activity logs are user-based, there's a new [Event Grid](https://docs.micr
 Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code. Event Grid connects data sources and event handlers. For example, use Event Grid to instantly trigger a serverless function to run image analysis each time a new photo is added to a blob storage container.
 
 ### Supported Event Types
-|Event Type|Description|
-|Microsoft.web/sites|(Webapp)|
+| Event Type |Description|
+| -----------| ------------- |
+| Microsoft.web/sites | (Webapp) |
 | BackupOperationCompleted |Backup of the webapp completed successfully|
 | BackupOperationFailed | Backup of the webapp failed|
 | RestoreOperationStarted |Restore from backup has started|
