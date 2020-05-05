@@ -1,6 +1,6 @@
 ---
-title: List of built-in policy definitions for Azure Batch
-description: Lists Azure Policy built-in policy definitions for Azure Batch. These built-ins provide common approaches to managing your Azure resources.
+title: Built-in policy definitions for Azure Batch
+description: Lists Azure Policy built-in policy definitions for Azure Batch. These built-in policy definitions provide common approaches to managing your Azure resources.
 ms.date: 04/30/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
@@ -11,8 +11,8 @@ This page is an index of [Azure Policy](../governance/policy/overview.md) built-
 definitions for Azure Batch. For additional Azure Policy built-ins for other services, see
 [Azure Policy built-in definitions](../governance/policy/samples/built-in-policies.md).
 
-The name of each built-in links to the policy definition in Azure portal. Use the link in the
-**Source** column to view the source on the
+The name of each built-in policy definition links to the policy definition in the Azure portal. Use
+the link in the **GitHub** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 
 ## Azure Batch
