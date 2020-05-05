@@ -49,7 +49,7 @@ The following screenshot shows how to change the public access level for the sel
 
 # [\.NET v12 SDK](#tab/dotnet)
 
-To set permissions for a container, call the [BlobContainerClient.SetAccessPolicy](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicy?view=azure-dotnet) method. 
+To set the permissions for a container, call the [BlobContainerClient.SetAccessPolicy](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicy?view=azure-dotnet) method. 
 
 The following example sets the container's permissions to full public read access. To set permissions to public read access for blobs only, pass the **PublicAccessType.Blob** field into the [BlobContainerClient.SetAccessPolicy](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicy?view=azure-dotnet) method. To remove all permissions for anonymous users, use the **BlobContainerPublicAccessType.None** field.
 
@@ -57,7 +57,7 @@ The following example sets the container's permissions to full public read acces
 
 # [\.NET v11 SDK](#tab/dotnet11)
 
-To set permissions for a container using the Azure Storage client library for .NET, first retrieve the container's existing permissions by calling one of the following methods:
+To set the permissions for a container using the Azure Storage client library for .NET, first retrieve the container's existing permissions by calling one of the following methods:
 
 - [GetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissions)
 - [GetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissionsasync)
