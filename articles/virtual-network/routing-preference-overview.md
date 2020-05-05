@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: virtual-network
 Customer intent: As an Azure customer, I want to learn more about routing choices for my internet egress traffic.
 ms.devlang: na
-ms.topic: concept
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
