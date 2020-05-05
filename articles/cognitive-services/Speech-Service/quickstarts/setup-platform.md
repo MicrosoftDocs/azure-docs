@@ -81,3 +81,10 @@ zone_pivot_groups: programming-languages-set-three
 [!INCLUDE [python](../includes/quickstarts/platform/python.md)]
 
 ::: zone-end
+
+::: zone pivot="programming-language-go"
+
+[!INCLUDE [go-linux](../includes/quickstarts/platform/go-linux.md)]
+
+* * *
+::: zone-end

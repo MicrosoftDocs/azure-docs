@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
+ms.author: dapine
+zone_pivot_groups: programming-languages-set-sixteen
 ---
 
 # Quickstart: Recognize speech from a microphone
@@ -54,6 +54,16 @@ zone_pivot_groups: programming-languages-set-two
 [!INCLUDE [Python Header](../includes/quickstarts/from-microphone/python/header.md)]
 
 [!INCLUDE [python](../includes/quickstarts/from-microphone/python/python.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+[!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
+
+[!INCLUDE [Python Header](../includes/quickstarts/from-microphone/go/header.md)]
+
+[!INCLUDE [python](../includes/quickstarts/from-microphone/go/go.md)]
 
 ::: zone-end
 
