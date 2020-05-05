@@ -135,7 +135,7 @@ Now that your pipeline is setup to split and export the data, submit a pipeline 
 
 1. At the top of the canvas, select **Submit**.
 
-1. In the **Set up pipeline run** dialog, select **Create new** to createa n experiment.
+1. In the **Set up pipeline run** dialog, select **Create new** to create an experiment.
 
     Experiments logically group together related pipeline runs. If you run this pipeline in the future, you should use the same experiment for logging and tracking purposes.
 
