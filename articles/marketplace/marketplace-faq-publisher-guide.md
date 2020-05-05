@@ -205,7 +205,7 @@ Software that’s built on or built for our cloud services can be transacted thr
 
 ### What’s required to purchase solutions from Microsoft AppSource or Azure Marketplace?
 
-Azure Marketplace requires customers to have an Azure Active Directory ID and an active Azure subscription. If neither or only one requirement in place, the customer is asked to create them in the purchase flow.
+Azure Marketplace requires customers to have an Azure Active Directory ID and an active Azure subscription. If neither or only one requirement is in place, the customer is asked to create them in the purchase flow.
 
 Microsoft AppSource requires customers to have an Azure Active Directory ID. If the ID doesn’t exist, the customer is asked to create it in the purchase flow.
 
