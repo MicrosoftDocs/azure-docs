@@ -114,9 +114,9 @@ Commercial marketplace publishers are responsible for supporting their software,
 
 ### What’s the process of validating the end-to-end purchase and setup flow?
 
-During the publishing process, you’re given access to a preview of your offer. Access is restricted to users that you specify in the **Preview** tab, and the offer can’t be viewed by anyone else. You can purchase preview and test the process, but you’ll be charged the full amount according to your offer's setup.
+During the publishing process, you’re given access to a preview of your offer. Access is restricted to users that you specify in the **Preview** tab, and the offer can’t be viewed by anyone else. You can purchase a preview and test the process, but you’ll be charged the full amount according to your offer's setup.
 
-To complete a purchase at a very low price, we suggest publishing a private plan that's viewable by you alone and at a price you can accept as the cost of testing. A price of $0.00 is supported but won't reflect the full experience like a paid subscription would, so we recommend setting the price at $1.00.
+To complete a purchase at a very low price, we suggest publishing a private plan that's viewable by you alone and at a price you can accept as the cost of testing. A price of $0.00 is supported but won't reflect the full experience, as a paid subscription would, so we recommend setting the price at $1.00.
 
 ### What are leads from the commercial marketplace and what should I do with them?
 
