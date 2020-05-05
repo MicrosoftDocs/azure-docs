@@ -91,7 +91,7 @@ Yes, but you must then [register each SQL Server VM with the SQL Server VM resou
 
 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
 
-   Yes. You can easily switch a pay-as-you-go (PAYG) gallery image to bring-your-own-license (BYOL) by enabling the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  For more information, see [How to change the licensing model for a SQL Server VM](virtual-machines-windows-sql-ahb.md). Currently, this facility is available only for Public Cloud customers.
+   Yes. You can easily switch a pay-as-you-go (PAYG) gallery image to bring-your-own-license (BYOL) by enabling the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  For more information, see [How to change the licensing model for a SQL Server VM](virtual-machines-windows-sql-ahb.md). Currently, this facility is only available for public and Azure Government cloud customers.
 
 1. **Will switching licensing models require any downtime for SQL Server?**
 
