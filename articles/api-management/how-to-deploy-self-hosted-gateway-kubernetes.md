@@ -83,7 +83,7 @@ It's impossible to reliably predict and recommend the amount of per-container CP
 - Request rate.
 - Kind and number of configured policies.
 - Payload size and whether payloads are buffered or streamed.
-- Back-end service latency.
+- Backend service latency.
 
 We recommend setting resource requests to two cores and 2 GiB as a starting point. Perform a load test and scale up/out or down/in based on the results.
 
@@ -95,7 +95,7 @@ Consider using a specific version tag in production to avoid unintentional upgra
 You can [download a full list of available tags](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list).
 
 ### DNS policy
-DNS name resolution plays a critical role in a self-hosted gateway's ability to connect to dependencies in Azure and dispatch API calls to back-end services.
+DNS name resolution plays a critical role in a self-hosted gateway's ability to connect to dependencies in Azure and dispatch API calls to backend services.
 
 The YAML file provided in the Azure portal applies the default [ClusterFirst](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) policy. This policy causes name resolution requests not resolved by the cluster DNS to be forwarded to the upstream DNS server that's inherited from the node.
 
