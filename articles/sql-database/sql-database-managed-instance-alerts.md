@@ -110,13 +110,13 @@ To view, modify and delete existing alerts:
 
 1. Search for Alerts using Azure portal search. Click on Alerts.
 
-   ![find_alerts](media/sql-database-managed-instance-alerts/mi-edit-alerts-browse-annotated.png)
+   ![find_alerts](media/sql-database-managed-instance-alerts/mi-manage-alerts-browse-smaller-annotated.png)
 
    Alternatively, you could also click on Alerts on the Azure navigation bar, if you have it configured.
 
 2. On the Alerts pane, select Manage alert rules.
 
-   ![modify_alerts](media/sql-database-managed-instance-alerts/mi-manage-alert-rules-annotated.png)
+   ![modify_alerts](media/sql-database-managed-instance-alerts/mi-manage-alert-rules-smaller-annotated.png)
 
    List of existing alerts will show up. Select an individual existing alert rule to view, modify, or delete it.
 
