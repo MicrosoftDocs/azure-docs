@@ -57,7 +57,7 @@
 - name: Reference
   items:
   - name: Service limits
-    href: digital-twins-service-limits.md
+    href: service-limits.md
 - name: Resources
   items:
 - name: Related
