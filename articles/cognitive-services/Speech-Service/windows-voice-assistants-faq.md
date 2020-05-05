@@ -15,28 +15,23 @@ ms.author: travisw
 
 # Frequently asked questions
 
-## General
-
-### How do I contact Microsoft for resources like Limited Access Feature tokens and 1st stage keyword model files?
+## How do I contact Microsoft for resources like Limited Access Feature tokens and keyword model files?
 
 
-## Implementation
 
-### My app is showing in a small window when I activate it by voice. How can I transition from the compact view to a full application window?
+## My app is showing in a small window when I activate it by voice. How can I transition from the compact view to a full application window?
 
 When your application is first activated by voice, it is started in a compact view. Please read the [Design guidance for voice activation preview](windows-voice-assistants-best-practices#Design-guidance-for-voice-activation-preview) for guidance on the different views and transitions between them for voice assistants on Windows.
 
-To make the transition from compact view to full app view, use the appView API TryEnterViewModeAsync:
+To make the transition from compact view to full app view, use the appView API `TryEnterViewModeAsync`:
 
-var appView = ApplicationView.GetForCurrentView();
- await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);
+`var appView = ApplicationView.GetForCurrentView();
+ await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);`
 
-### Do I have to make my voice assistant a UWP application?
+## Why are voice assistant features on Windows only enabled for UWP applications?
 
-### Do I have to use Direct Line Speech for my Windows Conversational Agent?
+Given the privacy risks associated with features like voice activation, the features of the UWP platform are necessary allow the voice assistant features on Windows to be sufficiently secure.
 
-The UWP Sample Application was developed using Direct Line Speech and the Speech Services SDK as a demonstration of how to use a dialog service with the Windows Conversational Agent capability. However, you can use any service for local and cloud keyword verification, speech-to-text conversion, bot dialog, and text-to-speech conversion. See how in the [UWP Sample Application docs]().
+## The UWP Voice Assistant Sample uses Direct Line Speech. Do I have to use Direct Line Speech for my voice assistant on Windows?
 
-## Design
-
-## Issues
+The UWP Sample Application was developed using Direct Line Speech and the Speech Services SDK as a demonstration of how to use a dialog service with the Windows Conversational Agent capability. However, you can use any service for local and cloud keyword verification, speech-to-text conversion, bot dialog, and text-to-speech conversion.

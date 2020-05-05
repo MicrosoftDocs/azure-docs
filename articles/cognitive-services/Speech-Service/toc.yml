@@ -432,8 +432,10 @@
           items:
             - name: 'Start developing your assistant with Windows'
               href: how-to-windows-voice-assistants-get-started.md
-            - name: 'Enable an assistant on the lock screen'
-              href: windows-voice-assistants-implement-above-lock.md
+            - name: 'Enable voice activation'
+              href: windows-voice-assistants-implementation-guide.md#Implementing-Voice-Activation
+            - name: 'Enable above lock activation'
+              href: windows-voice-assistants-implementation-guide.md#Implementing-above-lock-activation
         - name: Resources
           items:
             - name: 'Explore the Windows assistant sample'

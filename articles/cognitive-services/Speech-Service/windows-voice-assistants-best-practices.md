@@ -30,7 +30,7 @@ Voice assistants developed on Windows 10 must implement the user experience guid
 
 Windows 10 infers an activation experience for the customer context based on the device context. The following summary table is a high-level overview of the different views available when the screen is on.
 
-| View (Availability) | Device context | Customer goal when using voice activation | Appears when | Design needs |
+| View (Availability) | Device context | Customer goal | Appears when | Design needs |
 | --- | --- | --- | --- | --- |
 | **In-app (19H1)** | Below lock, assistant has focus | Interact with the assistant app | Assistant processes the request in-app | Main in-app view listening experience |
 | **Above lock (19H2)** | Above lock, unauthenticated | Interact with the assistant, but from a distance | System is locked and assistant requests activation | Full-screen visuals for far-field UI. Implement dismissal policies to not block unlock. |
@@ -76,6 +76,9 @@ When the assistant app has focus, the customer intent is clearly to interact wit
 
 Available with 19H2, assistants built on Windows voice activation platform are available to answer above lock.
 
+> [!NOTE]
+> Due to an active issue, assistants that draw above lock UI must implement WindowService.CloseWindow() for all dismissals. This will result in app termination, but mitigates a technical issue and keeps the assistant in a clean state. Furthermore, to maintain clean state if an app is enabled for above lock voice activation, it must listen for lock state changes and WindowService.CloseWindow() when the device locks.
+
 ### Customer opt-in
 
 Voice activation above lock is always disabled by default. Customers opt-in through the Windows settings>Privacy>Voice Activation. For details on monitoring and prompting for this setting, see the [above lock implementation guide](windows-voice-assistants-implement-above-lock#Detect-user-preference).
@@ -88,7 +91,7 @@ While notifications or other standard app lock-screen integration points remain 
 
 ### Above lock experience following voice activation
 
-When the screen is on, the assistant app is full screen with no title bar above the lock screen. Larger visuals and strong voice descriptions with strong VUI allow for cases where the customer is too far away to read UI or has their hands busy with another (non-PC) task.
+When the screen is on, the assistant app is full screen with no title bar above the lock screen. Larger visuals and strong voice descriptions with strong voice-primary interface allow for cases where the customer is too far away to read UI or has their hands busy with another (non-PC) task.
 
 When the screen remains off, the assistant app could play an earcon to indicate the assistant is activating and provide a voice-only experience.
 
@@ -153,6 +156,11 @@ The Contoso assistant has a home on the taskbar: their swirling, circular icon.
 
 ![Screenshot of voice assistant on Windows replying in compact view](media/voice-assistants/windows_voice_assistant/compact_view_response.png)
 
-**Hand-off**. At any point, the assistant may handoff to its main app view to provide more information or answers or dialogue that require more screen real estate. Please refer [here](windows-voice-assistants-faq#My-app-is-showing-in-a-small-window-when-I-activate-it-by-voice.-How-can-I-transition-from-the-compact-view-to-a-full-application-window) for implementation details.
+**Hand-off**. At any point, the assistant may handoff to its main app view to provide more information or answers or dialogue that require more screen real estate. Please refer to the [Transition from compact view to full view](windows-voice-assistants-implementation-guide#Transition-from-compact-view-to-full-view) section for implementation details.
 
-![Screenshots of voice assistant on Windows before and after exapanding the compact view](media/voice-assistants/windows_voice_assistant/compact_transition.png)
+![Screenshots of voice assistant on Windows before and after expanding the compact view](media/voice-assistants/windows_voice_assistant/compact_transition.png)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn about the process of voice activation](windows-voice-assistants-voice-activation.md)
