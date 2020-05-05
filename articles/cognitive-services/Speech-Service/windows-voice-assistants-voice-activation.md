@@ -4,7 +4,7 @@ Voice Assistants on Windows - Voice Activation
 titleSuffix: Azure Cognitive Services
 description: An overview of the voice activation feature on Windows.
 services: cognitive-services
-author: cofogg
+author: cfogg6
 manager: trrwilson
 ms.service: cognitive-services
 ms.subservice: speech-service

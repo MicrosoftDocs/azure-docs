@@ -1,10 +1,9 @@
 ---
-title: 
-Voice Assistants on Windows - Get Started
+title: Voice Assistants on Windows - Get Started
 titleSuffix: Azure Cognitive Services
 description: The steps to begin developing a windows voice agent, including a reference to the sample code quickstart.
 services: cognitive-services
-author: cofogg
+author: cfogg6
 manager: trrwilson
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -14,7 +13,7 @@ ms.author: travisw
 ---
 ## Overview
 
-This guide, along with the documentation provided with the [UWP Voice Assistant Sample](windows-voice-assistants-sample-info), will take you through the steps to begin developing a voice assistant on Windows.
+This guide will take you through the steps to begin developing a voice assistant on Windows.
 
 ## Set up your development environment
 To start developing a voice assistant for Windows, you will need to make sure you have the proper development environment.
@@ -52,6 +51,8 @@ With the subscription key from your Speech Services subscription and bot id from
 
 Once you have received your Limited Access Feature token and bin file from Microsoft, you can begin on your own voice assistant on Windows.
 
-The UWP Voice Assistant sample was built to demonstrate what steps a UWP application needs to take to access the full set of voice assistant features. The "docs" folder in the project contains a walk-through of the code and covers each step of setup and state management for voice activation, above lock activation, privacy settings, and more.
+## Next steps
 
-The UWP Voice Assistant sample was also designed to be reusable and extendable. You are welcome to borrow components or use it as a starting point for your own application.
+- Learn more about voice activation
+- Read the implementation guide for the proper steps to enable voice activation, above lock activation, and more.
+- Visit the "docs" folder in the UWP Voice Assistant sample for additional resources and a walk-through of the code.

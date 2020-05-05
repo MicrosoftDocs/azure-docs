@@ -2,9 +2,9 @@
 title: 
 Voice Assistants on Windows - Above Lock Implementation Guidelines
 titleSuffix: Azure Cognitive Services
-description: The instructions to implement above-lock capabilities for a voice agent application.
+description: The instructions to implement voice activation and above-lock capabilities for a voice agent application.
 services: cognitive-services
-author: cofogg
+author: cfogg6
 manager: trrwilson
 ms.service: cognitive-services
 ms.subservice: speech-service

@@ -4,7 +4,7 @@ Voice Assistants on Windows - UWP Voice Assistant Sample Information
 titleSuffix: Azure Cognitive Services
 description: A summary of the sample app, what its purpose is, and how to use it. Also provides a link to the sample app github and further documentation there.
 services: cognitive-services
-author: cofogg
+author: cfogg6
 manager: trrwilson
 ms.service: cognitive-services
 ms.subservice: speech-service
