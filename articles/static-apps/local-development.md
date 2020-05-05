@@ -172,8 +172,8 @@ When the application is built with its CLI, the `process.env.API` value is repla
 
 For more information on configuring environment files for front-end JavaScript frameworks and libraries, see these articles:
 
-- [Angular Environment Variables]()
-- [React - Adding Custom Environment Variables]()
+- [Angular Environment Variables](https://angular.io/guide/build#configuring-application-environments)
+- [React - Adding Custom Environment Variables](https://create-react-app.dev/docs/adding-custom-environment-variables/)
 - [Vue - Modes and Environment Variables](https://cli.vuejs.org/guide/mode-and-env.html)
 
 [!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
