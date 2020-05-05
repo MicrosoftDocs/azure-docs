@@ -407,7 +407,7 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Perform operations with variables, such as initialize, set, increment, decrement, and append to string or array variable"
 
 <!--Managed connector doc links-->
-[azure-automation-doc]: https://docs.microsoft.com/connectors/azureautomation/ "Create and manage automation jobs for you cloud and on-premises infrastructure"
+[azure-automation-doc]: https://docs.microsoft.com/connectors/azureautomation/ "Create and manage automation jobs for your cloud and on-premises infrastructure"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure blob storage connector"
 [azure-cosmos-db-doc]: https://docs.microsoft.com/connectors/documentdb/ "Connect to Azure Cosmos DB so that you can access documents and stored procedures"
 [azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change"
