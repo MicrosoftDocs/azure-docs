@@ -3,7 +3,7 @@ title: Configure Azure Image Builder Service Permissions using Azure CLI
 description: Configure requirements for Azure VM Image Builder Service including permissions and privileges using Azure CLI
 author: cynthn
 ms.author: patricka
-ms.date: 05/04/2020
+ms.date: 05/05/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -18,9 +18,9 @@ Azure Image Builder Service requires configuration of permissions and privileges
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-First, you must register for the Azure Image Builder Service. Registration grants the service permission to create, manage, and delete a staging resource group. The service also has rights to add resources the group that are required for the image build. 
+## Register the features
 
-Azure Image Builder **does not** have permission to access other resources in other resource groups in the subscription. You need to take explicit actions to allow access to avoid your builds from failing.
+First, you must register for the Azure Image Builder Service. Registration grants the service permission to create, manage, and delete a staging resource group. The service also has rights to add resources the group that are required for the image build. 
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
@@ -32,9 +32,9 @@ Depending on your scenario, privileges are required for Azure Image Builder. The
 
 ### Distribute images
 
-For Azure Image Builder to distribute images (Managed Images / Shared Image Gallery), the Azure Image Builder service must be allowed to inject the images into these resource groups, to do this, you need to grant the Azure Image Builder Service Principal Name (SPN) rights on the resource group where the image will be placed. 
+For Azure Image Builder to distribute images (Managed Images / Shared Image Gallery), the Azure Image Builder service must be allowed to inject the images into these resource groups. You need to grant the Azure Image Builder service principal name (SPN) rights on the resource group where the image is built. Azure Image Builder **does not** have permission to access resources in other resource groups in the subscription. You need to take explicit actions to allow access to avoid your builds from failing.
 
-You can avoid granting the Azure Image Builder SPN contributor on the resource group to distribute images, but it's service principal name needs the following Azure `Actions` permissions in the distribution resource group:
+You don't need to grant Azure Image Builder SPN contributor access on the resource group to distribute images. However, Azure Image Builder service principal name needs the following Azure `Actions` permissions in the distribution resource group:
 
 ```Actions
 Microsoft.Compute/images/write
@@ -73,7 +73,7 @@ Microsoft.Compute/galleries/images/versions/read
 
 Azure Image Builder has the capability to deploy and use an existing VNET in your subscription, thus allowing customizations access to connected resources.
 
-You can avoid granting the Azure Image Builder service principal name contributor for it to deploy a VM to an existing VNET, but it's service principal name needs these Azure Actions on the VNET resource group:
+You don't need to grant Azure Image Builder SPN contributor access on the resource group to deploy a VM to an existing VNET. However, Azure Image Builder service principal name needs the following Azure `Actions` permissions on the VNET resource group:
 
 ```Actions
 Microsoft.Network/virtualNetworks/read
@@ -82,7 +82,7 @@ Microsoft.Network/virtualNetworks/subnets/join/action
 
 ## Create an Azure role definition
 
-The following examples create an Azure role definition from the actions described in the previous sections. The examples are applied at the resource group level. Evaluate and test if the examples are granular enough for your requirements. For example, the scope is set to the resource group. For your scenario, you may need to refine it to a specific shared image gallery.
+The following examples create an Azure role definition from the actions described in the previous sections. The examples are applied at the resource group level. Evaluate and test if the examples are granular enough for your requirements. For your scenario, you may need to refine it to a specific shared image gallery.
 
 The image actions allow read and write. Decide what is appropriate for your environment. For example, create a role to allow Azure Image Builder to read images from resource group *example-rg-1* and write images to resource group *example-rg-2*.
 
@@ -108,7 +108,7 @@ imageResourceGroup=<Resource group>
 First, use a sample JSON description as a role definition. Use *cURL* to download the JSON description and *sed* stream editor to replace the subscription ID and resource group values.
 
 ```azurecli-interactive
-# Download a role definition example
+# Download a role definition sample
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 # Update the definition using stream editor
@@ -116,7 +116,7 @@ sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" aibRoleImageCreation.json
 ```
 
-The following is an example definition.
+The following is an example role definition.
 
 
 ```json
@@ -143,7 +143,7 @@ The following is an example definition.
   }
 ```
 
-Create a custom role from the sample `aibRoleImageCreation.json` description file.
+Next, create a custom role from the sample `aibRoleImageCreation.json` description file.
 
 ```azurecli-interactive
 az role definition create --role-definition ./aibRoleImageCreation.json
