@@ -477,7 +477,7 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[use-advanced-networking]: configure-advanced-networking.md
+[use-advanced-networking]: configure-azure-cni.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [concepts-network]: concepts-network.md
 [az-feature-register]: /cli/azure/feature#az-feature-register
