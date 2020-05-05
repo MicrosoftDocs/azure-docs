@@ -42,14 +42,13 @@ The application needs to register itself, its keyword model, and its language wi
 Start by retrieving the keyword detector. In this sample code, we retrieve the first detector, but you can select a particular detector by selecting it from `configurableDetectors`.
 
 ```csharp
-private static async Task<ActivationSignalDetector> GetFirstEligibleDetectorAsync(
-            string dataFormat)
+private static async Task<ActivationSignalDetector> GetFirstEligibleDetectorAsync()
 {
     var detectorManager = ConversationalAgentDetectorManager.Default;
     var allDetectors = await detectorManager.GetAllActivationSignalDetectorsAsync();
     var configurableDetectors = allDetectors.Where(candidate => candidate.CanCreateConfigurations
         && candidate.Kind == ActivationSignalDetectorKind.AudioPattern
-        && (string.IsNullOrEmpty(dataFormat) || candidate.SupportedModelDataTypes.Contains(dataFormat)));
+        && (candidate.SupportedModelDataTypes.Contains("MICROSOFT_KWSGRAPH_V1")));
 
     if (configurableDetectors.Count() != 1)
     {

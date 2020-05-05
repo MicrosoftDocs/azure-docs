@@ -2,7 +2,7 @@
 title: 
 Voice Assistants on Windows - Overview
 titleSuffix: Azure Cognitive Services
-description: An overview of the Windows voice assistant platform, including capabilities and development resources available.
+description: An overview of the voice assistants on Windows, including capabilities and development resources available.
 services: cognitive-services
 author: cfogg6
 manager: trrwilson
@@ -13,9 +13,7 @@ ms.date: 04/15/2020
 ms.author: travisw
 ---
 
-# Overview
-
-## Voice Assistants on Windows
+# Voice Assistants on Windows
 
 On Windows 10 version 2004 and up, voice assistant applications can take advantage of the Windows ConversationalAgent APIs to achieve a complete voice-enabled assistant experience.
 
@@ -29,5 +27,5 @@ On Windows 10 version 2004 and up, voice assistant applications can take advanta
 ## Getting Started
 
 - **Review the design guidelines:** Our [design guidelines](windows-voice-assistants-best-practices.md) lay out the key work required to provide the best possible experiences for voice activation on Windows 10.
-- **Visit the Getting Started Guide:** Start [here](windows-voice-assistants-get-started.md) for the steps to begin implementing voice assistants on Windows, from setting your development environment through an introduction to the UWP Voice Assistant Sample.
+- **Visit the Getting Started Guide:** Start [here](how-to-windows-voice-assistants-get-started.md) for the steps to begin implementing voice assistants on Windows, from setting your development environment through an introduction to the UWP Voice Assistant Sample.
 - **Try out the sample app**: To experience these capabilities firsthand, visit the [UWP Voice Assistant Sample](windows-voice-assistants-sample-info.md) page and follow the steps to get the sample client running.

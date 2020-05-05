@@ -424,9 +424,9 @@
           items:
             - name: Voice assistants FAQ
               href: faq-voice-assistants.md
-    - name: Windows voice assistants
+    - name: Voice assistants on Windows
       items:
-        - name: What is a Windows voice assistant?
+        - name: Overview of voice assistants on Windows
           href: windows-voice-assistants-overview.md
         - name: How-to guides
           items:

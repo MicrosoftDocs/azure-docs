@@ -12,13 +12,13 @@ ms.date: 04/15/2020
 ms.author: travisw
 ---
 
-# Privacy guidelines for Windows Voice Assistants
+# Privacy guidelines for voice assistants on Windows
 
 ## About voice activation privacy
 
 It's important that users are given clear information about how their voice data is collected and used and important that they are given control over if and how this collection happens. These core facets of privacy -- *disclosure* and *consent* -- are especially important for voice assistants integrated into Windows given the always-listening nature of their use.
 
-Developers creating Windows Voice Assistants must include clear user interface elements within their applications that reflect the listening capabilities of the assistant.
+Developers creating voice assistants on Windows must include clear user interface elements within their applications that reflect the listening capabilities of the assistant.
 
 > [!NOTE]
 > Failure to provide appropriate disclosure and consent for an assistant application, including after application updates, may result in the assistant becoming unavailable for voice activation until privacy issues are resolved. 
@@ -59,4 +59,4 @@ Once these requirements are satisfied, an eligible assistant application will ap
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about best practices for Windows Voice Assistants](windows-voice-assistants-best-practices.md)
+> [Learn about best practices for voice assistants on Windows](windows-voice-assistants-best-practices.md)
