@@ -100,6 +100,7 @@ This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filte
 - Fixed an issue with the creation of the Azure Active Directory synchronization account where enabling Directory Extensions or PHS may fail because the account has not propagated across all service replicas before attempted use. 
 - Fixed a bug in the sync errors compression utility that was not handling surrogate characters correctly. 
 - Fixed a bug in the auto upgrade which left the server in the scheduler suspended state. 
+- Fixed a bug in the Domain/OU filtering page that would remove the Run Profiles of a domain by just partially expanding the domain tree, without making any changes.
 
 ## 1.4.38.0
 ### Release status
