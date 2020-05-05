@@ -305,11 +305,8 @@ CHANNEL_NAME=<channelName>
 The below chaincode operations can be carried out:  
 
 •	[Install chaincode](#install-chaincode)  
-
 •	[Instantiate chaincode](#instantiate-chaincode)  
-
 •	[Invoke chaincode](#invoke-chaincode)
-
 •	[Query chaincode](#query-chaincode)
 
 ### Install chaincode  
