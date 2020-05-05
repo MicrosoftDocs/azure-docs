@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions and terminology for the commercial marketplace analytics in Partner Center
+title: Frequently asked questions and terminology for the Microsoft commercial marketplace analytics in Partner Center 
 description: Learn how to address commonly asked questions about commercial marketplace analytics. Includes a data dictionary for analytics terminology.
 author: dsindona
 ms.author: dsindona
