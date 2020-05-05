@@ -382,6 +382,8 @@
       href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Protect your data
       items:
+      - name: Enable point-in-time restore
+        href: point-in-time-restore-enable.md  
       - name: Enable blob versioning
         href: versioning-enable.md
       - name: Enable soft delete
