@@ -413,6 +413,8 @@
         href: digicert-tutorial.md
       - name: Direct
         href: direct-tutorial.md
+      - name: Directions on Microsoft
+        href: directions-microsoft-tutorial.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
@@ -1006,6 +1008,8 @@
         href: myaryaka-tutorial.md
       - name: My Award Points Top Sub/Top Team
         href: myawardpoints-tutorial.md
+      - name: My IBISWorld
+        href: my-ibisworld-tutorial.md
       - name: myPolicies
         href: mypolicies-tutorial.md
       - name: MyVR
@@ -1178,6 +1182,8 @@
         href: predictixpricereporting-tutorial.md
       - name: PressPage
         href: presspage-tutorial.md
+      - name: Prezi
+        href: prezi-tutorial.md
       - name: Printix
         href: printix-tutorial.md
       - name: Prisma Cloud SSO

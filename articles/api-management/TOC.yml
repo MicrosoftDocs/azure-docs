@@ -53,6 +53,8 @@
               href: api-management-policies.md
       - name: Security
         items:
+            - name: Security baseline
+              href: security-baseline.md        
             - name: Built-in security controls
               href: api-management-security-controls.md
       - name: Subscriptions
@@ -212,6 +214,8 @@
               href: api-management-transformation-policies.md
       - name: Manage in production
         items:
+            - name: Export APIs to the Power Platform
+              href: export-api-power-platform.md
             - name: Manage groups
               href: api-management-howto-create-groups.md
             - name: Retrieve IP addresses
