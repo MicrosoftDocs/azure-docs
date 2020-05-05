@@ -332,7 +332,7 @@ This example using a training agent known as [IMPALA](https://arxiv.org/abs/1802
 
 [Ray Tune](https://ray.readthedocs.io/en/latest/tune.html) runs on top of the learning actors to orchestrate the IMPALA training agent jobs.
 
-The entry script also defines a [custom RLlib callback function](https://docs.ray.io/en/latest/rllib-training.html#callbacks-and-custom-metrics) to log important metrics to your Azure Machine Learning workspace. Learn how to view these metrics in the [View results](#view-results) section.
+The entry script also defines a [custom RLlib callback function](https://docs.ray.io/en/latest/rllib-training.html#callbacks-and-custom-metrics) to log important metrics to your Azure Machine Learning workspace. Learn how to view these metrics in the [Monitor and view results](#monitor-and-view-results) section.
 
 ```python
 import ray
