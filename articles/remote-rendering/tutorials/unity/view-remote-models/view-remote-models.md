@@ -48,7 +48,7 @@ In this example, we'll assume the project is being created in a folder called `R
 
 :::image type="content" source="./media/unity-new-project.PNG" alt-text="New Unity Project":::
 
-## Include the Azure Remote Rendering Package
+## Include the Azure Remote Rendering package
 
 You need to modify the file `Packages/manifest.json` that is located in your Unity project folder. Open the file in a text editor and append the lines listed below:
 
@@ -163,39 +163,16 @@ There are four basic stages to showing remotely rendered models, shown in the be
 
 ![ARR stack 0](./media/remote-render-stack-0.png)
 
-To progress through these stages and track the state of the application, this tutorial will use a state machine.First we will create an `enum` that defines the states of our remote rendering connection.
-
 1. Create a new folder called *RemoteRenderingCore*. Then inside *RemoteRenderingCore*, create another folder named *Scripts*.
 
-1. Create a [new C# script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) named **RemoteRenderingState**.
+1. Create a [new C# script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) named **RemoteRenderingCoordinator**.
 Your project should look like this:
 
 ![Project hierarchy](./media/project-structure.png)
 
-3. Open **RemoteRenderingState** in your code editor.
-1. Replace the entire contents of the script with the code below:
+This will be the coordinator script that tracks and manages the remote rendering state. Much of this code is not *directly* related to Azure Remote Rendering and is used for maintaining state, exposing functionality to other components, triggering events and storing application specific data. Start with the code below, then we'll discuss and implement the Azure Remote Rendering specific code.
 
-```csharp
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See LICENSE in the project root for license information.
-
-public enum RemoteRenderingState
-{
-    NotSet,
-    NotInitialized,
-    NoSession,
-    ConnectingToExistingRemoteSession,
-    ConnectingToNewRemoteSession,
-    RemoteSessionReady,
-    ConnectingToRuntime,
-    RuntimeConnected
-}
-```
-
-Next we'll create a coordinator script that tracks and manages these states. Much of this code is not *directly* related to Azure Remote Rendering and is used for maintaining state, exposing functionality to other components, triggering events and storing application specific data. Start with the code below, then we'll discuss and implement the Azure Remote Rendering specific code.
-
-1. Create a new script in the same directory as **RemoteRenderingState** and give it the name **RemoteRenderingCoordinator**.
-1. Open **RemoteRenderingCoordinator** in your code editor and replace its entire content with the code below:
+2. Open **RemoteRenderingCoordinator** in your code editor and replace its entire content with the code below:
 
 ```csharp
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -220,6 +197,18 @@ using UnityEngine.XR.WSA;
 [RequireComponent(typeof(ARRServiceUnity))]
 public class RemoteRenderingCoordinator : MonoBehaviour
 {
+    public enum RemoteRenderingState
+    {
+        NotSet,
+        NotInitialized,
+        NoSession,
+        ConnectingToExistingRemoteSession,
+        ConnectingToNewRemoteSession,
+        RemoteSessionReady,
+        ConnectingToRuntime,
+        RuntimeConnected
+    }
+
     public static RemoteRenderingCoordinator instance;
 
     [Header("Account Credentials")]
@@ -658,214 +647,55 @@ The code above is performing the following steps:
 1. Load model data from Blob Storage into the remote entity.
 1. Return the parent Entity
 
-Because there can be multiple models, and we'd like to interact, load/unload, etc. with each separately, we'll specify the details of the remote model in a separate script.
+## View the test model
 
-Similar to the starting code for **RemoteRenderingCoordinator**, much of the code in **RemoteRenderedModel** is for tracking state, responding to events, firing events and configuration. Essentially, **RemoteRenderedModel** stores the remote path for the model data in `modelPath`. It will listen for state changes in the **RemoteRenderingCoordinator** to see if it should automatically load or unload the model it defines. The GameObject that has the **RemoteRenderedModel** attached to it will be local parent for the remote content.
+We now have all the code required to view a remotely rendered model. 
 
-First we'll create an enum to track the states of our model.
-
-1. Create a new script named **ModelState** in the same folder as **RemoteRenderingCoordinator**. Replace the entire contents with the following code:
+1. Add the following code to the **RemoteRenderingCoordinator** class:
 
 ```csharp
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See LICENSE in the project root for license information.
-
-public enum ModelState
+private bool loadingTestModel = false;
+[ContextMenu("Load Test Model")]
+public async void LoadTestModel()
 {
-    NotReady,
-    Ready,
-    Loading,
-    Loaded,
-    Unloading,
-    Error
+    if(currentCoordinatorState != RemoteRenderingState.RuntimeConnected)
+    {
+        Debug.LogError("Please wait for the runtime to connect before loading the test model. Try again later.");
+        return;
+    }
+    if(loadingTestModel)
+    {
+        Debug.Log("Test model already loading or loaded!");
+        return;
+    }
+    loadingTestModel = true;
+
+    // Create a parent object to use for positioning
+    GameObject testParent = new GameObject("TestModelParent");
+    testParent.transform.position = new Vector3(0f, 0f, 3f);
+
+    // The 'built in engine path' is a special path that references a test model built into Azure Remote Rendering.
+    await LoadModel("builtin://Engine", testParent.transform, (progressValue) => Debug.Log($"Loading Test Model progress: {Math.Round(progressValue * 100, 2)}%"));
 }
 ```
 
-Next create the **RemoteRenderedModel** script.
+This code creates a GameObject to act as the parent to the test model, then calls the `LoadModel` method to load a model "builtin://Engine", which is an asset built into Azure Remote Rendering for the purpose of testing the rendering.
 
-2. In the same folder as **RemoteRenderingCoordinator**, create a new script called **RemoteRenderedModel** and replace its contents with the following code:
+2. Press the Play button in the Unity Editor to start the process of connecting to Azure Remote Rendering and creating a new session.
+3. Select the **RemoteRenderingCoordinator** GameObject to see its attached scripts in the Inspector. Observe the **Service** component update as it progresses through its initialization and connection steps.
+4. Watch the Console output, waiting for the state to change to **RuntimeConnected**.
+5. Once the runtime is connected, right click on the **RemoteRenderingCoordinator** in the inspector to expose its context menu. Then click the **Load Test Model** option in the context menu added by the `[ContextMenu("Load Test Model")]` part of our code above.
 
-```csharp
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License. See LICENSE in the project root for license information.
+![Load from context menu](./media/load-test-model.png)
 
-using Microsoft.Azure.RemoteRendering;
-using Microsoft.Azure.RemoteRendering.Unity;
-using System;
-using UnityEngine;
-using UnityEngine.Events;
-
-public class RemoteRenderedModel : MonoBehaviour
-{
-    [SerializeField]
-    [Tooltip("The friendly name for this model")]
-    private string modelDisplayName;
-    [SerializeField]
-    [Tooltip("The URI for this model")]
-    private string modelPath;
-
-    public bool AutomaticallyLoad = true;
-
-    private ModelState currentModelState = ModelState.NotReady;
-
-    public string ModelDisplayName { get => modelDisplayName; set => modelDisplayName = value; }
-    public string ModelPath { get => modelPath; set => modelPath = value; }
-
-    public ModelState CurrentModelState
-    {
-        get => currentModelState;
-        protected set
-        {
-            if (currentModelState != value)
-            {
-                currentModelState = value;
-                ModelStateChange?.Invoke(value);
-            }
-        }
-    }
-
-    public event Action<ModelState> ModelStateChange;
-    public event Action<float> LoadProgress;
-    public Entity ModelEntity { get; protected set; }
-
-    public UnityEvent OnModelNotReady = new UnityEvent();
-    public UnityEvent OnModelReady = new UnityEvent();
-    public UnityEvent OnStartLoading = new UnityEvent();
-    public UnityEvent OnModelLoaded = new UnityEvent();
-    public UnityEvent OnModelUnloading = new UnityEvent();
-
-    [Serializable] public class UnityFloatEvent : UnityEvent<float> { }
-
-    public UnityFloatEvent OnLoadProgress = new UnityFloatEvent();
-
-    public void Awake()
-    {
-        // Hook up the event to the Unity event
-        LoadProgress += (progress) => OnLoadProgress?.Invoke(progress);
-
-        ModelStateChange += HandleUnityStateEvents;
-    }
-
-    private void HandleUnityStateEvents(ModelState modelState)
-    {
-        switch (modelState)
-        {
-            case ModelState.NotReady:  OnModelNotReady?.Invoke();  break;
-            case ModelState.Ready:     OnModelReady?.Invoke();     break;
-            case ModelState.Loading:   OnStartLoading?.Invoke();   break;
-            case ModelState.Loaded:    OnModelLoaded?.Invoke();    break;
-            case ModelState.Unloading: OnModelUnloading?.Invoke(); break;
-        }
-    }
-
-    private void Start()
-    {
-        //Attach to and initialize current state (in case we're attaching late)
-        RemoteRenderingCoordinator.CoordinatorStateChange += Instance_CoordinatorStateChange;
-        Instance_CoordinatorStateChange(RemoteRenderingCoordinator.instance.CurrentCoordinatorState);
-    }
-
-    /// <summary>
-    /// Listen for state changes on the coordinator, clean up this model's remote objects if we're no longer connected.
-    /// Automatically load if required
-    /// </summary>
-    private void Instance_CoordinatorStateChange(RemoteRenderingState state)
-    {
-        switch (state)
-        {
-            case RemoteRenderingState.RuntimeConnected:
-                CurrentModelState = ModelState.Ready;
-                if (AutomaticallyLoad)
-                    LoadModel();
-                break;
-            default:
-                UnloadModel();
-                break;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        RemoteRenderingCoordinator.CoordinatorStateChange -= Instance_CoordinatorStateChange;
-        UnloadModel();
-    }
-
-    /// <summary>
-    /// Asks the coordinator to create a model entity and listens for coordinator state changes
-    /// </summary>
-    [ContextMenu("Load Model")]
-    public async void LoadModel()
-    {
-        if (CurrentModelState != ModelState.Ready)
-            return; //We're already loaded, currently loading, or not ready to load
-
-        CurrentModelState = ModelState.Loading;
-
-        ModelEntity = await RemoteRenderingCoordinator.instance?.LoadModel(ModelPath, this.transform, SetLoadingProgress);
-
-        if (ModelEntity != null)
-            CurrentModelState = ModelState.Loaded;
-        else
-            CurrentModelState = ModelState.Error;
-    }
-
-    /// <summary>
-    /// Clean up the local model instances
-    /// </summary>
-    [ContextMenu("Unload Model")]
-    public void UnloadModel()
-    {
-        CurrentModelState = ModelState.Unloading;
-
-        if (ModelEntity != null)
-        {
-            var modelGameObject = ModelEntity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
-            Destroy(modelGameObject);
-            ModelEntity.Destroy();
-            ModelEntity = null;
-        }
-
-        if (RemoteRenderingCoordinator.instance.CurrentCoordinatorState == RemoteRenderingState.RuntimeConnected)
-            CurrentModelState = ModelState.Ready;
-        else
-            CurrentModelState = ModelState.NotReady;
-    }
-
-    /// <summary>
-    /// Update the Unity progress event
-    /// </summary>
-    /// <param name="progressValue"></param>
-    public void SetLoadingProgress(float progressValue)
-    {
-        Debug.Log($"Loading {ModelPath} progress: {Math.Round(progressValue * 100, 2)}%");
-        LoadProgress?.Invoke(progressValue);
-    }
-}
-```
-
-## Loading the Test Model
-
-The application now has everything in place required to load a view a remotely rendered model! Now we need to define the model to load and where to load it.
-
-1. Create a new GameObject in the scene and name it **TestModel**.
-1. Add the *RemoteRenderedModel* script to **TestModel**.\
-![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)
-1. Fill in the `Model Display Name` and the `Model Path` with "*TestModel*" and "*builtin://Engine*" respectively. The 'built in engine path' is a special path that references a test model built into Azure Remote Rendering.\
-![Specify model details](./media/add-model-script.png)
-1. Position the **TestModel** object in front of the camera, at position **x = 0, y = 1, z = 3**.\
-![Position object](./media/test-model-position.png)
-1. Ensure **AutomaticallyLoad** is turned on.
-1. Press **Play** in the Unity Editor to test the application.
-
-Watch the Console panel as the application progresses through its states. Keep in mind, some states may take some time to complete without a progress update. Eventually, you'll see the logs from the model loading and then the test model will be rendered in the scene. Try moving and rotating the **TestModel** GameObject you created to see the model rendered from different perspectives.
-
-![Unity Log](./media/unity-loading-log.png)
+6. Observe the Console for the output of the `ProgressHandler` we passed into the `LoadModel` method.
+7. See your remotely rendered model!
 
 ## Next steps
 
 ![Model loaded](./media/test-model-rendered.png)
 
-Congratulations! You've created a basic application capable of viewing remotely rendered models. In the next tutorial, we will learn how to ingest and render your own models.
+Congratulations! You've created a basic application capable of viewing remotely rendered models. In the next tutorial, we will integrate MRTK and import our own models.
 
 > [!div class="nextstepaction"]
 > [Next: Loading custom models](../custom-models/custom-models.md)

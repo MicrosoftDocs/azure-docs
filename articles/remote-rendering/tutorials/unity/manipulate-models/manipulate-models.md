@@ -23,62 +23,6 @@ In this tutorial, you learn how to:
 
 * This tutorial builds on top of [Tutorial: Viewing a remotely rendered model](..\view-remote-models\view-remote-models.md).
 
-## Getting Started with Mixed Reality Toolkit (MRTK)
-
-The Mixed Reality Toolkit (MRTK) is a cross-platform toolkit for building Mixed Reality experiences. We'll use MRTK for its input and interaction features.
-
-To add MRTK, follow the [Required steps](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html#required) defined in [Getting started with MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html).
-
-Once MRTK is included in the project, we'll copy the default HoloLens 2 profile and make a few modifications.
-
-1. Select the **MixedRealityToolkit** GameObject in the scene hierarchy.
-1. In the Inspector, under the **MixedRealityToolkit** component, switch the configuration profile to *DefaultHoloLens2ConfigurationProfile* and press the **Clone** button.
- ![Clone profile](./media/profile-clone.png)\
-1. In the clone dialog window, the default settings are suitable, so press **Clone**
- ![Confirm clone](./media/confirm-clone.png)\
-1. With your new configuration profile selected, select **Diagnostics** and press the **Clone** button to clone the diagnostics profile. Confirm the default settings in the clone dialog window by pressing **Clone**.
-1. With your new diagnostic profile selected, un-check **Show Profiler**. The profiler is a very useful tool and can be toggled at run-time using the voice command "Toggle Profiler" or the '9' key on the keyboard's number row.
-
-## Import assets used by this tutorial
-
-Starting in this chapter, this tutorial implements a simple [model-view-controller pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) for much of the material covered. The *model* part of the pattern is all the Azure Remote Rendering specific code and the state management related to Azure Remote Rendering. The *view* and *controller* parts of the pattern are implemented using MRTK assets and some custom scripts. It is possible to be able to use the *model* in this tutorial without the *view-controller* implemented here. This separation allows you to easily integrate the code found in this tutorial into your own application, where your application will take over the *view-controller* part of the design pattern.
-
-With the introduction of MRTK, there are a number of scripts, prefabs, and assets that can now be added to the project to support interactions and visual feedback. These assets are bundled into a [Unity Asset Package](https://docs.unity3d.com/Manual/AssetPackages.html), which can be downloaded \[here](todo\path\to\asset-package).
-
-1. Download the package \[here](todo\path\to\asset-package)
-1. In your Unity project, choose **Assets** > **Import Package** > **Custom Package**.
-1. In the file explorer, select the asset package you downloaded in step 1.
-1. Select the **Import** button to import the contents of the package into your project.\
-\
-*If using the Universal Render Pipeline:*
-
-1. In the Unity Editor, select **Mixed Reality Toolkit** > **Utilities** > **Upgrade MRTK Standard Shader for Lightweight Render Pipeline** from the top menu bar, and follow the prompts to upgrade the shader.
-
-Most of view controllers in this tutorial operate against abstract base classes instead of against concrete classes. This pattern provides better flexibility and allows the tutorial to provide the view controllers for you, while still allowing you to implement and learn the Azure Remote Rendering specific code yourself. For the simplicity of the tutorial, the **RemoteRenderingCoordinator** class does not have an abstract class provided and its view controller operates directly against the concrete class.
-
-An abstract class has been provided for the **RemoteRenderedModel** script we created in a previous tutorial. To enable the view controller for models, modify the **RemoteRenderedModel** script to implement the abstract class by replacing `MonoBehaviour` with `BaseRemoteRenderedModel` in the class signature. It should look as follows when complete:
-
-```csharp
-public class RemoteRenderedModel : BaseRemoteRenderedModel
-```
-
-Then you'll need to add the `override` modifier to the properties and methods defined in `BaseRemoteRenderedModel`. These properties and methods are already defined in our code, but need the `override` modifier to make the compiler happy. Insert the `override` modifier just after the scope (for example: `public`) on each of the properties and methods listed indie the `BaseRemoteRenderedModel` class. Those signatures for those properties and methods should look like the following when complete:
-
-
-- `public override string ModelDisplayName`
-- `public override string ModelPath`
-- `public override ModelState CurrentModelState`
-- `public override Entity ModelEntity`
-- `public override event Action<float> LoadProgress`
-- `public override event Action<ModelState> ModelStateChange`
-- `public override void SetLoadingProgress(float progressValue)`
-- `public override void LoadModel()`
-- `public override void UnloadModel()`
-
-This modification allows the view controller to view and control the **RemoteRenderedModel** component.
-
-You can now add the prefab **RemoteRenderingViewController** to the scene, for visual feedback of the current session state.
-
 ## Query remote object bounds and apply to local bounds
 
 To interact with remote objects, we need a local representation to interact with first. The [objects bounds](../../../concepts/object-bounds.md) are useful for quick manipulation of a remote object. We can query the bounds of a remotely rendered model from the current session, using the entity object created when loading a remotely rendered model. The bounds are queried after the model has been loaded into the remote session. The bounds of a model are defined by the box or cuboid that contains the entire model. Exactly like Unity's [**BoxCollider**](https://docs.unity3d.com/Manual/class-BoxCollider.html), which has a center and size defined for the x,y,z axes. In fact, we'll use Unity's **BoxCollider** to represent the bounds of the remote model.
@@ -210,7 +154,7 @@ Now we have a local **BoxCollider** configured with accurate bounds on the local
 
 Moving, rotating, and scaling remotely rendered objects is exactly like doing the same with any other Unity object. The **RemoteRenderingCoordinator**, in its `LateUpdate` method is calling `Update` on the currently active session. Part of what `Update` does is sync local model entity transforms with their remote counterparts. To move/rotate/scale a remotely rendered model, you only need move/rotate/scale the transform of the GameObject representing remote model. Here, we're going to modify the transform of the parent GameObject that has the **RemoteRenderedModel** script attached to it.
 
-This tutorial is using MRTK for object interaction. In the included tutorial assets there is a view controller prefab and script for remotely rendered models called **RemoteModelViewController**. This view controller comes pre-configured inside of a prefab **ModelViewController**.
+This tutorial is using MRTK for object interaction. In the included [**Tutorial Assets**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial) there is a view controller prefab and script for remotely rendered models called **RemoteModelViewController**. This view controller comes pre-configured inside of a prefab **ModelViewController**.
 
 1. Locate the **ModelViewController** prefab in *Assets/RemoteRenderingTutorial/Prefabs/ModelViewController*
 1. Ensure the **TestModel** GameObject created previously is in the scene.
