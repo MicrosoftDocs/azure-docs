@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Building your first app with Azure Static Web Apps"
 description: Learn to build an Azure Static Web Apps instance with your preferred front-end framework.
-services: azure-functions
+services: static-web-apps
 author: craigshoemaker
-ms.service: azure-functions
+ms.service: static-web-apps
 ms.topic:  quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
@@ -66,6 +66,8 @@ Now that the repo is created, you can create a static web app from the Azure por
 
 Begin by configuring your new app and linking it to a GitHub repository.
 
+:::image type="content" source="media/getting-started/basics-tab.png" alt-text="Basics tab":::
+
 - Select your _Azure subscription_
 - Select or create a new _Resource Group_
 - Name the app **my-first-static-web-app**.
@@ -73,10 +75,17 @@ Begin by configuring your new app and linking it to a GitHub repository.
 - Select _Region_ closest to you
 - Select the **Free** _SKU_
 - Click the **Sign-in with GitHub** button and authenticate with GitHub
+
+Once you sign in with GitHub, then enter the repository information.
+
+:::image type="content" source="media/getting-started/repository-details.png" alt-text="Repository details":::
+
 - Select your preferred _Organization_
 - Select **my-first-web-static-app** from the _Repository_ drop-down
 - Select **master** from the _Branch_ drop-down
 - Click the **Next: Build >** button to edit the build configuration
+
+:::image type="content" source="media/getting-started/next-build-button.png" alt-text="Next Build button":::
 
 ### Build
 
@@ -89,12 +98,16 @@ Next, add configuration details specific to your preferred front-end framework.
 - Enter **dist/angular-basic** in the _App artifact location_ box
 - Click the **Review + create** button
 
+:::image type="content" source="media/getting-started/review-create.png" alt-text="Review create button":::
+
 # [React](#tab/react)
 
 - Enter **/** in the _App location_ box
 - Clear the default value from the _Api location_ box
 - Enter **build** in the _App artifact location_ box
 - Click the **Review + create** button
+
+:::image type="content" source="media/getting-started/review-create.png" alt-text="Review create button":::
 
 # [Vue](#tab/vue)
 
@@ -103,6 +116,8 @@ Next, add configuration details specific to your preferred front-end framework.
 - Enter **dist** in the _App artifact location_ box
 - Click the **Review + create** button
 
+:::image type="content" source="media/getting-started/review-create.png" alt-text="Review create button":::
+
 # [No Framework](#tab/vanilla-javascript)
 
 - Enter **/** in the _App location_ box
@@ -110,18 +125,25 @@ Next, add configuration details specific to your preferred front-end framework.
 - Clear the default value from _App artifact location_ box
 - Click the **Review + create** button
 
+:::image type="content" source="media/getting-started/review-create.png" alt-text="Review create button":::
+
 ---
 
 ### Review + create
 
 After the build validates, you can continue to create the application.
 
-- Click the **Create** button
-- Once the deployment is complete, click the **Go to resource** button
+Click the **Create** button
+
+:::image type="content" source="media/getting-started/create-button.png" alt-text="Create button":::
+
+Once the deployment is complete, click the **Go to resource** button
+
+:::image type="content" source="media/getting-started/go-to-resource-button.png" alt-text="Go to resource button":::
 
 ## View website
 
-There are two automated aspects to deploying a static app. The first provisions the underlying Azure resources that make up your app. The second is a GitHub Actions workflow that builds and publishes your application.
+There are two aspects to deploying a static app. The first provisions the underlying Azure resources that make up your app. The second is a GitHub Actions workflow that builds and publishes your application.
 
 > [!NOTE]
 > You can ensure that the GitHub Actions workflow is complete by checking the status of your commits available at `https://github.com/<YOUR_GITHUB_USERNAME>/my-first-static-app/actions`.
