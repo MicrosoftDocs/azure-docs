@@ -79,7 +79,7 @@ Scaling in and out, or horizontal scaling, changes the number of nodes in the cl
 
 So, by updating the value of the *nt1InstanceCount* you change the number of nodes in the second node type.  Remember, you cannot scale a node type out to more than 100 nodes.  Non-primary node types running stateful production workloads should always have five or more nodes. Non-primary node types running stateless production workloads should always have two or more nodes.
 
-If you are scaling in, removing nodes from, a node type of Bronze [durability level][durability] you must [manually remove the state of those nodes](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  For Silver and Gold durability tier, these steps are done automatically by the platform.
+If you are scaling in, removing nodes from, a node type of Bronze [durability level][durability] you must [manually remove the state of those nodes](service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  For Silver and Gold durability tier, these steps are done automatically by the platform.
 
 ### Deploy the updated template
 Save any changes to the *template.json* and *parameters.json* files.  To deploy the updated template, run the following command:

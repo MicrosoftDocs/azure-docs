@@ -68,6 +68,8 @@
       href: cognitive-search-tutorial-blob.md
     - name: Python
       href: cognitive-search-tutorial-blob-python.md
+  - name: Query from Power Apps   
+    href: search-howto-powerapps.md  
 - name: Samples
   items:
   - name: C# samples
@@ -80,6 +82,9 @@
     href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python
   - name: REST samples
     href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Full-text search
@@ -114,12 +119,6 @@
         href: index-add-language-analyzers.md
       - name: Add a custom analyzer
         href: index-add-custom-analyzers.md
-    - name: Typeahead
-      items:
-      - name: Create a suggester
-        href: index-add-suggesters.md
-      - name: Add suggestions or autocomplete
-        href: search-autocomplete-tutorial.md
     - name: Synonyms
       items:
       - name: Add synonyms
@@ -204,6 +203,8 @@
         href: cognitive-search-custom-skill-python.md
       - name: Example - Azure Functions
         href: cognitive-search-create-custom-skill-example.md
+      - name: Example - Azure Form Recognizer
+        href: cognitive-search-custom-skill-form.md
       - name: Example - Containers
         href: https://go.microsoft.com/fwlink/?linkid=2089500 
     - name: Design tips
@@ -230,8 +231,14 @@
       href: search-query-lucene-examples.md
     - name: Partial terms and special characters
       href: search-query-partial-matching.md
-    - name: Query from Power Apps   
-      href: search-howto-powerapps.md  
+    - name: Fuzzy search
+      href: search-query-fuzzy.md
+    - name: Autocomplete "Search-as-you-type"
+      items:
+      - name: Create a suggester
+        href: index-add-suggesters.md
+      - name: Add autocomplete and suggestions
+        href: search-autocomplete-tutorial.md
     - name: Syntax reference
       items:
       - name: Simple query syntax
@@ -252,15 +259,17 @@
       href: search-query-troubleshoot-collection-filters.md
     - name: Understand collection filters
       href: search-query-understand-collection-filters.md
-    - name: Example of multi-level facets
-      href: search-example-adventureworks-multilevel-faceting.md
+    - name: Filter by language
+      href: search-filters-language.md
   - name: Results
     items:
     - name: Work with results
       href: search-pagination-page-layout.md
-    - name: Relevance tuning (scoring profiles)    
+    - name: Relevance scoring
+      href: index-similarity-and-scoring.md
+    - name: Scoring profiles 
       href: index-add-scoring-profiles.md
-    - name: Relevance tuning (similarity algorithm)  
+    - name: Similarity algorithm
       href: index-ranking-similarity.md
   - name: Plan
     items:
@@ -451,10 +460,6 @@
       href: https://wolterskluwereap.azurewebsites.net/
     - name: JFK files demo
       href: https://aka.ms/jfkfiles
-    - name: NYC Jobs demo
-      href: https://aka.ms/azjobsdemo
-    - name: Search use cases
-      href: https://searchsamples.azurewebsites.net/
   - name: Training
     items:
     - name: Introduction (Microsoft Learn)

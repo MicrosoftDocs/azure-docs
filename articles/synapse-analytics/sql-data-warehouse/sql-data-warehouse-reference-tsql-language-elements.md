@@ -243,7 +243,7 @@ Links to the documentation for T-SQL language elements supported in Synapse SQL 
 * [sp_configure](/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sp_datatype_info_90](/sql/relational-databases/system-stored-procedures/sp-datatype-info-90-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [sp_execute](/sql/relational-databases/system-stored-procedures/sp-execute-transact-sq?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latestl)
+* [sp_execute](/sql/relational-databases/system-stored-procedures/sp-execute-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latestl)
 * [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sp_fkeys](/sql/relational-databases/system-stored-procedures/sp-fkeys-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sp_pdw_add_network_credentials](/sql/relational-databases/system-stored-procedures/sp-pdw-add-network-credentials-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -272,7 +272,7 @@ Links to the documentation for T-SQL language elements supported in Synapse SQL 
 * [SET ARITHIGNORE](/sql/t-sql/statements/set-arithignore-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SET CONCAT_NULL_YIELDS_NULL](/sql/t-sql/statements/set-concat-null-yields-null-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SET DATEFIRST](/sql/t-sql/statements/set-datefirst-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [SET DATEFORMAT](/sql/t-sql/statements/set-dateformat-transact-sq?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latestl)
+* [SET DATEFORMAT](/sql/t-sql/statements/set-dateformat-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latestl)
 * [SET FMTONLY](/sql/t-sql/statements/set-fmtonly-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SET IMPLICIT_TRANSACITONS](/sql/t-sql/statements/set-implicit-transactions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SET LOCK_TIMEOUT](/sql/t-sql/statements/set-lock-timeout-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -285,4 +285,4 @@ Links to the documentation for T-SQL language elements supported in Synapse SQL 
 
 ## Next steps
 
-For more reference information, see [T-SQL statements in Synapse SQL pool](sql-data-warehouse-reference-tsql-statements.md), and [System views in Synapse SQL pool](sql-data-warehouse-reference-tsql-system-views.md).
+For more reference information, see [T-SQL statements in Synapse SQL pool](sql-data-warehouse-reference-tsql-statements.md), and [System views in Synapse SQL pool](../sql/reference-tsql-system-views.md).

@@ -26,7 +26,7 @@ In this walkthrough, we analyze the [spambase](https://archive.ics.uci.edu/ml/da
 Before you can use a Linux DSVM, you must have the following prerequisites:
 
 * **Azure subscription**. To get an Azure subscription, see [Create your free Azure account today](https://azure.microsoft.com/free/).
-* [**Linux Data Science Virtual Machine**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). For information about provisioning the virtual machine, see [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
+* [**Linux Data Science Virtual Machine**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). For information about provisioning the virtual machine, see [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) installed on your computer with an open XFCE session. For more information, see [Install and configure the X2Go client](linux-dsvm-intro.md#x2go).
 * For a smoother scrolling experience, in the DSVM's Firefox web browser, toggle the `gfx.xrender.enabled` flag in `about:config`. [Learn more](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Also consider setting `mousewheel.enable_pixel_scrolling` to `False`. [Learn more](https://support.mozilla.org/questions/981140).
 * **Azure Machine Learning account**. If you don't already have one, sign up for a new account on the [Azure Machine Learning home page](https://azure.microsoft.com/free/services/machine-learning//).
@@ -36,7 +36,7 @@ Before you can use a Linux DSVM, you must have the following prerequisites:
 The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a relatively small set of data that contains 4,601 examples. The dataset is a convenient size for demonstrating some of the key features of the DSVM because it keeps the resource requirements modest.
 
 > [!NOTE]
-> This walkthrough was created by using a D2 v2-size Linux DSVM (CentOS Edition). You can use a DSVM this size to complete the procedures that are demonstrated in this walkthrough.
+> This walkthrough was created by using a D2 v2-size Linux DSVM (Ubuntu 18.04 Edition). You can use a DSVM this size to complete the procedures that are demonstrated in this walkthrough.
 
 If you need more storage space, you can create additional disks and attach them to your DSVM. The disks use persistent Azure storage, so their data is preserved even if the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your DSVM, complete the steps in [Add a disk to a Linux VM](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The steps for adding a disk use the Azure CLI, which is already installed on the DSVM. You can complete the steps entirely from the DSVM itself. Another option to increase storage is to use [Azure Files](../../storage/files/storage-how-to-use-files-linux.md).
 

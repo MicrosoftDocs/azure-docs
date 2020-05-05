@@ -51,7 +51,7 @@ Depending on the provider, you may get different service offerings. The table be
 | --- | --- |
 | MPLS/IPVPN Network |PCCW, China Telecom Global |
 |SDWAN| PCCW, China Telecom Global|
-| Dedicated Internet Access | PCCW, Hong Kong Telecom, China Mobil, PCCW |
+| Dedicated Internet Access | PCCW, Hong Kong Telecom, China Mobil|
 
 With your provider, you can agree on which of the following two solutions to use to reach the Microsoft global backbone:
 

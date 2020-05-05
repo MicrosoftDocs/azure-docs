@@ -1,12 +1,12 @@
 ---
 title: Azure PowerShell Samples - Enable host-based autoscale
 description: This script creates a virtual machine scale set running Windows Server 2016 and uses host-based metrics to automatically scale as CPU load changes.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: sample
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
 
 ---

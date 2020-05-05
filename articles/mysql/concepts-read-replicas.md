@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 5/4/2020
 ---
 
 # Read replicas in Azure Database for MySQL
@@ -40,7 +40,6 @@ Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, 
 
 *West US 2 is temporarily unavailable as a cross region replica location.
 
-
 ### Paired regions
 In addition to the universal replica regions, you can create a read replica in the Azure paired region of your master server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
 
@@ -52,7 +51,6 @@ However, there are limitations to consider:
 	
 * Uni-directional pairs: Some Azure regions are paired in one direction only. These regions include West India, Brazil South, and US Gov Virginia. 
    This means that a master server in West India can create a replica in South India. However, a master server in South India cannot create a replica in West India. This is because West India's secondary region is South India, but South India's secondary region is not West India.
-
 
 ## Create a replica
 
@@ -66,7 +64,7 @@ Learn how to [create a read replica in the Azure portal](howto-read-replicas-por
 
 ## Connect to a replica
 
-At creation, a replica inherits the firewall rules or VNet service endpoint of the master server. Afterwards, these rules are independent from the the master server.
+At creation, a replica inherits the firewall rules of the master server. Afterwards, these rules are independent from the the master server.
 
 The replica inherits the admin account from the master server. All user accounts on the master server are replicated to the read replicas. You can only connect to a read replica by using the user accounts that are available on the master server.
 
@@ -119,7 +117,7 @@ A replica is created by using the same server configuration as the master. After
 > [!IMPORTANT]
 > Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.
 
-Firewall rules, virtual network rules, and parameter settings are inherited from the master server to the replica when the replica is created. Afterwards, the replica's rules are independent.
+Firewall rules and parameter settings are inherited from the master server to the replica when the replica is created. Afterwards, the replica's rules are independent.
 
 ### Stopped replicas
 
@@ -142,6 +140,8 @@ The following server parameters are locked on both the master and replica server
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
 The [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parameter is locked on the replica servers. 
+
+To update one of the above parameters on the master server, please delete replica servers, update the parameter value on the master, and recreate replicas.
 
 ### Other
 

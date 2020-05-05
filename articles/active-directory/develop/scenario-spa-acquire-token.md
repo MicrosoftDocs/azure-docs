@@ -2,15 +2,12 @@
 title: Acquire a token to call a web API (single-page apps) - Microsoft identity platform | Azure
 description: Learn how to build a single-page application (acquire a token to call an API)
 services: active-directory
-documentationcenter: dev-center-name
 author: negoe
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe

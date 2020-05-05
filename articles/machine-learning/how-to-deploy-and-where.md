@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 02/27/2020
+ms.date: 04/28/2020
 
 ms.custom: seoapril2019
 ---
@@ -1119,6 +1119,16 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
+The `AMLRequest` class only allows you to access the raw posted data in the score.py, there is no client-side component. From a client, you post data as normal. For example, the following Python code reads an image file and posts the data:
+
+```python
+import requests
+# Load image data
+data = open('example.jpg', 'rb').read()
+# Post raw data to scoring URI
+res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+```
+
 <a id="cors"></a>
 
 ### Cross-origin resource sharing (CORS)
@@ -1130,11 +1140,13 @@ To configure your model deployment to support CORS, use the `AMLResponse` class 
 The following example sets the `Access-Control-Allow-Origin` header for the response from the entry script:
 
 ```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
 
 def init():
     print("This is init()")
 
+@rawhttp
 def run(request):
     print("This is run()")
     print("Request: [{0}]".format(request))

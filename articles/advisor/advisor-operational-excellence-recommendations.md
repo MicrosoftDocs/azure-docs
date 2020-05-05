@@ -28,12 +28,12 @@ Log alert rules are created in Azure Monitor and are used to run analytics queri
 
 ## Follow best practices using Azure Policy
 
-Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. Below are the Azure policy recommendations to help you achieve operational excellency: 
+Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources. Below are the Azure Policy recommendations to help you achieve operational excellency: 
 1. Manage Tags using Azure Policy: This policy adds or replaces the specified tag and value when any resource is created or updated. Existing resources can be remediated by triggering a remediation task. Also, this doesn't modify tags on resource groups.
 2. Enforce geo-compliance requirements using Azure Policy: The policy enables you to restrict the locations your organization can specify when deploying resources. 
 3. Specify allowed virtual machine SKUs for deployments: This policy enables you to specify a set of virtual machine SKUs that your organization can deploy.
-4. Enforce 'Audit VMs that do not use managed disks' using Azure policy
-5. Use 'Inherit a tag from resource groups' using Azure policy: The policy adds or replaces the specified tag and value from the parent resource group when any resource is created or updated. Existing resources can be remediated by triggering a remediation task.
+4. Enforce 'Audit VMs that do not use managed disks' using Azure Policy
+5. Use 'Inherit a tag from resource groups' using Azure Policy: The policy adds or replaces the specified tag and value from the parent resource group when any resource is created or updated. Existing resources can be remediated by triggering a remediation task.
 
 ## Next steps
 
