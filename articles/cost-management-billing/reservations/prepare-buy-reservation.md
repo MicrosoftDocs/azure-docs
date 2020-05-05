@@ -5,7 +5,7 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/04/2020
 ms.author: banders
 ---
 
@@ -68,6 +68,9 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Storage](../../storage/blobs/storage-blob-reserved-capacity.md)
 - [SQL Database](../../sql-database/sql-database-reserved-capacity.md)
+- [Azure Database for PostgreSQL](../../postgresql/concept-reserved-pricing.md)
+- [Azure Database for MySQL](../../mysql/concept-reserved-pricing.md)
+- [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
 - [Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md)
 - [Virtual machines](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
 
