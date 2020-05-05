@@ -13,7 +13,7 @@ ms.author: v-grpr
 
 # Use the Azure Portal to manage Data Box Customer Managed Shipping
 
-This article describes the process workflow and customer managed shipping (CMS) tasks to order, pick-up, and drop off of an Azure Data Box. You can manage the Data Box device using the Azure portal. Since some organizations are working with sensitive data, it's imperative that there is a method for Microsoft and the customer to handle device logistics in a secure manner where the customer has control over. The customer can designate a point of contact from their organization, or use any carrier of their choice to pick up the Azure Data Box device from a distribution center and also return the device back to the distribution center. The customer will need to follow distribution center's security procedures, so both parties will need to sign off at particular points between pick-up and drop-off. At many of the stages of the workflow, you will be using an assigned authorization code (authcode) that you, the customer, and the distribution center will use for that security.
+This article describes the process workflow and customer-managed shipping (CMS) tasks to order, pick-up, and drop off of an Azure Data Box device. You can manage the Data Box device using the Azure portal. Since some organizations are working with sensitive data, it's imperative that there is a method for Microsoft and the customer to handle device logistics in a secure manner. The customer can designate a point of contact from their organization, or use any carrier of their choice to pick-up the Azure Data Box device from a distribution center and also return the device back to the distribution center. The customer will need to follow distribution center's security procedures as both parties will sign off at particular points between pick-up and drop-off. At pick-up and drop-off, the customer or point of contact will be assigned an authorization code. This authorization code needs to be presented during device pick-up and drop-off at the distribution center.
 
 ## Prerequisites
 
@@ -43,44 +43,44 @@ For detailed information regarding prerequisites and Azure Portal usage, see [Qu
    ![Schedule pickup](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-02b.png)
 
 5. After you have made contact with ADBOPs, you will be able to view your **Authorization Code** for your device in the **Schedule pickup for Azure**.
-   ![Authorization Code](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
+   ![Viewing your authcode](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
 
-   Write this number down or print it.
+   Write down this number or print it.
 
 6. Ready for pickup in progress.
-   Your order automatically moves to this state once the device prep has completed. You will receive an email instructing you to contact ADB ops to schedule an appointment to come to the distribution center for pick up.
+   Your order automatically moves to this state once the device prep has completed. You will receive an email instructing you to contact ADB ops to schedule an appointment to come to the distribution center for pickup.
 
    ![Picked up](media\data-box-portal-customer-managed-shipping\data-box-portal-picked-up-01.png)
 
-   You also need to provide details of who will be coming for the pick up. You or the point of contact has to carry a Government approved photo ID that will be validated at the DC. Ops will need to include this person's details so that it can be verified during pick up.
+   You also need to provide details of who will be going to the distribution center for pick-up. You or the point of contact has to carry a Government approved photo ID that will be validated at the distribution center. Operations will need to include this person's details so that it can be verified during pick-up.
 
-   Additionally, the person who is picking up the device also needs to have the **Authorization code** that is available in the Portal under **Schedule Pick up**. This code is also validated at the distribution center time of pick up.
+   Additionally, the person who is picking up the device also needs to have the **Authorization code** that is available in the Portal under **Schedule Pick up**. This code is also validated at the distribution center time of pick-up.
 
-7. After you have scheduled an appointment for pick up and shared the pick up point of contact's details.
+<!--7. After you have scheduled an appointment to get and shared the distribution center pick-up point of contact's details. -->
 
-8. After the device is picked up, the customer needs to finish data copy and then drop off the device back at the DC.
+7. After the device has been picked up, the customer needs to prepare the data copy and then drop off the device back at the distribution center.
 
-    Once you finish copying data, you need to successfully complete **Prepare to ship** step on the device. This step will need to complete without any critical errors, otherwise you will need to run this step again. If it successfully completes, the authorization code for the drop off will be shown to the customer.
+   Once you finish copying data, you need to successfully complete **Prepare to ship** step on the device. This step will need to complete without any critical errors, otherwise you will need to run this step again. If it successfully completes, the authorization code for the drop off will be shown to the customer.
 
-    > [!NOTE]
-    >
-    > The authorization code will no longer be available on the portal once **Prepare to ship** is globally enabled on all orders. It will only be available on the device local UI.
+   > [!NOTE]
+   >
+   > The authorization code will no longer be available on the portal once **Prepare to ship** is globally enabled on all orders. It will only be available on the device local UI.
 
-9. You should now be at Ready to receive success state of the Azure portal. This means that you have scheduled an appointment for drop off and shared the drop off point of contact's details. They have also confirmed that they have the authorization code available.
-   ![Authorization Code](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
+8. You should now be at **Ready to receive success** state of the Azure portal. This means that you have scheduled an appointment for drop off and shared the drop off point of contact's details. They have also confirmed that they have the authorization code available.
+   ![Viewing your authcode](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
-10. Customer or point of contact has dropped off the device at the DC and their ID and authorization code have been verified.
+9. Customer or point of contact has dropped off the device at the distribution center and their ID and authorization code have been verified.
 
     ![Received Complete](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-01.png)
 
-11. From this point on Microsoft will copy your data to their servers. From the UI you will be able to see the **Copy in progress**.
+10. From this point on Microsoft will copy your data to their servers. The Azure portal should be at the **Copy in progress**.
 
     ![Data Copy](media\data-box-portal-customer-managed-shipping\data-box-copy-data-01.png)
 
-12. When your data and finished copying successfully, Azure portal will indicate that the copy of your data is complete.
+11. When your data has finished copying successfully, the Azure portal will indicate that your data copy is complete.
 
     ![Data Copy Complete](media\data-box-portal-customer-managed-shipping\data-box-copy-data-complete-01.png)
 
 ## Next steps
 
-[Quickstart: Deploy Azure Data Box Heavy using the Azure portal](data-box-heavy-quickstart-portal.md)
+- [Quickstart: Deploy Azure Data Box Heavy using the Azure portal](data-box-heavy-quickstart-portal.md)
