@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Building your first app with Azure Static Web Apps"
-description: Learn to build an App Service Static App with your preferred front-end framework.
+description: Learn to build an Azure Static Web Apps instance with your preferred front-end framework.
 services: azure-functions
 author: craigshoemaker
 ms.service: azure-functions
@@ -22,7 +22,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 ## Create a repository
 
-This article uses GitHub template repos to make it easy for you to create a new repository. The templates feature starter apps built with different front-end frameworks.
+This article uses GitHub template repositories to make it easy for you to create a new repository. The templates feature starter apps built with different front-end frameworks.
 
 # [Angular](#tab/angular)
 
@@ -74,7 +74,7 @@ Begin by configuring your new app and linking it to a GitHub repository.
 - Select the **Free** _SKU_
 - Click the **Sign-in with GitHub** button and authenticate with GitHub
 - Select your preferred _Organization_
-- Select **my-first-static-app** from the _Repository_ drop-down
+- Select **my-first-web-static-app** from the _Repository_ drop-down
 - Select **master** from the _Branch_ drop-down
 - Click the **Next: Build >** button to edit the build configuration
 
@@ -86,7 +86,7 @@ Next, add configuration details specific to your preferred front-end framework.
 
 - Enter **src** in the _App location_ box
 - Clear the default value from the _Api location_ box
-- Enter **dist** in the _App artifact location_ box
+- Enter **dist/angular-basic** in the _App artifact location_ box
 - Click the **Review + create** button
 
 # [React](#tab/react)
@@ -130,10 +130,10 @@ Once the provisioning and deployment is complete, you can click on the _URL_ lin
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the static web app through the following steps:
+If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the following steps:
 
 1. Open the [Azure portal](https://portal.azure.com)
-1. Search for **my-first-static-app** from the top search bar
+1. Search for **my-first-web-static-app** from the top search bar
 1. Click on the app name
 1. Click on the **Delete** button
 1. Click **Yes** to confirm the delete action
