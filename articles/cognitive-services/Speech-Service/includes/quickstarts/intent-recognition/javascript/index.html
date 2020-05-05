@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Microsoft Cognitive Services Speech SDK JavaScript Quickstart</title>
+  <meta charset="utf-8" />
+</head>
+<body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:13px;">
+  <!-- <uidiv> -->
+  <div id="warning">
+    <h1 style="font-weight:500;">Speech Recognition Speech SDK not found (microsoft.cognitiveservices.speech.sdk.bundle.js missing).</h1>
+  </div>
+  
+  <div id="content" style="display:none">
+    <table width="100%">
+      <tr>
+        <td></td>
+        <td><h1 style="font-weight:500;">Microsoft Cognitive Services Speech SDK JavaScript Quickstart</h1></td>
+      </tr>
+      <tr>
+        <td align="right"><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started" target="_blank">Subscription</a>:</td>
+        <td><input id="subscriptionKey" type="text" size="40" value="subscription"></td>
+      </tr>
+      <tr>
+        <td align="right">Region</td>
+        <td><input id="serviceRegion" type="text" size="40" value="YourServiceRegion"></td>
+      </tr>
+      <tr>
+        <td align="right">Application ID:</td>
+        <td><input id="appId" type="text" size="60" value="YOUR_LANGUAGE_UNDERSTANDING_APP_ID"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button id="startIntentRecognizeAsyncButton">Start Intent Recognition</button></td>
+      </tr>
+      <tr>
+        <td align="right" valign="top">Input Text</td>
+        <td><textarea id="phraseDiv" style="display: inline-block;width:500px;height:200px"></textarea></td>
+      </tr>
+      <tr>
+        <td align="right" valign="top">Result</td>
+        <td><textarea id="statusDiv" style="display: inline-block;width:500px;height:100px"></textarea></td>
+      </tr>
+    </table>
+  </div>
+  <!-- </uidiv> -->
+
+  <!-- <speechsdkref> -->
+  <!-- Speech SDK reference sdk. -->
+  <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>
+  <!-- </speechsdkref> -->
+
+  <!-- <authorizationfunction> -->
+  <!-- Speech SDK Authorization token -->
+  <script>
+  // Note: Replace the URL with a valid endpoint to retrieve
+  //       authorization tokens for your subscription.
+  var authorizationEndpoint = "token.php";
+
+  function RequestAuthorizationToken() {
+    if (authorizationEndpoint) {
+      var a = new XMLHttpRequest();
+      a.open("GET", authorizationEndpoint);
+      a.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      a.send("");
+      a.onload = function() {
+        var token = JSON.parse(atob(this.responseText.split(".")[1]));
+        serviceRegion.value = token.region;
+        authorizationToken = this.responseText;
+        subscriptionKey.disabled = true;
+        subscriptionKey.value = "using authorization token (hit F5 to refresh)";
+        console.log("Got an authorization token: " + token);
+      }
+    }
+  }
+  </script>
+  <!-- </authorizationfunction> -->
+
+  <!-- <quickstartcode> -->
+  <!-- Speech SDK USAGE -->
+  <script>
+    // status fields and start button in UI
+    var phraseDiv;
+    var statusDiv;
+    var startIntentRecognizeAsyncButton;
+
+    // subscription key and region for speech services.
+    var subscriptionKey, serviceRegion, appId;
+    var authorizationToken;
+    var SpeechSDK;
+    var recognizer;
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      startIntentRecognizeAsyncButton = document.getElementById("startIntentRecognizeAsyncButton");
+      subscriptionKey = document.getElementById("subscriptionKey");
+      serviceRegion = document.getElementById("serviceRegion");
+      appId = document.getElementById("appId");
+      phraseDiv = document.getElementById("phraseDiv");
+      statusDiv = document.getElementById("statusDiv");
+
+      startIntentRecognizeAsyncButton.addEventListener("click", function () {
+        startIntentRecognizeAsyncButton.disabled = true;
+        phraseDiv.innerHTML = "";
+        statusDiv.innerHTML = "";
+
+        var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+        // if we got an authorization token, use the token. Otherwise use the provided subscription key
+        var speechConfig;
+        if (authorizationToken) {
+          speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(authorizationToken, serviceRegion.value);
+        } else {
+          if (subscriptionKey.value === "" || subscriptionKey.value === "subscription") {
+            alert("Please enter your Microsoft Cognitive Services Speech subscription key!");
+            startIntentRecognizeAsyncButton.disabled = false;
+            return;
+          }
+          speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey.value, serviceRegion.value);
+        }
+
+        speechConfig.speechRecognitionLanguage = "en-US";
+        recognizer = new SpeechSDK.IntentRecognizer(speechConfig, audioConfig);
+
+        // Set up a Language Understanding Model from Language Understanding Intelligent Service (LUIS).
+        // See https://www.luis.ai/home for more information on LUIS.
+        if (appId.value !== "" && appId.value !== "YOUR_LANGUAGE_UNDERSTANDING_APP_ID") {
+          var lm = SpeechSDK.LanguageUnderstandingModel.fromAppId(appId.value);
+
+          recognizer.addAllIntents(lm);
+        }
+
+        recognizer.recognizeOnceAsync(
+          function (result) {
+            window.console.log(result);
+  
+            phraseDiv.innerHTML = result.text + "\r\n";
+  
+            statusDiv.innerHTML += "(continuation) Reason: " + SpeechSDK.ResultReason[result.reason];
+            switch (result.reason) {
+              case SpeechSDK.ResultReason.RecognizedSpeech:
+                statusDiv.innerHTML += " Text: " + result.text;
+                break;
+              case SpeechSDK.ResultReason.RecognizedIntent:
+                statusDiv.innerHTML += " Text: " + result.text + " IntentId: " + result.intentId;
+                
+                // The actual JSON returned from Language Understanding is a bit more complex to get to, but it is available for things like
+                // the entity name and type if part of the intent.
+                statusDiv.innerHTML += " Intent JSON: " + result.properties.getProperty(SpeechSDK.PropertyId.LanguageUnderstandingServiceResponse_JsonResult);
+                phraseDiv.innerHTML += result.properties.getProperty(SpeechSDK.PropertyId.LanguageUnderstandingServiceResponse_JsonResult) + "\r\n";
+                break;
+              case SpeechSDK.ResultReason.NoMatch:
+                var noMatchDetail = SpeechSDK.NoMatchDetails.fromResult(result);
+                statusDiv.innerHTML += " NoMatchReason: " + SpeechSDK.NoMatchReason[noMatchDetail.reason];
+                break;
+              case SpeechSDK.ResultReason.Canceled:
+                var cancelDetails = SpeechSDK.CancellationDetails.fromResult(result);
+                statusDiv.innerHTML += " CancellationReason: " + SpeechSDK.CancellationReason[cancelDetails.reason];
+              
+              if (cancelDetails.reason === SpeechSDK.CancellationReason.Error) {
+                statusDiv.innerHTML += ": " + cancelDetails.errorDetails;
+              }
+            break;
+            }
+            statusDiv.innerHTML += "\r\n";
+            startIntentRecognizeAsyncButton.disabled = false;
+          },
+          function (err) {
+            window.console.log(err);
+    
+            phraseDiv.innerHTML += "ERROR: " + err;
+            startIntentRecognizeAsyncButton.disabled = false;
+          });
+        });
+
+      if (!!window.SpeechSDK) {
+        SpeechSDK = window.SpeechSDK;
+        startIntentRecognizeAsyncButton.disabled = false;
+
+        document.getElementById('content').style.display = 'block';
+        document.getElementById('warning').style.display = 'none';
+
+        // in case we have a function for getting an authorization token, call it.
+        if (typeof RequestAuthorizationToken === "function") {
+          RequestAuthorizationToken();
+        }
+      }
+    });
+
+  </script>
+  <!-- </quickstartcode> -->
+</body>
+</html>
