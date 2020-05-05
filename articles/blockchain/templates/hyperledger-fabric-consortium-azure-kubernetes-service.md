@@ -129,17 +129,13 @@ The following image shows the step-by-step process to build consortium between a
 Follow the below commands for the initial setup of the client application: 
 
 1.	[Download client application files](#download-client-application-files)
-
 2.	[Setup environment variables](#setup-environment-variables)
-
 3.	[Import organization connection profile, admin user, and MSP](#import-organization-connection-profile-admin-user-identity-and-msp)
 
 After completing the initial setup, you can use the client application to achieve the below operations:  
 
 - [Channel management commands](#channel-management-commands)
-
 - [Consortium management commands](#consortium-management-commands)
-
 - [Chaincode management commands](#chaincode-management-commands)
 
 ### Download client application files
