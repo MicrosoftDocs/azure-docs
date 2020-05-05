@@ -466,6 +466,42 @@ The easiest way to release an updated package is to repeat the process described
 provide an updated version number. That process guarantees all properties have been correctly
 updated.
 
+
+### Filtering Guest Configuration policies using Tags
+
+> [!Note]
+> This feature is currently in preview and requires Guest Configuration module
+> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
+
+The policies created by cmdlets in the Guest Configuration module can optionally include
+a filter for tags. The `-Tag` parameter of `New-GuestConfigurationPolicy` supports
+an array of hashtables containing individual tag entires. The tags will be added
+to the `If` section of the policy definition and cannot be modified by a policy assignment.
+
+An example snippet of a policy definition that will filter for tags is given below.
+
+```json
+"if": {
+  "allOf" : [
+    {
+      "allOf": [
+        {
+          "field": "tags.Owner",
+          "equals": "BusinessUnit"
+        },
+        {
+          "field": "tags.Role",
+          "equals": "Web"
+        }
+      ]
+    },
+    {
+      // Original Guest Configuration content will follow
+    }
+  ]
+}
+```
+
 ## Optional: Signing Guest Configuration packages
 
 Guest Configuration custom policies use SHA256 hash to validate the policy package hasn't changed.
