@@ -27,13 +27,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 * An Azure Machine Learning workspace with the Enterprise SKU.
-* A dataset accessible to the designer. This can be one of the following:
-   * An Azure Machine Learning registered dataset
-    
-     **-or-**
-   * A data file  stored in an Azure Machine Learning datastore.
-   
-For information on data access using the designer see [How to import data into the designer](how-to-designer-import-data.md).
+* Complete part 1 of this how-to series, [Transform data in the designer](how-to-designer-transform-data.md).
 
 This article also assumes that you have basic knowledge of building pipelines in the designer. For a guided introduction, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
