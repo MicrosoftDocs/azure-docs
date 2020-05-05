@@ -120,8 +120,6 @@ The following steps show you how to create a new static site app and deploy it t
 
    :::image type="content" source="./media/static-web-apps-publish-hugo/completed-github-info.png" alt-text="Completed GitHub information":::
 
-1. Click **Next : Build >**
-
 ### Build
 
 Next, you add configuration settings that the build process uses to build your app. The following settings configure the GitHub Action workflow file.
