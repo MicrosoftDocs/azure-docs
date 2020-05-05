@@ -1,5 +1,5 @@
 ---
-title: Trigger the run of an ML pipeline from a Logic App
+title: Trigger ML pipeline for new data
 titleSuffix: Azure Machine Learning
 description: Learn how to trigger the run of an ML pipeline by using Azure Logic Apps.
 services: machine-learning

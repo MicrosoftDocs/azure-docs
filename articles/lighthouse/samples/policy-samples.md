@@ -1,6 +1,6 @@
 ---
-title: List of built-in policy definitions for Azure Lighthouse
-description: Lists Azure Policy built-in policy definitions for Azure Lighthouse. These built-ins provide common approaches to managing your Azure resources.
+title: Built-in policy definitions for Azure Lighthouse
+description: Lists Azure Policy built-in policy definitions for Azure Lighthouse. These built-in policy definitions provide common approaches to managing your Azure resources.
 ms.date: 04/30/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
@@ -12,8 +12,8 @@ definitions for Azure Lighthouse. For additional Azure Policy built-ins for othe
 services, see
 [Azure Policy built-in definitions](../../governance/policy/samples/built-in-policies.md).
 
-The name of each built-in links to the policy definition in Azure portal. Use the link in the
-**Source** column to view the source on the
+The name of each built-in policy definition links to the policy definition in the Azure portal. Use
+the link in the **GitHub** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 
 ## Azure Lighthouse

@@ -11,15 +11,11 @@ ms.author: dsindona
 
 # Lead management for commercial marketplace
 
-
 Customers are the center of any good business. In the transformation of today's product acquisitions, marketers need to focus on connecting with customers directly and building a relationship. This is why generating high-quality leads is a vital tool for your sales cycle. After listing your offer in [Partner Center](https://partner.microsoft.com/), there are tools enabled for you to programmatically receive customer contact information immediately after a customer expresses interest or deploys your product in the marketplace. 
-
-
 
 ## What are leads in the marketplace?
 
 The leads are from customers who are interested or deploying your products from the Marketplace. Whether your product is listed on Azure Marketplace or AppSource, you will be able to receive leads from customers once it is set up properly from your CRM to your listing(s) in Partner Center. 
-
 
 ## How to connect your CRM system with Partner Center
 

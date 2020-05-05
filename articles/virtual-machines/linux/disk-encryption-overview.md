@@ -24,7 +24,7 @@ If you use [Azure Security Center](../../security-center/index.yml), you're aler
 > - Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
 > - Currently Generation 2 VMs do not support Azure Disk Encryption. See [Support for Generation 2 VMs on Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) for details.
 
-You can learn the fundamentals of Azure Disk Encryption for Linux in just a few minutes with the [Create and encrypt a Linux VM with Azure CLI quickstart](disk-encryption-cli-quickstart.md) or the [Create and encrypt a Linux VM with Azure Powershell quickstart](disk-encryption-powershell-quickstart.md).
+You can learn the fundamentals of Azure Disk Encryption for Linux in just a few minutes with the [Create and encrypt a Linux VM with Azure CLI quickstart](disk-encryption-cli-quickstart.md) or the [Create and encrypt a Linux VM with Azure PowerShell quickstart](disk-encryption-powershell-quickstart.md).
 
 ## Supported VMs and operating systems
 
@@ -52,29 +52,37 @@ Azure Disk Encryption is supported on a subset of the [Azure-endorsed Linux dist
 
 Linux server distributions that are not endorsed by Azure do not support Azure Disk Encryption; of those that are endorsed, only the following distributions and versions support Azure Disk Encryption:
 
-| Linux distribution | Version | Volume type supported for encryption|
-| --- | --- |--- |
-| Ubuntu | 18.04| OS and data disk |
-| Ubuntu | 16.04| OS and data disk |
-| Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | OS and data disk |
-| RHEL | 7.7 | OS and data disk (see note below) |
-| RHEL | 7.6 | OS and data disk (see note below) |
-| RHEL | 7.5 | OS and data disk (see note below) |
-| RHEL | 7.4 | OS and data disk (see note below) |
-| RHEL | 7.3 | OS and data disk (see note below) |
-| RHEL | 7.2 | OS and data disk (see note below) |
-| RHEL | 6.8 | Data disk (see note below) |
-| RHEL | 6.7 | Data disk (see note below) |
-| CentOS | 7.7 | OS and data disk |
-| CentOS | 7.6 | OS and data disk |
-| CentOS | 7.5 | OS and data disk |
-| CentOS | 7.4 | OS and data disk |
-| CentOS | 7.3 | OS and data disk |
-| CentOS | 7.2n | OS and data disk |
-| CentOS | 6.8 | Data disk |
-| openSUSE | 42.3 | Data disk |
-| SLES | 12-SP4 | Data disk |
-| SLES | 12-SP3 | Data disk |
+| Publisher | Offer | SKU | URN | Volume type supported for encryption |
+| --- | --- |--- | --- |
+| Canonical | Ubuntu | 18.04-LTS | Canonical:UbuntuServer:18.04-LTS:latest | OS and data disk |
+| Canonical | Ubuntu 18.04 | 18.04-DAILY-LTS | Canonical:UbuntuServer:18.04-DAILY-LTS:latest | OS and data disk |
+| Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | OS and data disk |
+| Canonical | Ubuntu 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | OS and data disk |
+| Canonical | Ubuntu 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS and data disk |
+| RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | OS and data disk (see note below) |
+| RedHat | RHEL 7.7 | 7-RAW | RedHat:RHEL:7-RAW:latest | OS and data disk (see note below) |
+| RedHat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | OS and data disk (see note below) |
+| RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | OS and data disk (see note below) |
+| RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | OS and data disk (see note below) |
+| RedHat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:latest | OS and data disk (see note below) |
+| RedHat | RHEL 7.3 | 7.3 | RedHat:RHEL:7.3:latest | OS and data disk (see note below) |
+| RedHat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 6.8 | 6.8 | RedHat:RHEL:6.8:latest | Data disk (see note below) |
+| RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | Data disk (see note below) |
+| OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | OS and data disk |
+| OpenLogic | CentOS 7.7 | 7-LVM | OpenLogic:CentOS:7-LVM:latest | OS and data disk |
+| OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | OS and data disk |
+| OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | OS and data disk |
+| OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | OS and data disk |
+| OpenLogic | CentOS 7.3 | 7.3 | OpenLogic:CentOS:7.3:latest | OS and data disk |
+| OpenLogic | CentOS 7.2n | 7.2n | OpenLogic:CentOS:7.2n:latest | OS and data disk |
+| OpenLogic | CentOS 7.1 | 7.1 | OpenLogic:CentOS:7.1:latest | Data disk only |
+| OpenLogic | CentOS 7.0 | 7.0 | OpenLogic:CentOS:7.0:latest | Data disk only |
+| OpenLogic | CentOS 6.8 | 6.8 | OpenLogic:CentOS:6.8:latest | Data disk only |
+| SUSE | openSUSE 42.3 | 42.3 | SUSE:openSUSE-Leap:42.3:latest | Data disk only |
+| SUSE | SLES Priority 12-SP4 | 12-SP4 | SUSE:SLES-Priority:12-SP4:latest | Data disk only |
+| SUSE | SLES Priority 12-SP3 | 12-SP3 | SUSE:SLES-Priority:12-SP3:latest | Data disk only |
+| SUSE | SLES HPC 12-SP3 | 12-SP3 | SUSE:SLES-HPC:12-SP3:latest | Data disk only |
 
 > [!NOTE]
 > The new Azure Disk Encryption implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images.  

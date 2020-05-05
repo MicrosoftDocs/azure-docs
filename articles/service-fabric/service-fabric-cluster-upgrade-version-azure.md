@@ -106,7 +106,7 @@ Output:
 
 ## Next steps
 * Learn how to customize some of the [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md)
-* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md)
+* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-in-out.md)
 * Learn about [application upgrades](service-fabric-application-upgrade.md)
 
 <!--Image references-->
