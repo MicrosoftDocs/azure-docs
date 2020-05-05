@@ -5,7 +5,7 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/26/2020
+ms.date: 05/05/2020
 ---
 
 # Provision autoscale throughput on database or container in Azure Cosmos DB
@@ -18,7 +18,7 @@ This article explains how to provision autoscale throughput on a database or con
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
 
-1. Select **New Container.** Enter a name for your database, container, and a partition key. Under **Throughput**, select the **autoscale** option, and set the [maximum throughput (RU/s)](provision-throughput-autopilot.md#how-autoscale-provisioned-throughput-works) that you want the database or container to scale to.
+1. Select **New Container.** Enter a name for your database, container, and a partition key. Under **Throughput**, select the **autoscale** option, and set the [maximum throughput (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) that you want the database or container to scale to.
 
    ![Creating a container and configuring autoscale provisioned throughput](./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png)
 
