@@ -19,5 +19,6 @@ You can manage your shared image gallery resources using the Azure CLI.
 
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
-**Next steps**
+## Next steps
+
 [Azure Image Builder (preview)](./linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 
