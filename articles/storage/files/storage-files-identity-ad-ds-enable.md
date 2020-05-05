@@ -9,9 +9,13 @@ ms.date: 04/20/2020
 ms.author: rogarana
 ---
 
-# 1. Enable AD DS authentication for your account 
+# Enable AD DS authentication for your account 
 
-To enable AD DS authentication over SMB for Azure file shares, you need to first register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account. The `join-AzStorageAccountForAuth`cmdlet enables the feature but, it makes modifications to your AD DS environment. This article contains a script which will do all this for you. We explain the script, as well as the command, so you can determine if the script's changes align with your compliance and security policies, as well as ensure you have the proper permissions to execute the command or the script.
+This article describes the process required for enabling AD DS on your storage account. After enabling the feature, you must configure your storage account and your AD DS, in order to use AD DS credentials to authenticate.
+
+To enable AD DS authentication over SMB for Azure file shares, you need to first register your storage account with AD DS and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account. The `join-AzStorageAccountForAuth`cmdlet enables the feature but, it makes modifications to your AD DS environment. This article contains a script which will do all this for you. We explain the script, as well as the command, so you can determine if the script's changes align with your compliance and security policies, and ensure you have the proper permissions to execute the command or the script.
+
+### Example header
 
 The `Join-AzStorageAccountForAuth` cmdlet performs the equivalent of an offline domain join on behalf of the provided storage account. The script uses the cmdlet to create an account in your AD domain, either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). If you choose to do this manually, you should select the account best suited for your environment.
 
@@ -19,12 +23,12 @@ The AD DS account created by the cmdlet represents the storage account. If the A
 
 You can use the following script to perform the registration and enable the feature or, alternatively, you can manually perform the operations that the script would. Those operations are described in the section following the script. You do not need to do both.
 
-### 1.1 Script prerequisites
+## Script prerequisites
 - [Download and unzip the AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases)
 - Install and execute the module in a device that is domain joined to on-premises AD DS with AD DS credentials that have permissions to create a service logon account or a computer account in the target AD.
 -  Run the script using an on-premises AD DS credential that is synced to your Azure AD. The on-premises AD DS credential must have either the storage account owner or the contributor RBAC role permissions.
 
-### 1.2 Domain join your storage account
+### Domain join your storage account
 Remember to replace the placeholder values with your own in the parameters below before executing it in PowerShell.
 > [!IMPORTANT]
 > The domain join cmdlet will create an AD account to represent the storage account (file share) in AD. You can choose to register as a computer account or service logon account, see [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) for details. For computer accounts, there is a default password expiration age set in AD at 30 days. Similarly, the service logon account may have a default password expiration age set on the AD domain or Organizational Unit (OU).
@@ -69,13 +73,15 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 The following description summarizes all actions performed when the `Join-AzStorageAccountForAuth` cmdlet gets executed. You may perform these steps manually, if you prefer not to use the command:
 
 > [!NOTE]
-> If you have already executed the `Join-AzStorageAccountForAuth` script above successfully, go to the section "1.3 Confirm that the feature is enabled". You do not need to perform the operations below again.
+> If you have already executed the `Join-AzStorageAccountForAuth` script above successfully, go to the section 1.3 [Confirm that the feature is enabled](#confirm-the-feature-is-enabled). You do not need to perform the manual steps.
 
-#### a. Checking environment
+## (Optional) manual steps
+
+### Checking environment
 
 First, the script checks your environment. Specifically, it checks if [Active Directory PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) is installed, and if the shell is being executed with administrator privileges. Then it checks to see if the [Az.Storage 1.11.1-preview module](https://www.powershellgallery.com/packages/Az.Storage/1.11.1-preview) is installed, and installs it if it isn't. If those checks pass, then it will check your AD DS to see if there is either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) that has already been created with SPN/UPN as "cifs/your-storage-account-name-here.file.core.windows.net". If the account doesn't exist, it will create one as described in section b below.
 
-#### b. Creating an identity representing the storage account in your AD manually
+### Creating an identity representing the storage account in your AD manually
 
 To create this account manually, create a new Kerberos key for your storage account using `New-AzStorageAccountKey -KeyName kerb1`. Then, use that Kerberos key as the password for your account. This key is only used during set up and cannot be used for any control or data plane operations against the storage account.
 
@@ -87,7 +93,7 @@ If your OU enforces password expiration, you must update the password before the
 
 Keep the SID of the newly created account, you'll need it for the next step. The identity you have created that represent the storage account does not need to be synced to Azure AD.
 
-##### c. Enable the feature on your storage account
+#### Enable the feature on your storage account
 
 The script would then enable the feature on your storage account. To perform this setup manually, provide some configuration details for the domain properties in the following command, then run it. The storage account SID required in the following command is the SID of the identity you created in your AD DS in [the previous section](#b-creating-an-identity-representing-the-storage-account-in-your-ad-manually).
 
@@ -106,7 +112,7 @@ Set-AzStorageAccount `
 ```
 
 
-### 1.3 Confirm that the feature is enabled
+## Confirm the feature is enabled
 
 You can check to confirm whether the feature is enabled on your storage account with the following script:
 
