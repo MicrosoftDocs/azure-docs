@@ -19,7 +19,7 @@
   - name: Use Azure Synapse Studio 
     href: quickstart-synapse-studio.md
   - name: Link a Power BI workspace
-    href: quickstart-powerbi.md
+    href: quickstart-power-bi.md
   - name: Create pools
     items:
     - name: Create Apache Spark notebook using web tools
