@@ -722,8 +722,12 @@
           href: insights/container-insights-livedata-deployments.md
       - name: Analyze data with log queries
         href: insights/container-insights-log-search.md
-      - name: Alerting
-        href: insights/container-insights-alerts.md
+      - name: Alerts
+        items:
+          name: Create log alert rules
+          href: insights/container-insights-log-alerts.md
+          name: Enable metric alert rules
+          href: insights/container-insights-metric-alerts.md
       - name: Agent management
         href: insights/container-insights-manage-agent.md
       - name: Configure Prometheus metric scraping
