@@ -3,12 +3,12 @@ title: Container repository
 titleSuffix: Azure Cognitive Services
 description: Language Detection container repository
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/12/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 | Container | Repository |

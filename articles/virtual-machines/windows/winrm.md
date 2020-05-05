@@ -1,21 +1,13 @@
 ---
 title: Set up WinRM access for an Azure VM 
 description: Setup WinRM access for use with an Azure virtual machine created in the Resource Manager deployment model.
-services: virtual-machines-windows
-documentationcenter: ''
-author: singhkays
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 9718e85b-d360-4621-90b8-0b0b84a21208
+author: mimckitt
+manager: vashan
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/16/2016
-ms.author: kasing
+ms.author: mimckitt
 
 ---
 # Setting up WinRM access for Virtual Machines in Azure Resource Manager

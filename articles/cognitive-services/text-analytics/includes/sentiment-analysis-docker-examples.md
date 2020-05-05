@@ -3,12 +3,12 @@ title: Sentiment Analysis container docker examples
 titleSuffix: Azure Cognitive Services
 description: Sentiment Analysis container docker examples
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/19/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ### Sentiment Analysis container docker examples

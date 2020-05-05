@@ -143,9 +143,7 @@ Configuration settings for the [Azure Cosmos DB trigger and bindings](functions-
 
 ## eventHub
 
-Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs.md).
-
-[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
+Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs-trigger.md#functions-1x).
 
 ## functions
 

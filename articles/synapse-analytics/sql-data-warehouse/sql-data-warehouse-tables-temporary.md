@@ -10,7 +10,6 @@ ms.subservice:
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
 ---
 
 # Temporary tables in Synapse SQL pool
@@ -25,7 +24,14 @@ Temporary tables are only visible to the session in which they were created and 
 
 Temporary tables offer a performance benefit because their results are written to local rather than remote storage.
 
-## Create a temporary table
+Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. With SQL Analytics, temporary tables exist at the session level.  They're only visible to the session in which they were created. As such, they're automatically dropped when that session logs off. 
+
+## Temporary tables in SQL pool
+
+In the SQL pool resource, temporary tables offer a performance benefit because their results are written to local rather than remote storage.
+
+### Create a temporary table
+
 Temporary tables are created by prefixing your table name with a `#`.  For example:
 
 ```sql
@@ -84,7 +90,7 @@ GROUP BY
 ,        st.[has_filter]
 )
 ;
-``` 
+```
 
 > [!NOTE]
 > `CTAS` is a powerful command and has the added advantage of being efficient in its use of transaction log space. 
@@ -221,5 +227,6 @@ SQL pool does impose a couple of limitations when implementing temporary tables.
 Also, views can't be created on temporary tables.  Temporary tables can only be created with hash or round robin distribution.  Replicated temporary table distribution isn't supported. 
 
 ## Next steps
-To learn more about developing tables, see the [Table Overview](sql-data-warehouse-tables-overview.md).
+
+To learn more about developing tables, see the [Designing tables using the SQL Analytics resources](sql-data-warehouse-tables-overview.md) article.
 

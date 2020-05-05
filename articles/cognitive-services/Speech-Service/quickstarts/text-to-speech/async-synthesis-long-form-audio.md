@@ -54,12 +54,12 @@ These modules are used to parse arguments, construct the HTTP request, and call 
 This code gets a list of available voices that you can use to convert text-to-speech. Add the code to `voice_synthesis_client.py`:
 
 ```python
-parser = argparse.ArgumentParser(description='Cris client tool to submit voice synthesis requests.')
+parser = argparse.ArgumentParser(description='Text-to-speech client tool to submit voice synthesis requests.')
 parser.add_argument('--voices', action="store_true", default=False, help='print voice list')
-parser.add_argument('-key', action="store", dest="key", required=True, help='the cris subscription key, like ff1eb62d06d34767bda0207acb1da7d7 ')
+parser.add_argument('-key', action="store", dest="key", required=True, help='the speech subscription key, like fg1f763i01d94768bda32u7a******** ')
 parser.add_argument('-region', action="store", dest="region", required=True, help='the region information, could be centralindia, canadacentral or uksouth')
 args = parser.parse_args()
-baseAddress = 'https://%s.cris.ai/api/texttospeech/v3.0-beta1/' % args.region
+baseAddress = 'https://%s.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0-beta1/' % args.region
 
 def getVoices():
 	response=requests.get(baseAddress+"voicesynthesis/voices", headers={"Ocp-Apim-Subscription-Key":args.key}, verify=False)
