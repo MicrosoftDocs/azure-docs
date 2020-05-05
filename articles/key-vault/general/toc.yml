@@ -97,6 +97,8 @@
     items: 
     - name: Move Key Vault to Another Resource Group
       href: keyvault-moveresourcegroup.md
+    - name: Move Key Vault to Another Subscription
+      href: keyvault-movesubscription.md
     - name: Move Key Vault to Another Region
       href: keyvault-moveregion.md
   - name: Troubleshoot
