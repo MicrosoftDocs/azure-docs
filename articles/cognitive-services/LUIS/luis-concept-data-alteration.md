@@ -85,30 +85,29 @@ If you need the returned prebuilt datetimeV2 to adjust for daylight savings time
 
 Add 60 minutes:
 
-`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?timezoneOffset=60&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
 Remove 60 minutes:
 
-`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?timezoneOffset=-60&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
 #### [V3 prediction endpoint request](#tab/V3)
 
 Add 60 minutes:
 
-`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**datetimeReference=60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
+`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?datetimeReference=60&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
 Remove 60 minutes:
 
-`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**datetimeReference=-60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
+`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?datetimeReference=-60&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 * * *
 
 ## C# code determines correct value of parameter
-The following examples .
 
-The following C# code uses use the v2 API parameter, and the [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) class's [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) method to determine the correct `timezoneOffset` based on system time:
+The following C# code uses the [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) class's [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) method to determine the correct value based on system time:
 
 ```csharp
 // Get CST zone id
