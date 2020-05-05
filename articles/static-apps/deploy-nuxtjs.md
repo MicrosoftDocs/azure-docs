@@ -21,7 +21,7 @@ In this tutorial, you learn to deploy a [Nuxt.js](https://nuxtjs.org) generated 
 
 ## Set up a Nuxt.js app
 
-You can set up a new Nuxt.js project using `create-nuxt-app`. Instead of a new project, let's clone a repository that is set up to demonstrate an edge case when you try to deploy a dynamic Nuxt.js app. The repository contains an example of a dynamic site that we want to serve as a static site.
+You can set up a new Nuxt.js project using `create-nuxt-app`. Instead of a new project, in this tutorial you begin by cloning an existing repository. This repository is set up to demonstrate how to deploy a dynamic Nuxt.js app as a static site.
 
 1. Create a new repository under your GitHub account from a template repository. 
 1. Navigate to <http://github.com/staticwebdev/nuxtjs-starter/generate>
@@ -104,14 +104,13 @@ Azure Static Web Apps deploys your app from a GitHub repository and keeps doing 
 
 ## Deploy your static website
 
-The following steps show how to link the app you just pushed to GitHub to Azure Static Web Apps. Once in Azure you can deploy the application to a production environment.
+The following steps show how to link the app you just pushed to GitHub to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
 
-### Create Azure App Service Static App
+### Create an Azure Static Apps resource
 
 1. Navigate to the [Azure Portal](https://portal.azure.com).
 1. Click **Create a Resource** then search for **Static Web Apps** and select the matching result.
 
-  <!--- TODO: Add screenshot for navigating to static web apps --->
 
 1. Select a subscription from the *Subscription* drop-down list or use the default value.
 1. Click the **New** link below the *Resource group* drop-down. In *New resource group name*, type **mystaticsite** and click **OK**
@@ -153,7 +152,7 @@ If the website does note immediately load, then the background GitHub Actions wo
 
 You can check the status of the Actions workflows by navigating to the Actions for your repository:
 
-```bash
+```url
 https://github.com/<YOUR_GITHUB_USERNAME>/nuxtjs-starter/actions
 ```
 
@@ -161,7 +160,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nuxtjs-starter/actions
 
 When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. You need to bring this file down to your local repository so your git history is synchronized.
 
-Return to the terminal and run the following command `git pull origin maser`.
+Return to the terminal and run the following command `git pull origin master`.
 
 ## Configure dynamic routes
 

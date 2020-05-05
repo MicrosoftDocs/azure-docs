@@ -10,7 +10,7 @@ ms.author: chnwamba
 ---
 
 
-# Deploy server-rendered Next.js websites on App Service Static Apps
+# Deploy server-rendered Next.js websites on Azure Static Web Apps
 
 In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) generated static website to [Azure Static Web Apps](overview.md). To begin, you learn to set up, configure, and deploy a Next.js app. During this process, you also learn to deal with common challenges often faced when generating static pages with Next.js
 
@@ -24,10 +24,11 @@ In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) generated 
 
 Rather than using the Next.js CLI to create an app, you can use a starter repository that includes an existing Next.js app. This repository features a Next.js app with dynamic routes, which highlights a common deployment issue. Dynamic routes need an extra deployment configuration which you will learn more about in a moment.
 
-1. Create a new repository under your GitHub account from a template repository. 
+To begin, create a new repository under your GitHub account from a template repository. 
+
 1. Navigate to <http://github.com/staticwebdev/nextjs-starter/generate>
 1. Name the repository **nextjs-starter**
-1. Next, clone the new repo to your machine. Make sure to replace <YOUR_GITHUB_ACCOUNT_NAME> with your account name.
+1. Next, clone the new repo to your machine. Make sure to replace `<YOUR_GITHUB_ACCOUNT_NAME>` with your account name.
 
     ```bash
     git clone http://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/nextjs-starter
@@ -121,14 +122,13 @@ Azure Static Web Apps deploys your app from a GitHub repository and keeps doing 
 
 ## Deploy your static website
 
-The following steps show how to link the app you just pushed to GitHub to Azure Static Web Apps. Once in Azure you can deploy the application to a production environment.
+The following steps show how to link the app you just pushed to GitHub to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
 
-### Create Azure App Service Static App
+### Create a static app
 
 1. Navigate to the [Azure Portal](https://portal.azure.com).
 1. Click **Create a Resource** then search for **Static Web Apps** and select the matching result.
 
-<!--- TODO: Add screenshot for navigating to static web apps --->
 
 1. Select a subscription from the *Subscription* drop-down list or use the default value.
 1. Click the **New** link below the *Resource group* drop-down. In *New resource group name*, type **mystaticsite** and click **OK**
@@ -158,7 +158,7 @@ Azure Static Web Apps is built to automatically carry out common tasks like inst
 
   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Build tab":::
 
-1. Type **out** in the *App artifact location* text box.
+2. Type **out** in the *App artifact location* text box.
 
 ### Review and create
 
@@ -168,18 +168,22 @@ Azure Static Web Apps is built to automatically carry out common tasks like inst
 1. On the _Overview_ window, click the *URL* link to open your deployed application. 
 
 If the website does note immediately load, then the background GitHub Actions workflow is still running. Once the workflow is complete you can then click refresh the browser to view your web app.
+If the website does note immediately load, then the background GitHub Actions workflow is still running. Once the workflow is complete you can then click refresh the browser to view your web app.
 
 You can check the status of the Actions workflows by navigating to the Actions for your repository:
 
 ```bash
 https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
-```
+You can check the status of the Actions workflows by navigating to the Actions for your repository:
+
+```url
+https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 
 ### Sync changes
 
 When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. You need to bring this file down to your local repository so your git history is synchronized.
 
-Return to the terminal and run the following command `git pull origin maser`.
+Return to the terminal and run the following command `git pull origin master`.
 
 ## Configure dynamic routes
 
