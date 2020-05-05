@@ -497,12 +497,6 @@
         href: synapse-link-cosmos-db.md
       - name: Synapse Link FAQ
         href: synapse-link-frequently-asked-questions.md
-      - name: Analytics use cases
-        href: analytics-usecases.md
-      - name: Analytics - solution architectures
-        href: analytics-solution-architectures.md
-      - name: Lambda architecture
-        href: lambda-architecture.md
     - name: Built-in Jupyter notebooks
       items:
       - name: Jupyter notebooks overview
