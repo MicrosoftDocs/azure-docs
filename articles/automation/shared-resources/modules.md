@@ -67,7 +67,7 @@ Azure Automation doesn't import the root Az module automatically into any new or
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
 
-## Az module cmdlets
+## Az modules
 
 For Az.Automation, the majority of the cmdlets have the same names as for the AzureRM modules, except that the AzureRm prefix has been changed to Az. For a list of Az modules that don't follow this naming convention, see [list of exceptions](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
@@ -98,7 +98,7 @@ You can create Python 2 runbooks in Azure Automation. For Python module informat
 
 ## Custom modules
 
-Azure Automation supports custom PowerShell modules that you create to use with your runbooks and DSC configurations. One type of custom module is an integration module that optionally contains a file of metadata to define the custom functionality for the module cmdlets. An example of the use of an integration module is provided in [Adding a connection type](../automation-connections.md#adding-a-connection-type).
+Azure Automation supports custom PowerShell modules that you create to use with your runbooks and DSC configurations. One type of custom module is an integration module that optionally contains a file of metadata to define the custom functionality for the module cmdlets. An example of the use of an integration module is provided in [Add a connection type](../automation-connections.md#add-a-connection-type).
 
 Azure Automation can import a custom module to make its cmdlets available. Behind the scenes, it stores the module and uses it in the Azure sandboxes, just like it does other modules.
 
@@ -112,7 +112,7 @@ This section includes considerations to take into account when migrating to the 
 
  We don't recommend running AzureRM modules and Az modules in the same Automation account. When you're sure you want to migrate from AzureRM to Az, it's best to fully commit to a complete migration. The most important reason for this is that Azure Automation often reuses sandboxes within the Automation account to save on startup times. If you don't make a full module migration, you might start a job using only AzureRM modules, then start another job using only Az modules. The sandbox soon crashes and you receive a fatal error stating that the modules aren’t compatible. This situation results in randomly occurring crashes for any given runbook or configuration. 
 
-#### Import of Az modules into the PowerShell session
+#### Importing Az modules into the PowerShell session
 
 Importing an Az module into your Automation account doesn't automatically import the module into the PowerShell session that runbooks use. Modules are imported into the PowerShell session in the following situations:
 
@@ -120,7 +120,7 @@ Importing an Az module into your Automation account doesn't automatically import
 * When a runbook imports the module explicitly with the [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7) cmdlet
 * When a runbook imports another dependent module
 
-#### Testing for your runbooks and DSC configurations prior to module migration
+#### Testing your runbooks and DSC configurations prior to module migration
 
 Be sure to test all runbooks and DSC configurations carefully in a separate Automation account before migrating to the Az modules. 
 
@@ -132,7 +132,7 @@ When you create a new Automation account, even after migration to Az modules, Az
 
 To ensure that you don't run any existing runbooks or DSC configurations that use AzureRM modules, you must stop and unschedule all affected runbooks and configurations. First, make sure that you review each runbook or DSC configuration and its schedules separately to ensure that you can reschedule the item in the future if necessary. 
 
-When you're ready to remove your schedules, you can either use the Azure portal or the [Remove-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) cmdlet. See [Removing a schedule](schedules.md#removing-a-schedule).
+When you're ready to remove your schedules, you can either use the Azure portal or the [Remove-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) cmdlet. See [Remove a schedule](schedules.md#remove-a-schedule).
 
 ### Remove the AzureRM modules
 
@@ -304,7 +304,7 @@ Your module should not depend on any unique registry settings on a host. Example
 
 Make sure that all files in the module have paths with fewer than 140 characters. Any paths over 140 characters in length cause issues with importing runbooks. Azure Automation can't import a file with path size over 140 characters into the PowerShell session with `Import-Module`.
 
-## Importing modules
+## Import modules
 
 This section defines several ways that you can import a module into your Automation account. 
 
@@ -355,7 +355,7 @@ To import a PowerShell Gallery module directly from your Automation account:
 
 ![PowerShell Gallery import from Azure portal](../media/modules/gallery-azure-portal.png)
 
-## Deleting modules
+## Delete modules
 
 If you have issues with a module or you need to roll back to a previous version of a module, you can delete it from your Automation account. You can't delete the original versions of the [default modules](#default-modules) that are imported when you create an Automation account. If the module to delete is a newer version of one of the [default modules](#default-modules), it rolls back to the version that was installed with your Automation account. Otherwise, any module you delete from your Automation account is removed.
 
