@@ -25,15 +25,25 @@ If you don't have an Azure subscription, [create a free account before you begin
 ## Link Power BI workspace to your Synapse workspace
 
 1. Starting from Synapse Studio, click **Manage**.
-    ![Synapse Studio click manage.](media/quickstart-link-powerbi/synapse-studio-click-manage.png)
+
+![Synapse Studio click manage.](media/quickstart-link-powerbi/synapse-studio-click-manage.png)
+
 2. Under **External Connections**, click **Linked services**.
-    ![Linked services highlighted.](media/quickstart-link-powerbi/manage-click-linked-services.png)
+
+![Linked services highlighted.](media/quickstart-link-powerbi/manage-click-linked-services.png)
+
 3. Click **+ New**.
-    ![+ New linked services is highlighted.](media/quickstart-link-powerbi/new-highlighted.png)
+
+![+ New linked services is highlighted.](media/quickstart-link-powerbi/new-highlighted.png)
+
 4. Click **Power BI** and click **Continue**.
-    ![Displaying Power BI linked service.](media/quickstart-link-powerbi/powerbi-linked-service.png)
+
+![Displaying Power BI linked service.](media/quickstart-link-powerbi/powerbi-linked-service.png)
+
 5. Enter a name for the linked service and select a workspace from the dropdown list.
-    ![Displaying Power BI linked service setup.](media/quickstart-link-powerbi/powerbi-linked-service.png)
+
+![Displaying Power BI linked service setup.](media/quickstart-link-powerbi/powerbi-linked-service.png)
+
 6. Click **Create**.
 
 ## View Power BI workspace in Synapse Studio
@@ -41,12 +51,16 @@ If you don't have an Azure subscription, [create a free account before you begin
 Once your workspaces are linked, you can browse your Power BI datasets, edit/create new Power BI Reports from Synapse Studio.
 
 1. Click **Develop**.
-    ![Synapse Studio click develop.](media/quickstart-link-powerbi/synapse-studio-click-develop.png)
+
+![Synapse Studio click develop.](media/quickstart-link-powerbi/synapse-studio-click-develop.png)
+
 2. Expand Power BI and the workspace you wish to use.
-    ![Expand Power BI and the workspace.](media/quickstart-link-powerbi/develop-expand-powerbi.png)
+
+![Expand Power BI and the workspace.](media/quickstart-link-powerbi/develop-expand-powerbi.png)
 
 New reports can be created clicking **+** at the top of the **Develop** tab. Existing reports can be edited by clicking on the report name. Any saved changes will be written back to the Power BI workspace.
-    ![View and edit Power BI report.](media/quickstart-link-powerbi/powerbi-report.png)
+
+![View and edit Power BI report.](media/quickstart-link-powerbi/powerbi-report.png)
 
 
 ## Next steps
