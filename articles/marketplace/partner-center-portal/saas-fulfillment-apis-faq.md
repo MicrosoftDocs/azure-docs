@@ -15,7 +15,7 @@ This article describes several of the integration requirements for the Microsoft
 
 ## Discovery experience
 
-Once an SaaS offer is published, Azure users can discover it in Azure Marketplace. Your customers will be able to filter offers based on product type (SaaS) and discover the SaaS services they are interested in.
+Once a SaaS offer is published, Azure users can discover it in Azure Marketplace. Your customers can filter offers based on product type (SaaS) and discover the SaaS services they're interested in.
 
 ## Purchase experience
 
@@ -25,7 +25,7 @@ Once a user is interested in a specific SaaS service, the user can subscribe to 
 
 It means that a user can view the terms of use and privacy statement associated with the SaaS service, and agree to pay for it as per the billing terms set by you, the publisher of the SaaS offer, on Microsoft's invoice. Users can use their existing payment profile in Azure to pay for the SaaS service consumption.
 
-This is beneficial in several ways. Customers can now discover and subscribe in one place using Microsoft Cloud Platform as a trusted source, without having to vet every ISV software it intends to use. Also, customers can use their existing payment profile without having to explicitly pay each ISV software independently.
+This ability is beneficial in several ways. Customers can now discover and subscribe in one place using Microsoft Cloud Platform as a trusted source, without having to vet every ISV software it intends to use. Also, customers can use their existing payment profile without having to explicitly pay each ISV software independently.
 
 ### Is the user charged automatically when the offer is subscribed?
 

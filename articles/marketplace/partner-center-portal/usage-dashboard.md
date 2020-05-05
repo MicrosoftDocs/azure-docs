@@ -1,6 +1,6 @@
 ---
-title: Usage dashboard for the commercial marketplace analytics
-description: Learn how to access all VM offers usage and metered billing metrics. Go to the Usage dashboard inside of the Partner Center under Commercial Marketplace.
+title: Usage dashboard in Microsoft commercial marketplace analytics
+description: Learn how to access all VM offers usage and metered billing metrics. Go to the Usage dashboard in Partner Center under Commercial Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace 
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 ---
 
-# Usage Dashboard in Microsoft commercial marketplace analytics
+# Usage dashboard in Microsoft commercial marketplace analytics
 
-This article provides information on the Usage dashboard in Partner Center. This dashboard displays all VM offers usage and metered billing metrics in two separate tabs: VM usage and metered billing usage.
+This article provides information on the usage dashboard in Partner Center. This dashboard displays all VM offers usage and metered billing metrics in two separate tabs: VM usage and metered billing usage.
 
-To access the Usage dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
+To access the usage dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under **Commercial Marketplace**.
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
 
 ## Usage dashboard
 
-The Usage Dashboard represents the metrics for all Virtual Machine (VM) offers usage and metered billing usage. These metrics are found in two separate tabs: VM usage and metered billing usage.
+The usage dashboard represents the metrics for all Virtual Machine (VM) offers usage and metered billing usage. These metrics are found in two separate tabs: VM usage and metered billing usage.
 
 In the VM usage tab, there are graphical representations of the following items:
 
