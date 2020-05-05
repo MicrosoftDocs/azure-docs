@@ -71,7 +71,7 @@ You can configure and get information about alert rules using the following inte
 
 6. In the Create alert rule pane click on **Condition name** (Storage space used is shown in the example)
 
-   ![Define condition](media/sql-database-managed-instance-alerts/mi-create-metrics-alert-annotated.png)
+   ![Define condition](media/sql-database-managed-instance-alerts/mi-create-metrics-alert-smaller-annotated.png)
 
 7. On the Configure signal logic pane, define Operator, Aggregation type, and Threshold value
 
@@ -87,19 +87,19 @@ You can configure and get information about alert rules using the following inte
 
 9. Select action group. Action group pane will show up through which you will be able to select an existing, or create a new action. This action defines that will happen upon triggering an alert (for example, sending email, calling you on the phone, executing a webhook, Azure function, or a runbook, for example).
 
-   ![Select_action_group](media/sql-database-managed-instance-alerts/mi-select-action-group-annotated.png)
+   ![Select_action_group](media/sql-database-managed-instance-alerts/mi-select-action-group-smaller-annotated.png)
 
    * To create new action group, select **+Create action group**
 
-   ![Create_action_group_alerts](media/sql-database-managed-instance-alerts/mi-create-alert-action-group-annotated.png)
+      ![Create_action_group_alerts](media/sql-database-managed-instance-alerts/mi-create-alert-action-group-annotated.png)
    
    * Define how do you want to be alerted: Enter action group name, short name, action name and select Action Type. The Action Type defines if you will be notified via email, text message, voice call, or if perhaps webhook, Azure function, runbook will be executed, or ITSM ticket will be created in your compatible system.
 
-   ![Define_how_to_be_alerted](media/sql-database-managed-instance-alerts/mi-add-alerts-action-group-annotated.png)
+      ![Define_how_to_be_alerted](media/sql-database-managed-instance-alerts/mi-add-alerts-action-group-annotated.png)
 
 10. Fill in the alert rule details for your records, select the severity type.
 
-   ![Rule_description](media/sql-database-managed-instance-alerts/mi-rule-details-complete-annotated.pngg)
+      ![Rule_description](media/sql-database-managed-instance-alerts/mi-rule-details-complete-annotated.png)
 
    * Complete creating the alert rule by clicking on **Create alert rule** button.
    * Within a few minutes new alert rule is active, and alerts are triggered as defined as previously described.
