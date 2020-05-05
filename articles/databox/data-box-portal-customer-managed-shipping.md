@@ -13,7 +13,7 @@ ms.author: v-grpr
 
 # Use the Azure Portal to manage Data Box Customer Managed Shipping
 
-This article describes the process workflow and customer-managed shipping (CMS) tasks to order, pick-up, and drop off of an Azure Data Box device. You can manage the Data Box device using the Azure portal. The customer can designate a point of contact from their organization, or use any carrier of their choice to pick-up the Azure Data Box device from a distribution center and also return the device back to the distribution center. The customer will need to follow distribution center's security procedures as both parties will sign off at particular points between pick-up and drop-off. At pick-up and drop-off, the customer or point of contact will be assigned an authorization code (authcode). This authcode needs to be presented during device pick-up and drop-off at the distribution center.
+This article describes the process workflow and customer-managed shipping (CMS) tasks to order, pick-up, and drop off of an Azure Data Box device. You can manage the Data Box device using the Azure portal. The customer can designate a point of contact from their organization, or use any carrier of their choice to pick-up the Azure Data Box device from a datacenter and also return the device back to the datacenter. The customer will need to follow datacenter's security procedures as both parties will sign off at particular points between pick-up and drop-off. At pick-up and drop-off, the customer or point of contact will be assigned an authorization code (authcode). This authcode needs to be presented during device pick-up and drop-off at the datacenter.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ For detailed information regarding prerequisites and Azure Portal usage, see [Qu
 
    ![Ordering a Data Box device for pickup](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-01b.png)
 
-4. Follow the instructions in the **Schedule pickup for Azure**. Before you can get your authcode, you must email [adbops@microsoft.com](mailto:adbops@microsoft.com) to schedule the device pickup from your region's distribution center.
+4. Follow the instructions in the **Schedule pickup for Azure**. Before you can get your authcode, you must email [adbops@microsoft.com](mailto:adbops@microsoft.com) to schedule the device pickup from your region's datacenter.
    ![Schedule pickup](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-02b.png)
 
 5. After you have made contact with ADBOPs, you will be able to view your **Authorization Code** for your device in the **Schedule pickup for Azure**.
@@ -48,17 +48,17 @@ For detailed information regarding prerequisites and Azure Portal usage, see [Qu
    Write down this number or print it.
 
 6. Ready for pickup in progress.
-   Your order automatically moves to this state once the device prep has completed. You will receive an email instructing you to contact ADB ops to schedule an appointment to come to the distribution center for pickup.
+   Your order automatically moves to this state once the device prep has completed. You will receive an email instructing you to contact ADB ops to schedule an appointment to come to the datacenter for pickup.
 
    ![Picked up](media\data-box-portal-customer-managed-shipping\data-box-portal-picked-up-01.png)
 
-   You also need to provide details of who will be going to the distribution center for pick-up. You or the point of contact has to carry a Government approved photo ID that will be validated at the distribution center. Operations will need to include this person's details so that it can be verified during pick-up.
+   You also need to provide details of who will be going to the datacenter for pick-up. You or the point of contact has to carry a Government approved photo ID that will be validated at the datacenter. Operations will need to include this person's details so that it can be verified during pick-up.
 
-   Additionally, the person who is picking up the device also needs to have the **Authorization code** that is available in the Portal under **Schedule Pick up**. This code is also validated at the distribution center time of pick-up.
+   Additionally, the person who is picking up the device also needs to have the **Authorization code** that is available in the Portal under **Schedule Pick up**. This code is also validated at the datacenter time of pick-up.
 
-<!--7. After you have scheduled an appointment to get and shared the distribution center pick-up point of contact's details. -->
+<!--7. After you have scheduled an appointment to get and shared the datacenter pick-up point of contact's details. -->
 
-7. After the device has been picked up, the customer needs to prepare the data copy and then drop off the device back at the distribution center.
+7. After the device has been picked up, the customer needs to prepare the data copy and then drop off the device back at the datacenter.
 
    Once you finish copying data, you need to successfully complete **Prepare to ship** step on the device. This step will need to complete without any critical errors, otherwise you will need to run this step again. If it successfully completes, the authcode for the drop off will be shown to the customer.
 
@@ -69,7 +69,7 @@ For detailed information regarding prerequisites and Azure Portal usage, see [Qu
 8. You should now be at **Ready to receive success** state of the Azure portal. This means that you have scheduled an appointment for drop off and shared the drop off point of contact's details. They have also confirmed that they have the authcode available.
    ![Viewing your authcode](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
-9. Customer or point of contact has dropped off the device at the distribution center and their ID and authcode have been verified.
+9. Customer or point of contact has dropped off the device at the datacenter and their ID and authcode have been verified.
 
     ![Received Complete](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-01.png)
 
