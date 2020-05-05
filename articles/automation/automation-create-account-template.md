@@ -1,5 +1,5 @@
 ---
-title: Use Azure Resource Manager templates to create Automation account | Microsoft Docs
+title: Use Azure Resource Manager templates to create an Automation account | Microsoft Docs
 description: You can use an Azure Resource Manager template to create an Azure Automation account.
 ms.service:  automation
 ms.subservice: update-management
@@ -10,7 +10,7 @@ ms.date: 04/24/2020
 
 ---
 
-# Create an Automation account by using Azure Resource Manager template
+# Create an Automation account by using an Azure Resource Manager template
 
 You can use [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md) to create an Azure Automation account in your resource group. This article provides a sample template that:
 
@@ -18,10 +18,10 @@ You can use [Azure Resource Manager templates](../azure-resource-manager/templat
 * Automates the creation of an Azure Automation account.
 * Links the Automation account to the Log Analytics workspace.
 
-The template doesn't automate the onboarding of one or more Azure or non-Azure virtual machines, or solutions. 
+The template doesn't automate the onboarding of Azure or non-Azure virtual machines or solutions. 
 
 >[!NOTE]
->Creation of the Automation Run As account is not supported when you're using an Azure Resource Manager template. To create a Run As account manually from the portal or with PowerShell, see [Manage Run As account](manage-runas-account.md).
+>Creation of the Automation Run As account is not supported when you're using an Azure Resource Manager template. To create a Run As account manually from the portal or with PowerShell, see [Manage Run As accounts](manage-runas-account.md).
 
 ## API versions
 
@@ -47,9 +47,9 @@ The JSON template is configured to prompt you for:
 
 The following parameters in the template are set with a default value for the Log Analytics workspace:
 
-* *sku* - defaults to the per GB pricing tier released in the April 2018 pricing model.
-* *dataRetention* - defaults to 30 days.
-* *capacityReservationLevel* - defaults to 100 GB.
+* *sku* defaults to the per GB pricing tier released in the April 2018 pricing model.
+* *dataRetention* defaults to 30 days.
+* *capacityReservationLevel* defaults to 100 GB.
 
 >[!WARNING]
 >If you want to create or configure a Log Analytics workspace in a subscription that has opted into the April 2018 pricing model, the only valid Log Analytics pricing tier is *PerGB2018*.
@@ -57,13 +57,13 @@ The following parameters in the template are set with a default value for the Lo
 
 The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For more information about working with templates, see [Deploy resources with Resource Manager templates and the Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
-If you're new to Azure Automation and Azure Monitor, it is important that you understand the following configuration details in order to avoid errors when you try to create, configure, and use a Log Analytics workspace linked to your new Automation account. You should:
+If you're new to Azure Automation and Azure Monitor, it's important that you understand the following configuration details. They can help you avoid errors when you try to create, configure, and use a Log Analytics workspace linked to your new Automation account. 
 
-* Review [additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace), to fully understand workspace configuration options such as access control mode, pricing tier, retention, and capacity reservation level.
+* Review [additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
 
-* Review [workspace mappings](how-to/region-mappings.md), to specify the supported regions inline or in a parameter file, because only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
+* Review [workspace mappings](how-to/region-mappings.md) to specify the supported regions inline or in a parameter file. Only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
 
-* Review the [workspace design guidance](../azure-monitor/platform/design-logs-deployment.md), to learn about access control and understand the design implementation strategies we recommend for your organization, if you're new to Azure Monitor Logs and have not deployed a workspace already.
+* If you're new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design guidance](../azure-monitor/platform/design-logs-deployment.md). It will help you to learn about access control, and understand the design implementation strategies we recommend for your organization.
 
 ## Deploy the template
 
@@ -92,7 +92,7 @@ If you're new to Azure Automation and Azure Monitor, it is important that you un
             ],
             "defaultValue": "pergb2018",
             "metadata": {
-                "description": "Pricing tier: perGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+                "description": "Pricing tier: perGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium), which are not available to all customers."
             }
         },
         "dataRetention": {
@@ -135,7 +135,7 @@ If you're new to Azure Automation and Azure Monitor, it is important that you un
             },
             "sampleGraphicalRunbookDescription": {
                 "type": "String",
-    			"defaultValue": " An example runbook which gets all the Resource Manager resources using the Run As account (Service Principal)."
+    			"defaultValue": " An example runbook that gets all the Resource Manager resources by using the Run As account (service principal)."
             },
             "sampleGraphicalRunbookContentUri": {
                 "type": "String",
@@ -147,7 +147,7 @@ If you're new to Azure Automation and Azure Monitor, it is important that you un
             },
             "samplePowerShellRunbookDescription": {
                 "type": "String",
-    			"defaultValue": " An example runbook which gets all the Resource Manager resources using the Run As account (Service Principal)."
+    			"defaultValue": " An example runbook that gets all the Resource Manager resources by using the Run As account (service principal)."
             },
             "samplePowerShellRunbookContentUri": {
                 "type": "String",
@@ -159,7 +159,7 @@ If you're new to Azure Automation and Azure Monitor, it is important that you un
             },
             "samplePython2RunbookDescription": {
                 "type": "String",
-    			"defaultValue": " An example runbook which gets all the Resource Manager resources using the Run As account (Service Principal)."
+    			"defaultValue": " An example runbook that gets all the Resource Manager resources by using the Run As account (service principal)."
             },
             "samplePython2RunbookContentUri": {
                 "type": "String",
@@ -300,7 +300,7 @@ If you're new to Azure Automation and Azure Monitor, it is important that you un
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployAzAutomationAccttemplate.json
     ```
 
-    The deployment can take a few minutes to finish. When it does, you'll see a message like the one below that includes the result.
+    The deployment can take a few minutes to finish. When it does, you'll see a message like the following that includes the result.
 
     ![Example result when deployment is complete](media/automation-create-account-template/template-output.png)
 
