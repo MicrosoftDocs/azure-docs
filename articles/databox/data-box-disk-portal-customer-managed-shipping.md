@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box Disk Customer Managed Shipping | Microsoft Docs in data 
-description: Describes customer managed shipping workflow for Azure Data Box devices
+description: Describes customer managed shipping workflow for Azure Data Box Disk devices
 services: databox
 author: priestlg
 
@@ -13,7 +13,7 @@ ms.author: v-grpr
 
 # Use the Azure Portal to manage Data Box Disk Customer Managed Shipping
 
-This article describes the process workflow and customer-managed shipping (CMS) tasks to order, pick-up, and drop off of an Azure Data Box Disk device. You can manage the Data Box Disk using the Azure portal. The customer can designate a point of contact from their organization, or use any carrier of their choice to pick up the Azure Data Box Disk from a distribution center and also return the device back to the distribution center. The customer will need to follow distribution center's security procedures as both parties will sign off at particular points between pick-up and drop-off. At pick-up and drop-off, the customer or point of contact will be assigned an authorization code. This authorization code needs to be presented during device pick-up and drop-off at the distribution center.
+This article describes the process workflow and customer-managed shipping (CMS) tasks to order, pick-up, and drop off of an Azure Data Box Disk device. You can manage the Data Box Disk using the Azure portal. The customer can designate a point of contact from their organization, or use any carrier of their choice to pick up the Azure Data Box Disk from a distribution center and also return the device back to the distribution center. The customer will need to follow distribution center's security procedures as both parties will sign off at particular points between pick-up and drop-off. At pick-up and drop-off, the customer or point of contact will be assigned an authorization code (authcode). This authcode needs to be presented during device pick-up and drop-off at the distribution center.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ For detailed information regarding prerequisites and Azure Portal usage, see [Qu
 
    ![Ordering a Data Box device for pickup](media\data-box-disk-portal-customer-managed-shipping\pendingUserPickup-disk-01b.png)
 
-4. Follow the instructions in the **Schedule pickup for Azure**. Before you can get your authorization code, you must email [adbops@microsoft.com](mailto:adbops@microsoft.com) to schedule the device pickup from your region's distribution center.
+4. Follow the instructions in the **Schedule pickup for Azure**. Before you can get your authcode, you must email [adbops@microsoft.com](mailto:adbops@microsoft.com) to schedule the device pickup from your region's distribution center.
    ![Schedule pickup](media\data-box-disk-portal-customer-managed-shipping\pendingUserPickup-disk-02b.png)
 
 5. After you have made contact with ADBOPs, you will be able to view your **Authorization Code** for your device in the **Schedule pickup for Azure**.
@@ -61,16 +61,16 @@ For detailed information regarding prerequisites and Azure Portal usage, see [Qu
 7. After the device is picked up, the customer needs to finish data copy and then drop off the device back at the DC.
 
     The authcode for drop off will be available on the portal itself under **Schedule drop off**.
-    Once you have finished data copy, you will need to contact operations to schedule an appointment for the drop off. If you plan on using a point of contact, you will need to include their personal details. The distribution center will also need to the authorization code.
+    Once you have finished data copy, you will need to contact operations to schedule an appointment for the drop off. If you plan on using a point of contact, you will need to include their personal details. The distribution center will also need to the authcode.
 
    > [!NOTE]
    >
-   > Do not share the authorization code over email. This is only to be verified at the distribution center during drop off.
+   > Do not share the authcode over email. This is only to be verified at the distribution center during drop off.
 
-8. You should now be at **Ready to receive** success state of the Azure portal. This means that you have scheduled an appointment for drop off and shared the drop off point of contact's details. You will also need to confirm that the distribution center also has the authorization code available.
+8. You should now be at **Ready to receive** success state of the Azure portal. This means that you have scheduled an appointment for drop off and shared the drop off point of contact's details. You will also need to confirm that the distribution center also has the authcode available.
    ![Viewing your authcode](media\data-box-disk-portal-customer-managed-shipping\receiveAzureDatacenterAuthCode-disk-02b.png)
 
-9. Customer or point of contact has dropped off the device at the DC and their ID and authorization code have been verified.
+9. Customer or point of contact has dropped off the device at the DC and their ID and authcode have been verified.
 
     ![Received Complete](media\data-box-disk-portal-customer-managed-shipping\selfManageDB-Received-disk-01.png)
 
