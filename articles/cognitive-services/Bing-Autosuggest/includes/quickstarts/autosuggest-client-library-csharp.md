@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/06/2020
+ms.date: 05/06/2020
 ms.author: aahi
 ---
 
@@ -21,13 +21,9 @@ Use the Bing Autosuggest client library for .NET to get search suggestions based
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
-## Setting up
-
-### Create an Azure resource
-
 [!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](~/includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-### Create an environment variable
+## Create an environment variable
 
 >[!NOTE]
 > The endpoints for non-trial resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
@@ -40,7 +36,7 @@ Using your key and endpoint from the resource you created, create two environmen
 
 Use the instructions for your operating system.
 <!-- replace the below endpoint and key examples -->
-#### [Windows](#tab/windows)
+### [Windows](#tab/windows)
 
 ```console
 setx AUTOSUGGEST_SUBSCRIPTION_KEY <replace-with-your-autosuggest-api-key>
@@ -49,7 +45,7 @@ setx AUTOSUGGEST_ENDPOINT <replace-with-your-autosuggest-api-endpoint>
 
 After you add the environment variable, restart the console window.
 
-#### [Linux](#tab/linux)
+### [Linux](#tab/linux)
 
 ```bash
 export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
@@ -58,7 +54,7 @@ export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 
 After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
 
-#### [macOS](#tab/unix)
+### [macOS](#tab/unix)
 
 Edit your `.bash_profile`, and add the environment variable:
 
@@ -70,7 +66,7 @@ export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
 ***
 
-### Create a new C# application
+## Create a new C# application
 
 Create a new .NET Core application in your preferred editor or IDE. 
 
@@ -106,7 +102,7 @@ using System.Text;
 using System.Threading.Tasks;
 ```
 
-In the `Program` class, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
+In the `Program` class, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you'll need to close and reopen the editor, IDE, or shell running it to access the variable.
 
 ```csharp
 private const string key_var = "AUTOSUGGEST_SUBSCRIPTION_KEY";
@@ -117,7 +113,7 @@ private const string endpoint_var = "AUTOSUGGEST_ENDPOINT";
 private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
 ```
 
-In the application's `Main` method, add the following method calls, which you will define later.
+In the application's `Main` method, add the following method calls, which you'll define later.
 
 ```csharp
 static void Main(string[] args)
@@ -128,7 +124,7 @@ static void Main(string[] args)
 }
 ```
 
-### Install the client library
+## Install the client library
 
 Within the application directory, install the Bing Autosuggest client library for .NET with the following command:
 
