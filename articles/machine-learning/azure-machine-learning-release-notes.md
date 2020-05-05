@@ -74,7 +74,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixed Dataflow creation on file with leading empty records.
     + Added error handling options for `to_partition_iterator` similar to `to_pandas_dataframe`
     + Added European-style float handling for azureml-core.
-    + ParallelRunStep is now out of public preview! The classes ParallelRunstep and ParallelRunConfig been moved from azureml.contrib.pipeline.steps to azureml.pipeline.steps.
     + Improved error messaging on dataset mount failures.
   + **azureml-interpret**
     + Reduced explanation path length limits to reduce likelihood of going over Windows limit
