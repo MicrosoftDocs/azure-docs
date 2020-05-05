@@ -110,7 +110,7 @@ New alert rule will become active within a few minutes and will be triggered bas
 ## Verifying alerts
 
 > [!NOTE]
-> To supress noisy alerts, see [Supression of alerts using action rules](../azure-monitor/platform/alerts-action-rules#suppression-of-alerts.md).
+> To supress noisy alerts, see [Supression of alerts using action rules](../azure-monitor/platform/alerts-action-rules.md#suppression-of-alerts).
 
 Upon setting up an alerting rule, verify that you are satisfied with the alerting trigger and its frequency. For the example shown on this page for setting up an alert on storage space used, if your alerting option was email, you might receive email such is the one shown below.
 
