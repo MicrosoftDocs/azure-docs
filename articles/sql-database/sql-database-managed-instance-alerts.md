@@ -104,18 +104,19 @@ The following managed instance metrics are available for alerting configuration:
       ![Rule_description](media/sql-database-managed-instance-alerts/mi-rule-details-complete-smaller-annotated.png)
 
    * Complete creating the alert rule by clicking on **Create alert rule** button.
-   * Within a few minutes new alert rule is active, and alerts are triggered as defined as previously described.
+
+New alert rule will become active within a few minutes and will be triggered based on your settings.
 
 ## Verifying alerts
 
 > [!NOTE]
 > To supress noisy alerts, see [Supression of alerts using action rules](../azure-monitor/platform/alerts-action-rules#suppression-of-alerts.md).
 
-Upon setting up an alerting rule, verify that you are satisfied with the alerting trigger and its frequency. For the example shown on this page for setting up an alert on storage space used, if your alerting option was email, you might receive email such is the one shown below. The email shows the alert name, details of the threshold and why the alert was triggered helping you to verify and troubleshoot your alert.
+Upon setting up an alerting rule, verify that you are satisfied with the alerting trigger and its frequency. For the example shown on this page for setting up an alert on storage space used, if your alerting option was email, you might receive email such is the one shown below.
 
    ![alert_example](media/sql-database-managed-instance-alerts/mi-email-alert-example-smaller-annotated.png)
 
- You can use **See in Azure portal** button to view alert received via email in Azure portal. 
+The email shows the alert name, details of the threshold and why the alert was triggered helping you to verify and troubleshoot your alert. You can use **See in Azure portal** button to view alert received via email in Azure portal. 
 
 ## View, modify and delete existing alert rules
 
