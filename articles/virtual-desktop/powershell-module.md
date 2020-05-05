@@ -33,7 +33,7 @@ Install-Module -Name Az.DesktopVirtualization
 ```
 
 >[!NOTE]
-> If this cmdlet doesn't work, try try running it again with elevated permissions.
+> If this cmdlet doesn't work, try running it again with elevated permissions.
 
 Next, run the following cmdlet to connect to Azure:
 

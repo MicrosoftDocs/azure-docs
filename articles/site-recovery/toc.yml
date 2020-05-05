@@ -168,8 +168,6 @@
         href: azure-to-azure-about-networking.md
       - name: Customize networking configurations of the target Azure VM
         href: azure-to-azure-customize-networking.md
-      - name: Configure mobility service proxy settings
-        href: configure-mobility-service-proxy-settings.md
       - name: Set up network mapping and retain IP addresses after failover
         href: azure-to-azure-network-mapping.md
       - name: Examples for retaining IP addresses after failover
@@ -194,6 +192,8 @@
         href: azure-to-azure-how-to-reprotect.md
       - name: Set up disaster recovery for Azure VMs after migration to Azure
         href: azure-to-azure-replicate-after-migration.md
+      - name: Enable Zone to Zone disaster recovery
+        href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
     - name: Manage
       items:
       - name: Update the Mobility Service for Azure VMs
@@ -244,7 +244,7 @@
         href: vmware-azure-set-up-replication.md
       - name: Deploy the Mobility service
         items:
-        - name: About Mobility service installation
+        - name: Mobility service overview and installation
           href: vmware-physical-mobility-service-overview.md
         - name: Prepare for push installation
           href: vmware-azure-install-mobility-service.md

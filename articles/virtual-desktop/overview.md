@@ -98,7 +98,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 >[!IMPORTANT]
 >We recommend you use the service tags instead of URLs in most cases to prevent service issues. Unblocking these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and don't include URLs for other services like Azure Active Directory.
 >
->Windows Virtual Desktop now supports the FQDN tag.
+>Windows Virtual Desktop now supports the FQDN tag. For more information, see [Use Azure Firewall to protect Window Virtual Desktop deployments](../firewall/protect-windows-virtual-desktop.md).
 
 The following table lists optional URLs that your Azure virtual machines can have access to:
 
@@ -178,16 +178,16 @@ Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, 
 
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
 
-|Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|Windows Virtual Desktop Agent updates|
-|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 multi-session, version 1903|Yes|Yes|Yes|Yes|Automatic|
-|Windows 10 multi-session, version 1809|Yes|Yes|No|No|Automatic|
-|Windows 10 Enterprise, version 1903|Yes|Yes|Yes|Yes|Automatic|
-|Windows 10 Enterprise, version 1809|Yes|Yes|No|No|Automatic|
-|Windows 7 Enterprise|Yes|Yes|No|No|Manual|
-|Windows Server 2019|Yes|Yes|No|No|Automatic|
-|Windows Server 2016|Yes|Yes|Yes|Yes|Automatic|
-|Windows Server 2012 R2|Yes|Yes|No|No|Automatic|
+|Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|
+|--------------------------------------|:------:|:------:|:------:|:------:|
+|Windows 10 multi-session, version 1903|Yes|Yes|Yes|Yes|
+|Windows 10 multi-session, version 1809|Yes|Yes|No|No|
+|Windows 10 Enterprise, version 1903|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise, version 1809|Yes|Yes|No|No|
+|Windows 7 Enterprise|Yes|Yes|No|No|
+|Windows Server 2019|Yes|Yes|No|No|
+|Windows Server 2016|Yes|Yes|Yes|Yes|
+|Windows Server 2012 R2|Yes|Yes|No|No|
 
 ## Next steps
 

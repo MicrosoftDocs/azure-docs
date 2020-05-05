@@ -36,6 +36,8 @@ By default, HDInsight creates a metastore with every cluster type. You can inste
 * The default metastore uses the basic Azure SQL DB, which has a five DTU (database transaction unit) limit.
 This default metastore is typically used for relatively simple workloads. Workloads that don't require multiple clusters and don't need metadata preserved beyond the cluster's lifecycle.
 
+* For production workloads, we recommend migrating to an external metastore. Please see the below section for more details.
+
 ## Custom metastore
 
 HDInsight also supports custom metastores, which are recommended for production clusters:

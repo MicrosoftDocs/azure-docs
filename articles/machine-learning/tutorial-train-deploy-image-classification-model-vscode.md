@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Train and deploy a model using the Visual Studio Code extension"
+title: "Tutorial: Train & deploy models: VS Code"
 titleSuffix: Azure Machine Learning
 description: Learn how to train and deploy an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension
 services: machine-learning
