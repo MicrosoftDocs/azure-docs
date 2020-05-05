@@ -1,15 +1,15 @@
 ---
-title: Frequently asked questions on Azure Cosmos DB API for Cassandra.
-description: Get answers to frequently asked questions about Azure Cosmos DB API for Cassandra.
-author: 
-ms.author: 
+title: Frequently asked questions about Synapse Link for Azure Cosmos DB 
+description: Get answers to frequently asked questions related to billing, analytical TTL, analytical store, and security on Synapse Link for Azure Cosmos DB. 
+author: srchi
+ms.author: srchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 
 ---
 
-# Frequently asked questions about Synapse Link for Azure Cosmos DB 
+# Frequently asked questions about Synapse Link for Azure Cosmos DB
 
 Synapse Link for Azure Cosmos DB creates a tight integration between Azure Cosmos DB and Azure Synapse Analytics. It enables customers to run near real-time analytics over their operational data with full performance isolation from their transactional workloads and without an ETL pipeline. This article answers commonly asked questions about Synapse Link for Azure Cosmos DB.
 
@@ -95,7 +95,7 @@ Authentication with the analytical store is the same as transactional store. For
 
 ### What are the currently supported Synapse run-times to access Azure Cosmos DB analytical store?
 
-| |Current support |
+|Synapse runtime |Current support |
 |---------|---------|
 |Synapse Spark pools | Read, Write (through transactional store), Table, Temporary View |
 |Synapse SQL Serverless    | Read, View (Gated Preview)  |
@@ -111,11 +111,14 @@ Currently Spark structured streaming support for Azure Cosmos DB is implemented 
 
 ### In the Synapse Studio how do I recognize if I am connected to an Azure Cosmos DB container with analytics store enabled?
 An Azure Cosmos DB container enabled with analytical store has the following icon:
+
 ![Azure Cosmos DB container enabled with analytical store- icon](./media/synapse-link-frequently-asked-questions/analytical-store-icon.png)
 
 A transactional store container will be represented with the following icon:
+
 ![Azure Cosmos DB container enabled with transactional store- icon](./media/synapse-link-frequently-asked-questions/transactional-store-icon.png)
  
 ### How do you pass Azure Cosmos DB credentials from Synapse Studio?
 Currently Azure Cosmos DB credentials are passed while creating the linked service by the user who has access to the Azure Cosmos DB databases. Access to that store is available to other users who have access to the workspace.
 
+## Next steps

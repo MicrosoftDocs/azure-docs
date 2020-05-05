@@ -491,8 +491,12 @@
       - name: Trigger Azure Functions
         displayName: change feed
         href: change-feed-functions.md
-    - name: Globally distributed analytics and AI
+    - name: Analytics with Synapse Link
       items:
+      - name: Synapse Link for Azure Cosmos DB
+        href: synapse-link-cosmos-db.md
+      - name: Synapse Link FAQ
+        href: synapse-link-frequently-asked-questions.md
       - name: Analytics use cases
         href: analytics-usecases.md
       - name: Analytics - solution architectures
