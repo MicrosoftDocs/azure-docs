@@ -11,9 +11,9 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Synapse Link for Cosmos DB supported features
+# Synapse Link for Azure Cosmos DB supported features
 
-This article describes what functionalities are currently supported in Synapse Link for Cosmos DB. 
+This article describes what functionalities are currently supported in Synapse Link for Azure Cosmos DB. 
 
 ## Azure Synapse support
 
@@ -23,21 +23,21 @@ Here is list of the currently supported features within Synapse Link for Cosmos 
 | :-------------------- | :----------------------------------------------------------- |:----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | **Run-time Support** |Support for read or write by Azure Synapse run-time| ✓ | [Contact Us](mailto:AskSynapse@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB)|
 | **Cosmos DB API support** |API support as a Synapse Link| SQL / Mongo DB | SQL / Mongo DB |
-| **Object**  |Objects such as table that can be created, pointing directly to  Cosmos DB container| View, Table | View |
-| **Read**    |Read data from a Cosmos DB container| OLTP / HTAP | HTAP |
-| **Write**   |Write data from run-time into a Cosmos DB container| OLTP | n/a |
+| **Object**  |Objects such as table that can be created, pointing directly to Azure Cosmos DB container| View, Table | View |
+| **Read**    |Read data from an Azure Cosmos DB container| OLTP / HTAP | HTAP |
+| **Write**   |Write data from run-time into an Azure Cosmos DB container| OLTP | n/a |
 
-Writing back into a Cosmos DB container from Spark only happens through the transactional store of Cosmos DB and will impact the transactional performance of Cosmos DB by consuming Request Units. Data will be automatically replicated into the analytical store if analytical store is enabled at the database level.
+Writing back into an Azure Cosmos DB container from Spark only happens through the transactional store of Azure Cosmos DB and will impact the transactional performance of Azure Cosmos DB by consuming Request Units. Data will be automatically replicated into the analytical store if analytical store is enabled at the database level.
 
 ## Supported code-generated actions for Spark
 
 | Gesture              | Description |OLTP only container |HTAP container |
 | :-------------------- | :----------------------------------------------------------- |:----------------------------------------------------------- |:----------------------------------------------------------- |
 | **Load to DataFrame** |Load and read data into a Spark DataFrame |X| ✓ |
-| **Create Spark table** |Create a table pointing to a Cosmos DB container|X| ✓ |
+| **Create Spark table** |Create a table pointing to an Azure Cosmos DB container|X| ✓ |
 | **Write DataFrame to container** |Write data into a container|✓| ✓ |
-| **Load streaming DataFrame from container** |Stream data using Cosmos DB change feed|✓| ✓ |
-| **Write streaming DataFrame to container** |Stream data using Cosmos DB change feed|✓| ✓ |
+| **Load streaming DataFrame from container** |Stream data using Azure Cosmos DB change feed|✓| ✓ |
+| **Write streaming DataFrame to container** |Stream data using Azure Cosmos DB change feed|✓| ✓ |
 
 
 
@@ -50,4 +50,4 @@ Writing back into a Cosmos DB container from Spark only happens through the tran
 
 ## Next steps
 
-See the [Connect to Synapse Link for Cosmos DB quickstart](../quickstart-connect-synapse-link-cosmos-db.md)
+See the [Connect to Synapse Link for Azure Cosmos DB quickstart](../quickstart-connect-synapse-link-cosmos-db.md)

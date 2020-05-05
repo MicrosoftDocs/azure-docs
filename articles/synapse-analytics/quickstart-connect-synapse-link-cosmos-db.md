@@ -11,26 +11,26 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Connect to Synapse Link for Cosmos DB
+# Connect to Synapse Link for Azure Cosmos DB
 
-This article describes how to access an Azure Cosmos database from Azure Synapse Analytics studio with Synapse Link. 
+This article describes how to access an Azure Cosmos DB database from Azure Synapse Analytics studio with Synapse Link. 
 
 ## Prerequisites
 
-Before you connect a Cosmos DB account to your workspace, there are a few things that you need.
+Before you connect an Azure Cosmos DB account to your workspace, there are a few things that you need.
 
-* Existing Cosmos DB account or create a new account following this [quickstart](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account)
+* Existing Azure Cosmos DB account or create a new account following this [quickstart](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account)
 * Existing Synapse workspace or create a new workspace following this [quickstart](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) 
 
-## Enable Cosmos DB analytical store
+## Enable Azure Cosmos DB analytical store
 
-To run large-scale analytics into Cosmos DB without impacting your operational performance, we recommend enabling  Synapse Link for Cosmos DB which bring HTAP capability to a container and built-in support in Azure Synapse. Follow this quickstart to enable Synapse Link  for Cosmos DB containers.
+To run large-scale analytics into Azure Cosmos DB without impacting your operational performance, we recommend enabling  Synapse Link for Azure Cosmos DB which bring HTAP capability to a container and built-in support in Azure Synapse. Follow this quickstart to enable Synapse Link  for Cosmos DB containers.
 
-## Connect a Cosmos DB database to a Synapse workspace 
+## Connect an Azure Cosmos DB database to a Synapse workspace 
 
-Connecting a Cosmos DB database is done as linked service. A Cosmos DB linked service enables users to browse and explore data, read, and write from Synapse Spark or SQL into Cosmos DB. 
+Connecting an Azure Cosmos DB database is done as linked service. A Cosmos DB linked service enables users to browse and explore data, read, and write from Synapse Spark or SQL into Azure Cosmos DB. 
 
-From the Data Object Explorer, you can directly connect a Cosmos DB database by doing the following steps:
+From the Data Object Explorer, you can directly connect an Azure Cosmos DB database by doing the following steps:
 1. Select ***+*** icon near Data
 2. Select **Connect to external data**
 3. Select the API that you want to connect to: SQL or MongoDB
@@ -39,7 +39,7 @@ From the Data Object Explorer, you can directly connect a Cosmos DB database by 
 6. Select the **Cosmos DB account name** and **database name**
 7. Select ***Create***
 
-Cosmos DB database are visible under the tab **Linked** in the Cosmos DB section. You can differentiate an HTAP enabled Cosmos DB container from an OLTP only container with the following icons:
+Azure Cosmos DB database are visible under the tab **Linked** in the Azure Cosmos DB section. You can differentiate an HTAP enabled Azure Cosmos DB container from an OLTP only container with the following icons:
 
 **Synapse container**:
 
@@ -51,8 +51,8 @@ Cosmos DB database are visible under the tab **Linked** in the Cosmos DB section
 
 ## Quickly interact with code-generated actions
 
-By right-clicking into a container, you have list of gestures that will trigger a Spark or SQL run-time. Writing into a container will happen through the Transactional Store of Cosmos DB and will consume Request Units.  
+By right-clicking into a container, you have list of gestures that will trigger a Spark or SQL run-time. Writing into a container will happen through the Transactional Store of Azure Cosmos DB and will consume Request Units.  
 
 ## Next steps
 
-* [Learn what is supported between Synapse and Cosmos DB](./synapse-link/concept-synapse-link-cosmos-db-support.md)
+* [Learn what is supported between Synapse and Azure Cosmos DB](./synapse-link/concept-synapse-link-cosmos-db-support.md)
