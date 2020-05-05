@@ -4,9 +4,10 @@ description: Create Linux VM images with Azure Image Builder and Shared Image Ga
 author: cynthn
 ms.author: cynthn
 ms.date: 04/20/2019
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
+ms.reviewer: danis
 ---
 # Preview: Create a Linux image and distribute it to a Shared Image Gallery 
 
