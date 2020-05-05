@@ -229,7 +229,7 @@ Set up a private link when you create a registry, or add a private link to an ex
     | Resource group | Enter the name of an existing group or create a new one.|
     | **Instance details** |  |
     | Name | Enter a name. |
-    |Target subresource |Select **registry**|
+    |Region|Select a region.|
     |||
 5. Select **Next: Resource**.
 6. Enter or select the following information:
