@@ -9,13 +9,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
 ---
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 # Moving an Azure Key Vault to another subscription
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Overview
 
@@ -33,7 +34,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 
 Some service principals (users and applications) are bound to a specific tenant. If you move your key vault to a subscription in another tenant, there is a chance that you will not be able to restore access to a specific service principal. Check to make sure that all essential service principals exist in the tenant where you are moving your key vault.
 
-## Design Considerations
+## Design considerations
 
 Your organization may have implemented Azure Policy with enforcement or exclusions at the subscription level. There may be a different set of policy assignments in the subscription where your key vault currently exists and the subscription where you are moving your key vault. A conflict in policy requirements has the potential to break your applications.
 
@@ -53,7 +54,7 @@ Make sure that you go to the Azure Policy page on the Azure portal and look at t
 
 ## Procedure
 
-### Initial Steps (Moving Key Vault)
+### Initial steps (moving Key Vault)
 
 1. Log in to the Azure portal
 2. Navigate to your key vault
@@ -65,9 +66,9 @@ Make sure that you go to the Azure Policy page on the Azure portal and look at t
 8. Acknowledge the warning regarding moving resources
 9. Select "OK"
 
-### Additional Steps (Post Move)
+### Additional steps (post move)
 
-Now that you have moved your key vault to the new subscription, you need to update the tenant id and remove old access policies. Here are tutorials for these steps in PowerShell and Azure CLI.
+Now that you have moved your key vault to the new subscription, you need to update the tenant ID and remove old access policies. Here are tutorials for these steps in PowerShell and Azure CLI.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription
