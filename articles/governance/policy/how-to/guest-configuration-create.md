@@ -475,7 +475,9 @@ New-GuestConfigurationPolicy
 ## Extending Guest Configuration with third-party tools
 
 > [!Note]
-> This feature is currently in preview and is currently only available 
+> This feature is currently in preview and requires Guest Configuration module
+> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
+> In addition, this feature is currently only available 
 > for policies that audit Windows machines
 
 The artifact packages for Guest Configuration can be extended to include third-party tools.
