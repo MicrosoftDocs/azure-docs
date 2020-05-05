@@ -179,7 +179,7 @@ Next, you will create a virtual network containing two empty subnets.
 
 ## Create the cluster
 
-Run the following command to create a cluster. Optionally, you can [pass your Red Hat pull secret](#obtain-a-red-hat-pull-secret-optional) which enables your cluster to access Red Hat container registries along with additional content.
+Run the following command to create a cluster. Optionally, you can [pass your Red Hat pull secret](#get-a-red-hat-pull-secret-optional) which enables your cluster to access Red Hat container registries along with additional content.
 
 >[!NOTE]
 > If you are copy/pasting commands and using one of the optional parameters, be sure delete the initial hashtags and the trailing comment text. As well, close the argument on the preceding line of the command with a trailing backslash.
