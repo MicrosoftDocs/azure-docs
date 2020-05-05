@@ -23,7 +23,7 @@ Azure DevOps is a built-in Azure service that automates each part of the DevOps 
 
 ![The Azure portal with Azure DevOps selected under Services](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png)
 
-## Information as a service (IaaS) - Configure CI/CD
+## Infrastructure as a service (IaaS) - Configure CI/CD
 
 Azure Pipelines provides a fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous-delivery pipeline for an Azure VM from the Azure portal.
 

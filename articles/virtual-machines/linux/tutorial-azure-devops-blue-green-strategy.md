@@ -19,7 +19,7 @@ ms.custom: devops
 
 # Tutorial - Configure the blue-green deployment strategy for Azure Linux virtual machines
 
-## Information as a service (IaaS) - Configure CI/CD
+## Infrastructure as a service (IaaS) - Configure CI/CD
 
 Azure Pipelines provides a fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous-delivery pipeline for an Azure VM from the Azure portal.
 
