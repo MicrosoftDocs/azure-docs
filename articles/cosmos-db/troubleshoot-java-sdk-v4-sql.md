@@ -19,7 +19,7 @@ ms.topic: troubleshooting
 > 
 
 > [!IMPORTANT]
-> This article covers troubleshooting for Java SDK v4 only. Please see the __[Release Notes](sql-api-sdk-java-v4-sql.md)__ and __[Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos)__ for more information.
+> This article covers troubleshooting for Java SDK v4 only. Please see the __[Release Notes](sql-api-sdk-java-v4-sql.md)__, __[Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos)__, and __[performance tips](performance-tips-java-sdk-v4-sql.md)__ for more information.
 >
 
 This article covers common issues, workarounds, diagnostic steps, and tools when you use [Java SDK v4](sql-api-sdk-java-v4-sql.md) with Azure Cosmos DB SQL API accounts.
@@ -28,7 +28,7 @@ Java SDK v4 provides client-side logical representation to access the Azure Cosm
 Start with this list:
 
 * Take a look at the [Common issues and workarounds] section in this article.
-* Look at the Java SDK in the Azure Cosmos DB monorepo, which is available [open source on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). It has an [issues section](https://github.com/Azure/azure-sdk-for-java/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed. One helpful tip is to filter issues by the *cosmos:v4-item* tag.
+* Look at the Java SDK in the Azure Cosmos DB central repo, which is available [open source on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). It has an [issues section](https://github.com/Azure/azure-sdk-for-java/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed. One helpful tip is to filter issues by the *cosmos:v4-item* tag.
 * Review the [performance tips for Java SDK v4](performance-tips-java-sdk-v4-sql.md), and follow the suggested practices.
 * Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-sdk-for-java/issues). If there is an option to add tags to your GitHub issue, add a *cosmos:v4-item* tag.
 
@@ -37,8 +37,10 @@ Start with this list:
 ### Network issues, Netty read timeout failure, low throughput, high latency
 
 #### General suggestions
+For best performance:
 * Make sure the app is running on the same region as your Azure Cosmos DB account. 
-* Check the CPU usage on the host where the app is running. If CPU usage is 90 percent or more, run your app on a host with a higher configuration. Or you can distribute the load on more machines.
+* Check the CPU usage on the host where the app is running. If CPU usage is 50 percent or more, run your app on a host with a higher configuration. Or you can distribute the load on more machines.
+    * If you are running your application on Azure Kubernetes Service, you can [use Azure Monitor to monitor CPU utilization](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-analyze).
 
 #### Connection throttling
 Connection throttling can happen because of either a [connection limit on a host machine] or [Azure SNAT (PAT) port exhaustion].
@@ -141,10 +143,6 @@ container.createItem(family)
 ```
 By using `publishOn(customScheduler)`, you release the Netty IO thread and switch to your own custom thread provided by the custom scheduler. This modification solves the problem. You won't get a `io.netty.handler.timeout.ReadTimeoutException` failure anymore.
 
-### Connection pool exhausted issue
-
-`PoolExhaustedException` is a client-side failure. This failure indicates that your app workload is higher than what the SDK connection pool can serve. Increase the connection pool size or distribute the load on multiple apps.
-
 ### Request rate too large
 This failure is a server-side failure. It indicates that you consumed your provisioned throughput. Retry later. If you get this failure often, consider an increase in the collection throughput.
 
@@ -158,17 +156,17 @@ The Azure Cosmos DB emulator HTTPS certificate is self-signed. For the SDK to wo
 
 ### Dependency Conflict Issues
 
-With Java SDK v4 Async API, you may find that your project has a dependency on an older version of Reactor (<3.3.0). Our SDK relies on Reactor 3.3.0 which has APIs not available in earlier versions of Reactor.
+The Azure Cosmos DB Java SDK pulls in a number of dependencies; generally speaking, if your project dependency tree includes an older version of an artifact that Azure Cosmos DB Java SDK depends on, this may result in unexpected errors being generated when you run your application. If you are debugging why your application unexpectedly throws an exception, it is a good idea to double-check that your dependency tree is not accidentally pulling in an older version of one or more of the Azure Cosmos DB Java SDK dependencies.
 
-The workaround for such issues is to identify which other dependency brings in the old version of Reactor and exclude the transitive dependency on that older version, and allow CosmosDB SDK to bring in the newer version.
+The workaround for such an issue is to identify which of your project dependencies brings in the old version and exclude the transitive dependency on that older version, and allow CosmosDB SDK to bring in the newer version.
 
-To identify which library brings in an older version of Reactor run the following command next to your project pom.xml file:
+To identify which of your project dependencies brings in an older version of something that Azure Cosmos DB Java SDK depends on, run the following command against your project pom.xml file:
 ```bash
 mvn dependency:tree
 ```
 For more information, see the [maven dependency tree guide](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
 
-Once you which dependency of your project depends on an older version of Reactor, you can modify the dependency on that lib in your pom file and exclude the Reactor transitive dependency:
+Once you know which dependency of your project depends on an older version, you can modify the dependency on that lib in your pom file and exclude the transitive dependency, following the example below (which assumes that *reactor-core* is the outdated dependency):
 
 ```xml
 <dependency>
