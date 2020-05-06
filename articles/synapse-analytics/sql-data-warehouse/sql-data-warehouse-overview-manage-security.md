@@ -28,7 +28,7 @@ This article will walk you through the basics of securing your Synapse SQL pool.
 
 Connection Security refers to how you restrict and secure connections to your database using firewall rules and connection encryption.
 
-Firewall rules are used by both the Azure SQL server and the database to reject connection attempts from IP addresses that haven't been explicitly whitelisted. To allow connections from your application or client machine's public IP address, you must first create a server-level firewall rule using the Azure portal, REST API, or PowerShell.
+Firewall rules are used by both the [logical SQL server](sql-database-servers.md) and its databases to reject connection attempts from IP addresses that haven't been explicitly whitelisted. To allow connections from your application or client machine's public IP address, you must first create a server-level firewall rule using the Azure portal, REST API, or PowerShell.
 
 As a best practice, you should restrict the IP address ranges allowed through your server-level firewall as much as possible.  To access SQL pool from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  
 
@@ -40,7 +40,7 @@ Connections to your SQL pool are encrypted by default.  Modifying connection set
 
 Authentication refers to how you prove your identity when connecting to the database. SQL pool currently supports SQL Server Authentication with a username and password, and with Azure Active Directory.
 
-When you created the Azure SQL server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo" through SQL Server Authentication.
+When you created the server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo" through SQL Server Authentication.
 
 However, as a best practice, your organization's users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack.
 
@@ -93,7 +93,7 @@ Managing databases and servers from the Azure portal or using the Azure Resource
 
 Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by encrypting and decrypting your data at rest. When you encrypt your database, associated backups and transaction log files are encrypted without requiring any changes to your applications. TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key.
 
-In SQL Database, the database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each Azure SQL server. Microsoft automatically rotates these certificates at least every 90 days. The encryption algorithm used is AES-256. For a general description of TDE, see [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+In SQL Database, the database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each server. Microsoft automatically rotates these certificates at least every 90 days. The encryption algorithm used is AES-256. For a general description of TDE, see [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 You can encrypt your database using the [Azure portal](sql-data-warehouse-encryption-tde.md) or [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 

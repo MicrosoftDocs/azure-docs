@@ -73,13 +73,13 @@ To register and set necessary permissions for your application:
 
     ![Delegate permissions to API for Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
-### Set an Azure AD admin for your SQL Database server
+### Set an Azure AD admin for your server
 
-For your C# program to run, an Azure SQL server admin needs to assign an Azure AD admin for your SQL Database server. 
+For your C# program to run, a [logical SQL server](sql-database-servers.md) admin needs to assign an Azure AD admin for your server.
 
 On the **SQL Server** page, select **Active Directory admin** > **Set admin**.
 
-For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in[ Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-database).
+For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-database).
 
 ### Add a non-admin user to a specific database (optional)
 
