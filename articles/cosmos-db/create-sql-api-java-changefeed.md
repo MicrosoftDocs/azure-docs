@@ -84,6 +84,7 @@ mvn clean package
 
     Press enter. Now the following block of code will execute and initialize the Change Feed processor on another thread: 
 
+   # [Java SDK 4.0](#tab/v4sdk)
 
     **Java SDK 4.0**
     ```java
@@ -98,6 +99,8 @@ mvn clean package
     while (!isProcessorRunning.get()); //Wait for Change Feed processor start
     ```
 
+   # [Java SDK 3.7.0](#tab/v3sdk)
+
     **Java SDK 3.7.0**
     ```java
     changeFeedProcessorInstance = getChangeFeedProcessor("SampleHost_1", feedContainer, leaseContainer);
@@ -110,7 +113,8 @@ mvn clean package
 
     while (!isProcessorRunning.get()); //Wait for Change Feed processor start    
     ```
-
+   ---
+   
     ```"SampleHost_1"``` is the name of the Change Feed processor worker. ```changeFeedProcessorInstance.start()``` is what actually starts the Change Feed processor.
 
     Return to the Azure Portal Data Explorer in your browser. Under the **InventoryContainer-leases** container, click **items** to see its contents. You will see that Change Feed Processor has populated the lease container, i.e. the processor has assigned the ```SampleHost_1``` worker a lease on some partitions of the **InventoryContainer**.
@@ -118,6 +122,8 @@ mvn clean package
     ![Leases](media/create-sql-api-java-changefeed/cosmos_leases.JPG)
 
 1. Press enter again in the terminal. This will trigger 10 documents to be inserted into **InventoryContainer**. Each document insertion appears in the Change Feed as JSON; the following callback code handles these events by mirroring the JSON documents into a materialized view:
+
+   # [Java SDK 4.0](#tab/v4sdk)
 
     **Java SDK 4.0**
     ```java
@@ -145,6 +151,8 @@ mvn clean package
     }
     ```
 
+   # [Java SDK 3.7.0](#tab/v3sdk)
+
     **Java SDK 3.7.0**
     ```java
     public static ChangeFeedProcessor getChangeFeedProcessor(String hostName, CosmosContainer feedContainer, CosmosContainer leaseContainer) {
@@ -170,6 +178,7 @@ mvn clean package
         typeContainer.upsertItem(document).subscribe();
     }    
     ```
+   ---
 
 1. Allow the code to run 5-10sec. Then return to the Azure Portal Data Explorer and navigate to **InventoryContainer > items**. You should see that items are being inserted into the inventory container; note the partition key (```id```).
 
@@ -185,6 +194,8 @@ mvn clean package
 
     Hit enter again to call the function ```deleteDocument()``` in the example code. This function, shown below, upserts a new version of the document with ```/ttl == 5```, which sets document Time-To-Live (TTL) to 5sec. 
     
+   # [Java SDK 4.0](#tab/v4sdk)
+
     **Java SDK 4.0**
     ```java
     public static void deleteDocument() {
@@ -212,6 +223,7 @@ mvn clean package
         feedContainer.upsertItem(document,new CosmosItemRequestOptions()).block();
     }    
     ```
+   # [Java SDK 3.7.0](#tab/v3sdk)
 
     **Java SDK 3.7.0**
     ```java
@@ -240,6 +252,7 @@ mvn clean package
         feedContainer.upsertItem(document,new CosmosItemRequestOptions()).block();
     }    
     ```
+   ---
 
     The Change Feed ```feedPollDelay``` is set to 100ms; therefore, Change Feed responds to this update almost instantly and calls ```updateInventoryTypeMaterializedView()``` shown above. That last function call will upsert the new document with TTL of 5sec into **InventoryContainer-pktype**.
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft commercial marketplace publishing guide by offer type
-description: This article describes the offer types available in the Microsoft commercial marketplace.
+title: Publishing guide by offer type - Microsoft commercial marketplace
+description: This article describes the offer types that are available in the Microsoft commercial marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -11,13 +11,11 @@ ms.author: dsindona
 
 # Publishing guide by offer type
 
-Once you [decide on a publishing option](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), you are ready to select the offer type that will be used to present your offer.
+This article describes the offer types that are available in the commercial marketplace. The *offer type* defines the offer structure, which includes the metadata, artifacts, and other content used to present the offer in the marketplace.
 
- The *offer type* defines the offer structure, which includes the metadata, artifacts, and other content used to present the offer in the marketplace.
+Before you can create an offer, and after you [decide on a publishing option](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), you must choose an offer type that will be used to present your offer. The offer type will correspond to the type of solution, app, or service offer that you wish to publish, as well as its alignment to Microsoft products and services.
 
-Before you can create an offer, you must choose an offer type. The offer type will correspond to the type of solution, app, or service offer that you wish to publish, as well as its alignment to Microsoft products and services.
-
-A single offer type can be configured differently to enable different publishing options, calls-to-action, provisioning, or pricing. The publishing option and configuration of the offer type also align to the offer eligibility and technical requirements.
+A single offer type can be configured in different ways to enable different publishing options, calls-to-action, provisioning, or pricing. The publishing option and configuration of the offer type also align to the offer eligibility and technical requirements.
 
 Be sure to review the storefront and offer type eligibility requirements and the technical publishing requirements before creating your offer.
 

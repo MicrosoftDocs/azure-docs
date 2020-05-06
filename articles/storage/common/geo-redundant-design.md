@@ -1,32 +1,31 @@
 ---
-title: Design highly available applications using geo-redundant storage
+title: Use geo-redundancy to design highly available applications
 titleSuffix: Azure Storage
-description: Learn how to use read-access geo-redundant storage to architect a highly available application that is flexible enough to handle outages.
+description: Learn how to use geo-redundant storage to design a highly available application that is flexible enough to handle outages.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ---
 
-# Designing highly available applications using read-access geo-redundant storage
+# Use geo-redundancy to design highly available applications
 
-A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available platform for hosting applications. Developers of cloud-based applications must consider carefully how to leverage this platform to deliver highly available applications to their users. This article focuses on how developers can use one of Azure's geo-redundant replication options to ensure that their Azure Storage applications are highly available.
+A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available and durable platform for hosting data and applications. Developers of cloud-based applications must consider carefully how to leverage this platform to maximize those advantages for their users. Azure Storage offers geo-redundant storage to ensure high availability even in the event of a regional outage. Storage accounts configured for geo-redundant replication are synchronously replicated in the primary region, and then asynchronously replicated to a secondary region that is hundreds of miles away.
 
-Storage accounts configured for geo-redundant replication are synchronously replicated in the primary region, and then asynchronously replicated to a secondary region that is hundreds of miles away. Azure Storage offers two types of geo-redundant replication:
+Azure Storage offers two options for geo-redundant replication. The only difference between these two options is how data is replicated in the primary region:
 
-* [Geo-zone-redundant storage (GZRS) (preview)](storage-redundancy.md) provides replication for scenarios requiring both high availability and maximum durability. Data is replicated synchronously across three Azure availability zones in the primary region using zone-redundant storage (ZRS), then replicated asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-zone-redundant storage (RA-GZRS).
-* [Geo-redundant storage (GRS)](storage-redundancy.md) provides cross-regional replication to protect against regional outages. Data is replicated synchronously three times in the primary region using locally redundant storage (LRS), then replicated asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-redundant storage (RA-GRS).
+* [Geo-zone-redundant storage (GZRS)](storage-redundancy.md): Data is replicated synchronously across three Azure availability zones in the primary region using *zone-redundant storage (ZRS)*, then replicated asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-zone-redundant storage (RA-GZRS).
+
+    Microsoft recommends using GZRS/RA-GZRS for scenarios that require maximum availability and durability.
+
+* [Geo-redundant storage (GRS)](storage-redundancy.md): Data is replicated synchronously three times in the primary region using *locally redundant storage (LRS)*, then replicated asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-redundant storage (RA-GRS).
 
 This article shows how to design your application to handle an outage in the primary region. If the primary region becomes unavailable, your application can adapt to perform read operations against the secondary region instead. Make sure that your storage account is configured for RA-GRS or RA-GZRS before you get started.
-
-For information about which primary regions are paired with which secondary regions, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
-
-There are code snippets included in this article, and a link to a complete sample at the end that you can download and run.
 
 ## Application design considerations when reading from the secondary
 
@@ -42,10 +41,7 @@ Keep in mind these key points when designing your application for RA-GRS or RA-G
 
 * You can use the Storage Client Library to read and write data in either the primary or secondary region. You can also redirect read requests automatically to the secondary region if a read request to the primary region times out.
 
-* If the primary region becomes unavailable, you can initiate an account failover. When you fail over to the secondary region, the DNS entries pointing to the primary region are changed to point to the secondary region. After the failover is complete, write access is restored for GRS and RA-GRS accounts. For more information, see [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
-
-> [!NOTE]
-> Customer-managed account failover (preview) is not yet available in regions supporting GZRS/RA-GZRS, so customers cannot currently manage account failover events with GZRS and RA-GZRS accounts. During the preview, Microsoft will manage any failover events affecting GZRS/RA-GZRS accounts.
+* If the primary region becomes unavailable, you can initiate an account failover. When you fail over to the secondary region, the DNS entries pointing to the primary region are changed to point to the secondary region. After the failover is complete, write access is restored for GRS and RA-GRS accounts. For more information, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
 ### Using eventually consistent data
 
@@ -158,7 +154,7 @@ You have three main options for monitoring the frequency of retries in the prima
 
 * In the [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) method in a custom retry policy, you can run custom code whenever a retry takes place. In addition to recording when a retry happens, this also gives you the opportunity to modify your retry behavior.
 
-    ```csharp 
+    ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,
     OperationContext operationContext)
     {
@@ -234,6 +230,4 @@ If you have made the thresholds for switching your application to read-only mode
 
 ## Next Steps
 
-* For more information about how to read from the secondary region, including another example of how the Last Sync Time property is set, see [Azure Storage Redundancy Options and Read Access Geo-Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
-
-* For a complete sample showing how to make the switch back and forth between the primary and secondary endpoints, see [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
+For a complete sample showing how to make the switch back and forth between the primary and secondary endpoints, see [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).

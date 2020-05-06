@@ -18,3 +18,4 @@ ms.custom: "include file"
 | Log alerts | 512 active alert rules per subscription. 200 active alert rules per resource. | Call support. |
 | Action groups |2,000 action groups per subscription. | Call support. |
 | Autoscale settings |100 per region per subscription. | Same as default. |
+| Autoscale profiles |20 profiles per autoscale setting. | Same as default. |
