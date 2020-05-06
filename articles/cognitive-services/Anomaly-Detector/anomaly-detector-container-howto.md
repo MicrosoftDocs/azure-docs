@@ -62,7 +62,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 | Container | Repository |
 |-----------|------------|
-| cognitive-services-anomaly-detector | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest` |
+| cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/anomaly:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -72,7 +72,7 @@ For a full description of available tags, such as `latest` used in the preceding
 ### Docker pull for the Anomaly Detector container
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/anomaly:latest
 ```
 
 ## How to use the container
@@ -90,7 +90,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest \
+mcr.microsoft.com/azure-cognitive-services/anomaly:latest \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

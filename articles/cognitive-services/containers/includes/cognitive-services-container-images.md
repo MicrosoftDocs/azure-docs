@@ -53,7 +53,7 @@ The following preview containers are available publicly. The Microsoft Container
 |--|--|--|
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Key Phrase Extraction | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
-| [Anomaly detector](../../anomaly-detector/anomaly-detector-container-howto.md) | Anomaly Detector | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector` |
+| [Anomaly detector](../../anomaly-detector/anomaly-detector-container-howto.md) | Anomaly Detector | `mcr.microsoft.com/azure-cognitive-services/anomaly` |
 
 #### Public "Gated" preview (container registry: `containerpreview.azurecr.io`)
 
