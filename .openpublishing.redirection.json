@@ -52190,5 +52190,11 @@
       "redirect_url": "/articles/load-balancer/concepts",
       "redirect_document_id": false
     }
+    {
+      "source_path": "articles/virtual-machines/troubleshooting/linux-virtual-machine-cannot-start-fstab-errors.md",
+      "redirect_url": "/articles/virtual-machines/troubleshooting",
+      "redirect_document_id": false
+    }
+ 
  ]
 }
