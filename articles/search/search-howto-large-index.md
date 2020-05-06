@@ -8,7 +8,7 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 5/8/2020
+ms.date: 05/05/2020
 ---
 
 # How to index large data sets in Azure Cognitive Search
