@@ -32,14 +32,14 @@ So if you're asking "How can I improve my database performance?" consider the fo
 * **Connection mode: Use Direct mode**
 <a id="direct-connection"></a>
     
-    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of client-side latency. The *ConnectionMode* is a key configuration setting available for configuring the client *ConnectionPolicy*. For Java SDK v4, the two available ConnectionModes are:  
+    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of client-side latency. The *ConnectionMode* is a key configuration setting available for configuring the client *ConnectionPolicy*. For Java SDK v4, the two available *ConnectionMode*s are:  
       
     * [Gateway (default)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
     * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
 
-    Gateway mode is supported on all SDK platforms and it is the configured option by default. If your applications run within a corporate network with strict firewall restrictions, Gateway mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, Direct mode offers better performance due to fewer network hops.
+    These *ConnectionMode*s essentially condition the route that requests take from your client machine to partitions in the Azure Cosmos DB back-end. Generally Direct Mode is the preferred option for best performance - it allows your client to open TCP connections directly to partitions in the Azure Cosmos DB back-end and send requests *direct*ly with no intermediary. By contrast, in Gateway mode, requests made by your client are routed to a so-called "Gateway" server in the Azure Cosmos DB front-end, which in turn fans out your requests to the appropriate partition(s) in the Azure Cosmos DB back-end. If your application runs within a corporate network with strict firewall restrictions, Gateway mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop (client to Gateway plus Gateway to partition) every time data is read or written to Azure Cosmos DB. Because of this, Direct mode offers better performance due to fewer network hops.
 
-    The *ConnectionMode* is configured during the construction of the Azure Cosmos DB client instance with the *ConnectionPolicy* parameter.
+    The *ConnectionMode* is configured during the construction of the Azure Cosmos DB client instance with the *ConnectionPolicy* parameter:
     
    #### [Async](#tab/api-async)
 
@@ -226,15 +226,23 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 * **Scale out your client-workload**
 
-    If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
+    If you are testing at high throughput levels, the client application may become the bottleneck due to the machine capping out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
+
+    A good rule of thumb is not to exceed >50% CPU utilization on any given server, to keep latency low.
 
    <a id="tune-page-size"></a>
 
 * **Tune the page size for queries/read feeds for better performance**
 
-    When performing a bulk read of documents by using read feed functionality (for example, readDocuments) or when issuing a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
+    When performing a bulk read of documents by using read feed functionality (for example, *readItems*) or when issuing a SQL query (*queryItems*), the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
 
-    To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size using the [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) request header to up to 1000. In cases where you need to display only a few results, for example, if your user interface or application API returns only 10 results a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
+    Suppose that your application issues a query to Azure Cosmos DB, and suppose that your application requires the full set of query results in order to complete its task. To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size by adjusting the [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) request header field. 
+
+    * For single-partition queries, adjusting the [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) field value to -1 (no limit on page size) maximizes latency by minimizing the number of query response pages: either the full result set will return in a single page, or if the query takes longer than the timeout interval, then the full result set will be returned in the minimum number of pages possible. This saves on multiples of the request round-trip time.
+    
+    * For cross-partition queries, setting the [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) field to -1 and removing the page size limit risks overwhelming the SDK with unmanageable page sizes. In the cross-partition case we recommend raising the page size limit up to some large but finite value, perhaps 1000, to reduce latency. 
+    
+    In some applications, you may not require the full set of query results. In cases where you need to display only a few results, for example, if your user interface or application API returns only 10 results at a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
 
     You may also set the page size using the setMaxItemCount method.
 
