@@ -70,6 +70,8 @@ ACS communication identity tokens typically have a lifetime of 12 hours. They ca
 
 ## Using user access tokens for communication 
 
+The Azure Communication Services client SDKs require user access tokens to authenticate against 
+
 ### Use this TokenCredential to create an ACS Communication Client with the Chat capability
 
 Bob creates a token credential object using the string they obtained from the trusted service. They use this token to create a Chat enabled communication client.
@@ -94,7 +96,9 @@ It is possible with ACS for a communication identity to communicate on behalf of
 ## User access token scopes
 ## Access token life cycle (AKA refreshing access tokens)
 
-User access tokens are short lived credentials.
+User access tokens are short lived credentials that need to be rereshed in order to prevent your users from experiencing service disruptions.
+
+The client SDKs provide events to let you know when the provided user access token is about to expire. You should subcribe to these events and use them to fetch a new user access token from your trusted service.
 
 ```javascript
 const { ChatClient } = require('@azure/communicationservices-chat');
@@ -117,6 +121,7 @@ client.on('token_will_expire', (tokenProvider) => {
 ```
 
 ## Revoking users access tokens
+
 ## Impersonating users
 ***Trusted service sends Sue a chat message on behalf of Bob***
 In this example the trusted service directly sends Sue a chat message on behalf of Bob, without any interaction from an end-user device.
