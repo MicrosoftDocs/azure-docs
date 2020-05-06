@@ -30,7 +30,7 @@ This diagram shows the steps it takes to fine-tune text-to-speech outputs. Use t
    >[!NOTE]
    > Gated access is available for Custom Neural Voices, which allow you to create high-definition voices similar to natural-sounding speech. For additional details, see [Gating process](https://aka.ms/ignite2019/speech/ethics).
 
-4. Review the default synthesis output. Then improve the output by adjusting pronunciation, break, pitch, rate, intonation, voice style, and more. For a complete list of options, see [Speech Synthesis Markup Language](speech-synthesis-markup.md). Here is a [video](https://pan.baidu.com/s/18ViYVIA2a0hb_oS0DVuFAQ) to show how to fine-tune speech output with Audio Content Creation. 
+4. Review the default synthesis output. Then improve the output by adjusting pronunciation, break, pitch, rate, intonation, voice style, and more. For a complete list of options, see [Speech Synthesis Markup Language](speech-synthesis-markup.md). Here is a [video](https://youtu.be/mUvf2NbfuYU) to show how to fine-tune speech output with Audio Content Creation. 
 5. Save and [export your tuned audio](#export-tuned-audio). When you save the tuning track in the system, you can continue to work and iterate on the output. When you're satisfied with the output, you can create an audio creation task with the export feature. You can observe the status of the export task, and download the output for use with your apps and products.
 
 ## Set up your Azure account and Speech resource
