@@ -84,6 +84,7 @@ mvn clean package
 
     Press enter. Now the following block of code will execute and initialize the Change Feed processor on another thread: 
 
+   # [Java SDK 4.0](#tab/v4sdk)
 
     **Java SDK 4.0**
     ```java
@@ -98,6 +99,8 @@ mvn clean package
     while (!isProcessorRunning.get()); //Wait for Change Feed processor start
     ```
 
+   # [Java SDK 3.7.0](#tab/v3sdk)
+
     **Java SDK 3.7.0**
     ```java
     changeFeedProcessorInstance = getChangeFeedProcessor("SampleHost_1", feedContainer, leaseContainer);
@@ -110,7 +113,8 @@ mvn clean package
 
     while (!isProcessorRunning.get()); //Wait for Change Feed processor start    
     ```
-
+   ---
+   
     ```"SampleHost_1"``` is the name of the Change Feed processor worker. ```changeFeedProcessorInstance.start()``` is what actually starts the Change Feed processor.
 
     Return to the Azure Portal Data Explorer in your browser. Under the **InventoryContainer-leases** container, click **items** to see its contents. You will see that Change Feed Processor has populated the lease container, i.e. the processor has assigned the ```SampleHost_1``` worker a lease on some partitions of the **InventoryContainer**.
