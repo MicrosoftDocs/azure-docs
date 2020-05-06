@@ -30,15 +30,15 @@ What you need to begin:
 
 ## Preparation
 
-Let's first setup a project. Open a command prompt or shell window and create an empty directory, for example called "firstSteps" at a convenient location.
+First, set up a project. Open a command prompt or shell window and create an empty directory, for example called "firstSteps" at a convenient location.
 Then change directory into the newly created location.
 
-Next, let's create an empty .NET console app project. In a command prompt or shell window, type:
+Next, create an empty .NET console app project. In a command prompt or shell window, type:
 ```bash
 dotnet new console
 ```
 
-This will create a minimal C# project. To develop against Azure Digital Twins, we need to add two dependencies to the project:
+This will create a minimal C# project. To develop against Azure Digital Twins, you need to add two dependencies to the project:
 
 ```bash
 dotnet add package Azure.IoT.DigitalTwins
@@ -87,20 +87,20 @@ namespace FirstSteps
 }
 ```
 
-Over the course of this tutorial, we will add code that illustrates some of the basic techniques of programming against Azure Digital Twins. 
+Over the course of this tutorial, you will add code that illustrates some of the basic techniques of programming against Azure Digital Twins. 
 
 ### Authenticate against the service
 
-First, let's add som "using" lines at the top of the code.
+First, add some "using" lines at the top of the code.
 
 ```csharp
 using Azure.Iot.DigitalTwins;
 using Azure.Identity;
 ```
 
-Before we do anything else, we need to be able to create a service client class to access the SDK functions. To do so, we need to be able to9 authenticate against the service. 
+Before you do anything else, you need to be able to create a service client class to access the SDK functions. To do so, you need to be able to authenticate against the service. 
 
-To do so, we need three pieces of information:
+To do so, you need three pieces of information:
 * The tenant id for your subscription
 * The client id (or app registration) created when you set up the service instance. It would have been printed out by the script if you used it.
 * The access URL of your service instance.
@@ -124,7 +124,7 @@ dotnet run
 ```
 
 This will restore the dependencies on first run, and then execute the program. If no error occurs, the program will print "Service client created - ready to go".
-In this simple example, we have not added any error handling. If anything is going wrong, you will see an exception thrown by the code.
+In this simple example, you have not added any error handling. If anything is going wrong, you will see an exception thrown by the code.
 
 Note that this example uses an interactive browser credential:
 ```csharp
@@ -169,12 +169,12 @@ using Azure;
 using Azure.Iot.DigitalTwins.Models;
 ```
 
-As we are going to use async methods on the service SDK, change the main method signature to allow us to allow for async execution. This is not strictly required as the SDK also provides synchronous versions of all calls, but it is good to practice.
+As you are going to use async methods on the service SDK, change the main method signature to allow for async execution. This is not strictly required as the SDK also provides synchronous versions of all calls, but it is good to practice.
 ```csharp
 static async Task Main(string[] args)
 ```
 
-Finally, our first bit of real Azure Digital Twins code. We will load the DTDL file from disk and then upload it to your Azure Digital Twins service instance. 
+This is the first bit of real Azure Digital Twins code. You can load the DTDL file from disk and then upload it to your Azure Digital Twins service instance. 
 
 Paste in the following code under the authorization code.
 ```csharp
@@ -192,7 +192,7 @@ Run the program with
 dotnet run
 ```
 
-There is no output for the successful call. That isn ot very satisfying. So, let's add some code to check if the model has actually been uploaded.
+Right now, there is no output for the successful call. Add some code to check if the model has actually been uploaded.
 
 Add the following code right after the previous bit:
 
@@ -217,7 +217,7 @@ You will see an exception thrown. What happened?
 The exception happens because Azure Digital Twins will not let you upload the same model twice. Instead, the service returns a "bad request" error via the REST API. 
 The Azure Digital Twins client SDK in turn will throw an exception for every service return code other than success. 
 
-To keep our code from crashing, let's add an exception around the model upload code. Wrap the existing client call client.CreateModelsAsync in a try/catch handler:
+To keep the code from crashing, add an exception around the model upload code. Wrap the existing client call client.CreateModelsAsync in a try/catch handler:
 ```csharp
 try {
     await client.CreateModelsAsync(typeList);
@@ -248,13 +248,13 @@ Content-Type: application/json; charset=utf-8
 Type name: : urn:example:Simple:1
 ```
 
-From now on, we will wrap all calls to service methods in try/catch handlers.
+From this point on, the tutorial will wrap all calls to service methods in try/catch handlers.
 
 ### Create digital twins
 
-Now that we have configured Azure Digital Twins with at least one model, we can create twin instances. Let's quickly create a few twins using the uploaded model.
+Now that you have configured Azure Digital Twins with at least one model, you can create twin instances. This section creates a few twins using the uploaded model.
 
-Add a new using statement at the top, as we will need the built-in .NET Json serializer in System.Text.Json:
+Add a new using statement at the top, as you will need the built-in .NET Json serializer in System.Text.Json:
 ```csharp
 using System.Text.Json;
 ```
@@ -287,14 +287,14 @@ Run this code twice. No error is thrown when the twins are created, although the
 
 ### Create relationships
 
-What would a twins graph be without relationships? Let's connect some twins into a graph.
+Relationships are created between twins in order to connect them into a twin graph.
 
 Add a using statement for the edge base types in the SDK:
 ```csharp
 using Azure.Iot.DigitalTwins.Edges;
 ```
 
-Let's add a new static method to the Program class:
+Add a new static method to the Program class:
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -331,7 +331,7 @@ dotnet run
 
 It would be good to see the list of relationships.
 
-Let's do that. Add the following new method to Program.cs:
+In order to do that, add the following new method to Program.cs:
 ```csharp
 public async static Task ListRelationships(DigitalTwinsClient client, string srcId)
 {
@@ -360,11 +360,11 @@ Run the program with
 dotnet run
 ```
 
-Note that if you run the code multiple times, you will see exceptions on edge creation, as Azure Digital Twins will not let you create an edge if one with the same id already exists. We are catching the exceptions and ignoring them in the code. 
+Note that if you run the code multiple times, you will see exceptions on edge creation, as Azure Digital Twins will not let you create an edge if one with the same ID already exists. This code catches the exceptions and ignores them. 
 
 ### Query digital twins
 
-Finally, one last example. Let's run a query against Azure Digital Twins. 
+The final code example runs a query against Azure Digital Twins. 
 
 Add the following code:
 ```csharp
@@ -506,7 +506,7 @@ namespace minimal
 
 ### An Exercise for the Reader
 
-In this example, we have uploaded models, created twins, set relationships, listed relationships and ran a simple query.
+In this example, you have uploaded models, created twins, set relationships, listed relationships and run a simple query.
 
 As an exercise for the reader, see the how-to document on patching twins [ToDo add link]. Then, add code to this tutorial sample to patch the data property on each of the twins in this simple twin graph.
 
