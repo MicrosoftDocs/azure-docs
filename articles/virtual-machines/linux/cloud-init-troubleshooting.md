@@ -43,7 +43,7 @@ The following articles illustrate the steps to prepare various linux distributio
 - [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Others: Non-Endorsed Distributions](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-For the [supported Azure cloud-init images](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init), the Linux distributions already have all the required packages and configurations in place to correctly provision the image in Azure. If you find your VM is failing to create from your own curated image, try a supported Azure Marketplace image that already is configured for cloud-init, with your optional customData. If the customData works correctly with an Azure Marketplace image, then there is probably an issue with your curated image.
+For the [supported Azure cloud-init images](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init), the Linux distributions already have all the required packages and configurations in place to correctly provision the image in Azure. If you find your VM is failing to create from your own curated image, try a supported Azure Marketplace image that already is configured for cloud-init, with your optional customData. If the customData works correctly with an Azure Marketplace image, then there is probably an issue with your curated image.
 
 ## Step 3: Collect & review VM logs
 
@@ -51,11 +51,11 @@ When the VM fails to provision, Azure will show 'creating' status, for 20mins, a
 
 While the VM is running, you will need the logs from the VM to understand why provisioning failed.  To understand why VM provisioning failed, do not stop the VM. Keep the VM running. You will need to keep the failed VM in a running state in order to collect logs. To collect the logs, use one of the following methods:
 
-- [Serial Console](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
+- [Serial Console](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
 
-- [Enable Boot Diagnostics](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) before creating the VM and then [View](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) them during the boot.
+- [Enable Boot Diagnostics](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) before creating the VM and then [View](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) them during the boot.
 
-- [Manually attach and mount the OS disk](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-linux) to a running vm to extract logs- Azure VM Repair
+- [Manually attach and mount the OS disk](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-linux) to a running vm to extract logs- Azure VM Repair
 
 Collect these logs:
 ```bash
@@ -106,7 +106,7 @@ Once you have found an error or warning, read backwards in the cloud-init log to
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-If you have access to the [Serial Console](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/serial-console-grub-single-user-mode), you can try to rerun the command that cloud-init was trying to run.
+If you have access to the [Serial Console](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode), you can try to rerun the command that cloud-init was trying to run.
 
 The logging for `/var/log/cloud-init.log` can also be reconfigured within /etc/cloud/cloud.cfg.d/05_logging.cfg. For more details of cloud-init logging, refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
