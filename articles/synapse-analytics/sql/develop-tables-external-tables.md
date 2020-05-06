@@ -46,7 +46,7 @@ External data sources are used to connect to storage accounts. The complete docu
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
 WITH
-(    LOCATION         = '<prefix>://<path>' )
+(    LOCATION         = '<prefix>://<path>' [, CREDENTIAL = <database scoped credential> ] )
 [;]
 ```
 
@@ -54,6 +54,7 @@ WITH
 
 data_source_name -Specifies the user-defined name for the data source. The name must be unique within the database.
 
+### Location
 LOCATION = `'<prefix>://<path>'`   - Provides the connectivity protocol and path to the external data source. The path can include a container in the form of  `'<prefix>://<path>/container'`, and a folder in the form of `'<prefix>://<path>/container/folder'`.
 
 | External Data Source        | Location prefix | Location path                                         |
@@ -61,6 +62,11 @@ LOCATION = `'<prefix>://<path>'`   - Provides the connectivity protocol and path
 | Azure Blob Storage          | `wasb[s]`       | `<container>@<storage_account>.blob.core.windows.net` |
 | Azure Data Lake Store Gen 1 | `adl`           | `<storage_account>.azuredatalake.net`                 |
 | Azure Data Lake Store Gen 2 | `abfs[s]`       | `<container>@<storage_account>.dfs.core.windows.net`  |
+
+### Credential
+CREDENTIAL = `<database scoped credential>` is optional credential that will be used to authenticate on Azure storage. External data source without credential can access public storage account. External data sources without credential in SQL pool can also use callers Azure AD identity to access files on storage. External data source with credential use identity specified in credential to access files.
+- In SQL pool, database scoped credential can specify custom application identity, workspace Managed Identity, or SAK key. 
+- In SQL on-demand, database scoped credential can specify caller's Azure AD identity, workspace Managed Identity, or SAS key. 
 
 ## Example for CREATE EXTERNAL DATA SOURCE
 
