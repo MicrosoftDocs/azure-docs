@@ -298,6 +298,7 @@ DocumentCollection manualCollection = await createClient.CreateDocumentCollectio
       },
   });
 ```
+
 # [.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
@@ -395,6 +396,7 @@ while (conflictFeed.HasMoreResults)
     }
 }
 ```
+---
 
 ### <a id="read-from-conflict-feed-java"></a>Java SDK
 
