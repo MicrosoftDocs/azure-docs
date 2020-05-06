@@ -170,7 +170,8 @@ Records stored in Kafka are stored in the order they're received within a partit
 
 ## Common Issues faced
 
-1. I am unable to create topic.
+1. Topic creation fails
+
 
     If your cluster is Enterprise Security Pack enabled, use the [pre-built JAR files for producer and consumer](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar).
 
