@@ -8,8 +8,6 @@
     href: overview.md
   - name: Compare messaging services
     href: compare-messaging-services.md
-  - name: Premium vs. basic tiers
-    href: premium-basic-tiers.md
 - name: Quickstarts
   expanded: true
   items:
@@ -175,8 +173,6 @@
     href: configure-private-endpoints.md
   - name: Configure IP firewall (preview)
     href: configure-firewall.md
-  - name: Update pricing tier
-    href: update-tier.md
   - name: Post to custom topic
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint

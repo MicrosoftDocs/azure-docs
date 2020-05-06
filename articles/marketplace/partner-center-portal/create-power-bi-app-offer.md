@@ -11,9 +11,6 @@ ms.date: 05/01/2020
 
 # Create a Power BI app for Microsoft AppSource
 
-> [!IMPORTANT]
-> We're moving the management of your Power BI app offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Create a Power BI app offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-create-offer) for Cloud Partner Portal to manage your offers.
-
 This article describes how to create and publish a Power BI app offer to Microsoft [AppSource](https://appsource.microsoft.com/).
 
 Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
