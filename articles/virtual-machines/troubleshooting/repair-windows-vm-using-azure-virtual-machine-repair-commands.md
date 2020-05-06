@@ -77,7 +77,7 @@ For additional documentation and instructions, see [az vm repair](https://docs.m
 4. Run `az vm repair run`. This command will run the specified repair script on the attached disk via the repair VM.
 
    ```azurecli-interactive
-   az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id 2 --verbose
+   az vm repair run  -g MyResourceGroup -n MyVM --run-on-repair --run-id 2 --verbose
    ```
 
 5. Run `az vm repair restore`. This command will swap the repaired OS disk with the original OS disk of the VM.
