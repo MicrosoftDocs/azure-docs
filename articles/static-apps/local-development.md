@@ -199,4 +199,4 @@ For more information on configuring environment files for front-end JavaScript f
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure application settings](application-settings.md)
+> [Configure app settings](application-settings.md)
