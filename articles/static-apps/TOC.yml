@@ -23,6 +23,8 @@
       href: review-publish-pull-requests.md
     - name: Custom domain
       href: custom-domain.md
+    - name: Build configuration
+      href: github-actions-workflow.md
 - name: How-to guides
   items:
     - name: Setup local development
