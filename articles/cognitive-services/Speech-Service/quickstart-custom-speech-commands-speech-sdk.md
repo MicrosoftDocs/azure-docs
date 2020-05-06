@@ -297,9 +297,9 @@ Add the code-behind source as follows:
    ```
     > [!NOTE]
     > If you see error: "The type 'Object' is defined in an assembly that is not referenced"
-    > - Right-client your solution.
-    > - Choose **Manage NuGet Packages for Solution**, Select **Updates** 
-    > - If you see **Microsoft.NETCore.UniversalWindowsPlatform** in the update list, Update **Microsoft.NETCore.UniversalWindowsPlatform** to newest version
+    > 1. Right-client your solution.
+    > 1. Choose **Manage NuGet Packages for Solution**, Select **Updates** 
+    > 1. If you see **Microsoft.NETCore.UniversalWindowsPlatform** in the update list, Update **Microsoft.NETCore.UniversalWindowsPlatform** to newest version
 
 1. Add the following code to the method body of `InitializeDialogServiceConnector`
 
