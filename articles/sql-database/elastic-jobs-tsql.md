@@ -22,7 +22,7 @@ Transact-SQL (T-SQL) is used to create, configure, execute, and manage jobs. Cre
 
 ## Create a credential for job execution
 
-The credential is used to connect to your target databases for script execution. The credential needs appropriate permissions, on the databases specified by the target group, to successfully execute the script. When using an Azure SQL server and/or pool target group member, it is highly suggested to create a master credential for use to refresh the credential prior to expansion of the server and/or pool at time of job execution. The database scoped credential is created on the job agent database. The same credential must be used to *Create a Login* and *Create a User from Login to grant the Login Database Permissions* on the target databases.
+The credential is used to connect to your target databases for script execution. The credential needs appropriate permissions, on the databases specified by the target group, to successfully execute the script. When using a [logical SQL server](sql-database-servers.md) and/or pool target group member, it is highly suggested to create a master credential for use to refresh the credential prior to expansion of the server and/or pool at time of job execution. The database scoped credential is created on the job agent database. The same credential must be used to *Create a Login* and *Create a User from Login to grant the Login Database Permissions* on the target databases.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -43,20 +43,20 @@ GO
 
 ## Create a target group (servers)
 
-The following example shows how to execute a job against all databases in an Azure SQL server.  
+The following example shows how to execute a job against all databases in a server.  
 Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 -- Connect to the job database specified when creating the job agent
 
--- Add a target group containing Azure SQL server(s)
+-- Add a target group containing server(s)
 EXEC jobs.sp_add_target_group 'ServerGroup1'
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
 'ServerGroup1',
 @target_type = 'SqlServer',
-@refresh_credential_name='mymastercred', --credential required to refresh the databases in an Azure SQL server
+@refresh_credential_name='mymastercred', --credential required to refresh the databases in a server
 @server_name='server1.database.windows.net'
 
 --View the recently created target group and target group members
@@ -66,13 +66,13 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 
 ## Exclude an individual database
 
-The following example shows how to execute a job against all databases in an Azure SQL server, except for the database named *MappingDB*.  
+The following example shows how to execute a job against all databases in an server, except for the database named *MappingDB*.  
 Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
--- Add a target group containing Azure SQL server(s)
+-- Add a target group containing server(s)
 EXEC [jobs].sp_add_target_group N'ServerGroup'
 GO
 
@@ -80,7 +80,7 @@ GO
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in Azure SQL server
+@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in a server
 @server_name=N'London.database.windows.net'
 GO
 
@@ -88,7 +88,7 @@ GO
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in Azure SQL server
+@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in a server
 @server_name='server2.database.windows.net'
 GO
 
@@ -121,7 +121,7 @@ EXEC jobs.sp_add_target_group 'PoolGroup'
 EXEC jobs.sp_add_target_group_member
 'PoolGroup',
 @target_type = 'SqlElasticPool',
-@refresh_credential_name='mymastercred', --credential required to refresh the databases in Azure SQL server
+@refresh_credential_name='mymastercred', --credential required to refresh the databases in a server
 @server_name='server1.database.windows.net',
 @elastic_pool_name='ElasticPool-1'
 
@@ -658,7 +658,7 @@ Needs description.
 Needs description.
 
 [ **\@output_server_name =** ] 'output_server_name'  
-If not null, the fully qualified DNS name of the Azure SQL server that contains the output destination database. Must be specified if output_type equals SqlDatabase. output_server_name is nvarchar(256), with a default of NULL.
+If not null, the fully qualified DNS name of the server that contains the output destination database. Must be specified if output_type equals SqlDatabase. output_server_name is nvarchar(256), with a default of NULL.
 
 [ **\@output_database_name =** ] 'output_database_name'  
 If not null, the name of the database that contains the output destination table. Must be specified if output_type equals SqlDatabase. output_database_name is nvarchar(128), with a default of NULL.
@@ -673,7 +673,7 @@ If not null, the name of the table that the command’s first result set will be
 Output parameter that will be assigned the new job version number. job_version is int.
 
 [ **\@max_parallelism =** ] max_parallelism OUTPUT  
-The maximum level of parallelism per elastic pool. If set, then the job step will be restricted to only run on a maximum of that many databases per elastic pool. This applies to each elastic pool that is either directly included in the target group or is inside an Azure SQL server that is included in the target group. max_parallelism is int.
+The maximum level of parallelism per elastic pool. If set, then the job step will be restricted to only run on a maximum of that many databases per elastic pool. This applies to each elastic pool that is either directly included in the target group or is inside a server that is included in the target group. max_parallelism is int.
 
 #### Return Code Values
 

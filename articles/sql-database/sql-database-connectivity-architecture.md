@@ -16,20 +16,20 @@ ms.date: 03/09/2020
 # Azure SQL connectivity architecture
 
 > [!NOTE]
-> This article applies to Azure SQL server, and to both SQL Database and Azure Synapse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse Analytics.
+> This article applies to both SQL Database and Azure Synapse databases. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > This article does *not* apply to **Azure SQL Managed Instance**. Refer to [Connectivity architecture for a managed instance](sql-database-managed-instance-connectivity-architecture.md).
 
-This article explains architecture of various components that direct network traffic to the Azure SQL Database or Azure Synapse. It also explains different connection policies and how it impacts clients connecting from within Azure and clients connecting from outside of Azure. 
+This article explains architecture of various components that direct network traffic to the [logical SQL server](sql-database-servers.md). It also explains different connection policies and how it impacts clients connecting from within Azure and clients connecting from outside of Azure.
 
 ## Connectivity architecture
 
-The following diagram provides a high-level overview of the Azure SQL Database connectivity architecture.
+The following diagram provides a high-level overview of the server connectivity architecture.
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-overview.png)
 
-The following steps describe how a connection is established to an Azure SQL database:
+The following steps describe how a connection is established to aserver:
 
 - Clients connect to the gateway, that has a public IP address and listens on port 1433.
 - The gateway, depending on the effective connection policy, redirects or proxies the traffic to the right database cluster.

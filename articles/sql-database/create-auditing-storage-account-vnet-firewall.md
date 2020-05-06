@@ -32,7 +32,7 @@ For audit to write to a storage account behind a VNet or firewall, the following
 > [!div class="checklist"]
 >
 > * A general-purpose v2 storage account. If you have a general-purpose v1 or blob storage account, [upgrade to a general-purpose v2 storage account](../storage/common/storage-account-upgrade.md). For more information, see [Types of storage accounts](../storage/common/storage-account-overview.md#types-of-storage-accounts).
-> * The storage account must be on the same subscription and at the same location as the Azure SQL server.
+> * The storage account must be on the same subscription and at the same location as the [logical SQL server](sql-database-servers.md).
 > * The Azure Storage account requires `Allow trusted Microsoft services to access this storage account`. Set this on the Storage Account **Firewalls and Virtual networks**.
 > * You must have `Microsoft.Authorization/roleAssignments/write` permission on the selected storage account. For more information, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
@@ -75,7 +75,7 @@ The sample scripts in this section require you to update the script before you r
 
 To configure SQL Audit to write events to a storage account behind a VNet or Firewall:
 
-1. Register your Azure SQL server with Azure Active Directory (Azure AD). Use either PowerShell or REST API.
+1. Register your server with Azure Active Directory (Azure AD). Use either PowerShell or REST API.
 
    **PowerShell**
 
@@ -137,4 +137,4 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
 
 * [Use PowerShell to create a virtual network service endpoint, and then a virtual network rule for Azure SQL Database.](sql-database-vnet-service-endpoint-rule-powershell.md)
 * [Virtual Network Rules: Operations with REST APIs](/rest/api/sql/virtualnetworkrules)
-* [Use virtual network service endpoints and rules for Azure SQL servers](sql-database-vnet-service-endpoint-rule-overview.md)
+* [Use virtual network service endpoints and rules for servers](sql-database-vnet-service-endpoint-rule-overview.md)

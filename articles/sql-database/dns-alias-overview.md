@@ -1,6 +1,6 @@
 ---
 title: DNS alias
-description: Your applications can connect to an alias for the name of your Azure SQL server. Meanwhile, you can change the SQL Database the alias points to anytime, to facilitate testing and so on.
+description: Your applications can connect to an alias for the name of your logical SQL server. Meanwhile, you can change the SQL Database the alias points to anytime, to facilitate testing and so on.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -14,24 +14,24 @@ ms.date: 06/26/2019
 ---
 # DNS alias for Azure SQL Database
 
-Azure SQL Database has a Domain Name System (DNS) server. PowerShell and REST APIs accept [calls to create and manage DNS aliases](#anchor-powershell-code-62x) for your [Azure SQL server](sql-database-servers.md) name.
+Azure SQL Database has a Domain Name System (DNS) server. PowerShell and REST APIs accept [calls to create and manage DNS aliases](#anchor-powershell-code-62x) for your [logical SQL server](sql-database-servers.md) name.
 
 A *DNS alias* can be used in place of the server name. Client programs can use the alias in their connection strings. The DNS alias provides a translation layer that can redirect your client programs to different servers. This layer spares you the difficulties of having to find and edit all the clients and their connection strings.
 
 Common uses for a DNS alias include the following cases:
 
-- Create an easy to remember name for an Azure SQL server.
+- Create an easy to remember name for a server.
 - During initial development, your alias can refer to a test server. When the application goes live, you can modify the alias to refer to the production server. The transition from test to production does not require any modification to the configurations several clients that connect to the server.
 - Suppose the only database in your application is moved to another server. You can modify the alias without having to modify the configurations of several clients.
 - During a regional outage you use geo-restore to recover your database in a different server and region. You can modify your existing alias to point to the new server so that the existing client application could re-connect to it.
 
 ## Domain Name System (DNS) of the Internet
 
-The Internet relies on the DNS. The DNS translates your friendly names into the name of your Azure SQL server.
+The Internet relies on the DNS. The DNS translates your friendly names into the name of your server.
 
 ## Scenarios with one DNS alias
 
-Suppose you need to switch your system to a new Azure SQL server. In the past you needed to find and update every connection string in every client program. But now, if the connection strings use a DNS alias, only an alias property must be updated.
+Suppose you need to switch your system to a new server. In the past you needed to find and update every connection string in every client program. But now, if the connection strings use a DNS alias, only an alias property must be updated.
 
 The DNS alias feature of Azure SQL Database can help in the following scenarios:
 
@@ -43,13 +43,13 @@ Later when the new system goes live in production, you can update the properties
 
 ### Cross-region support
 
-A disaster recovery might shift your Azure SQL server to a different geographic region. For a system that was using a DNS alias, the need to find and update all the connection strings for all clients can be avoided. Instead, you can update an alias to refer to the new server that now hosts your Azure SQL Database.
+A disaster recovery might shift your server to a different geographic region. For a system that was using a DNS alias, the need to find and update all the connection strings for all clients can be avoided. Instead, you can update an alias to refer to the new server that now hosts your Azure SQL Database.
 
 ## Properties of a DNS alias
 
 The following properties apply to each DNS alias for your server:
 
-- *Unique name:* Each alias name you create is unique across all Azure SQL servers, just as server names are.
+- *Unique name:* Each alias name you create is unique across all servers, just as server names are.
 - *Server is required:* A DNS alias cannot be created unless it references exactly one server, and the server must already exist. An updated alias must always reference exactly one existing server.
   - When you drop a server, the Azure system also drops all DNS aliases that refer to the server.
 - *Not bound to any region:* DNS aliases are not bound to a region. Any DNS aliases can be updated to refer to a server that resides in any geographic region.

@@ -24,7 +24,7 @@ This article provides a PowerShell script that demonstrates how you can manage a
 
 ## DNS alias in connection string
 
-To connect an Azure SQL server, a client such as SQL Server Management Studio (SSMS) can provide the DNS alias name instead of the true server name. In the following example server string, the alias *any-unique-alias-name* replaces the first dot-delimited node in the four node server string:
+To connect a [logical SQL server](sql-database-servers.md), a client such as SQL Server Management Studio (SSMS) can provide the DNS alias name instead of the true server name. In the following example server string, the alias *any-unique-alias-name* replaces the first dot-delimited node in the four node server string:
 
    `<yourServer>.database.windows.net`
 
@@ -33,7 +33,7 @@ To connect an Azure SQL server, a client such as SQL Server Management Studio (S
 If you want to run the demo PowerShell script given in this article, the following prerequisites apply:
 
 - An Azure subscription and account, for free trial, see [Azure trials](https://azure.microsoft.com/free/)
-- Two Azure SQL servers
+- Two servers
 
 ## Example
 
@@ -91,7 +91,7 @@ Remove-AzSqlServerDnsAlias –ResourceGroupName $resourceGroupName2 -ServerName 
 
 The commands used are the following:
 
-- [az sql server dns-alias create](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Creates a DNS alias for an Azure SQL server. The alias refers to server 1.
+- [az sql server dns-alias create](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Creates a DNS alias for a server. The alias refers to server 1.
 - [az sql server dns-alias show](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Get and list all the aliases assigned to server 1.
 - [az sql server dns-alias set](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifies the server name that the alias is configured to refer to, from server 1 to server 2.
 - [az sql server dns-alias delete](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remove the alias from server 2, by using the name of the alias.
