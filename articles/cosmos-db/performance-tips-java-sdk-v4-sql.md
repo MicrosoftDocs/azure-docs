@@ -5,7 +5,7 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/05/2020
 ms.author: anfeldma
 
 ---
@@ -13,9 +13,9 @@ ms.author: anfeldma
 # Performance tips for Azure Cosmos DB and Java SDK v4
 
 > [!div class="op_single_selector"]
-> * [Java v4 Async API](performance-tips-java-sdk-v4-sql.md)
-> * [Async Java v2](performance-tips-async-java.md)
-> * [Legacy Sync Java v2](performance-tips-java.md)
+> * [Java SDK v4 Async API](performance-tips-java-sdk-v4-sql.md)
+> * [Async Java SDK v2](performance-tips-async-java.md)
+> * [Sync Java SDK v2](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
 
@@ -126,6 +126,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     The following code snippets show how to initialize your Azure Cosmos DB client for Async API or Sync API operation, respectively:
 
+    #### [Async](#tab/api-async)
+
     ### <a id="java4-async-client"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
@@ -137,6 +139,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
         .buildAsyncClient();
     ```
 
+    #### [Sync](#tab/api-sync)
+ 
     ### <a id="java4-sync-client"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
     ```java
@@ -147,6 +151,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
         .setConsistencyLevel(CONSISTENCY)
         .buildClient();
     ```    
+
+    ---
 
 * **Tuning ConnectionPolicy**
 
@@ -237,7 +243,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
     The asynchronous functionality of Java SDK is based on [netty](https://netty.io/) non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Flux returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
 
     For example the following code executes a cpu intensive work on the event loop IO netty thread:
-
     ### <a id="java4-noscheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
@@ -252,7 +257,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
         });
     ```
 
-    After result is received if you want to do CPU intensive work on the result you should avoid doing so on event loop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work.
+    After result is received if you want to do CPU intensive work on the result you should avoid doing so on event loop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work, as shown below.
 
     ### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
@@ -318,19 +323,43 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     To improve the performance of point writes, specify item partition key in the point write API call, as shown below:
 
-    ### <a id="java4-createitem-good"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+    #### [Async](#tab/api-async)
+
+    ### <a id="java4-createitem-good-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
-    container.createItem(item,new PartitionKey(pk),new CosmosItemRequestOptions());
+    asyncContainer.createItem(item,new PartitionKey(pk),new CosmosItemRequestOptions()).block();
     ```
 
-    rather than providing only the item instance:
+    #### [Sync](#tab/api-sync)
 
-    ### <a id="java4-createitem-bad"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+    ### <a id="java4-createitem-good-sync"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
     ```java
-    container.createItem(item);
+    syncContainer.createItem(item,new PartitionKey(pk),new CosmosItemRequestOptions());
     ```
+
+    ---
+
+    rather than providing only the item instance, as shown below:
+
+    #### [Async](#tab/api-async)
+
+    ### <a id="java4-createitem-bad-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
+    ```java
+    asyncContainer.createItem(item).block();
+    ```
+
+    #### [Sync](#tab/api-sync)
+
+    ### <a id="java4-createitem-bad-sync"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
+
+    ```java
+    syncContainer.createItem(item);
+    ```
+
+    ---
 
     The latter is supported but will add latency to your application; the SDK must parse the item and extract the partition key.
 
@@ -340,7 +369,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     Azure Cosmos DB’s indexing policy allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (setIncludedPaths and setExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed. For example, the following code shows how to exclude an entire section of the documents (also known as a subtree) from indexing using the "*" wildcard.
 
-    ### <a id="java4-indexing"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+    ### <a id="java4-indexing"></a>Java SDK V4 (Maven com.azure::azure-cosmos)
     ```java
     Index numberIndex = Index.Range(DataType.Number);
     indexes.add(numberIndex);
@@ -365,6 +394,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) header to measure the number of request units consumed by these operations. You can also look at the equivalent RequestCharge property in ResourceResponse\<T> or FeedResponse\<T>.
 
+    #### [Async](#tab/api-async)
+
     ### <a id="java4-request-charge"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
@@ -372,6 +403,16 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     response.getRequestCharge();
     ```     
+
+    #### [Sync](#tab/api-sync)
+
+    ```java
+    CosmosItemResponse<CustomPOJO> response = syncContainer.createItem(item);
+
+    response.getRequestCharge();
+    ```     
+
+    ---
 
     The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
 
