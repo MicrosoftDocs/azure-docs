@@ -18,7 +18,7 @@ Learn what's new in the service. These items include release notes, videos, blog
     * Preview portal promoted to [current portal](https://www.luis.ai)
         * [Previous](https://previous.luis.ai) portal still available
         * New machine-learned entity creation and labeling experience
-        * Upgrade process from composite and simple entities to machine-learned entities
+        * [Upgrade process](migrate-from-composite-entity.md) from composite and simple entities to machine-learned entities
         * App setting support for normalizing word variants
     * App schema 7.x for nested machine-learned entities
 

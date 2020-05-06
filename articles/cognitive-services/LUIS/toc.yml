@@ -68,6 +68,8 @@
   - name: Plan your app
     displayName: simple, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
+  - name: Data collection
+    href: data-collection.md
   - name: App models
     items:
     - name: Types
@@ -180,6 +182,18 @@
     href: luis-how-to-publish-app.md
   - name: Query prediction runtime
     href: luis-get-started-get-intent-from-browser.md
+  - name: Migrate
+    items:
+    - name: Migrate from composite entity
+      href: migrate-from-composite-entity.md
+    - name: Migrate to authoring resource
+      items:
+      - name: Overview
+        href: luis-migration-authoring.md
+      - name: How to Migrate
+        href: luis-migration-authoring-steps.md
+    - name: Migrate to V3 API
+      href: luis-migration-api-v3.md
   - name: Manage app
     items:
     - name: Azure resources
@@ -203,6 +217,8 @@
     items:
     - name: For Developers
       href: developer-reference-resource.md
+    - name: App schema
+      href: app-schema-definition.md
     - name: Migrate to V3 Authoring APIs
       href: luis-migration-authoring-entities.md
     - name: Migrate to V3 Prediction APIs
@@ -246,6 +262,8 @@
     - name: Overview
       href: developer-reference-resource.md
       displayName: SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot
+    - name: App schema
+      href: app-schema-definition.md
     - name: Azure CLI
       href: https://go.microsoft.com/fwlink/?linkid=2092156
     - name: Azure RM PowerShell

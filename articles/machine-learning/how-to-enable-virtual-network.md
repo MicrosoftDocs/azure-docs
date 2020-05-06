@@ -356,7 +356,7 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 To add AKS in a virtual network to your workspace, use the following steps:
 
 > [!IMPORTANT]
-> Before you begin the following procedure, follow the prerequisites in the [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites) how-to and plan the IP addressing for your cluster.
+> Before you begin the following procedure, follow the prerequisites in the [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) how-to and plan the IP addressing for your cluster.
 >
 > The AKS instance and the Azure virtual network must be in the same region. If you secure the Azure Storage Account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance.
 
@@ -554,7 +554,7 @@ For information on using Azure Machine Learning with Azure Firewall, see [Use Az
     
     For more information, see the [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) method reference.
 
-1. If you are using Private Link for your Azure Machine Learning workspace, and put the Azure Container Registry for your workspace in a virtual network, you must also apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR over the Private Link.
+1. You must apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR.
 
     ```json
     {
