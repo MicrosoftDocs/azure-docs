@@ -94,7 +94,7 @@ It is possible with ACS for a communication identity to communicate on behalf of
 
 ## User access token scopes
 
-Scopes enable you to limit the functionality available to a .user when creating access tokens. 
+Scopes allow you to specify the exact Azure Communications Services functionality that a user access token will be able authorize. Be default, user access tokens enable clients to participcate in chat threads they have been invited to and to receive incoming VOIP calls. Additional scopes must be specified when creating user access tokens.
 
 ```csharp
 // TODO code sample to create user access token with optional scopes
@@ -109,10 +109,10 @@ Azure Communication Services supports the following scopes for user access token
 | Name                   | Description  |
 | -----------------------|--------------|
 | `chat:send_message`    | Grants the ability to send chat messages |
-| `chat:manage_threads`  | Grants the create new chat threads and add users to chat threads |
-| `voip:adhoc`           | Grants the ability to make outbound VOIP calls |
-| `voip:pstn`            | Grants the ability to make outbound PSTN calls using with the calling SDK |
-| `rooms:manage`            | Grants the ability to make outbound PSTN calls using with the calling SDK |
+| `chat:manage_threads`  | Grants the create and invite users to chat threads|
+| `voip:adhoc`           | Grants the ability to make outbound VOIP calls using the calling SDK|
+| `voip:pstn`            | Grants the ability to make outbound PSTN calls using the calling SDK |
+| `spaces:manage`        | Grants the ability to create and invite users to communication spaces |
 
 
 
