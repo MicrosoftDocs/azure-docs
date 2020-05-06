@@ -5452,6 +5452,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-grid/premium-basic-tiers.md",
+      "redirect_url": "https://azure.microsoft.com/pricing/details/event-grid/",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/event-grid/update-tier.md",
+      "redirect_url": "https://azure.microsoft.com/pricing/details/event-grid/",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/azure-resource-manager/resource-manager-samples-powershell-deploy.md",
       "redirect_url": "/azure/azure-resource-manager/templates/deploy-powershell",
       "redirect_document_id": false
