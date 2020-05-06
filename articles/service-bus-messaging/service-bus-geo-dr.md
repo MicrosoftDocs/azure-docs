@@ -147,10 +147,10 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 This section provides additional considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Service Bus in general, see [Integrate Azure Service Bus with Azure Private Link](private-link-service.md).
 
 ### New pairings
-If you try to create a pairing between a primary namespace with a private endpoint to a secondary namespace without a private endpoint, the pairing will fail. The pairing will success only if both primary and secondary namespaces have private endpoints. We recommend that you use same configurations on the primary and secondary namespaces and on virtual networks in which private endpoints are created. 
+If you try to create a pairing between a primary namespace with a private endpoint and a secondary namespace without a private endpoint, the pairing will fail. The pairing will succeed only if both primary and secondary namespaces have private endpoints. We recommend that you use same configurations on the primary and secondary namespaces and on virtual networks in which private endpoints are created. 
 
 > [!NOTE]
-> When you try to pair primary namespace with a private endpoint to the secondary namespace, the validation process only checks whether the private endpoint exists on the secondary namespace. It doesn't check whether the endpoint works or will work after failover. It's your responsibility to ensure that the secondary namespace with private endpoint will work as expected after failover.
+> When you try to pair the primary namespace with a private endpoint and the secondary namespace, the validation process only checks whether a private endpoint exists on the secondary namespace. It doesn't check whether the endpoint works or will work after failover. It's your responsibility to ensure that the secondary namespace with private endpoint will work as expected after failover.
 >
 > To test that the private endpoint configurations are same, send a [Get queues](/rest/api/servicebus/queues/get) request to the secondary namespace from outside the virtual network, and verify that you receive an error message from the service.
 
