@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions
+title: Frequently asked questions - Azure Load Balancer
 description: Answers to frequently asked questions about the Azure Load Balancer. 
 services: load-balancer
 author: erichrt
