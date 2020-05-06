@@ -192,7 +192,7 @@ New-AzResourceGroupDeployment `
 
 ### <a id="using-azure-cli"></a> Using the Azure CLI
 
-When you create a new Azure Cosmos account through the Azure CLI, pass the URI of the Azure Key Vault key that you copied earlier under the **--key-uri** parameter.
+When you create a new Azure Cosmos account through the Azure CLI, pass the URI of the Azure Key Vault key that you copied earlier under the `--key-uri` parameter.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -229,7 +229,7 @@ When using customer-managed keys, [Request Units](./request-units.md) consumed b
 |---|---|
 | Point-reads (fetching items by their ID) | + 5% per operation |
 | Any write operation | + 6% per operation<br/>approx. + 0.06 RU per indexed property |
-| Queries, reading change feed or conflict feed | + 15% per operation |
+| Queries, reading change feed, or conflict feed | + 15% per operation |
 
 ### What data gets encrypted with the customer-managed keys?
 
