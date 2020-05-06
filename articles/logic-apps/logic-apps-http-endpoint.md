@@ -1,25 +1,25 @@
 ---
 title: Call, trigger, or nest logic apps
-description: Set up HTTP endpoints to call, trigger, or nest logic app workflows in Azure Logic Apps
+description: Set up HTTPS endpoints to call, trigger, or nest logic app workflows in Azure Logic Apps
 services: logic-apps
 ms.workload: integration
-ms.reviewer: klam, jehollan, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 05/06/2020
 ---
 
-# Call, trigger, or nest logic apps by using HTTP endpoints in Azure Logic Apps
+# Call, trigger, or nest logic apps by using HTTPS endpoints in Azure Logic Apps
 
-To make your logic app callable through a URL so that your logic app can receive incoming requests from other services, you can natively expose a synchronous HTTP endpoint as a trigger on that logic app. When you set up this capability, you can also nest your logic app inside other logic apps, which lets you create a pattern of callable endpoints.
+To make your logic app callable through a URL so that your logic app can receive incoming requests from other services, you can natively expose a synchronous HTTPS endpoint as a trigger on that logic app. When you set up this capability, you can also nest your logic app inside other logic apps, which lets you create a pattern of callable endpoints.
 
-To set up an HTTP endpoint, you can use any of these trigger types, which enable logic apps to receive incoming requests:
+To set up a callable endpoint, you can use any of these trigger types, which enable logic apps to receive incoming requests:
 
 * [Request](../connectors/connectors-native-reqres.md)
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
-* Managed connector triggers that have the [ApiConnectionWebhook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive incoming HTTP requests
+* Managed connector triggers that have the [ApiConnectionWebhook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive incoming HTTPS requests
 
 > [!NOTE]
-> These examples use the Request trigger, but you can use any HTTP request-based trigger that's 
+> These examples use the Request trigger, but you can use any HTTPS request-based trigger that's 
 > in the previous list. All principles identically apply to these other trigger types.
 
 If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
@@ -28,13 +28,13 @@ If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-
 
 * An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* The logic app where you want to set up the HTTP endpoint as the trigger. You can start with either a blank logic app or an existing logic app where you want to replace the current trigger. This example starts with a blank logic app.
+* The logic app where you want to use the trigger to create the callable endpoint . You can start with either a blank logic app or an existing logic app where you want to replace the current trigger. This example starts with a blank logic app.
 
 ## Create a callable endpoint
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Create and open a blank logic app in the Logic App Designer.
 
-   This example uses the Request trigger, but you can use any trigger that can receive incoming HTTP requests. All principles identically apply to these triggers. For more information about the Request trigger, see [Receive and respond to incoming HTTPS calls by using Azure Logic Apps](../connectors/connectors-native-reqres.md).
+   This example uses the Request trigger, but you can use any trigger that can receive incoming HTTPS requests. All principles identically apply to these triggers. For more information about the Request trigger, see [Receive and respond to inbound HTTPS calls by using Azure Logic Apps](../connectors/connectors-native-reqres.md).
 
 1. Under the search box, select **Built-in**. In the search box, enter `request` as your filter. From the triggers list, select **When a HTTP request is received**.
 
@@ -100,17 +100,17 @@ If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-
 
    ![Generated callback URL for endpoint](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
-   You can also get the HTTP endpoint URL from your logic app's **Overview** pane.
+   You can also get the endpoint's URL from your logic app's **Overview** pane.
 
    1. On your logic app's menu, select **Overview**.
 
    1. In the **Summary** section, select **See trigger history**.
 
-      ![Get HTTP endpoint URL from Azure portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
+      ![Get endpoint URL from Azure portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
    1. Under **Callback url [POST]**, copy the URL:
 
-      ![Copy HTTP endpoint URL from Azure portal](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url.png)
+      ![Copy endpoint URL from Azure portal](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
 
       Or you can get the URL by making this call:
 
@@ -120,9 +120,9 @@ If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-
 
 <a name="set-method"></a>
 
-## Set expected HTTP method
+## Set expected request method
 
-By default, the Request trigger expects an HTTP POST request. However, you can specify a different method to expect, but only one method.
+By default, the Request trigger expects a POST request. You can specify a different method to expect, but only a single method.
 
 1. In the Request trigger, open the **Add new parameter** list, and select **Method**, which adds this property to the trigger.
 
@@ -130,13 +130,73 @@ By default, the Request trigger expects an HTTP POST request. However, you can s
 
 1. From the **Method** list, select another method that the trigger expects instead. Or, you can specify a custom method.
 
-   For example, select the **GET** method so that you can test your HTTP endpoint's URL later.
+   For example, select the **GET** method so that you can test your endpoint's URL later.
 
-   ![Select HTTP method to use for trigger](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
+   ![Select HTTPS method to use for trigger](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
 ## Accept parameters in endpoint URL
 
-When you want your endpoint URL to accept parameters, specify the relative path in your trigger. You also need to explicitly [set the method](#set-method) that your HTTP request expects.
+When you want your endpoint URL to accept parameter values through the endpoint's URL, you have these options:
+
+* [Accept values through GET parameters](#get-parameters) or URL parameters.
+
+  These values are passed as name-value pairs when sending the request to the endpoint's URL. For this option, you need to use the GET method in your Request trigger. You can then use the `triggerOutputs()` function in a subsequent action to get the parameter values as trigger outputs.
+
+* [Accept values through a relative path](#relative-path) for the parameter in your Request trigger.
+
+  You need to explicitly [set the method](#set-method) that your HTTPS request expects.
+
+<a name="get-parameters"></a>
+
+### Accept values through GET parameters
+
+1. In the Request trigger, open the **Add new parameter list**, add the **Method** property to the trigger, and select the **GET** method.
+
+   For more information, see [Set expected HTTPS method](#set-method).
+
+1. Get the endpoint's URL for the Request trigger by following these steps:
+
+   1. On your logic app's menu, select **Overview**.
+
+   1. In the **Summary** section, select **See trigger history**.
+
+      ![Get endpoint URL from Azure portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
+
+   1. Under **Callback url [GET]**, copy the endpoint's callback URL, for example:
+
+      ![Add "Relative path" property to trigger](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-get.png)
+
+1. Under the Request trigger, add the action where you want to use the parameter values. For this example, add the **Response** action.
+
+   1. Under the Request trigger, select **New step** > **Add an action**.
+
+   1. Under **Choose an action**, in the search box, enter `response` as your filter.
+
+   1. From the actions list, select the **Response** action.
+
+1. To build the expression, follow these steps:
+
+   1. Click inside the Response action's **Body** property so that the dynamic content list appears, and select **Expression**. 
+
+   1. In the **Expression** box, enter this expression, replacing `<parameter-name` with the parameter name that you want to use, and select **OK**.
+
+      `triggerOutputs()['queries']['<parameter-name>']`
+
+      For example, suppose that you want to pass a value for a parameter named `postalCode`. This example has the Response action return a string, `Postal Code: `, followed by the parameter value.
+
+      ![Add "Relative path" property to trigger](./media/logic-apps-http-endpoint/trigger-outputs-expression.png)
+
+For example, suppose that you want the Response action to return `Postal Code: {postalCode}`.
+
+   In the **Body** property, enter `Postal Code: ` with a trailing space. From the dynamic content list that appears, select the **postalCode** token.
+
+1. In the Response action's **Body** property, 
+
+1. To test the endpoint, edit the endpoint URL that you copied 
+
+<a name="relative-path"></a>
+
+### Accept values through a relative path
 
 1. In the Request trigger, open the **Add new parameter** list, and select **Relative path**, which adds this property to the trigger.
 
@@ -168,19 +228,19 @@ When you want your endpoint URL to accept parameters, specify the relative path 
 
 1. Save your logic app.
 
-    Your HTTP endpoint URL now includes the relative path, for example:
+    Your endpoint's URL now includes the relative path, for example:
 
     ```http
     https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
     ```
 
-1. To test your HTTP endpoint, copy and paste the updated URL into another browser window, but replace `{postalCode}` with `123456`, and press Enter.
+1. To test your endpoint, copy and paste the updated URL into another browser window, but replace `{postalCode}` with `123456`, and press Enter.
 
    Your browser shows this text: `Postal Code: 123456`
 
-## Call logic app through HTTP endpoint
+## Call logic app through endpoint URL
 
-After you create the HTTP endpoint, you can trigger the logic app by sending an HTTP `POST` request to the endpoint's full URL. Logic apps have built-in support for direct-access endpoints.
+After you create the endpoint, you can trigger the logic app by sending an HTTPS `POST` request to the endpoint's full URL. Logic apps have built-in support for direct-access endpoints.
 
 <a name="generated-tokens"></a>
 
@@ -257,7 +317,7 @@ To access specifically the `body` property, you can use the [`@triggerBody()` ex
 
 ## Respond to requests
 
-Sometimes you want to respond to certain requests that trigger your logic app by returning content to the caller. To construct the status code, header, and body for your response, use the Response action. This action can appear anywhere in your logic app, not just at the end of your workflow. If your logic app doesn't include a Response action, the HTTP endpoint responds *immediately* with the **202 Accepted** status.
+Sometimes you want to respond to certain requests that trigger your logic app by returning content to the caller. To construct the status code, header, and body for your response, use the Response action. This action can appear anywhere in your logic app, not just at the end of your workflow. If your logic app doesn't include a Response action, the endpoint responds *immediately* with the **202 Accepted** status.
 
 For the original caller to successfully get the response, all the required steps for the response must finish within the [request timeout limit](./logic-apps-limits-and-config.md) unless the triggered logic app is called as a nested logic app. If no response is returned within this limit, the incoming request times out and receives the **408 Client timeout** response.
 
@@ -267,13 +327,13 @@ For nested logic apps, the parent logic app continues to wait for a response unt
 
 In the response body, you can include multiple headers and any type of content. For example, this response's header specifies that the response's content type is `application/json` and that the body contains values for the `town` and `postalCode` properties, based on the JSON schema described earlier in this topic for the Request trigger.
 
-![Provide response content for HTTP Response action](./media/logic-apps-http-endpoint/content-for-response-action.png)
+![Provide response content for HTTPS Response action](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 Responses have these properties:
 
 | Property (Display) | Property (JSON) | Description |
 |--------------------|-----------------|-------------|
-| **Status Code** | `statusCode` | The HTTP status code to use in the response for the incoming request. This code can be any valid status code that starts with 2xx, 4xx, or 5xx. However, 3xx status codes are not permitted. |
+| **Status Code** | `statusCode` | The HTTPS status code to use in the response for the incoming request. This code can be any valid status code that starts with 2xx, 4xx, or 5xx. However, 3xx status codes are not permitted. |
 | **Headers** | `headers` | One or more headers to include in the response |
 | **Body** | `body` | A body object that can be a string, a JSON object, or even binary content referenced from a previous step |
 ||||
@@ -310,9 +370,9 @@ To view the JSON definition for the Response action and your logic app's complet
 > * The shared access key appears in the URL.
 > * You can't manage security content policies due to shared domains across Azure Logic Apps customers.
 
-#### Q: Can I configure HTTP endpoints further?
+#### Q: Can I configure callable endpoints further?
 
-**A**: Yes, HTTP endpoints support more advanced configuration through [Azure API Management](../api-management/api-management-key-concepts.md). This service also offers the capability for you to consistently manage all your APIs, including logic apps, set up custom domain names, use more authentication methods, and more, for example:
+**A**: Yes, HTTPS endpoints support more advanced configuration through [Azure API Management](../api-management/api-management-key-concepts.md). This service also offers the capability for you to consistently manage all your APIs, including logic apps, set up custom domain names, use more authentication methods, and more, for example:
 
 * [Change the request method](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Change the URL segments of the request](../api-management/api-management-transformation-policies.md#RewriteURL)

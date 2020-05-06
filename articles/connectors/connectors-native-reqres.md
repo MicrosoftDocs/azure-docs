@@ -3,25 +3,27 @@ title: Receive and respond to calls by using HTTPS
 description: Handle inbound HTTPS requests from external services by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewers: klam, logicappspm
+ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 05/06/2020
 tags: connectors
 ---
 
 # Receive and respond to inbound HTTPS requests in Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in Request trigger or Response action, you can create automated tasks and workflows that receive and respond to incoming HTTPS requests. For example, you can have your logic app:
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in Request trigger and Response action, you can create automated tasks and workflows that receive and respond to incoming HTTPS requests. For example, you can have your logic app:
 
 * Receive and respond to an HTTPS request for data in an on-premises database.
 * Trigger a workflow when an external webhook event happens.
 * Receive and respond to an HTTPS call from another logic app.
 
 > [!NOTE]
-> The Request trigger supports *only* Transport Layer Security (TLS) 1.2 for incoming calls. Outgoing calls 
-> continue to support TLS 1.0, 1.1, and 1.2. For more information, see [Solving the TLS 1.0 problem](https://docs.microsoft.com/security/solving-tls1-problem).
+> The Request trigger supports *only* Transport Layer Security (TLS) 1.2 for incoming calls. 
+> Outgoing calls continue to support TLS 1.0, 1.1, and 1.2. For more information, see 
+> [Solving the TLS 1.0 problem](https://docs.microsoft.com/security/solving-tls1-problem).
 >
-> If you see TLS handshake errors, make sure that you use TLS 1.2. For incoming calls, here are the supported cipher suites:
+> If you see TLS handshake errors, make sure that you use TLS 1.2. 
+> For incoming calls, here are the supported cipher suites:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -42,11 +44,11 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 
 ## Add Request trigger
 
-This built-in trigger creates a manually callable HTTPS endpoint that can receive *only* incoming HTTPS requests. When this event happens, the trigger fires and runs the logic app. For more information about the trigger's underlying JSON definition and how to call this trigger, see the [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+This built-in trigger creates a manually callable HTTPS endpoint that can receive *only* incoming HTTPS requests. When this event happens, the trigger fires and runs the logic app. For more information about the trigger's underlying JSON definition and how to call this trigger, see the [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTPS endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Create a blank logic app.
 
-1. After Logic App Designer opens, in the search box, enter "http request" as your filter. From the triggers list, select the **When an HTTP request is received** trigger, which is the first step in your logic app workflow.
+1. After Logic App Designer opens, in the search box, enter `http request` as your filter. From the triggers list, select the **When an HTTP request is received** trigger, which is the first step in your logic app workflow.
 
    ![Select Request trigger](./media/connectors-native-reqres/select-request-trigger.png)
 
@@ -179,7 +181,7 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
 
    ![URL to use triggering your logic app](./media/connectors-native-reqres/generated-url.png)
 
-1. To trigger your logic app, send an HTTP POST to the generated URL. For example, you can use a tool such as [Postman](https://www.getpostman.com/).
+1. To trigger your logic app, send an HTTPS POST to the generated URL. For example, you can use a tool such as [Postman](https://www.getpostman.com/).
 
 ### Trigger outputs
 
