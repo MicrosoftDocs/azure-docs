@@ -35,7 +35,7 @@ Azure Image Builder requires you to create an [Azure user-assigned managed ident
 > [!NOTE]
 > Previously, Azure Image Builder used the Azure Image Builder service principal name (SPN) to grant permissions to the image resource groups. Using the SPN will be deprecated. Use a user-assigned managed identity instead.
 
-The following is an example of how to create an Azure user-assigned managed identity. Replace the placeholder settings to set your variables.
+The following example shows you how to create an Azure user-assigned managed identity. Replace the placeholder settings to set your variables.
 
 | Setting | Description |
 |---------|-------------|
