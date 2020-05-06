@@ -96,10 +96,6 @@ When Azure Automation [Update Management](automation-update-management.md) is en
 
 A computer configured this way is not registered with any Hybrid Runbook Worker groups already defined in your Automation account. You can add the computer to a Hybrid Runbook Worker group, but you must use the same account for both Update Management and the Hybrid Runbook Worker group membership. This functionality was added to version 7.2.12024.0 of Hybrid Runbook Worker.
 
-## State Configuration (DSC) on Hybrid Runbook Worker
-
-You can run the [State Configuration (DSC)](automation-dsc-overview.md) feature on a Hybrid Runbook Worker. To manage the configuration of servers that support the Hybrid Runbook Worker, you must add the servers as DSC nodes. For more information about onboarding, see [Onboard machines for management by State Configuration (DSC)](automation-dsc-onboarding.md).
-
 ### Update Management addresses for Hybrid Runbook Worker
 
 On top of the standard addresses and ports that the Hybrid Runbook Worker requires, Update Management needs the addresses in the next table. Communication to these addresses uses port 443.
@@ -109,6 +105,10 @@ On top of the standard addresses and ports that the Hybrid Runbook Worker requir
 |*.ods.opinsights.azure.com     | *.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
+
+## State Configuration (DSC) on Hybrid Runbook Worker
+
+You can run the [State Configuration (DSC)](automation-dsc-overview.md) feature on a Hybrid Runbook Worker. To manage the configuration of servers that support the Hybrid Runbook Worker, you must add the servers as DSC nodes. For more information about onboarding, see [Onboard machines for management by State Configuration (DSC)](automation-dsc-onboarding.md).
 
 ## Runbooks on a Hybrid Runbook Worker
 
