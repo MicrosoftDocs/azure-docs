@@ -30,13 +30,54 @@ You can create a shared throughput database with autoscale by selecting the **Pr
 ## Azure Cosmos DB .NET V3 SDK
 
 ### Create database
-[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/AutoscaleDocsSampleCode.cs?name=CreateDatabaseWithAutoscaleThroughput)]
+```csharp
+// Create instance of CosmosClient
+CosmosClient cosmosClient = new CosmosClient(Endpoint, PrimaryKey);
+ 
+// Autoscale throughput settings
+ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.CreateAutoscaleThroughput(4000); //Set autoscale max RU/s
+
+//Create the database with autoscale enabled
+database = await cosmosClient.CreateDatabaseAsync(DatabaseName, throughputProperties: autoscaleThroughputProperties);
+```
 
 ### Create container
-[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/AutoscaleDocsSampleCode.cs?name=CreateContainerWithAutoscaleThroughput)]
+```csharp
+// Get reference to database that container will be created in
+Database database = await cosmosClient.GetDatabase("DatabaseName");
 
-### Change autoscale max throughput (RU/s)
-[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/AutoscaleDocsSampleCode.cs?name=ChangeAutoscaleThroughput)]
+// Container and autoscale throughput settings
+ContainerProperties autoscaleContainerProperties = new ContainerProperties("ContainerName", "/partitionKey");
+ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.CreateAutoscaleThroughput(4000); //Set autoscale max RU/s
+
+// Create the container with autoscale enabled
+container = await database.CreateContainerAsync(autoscaleContainerProperties, autoscaleThroughputProperties);
+```
+
+### Read the current throughput (RU/s)
+```csharp
+// Get a reference to the resource
+Container container = await cosmosClient.GetDatabase("DatabaseName").GetContainer("ContainerName");
+
+// Read the throughput on a resource
+ThroughputResponse autoscaleContainerThroughput = await container.ReadThroughputAsync(requestOptions: null); 
+
+// The autoscale max throughput (RU/s) of the resource
+int? autoscaleMaxThroughput = autoscaleContainerThroughput.Resource.AutoscaleMaxThroughput;
+
+// The throughput (RU/s) the resource is currently scaled to
+int? currentThroughput = autoscaleContainerThroughput.Resource.Throughput;
+```
+
+### Change the autoscale max throughput (RU/s)
+```csharp
+// Change the autoscale max throughput (RU/s)
+await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
+```
 
 ## Azure Resource Manager (ARM)
 You can use ARM to provision autoscale throughput on a database or container. See this [article](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput) for a sample.
+
+## Next steps
+* Learn about the [benefits of provisioned throughput with autoscale](provision-throughput-autoscale.md#benefits-of-autoscale).
+* Review the [autoscale FAQ](autoscale-faq.md).
