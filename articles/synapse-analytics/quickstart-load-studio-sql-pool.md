@@ -13,14 +13,14 @@ ms.reviewer: jrasnick
 
 # Bulk loading with Synapse SQL
 
-Loading data has never been easier when using the Bulk Load wizard in the Synapse Studio. This wizard will guide you through creating a T-SQL script with the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) to bulk load data from your data lake. 
+Loading data has never been easier when using the Bulk Load wizard in the Synapse Studio. This wizard will guide you through creating a T-SQL script with the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) to bulk load data. 
 
 ## Entry points to the Bulk Load wizard
 
 You can now easily bulk load data using SQL pools with a simple right-click on the following areas within the Synapse Studio:
 
 - A file or folder from an Azure storage account attached to your workspace
-![Right clicking on a file or folder from a storage account](./sql/media/bulk_load_entry_point_0.png)
+![Right-clicking on a file or folder from a storage account](./sql/media/bulk-load/bulk_load_entry_point_0.png)
 
 - A SQL pool node within the SQL object explorer (coming soon)
 
@@ -49,10 +49,10 @@ You can click on "Preview data" to see how the COPY statement will parse the fil
 Select the SQL pool you are using to load including whether the load will be for an existing table or new table:
 ![Selecting target location](./sql/media/bulk-load/bulk_load_target_location.png)
 
-It is recommended to click on "Configure column mapping" to make sure you have the appropriate column mapping. For new tables, configuring the column mapping is critical for updating the target column data types:
+Click on "Configure column mapping" to make sure you have the appropriate column mapping. For new tables, configuring the column mapping is critical for updating the target column data types:
 ![Configuring column mapping](./sql/media/bulk-load/bulk_load_target_location_column_mapping.png)
 
-Click Open script which will generate a T-SQL script with the COPY statement to load from your data lake:
+Click on "Open script" and a T-SQL script will be generated with the COPY statement to load from your data lake:
 ![Opening the SQL script](./sql/media/bulk-load/bulk_load_target_final_script.png)
 
 ## Next steps
