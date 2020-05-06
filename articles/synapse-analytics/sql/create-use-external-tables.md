@@ -13,14 +13,13 @@ ms.reviewer: jrasnick, carlrab
 
 # Create and use external tables in SQL on-demand (preview) using Azure Synapse Analytics
 
-In this section, you'll learn how to create and use external tables in SQL on-demand (preview). External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
+In this section, you'll learn how to create and use external tables in SQL on-demand (preview). External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand. External tables can access two types of storage:
+- Public storage where user access public storage files
+- Protected storage where user access storage files using SAS credential, Azure AD identity, or Managed Identity of Synapse workspace.
 
 ## Prerequisites
 
-Your first step is to review the articles below and make sure you've met the prerequisites for creating and using SQL on-demand external tables:
-
-- [First-time setup](query-data-storage.md#first-time-setup)
-- [Prerequisites](query-data-storage.md#prerequisites)
+Your first step is to create database where the tables will be created and initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. All queries in this article will be executed on your sample database
 
 ## Create an external table
 
@@ -35,6 +34,7 @@ GO
 
 CREATE EXTERNAL DATA SOURCE [CsvDataSource] WITH (
     LOCATION = 'https://sqlondemandstorage.blob.core.windows.net/csv'
+    , CREDENTIAL = sqlondemand -- creadential created in setup script
 );
 GO
 
@@ -55,7 +55,7 @@ CREATE EXTERNAL TABLE populationExternalTable
     [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
     [year] smallint,
     [population] bigint
-);
+)
 WITH (
     LOCATION = 'population/population.csv',
     DATA_SOURCE = CsvDataSource,
