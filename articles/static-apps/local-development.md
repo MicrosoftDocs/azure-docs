@@ -145,8 +145,8 @@ let response = await fetch("/api/message");
 
 Depending on whether or not your application is built with a JavaScript framework CLI, there are two ways to configure the path to the `api` route when running your application locally.
 
-1. Environment configuration files (recommended for JavaScript frameworks and libraries)
-1. Local proxy
+- Environment configuration files (recommended for JavaScript frameworks and libraries)
+- Local proxy
 
 ### Environment configuration files
 
