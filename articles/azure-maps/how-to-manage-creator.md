@@ -75,9 +75,10 @@ Click the **Delete** button and type your Creator name to confirm deletion. Once
 >![Creator delete confirmation](./media/how-to-manage-creator/creator-delete-confirmation.png)
 
 ## Authentication
+
 Creator inherits your Azure Maps Access Control (IAM) settings. Access to data created and processed in Creator is available via API calls only when passing authentication and authorization rules. Also, Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more detail, see [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
-## Access to Creator services 
+## Access to Creator services
 
 The Conversion, Dataset, Tileset and Feature State service urls included in Creator are accessible only from within the locations selected during creation. If a call to such services is performed from outside the geographic scope, a user error message will be returned. To perform a call from other locations, the service URL needs to make use of the geographic prefix for the selected location. For example, if Creator is created in United States, calls to conversion service can be submitted to `us.atlas.microsoft.com/conversion/convert`.
 
