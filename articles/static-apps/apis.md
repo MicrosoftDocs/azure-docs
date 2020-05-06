@@ -1,59 +1,45 @@
 ---
-title: API support in App Service Static Apps with Azure Functions
-description: #Required; article description that is displayed in search results. 
-services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
+title: API support in Azure Static Web Apps with Azure Functions
+description: Learn what API features Azure Static Web Apps supports
+services: static-web-apps
 author: craigshoemaker
-ms.service: azure-functions
+ms.service: static-web-apps
 ms.topic:  conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
+# API support in Azure Static Web Apps with Azure Functions
 
-# API support in App Service Static Apps with Azure Functions
+Azure Static Web Apps provides serverless API endpoints via [Azure Functions](../azure-functions/functions-overview.md). By leveraging Azure Functions, APIs dynamically scale based on demand, and include the following features:
 
-Introductory paragraph.
+- **Integrated security** with direct access to user [authentication and role-based authorization](user-information.md) data.
+- **Seamless routing** that makes the _api_ route available to the web app securely without requiring custom CORS rules.
+- **Azure Functions** v3 compatible with Node.js 12.
+- **HTTP triggers** and output bindings.
 
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental "why would I want to do this?" question.
---->
+## Configuration
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+API endpoints are available to the web app through the _api_ route. While this route is fixed, you have control over the folder where you locate the associated Azure Functions app. You can change this location by editing the workflow YAML file located in your repository's _.github/workflows_ folder.
 
-## Prerequisites
+Set the the following location's value to the desired folder location for the API app in your repository.
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!--- Make Prerequisites your first H2 if you have them.
-If there's something a customer needs to take care of before they start (for example, creating a VM) it's OK to link to that content before they begin.
---->
+```schema
+jobs
+└── steps
+  └── with
+    └── api_location
+```
 
-## <section>
+## Constraints
 
-<!---Detail what the reader needs to know in each section
---->
+Azure Static Web Apps provides an API through Azure Functions. The capabilities of Azure Functions are focused to a specific set of features that enable you to create an API for a web app and allow the web app to connect to API securely. These features come with some constraints, including:
 
-Include a sentence or two to explain only what is needed to complete the procedure.
-
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
-   <!---   ![Browser](media/contribute-how-to-mvc-quickstart/browser.png) --->
-      <!---Use screenshots but be judicious to maintain a reasonable length. Make sure screenshots align to the [current standards](contribute-mvc-screen-shots.md).
-      If users access your product/service via a web browser the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.--->
-1. Step four of the procedure
+- The API route prefix is must be _api_.
+- Triggers and bindings are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).
+  - All other [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings) except for output bindings are restricted.
 
 ## Next steps
 
-<!-- Uncomment this block and add the appropriate link
-
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
--->
-
-<!--- Required:
-A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn't fit.
---->
+> [Add an API](add-api.md)

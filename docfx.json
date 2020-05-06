@@ -644,12 +644,12 @@
         "articles/data-factory/**/*.yml": "Azure Data Factory",
         "articles/virtual-machines/windows/sql/**/*.md": "Azure SQL Server VM",
         "articles/virtual-machines/windows/sql/**/*.yml": "Azure SQL Server VM",
-        "articles/sql-database/**/*.md" : "Azure SQL Database",
-        "articles/sql-database/**/*.yml" : "Azure SQL Database",
-        "articles/ansible/**/*.yml" : "Ansible",
-        "articles/chef/**/*.yml" : "Chef",
-        "articles/jenkins/**/*.yml" : "Jenkins",
-        "articles/terraform/**/*.yml" : "Terraform",
+        "articles/sql-database/**/*.md": "Azure SQL Database",
+        "articles/sql-database/**/*.yml": "Azure SQL Database",
+        "articles/ansible/**/*.yml": "Ansible",
+        "articles/chef/**/*.yml": "Chef",
+        "articles/jenkins/**/*.yml": "Jenkins",
+        "articles/terraform/**/*.yml": "Terraform",
         "articles/azure-resource-manager/**/*.md": "Azure Resource Manager",
         "articles/azure-resource-manager/managed-applications/**/*.md": "Azure Managed Applications",
         "articles/azure-resource-manager/custom-providers/**/*.md": "Azure Custom Providers",
@@ -683,10 +683,10 @@
         "articles/aks/**/*.md": "Azure Kubernetes Service",
         "articles/remote-rendering/**/*.md": "Azure Remote Rendering",
         "articles/remote-rendering/**/*.yml": "Azure Remote Rendering",
-        "articles/media-services/**/*.yml" : "Azure Media Services",
-        "articles/media-services/**/*.md" : "Azure Media Services",
-        "articles/media-services/*.yml" : "Azure Media Services",
-        "articles/media-services/*.md" : "Azure Media Services"     	      
+        "articles/media-services/*.yml": "Azure Media Services",
+        "articles/media-services/*.md": "Azure Media Services",
+        "articles/media-services/video-indexer/*.yml": "Azure Media Services Video Indexer",
+        "articles/media-services/video-indexer/*.md": "Azure Media Services Video Indexer"
       },
       "featureFlags": {
         "articles/**/*.md": [
