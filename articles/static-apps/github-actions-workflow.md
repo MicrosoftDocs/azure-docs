@@ -51,7 +51,7 @@ jobs:
       uses: Azure/static-web-apps-deploy@master
       with:
         azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
-        repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+        repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
         action: 'upload'
         ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
         app_location: '/' # App source code path
@@ -74,7 +74,7 @@ jobs:
 
 ## Triggers
 
-A GitHub Actions [trigger](https://help.github.com/actions/reference/events-that-trigger-workflows) notifies a Github Actions workflow to run a job based off event triggers. Triggers are listed using the `on` property in the workflow file.
+A GitHub Actions [trigger](https://help.github.com/actions/reference/events-that-trigger-workflows) notifies a GitHub Actions workflow to run a job based off event triggers. Triggers are listed using the `on` property in the workflow file.
 
 ```yml
 on:
