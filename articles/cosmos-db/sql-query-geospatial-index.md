@@ -29,7 +29,7 @@ You can toggle between the **geography** and **geometry** spatial type in the Az
 
 Here's how to set the **Geospatial Configuration** in **Data Explorer** within the Azure portal:
 
-![Setting geospatial configuration](./media/sql-query-geospatial-index/geospatialconfiguration.png)
+![Setting geospatial configuration](./media/sql-query-geospatial-index/geospatial-configuration.png)
 
 You can also modify the `geospatialConfig` in the .NET SDK to adjust the **Geospatial Configuration**:
 

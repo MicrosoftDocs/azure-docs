@@ -360,7 +360,7 @@
     - name: Build dashboards and reports 
       items:
       - name: Visualize with Power BI
-        href: sql-data-warehouse-get-started-visualize-with-power-bi.md 
+        href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect.md 
   - name: Troubleshoot
     items:
     - name: Connectivity
