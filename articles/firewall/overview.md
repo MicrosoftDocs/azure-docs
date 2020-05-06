@@ -78,7 +78,7 @@ Inbound Internet network traffic to your firewall public IP address is translate
 
 ## Multiple public IP addresses
 
-You can associate multiple public IP addresses (up to 100) with your firewall.
+You can associate multiple public IP addresses (up to 250) with your firewall.
 
 This enables the following scenarios:
 
