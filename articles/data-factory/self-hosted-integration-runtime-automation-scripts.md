@@ -10,7 +10,7 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 04/21/2020
+ms.date: 05/06/2020
 ---
 
 # Automating self-hosted integration runtime installation using local PowerShell scripts
@@ -18,10 +18,10 @@ To automate installation of Self-hosted Integration Runtime on local machines (o
 
 ## Prerequisites
 
-Launch PowerShell on your local machine. To run the scripts, you need to choose **Run as Administrator**.
-[For automating setup](#for-automating-setup), download the self-hosted IR from [here](https://www.microsoft.com/download/details.aspx?id=39717).Copy the path where the downloaded SHIR MSI (installation file) is. You also need an **authentication key** to register the SHIR. You'll need to specify the path and the key when running the script in following instructions.
-[For automating manual updates](#for-automating-manual-updates), you need to have a Self-hosted Integration Runtime pre-configured.
-
+* Launch PowerShell on your local machine. To run the scripts, you need to choose **Run as Administrator**.
+* [Download](https://www.microsoft.com/download/details.aspx?id=39717) the self-hosted integration runtime software. Copy the path where the downloaded file is. 
+* You also need an **authentication key** to register the self-hosted integration runtime.
+* For automating manual updates, you need to have a pre-configured self-hosted integration runtime.
 
 ## Scripts introduction 
 
@@ -60,7 +60,7 @@ Update the self-hosted IR node with a specific version or to the latest version 
 
 ### For automating manual updates
 This script is used to update/install + register latest self-hosted integration runtime. The script run performs the following steps:
-1. check current self-hosted IR version
+1. Check current self-hosted IR version
 2. Get latest version or specified version from argument
 3. If there is newer version than current version:
     * download self-hosted IR msi
