@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/06/2020
 ms.author: jgao
 
 ---
@@ -299,7 +299,7 @@ To see the deploymentScripts resource in the portal, select **Show hidden types*
 
 A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise the storage account along with the container instance are automatically created by the script service. The requirements for using an existing storage account:
 
-- Supported storage account kinds are: General-purpose v2 accounts, General-purpose v1 accounts and fileStorage accounts. For more information, see [Types of storage accounts](../../storage/common/storage-account-overview.md).
+- Supported storage account kinds are: General-purpose v2/v1 accounts with standard performance tier, and fileStorage accounts with either standard or premium performance tier. For more information, see [Types of storage accounts](../../storage/common/storage-account-overview.md).
 - Storage account firewall rules must be turned off. See [Configure Azure Storage firewalls and virtual network](../../storage/common/storage-network-security.md)
 - Deployment script's user-assigned managed identity must have permissions to manage the storage account, which includes read, create, delete file shares.
 
@@ -311,6 +311,16 @@ To specify an existing storage account, add the following json to the property e
   "storageAccountKey": "myKey"
 },
 ```
+
+- **storageAccountName**: specify the name of the storage account.
+- **storageAccountKey"**: specify one of the storage account keys. You can use the [`listKeys()`](./template-functions-resource.md#listkeys) function to retrieve the key. For example:
+
+    ```json
+    "storageAccountSettings": {
+        "storageAccountName": "[variables('storageAccountName')]",
+        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+    }
+    ```
 
 See [Sample templates](#sample-templates) for a complete `Microsoft.Resources/deploymentScripts` definition sample.
 
