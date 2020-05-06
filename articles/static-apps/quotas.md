@@ -7,7 +7,6 @@ ms.service: static-web-apps
 ms.topic:  overview
 ms.date: 05/08/2020
 ms.author: cshoe
-# Customer intent: As a developer, I want to publish a website from a GitHub repository so that the app is publicly available on the web.
 ---
 
 # Quotas in Azure Static Web Apps Preview
@@ -28,6 +27,16 @@ The following quotas exist for Azure Static Web Apps Preview.
 | Authorization<br><br>With custom roles and routing rules | Max 25 end-users invited and assigned roles |
 | Azure Functions             | Available        |
 | SLA                         | None             |
+
+## GitHub storage
+
+GitHub Actions and Packages use GitHub Storage, which has it's own set of quotas. When you create an Azure Static Web Apps site, GitHub stores the artifacts for your site even after deployment.
+
+See the following resources for more detail:
+
+- [Managing Actions storage space](https://github.community/t5/GitHub-Actions/Managing-Actions-storage-space/td-p/38944)
+- [About billing for GitHub Actions](https://help.github.com/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions#about-billing-for-github-actions)
+- [Managing your spending limit for GitHub Actions](https://help.github.com/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)
 
 ## Next steps
 
