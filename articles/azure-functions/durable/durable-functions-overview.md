@@ -348,9 +348,9 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
             yield context.call_activity("SendAlert", job_id)
             break
 
-    # Orchestration sleeps until this time.
-    next_check = context.current_utc_datetime + timedelta(seconds=polling_interval)
-    yield context.create_timer(next_check)
+        # Orchestration sleeps until this time.
+        next_check = context.current_utc_datetime + timedelta(seconds=polling_interval)
+        yield context.create_timer(next_check)
 
     # Perform more work here, or let the orchestration end.
 
