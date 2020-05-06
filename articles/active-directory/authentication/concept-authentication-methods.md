@@ -17,24 +17,22 @@ ms.custom: contperfq4
 
 # Customer intent: As an identity administrator, I want to understand what authentication options are available in Azure AD and how or why I can use them to improve and secure user sign-in events.
 ---
-# What authentication methods and features are available in Azure Active Directory?
+# What authentication and verification methods are available in Azure Active Directory?
 
 As part of the sign-in experience for accounts in Azure Active Directory (Azure AD), there are different ways that a user can authenticate themselves. A username and password is the most common way a user would historically provide credentials. With modern authentication and security features in Azure AD, that basic password can be supplemented or replaced with additional authentication methods.
 
-A user could choose to authenticate using one of the following authentication methods:
+A user in Azure AD can choose to authenticate using one of the following authentication methods:
 
 * Traditional username and password
 * Microsoft Authenticator App passwordless sign-in
-* OATH hardware token, such as FIDO2 security key
+* OATH hardware token or FIDO2 security key
 * SMS-based passwordless sign-in
 
-Many accounts in Azure AD are enabled for self-service password reset (SSPR) or Azure Multi-Factor Authentication. These features include additional authentication methods such as a phone call or security questions.
+Many accounts in Azure AD are enabled for self-service password reset (SSPR) or Azure Multi-Factor Authentication. These features include additional verification methods, such as a phone call or security questions. It's recommended that you require users to register multiple verification methods. When one method isn't available for a user, they can choose to authenticate with another method.
 
-It's recommended that you require users to register multiple authentication methods. When an authentication method isn't available for a user, they can choose to authenticate with another method.
+The following table outlines what authentication or verification methods are available for the different scenarios:
 
-The following table outlines what authentication methods are available for the different scenarios:
-
-|Authentication Method|Usage|
+|Method|Usage|
 | --- | --- |
 | [Password](#password) | MFA and SSPR |
 | [Microsoft Authenticator app](#microsoft-authenticator-app) | MFA and SSPR |
@@ -45,7 +43,7 @@ The following table outlines what authentication methods are available for the d
 | [Email address](#email-address) | SSPR Only |
 | [App passwords](#app-passwords) | MFA only in certain cases |
 
-This article outlines these different authentication methods and any specific limitations or restrictions, such as what can be used for security questions.
+This article outlines these different authentication and verification methods available in Azure AD and any specific limitations or restrictions.
 
 ![Authentication methods in use at the sign-in screen](media/concept-authentication-methods/overview-login.png)
 
@@ -57,7 +55,7 @@ Even if you use an authentication method such as [SMS-based sign-in](howto-authe
 
 ## Microsoft Authenticator app
 
-With the Microsoft Authenticator app, users can authenticate passwordless during sign-in, or as an additional authentication / verification option during self-service password reset (SSPR) or Azure Multi-Factor Authentication events.
+With the Microsoft Authenticator app, users can authenticate passwordless during sign-in, or as an additional verification option during self-service password reset (SSPR) or Azure Multi-Factor Authentication events.
 
 The Authenticator app provides an additional level of security to your Azure AD work or school account or your Microsoft account and is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
@@ -116,7 +114,7 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 
 ## Phone options
 
-Users can authenticate using a mobile phone or office phone. Phone authentication is a secondary form of authentication used during Azure Multi-Factor Authentication or self-service password reset (SSPR). For direct authentication using text message, you can [Configure and enable users for SMS-based authentication(preview)](howto-authentication-sms-signin.md).
+Users can verify themselves using a mobile phone or office phone. Phone authentication is a secondary form of authentication used during Azure Multi-Factor Authentication or self-service password reset (SSPR). For direct authentication using text message, you can [Configure and enable users for SMS-based authentication(preview)](howto-authentication-sms-signin.md).
 
 With the mobile phone authentication option, a text message is sent with a verification code to enter into the sign-in interface. Both mobile and office phones can also receive a phone call that prompts the user to enter their defined code to complete the sign-in process.
 
@@ -172,9 +170,9 @@ If you have problems with phone authentication for Azure AD, review the followin
 
 ## Security questions
 
-Security questions aren't used as an authentication method during a sign-in event. Instead, security questions can be used during the self-service password reset (SSPR) process to confirm who you are. Administrator accounts can't use security questions as an authentication / verification method with SSPR.
+Security questions aren't used as an authentication method during a sign-in event. Instead, security questions can be used during the self-service password reset (SSPR) process to confirm who you are. Administrator accounts can't use security questions as verification method with SSPR.
 
-When users register for SSPR, they're prompted to choose the authentication / verification methods to use. If they choose to use security questions, they pick from a set of questions to prompt for and then provide their own answers.
+When users register for SSPR, they're prompted to choose the authentication methods to use. If they choose to use security questions, they pick from a set of questions to prompt for and then provide their own answers.
 
 ![Screenshot of the Azure portal that shows authentication methods and options for security questions](media/concept-authentication-methods/security-questions-authentication-method.png)
 
@@ -185,7 +183,7 @@ Security questions can be less secure than other methods because some people mig
 
 ### Predefined questions
 
-The following predefined security questions are available for use as an authentication method with SSPR. All of these security questions are translated and localized into the full set of Office 365 languages based on the user's browser locale:
+The following predefined security questions are available for use as an verification method with SSPR. All of these security questions are translated and localized into the full set of Office 365 languages based on the user's browser locale:
 
 * In what city did you meet your first spouse/partner?
 * In what city did your parents meet?
@@ -242,7 +240,7 @@ For both default and custom security questions, the following requirements and l
 
 ## Email address
 
-An email address can't be used as a direct authentication method. Email address is only available as an authentication / verification option for self-service password reset (SSPR). When email address is selected during SSPR, an email is sent to the user to complete the authentication / verification process.
+An email address can't be used as a direct authentication method. Email address is only available as an verification option for self-service password reset (SSPR). When email address is selected during SSPR, an email is sent to the user to complete the authentication / verification process.
 
 During registration for SSPR, a user provides the email address to use. It's recommended that they use a different email account than their corporate account to make sure they can access it during SSPR.
 
