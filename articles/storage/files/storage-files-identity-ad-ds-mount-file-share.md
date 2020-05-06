@@ -9,9 +9,11 @@ ms.date: 04/20/2020
 ms.author: rogarana
 ---
 
-## 4. Mount a file share from a domain-joined VM
+## Mount a file share from a domain-joined VM
 
-The following process verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM. Be aware that the share level RBAC role assignment can take some time to take effect. 
+Before you begin this article, make sure you complete the previous article, [Configure NTFS permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
+
+The process described in this article verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM. Be aware that the share level RBAC role assignment can take some time to take effect. 
 
 Sign in to the VM by using the Azure AD identity to which you have granted permissions, as shown in the following image. If you have enabled on-premises AD DS authentication for Azure Files, use your AD DS credentials. For Azure AD DS authentication, sign in with Azure AD credentials.
 

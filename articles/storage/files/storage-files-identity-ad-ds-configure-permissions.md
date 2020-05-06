@@ -9,7 +9,9 @@ ms.date: 04/20/2020
 ms.author: rogarana
 ---
 
-# 3. Configure NTFS permissions over SMB 
+# Configure NTFS permissions over SMB 
+
+Before you begin this article, make sure you completed the previous article, [Assign access permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md). To ensure that your share-level permissions are in place.
 
 After you assign share-level permissions with RBAC, you must assign proper NTFS permissions at the root, directory, or file level. Think of share-level permissions as the high-level gatekeeper that determines whether a user can access the share. Whereas NTFS permissions act at a more granular level to determine what operations the user can do at the directory or file level.
 
@@ -63,4 +65,4 @@ For more information on how to use icacls to set NTFS permissions and on the dif
 
 ## Next steps
 
-[4. Mount a file share from a domain-joined VM](storage-files-identity-ad-ds-mount-file-share.md)
+[Mount a file share from a domain-joined VM](storage-files-identity-ad-ds-mount-file-share.md)
