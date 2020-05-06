@@ -25,6 +25,10 @@ non-Azure machine.
 
 > [!IMPORTANT]
 > Custom policies with Guest Configuration is a Preview feature.
+>
+> The Guest Configuration extension is required to perform audits in Azure virtual machines.
+> To deploy the extension at scale across all Linux machines, assign the following policy definition:
+>   - [Deploy prerequisites to enable Guest Configuration Policy on Linux VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ## Install the PowerShell module
 
@@ -107,7 +111,7 @@ supports:
     - os-family: unix
 ```
 
-Save this file to a folder named `linux-path` in your project directory.
+Save this file with name `inspec.yml` to a folder named `linux-path` in your project directory.
 
 Next, create the Ruby file with the InSpec language abstraction used to audit the machine.
 
@@ -117,10 +121,9 @@ describe file('/tmp') do
 end
 ```
 
-Save this file in a new folder named `controls` inside the `linux-path` directory.
+Save this file with name `linux-path.rb` in a new folder named `controls` inside the `linux-path` directory.
 
-Finally, create a configuration, import the **GuestConfiguration** resource module, and use the
-`ChefInSpecResource` resource to set the name of the InSpec profile.
+Finally, create a configuration, import the **PSDesiredStateConfiguration** resource module, and compile the configuration.
 
 ```powershell
 # Define the configuration and import GuestConfiguration
@@ -138,12 +141,18 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
+import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
+
+Save this file with name `config.ps1` in the project folder. Run it in PowerShell by executing `./config.ps1`
+in the terminal. A new mof file will be created.
 
 The `Node AuditFilePathExists` command isn't technically required but it produces a file named
 `AuditFilePathExists.mof` rather than the default, `localhost.mof`. Having the .mof file name follow
 the configuration makes it easy to organize many files when operating at scale.
+
+
 
 You should now have a project structure as below:
 
@@ -175,8 +184,8 @@ Run the following command to create a package using the configuration given in t
 ```azurepowershell-interactive
 New-GuestConfigurationPackage `
   -Name 'AuditFilePathExists' `
-  -Configuration './Config/AuditFilePathExists.mof'
-  -ChefProfilePath './'
+  -Configuration './Config/AuditFilePathExists.mof' `
+  -ChefInSpecProfilePath './'
 ```
 
 After creating the Configuration package but before publishing it to Azure, you can test the package from your workstation or CI/CD environment. The GuestConfiguration cmdlet `Test-GuestConfigurationPackage` includes the same agent in your
@@ -196,7 +205,7 @@ Run the following command to test the package created by the previous step:
 
 ```azurepowershell-interactive
 Test-GuestConfigurationPackage `
-  -Path ./AuditFilePathExists.zip
+  -Path ./AuditFilePathExists/AuditFilePathExists.zip
 ```
 
 The cmdlet also supports input from the PowerShell pipeline. Pipe the output of

@@ -56,7 +56,7 @@ The three server-side encryption models offer different key management character
 
 You can protect Windows and Linux virtual machines by using [Azure disk encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), which uses [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) technology and Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) to protect both operating system disks and data disks with full volume encryption.
 
-Encryption keys and secrets are safeguarded in your [Azure Key Vault subscription](../../key-vault/key-vault-overview.md). By using the Azure Backup service, you can back up and restore encrypted virtual machines (VMs) that use Key Encryption Key (KEK) configuration.
+Encryption keys and secrets are safeguarded in your [Azure Key Vault subscription](../../key-vault/general/overview.md). By using the Azure Backup service, you can back up and restore encrypted virtual machines (VMs) that use Key Encryption Key (KEK) configuration.
 
 ### Azure Storage Service Encryption
 

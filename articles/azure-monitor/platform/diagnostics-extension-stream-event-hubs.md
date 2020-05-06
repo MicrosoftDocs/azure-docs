@@ -47,26 +47,26 @@ Example public and private configurations are shown below. This is a minimal con
 {
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
-            "overallQuotaInMB": 5120
-        },
-        "PerformanceCounters": {
-            "scheduledTransferPeriod": "PT1M",
-            "sinks": "myEventHub",
-            "PerformanceCounterConfiguration": [
-                {
-                    "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                    "sampleRate": "PT3M"
-                }
-            ]
-        },
-        "WindowsEventLog": {
-            "scheduledTransferPeriod": "PT1M",
-            "sinks": "myEventHub",
-                "DataSource": [
-                {
-                    "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
-                }
-            ]
+            "overallQuotaInMB": 5120,
+            "PerformanceCounters": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "myEventHub",
+                "PerformanceCounterConfiguration": [
+                    {
+                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                        "sampleRate": "PT3M"
+                    }
+                ]
+            },
+            "WindowsEventLog": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "myEventHub",
+                    "DataSource": [
+                    {
+                        "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
+                    }
+                ]
+            }
         },
         "SinksConfig": {
             "Sink": [

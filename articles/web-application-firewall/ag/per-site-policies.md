@@ -279,7 +279,7 @@ $PathRuleConfig1 = New-AzApplicationGatewayPathRuleConfig `
 $URLPathMap = New-AzApplicationGatewayUrlPathMapConfig -Name "PathMap" `
   -PathRules $PathRuleConfig, $PathRuleConfig1 `
   -DefaultBackendAddressPoolId $defaultPool.Id `
-  -DefaultBackendHttpSettingsId poolSettings.Id
+  -DefaultBackendHttpSettingsId $poolSettings.Id
 
 Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $AppGw `
   -Name "RequestRoutingRule" `

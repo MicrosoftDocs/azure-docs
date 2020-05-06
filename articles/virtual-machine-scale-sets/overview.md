@@ -1,13 +1,13 @@
 ---
 title: Azure virtual machine scale sets overview
 description: Learn about Azure virtual machine scale sets and how to automatically scale your applications
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/26/2019
-ms.author: manayar
+ms.author: mimckitt
 
 ---
 # What are virtual machine scale sets?

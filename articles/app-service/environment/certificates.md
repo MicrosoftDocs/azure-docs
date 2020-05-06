@@ -80,7 +80,7 @@ The certificate will be available by all the apps in the same app service plan a
 
 To perform testing, you can create a self signed certificate and generate a *.cer* file with the following PowerShell: 
 
-	$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com
+	$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
 	$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
 	$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText

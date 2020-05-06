@@ -141,4 +141,4 @@ Building and running Android and iOS applications in the device or simulator hap
 
 ## Next steps
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

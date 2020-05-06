@@ -27,10 +27,10 @@ Security Center assesses the configuration of your resources to identify securit
 In addition to these roles, there are two specific Security Center roles:
 
 * **Security Reader**: A user that belongs to this role has viewing rights to Security Center. The user can view recommendations, alerts, a security policy, and security states, but cannot make changes.
-* **Security Administrator**: A user that belongs to this role has the same rights as the Security Reader and can also update the security policy and dismiss alerts and recommendations.
+* **Security Admin**: A user that belongs to this role has the same rights as the Security Reader and can also update the security policy and dismiss alerts and recommendations.
 
 > [!NOTE]
-> The security roles, Security Reader and Security Administrator, have access only in Security Center. The security roles do not have access to other service areas of Azure such as Storage, Web & Mobile, or Internet of Things.
+> The security roles, Security Reader and Security Admin, have access only in Security Center. The security roles do not have access to other service areas of Azure such as Storage, Web & Mobile, or Internet of Things.
 >
 >
 
@@ -45,7 +45,7 @@ The following table displays roles and allowed actions in Security Center.
 | Resource Group Owner | -- | ✔ | -- | ✔ |
 | Resource Group Contributor | -- | ✔ | -- | ✔ |
 | Reader | -- | -- | -- | ✔ |
-| Security Administrator | ✔ | -- | ✔ | ✔ |
+| Security Admin | ✔ | -- | ✔ | ✔ |
 | Security Reader | -- | -- | -- | ✔ |
 
 > [!NOTE]

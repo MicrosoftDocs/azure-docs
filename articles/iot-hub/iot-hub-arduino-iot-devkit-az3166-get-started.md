@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
+ms.custom:  mqtt
 ---
 
 # Connect IoT DevKit AZ3166 to Azure IoT Hub
@@ -170,9 +171,7 @@ Follow these steps to prepare the development environment for the DevKit:
 
     ![Install Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
-    Or use this direct link:
-    > [!div class="nextstepaction"]
-    > [Install Azure IoT Tools extension pack](vscode:extension/vsciot-vscode.azure-iot-tools)
+    Or copy and paste this URL into a browser window: `vscode:extension/vsciot-vscode.azure-iot-tools`
 
     > [!NOTE]
     > The Azure IoT Tools extension pack contains the [Azure IoT Device Workbench](https://aka.ms/iot-workbench) which is used to develop and debug on various IoT devkit devices. The [Azure IoT Hub extension](https://aka.ms/iot-toolkit), also included with the Azure IoT Tools extension pack, is used to manage and interact with Azure IoT Hubs.
@@ -322,6 +321,17 @@ The sample application is running successfully when you see the following result
 * The LED on the MXChip IoT DevKit is blinking.
 
 ![Serial monitor output](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/result-serial-output.png)
+
+> [!NOTE]
+> You might encounter an error during testing in which the LED isn't blinking, the Azure portal doesn't show incoming data from the device, but the device OLED screen shows as **Running...**. To resolve the issue, in the Azure portal, go to the device in the IoT hub and send a message to the device. If you see the following response in the serial monitor in VS Code, it's possible that direct communication from the device is blocked at the router level. Check firewall and router rules that are configured for the connecting devices. Also, ensure that outbound port 1833 is open.
+> 
+> ERROR: mqtt_client.c (ln 454): Error: failure opening connection to endpoint  
+> INFO: >>>Connection status: disconnected  
+> ERROR: tlsio_mbedtls.c (ln 604): Underlying IO open failed  
+> ERROR: mqtt_client.c (ln 1042): Error: io_open failed  
+> ERROR: iothubtransport_mqtt_common.c (ln 2283): failure connecting to address atcsliothub.azure-devices.net.  
+> INFO: >>>Re-connect.  
+> INFO: IoThub Version: 1.3.6  
 
 ### View the telemetry received by Azure IoT Hub
 

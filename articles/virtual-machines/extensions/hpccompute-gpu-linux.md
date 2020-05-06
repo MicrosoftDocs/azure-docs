@@ -137,15 +137,15 @@ Set-AzVMExtension
 The following example mirrors the above Azure Resource Manager and PowerShell examples and also adds custom settings as an example for non-default driver installation. Specifically, it updates the OS kernel and installs a specific CUDA toolkit version driver.
 
 ```azurecli
-az vm extension set `
-  --resource-group myResourceGroup `
-  --vm-name myVM `
-  --name NvidiaGpuDriverLinux `
-  --publisher Microsoft.HpcCompute `
-  --version 1.2 `
-  --settings '{ `
-    "updateOS": true, `
-    "driverVersion": "9.1.85", `
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverLinux \
+  --publisher Microsoft.HpcCompute \
+  --version 1.2 \
+  --settings '{ \
+    "updateOS": true, \
+    "driverVersion": "9.1.85", \
   }'
 ```
 

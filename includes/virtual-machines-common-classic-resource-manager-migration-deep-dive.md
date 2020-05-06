@@ -1,9 +1,9 @@
 ---
-author: cynthn
+author: tanmaygore
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: tanmaygore
+ms.author: tagore
 ---
 ## Migrate IaaS resources from the classic deployment model to Azure Resource Manager
 First, it's important to understand the difference between data-plane and management-plane operations on the infrastructure as a service (IaaS) resources.

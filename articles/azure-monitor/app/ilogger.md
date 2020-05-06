@@ -209,7 +209,7 @@ You can still use the old provider. (It will be removed only in a major version 
 - In ASP.NET Core (2.0 and later), the recommended way to  [enable logging providers](https://github.com/aspnet/Announcements/issues/255) is by using extension methods on ILoggingBuilder in **Program.cs** itself.
 
 > [!Note]
-> The new provider is available for applications that target NETSTANDARD2.0 or later. If your application targets older .NET Core versions, such as .NET Core 1.1, or if it targets the .NET Framework, continue to use the old provider.
+> The new provider is available for applications that target NETSTANDARD2.0 or later. From [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.14.0 onwards, new provider is also available for applications that target .NET Framework NET461 or later. If your application targets older .NET Core versions, such as .NET Core 1.1, or if it targets the .NET Framework less than NET46, continue to use the old provider.
 
 ## Console application
 

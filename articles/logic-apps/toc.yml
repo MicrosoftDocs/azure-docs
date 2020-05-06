@@ -27,6 +27,9 @@
     href: https://docs.microsoft.com/samples/browse/?products=azure-logic-apps
   - name: Resource Manager quickstart templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Connectors for Logic Apps
@@ -83,10 +86,12 @@
       href: logic-apps-author-definitions.md
     - name: Handle content types
       href: logic-apps-content-type.md
-    - name: Handle errors and exceptions
+    - name: Handle exceptions
       href: logic-apps-exception-handling.md
     - name: Handle large messages
       href: logic-apps-handle-large-messages.md
+    - name: Handle throttling problems or 429 errors
+      href: handle-throttling-problems-429-errors.md    
     - name: Secure
       items:
       - name: Improve security for logic apps
@@ -203,8 +208,6 @@
         href: ../connectors/connectors-create-api-box.md
       - name: Custom APIs and web apps
         href: logic-apps-create-api-app.md
-      - name: DB2
-        href: ../connectors/connectors-create-api-db2.md
       - name: Delay
         href: ../connectors/connectors-native-delay.md
       - name: Dropbox
@@ -225,6 +228,8 @@
         href: ../connectors/connectors-create-api-ftp.md
       - name: GitHub
         href: ../connectors/connectors-create-api-github.md
+      - name: Gmail - Google data security & privacy policies
+        href: ../connectors/connectors-google-data-security-privacy-policy.md
       - name: HTTP
         href: ../connectors/connectors-native-http.md
       - name: HTTP + Swagger
@@ -233,8 +238,12 @@
         href: ../connectors/connectors-native-webhook.md
       - name: IBM 3270
         href: ../connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md
-      - name: Informix
+      - name: IBM DB2
+        href: ../connectors/connectors-create-api-db2.md
+      - name: IBM Informix
         href: ../connectors/connectors-create-api-informix.md
+      - name: IBM MQ
+        href: ../connectors/connectors-create-api-mq.md
       - name: Integration Account
         href: logic-apps-enterprise-integration-metadata.md
       - name: MailChimp
@@ -243,8 +252,6 @@
         href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
       - name: Microsoft Translator
         href: ../connectors/connectors-create-api-microsofttranslator.md
-      - name: MQ
-        href: ../connectors/connectors-create-api-mq.md
       - name: Office 365 Outlook
         href: ../connectors/connectors-create-api-office365-outlook.md
       - name: Office 365 Users
