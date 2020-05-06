@@ -26,6 +26,7 @@ An Azure PowerShell script is available that does the following:
 ### Caveats\Limitations
 
 * Script only supports Internal Load Balancer upgrade where no outbound connection is required. If you required [outbound connection](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) for some of your VMs, please refer to this [page](upgrade-InternalBasic-To-PublicStandard.md) for instructions. 
+* The Basic Load Balancer needs to be in the same resource group as the backend VMs and NICs.
 * If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
 * If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Make sure they are not empty.
 
