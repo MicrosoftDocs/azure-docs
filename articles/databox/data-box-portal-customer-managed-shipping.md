@@ -13,11 +13,11 @@ ms.author: v-grpr
 
 # Use self managed shipping for Azure Data Box in the Azure portal
 
-This article describes self managed shipping tasks to order, pickup, and drop off of an Azure Data Box device. You can manage the Data Box device using the Azure portal. You have the option of designating a point of contact from your organization, or use any carrier of your choice to pick up the Azure Data Box device from a datacenter and also return the device back to the datacenter. You need to follow datacenter's security procedures as sign off is required at particular points between pickup and drop-off. At pickup and drop-off, you, or your point of contact will be assigned an authorization code. This authorization code needs to be presented during device pick-up and drop-off at the datacenter.
+This article describes self managed shipping tasks to order, pickup, and drop off of an Azure Data Box device. You can manage the Data Box device using the Azure portal. You have the option of designating a point of contact from your organization, or use any carrier of your choice to pick up the Azure Data Box device from a datacenter and also return the device back to the datacenter. You need to follow the datacenter's security procedures as sign off is required at particular points between pickup and drop-off. At pickup and drop-off, you, or your point of contact will be assigned an authorization code. This authorization code needs to be presented during device pick up and drop-off at the datacenter.
 
 ## Prerequisites
 
-Self managed shipping for Azure Data Box is only available in the following regions:
+Your Azure Data Box order was created for one of the following regions:
 
 1. Western Europe
 2. Japan
@@ -25,17 +25,19 @@ Self managed shipping for Azure Data Box is only available in the following regi
 4. South Korea
 5. India
 
-For detailed information regarding prerequisites and Azure portal usage, see [Get started with Azure Data Box](data-box-quickstart-portal.md)
+For detailed information on how to create a Data Box order, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 
-## Order an Azure Data Box from your supported region
+## Choose self managed shipping for Data Box order
+
+When you place a Data Box order, you can choose self managed shipping option.
 
 1. When choosing shipping type, if you are located in a supported region, you will have the option of selecting **Self-managed shipping**.
 
    ![Self-managed shipping](media\data-box-portal-customer-managed-shipping\customer-managed-shipping-ship-option.png)
 
-2. After you fill out the fields, you will need to verify/validate your email address.
+2. After you fill out the fields, you will need to validate your email address.
 
-3. Ready for Pick-up in progress. You need to click on **Schedule Pickup**.
+3. Ready for Pickup in progress. You need to click on **Schedule Pickup**.
 
    ![Ordering a Data Box device for pickup](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-01b.png)
 
@@ -52,11 +54,9 @@ For detailed information regarding prerequisites and Azure portal usage, see [Ge
 
    ![Picked up](media\data-box-portal-customer-managed-shipping\data-box-portal-picked-up-01.png)
 
-   You also need to provide details of who will be going to the datacenter for pick-up. You or the point of contact has to carry a Government approved photo ID that will be validated at the datacenter. Operations will need to include this person's details so that it can be verified during pick-up.
+   You also need to provide details of who will be going to the datacenter for pickup. You or the point of contact has to carry a Government approved photo ID that will be validated at the datacenter. Operations will need to include this person's details so that it can be verified during pickup.
 
-   Additionally, the person who is picking up the device also needs to have the **Authorization code** that is available in the Portal under **Schedule Pick up**. This code is also validated at the datacenter time of pick-up.
-
-<!--7. After you have scheduled an appointment to get and shared the datacenter pick-up point of contact's details. -->
+   Additionally, the person who is picking up the device also needs to have the **Authorization code** that is available in the Portal under **Schedule Pick up**. This code is also validated at the datacenter time of pick up.
 
 7. After the device has been picked up, the customer needs to prepare the data copy and then drop off the device back at the datacenter.
 

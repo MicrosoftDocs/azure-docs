@@ -13,7 +13,7 @@ ms.author: v-grpr
 
 # Use self managed shipping for Azure Data Box Disk in the Azure portal
 
-This article describes the process workflow and self managed shipping tasks to order, pick-up, and drop off of an Azure Data Box Disk device. You can manage the Data Box Disk using the Azure portal. You also have the option of designating a point of contact from your organization, or use any carrier of your choice to pick up the Azure Data Box Disk device from a datacenter and also return the device back to the datacenter. You need to follow datacenter's security procedures as sign off is required at particular points between pickup and drop-of. At pick-up and drop-off, you, or point of contact, will be assigned an authorization code. This authorization code needs to be presented during device pick-up and drop-off at the datacenter.
+This article describes the process workflow and self managed shipping tasks to order, pick-up, and drop off of an Azure Data Box Disk device. You can manage the Data Box Disk using the Azure portal. You also have the option of designating a point of contact from your organization, or use any carrier of your choice to pick up the Azure Data Box Disk device from a datacenter and also return the device back to the datacenter. You need to follow the datacenter's security procedures as sign off is required at particular points between pickup and drop-of. At pick-up and drop-off, you, or point of contact, will be assigned an authorization code. This authorization code needs to be presented during device pick-up and drop-off at the datacenter.
 
 ## Prerequisites
 
