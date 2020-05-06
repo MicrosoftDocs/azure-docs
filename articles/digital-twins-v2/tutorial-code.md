@@ -15,13 +15,13 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# First Steps: Coding with the Azure Digital Twins APIs
+# Coding with the Azure Digital Twins APIs
 
 ## Audience
 
 This tutorial is for developers who would like to get an introduction to programming against the Azure Digital Twins service using the C# service SDK.
 
-### Prerequisites
+## Prerequisites
 
 This tutorial uses the command line for setup and project work - you can therefore use any code editor you like to walk through the exercises.
 
@@ -49,7 +49,7 @@ dotnet add package Azure.identity
 
 The first is the Azure Digital Twins SDK for .Net. The second dependency provides tools that make authentication against Azure a lot more comfortable.
 
-## Setting up an Azure Digital Twins Instance
+## Set up an Azure Digital Twins instance
 
 Before you can follow the development steps in this tutorial, you will have to create an Azure Digital Twins service instance. For this tutorial, there are two options to do so:
 * You can follow the manual steps described in this how-to document [point to how-to]. 
@@ -70,7 +70,7 @@ ToDo - Need to figure out how to get the script. FOr this exercise, my preferenc
 ***
 ```
 
-## Getting started: Coding against Azure Digital Twins
+## Get started with coding against Azure Digital Twins
 
 To begin, open the file Program.cs in any code editor. You will see a minimal code template:
 
@@ -91,7 +91,7 @@ namespace FirstSteps
 
 Over the course of this tutorial, we will add code that illustrates some of the basic techniques of programming against Azure Digital Twins. 
 
-## Authentication against the service
+### Authenticate against the service
 
 First, let's add som "using" lines at the top of the code.
 
@@ -135,7 +135,7 @@ var credentials = new InteractiveBrowserCredential(tenantId, clientId);
 
 This will cause a browser to open, asking you to provide your Azure credentials. If you need other types of credentials, see the documentation for the Azure identity library for more information (ToDo - add link) 
 
-## Uploading a Model
+### Upload a model
 
 Azure Digital Twins service instances out of the box have no domain vocabulary. You need to upload model definitions (in form of JSON-DL DTDL, or Digital Twins Definition Language, files).
 
@@ -214,7 +214,7 @@ dotnet run
 
 You will see an exception thrown. What happened?
 
-## Catching Errors
+### Catch errors
 
 The exception happens because Azure Digital Twins will not let you upload the same model twice. Instead, the service returns a "bad request" error via the REST API. 
 The Azure Digital Twins client SDK in turn will throw an exception for every service return code other than success. 
@@ -252,7 +252,7 @@ Type name: : urn:example:Simple:1
 
 From now on, we will wrap all calls to service methods in try/catch handlers.
 
-## Creating Twin Instances
+### Create digital twins
 
 Now that we have configured Azure Digital Twins with at least one model, we can create twin instances. Let's quickly create a few twins using the uploaded model.
 
@@ -287,7 +287,7 @@ for(int i=0; i<3; i++) {
 
 Run this code twice. No error is thrown when the twins are created, although the twins already exist after the first run. Why is this? Unlike model creation, twin creation is, on the REST level, a put call with upsert semantics - if the twin already exists, it will be replaced and no error is thrown.
 
-## Create Relationships
+### Create relationships
 
 What would a twins graph be without relationships? Let's connect some twins into a graph.
 
@@ -329,7 +329,7 @@ Run the program with
 dotnet run
 ```
 
-## List and display twins and relationships
+### List and display twins and relationships
 
 It would be good to see the list of relationships.
 
@@ -364,7 +364,7 @@ dotnet run
 
 Note that if you run the code multiple times, you will see exceptions on edge creation, as Azure Digital Twins will not let you create an edge if one with the same id already exists. We are catching the exceptions and ignoring them in the code. 
 
-## Query Twins
+### Query digital twins
 
 Finally, one last example. Let's run a query against Azure Digital Twins. 
 
@@ -381,7 +381,7 @@ await foreach (string twin in result)
 }
 ```
 
-## The Complete Code
+## Complete code example
 
 ```csharp
 using System;
@@ -504,7 +504,7 @@ namespace minimal
 }
 ```
 
-## What's Next?
+## Next steps
 
 ### An Exercise for the Reader
 
