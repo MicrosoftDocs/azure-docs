@@ -15,11 +15,10 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 * Released as **generally available** (GA):
     * [Language Understanding container](luis-container-howto.md)
-    * Preview portal promoted to [current portal](https://www.luis.ai)
-        * [Previous](https://previous.luis.ai) portal still available
-        * New machine-learned entity creation and labeling experience
-        * [Upgrade process](migrate-from-composite-entity.md) from composite and simple entities to machine-learned entities
-        * App setting support for normalizing word variants
+    * Preview portal promoted to [current portal](https://www.luis.ai), [previous](https://previous.luis.ai) portal still available
+    * New machine-learned entity creation and labeling experience
+    * [Upgrade process](migrate-from-composite-entity.md) from composite and simple entities to machine-learned entities
+    * [Setting](how-to-application-settings-portal.md) support for normalizing word variants
     * App schema 7.x for nested machine-learned entities
 
 ### March 2020
