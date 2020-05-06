@@ -143,7 +143,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 
 ## Authenticate the client
 
-Below the `Main` method, define the task that is referenced in `Main`. Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you'll be able to update the API key without creating new client objects.
+Below the `Main` method, define the task that is referenced in `Main`. Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects.
 
 ```csharp
 static async Task RunFormRecognizerClient()
@@ -160,7 +160,7 @@ static async Task RunFormRecognizerClient()
 
 ### Call client-specific methods
 
-The next block of code uses the client objects to call methods for each of the major tasks available in the Form Recognizer SDK. You'll define these methods later on.
+The next block of code uses the client objects to call methods for each of the major tasks in the Form Recognizer SDK. You'll define these methods later on.
 
 You'll also need to add references to the URLs for your training and testing data. 
 * To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
@@ -208,7 +208,7 @@ private static async Task<Guid> GetContents(
         .WaitForCompletionAsync();
 ```
 
-The returned value is a collection of **FormPage** objects: one for each page in the submitted document. The following code iterates through these and prints the extracted key/value pairs and table data.
+The returned value is a collection of **FormPage** objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
 
 ```csharp
     foreach (FormPage page in formPages.Value)
@@ -348,7 +348,7 @@ Finally, this method returns the unique ID of the model.
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. This leads to better performance in some scenarios. In order to train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can the **StartTrainingAsync** method with the *uselabels* parameter set to `true`.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **StartTrainingAsync** method with the *uselabels* parameter set to `true`.
 
 ```csharp
 
@@ -365,7 +365,7 @@ private static async Task<Guid> TrainModelWithLabelsAsync(
     Console.WriteLine($"    Last Modified: {model.LastModified}");
 ```
 
-The returned **CustomFormModel** indicates the fields the model can extract, as well as the estimated accuracy for each field. The following code block prints this information to the console.
+The returned **CustomFormModel** indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
 
 ```csharp
     foreach (CustomFormSubModel subModel in model.Models)
@@ -450,7 +450,7 @@ The following code block checks how many models you have saved in your Form Reco
 
 ### List the models currently stored in the resource account
 
-The following code blocks lists the current models in your account and prints their details to the console.
+The following code block lists the current models in your account and prints their details to the console.
 
 ```csharp
     // List the first ten or fewer models currently stored in the account.
@@ -523,7 +523,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Troubleshooting
 
-When you interact with the Cognitive Services Form Recognizer client library using the .NET SDK, errors returned by the service will result in a `RequestFailedException`. They'll include the same HTTP status code that would've been returned by a REST API request.
+When you interact with the Cognitive Services Form Recognizer client library using the .NET SDK, errors returned by the service will result in a `RequestFailedException`. They'll include the same HTTP status code that would have been returned by a REST API request.
 
 For example, if you submit a receipt image with an invalid URI, a `400` error is returned, indicating "Bad Request".
 
@@ -562,7 +562,7 @@ Headers:
 
 ## Next steps
 
-In this quickstart, you used the Form Recognizer .NET client library to train models and analyze forms in a variety of ways. Next, learn tips to create a better training data set and produce more accurate models.
+In this quickstart, you used the Form Recognizer .NET client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
 > [Build a training data set](../build-training-data-set.md)
