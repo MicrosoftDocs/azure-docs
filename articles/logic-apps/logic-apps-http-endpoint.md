@@ -96,27 +96,29 @@ If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-
 
 1. Save your logic app.
 
-   The **HTTP POST to this URL** box now shows the generated callback URL that other services can use to call and trigger your logic app. This URL includes a Shared Access Signature (SAS) key, which is used for authentication, in the query parameters, for example:
+   The **HTTP POST URL** box now shows the generated callback URL that other services can use to call and trigger your logic app. This URL includes query parameters that specify a Shared Access Signature (SAS) key, which is used for authentication.
 
    ![Generated callback URL for endpoint](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
-   You can also get the endpoint's URL from your logic app's **Overview** pane.
+1. To copy the callback URL, you have these options:
 
-   1. On your logic app's menu, select **Overview**.
+   * To the right of the **HTTP POST URL** box, select **Copy Url** (copy files icon).
 
-   1. In the **Summary** section, select **See trigger history**.
+   * Make this POST call:
 
-      ![Get endpoint URL from Azure portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
+     `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
-   1. Under **Callback url [POST]**, copy the URL:
+   * Copy the callback URL from your logic app's **Overview** pane.
 
-      ![Copy endpoint URL from Azure portal](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
+     1. On your logic app's menu, select **Overview**.
 
-      Or you can get the URL by making this call:
+     1. In the **Summary** section, select **See trigger history**.
 
-      ```http
-      POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01
-      ```
+        ![Get endpoint URL from Azure portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
+
+     1. Under **Callback url [POST]**, copy the URL:
+
+        ![Copy endpoint URL from Azure portal](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
 
 <a name="set-method"></a>
 
@@ -140,7 +142,7 @@ When you want your endpoint URL to accept parameter values through the endpoint'
 
 * [Accept values through GET parameters](#get-parameters) or URL parameters.
 
-  These values are passed as name-value pairs when sending the request to the endpoint's URL. For this option, you need to use the GET method in your Request trigger. You can then use the `triggerOutputs()` function in a subsequent action to get the parameter values as trigger outputs.
+  These values are passed as name-value pairs when sending the request to the endpoint's URL. For this option, you need to use the GET method in your Request trigger. In a subsequent action, you can get the parameter values as trigger outputs by using the `triggerOutputs()` function in an expression.
 
 * [Accept values through a relative path](#relative-path) for the parameter in your Request trigger.
 
@@ -154,45 +156,53 @@ When you want your endpoint URL to accept parameter values through the endpoint'
 
    For more information, see [Set expected HTTPS method](#set-method).
 
-1. Get the endpoint's URL for the Request trigger by following these steps:
-
-   1. On your logic app's menu, select **Overview**.
-
-   1. In the **Summary** section, select **See trigger history**.
-
-      ![Get endpoint URL from Azure portal](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
-
-   1. Under **Callback url [GET]**, copy the endpoint's callback URL, for example:
-
-      ![Add "Relative path" property to trigger](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-get.png)
-
-1. Under the Request trigger, add the action where you want to use the parameter values. For this example, add the **Response** action.
+1. Under the Request trigger, add the action where you want to use the parameter value. For this example, add the **Response** action.
 
    1. Under the Request trigger, select **New step** > **Add an action**.
+   
+   1. Under **Choose an action**, in the search box, enter `response` as your filter. From the actions list, select the **Response** action.
 
-   1. Under **Choose an action**, in the search box, enter `response` as your filter.
+1. To build the `triggerOutputs()` expression that retrieves the parameter value, follow these steps:
 
-   1. From the actions list, select the **Response** action.
+   1. Click inside the Response action's **Body** property so that the dynamic content list appears, and select **Expression**.
 
-1. To build the expression, follow these steps:
+   1. In the **Expression** box, enter this expression, replacing `parameter-name` with your parameter name, and select **OK**.
 
-   1. Click inside the Response action's **Body** property so that the dynamic content list appears, and select **Expression**. 
+      `triggerOutputs()['queries']['parameter-name']`
 
-   1. In the **Expression** box, enter this expression, replacing `<parameter-name` with the parameter name that you want to use, and select **OK**.
+      ![Add "triggerOutputs()" expression to trigger](./media/logic-apps-http-endpoint/trigger-outputs-expression.png)
 
-      `triggerOutputs()['queries']['<parameter-name>']`
+      In the **Body** property, the expression resolves to the `triggerOutputs()` token.
 
-      For example, suppose that you want to pass a value for a parameter named `postalCode`. This example has the Response action return a string, `Postal Code: `, followed by the parameter value.
+      ![Resolved "triggerOutputs()" expression](./media/logic-apps-http-endpoint/trigger-outputs-expression-token.png)
 
-      ![Add "Relative path" property to trigger](./media/logic-apps-http-endpoint/trigger-outputs-expression.png)
+      If you save the logic app, navigate away from the designer, and return to the designer, the token shows the parameter name that you specified, for example:
 
-For example, suppose that you want the Response action to return `Postal Code: {postalCode}`.
+      ![Resolved expression for parameter name](./media/logic-apps-http-endpoint/resolved-expression-parameter-token.png)
 
-   In the **Body** property, enter `Postal Code: ` with a trailing space. From the dynamic content list that appears, select the **postalCode** token.
+      In code view, the **Body** property appears in the Response action's definition as follows:
 
-1. In the Response action's **Body** property, 
+      `"body": "@{triggerOutputs()['queries']['parameter-name']}",`
 
-1. To test the endpoint, edit the endpoint URL that you copied 
+      For example, suppose that you want to pass a value for a parameter named `postalCode`. The **Body** property specifies the string, `Postal Code: ` with a trailing space, followed by the corresponding expression:
+
+      ![Add example "triggerOutputs()" expression to trigger](./media/logic-apps-http-endpoint/trigger-outputs-expression-postal-code.png)
+
+1. To test your callable endpoint, copy the callback URL from the Request trigger, and paste the URL into another browser window. In the URL, add the parameter name and value following the question mark (`?`) to the URL in the following format, and press Enter.
+
+   `...?{parameter-name=parameter-value}&api-version=2016-10-01...`
+
+   `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+
+   To put the parameter name and value in a different position within the URL, make sure to use the ampersand (`&`) as a prefix, for example:
+
+   `...?api-version=2016-10-01&{parameter-name=parameter-value}&...`
+
+   This example shows the callback URL with the sample parameter name and value `postalCode=123456` in different positions within the URL:
+
+   * 1st position: `https://prod-07.westus.logic.azure.com:433/workflows/XXXXXXXXXXXXXXXXXXXXXX/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZ`
+
+   * 2nd position: `https://prod-07.westus.logic.azure.com:433/workflows/XXXXXXXXXXXXXXXXXXXXXX/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZ`
 
 <a name="relative-path"></a>
 
@@ -202,7 +212,7 @@ For example, suppose that you want the Response action to return `Postal Code: {
 
    ![Add "Relative path" property to trigger](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
-1. In the **Relative path** property, specify the relative path for the parameter in your JSON schema that you want your URL to accept, for example, `address/{postalCode}`.
+1. In the **Relative path** property, specify the relative path for the parameter in your JSON schema that you want your URL to accept, for example, `/address/{postalCode}`.
 
    ![Specify the relative path for the parameter](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
@@ -210,9 +220,7 @@ For example, suppose that you want the Response action to return `Postal Code: {
 
    1. Under the Request trigger, select **New step** > **Add an action**.
 
-   1. Under **Choose an action**, in the search box, enter `response` as your filter.
-
-   1. From the actions list, select the **Response** action.
+   1. Under **Choose an action**, in the search box, enter `response` as your filter. From the actions list, select the **Response** action.
 
 1. In the Response action's **Body** property, include the token that represents the parameter that you specified in your trigger's relative path.
 
@@ -228,13 +236,11 @@ For example, suppose that you want the Response action to return `Postal Code: {
 
 1. Save your logic app.
 
-    Your endpoint's URL now includes the relative path, for example:
+   In the Request trigger, the callback URL is updated and now includes the relative path, for example:
 
-    ```http
-    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
-    ```
+   `https://prod-07.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-1. To test your endpoint, copy and paste the updated URL into another browser window, but replace `{postalCode}` with `123456`, and press Enter.
+1. To test your callable endpoint, copy the updated callback URL from the Request trigger, paste the URL into another browser window, replace `{postalCode}` in the URL with `123456`, and press Enter.
 
    Your browser shows this text: `Postal Code: 123456`
 
