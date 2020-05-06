@@ -46,7 +46,9 @@ External data sources are used to connect to storage accounts. The complete docu
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
 WITH
-(    LOCATION         = '<prefix>://<path>' [, CREDENTIAL = <database scoped credential> ] )
+(    LOCATION         = '<prefix>://<path>'
+     [, CREDENTIAL = <database scoped credential> ]
+     [, TYPE = HADOOP ])
 [;]
 ```
 
@@ -68,6 +70,8 @@ CREDENTIAL = `<database scoped credential>` is optional credential that will be 
 - In SQL pool, database scoped credential can specify custom application identity, workspace Managed Identity, or SAK key. 
 - In SQL on-demand, database scoped credential can specify caller's Azure AD identity, workspace Managed Identity, or SAS key. 
 
+### TYPE
+TYPE = `HADOOP` is mandatory option in SQL pool and specify that Polybase technology is used to access underlying files. This parameter cannot be used in SQL on-demand service that uses built-in native reader.
 ## Example for CREATE EXTERNAL DATA SOURCE
 
 The following example creates an external data source for Azure Data Lake Gen2 pointing to the New York data set:
