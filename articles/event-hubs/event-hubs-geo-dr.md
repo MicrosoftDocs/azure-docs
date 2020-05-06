@@ -142,9 +142,10 @@ If you try to create a pairing between a primary namespace with a private endpoi
 > To test that the private endpoint configurations are same on primary and secondary namespaces, send a read request (for example: [Get Event Hub](/rest/api/eventhub/get-event-hub)) to the secondary namespace from outside the virtual network, and verify that you receive an error message from the service.
 
 ### Existing pairings
-If pairing between primary and secondary namespace already exists, private endpoint creation on the primary namespace will fail. Create a private endpoint on the secondary namespace first and then create one for the primary namespace.
+If pairing between primary and secondary namespace already exists, private endpoint creation on the primary namespace will fail. To resolve, create a private endpoint on the secondary namespace first and then create one for the primary namespace.
 
-Updates for private endpoints are permitted on the secondary namespace in a paired configuration. It must be done first before enabling private endpoints on the primary namespace.
+> [!NOTE]
+> While we allow read-only access to the secondary namespace, updates to the private endpoint configurations are permitted. 
 
 ### Virtual networks
 When creating a disaster recovery configuration for your application and Event Hubs namespaces, you must create private endpoints for both primary and secondary Event Hubs namespaces against virtual networks hosting both primary and secondary instances of your application. You need to create private endpoints for both networks on primary and secondary namespaces before you can pair these namespaces.
