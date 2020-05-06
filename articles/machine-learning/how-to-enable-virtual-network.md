@@ -15,7 +15,7 @@ ms.custom: contperfq4
 
 ---
 
-# Secure your machine learning lifecycles in private virtual networks
+# Secure your machine learning lifecycles with private virtual networks
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you'll learn how to isolate experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network (vnet). You'll also learn about some *advanced security settings*, information that isn't necessary for basic or experimental use cases.
