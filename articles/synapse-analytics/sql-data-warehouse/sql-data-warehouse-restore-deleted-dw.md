@@ -21,7 +21,7 @@ In this article, you learn to restore a SQL using either the Azure portal or Pow
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verify your DTU capacity.** Each SQL pool is hosted by a [logical SQL server](sql-database-servers.md) (for example, myserver.database.windows.net) which has a default DTU quota.  Verify that the server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verify your DTU capacity.** Each SQL pool is hosted by a [logical SQL server](../../sql-database/sql-database-servers.md) (for example, myserver.database.windows.net) which has a default DTU quota.  Verify that the server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Restore a deleted data warehouse through PowerShell
 

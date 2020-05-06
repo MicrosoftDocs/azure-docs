@@ -109,7 +109,7 @@ You can keep the generated web app name, or change it to another unique name (va
 
 ### Create a server
 
-Before creating a database, you need a [logical SQL server](sql-database-servers.md). A logical SQL server is a logical construct that contains a group of databases managed as a group.
+Before creating a database, you need a [logical SQL server](../sql-database/sql-database-servers.md). A logical SQL server is a logical construct that contains a group of databases managed as a group.
 
 1. Click **Create a SQL Database**.
 
