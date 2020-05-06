@@ -43,7 +43,7 @@ For screenshots of these dialog boxes, see [Configure multi-factor authenticatio
 
 ## Configure your C# application in the Azure portal
 
-Before you begin, you should have an [Azure SQL server](sql-database-servers.md) created and available.
+Before you begin, you should have a [logical SQL server](sql-database-servers.md) created and available.
 
 ### Register your app and set permissions
 
@@ -83,7 +83,7 @@ For more information about Azure AD admins and users for Azure SQL Database, see
 
 ### Add a non-admin user to a specific database (optional)
 
-An Azure AD admin for an Azure SQL server can run the C# example program. An Azure AD user can run the program if they are in the database. An Azure AD SQL admin or an Azure AD user who exists already in the database and has the `ALTER ANY USER` permission on the database can add a user.
+An Azure AD admin for a [logical SQL server](sql-database-servers.md) can run the C# example program. An Azure AD user can run the program if they are in the database. An Azure AD SQL admin or an Azure AD user who exists already in the database and has the `ALTER ANY USER` permission on the database can add a user.
 
 You can add a user to the database with the SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) command. An example is `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
@@ -127,7 +127,7 @@ Before you run the C# program, it's a good idea to check that your setup and con
 
 ### Verify server-level firewall IP addresses
 
-Run SSMS from the same computer, in the same building, where you plan to run the C# program. For this test, any **Authentication** mode is OK. If there's any indication that the Azure SQL server isn't accepting your IP address, see [server-level and database-level firewall rules](sql-database-firewall-configure.md) for help.
+Run SSMS from the same computer, in the same building, where you plan to run the C# program. For this test, any **Authentication** mode is OK. If there's any indication that the server isn't accepting your IP address, see [server-level and database-level firewall rules](sql-database-firewall-configure.md) for help.
 
 ### Verify Azure Active Directory Multi-Factor Authentication
 
