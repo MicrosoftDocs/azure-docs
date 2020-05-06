@@ -64,6 +64,19 @@ WITH (
 GO
 ```
 
+## Create an external table on public storage
+
+You can create external tables that reads data from the files placed on publicly available Azure storage. [Setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) will create public external data source and Parquet file format definition that is used in the following query:
+
+```sql
+CREATE EXTERNAL TABLE Taxi (
+     vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+     pickup_datetime DATETIME2, 
+     dropoff_datetime DATETIME2
+) WITH ( LOCATION = 'puYear=*/puMonth=*/*.parquet',
+         DATA_SOURCE = YellowTaxi,
+         FILE_FORMAT = ParquetFormat );
+```
 ## Use a external table
 
 You can use external tables in your queries the same way you use them in SQL Server queries.
