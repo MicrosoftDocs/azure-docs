@@ -15,11 +15,11 @@ ms.reviewer: sngun
 The change feed pull model is part of the [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3). You can use the change feed pull model to parallelize processing of changes across multiple change feed consumers.
 
 > [!NOTE]
-> The change feed pull model is currently in [preview in the .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.9.0-preview) only. The preview is not yet available for other SDK versions.
+> The change feed pull model is currently in [preview in the Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.9.0-preview) only. The preview is not yet available for other SDK versions.
 
-## Using FeedTokens for parallelization
+## Using FeedRange for parallelization
 
-In the change feed pull model, you can use the `FeedRange` to parallelize the processing of the change feed. A `FeedRange` represents a range of partition key values. This range could match a complete physical partition, a smaller range, or a single partition key value.
+In the change feed pull model, you can use the `FeedRange` to parallelize the processing of the change feed. A `FeedRange` represents a single [physical partition].(partition-data.md#physical-partitions).
 
 Here's an example showing how to obtain a list of ranges for your container.
 
@@ -75,7 +75,7 @@ while (iteratorB.HasMoreResults)
 }
 ```
 
-## Saving FeedTokens
+## Saving continuation tokens
 
 You can save the position of your `FeedIterator` by creating a continuation token. A continuation token is a string value that keeps of track of your FeedIterator's last processed changes. This allows the `FeedIterator` to resume at this point later. The following code will read through the change feed since container creation. After no more changes are available, it will persist a continuation token so that change feed consumption can be later resumed.
 
@@ -101,7 +101,7 @@ FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIte
 
 ## Consuming an entire container
 
-Sometimes you might not need any parallelization when reading the change feed. By creating a `FeedIterator` without any `FeedToken` input, you can read an entire container's change feed on one machine:
+Sometimes you might not need any parallelization when reading the change feed. By creating a `FeedIterator` without any `FeedRange` input, you can read an entire container's change feed on one machine:
 
 ```csharp
 FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
