@@ -289,49 +289,9 @@
       - name: Help wiki
         href: ./cloud-partner-portal-orig/help-wiki.md
     - name: IoT Edge module offer
-      href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
-      items:
-      - name: Prerequisites
-        href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
-      - name: Create IoT Edge module offer
-        href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
-        items:
-        - name: Offer Settings tab
-          href: ./cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md
-        - name: SKUs tab
-          href: ./cloud-partner-portal/iot-edge-module/cpp-skus-tab.md
-        - name: Marketplace tab
-          href: ./cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md
-        - name: Support tab
-          href: ./cloud-partner-portal/iot-edge-module/cpp-support-tab.md
-      - name: Create IoT Edge module technical assets
-        href: ./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md
-      - name: Publish IoT Edge module offer
-        href: ./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md
-      - name: Update existing offer
-        href: ./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md
+      href: ./cloud-partner-portal/iot-edge-module/iot-edge-module-offer.md
     - name: Power BI App offer
       href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
-      items:
-      - name: Prerequisites
-        href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
-      - name: Create Power BI App offer
-        href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
-        items:
-        - name: Offer Settings tab
-          href: ./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md
-        - name: Technical Info tab
-          href: ./cloud-partner-portal/power-bi/cpp-technical-info-tab.md
-        - name: Storefront Details tab
-          href: ./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md
-        - name: Contacts tab
-          href: ./cloud-partner-portal/power-bi/cpp-contacts-tab.md
-      - name: Create Power BI App technical assets
-        href: ./cloud-partner-portal/power-bi/cpp-create-technical-assets.md
-      - name: Publish Power BI App offer
-        href: ./cloud-partner-portal/power-bi/cpp-publish-offer.md
-      - name: Update existing offer
-        href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
     - name: SaaS application offer
       href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
     - name: Virtual machine offer
@@ -495,10 +455,10 @@
           href: ./partner-center-portal/create-new-business-central-offer.md
     - name: IoT Edge module offers
       items:
-      - name: Prepare IoT Edge module technical assets
-        href: ./partner-center-portal/create-iot-edge-module-asset.md
       - name: Create an IoT Edge module offer
         href: ./partner-center-portal/azure-iot-edge-module-creation.md
+      - name: Prepare IoT Edge module technical assets
+        href: ./partner-center-portal/create-iot-edge-module-asset.md
     - name: Managed Service offers
       items:
       - name: Create a Managed Service offer
