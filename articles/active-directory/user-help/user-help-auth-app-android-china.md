@@ -34,7 +34,7 @@ The Microsoft Authenticator app for Android uses Google’s Firebase Cloud Messa
 
 - Registration of the Authenticator app as a multi-factor authentication (MFA) method using push notifications doesn't work.
 
-- [Phone sign-in](https://docs.microsoft.com/en-us/azure/active-directory/user-help/howto-authentication-sms-signin) can't be set up. It requires the user to set up the app as an MFA method using push notifications, which currently don't work.
+- [Phone sign-in](../user-help/howto-authentication-sms-signin.md) can't be set up. It requires the user to set up the app as an MFA method using push notifications, which currently don't work.
 
 If a user has previously managed to set up phone sign-in or multi-factor authentication using the app, they can perform a manual check for notifications requests in the app and use it for identity verification.
 
