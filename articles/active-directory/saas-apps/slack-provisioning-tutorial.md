@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/06/2020
 ms.author: arvinh
 
 ms.collection: M365-identity-device-management
@@ -105,7 +105,7 @@ This result in any group objects assigned to Slack in the **Users and Groups** s
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
-## Connector limitations
+## Troubleshooting Tips
 
 * When configuring Slack's **displayName** attribute, be aware of the following behaviors:
 
@@ -115,11 +115,15 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
   
   * Allowed punctuation includes periods, underscores, hyphens, apostrophes, brackets (e.g. **( [ { } ] )**), and separators (e.g. **, / ;**).
   
+  * displayName property cannot have an '@' character. If an '@' is included, you may find a skipped event in the provisioning logs with the description "AttributeValidationFailed."
+
   * Only updates if these two settings are configured in Slack's workplace/organization - **Profile syncing is enabled** and **Users cannot change their display name**.
-  
+
 * Slack's **userName** attribute has to be under 21 characters and have a unique value.
 
 * Slack only allows matching with the attributes **userName** and **email**.  
+  
+* Common erorr codes are documented in the official Slack documentation - https://api.slack.com/scim#errors
 
 ## Additional Resources
 
