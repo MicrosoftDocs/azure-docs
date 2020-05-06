@@ -73,6 +73,10 @@ No. An Azure Vnet gateway type cannot be changed from policy-based to route-bas
    - [Azure PowerShell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 1. [Create a new gateway of the type you want and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
 
+### Can I have policy-based and route-based on the same VPN gateway?
+
+<--add answer-->
+
 ### Do I need a 'GatewaySubnet'?
 
 Yes. The gateway subnet contains the IP addresses that the virtual network gateway services use. You need to create a gateway subnet for your VNet in order to configure a virtual network gateway. All gateway subnets must be named 'GatewaySubnet' to work properly. Don't name your gateway subnet something else. And don't deploy VMs or anything else to the gateway subnet.
