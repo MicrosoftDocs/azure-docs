@@ -29,13 +29,11 @@ To complete this quickstart:
 * The [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
 
-This quickstart assumes you are running `dotnet` and the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) in a Windows terminal (such as [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6), or the [Azure Cloud Shell](https://shell.azure.com/)).
-
 ## Create a resource group
 
 A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to house both your key vault and your web app with the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command:
 
-```azurecli
+```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
 ```
 
@@ -48,7 +46,7 @@ To create a key vault, use the [az keyvault create](/cli/azure/keyvault?view=azu
 > [!Important]
 > Each key vault must have a unique name. Replace <your-keyvault-name> with the name of your key vault in the following examples.
 
-```azurecli
+```azurecli-interactive
 az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 ```
 
@@ -56,7 +54,7 @@ Make a note of the returned `vaultUri`, which will be in the format"https://<you
 
 You can now place a secret in your key vault with the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command. Set the name of your secret to "MySecret" and the value to "Success!".
 
-```azurecli
+```azurecli-interactive
 az keyvault secret set --vault-name "<your-keyvault-name>" --name "MySecret" --value "Success!"
 ```
 
@@ -239,7 +237,7 @@ You will see the "Hello World!" message you previously saw when visiting `http:/
 
 In the Azure CLI, to create the identity for this application, run the [az webapp-identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) command:
 
-```azurecli
+```azurecli-interactive
 az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
 ```
 
@@ -255,7 +253,7 @@ The operation will return this JSON snippet:
 
 To give your web app permission to do **get** and **list** operations on your key vault, pass the principalID to the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command:
 
-```azurecli
+```azurecli-interactive
 az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
 ```
 
@@ -277,14 +275,14 @@ Find and open the Startup.cs file in your akvwebapp project.
 
 Add these two lines to the header:
 
-```cpp
+```csharp
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```
 
 Add these three lines before the `app.UseEndpoints` call, updating the URI to reflect the `vaultUri` of your key vault.
 
-```cpp
+```csharp
 var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential());
 
 KeyVaultSecret secret = client.GetSecret("mySecret");
@@ -294,7 +292,7 @@ string secretValue = secret.Value;
 
 Update the line `await context.Response.WriteAsync("Hello World!");` to read:
 
-```cpp
+```csharp
 await context.Response.WriteAsync(secretValue);
 ```
 
@@ -316,5 +314,14 @@ git push azure master
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-Where before you saw "Hello world!", you shoukd now see the value of your secret displayed: Success!
+Where before you saw **Hello World**, you should now see the value of your secret displayed: **Success!**
+
+## Next steps
+
+- Learn more about [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
+- Learn more about [managed identities for App Service](../../app-service/overview-managed-identity.md?tabs=dotnet)
+- See the [Azure Key Vault client library for .NET API reference](/dotnet/api/overview/azure/key-vault?view=azure-dotnet)
+- See the [Azure Key Vault client library for .NET source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)
+- See the [v4 Azure Key Vault client library for .NET NuGet package](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+
 
