@@ -166,6 +166,7 @@ This container image has the following tags available:
 | `2.2.0-amd64-zh-cn-preview` | Container image with the `zh-CN` locale. |
 | `2.2.0-amd64-zh-hk-preview` | Container image with the `zh-HK` locale. |
 | `2.2.0-amd64-zh-tw-preview` | Container image with the `zh-TW` locale. |
+| `2.1.1-amd64-en-us-preview` | Container image with the `en-US` locale. |
 | `2.1.1-amd64-ar-ae-preview` | Container image with the `ar-AE` locale. |
 | `2.1.1-amd64-ar-eg-preview` | Container image with the `ar-EG` locale. |
 | `2.1.1-amd64-ar-kw-preview` | Container image with the `ar-KW` locale. |
