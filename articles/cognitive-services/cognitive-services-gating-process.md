@@ -46,7 +46,6 @@ Currently, the services below are offered through the gating process:
 
 | Service                             | Container(s)                                                                  |
 |-------------------------------------|-------------------------------------------------------------------------------|
-| [Anomaly Detector][ad-containers]    | Anomaly Detector                                                             |
 | [Computer Vision][cv-containers]    | Read                                                                          |
 | [Face][fa-containers]               | Face                                                                          |
 | [Form Recognizer][fr-containers]    | Form Recognizer                                                               |
