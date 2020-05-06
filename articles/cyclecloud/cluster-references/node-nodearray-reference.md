@@ -201,6 +201,8 @@ Attribute | String | Definition
 Abstract | Boolean | If true, don't create an node or nodearray in the cluster. The abstract can be used for inheritance. (Default: false)
 Extends | String (list) | Ordered list of inherited node/nodearray names. Items later in the list take precedence when values conflict. 'default' node will always effectively be first in the list. (Default: [])
 
+> [!NOTE]
+> All VMSSs will be assigned `FaultDomainCount = 1`
 
 ## Subordinate Objects
 
