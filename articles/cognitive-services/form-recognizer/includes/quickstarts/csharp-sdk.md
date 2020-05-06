@@ -148,8 +148,10 @@ Below the `Main` method, define the task that is referenced in `Main`. Here, you
 ```csharp
 static async Task RunFormRecognizerClient()
 { 
-    string endpoint = Environment.GetEnvironmentVariable("FORM_RECOGNIZER_ENDPOINT");
-    string apiKey = Environment.GetEnvironmentVariable("FORM_RECOGNIZER_SUBSCRIPTION_KEY");
+    string endpoint = Environment.GetEnvironmentVariable(
+        "FORM_RECOGNIZER_ENDPOINT");
+    string apiKey = Environment.GetEnvironmentVariable(
+        "FORM_RECOGNIZER_SUBSCRIPTION_KEY");
     var credential = new AzureKeyCredential(apiKey);
     
     var trainingClient = new FormTrainingClient(new Uri(endpoint), credential);
@@ -160,20 +162,18 @@ static async Task RunFormRecognizerClient()
 
 The next block of code uses the client objects to call methods for each of the major tasks available in the Form Recognizer SDK. You'll define these methods later on.
 
-You'll also need to add the URLs for your training and testing data. 
+You'll also need to add references to the URLs for your training and testing data. 
 * To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-* To get a URL of a form to test, you can use the above steps to get the SAS URL of an individual document in blob storage. Or, use the URL of a document located elsewhere.
+* To get a URL of a form to test, you can use the above steps to get the SAS URL of an individual document in blob storage. Or, take the URL of a document located elsewhere.
 * Use the above method to get the URL of a receipt image as well.
 
 > [!NOTE]
 > The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/1.0.0-preview.1/api/index.html).
 
 ```csharp
-
     string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
     string formUrl = "<SAS-URL-of-a-form-in-blob-storage>";
     string receiptUrl = "<SAS-URL-of-a-form-in-blob-storage>";
-
 
     // Call Form Recognizer scenarios:
     Console.WriteLine("Get form contents...");
@@ -183,7 +183,7 @@ You'll also need to add the URLs for your training and testing data.
     await AnalyzeReceipt(recognizerClient, receiptUrl);
 
     Console.WriteLine("Train Model with training data...");
-    Guid modelId = await TrainModelAsync(trainingClient, trainingDataUrl);
+    Guid modelId = await TrainModel(trainingClient, trainingDataUrl);
 
     Console.WriteLine("Analyze PDF form...");
     await AnalyzePdfForm(recognizerClient, modelId, formUrl);
@@ -197,7 +197,7 @@ You'll also need to add the URLs for your training and testing data.
 
 You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model.
 
-To recognize the content from a given file at a URI, use the **StartRecognizeContentFromUri** method.
+To recognize the contents of a file at a given URI, use the **StartRecognizeContentFromUri** method.
 
 ```csharp
 private static async Task<Guid> GetContents(
@@ -213,21 +213,26 @@ The returned value is a collection of **FormPage** objects: one for each page in
 ```csharp
     foreach (FormPage page in formPages.Value)
     {
-        Console.WriteLine($"Form Page {page.PageNumber} has {page.Lines.Count} lines.");
+        Console.WriteLine($"Form Page {page.PageNumber} has {page.Lines.Count}" + 
+            $" lines.");
     
         for (int i = 0; i < page.Lines.Count; i++)
         {
             FormLine line = page.Lines[i];
-            Console.WriteLine($"    Line {i} has {line.Words.Count} word{(line.Words.Count > 1 ? "s" : "")}, and text: '{line.Text}'.");
+            Console.WriteLine($"    Line {i} has {line.Words.Count}" + 
+                $" word{(line.Words.Count > 1 ? "s" : "")}," +
+                $" and text: '{line.Text}'.");
         }
     
         for (int i = 0; i < page.Tables.Count; i++)
         {
             FormTable table = page.Tables[i];
-            Console.WriteLine($"Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
+            Console.WriteLine($"Table {i} has {table.RowCount} rows and" +
+                $" {table.ColumnCount} columns.");
             foreach (FormTableCell cell in table.Cells)
             {
-                Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) contains text: '{cell.Text}'.");
+                Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex})"
+                    $" contains text: '{cell.Text}'.");
             }
         }
     }
@@ -244,7 +249,8 @@ To recognize receipts from a URI, use the **StartRecognizeReceiptsFromUri** meth
 private static async Task<Guid> AnalyzeReceipt(
     FormRecognizerClient recognizerClient, string receiptUri)
 {
-    Response<IReadOnlyList<RecognizedReceipt>> receipts = await recognizerClient.StartRecognizeReceiptsFromUri(new Uri(receiptUri)).WaitForCompletionAsync();
+    Response<IReadOnlyList<RecognizedReceipt>> receipts = await recognizerClient
+        .StartRecognizeReceiptsFromUri(new Uri(receiptUri)).WaitForCompletionAsync();
     foreach (var receipt in receipts.Value)
     {
         USReceipt usReceipt = receipt.AsUSReceipt();
@@ -254,8 +260,10 @@ private static async Task<Guid> AnalyzeReceipt(
         IReadOnlyList<USReceiptItem> items = usReceipt.Items ?? default;
     
         Console.WriteLine($"Recognized USReceipt fields:");
-        Console.WriteLine($"    Merchant Name: '{merchantName}', with confidence {usReceipt.MerchantName.Confidence}");
-        Console.WriteLine($"    Transaction Date: '{transactionDate}', with confidence {usReceipt.TransactionDate.Confidence}");
+        Console.WriteLine($"    Merchant Name: '{merchantName}', with confidence " +
+            $"{usReceipt.MerchantName.Confidence}");
+        Console.WriteLine($"    Transaction Date: '{transactionDate}', with" +
+            $" confidence {usReceipt.TransactionDate.Confidence}");
 ```
 
 The next block of code iterates through the individual items detected on the receipt and prints their details to the console.
@@ -264,7 +272,8 @@ The next block of code iterates through the individual items detected on the rec
         for (int i = 0; i < items.Count; i++)
         {
             USReceiptItem item = usReceipt.Items[i];
-            Console.WriteLine($"    Item {i}:  Name: '{item.Name.Value}', Quantity: '{item.Quantity?.Value}', Price: '{item.Price?.Value}'");
+            Console.WriteLine($"    Item {i}:  Name: '{item.Name.Value}'," +
+                $" Quantity: '{item.Quantity?.Value}', Price: '{item.Price?.Value}'");
             Console.WriteLine($"    TotalPrice: '{item.TotalPrice.Value}'");
         }
 ```
@@ -277,7 +286,8 @@ Finally, the last block of code prints the rest of the major receipt details.
         float tip = usReceipt.Tip?.Value ?? default;
         float total = usReceipt.Total?.Value ?? default;
     
-        Console.WriteLine($"    Subtotal: '{subtotal}', with confidence '{usReceipt.Subtotal.Confidence}'");
+        Console.WriteLine($"    Subtotal: '{subtotal}', with confidence" +
+            $" '{usReceipt.Subtotal.Confidence}'");
         Console.WriteLine($"    Tax: '{tax}', with confidence '{usReceipt.Tax.Confidence}'");
         Console.WriteLine($"    Tip: '{tip}', with confidence '{usReceipt.Tip?.Confidence ?? 0.0f}'");
         Console.WriteLine($"    Total: '{total}', with confidence '{usReceipt.Total.Confidence}'");
@@ -289,7 +299,8 @@ Finally, the last block of code prints the rest of the major receipt details.
 
 This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
 
-Please note that models can also be trained using a graphical user interface such as the [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md).
+> [!NOTE]
+> You can also train models with a graphical user interface such as the [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md).
 
 ### Train a model without labels
 
@@ -298,7 +309,7 @@ Train custom models to recognize all fields and values found in your custom form
 The following method trains a model on a given set of documents and prints the model's status to the console. 
 
 ```csharp
-private static async Task<Guid> TrainModelAsync(
+private static async Task<Guid> TrainModel(
     FormRecognizerClient trainingClient, string trainingDataUrl)
 {
     CustomFormModel model = await trainingClient.StartTrainingAsync(new Uri(trainingDataUrl)).WaitForCompletionAsync();
@@ -310,7 +321,7 @@ private static async Task<Guid> TrainModelAsync(
     Console.WriteLine($"    Last Modified: {model.LastModified}");
 ```
 
-The returned **CustomFormModel** indicates the form types the model can recognize and the fields it can extract from each form type. The following code block prints this information to the console.
+The returned **CustomFormModel** object contains information on the form types the model can recognize and the fields it can extract from each form type. The following code block prints this information to the console.
 
 ```csharp
     foreach (CustomFormSubModel subModel in model.Models)
@@ -328,7 +339,7 @@ The returned **CustomFormModel** indicates the form types the model can recogniz
     }
 ```
 
-Finally, return the model ID.
+Finally, this method returns the unique ID of the model.
 
 ```csharp
     return model.ModelId;
@@ -337,14 +348,15 @@ Finally, return the model ID.
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. This leads to better performance in some scenarios. In order to train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these files.
+You can also train custom models by manually labeling the training documents. This leads to better performance in some scenarios. In order to train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can the **StartTrainingAsync** method with the *uselabels* parameter set to `true`.
 
 ```csharp
 
 private static async Task<Guid> TrainModelWithLabelsAsync(
     FormRecognizerClient trainingClient, string trainingDataUrl)
 {
-    CustomFormModel model = await trainingClient.StartTrainingAsync(new Uri(trainingDataUrl), useLabels: true).WaitForCompletionAsync();
+    CustomFormModel model = await trainingClient.StartTrainingAsync(
+        new Uri(trainingDataUrl), useLabels: true).WaitForCompletionAsync();
     
     Console.WriteLine($"Custom Model Info:");
     Console.WriteLine($"    Model Id: {model.ModelId}");
@@ -353,7 +365,7 @@ private static async Task<Guid> TrainModelWithLabelsAsync(
     Console.WriteLine($"    Last Modified: {model.LastModified}");
 ```
 
-The returned **CustomFormModel** indicates the fields the model can extract, as well as the estimated accuracy for each field.
+The returned **CustomFormModel** indicates the fields the model can extract, as well as the estimated accuracy for each field. The following code block prints this information to the console.
 
 ```csharp
     foreach (CustomFormSubModel subModel in model.Models)
@@ -374,22 +386,24 @@ The returned **CustomFormModel** indicates the fields the model can extract, as 
 
 ## Analyze forms with a custom model
 
-This section demonstrates how to recognize form fields and other content from your custom form types, using models you trained with your own forms. For more information on how to do the training, see train a model.
+This section demonstrates how to extract key/value information and other content from your custom form types, using models you trained with your own forms.
+
+> [!IMPORTANT]
+> In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below. See the [Train a model](#Train-a-model-without-labels) section.
 
 You'll use the **StartRecognizeCustomFormsFromUri** method. The returned value is a collection of **RecognizedForm** objects: one for each page in the submitted document.
 
-> [!IMPORTANT]
-> In order to implement this scenario, you must have already trained a model and passed its ID into the method below. See the [Train a model](#Train-a-model-without-labels) section.
-
 ```csharp
 // Analyze PDF form data
-private static async Task AnalyzeForm(
+private static async Task AnalyzePdfForm(
     FormRecognizerClient formClient, Guid modelId, string pdfFormFile)
 {    
-    Response<IReadOnlyList<RecognizedForm>> forms = await recognizerClient.StartRecognizeCustomFormsFromUri(modelId, new Uri(formUri)).WaitForCompletionAsync();
+    Response<IReadOnlyList<RecognizedForm>> forms = await recognizerClient
+        .StartRecognizeCustomFormsFromUri(modelId, new Uri(formUri))
+        .WaitForCompletionAsync();
 ```
 
-The following code prints the analysis results to the console. It prints each recognizes field and corresponding value, along with a confidence score.
+The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
 
 ```csharp
     foreach (RecognizedForm form in forms.Value)
@@ -413,10 +427,11 @@ The following code prints the analysis results to the console. It prints each re
 
 ## Manage your custom models
 
-This section demonstrates how to manage the custom models stored in your account. The following code does all the model management tasks in a single method. Start by copying the method signature below:
+This section demonstrates how to manage the custom models stored in your account. The following code does all of the model management tasks in a single method, as an example. Start by copying the method signature below:
 
 ```csharp
-private static async Task ManageModels(FormRecognizerClient formClient, string trainingFileUrl)
+private static async Task ManageModels(
+    FormRecognizerClient trainingClient, string trainingFileUrl)
 {
 ```
 
@@ -425,15 +440,17 @@ private static async Task ManageModels(FormRecognizerClient formClient, string t
 The following code block checks how many models you have saved in your Form Recognizer account and compares it to the account limit.
 
 ```csharp
-    // Check number of models in the FormRecognizer account, and the maximum number of models that can be stored.
+    // Check number of models in the FormRecognizer account, 
+    // and the maximum number of models that can be stored.
     AccountProperties accountProperties = trainingClient.GetAccountProperties();
     Console.WriteLine($"Account has {accountProperties.CustomModelCount} models.");
-    Console.WriteLine($"It can have at most {accountProperties.CustomModelLimit} models.");
+    Console.WriteLine($"It can have at most {accountProperties.CustomModelLimit}" +
+        $" models.");
 ```
 
 ### List the models currently stored in the resource account
 
-The following code blocks lists the current models in your account and prints their details to the command line.
+The following code blocks lists the current models in your account and prints their details to the console.
 
 ```csharp
     // List the first ten or fewer models currently stored in the account.
@@ -451,16 +468,18 @@ The following code blocks lists the current models in your account and prints th
 
 ### Get a specific model using the model's ID
 
-The following code block trains a new model (just like in the [Train a model](#Train-a-model-without-labels) section) and then retrieves a reference to it using its ID.
+The following code block trains a new model (just like in the [Train a model](#Train-a-model-without-labels) section) and then retrieves a second reference to it using its ID.
 
 ```csharp
     // Create a new model to store in the account
-    CustomFormModel model = await trainingClient.StartTrainingAsync(new Uri(trainingFileUrl)).WaitForCompletionAsync();
+    CustomFormModel model = await trainingClient.StartTrainingAsync(
+        new Uri(trainingFileUrl)).WaitForCompletionAsync();
     
     // Get the model that was just created
     CustomFormModel modelCopy = trainingClient.GetCustomModel(model.ModelId);
     
-    Console.WriteLine($"Custom Model {modelCopy.ModelId} recognizes the following form types:");
+    Console.WriteLine($"Custom Model {modelCopy.ModelId} recognizes the following" +
+        " form types:");
     
     foreach (CustomFormSubModel subModel in modelCopy.Models)
     {
@@ -479,7 +498,7 @@ The following code block trains a new model (just like in the [Train a model](#T
 
 ### Delete a model from the resource account
 
-You can also delete a model from your account by referencing it by ID.
+You can also delete a model from your account by referencing its ID.
 
 ```csharp
     // Delete the model from the account.
@@ -504,14 +523,16 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Troubleshooting
 
-When you interact with the Cognitive Services Form Recognizer client library using the .NET SDK, errors returned by the service will result in a `RequestFailedException` with the same HTTP status code returned by the [REST API][formreco_rest_api] request.
+When you interact with the Cognitive Services Form Recognizer client library using the .NET SDK, errors returned by the service will result in a `RequestFailedException`. They'll include the same HTTP status code that would've been returned by a REST API request.
 
-For example, if you submit a receipt image with an invalid `Uri`, a `400` error is returned, indicating "Bad Request".
+For example, if you submit a receipt image with an invalid URI, a `400` error is returned, indicating "Bad Request".
 
 ```csharp Snippet:FormRecognizerBadRequest
 try
 {
-    Response<IReadOnlyList<RecognizedReceipt>> receipts = await client.StartRecognizeReceiptsFromUri(new Uri("http://invalid.uri")).WaitForCompletionAsync();
+    Response<IReadOnlyList<RecognizedReceipt>> receipts = await client
+    .StartRecognizeReceiptsFromUri(new Uri("http://invalid.uri"))
+    .WaitForCompletionAsync();
 }
 catch (RequestFailedException e)
 {
@@ -519,7 +540,7 @@ catch (RequestFailedException e)
 }
 ```
 
-You will notice that additional information is logged, like the client request ID of the operation.
+You'll notice that additional, like the client request ID of the operation, is logged.
 
 ```
 Message:
