@@ -28451,6 +28451,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/files/storage-how-to-recover-deleted-account.md",
+      "redirect_url": "/azure/storage/common/storage-account-create",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/storage-https-custom-domain-cdn.md",
       "redirect_url": "/azure/storage/blobs/storage-https-custom-domain-cdn",
       "redirect_document_id": true
