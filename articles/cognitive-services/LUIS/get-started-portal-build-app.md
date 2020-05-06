@@ -31,7 +31,7 @@ In this quickstart, you build a new app in the LUIS portal. First, create the ba
 
 ## Create intents
 
-After the LUIS app is created, you need to create intents. Intents are a way to categorize text from users. For example, a human resources app might have two functions. To help people:
+After the LUIS app is created, you need to create intents. Intents are a way to classify text from users. For example, a human resources app might have two functions. To help people:
 
  1. Find and apply for jobs
  1. Find forms to apply for jobs
@@ -91,20 +91,17 @@ By design, these example utterances vary in the following ways:
 
 ## Create a regular expression entity
 
-To return the form number in the runtime prediction response, the form must be marked as an entity. Because the form number text is highly structured, you can mark it using a regular expression entity. Create the entity with the following steps:
+To return the form number in the runtime prediction response, the form number must be extracted as an entity. Because the form number text is highly structured, you can use regular expression entity as a required feature to extract it. Create the regular expression entity with the following steps:
 
 1. Select **Entities** from the menu on the left.
 
 1. Select **Create** on the **Entities** page.
 
-1. Enter the name `Human Resources Form Number`, select the **Regex** entity type, then select **Next**.
+1. Enter the name `FormNumber`, select the **Regex** entity type.
 
-   ![Create regular expression entity](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+1. Enter the regular expression, `hrf-[0-9]{6}` in the **Regex** field. This entry matches the literal characters, `hrf-`, and allows for exactly 6 digits, then select **Create**.
 
-1. Enter the regular expression (**RegEx**) expression, `hrf-[0-9]{6}`. This entry matches the literal characters, `hrf-`, and allows for exactly 6 digits, then select **Create**.
-
-   ![Enter regular expression for entity](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
-
+    This entity extracts any text that matches the regular expression in any of the intents.
 
 ## Add example utterances to the None intent
 
@@ -118,11 +115,10 @@ The **None** intent's example utterances should be outside of your client applic
 
    |None intent example utterances|
    |--|
-   |Barking dogs are annoying|
-   |Order a pizza for me|
-   |Penguins in the ocean|
+   |`Barking dogs are annoying`|
+   |`Penguins in the ocean`|
 
-   For this app, these example utterances are outside the domain. If your domain include animals, food, or the ocean, then you should use different example utterances for the **None** intent.
+   For this app, these example utterances are outside the domain. If your domain include animals, or the ocean, then you should use different example utterances for the **None** intent.
 
 ## Train the app
 
@@ -152,7 +148,7 @@ Use the interactive **Test** pane in the LUIS portal to validate that the entity
    > [!div class="mx-imgBorder"]
    > ![Test new utterance in test pane](./media/get-started-portal-build-app/test-new-utterance.png)
 
-   The top predicted intent is correctly **FindForm** with over 90% confidence (0.977). The **Human Resources Form Number** entity is extracted with a value of hrf-234098.
+   The top predicted intent is correctly **FindForm** with over 90% confidence (0.977). The **FormNumber** entity is extracted with a value of hrf-234098.
 
 ## Clean up resources
 
