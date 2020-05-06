@@ -58,7 +58,7 @@ With the new Azure VMware Solution, Microsoft and VMware have a direct cloud pro
 
 **If I'm an existing Azure VMware Solution customer, what does this preview mean for me?**
 
-There is no change to the existing Azure VMware Solution by CloudSimple. We continue to support the solution on Azure. Azure VMware Solution is backed by our service level agreement [(SLA)](https://aka.ms/CSVMwareSLA). Customers should continue to use the service for production workloads; this is an available solution governed by [Microsoft’s service terms](https://azure.microsoft.com/en-us/support/legal/).
+There is no change to the existing Azure VMware Solution by CloudSimple. We continue to support the solution on Azure. Azure VMware Solution is backed by our service level agreement [(SLA)](https://aka.ms/CSVMwareSLA). Customers should continue to use the service for production workloads; this is an available solution governed by [Microsoft’s service terms](https://azure.microsoft.com/support/legal/).
 
 **Can I migrate from Azure VMware Solution by CloudSimple to this new solution?**
 
