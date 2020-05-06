@@ -41,6 +41,8 @@ Once in the project directory, create an empty .NET console app project. In the 
 dotnet new console
 ```
 
+This will create several files inside your directory, including one called *Program.cs*.
+
 Next, to use this project for developing against Azure Digital Twins, use the following commands to add two necessary dependencies:
 
 ```cmd/sh
@@ -81,7 +83,7 @@ To begin, open the file *Program.cs* in any code editor. You will see a minimal 
 ```csharp
 using System;
 
-namespace FirstSteps
+namespace DigitalTwinsCodeTutorial
 {
     class Program
     {
@@ -118,7 +120,7 @@ In order to authenticate, you need three pieces of information:
 > az account show --query tenantId
 > ```
 
-In *Program.cs*, paste the following code below the "Hello, World!" printout line. 
+In *Program.cs*, paste the following code below the "Hello, World!" printout line in the `Main` method. 
 Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *hostName*, `clientId` to your *Application ID*, and `tenantId` to your *Directory ID*.
 
 ```csharp
