@@ -76,13 +76,13 @@ When you register for the (AIB), this grants the AIB Service permission to creat
 
 To allow Azure VM Image Builder to distribute images to either the managed images or to a Shared Image Gallery, you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private containers.
 
-Initially you must [create Azure user-assigned managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) documentation on how to create an identity.
+Initially you must [create Azure user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) documentation on how to create an identity.
 
 Once you have the identity you need to grant it permissions, to do this, you can use an Azure Custom Role Defintion, and then assign the user-assigned managed identity to use the Custom Role Definition.
 
 Permissions are explained in more detail [here](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements), and the examples show how this is implemented.
 
-> Note! Previously with AIB, you would use the AIB SPN, and grant the SPN permissions to the image resource groups. We are moving away from this model, to allow for future capabilities. From 1st June 2020, Image Builder will not accept templates that do not have a user-assigned identity, existing templates will need to be resubmitted to the service with a [user-identity](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#identity). The examples here already show how you can create a user-assigned identity and add them to a template.
+> Note! Previously with AIB, you would use the AIB SPN, and grant the SPN permissions to the image resource groups. We are moving away from this model, to allow for future capabilities. From 1st June 2020, Image Builder will not accept templates that do not have a user-assigned identity, existing templates will need to be resubmitted to the service with a [user-identity](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#identity). The examples here already show how you can create a user-assigned identity and add them to a template.
 
 ## Costs
 You will incur some compute, networking and storage costs when creating, building and storing images with Azure Image Builder. These costs are similar to the costs incurred in manually creating custom images. For the resources, you will be charged at your Azure rates. 
