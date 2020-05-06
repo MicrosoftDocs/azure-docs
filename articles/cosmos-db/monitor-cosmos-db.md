@@ -5,7 +5,7 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 04/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring 
 ---
@@ -31,6 +31,9 @@ The following sections build on this article by describing the specific data gat
 
 ![Azure Monitor for Cosmos DB](media/monitor-cosmos-db/azure-monitor-cosmos-db.png)
 
+> [!NOTE]
+> When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
+
 ## View operation level metrics for Azure Cosmos DB
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -43,7 +46,7 @@ The following sections build on this article by describing the specific data gat
 
    ![Choose a Cosmos DB account to view metrics](./media/monitor-cosmos-db/select-cosmosdb-account.png)
 
-1. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let’s select **Request units** and **Avg** as the aggregation value.
+1. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let's select **Request units** and **Avg** as the aggregation value.
 
    In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
@@ -58,10 +61,6 @@ You can also filter metrics and the chart displayed by a specific **CollectionNa
 You can group metrics by using the **Apply splitting** option. For example, you can group the request units per operation type and view the graph for all the operations at once as shown in the following image:
 
 ![Add apply splitting filter](./media/monitor-cosmos-db/apply-metrics-splitting.png)
-
-Here is another example to view the server-side latency metrics for a specific database, container, or an operation:
-
-![Server-side latency metrics](./media/monitor-cosmos-db/serverside-latency-metric.png)
 
 ## Monitoring data collected from Azure Cosmos DB
 

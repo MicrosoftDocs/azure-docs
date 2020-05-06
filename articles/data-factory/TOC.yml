@@ -553,8 +553,6 @@
       href: data-factory-service-identity.md
   - name: Monitor and manage
     items:
-    - name: Monitor visually
-      href: monitor-visually.md
     - name: Monitor with Azure Monitor
       href: monitor-using-azure-monitor.md
     - name: Monitor with SDKs
@@ -581,6 +579,8 @@
     items:
     - name: Run SSIS packages in Azure from SSDT
       href: how-to-invoke-ssis-package-ssdt.md
+    - name: Run SSIS packages with Azure SQL Managed Instance Agent
+      href: how-to-invoke-ssis-package-managed-instance-agent.md
     - name: Run SSIS packages with Azure-enabled dtexec
       href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
     - name: Run SSIS packages with Execute SSIS Package activity
@@ -595,6 +595,10 @@
       href: self-hosted-integration-runtime-proxy-ssis.md
     - name: Enable Azure AD authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
+    - name: Connect to data with Windows Authentication
+      href: ssis-azure-connect-with-windows-auth.md
+    - name: Save files and connect to file shares
+      href: ssis-azure-files-file-shares.md
     - name: Provision Enterprise Edition for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-enterprise-edition.md
     - name: Customize setup for Azure-SSIS IR
@@ -607,6 +611,8 @@
       href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Clean up SSISDB logs with Elastic Database Jobs
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+    - name: Migrate SSIS jobs with SSMS
+      href: how-to-migrate-ssis-job-ssms.md
   - name: Create triggers
     items:
     - name: Create an event-based trigger

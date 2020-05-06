@@ -72,7 +72,7 @@ Here are the three credentials you should write down and the cmdlets you need to
     $svcPrincipal.AppId
     ```
 
-## Create a role assignment in Windows Virtual Desktop Preview
+## Create a role assignment in Windows Virtual Desktop
 
 Next, you need to create a role assignment so the service principal can sign in to Windows Virtual Desktop. Make sure to sign in with an account that has permissions to create role assignments.
 

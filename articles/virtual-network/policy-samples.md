@@ -1,6 +1,6 @@
 ---
 title: Policy template samples | Microsoft Docs
-description: Azure policy template samples for Virtual Network.
+description: Azure Policy template samples for Virtual Network.
 services: virtual-network
 documentationcenter:
 author: KumudD
@@ -18,18 +18,18 @@ ms.author: kumud
 ms.custom: mvc
 
 ---
-# Azure policy sample built-ins for virtual network
+# Azure Policy sample built-ins for virtual network
 
 The following table includes links to [Azure Policy](../governance/policy/overview.md) samples. The samples are found in the [Azure Policy samples repository](https://github.com/Azure/azure-policy).
 
 ## Network
 
-[!INCLUDE [azure-policy-samples-policies-network](../../includes/azure-policy-samples-policies-network.md)]
+[!INCLUDE [azure-policy-samples-policies-network](../../includes/policy/samples/bycat/policies-network.md)]
 
 ## Tags
 
-[!INCLUDE [azure-policy-samples-policies-tags](../../includes/azure-policy-samples-policies-tags.md)]
+[!INCLUDE [azure-policy-samples-policies-tags](../../includes/policy/samples/bycat/policies-tags.md)]
 
 ## General
 
-[!INCLUDE [azure-policy-samples-policies-general](../../includes/azure-policy-samples-policies-general.md)]
+[!INCLUDE [azure-policy-samples-policies-general](../../includes/policy/samples/bycat/policies-general.md)]

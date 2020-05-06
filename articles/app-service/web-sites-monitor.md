@@ -130,11 +130,8 @@ There are two metrics that reflect CPU usage:
 **CPU percentage**: Useful for apps hosted in Basic, Standard, and Premium plans, because they can be scaled out. CPU percentage is a good indication of the overall usage across all instances.
 
 ## Metrics granularity and retention policy
-Metrics for an app and app service plan are logged and aggregated by the service, with the following granularities and retention policies:
 
-* **Minute** granularity metrics are kept for 30 hours.
-* **Hour** granularity metrics are kept for 30 days.
-* **Day** granularity metrics are kept for 30 days.
+Metrics for an app and app service plan are logged and aggregated by the service. Metrics are retained for 90 days.
 
 ## Monitoring quotas and metrics in the Azure portal
 To review the status of the various quotas and metrics that affect an app, go to the [Azure portal](https://portal.azure.com).

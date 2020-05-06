@@ -50,7 +50,7 @@ The easiest way to use the Immersive Reader SDK is via CocoaPods. To install via
   target 'picture-to-immersive-reader-swift' do
   use_frameworks!
   # Pods for picture-to-immersive-reader-swift
-  pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'
+  pod 'immersive-reader-sdk', :git => 'https://github.com/microsoft/immersive-reader-sdk.git'
   end
 ```
 4. In the terminal, in the directory of your Xcode project, run the command `pod install` to install the Immersive Reader SDK pod.

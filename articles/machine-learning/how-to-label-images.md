@@ -6,13 +6,13 @@ author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 04/09/2020
 
 ---
 
 # Tag images in a labeling project
 
-After your project administrator [creates a labeling project](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
+After your project administrator [creates a labeling project](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool (public preview) to rapidly prepare data for a Machine Learning project. This article describes:
 
 > [!div class="checklist"]
 > * How to access your labeling projects
@@ -21,27 +21,32 @@ After your project administrator [creates a labeling project](https://docs.micro
 
 ## Prerequisites
 
-* The labeling portal URL for a running data labeling project
 * A [Microsoft account](https://account.microsoft.com/account) or an Azure Active Directory account for the organization and project
+* Contributor level access to the workspace that contains the labeling project.
 
-> [!NOTE]
-> The project administrator can find the labeling portal URL on the **Details** tab of the **Project details** page.
+## Sign in to the workspace
 
-## Sign in to the project's labeling portal
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
-Go to the labeling portal URL that's provided by the project administrator. Sign in by using the email account that the administrator used to add you to the team. For most users, it will be your Microsoft account. If the labeling project uses Azure Active Directory, that's how you'll sign in.
+1. Select the subscription and the workspace that contains the labeling project.  Get this information from your project administrator.
+
+1. Select **Data labeling** on the left-hand side to find the project.  
+
+1. Select the project name in the list.
 
 ## Understand the labeling task
 
-After you sign in, you'll see the project's overview page.
+Once you've selected the project, at the top of the page, select **Label data**.
 
-Go to **View detailed instructions**. These instructions are specific to your project. They explain the type of data that you're facing, how you should make your decisions, and other relevant information. After you read this information, return to the project page and select **Start labeling**.
+You see instructions that are specific to your project. They explain the type of data that you're facing, how you should make your decisions, and other relevant information. After you read this information, at the top of the page select **Tasks**.  Or at the bottom of the page, select **Start labeling**.
 
 ## Common features of the labeling task
 
 In all image-labeling tasks, you choose an appropriate tag or tags from a set that's specified by the project administrator. You can select the first nine tags by using the number keys on your keyboard.  
 
-In image-classification tasks, you can choose to view multiple images simultaneously. Use the icons above the image area to select the layout. To select all the displayed images simultaneously, use **Select all**. To select individual images, use the circular selection button in the upper-right corner of the image. You must select at least one image to apply a tag. If you select multiple images, any tag that you select will be applied to all the selected images.
+In image-classification tasks, you can choose to view multiple images simultaneously. Use the icons above the image area to select the layout. 
+
+To select all the displayed images simultaneously, use **Select all**. To select individual images, use the circular selection button in the upper-right corner of the image. You must select at least one image to apply a tag. If you select multiple images, any tag that you select will be applied to all the selected images.
 
 Here we've chosen a two-by-two layout and are about to apply the tag "Mammal" to the images of the bear and orca. The image of the shark was already tagged as "Cartilaginous fish," and the iguana hasn't been tagged yet.
 

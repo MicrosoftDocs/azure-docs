@@ -4,7 +4,7 @@ description: Configure, optimize, and troubleshoot AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -49,9 +49,6 @@ This section helps you perform these optimization tasks:
 
 You can run a performance benchmark test on specific blob containers to view general performance statistics and to identity performance bottlenecks. 
 
-> [!NOTE]
-> In the current release, this feature is available only for Blob Storage containers.
-
 Use the following command to run a performance benchmark test.
 
 |    |     |
@@ -70,7 +67,7 @@ To view detailed help guidance for this command, type `azcopy bench -h` and then
 
 ### Optimize throughput
 
-You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (MB) per second. 
+You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabytes (MB) per second. 
 
 ```azcopy
 azcopy jobs resume <job-id> --cap-mbps 10

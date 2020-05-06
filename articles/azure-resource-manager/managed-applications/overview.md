@@ -79,4 +79,4 @@ You can apply an [Azure Policy](../../governance/policy/overview.md) to your man
 In this article, you learned about benefits of using managed applications. Go to the next article to create a managed application definition.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Publish an Azure managed application definition](publish-managed-app-definition-quickstart.md)
+> [Quickstart: Publish an Azure managed application definition](publish-service-catalog-app.md)

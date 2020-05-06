@@ -67,7 +67,7 @@ It's recommended that you use **App Credentials** to deploy to your app because 
 
 ## Enforce FTPS
 
-For enhanced security, you should allow FTP over SSL only. You can also disable both FTP and FTPS if you don't use FTP deployment.
+For enhanced security, you should allow FTP over TLS/SSL only. You can also disable both FTP and FTPS if you don't use FTP deployment.
 
 In your app's resource page in [Azure portal](https://portal.azure.com), select **Configuration** > **General settings** from the left navigation.
 

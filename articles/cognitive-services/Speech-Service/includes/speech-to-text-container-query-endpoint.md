@@ -1,11 +1,11 @@
 ---
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/21/2020
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ### Speech-to-text or Custom Speech-to-text

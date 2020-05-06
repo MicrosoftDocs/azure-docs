@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/06/2020
 ms.author: jgao
 
 ---
@@ -14,7 +14,6 @@ ms.author: jgao
 Learn how to use deployment scripts in Azure Resource templates. With a new resource type called `Microsoft.Resources/deploymentScripts`, users can execute deployment scripts in template deployments and review execution results. These scripts can be used for performing custom steps such as:
 
 - add users to a directory
-- create an app registration
 - perform data plane operations, for example, copy blobs or seed database
 - look up and validate a license key
 - create a self-signed certificate
@@ -185,7 +184,9 @@ In addition to inline scripts, you can also use external script files. Only prim
 
 To see an example, select [here](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
-The external script files must be accessible.  To secure your script files that are stored in Azure storage accounts, see [Tutorial: Secure artifacts in Azure Resource Manager template deployments](./template-tutorial-secure-artifacts.md).
+The external script files must be accessible.  To secure your script files that are stored in Azure storage accounts, see [Deploy private ARM template with SAS token](./secure-template-with-sas-token.md).
+
+You are responsible for ensuring the integrity of the scripts that are referenced by deployment script, either **PrimaryScriptUri** or **SupportingScriptUris**.  Reference only scripts that you trust.
 
 ## Use supporting scripts
 
@@ -306,7 +307,7 @@ The life cycle of these resources is controlled by the following properties in t
 
 Deployment script execution is an idempotent operation. If none of the deploymentScripts resource properties (including the inline script) is changed, the script will not be executed when you redeploy the template. The deployment script service compares the resource names in the template with the existing resources in the same resource group. There are two options if you want to execute the same deployment script multiple times:
 
-- Change the name of your deploymentScripts resource. For example, use the [utcNow](./template-functions-string.md#utcnow) template function as the resource name or as a part of the resource name. Changing the resource name creates a new deploymentScripts resource. It is good for keeping a history of script execution.
+- Change the name of your deploymentScripts resource. For example, use the [utcNow](./template-functions-date.md#utcnow) template function as the resource name or as a part of the resource name. Changing the resource name creates a new deploymentScripts resource. It is good for keeping a history of script execution.
 
     > [!NOTE]
     > The utcNow function can only be used in the default value for a parameter.

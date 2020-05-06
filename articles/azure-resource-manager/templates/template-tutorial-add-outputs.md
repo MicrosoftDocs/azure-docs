@@ -72,7 +72,7 @@ az deployment group create \
 
 ---
 
-In the output for the deployment command, you'll see an object similar to:
+In the output for the deployment command, you'll see an object similar to the following example only if the output is in JSON format:
 
 ```json
 {

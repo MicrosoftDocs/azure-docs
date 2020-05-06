@@ -56,7 +56,7 @@ A Private Link service specifies the following properties:
 
 ### Details
 
-- Private Link service can be accessed from approved private endpoints in the same region. The private endpoint can be reached from the same virtual network, regionally peered VNets, globally peered VNets and on premises using private VPN or ExpressRoute connections. 
+- Private Link service can be accessed from approved private endpoints in any public region. The private endpoint can be reached from the same virtual network, regionally peered VNets, globally peered VNets and on premises using private VPN or ExpressRoute connections. 
  
 - When creating a Private Link Service, a network interface is created for the lifecycle of the resource. This interface is not manageable by the customer.
  

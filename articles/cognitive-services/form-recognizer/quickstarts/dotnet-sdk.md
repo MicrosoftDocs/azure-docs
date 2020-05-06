@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ---
 
@@ -37,7 +37,7 @@ Use the Form Recognizer client library for .NET to:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-After you get a key from your trial subscription or resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint, named `FORM_RECOGNIZER_KEY` and `FORM_RECOGNIZER_ENDPOINT`, respectively.
+After you get a key and endpoint, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint, named `FORM_RECOGNIZER_KEY` and `FORM_RECOGNIZER_ENDPOINT`, respectively.
 
 ### Create a new C# application
 
@@ -94,12 +94,6 @@ The following classes handle the main functionality of the Form Recognizer SDK.
 |[ExtractedPage](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.extractedpage?view=azure-dotnet-preview)| This class represents all of the data extracted from a single form document.|
 
 ## Code examples
-
-<!--
-    Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
-
-    Include links to the service's reference content when introducing a class for the first time
--->
 
 These code snippets show you how to do the following tasks with the Form Recognizer client library for .NET:
 
@@ -188,7 +182,7 @@ Additionally, if you trained a custom model that you want to delete from your ac
 In this quickstart, you used the Form Recognizer .NET client library to train a custom model and analyze forms. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
->[Build a training data set](../build-training-data-set.md)
+> [Build a training data set](../build-training-data-set.md)
 
 * [What is Form Recognizer?](../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer).

@@ -56,7 +56,7 @@ Available resources:
 
 + Clusters per region have a default limit of 200. These are shared between a training cluster and a compute instance (which is considered as a single node cluster for quota purposes). Contact Azure support if you want to request an increase beyond this limit.
 
-+ There are **other strict limits  that cannot be exceeded once hit.
++ There are other strict limits  that cannot be exceeded once hit.
 
 | **Resource** | **Maximum limit** |
 | --- | --- |

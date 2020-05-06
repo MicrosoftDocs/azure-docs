@@ -23,7 +23,7 @@
     href: tutorial-resource-onboarding.md
 - name: Concepts
   items:
-  - name: Azure policy for associations
+  - name: Azure Policy for associations
     href: concepts-built-in-policy.md
   - name: Resource onboarding
     href: concepts-resource-onboarding.md

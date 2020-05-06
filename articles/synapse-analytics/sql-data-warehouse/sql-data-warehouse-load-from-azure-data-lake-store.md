@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: 
-ms.date: 03/04/2020
+ms.date: 04/08/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
@@ -88,7 +88,7 @@ WITH
 
 ## Create the external data source
 
-Use this [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) command to store the location of the data. If you are authenticating with AAD pass-through, the CREDENTIAL parameter is not required.
+Use this [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) command to store the location of the data. If you are authenticating with AAD pass-through, the CREDENTIAL parameter is not required. If you are authenticating using Managed Identity for service endpoints, follow this [documentation](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#azure-sql-data-warehouse-polybase) to set up the external data source.
 
 ```sql
 -- C (for Gen1): Create an external data source

@@ -117,7 +117,7 @@ In addition to the Microsoft apps, administrators can add any Azure AD registere
 
 ## User actions
 
-User actions are tasks that can be performed by a user. The only currently supported action is **Register security information (preview)**, which allows Conditional Access policy to enforce when users who are enabled for combined registration attempt to register their security information. More information can be found in the article, [Combined security information registration (preview)](../authentication/concept-registration-mfa-sspr-combined.md).
+User actions are tasks that can be performed by a user. The only currently supported action is **Register security information**, which allows Conditional Access policy to enforce when users who are enabled for combined registration attempt to register their security information. More information can be found in the article, [Combined security information registration](../authentication/concept-registration-mfa-sspr-combined.md).
 
 ## Next steps
 

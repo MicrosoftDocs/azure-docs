@@ -126,7 +126,7 @@ You can find the deployment unit for your app by looking at the domain name of t
 
 ## Next steps
 
-Learn how to bind a custom SSL certificate to App Service.
+Learn how to bind a custom TLS/SSL certificate to App Service.
 
 > [!div class="nextstepaction"]
-> [Bind an SSL certificate to Azure App Service](configure-ssl-bindings.md)
+> [Secure a custom DNS name with a TLS binding in Azure App Service](configure-ssl-bindings.md)

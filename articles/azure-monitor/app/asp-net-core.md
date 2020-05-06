@@ -158,11 +158,11 @@ The preceding steps are enough to help you start collecting server-side telemetr
     
 Alternatively to using the `FullScript` the `ScriptBody` is available starting in SDK v2.14. Use this if you need to control the `<script>` tag to set a Content Security Policy:
 
-    ```cshtml
-        <script> // apply custom changes to this script tag.
-            @Html.Raw(JavaScriptSnippet.ScriptBody)
-        </script>
-    ```
+```cshtml
+ <script> // apply custom changes to this script tag.
+     @Html.Raw(JavaScriptSnippet.ScriptBody)
+ </script>
+```
 
 The `.cshtml` file names referenced earlier are from a default MVC application template. Ultimately, if you want to properly enable client-side monitoring for your application, the JavaScript snippet must appear in the `<head>` section of each page of your application that you want to monitor. You can accomplish this goal for this application template by adding the JavaScript snippet to `_Layout.cshtml`. 
 
@@ -451,11 +451,6 @@ This SDK requires `HttpContext`, and hence does not work in any non-HTTP applica
 ## Open-source SDK
 
 [Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
-
-## Video
-
-- Check out this external step-by-step video to [configure Application Insights with .NET Core and Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) from scratch.
-- Check out this external step-by-step video to [configure Application Insights with .NET Core and Visual Studio Code](https://youtu.be/ygGt84GDync) from scratch.
 
 ## Next steps
 

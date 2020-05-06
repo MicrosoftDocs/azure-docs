@@ -102,7 +102,7 @@ This application used:
 
 ### Network
 
-The sample app uses end-to-end SSL encryption for in-transit data flowing into and out of the network. The gateway is configured with a self-signed certificate.
+The sample app uses end-to-end TLS/SSL encryption for in-transit data flowing into and out of the network. The gateway is configured with a self-signed certificate.
 > [!IMPORTANT]
 > A self-signed certificate is used in this demonstration. In a production environment, you should obtain certificates from a verified Certificate Authority (CA).
 
@@ -357,7 +357,7 @@ END;
 $$ LANGUAGE PLPGSQL;
 ```
 
-For more information on how to setup SSL and Certificate Authority (CA) verification for PostgreSQL, see [Configure SSL connectivity in Azure Database for PostgreSQL](/azure/postgresql/concepts-ssl-connection-security).
+For more information on how to setup TLS and Certificate Authority (CA) verification for PostgreSQL, see [Configure TLS connectivity in Azure Database for PostgreSQL](/azure/postgresql/concepts-ssl-connection-security).
 
 A root certificate is included in the container. The steps taken to obtain the certificate are:
 
@@ -369,7 +369,7 @@ A root certificate is included in the container. The steps taken to obtain the c
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Read more on how to configure SSL security for PostgreSQL here [Configure SSL Connection Security](/azure/postgresql/concepts-ssl-connection-security).
+Read more on how to configure TLS security for PostgreSQL here [Configure TLS Connection Security](/azure/postgresql/concepts-ssl-connection-security).
 
 #### Deploy Azure Web Apps on Linux
 
@@ -801,7 +801,7 @@ After you add the Azure AD configuration and secrets to Key Vault, users can be 
 In the app code, this is handled by the Azure Active Directory Authentication Library (ADAL).
 
 After the secrets are in Key Vault and the application has access to the secrets and the database, the application service can be reached through the gateway's
-application URL (https://GATEWAY_HASH.cloudapp.net), which you can get from its blade.
+application URL (https:\//GATEWAY_HASH.cloudapp.net), which you can get from its blade.
 
 If, when you sign in to Azure AD, you get an error that says "User is not registered in the directory you're trying to log into," you need to add the user. To add the user, go to the **Users** tab of Azure AD and add the user manually by entering their details or invite the user by entering their email address as a guest user to Azure AD in the **Invite Guest** blade.
 
@@ -976,7 +976,7 @@ After you fix some of the code errors found by the linting tools, you have more 
 
 ### Find and fix vulnerabilities in app dependencies
 
-To find and fix application dependencies, you can use [OWASP's Dependency Check](https://www.owasp.org/index.php/OWASP_Dependency_Check).
+To find and fix application dependencies, you can use [OWASP's Dependency Check](https://owasp.org/www-project-dependency-check/).
 
 Safety is a similar application that checks dependencies. You can find it on [GitHub](https://github.com/pyupio/safety). Safety scans for vulnerabilities found in well-known vulnerability databases.
 

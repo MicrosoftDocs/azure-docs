@@ -1,20 +1,8 @@
 ---
 title: Use Azure Active Directory to authenticate Batch Management solutions
 description: Explore using Azure Active Directory to authenticate from applications that use the Batch Management .NET library.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: labrenne
 ---
 
 # Authenticate Batch Management solutions with Active Directory

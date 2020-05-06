@@ -2,18 +2,14 @@
 title: Azure AD authentication & authorization error codes
 description: Learn about the AADSTS error codes that are returned from the Azure AD security token service (STS).
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 03/31/2020
+ms.date: 04/07/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -27,6 +23,49 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 > This information is preliminary and subject to change. Have a question or can't find what you're looking for? Create a GitHub issue or see [Support and help options for developers](active-directory-develop-help-support.md) to learn about other ways you can get help and support.
 >
 > This documentation is provided for developer and admin guidance, but should never be used by the client itself. Error codes are subject to change at any time in order to provide more granular error messages that are intended to help the developer while building their application. Apps that take a dependency on text or error code numbers will be broken over time.
+
+## Handling error codes in your application
+
+The [OAuth2.0 spec](https://tools.ietf.org/html/rfc6749#section-5.2) provides guidance on how to handle errors during authentication using the `error` portion of the error response. 
+
+Here is a sample error response:
+
+```json
+{
+  "error": "invalid_scope",
+  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://example.contoso.com/activity.read is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
+  "error_codes": [
+    70011
+  ],
+  "timestamp": "2016-01-09 02:02:12Z",
+  "trace_id": "255d1aef-8c98-452f-ac51-23d051240864",
+  "correlation_id": "fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7", 
+  "error_uri":"https://login.microsoftonline.com/error?code=70011"
+}
+```
+
+| Parameter         | Description    |
+|-------------------|----------------|
+| `error`       | An error code string that can be used to classify types of errors that occur, and should be used to react to errors. |
+| `error_description` | A specific error message that can help a developer identify the root cause of an authentication error. Never use this field to react to an error in your code. |
+| `error_codes` | A list of STS-specific error codes that can help in diagnostics.  |
+| `timestamp`   | The time at which the error occurred. |
+| `trace_id`    | A unique identifier for the request that can help in diagnostics. |
+| `correlation_id` | A unique identifier for the request that can help in diagnostics across components. |
+| `error_uri` |  A link to the error lookup page with additional information about the error.  This is for developer usage only, do not present it to users.  Only present when the error lookup system has additional information about the error - not all error have additional information provided.|
+
+The `error` field has several possible values - review the protocol documentation links and OAuth 2.0 specs to learn more about specific errors (for example, `authorization_pending` in the [device code flow](v2-oauth2-device-code.md)) and how to react to them.  Some common ones are listed here:
+
+| Error Code         | Description        | Client Action    |
+|--------------------|--------------------|------------------|
+| `invalid_request`  | Protocol error, such as a missing required parameter. | Fix and resubmit the request.|
+| `invalid_grant`    | Some of the authentication material (auth code, refresh token, access token, PKCE challenge) was invalid, unparseable, missing, or otherwise unuseable | Try a new request to the `/authorize` endpoint to get a new authorization code.  Consider reviewing and validating that app's use of the protocols. |
+| `unauthorized_client` | The authenticated client isn't authorized to use this authorization grant type. | This usually occurs when the client application isn't registered in Azure AD or isn't added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
+| `invalid_client` | Client authentication failed.  | The client credentials aren't valid. To fix, the application administrator updates the credentials.   |
+| `unsupported_grant_type` | The authorization server does not support the authorization grant type. | Change the grant type in the request. This type of error should occur only during development and be detected during initial testing. |
+| `invalid_resource` | The target resource is invalid because it does not exist, Azure AD can't find it, or it's not correctly configured. | This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD.  During development, this usually indicates an incorrectly setup test tenant or a typo in the name of the scope being requested. |
+| `interaction_required` | The request requires user interaction. For example, an additional authentication step is required. | Retry the request with the same resource, interactievly, so that the user can complete any challenges required.  |
+| `temporarily_unavailable` | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed because of a temporary condition. |
 
 ## Lookup current error code information
 Error codes and messages are subject to change.  For the most current info, take a look at the `https://login.microsoftonline.com/error` page to find AADSTS error descriptions, fixes, and some suggested workarounds.  
@@ -129,6 +168,7 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS50180 | WindowsIntegratedAuthMissing - Integrated Windows authentication is needed. Enable the tenant for Seamless SSO. |
 | AADSTS50187 | DeviceInformationNotProvided - The service failed to perform device authentication. |
 | AADSTS50196 | LoopDetected - A client loop has been detected. Check the app’s logic to ensure that token caching is implemented, and that error conditions are handled correctly.  The app has made too many of the same request in too short a period, indicating that it is in a faulty state or is abusively requesting tokens. |
+| AADSTS50197 | ConflictingIdentities - The user could not be found. Try signing in again. |
 | AADSTS50199 | CmsiInterrupt - For security reasons, user confirmation is required for this request.  Because this is an "interaction_required" error, the client should do interactive auth.  This occurs because a system webview has been used to request a token for a native application - the user must be prompted to ask if this was actually the app they meant to sign into.|
 | AADSTS51000 | RequiredFeatureNotEnabled - The feature is disabled. |
 | AADSTS51001 | DomainHintMustbePresent - Domain hint must be present with on-premises security identifier or on-premises UPN. |

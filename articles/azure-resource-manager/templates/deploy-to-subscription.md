@@ -18,11 +18,11 @@ You can deploy the following resource types at the subscription level:
 * [budgets](/azure/templates/microsoft.consumption/budgets)
 * [deployments](/azure/templates/microsoft.resources/deployments) - for nested templates that deploy to resource groups.
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
-* [peerAsns](/azure/templates/microsoft.peering/peerasns)
+* [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
-* [remediations](/azure/templates/microsoft.policyinsights/remediations)
+* [remediations](/azure/templates/microsoft.policyinsights/2019-07-01/remediations)
 * [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)

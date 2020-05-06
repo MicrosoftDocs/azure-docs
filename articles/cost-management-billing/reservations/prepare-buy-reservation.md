@@ -5,7 +5,7 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/07/2020
 ms.author: banders
 ---
 
@@ -39,8 +39,6 @@ While applying reservation discounts on your usage, Azure processes the reservat
 2. Single scope reservations
 3. Shared scope reservations
 
-A single resource group can get reservation discounts from multiple reservations, depending on how you scope your reservations.
-
 You can always update the scope after you buy a reservation. To do so, go to the reservation, click **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 ![Example showing a reservation scope change](./media/prepare-buy-reservation/rescope-reservation-resource-group.png)
@@ -64,7 +62,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Azure Cache for Redis](../../azure-cache-for-redis/cache-reserved-pricing.md)
 - [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Databricks](prepay-databricks-reserved-capacity.md)
-- [Data Explorer](../../data-explorer/pricing-reserved-capacity.md)
+- [Data Explorer](/azure/data-explorer/pricing-reserved-capacity)
 - [Disk Storage](../../virtual-machines/linux/disks-reserved-capacity.md)
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
 - [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md)

@@ -99,7 +99,7 @@ In batch operations, the same KEK will be used across all the rows in that batch
 > To perform query operations, you must specify a key resolver that is able to resolve all the keys in the result set. If an entity contained in the query result cannot be resolved to a provider, the client library will throw an error. For any query that performs server side projections, the client library will add the special encryption metadata properties (_ClientEncryptionMetadata1 and _ClientEncryptionMetadata2) by default to the selected columns.
 
 ## Azure Key Vault
-Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Azure Key Vault, users can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For more information, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md).
+Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Azure Key Vault, users can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For more information, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 
 The storage client library uses the Key Vault core library in order to provide a common framework across Azure for managing keys. Users also get the additional benefit of using the Key Vault extensions library. The extensions library provides useful functionality around simple and seamless Symmetric/RSA local and cloud key providers as well as with aggregation and caching.
 
@@ -252,4 +252,4 @@ Note that encrypting your storage data results in additional performance overhea
 * Download the Azure Key Vault Maven Library for Java Maven packages:
   * [Core](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) package
   * [Client](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) package
-* Visit the [Azure Key Vault Documentation](../../key-vault/key-vault-overview.md)
+* Visit the [Azure Key Vault Documentation](../../key-vault/general/overview.md)

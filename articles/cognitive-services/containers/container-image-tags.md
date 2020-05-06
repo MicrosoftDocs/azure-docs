@@ -3,12 +3,12 @@ title: Cognitive Services container image tags
 titleSuffix: Azure Cognitive Services
 description: A comprehensive listing of all the Cognitive Service container image tags.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 03/09/2020
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Azure Cognitive Services container image tags

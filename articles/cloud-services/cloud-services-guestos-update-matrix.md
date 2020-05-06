@@ -3,15 +3,15 @@ title: Learn about the latest Azure Guest OS Releases | Microsoft Docs
 description: The latest release news and SDK compatibility for Azure Cloud Services Guest OS.
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: yohaddad
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/2/2020
-ms.author: raiye
+ms.date: 4/22/2020
+ms.author: yohaddad
 ---
 # Azure Guest OS releases and SDK compatibility matrix
 Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information helps you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][Azure Guest OS Update Settings], it is not vital that you read this page.
@@ -140,7 +140,7 @@ The September Guest OS has released.
 ## Family 5 releases
 **Windows Server 2016**
 
-.NET Framework installed: 3.5, 4.6
+.NET Framework installed: 3.5, 4.6.2
 
 > [!NOTE]
 > The RDP password for OS family 5 must be a minimum of 10 characters.

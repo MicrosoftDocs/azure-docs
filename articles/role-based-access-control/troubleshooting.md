@@ -148,7 +148,7 @@ If you grant a user read-only access to a single web app, some features are disa
 * Changing settings like general configuration, scale settings, backup settings, and monitoring settings
 * Accessing publishing credentials and other secrets like app settings and connection strings
 * Streaming logs
-* Diagnostic logs configuration
+* Resource logs configuration
 * Console (command prompt)
 * Active and recent deployments (for local git continuous deployment)
 * Estimated spend

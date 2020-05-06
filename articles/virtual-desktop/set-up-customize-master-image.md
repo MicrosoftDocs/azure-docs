@@ -53,7 +53,7 @@ If you create a VM from an existing VHD, it creates a dynamic disk by default. I
 You can also run the following PowerShell cmdlet to change the disk to a fixed disk.
 
 ```powershell
-Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.vhd -VHDType Fixed
+Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
 ```
 
 ## Software preparation and installation

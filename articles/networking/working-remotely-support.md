@@ -77,16 +77,16 @@ For your deployments in other public clouds, Microsoft can provide global connec
 
 The following articles discuss how different Azure networking features can be used to scale users to work remotely:
 
-| **Article** | **Last update** |
+| **Article** | **Description** |
 | --- | --- |
-| [How to enable users to work remotely](../vpn-gateway/work-remotely-support.md) | March 23, 2020 |
-| [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](../virtual-wan/work-remotely-support.md) | March 23, 2020 |
-| [Application Gateway high traffic support](../application-gateway/high-traffic-support.md) | March 23, 2020 |
-| [Network Virtual Appliance (NVA) considerations for remote work](../vpn-gateway/nva-work-remotely-support.md)| March 23, 2020 |
-| [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | March 23, 2020 |
-| [Working remotely using Azure Bastion](../bastion/work-remotely-support.md) | March 23, 2020 |
-| [Using Azure ExpressRoute to create hybrid connectivity to support remote users](../expressroute/work-remotely-support.md) | March 23, 2020 |
-| [Azure Firewall remote work support](../firewall/remote-work-support.md)|March 25, 2020|
+| [How to enable users to work remotely](../vpn-gateway/work-remotely-support.md) | Review available options to set up remote access for users or to supplement their existing solutions with additional capacity for your organization.|
+| [Struggling to cater to work from home needs? Here is where Azure Virtual WAN can help](../virtual-wan/work-remotely-support.md) | Use Azure Virtual WAN to address the remote connectivity needs of your organization.|
+| [Application Gateway high traffic support](../application-gateway/high-traffic-support.md) | Use Application Gateway with Web Application Firewall (WAF) for a scalable and secure way to manage traffic to your web applications. |
+| [Network Virtual Appliance (NVA) considerations for remote work](../vpn-gateway/nva-work-remotely-support.md)|Review guidance about leveraging NVAs in Azure to provide remote access solutions. |
+| [Transition to OpenVPN protocol or IKEv2 from SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | Overcome the 128 concurrent connection limit of SSTP by transitioning to OpenVPN protocol or IKEv2.|
+| [Working remotely using Azure Bastion](../bastion/work-remotely-support.md) | Provide secure and seamless RDP/SSH connectivity to virtual machines within the Azure virtual network, directly in the Azure portal, without the use of a public IP address. |
+| [Using Azure ExpressRoute to create hybrid connectivity to support remote users](../expressroute/work-remotely-support.md) | Use ExpressRoute for hybrid connectivity to enable users in your organization to work remotely.|
+| [Azure Firewall remote work support](../firewall/remote-work-support.md)|Protect your Azure virtual network resources using Azure Firewall. |
 
 <!--Link References-->
 [VNet-peer]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview

@@ -36,7 +36,7 @@ The Hyperscale service tier in Azure SQL Database provides the following additio
 - Fast database restores (based on file snapshots) in minutes rather than hours or days (not a size of data operation)
 - Higher overall performance due to higher log throughput and faster transaction commit times regardless of data volumes
 - Rapid scale out - you can provision one or more read-only nodes for offloading your read workload and for use as hot-standbys
-- Rapid Scale up - you can, in constant time, scale up your compute resources to accommodate heavy workloads as and when needed, and then scale the compute resources back down when not needed.
+- Rapid Scale up - you can, in constant time, scale up your compute resources to accommodate heavy workloads when needed, and then scale the compute resources back down when not needed.
 
 The Hyperscale service tier removes many of the practical limits traditionally seen in cloud databases. Where most other databases are limited by the resources available in a single node, databases in the Hyperscale service tier have no such limits. With its flexible storage architecture, storage grows as needed. In fact, Hyperscale databases aren’t created with a defined max size. A Hyperscale database grows as needed - and you are billed only for the capacity you use. For read-intensive workloads, the Hyperscale service tier provides rapid scale-out by provisioning additional read replicas as needed for offloading read workloads.
 
@@ -67,7 +67,7 @@ Hyperscale service tier is only available in [vCore model](sql-database-service-
 
 - **Storage**:
 
-  You don't need to specify the max data size when configuring a Hyperscale database. In the hyperscale tier, you are charged for storage for your database based on actual allocation. Storage is automatically allocated between 40 GB and 100 TB, in 10 GB increments 10 GB. Multiple data files can grow at the same time if needed. A Hyperscale database is created with a starting size of 10 GB and it starts growing by 10 GB every 10 minutes, until it reaches the size of 40 GB.
+  You don't need to specify the max data size when configuring a Hyperscale database. In the hyperscale tier, you are charged for storage for your database based on actual allocation. Storage is automatically allocated between 40 GB and 100 TB, in 10 GB increments. Multiple data files can grow at the same time if needed. A Hyperscale database is created with a starting size of 10 GB and it starts growing by 10 GB every 10 minutes, until it reaches the size of 40 GB.
 
 For more information about Hyperscale pricing, see [Azure SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -151,7 +151,7 @@ For Hyperscale SLA, see [SLA for Azure SQL Database](https://azure.microsoft.com
 
 ### Restoring a Hyperscale database to a different geography
 If you need to restore an Azure SQL Database Hyperscale DB to a region other than the one it is currently hosted in, as part of a disaster recovery operation or drill, relocation, or any other reason, the primary method is to do a geo-restore of the database.  This involves exactly the same steps as what you would use to restore any other AZURE SQL DB to a different region:
-1. Create a SQL Database server in the target region if you do not already have an appropriate server there.  This server should be owned by the same subscription as the original (source) server.
+1. Create a Azure SQL Database server in the target region if you do not already have an appropriate server there.  This server should be owned by the same subscription as the original (source) server.
 2. Follow the instructions in the [geo-restore](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) topic of the page on restoring Azure SQL Databases from automatic backups.
 
 > [!NOTE]
@@ -199,14 +199,13 @@ These are the current limitations to the Hyperscale service tier as of GA.  We a
 
 | Issue | Description |
 | :---- | :--------- |
-| The Manage Backups pane for a logical server does not show Hyperscale databases will be filtered from SQL server  | Hyperscale has a separate method for managing backups, and as such the Long-Term Retention and Point in Time backup Retention settings do not apply / are invalidated. Accordingly, Hyperscale databases do not appear in the Manage Backup pane. |
+| The Manage Backups pane for a logical server does not show Hyperscale databases, these will be filtered from the view  | Hyperscale has a separate method for managing backups, and as such the Long-Term Retention and Point in Time backup Retention settings do not apply / are invalidated. Accordingly, Hyperscale databases do not appear in the Manage Backup pane. |
 | Point-in-time restore | You can restore a Hyperscale database into a non-Hyperscale database, within non-Hyperscale database retention period. You cannot restore a non-Hyperscale database into a Hyperscale database.|
 | If a database has one or more data files larger than 1 TB, migration fails | In some cases, it may be possible to work around this issue by shrinking the large files to be less than 1 TB. If migrating a database being used during the migration process, make sure that no file gets larger than 1 TB. Use the following query to determine the size of database files. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Managed Instance | Azure SQL Database Managed Instance is not currently supported with Hyperscale databases. |
 | Elastic Pools |  Elastic Pools are not currently supported with SQL Database Hyperscale.|
 | Migration to Hyperscale is currently a one-way operation | Once a database is migrated to Hyperscale, it cannot be migrated directly to a non-Hyperscale service tier. At present, the only way to migrate a database from Hyperscale to non-Hyperscale is to export/import using a BACPAC file or other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS, etc.)|
 | Migration of databases with persistent in-memory objects | Hyperscale only supports non persistent In-Memory objects (table types, native SPs and functions).  Persistent In-Memory tables and other objects must be dropped and recreated as non-In-Memory objects before migrating a database to the Hyperscale service tier.|
-| Change Tracking | Change Tracking is currently in public preview and can be enabled on new or existing Hyperscale databases. |
 | Geo Replication  | You cannot yet configure geo-replication for Azure SQL Database Hyperscale. |
 | Database Copy | You cannot yet use Database Copy to create a new database in Azure SQL Hyperscale. |
 | TDE/AKV Integration | Transparent Database Encryption using Azure Key Vault (commonly referred to as Bring-Your-Own-Key or BYOK) is not yet supported for Azure SQL Database Hyperscale, however TDE with Service Managed Keys is fully supported. |

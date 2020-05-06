@@ -137,6 +137,13 @@ If the scheduled backup operation is taking longer, conflicting with the next ba
 
 This error is reported from the IaaS VM. To identify the root cause of the issue, go to the Recovery Services vault settings. Under the **Monitoring** section, select **Backup jobs** to filter and view the status. Click on **Failures** to review the underlying error message details. Take further actions according to the recommendations in the error details page.
 
+## UserErrorBcmDatasourceNotPresent - Backup failed: This virtual machine is not (actively) protected by Azure Backup
+
+**Error code**: UserErrorBcmDatasourceNotPresent <br>
+**Error message**: Backup failed: This virtual machine is not (actively) protected by Azure Backup.
+
+Please check if the given virtual machine is actively (not in pause state) protected by Azure Backup. To overcome this issue, ensure the virtual machine is active and then retry the operation.
+
 ## Causes and solutions
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>The agent is installed in the VM, but it's unresponsive (for Windows VMs)
