@@ -40,13 +40,13 @@ To unlink your workspace from your Automation account, you must remove these sol
 
 If you prefer, you can delete the solutions by using the [Remove-AzResource](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) cmdlet:
 
-    ```azurepowershell-interactive
-    $workspaceName = <myWorkspaceName>
-    $resourceGroupName = <myResourceGroup>
-    Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking($workspaceName)" -ResourceGroupName $resourceGroupName
-    Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Updates($workspaceName)" -ResourceGroupName $resourceGroupName
-    Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM($workspaceName)" -ResourceGroupName $resourceGroupName
-    ```
+```azurepowershell-interactive
+$workspaceName = <myWorkspaceName>
+$resourceGroupName = <myResourceGroup>
+Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking($workspaceName)" -ResourceGroupName $resourceGroupName
+Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Updates($workspaceName)" -ResourceGroupName $resourceGroupName
+Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM($workspaceName)" -ResourceGroupName $resourceGroupName
+```
 
 ### Remove alert rules for the "Start/Stop VMs during off hours" solution
 
@@ -79,9 +79,9 @@ For this solution, you also need to remove the alert rules created by the soluti
 
 If you prefer, you can delete your action group by using the [Remove-AzActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0) cmdlet:
 
-    ```azurepowershell-interactive
-    Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
-    ```
+```azurepowershell-interactive
+Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
+```
 
 ## Unlink your workspace
 
