@@ -24,7 +24,7 @@ ms.custom: aaddev
 You can use MSAL.NET to sign in users with social identities by using [Azure Active Directory B2C (Azure AD B2C)](https://aka.ms/aadb2c). Azure AD B2C is built around the notion of policies. In MSAL.NET, specifying a policy translates to providing an authority.
 
 - When you instantiate the public client application, you need to specify the policy as part of the authority.
-- When you want to apply a policy, call an override of `AcquireTokenInteractive` that supplies the `authority` parameter.
+- When you want to apply a policy, call an override of `AcquireTokenInteractive` that accepts the `authority` parameter.
 
 This article applies to MSAL.NET 3.x. For MSAL.NET 2.x, see [Azure AD B2C specifics in MSAL 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x) in the MSAL.NET Wiki on GitHub.
 
@@ -32,8 +32,8 @@ This article applies to MSAL.NET 3.x. For MSAL.NET 2.x, see [Azure AD B2C specif
 
 The authority format for Azure AD B2C is: `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
 
-- `azureADB2CHostname` - The name of the Azure AD B2C tenant plus the host. For example `{your-tenant-name}.b2clogin.com`.
-- `tenant` - The domain name or the directory (tenant) ID of the Azure AD B2C tenant. For example, `{your-tenant-name}.onmicrosoft.com` or a GUID, respectively.
+- `azureADB2CHostname` - The name of the Azure AD B2C tenant plus the host. For example, *contosob2c.b2clogin.com*.
+- `tenant` - The domain name or the directory (tenant) ID of the Azure AD B2C tenant. For example, *contosob2c.onmicrosoft.com* or a GUID, respectively.
 - `policyName` - The name of the user flow or custom policy to apply. For example, a sign-up/sign-in policy like *b2c_1_susi*.
 
 For more information about Azure AD B2C authorities, see [Set redirect URLs to b2clogin.com](../../active-directory-b2c/b2clogin.md).
@@ -127,7 +127,7 @@ The ROPC flow is **not recommended** because asking a user for their password in
 
 By using username/password in an ROPC flow, you sacrifice several things:
 
-- Core tenets of modern identity: The password can be fished or replayed because the shared secret can be intercepted. By definitely, ROPC is incompatible with passwordless flows.
+- Core tenets of modern identity: The password can be fished or replayed because the shared secret can be intercepted. By definition, ROPC is incompatible with passwordless flows.
 - Users who need to do MFA won't be able to sign in (as there is no interaction).
 - Users won't be able to use single sign-on (SSO).
 
@@ -146,7 +146,7 @@ AcquireTokenByUsernamePassword(
 
 This `AcquireTokenByUsernamePassword` method takes the following parameters:
 
-- The *scopes* to request an access token for.
+- The *scopes* for which to obtain an access token.
 - A *username*.
 - A SecureString *password* for the user.
 
