@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/25/2020
+ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -46,14 +46,14 @@ To initiate an account failover from the Azure portal, follow these steps:
 
 3. Verify that your storage account is configured for geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS). If it's not, then select **Configuration** under **Settings** to update your account to be geo-redundant. 
 4. The **Last Sync Time** property indicates how far the secondary is behind from the primary. **Last Sync Time** provides an estimate of the extent of data loss that you will experience after the failover is completed.
-5. Select **Prepare for failover**. 
+5. Select **Prepare for failover**.
 6. Review the confirmation dialog. When you are ready, enter **Yes** to confirm and initiate the failover.
 
     ![Screenshot showing confirmation dialog for an account failover](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
 ## [PowerShell](#tab/azure-powershell)
 
-To use PowerShell to initiate an account failover, you must first install the 6.0.1 preview module. Follow these steps to install the module:
+The account failover feature is generally available, but still relies on a preview module for PowerShell. To use PowerShell to initiate an account failover, you must first install the Az.Storage [1.1.1-preview](https://www.powershellgallery.com/packages/Az.Storage/1.1.1-preview) module. Follow these steps to install the module:
 
 1. Uninstall any previous installations of Azure PowerShell:
 
@@ -80,8 +80,6 @@ To use PowerShell to initiate an account failover, you must first install the 6.
     Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
     ```
 
-1. Close and reopen the PowerShell window.
- 
 To initiate an account failover from PowerShell, execute the following command:
 
 ```powershell
@@ -112,5 +110,5 @@ After you re-enable GRS for your storage account, Microsoft begins replicating t
 ## Next steps
 
 - [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md)
-- [Designing highly available applications using RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-- [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md) 
+- [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
+- [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md)
