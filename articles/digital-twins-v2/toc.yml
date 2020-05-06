@@ -10,10 +10,12 @@
   items:
   - name: Get started with Azure Digital Twins
     href: quickstart.md
-- name: Tutorial
+- name: Tutorials
   items:
+  - name: Code a client app
+    href: tutorial-code.md
   - name: Build an end-to-end solution
-    href: tutorial.md
+    href: tutorial-end-to-end.md
 - name: Concepts
   items:
   - name: Twin models
