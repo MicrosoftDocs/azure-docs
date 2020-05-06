@@ -40,7 +40,7 @@ The following table provides an overview of how to switch from each type of repl
 | <b>…from GZRS/RA-GZRS</b> | Perform a manual migration | Perform a manual migration | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A |
 
 <sup>1</sup> Incurs a one-time egress charge.<br />
-<sup>2</sup> Migration from ZRS to GZRS/RA-GZRS is not supported in the following regions: US East 2, US East, Europe West.
+<sup>2</sup> Conversion from ZRS to GZRS/RA-GZRS or vice versa is not supported in the following regions: US East 2, US East, Europe West.
 
 > [!CAUTION]
 > If you performed an [account failover](storage-disaster-recovery-guidance.md) for your (RA-)GRS or (RA-)GZRS account, the account is locally redundant in the new primary region after the failover. Live migration to ZRS or GZRS for an LRS account resulting from a failover is not supported. You will need to perform a [manual migration](#perform-a-manual-migration-to-zrs) to ZRS or GZRS.
