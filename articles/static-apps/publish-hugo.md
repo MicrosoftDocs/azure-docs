@@ -96,7 +96,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. Select **Create a Resource** and search for **Static App**.
 
-   :::image type="content" source="./media/static-web-apps-publish-hugo/create-in-portal.png" alt-text="Create a Static Apps (Preview) in the portal":::
+   :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="Create a Static Apps (Preview) in the portal":::
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 
@@ -108,7 +108,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. For _SKU_, select **Free**.
 
-   :::image type="content" source="./media/static-web-apps-publish-hugo/basic-app-details.png" alt-text="Details filled out":::
+   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Details filled out":::
 
 1. Click the **Sign in with GitHub** button.
 
@@ -118,7 +118,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. For the _Branch_ select **master**.
 
-   :::image type="content" source="./media/static-web-apps-publish-hugo/completed-github-info.png" alt-text="Completed GitHub information":::
+   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Completed GitHub information":::
 
 ### Build
 
@@ -132,7 +132,7 @@ Next, you add configuration settings that the build process uses to build your a
 
    A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
 
-   :::image type="content" source="./media/static-web-apps-publish-hugo/build-details.png" alt-text="Build Settings":::
+   :::image type="content" source="./media/publish-hugo/build-details.png" alt-text="Build Settings":::
 
 ### Review and create
 
@@ -176,11 +176,11 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. In the Azure portal's _Overview_ window of newly created Azure Static Web Apps resource, click the _URL_ link to open your deployed application.
 
-   :::image type="content" source="./media/static-web-apps-publish-hugo/deployed-app.png" alt-text="Deployed application":::
+   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Deployed application":::
 
 ## Clean up resources
 
-[!INCLUDE [static-web-apps-cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
+[!INCLUDE [cleanup-resource](../../includes/cleanup-resource.md)]
 
 ## Next steps
 
