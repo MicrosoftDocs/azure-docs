@@ -82,7 +82,7 @@ For inspiration and more examples on creating a plugin take a look at our [galle
 
 ### Plugin Gallery ###
 
-The [plugin gallery](http//:aka.ms/ampplugins) has several plugins that the community has already contributed for features like time-line markers, zoom, analytics and more. The page provides accesses to the plugins and instructions on how to set it up as well as a demo that shows the plugin in action. If you create a cool plugin that you think should be included in our gallery, feel free to submit it so we can check it out.
+The [plugin gallery](https://aka.ms/ampplugins) has several plugins that the community has already contributed for features like time-line markers, zoom, analytics and more. The page provides accesses to the plugins and instructions on how to set it up as well as a demo that shows the plugin in action. If you create a cool plugin that you think should be included in our gallery, feel free to submit it so we can check it out.
 
 ## Next steps ##
 
