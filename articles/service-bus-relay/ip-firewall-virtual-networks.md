@@ -41,9 +41,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 ### Use Resource Manager template
 The following Resource Manager template enables adding an IP filter rule to an existing Relay namespace.
 
-Template parameters:
-
-- **ipMask** is a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 70.37.104.0/24 represents the 256 IPv4 addresses from 70.37.104.0 to 70.37.104.255, with 24 indicating the number of significant prefix bits for the range.
+The template takes one parameter: **ipMask**, which is a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 70.37.104.0/24 represents the 256 IPv4 addresses from 70.37.104.0 to 70.37.104.255, with 24 indicating the number of significant prefix bits for the range.
 
 > [!NOTE]
 > While there are no deny rules possible, the Azure Resource Manager template has the default action set to **"Allow"** which doesn't restrict connections.
