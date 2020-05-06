@@ -468,7 +468,7 @@ CosmosAsyncItemResponse<SalesOrder> itemResponse = container.readItem("SO05", ne
 }).block();
 ```
 
-# [Java SDK V3](#tab/javav4)
+# [Java SDK V3](#tab/javav3)
 
 Java SDK V3 (Maven com.microsoft.azure::azure-cosmos)
 
