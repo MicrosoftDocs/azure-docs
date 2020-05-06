@@ -164,21 +164,15 @@
   - name: Monitor and troubleshoot
     items:
     - name: Diagnostic logs
-      href: 
+      href: diagnostic-logs.md
     - name: Metrics
       href: metrics.md
 - name: How-to guides
   items:
-  - name: Configure private endpoints (preview)
-    href: configure-private-endpoints.md
-  - name: Configure IP firewall (preview)
-    href: configure-firewall.md
   - name: Post to custom topic
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
-  - name: Secure WebHook with AAD
-    href: secure-webhook-delivery.md
   - name: Dead letter and retry
     href: manage-event-delivery.md
   - name: Filter events
@@ -197,6 +191,14 @@
     href: custom-disaster-recovery.md
   - name: Track asynchronous REST operations
     href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - name: Secure
+    items:
+    - name: Configure private endpoints (preview)
+      href: configure-private-endpoints.md
+    - name: Configure IP firewall (preview)
+      href: configure-firewall.md
+    - name: Secure WebHook with AAD
+      href: secure-webhook-delivery.md
   - name: Troubleshoot
     items: 
     - name: Enable diagnostic logs
