@@ -12,9 +12,9 @@ manager: philmea
 
 # Manage Azure Maps Creator
 
-Azure Maps Creator lets you create private indoor maps. The Azure Maps API and the Indoor Maps module lets you develop interactive and dynamic indoor map web applications. Currently, Creator is only available in the United States using the S1 pricing tier.
+Azure Maps Creator lets you create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. Currently, Creator is only available in the United States using the S1 pricing tier.
 
-This article takes you through the steps to create and delete Creator in an Azure Maps account.
+This article takes you through the steps to create and delete a Creator resource in an Azure Maps account.
 
 ## Create Creator Resource
 
@@ -66,11 +66,11 @@ Click the **Delete** button and type your Creator name to confirm deletion. Once
 
 ## Authentication
 
-Creator inherits your Azure Maps Access Control (IAM) settings. Access to data created and processed in Creator is available via API calls only when passing authentication and authorization rules. Also, Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more detail, see [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Creator inherits Azure Maps Access Control (IAM) settings. All API calls for data access must be sent with authentication and authorization rules. Also, Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more detail, see [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 ## Access to Creator services
 
-Creator services are accessible only from within the location selected during creation. If calls are made to Creator services from outside the selected location, a user error message will be returned. To perform calls from outside the selected location, the service URL must include the geographic prefix for the selected locations. For example, if Creator is created in the United States, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`.
+Creator services are accessible only from within the location selected during creation. If calls are made to Creator services from outside the selected location, a user error message will be returned. To make calls from outside the selected location, the service URL must include the geographic prefix for the selected locations. For example, if Creator is created in the United States, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Use the Azure Maps Indoor Maps module | Microsoft Azure Maps
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/30/2020
+ms.date: 05/06/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -17,7 +17,7 @@ The Azure Maps Web SDK includes the *Azure Maps Indoor* module. The  *Azure Maps
 ## Prerequisites
 
 1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
-2. [Enable Creator](how-to-manage-creator.md)
+2. [Create a Creator resource](how-to-manage-creator.md)
 3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 4. Get a `tilesetId` and a `stateSetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md).
  You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
