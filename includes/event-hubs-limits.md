@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: event-hubs
-author: sethmanheim
+author: spelluru
 ms.service: event-hubs
 ms.topic: include
 ms.date: 05/22/2019
