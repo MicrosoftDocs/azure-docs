@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: RBAC for Azure resources documentation
-summary: Role-based access control (RBAC) is a system that provides fine-grained access management of Azure resources. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
+title: Azure RBAC documentation
+summary: Azure role-based access control (Azure RBAC) is a system that provides fine-grained access management of Azure resources. Using Azure RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
 
 metadata:
-  title: Role-based access control (RBAC) for Azure resources documentation
-  description: Learn about role-based access control (RBAC) to manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
+  title: Azure RBAC documentation
+  description: Learn about Azure role-based access control (Azure RBAC) to manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
   services: role-based-access-control
   ms.service: role-based-access-control
   ms.subservice: na
@@ -13,17 +13,17 @@ metadata:
   ms.collection: na
   author: rolyon
   ms.author: rolyon
-  ms.date: 08/26/2019
+  ms.date: 04/30/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
   # Card
-  - title: About RBAC for Azure resources
+  - title: About Azure RBAC
     linkLists: 
       - linkListType: overview
         links: 
-          - text: What is RBAC?
+          - text: What is Azure RBAC?
             url: overview.md
           - text: Understand the different roles
             url: rbac-and-directory-admin-roles.md
@@ -46,7 +46,7 @@ landingContent:
             url: tutorial-role-assignments-group-powershell.md
       - linkListType: learn
         links: 
-          - text: Secure your Azure resources with RBAC
+          - text: Secure your Azure resources with Azure RBAC
             url: https://docs.microsoft.com/learn/modules/secure-azure-resources-with-rbac/
   # Card
   - title: Manage access
@@ -66,12 +66,16 @@ landingContent:
           - text: Template
             url: role-assignments-template.md
   # Card
-  - title: Create custom roles
+  - title: Create or update custom roles
     linkLists: 
       - linkListType: overview
         links: 
           - text: Custom roles
             url: custom-roles.md
+      - linkListType: how-to-guide
+        links: 
+          - text: Create a custom role - Portal
+            url: custom-roles-portal.md
       - linkListType: tutorial
         links: 
           - text: Create a custom role - PowerShell

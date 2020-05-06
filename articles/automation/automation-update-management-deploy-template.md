@@ -23,6 +23,9 @@ The template does not automate the onboarding of one or more Azure or non-Azure 
 If you already have a Log Analytics workspace and Automation account deployed in a supported region in your subscription, they are not linked. The workspace doesn't already have the Update Management solution deployed. Using this template successfully creates the link and deploys the Update Management solution. 
 
 >[!NOTE]
+>The **nxautomation** user onboarded as part of Update Management on Linux executes only signed runbooks.
+
+>[!NOTE]
 >This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
 
 ## API versions
