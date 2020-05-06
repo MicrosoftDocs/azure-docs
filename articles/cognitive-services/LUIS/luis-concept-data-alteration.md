@@ -70,14 +70,14 @@ The Bing spell check API used in LUIS does not support a list of words to ignore
 ## Change time zone of prebuilt datetimeV2 entity
 When a LUIS app uses the prebuilt [datetimeV2](luis-reference-prebuilt-datetimev2.md) entity, a datetime value can be returned in the prediction response. The timezone of the request is used to determine the correct datetime to return. If the request is coming from a bot or another centralized application before getting to LUIS, correct the timezone LUIS uses.
 
-### V3 prediction API to alter timezone before prediction
+### V3 prediction API to alter timezone
 
 In V3, the `datetimeReference` determines the timezone offset. Learn more about [V3 predictions](luis-migration-api-v3.md#v3-post-body).
 
-### V2 prediction timezone
+### V2 prediction API to alter timezone
 The timezone is corrected by adding the user's timezone to the endpoint using the `timezoneOffset` parameter based on the API version. The value of the parameter should be the positive or negative number, in minutes, to alter the time.
 
-### V2 prediction daylight savings example
+#### V2 prediction daylight savings example
 If you need the returned prebuilt datetimeV2 to adjust for daylight savings time, you should use the querystring parameter with a +/- value in minutes for the [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) query.
 
 Add 60 minutes:
@@ -88,7 +88,7 @@ Remove 60 minutes:
 
 `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?timezoneOffset=-60&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
-## V2 prediction C# code determines correct value of parameter
+#### V2 prediction C# code determines correct value of parameter
 
 The following C# code uses the [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) class's [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) method to determine the correct offset value based on system time:
 
