@@ -274,4 +274,4 @@ If you don't want to keep this application for further use, you can use the foll
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](./app-settings.md)
+> [Configure app settings](./application-settings.md)

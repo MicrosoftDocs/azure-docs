@@ -94,4 +94,4 @@ console.log(getUser());
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](app-settings.md)
+> [Configure app settings](application-settings.md)

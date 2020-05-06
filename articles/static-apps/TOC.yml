@@ -30,7 +30,7 @@
     - name: Add an API
       href: add-api.md
     - name: Configure app settings
-      href: app-settings.md
+      href: application-settings.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator
