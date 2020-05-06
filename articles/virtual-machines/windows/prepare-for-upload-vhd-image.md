@@ -170,8 +170,8 @@ to convert it to VHD format. For more information, see
 1. Make sure the environmental variables **TEMP** and **TMP** are set to their default values:
 
    ```powershell
-   Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment -Name TEMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
-   Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment -Name TMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TEMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    ```
 
 ## Check the Windows services

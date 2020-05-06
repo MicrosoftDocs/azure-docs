@@ -1,23 +1,23 @@
 ---
 title: Tutorial - Simulate a failure in reading data from the primary region
 titleSuffix: Azure Storage
-description: Simulate an error in reading data from the primary region when read-access geo-redundant storage (RA-GRS) is enabled for the storage account.
+description: Simulate an error in reading data from the primary region when the storage account is configured for read-access geo-zone-redundant storage (RA-GZRS). After the error occurs, read data from the secondary region.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ---
 
 # Tutorial: Simulate a failure in reading data from the primary region
 
-This tutorial is part two of a series. In it, you learn about the benefits of [read-access geo-redundant storage](../common/storage-redundancy.md) (RA-GRS) by simulating a failure.
+This tutorial is part two of a series. In it, you learn about the benefits of [read-access geo-zone-redundant storage](../common/storage-redundancy.md) (RA-GZRS) by simulating a failure.
 
-In order to simulate a failure, you can use either [Static Routing](#simulate-a-failure-with-an-invalid-static-route) or [Fiddler](#simulate-a-failure-with-fiddler). Both methods will allow you to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy.md) (RA-GRS) storage account, causing the application read from the secondary endpoint instead.
+In order to simulate a failure, you can use either [static routing](#simulate-a-failure-with-an-invalid-static-route) or [Fiddler](#simulate-a-failure-with-fiddler). Both methods will allow you to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy.md) (RA-GZRS) storage account, leading the application to read from the secondary endpoint instead.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -38,7 +38,7 @@ To simulate a failure using Fiddler, download and [install Fiddler](https://www.
 
 ## Simulate a failure with an invalid static route
 
-You can create an invalid static route for all requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy.md) (RA-GRS) storage account. In this tutorial, the local host is used as the gateway for routing requests to the storage account. Using the local host as the gateway causes all requests to your storage account primary endpoint to loop back inside the host, which subsequently leads to failure. Follow the following steps to simulate a failure, and primary endpoint restoration with an invalid static route.
+You can create an invalid static route for all requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy.md) (RA-GZRS) storage account. In this tutorial, the local host is used as the gateway for routing requests to the storage account. Using the local host as the gateway causes all requests to your storage account primary endpoint to loop back inside the host, which subsequently leads to failure. Follow the following steps to simulate a failure, and primary endpoint restoration with an invalid static route.
 
 ### Start and pause the application
 
@@ -80,13 +80,13 @@ To simulate the primary endpoint becoming functional again, delete the invalid s
 
 #### Linux
 
-```
+```bash
 route del <destination_ip> gw <gateway_ip>
 ```
 
 #### Windows
 
-```
+```console
 route delete <destination_ip>
 ```
 
@@ -94,7 +94,7 @@ You can then resume the application or press the appropriate key to download the
 
 ## Simulate a failure with Fiddler
 
-To simulate failure with Fiddler, you inject a failed response for requests to the primary endpoint of your RA-GRS storage account.
+To simulate failure with Fiddler, you inject a failed response for requests to the primary endpoint of your RA-GZRS storage account.
 
 The following sections depict how to simulate a failure and primary endpoint restoration with fiddler.
 
@@ -102,7 +102,7 @@ The following sections depict how to simulate a failure and primary endpoint res
 
 Open Fiddler, select **Rules** and **Customize Rules**.
 
-![Customize Fiddler rules](media/storage-simulate-failure-ragrs-account-app/figure1.png)
+![Customize Fiddler rules](media/simulate-primary-region-failure/figure1.png)
 
 The Fiddler ScriptEditor launches and displays the **SampleRules.js** file. This file is used to customize Fiddler.
 
@@ -126,7 +126,7 @@ Once complete, select **File** and **Save** to save your changes. Leave the Scri
     */
 ```
 
-![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure2.png)
+![Paste customized rule](media/simulate-primary-region-failure/figure2.png)
 
 ### Start and pause the application
 
@@ -134,7 +134,7 @@ Use the instructions in the [previous tutorial][previous-tutorial] to launch the
 
 ### Simulate failure
 
-While the application is paused, switch back to Fiddler and uncomment the custom rule you saved in the `OnBeforeResponse` function. Be sure to select **File** and **Save** to save your changes so the rule will take effect. This code looks for requests to the RA-GRS storage account and, if the path contains the name of the sample file, returns a response code of `503 - Service Unavailable`.
+While the application is paused, switch back to Fiddler and uncomment the custom rule you saved in the `OnBeforeResponse` function. Be sure to select **File** and **Save** to save your changes so the rule will take effect. This code looks for requests to the RA-GZRS storage account and, if the path contains the name of the sample file, returns a response code of `503 - Service Unavailable`.
 
 In the window with the running sample, resume the application or press the appropriate key to download the sample file and confirm that it comes from secondary storage. You can then pause the sample again or wait at the prompt.
 
@@ -148,9 +148,9 @@ In the window with the running sample, resume the application or press the appro
 
 In part two of the series, you learned about simulating a failure to test read access geo-redundant storage.
 
-To learn more about how RA-GRS storage works, as well as its associated risks, read the following article:
+To learn more about how RA-GZRS storage works, as well as its associated risks, read the following article:
 
 > [!div class="nextstepaction"]
-> [Designing HA apps with RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md)
+> [Designing HA apps with RA-GZRS](../common/geo-redundant-design.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md
