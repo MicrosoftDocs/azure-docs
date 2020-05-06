@@ -20,22 +20,24 @@ This article describes additional steps you can take as an admin to keep your cu
 
 Many cloud services share certain security responsibilities. When you use Windows Virtual Desktop, it’s important to understand that while some components come already secured for your environment, you'll need to configure other areas yourself to fit your organization’s security needs.
 
-The following table shows which security needs users are responsible for. Anything that the customer isn't responsible for is handled by Microsoft.
+The following table shows which security needs users are responsible for.
 
-| Security need | On-premises virtual desktop infrastructure | Windows Virtual Desktop |
-|---------------|:-----------------:|:-------------------------:|
-|Identity|&#10004;|&#10004;|
-|User devices (mobile and PC)|&#10004;|&#10004;|
-|App security|&#10004;|&#10004;|
-|Session host OS|&#10004;|&#10004;|
-|Virtualization control plane|&#10004;|&#10006;|
-|Deployment configuration|&#10004;|&#10004;|
-|Network controls|&#10004;|&#10004;|
-|Physical hosts|&#10004;|&#10006;|
-|Physical network|&#10004;|&#10006;|
-|Physical datacenter|&#10004;|&#10006;|
+| Security need | Is the user responsible for this? |
+|---------------|:-------------------------:|
+|Identity|Yes|
+|User devices (mobile and PC)|Yes|
+|App security|Yes|
+|Session host OS|Yes|
+|Virtualization control plane|No|
+|Deployment configuration|Yes|
+|Network controls|Yes|
+|Physical hosts|No|
+|Physical network|No|
+|Physical datacenter|No|
 
-## Azure Security Best Practices
+## Azure security best practices
+
+This section describes best practices for securing your Azure ecosystem.
 
 ### Enable Azure Security Center
 
