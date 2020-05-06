@@ -280,10 +280,6 @@ azurite --version
 
 **Optional** - By default, Azurite uses the HTTP protocol. Enable HTTPS mode by providing a path to a Privacy Enhanced Mail (.pem) or [Personal Information Exchange (.pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) certificate file to the `--cert` switch.
 
-```console
-azurite --cert path/server.pem
-```
-
 When `--cert` is provided for a PEM file, you must provide a corresponding `--key` switch.
 
 ```console
@@ -303,7 +299,7 @@ For detailed information on creating PEM and PFX files, see [HTTPS Setup](https:
 **Optional** - Enable OAuth authentication for Azurite by using the `--oauth` switch.
 
 ```console
-azurite --oauth basic
+azurite --oauth basic --cert path/server.pem --key path/key.pem
 ```
 
 > [!NOTE]
@@ -315,7 +311,7 @@ Azurite supports basic authentication by specifying the `basic` parameter to the
 
 Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), by using any authentication strategy. Authentication is required. Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
 
-If you're using the Azure SDKs, start Azurite with the `--oauth basic` option.
+If you're using the Azure SDKs, start Azurite with the `--oauth basic and --cert --key/--pwd` options.
 
 ### Well-known storage account and key
 
@@ -403,7 +399,7 @@ For more information, see [Configure Azure Storage connection strings](storage-c
 
 ### Azure SDKs
 
-To use Azurite with the [Azure SDKs](https://aka.ms/azsdk), use OAuth and HTTPs options:
+To use Azurite with the [Azure SDKs](https://aka.ms/azsdk), use OAuth and HTTPS options:
 
 ```console
 azurite --oauth basic --cert certname.pem --key certname-key.pem
