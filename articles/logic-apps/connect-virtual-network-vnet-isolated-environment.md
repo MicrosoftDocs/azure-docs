@@ -83,7 +83,7 @@ To make sure that your ISE is accessible and that the logic apps in that ISE can
 
 * For an existing virtual network, you can *optionally* set up [network security groups (NSGs)](../virtual-network/security-overview.md#network-security-groups) to [filter network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you want to go this route, or if you're already using NSGs, make sure that you [open the ports described in this table](#network-ports-for-ise) for those NSGs.
 
-  When you set up [NSG security rules](../virtual-network/security-overview.md#security-rules), you need to use *both* the **TCP** and **UDP** protocols, or you can select **Any** instead. NSG security rules describe the ports that you must open for the IP addresses that need access to those ports. Make sure that any firewalls, routers, or other items that exist between these endpoints also keep those ports accessible to those IP addresses.
+  When you set up [NSG security rules](../virtual-network/security-overview.md#security-rules), you need to use *both* the **TCP** and **UDP** protocols, or you can select **Any** instead so you don't have to create separate rules for each protocol. NSG security rules describe the ports that you must open for the IP addresses that need access to those ports. Make sure that any firewalls, routers, or other items that exist between these endpoints also keep those ports accessible to those IP addresses.
 
 <a name="network-ports-for-ise"></a>
 
