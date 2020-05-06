@@ -17802,7 +17802,7 @@
     },
     {
       "source_path": "articles/synpase-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md",
-      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory",
+      "redirect_url": "/power-bi/service-azure-sql-data-warehouse-with-direct-connect",
       "redirect_document_id": false
     },
     {
