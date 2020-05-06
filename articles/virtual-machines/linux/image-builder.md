@@ -3,7 +3,7 @@ title: Create a Linux VM with Azure Image Builder (preview)
 description: Create a Linux VM with the Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -11,13 +11,16 @@ ms.subservice: imaging
 ---
 # Preview: Create a Linux VM with Azure Image Builder
 
-This article shows you how you can create a customized Linux image using the Azure Image Builder and the Azure CLI. The example in this article uses three different [customizers](image-builder-json.md#properties-customize) for customizing the image:
+This article shows you how you can create a customized Linux image using the Azure Image Builder and the Azure CLI. The example in this article uses multiple different [customizers](image-builder-json.md#properties-customize) and [build properties](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-json#type-and-api-version) for customizing the image:
 
 - Shell (ScriptUri) - downloads and runs a [shell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh).
 - Shell (inline) - runs specific commands. In this example, the inline commands include creating a directory and updating the OS.
 - File - copies a [file from GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) into a directory on the VM.
+- buildTimeoutInMinutes - Increase a build time to allow for longer running builds, the default is 240 minutes, and you can increase a build time to allow for longer running builds.
+- vmProfile - specifying a vmSize and Network properties
+- osDiskSizeGB - you can increase the size of image
+- identity - providing an identity for Azure Image Builder to use during the build
 
-You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and you can increase a build time to allow for longer running builds.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
 
@@ -43,7 +46,8 @@ Check your registration.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-
+az provider show -n Microsoft.KeyVault | grep registrationState
+az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
@@ -51,7 +55,8 @@ If they do not say registered, run the following:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
-
+az provider register -n Microsoft.Compute
+az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 ```
 
@@ -84,17 +89,41 @@ This is used to store the image configuration template artifact and the image.
 az group create -n $imageResourceGroup -l $location
 ```
 
-## Set permissions on the resource group
-Give Image Builder 'contributor' permission to create the image in the resource group. Without the proper permissions, the image build will fail. 
+## Create a user-assigned identity and set permissions on the resource group
+Image Builder will use the [user-identity]((https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity)) provided to inject the image into the resource group. In this example, you will create an Azure role definition that has the granular actions to perform distributing the image. The role definition will then be assigned to the user-identity.
 
-The `--assignee` value is the app registration ID for the Image Builder service. 
+### Create User-Assigned Managed Identity and Grant Permissions 
+```bash
+# create user assigned identity for image builder to access the storage account where the script is located
+idenityName=aibBuiUserId$(date +'%s')
+az identity create -g $imageResourceGroup -n $idenityName
 
-```azurecli-interactive
+# get identity id
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+
+# get the user identity URI, needed for the template
+imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
+
+# this command will download a Azure Role Definition template, and update the template with the parameters specified earlier.
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+
+imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
+
+# update the definition
+sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
+sed -i -e "s/<rgName>/$imageResourceGroup/g" aibRoleImageCreation.json
+sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g" aibRoleImageCreation.json
+
+# create role definitions
+az role definition create --role-definition ./aibRoleImageCreation.json
+
+# grant role definition to the user assigned identity
 az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
+    --assignee $imgBuilderCliId \
+    --role $imageRoleDefName \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
+
 
 ## Download the template example
 
@@ -108,6 +137,7 @@ sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateLinux.json
 sed -i -e "s/<region>/$location/g" helloImageTemplateLinux.json
 sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
+sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateLinux.json
 ```
 
 You can modify this example .json as needed. For example, you can increase the value of `buildTimeoutInMinutes` to allow for longer running builds. You can edit the file in Cloud Shell using  a text editor like `vi`.
@@ -224,6 +254,17 @@ az resource delete \
     -n helloImageTemplateLinux01
 ```
 
+Delete the role assignement, role defintion and user-identity.
+```azurecli-interactive
+az role assignment delete \
+    --assignee $imgBuilderCliId \
+    --role "$imageRoleDefName" \
+    --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
+
+az role definition delete --name "$imageRoleDefName"
+
+az identity delete --ids $imgBuilderId
+```
 Delete the image resource group.
 
 ```azurecli
