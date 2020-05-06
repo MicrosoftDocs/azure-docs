@@ -64,7 +64,7 @@ A storage account provides a unique namespace to store and access your Azure Sto
 Follow these steps to create a read-access geo-zone-redundant (RA-GZRS) storage account:
 
 1. Select the **Create a resource** button in the Azure portal.
-2. Select **Storage account - blob, file, tabel, queue** from the **New** page.
+2. Select **Storage account - blob, file, table, queue** from the **New** page.
 4. Fill out the storage account form with the following information, as shown in the following image and select **Create**:
 
    | Setting       | Sample value | Description |
