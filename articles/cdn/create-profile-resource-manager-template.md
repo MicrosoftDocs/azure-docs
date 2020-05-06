@@ -207,7 +207,7 @@ az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o t
 
 ![View CDN Endpoint](./media/create-profile-resource-manager-template/cdn-view-endpoint.png)
 
-Use the HostName to view the content. For example, access https://cdndemo-azurewebsites-net.azureedge.net using your browser.
+Use the HostName to view the content. For example, access https:\//cdndemo-azurewebsites-net.azureedge.net using your browser.
 
 ## Clean up
 

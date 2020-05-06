@@ -4,7 +4,7 @@ description: Azure SQL Database provides recommendations for single and pooled d
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: 
+ms.custom: fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
 author: danimir
@@ -46,7 +46,7 @@ You can also find complete history of tuning actions that were applied in the pa
 
 ## Create index recommendations
 
-SQL Database continuously monitors the queries that are running and identifies the indexes that could improve performance. After there's enough confidence that a certain index is missing, a new **Create index** recommendation is created.
+Azure SQL Database continuously monitors the queries that are running and identifies the indexes that could improve performance. After there's enough confidence that a certain index is missing, a new **Create index** recommendation is created.
 
 Azure SQL Database builds confidence by estimating the performance gain the index would bring through time. Depending on the estimated performance gain, recommendations are categorized as high, medium, or low.
 
@@ -54,7 +54,7 @@ Indexes that are created by using recommendations are always flagged as auto-cre
 
 If you try to drop the column that has an auto-created index over it, the command passes. The auto-created index is dropped with the command as well. Regular indexes block the ALTER/RENAME command on columns that are indexed.
 
-After the create index recommendation is applied, Azure SQL Database compares the performance of the queries with the baseline performance. If the new index improved performance, the recommendation is flagged as successful and the impact report is available. If the index didn't improve performance, it's automatically reverted. SQL Database uses this process to ensure that recommendations improve database performance.
+After the create index recommendation is applied, Azure SQL Database compares the performance of the queries with the baseline performance. If the new index improved performance, the recommendation is flagged as successful and the impact report is available. If the index didn't improve performance, it's automatically reverted. Azure SQL Database uses this process to ensure that recommendations improve database performance.
 
 Any **create index** recommendation has a back-off policy that doesn't allow applying the recommendation if the resource usage of a database or pool is high. The back-off policy takes into account CPU, Data IO, Log IO, and available storage.
 
@@ -64,7 +64,7 @@ This process repeats until there's enough available storage to create an index, 
 
 ## Drop index recommendations
 
-Besides detecting missing indexes, SQL Database continuously analyzes the performance of existing indexes. If an index is not used, Azure SQL Database recommends dropping it. Dropping an index is recommended in two cases:
+Besides detecting missing indexes, Azure SQL Database continuously analyzes the performance of existing indexes. If an index is not used, Azure SQL Database recommends dropping it. Dropping an index is recommended in two cases:
 
 - The index is a duplicate of another index (same indexed and included column, partition schema, and filters).
 - The index hasn't been used for a prolonged period (93 days).
@@ -90,7 +90,7 @@ After you apply this recommendation, it enables forced parameterization within m
 > [!IMPORTANT]
 > Microsoft is currently deprecating "Fix schema issue" recommendations. We recommend that you use [Intelligent Insights](sql-database-intelligent-insights.md) to monitor  your database performance issues, including schema issues that the "Fix schema issue" recommendations previously covered.
 
-**Fix schema issues** recommendations appear when the SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, and so on) within an hour.
+**Fix schema issues** recommendations appear when the Azure SQL Database service notices an anomaly in the number of schema-related SQL errors that are happening on your SQL database. This recommendation typically appears when your database encounters multiple schema-related errors (invalid column name, invalid object name, and so on) within an hour.
 
 "Schema issues" are a class of syntax errors in SQL Server. They occur when the definition of the SQL query and the definition of the database schema aren't aligned. For example, one of the columns that's expected by the query might be missing in the target table or vice-versa.
 

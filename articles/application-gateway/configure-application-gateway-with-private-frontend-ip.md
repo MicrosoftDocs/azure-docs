@@ -6,7 +6,7 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 04/16/2020
 ms.author: victorh
 ---
 
@@ -90,8 +90,8 @@ To do this, you:
    - select *myResourceGroupAG* for **Resource group**.
    - *myVM* - for **Virtual machine name**.
    - Select **Windows Server 2019 Datacenter** for **Image**.
-   - *azureadmin* - for the **Username**.
-   - *Azure123456!* for the **Password**.
+   - a valid **Username**.
+   - a valid **Password**.
 5. Accept the remaining defaults and select **Next : Disks**.
 6. Accept the defaults and select **Next : Networking**.
 7. Make sure that **myVNet** is selected for the virtual network and the subnet is **myBackendSubnet**.

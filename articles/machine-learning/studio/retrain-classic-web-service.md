@@ -8,7 +8,7 @@ ms.subservice: studio
 ms.topic: conceptual
 
 author: peterclu
-ms.author: amlstudiodocs
+ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
 ---

@@ -1,6 +1,6 @@
 ---
 title: Add sign-in with Microsoft to a Microsoft identity platform Python web app | Azure
-description: Learn how to implement Microsoft Sign-In on a Python Web App using OAuth2
+description: Learn how to implement Microsoft Sign-In on a Python web app using OAuth2
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
@@ -11,16 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
-ms.custom: aaddev
+ms.custom: aaddev, scenarios:getting-started, languages:Python
 ---
 
 # Quickstart: Add sign-in with Microsoft to a Python web app
 
 In this quickstart, you'll learn how to integrate a Python web application with the Microsoft identity platform. Your app will sign in a user, get an access token to call the Microsoft Graph API, and make a request to the Microsoft Graph API.
 
-When you've completed the guide, your application will accept sign-ins of personal Microsoft accounts (including outlook.com,
- live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory. (See [How the sample works](#how-the-sample-works) for an illustration.)
-
+When you've completed the guide, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory. (See [How the sample works](#how-the-sample-works) for an illustration.)
 
 ## Prerequisites
 

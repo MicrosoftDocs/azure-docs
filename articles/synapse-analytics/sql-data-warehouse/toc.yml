@@ -8,7 +8,8 @@
     href: sql-data-warehouse-overview-what-is.md
   - name: Azure Synapse Analytics architecture
     href: massively-parallel-processing-mpp-architecture.md
-
+  - name: Data warehouse units
+    href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Cheat sheet
     href: cheat-sheet.md
   - name: Best practices
@@ -359,7 +360,7 @@
     - name: Build dashboards and reports 
       items:
       - name: Visualize with Power BI
-        href: sql-data-warehouse-get-started-visualize-with-power-bi.md 
+        href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect.md 
   - name: Troubleshoot
     items:
     - name: Connectivity

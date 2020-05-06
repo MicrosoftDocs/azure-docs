@@ -93,14 +93,14 @@ For additional insight, query the master server directly to get the replication 
 In PostgreSQL version 10:
 
 ```SQL
-select pg_wal_lsn_diff(pg_current_wal_lsn(), stat.replay_lsn) 
+select pg_wal_lsn_diff(pg_current_wal_lsn(), replay_lsn) 
 AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 
 In PostgreSQL version 9.6 and earlier:
 
 ```SQL
-select pg_xlog_location_diff(pg_current_xlog_location(), stat.replay_location) 
+select pg_xlog_location_diff(pg_current_xlog_location(), replay_location) 
 AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 

@@ -275,7 +275,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics documentation."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric introduction."
-[circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
+[circonus-doc]: https://docs.circonus.com/circonus/agents/cloud-agent/azure/ 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
 [datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Datadog documentation."
