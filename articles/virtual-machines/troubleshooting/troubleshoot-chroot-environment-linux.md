@@ -195,7 +195,7 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the `lsblk` command to retrieve the lvm names:
 
       ```
-      [azure@rhel7 ~]$ lsblk
+      [user@myvm ~]$ lsblk
       NAME              MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
       sda                 8:0    0   64G  0 disk
       ├─sda1              8:1    0  500M  0 part /boot
@@ -308,7 +308,7 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
    1. Use the `lsblk` command to retrieve the lvm names:
 
       ```
-      [azure@rhel8 ~]$ lsblk
+      [user@myvm ~]$ lsblk
       NAME              MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
       sda                 8:0    0   64G  0 disk
       ├─sda1              8:1    0  500M  0 part /boot
