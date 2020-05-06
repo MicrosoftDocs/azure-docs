@@ -947,6 +947,8 @@
       href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     - name: Use firewall to restrict outbound traffic
       href: ./hdinsight-restrict-outbound-traffic.md
+    - name: Configure network virtual appliance
+      href: ./network-virtual-appliance.md
     - name: Troubleshoot
       items:
       - name: ESP Authentication issues
