@@ -6,7 +6,7 @@ author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 04/22/2020
+ms.date: 5/8/2020
 ms.author: allensu
 ---
 
