@@ -62,7 +62,7 @@ In order to classify an utterance, the intent needs examples of user utterances 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of adding example utterances in LUIS portal on Intent page](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    By providing _example utterances_, you are teaching LUIS about what kinds of utterances should be predicted for this intent. These are positive examples. The utterances in all the other intents are treated as negative examples for this intent. 
+    By providing _example utterances_, you are teaching LUIS about what kinds of utterances should be predicted for this intent. These are positive examples. The utterances in all the other intents are treated as negative examples for this intent.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 
@@ -174,6 +174,8 @@ In order to classify an utterance, the intent needs examples of user utterances 
 
 ## Client-application next steps
 
+This tutorial created a LUIS app, created intents, added example utterances to each intent, added example utterances to the None intent, trained, published, and tested at the endpoint. These are the basic steps of building a LUIS model.
+
 After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn't provide answers to user utterances, it only identifies what type of information is being asked for in natural language. The conversational follow-up is provided by the client application such as an Azure Bot.
 
 
@@ -189,8 +191,6 @@ After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn
 
 
 ## Next steps
-
-This tutorial created a LUIS app, created intents, added example utterances to each intent, added example utterances to the None intent, trained, published, and tested at the endpoint. These are the basic steps of building a LUIS model.
 
 > [!div class="nextstepaction"]
 > [Add a decomposable entity to this app](tutorial-machine-learned-entity.md)
