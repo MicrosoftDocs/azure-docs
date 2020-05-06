@@ -80,11 +80,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+	
+	* If you wish to configure the application in **SP** initiated mode:
+	
+		Please request the URL from IBISWorld and set it into the **Sign-on URL** text box.
+	
+	* Or, to configure the application in **IdP** initiated mode:
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type the URL:
-    `https://my.ibisworld.com/account/login`
+		In the **Relay State** text box, type the URL: `RPID=http://fedlogin.ibisworld.com` and leave the **Sign-on URL** text box empty.
 
 1. Click **Save**.
 
