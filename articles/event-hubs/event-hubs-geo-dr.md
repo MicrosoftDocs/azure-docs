@@ -131,7 +131,7 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 ![3][]
 
 ## Private endpoints
-This section provides additional considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Event Hubs in general, see [Integrate Azure Event Hubs with Azure Private Link](private-link-service.md).
+This section provides additional considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Event Hubs in general, see [Configure private endpoints]](private-link-service.md).
 
 ### New pairings
 If you try to create a pairing between a primary namespace with a private endpoint to a secondary namespace without a private endpoint, the pairing will fail. The pairing will success only if both primary and secondary namespaces have private endpoints. We recommend that you use same configurations on the primary and secondary namespaces and on virtual networks in which private endpoints are created.  
@@ -139,7 +139,7 @@ If you try to create a pairing between a primary namespace with a private endpoi
 > [!NOTE]
 > When you try to pair a primary namespace with private endpoint to a secondary namespace, the validation process only checks whether the private endpoint exists on the secondary namespace. It doesn't check whether the endpoint works or will work after failover. It's your responsibility to ensure that the secondary namespace with private endpoint will work as expected after failover.
 >
-> To test that the private endpoint configurations are same on primary and secondary namespaces, send a read request (for example: [Get Event Hub](/rest/api/eventhub/get-event-hub)) to the secondary namespace from outside the virtual network, and verify that you receive an error message from the service (not just from the private link network resource provider).
+> To test that the private endpoint configurations are same on primary and secondary namespaces, send a read request (for example: [Get Event Hub](/rest/api/eventhub/get-event-hub)) to the secondary namespace from outside the virtual network, and verify that you receive an error message from the service.
 
 ### Existing pairings
 If pairing between primary and secondary namespace already exists, private endpoint creation on the primary namespace will fail. Create a private endpoint on the secondary namespace first and then create one for the primary namespace.
@@ -147,14 +147,16 @@ If pairing between primary and secondary namespace already exists, private endpo
 Updates for private endpoints are permitted on the secondary namespace in a paired configuration. It must be done first before enabling private endpoints on the primary namespace.
 
 ### Virtual networks
-We recommend that you use separate virtual networks when creating private endpoints for primary and secondary namespaces. You need to create private endpoints for both networks on primary and secondary namespaces before you can pair these namespaces. 
+When creating a disaster recovery configuration for your application and Event Hubs namespaces, you must create private endpoints for both primary and secondary Event Hubs namespaces against virtual networks hosting both primary and secondary instances of your application. You need to create private endpoints for both networks on primary and secondary namespaces before you can pair these namespaces.
 
-Let's say you have two virtual networks: VNET-1, VNET-2 and these primary and second namespaces: EHUBNS-PNS, EHBUNS-SNS. You need to do the following steps: 
+Let's say you have two virtual networks: VNET-1, VNET-2 and these primary and second namespaces: EventHubs-Namespace1-Primary, EventHubs-Namespace2-Secondary. You need to do the following steps: 
 
-- On EHUBNS-PNS, create two private endpoints that use subnets from VNET-1 and VNET-2
-- On EHUBNS-SNS, create two private endpoints that use subnets from VNET-1 and VNET-2 
+- On EventHubs-Namespace1-Primary, create two private endpoints that use subnets from VNET-1 and VNET-2
+- On EventHubs-Namespace2-Secondary, create two private endpoints that use subnets from VNET-1 and VNET-2 
 
-Advantage of this approach is that failover can happen at the application layer independent of Service Bus namespace. Consider the following scenarios: 
+![Private endpoints and virtual networks](./media/event-hubs-geo-dr/private-endpoints-virtual-networks.png)
+
+Advantage of this approach is that failover can happen at the application layer independent of Event Hubs namespace. Consider the following scenarios: 
 
 **Application-only failover:** Here, the application won't exist in VNET-1 but will move to VNET-2. As both private endpoints are configured on both VNET-1 and VNET-2 for both primary and secondary namespaces, the application will just work. 
 

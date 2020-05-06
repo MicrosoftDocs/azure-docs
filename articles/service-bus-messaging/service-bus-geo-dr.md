@@ -152,7 +152,7 @@ If you try to create a pairing between a primary namespace with a private endpoi
 > [!NOTE]
 > When you try to pair primary namespace with a private endpoint to the secondary namespace, the validation process only checks whether the private endpoint exists on the secondary namespace. It doesn't check whether the endpoint works or will work after failover. It's your responsibility to ensure that the secondary namespace with private endpoint will work as expected after failover.
 >
-> To test that the private endpoint configurations are same, send a [Get queues](/rest/api/servicebus/queues/get) request to the secondary namespace from outside the virtual network, and verify that you receive an error message from the service (not just from the private link network resource provider).
+> To test that the private endpoint configurations are same, send a [Get queues](/rest/api/servicebus/queues/get) request to the secondary namespace from outside the virtual network, and verify that you receive an error message from the service.
 
 ### Existing pairings
 If pairing between primary and secondary namespace already exists, private endpoint creation on the primary namespace will fail. Create a private endpoint on the secondary namespace first and then create one for the primary namespace.
@@ -160,12 +160,15 @@ If pairing between primary and secondary namespace already exists, private endpo
 Updates for private endpoints are permitted on the secondary namespace in a paired configuration. It must be done first before enabling private endpoints on the primary namespace.
 
 ### Virtual networks
-We recommend that you use separate virtual networks when creating private endpoints for primary and secondary namespaces. You need to create private endpoints for both networks on primary and secondary namespaces before you can pair these namespaces. 
+When creating a disaster recovery configuration for your application and Service Bus, you must create private endpoints for both primary and secondary Service Bus namespaces against virtual networks hosting both primary and secondary instances of your application. You need to create private endpoints for both networks on primary and secondary namespaces before you can pair these namespaces.
 
-Let's say you have two virtual networks: VNET-1, VNET-2 and these primary and second namespaces: SBUSNS-PNS, SBUSNS-SNS. You need to do the following steps: 
+Let's say you have two virtual networks: VNET-1, VNET-2 and these primary and second namespaces: ServiceBus-Namespace1-Primary, ServiceBus-Namespace2-Secondary. You need to do the following steps: 
 
-- On SBUSNS-PNS, create two private endpoints that use subnets from VNET-1 and VNET-2
-- On SBUSNS-SNS, create two private endpoints that use subnets from VNET-1 and VNET-2 
+- On ServiceBus-Namespace1-Primary, create two private endpoints that use subnets from VNET-1 and VNET-2
+- On ServiceBus-Namespace2-Secondary, create two private endpoints that use subnets from VNET-1 and VNET-2 
+
+![Private endpoints and virtual networks](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
+
 
 Advantage of this approach is that failover can happen at the application layer independent of Service Bus namespace. Consider the following scenarios: 
 
