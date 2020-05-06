@@ -40,13 +40,13 @@ Your private endpoint uses a private IP address in your virtual network.
 For step-by-step instructions on creating a new Azure Relay namespace and entities in it, see [Create an Azure Relay namespace using the Azure portal](relay-create-namespace-portal.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. In the search bar, type in **Relay**.
+2. In the search bar, type in **Relays**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 4. Select the **Networking** tab under **Settings**.
 5. Select the **Private endpoint connections (preview)** tab at the top of the page
 6. Select the **+ Private Endpoint** button at the top of the page.
 
-    ![Add private endpoint button](./media/private-link-service/private-link-service-3.png)
+    ![Add private endpoint button](./media/private-link-service/add-private-endpoint-button.png)
 7. On the **Basics** page, follow these steps: 
     1. Select the **Azure subscription** in which you want to create the private endpoint. 
     2. Select the **resource group** for the private endpoint resource.
@@ -81,7 +81,10 @@ For step-by-step instructions on creating a new Azure Relay namespace and entiti
 11. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
     
     ![Create Private Endpoint - Review and Create page](./media/private-link-service/create-private-endpoint-review-create-page.png)
-12. Confirm that the private endpoint is created. If you are the owner of the Relay namespace or have manage access over it and had selected **Connect to an Azure resource in my directory** option for the **Connection method**, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
+12. On the **Private endpoint** page, you can see the status of the private endpoint connection. If you are the owner of the Relay namespace or have manage access over it and had selected **Connect to an Azure resource in my directory** option for the **Connection method**, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
+
+    ![Private endpoint page](./media/private-link-service/private-endpoint-page.png)
+13. Navigate back to the **Networking** page of the **namespace**, and switch to the **Private endpoint connections (preview)** tab. You should see the private endpoint that you created. 
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
 
@@ -177,9 +180,7 @@ There are four provisioning states:
 4. On the **Approve connection** page, enter an optional **comment**, and select **Yes**. If you select **No**, nothing happens. 
 
     ![Approve connection page](./media/private-link-service/approve-connection-page.png)
-5. You should see the status of the connection in the list changed to **Approved**. 
-
-    ![Connection status - approved](./media/private-link-service/connection-status-approved.png)
+5. You should see the status of the connection in the list changed to **Approved**.
 
 ### Reject a private endpoint connection
 
@@ -189,9 +190,7 @@ There are four provisioning states:
 2. On the **Reject connection** page, enter an optional comment, and select **Yes**. If you select **No**, nothing happens. 
 
     ![Reject connection page](./media/private-link-service/reject-connection-page.png)
-3. You should see the status of the connection in the list changed **Rejected**. 
-
-    ![Endpoint rejected](./media/private-link-service/endpoint-rejected.png)
+3. You should see the status of the connection in the list changed **Rejected**.
 
 
 ### Remove a private endpoint connection
@@ -220,29 +219,29 @@ In the **Networking** tab:
 Open the command line and run the following command:
 
 ```console
-nslookup <your-service-bus-namespace-name>.servicebus.azure.net
+nslookup <your-relay-namespace-name>.servicebus.azure.net
 ```
 
 If you run the ns lookup command to resolve the IP address of an Azure Relay namespace over a public endpoint, you will see a result that looks like this:
 
 ```console
-c:\ >nslookup <your-service-bus-namespace-name>.servicebus.azure.net
+c:\ >nslookup <your-relay-namespace-name>.servicebus.azure.net
 
 Non-authoritative answer:
 Name:    
 Address:  (public IP address)
-Aliases:  <your-service-bus-namespace-name>.servicebus.azure.net
+Aliases:  <your-relay-namespace-name>.servicebus.azure.net
 ```
 
 If you run the ns lookup command to resolve the IP address of an Azure Relay namespace over a private endpoint, you will see a result that looks like this:
 
 ```console
-c:\ >nslookup your_service-bus-namespace-name.servicebus.azure.net
+c:\ >nslookup your_relay-namespace-name.servicebus.azure.net
 
 Non-authoritative answer:
 Name:    
 Address:  10.1.0.5 (private IP address)
-Aliases:  <your-service-bus-namespace-name>.servicebus.azure.net
+Aliases:  <your-relay-namespace-name>.servicebus.azure.net
 ```
 
 ## Limitations and Design Considerations
