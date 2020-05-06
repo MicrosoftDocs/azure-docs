@@ -67,7 +67,7 @@ You need to specify the secret name in the workflow.
 
 ## Add Resource Manager template
 
-Add an Resource Manager template to the GitHub repository. If you don't have one, you can use the following template. The template creates a storage account.
+Add a Resource Manager template to the GitHub repository. If you don't have one, you can use the following template. The template creates a storage account.
 
 ```url
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
