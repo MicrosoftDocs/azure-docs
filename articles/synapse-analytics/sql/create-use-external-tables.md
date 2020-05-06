@@ -72,13 +72,8 @@ You can create external tables that reads data from the files placed on publicly
 CREATE EXTERNAL TABLE Taxi (
      vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
      pickup_datetime DATETIME2, 
-     dropoff_datetime DATETIME2,
-     passenger_count INT,
-     trip_distance FLOAT,
-     fare_amount FLOAT,
-     tip_amount FLOAT
-) WITH ( 
-         LOCATION = 'puYear=*/puMonth=*/*.parquet',
+     dropoff_datetime DATETIME2
+) WITH ( LOCATION = 'puYear=*/puMonth=*/*.parquet',
          DATA_SOURCE = YellowTaxi,
          FILE_FORMAT = ParquetFormat
 );
