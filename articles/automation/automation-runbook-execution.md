@@ -31,28 +31,28 @@ The following diagram shows the lifecycle of a runbook job for [PowerShell runbo
 ## Security
 
 Azure Automation uses the [Azure Security Center (ASC)](https://docs.microsoft.com/azure/security-center/security-center-introAzure) to provide security for your resources and detect compromise in Linux systems. Security is provided across your workloads, whether resources are in Azure or not. See 
-[Introduction to authentication in Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-security-overview).
+[Introduction to authentication in Azure Automation](https://docs.microsoft.com/azure/automation/automation-security-overview).
 
 ASC places constraints on users who can run any scripts, either signed or unsigned, on a VM. If you are a user with root access to a VM, you must explicitly configure the machine with a digital signature or turn it off. Otherwise, you can only run a script to apply operating system updates after creating an Automation account and enabling the appropriate feature.
 
 ## Subscriptions
 
-An Azure [subscription](https://docs.microsoft.com/en-us/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) is an agreement with Microsoft to use one or more cloud-based services, for which you are charged. For Azure Automation, each subscription is linked to an Azure Automation account, and you can [create multiple subscriptions](manage-runbooks.md#work-with-multiple-subscriptions) in the account.
+An Azure [subscription](https://docs.microsoft.com/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) is an agreement with Microsoft to use one or more cloud-based services, for which you are charged. For Azure Automation, each subscription is linked to an Azure Automation account, and you can [create multiple subscriptions](manage-runbooks.md#work-with-multiple-subscriptions) in the account.
 
 ## Azure Monitor
 
-Azure Automation makes use of the [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) for monitoring its machine operations. The operations require a Log Analytics workspace and [Log Analytics agents](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-analytics-agent).
+Azure Automation makes use of the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for monitoring its machine operations. The operations require a Log Analytics workspace and [Log Analytics agents](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
 
 ### Log Analytics agent for Windows
 
-The [Log Analytics agent for Windows](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agent-windowsmonitor) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter. You must configure the agent to report to one or more Log Analytics workspaces.
+The [Log Analytics agent for Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windowsmonitor) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter. You must configure the agent to report to one or more Log Analytics workspaces.
 
 >[!NOTE]
 >The Log Analytics agent for Windows was previously known as the Microsoft Monitoring Agent (MMA).
 
 ### Log Analytics agent for Linux
 
-The [Log Analytics agent for Linux](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agent-linux) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with an **nxautomation** user account that allows execution of commands requiring root permissions, for example, on a Hybrid Runbook Worker. The **nxautomation** account is a system account that doesn't require a password. 
+The [Log Analytics agent for Linux](https://docs.microsoft.com/azure/azure-monitor/platform/agent-linux) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with an **nxautomation** user account that allows execution of commands requiring root permissions, for example, on a Hybrid Runbook Worker. The **nxautomation** account is a system account that doesn't require a password. 
 
 The **nxautomation** account with the corresponding sudo permissions must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md). If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
 
@@ -70,7 +70,7 @@ When runbooks are designed to authenticate and run against resources in Azure, t
 You can also use a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) to run runbooks directly on the computer that hosts the role and against local resources in the environment. Azure Automation stores and manages runbooks and then delivers them to one or more assigned computers.
 
 >[!NOTE]
->To run on a Linux Hybrid Runbook Worker, your scripts must be signed and the worker configured accordingly. Alternatively, [signature validation must be turned off](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install#turn-off-signature-validation). 
+>To run on a Linux Hybrid Runbook Worker, your scripts must be signed and the worker configured accordingly. Alternatively, [signature validation must be turned off](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install#turn-off-signature-validation). 
 
 The following table lists some runbook execution tasks with the recommended execution environment listed for each.
 
@@ -103,7 +103,7 @@ A runbook requires appropriate [credentials](shared-resources/credentials.md) to
 The runbook needs permissions for authentication to Azure, through credentials. You can provide credentials by using:
 
 - A local user account to access local resources
-- [Managed identities for Azure resources](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview), for VMs running on Azure
+- [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), for VMs running on Azure
 - An Automation Run As account to let you access the certificates of your Automation account on your VM and use them locally for authentication
 
 ## Modules

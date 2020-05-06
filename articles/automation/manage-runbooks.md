@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Manage runbooks in Azure Automation
 
-You can add a runbook to Azure Automation by either [creating a new one](#creating-a-runbook) or [importing an existing one](#importing-a-runbook) from a file or the [Runbook Gallery](automation-runbook-gallery.md). This article provides information on creating and importing runbooks from a file. You can get all the details of accessing community runbooks and modules in [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).
+You can add a runbook to Azure Automation by either [creating a new one](#create-a-runbook) or [importing an existing one](#import-a-runbook) from a file or the [Runbook Gallery](automation-runbook-gallery.md). This article provides information on creating and importing runbooks from a file. You can get all the details of accessing community runbooks and modules in [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).
 
 >[!NOTE]
 >This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
@@ -62,7 +62,7 @@ You can use the following procedure to import a script file into Azure Automatio
 5. If the **Name** field is enabled, you have the option of changing the runbook name. The name must start with a letter and can contain letters, numbers, underscores, and dashes.
 6. The [runbook type](automation-runbook-types.md) is automatically selected, but you can change the type after taking the applicable restrictions into account.
 7. Click **Create**. The new runbook appears in the list of runbooks for the Automation account.
-8. You must [publish the runbook](#publishing-a-runbook) before you can run it.
+8. You must [publish the runbook](#publish-a-runbook) before you can run it.
 
 > [!NOTE]
 > After you import a graphical runbook or a graphical PowerShell Workflow runbook, you can convert it to another type. However, you can't convert one of these graphical runbooks to a textual runbook.
@@ -212,13 +212,13 @@ Start-AzAutomationRunbook `
 You can't normally run custom scripts and runbooks on the host with a Log Analytics agent installed. If you must do this:
 
 1. Create an Automation account and obtain a Contributor role.
-2. [Link the account to the Azure workspace](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection.md).
+2. [Link the account to the Azure workspace](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection.md).
 3. Enable the Hybrid Runbook Worker, Update Management, or another Automation feature. 
 4. If on a Linux machine, you need high permissions. Log in to [turn off signature checks](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 ## Test a runbook
 
-When you test a runbook, the [Draft version](#publishing-a-runbook) is executed and any actions that it performs are completed. No job history is created, but the [Output](automation-runbook-output-and-messages.md#output-stream) and [Warning and Error](automation-runbook-output-and-messages.md#message-streams) streams are displayed in the Test output pane. Messages to the [Verbose stream](automation-runbook-output-and-messages.md#message-streams) are displayed in the Output pane only if the [VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) variable is set to `Continue`.
+When you test a runbook, the [Draft version](#publish-a-runbook) is executed and any actions that it performs are completed. No job history is created, but the [Output](automation-runbook-output-and-messages.md#output-stream) and [Warning and Error](automation-runbook-output-and-messages.md#message-streams) streams are displayed in the Test output pane. Messages to the [Verbose stream](automation-runbook-output-and-messages.md#message-streams) are displayed in the Output pane only if the [VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) variable is set to `Continue`.
 
 Even though the draft version is being run, the runbook still executes normally and performs any actions against resources in the environment. For this reason, you should only test runbooks on non-production resources.
 
