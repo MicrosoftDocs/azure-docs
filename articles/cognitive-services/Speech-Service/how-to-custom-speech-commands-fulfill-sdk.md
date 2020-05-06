@@ -156,7 +156,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. Say `turn on the tv`
 1. The visual state of the tv should change to "On"
    > [!div class="mx-imgBorder"]
-   > ![Send Activity payload](media/custom-speech-commands/fulfill-sdk-uwp-turnontv.png)
+   > ![Send Activity payload](media/custom-speech-commands/fulfill-sdk-turn-on-tv.png)
 
 ## Next steps
 
