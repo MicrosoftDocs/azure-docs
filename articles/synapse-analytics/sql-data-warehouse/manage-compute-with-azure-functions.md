@@ -110,7 +110,7 @@ Currently, there are only two scaling functions included within the template. Wi
 
 5. Set your operation variable to the desired behavior as follows:
 
-   ```javascript
+   ```JavaScript
    // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
