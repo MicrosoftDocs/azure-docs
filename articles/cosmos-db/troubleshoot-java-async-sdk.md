@@ -13,6 +13,12 @@ ms.reviewer: sngun
 
 # Troubleshoot issues when you use the Java Async SDK with Azure Cosmos DB SQL API accounts
 
+> [!div class="op_single_selector"]
+> * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
+> * [Async Java SDK v2](troubleshoot-java-async-sdk.md)
+> * [.NET](troubleshoot-dot-net-sdk.md)
+> 
+
 > [!IMPORTANT]
 > This article covers troubleshooting for Async Java SDK v2 only. Please see the __[Release Notes](sql-api-sdk-async-java)__ and __[Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)__ for more information.
 >
