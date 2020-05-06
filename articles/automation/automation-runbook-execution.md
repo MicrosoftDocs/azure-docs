@@ -92,7 +92,7 @@ The following table lists some runbook execution tasks with the recommended exec
 
 ## Resources
 
-Your runbooks must include logic to deal with resources, for example, VMs, the network, and resources on the network. Resources are tied to an Azure subscription, and runbooks require appropriate credentials to access any resource. See [Resources](https://docs.microsoft.com/en-us/rest/api/resources/resources). For an example of handling resources in a runbook, see [Handle resources](manage-runbooks.md#handle-resources). 
+Your runbooks must include logic to deal with resources, for example, VMs, the network, and resources on the network. Resources are tied to an Azure subscription, and runbooks require appropriate credentials to access any resource. See [Resources](https://docs.microsoft.com/rest/api/resources/resources). For an example of handling resources in a runbook, see [Handle resources](manage-runbooks.md#handle-resources). 
 
 ## Credentials
 
@@ -114,7 +114,7 @@ Azure Automation supports a number of default modules, including the AzureRM mod
 
 Azure Automation uses [certificates](shared-resources/certificates.md) for authentication to Azure or adds them to Azure or third-party resources. The certificates are stored securely for access by runbooks and DSC configurations. 
 
-Your runbooks can use self-signed certificates, which are not signed by a certificate authority (CA). See [Create a new certificate](shared-resources/certificates#create-a-new-certificate).
+Your runbooks can use self-signed certificates, which are not signed by a certificate authority (CA). See [Create a new certificate](shared-resources/certificates.md#create-a-new-certificate).
 
 ## Jobs
 
