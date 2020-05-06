@@ -585,7 +585,7 @@ The following limitations apply to tags:
 * Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > Currently, Azure DNS zones and Traffic Manger services also don't allow the use of spaces in the tag.
+   > Currently, Azure DNS zones and Traffic Manager services also don't allow the use of spaces in the tag.
    >
    > Azure Front Door doesn't support the use of `#` in the tag name.
 
