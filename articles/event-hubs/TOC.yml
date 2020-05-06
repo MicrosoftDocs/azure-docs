@@ -250,7 +250,7 @@
     - name: Client library
       items:
       - name: azure-eventhub version 5
-        href: /python/api/overview/azure/eventhub/client
+        href: /python/api/azure-eventhub/?view=azure-python
       - name: azure-eventhub version 1
         href: /python/api/azure-eventhub/?view=azure-python-previous
     - name: Management library
