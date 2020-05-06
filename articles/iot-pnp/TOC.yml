@@ -37,8 +37,6 @@
   items:
   - name: Install IoT explorer
     href: howto-install-iot-explorer.md
-  - name: Install Azure CLI extension
-    href: howto-install-pnp-cli.md
   - name: Manage models
     href: howto-manage-models.md
   - name: Connect to a device in your solution

@@ -320,10 +320,11 @@ Based on a condition applies one value or the other. If other is unspecified it 
 ___
 ### <code>iifNull</code>
 <code><b>iifNull(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => any</b></code><br/><br/>
-Checks if the value is NOT NULL and returns it else returns the alternate. It tests for all inputs until it finds the first non-null value  
+Checks if the first parameter is null. If not null, the first parameter is returned. If null, the second parameter is returned. If three parameters are specified, the behavior is the same as iif(isNull(value1), value2, value3) and the third parameter is returned if the first value is not null.  
 * ``iifNull(10, 20) -> 10``  
 * ``iifNull(null, 20, 40) -> 20``  
-* ``iifNull('bojjus', 'bo', 'dumbo') -> 'dumbo'``  
+* ``iifNull('azure', 'data', 'factory') -> 'factory'``  
+* ``iifNull(null, 'data', 'factory') -> 'data'``  
 ___
 ### <code>in</code>
 <code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>

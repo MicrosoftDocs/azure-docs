@@ -82,6 +82,9 @@
     href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python
   - name: REST samples
     href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Full-text search

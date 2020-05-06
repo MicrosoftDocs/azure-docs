@@ -15,9 +15,6 @@ You can use [private endpoints](../private-link/private-endpoint-overview.md) to
 
 This article describes how to configure private endpoints for topics or domains.
 
-> [!IMPORTANT]
-> Private endpoints feature is available for topics and domains only in premium tier. To upgrade from basic tier to premium tier, see the [Update pricing tier](update-tier.md) article. 
-
 ## Use Azure portal 
 This section shows you how to use the Azure portal to create a private endpoint for a topic or a domain.
 
@@ -201,7 +198,7 @@ Here's a sample script that creates the following Azure resources:
 - Resource group
 - Virtual network
 - Subnet in the virtual network
-- Azure Event Grid topic (premium tier)
+- Azure Event Grid topic
 - Private endpoint for the topic
 
 > [!NOTE]
@@ -250,8 +247,7 @@ az network vnet subnet update \
 az eventgrid topic create \
     --resource-group $resourceGroupName \
     --name $topicName \
-    --location $location \
-    --sku "Premium" 
+    --location $location
 
 # verify that the topic was created.
 az eventgrid topic show \
@@ -365,7 +361,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 
 ```azurepowershell-interactive
-$body = @{"location"="<LOCATION>"; "sku"= @{"name"="premium"}; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
+$body = @{"location"="<LOCATION>"; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
 
 # create topic
 Invoke-RestMethod -Method 'Put'  `

@@ -49,7 +49,7 @@ Error description contains "Failed to connect to Azure Storage Account” or “
 
 ### Cause
 
-Azure Storage and SQL don't have fixed IP Addresses, so we need to allow outbound connections to all IPs to allow accessing these services. The exact resolution steps depend on whether you have set up a Network Security Group (NSG) or User-Defined Rules (UDR). Refer to the section on [controlling network traffic with HDInsight with network security groups and user-defined routes](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) for details on these configurations.
+Azure Storage and SQL don't have fixed IP Addresses, so we need to allow outbound connections to all IPs to allow accessing these services. The exact resolution steps depend on whether you have set up a Network Security Group (NSG) or User-Defined Rules (UDR). Refer to the section on [controlling network traffic with HDInsight with network security groups and user-defined routes](../control-network-traffic.md) for details on these configurations.
 
 ### Resolution
 
