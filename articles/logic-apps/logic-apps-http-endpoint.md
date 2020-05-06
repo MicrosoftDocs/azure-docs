@@ -194,7 +194,11 @@ When you want your endpoint URL to accept parameter values through the endpoint'
 
    `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   To put the parameter name and value in a different position within the URL, make sure to use the ampersand (`&`) as a prefix, for example:
+   The browser returns a response with this text: `Postal Code: 123456`
+
+   ![Response from sending request to callback URL](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+
+1. To put the parameter name and value in a different position within the URL, make sure to use the ampersand (`&`) as a prefix, for example:
 
    `...?api-version=2016-10-01&{parameter-name=parameter-value}&...`
 
@@ -242,7 +246,9 @@ When you want your endpoint URL to accept parameter values through the endpoint'
 
 1. To test your callable endpoint, copy the updated callback URL from the Request trigger, paste the URL into another browser window, replace `{postalCode}` in the URL with `123456`, and press Enter.
 
-   Your browser shows this text: `Postal Code: 123456`
+   The browser returns a response with this text: `Postal Code: 123456`
+
+   ![Response from sending request to callback URL](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
 ## Call logic app through endpoint URL
 
