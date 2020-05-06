@@ -81,7 +81,7 @@ The Live Server extension for Visual Studio Code provides a local development we
 
 1. When prompted to open the cloned repository, select **Open**.
 
-    :::image type="content" source="media/local-development/open-in-new-window.png" alt-text="Open in new window":::
+    :::image type="content" source="media/local-development/open-new-window.png" alt-text="Open in new window":::
 
 Visual Studio Code will open the cloned project in the editor.
 
@@ -113,7 +113,7 @@ As part of the API creation process, a launch configuration is created for Visua
 
 1. Next, press **Ctrl/Cmd** and click on the URL in the terminal to open a browser window that calls the API.
 
-    :::image type="content" source="media/local-development/hello-from-the-api.png" alt-text="Browser display result of API call":::
+    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="Browser display result of API call":::
 
 ### Debugging the API
 
