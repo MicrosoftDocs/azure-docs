@@ -16,13 +16,13 @@ Windows Virtual Desktop is a managed virtual desktop service that includes many 
 
 This article describes additional steps you can take as an admin to keep your customers' Windows Virtual Desktop deployments secure.
 
-# Security responsibilities
+## Security responsibilities
 
 Many cloud services share certain security responsibilities. When you use Windows Virtual Desktop, it’s important to understand that while some components come already secured for your environment, you'll need to configure other areas yourself to fit your organization’s security needs.
 
 The following table shows which security needs users are responsible for. Anything that the customer isn't responsible for is handled by Microsoft.
 
-| Security need | Customer responsibility in on-premises VDI | Customer responsibility in Windows Virtual Desktop |
+| Security need | On-premises virtual desktop infrastructure | Windows Virtual Desktop |
 |---------------|:-----------------:|:-------------------------:|
 |Identity|&#10004;|&#10004;|
 |User devices (mobile and PC)|&#10004;|&#10004;|
@@ -76,13 +76,13 @@ Enabling audit log collection lets you view user and admin activity related to W
 -   [Azure Activity Log](../azure-monitor/platform/activity-log-collect.md)
 -   [Azure Active Directory Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
--   [Session hosts](../azure-monitor/platform/agent-windows,md)
+-   [Session hosts](../azure-monitor/platform/agent-windows.md)
 -   [Windows Virtual Desktop Diagnostic Log](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Key Vault logs](../key-vault/general/logging.md)
 
 ### Use RemoteApps
 
-When choosing a deployment model, you can either provide remote users access to entire virtual desktops or only select applications. Remote applications, or RemoteApps, provide a more seamless experience with other applications the user interacts with and reduces risk, since the user is only interacting with a subset of the remote machine exposed by the application.
+When choosing a deployment model, you can either provide remote users access to entire virtual desktops or only select applications. Remote applications, or RemoteApps, provide a seamless experience as the user works with apps on their virtual desktop. RemoteApps reduce risk by only letting the user work with with a subset of the remote machine exposed by the application.
 
 ### Monitor usage with Azure Monitor
 
@@ -94,13 +94,13 @@ This section describes best practices for session host security.
 
 ### Enable endpoint protection
 
-To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. Learn how to set up Windows Defender for a VDI environment, at [Deployment guide for Windows Defender Antivirus in a virtual desktop infrastructure (VDI) environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus). 
+To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. To learn more, see [Deployment guide for Windows Defender Antivirus in a VDI environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus). 
 
 For profile solutions like FSLogix or other solutions that mount VHD files, we recommend excluding VHD file extensions.
 
 ### Install an endpoint detection and response product
 
-We recommend you install an endpoint detection and response (EDR) product to provide advanced detection and response capabilities. For server operating systems with [Azure Security Center](../security-center/security-center-services?tabs=features-windows.md) enabled, installing an EDR product will deploy Defender ATP. For client operating systems, you can deploy [Defender ATP](/windows/security/threat-protection/microsoft-defender-atp/onboarding) or a third-party product to those endpoints.
+We recommend you install an endpoint detection and response (EDR) product to provide advanced detection and response capabilities. For server operating systems with [Azure Security Center](../security-center/security-center-services.md) enabled, installing an EDR product will deploy Defender ATP. For client operating systems, you can deploy [Defender ATP](/windows/security/threat-protection/microsoft-defender-atp/onboarding) or a third-party product to those endpoints.
 
 ### Enable threat and vulnerability management assessments
 
@@ -108,7 +108,7 @@ Identifying software vulnerabilities that exist in operating systems and applica
 
 ### Patch software vulnerabilities in your environment
 
-Once you identify a vulnerability, you must patch it. This applies to virtual environments as well, which includes the running operating systems, applications deployed inside of them, and the images you create new machines from. Follow your vendor patch notification communications and apply patches in a timely manner. We recommend patching your base images monthly to ensure that newly deployed machines are as secure as possible.
+Once you identify a vulnerability, you must patch it. This applies to virtual environments as well, which includes the running operating systems, the applications that are deployed inside of them, and the images you create new machines from. Follow your vendor patch notification communications and apply patches in a timely manner. We recommend patching your base images monthly to ensure that newly deployed machines are as secure as possible.
 
 ### Establish maximum inactive time and disconnection policies
 
@@ -128,7 +128,7 @@ Consider session hosts as an extension of your existing desktop deployment. We r
 
 ### Manage Office Pro Plus security
 
-In addition to securing your session hosts, it's important to also secure the applications running inside of them. Office Pro Plus is one of the most common applications deployed in session hosts. To improve the Office deployment security, we recommend you use the [Security Policy Advisor](/DeployOffice/overview-of-security-policy-advisor) for Microsoft 365 Apps for Enterprise. This tool identifies policies that can you can apply to your deployment for more security, and also gives recommendations that assess the impact of these policies on both security and productivity.
+In addition to securing your session hosts, it's important to also secure the applications running inside of them. Office Pro Plus is one of the most common applications deployed in session hosts. To improve the Office deployment security, we recommend you use the [Security Policy Advisor](/DeployOffice/overview-of-security-policy-advisor) for Microsoft 365 Apps for Enterprise. This tool identifies policies that can you can apply to your deployment for more security. Security Policy Advisor also recommends policies based on their impact to your security and productivity.
 
 ### Other security tips for session hosts
 
