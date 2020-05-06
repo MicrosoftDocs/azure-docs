@@ -58,6 +58,10 @@
   items:
   - name: Azure IoT CLI Extension
     href: https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest
+  - name: REST APIs
+    href: https://review.docs.microsoft.com/azure-digitaltwins-rest-api/api/azure-digitaltwins/?branch=master
+  - name: C# SDK
+    href: https://github.com/azure/azure-sdk-for-net
   - name: Service limits
     href: reference-service-limits.md
 - name: Resources
