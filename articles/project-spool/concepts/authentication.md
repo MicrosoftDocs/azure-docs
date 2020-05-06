@@ -11,9 +11,9 @@ ms.topic: conceptual
 ms.service: azure-project-spool
 
 ---
-
 # Authorizing access to ACS
 
+#Authorization Options
 Every client interaction with Azure Communication services must have be authenticated and authorized, so that the service ensures that the client has the permissions required to access the data. Various options for authorizing service clients are below:
 
 
@@ -27,5 +27,6 @@ Every client interaction with Azure Communication services must have be authenti
 |Calling| Low-trust Devices |-|-|-|Supported|
 
 
-
-
+## Scopes for user tokens
+##	Creating HMACs
+## Creating user tokens
