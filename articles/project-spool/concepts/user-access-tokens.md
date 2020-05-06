@@ -101,14 +101,37 @@ client.on('token_will_expire', (tokenProvider) => {
     .then((newToken) => tokenProvider.udpateToken(newToken));
 });
 ```
+
+If your client application is using several of the Azure Communication Services client SDKs, you should instantiate each SDK with a shared instance of the `UserAccessTokenProvider` class and use that instance to manage the user access token refresh process.
+
+```javascript
+const { ChatClient, UserAccessTokenProvider } = require('@azure/communicationservices-chat');
+const { CallingClient } = require('@azure/communicationservices-calling');
+
+// initialize a UserAccessTokenProvider instance
+const tokenProvider = new UserAccessTokenProvider(token);
+
+// single function to refresh tokens across all SDK instances
+tokenProvider.on('token_will_expire', (tokenProvider) => { 
+    // fetch a new token and pass it to the provider
+});
+
+// initialize the chat SDK with the token provider
+const chatClient = new ChatClient(endpoint, tokenProvider);
+
+// initialize the calling SDK with the token provider
+const callingClient = new CallingClient(endpoint, tokenProvider);
+```
+
 ## Revoking users access tokens
 
-> TODO: when and how to revoke tokens
+In some cases, you may need to explicitly revoke user access tokens, for example, when a user changes the password they use to authenticate to your service. This functionality is available via the Azure Communication Services Management SDK.
 
 ```csharp
 // revoke all access tokens issued for a given user
-var tokenRevocationResult = await managementClient.RevokeUserAccessTokenAsync(userName);
+var result = await managementClient.RevokeUserAccessTokenAsync(userName);
 ```
+
 ## Impersonating users
 
 > marobert: do we want to include this?
