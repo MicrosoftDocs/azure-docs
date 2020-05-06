@@ -1518,6 +1518,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | instancepools | No | No |
+> | locations | Yes | Yes |
 > | managedinstances | No | No |
 > | managedinstances / databases | No | No |
 > | servers | Yes | Yes |

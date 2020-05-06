@@ -80,7 +80,7 @@ Azure Advisor will identify Azure Cosmos DB accounts that are using old versions
 
 ## Upgrade your Azure Cosmos DB Java SDK to the latest version from Maven
 
-Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the Java SDK and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the Java SDK and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
 
 ## Upgrade your Azure Cosmos DB Spark Connector to the latest version from Maven
 

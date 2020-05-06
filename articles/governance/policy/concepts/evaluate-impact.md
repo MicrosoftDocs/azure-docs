@@ -1,10 +1,10 @@
 ---
-title: Evaluate the impact of a new Azure policy
+title: Evaluate the impact of a new Azure Policy definition
 description: Understand the process to follow when introducing a new policy definition into your Azure environment.
 ms.date: 09/23/2019
 ms.topic: conceptual
 ---
-# Evaluate the impact of a new Azure policy
+# Evaluate the impact of a new Azure Policy definition
 
 Azure Policy is a powerful tool for managing your Azure resources to business standards and to meet
 compliance needs. When people, processes, or pipelines create or update resources, Azure Policy

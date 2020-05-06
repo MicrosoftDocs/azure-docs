@@ -878,7 +878,7 @@ How to remediate Azure Security Center recommendations:​  https://docs.microso
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
 Audit compliance of Azure container registries using Azure Policy:  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
@@ -902,7 +902,7 @@ Understand Azure Policy effects:  https://docs.microsoft.com/azure/governance/po
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: If using custom Azure policy definitions, use Azure Repos to securely store and manage your code.
+**Guidance**: If using custom Azure Policy definitions, use Azure Repos to securely store and manage your code.
 
 How to store code in Azure DevOps:  https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops​
 

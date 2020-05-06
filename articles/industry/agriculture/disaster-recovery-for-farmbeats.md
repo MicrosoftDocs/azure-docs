@@ -23,13 +23,13 @@ The following sections provide information about how you can configure data reco
 
 FarmBeats stores data in three Azure first party services, which are **Azure storage**, **Cosmos DB** and **Time Series Insights**. Use the following steps to enable data redundancy for these services to a paired Azure region:
 
-1.	**Azure Storage** - Follow this guideline to enable data redundancy for each storage account in your FarmBbeats deployment.
+1.	**Azure Storage** - Follow this guideline to enable data redundancy for each storage account in your FarmBeats deployment.
 2.	**Azure Cosmos DB** - Follow this guideline to enable data redundancy for Cosmos DB account your FarmBeats deployment.
 3.	**Azure Time Series Insights (TSI)** - TSI currently doesn't offer data redundancy. To recover Time Series Insights data, go to your sensor/weather partner and push the data again to FarmBeats deployment.
 
 ## Restore service from online backup
 
-You can initiate failover and recover data stored for which, each of the above mentioned data stores for your FarmBeats deployment. Once you've recovered the data for Azure storage and Cosmos DB, create another FarmBeats deployment in the Azure paired region and then configure the new deployment to use data from restored data stores (i.e. Azure Storage and Cosmos DB) by using the below steps:
+You can initiate failover and recover data stored for which, each of the above-mentioned data stores for your FarmBeats deployment. Once you've recovered the data for Azure storage and Cosmos DB, create another FarmBeats deployment in the Azure paired region and then configure the new deployment to use data from restored data stores (i.e. Azure Storage and Cosmos DB) by using the below steps:
 
 1. [Configure Cosmos DB](#configure-cosmos-db)
 2. [Configure Storage Account](#configure-storage-account)
@@ -40,18 +40,18 @@ You can initiate failover and recover data stored for which, each of the above m
 Copy the access key of the restored Cosmos DB and update the new FarmBeats Datahub Key Vault.
 
 
-  ![Disaster Recovery](./media/disaster-recovery-for-farmbeats/keyvault-secrets.png)
+  ![Disaster Recovery](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
 
 > [!NOTE]
 > Copy the URL of restored Cosmos DB and update it in the new FarmBeats Datahub App Service Configuration. You can now delete Cosmos DB account in the new FarmBeats deployment.
 
-  ![Disaster Recovery](./media/disaster-recovery-for-farmbeats/northeu-ehub-api-configuration.png)
+  ![Disaster Recovery](./media/disaster-recovery-for-farmbeats/configuration.png)
 
 ### Configure Storage Account
 
 Copy the access key of the restored storage account and update it in the new FarmBeats Datahub Key Vault.
 
-![Disaster Recovery](./media/disaster-recovery-for-farmbeats/keyvault-7udqm-secrets.png)
+![Disaster Recovery](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
 
 >[!NOTE]
 > Ensure to Update Storage Account name in the new FarmBeats Batch VM config file.

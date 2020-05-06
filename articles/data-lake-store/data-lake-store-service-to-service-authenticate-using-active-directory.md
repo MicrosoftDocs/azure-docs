@@ -1,14 +1,9 @@
 ---
-title: 'Service-to-service authentication: Azure Data Lake Storage Gen1 with Azure Active Directory | Microsoft Docs'
-description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 using Azure Active Directory
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
+title: Service-to-service authentication - Data Lake Storage Gen1 - Azure
+description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 using Azure Active Directory.
 
+author: twooley
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
@@ -69,7 +64,7 @@ When programmatically logging in, you need the ID for your application. If the a
     ![Assign permissions to group](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Assign permissions to group")
    
     For more information about permissions in Data Lake Storage Gen1, and Default/Access ACLs, see [Access Control in Data Lake Storage Gen1](data-lake-store-access-control.md).
-7. In the **Add Custom Access** blade, click **OK**. The newly added group, with the associated permissions, are listed in the **Access** blade.
+7. In the **Add Custom Access** blade, click **OK**. The newly added groups, with the associated permissions, are listed in the **Access** blade.
    
     ![Assign permissions to group](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Assign permissions to group")
 

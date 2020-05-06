@@ -22,6 +22,8 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-http-connector.md)
 > * [Current version](connector-http.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from an HTTP endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 The difference among this HTTP connector, the [REST connector](connector-rest.md) and the [Web table connector](connector-web-table.md) are:

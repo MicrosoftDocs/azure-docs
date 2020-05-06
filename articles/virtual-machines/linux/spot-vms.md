@@ -1,13 +1,13 @@
 ---
 title: Use Azure Spot VMs
-description: Learn how to use Azure Spot VMs to save on costs
+description: Learn how to use Azure Spot VMs to save on costs.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/25/2020
 ms.author: cynthn
-#pmcontact: jagaveer
+ms.reviewer: jagaveer
 ---
 
 

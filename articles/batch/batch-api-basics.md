@@ -1,19 +1,8 @@
 ---
-title: Overview for developers - Azure Batch | Microsoft Docs
+title: Overview for developers
 description: Learn the features of the Batch service and its APIs from a development standpoint.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-
-ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
-ms.service: batch
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-compute
 ms.date: 08/29/2019
-ms.author: labrenne
 ms.custom: seodec18
 
 ---
@@ -435,7 +424,7 @@ A scaling formula can be based on the following metrics:
 * **Resource metrics** are based on CPU usage, bandwidth usage, memory usage, and number of nodes.
 * **Task metrics** are based on task state, such as *Active* (queued), *Running*, or *Completed*.
 
-When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a *node deallocation option* that you can include in your formulas. For example, you can specify that running tasks are stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool.
+When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a [*node deallocation option*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) that you can include in your formulas. For example, you can specify that running tasks are stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool. Note that setting the node deallocation option as `taskcompletion` or `retaineddata` will prevent pool resize operations until all tasks have completed, or all task rentention periods have expired, respectively.
 
 For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
 

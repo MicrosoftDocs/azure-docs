@@ -100,7 +100,7 @@ manually created blueprint definition in the [required folder structure](#folder
 you can import that blueprint definition to a different management group or subscription.
 
 For examples of built-in blueprint definitions, see the
-[Azure Blueprint GitHub repo](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins).
+[Azure Blueprint GitHub repo](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins).
 
 - **Name** [required]
   - Specifies the name for the new blueprint definition

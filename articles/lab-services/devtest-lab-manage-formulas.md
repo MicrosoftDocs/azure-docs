@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/17/2020
 ms.author: spelluru
 
 ---
@@ -126,7 +126,7 @@ To delete a formula, follow these steps:
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Related blog posts
-* [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+* [Custom images or formulas?](devtest-lab-faq.md#what-is-the-difference-between-a-custom-image-and-a-formula)
 
 ## Next steps
 Once you have created a formula for use when creating a VM, the next step is to [add a VM to your lab](devtest-lab-add-vm.md).

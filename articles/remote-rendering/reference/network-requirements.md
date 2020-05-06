@@ -23,6 +23,9 @@ The exact network requirements depend on your specific use case, such as the num
 * Having **good Wi-Fi signal strength** is essential. If possible, stay close to your Wi-Fi access point and avoid obstacles between your client device and the access points.
 * Make sure that you always connect to the **nearest Azure data center** for your [region](regions.md). The closer the data center, the lower the network latency, which has a huge effect on hologram stability.
 
+> [!NOTE]
+> The downstream bandwidth is mostly consumed by the video stream, which in turn is split between color- and depth information (both 60 Hz, stereo).
+
 ## Network performance tests
 
 If you want to get an initial understanding of whether the quality of your network connectivity is sufficient to run Azure Remote Rendering, there are existing online tools that you can use. We strongly recommend running these online tools from a reasonably powerful laptop connected to the same Wi-Fi as the device that you are planning to run your Azure Remote Rendering client application on. Results obtained from running the tests on a mobile phone or HoloLens2 are usually less useful, as they have proven to show significant variation on low-powered endpoint devices. The location at which you place the laptop should be roughly at the same place at which you expect to use the device that runs your Azure Remote Rendering client application.
@@ -34,7 +37,7 @@ Pick a server closest to you and run the test. While the server will not be the 
    * **Minimum requirement** for Azure Remote Rendering: Approx. 40 Mbps downstream and 5 Mbps upstream.
    * **Recommended** for Azure Remote Rendering: Approx. 100 Mbps downstream and 10 Mbps upstream.
 We recommend running the test multiple times and taking the worst results.
-1. **Use a tool like www.azurespeed.com that measures latency to Azure data centers**. Select the Azure data center supported by Azure Remote Rendering that is closest to you (see [supported regions](regions.md))and run a **latency test**. If there is variation in the numbers you see, give the results some time to stabilize.
+1. **Use a tool like www.azurespeed.com that measures latency to Azure data centers**. Select the Azure data center supported by Azure Remote Rendering that is closest to you (see [supported regions](regions.md)) and run a **latency test**. If there is variation in the numbers you see, give the results some time to stabilize.
    * **Minimum requirement** for Azure Remote Rendering: Latency should consistently be less than 100 ms.
    * **Recommended** for Azure Remote Rendering: Latency should consistently be less than 70 ms.
 

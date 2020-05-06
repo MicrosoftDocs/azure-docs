@@ -1,19 +1,8 @@
 ---
-title: Metrics, alerts, and diagnostic logs - Azure Batch | Microsoft Docs
+title: Metrics, alerts, and diagnostic logs
 description: Record and analyze diagnostic log events for Azure Batch account resources like pools and tasks.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-
-ms.assetid: 
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
 ms.date: 12/05/2018
-ms.author: labrenne
 ms.custom: seodec18
 
 ---

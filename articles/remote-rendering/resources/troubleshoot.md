@@ -33,7 +33,7 @@ There are two reasons why the server might refuse to connect with a **codec not 
 
 First make sure to install the **HEVC Video Extensions** as mentioned in the [Software](../overview/system-requirements.md#software) section of the system requirements.
 
-If you still encounter problems, please make sure that your graphics card supports H265 and you have the latest graphics driver installed. See the [Development PC](../overview/system-requirements.md#development-pc) section of the system requirements for vendor specific information.
+If you still encounter problems, make sure that your graphics card supports H265 and you have the latest graphics driver installed. See the [Development PC](../overview/system-requirements.md#development-pc) section of the system requirements for vendor-specific information.
 
 **The codec is installed, but can't be used:**
 
@@ -72,6 +72,14 @@ The video quality can be compromised either by network quality or the missing H2
 * See the steps to [identify network problems](#unstable-holograms).
 * See the [system requirements](../overview/system-requirements.md#development-pc) for installing the latest graphics driver.
 
+## Video recorded with MRC does not reflect the quality of the live experience
+
+A video can be recorded on Hololens through [Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). However the resulting video has worse quality than the live experience for two reasons:
+* The video framerate is capped at 30 Hz as opposed to 60 Hz.
+* The video images do not go through the [late stage reprojection](../overview/features/late-stage-reprojection.md) processing step, so the video appears to be choppier.
+
+Both are inherent limitations of the recording technique.
+
 ## Black screen after successful model loading
 
 If you are connected to the rendering runtime and loaded a model successfully, but only see a black screen afterwards, then this can have a few distinct causes.
@@ -85,9 +93,42 @@ If these two steps did not help, it is required to find out whether video frames
 
 ### Common client-side issues
 
+**The model excceds the limits of the selected VM, specifically the maximum number of polygons:**
+
+See specific [VM size limitations](../reference/limits.md#overall-number-of-polygons).
+
 **The model is not inside the view frustum:**
 
 In many cases, the model is displayed correctly but located outside the camera frustum. A common reason is that the model has been exported with a far off-center pivot so it is clipped by the camera's far clipping plane. It helps to query the model's bounding box programmatically and visualize the box with Unity as a line box or print its values to the debug log.
+
+Furthermore the conversion process generates an [output json file](../how-tos/conversion/get-information.md) alongside with the converted model. To debug model positioning issues, it is worth looking at the `boundingBox` entry in the [outputStatistics section](../how-tos/conversion/get-information.md#the-outputstatistics-section):
+
+```JSON
+{
+    ...
+    "outputStatistics": {
+        ...
+        "boundingBox": {
+            "min": [
+                -43.52,
+                -61.775,
+                -79.6416
+            ],
+            "max": [
+                43.52,
+                61.775,
+                79.6416
+            ]
+        }
+    }
+}
+```
+
+The bounding box is described as a `min` and `max` position in 3D space, in meters. So a coordinate of 1000.0 means it is 1 kilometer away from the origin.
+
+There can be two problems with this bounding box that lead to invisible geometry:
+* **The box can be far off-center**, so the object is clipped altogether due to far plane clipping. The `boundingBox` values in this case would look like this: `min = [-2000, -5,-5], max = [-1990, 5,5]`, using a large offset on the x-axis as an example here. To resolve this type of issue, enable the `recenterToOrigin` option in the [model conversion configuration](../how-tos/conversion/configure-model-conversion.md).
+* **The box can be centered but be orders of magnitude too large**. That means that albeit the camera starts in the center of the model, its geometry is clipped in all directions. Typical `boundingBox` values in this case would look like this: `min = [-1000,-1000,-1000], max = [1000,1000,1000]`. The reason for this type of issue is usually a unit scale mismatch. To compensate, specify a [scaling value during conversion](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) or mark up the source model with the correct units. Scaling can also be applied to the root node when loading the model at runtime.
 
 **The Unity render pipeline doesn't include the render hooks:**
 
@@ -97,8 +138,20 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 
 ## Unity code using the Remote Rendering API doesn't compile
 
+### Use Debug when compiling for Unity Editor
+
 Switch the *build type* of the Unity solution to **Debug**. When testing ARR in the Unity editor the define `UNITY_EDITOR` is only available in 'Debug' builds. Note that this is unrelated to the build type used for [deployed applications](../quickstarts/deploy-to-hololens.md), where you should prefer 'Release' builds.
 
+### Compile failures when compiling Unity samples for HoloLens 2
+
+We have seen spurious failures when trying to compile Unity samples (quickstart, ShowCaseApp, ..) for HoloLens 2. Visual Studio complains about not being able to copy some files albeit they are there. If you hit this problem:
+* Remove all temporary Unity files from the project and try again.
+* Make sure the projects are located in a directory on disk with reasonably short path, since the copy step sometimes seems to run into problems with long filenames.
+* If that does not help, it could be that MS Sense interferes with the copy step. To set up an exception, run this registry command from command line (requires admin rights):
+    ```cmd
+    reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
+    ```
+    
 ## Unstable Holograms
 
 In case rendered objects seem to be moving along with head movements, you might be encountering issues with *Late Stage Reprojection* (LSR). Refer to the section on [Late Stage Reprojection](../overview/features/late-stage-reprojection.md) for guidance on how to approach such a situation.

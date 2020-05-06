@@ -3,7 +3,7 @@ title: Advanced Application Upgrade Topics
 description: This article covers some advanced topics pertaining to upgrading a Service Fabric application.
 
 ms.topic: conceptual
-ms.date: 1/28/2020
+ms.date: 03/11/2020
 ---
 # Service Fabric application upgrade: Advanced topics
 
@@ -13,7 +13,7 @@ If a new service type is added to a published application as part of an upgrade,
 
 Similarly, service types can be removed from an application as part of an upgrade. However, all service instances of the to-be-removed service type must be removed before proceeding with the upgrade (see [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
-## Avoid connection drops during stateless service planned downtime (preview)
+## Avoid connection drops during stateless service planned downtime
 
 For planned stateless instance downtimes, such as application/cluster upgrade or node deactivation, connections can get dropped due to the exposed endpoint is removed after the instance goes down, which results in forced connection closures.
 

@@ -484,7 +484,7 @@ Always put your keys, certificates, secrets, and connection strings in a
 key management solution. You can use a centralized solution in which
 keys and secrets are stored in hardware security modules (HSMs). Azure
 provides you with an HSM in the cloud with [Azure Key
-Vault](../../key-vault/key-vault-overview.md).
+Vault](../../key-vault/general/overview.md).
 
 Key Vault is a *secret store*: it's a centralized cloud service for
 storing application secrets. Key Vault keeps your confidential data safe
@@ -550,7 +550,7 @@ public knowledge when it is deployed. Avoid including sensitive data of
 any kind in the project.
 
 Earlier, we discussed [Azure Key
-Vault](../../key-vault/key-vault-overview.md). You
+Vault](../../key-vault/general/overview.md). You
 can use Key Vault to store secrets like keys and passwords instead of
 hard-coding them. When you use Key Vault in combination with managed
 identities for Azure resources, your Azure web app can access secret

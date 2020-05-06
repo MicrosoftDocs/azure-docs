@@ -87,7 +87,7 @@ If you do not already have an Android application, follow these steps to set up 
 
 1. In Android Studio's project pane, navigate to **app\src\main\res**.
 2. Right-click **res** and choose **New** > **Directory**. Enter `raw` as the new directory name and click **OK**.
-3. In **app** > **src** > **main** > **res** > **raw**, create a new JSON file called `auth_configbn_single_account.json` and paste the MSAL Configuration that you saved earlier. 
+3. In **app** > **src** > **main** > **res** > **raw**, create a new JSON file called `auth_config_single_account.json` and paste the MSAL Configuration that you saved earlier. 
 
     Below the redirect URI, paste: 
     ```json
@@ -188,7 +188,7 @@ import com.microsoft.identity.client.exception.*;
 ## Instantiate PublicClientApplication
 #### Initialize Variables 
 ```java
-private final static String[] SCOPES = {"File.Read"};
+private final static String[] SCOPES = {"Files.Read"};
 /* Azure AD v2 Configs */
 final static String AUTHORITY = "https://login.microsoftonline.com/common";
 private ISingleAccountPublicClientApplication mSingleAccountApp;

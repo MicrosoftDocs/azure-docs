@@ -75,7 +75,7 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 ### Requirements for configuring TDE protector
 
-- TDE protector can be only asymmetric, RSA 2048 or RSA HSM 2048 key.
+- TDE protector can be only asymmetric, RSA or RSA HSM key. The supported key lengths are 2048 and 3072 bytes.
 
 - The key activation date (if set) must be a date and time in the past. Expiration date (if set) must be a future date and time.
 

@@ -14,7 +14,7 @@ To learn about creating Guest Configuration policies for Linux, see the page
 
 When auditing Windows, Guest Configuration uses a
 [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) resource module to
-and configuration file. The DSC configuration defines the condition that the machine should be in.
+create the configuration file. The DSC configuration defines the condition that the machine should be in.
 If the evaluation of the configuration fails, the policy effect **auditIfNotExists** is triggered
 and the machine is considered **non-compliant**.
 
@@ -26,6 +26,10 @@ non-Azure machine.
 
 > [!IMPORTANT]
 > Custom policies with Guest Configuration is a Preview feature.
+>
+> The Guest Configuration extension is required to perform audits in Azure virtual machines.
+> To deploy the extension at scale across all Windows machines, assign the following policy definitions:
+>   - [Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 
 ## Install the PowerShell module
 
@@ -85,11 +89,14 @@ For an overview of DSC concepts and terminology, see
 
 ### How Guest Configuration modules differ from Windows PowerShell DSC modules
 
-When Guest Configuration audits a machine, it first runs `Test-TargetResource` to determine if it is
-in the correct state. The boolean value returned by the function determines if the Azure Resource
-Manager status for the Guest Assignment should be Compliant/Not-Compliant. Next the provider runs
-`Get-TargetResource` to return the current state of each setting so details are available both about
-why a machine isn't compliant, or to confirm that the current state is compliant.
+When Guest Configuration audits a machine:
+
+1. The agent first runs `Test-TargetResource` to determine if the configuration is
+in the correct state.
+1. The boolean value returned by the function determines if the Azure Resource
+Manager status for the Guest Assignment should be Compliant/Not-Compliant.
+1. The provider runs `Get-TargetResource` to return the current state of each setting so details are available both about
+why a machine isn't compliant and to confirm that the current state is compliant.
 
 ### Get-TargetResource requirements
 
@@ -128,6 +135,25 @@ return @{
     reasons = $reasons
 }
 ```
+
+The Reasons property must also be added to the schema MOF for the resource as an embedded class.
+
+```mof
+[ClassVersion("1.0.0.0")] 
+class Reason
+{
+    [Read] String Phrase;
+    [Read] String Code;
+};
+
+[ClassVersion("1.0.0.0"), FriendlyName("ResourceName")]
+class ResourceName : OMI_BaseResource
+{
+    [Key, Description("Example description")] String Example;
+    [Read, EmbeddedInstance("Reason")] String Reasons[];
+};
+```
+
 ### Configuration requirements
 
 The name of the custom configuration must be consistent everywhere. The name of
@@ -176,7 +202,7 @@ and not communicating with the service.
 
 ## Step by step, creating a custom Guest Configuration audit policy for Windows
 
-Create a DSC configuration. The following PowerShell script example creates a configuration named
+Create a DSC configuration to audit settings. The following PowerShell script example creates a configuration named
 **AuditBitLocker**, imports the **PsDscResources** resource module, and uses the `Service` resource
 to audit for a running service. The configuration script can be executed from a Windows or macOS
 machine.
@@ -198,8 +224,11 @@ Configuration AuditBitLocker
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker -out ./Config
+AuditBitLocker ./Config
 ```
+
+Save this file with name `config.ps1` in the project folder. Run it in PowerShell by executing `./config.ps1`
+in the terminal. A new mof file will be created.
 
 The `Node AuditBitlocker` command isn't technically required but it produces a file named
 `AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the
@@ -208,7 +237,7 @@ configuration makes it easy to organize many files when operating at scale.
 Once the MOF is compiled, the supporting files must be packaged together. The completed package is
 used by Guest Configuration to create the Azure Policy definitions.
 
-The `New-GuestConfigurationPackage` cmdlet creates the package. Parameters of the
+The `New-GuestConfigurationPackage` cmdlet creates the package. Modules that are needed by the configuration must be in available in `$Env:PSModulePath`. Parameters of the
 `New-GuestConfigurationPackage` cmdlet when creating Windows content:
 
 - **Name**: Guest Configuration package name.
@@ -230,7 +259,8 @@ development environment as is used inside Azure machines. Using this solution, y
 integration testing locally before releasing to billed cloud environments.
 
 Since the agent is actually evaluating the local environment, in most cases you need to run the
-Test- cmdlet on the same OS platform as you plan to audit.
+Test- cmdlet on the same OS platform as you plan to audit. The test will only use modules that are included
+in the content package.
 
 Parameters of the `Test-GuestConfigurationPackage` cmdlet:
 

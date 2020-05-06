@@ -1,6 +1,6 @@
 ---
-title: Diagnose Linux Hybrid Runbook Worker - Azure Update Management
-description: Learn how to troubleshoot and resolve issues with the Azure Automation Hybrid Runbook Worker on Linux that supports Update Management.
+title: Troubleshooting Linux update agent issues in Azure Automation Update Management
+description: Learn how to troubleshoot and resolve issues with the Linux Windows update agent using the Update Management solution.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -11,29 +11,29 @@ ms.subservice: update-management
 manager: carmonm
 ---
 
-# Understand and resolve Linux Hybrid Runbook Worker health for Update Management
+# Troubleshoot Linux update agent issues
 
-There may be many reasons your machine isn't showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Runbook Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline).
+There can be many reasons your machine isn't showing up as ready (healthy) in Update Management. In Update Management, you can check the health of a Hybrid Runbook Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline). 
 
 The following list are the three readiness states a machine can be in:
 
-* **Ready** - The Hybrid Runbook Worker is deployed and was last seen less than 1 hour ago.
-* **Disconnected** -  The Hybrid Runbook Worker is deployed and was last seen over 1 hour ago.
-* **Not configured** -  The Hybrid Runbook Worker isn't found or hasn't finished onboarding.
+* Ready - The Hybrid Runbook Worker is deployed and was last seen less than 1 hour ago.
+* Disconnected -  The Hybrid Runbook Worker is deployed and was last seen over 1 hour ago.
+* Not configured -  The Hybrid Runbook Worker isn't found or hasn't finished onboarding.
 
 > [!NOTE]
-> There may be a slight delay between what the Azure portal shows and the current state of the machine.
+> There can be a slight delay between what the Azure portal shows and the current state of a machine.
 
 ## Start the troubleshooter
 
-For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For non-Azure machines, the link brings you to this article. See the offline instructions to troubleshoot a non-Azure machine.
+For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the Troubleshoot Update Agent page. For non-Azure machines, the link brings you to this article. See the offline instructions to troubleshoot a non-Azure machine.
 
 ![vm list page](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
-> The checks require the VM to be running. If the VM is not running you are presented with a button to **Start the VM**.
+> The checks require the VM to be running. If the VM is not running you are presented with a **Start the VM** button.
 
-On the **Troubleshoot Update Agent** page, click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/linux/run-command.md) to run a script on the machine to verify the dependencies. When the troubleshooter is complete, it returns the result of the checks.
+On the Troubleshoot Update Agent page, click **Run Checks**, to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/linux/run-command.md) to run a script on the machine to verify the dependencies. When the troubleshooter is complete, it returns the result of the checks.
 
 ![Troubleshoot page](../media/update-agent-issues-linux/troubleshoot-page.png)
 
@@ -45,7 +45,7 @@ When complete, the results are returned in the window. The check sections provid
 
 ### Operating system
 
-The operating system check verifies if the Hybrid Runbook Worker is running one of the following Operating Systems:
+The operating system check verifies if the Hybrid Runbook Worker is running one of the following operating systems:
 
 |Operating system  |Notes  |
 |---------|---------|

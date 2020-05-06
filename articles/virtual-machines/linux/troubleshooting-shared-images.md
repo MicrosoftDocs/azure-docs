@@ -5,7 +5,7 @@ services: virtual-machine-windows
 documentationcenter: virtual-machine-scale-sets
 author: axayjo
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: 

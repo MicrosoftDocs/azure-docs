@@ -63,7 +63,7 @@ To set up a new Azure Migrate project:
 5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
 6. In **PROJECT DETAILS**, specify the project name and the geography in which you want to create the project. For more information:
 
-    - Review [supported geographies](migrate-support-matrix.md#supported-geographies). The project geography is used only to store the metadata gathered from on-premises VMs.
+    - Review the supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
     - You can select any target region when you run a migration.
 
     ![Create an Azure Migrate project](./media/tutorial-assess-import/migrate-project.png)
@@ -243,6 +243,8 @@ This view shows the estimated compute and storage cost of running VMs in Azure. 
 > Confidence ratings are not assigned to assessments of servers imported into Server Assessment by using CSV.
 
 ## Supported operating system names
+
+Operating system names provided in the CSV must match or contain the names in this list. This is necessary for the names specified to be recognized as valid by the assessment.
 
 <!-- BEGIN A - H -->
 
