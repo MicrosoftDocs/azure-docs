@@ -164,7 +164,7 @@
   - name: Monitor and troubleshoot
     items:
     - name: Diagnostic logs
-      href: 
+      href: diagnostic-logs.md
     - name: Metrics
       href: metrics.md
 - name: How-to guides
