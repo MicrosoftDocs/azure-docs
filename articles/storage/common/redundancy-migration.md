@@ -39,7 +39,7 @@ The following table provides an overview of how to switch from each type of repl
 | <b>…from ZRS</b> | Perform a manual migration | Perform a manual migration | N/A | Use Azure portal, PowerShell, or CLI to change the replication setting<sup>1,2</sup> |
 | <b>…from GZRS/RA-GZRS</b> | Perform a manual migration | Perform a manual migration | Use Azure portal, PowerShell, or CLI to change the replication setting | N/A |
 
-<sup>1</sup> Incurs a one-time egress charge.
+<sup>1</sup> Incurs a one-time egress charge.<br />
 <sup>2</sup> Migration from ZRS to GZRS/RA-GZRS is not supported in the following regions: US East 2, US East, Europe West.
 
 > [!CAUTION]
