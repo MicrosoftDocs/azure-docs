@@ -19,7 +19,7 @@ A network security group (NSG) includes rules that allow or deny traffic to a vi
 When you enable logging for an NSG, you can gather the following types of resource log information:
 
 * **Event:** Entries are logged for which NSG rules are applied to VMs, based on MAC address.
-* **Rule counter:** Contains entries for how many times each NSG rule is applied to deny or allow traffic. The status for these rules is collected every 60 seconds.
+* **Rule counter:** Contains entries for how many times each NSG rule is applied to deny or allow traffic. The status for these rules is collected every 300 seconds.
 
 Resource logs are only available for NSGs deployed through the Azure Resource Manager deployment model. You cannot enable resource logging for NSGs deployed through the classic deployment model. For a better understanding of the two models, see [Understanding Azure deployment models](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
