@@ -292,26 +292,6 @@
       href: ./cloud-partner-portal/iot-edge-module/iot-edge-module-offer.md
     - name: Power BI App offer
       href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
-      items:
-      - name: Prerequisites
-        href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
-      - name: Create Power BI App offer
-        href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
-        items:
-        - name: Offer Settings tab
-          href: ./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md
-        - name: Technical Info tab
-          href: ./cloud-partner-portal/power-bi/cpp-technical-info-tab.md
-        - name: Storefront Details tab
-          href: ./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md
-        - name: Contacts tab
-          href: ./cloud-partner-portal/power-bi/cpp-contacts-tab.md
-      - name: Create Power BI App technical assets
-        href: ./cloud-partner-portal/power-bi/cpp-create-technical-assets.md
-      - name: Publish Power BI App offer
-        href: ./cloud-partner-portal/power-bi/cpp-publish-offer.md
-      - name: Update existing offer
-        href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
     - name: SaaS application offer
       href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
     - name: Virtual machine offer
