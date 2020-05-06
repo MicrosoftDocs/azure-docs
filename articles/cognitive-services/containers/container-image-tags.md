@@ -605,9 +605,9 @@ This container image has the following tags available:
 | `1.1.007360001-amd64-preview` |       |
 | `1.1.006770001-amd64-preview` |       |
 
-## Sentiment Analysis v3
+## Sentiment Analysis
 
-The [Sentiment Analysis][ta-se] v3 container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `sentiment`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/sentiment`.
+The [Sentiment Analysis][ta-se] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `sentiment`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/sentiment`.
 
 This container image has the following tags available:
 
@@ -624,16 +624,7 @@ This container image has the following tags available:
 | `3.0-ja`   | Sentiment Analysis v3 (Japanese)              |
 | `3.0-pt`   | Sentiment Analysis v3 (Portuguese)            |
 | `3.0-nl`   | Sentiment Analysis v3 (Dutch)                 |
-
-## Sentiment Analysis v2
-
-The [Sentiment Analysis][ta-se] v2 container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `sentiment`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/sentiment`.
-
-This container image has the following tags available:
-
-| Image Tags                    | Notes |
-|-------------------------------|:------|
-| `1.1.009301-amd64-preview`    |       |
+| `1.1.009301-amd64-preview`    | Sentiment Analysis v2      |
 | `1.1.008510001-amd64-preview` |       |
 | `1.1.007750002-amd64-preview` |       |
 | `1.1.007360001-amd64-preview` |       |
