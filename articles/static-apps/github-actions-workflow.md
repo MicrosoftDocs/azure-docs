@@ -1,5 +1,5 @@
 ---
-title: Setup GitHub Actions workflows for Azure Static Web Apps
+title: GitHub Actions workflows for Azure Static Web Apps
 description: Learn how to use GitHub repositories to set up continuous deployment to Azure Static Web Apps.
 services: static-web-apps
 author: christiannwamba
@@ -8,9 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: chnwamba
 ---
-# Setup GitHub Actions workflows for Azure Static Web Apps
 
-When you create a new Azure Static Web App resource, Azure generates a GitHub Actions workflow to control the app's continuous deployment. The workflow is driven by YAML file. This article details the structure and options of the workflow file.
+# GitHub Actions workflows for Azure Static Web Apps
+
+When you create a new Azure Static Web App resource, Azure generates a GitHub Actions workflow to control the app's continuous deployment. The workflow is driven by a YAML file. This article details the structure and options of the workflow file.
 
 Deployments are initiated by [triggers](#triggers), which run [jobs](#jobs) that are defined by individual [steps](#steps).
 
@@ -20,7 +21,7 @@ When you link your GitHub repository to Azure Static Web Apps, a workflow file i
 
 Follow these steps to view the generated workflow file.
 
-1. Open an the app's repository on GitHub.
+1. Open the app's repository on GitHub.
 1. From the _Code_ tab, click on the `.github/workflows` folder.
 1. Click on the file with a name that looks like `azure-static-web-apps-<RANDOM_NAME>.yml`.
 
@@ -130,8 +131,8 @@ with:
 
 | Property | Description | Required |
 |---|---|---|
-| `app_location` | Location of your application code.<br><br>For example, enter `/` if your application source code is at the root of the repository, or `/app` if you application code is in a directory called `app`. | Yes |
-| `api_location` | Location of your Azure Functions code.<br><br>For example, enter `/api` if your app code is in a folder called `api`. | No |
+| `app_location` | Location of your application code.<br><br>For example, enter `/` if your application source code is at the root of the repository, or `/app` if your application code is in a directory called `app`. | Yes |
+| `api_location` | Location of your Azure Functions code.<br><br>For example, enter `/api` if your app code is in a folder called `api`. If no Azure Functions app is detected in the folder, the build doesn't fail, the workflow assumes you do not want an API. | No |
 | `app_artifact_location` | Location of the build output directory relative to the `app_location`.<br><br>For example, if your application source code is located at `/app`, and the build script outputs files to the `/app/build` folder, then set `build` as the `app_artifact_location` value. | No |
 
 The `repo_token`, `action`, and `azure_static_web_apps_api_token` values are set for you by Azure Static Web Apps shouldn't be manually changed.
@@ -153,7 +154,9 @@ The deployment always calls `npm install` before any custom command.
 
 ### Route file location
 
-The `routes_location` property defines the location of the [routes.json](routes.md) file relative to the root of the repository.
+You can customize the workflow to look for the [routes.json](routes.md) in any folder in your repository. The `routes_location` property defines the directory location where the _routes.json_ file is found. This location is relative to the root of the repository.
+
+Being explicit about the location of your _routes.json_ file is particularly important if your front-end framework build step does not move this file to the `app_artifact_location` by default.
 
 ## Next steps
 
