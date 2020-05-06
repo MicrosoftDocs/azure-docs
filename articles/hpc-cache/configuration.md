@@ -4,7 +4,7 @@ description: Explains how to configure additional settings for the cache like MT
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/06/2020
 ms.author: v-erkel
 ---
 
