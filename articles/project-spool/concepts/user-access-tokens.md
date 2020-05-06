@@ -54,7 +54,13 @@ By default, user access tokens expire after 24 hours but it is a good security p
 Scopes allow you to specify the exact Azure Communications Services functionality that a user access token will be able authorize. Be default, user access tokens enable clients to participcate in chat threads they have been invited to and to receive incoming VOIP calls. Additional scopes must be specified when creating user access tokens.
 
 ```csharp
-// TODO code sample to create user access token with optional scopes
+// create a user access token that enables outbound voip calling
+// and expires after five minutes
+var tokenResult = await managementClient.CreateUserAccessTokenAsync(
+    userName,
+    ["voip:adhoc"],
+    (60 * 5),
+);
 ```
 
 Scopes are applied to individual user access token. If you wish to remove a user's ability to access to a some specific functionality, you should create a first [revoke any existing access tokens](#revoking-user-access-tokens) that may include undesired scopes before issueing a new token with a more limited set of scopes.
