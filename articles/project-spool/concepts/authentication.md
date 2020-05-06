@@ -12,18 +12,19 @@ ms.service: azure-project-spool
 
 ---
 
-# Authentication and Authorization
+# Authorizing access to ACS
 
-TODO
+Every client interaction with Azure Communication services must have be authenticated and authorized, so that the service ensures that the client has the permissions required to access the data. Various options for authorizing service clients are below:
 
-### meta
 
-- Customer intent statements: 
-  - I want to know what the auth model is as I develop against ACS.
-
-- Discussion:
-  - How do we want to describe our auth model to our customers?
-
+|---|Device type|Access Keys| SAS Keys| Azure Active Directory (AAD) | User Access Tokens |
+|---|---|---|---|---|---|
+|||*HMAC using access keys from Azure portal*|*Scoped, time-bound self signed tokens derived from access keys*|*User and trusted services from linked AAD*| *Scoped, time-bound user tokens created by trusted service*
+|ARM|Trusted Service|Supported|Supported|Supported|-|
+|DataPlane Configuration (Phone Numbers, Rooms)| Trusted Service |Supported|Supported|Supported|-|
+|Chat| Trusted Service |Supported|Supported|Supported|-|
+|SMS| Trusted Service |Supported|Supported|Supported|-|
+|Calling| Low-trust Devices |-|-|-|Supported|
 
 
 
