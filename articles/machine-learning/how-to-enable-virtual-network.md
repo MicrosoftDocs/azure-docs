@@ -42,6 +42,29 @@ Azure Machine Learning relies on other Azure services for compute resources, als
 
 You can also [enable Azure Private Link](how-to-configure-private-link.md) to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. [Learn how to set up this private endpoint.](how-to-configure-private-link.md)
 
+
+
+> [!TIP]
+> You can combine virtual network and Private Link together to protect communication between your workspace and other Azure resources. However, some combinations require an Enterprise edition workspace. Use the following table to understand what scenarios require Enterprise edition:
+>
+> | Scenario | Enterprise</br>edition | Basic</br>edition |
+> | ----- |:-----:|:-----:| 
+> | No virtual network or Private Link | ✔ | ✔ |
+> | Workspace without Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
+> | Workspace without Private Link. Other resources with Private Link | ✔ | |
+> | Workspace with Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
+> | Workspace and any other resource with Private Link | ✔ | |
+> | Workspace with Private Link. Other resources without Private Link or virtual network | ✔ | ✔ |
+> | Azure Container Registry in a virtual network | ✔ | |
+> | Customer Managed Keys for workspace | ✔ | |
+> 
+
+> [!WARNING]
+> Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
+> 
+> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled. Instead, you can use Azure Kubernetes Service in a virtual network. For more information, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
+
+
 <a id="amlcompute"></a>
 
 ## <a name="compute-instance"></a>Compute targets or compute instances
