@@ -100,7 +100,7 @@ The **automaticRepairPerformed** warning occurs when the Conversion service find
 
     ![Example of a snapped Polyline](./media/drawing-conversion-error-codes/placeholder.png)
 
-* In a layer that only supports closed Polylines, the Conversion service found and repaired multiple non-closed Polylines to to combine them into a single closed Polyline. This fix was done to avoid discarding the Polylines.
+* In a layer that only supports closed Polylines, the Conversion service found, and repaired multiple non-closed Polylines to to combine them into a single closed Polyline. This fix was done to avoid discarding the Polylines.
 
     ![Example of non-closed Polylines converted to closed Polyline](./media/drawing-conversion-error-codes/placeholder.png)
 
@@ -257,13 +257,13 @@ An **invalidUserData** error occurs when the Conversion service is unable to rea
 
 #### *Example scenario for invalidUserData*
 
-You attempts to upload a Drawing package with an incorrect `udid` parameter.
+You attempted to upload a Drawing package with an incorrect `udid` parameter.
 
 #### *How to fix invalidUserData*
 
 To fix a **invalidUserData** error, verify all of the following:
 
-* That you have provide a correct `udid` for the uploaded package.
+* That you have provided a correct `udid` for the uploaded package.
 * That Azure Maps Creator has been enabled for the Azure Maps account you used for uploading the Drawing package.
 * That the API request to the Conversion service contains the subscription key to the Azure Maps account you used for uploading the Drawing package.
 
@@ -273,7 +273,7 @@ To fix a **invalidUserData** error, verify all of the following:
 
 The **dwgError** occurs when the Conversion service finds an issue with one or more DWG files in the uploaded ZIP archive.
 
-The **dwgError** error occurs due to one or more of the following reasons: due to the following:
+The **dwgError** error occurs because of one or more of the following reasons: because of the following:
 
 * A DWG file isn't a valid AutoCAD DWG file format drawing.
 * A DWG file is corrupt.
@@ -299,7 +299,7 @@ To fix a **dwgError** error, inspect your _manifest.json_ file and do one or mor
 
 The **invalidJsonFormat** error occurs when the _manifest.json_ file cannot be read.
 
-The _manifest.json_file cannot be read due to one or more of the following reasons:
+The _manifest.json_file cannot be read because of one or more of the following reasons:
 
 * The _manifest.json_ doesn't contain any JSON text.
 * The _manifest.json_ contains non-JSON text.
@@ -319,7 +319,7 @@ To fix an **invalidJsonFormat** error, use a JSON linter to detect and resolve a
 
 A **missingRequiredField** error occurs when the _manifest.json_ file is missing required data.
 
-A **missingRequiredField** error occurs due to the following reasons:
+A **missingRequiredField** error occurs because of the following reasons:
 
 * The _manifest.json_ is missing a "version" object.
 * The _manifest.json_ is missing a "dwgLayers" object.
@@ -338,7 +338,7 @@ To fix a **missingRequiredField** error, verify that the manifest contains all r
 
 The **missingManifest** error occurs when the _manifest.json_ file is missing from the ZIP archive.
 
-The **missingManifest** error occurs due to one or more of the following reasons:
+The **missingManifest** error occurs because of one or more of the following reasons:
 
 * The _manifest.json_ file is misspelled.
 * The _manifest.json_ is missing.
@@ -374,7 +374,7 @@ To fix a **conflict** error, inspect your _manifest.json_ and remove any conflic
 
 The **invalidGeoreference** error occurs when a _manifest.json_ file contains an invalid georeference.
 
-The **invalidGeoreference** error occurs due to one or more of the following reasons:
+The **invalidGeoreference** error occurs because of one or more of the following reasons:
 
 * The user is georeferencing a latitude or longitude value that is out of range.
 * The user is georeferencing a rotation value that is out of range.
@@ -413,9 +413,9 @@ To fix a **wallError** error, redraw the wall so that it overlaps at least one u
 
 #### *Description for verticalPenetrationError*
 
-The **verticalPenetrationError** error occurs when the Conversion services finds an error while creating a vertical penetration feature.
+The **verticalPenetrationError** error occurs when the Conversion service finds an error while creating a vertical penetration feature.
 
-The **verticalPenetrationError** error occurs due to one or more of the following reasons:
+The **verticalPenetrationError** error occurs because of one or more of the following reasons:
 
 * The Conversion service finds a vertical penetration area with no overlapping vertical penetration areas on any levels above or below it.
 * The Conversion service finds a level that exists with two or more vertical penetration features on it that overlap this one.
