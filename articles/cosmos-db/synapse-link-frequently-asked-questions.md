@@ -44,7 +44,7 @@ Yes, the analytical store can be enabled on containers with autoscale provisione
 Azure Cosmos DB guarantees performance isolation between the transactional and analytical workloads. Enabling the analytical store on a container will not impact the RU/s provisioned on the Azure Cosmos DB transactional store. The transactions (read & write) and storage costs for the analytical store will be charged separately. See the [pricing page of Azure Cosmos DB analytical store]() for more details.
 
 ### Are deletes & updates to the transactional store reflected in the analytical store? 
-Yes, deletes and updates to the data in the transactional store will be reflected in the analytical store. When analytical TTL is configured to include historical data, the analytical store retains all versions of items.
+Yes, deletes and updates to the data in the transactional store will be reflected in the analytical store. You can configure the Time to Live (TTL) on the container to include historical data so that the analytical store retains all versions of items.
 
 ### Can I connect to analytical store from analytics engines other than Azure Synapse Analytics?
 You can only access and run queries against an analytical store using the various run-times provided by Azure Synapse Analytics. The analytical store can be queried and analyzed using:
