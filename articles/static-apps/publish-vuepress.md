@@ -159,7 +159,7 @@ A value for _API location_ isn't necessary as you aren't deploying an API at the
 
 ### Clean up resources
 
-[!INCLUDE [cleanup-resource](../../includes/cleanup-resource.md)]
+[!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 
 ## Next steps
 

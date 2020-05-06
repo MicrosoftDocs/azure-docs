@@ -134,7 +134,7 @@ Next, add configuration settings that the build process uses to build your app.
 
 ## Clean up resources
 
-[!INCLUDE [cleanup-resource](../../includes/cleanup-resource.md)]
+[!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 
 ## Next steps
 
