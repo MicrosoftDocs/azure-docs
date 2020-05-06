@@ -63,14 +63,14 @@ You can use any expression that returns a string as the value for the `log-to-ev
 
 Click **Save** to save the updated policy configuration. As soon as it is saved the policy is active and events are logged to the designated Event Hub.
 
-## Preview the log in Event Hub using Azure Stream Analytics
+## Preview the log in Event Hubs by using Azure Stream Analytics
 
-You can preview the log in Event Hub using [Azure Stream Analytics queries](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
+You can preview the log in Event Hubs by using [Azure Stream Analytics queries](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
 
-1. In Azure Portal, browse to the Event Hub that the logger sends events to. 
-2. Select **Process data** tab under **Features**.
-3. Click **Explore** button on **Enable real time insights from events** card.
-4. You should be able to preview the log on **Input preview** tab. If the data shown isn't current, select **Refresh** to see the latest events.
+1. In the Azure portal, browse to the event hub that the logger sends events to. 
+2. Under **Features**, select the **Process data** tab.
+3. On the **Enable real time insights from events** card, select **Explore**.
+4. You should be able to preview the log on the **Input preview** tab. If the data shown isn't current, select **Refresh** to see the latest events.
 
 ## Next steps
 * Learn more about Azure Event Hubs
