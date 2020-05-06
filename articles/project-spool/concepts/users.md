@@ -13,10 +13,9 @@ ms.service: azure-project-spool
 ---
 # User Access Tokens
 
-Azure Communication Services retains its own directory of user entities which engage in ACS powered communication. User entities engage chat threads, interact with real-time data, voice, and video communication.
+Azure Communication Services retains its own directory of user entities which engage in ACS powered communication. User entities engage chat threads and interact with real-time data, voice, and video communication.
 
-ACS’s separate identity system is oriented towards flexibility and simplicity. While you may simply make communication identities mapping to existing entities in your Azure Active Directory deployment, you can also make communication identities for any abstract concept interfacing with the ACS dataplane. 
-
+ACS’s separate identity system is oriented towards flexibility and simplicity. While you may simply make communication identities mapping to existing entities in a Azure Active Directory deployment, you can also make communication identities for any abstract user concept interfacing with the ACS dataplane. 
 
 Example 1: Bob sends Sue a chat message directly
 In this example an end-user device is going to directly send a chat message from a human, bob@contoso.com, to another human, sue@contoso.com. The steps are:
@@ -96,9 +95,7 @@ It is possible with ACS for a communication identity to communicate on behalf of
 ## User access token scopes
 ## Access token life cycle (AKA refreshing access tokens)
 
-User access tokens are short lived credentials that need to be rereshed in order to prevent your users from experiencing service disruptions.
-
-The client SDKs provide events to let you know when the provided user access token is about to expire. You should subcribe to these events and use them to fetch a new user access token from your trusted service.
+User access tokens are short lived credentials that need to be rereshed in order to prevent your users from experiencing service disruptions. The client SDKs provide events to let you know when the provided user access token is about to expire. You should subcribe to these events and use them to fetch a new user access token from your trusted service.
 
 ```javascript
 const { ChatClient } = require('@azure/communicationservices-chat');
@@ -122,22 +119,7 @@ client.on('token_will_expire', (tokenProvider) => {
 
 ## Revoking users access tokens
 
+
+
 ## Impersonating users
-***Trusted service sends Sue a chat message on behalf of Bob***
-In this example the trusted service directly sends Sue a chat message on behalf of Bob, without any interaction from an end-user device.
-
-```
-var serviceToken =  DefaultAzureCredential();
-
-CommunicationClient serviceClient = new CommunicationClient(
-                new Capabilities().AddChat(),
-                new Uri("https://contoso.westus.acs.azure.net"),
-          serviceToken);
-
-var message = await client.ServiceChat().SendMessage(“Hi Sue.”,
-                 new Azure.Communication.Identity(“bob@contoso.com”),
-                 new Azure.Communication.Identity(“sue@contoso.com”)
-);
-```
-
- 
+In some cases you may want a user to communicate on behalf of another user. There are no explicit flows for impersonation with ACS, and you accomplish impersonation by providing a user another person's user access token.
