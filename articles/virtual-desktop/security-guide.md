@@ -18,7 +18,7 @@ This article describes additional steps you can take as an admin to keep your cu
 
 # Security responsibilities
 
-As with many cloud services, there are a shared set of security responsibilities. If you are adopting Windows Virtual Desktop, it’s important to understand that while some components come already secured for your environment, there are other areas you'll need to configure to fit your organization’s security needs.
+Many cloud services share certain security responsibilities. When you use Windows Virtual Desktop, it’s important to understand that while some components come already secured for your environment, you'll need to configure other areas yourself to fit your organization’s security needs.
 
 The following table shows which security needs users are responsible for. Anything that the customer isn't responsible for is handled by Microsoft.
 
@@ -51,7 +51,7 @@ To learn more, see [Onboard your Azure subscription to Security Center Standard]
 
 ### Improve your Secure Score
 
-Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations come prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up-to-date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Azure Security Center](../security-center/security-center-secure-score.md).
+Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations are prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up to date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Azure Security Center](../security-center/security-center-secure-score.md).
 
 ### Windows Virtual Desktop as part of your Azure environment
 
@@ -100,19 +100,19 @@ For profile solutions like FSLogix or other solutions that mount VHD files, we r
 
 ### Install an endpoint detection and response product
 
-We recommend you install an endpoint detection and response (EDR) product to provide advanced detection and response capabilities. For server operating systems with [Azure Security Center](../security-center/security-center-services?tabs=features-windows.md) enabled, this will deploy Defender ATP. For client operating systems, you can deploy [Defender ATP](/windows/security/threat-protection/microsoft-defender-atp/onboarding) or a third-party product to those endpoints.
+We recommend you install an endpoint detection and response (EDR) product to provide advanced detection and response capabilities. For server operating systems with [Azure Security Center](../security-center/security-center-services?tabs=features-windows.md) enabled, installing an EDR product will deploy Defender ATP. For client operating systems, you can deploy [Defender ATP](/windows/security/threat-protection/microsoft-defender-atp/onboarding) or a third-party product to those endpoints.
 
 ### Enable threat and vulnerability management assessments
 
-Identifying software vulnerabilities that exist in operating systems and applications is critical to keeping your environment secure. Azure Security Center can help you identify problem spots through vulnerability assessments for server operating systems. You can also use Defender ATP, which provides threat and vulnerability management for desktop operating systems.
+Identifying software vulnerabilities that exist in operating systems and applications is critical to keeping your environment secure. Azure Security Center can help you identify problem spots through vulnerability assessments for server operating systems. You can also use Defender ATP, which provides threat and vulnerability management for desktop operating systems. You can also use third-party products if you're so inclined, although we recommend using Azure Security Center and Defender ATP.
 
 ### Patch software vulnerabilities in your environment
 
-Once you identify a vulnerability, you must patch it. This applies to virtual environments as well which includes the running operating systems, applications deployed inside of them, and the images that new machines are created from. Follow your vendor patch notification communications and apply patches in a timely manner. We recommend patching your base images monthly to ensure that newly-deployed machines are as secure as possible.
+Once you identify a vulnerability, you must patch it. This applies to virtual environments as well, which includes the running operating systems, applications deployed inside of them, and the images you create new machines from. Follow your vendor patch notification communications and apply patches in a timely manner. We recommend patching your base images monthly to ensure that newly deployed machines are as secure as possible.
 
 ### Establish maximum inactive time and disconnection policies
 
-Signing users out when they're inactive preserves resources and prevents access by unauthorized users. We recommend that timeouts balance user productivity as well as resource usage. For users that interact with stateless applications, consider more aggressive policies that turn off machines and preserve resources. Be aware that disconnecting long running applications that continue to run if a user is idle, such as a simulation or CAD rendering, can interrupt the user's work and may even require restarting the computer.
+Signing users out when they're inactive preserves resources and prevents access by unauthorized users. We recommend that timeouts balance user productivity as well as resource usage. For users that interact with stateless applications, consider more aggressive policies that turn off machines and preserve resources. Disconnecting long running applications that continue to run if a user is idle, such as a simulation or CAD rendering, can interrupt the user's work and may even require restarting the computer.
 
 ### Set up screen locks for idle sessions
 
@@ -120,7 +120,7 @@ You can prevent unwanted system access by configuring Windows Virtual Desktop to
 
 ### Establish tiered admin access
 
-We recommend you don't grant your users admin access to virtual desktops. If you need software packages, we recommend you make them available available through configuration management utilities like Microsoft Endpoint Manager. In a multi-session environment, we recommend you don't let users install software directly.
+We recommend you don't grant your users admin access to virtual desktops. If you need software packages, we recommend you make them available through configuration management utilities like Microsoft Endpoint Manager. In a multi-session environment, we recommend you don't let users install software directly.
 
 ### Consider which users should access which resources
 
