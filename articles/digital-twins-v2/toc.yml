@@ -58,10 +58,10 @@
   items:
   - name: Service limits
     href: reference-service-limits.md
-  - name: Customer data requests
-    href: reference-customer-data-requests.md
 - name: Resources
   items:
+    - name: Customer data requests
+    href: resources-customer-data-requests.md
 - name: Related
   items:
   - name: Solutions
