@@ -17,9 +17,6 @@ ms.custom: mvc
 
 Get started with the Azure Key Vault client library for .NET. Follow the steps below to install the package and try out example code for basic tasks.
 
-> [!NOTE]
-> This quickstart uses the v3.0.4 version of the Microsoft.Azure.KeyVault client library. To use the most up-to-date version of the Key Vault client library, see [Azure Key Vault client library for .NET (SDK v4)](quick-create-net.md). 
-
 Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. Use the Key Vault client library for .NET to:
 
 - Increase security and control over keys and passwords.
