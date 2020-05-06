@@ -47,3 +47,7 @@
           href: deploy-nextjs.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
+- name: Resources
+  items:
+    - name: Quotas
+      href: quotas.md

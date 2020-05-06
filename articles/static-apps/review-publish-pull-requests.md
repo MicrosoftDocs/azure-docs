@@ -54,12 +54,12 @@ Begin by making a change in your repository. You can do it directly on GitHub as
 Next, create a pull request from this change.
 
 1. Open the **Pull request** tab of your project on GitHub:
-    :::image type="content" source="./media/review-publish-pull-requests/pr-tab.png" alt-text="Pull request tab in a GitHub repository":::
+    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Pull request tab in a GitHub repository":::
 
 1. Click on the **Compare & pull request** button of your branch.
 
 1. You can optionally fill-in some details about your changes, then click on **Create pull request**.
-    :::image type="content" source="./media/review-publish-pull-requests/open-pr.png" alt-text="Pull request creation in GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Pull request creation in GitHub":::
 
 You can assign reviewers and add comments to discuss your changes if needed.
 
@@ -86,7 +86,7 @@ Once changes are approved, you can publish your changes to production by merging
 
 Click on **Merge pull request**:
 
-:::image type="content" source="./media/review-publish-pull-requests/merge-pr.png" alt-text="Merge pull request button in GitHub interface":::
+:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Merge pull request button in GitHub interface":::
 
 Merging copies your changes to the tracked branch (the "production" branch). Then, the deployment workflow starts on the tracked branch and the changes are live after your application has rebuilt.
 
