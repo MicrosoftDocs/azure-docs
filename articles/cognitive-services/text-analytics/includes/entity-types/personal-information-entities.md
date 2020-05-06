@@ -6,43 +6,46 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 03/30/2020
+ms.date: 04/30/2020
 ms.author: aahi
 ---
 
-## Personal information categories (Preview):
+> [!NOTE]
+> To detect `PHI`, use the `domain=phi` parameter and model version `2020-04-01` or later.
+>
+> For example: `<resource-url>/entities/recognition/pii?domain=phi&model-version=2020-04-01`
+ 
+The following entity categories are returned when sending requests to the `/entities/recognition/pii` endpoint, available in the v3.1 preview of the API.
 
-The following entity categories are returned when [detecting personal information](../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) using NER. This feature is only available in the Text Analytics API v3.0 and v3.1 previews.
-
-| Category   | Subcategory | Description                          | Examples                                                    | Starting model version |
-|------------|-------------|--------------------------------------|-------------------------------------------------------------|--------------------------------------|
-| Person     | N/A         | Names of people.                     | Bill Gates, Marie Curie                                     | 2019-10-01                         |
-| PersonType | N/A         | Job types or roles held by a person. | civil engineer, salesperson, chef, librarian, nursing aide | 2020-02-01                         | 
-|Organization  | N/A | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. | Microsoft, NASA | 2019-10-01 | 
-|Organization | Medical | Medical companies and groups | Contoso Pharmaceuticals | 2020-04-01 | 
-|Organization | Stock exchange | Stock exchange groups. | Major stock exchange names and abbreviations. | 2020-04-01 |
-| Organization | Sports | Sports-related organizations. | Popular leagues, clubs, and associations. | 2020-04-01 | 
-| Phone Number | N/A | Phone numbers (US Phone numbers only) | (312) 555-0176 | 2019-10-01 | 
-| Address | N/A | Full addresses. | 1234 Main St. Buffalo, NY 98052 | 2020-04-01 |
-| Email | N/A | Email addresses. | `support@contoso.com` | 2019-10-01 | 
-| URL | N/A | URLs to websites. | `https://www.bing.com` | 2019-10-01 |
-| IP Address | N/A | Network addresses. | `10.0.0.101` | 2019-10-01 | 
-| Quantity | N/A | Numbers and numeric quantities. | | 2019-10-01 | 
-| Quantity | Age | Ages. | 90 day old, 30 years old | 2019-10-01 | 
-| DateTime | N/A | Date and Time entities. | 6:30PM February 4 2012, 4/1/2011 2:45. | 2019-10-01 | 
-| DateTime | Date | Dates in time. | May 2nd 2017, 05/02/2017 | 2019-10-01 |
-| EU GPS Coordinates | N/A | GPS coordinates for locations within the European Union.  | | 2019-10-01 | 
-| ICD-9-CM | N/A | Entities relating to the International Classification of Diseases, Ninth Revision  | | 2020-04-01 |
-| ICD-10-CM | N/A | Entities relating to the International Classification of Diseases, Tenth Revision  | | 2020-04-01 |
+| Category   | Subcategory | Description                          | Starting model version | Notes |
+|------------|-------------|--------------------------------------|------------------------|---|
+| Person     | N/A         | Names of people.  | `2019-10-01`  | Also returned with `domain=phi`. |
+| PersonType | N/A         | Job types or roles held by a person. | `2020-02-01` | |
+| PhoneNumber | N/A | Phone numbers (US and EU phone numbers only). | `2019-10-01` | Also returned with `domain=phi` |
+|Organization  | N/A | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations.  | `2019-10-01` | Nationalities and religions are not included in this entity type.  |
+|Organization | Medical | Medical companies and groups. | `2020-04-01` | Also returned with `domain=phi`. |
+|Organization | Stock exchange | Stock exchange groups. | `2020-04-01` | Also returned with `domain=phi`. |
+| Organization | Sports | Sports-related organizations. | `2020-04-01` | Also returned with `domain=phi`. |
+| Address | N/A | Full mailing addresses.  | `2020-04-01` | Also returned with `domain=phi`. |
+| EU GPS Coordinates | N/A | GPS coordinates for locations within the European Union.  | `2019-10-01` |  |
+| Email | N/A | Email addresses. | `2019-10-01` | Also returned with `domain=phi`.   |
+| URL | N/A | URLs to websites. | `2019-10-01` | Also returned with `domain=phi`. |
+| IP | N/A | Network IP addresses. | `2019-10-01` | |
+| DateTime | N/A | Dates and times of day. | `2019-10-01` |  | 
+| DateTime | Date | Calender dates. | `2019-10-01` | Also returned with `domain=phi`. |
+| Quantity | N/A | Numbers and numeric quantities. | `2019-10-01` |  |
+| Quantity | Age | Ages. | `2019-10-01` | | |
+| International Classification of Diseases (ICD-10-CM) | N/A | Entities relating to the International Classification of Diseases, Ninth Revision.   | `2020-04-01` | Also returned with `domain=phi`. |
+| International Classification of Diseases (ICD-10-CM) | N/A | Entities relating to the International Classification of Diseases, Tenth Revision.    | `2020-04-01` | Also returned with `domain=phi`. |
 
 ## Azure information
 
-This entity category includes identifiable Azure information including authentication information, and connection strings. Available starting with model version `2019-10-01`. Subcategories of this entity are listed below.
+This entity category includes identifiable Azure information including authentication information, and connection strings. Available starting with model version `2019-10-01`. Not returned with the `domain=phi` parameter.
 
 | Subcategory                           | Description                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Azure DocumentDB Auth Key             | Authorization key for an Azure DocumentDB server.                           |
-| Azure IAAS Database Connection String | Connection string for an Azure Infrastructure as a service (IaaS) database. |
+| Azure IAAS Database Connection String and Azure SQL Connection String | Connection string for an Azure Infrastructure as a service (IaaS) database, and SQL connection string. |
 | Azure SQL Connection String           | Connection string for an Azure SQL database.                                |
 | Azure IoT Connection String           | Connection string for Azure Internet of things(IoT).                        |
 | Azure Publish Setting Password        | Password for Azure Publish settings.                                        |
@@ -56,7 +59,9 @@ This entity category includes identifiable Azure information including authentic
 ## Identification
 
 > [!NOTE]
-> The following financial and country-specific entities are also returned when [using NER to detect personal health information](../../how-tos/text-analytics-how-to-entity-linking.md).
+> The following financial and country-specific entities are not returned with the `domain=phi` parameter:
+> * Passport numbers
+> * Tax IDs
 
 This entity category includes financial information and official forms of identification. Available starting with model version `2019-10-01`. Subtypes are listed below. 
 

@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 03/30/2020
+ms.date: 04/29/2020
 ms.author: aahi
 ---
 
@@ -14,10 +14,10 @@ ms.author: aahi
 
 | Subtype name               | Description                                                                |
 |----------------------------|----------------------------------------------------------------------------|
-| ABA Routing Numbers        | American Banker Association(ABA) transit routing numbers.                  |
+| ABA Routing Number        | American Banker Association(ABA) transit routing numbers.                  |
 | SWIFT Code                 | SWIFT codes for payment instruction information.                           |
 | Credit Card                | Credit card numbers.                                                       |
-| IBAN Code                  | IBAN codes for payment instruction information.                            |
+| International Banking Account Number (IBAN)                  | IBAN codes for payment instruction information.                            |
 
 
 ### Government and country-specific Identification
@@ -25,164 +25,163 @@ ms.author: aahi
 The entities below are grouped and listed by country:
 
 Argentina
-* National Identity (DNI) Number
+* Argentina National Identity (DNI) Number
 
 Australia
-* Tax file number 
-* Driver's license ID
-* Passport ID
-* Medical account number
-* bank account numbers (for example checking, savings and debit accounts)
+* Australia Passport Number
+* Australia Tax File Number
+* Australia Driver's License Number
+* Australia Medical Account Number
+* Australia Bank Account Number
 
 Belgium
-* National number
+* Belgium National number
 
-Brazil
-* Legal Entity Number (CNPJ)
-* CPF number
-* National ID Card (RG)
+Brazil 
+* Brazil Legal Entity Number (CNPJ)
+* Brazil CPF number
+* Brazil National ID Card (RG)
 
 Canada
-* Passport ID
-* Driver's license ID
-* Health insurance Number
-* Personal health ID Number (PHIN)
-* Social Security Number
-* bank account numbers (for example checking, savings and debit accounts)
+* Canada Social Insurance Number
+* Canada Driver's license Number
+* Canada Bank Account Number
+* Canada Passport Number
+* Canada Personal Health Identification Number (PHIN)
+* Canada Health Service Number
 
 Chile
 * Identity card number 
 
 China
-* Identity card number
-* Resident ID card (PRC) number
+* China Resident Identity Card (PRC) Number
 
 Croatia
-* ID card number
-* Personal ID (OIB) number
+* Croatia Identity Card Number
+* Croatia Personal Identification (OIB) Number
 
 Czech Republic
-* National ID card number
+* Czech Personal Identity Number
 
 Denmark
-* Personal ID number
+* Denmark Personal Identification number
 
 European Union (EU)
-* National ID number
-* Passport ID
-* Driver's license ID
-* Social Security Number (SSN) or equivalent ID
+* EU National Identification Number
+* EU Passport Number
+* EU Driver's License Number
+* EU Social Security Number (SSN) or Equivalent ID
 * EU Tax Identification Number (TIN)
 * EU Debit Card Number
 
 Finland
-* National ID number
-* Passport ID
+* Finland National ID
+* Finland Passport Number
 
 France
-* National ID card (CNI)
-* Social Security number (INSEE)
-* Passport ID
-* Driver's license ID
+* France National ID card (CNI)
+* France Social Security Number (INSEE)
+* France Passport Number
+* France Driver's License Number
 
 Germany
-* ID Card number
-* Passport ID
-* Driver's license ID
+* Germany Identity Card Number
+* German Passport Number
+* German Driver's License Number
 
 Greece 
-* National ID card number
+* Greece National ID card number
 
 Hong Kong
-* ID card (HKID) number
+* Hong Kong Identity Card (HKID) Number
 
 India
-* Permanent Account number (PAN)
-* Unique ID (Aadhaar) Number
+* India Permanent Account Number (PAN)
+* India Unique Identification (Aadhaar) Number
 
 Indonesia
-* ID card number (KTP)
+* Indonesia Identity Card (KTP) Number
 
 Ireland
-* Personal Public Service (PPS) Number
+* Ireland Personal Public Service (PPS) Number
 
 Israel
-* National ID
-* bank account numbers (for example checking, savings and debit accounts)
+* Israel National ID
+* Israel Bank Account Number
 
 Italy
-* Driver's license ID
+* Italy Driver's license ID
 
 Japan
-* Resident registration number
-* Residence card number
-* Driver's license ID
+* Japan Resident Registration Number
+* Japanese Residence Card Number
+* Japan Driver's License Number
 * Social Insurance Number (SIN)
-* Passport ID
-* bank account numbers (for example checking, savings and debit accounts)
+* Japan Passport Number
+* Japan Bank Account Number
 
 Malaysia
-* ID card number
+* Malaysia Identity Card number
 
 Netherlands
-* Citizen's Service (BSN) number
+* Netherlands Citizen's Service (BSN) Number
 
 New Zealand
-* Ministry of Health Number
+* New Zealand Ministry of Health Number
 
 Norway
-* ID card number
+* Norway Identity Number
 
 Philippines
-* Unified Multi-Purpose ID Number
+* Philippines Unified Multi-Purpose ID Number
 
 Poland
-* ID Card number
-* National ID (PESEL)
-* Passport ID
+* Poland Identity Card
+* Poland National ID (PESEL)
+* Poland Passport
 
 Portugal 
-* Citizen Card Number
+* Portugal Citizen Card Number
 
 Saudi Arabia
-* National ID
+* Saudi Arabia National ID
 
 Singapore
-* National Registration ID Card (NRIC) number
+* Singapore National Registration ID Card (NRIC) number
 
 South Africa
-* ID Number
-* Resident Registration number
+* South Africa Identification Number
 
 South Korea
-* Resident Registration Number
+* South Korea Resident Registration Number
 
 Spain 
-* Social Security Number (SSN)
+* Spain Social Security Number (SSN)
 
 Sweden
-* National ID
-* Passport ID
+* Sweden National ID
+* Sweden Passport Number
 
 Taiwan 
-* National ID
-* Resident Certificate (ARC/TARC) number
-* Passport ID
+* Taiwan National ID
+* Taiwan Resident Certificate (ARC/TARC)
+* Taiwan Passport Number
 
 Thailand
-* Population Identification code
+* Thai Population Identification Code
 
 United Kingdom
 * Passport ID
-* Driver's license ID
-* National Insurance number (NINO)
-* National Health Service (NHS) number
+* U.K. Driver's license Number
+* U.K. National Insurance Number (NINO)
+* U.K. National Health Service Number
+* U.K. Electoral Roll Number
+* U.S. / U.K. Passport Number
 
 United States
-* Social Security Number (SSN)
-* Driver's license ID
-* Passport ID
-* Electoral roll number
-* Individual Tax ID Number (ITIN)
+* U.S. Social Security Number (SSN)
+* U.S. Driver's License Number
+* U.S. / U.K. Passport Number
+* U.S. Individual Taxpayer Identification Number (ITIN)
 * Drug Enforcement Agency (DEA) number
-* bank account numbers (for example checking, savings and debit accounts)
+* U.S. bank account number

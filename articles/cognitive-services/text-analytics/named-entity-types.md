@@ -15,23 +15,17 @@ ms.author: aahi
 
 # Supported entity categories in Named Entity Recognition v3
 
-The Text Analytics API provides the ability to identify and disambiguate entities found in text. [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) (NER) is the ability to identify different entities in text and categorize them into pre-defined classes.
+Use this article to find the entity categories that can be returned by [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) (NER) starting in version 3.0. A preview of NER v3.1 is also available, which includes the ability to detect personal (`PII`) and health (`PHI`) information.
 
 ## Entity categories
-
-The supported entity types and sub-types (where applicable) are listed below:
 
 #### [General](#tab/general)
 
 [!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
 
-#### [Personal](#tab/personal)
+#### [Personal and Health](#tab/personal)
 
 [!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
-
-#### [Health](#tab/health)
-
-[!INCLUDE [supported entity types - confidential health information](./includes/entity-types/personal-health-entities.md)]
 
 ***
 
