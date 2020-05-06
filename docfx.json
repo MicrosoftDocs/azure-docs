@@ -69,6 +69,7 @@
       "feedback_product_url": "https://feedback.azure.com/forums/34192--general-feedback",
       "breadcrumb_path": "/azure/bread/toc.json",
       "brand": "azure",
+      "uhfHeaderId": "azure",
       "searchScope": [
         "Azure"
       ],
@@ -130,16 +131,6 @@
       }
     },
     "fileMetadata": {
-      "uhfHeaderId": {
-        "articles/active-directory/**/*.md": "azure",
-        "articles/active-directory/**/*.yml": "azure",
-        "articles/active-directory-domain-services/**/*.md": "azure",
-        "articles/active-directory-domain-services/**/*.yml": "azure",
-        "articles/active-directory-b2c/**/*.md": "azure",
-        "articles/active-directory-b2c/**/*.yml": "azure",
-        "articles/storage/**/*.md": "azure",
-        "articles/storage/**/*.yml": "azure"
-      },
       "author": {
         "articles/advisor/*.md": "saket-ms",
         "articles/connectors/*.md": "ecfan",
