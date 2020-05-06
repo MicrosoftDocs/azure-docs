@@ -143,6 +143,8 @@
     items:
     - name: SSH troubleshooting
       href: troubleshoot-ssh-connection.md
+    - name: Chroot in Linux Rescue VM
+      href: chroot-environment-linux.md
     - name: Troubleshoot file system errors
       href: linux-recovery-cannot-start-file-system-errors.md
     - name: Troubleshoot kernel-related boot problems
