@@ -13,4 +13,4 @@ ms.custom: include file
 ms.author: diberry
 ---
 
-These few utterances are for demonstration purposes only. A real-world app should have at least 15-30 [utterances](luis-concept-utterance.md) of varying length, word order, tense, grammatical correctness, punctuation, and word count.
+These few utterances are for demonstration purposes only. A real-world app should have at least 15-30 [utterances](../luis-concept-utterance.md) of varying length, word order, tense, grammatical correctness, punctuation, and word count.
