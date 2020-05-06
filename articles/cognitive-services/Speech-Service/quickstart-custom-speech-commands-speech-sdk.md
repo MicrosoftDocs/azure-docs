@@ -19,7 +19,7 @@ After creating a hosted Custom Commands application, you can begin talking to it
 In this article, you'll:
 
 - Publish a Custom Commands application and get an application identifier (App ID)
-- Create a UWP client app using the Speech SDK to allow you to talk to your Custom Commands application
+- Create a Universal Windows Platform (UWP) client app using the Speech SDK to allow you to talk to your Custom Commands application
 
 ## Prerequisites
 
