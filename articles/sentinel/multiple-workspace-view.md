@@ -1,5 +1,5 @@
 ---
-title: Work with incidents in many workspaces at once | Microsoft Docs
+title: Work with Azure Sentinel incidents in many workspaces at once | Microsoft Docs
 description:  How to view incidents in multiple workspaces concurrently in Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -31,11 +31,13 @@ When you open Azure Sentinel, you are presented with a list of all the workspace
 > If you check more than 10 workspaces, a warning message will appear.
 
 Note that in the list of workspaces, you can see the directory, subscription, location, and resource group associated with each workspace. The directory corresponds to the tenant.
+
    ![Choose multiple workspaces](./media/multiple-workspace-view/workspaces.png)
 
 ## Working with incidents
 
 In **Multiple Workspace View**, only the **Incidents** screen is available for now. It looks and functions in most ways like the regular **Incidents** screen. There are a few important differences, though:
+
    ![View incidents in multiple workspaces](./media/multiple-workspace-view/incidents.png)
 
 - The counters at the top of the page - *Open incidents*, *New incidents*, *In progress*, etc. - show the numbers for all of the selected workspaces collectively.
