@@ -26,7 +26,7 @@ To initiate a point-in-time restore, call the [Restore Blob Ranges](/rest/api/st
 
 When you request a restore operation, Azure Storage blocks data operations on the blobs in the range being restored for the duration of the operation. Read, write, and delete operations are blocked in the primary location. Read operations from the secondary location may proceed during the restore operation if the storage account is geo-replicated.
 
-Azure Storage analyzes all changes that have been made to the specified blobs between the requested restore point and the present moment. The restore operation is atomic, so it either succeeds completely in restoring all changes, or it fails. If there are any blobs that cannot be restored, then the operation fails, and read and write operations to the affected containers resume.
+Azure Storage analyzes all changes that have been made to the specified blobs between the requested restore point, specified in UTC time, and the present moment. The restore operation is atomic, so it either succeeds completely in restoring all changes, or it fails. If there are any blobs that cannot be restored, then the operation fails, and read and write operations to the affected containers resume.
 
 When the restore operation begins, a system table named `$RestoreTable-{RestoreID}` is created in the storage account. This table is deleted when the restore operation completes successfully, or if it fails.
 
@@ -58,7 +58,7 @@ To initiate a restore operation, a client must have write permissions to all con
 
 ## Supported operations
 
-Point-in-time restore will restore data affected by the following operations on block blobs, if these operations have been called during the interval between the restore point and the present moment:
+Point-in-time restore will restore data affected by the following write operations on block blobs, if these operations have been called during the interval between the restore point and the present moment:
 
 - [Put Blob](/rest/api/storageservices/put-blob)
 - [Put Block List](/rest/api/storageservices/put-block-list)
@@ -69,9 +69,9 @@ Point-in-time restore will restore data affected by the following operations on 
 - [Delete Blob](/rest/api/storageservices/delete-blob)
 - [Undelete Blob](/rest/api/storageservices/undelete-blob)
 
-Keep in mind the following caveats related to point-in-time restore:
+Keep in mind the following points about restore operations:
 
-- A block that has been uploaded via [Put Block](/rest/api/storageservices/put-block) or [Put Block from URL](/rest/api/storageservices/put-block-from-url), but not committed via [Put Block List](/rest/api/storageservices/put-block-list), is not part of a blob and so is not restored.
+- A block that has been uploaded via [Put Block](/rest/api/storageservices/put-block) or [Put Block from URL](/rest/api/storageservices/put-block-from-url), but not committed via [Put Block List](/rest/api/storageservices/put-block-list), is not part of a blob and so is not restored as part of a restore operation.
 - A blob with an active lease cannot be restored. If a blob with an active lease is included in the range of blobs to restore, the restore operation will fail atomically.
 - Only the base blob is restored to its previous state. Snapshots are not created or deleted as part of a restore operation.
 - If a blob has moved between the hot and cool tiers in the period between the present moment and the restore point, the blob is restored to its previous tier. However, a blob that has moved to the archive tier will not be restored.
@@ -79,7 +79,9 @@ Keep in mind the following caveats related to point-in-time restore:
 Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored.
 
 > [!CAUTION]
-> If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation during the point-in-time restore preview, that container is not restored when you initiate a restore operation. During the preview, be careful to delete individual blobs only if you may want to restore them. Avoid deleting blobs by deleting their parent container.
+> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation during the point-in-time restore preview, that container cannot be restored with a restore operation.
+>
+> During the preview, be careful to delete blobs individually if you may want to restore them. Avoid deleting blobs by deleting their parent container.
 
 ## About the preview
 

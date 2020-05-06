@@ -14,12 +14,14 @@ ms.subservice: blobs
 
 # Enable and manage point-in-time restore for block blobs (preview)
 
-You can use point-in-time restore (preview) to restore block blobs to a state at an earlier point in time. This article describes how to enable point-in-time restore for a storage account. It also shows how to perform a restore operation.
+You can use point-in-time restore (preview) to restore block blobs to their state at an earlier point in time. This article describes how to enable point-in-time restore for a storage account with PowerShell. It also shows how to perform a restore operation with PowerShell.
 
 To learn more about point-in-time restore, see [Point-in-time restore for block blobs (preview)](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation during the point-in-time restore preview, that container is not restored when you initiate a restore operation. During the preview, be careful to delete individual blobs only if you may want to restore them. Avoid deleting blobs by deleting their parent container.
+> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation during the point-in-time restore preview, that container cannot be restored with a restore operation.
+>
+> During the preview, be careful to delete blobs individually if you may want to restore them. Avoid deleting blobs by deleting their parent container.
 
 > [!IMPORTANT]
 > The point-in-time restore preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
@@ -97,6 +99,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 To restore all containers and blobs in the storage account, call the Restore-AzStorageBlobRange command, specifying a UTC **DateTime** value that indicates the restore point. The following example restores containers in the storage account to their state 12 hours before the present moment:
 
 ```powershell
+# Specify -TimeToRestore as a UTC value
 Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -TimeToRestore (Get-Date).AddHours(-12)
@@ -118,9 +121,10 @@ To specify a subset of blobs in a container to restore, use a forward slash (/) 
 $range = New-AzStorageBlobRangeToRestore -StartRange sample-container/d -EndRange sample-container/g
 ```
 
-Next, provide the range to the Restore-AzStorageBlobRange command. The following example restores blobs in the specified range to their state 3 days before the present moment:
+Next, provide the range to the Restore-AzStorageBlobRange command. Specify the restore point by providing a UTC **DateTime** value for the `-TimeToRestore` parameter. The following example restores blobs in the specified range to their state 3 days before the present moment:
 
 ```powershell
+# Specify -TimeToRestore as a UTC value
 Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -BlobRestoreRange $range `
