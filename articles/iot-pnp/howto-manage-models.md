@@ -40,10 +40,6 @@ Private models and interfaces are maintained by your company. Access to these mo
 
 To learn more about the model repository and RBAC, see [Understand the IoT Plug and Play Preview model repository](concepts-model-repository.md).
 
-## Azure CLI
-
-The Azure CLI provides commands for managing device capability models and interfaces in the IoT Plug and Play public and company model repositories. For more information, see the [Install and use the Azure IoT extension for Azure CLI](./howto-install-pnp-cli.md) how-to guide.
-
 ## Visual Studio Code
 
 To open the **Model Repository** view in Visual Studio Code.

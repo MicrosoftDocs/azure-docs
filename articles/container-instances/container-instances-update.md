@@ -23,7 +23,7 @@ To update an existing container group:
 * Set other properties with the values you provided previously. If you don't set a value for a property, it reverts to its default value.
 
 > [!TIP]
-> A [YAML file](/container-instances-container-groups.md#deployment) helps maintain a container group's deployment configuration, and provides a starting point to deploy an updated group. If you used a different method to create the group, you can export the configuration to YAML by using [az container export][az-container-export], 
+> A [YAML file](container-instances-container-groups.md#deployment) helps maintain a container group's deployment configuration, and provides a starting point to deploy an updated group. If you used a different method to create the group, you can export the configuration to YAML by using [az container export][az-container-export], 
 
 ### Example
 
