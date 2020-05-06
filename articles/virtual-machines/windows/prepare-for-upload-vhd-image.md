@@ -6,7 +6,7 @@ manager: dcscontentpm
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
-ms.date: 04/27/2020
+ms.date: 04/28/2020
 ms.author: genli
 ---
 

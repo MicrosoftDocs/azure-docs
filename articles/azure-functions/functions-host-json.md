@@ -2,7 +2,7 @@
 title: host.json reference for Azure Functions 2.x
 description: Reference documentation for the Azure Functions host.json file with the v2 runtime.
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 04/28/2020
 ---
 
 # host.json reference for Azure Functions 2.x and later 
@@ -19,6 +19,8 @@ The *host.json* metadata file contains global configuration options that affect 
 Other function app configuration options are managed in your [app settings](functions-app-settings.md) (for deployed apps) or your [local.settings.json](functions-run-local.md#local-settings-file) file (for local development).
 
 Configurations in host.json related to bindings are applied equally to each function in the function app. 
+
+You can also [override or apply settings per environment](#override-hostjson-values) using application settings.
 
 ## Sample host.json file
 
@@ -381,6 +383,23 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## Override host.json values
+
+There may be instances where you wish to configure or modify specific settings in a host.json file for a specific environment, without changing the host.json file itself.  You can override specific host.json values be creating an equivalent value as an application setting. When the runtime finds an application setting in the format `AzureFunctionsJobHost__path__to__setting`, it overrides the equivalent host.json setting located at `path.to.setting` in the JSON. When expressed as an application setting, the dot (`.`) used to indicate JSON hierarchy is replaced by a double underscore (`__`). 
+
+For example, say that you wanted to disable Application Insight sampling when running locally. If you changed the local host.json file to disable Application Insights, this change might get pushed to your production app during deployment. The safer way to do this is to instead create an application setting as `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` in the `local.settings.json` file. You can see this in the following `local.settings.json` file, which doesn't get published:
+
+```json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "{storage-account-connection-string}",
+        "FUNCTIONS_WORKER_RUNTIME": "{language-runtime}",
+        "AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"
+    }
 }
 ```
 

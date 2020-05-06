@@ -25,8 +25,8 @@ This article provides various guidelines for using Apache Spark on Azure HDInsig
 | Remote job submission with Livy | [Use Apache Spark REST API to submit remote jobs to an HDInsight Spark cluster](./apache-spark-livy-rest-interface.md) |
 |[Apache Oozie](../hdinsight-use-oozie-linux-mac.md)|Oozie is a workflow and coordination system that manages Hadoop jobs.|
 |[Apache Livy](./apache-spark-livy-rest-interface.md)|You can use Livy to run interactive Spark shells or submit batch jobs to be run on Spark.|
-|[Azure Data Factory for Apache Spark](/../data-factory/transform-data-using-spark.md)|The Spark activity in a Data Factory pipeline executes a Spark program on your own or [on-demand HDInsight cluster.|
-|[Azure Data Factory for Apache Hive](/../data-factory/transform-data-using-hadoop-hive.md)|The HDInsight Hive activity in a Data Factory pipeline executes Hive queries on your own or on-demand HDInsight cluster.|
+|[Azure Data Factory for Apache Spark](../../data-factory/transform-data-using-spark.md)|The Spark activity in a Data Factory pipeline executes a Spark program on your own or [on-demand HDInsight cluster.|
+|[Azure Data Factory for Apache Hive](../../data-factory/transform-data-using-hadoop-hive.md)|The HDInsight Hive activity in a Data Factory pipeline executes Hive queries on your own or on-demand HDInsight cluster.|
 
 ## How do I monitor and debug Spark jobs?
 

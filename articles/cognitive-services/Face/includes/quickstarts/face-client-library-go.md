@@ -108,7 +108,7 @@ Your workspace will contain three folders:
 Next, install the client library for Go:
 
 ```bash
-go get -u https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
+go get -u github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
 ```
 
 or if you use dep, within your repo run:

@@ -1010,6 +1010,8 @@
     - name: Security overview
       href: /azure/databricks/security/index
       maintainContext: true
+    - name: Security baseline
+      href: security-baseline.md
     - name: Access control
       items:
       - name: Access control overview

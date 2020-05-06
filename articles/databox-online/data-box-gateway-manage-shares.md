@@ -32,7 +32,7 @@ In this article, you learn how to:
 Do the following steps in the Azure portal to create a share.
 
 1. In the Azure portal, go to your Data Box Gateway resource and then navigate to **Overview**. Click **+ Add share** on the command bar.
-2. In **Add Share**, specify the share settings. Provide a unique name for your share.
+2. In **Add Share**, specify the share settings. Provide a unique name for your share. 
 
     ![Click add share](media/data-box-gateway-manage-shares/add-share-1.png)
 

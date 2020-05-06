@@ -1,6 +1,6 @@
 ---
-title: Understand role definitions in RBAC for Azure resources | Microsoft Docs
-description: Learn about role definitions in role-based access control (RBAC) for fine-grained access management of Azure resources.
+title: Understand Azure role definitions - Azure RBAC
+description: Learn about Azure role definitions in Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -17,9 +17,9 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom:
 ---
-# Understand role definitions for Azure resources
+# Understand Azure role definitions
 
-If you are trying to understand how a role works or if you are creating your own [custom role for Azure resources](custom-roles.md), it's helpful to understand how roles are defined. This article describes the details of role definitions and provides some examples.
+If you are trying to understand how an Azure role works or if you are creating your own [Azure custom role](custom-roles.md), it's helpful to understand how roles are defined. This article describes the details of role definitions and provides some examples.
 
 ## Role definition
 
@@ -165,7 +165,7 @@ Bob's permissions are restricted to just the `Actions` and `DataActions` specifi
 
 For more information about management and data plane security for storage, see the [Azure Storage security guide](../storage/blobs/security-recommendations.md).
 
-### What tools support using RBAC for data operations?
+### What tools support using Azure roles for data operations?
 
 To view and work with data operations, you must have the correct versions of the tools or SDKs:
 
@@ -240,10 +240,10 @@ Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root s
 > | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
 > | All scopes (applies only to built-in roles) | `"/"` |
 
-For information about `AssignableScopes` for custom roles, see [Custom roles for Azure resources](custom-roles.md).
+For information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).
 
 ## Next steps
 
-* [Built-in roles for Azure resources](built-in-roles.md)
-* [Custom roles for Azure resources](custom-roles.md)
+* [Azure built-in roles](built-in-roles.md)
+* [Azure custom roles](custom-roles.md)
 * [Azure Resource Manager resource provider operations](resource-provider-operations.md)
