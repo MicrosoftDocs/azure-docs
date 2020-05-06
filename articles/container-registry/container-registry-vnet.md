@@ -24,7 +24,7 @@ If instead you need to set up access rules for resources to reach a container re
 
 * Only an [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster or Azure [virtual machine](../virtual-machines/linux/overview.md) can be used as a host to access a container registry in a virtual network. *Other Azure services including Azure Container Instances aren't currently supported.*
 
-* [ACR Tasks](container-registry-tasks-overview.md) operations aren't currently supported in a container registry accessed in a virtual network.
+* Running [ACR Tasks](container-registry-tasks-overview.md) in a container registry accessed in a virtual network requires a [dedicated agent pool](container-registry-tasks-agent-pools.md).
 
 * Each registry supports a maximum of 100 virtual network rules.
 
