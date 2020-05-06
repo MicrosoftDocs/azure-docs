@@ -19,7 +19,7 @@ The change feed pull model is part of the [Azure Cosmos DB SDK V3](https://githu
 
 ## Using FeedRange for parallelization
 
-In the change feed pull model, you can use the `FeedRange` to parallelize the processing of the change feed. A `FeedRange` represents a single [physical partition].(partition-data.md#physical-partitions).
+In the change feed pull model, you can use the `FeedRange` to parallelize the processing of the change feed. A `FeedRange` represents a single [physical partition](partition-data.md#physical-partitions).
 
 Here's an example showing how to obtain a list of ranges for your container.
 
@@ -99,7 +99,7 @@ while (iterator.HasMoreResults)
 FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(lastProcessedToken);
 ```
 
-## Consuming an entire container
+## Consuming an entire container's changes
 
 Sometimes you might not need any parallelization when reading the change feed. By creating a `FeedIterator` without any `FeedRange` input, you can read an entire container's change feed on one machine:
 
