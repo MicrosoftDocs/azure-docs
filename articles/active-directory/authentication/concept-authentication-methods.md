@@ -70,6 +70,8 @@ Users may receive a notification through the mobile app for them to approve or d
 
 The Authenticator app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Users view the notification, and if it's legitimate, select **Verify**. Otherwise, they can select **Deny**.
 
+![Screenshot of example web browser prompt for Authenticator app notification to complete sign-in process](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
+
 > [!NOTE]
 > If your organization has staff working in or traveling to China, the *Notification through mobile app* method on Android devices doesn't work in that country. Alternate authentication methods should be made available for those users.
 
@@ -131,6 +133,8 @@ Users can choose to receive a text message with a verification code to enter in 
 
 If users don't want their mobile phone number to be visible in the directory but want to use it for password reset, administrators shouldn't populate the phone number in the directory. Instead, users should populate their **Authentication Phone** attribute via the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo). Administrators can see this information in the user's profile, but it's not published elsewhere.
 
+![Screenshot of the Azure portal that shows authentication methods with a phone number populated](media/concept-authentication-methods/user-authentication-methods.png)
+
 Microsoft doesn't guarantee consistent SMS or voice-based Azure Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft doesn't support short codes for countries / regions besides the United States and Canada.
 
 #### Text message
@@ -171,6 +175,8 @@ If you have problems with phone authentication for Azure AD, review the followin
 Security questions aren't used as an authentication method during a sign-in event. Instead, security questions can be used during the self-service password reset (SSPR) process to confirm who you are. Administrator accounts can't use security questions as an authentication / verification method with SSPR.
 
 When users register for SSPR, they're prompted to choose the authentication / verification methods to use. If they choose to use security questions, they pick from a set of questions to prompt for and then provide their own answers.
+
+![Screenshot of the Azure portal that shows authentication methods and options for security questions](media/concept-authentication-methods/security-questions-authentication-method.png)
 
 > [!NOTE]
 > Security questions are stored privately and securely on a user object in the directory and can only be answered by users during registration. There's no way for an administrator to read or modify a user's questions or answers.
@@ -244,6 +250,10 @@ During registration for SSPR, a user provides the email address to use. It's rec
 
 Certain older, non-browser apps don't understand pauses or breaks in the authentication process. If a user is enabled for multi-factor authentication and attempts to use one of these older, non-browser apps, they usually can't successfully authenticate. An app password allows users to continue to successfully authenticate with older, non-browser apps without interruption.
 
+By default, users can't create app passwords. If you need to allow users to create app passwords, select the **Allow users to create app passwords to sign into non-browser apps** under *Service settings* for user's Azure Multi-Factor Authentication properties.
+
+![Screenshot of the Azure portal that shows the service settings for multi-factor authentication to allow the user of app passwords](media/concept-authentication-methods/app-password-authentication-method.png)
+
 If you enforce Azure Multi-Factor Authentication using Conditional Access policies and not through per-user MFA, you can't create app passwords. Modern applications that use Conditional Access policies to control access don't need app passwords.
 
 If your organization is federated for single sign-on (SSO) with Azure AD and you use Azure Multi-Factor Authentication, the following considerations apply:
@@ -254,7 +264,6 @@ If your organization is federated for single sign-on (SSO) with Azure AD and you
 * Certain advanced architectural designs may require using a combination of organizational username and passwords and app passwords when using multi-factor authentication, depending on where they authenticate.
     * For clients that authenticate against an on-premises infrastructure, you would use an organizational username and password.
     * For clients that authenticate against Azure AD, you would use the app password.
-* By default, users can't create app passwords. If you need to allow users to create app passwords, select the **Allow users to create app passwords to sign into non-browser apps** under *Service settings* for user's Azure Multi-Factor Authentication properties.
 
 ## Next steps
 
