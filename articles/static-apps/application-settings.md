@@ -1,6 +1,6 @@
 ---
 title: Configure application settings for Azure Static Web Apps
-description: #Required; article description that is displayed in search results.
+description: Learn to configure application settings for Azure Static Web Apps
 services: static-web-apps
 author: burkeholland
 ms.service: static-web-apps
@@ -80,13 +80,13 @@ The `local.settings.json` file is not tracked by the GitHub repository because s
 
 Generally, uploading your settings is done infrequently, and isn't required with every build.
 
-## Uploading App settings
+## Uploading application settings
 
-You can configure application settings via the Azure Portal or with the Azure CLI.
+You can configure application settings via the Azure portal or with the Azure CLI.
 
-### Using the Azure Portal
+### Using the Azure portal
 
-The Azure Portal provides an interface for creating, updating and deleting App Settings.
+The Azure portal provides an interface for creating, updating and deleting application settings.
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 
@@ -98,7 +98,7 @@ The Azure Portal provides an interface for creating, updating and deleting App S
 
 1. Click on the **Add Button** to add a new app setting.
 
-:::image type="content" source="media/application-settings/configuration.png" alt-text="Azure Static Web Apps configuration view":::
+    :::image type="content" source="media/application-settings/configuration.png" alt-text="Azure Static Web Apps configuration view":::
 
 1. Enter a **Name** and **Value**
 
