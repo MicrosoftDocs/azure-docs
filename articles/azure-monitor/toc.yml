@@ -953,16 +953,23 @@
           href: insights/container-insights-optout-hybrid.md
     - name: Troubleshooting
       href: insights/container-insights-troubleshoot.md
-  - name: Other solutions
+  - name: Insights
+    items: 
+    - name: Resource groups
+      href: insights/resource-group-insights.md
+    - name: Storage
+      displayname: storage, monitor, insights, storage accounts, azure storage
+      href: insights/storage-insights-overview.md
+    - name: Cosmos DB
+      href: insights/cosmosdb-insights-overview.md
+    - name: Key Vault
+      href: insights/key-vault-insights-overview.md
+  - name: Solutions
     items:
     - name: Overview
       href: insights/solutions.md
     - name: Target solutions
       href: insights/solution-targeting.md
-    - name: Resource groups
-      href: insights/resource-group-insights.md
-    - name: Key Vault
-      href: insights/key-vault-insights-overview.md
     - name: Docker and Windows Container monitoring
       href: insights/containers.md
     - name: Capacity and performance solution
@@ -975,19 +982,12 @@
       href: insights/service-map.md
     - name: Service Map and Operations Manager
       href: insights/service-map-scom.md
-    - name: Storage
-      items:
-      - name: Azure Monitor for Storage
-        displayname: storage, monitor, insights, storage accounts, azure storage
-        href: insights/storage-insights-overview.md
     - name: Databases
       items:
       - name: Azure SQL
         href: insights/azure-sql.md
       - name: SQL Server
         href: insights/sql-assessment.md
-      - name: Azure Cosmos DB
-        href: insights/cosmosdb-insights-overview.md
     - name: Networks
       items:
       - name: Azure Monitor for Networks
