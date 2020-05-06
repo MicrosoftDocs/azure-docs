@@ -254,7 +254,7 @@ To take full advantage of Azure Cognitive Search's indexing speeds, you'll likel
 
 Several of the key considerations mentioned above impact the optimal number of threads. You can modify this sample and test with different thread counts to determine the optimal thread count for your scenario. However, as long as you have several threads running concurrently, you should be able to take advantage of most of the efficiency gains.
 
-As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](http-status-codes.md) indicating the request didn't fully succeed. During indexing, two common HTTP status codes are:
+As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) indicating the request didn't fully succeed. During indexing, two common HTTP status codes are:
 
 * **503 Service Unavailable** - This error means that the system is under heavy load and your request can't be processed at this time.
 * **207 Multi-Status** - This error means that some documents succeeded, but at least one failed.

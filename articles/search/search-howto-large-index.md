@@ -31,7 +31,7 @@ In addition to the information in this article, you can also take advantage of t
 
 Adding partitions or increasing the tier of your search service will both increase indexing speeds.
 
-Adding additional replicas may also increase indexing speeds but it isn't guaranteed. On the other hand, additional replicas will increase the query volume your search service can handle. Replicas are also a key component for getting an [SLA](https://azure.microsoft.com/en-us/support/legal/sla/search/v1_0/).
+Adding additional replicas may also increase indexing speeds but it isn't guaranteed. On the other hand, additional replicas will increase the query volume your search service can handle. Replicas are also a key component for getting an [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 Before adding partition/replicas or upgrading to a higher tier, consider the monetary cost and allocation time. Adding partitions can significantly increase indexing speed but adding/removing them can take anywhere from 15 minutes to several hours. For more information, see the documentation on [adjusting capacity](search-capacity-planning.md).
 
@@ -70,7 +70,7 @@ You can modify this sample and test with different thread counts to determine th
 > [!NOTE]
 > As you increase the tier of your search service or increase the partitions, you should also increase the number of concurrent threads.
 
-As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](http-status-codes.md) indicating the request didn't fully succeed. During indexing, two common HTTP status codes are:
+As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) indicating the request didn't fully succeed. During indexing, two common HTTP status codes are:
 
 * **503 Service Unavailable** - This error means that the system is under heavy load and your request can't be processed at this time.
 * **207 Multi-Status** - This error means that some documents succeeded, but at least one failed.
