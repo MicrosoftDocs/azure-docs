@@ -21,9 +21,9 @@ Azure Standard Load Balancer supports [availability zones](../availability-zones
 
 ## <a name="concepts"></a> Availability Zones concepts applied to Load Balancer
 
-A Load Balancer resource itself is regional and never zonal. The granularity of what you can configure is constrained by each configuration of frontend, rule, and backend pool definition.
-In the context of availability zones, the behavior and properties of a Load Balancer rule are described as zone-redundant or zonal.  Zone-redundant and zonal describe the zonality of a property.  In the context of Load Balancer, zone-redundant always means *multiple zones* and zonal means isolating the service to a *single zone*.
-Both public and internal Load Balancer support zone-redundant and zonal scenarios and both can direct traffic across zones as needed (*cross-zone load-balancing*). 
+A Load Balancer resource itself inherits zone configuration from it's components: frontend, rule, and backend pool definition.
+In the context of availability zones, the behavior and properties of a Load Balancer rule are described as zone-redundant or zonal.  In the context of Load Balancer, zone-redundant always means *multiple zones* and zonal means isolating the service to a *single zone*.
+Both types (public, internal) Load Balancer support zone-redundant and zonal scenarios and both can direct traffic across zones as needed.
 
 ## Frontend
 
