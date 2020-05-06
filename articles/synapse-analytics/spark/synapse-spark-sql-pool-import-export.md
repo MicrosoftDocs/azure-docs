@@ -155,7 +155,34 @@ val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 
 pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 ```
+
 Similarly, in the read scenario, read the data using Scala and write it into a temp table, and use Spark SQL in PySpark to query the temp table into a dataframe.
+
+## Allowing other users to use the DW Connector in your workspace
+
+You need to be Storage Blob Data Owner on the ADLS Gen 2 storage account connected to the workspace to alter missing permissions for others. Please ensure the user has access to the workspace and permissions to run notebooks.
+
+### Option 1
+
+- Make the user a Storage Blob Data Contributor/Owner
+
+### Option 2
+
+- Please specify the following ACLs on the folder structure:
+
+| Folder | / | synapse | workspaces  | <workspacename> | sparkpools | <sparkpoolname>  | sparkpoolinstances  |
+|--|--|--|--|--|--|--|--|
+| Access Permissions | --X | --X | --X | --X | --X | --X | -WX |
+| Default Permissions | ---| ---| ---| ---| ---| ---| ---|
+
+- You should be able to ACL all folders from "synapse" and downward from Azure Portal. In order to ACL the root "/" folder, please follow the instructions below.
+
+- Please connect to the storage account connected with the workspace from Storage Explorer using AAD
+- Select your Account and give the ADLS Gen2 URL and default file system for the workspace
+- Once you can see the storage account listed, right click on the listing workspace and select "Manage Access"
+- Add the User to the / folder with "Execute" Access Permission. Select "Ok"
+
+**Please make sure you don't select "Default" if you don't intend to**
 
 ## Next steps
 
