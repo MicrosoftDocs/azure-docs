@@ -120,9 +120,9 @@ If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-
 
         ![Copy endpoint URL from Azure portal](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
 
-<a name="set-method"></a>
+<a name="select-method"></a>
 
-## Set expected request method
+## Select expected request method
 
 By default, the Request trigger expects a POST request. You can specify a different method to expect, but only a single method.
 
@@ -130,11 +130,11 @@ By default, the Request trigger expects a POST request. You can specify a differ
 
    ![Add "Method" property to trigger](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
-1. From the **Method** list, select another method that the trigger expects instead. Or, you can specify a custom method.
+1. From the **Method** list, select the method that the trigger should expect instead. Or, you can specify a custom method.
 
    For example, select the **GET** method so that you can test your endpoint's URL later.
 
-   ![Select HTTPS method to use for trigger](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
+   ![Select request method expected by the trigger](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
 ## Accept parameters in endpoint URL
 
@@ -144,9 +144,9 @@ When you want your endpoint URL to accept parameter values through the endpoint'
 
   These values are passed as name-value pairs when sending the request to the endpoint's URL. For this option, you need to use the GET method in your Request trigger. In a subsequent action, you can get the parameter values as trigger outputs by using the `triggerOutputs()` function in an expression.
 
-* [Accept values through a relative path](#relative-path) for the parameter in your Request trigger.
+* [Accept values through a relative path](#relative-path) for parameters in your Request trigger.
 
-  You need to explicitly [set the method](#set-method) that your HTTPS request expects.
+  These values are passed when sending the request to the endpoint's URL. You also need to explicitly [select the method](#select-method) that the trigger expects. In a subsequent action, you can get the parameter values as trigger outputs by referencing those outputs directly.
 
 <a name="get-parameters"></a>
 
@@ -154,7 +154,7 @@ When you want your endpoint URL to accept parameter values through the endpoint'
 
 1. In the Request trigger, open the **Add new parameter list**, add the **Method** property to the trigger, and select the **GET** method.
 
-   For more information, see [Set expected HTTPS method](#set-method).
+   For more information, see [Select expected request method](#select-method).
 
 1. Under the Request trigger, add the action where you want to use the parameter value. For this example, add the **Response** action.
 
@@ -220,7 +220,7 @@ When you want your endpoint URL to accept parameter values through the endpoint'
 
    ![Specify the relative path for the parameter](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
-1. To use the parameter, find and add a **Response** action to your logic app.
+1. Under the Request trigger, add the action where you want to use the parameter value. For this example, add the **Response** action.
 
    1. Under the Request trigger, select **New step** > **Add an action**.
 
@@ -230,13 +230,15 @@ When you want your endpoint URL to accept parameter values through the endpoint'
 
    For example, suppose that you want the Response action to return `Postal Code: {postalCode}`.
 
-   In the **Body** property, enter `Postal Code: ` with a trailing space. From the dynamic content list that appears, select the **postalCode** token.
+   1. In the **Body** property, enter `Postal Code: ` with a trailing space. Keep your cursor inside the edit box so that the dynamic content list remains open.
 
-   ![Add the specified parameter to response body](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
+   1. In the dynamic content list, from the **When a HTTP request is received** section, select the **postalCode** token.
 
-   The **Body** property now includes the selected parameter:
+      ![Add the specified parameter to response body](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
 
-   ![Example response body with parameter](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+      The **Body** property now includes the selected parameter:
+
+      ![Example response body with parameter](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
 1. Save your logic app.
 
