@@ -17801,6 +17801,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md",
+      "redirect_url": "/power-bi/service-azure-sql-data-warehouse-with-direct-connect",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory",
       "redirect_document_id": false
@@ -17937,7 +17942,7 @@
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md",
-      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi",
+      "redirect_url": "/power-bi/service-azure-sql-data-warehouse-with-direct-connect",
       "redirect_document_id": true
     },
     {
@@ -28434,6 +28439,11 @@
       "source_path": "articles/storage/storage-how-to-use-files-linux.md",
       "redirect_url": "/azure/storage/files/storage-how-to-use-files-linux",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/files/storage-how-to-recover-deleted-account.md",
+      "redirect_url": "/azure/storage/common/storage-account-create",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/storage-https-custom-domain-cdn.md",
