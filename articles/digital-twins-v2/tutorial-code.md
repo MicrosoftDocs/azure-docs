@@ -17,18 +17,16 @@ ms.service: digital-twins
 
 # Coding with the Azure Digital Twins APIs
 
-## Audience
-
-This tutorial is for developers who would like to get an introduction to programming against the Azure Digital Twins service using the C# service SDK.
+This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the C# service SDK. In the tutorial, you will write a minimal client application from scratch.
 
 ## Prerequisites
 
-This tutorial uses the command line for setup and project work - you can therefore use any code editor you like to walk through the exercises.
+This tutorial uses the command line for setup and project work. Therefore, you can use any code editor to walk through the exercises.
 
 What you need to begin:
-* Dotnet core 3.1
+* Any code editor
+* .NET Core 3.1 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 * The Azure CLI
-* Any code editor 
 
 ## Preparation
 
