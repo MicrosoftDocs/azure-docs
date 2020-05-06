@@ -1,5 +1,5 @@
 ---
-title: Permissions to repositories in Azure Container Registry
+title: Permissions to repositories in Azure Container Registry (Premium SKU Only)
 description: Create a token with permissions scoped to specific repositories in a registry to pull or push images, or perform other actions
 ms.topic: article
 ms.date: 02/13/2020
