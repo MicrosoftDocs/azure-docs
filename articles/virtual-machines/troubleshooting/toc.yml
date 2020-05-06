@@ -149,8 +149,6 @@
       href: https://support.microsoft.com/help/4091524
     - name: Recover LVM configured VMs and no boot 
       href: chroot-logical-volume-manager.md
-    - name: Troubleshoot fstab errors
-      href: linux-virtual-machine-cannot-start-fstab-errors.md
     - name: Detailed SSH troubleshooting
       href: detailed-troubleshoot-ssh-connection.md
   - name: Application access issues
