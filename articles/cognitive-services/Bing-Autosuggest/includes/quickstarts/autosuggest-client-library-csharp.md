@@ -18,12 +18,12 @@ Use the Bing Autosuggest client library for .NET to get search suggestions based
 
 ## Prerequisites
 
-* An Azure subscription. If you don't already have an Azure subscription, [create one for free](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't already have an Azure subscription, [you can create one for free](https://azure.microsoft.com/free/).
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 [!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](~/includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-## Create an environment variable
+## Create environment variables
 
 >[!NOTE]
 > The endpoints for non-trial resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
@@ -138,7 +138,7 @@ If you're using the Visual Studio IDE, the client library is available as a down
 These code snippets show you how to do the following tasks with the Bing Autosuggest client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Send an autosuggest request](#send-an-autosuggest-request)
+* [Send an Autosuggest request](#send-an-autosuggest-request)
 
 ### Authenticate the client
 
