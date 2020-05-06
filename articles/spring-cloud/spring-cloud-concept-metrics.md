@@ -86,15 +86,15 @@ The following tables show the available metrics and details.
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
->| Tomcat Global Error | tomcat.global.error | Count | Number of errors occurs of processed requests |
+>| tomcat.global.error<br><br>Tomcat Global Error (deprecated) | tomcat.global.error | Count | Number of errors occurs of processed requests |
 
 ### Performance
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
->|System CPU Usage Percentage | system.cpu.usage | Percent | Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed.|
->| App CPU Usage Percentage | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
->| App Memory Assigned | jvm.memory.committed | Bytes | Represents the amount of memory that is guaranteed to be available for use by the JVM. The JVM may release memory to the system and committed could be less than init. committed will always be greater than or equal to used. |
+>| system.cpu.usage <br><br>System CPU Usage Percentage (deprecated) | system.cpu.usage | Percent | Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed.|
+>| AppCpuUsagePercentage<br><br>App CPU Usage Percentage (deprecated) | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
+>| AppMemoryCommitted<br><br>App Memory Assigned (deprecated)) | jvm.memory.committed | Bytes | Represents the amount of memory that is guaranteed to be available for use by the JVM. The JVM may release memory to the system and committed could be less than init. committed will always be greater than or equal to used. |
 >| App Memory Used | jvm.memory.used | Bytes | Represents the amount of memory currently used in bytes. |
 >| App Memory Max | jvm.memory.max | Bytes | Represents the maximum amount of memory that can be used for memory management. The amount of used and committed memory will always be less than or equal to max if max is defined. A memory allocation may fail if it attempts to increase the used memory such that used > committed even if used <= max would still be true (for example, when the system is low on virtual memory). |
 >| Max Available Old Generation Data Size | jvm.gc.max.data.size | Bytes | The peak memory usage of the old generation memory pool since the Java virtual machine was started. |
