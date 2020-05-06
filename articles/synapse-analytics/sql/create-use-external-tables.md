@@ -19,11 +19,11 @@ In this section, you'll learn how to create and use external tables in SQL on-de
 
 ## Prerequisites
 
-Your first step is to create database where the tables will be created and initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. All queries in this article will be executed on your sample database
+Your first step is to create database where the tables will be created and initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. All queries in this article will be executed on your sample database.
 
-## Create an external table
+## Create an external table on protected data
 
-You can create external tables the same way you create regular SQL Server external tables. The query below creates an external table that reads *population.csv* file.
+You can create external tables that access data on Azure storage account that allows access to users with some Azure AD identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. The query below creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account protected with database scoped credential called `sqlondemand`. Database scoped credential is created in [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
 
 > [!NOTE]
 > Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
@@ -34,7 +34,7 @@ GO
 
 CREATE EXTERNAL DATA SOURCE [CsvDataSource] WITH (
     LOCATION = 'https://sqlondemandstorage.blob.core.windows.net/csv'
-    , CREDENTIAL = sqlondemand -- creadential created in setup script
+    , CREDENTIAL = sqlondemand -- credential created in setup script
 );
 GO
 
@@ -64,7 +64,7 @@ WITH (
 GO
 ```
 
-## Create an external table on public storage
+## Create an external table on public data
 
 You can create external tables that reads data from the files placed on publicly available Azure storage. [Setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) will create public external data source and Parquet file format definition that is used in the following query:
 
@@ -75,16 +75,17 @@ CREATE EXTERNAL TABLE Taxi (
      dropoff_datetime DATETIME2
 ) WITH ( LOCATION = 'puYear=*/puMonth=*/*.parquet',
          DATA_SOURCE = YellowTaxi,
-         FILE_FORMAT = ParquetFormat );
+         FILE_FORMAT = ParquetFormat
+);
 ```
 ## Use a external table
 
 You can use external tables in your queries the same way you use them in SQL Server queries.
 
-The following query demonstrates using the *population* external table we created in [Create an external table](#create-an-external-table) section. It returns country names with their population in 2019 in descending order.
+The following query demonstrates using the *population* external table we created in previous section. It returns country names with their population in 2019 in descending order.
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created.
 
 ```sql
 USE [mydbname];
