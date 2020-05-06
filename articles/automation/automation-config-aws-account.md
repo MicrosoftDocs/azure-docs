@@ -4,7 +4,7 @@ description: This article describes how to create and validate an AWS credential
 keywords: aws authentication, configure aws
 services: automation
 ms.subservice: process-automation
-ms.date: 04/17/2018
+ms.date: 04/23/2020
 ms.topic: conceptual
 ---
 # Authenticate Azure Automation runbooks with Amazon Web Services
@@ -14,7 +14,7 @@ Automating common tasks with resources in Amazon Web Services (AWS) can be accom
 * An AWS subscription and a set of credentials. Specifically your AWS Access Key and Secret Key. For more information, review the article [Using AWS Credentials](https://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html).
 * An Azure subscription and Automation account.
 
-To authenticate with AWS, you must specify a set of AWS credentials to authenticate your runbooks running from Azure Automation. If you already have an Automation account created and you want to use that to authenticate with AWS, you can follow the steps in the following section: If you want to dedicate an account for runbooks targeting AWS resources, you should first create a new [Automation account](automation-offering-get-started.md) (skip the option to create a service principal) and use the following steps:
+To authenticate with AWS, you must specify a set of AWS credentials to authenticate your runbooks running from Azure Automation. If you already have an Automation account created and you want to use that to authenticate with AWS, you can follow the steps in the following section. If you want to dedicate an account for runbooks targeting AWS resources, you should first create a new [Automation account](automation-create-standalone-account.md) and skip the step to create a Run As account. After creating the account, follow the steps below to complete the configuration.
 
 ## Configure Automation account
 

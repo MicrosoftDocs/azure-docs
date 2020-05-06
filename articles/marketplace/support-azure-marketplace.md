@@ -18,13 +18,13 @@ Additionally, you can get many of your questions answered in the [Marketplace ch
 
 ## Onboarding
 
-Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/marketplacepublishersupport) for issues with onboarding and getting started.
+Open a ticket with Microsoft [marketplace publisher support](https://partner.microsoft.com/support/v2/?stage=1) for issues with onboarding and getting started.
 
 ## Partner Center   
 
 | Support channel | Description | Availability |  
 |:--- |:--- |:--- |  
-| For assistance, visit the Create an incident page located at [Marketplace Support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Support for Partner Center. | Support is provided 24x5. |  
+| For assistance, visit the Create an incident page located at [Marketplace Support](https://partner.microsoft.com/support/v2/?stage=1)</li> </ul> | Support for Partner Center. | Support is provided 24x5. |  
 
 ## Technical  
 

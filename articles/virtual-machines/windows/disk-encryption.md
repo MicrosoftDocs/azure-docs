@@ -2,7 +2,6 @@
 title: Server-side encryption of Azure Managed Disks - PowerShell
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
-
 ms.date: 04/21/2020
 ms.topic: conceptual
 ms.author: rogarana
@@ -185,7 +184,7 @@ Update-AzVM -ResourceGroupName $ResourceGroupName -VM $vm
 
 ```
 
-#### Encrypt existing unattached managed disks 
+#### Encrypt existing managed disks 
 
 Your existing disks must not be attached to a running VM in order for you to encrypt them using the following script:
 

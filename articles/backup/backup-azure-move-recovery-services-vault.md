@@ -32,7 +32,7 @@ France Central, France South, Germany Northeast, Germany Central, US Gov Iowa, C
 - To move a virtual machine with managed disks, see this [article](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
 - The options for moving resources deployed through the Classic model differ depending on whether you're moving the resources within a subscription, or to a new subscription. For more information, see this [article](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - Backup policies defined for the vault are retained after the vault moves across subscriptions or to a new resource group.
-- Moving vaults with the Azure Files, Azure File Sync, or SQL in IaaS VMs across subscriptions and resource groups isn't supported.
+- You can only move a vault if Azure virtual machines are the only backup items in the vault.
 - If you move a vault containing VM backup data, across subscriptions, you must move your VMs to the same subscription, and use the same target VM resource group name (as it was in old subscription) to continue backups.
 
 > [!NOTE]

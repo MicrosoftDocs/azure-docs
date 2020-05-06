@@ -13,6 +13,10 @@ In this quickstart, you deploy a new blockchain member and consortium in Azure B
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+## Prerequisites
+
+None.
+
 ## Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.

@@ -93,26 +93,11 @@ You can use Azure Machine Learning Compute to distribute the training process ac
 
 Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
 
+> [!TIP]
+> Clusters can generally scale upto 100 nodes as long as you have enough quota for the number of cores required. By default clusters are setup with inter-node communication enabled between the nodes of the cluster to support MPI jobs for example. However you can scale your clusters to 1000s of nodes by simply [raising a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), and requesting to whitelist your subscription, or workspace, or a specific cluster for disabling inter-node communication. 
+>
 
-You can create an Azure Machine Learning compute environment on demand when you schedule a run, or as a persistent resource.
-
-#### Run-based creation
-
-You can create Azure Machine Learning Compute as a compute target at run time. The compute is automatically created for your run. The compute is deleted automatically once the run completes. 
-
-> [!IMPORTANT]
-> Run-based creation of Azure Machine Learning compute is currently in Preview. Don't use run-based creation if you use automated hyperparameter tuning or automated machine learning. To use hyperparameter tuning or automated machine learning, create a [persistent compute](#persistent) target instead.
-
-1.  **Create, attach, and configure**: The run-based creation performs all the necessary steps to create, attach, and configure the compute target with the run configuration.  
-
-  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
-
-
-Now that you've attached the compute and configured your run, the next step is to [submit the training run](#submit).
-
-#### <a id="persistent"></a>Persistent compute
-
-A persistent Azure Machine Learning Compute can be reused across jobs. The compute can be shared with other users in the workspace and is kept between jobs.
+Azure Machine Learning Compute can be reused across runs. The compute can be shared with other users in the workspace and is retained between runs, automatically scaling nodes up or down based on the number of runs submitted, and the max_nodes set on your cluster.
 
 1. **Create and attach**: To create a persistent Azure Machine Learning Compute resource in Python, specify the **vm_size** and **max_nodes** properties. Azure Machine Learning then uses smart defaults for the other properties. The compute autoscales down to zero nodes when it isn't used.   Dedicated VMs are created to run your jobs as needed.
     

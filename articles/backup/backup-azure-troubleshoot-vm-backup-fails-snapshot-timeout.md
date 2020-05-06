@@ -195,7 +195,7 @@ If you require verbose logging for waagent, follow these steps:
 
 ### VM-Agent configuration options are not set (for Linux VMs)
 
-A configuration file (/etc/waagent.conf) controls the actions of waagent. Configuration File Options **Extensions.Enable** and **Provisioning.Agent** should be set to **y** for Backup to work.
+A configuration file (/etc/waagent.conf) controls the actions of waagent. Configuration File Options **Extensions.Enable** should be set to **y** and **Provisioning.Agent** should be set to **auto** for Backup to work.
 For full list of VM-Agent Configuration File Options, see <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>The snapshot status can't be retrieved, or a snapshot can't be taken

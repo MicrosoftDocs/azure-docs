@@ -43,7 +43,7 @@ There are two options to add DNS servers for the P2S clients.
 
 ### For User VPN (Point-to-site)- how many clients are supported?
 
-Each User VPN P2S gateway has two instances and each instance supports upto certain users as the scale unit changes. Scale unit 1-3 supports 500 connections, Scale unit 4-6 supports 1000 connections, Scale unit 7-10 supports 5000 connections and Scale unit 11+ supports upto 10,000 connections. As an example, lets say the user chooses 1 scale unit. Each scale unit would imply an active-active gateway deployed and each of the instances (in this case 2) would support upto 500 connections. Since you can get 500 connections * 2 per gateway, it does not mean you plan for 1000 instead of  the 500 for this scale unit as instances may need to be serviced during which connectivity for the extra 500 may be interrupted if you surpass the recommended connection count.
+Each User VPN P2S gateway has two instances and each instance supports upto certain users as the scale unit changes. Scale unit 1-3 supports 500 connections, Scale unit 4-6 supports 1000 connections, Scale unit 7-12 supports 5000 connections and Scale unit 13-20 supports upto 10,000 connections. As an example, lets say the user chooses 1 scale unit. Each scale unit would imply an active-active gateway deployed and each of the instances (in this case 2) would support upto 500 connections. Since you can get 500 connections * 2 per gateway, it does not mean you plan for 1000 instead of  the 500 for this scale unit as instances may need to be serviced during which connectivity for the extra 500 may be interrupted if you surpass the recommended connection count.
 
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN VPN gateway?
 
@@ -215,6 +215,10 @@ If a Virtual Hub learns the same route from multiple remote hubs,  the order in 
 	d) InterHub routes
 2)	Route metric : Virtual WAN prefers ExpressRoute over VPN. ExpressRoute peer have a higher weightage compared to the VPN peer
 3)	AS path length
+
+### Is there support for IPv6 in Virtual WAN?
+
+IPv6 is not supported in Virtual WAN hub and its gateways.If you have a VNET that has IPv6 support and you would like to connect the VNET to Virtual WAN, this scenario is also not supported. 
 
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 
