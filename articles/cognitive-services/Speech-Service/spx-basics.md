@@ -22,7 +22,7 @@ The only prerequisite is an Azure Speech subscription. See the [guide](get-start
 
 ## Download and install
 
-SPX is available on Windows and Linux. Start by downloading the [zip archive](https://crbn.us/spx.zip), then extract it. SPX requires either the .NET Core or .NET Framework runtime, and the following versions are supported by platform:
+SPX is available on Windows and Linux. Start by downloading the [zip archive](https://aka.ms/speech/spx-zips.zip), then extract it. SPX requires either the .NET Core or .NET Framework runtime, and the following versions are supported by platform:
 
 * Windows: [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471), [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 * Linux: [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
