@@ -312,7 +312,8 @@ The following method trains a model on a given set of documents and prints the m
 private static async Task<Guid> TrainModel(
     FormRecognizerClient trainingClient, string trainingDataUrl)
 {
-    CustomFormModel model = await trainingClient.StartTrainingAsync(new Uri(trainingDataUrl)).WaitForCompletionAsync();
+    CustomFormModel model = await trainingClient
+        .StartTrainingAsync(new Uri(trainingDataUrl)).WaitForCompletionAsync();
     
     Console.WriteLine($"Custom Model Info:");
     Console.WriteLine($"    Model Id: {model.ModelId}");
@@ -548,7 +549,9 @@ Message:
     Status: 400 (Bad Request)
 
 Content:
-    {"error":{"code":"FailedToDownloadImage","innerError":{"requestId":"8ca04feb-86db-4552-857c-fde903251518"},"message":"Failed to download image from input URL."}}
+    {"error":{"code":"FailedToDownloadImage","innerError":
+    {"requestId":"8ca04feb-86db-4552-857c-fde903251518"},
+    "message":"Failed to download image from input URL."}}
 
 Headers:
     Transfer-Encoding: chunked
