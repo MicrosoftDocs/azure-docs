@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Coding with the Azure Digital Twins APIs
 
-This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the C# service SDK. In the tutorial, you will write a minimal client application from scratch.
+It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the C# service SDK. It walks you through writing a basic client application from scratch.
 
 ## Prerequisites
 
@@ -155,9 +155,11 @@ This will restore the dependencies on first run, and then execute the program.
 
 ### Upload a model
 
-Azure Digital Twins service instances out of the box have no domain vocabulary. You need to upload model definitions (in form of JSON-DL DTDL, or Digital Twins Definition Language, files).
+Azure Digital Twins has no intrinsic domain vocabulary. The types of elements in your environment that you can represent in Azure Digital Twins are defined by you, using **models**. [Models](concepts-models.md) are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**.
 
-The next step is to create a model with a basic DTDL file. In the directory where you created your project, create a new *.json* file called *SampleModel.json*. Paste in the following file body: 
+The first step in creating an Azure Digital Twins solution is defining at least one model in a DTDL file.
+
+In the directory where you created your project, create a new *.json* file called *SampleModel.json*. Paste in the following file body: 
 
 ```json
 {
@@ -284,7 +286,7 @@ From this point forward, the tutorial will wrap all calls to service methods in 
 
 ### Create digital twins
 
-Now that you have uploaded a model to Azure Digital Twins, you can use this model definition to create digital twins. This section creates a few digital twins using the model you uploaded earlier.
+Now that you have uploaded a model to Azure Digital Twins, you can use this model definition to create **digital twins**. [Digital twins](concepts-twins-graph.md) are instances of a model, and represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. This section creates a few digital twins based on the model you uploaded earlier.
 
 Add a new `using` statement at the top, as you will need the built-in .NET Json serializer in `System.Text.Json`:
 
@@ -323,7 +325,7 @@ Notice that no error is thrown when the twins are created the second time, even 
 
 ### Create relationships
 
-Relationships are created between twins in order to connect them into a twin graph.
+Next, you can create **relationships** between the twins you've created, to connect them into a **twin graph**. [Twin graphs]((concepts-twins-graph.md)) are used to represent your entire environment.
 
 To be able to create relationships, add a `using` statement for the edge (relationship) base types in the SDK:
 ```csharp
@@ -396,7 +398,9 @@ In your command window, run the program with `dotnet run`. You should see a list
 
 ### Query digital twins
 
-The last section of code to add runs a query against the Azure Digital Twins instance. The query used in this example selects all the digital twins in the instance.
+A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment.
+
+The last section of code to add in this tutorial runs a query against the Azure Digital Twins instance. The query used in this example returns all the digital twins in the instance.
 
 Add the following code to the end of the `Main` method:
 
