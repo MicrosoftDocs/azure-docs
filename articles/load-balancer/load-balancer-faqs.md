@@ -26,3 +26,6 @@ See the [list of Azure Load Balancer quickstart templates](https://docs.microsof
 
 ## How are inbound NAT rules different from load-balancing rules?
 NAT rules are used to specify a backend resource to route traffic to. For example, configuring a specific load balancer port to send RDP traffic to a specific VM. Load-balancing rules are used to specify a pool of backend resources to route traffic to, balancing the load across each instance. For example, a load balancer rule can route TCP packets on port 80 of the load balancer across a pool of web servers.
+
+## Next Steps
+If your question is not listed above, please send feedback about this page with your question. This will create a GitHub issue for the product team to ensure all of our valued customer questions are answered.
