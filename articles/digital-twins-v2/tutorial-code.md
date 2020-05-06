@@ -157,13 +157,13 @@ This will restore the dependencies on first run, and then execute the program.
 
 Azure Digital Twins service instances out of the box have no domain vocabulary. You need to upload model definitions (in form of JSON-DL DTDL, or Digital Twins Definition Language, files).
 
-The next step is to create a model with a basic DTDL file. In the directory where you created your project, create a new *.json* file called *Simple.json*. Paste in the following file body: 
+The next step is to create a model with a basic DTDL file. In the directory where you created your project, create a new *.json* file called *SampleModel.json*. Paste in the following file body: 
 
 ```json
 {
-  "@id": "urn:example:Simple:1",
+  "@id": "urn:example:SampleModel:1",
   "@type": "Interface",
-  "name": "Simple",
+  "name": "SampleModel",
   "contents": [
     {
       "@type": "Relationship",
@@ -209,7 +209,7 @@ Paste in the following code under the authorization code you added earlier.
 Console.WriteLine();
 Console.WriteLine($"Upload a model");
 var typeList = new List<string>();
-string dtdl = File.ReadAllText("Simple.json");
+string dtdl = File.ReadAllText("SampleModel.json");
 typeList.Add(dtdl);
 // Upload the model to the service
 client.CreateModelsAsync(typeList);
@@ -277,7 +277,7 @@ Date: Tue, 05 May 2020 01:57:51 GMT
 Content-Length: 115
 Content-Type: application/json; charset=utf-8
 
-Type name: : urn:example:Simple:1
+Type name: : urn:example:SampleModel:1
 ```
 
 From this point forward, the tutorial will wrap all calls to service methods in try/catch handlers.
@@ -298,7 +298,7 @@ Then, add the following code to the end of the `Main` method to create and initi
 // Initialize twin metadata
 var meta = new Dictionary<string, object>
 {
-    { "$model", "urn:example:Simple:1" },
+    { "$model", "urn:example:SampleModel:1" },
 };
 // Initialize the twin properties
 var initData = new Dictionary<string, object>
@@ -448,7 +448,7 @@ namespace minimal
             Console.WriteLine();
             Console.WriteLine($"Upload a model");
             var typeList = new List<string>();
-            string dtdl = File.ReadAllText("Simple.json");
+            string dtdl = File.ReadAllText("SampleModel.json");
             typeList.Add(dtdl);
             // Upload the model to the service
             try {
@@ -466,7 +466,7 @@ namespace minimal
             // Initialize twin metadata
             var meta = new Dictionary<string, object>
             {
-                { "$model", "urn:example:Simple:1" },
+                { "$model", "urn:example:SampleModel:1" },
             };
             // Initialize the twin properties
             var initData = new Dictionary<string, object>
