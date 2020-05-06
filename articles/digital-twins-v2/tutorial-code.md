@@ -114,7 +114,7 @@ In order to authenticate, you need three pieces of information:
 * The *hostName* of your service instance
 
 >[!TIP]
-> If you don't know your *Directory (tenant) ID*, you can get it by running this command in [Azure Cloud Shell]((https://shell.azure.com)):
+> If you don't know your *Directory (tenant) ID*, you can get it by running this command in [Azure Cloud Shell](https://shell.azure.com):
 > 
 > ```azurecli-interactive
 > az account show --query tenantId
@@ -326,7 +326,7 @@ Notice that no error is thrown when the twins are created the second time, even 
 
 ### Create relationships
 
-Next, you can create **relationships** between the twins you've created, to connect them into a **twin graph**. [Twin graphs]((concepts-twins-graph.md)) are used to represent your entire environment.
+Next, you can create **relationships** between the twins you've created, to connect them into a **twin graph**. [Twin graphs](concepts-twins-graph.md) are used to represent your entire environment.
 
 To be able to create relationships, add a `using` statement for the edge (relationship) base types in the SDK:
 ```csharp
