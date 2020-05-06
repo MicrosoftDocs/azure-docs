@@ -13,7 +13,7 @@ ms.author: anfeldma
 # Performance tips for Azure Cosmos DB and Sync Java SDK v2
 
 > [!div class="op_single_selector"]
-> * [Java SDK v4 Async API](performance-tips-java-sdk-v4-sql.md)
+> * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
 > * [Async Java SDK v2](performance-tips-async-java.md)
 > * [Sync Java SDK v2](performance-tips-java.md)
 > * [.NET](performance-tips.md)

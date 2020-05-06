@@ -13,7 +13,7 @@ ms.author: anfeldma
 # Performance tips for Azure Cosmos DB and Java SDK v4
 
 > [!div class="op_single_selector"]
-> * [Java SDK v4 Async API](performance-tips-java-sdk-v4-sql.md)
+> * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
 > * [Async Java SDK v2](performance-tips-async-java.md)
 > * [Sync Java SDK v2](performance-tips-java.md)
 > * [.NET](performance-tips.md)
@@ -72,7 +72,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     }
 
     ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-    CosmosAsyncClient client = new CosmosClientBuilder()
+    CosmosClient client = new CosmosClientBuilder()
         .setEndpoint(HOST)
         .setKey(MASTER)
         .setConnectionPolicy(connectionPolicy)
@@ -396,7 +396,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     #### [Async](#tab/api-async)
 
-    ### <a id="java4-request-charge"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+    ### <a id="java4-request-charge-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
     CosmosAsyncItemResponse<CustomPOJO> response = asyncContainer.createItem(item).block();
@@ -405,6 +405,8 @@ So if you're asking "How can I improve my database performance?" consider the fo
     ```     
 
     #### [Sync](#tab/api-sync)
+
+    ### <a id="java4-request-charge-sync"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Sync API    
 
     ```java
     CosmosItemResponse<CustomPOJO> response = syncContainer.createItem(item);
