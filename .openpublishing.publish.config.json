@@ -234,6 +234,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "azure-iot-sdk-node",
+      "url": "https://github.com/Azure/azure-iot-sdk-node",
+      "branch": "master"
+    },
+    {
       "path_to_root": "iot-samples-c",
       "url": "https://github.com/Azure/azure-iot-sdk-c",
       "branch": "master"
