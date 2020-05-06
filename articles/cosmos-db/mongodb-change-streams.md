@@ -56,7 +56,7 @@ while (!cursor.isExhausted()) {
     }
 }
 ```
-# [C#](#tab/c#)
+# [C#](#tab/csharp)
 
 ```csharp
 var pipeline = new EmptyPipelineDefinition<ChangeStreamDocument<BsonDocument>>()
