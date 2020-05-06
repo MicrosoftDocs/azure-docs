@@ -93,9 +93,11 @@ In the preceding code snippet:
 
 Applying a user flow or custom policy (for example, letting the user edit their profile or reset their password) is currently done by calling `AcquireTokenInteractive`. For these two policies, you don't use the returned token/authentication result.
 
-## Special case of EditProfile and ResetPassword policies
+## Profile edit policies
 
-When you want to provide an experience where your users sign in with a social identity and then edit their profile, apply the Azure AD B2C edit profile policy. Do so by calling `AcquireTokenInteractive` with the authority for that policy. Set Prompt to `Prompt.NoPrompt` to prevent the account selection dialog from being displayed as the user is already signed-in and has an active cookie session.
+To enable your users to sign in with a social identity and then edit their profile, apply the Azure AD B2C edit profile policy.
+
+Do so by calling `AcquireTokenInteractive` with the authority for that policy. Because the user is already signed in and has an active cookie session, use `Prompt.NoPrompt` to prevent the account selection dialog from being displayed.
 
 ```csharp
 private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
@@ -116,7 +118,7 @@ private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-## Resource owner password credentials (ROPC) with Azure AD B2C
+## Resource owner password credentials (ROPC)
 
 For more information on the ROPC flow, see [Sign in with resource owner password credentials grant](v2-oauth-ropc.md).
 
@@ -157,7 +159,7 @@ If you're using Google as an identity provider, we recommend you use the system 
 
 We'll provide an update to this [issue](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688) if things change.
 
-## Caching with Azure AD B2C in MSAL.NET
+## Token caching in MSAL.NET
 
 ### Known issue with Azure AD B2C
 
@@ -182,9 +184,9 @@ Alternatively, you can use the `tid` claim if you're using [custom policies](../
 
 #### Mitigation for "Missing from the token response"
 
-One option is to use the `name` claim instead of `preferred_username`. To include the `name` claim in the ID tokens issued by Azure AD B2C, select **Display Name** when you configure your user flow.
+One option is to use the `name` claim instead of `preferred_username`. To include the `name` claim in ID tokens issued by Azure AD B2C, select **Display Name** when you configure your user flow.
 
-For more information about specifying the claims returned by your user flows, see [Tutorial: Create user flows in Azure AD B2C](../../active-directory-b2c/tutorial-create-user-flows.md).
+For more information about specifying which claims are returned by your user flows, see [Tutorial: Create user flows in Azure AD B2C](../../active-directory-b2c/tutorial-create-user-flows.md).
 
 ## Next steps
 
