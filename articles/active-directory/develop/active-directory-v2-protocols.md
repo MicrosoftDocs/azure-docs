@@ -1,5 +1,6 @@
 ---
-title: OAuth 2.0 and OpenID Connect protocols - Microsoft identity platform | Azure
+title: OAuth 2.0 and OpenID Connect protocols on Microsoft identity platform | Azure
+titleSuffix: Microsoft identity platform
 description: A guide to OAuth 2.0 and OpenID Connect protocols that are supported by the Microsoft identity platform endpoint.
 services: active-directory
 author: hpsin
@@ -9,15 +10,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ---
 
-# OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform
+# OAuth 2.0 and OpenID Connect protocols on Microsoft identity platform
 
-The Microsoft identity platform endpoint for identity-as-a-service with industry standard protocols, OpenID Connect and OAuth 2.0. While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols. The information here will be useful if you choose to write your code by directly sending and handling HTTP requests or use a third party open-source library, rather than using one of our [open-source libraries](reference-v2-libraries.md).
+The Microsoft identity platform endpoint for identity-as-a-service with industry standard protocols, OpenID Connect (OIDC) and OAuth 2.0. While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols. The information here will be useful if you choose to write your code by directly sending and handling HTTP requests or use a third party open-source library, rather than using one of our [open-source libraries](reference-v2-libraries.md).
 
 ## The basics
 
@@ -65,7 +66,7 @@ To learn how to interact with these endpoints, choose a particular app type in t
 
 ## Tokens
 
-The Microsoft identity platform implementation of OAuth 2.0 and OpenID Connect make extensive use of bearer tokens, including bearer tokens represented as JWTs. A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though a party must first authenticate with Microsoft identity platform to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a malicious party can use a man-in-the-middle attack to acquire the token and use it for unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
+The Microsoft identity platform implementation of OAuth 2.0 and OpenID Connect make extensive use of bearer tokens, including bearer tokens represented as JWTs (JSON Web Tokens). A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though a party must first authenticate with Microsoft identity platform to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a malicious party can use a man-in-the-middle attack to acquire the token and use it for unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
 
 Further details of different types of tokens used in the Microsoft identity platform endpoint is available in [the Microsoft identity platform endpoint token reference](v2-id-and-access-tokens.md).
 

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/06/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
@@ -27,6 +27,9 @@ Access tokens are only valid for a short period of time, so authorization server
 
 **ID tokens** are sent to the client application as part of an [OpenID Connect](v2-protocols-oidc.md) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user. To learn more about how Microsoft identity platform issues ID tokens, see [ID tokens](id-tokens.md).
 
+> [!NOTE]
+> This article discusses security tokens for the OAuth2 and OpenID Connect protocols. Many enterprise applications use SAML to authenticate users. See [Azure AD SAML token reference](reference-saml-tokens.md) for information on SAML assertions.
+
 ## Validating security tokens
 
 It's up to the app for which the token was generated, the web app that signed-in the user, or the web API being called, to validate the token. The token is signed by the **Security Token Server (STS)** with a private key. The STS publishes the corresponding public key. To validate a token, the app verifies the signature by using the STS public key to validate that the signature was created using the private key.
@@ -42,7 +45,7 @@ Access tokens are passed to a web API as the bearer token in the `Authorization`
 
 Microsoft identity platform implements security tokens as **JSON Web Tokens (JWTs)** that contain **claims**.
 
-A [claim](developer-glossary.md#claim) provides assertions about one entity, such as a client application or [resource owner](developer-glossary.md#resource-owner), to another entity, such as a resource server.
+A [claim](developer-glossary.md#claim) provides assertions about one entity, such as a client application or [resource owner](developer-glossary.md#resource-owner), to another entity, such as a resource server. A claim may also be referred to as a JWT claim or JSON Web Token claim.
 
 Claims are name/value pairs that relay facts about the token subject. For example, a claim may contain facts about the security principal that was authenticated by the authorization server. The claims present in a given token depend on many things, including the type of token, the type of credential used to authenticate the subject, the application configuration, and so on.
 
