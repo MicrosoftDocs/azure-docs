@@ -141,13 +141,13 @@ This category does not include specific errors about the messages themselves (li
 
 Here are links to some helpful reference tables:
 
-[Endpoint Health](troubleshooting-message-routing.md#endpoint-health)
+[Endpoint Health](troubleshoot-message-routing.md#endpoint-health)
 
-[Last Known Errors](troubleshooting-message-routing.md#last-known-errors)
+[Last Known Errors](troubleshootg-message-routing.md#last-known-errors)
 
-[Diagnostics error codes](troubleshooting-message-routing.md#diagnostics-error-codes)
+[Diagnostics error codes](troubleshoot-message-routing.md#diagnostics-error-codes)
 
-[Operation names used in the diagnostics logs](troubleshooting-message-routing.md#diagnostics-operation-names)
+[Operation names used in the diagnostics logs](troubleshoot-message-routing.md#diagnostics-operation-names)
 
 #### Device telemetry
 
