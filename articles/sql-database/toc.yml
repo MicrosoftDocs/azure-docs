@@ -200,7 +200,7 @@
         href: /sql/connect/sql-server-drivers
         items:
         - name: ADO.NET
-          href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+          href: /sql/connect/ado-net/microsoft-ado-net-sql-server
         - name: JDBC
           href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
         - name: Node.js
