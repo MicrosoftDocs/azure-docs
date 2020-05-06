@@ -15,13 +15,13 @@ ms.custom: contperfq4
 
 ---
 
-# Secure machine learning lifecycle in a private virtual network
+# Secure your machine learning lifecycles in private virtual networks
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you'll learn how to isolate experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network (vnet). You'll also learn about some *advanced security settings*, information that isn't necessary for basic or experimental use cases.
 
 > [!WARNING]
-> Microsoft does not support using the Azure Machine Learning Studio features such as Automated ML, Datasets, Data labeling, Designer, and Notebooks if the underlying storage has virtual network enabled.
+> If your underlying storage is in a virtual network, users will not be able to use Azure Machine Learning's studio web experience for drag-n-drop designer, the UI for automated machine learning, data labeling, and so on. 
 
 ## What is a VNET?
 
