@@ -122,7 +122,7 @@ The following options are not supported for Azure SQL Database subscriptions:
 Create a publication and a push subscription. For more information, see:
   
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) by using the Azure SQL Database server name as the subscriber (for example **N'azuresqldbdns.database.windows.net'**) and the Azure SQL Database name as the destination database (for example **AdventureWorks**).  
+- [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) by using the server name as the subscriber (for example **N'azuresqldbdns.database.windows.net'**) and the Azure SQL Database name as the destination database (for example **AdventureWorks**).  
 
 ## See Also  
 
