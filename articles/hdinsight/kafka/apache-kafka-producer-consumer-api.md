@@ -172,6 +172,10 @@ Records stored in Kafka are stored in the order they're received within a partit
     If your cluster is Enterprise Security Pack Enabled, you need to use the Prebuilt Jar: https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar.
     
     ESP jar can be built from from `DomainJoined-Producer-Consumer`subdirectory. https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer . Note the Producer & Consumer properties. They have an additional property CommonClientConfigs.SECURITY_PROTOCOL_CONFIG for ESP enabled clusters
+    
+2. Facing issue with ESP enabled clusters
+
+    We have seen issues where create/produce and consumer fail in an ESP enabled cluster. Please check all the Ranger policies and validate that user "kafka" is added to all of them. If it is not present please add it in all the policies.      
 
 ## Clean up resources
 
