@@ -67,14 +67,10 @@
       href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Use Azure Private Endpoints
       href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json  
-    - name: Data redundancy
-      items:
-      - name: Data redundancy
-        href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Disaster recovery and failover
-        href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Design highly available applications
-        href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+  - name: Data redundancy
+    href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+  - name: Disaster recovery and failover
+    href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Performance and scalability checklist
     href: storage-performance-checklist.md
   - name: Concurrency
@@ -172,9 +168,13 @@
         href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Enable Transport Layer Security
         href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Change how data is replicated
-    href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Disaster recovery
+  - name: Manage data redundancy
+    items:
+    - name: Change how data is replicated
+      href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Design highly available applications
+      href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+  - name: Manage disaster recovery
     items:
     - name: Check the Last Sync Time property
       href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
