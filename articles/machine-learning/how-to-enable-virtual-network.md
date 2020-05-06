@@ -21,7 +21,7 @@ ms.custom: contperfq4
 In this article, you'll learn how to isolate experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network (vnet). You'll also learn about some *advanced security settings*, information that isn't necessary for basic or experimental use cases.
 
 > [!WARNING]
-> If your underlying storage is in a virtual network, users will not be able to use Azure Machine Learning's studio web experience for drag-n-drop designer, the UI for automated machine learning, data labeling, and so on. 
+> If your underlying storage is in a virtual network, users will not be able to use Azure Machine Learning's studio web experience for drag-n-drop designer, the UI for automated machine learning, and data labeling. 
 
 ## What is a VNET?
 
@@ -67,7 +67,7 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 
 <a id="amlcompute"></a>
 
-## <a name="compute-instance"></a>Compute targets or compute instances
+## <a name="compute-instance"></a>Compute clusters & instances
 
 To use either a [managed Azure Machine Learning **compute target**](concept-compute-target.md#azure-machine-learning-compute-managed) or an [Azure Machine Learning compute **instance**](concept-compute-instance.md) in a virtual network, the following network requirements must be met:
 
