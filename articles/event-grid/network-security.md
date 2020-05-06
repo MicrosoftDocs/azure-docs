@@ -57,7 +57,7 @@ When you resolve the topic or domain endpoint URL from outside the VNet with the
 | Name                                          | Type      | Value                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<azure traffic manager profile\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
 
 You can deny or control access for a client outside the VNet through the public endpoint using the [IP firewall](#ip-firewall). 
 
