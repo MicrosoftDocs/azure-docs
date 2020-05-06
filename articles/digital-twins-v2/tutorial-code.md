@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# First Steps: Coding with the ADT APIs
+# First Steps: Coding with the Azure Digital Twins APIs
 
 ## Audience
 
@@ -49,7 +49,7 @@ dotnet add package Azure.identity
 
 The first is the Azure Digital Twins SDK for .Net. The second dependency provides tools that make authentication against Azure a lot more comfortable.
 
-## Setting up an ADT Instance
+## Setting up an Azure Digital Twins Instance
 
 Before you can follow the development steps in this tutorial, you will have to create an Azure Digital Twins service instance. For this tutorial, there are two options to do so:
 * You can follow the manual steps described in this how-to document [point to how-to]. 
@@ -65,7 +65,7 @@ ToDo - Need to figure out how to get the script. FOr this exercise, my preferenc
 - Create an app registration
 - Create a resource group
 - Create the service instance 
-- Add permissions for ADT
+- Add permissions for Azure Digital Twins
 - Set environment variables 
 ***
 ```
@@ -366,7 +366,7 @@ Note that if you run the code multiple times, you will see exceptions on edge cr
 
 ## Query Twins
 
-Finally, one last example. Let's run a query against ADT. 
+Finally, one last example. Let's run a query against Azure Digital Twins. 
 
 Add the following code:
 ```csharp
