@@ -150,25 +150,27 @@ Depending on whether or not your application is built with a JavaScript framewor
 
 ### Environment configuration files
 
-If you are building your app with front-end frameworks that have a CLI, use environment configuration files. In the development configuration file, you can specify the path to the API, which points to the local location of `http:127.0.0.1:7071`.
+If you are building your app with front-end frameworks that have a CLI, you should use environment configuration files. Each framework or library has a different way of handling these environment configuration files. It's common to have a configuration file for development that is used when your application is running locally, and one for production that is used when your application is running in production. The CLI for the JavaScript framework or static site generator that you are using will automatically know to use the development file locally and the production file when your app is built by Azure Static Web Apps.
+
+In the development configuration file, you can specify the path to the API, which points to the local location of `http:127.0.0.1:7071` where the API for your site is running locally.
 
 ```
 API=http:127.0.0.1:7071/api
 ```
 
-Alternatively, the production configuration specifies the path to the API as `api`.
+In the production configuration file, specify the path to the API as `api`. This way your application will call the api via "yoursite.com/api" when running in production.
 
 ```
 API=api
 ```
 
-This environment variable is then referenced in the web app's JavaScript.
+These configuration values can be referenced as Node environment variables in the web app's JavaScript.
 
 ```js
 let response = await fetch(`${process.env.API}/message`);
 ```
 
-When the application is built with its CLI, the `process.env.API` value is replaced with the value from the appropriate configuration file.
+When the CLI is used to run your site in development mode or to build the site for production, the `process.env.API` value is replaced with the value from the appropriate configuration file.
 
 For more information on configuring environment files for front-end JavaScript frameworks and libraries, see these articles:
 
@@ -197,4 +199,4 @@ For more information on configuring environment files for front-end JavaScript f
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure environment variables](environment-variables.md)
+> [Configure application settings](application-settings.md)
