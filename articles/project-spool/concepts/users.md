@@ -13,7 +13,7 @@ ms.service: azure-project-spool
 ---
 # User Access Tokens
 
-Azure Communication Services retains its own directory of user entities which engage in ACS powered communication. User entities send SMS messages, engage chat threads, interact with real-time data, voice, and video communication.
+Azure Communication Services retains its own directory of user entities which engage in ACS powered communication. User entities engage chat threads, interact with real-time data, voice, and video communication.
 
 ACS’s separate identity system is oriented towards flexibility and simplicity. While you may simply make communication identities mapping to existing entities in your Azure Active Directory deployment, you can also make communication identities for any abstract concept interfacing with the ACS dataplane. 
 
@@ -32,6 +32,7 @@ In this example an end-user device is going to directly send a chat message from
 2.  Send a message to sue@contoso.com 
 
 ### Use this TokenCredential to create an ACS Communication Client with the Management capability
+
 Trusted services can access ACS on behalf of a AAD service principal or managed identity. For more information see the authorization topic. For clarity of the mananagement samples on this page, below is example code for creating a management client from a trusted service:
 
 ```
@@ -70,6 +71,7 @@ ACS communication identity tokens typically have a lifetime of 12 hours. They ca
 ## Using user access tokens for communication 
 
 ### Use this TokenCredential to create an ACS Communication Client with the Chat capability
+
 Bob creates a token credential object using the string they obtained from the trusted service. They use this token to create a Chat enabled communication client.
 ```var client = new CommunicationClient(
                 new Capabilities().AddChat(),
@@ -91,6 +93,29 @@ It is possible with ACS for a communication identity to communicate on behalf of
 
 ## User access token scopes
 ## Access token life cycle (AKA refreshing access tokens)
+
+User access tokens are short lived credentials.
+
+```javascript
+const { ChatClient } = require('@azure/communicationservices-chat');
+
+// Your unique Azure Communication service endpoint
+const endpoint = 'https://<RESOURCE_NAME>.communcationservices.azure.com';
+
+// User access token fetched from your trusted service
+const userAccessToken = 'SECRET';
+
+// Initialize the a chat client
+const client = new ChatClient(endpoint, userAccessToken);
+
+client.on('token_will_expire', (tokenProvider) => {
+  // fetch a new token from the your trusted service and
+  // pass it to the token provider
+  fetchNewToken()
+    .then((newToken) => tokenProvider.udpateToken(newToken));
+});
+```
+
 ## Revoking users access tokens
 ## Impersonating users
 ***Trusted service sends Sue a chat message on behalf of Bob***
