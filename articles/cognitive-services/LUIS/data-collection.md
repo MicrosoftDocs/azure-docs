@@ -64,7 +64,7 @@ The following preprocessing steps will help build a better LUIS app:
 
 ## Test data selection for batch testing
 
-All of the principles listed above for training utterances apply to utterances you should use for your test set. Ensure the distribution across intents and entities mirror the real distribution as closely as possible.
+All of the principles listed above for training utterances apply to utterances you should use for your [test set](luis-concept-batch-test.md). Ensure the distribution across intents and entities mirror the real distribution as closely as possible.
 
 Don’t reuse utterances from your training set in your test set. This improperly biases your results and won’t give you the right indication of how your LUIS app will perform in production.
 
