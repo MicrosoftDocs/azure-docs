@@ -27,7 +27,7 @@ This article shows how to set up a CI/CD pipeline that uses the blue-green strat
 
 ### Configure CI/CD on virtual machines
 
-You can add virtual machines as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commitment.
+You can add virtual machines as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commit.
 
 ### Blue-green deployments
 
@@ -49,7 +49,7 @@ Using the continuous-delivery option, you can configure blue-green deployments t
 1. A deployment group is a logical set of deployment target machines that represent the physical environments. Dev, Test, UAT, and Production are examples. You can create a new deployment group or select an existing one.
 1. Select the build pipeline that publishes the package to be deployed to the virtual machine. The published package should have a deployment script named deploy.ps1 or deploy.sh in the deployscripts folder in the package's root folder. The pipeline runs this deployment script.
 1. In **Deployment strategy**, select **Blue-Green**.
-1. Add a "blue" or "green" tag to VMs that are to be part of blue-green deployments. If a VM is for a standby role, tag it as "green." Otherwise, tag it as "blue."
+1. Add a "blue" or "green" tag to VMs that are to be part of blue-green deployments. If a VM is for a standby role, tag it as "green". Otherwise, tag it as "blue".
 
    ![The Continuous delivery panel, with the Deployment strategy value Blue-Green chosen](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
 
@@ -57,11 +57,11 @@ Using the continuous-delivery option, you can configure blue-green deployments t
 
    ![The blue-green pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
 
-1. Select **Edit** for the release pipeline in Azure DevOps Pipelines to see the pipeline configuration. The pipeline has these three phases:
+1. The deployment details for the virtual machine are displayed. You can select the link to go to the release pipeline in Azure DevOps. In the release pipeline, select **Edit** to view the pipeline configuration. The pipeline has these three phases:
 
-   1. This phase is a deployment-group phase. Applications are deployed to standby VMs, which are tagged as "green."
-   1. The pipeline pauses and waits for manual intervention to resume the run.
-   1. After deployment is stable, users can redirect traffic to "green" VMs and resume the pipeline run. That run swaps the "blue" and "green" tags in the VMs. This technique ensures that VMs with older application versions are tagged as "green." During the next pipeline run, applications are deployed to these VMs.
+   1. This phase is a deployment-group phase. Applications are deployed to standby VMs, which are tagged as "green".
+   1. In this phase, the pipeline pauses and waits for manual intervention to resume the run. Users can resume the pipeline run once they have manually ensured stability of deployment to VMs tagged as "green".
+   1. This phase swaps the "blue" and "green" tags in the VMs. This ensures that VMs with older application versions are now tagged as "green". During the next pipeline run, applications will be deployed to these VMs.
 
       ![The Deployment group pane for the Deploy Blue-Green task](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
 

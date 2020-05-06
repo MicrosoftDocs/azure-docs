@@ -27,7 +27,7 @@ This article shows how to set up a CI/CD pipeline that uses the canary strategy 
 
 ### Configure CI/CD on virtual machines
 
-You can add virtual machines as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commitment.
+You can add virtual machines as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commit.
 
 ### Canary deployments
 
@@ -53,17 +53,17 @@ Using the continuous-delivery option, you can configure canary deployments to yo
 
 1. Select **OK** to configure the continuous-delivery pipeline to deploy to the virtual machine.
 
-   ![The canary pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure-canary.png)
+   ![The canary pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-pipeline.png)
 
-1. Select **Edit** for the release pipeline in Azure DevOps Pipelines to see the pipeline configuration. The pipeline has these three phases:
+1. The deployment details for the virtual machine are displayed. You can select the link to go to the release pipeline in Azure DevOps. In the release pipeline, select **Edit** to view the pipeline configuration. The pipeline has these three phases:
 
-   1. This phase is a deployment-group phase. Applications are deployed to VMs that are tagged as "canary."
-   1. The pipeline pauses and waits for manual intervention to resume the run.
-   1. After deployment is stable, users can resume the pipeline run that deploys to VMs tagged as "prod."
+   1. This phase is a deployment-group phase. Applications are deployed to VMs that are tagged as "canary".
+   1. In this phase, the pipeline pauses and waits for manual intervention to resume the run.
+   1. This is again a deployment group phase. The update is now deployed to VMs tagged as "prod".
 
       ![The Deployment group pane for the Deploy Canary task](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-task.png)
 
-1. Before resuming the pipeline run, ensure that at least one VM is tagged as "prod." In the third phase of the pipeline, applications are deployed to only those VMs that have the "prod" tag.
+1. Before resuming the pipeline run, ensure that at least one VM is tagged as "prod". In the third phase of the pipeline, applications are deployed to only those VMs that have the "prod" tag.
 
 1. The Execute Deploy Script task by default runs the deployment script deploy.ps1 or deploy.sh. The script is in the deployscripts folder in the root folder of the published package. Ensure that the selected build pipeline publishes the deployment in the root folder of the package.
 

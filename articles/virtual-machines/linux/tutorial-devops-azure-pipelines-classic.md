@@ -31,7 +31,7 @@ This article shows how to set up a CI/CD pipeline for rolling multimachine deplo
 
 ### Configure CI/CD on virtual machines
 
-You can add virtual machines as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commitment.
+You can add virtual machines as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commit.
 
 ### Rolling deployments
 
@@ -57,7 +57,8 @@ Using the continuous-delivery option, you can configure rolling updates to your 
 
    ![The Continuous delivery panel showing Deployment history](media/tutorial-devops-azure-pipelines-classic/azure-devops-deployment-history.png)
 
-1. The deployment to the virtual machine is in progress. You can select the link to go to the pipeline. Select **Release-1** to view the deployment. Or select **Edit** to modify the release-pipeline definition.
+1. The deployment details for the virtual machine are displayed. You can select the link to go to the pipeline, **Release-1** to view the deployment, or **Edit** to modify the release-pipeline definition.
+
 1. If you're configuring multiple VMs, repeat steps 2 through 4 for other VMs to add to the deployment group. If you select a deployment group that already has a pipeline run, the VMs are just added to the deployment group. No new pipelines are created.
 1. After configuration is done, select the pipeline definition, navigate to the Azure DevOps organization, and select **Edit** for the release pipeline.
 
