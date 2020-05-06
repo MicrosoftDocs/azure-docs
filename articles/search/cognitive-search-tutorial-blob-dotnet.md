@@ -41,7 +41,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 1. Right-click the zip file and select **Extract All**. There are 14 files of various types. You'll use 7 for this exercise.
 
-You can also download the source code for this tutorial. Source code for this tutorial is in the tutorial-ai-enrichment folder in the [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) repository.
+You can also download the source code for this tutorial. Source code is in the tutorial-ai-enrichment folder in the [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) repository.
 
 ## 1 - Create services
 
@@ -81,14 +81,14 @@ If possible, create both in the same region and resource group for proximity and
 
 1. Before you leave Azure Storage, get a connection string so that you can formulate a connection in Azure Cognitive Search. 
 
-   1. Browse back to the Overview page of your storage account (we used *blobstragewestus* as an example). 
+   1. Browse back to the Overview page of your storage account (we used *blobstoragewestus* as an example). 
    
    1. In the left navigation pane, select **Access keys** and copy one of the connection strings. 
 
    The connection string is a URL similar to the following example:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=blobstoragewestus;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 1. Save the connection string to Notepad. You'll need it later when setting up the data source connection.
@@ -97,7 +97,7 @@ If possible, create both in the same region and resource group for proximity and
 
 AI enrichment is backed by Cognitive Services, including Text Analytics and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
 
-For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services behind the scenes and give you 20 free transactions per indexer run. Since this tutorial uses 7 transactions, the free allocation is sufficient. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
+For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services behind the scenes and give you 20 free transactions per indexer run. Since this tutorial uses 14 transactions, the free allocation is sufficient. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
 
 ### Azure Cognitive Search
 
