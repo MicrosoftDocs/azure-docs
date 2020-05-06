@@ -123,7 +123,7 @@ const chatClient = new ChatClient(endpoint, tokenProvider);
 const callingClient = new CallingClient(endpoint, tokenProvider);
 ```
 
-## Revoking users access tokens
+## Revoking User Access Tokens
 
 In some cases, you may need to explicitly revoke user access tokens, for example, when a user changes the password they use to authenticate to your service. This functionality is available via the Azure Communication Services Management SDK.
 
