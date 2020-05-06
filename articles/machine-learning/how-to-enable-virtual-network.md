@@ -554,7 +554,7 @@ For information on using Azure Machine Learning with Azure Firewall, see [Use Az
     
     For more information, see the [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) method reference.
 
-1. If you are using Private Link for your Azure Machine Learning workspace, and put the Azure Container Registry for your workspace in a virtual network, you must also apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR over the Private Link.
+1. You must apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR.
 
     ```json
     {
