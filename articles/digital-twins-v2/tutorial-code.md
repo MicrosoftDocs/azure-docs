@@ -50,7 +50,7 @@ dotnet add package Azure.IoT.DigitalTwins
 dotnet add package Azure.identity
 ```
 
-The first dependency is the Azure Digital Twins SDK for .Net. 
+The first dependency is the Azure Digital Twins SDK for .NET. 
 The second dependency provides tools to help with authentication against Azure.
 
 Keep the command window open, as you'll continue to use it throughout the tutorial.
@@ -68,7 +68,7 @@ Otherwise, you can run [this shell script](https://github.com/Azure-Samples/digi
 
 ## Get started with project code
 
-In this section, you will begin writing the code for your new app project to work with Azure Digital Twins. The actions convered include:
+In this section, you will begin writing the code for your new app project to work with Azure Digital Twins. The actions covered include:
 * Authenticating against the service
 * Uploading a model
 * Catching errors
