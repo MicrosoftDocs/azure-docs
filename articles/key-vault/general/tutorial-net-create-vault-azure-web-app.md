@@ -8,28 +8,21 @@ manager: rajvijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.custom: mvc
+
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
+
 ---
-# Tutorial: Use Azure Key Vault with an Azure webapp in .NET
 
-Get started with the Azure Key Vault client library for .NET. Follow the steps below to install the package and try out example code for basic tasks.
+# Tutorial: Use a managed identity to connect a key vault to an Azure Web App in .NET
 
-Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. Use the Key Vault client library for .NET to:
+This tutorial illustrates how to use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to authenticate an Azure Web App with an Azure Key Vault. You can use a managed identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
-- Increase security and control over keys and passwords.
-- Create and import encryption keys in minutes.
-- Reduce latency with cloud scale and global redundancy.
-- Simplify and automate tasks for TLS/SSL certificates.
-- Use FIPS 140-2 Level 2 validated HSMs.
+> [!NOTE]
+>
+> This tutorial uses the [Azure Key Vault v4 client library for .NET](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) and the [Azure CLI](/cli/azure/get-started-with-azure-cli). However, the same basic principles apply when using the development language of your choice and/or Azure PowerShell.
 
-[API reference documentation](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
-
-This quickstart shows how to create a [.NET Core](https://docs.microsoft.com/aspnet/core/) webapp, and connect to an Azure Key Vault through the use of a Managed Identity. You will use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) to create the app and Git to deploy the .NET Core code to the app.
-
-You can follow the steps in this article using a Mac, Windows, or Linux machine.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,7 +40,7 @@ This quickstart assumes you are running `dotnet`, [Azure CLI](/cli/azure/install
 
 A resource group is a logical container into which Azure resources are deployed and managed. 
 
-Your first step is to create a resource group to house both your key vault and your webapp. You can do so with the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command:
+Your first step is to create a resource group to house both your key vault and your web app. You can do so with the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command:
 
 ```azurecli
 az group create --name "myResourceGroup" -l "EastUS"
@@ -55,7 +48,7 @@ az group create --name "myResourceGroup" -l "EastUS"
 
 ## Set up your key vault
 
-You will now create a key vault and place a secret in it, for use later in this quickstart.
+You will now create a key vault and place a secret in it, for use later in this tutorial.
 
 To create a key vault, use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command:
 
@@ -63,16 +56,18 @@ To create a key vault, use the [az keyvault create](/cli/azure/keyvault?view=azu
 > Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
 
 ```azurecli
-az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
+az keyvault create --name "<your-unique-keyvault-name>" -g "myResourceGroup"
 ```
+
+Make a note of the returned `vaultUri`, which will be in the format"https://<your-unique-keyvault-name>.vault.azure.net/". It will be used in the [Update the code](#update-the-code) step.
 
 You can now place a secret in your key vault with the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command. Set the name of your secret to MySecret and the value to "Success!".
 
 ```azurecli
-az keyvault secret set --vault-name <your-unique-keyvault-name> -name "MySecret" -value "Success!"
+az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "MySecret" --value "Success!"
 ```
 
-## Create a .NET webapp
+## Create a .NET web app
 
 ### Create a local app
 
@@ -89,8 +84,6 @@ Now create a new .NET Core app with the [dotnet new web](/dotnet/core/tools/dotn
 dotnet new web
 ```
 
-### Run the local app
-
 Run the application locally so that you see how it should look when you deploy it to Azure. 
 
 ```bash
@@ -99,11 +92,11 @@ dotnet run
 
 Open a web browser, and navigate to the app at `http://localhost:5000`.
 
-You see the **Hello World** message from the sample app displayed in the page.
+You will see the **Hello World** message from the sample app displayed in the page.
 
-![Test with browser](media/quickstart-dotnetcore/dotnet-browse-local.png)
+### Initialize the git repository
 
-In your terminal window, press **Ctrl+C** to exit the web server. Initialize a Git repository for the .NET Core project.
+In your terminal window, press **Ctrl+C** to exit the web server.  Initialize a git repository for the .NET Core project.
 
 ```bash
 git init
@@ -113,26 +106,24 @@ git commit -m "first commit"
 
 ### Configure a deployment user
 
-FTP and local Git can deploy to an Azure webapp by using a *deployment user*. Once you configure your deployment user, you can use it for all your Azure deployments. Your account-level deployment username and password are different from your Azure subscription credentials. 
+FTP and local Git can deploy to an Azure web app by using a *deployment user*. Once you configure your deployment user, you can use it for all your Azure deployments. Your account-level deployment username and password are different from your Azure subscription credentials. 
 
-To configure the deployment user, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) command in Azure Cloud Shell. Replace \<username> and \<password> with a deployment user username and password. 
+To configure the deployment user, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) command. Choose a username and password that adheres to these guidelines: 
 
 - The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol. 
 - The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols. 
 
 ```azurecli-interactive
-az webapp deployment user set --user-name <username> --password <password>
+az webapp deployment user set --user-name "<username>" --password "<password>"
 ```
 
 The JSON output shows the password as `null`. If you get a `'Conflict'. Details: 409` error, change the username. If you get a `'Bad Request'. Details: 400` error, use a stronger password. 
 
-Record your username and password to use to deploy your webapps.
+Record your username and password to use to deploy your web apps.
 
 ### Create an app service plan
 
-Create an App Service plan with the Azure CLI [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest) command.
-
-The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
+Create an App Service plan with the Azure CLI [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest) command. This following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -159,15 +150,19 @@ When the App Service plan has been created, the Azure CLI shows information simi
 </pre>
 
 
-### Create a remote webapp
+### Create a remote web app
 
-Create a [webapp](../../app-service/containers/app-service-linux-intro.md) in the `myAppServicePlan` App Service plan. 
+Create an [Azure web app](../../app-service/containers/app-service-linux-intro.md) in the `myAppServicePlan` App Service plan. 
+
+> [!Important]
+> Similar to Key Vault, an Azure Web App must have a unique name. Replace <your-webapp-name> with the name of your web app the following examples.
+
 
 ```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <your-webapp-name> --deployment-local-git
+az webapp create --resource-group "myResourceGroup" --plan "myAppServicePlan" --name "<your-webapp-name>" --deployment-local-git
 ```
 
-When the webapp has been created, the Azure CLI shows output similar to the following example:
+When the web app has been created, the Azure CLI shows output similar to the following example:
 
 <pre>
 Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-name&gt;.scm.azurewebsites.net/&lt;ayour-webapp-name&gt;.git'
@@ -186,9 +181,8 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 }
 </pre>
 
-> [!NOTE]
-> The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Save this URL as you need it later.
->
+
+The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Save this URL, as you need it later.
 
 Browse to your newly created app. Replace _&lt;your-webapp-name>_ with your app name.
 
@@ -196,18 +190,17 @@ Browse to your newly created app. Replace _&lt;your-webapp-name>_ with your app 
 https://<your-webapp-name>.azurewebsites.net
 ```
 
-Here is what your new app should look like:
+You will see the default webpage for a newly created Azure Web App.
 
-![Empty app page](media/quickstart-dotnetcore/dotnet-browse-created.png)
+### Deploy your local app
 
-
-Back in the local terminal window, add an Azure remote to your local Git repository. Replace *\<deploymentLocalGitUrl-from-create-step>* with the URL of the Git remote that you saved from [Create a remote webapp](#create-a-remote-webapp).
+Back in the local terminal window, add an Azure remote to your local Git repository. Replace *\<deploymentLocalGitUrl-from-create-step>* with the URL of the Git remote that you saved from [Create a remote web app](#create-a-remote-web-app).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Push to the Azure remote to deploy your app with the following command. When Git Credential Manager prompts you for credentials, make sure you enter the credentials you created in [Configure a deployment user](/azure/app-service/containers/tutorial-python-postgresql-app#configure-a-deployment-user), not the credentials you use to sign in to the Azure portal.
+Push to the Azure remote to deploy your app with the following command. When Git Credential Manager prompts you for credentials, use the credentials you created in [Configure a deployment user](#configure-a-deployment-user) step.
 
 ```bash
 git push azure master
@@ -241,17 +234,13 @@ To https://&lt;your-webapp-name&gt;.scm.azurewebsites.net:443/&lt;your-webapp-na
    d87e6ca..d6b5447  master -> master
 </pre>
 
-### Browse to the app
-
-Browse to the deployed application using your web browser.
+Browse to (or refresh) the deployed application using your web browser.
 
 ```bash
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-The .NET Core sample code is running in App Service on Linux with a built-in image.
-
-![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
+You will see the "Hello World!" message you previously saw when visiting `http://localhost:5000`.
 
 ## Create and assign a managed identity
 
@@ -260,7 +249,7 @@ Azure Key Vault provides a way to securely store credentials and other secrets, 
 In the Azure CLI, to create the identity for this application, run the [az webapp-identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) command:
 
 ```azurecli
-az webapp identity assign --name "<YourAppName>" --resource-group "<YourResourceGroupName>"
+az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
 ```
 
 The operation will return this JSON snippet:
@@ -273,10 +262,10 @@ The operation will return this JSON snippet:
 }
 ```
 
-To give your webapp permission to do **get** and **list** operations on your key vault, pass the principalID to the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command:
+To give your web app permission to do **get** and **list** operations on your key vault, pass the principalID to the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command:
 
 ```azurecli
-az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id <principalId> --secret-permissions get list
+az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
 ```
 
 
@@ -293,38 +282,48 @@ dotnet add package Azure.Security.KeyVault.Secrets
 
 ### Update the code
 
-Find and open the Startup.cs file in your akvwebapp project. Add these three lines before the `app.UseEndpoints` call, updating the URI to reflect your unique webapp name:
+Find and open the Startup.cs file in your akvwebapp project. 
+
+Add these two lines to the header:
 
 ```cpp
-var client = new SecretClient(new Uri("https://<your-webapp-name>.vault.azure.net/"), new DefaultAzureCredential());
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+```
+
+Add these three lines before the `app.UseEndpoints` call, updating the URI to reflect the `vaultUri` of your key vault.
+
+```cpp
+var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential());
+
 KeyVaultSecret secret = client.GetSecret("mySecret");
+
 string secretValue = secret.Value;
+```
+
+Update the line `await context.Response.WriteAsync("Hello World!");` to read:
+
+```cpp
+await context.Response.WriteAsync(secretValue);
 ```
 
 Be certain to save your changes before proceeding to the next step.
 
-### Redeploy your webapp
+### Redeploy your web app
 
 Having updated your code, you can redeploy it to Azure with the following git commands:
 
 ```bash
 git add .
-git commit -m "Updated webapp to access my key vault"
+git commit -m "Updated web app to access my key vault"
 git push azure master
 ```
 
-## Visit your completed webapp
+## Visit your completed web app
 
 ```bash
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-Where before you saw "Hello world!", you shoukd now see the value of your secret displayed:
-
-
-
-
-
-
-
+Where before you saw "Hello world!", you shoukd now see the value of your secret displayed: Success!
 
