@@ -110,6 +110,8 @@ The following steps show you how to create a new static site app and deploy it t
 
 Next, add configuration settings that the build process uses to build your app.
 
+1. Click the **Next: Build >** button to edit the build configuration
+
 1. To configure the settings of the step in GitHub Actions, set the _App location_ to **/**.
 
 1. Set _App artifact location_ to **public**.
