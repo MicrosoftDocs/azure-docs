@@ -32,7 +32,7 @@ landingContent:
       - linkListType: video
         links:
           - text: What is Cognitive Search (1 min 27 sec)
-            url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
+            url: https://channel9.msdn.com/Events/Connect/2016/138/player
 
   # Card
   - title: Index Azure data
