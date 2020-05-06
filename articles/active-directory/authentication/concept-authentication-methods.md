@@ -28,7 +28,11 @@ A user could choose to authenticate using one of the following authentication me
 * OATH hardware token, such as FIDO2 security key
 * SMS-based passwordless sign-in
 
-Many accounts in Azure AD are enabled for self-service password reset (SSPR) or Azure Multi-Factor Authentication. These features include additional authentication methods such as voice call or security questions. It's recommended that you require users to register multiple authentication methods. When an authentication method isn't available for a user, they can choose to authenticate with another method. The following table outlines what authentication methods are available for the different scenarios:
+Many accounts in Azure AD are enabled for self-service password reset (SSPR) or Azure Multi-Factor Authentication. These features include additional authentication methods such as a phone call or security questions.
+
+It's recommended that you require users to register multiple authentication methods. When an authentication method isn't available for a user, they can choose to authenticate with another method.
+
+The following table outlines what authentication methods are available for the different scenarios:
 
 |Authentication Method|Usage|
 | --- | --- |
@@ -49,40 +53,42 @@ This article outlines these different authentication methods and any specific li
 
 An Azure AD password is often one of the primary authentication methods. You can't disable the password authentication method.
 
-Even if you use an authentication method such as SMS-based sign-in when the user doesn't use their password to sign, a password remains as an available authentication method.
+Even if you use an authentication method such as [SMS-based sign-in](howto-authentication-sms-signin.md) when the user doesn't use their password to sign, a password remains as an available authentication method.
 
 ## Microsoft Authenticator app
 
-With the Microsoft Authenticator app, users can authenticate passwordless during sign-in, or as an additional authentication / verification option during self-service password reset of Azure Multi-Factor Authentication events.
+With the Microsoft Authenticator app, users can authenticate passwordless during sign-in, or as an additional authentication / verification option during self-service password reset (SSPR) or Azure Multi-Factor Authentication events.
 
 The Authenticator app provides an additional level of security to your Azure AD work or school account or your Microsoft account and is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
-Users may receive a notification through the mobile app for them to approve or deny, or use the Authenticator app to generate an OATH verification code that can be entered in a sign-in dialog. If you enable the use of both a notification and verification code, users who register the Microsoft Authenticator app are able to use both methods to verify their identity.
+Users may receive a notification through the mobile app for them to approve or deny, or use the Authenticator app to generate an OATH verification code that can be entered in a sign-in interface. If you enable both a notification and verification code, users who register the Authenticator app can use either method to verify their identity.
 
 > [!NOTE]
-> Users don't have the option to register their mobile app when registering for self-service password reset. Instead, users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup) or as part of the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+> Users don't have the option to register their mobile app when they enable SSPR. Instead, users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup) or as part of the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 ### Notification through mobile app
 
-The Microsoft Authenticator app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Users view the notification, and if it's legitimate, select **Verify**. Otherwise, they can select **Deny**.
+The Authenticator app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Users view the notification, and if it's legitimate, select **Verify**. Otherwise, they can select **Deny**.
 
 > [!NOTE]
-> If your organization has staff working in or traveling to China, the **Notification through mobile app** method on **Android devices** does not work in that country. Alternate methods should be made available for those users.
+> If your organization has staff working in or traveling to China, the *Notification through mobile app* method on Android devices doesn't work in that country. Alternate authentication methods should be made available for those users.
 
 ### Verification code from mobile app
 
-The Microsoft Authenticator app can be used as a software token to generate an OATH verification code. After entering your username and password, you enter the code provided by the Authenticator app into the sign-in screen. The verification code provides a second form of authentication.
+The Authenticator app can be used as a software token to generate an OATH verification code. After entering your username and password, you enter the code provided by the Authenticator app into the sign-in interface. The verification code provides a second form of authentication.
 
 Users may have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time.
 
 > [!WARNING]
-> To ensure the highest level of security for self-service password reset when only one method is required for reset, verification code is the only option available to users.
+> To ensure the highest level of security for self-service password reset when only one method is required for reset, a verification code is the only option available to users.
 >
 > When two methods are required, users can reset using either a notification or verification code in addition to any other enabled methods.
 
 ## OATH hardware tokens (preview)
 
-OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD supports the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can purchase these tokens from the vendor of their choice. Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret key can only contain the characters *a-z* or *A-Z* and digits *1-7*, and must be encoded in *Base32*.
+OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD supports the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can purchase these tokens from the vendor of their choice.
+
+Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret key can only contain the characters *a-z* or *A-Z* and digits *1-7*, and must be encoded in *Base32*.
 
 OATH hardware tokens in Azure AD are currently in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -100,17 +106,17 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 
 Once properly formatted as a CSV file, an administrator can then sign in to the Azure portal, navigate to **Azure Active Directory** > **Security** > **MFA** > **OATH tokens**, and upload the resulting CSV file.
 
-Depending on the size of the CSV file, it may take a few minutes to process. Click the **Refresh** button to get the current status. If there are any errors in the file, you will have the option to download a CSV file listing any errors for you to resolve. The field names in the downloaded CSV file are different than the uploaded version.
+Depending on the size of the CSV file, it may take a few minutes to process. Select the **Refresh** button to get the current status. If there are any errors in the file, you can download a CSV file that lists any errors for you to resolve. The field names in the downloaded CSV file are different than the uploaded version.
 
-Once any errors have been addressed, the administrator then can activate each key by clicking **Activate** for the token to be activated and entering the OTP displayed on the token.
+Once any errors have been addressed, the administrator then can activate each key by selecting **Activate** for the token and entering the OTP displayed on the token.
 
-Users may have a combination of up to five OATH hardware tokens or authenticator applications such as the Microsoft Authenticator app configured for use at any time.
+Users may have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time.
 
 ## Phone options
 
 Users can authenticate using a mobile phone or office phone. Phone authentication is a secondary form of authentication used during Azure Multi-Factor Authentication or self-service password reset (SSPR). For direct authentication using text message, you can [Configure and enable users for SMS-based authentication(preview)](howto-authentication-sms-signin.md).
 
-With the mobile phone authentication option, a text message can be sent with a verification code to enter into the sign-in interface. Both mobile and office phone can also receive a phone call that prompts the user to enter their defined code to complete the sign-in process.
+With the mobile phone authentication option, a text message is sent with a verification code to enter into the sign-in interface. Both mobile and office phones can also receive a phone call that prompts the user to enter their defined code to complete the sign-in process.
 
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, *+1 4251234567*.
 
@@ -137,7 +143,7 @@ With phone call authentication during SSPR or Azure Multi-Factor Authentication,
 
 ### Office phone
 
-The office phone attribute is managed by the Azure AD administrator and can't be registered by user themselves.
+The office phone attribute is managed by the Azure AD administrator and can't be registered by a user themselves.
 
 With phone call authentication during SSPR or Azure Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to enter their pin number followed by # on their keypad.
 
