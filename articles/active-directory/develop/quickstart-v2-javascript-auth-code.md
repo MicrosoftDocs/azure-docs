@@ -109,7 +109,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 
 > [!div renderon="portal" class="sxs-lookup"]
 > > [!NOTE]
-> > `Enter_the_Supported_Account_Info_Here`
+> > :::no-loc text="Enter_the_Supported_Account_Info_Here":::
 
 > [!div renderon="docs"]
 >
