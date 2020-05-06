@@ -17801,6 +17801,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md",
+      "redirect_url": "/power-bi/service-azure-sql-data-warehouse-with-direct-connect",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory",
       "redirect_document_id": false
@@ -17937,7 +17942,7 @@
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md",
-      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi",
+      "redirect_url": "/power-bi/service-azure-sql-data-warehouse-with-direct-connect",
       "redirect_document_id": true
     },
     {
@@ -49083,6 +49088,51 @@
     {
       "source_path": "articles/azure-cache-for-redis/cache-howto-manage-redis-cache-powershell.md",
       "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/marketplace/cloud-partner-portal/power-bi/cpp-prerequisites.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/power-bi/cpp-create-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/power-bi/cpp-offer-settings-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/power-bi/cpp-technical-info-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/power-bi/cpp-storefront-details-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/power-bi/cpp-contacts-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/power-bi/cpp-create-technical-assets.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/power-bi/cpp-publish-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/power-bi/cpp-update-existing-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
       "redirect_document_id": false
     },
     {
