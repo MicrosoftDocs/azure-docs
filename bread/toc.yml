@@ -100,8 +100,8 @@
       tocHref: /azure/app-service-mobile/
       topicHref: /azure/app-service-mobile/
   - name: Static Web Apps
-    tocHref: /azure/static-apps/
-    topicHref: /azure/static-apps/
+    tocHref: /azure/static-web-apps/
+    topicHref: /azure/static-web-apps/
   - name: Advisor
     tocHref: /azure/advisor/
     topicHref: /azure/advisor/
