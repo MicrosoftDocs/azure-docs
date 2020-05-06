@@ -19,7 +19,7 @@ In this section, you'll learn how to create and use external tables in SQL on-de
 
 ## Prerequisites
 
-Your first step is to create database where the tables will be created and initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. All queries in this article will be executed on your sample database
+Your first step is to create database where the tables will be created and initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. All queries in this article will be executed on your sample database.
 
 ## Create an external table on protected data
 
@@ -70,18 +70,13 @@ You can create external tables that reads data from the files placed on publicly
 
 ```sql
 CREATE EXTERNAL TABLE Taxi (
-          vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
-          pickup_datetime DATETIME2, 
-          dropoff_datetime DATETIME2,
-          passenger_count INT,
-          trip_distance FLOAT,
-          rate_code INT,
-          payment_type INT,
-          fare_amount FLOAT,
-          extra FLOAT,
-          mta_tax FLOAT,
-          tip_amount FLOAT,
-          tolls_amount FLOAT
+     vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+     pickup_datetime DATETIME2, 
+     dropoff_datetime DATETIME2,
+     passenger_count INT,
+     trip_distance FLOAT,
+     fare_amount FLOAT,
+     tip_amount FLOAT
 ) WITH ( 
          LOCATION = 'puYear=*/puMonth=*/*.parquet',
          DATA_SOURCE = YellowTaxi,
