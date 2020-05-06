@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a blueprint with PowerShell"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the PowerShell.
-ms.date: 11/21/2019
+ms.date: 05/06/2020
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with PowerShell
@@ -33,7 +33,7 @@ a role assignment on the resource group.
 > When using PowerShell, the _blueprint_ object is created first. For each _artifact_ to be added
 > that has parameters, the parameters need to be defined in advance on the initial _blueprint_.
 
-1. Create the initial _blueprint_ object. The **BlueprintFile** parameter takes a JSON file which
+1. Create the initial _blueprint_ object. The **BlueprintFile** parameter takes a JSON file that
    includes properties about the blueprint, any resource groups to create, and all of the blueprint
    level parameters. The parameters are set during assignment and used by the artifacts added in
    later steps.
@@ -348,7 +348,8 @@ lock, and blueprint parameters, use the matching PowerShell parameters on the
 
 1. Run the blueprint deployment by assigning it to a subscription. As the **contributors** and
    **owners** parameters require an array of objectIds of the principals to be granted the role
-   assignment, use [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)
+   assignment, use
+   [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)
    for gathering the objectIds for use in the **AssignmentFile** for your own users, groups, or
    service principals.
 

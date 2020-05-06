@@ -22,6 +22,9 @@ You can enable Update Management for virtual machines (VMs) using the following 
 
 An [Azure Resource Manager template](automation-update-management-deploy-template.md) is available to help you deploy Update Management to a new or existing Automation account and Log Analytics workspace in your subscription.
 
+> [!NOTE]
+> You can't use a machine configured with Update Management to run custom scripts from Azure Automation. This machine can only run the Microsoft-signed update script. 
+
 ## Update Management overview
 
 Machines that are managed by Update Management use the following configurations to perform assessment and to update deployments:
