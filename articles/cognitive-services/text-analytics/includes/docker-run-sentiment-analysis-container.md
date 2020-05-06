@@ -24,6 +24,6 @@ ApiKey={API_KEY}
 This command:
 
 * Runs a *Sentiment Analysis* container from the container image
-* Allocates one CPU core and 4 gigabytes (GB) of memory
+* Allocates one CPU core and 8 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer.

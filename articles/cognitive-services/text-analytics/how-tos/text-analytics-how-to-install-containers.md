@@ -46,6 +46,17 @@ You must meet the following prerequisites before using Text Analytics containers
 
 [!INCLUDE [Host Computer requirements](../../../../includes/cognitive-services-containers-host-computer.md)]
 
+### Container requirements and recommendations
+
+The following table describes the minimum and recommended specifications for the Text Analytics containers. At least 2 gigabytes (GB) of memory are required, and each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Section (TPS) are also listed.
+
+|  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
+|---|---------|-------------|--|--|
+| **Language detection, key phrase extraction**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30|
+| **Sentiment Analysis v3**   | 1 core, 2GB memory | 4 cores, 8GB memory |15 | 30|
+
+CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+
 ## Get the container image with `docker pull`
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -142,7 +153,7 @@ For more information about these options, see [Configure containers](../text-ana
 In this article, you learned concepts and workflow for downloading, installing, and running Text Analytics containers. In summary:
 
 * Text Analytics provides three Linux containers for Docker, encapsulating various capabilities:
-   * *Sentiment Analysis *
+   * *Sentiment Analysis*
    * *Key Phrase Extraction (preview)* 
    * *Language Detection (preview)*
    
