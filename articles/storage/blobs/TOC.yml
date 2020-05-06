@@ -386,6 +386,8 @@
         href: soft-delete-enable.md
       - name: Create snapshots (.NET)
         href: snapshots-manage-dotnet.md
+      - name: Process change feed logs
+        href: storage-blob-change-feed-how-to.md
     - name: Manage disaster recovery
       items:
       - name: Check the Last Sync Time property
@@ -410,8 +412,6 @@
       href: storage-blob-event-quickstart.md
     - name: Utilize Blob Index
       href: storage-blob-index-how-to.md
-    - name: Process change feed logs
-      href: storage-blob-change-feed-how-to.md
     - name: Transfer data
       items:
       - name: AzCopy
