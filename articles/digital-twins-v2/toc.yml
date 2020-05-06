@@ -60,7 +60,7 @@
     href: reference-service-limits.md
 - name: Resources
   items:
-    - name: Customer data requests
+  - name: Customer data requests
     href: resources-customer-data-requests.md
 - name: Related
   items:
