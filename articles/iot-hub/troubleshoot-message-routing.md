@@ -1,11 +1,11 @@
 ---
-title: Troubleshooting message routing
-description: How to perform basic troubleshooting for several scenarios
+title: Troubleshoot Azure IoT message routing
+description: How to perform troubleshooting for Azure IoT message routing
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/25/2020
+ms.date: 05/06/2020
 ms.author: robinsh
 ---
 
@@ -21,7 +21,7 @@ To set up and use metrics, see the article [Set up and use metrics and diagnosti
 
 ## Which metrics to use when
 
-Can we provide some guidance here, like metrics used the most? 
+Can we provide some guidance here, like metrics used the most?
 
 ## Scenario driven examples
 
@@ -35,7 +35,7 @@ Messages dropped, check per endpoint metrics, diag logs and get endpoint health 
 
 What messages go to fallback route? How do I use this capability?
 
-What services can I send data to using message routing? (should this be added? It's more for information than for debugging) 
+What services can I send data to using message routing? (should this be added? It's more for information than for debugging)
 
 Link to routing docs/custom endpoints
 {These are covered in the routing tutorial and also one of the devguide articles, so adding it here would be super redundant. We should add the links at the bottom in a "for more information" link.}
