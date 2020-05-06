@@ -66,4 +66,4 @@ You can edit your personal dashboards and delete any dashboards you no longer ne
 
 ## Next steps
 
-Now that you've learned how to create and manage personal dashboards, you can [Learn how to manage your application preferences](howto-manage-preferences.md)
+Now that you've learned how to create and manage personal dashboards, you can [Learn how to manage your application preferences](howto-manage-preferences.md).
