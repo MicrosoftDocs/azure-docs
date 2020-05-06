@@ -18,7 +18,7 @@ This article explains how to manage consistency levels in Azure Cosmos DB. You l
 
 The [default consistency level](consistency-levels.md) is the consistency level that clients use by default.
 
-# [Azure portal](#tab/portal
+# [Azure portal](#tab/portal)
 
 To view or modify the default consistency level, sign in to the Azure portal. Find your Azure Cosmos account, and open the **Default consistency** pane. Select the level of consistency you want as the new default, and then select **Save**. The Azure portal also provides a visualization of different consistency levels with music notes. 
 
