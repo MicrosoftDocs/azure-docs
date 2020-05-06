@@ -523,8 +523,12 @@
       items:
       - name: Overview
         href: image-builder-overview.md
-      - name: Use Azure CLI
+      - name: Create VM - CLI
         href: image-builder.md
+      - name: Configure permissions - CLI
+        href: image-builder-permissions-cli.md
+      - name: Configure permissions - PowerShell
+        href: image-builder-permissions-powershell.md
       - name: ARM template reference
         href: image-builder-json.md
         displayName: ARM,Resource Manager
