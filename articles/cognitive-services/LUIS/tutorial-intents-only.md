@@ -1,9 +1,8 @@
 ---
 title: "Tutorial: Predict intentions - LUIS"
-description: In this tutorial, create a custom app that predicts a user's intention. This app is the simplest type of LUIS app because it doesn't extract various data elements from the utterance text such as email addresses or dates.
+description: Create a custom app that predicts a user's intention based on the utterance (text) in this tutorial.
 ms.topic: tutorial
-ms.date: 03/24/2020
-#Customer intent: As a new user, I want to create a custom app with intents, so that I can analyze user text in that subject domain.
+ms.date: 05/05/2020
 ---
 
 # Tutorial: Build a LUIS app to determine user intentions
@@ -33,7 +32,7 @@ These intentions are categorized into **Intents**.
 |`ModifyOrder`|Determine user's pizza order.|
 |`Greeting`|Begin bot conversation.|
 |`ConfirmOrder`|Confirm pizza order.|
-|`None`|Determine if user is asking something the app is not supposed to answer. This intent if provided as part of app creation and can't be deleted. |
+|`None`|Determine if user is asking something the LUIS app is not designed to answer. This intent is provided as part of app creation and can't be deleted. |
 
 ## Create a new app
 
@@ -60,9 +59,10 @@ In order to classify an utterance, the intent needs examples of user utterances 
     |`i need 2 large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza`|
     |`Order a pizza for me`|
 
-    ![Add example utterances](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of adding example utterances in LUIS portal on Intent page](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    By providing _example utterances_, you are teaching LUIS about what kinds of utterances should be predicted for this intent.
+    By providing _example utterances_, you are teaching LUIS about what kinds of utterances should be predicted for this intent. These are positive examples. The utterances in all the other intents are treated as negative examples for this intent. 
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 
