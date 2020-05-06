@@ -35,7 +35,6 @@
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-cli",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md",
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file",
@@ -249,6 +248,16 @@
     {
       "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md",
       "redirect_url": "/azure//virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/shared-images.md",
+      "redirect_url": "/azure/virtual-machines/shared-images-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/shared-images.md",
+      "redirect_url": "/azure/virtual-machines/shared-images-cli",
       "redirect_document_id": false
     },
     {
@@ -10532,6 +10541,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/saas-apps/directions-microsoft-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-clarizen-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/clarizen-tutorial",
       "redirect_document_id": true
@@ -20687,6 +20701,61 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-prerequisites.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-skus-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-support-tab.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-publish-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/create-iot-edge-module-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/billing-details.md",
+      "redirect_url": "/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/multi-factor-authentication/multi-factor-authentication-app-faq.md",
       "redirect_url": "./end-user/microsoft-authenticator-app-faq",
       "redirect_document_id": false
@@ -28200,6 +28269,16 @@
       "source_path": "articles/storage/storage-designing-ha-apps-with-ragrs.md",
       "redirect_url": "/azure/storage/common/storage-designing-ha-apps-with-ragrs",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-designing-ha-apps-with-ragrs.md",
+      "redirect_url": "/azure/storage/common/geo-redundant-design",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-simulate-failure-ragrs-account-app.md",
+      "redirect_url": "/azure/storage/common/simulate-primary-region-failure",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/common/storage-redundancy-lrs.md",

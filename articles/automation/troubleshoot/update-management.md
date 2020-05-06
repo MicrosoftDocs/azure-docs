@@ -44,13 +44,13 @@ This error can occur for the following reasons:
 
 * Run the troubleshooter for [Windows](update-agent-issues.md#troubleshoot-offline) or [Linux](update-agent-issues-linux.md#troubleshoot-offline), depending on the OS.
 
-* Go to [Network planning](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports must be allowed for Update Management to work.  
+* Go to [Network configuration](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports must be allowed for Update Management to work.  
 
-* Go to [Network planning](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) to learn about which addresses and ports must be allowed for the Log Analytics agent to work.
+* Go to [Network configuration](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) to learn about which addresses and ports must be allowed for the Log Analytics agent to work.
 
 * Check for scope configuration problems. [Scope configuration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determines which machines get configured for the solution. If your machine is showing up in your workspace but not in the **Update Management Portal, you'll need to set the scope configuration to target the machines. To learn about the scope configuration, see [Onboard machines in the workspace](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
-* Remove the worker configuration by following the steps in [Deleting the hybrid runbook worker](../automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker). 
+* Remove the worker configuration by following the steps in [Remove a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) or [Remove a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 
 ## Scenario: Superseded update indicated as missing in Update Management
 
@@ -443,7 +443,7 @@ The machine has already been onboarded to another workspace for Update Managemen
 ### Resolution
 
 1. Follow the steps under [Machines don't show up in the portal under Update Management](#nologs) to make sure the machine is reporting to the correct workspace.
-2. Clean up artifacts on the machine by [deleting the hybrid runbook group](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group), and then try again.
+2. Clean up artifacts on the machine by [deleting the hybrid runbook group](../automation-windows-hrw-install.md#remove-a-hybrid-worker-group), and then try again.
 
 ## <a name="machine-unable-to-communicate"></a>Scenario: Machine can't communicate with the service
 

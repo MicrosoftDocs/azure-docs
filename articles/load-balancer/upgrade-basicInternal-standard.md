@@ -29,6 +29,17 @@ An Azure PowerShell script is available that does the following:
 * If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
 * If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Make sure they are not empty.
 
+## Change IP allocation method to Static for frontend IP Configuration (Ignore this step if it's already static)
+
+1. Select **All services** in the left-hand menu, select **All resources**, and then select your Basic Load Balancer from the resources list.
+
+2. Under **Settings**, select **Frontend IP Configuration**, and select the first frontend IP configuration. 
+
+3. For **Assignment**, select **Static**
+
+4. Repeat the step 3 for all of the frontend IP configurations of the Basic Load Balancer.
+
+
 ## Download the script
 
 Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0).

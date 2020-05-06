@@ -104,3 +104,4 @@ If everything looks good, you are now ready to create a new pipeline, add this d
 ## Next steps
 
 * Build the rest of your data flow logic by using mapping data flows [transformations](concepts-data-flow-overview.md).
+* [Download the completed pipeline template](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/SQL%20Orders%20to%20CosmosDB.zip) for this tutorial and import the template into your factory.
