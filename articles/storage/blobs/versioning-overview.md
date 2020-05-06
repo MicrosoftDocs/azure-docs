@@ -1,7 +1,7 @@
 ---
 title: Blob versioning (preview)
 titleSuffix: Azure Storage
-description: Blob storage versioning (preview) automatically maintains prior versions of an object and identifies them with timestamps. You can restore a prior version of a blob to recover your data if it is erroneously modified or deleted.
+description: Blob storage versioning (preview) automatically maintains prior versions of an object and identifies them with timestamps. You can restore  prior versions of a blob to recover your data if it is erroneously modified or deleted.
 services: storage
 author: tamram
 
@@ -47,7 +47,7 @@ The version ID remains the same for the lifetime of the version.
 
 When blob versioning is turned on, each write operation to a blob creates a new version. Write operations include [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), [Copy Blob](/rest/api/storageservices/copy-blob), and [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata).
 
-If the write operation creates a new blob, then the resulting blob is the current version of the blob. If the write operation modifies an existing blob, then the new data is captured in the updated blob, which is the current version, and Azure Storage creates a new version that saves the blob's previous state.
+If the write operation creates a new blob, then the resulting blob is the current version of the blob. If the write operation modifies an existing blob, then the new data is captured in the updated blob, which is the current version, and Azure Storage creates a version that saves the blob's previous state.
 
 For simplicity, the diagrams shown in this article display the version ID as a simple integer value. In reality, the version ID is a timestamp. The current version is shown in blue, and previous versions are shown in gray.
 
@@ -150,7 +150,7 @@ A blob snapshot is a read-only copy of a blob that's taken at a specific point i
 
 ### Snapshot a blob when versioning is enabled
 
-Although it is not recommended, you can take a snapshot of a blob that is also versioned. If you cannot update your application to stop taking snapshots of block blobs when you enable versioning, your application can support both snapshots and versions.
+Although it is not recommended, you can take a snapshot of a blob that is also versioned. If you cannot update your application to stop taking snapshots of blobs when you enable versioning, your application can support both snapshots and versions.
 
 When you take a snapshot of a versioned blob, a new version is created at the same time that the snapshot is created. A new current version is also created when a snapshot is taken.
 
@@ -177,7 +177,9 @@ The following table shows which RBAC actions support deleting a blob or a blob v
 | Deleting the current version of the blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete/actionDeleting** | Storage Blob Data Contributor |
 | Deleting a version | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/** | Storage Blob Data Owner |
 
-### SAS permission to delete a blob version
+### Shared access signature (SAS) parameters
+
+The signed resource for a blob version is `bv`. For more information, see [Create a service SAS](/rest/api/storageservices/create-service-sas) or [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
 
 The following table shows the permission required on a SAS to delete a blob version.
 
@@ -196,7 +198,7 @@ Blob versioning is available in preview in the following regions:
 
 The preview is intended for non-production use only.
 
-Version 2019-10-10 of the Azure Storage REST API supports blob versioning.
+Version 2019-10-10 and higher of the Azure Storage REST API supports blob versioning.
 
 ### Storage account support
 

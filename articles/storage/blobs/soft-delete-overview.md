@@ -22,7 +22,7 @@ If there is a possibility that your data may accidentally be modified or deleted
 
 ## About soft delete
 
-When soft delete is enabled on a storage account, you can recover objects after they have been deleted, within the specified data retention period. This protection extends to blob data that is erased as the result of an overwrite.
+When soft delete is enabled on a storage account, you can recover objects after they have been deleted, within the specified data retention period. This protection extends to all blob data (block blobs, append blobs, and page blobs) that is erased as the result of an overwrite.
 
 If data in an existing blob or snapshot is deleted while soft delete is enabled but blob versioning (preview) is not enabled, then a soft deleted snapshot is generated to save the state of the overwritten data. After the specified retention period has expired, the object is permanently deleted.
 
@@ -32,11 +32,7 @@ Soft deleted objects are invisible unless explicitly listed.
 
 Soft delete is backwards compatible, so you don't have to make any changes to your applications to take advantage of the protections this feature affords. However, [data recovery](#recovery) introduces a new **Undelete Blob** API.
 
-Soft delete is available for both new and existing general-purpose v2, general-purpose v1, and Blob storage accounts. Both standard and premium account types are supported. Soft delete is available for all storage tiers including hot, cool, and archive. However, soft delete does not afford overwrite protection for blobs in the archive tier. Soft delete is available for unmanaged disks, which are page blobs under the covers, but is not available for managed disks.
-
-When soft delete is enabled for a storage account, it is in effect for all blobs in the account &mdash; block blobs, append blobs, and page blobs.
-
-Soft delete is available for Blob storage only.
+Soft delete is available for both new and existing general-purpose v2, general-purpose v1, and Blob storage accounts. Both standard and premium account types are supported. Soft delete is available for all storage tiers including hot, cool, and archive. Soft delete is available for unmanaged disks, which are page blobs under the covers, but is not available for managed disks.
 
 ### Configuration settings
 
