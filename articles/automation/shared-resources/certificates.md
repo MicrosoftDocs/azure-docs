@@ -1,5 +1,5 @@
 ---
-title: Manage certificate in Azure Automation
+title: Manage certificates in Azure Automation
 description: Certificates are securely stored in Azure Automation so that runbooks or DSC configurations can access them to authenticate against Azure and third-party resources. This article explains the details of certificates and how to work with them in both textual and graphical authoring.
 services: automation
 ms.service: automation

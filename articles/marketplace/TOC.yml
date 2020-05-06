@@ -17,7 +17,7 @@
         href: ./lead-management-for-cloud-marketplace.md
       - name: Transacting in the commercial marketplace
         href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
-      - name: Private Offers
+      - name: Private offers
         href: ./private-offers.md
       - name: Standard Contract
         href: ./standard-contract.md
@@ -26,13 +26,13 @@
     - name: Publishing guides by offer type
       href: ./publisher-guide-by-offer-type.md
       items:
-      - name: Virtual Machines
+      - name: Virtual machines
         href: ./marketplace-virtual-machines.md
-      - name: "Azure Applications: solution templates"
+      - name: Azure apps solution templates
         href: ./marketplace-solution-templates.md
-      - name: "Azure Applications: managed applications"
+      - name: Azure apps managed applications
         href: ./marketplace-managed-apps.md
-      - name: SaaS Apps
+      - name: SaaS apps
         href: ./marketplace-saas-applications-technical-publishing-guide.md
       - name: Containers
         href: ./marketplace-containers.md
@@ -42,7 +42,7 @@
         href: ./consulting-services.md
       - name: Office 365, Dynamics 365, and Power BI
         href: ./appsource-offer-publishing-guide.md
-      - name: Enable an AppSource and Marketplace listing by using Azure Active Directory
+      - name: Enable offer authentication with Azure AD
         href: ./enable-appsource-marketplace-using-azure-ad.md
       - name: Integrated solutions
         href: ./integrated-solutions-for-publishers.md
@@ -51,7 +51,7 @@
       items:
       - name: Offer listing best practices
         href: ./gtm-offer-listing-best-practices.md
-      - name: How to get featured
+      - name: Get featured
         href: ./gtm-how-to-get-featured.md
       - name: Marketplace content validation
         href: ./marketplace-criteria-content-validation.md
@@ -69,7 +69,7 @@
     - name: Support for the commercial marketplace
       href: ./support-azure-marketplace.md
       items:
-      - name: Marketplace FAQ
+      - name: Commercial marketplace FAQ
         href: ./marketplace-faq-publisher-guide.md
       - name: Geographic availability and currencies
         href: ./marketplace-geo-availability-currencies.md
@@ -80,7 +80,7 @@
     href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
   - name: Migration FAQ
     href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
-  - name: Portal Tour
+  - name: Portal tour
     href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
     items:
     - name: Portal navigation
@@ -289,27 +289,7 @@
       - name: Help wiki
         href: ./cloud-partner-portal-orig/help-wiki.md
     - name: IoT Edge module offer
-      href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
-      items:
-      - name: Prerequisites
-        href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
-      - name: Create IoT Edge module offer
-        href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
-        items:
-        - name: Offer Settings tab
-          href: ./cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md
-        - name: SKUs tab
-          href: ./cloud-partner-portal/iot-edge-module/cpp-skus-tab.md
-        - name: Marketplace tab
-          href: ./cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md
-        - name: Support tab
-          href: ./cloud-partner-portal/iot-edge-module/cpp-support-tab.md
-      - name: Create IoT Edge module technical assets
-        href: ./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md
-      - name: Publish IoT Edge module offer
-        href: ./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md
-      - name: Update existing offer
-        href: ./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md
+      href: ./cloud-partner-portal/iot-edge-module/iot-edge-module-offer.md
     - name: Power BI App offer
       href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
       items:
@@ -495,10 +475,10 @@
           href: ./partner-center-portal/create-new-business-central-offer.md
     - name: IoT Edge module offers
       items:
-      - name: Prepare IoT Edge module technical assets
-        href: ./partner-center-portal/create-iot-edge-module-asset.md
       - name: Create an IoT Edge module offer
         href: ./partner-center-portal/azure-iot-edge-module-creation.md
+      - name: Prepare IoT Edge module technical assets
+        href: ./partner-center-portal/create-iot-edge-module-asset.md
     - name: Managed Service offers
       items:
       - name: Create a Managed Service offer
