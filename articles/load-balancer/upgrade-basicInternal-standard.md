@@ -10,7 +10,7 @@ ms.author: irenehua
 ---
 
 # Upgrade Azure Internal Load Balancer- No Outbound Connection Required
-[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
+[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/skus#skus).
 
 This article introduces a PowerShell script which creates a Standard Load Balancer with the same configuration as the Basic Load Balancer along with migrating traffic from Basic Load Balancer to Standard Load Balancer.
 
