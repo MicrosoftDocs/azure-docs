@@ -223,6 +223,8 @@
       href: stream-analytics-job-diagnostic-logs.md
     - name: Data errors
       href: data-errors.md
+    - name: Error codes
+      href: error-codes.md
   - name: Integrate with machine learning
     items:
     - name: Sentiment analysis with ML models
