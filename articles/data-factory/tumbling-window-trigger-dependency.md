@@ -88,7 +88,7 @@ The following table provides the list of attributes needed to define a Tumbling 
 In scenarios where the trigger should not proceed to next window until the previous window is successfully completed, build a self-dependency. A self-dependency trigger that is dependent on the success of earlier runs of itself within the previous hr will have the below properties:
 
 > [!NOTE]
-> Self dependency should only be used when streaming scenarios (incremental data computation requiring data from previous window to perform operations for next window) are needed. Please use concurrency to limit parallel trigger runs, instead of self dependency. This will keep the complexity of triggers and dependnecies simple
+> It is recommended to only use tumbling window trigger self-dependency if your triggered pipeline relies on the output of pipelines in previous triggered windows. If you wish to limit parallel trigger runs, set the maximimum trigger concurrency
 
 ```json
 {
