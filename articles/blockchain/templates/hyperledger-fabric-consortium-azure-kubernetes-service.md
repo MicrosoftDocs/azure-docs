@@ -240,12 +240,21 @@ For peer organization:
 > [!NOTE]
 > Before starting with any channel operation, ensure that the initial setup of the client application is done.  
 
+The following are the two channel management commands:
+
+1. [Create channel command](#create-channel-command)
+2. [Setting anchor peer(s) command](#setting-anchor-peer-s-command)
+
+
+#### Create channel command
+
 From orderer organization client, issue command to create a new channel. This command will create a channel with only orderer organization in it.  
 
 ```bash
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
 
+#### Setting anchor peer(s) commands
 From peer organization client, issue below command to set anchor peer(s) for the peer organization on the specified channel.
 
 >[!NOTE]
