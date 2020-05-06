@@ -1,7 +1,7 @@
 ---
-title: Azure AD B2C (MSAL.NET) | Azure
+title: Azure AD B2C and MSAL.NET
 titleSuffix: Microsoft identity platform
-description: Learn about specific considerations when using Azure AD B2C with the Microsoft Authentication Library for .NET (MSAL.NET).
+description: Considerations when using Azure AD B2C with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -10,11 +10,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/29/2019
+ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about specific considerations when using Azure AD B2C and MSAL.NET so I can decide if this platform meets my application development needs and requirements.
+# Customer intent: As an application developer, I want to learn about specific considerations when using
+# Azure AD B2C and MSAL.NET so I can decide if this platform meets my application development needs and requirements.
 ---
 
 # Use MSAL.NET to sign in users with social identities
@@ -153,28 +154,32 @@ If you are a Azure AD B2C developer using Google as an identity provider we reco
 
 We will provide an update to this [issue](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688) if things change.
 
-## Caching with Azure AD B2C in MSAL.Net
+## Caching with Azure AD B2C in MSAL.NET
 
 ### Known issue with Azure AD B2C
 
-MSAL.Net supports a [token cache](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). The token caching key is based on the claims returned by the Identity Provider. Currently MSAL.Net needs two claims to build a token cache key:
+MSAL.NET supports a [token cache](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). The token caching key is based on the claims returned by the Identity Provider. Currently MSAL.NET needs two claims to build a token cache key:
+
 - `tid` which is the Azure AD Tenant ID, and
 - `preferred_username`
 
-Both these claims are missing in many of the Azure AD B2C scenarios.
+Both of these claims may be missing in Azure AD B2C scenarios because not all social identity providers (IdPs) return them in the tokens they return to Azure AD B2C.
 
-The customer impact is that when trying to display the username field, are you getting "Missing from the token response" as the value? If so, this is because Azure AD B2C does not return a value in the IdToken for the preferred_username because of limitations with the social accounts and external identity providers (IdPs). Azure AD returns a value for preferred_username because it knows who the user is, but for Azure AD B2C, because the user can sign in with a local account, Facebook, Google, GitHub, etc. there is not a consistent value for Azure AD B2C to use for preferred_username. To unblock MSAL from rolling out cache compatibility with ADAL, we decided to use "Missing from the token response" on our end when dealing with the Azure AD B2C accounts when the IdToken returns nothing for preferred_username. MSAL must return a value for preferred_username to maintain cache compatibility across libraries.
+A symptom of such a scenario is that MSAL.NET returns `Missing from the token response` when you access the `preferred_username` claim value in tokens issued by Azure AD B2C. MSAL uses the `Missing from the token response` value for `preferred_username` to maintain cache cross-compatibility between libraries.
 
 ### Workarounds
 
 #### Mitigation for the missing tenant ID
 
-The suggested workaround is to use the [Caching by Policy](#acquire-a-token-to-apply-a-policy)
+The suggested workaround is to use [caching by policy](#acquire-a-token-to-apply-a-policy) described earlier.
 
-Alternatively, you can use the `tid` claim, if you are using the [B2C custom policies](https://aka.ms/ief), because it provides the capability to return additional claims to the application. To learn more about [Claims Transformation](/azure/active-directory-b2c/claims-transformation-technical-profile)
+Alternatively, you can use the `tid` claim if you're using [custom policies](../../active-directory-b2c/custom-policy-get-started.md) in Azure AD B2C. Custom policies can return additional claims to your application by using [claims transformation](/azure/active-directory-b2c/claims-transformation-technical-profile).
 
 #### Mitigation for "Missing from the token response"
-One option is to use the "name" claim as the preferred username. The process is mentioned in this [B2C doc](../../active-directory-b2c/user-flow-overview.md) -> "In the Return claim column, choose the claims you want returned in the authorization tokens sent back to your application after a successful profile editing experience. For example, select Display Name, Postal Code.”
+
+One option is to use the `name` claim as the preferred username. To include the `name` claim in ID tokens issued by Azure AD B2C, select **Display Name** when you configure your user flow.
+
+For more information about specifying the claims returned by your user flows, see [Tutorial: Create user flows in Azure AD B2C](../../active-directory-b2c/tutorial-create-user-flows.md).
 
 ## Next steps
 
@@ -182,4 +187,4 @@ More details about acquiring tokens interactively with MSAL.NET for Azure AD B2C
 
 | Sample | Platform | Description|
 |------ | -------- | -----------|
-|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | A simple Xamarin Forms app showcasing how to use MSAL.NET to authenticate users via Azure AD B2C, and access a web API with the resulting tokens.|
+|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | A Xamarin Forms app tha tuses MSAL.NET to authenticate users via Azure AD B2C and then access a web API with the tokens returned.|
