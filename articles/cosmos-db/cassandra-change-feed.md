@@ -17,7 +17,7 @@ The following example shows how to get a change feed on all the rows in a Cassan
 
 In each iteration, the query resumes at the last point changes were read, using paging state. We can see a continuous stream of new changes to the table in the Keyspace. We will see changes to rows that are inserted, or updated. Watching for delete operations using change feed in Cassandra API is currently not supported.
 
-# [C#](#tab/c#)
+# [C#](#tab/csharp)
 
 ```C#
     //set initial start time for pulling the change feed
@@ -108,7 +108,7 @@ In each iteration, the query resumes at the last point changes were read, using 
 
 In order to get the changes to a single row by primary key, you can add the primary key in the query. The following example shows how to track changes for the row where "user_id = 1"
 
-# [C#](#tab/c#)
+# [C#](#tab/csharp)
 
 ```C#
     //Return the latest change for all row in 'user' table where user_id = 1
