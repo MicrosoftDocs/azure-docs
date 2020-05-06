@@ -28271,6 +28271,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-designing-ha-apps-with-ragrs.md",
+      "redirect_url": "/azure/storage/common/geo-redundant-design",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-simulate-failure-ragrs-account-app.md",
+      "redirect_url": "/azure/storage/common/simulate-primary-region-failure",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/common/storage-redundancy-lrs.md",
       "redirect_url": "/azure/storage/common/storage-redundancy",
       "redirect_document_id": false
