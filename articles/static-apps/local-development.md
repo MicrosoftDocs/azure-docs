@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ---
 
-# Setup local development for Azure Static Web Apps
+# Set up local development for Azure Static Web Apps
 
 An Azure Static Web Apps instance is made up of two different types of applications. The first is a web app for your static content. Web apps are often created with front-end frameworks and libraries or with static site generators. The second aspect is the API, which is an Azure Functions app that provides a rich back-end development environment.
 
@@ -17,7 +17,7 @@ When running in the cloud, Azure Static Web Apps seamlessly maps requests to the
 
 This article demonstrates recommended best-practices for local development, including the following concepts:
 
-- Setup the web app for static content
+- Set up the web app for static content
 - Configuring the Azure Functions app for your application's API
 - Debugging and running the application
 - Best-practices for your app's file and folder structure
@@ -33,9 +33,9 @@ This article demonstrates recommended best-practices for local development, incl
 
 Running an Azure Static Web App locally involves three processes, depending on whether or not your project contains an API.
 
-* Running a local web server
-* Running the API
-* Connecting the web project to the API
+- Running a local web server
+- Running the API
+- Connecting the web project to the API
 
 Depending on how a website is built, a local web server may or may not be required to run the application in the browser. When using front-end JavaScript frameworks and static site generators, this functionality is built in to their respective CLIs (Command Line Interfaces). The following links point to the CLI reference for a selection of frameworks, libraries, and generators.
 
@@ -71,7 +71,7 @@ The Live Server extension for Visual Studio Code provides a local development we
 
     :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="git clone option in Visual Studio Code":::
 
-1. Enter the following value for **Repository URL**
+1. Enter the following value for **Repository URL**.
 
    ```http
    git@github.com:<YOUR_GITHUB_ACCOUNT>/vanilla-api.git
@@ -83,15 +83,15 @@ The Live Server extension for Visual Studio Code provides a local development we
 
     :::image type="content" source="media/local-development/open-new-window.png" alt-text="Open in new window":::
 
-Visual Studio Code will open the cloned project in the editor.
+Visual Studio Code opens the cloned project in the editor.
 
 ### Run the website locally with Live Server
 
-1.  Press **F1** to open the Command Palette.
+1. Press **F1** to open the Command Palette.
 
-1.  Type **Live Server** in the search box and select **Live Server: Open with Live Server**
+1. Type **Live Server** in the search box and select **Live Server: Open with Live Server**
 
-    A browser tab will open and display the application.
+    A browser tab opens to display the application.
 
     :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Simple static site running in the browser":::
 
@@ -109,7 +109,7 @@ As part of the API creation process, a launch configuration is created for Visua
 
     :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="API running in Visual Studio Code terminal":::
 
-   The status bar in Visual Studio Code is now orange. This indicates that the API is now running and the debugger is attached.
+   The status bar in Visual Studio Code is now orange. This color indicates that the API is now running and the debugger is attached.
 
 1. Next, press **Ctrl/Cmd** and click on the URL in the terminal to open a browser window that calls the API.
 
@@ -150,7 +150,7 @@ Depending on whether or not your application is built with a JavaScript framewor
 
 ### Environment configuration files
 
-If you are building your app with front-end frameworks that have a CLI, use environment configuration files. In the development configuration file, you can specify the path to the API which points to the local location of `http:127.0.0.1:7071`.
+If you are building your app with front-end frameworks that have a CLI, use environment configuration files. In the development configuration file, you can specify the path to the API, which points to the local location of `http:127.0.0.1:7071`.
 
 ```
 API=http:127.0.0.1:7071/api
@@ -180,13 +180,13 @@ For more information on configuring environment files for front-end JavaScript f
 
 ##### Restart Live Server
 
-1. Press **F1** to open the Command Palette in Visual Studio Code
+1. Press **F1** to open the Command Palette in Visual Studio Code.
 
 1. Type **Live Server** and select **Live Server: Stop Live Server**.
 
     :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Stop Live Server command in Visual Studio command palette":::
 
-1. Press **F1** to open the Command Palette
+1. Press **F1** to open the Command Palette.
 
 1. Type **Live Server** and select **Live Server: Open with Live Server**.
 
