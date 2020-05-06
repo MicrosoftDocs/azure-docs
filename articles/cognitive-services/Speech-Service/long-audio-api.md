@@ -14,15 +14,15 @@ ms.author: trbye
 
 # Long Audio API (Preview)
 
-The Long Audio API is designed for asynchronous synthesis of long-form text to speech (for example: audio books). This API doesn't return synthesized audio in real-time, instead the expectation is that you will poll for the response(s) and consume the output(s) as they are made available from the service. Unlike the text to speech API that's used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes, making it ideal for publishers and audio content platforms.
+The Long Audio API is designed for asynchronous synthesis of long-form text to speech (for example: audio books, news articles and documents). This API doesn't return synthesized audio in real-time, instead the expectation is that you will poll for the response(s) and consume the output(s) as they are made available from the service. Unlike the text to speech API that's used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes, making it ideal for publishers and audio content platforms.
 
 Additional benefits of the Long Audio API:
 
-* Synthesized speech returned by the service uses neural voices, which ensures high-fidelity audio outputs.
-* Since real-time responses aren't supported, there's no need to deploy a voice endpoint.
+* Synthesized speech returned by the service uses the best neural voices.
+* There's no need to deploy a voice endpoint as it synthesizes voices in none real-time batch mode.
 
 > [!NOTE]
-> The Long Audio API now supports only [Custom Neural Voice](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> The Long Audio API now supports both [Public Neural Voices](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#neural-voices) and [Custom Neural Voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
 
 ## Workflow
 
