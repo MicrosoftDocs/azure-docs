@@ -24,7 +24,7 @@ The Spark pools to SQL Analytics Connector is a data source implementation for A
 
 ## Authentication in Azure Synapse Analytics
 
-Authentication between systems is made seamless in Azure Synapse Analytics. There is a Token Service that connects with Azure Active Directory to obtain security tokens for use when accessing the storage account or the Azure SQL server. For this reason, there is no need to create credentials or specify them in the connector API as long as AAD-Auth is configured at the storage account and the Azure SQL server. If not, SQL Auth can be specified. Find more details in the [Usage](#usage) section.
+Authentication between systems is made seamless in Azure Synapse Analytics. There is a Token Service that connects with Azure Active Directory to obtain security tokens for use when accessing the storage account or the Synapse SQL. For this reason, there is no need to create credentials or specify them in the connector API as long as AAD-Auth is configured at the storage account and in Synapse SQL. If not, SQL Auth can be specified. Find more details in the [Usage](#usage) section.
 
 ## Constraints
 
@@ -84,7 +84,7 @@ df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
 
 The authentication to Storage and the SQL Server is done
 
-### If you are transferring data to or from a SQL pool or database in an Azure SQL server outside the workspace
+### If you are transferring data to or from a SQL pool or database outside the workspace
 
 > [!NOTE]
 > Imports not needed in notebook experience

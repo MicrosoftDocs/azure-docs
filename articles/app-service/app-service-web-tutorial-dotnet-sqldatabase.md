@@ -109,7 +109,7 @@ You can keep the generated web app name, or change it to another unique name (va
 
 ### Create a server
 
-Before creating a database, you need an [Azure SQL server](../sql-database/sql-database-servers.md). An Azure SQL server is a logical construct that contains a group of databases managed as a group.
+Before creating a database, you need a [logical SQL server](sql-database-servers.md). A logical SQL server is a logical construct that contains a group of databases managed as a group.
 
 1. Click **Create a SQL Database**.
 
@@ -174,7 +174,7 @@ Type the database administrator password you created earlier and click **Connect
 
 ### Allow client connection from your computer
 
-The **Create a new firewall rule** dialog is opened. By default, an Azure SQL server only allows connections to its databases from Azure services, such as your Azure app. To connect to your database from outside of Azure, create a firewall rule at the server level. The firewall rule allows the public IP address of your local computer.
+The **Create a new firewall rule** dialog is opened. By default, a server only allows connections to its databases from Azure services, such as your Azure app. To connect to your database from outside of Azure, create a firewall rule at the server level. The firewall rule allows the public IP address of your local computer.
 
 The dialog is already filled with your computer's public IP address.
 

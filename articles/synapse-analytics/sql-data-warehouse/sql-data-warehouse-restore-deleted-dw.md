@@ -21,11 +21,11 @@ In this article, you learn to restore a SQL using either the Azure portal or Pow
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verify your DTU capacity.** Each SQL pool is hosted by an Azure SQL server (for example, myserver.database.windows.net) which has a default DTU quota.  Verify that the server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verify your DTU capacity.** Each SQL pool is hosted by a [logical SQL server](sql-database-servers.md) (for example, myserver.database.windows.net) which has a default DTU quota.  Verify that the server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Restore a deleted data warehouse through PowerShell
 
-To restore a deleted SQL pool, use the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet. If the corresponding Azure SQL server has been deleted as well, you can't restore that data warehouse.
+To restore a deleted SQL pool, use the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet. If the corresponding server has been deleted as well, you can't restore that data warehouse.
 
 1. Before you begin, make sure to [install Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Open PowerShell.
@@ -33,7 +33,7 @@ To restore a deleted SQL pool, use the [Restore-AzSqlDatabase](/powershell/modul
 4. Select the subscription that contains the deleted SQL pool to be restored.
 5. Get the specific deleted data warehouse.
 6. Restore the deleted SQL pool
-    1. To restore the deleted SQL pool to a different Azure SQL server, make sure to specify the other server name.  This server can also be in a different resource group and region.
+    1. To restore the deleted SQL pool to a different server, make sure to specify the other server name.  This server can also be in a different resource group and region.
     1. To restore to a different subscription, use the [Move](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) button to move the server to another subscription.
 7. Verify that the restored data warehouse is online.
 8. After the restore has completed, you can configure your recovered data warehouse by following [configure your database after recovery](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
