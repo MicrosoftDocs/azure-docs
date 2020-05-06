@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -87,7 +87,10 @@ Review the following guidance before using your own HTML and CSS files to custom
 
 When using your own HTML and CSS files to customize the UI, you can host your UI content on any publicly available HTTPS endpoint that supports CORS. For example, [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md), web servers, CDNs, AWS S3, or file sharing systems.
 
-The important point is that you host the content on a publicly available HTTPS endpoint with CORS enabled. You must use an absolute URL when you specify it in your content.
+The important point is that you host the content on a publicly available HTTPS endpoint with [CORS enabled](https://enable-cors.org/server.html). You must use an absolute URL when you specify it in your content.
+
+> [!NOTE]
+> For details about creating HTML content, uploading content to Azure Blob storage, and configuring CORS, see the [Custom page content walkthrough](custom-policy-ui-customization.md#custom-page-content-walkthrough) section in the UI customization article.
 
 ## Get started with custom HTML and CSS
 

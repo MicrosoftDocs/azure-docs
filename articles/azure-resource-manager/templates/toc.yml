@@ -40,6 +40,8 @@
       href: ../../key-vault/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Load Balancer
       href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Managed application
+      href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Policy
       href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Service Bus Messaging
@@ -50,6 +52,8 @@
       href: ../../virtual-machine-scale-sets/quick-create-template-linux.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Virtual machine scale sets - Windows
       href: ../../virtual-machine-scale-sets/quick-create-template-windows.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Web Application Firewall
+      href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutorials
   items:
   - name: Beginner templates
@@ -83,9 +87,9 @@
     - name: 3 - Create a pipeline
       displayName: Devop
       href: deployment-tutorial-pipeline.md
-  - name: Advanced
+  - name: Advanced templates
     items:
-    - name: Utilize template reference
+    - name: Use template reference
       href: template-tutorial-use-template-reference.md
     - name: Create multiple instances
       displayName: iteration,copy
@@ -101,23 +105,21 @@
     - name: Integrate Key Vault
       displayName: secrets
       href: template-tutorial-use-key-vault.md
-    - name: Create linked templates
-      href: template-tutorial-create-linked-templates.md
     - name: Deploy VM extensions
       displayName: virtual machine extensions
       href: template-tutorial-deploy-vm-extensions.md
     - name: Deploy SQL extensions
       href: template-tutorial-deploy-sql-extensions-bacpac.md
-    - name: Secure artifacts
-      href: template-tutorial-secure-artifacts.md
+    - name: Troubleshoot template deployment
+      href: template-tutorial-troubleshoot.md
+  - name: Deployment manager
+    items:
     - name: Use safe deployment practices
       displayName: adm
       href: deployment-manager-tutorial.md
     - name: Use health check in Deployment Manager
       displayName: adm
       href: deployment-manager-tutorial-health-check.md
-    - name: Troubleshoot template deployment
-      href: template-tutorial-troubleshoot.md
 - name: Samples
   items:
   - name: Azure Quickstart Templates
@@ -289,16 +291,20 @@
     items:
     - name: All functions
       href: template-functions.md
-    - name: Array and object functions
+    - name: Array functions
       href: template-functions-array.md
     - name: Comparison functions
       href: template-functions-comparison.md
+    - name: Date functions
+      href: template-functions-date.md
     - name: Deployment functions
       href: template-functions-deployment.md
     - name: Logical functions
       href: template-functions-logical.md
     - name: Numeric functions
       href: template-functions-numeric.md
+    - name: Object functions
+      href: template-functions-object.md
     - name: Resource functions
       href: template-functions-resource.md
     - name: String functions

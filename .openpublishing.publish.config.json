@@ -164,6 +164,11 @@
       "branch": "dev"
     },
     {
+      "path_to_root": "functions-quickstart-java",
+      "url": "https://github.com/Azure-Samples/functions-quickstarts-java",
+      "branch": "master"
+    },
+    {
       "path_to_root": "functions-docs-csharp",
       "url": "https://github.com/Azure-Samples/functions-docs-csharp",
       "branch": "master"
@@ -493,6 +498,11 @@
     {
       "path_to_root": "azure-cosmosdb-java-v4-getting-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-storage-snippets",
+      "url": "https://github.com/azure-samples/AzureStorageSnippets",
       "branch": "master"
     }
   ],

@@ -9,12 +9,12 @@ metadata:
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   description: Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
   ms.date: 03/24/2020
-  ms.author: dapine
+  ms.author: trbye
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -22,29 +22,29 @@ highlightedContent:
     - title: What is the Speech service?
       itemType: overview
       url: overview.md
+    - title: About the Speech SDK
+      itemType: overview
+      url: speech-sdk.md
     - title: Speech SDK release notes
       itemType: whats-new
       url: releasenotes.md
-    - title: Language support in Speech services
+    - title: Language support in the Speech service
       itemType: reference
       url: language-support.md
-    - title: Create a Speech services resource
-      itemType: how-to-guide
-      url: get-started.md
 
 conceptualContent:
   items:
     - title: Speech-to-text
       links:
-        - itemType: how-to-guide
-          text: Speech recognition basics
-          url: speech-to-text-basics.md
         - itemType: quickstart
           text: Recognize speech from a microphone
           url: quickstarts/speech-to-text-from-microphone.md
         - itemType: quickstart
           text: Recognize speech from an audio file
           url: quickstarts/speech-to-text-from-file.md
+        - itemType: how-to-guide
+          text: Speech recognition basics
+          url: speech-to-text-basics.md          
       footerLink:
         text: See more
         url: index-speech-to-text.yml
@@ -56,9 +56,9 @@ conceptualContent:
         - itemType: quickstart
           text: Synthesize speech into an audio file
           url: quickstarts/text-to-speech-audio-file.md
-        - itemType: quickstart
-          text: Customize speech synthesis for your apps
-          url: how-to-custom-voice.md
+        - itemType: how-to-guide
+          text: Speech synthesis basics
+          url: text-to-speech-basics.md          
       footerLink:
         text: See more
         url: index-text-to-speech.yml
@@ -68,11 +68,11 @@ conceptualContent:
         text: Translate speech-to-text
         url: quickstarts/translate-speech-to-text.md
       - itemType: quickstart
-        text: Translate speech into multiple target languages
+        text: Translate speech to multiple languages
         url: quickstarts/translate-speech-to-text-multiple-languages.md
-      - itemType: quickstart
-        text: Translate speech-to-speech
-        url: quickstarts/translate-speech-to-speech.md
+      - itemType: how-to-guide
+        text: Speech translation basics
+        url: speech-translation-basics.md        
       footerLink:
         text: See more
         url: index-speech-translation.yml

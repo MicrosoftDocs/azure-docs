@@ -6,24 +6,21 @@ ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
 ---
-# Manage updates for multiple machines
+# Manage updates for multiple Azure virtual machines
 
-You can use the Update Management solution to manage updates and patches for your Windows and Linux virtual machines. From your [Azure Automation](automation-offering-get-started.md) account, you can:
+You can use Azure Automation Update Management to manage updates and patches for your Windows and Linux virtual machines. From your [Azure Automation](automation-offering-get-started.md) account, you can:
 
-- Onboard virtual machines
-- Assess the status of available updates
-- Schedule installation of required updates
-- Review deployment results to verify that updates were applied successfully to all virtual machines for which Update Management is enabled
+- Onboard virtual machines.
+- Assess the status of available updates.
+- Schedule installation of required updates.
+- Review deployment results to verify that updates were applied successfully to all virtual machines for which Update Management is enabled.
+
+To learn about the system requirements for Update Management, see [Update Management client requirements](automation-update-management.md#client-requirements).
 
 ## Prerequisites
 
-To use Update Management, you need:
-
-- A virtual machine or computer with one of the supported operating systems installed.
-
-- Access to an update repository for Linux VMs onboarded to the solution.
-
-To learn about the system requirements for Update Management, see [Update Management client requirements](automation-update-management.md#clients).
+* A virtual machine or computer with one of the supported operating systems installed.
+* Access to an update repository for Linux VMs onboarded to Update Management.
 
 ## Enable Update Management for Azure virtual machines
 
@@ -47,25 +44,23 @@ The Log Analytics agent for Windows and Linux needs to be installed on the VMs t
 
 ## View computers attached to your Automation account
 
-After you enable Update Management for your machines, you can view machine information by selecting **Computers**. You can see information about *machine name*, *compliance status*, *environment*, *OS type*, *critical and security updates installed*, *other updates installed*, and *update agent readiness* for your computers.
+After you enable Update Management for your machines, you can view machine information by selecting **Computers**. You can see information about machine name, compliance status, environment, OS type, critical and security updates installed, other updates installed, and update agent readiness for your computers.
 
   ![View computers tab](./media/manage-update-multi/update-computers-tab.png)
 
-Computers that have recently been enabled for Update Management might not have been assessed yet. The compliance state status for those computers is **Not assessed**. Here's a list of possible values for compliance state:
+Computers that have recently been enabled for Update Management might not have been assessed yet. The compliance state for those computers is `Not assessed`. Here's a list of possible values for compliance state:
 
-- **Compliant**: Computers that are not missing critical or security updates.
+- `Compliant`: Computers that are not missing critical or security updates.
+- `Non-compliant`: Computers that are missing at least one critical or security update.
+- `Not assessed`: The update assessment data hasn't been received from the computer within the expected timeframe. For Linux computers, the expected timeframe is the last hour. For Windows computers, the expected timeframe is the last 12 hours.
 
-- **Non-compliant**: Computers that are missing at least one critical or security update.
-
-- **Not assessed**: The update assessment data hasn't been received from the computer within the expected timeframe. For Linux computers, the expect timeframe is in the last hour. For Windows computers, the expected timeframe is in the last 12 hours.
-
-To view the status of the agent, select the link in the **Update agent readiness** column. Selecting this option opens the **Hybrid Worker** pane, and shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time:
+To view the status of the agent, select the link in the **Update agent readiness** column. Selecting this option opens the Hybrid Worker pane, and shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time:
 
 ![View computers tab](./media/manage-update-multi/update-agent-broken.png)
 
 ## View an update assessment
 
-After Update Management is enabled, the **Update management** pane opens. You can see a list of missing updates on the **Missing updates** tab.
+After Update Management is enabled, the Update Management pane opens. You can see a list of missing updates on the **Missing updates** tab.
 
 ## Collect data
 
@@ -126,7 +121,7 @@ In the **New update deployment** pane, specify the following information:
   - Tools
   - Updates
 
-- **Updates to include/exclude** - This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For additional information on how inclusion is handled, see [Schedule an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment).
+- **Updates to include/exclude** - This opens the Include/Exclude page. Updates to be included or excluded are on separate tabs. For additional information on how inclusion is handled, see [Schedule an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 > [!NOTE]
 > It is important to know that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, then no patches or packages are installed as they are all excluded. Excluded patches still show as missing from the machine. For Linux machines if a package is included but has a dependent package that was excluded, the package is not installed.
@@ -170,11 +165,11 @@ If one or more updates fail in the deployment, the status is **Partially failed*
 
 To see the dashboard for an update deployment, select the completed deployment.
 
-The **Update results** pane shows the total number of updates and the deployment results for the virtual machine. The table on the right gives a detailed breakdown of each update and the installation results. Installation results can be one of the following values:
+The Update results pane shows the total number of updates and the deployment results for the virtual machine. The table on the right gives a detailed breakdown of each update and the installation results. Installation results can be one of the following values:
 
-- **Not attempted**: The update was not installed because insufficient time was available based on the defined maintenance window.
-- **Succeeded**: The update succeeded.
-- **Failed**: The update failed.
+- `Not attempted`: The update was not installed because insufficient time was available based on the defined maintenance window.
+- `Succeeded`: The update succeeded.
+- `Failed`: The update failed.
 
 To see all log entries that the deployment created, select **All logs**.
 

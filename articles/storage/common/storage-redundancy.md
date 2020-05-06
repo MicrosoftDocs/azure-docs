@@ -81,7 +81,7 @@ The primary difference between GRS and GZRS is how data is replicated in the pri
 
 With GRS or GZRS, the data in the secondary location isn't available for read or write access unless there is a failover to the secondary region. For read access to the secondary location, configure your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information, see [Read access to data in the secondary region](#read-access-to-data-in-the-secondary-region).
 
-If the primary region becomes unavailable, you can choose to fail over to the secondary region (preview). After the failover has completed, the secondary region becomes the primary region, and you can again read and write data. For more information on disaster recovery and to learn how to fail over to the secondary region, see [Disaster recovery and account failover (preview)](storage-disaster-recovery-guidance.md).
+If the primary region becomes unavailable, you can choose to fail over to the secondary region (preview). After the failover has completed, the secondary region becomes the primary region, and you can again read and write data. For more information on disaster recovery and to learn how to fail over to the secondary region, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
 > Because data is replicated to the secondary region asynchronously, a failure that affects the primary region may result in data loss if the primary region cannot be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is known as the recovery point objective (RPO). The RPO indicates the point in time to which data can be recovered. Azure Storage typically has an RPO of less than 15 minutes, although there's currently no SLA on how long it takes to replicate data to the secondary region.
@@ -96,7 +96,7 @@ A write operation is first committed to the primary location and replicated usin
 
 Geo-zone-redundant storage (GZRS) (preview) combines the high availability provided by redundancy across availability zones with protection from regional outages provided by geo-replication. Data in a GZRS storage account is copied across three [Azure availability zones](../../availability-zones/az-overview.md) in the primary region and is also replicated to a secondary geographic region for protection from regional disasters. Microsoft recommends using GZRS for applications requiring maximum consistency, durability, and availability, excellent performance, and resilience for disaster recovery.
 
-With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn’t recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year.
+With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn't recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year.
 
 Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md). GZRS and RA-GZRS support block blobs, page blobs (except for VHD disks), files, tables, and queues.
 
@@ -156,7 +156,7 @@ The following table shows how durable and available your data is in a given scen
 
 <sup>2</sup> For information for storage account types, see [Storage account overview](storage-account-overview.md).
 
-All data for all types of storage accounts are copied according to the redundancy option for the storage account. Objects including block blobs, append blobs, page blobs, queues, tables, and files are copied.
+All data for all types of storage accounts and [all tiers (including archive)](../blobs/storage-blob-storage-tiers.md) are copied according to the redundancy option for the storage account. Objects including block blobs, append blobs, page blobs, queues, tables, and files are copied.
 
 For pricing information for each redundancy option, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -172,4 +172,4 @@ Azure Storage regularly verifies the integrity of data stored using cyclic redun
 - [Check the Last Sync Time property for a storage account](last-sync-time-get.md)
 - [Change the redundancy option for a storage account](redundancy-migration.md)
 - [Designing highly available applications using RA-GRS Storage](../storage-designing-ha-apps-with-ragrs.md)
-- [Disaster recovery and account failover (preview)](storage-disaster-recovery-guidance.md)
+- [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md)

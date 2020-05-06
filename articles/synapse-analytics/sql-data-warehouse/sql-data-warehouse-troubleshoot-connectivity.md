@@ -17,15 +17,6 @@ ms.custom: seo-lt-2019, azure-synapse
 
 This article lists common troubleshooting techniques around connecting to your SQL Analytics database.
 
-- [Check service availability](sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
-- [Check for paused or scaling operation](sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
-- [Check your firewall settings](sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
-- [Check your VNet/Service Endpoint settings](sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
-- [Check for the latest drivers](sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
-- [Check your connection string](sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
-- [Intermittent connection issues](sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
-- [Common error messages](sql-data-warehouse-troubleshoot-connectivity.md#common-error-messages)
-
 ## Check service availability
 
 Check to see if the service is available. In the Azure portal, go to the Synapse SQL pool you're trying to connect. In the left TOC panel, click on **Diagnose and solve problems**.
@@ -75,14 +66,14 @@ Check to make sure you're using the latest tools to connect to your Synapse SQL 
 
 Check to make sure you're using the latest driver versions.  Using an older version of the drivers could result in unexpected behaviors as the older drivers may not support new features.
 
-- [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server)
-- [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)
-- [OLE DB](/sql/connect/oledb/download-oledb-driver-for-sql-server)
-- [PHP](/sql/connect/php/download-drivers-php-sql-server)
+- [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [OLE DB](/sql/connect/oledb/download-oledb-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [PHP](/sql/connect/php/download-drivers-php-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## Check your connection string
 
-Check to make sure your connection strings are set properly.  Below are some samples.  You can find additional information around [connection strings here](/sql-data-warehouse/sql-data-warehouse-connection-strings.md).
+Check to make sure your connection strings are set properly.  Below are some samples.  You can find additional information around [connection strings here](sql-data-warehouse-connection-strings.md).
 
 ADO.NET connection string
 
@@ -118,4 +109,4 @@ Errors 40914 and 40615, see the [error description and resolution here](../../sq
 
 ## Still having connectivity issues?
 
-Create a [support ticket](/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md) so the engineering team can support you.
+Create a [support ticket](sql-data-warehouse-get-started-create-support-ticket.md) so the engineering team can support you.

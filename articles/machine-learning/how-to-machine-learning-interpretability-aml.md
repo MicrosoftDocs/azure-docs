@@ -1,5 +1,5 @@
 ---
-title: Model interpretability for local and remote runs
+title: Interpret & explain ML models in Python
 titleSuffix: Azure Machine Learning
 description: Learn how to get explanations for how your machine learning model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
 services: machine-learning
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
+ms.date: 04/12/2020
 ---
 
-# Model interpretability for local and remote runs
+# Use the interpretability package to explain ML models & predictions in Python
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -25,7 +25,6 @@ In this how-to guide, you learn to use the interpretability package of the Azure
 
 * Explain the behavior for the entire model and individual predictions in Azure.
 
- 
 * Use a visualization dashboard to interact with your model explanations.
 
 * Deploy a scoring explainer alongside your model to observe explanations during inferencing.
@@ -37,10 +36,10 @@ For more information on the supported interpretability techniques and machine le
 ## Generate feature importance value on your personal machine 
 The following example shows how to use the interpretability package on your personal machine without contacting Azure services.
 
-1. Install `azureml-interpret` and `azureml-interpret-contrib` packages.
+1. Install `azureml-interpret` and `azureml-contrib-interpret` packages.
     ```bash
     pip install azureml-interpret
-    pip install azureml-interpret-contrib
+    pip install azureml-contrib-interpret
     ```
 
 2. Train a sample model in a local Jupyter notebook.

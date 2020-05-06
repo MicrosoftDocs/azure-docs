@@ -9,7 +9,7 @@ ms.author: jgao
 
 # Tutorial: Import SQL BACPAC files with ARM templates
 
-Learn how to use Azure SQL Database extensions to import a BACPAC file with Azure Resource Manager (ARM) templates. Deployment artifacts are any files, in addition to the main template files, that are needed to complete a deployment. The BACPAC file is an artifact. 
+Learn how to use Azure SQL Database extensions to import a BACPAC file with Azure Resource Manager (ARM) templates. Deployment artifacts are any files, in addition to the main template files, that are needed to complete a deployment. The BACPAC file is an artifact.
 
 In this tutorial, you create a template to deploy an Azure SQL server and a SQL database and import a BACPAC file. For information about how to deploy Azure virtual machine extensions by using ARM templates, see [Tutorial: Deploy virtual machine extensions with ARM templates](./template-tutorial-deploy-vm-extensions.md).
 
@@ -250,7 +250,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you deployed a SQL server and a SQL database and imported a BACPAC file. The BACPAC file is stored in an Azure Storage account. Anybody with the URL can access the file. To learn how to secure the BACPAC file (artifact), see:
+In this tutorial, you deployed a SQL server and a SQL database and imported a BACPAC file. To learn how to troubleshoot template deployment, see:
 
 > [!div class="nextstepaction"]
-> [Secure the artifacts](./template-tutorial-secure-artifacts.md)
+> [Troubleshoot ARM template deployments](./template-tutorial-troubleshoot.md)
