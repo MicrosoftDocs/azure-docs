@@ -332,9 +332,273 @@ The **Tutorial Assets** include a prefab and view controller for classes that im
 
 ![Cut Plane example](./media/cut-plane-example-engine.png)
 
-## Lighting / sky box
+## Configuring the remote lighting
 
-The remote rendering session supports a full spectrum of [lighting options](../../../overview/features/lights.md). The sky light is a texture with a number of built in options to choose from. The other light types: point, spot, and direction are remote entities with components attached to them, similar the the Cut Plane we created above.
+The remote rendering session supports a full spectrum of [lighting options](../../../overview/features/lights.md). We'll create scripts for both the Sky Light and create a simple map for two Unity light types to remote rendering light types.
+
+### Sky Light
+
+Starting the with sky light, there are a number of built-in Cubemaps to choose from when changing the sky light. These are loaded into the session and applied to the sky light. It's also possible to [load in your own textures](../../../concepts/textures.md) to use as a sky light.
+
+We'll create a **RemoteSky** script that has a list of the built-in available Cubemaps (in the form of load parameters), then allows the user to select and load one of the available options.
+
+1. Create a new script named **RemoteSky** and replace it's entire contents with the code below:
+
+```csharp
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
+using Microsoft.Azure.RemoteRendering;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RemoteSky : BaseRemoteSky
+{
+    public override Dictionary<string, LoadTextureFromSASParams> AvailableCubemaps => builtInTextures;
+
+    private bool canSetSky;
+    public override bool CanSetSky {
+        get => canSetSky;
+        set
+        {
+            canSetSky = value;
+            CanSetSkyChanged?.Invoke(canSetSky);
+        }
+    }
+
+    private Dictionary<string, LoadTextureFromSASParams> builtInTextures = new Dictionary<string, LoadTextureFromSASParams>()
+    {
+        {"Autoshop",new LoadTextureFromSASParams("builtin://Autoshop", TextureType.CubeMap)},
+        {"BoilerRoom",new LoadTextureFromSASParams("builtin://BoilerRoom", TextureType.CubeMap)},
+        {"ColorfulStudio",new LoadTextureFromSASParams("builtin://ColorfulStudio", TextureType.CubeMap)},
+        {"Hangar",new LoadTextureFromSASParams("builtin://Hangar", TextureType.CubeMap)},
+        {"IndustrialPipeAndValve",new LoadTextureFromSASParams("builtin://IndustrialPipeAndValve", TextureType.CubeMap)},
+        {"Lebombo",new LoadTextureFromSASParams("builtin://Lebombo", TextureType.CubeMap)},
+        {"SataraNight",new LoadTextureFromSASParams("builtin://SataraNight", TextureType.CubeMap)},
+        {"SunnyVondelpark",new LoadTextureFromSASParams("builtin://SunnyVondelpark", TextureType.CubeMap)},
+        {"Syferfontein",new LoadTextureFromSASParams("builtin://Syferfontein", TextureType.CubeMap)},
+        {"TearsOfSteelBridge",new LoadTextureFromSASParams("builtin://TearsOfSteelBridge", TextureType.CubeMap)},
+        {"VeniceSunset",new LoadTextureFromSASParams("builtin://VeniceSunset", TextureType.CubeMap)},
+        {"WhippleCreekRegionalPark",new LoadTextureFromSASParams("builtin://WhippleCreekRegionalPark", TextureType.CubeMap)},
+        {"WinterRiver",new LoadTextureFromSASParams("builtin://WinterRiver", TextureType.CubeMap)},
+        {"DefaultSky",new LoadTextureFromSASParams("builtin://DefaultSky", TextureType.CubeMap)}
+    };
+
+    public UnityBoolEvent OnCanSetSkyChanged;
+
+    public override event Action<bool> CanSetSkyChanged;
+
+    public void Start()
+    {
+        // Hook up the event to the Unity event
+        CanSetSkyChanged += (canSet) => OnCanSetSkyChanged?.Invoke(canSet);
+
+        RemoteRenderingCoordinator.CoordinatorStateChange += ApplyStateToView;
+        ApplyStateToView(RemoteRenderingCoordinator.instance.CurrentCoordinatorState);
+    }
+
+    private void ApplyStateToView(RemoteRenderingCoordinator.RemoteRenderingState state)
+    {
+        switch (state)
+        {
+            case RemoteRenderingCoordinator.RemoteRenderingState.RuntimeConnected:
+                CanSetSky = true;
+                break;
+            default:
+                CanSetSky = false;
+                break;
+        }
+    }
+
+    public async override void SetSky(string skyKey)
+    {
+        if (!CanSetSky)
+        {
+            Debug.Log("Unable to set sky right now");
+            return;
+        }
+
+        if (AvailableCubemaps.ContainsKey(skyKey))
+        {
+            Debug.Log("Setting sky to " + skyKey);
+            //Load the texture into the session
+            var texture = await RemoteRenderingCoordinator.CurrentSession.Actions.LoadTextureFromSASAsync(builtInTextures[skyKey]).AsTask();
+
+            //Apply the texture to the SkyReflectionSettings
+            RemoteRenderingCoordinator.CurrentSession.Actions.SkyReflectionSettings.SkyReflectionTexture = texture;
+        }
+        else
+        {
+            Debug.Log("Invalid sky key");
+        }
+    }
+}
+```
+
+The most important parts of this code are just a few lines:
+
+```csharp
+//Load the texture into the session
+var texture = await RemoteRenderingCoordinator.CurrentSession.Actions.LoadTextureFromSASAsync(builtInTextures[skyKey]).AsTask();
+
+//Apply the texture to the SkyReflectionSettings
+RemoteRenderingCoordinator.CurrentSession.Actions.SkyReflectionSettings.SkyReflectionTexture = texture;
+```
+
+Where we get a reference to the texture to use, in this case by loading it into the session from the built-in blob storage. Then we only need to assign that texture to the Session's `SkyReflectionTexture` to apply it.
+
+2. Create an empty GameObject in your scene and name it **RemoteSky**.
+3. Add the **RemoteSky** script to your **RemoteSky** GameObject.
+
+Switching between sky lights can be done by calling `SetSky` with one of the string keys defined in `AvailableCubemaps`. The provided view controller automatically creates buttons and hooks up their events to call `SetSky` with their respective key.
+
+Because this class implements `BaseRemoteSky`, you can use the provided view controller, found in the **Tutorial Assets**, named **RemoteSkyViewController**. As before, drag and drop the prefab onto the GameObject in the scene that contains the **RemoteSky** script you just created.
+
+4. After connecting the local runtime to a remote session, use the view controller to explore the different sky options and see how they change the coloring of the **TestModel**.
+
+### Lights
+
+The other light types: point, spot, and direction are remote entities with components attached to them, similar the the Cut Plane we created above. An important consideration when lighting your remote scene is attempting to match the lighting in your local scene. This means that locally rendered objects are lit the same way as your remotely rendered objects. This isn't always possible, because many Unity applications for the HoloLens 2 do not use physically based rendering for locally rendered objects. However, to a certain level, we can simulate Unity's simpler default lighting. This script creates different types of remote lights depending on the type of local Unity light the script is attached to. The remote light will duplicate the local light in its: position, rotation, color, and intensity. Where possible, the remote light will also set additional configuration.
+
+1. Create a new script named **RemoteLight** and replace it's code with the code below:
+
+```csharp
+using Microsoft.Azure.RemoteRendering;
+using Microsoft.Azure.RemoteRendering.Unity;
+using System;
+using UnityEngine;
+
+[RequireComponent(typeof(Light))]
+public class RemoteLight : BaseRemoteLight
+{
+    public bool AutomaticallyCreate = true;
+
+    private bool lightReady = false;
+    public override bool LightReady 
+    {
+        get => lightReady;
+        set
+        {
+            lightReady = value;
+            LightReadyChanged?.Invoke(lightReady);
+        }
+    }
+
+    public UnityBoolEvent OnLightReadyChanged;
+
+    public override event Action<bool> LightReadyChanged;
+
+    private Light localLight; //Unity Light
+
+    private Entity lightEntity;
+    private LightComponentBase remoteLightComponent; //Remote Rendering Light
+
+    public void Start()
+    {
+        // Hook up the event to the Unity event
+        LightReadyChanged += (ready) => OnLightReadyChanged?.Invoke(ready);
+
+        localLight = GetComponent<Light>();
+        RemoteRenderingCoordinator.CoordinatorStateChange += RemoteRenderingCoordinator_CoordinatorStateChange;
+        RemoteRenderingCoordinator_CoordinatorStateChange(RemoteRenderingCoordinator.instance.CurrentCoordinatorState);
+    }
+
+    public void OnDestroy()
+    {
+        lightEntity?.Destroy();
+    }
+
+    private void RemoteRenderingCoordinator_CoordinatorStateChange(RemoteRenderingCoordinator.RemoteRenderingState state)
+    {
+        switch (state)
+        {
+            case RemoteRenderingCoordinator.RemoteRenderingState.RuntimeConnected:
+                if (AutomaticallyCreate)
+                    CreateLight();
+                break;
+            default:
+                DestroyLight();
+                break;
+        }
+    }
+
+    public override void CreateLight()
+    {
+        if (remoteLightComponent != null)
+            return; //Nothing to do!
+
+        //Create a root object for the light
+        if(lightEntity == null)
+            lightEntity = RemoteRenderingCoordinator.CurrentSession.Actions.CreateEntity();
+
+        //Bind the remote entity to this game object
+        lightEntity.BindToUnityGameObject(this.gameObject);
+
+        //Sync the transform of this object so we can move the light
+        var syncComponent = this.gameObject.GetComponent<RemoteEntitySyncObject>();
+        syncComponent.SyncEveryFrame = true;
+
+        //Add a light to the entity
+        switch (localLight.type)
+        {
+            case LightType.Directional:
+                var remoteDirectional = RemoteRenderingCoordinator.CurrentSession.Actions.CreateComponent(ObjectType.DirectionalLightComponent, lightEntity) as DirectionalLightComponent;
+                //No additional properties
+                remoteLightComponent = remoteDirectional;
+                break;
+
+            case LightType.Point:
+                var remotePoint = RemoteRenderingCoordinator.CurrentSession.Actions.CreateComponent(ObjectType.PointLightComponent, lightEntity) as PointLightComponent;
+
+                remotePoint.Radius = 0;
+                remotePoint.Length = localLight.range;
+                //remotePoint.AttenuationCutoff = //No direct analog in Unity legacy lights
+                //remotePoint.ProjectedCubeMap = //No direct analog in Unity legacy lights
+
+                remoteLightComponent = remotePoint;
+                break;
+            case LightType.Spot:
+                //Not supported in tutorial
+            case LightType.Area:
+            case LightType.Disc:
+                // No direct analog in remote rendering
+                LightReady = false;
+                return;
+        }
+
+        // Set the common values for all light types
+        remoteLightComponent.Color = localLight.color.toRemote();
+        remoteLightComponent.Intensity = localLight.intensity;
+
+        LightReady = true;
+    }
+
+    public override void DestroyLight()
+    {
+        if (remoteLightComponent == null)
+            return; //Nothing to do!
+
+        remoteLightComponent.Destroy();
+        remoteLightComponent = null;
+        LightReady = false;
+    }
+
+    [ContextMenu("Sync Remote Light Configuration")]
+    public override void RecreateLight()
+    {
+        DestroyLight();
+        CreateLight();
+    }
+}
+```
+
+2. Find the **DirectionalLight** GameObject in your scene. If you've removed the default **DirectionalLight** from your scene: From the top menu bar select **GameObject**->**Light**->**DirectionalLight** to create a new light in your scene.
+3. Drag this **RemoteLight** script onto the **DirectionalLight** GameObject.
+
+4. Similar to other scripts in this tutorial, because this script implements the base class `BaseRemoteLight`, you can use the provided view controller. The remote light view controller has been implemented in a prefab named **RemoteLightViewController**. Drag and drop this prefab onto the GameObject containing your **RemoteLight** script to enable it.
+
+5. After connecting your runtime to a remote session, use the remote light view controller to modify the light's properties. Using MRTK's hand simulation, grab and rotate it to see the effect on the scene's lighting.
 
 ## Editing materials
 
