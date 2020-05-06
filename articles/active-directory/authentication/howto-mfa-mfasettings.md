@@ -95,11 +95,11 @@ Configure the _fraud alert_ feature so that your users can report fraudulent att
 ### View fraud reports
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory** > **Sign-ins**. The fraud report is now part of the standard Azure AD Sign-ins report.
-
+2. Select **Azure Active Directory** > **Sign-ins** > **Authentication Details**. The fraud report is now part of the standard Azure AD Sign-ins report and it will show in the **"Result Detail"** as MFA denied, Fraud Code Entered.
+ 
 ## Notifications
 
-Configure email addresses here for users who will receive fraud alert emails.
+Configure email addresses here for users who will receive fraud alert emails in **Azure Active Directory** > **Security** > **Multi-Factor Authentication** > **Notifications**.
 
 ![Notification fraud alert email sample](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 

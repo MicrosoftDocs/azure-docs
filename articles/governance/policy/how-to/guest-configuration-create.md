@@ -14,7 +14,7 @@ To learn about creating Guest Configuration policies for Linux, see the page
 
 When auditing Windows, Guest Configuration uses a
 [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) resource module to
-and configuration file. The DSC configuration defines the condition that the machine should be in.
+create the configuration file. The DSC configuration defines the condition that the machine should be in.
 If the evaluation of the configuration fails, the policy effect **auditIfNotExists** is triggered
 and the machine is considered **non-compliant**.
 
@@ -26,6 +26,10 @@ non-Azure machine.
 
 > [!IMPORTANT]
 > Custom policies with Guest Configuration is a Preview feature.
+>
+> The Guest Configuration extension is required to perform audits in Azure virtual machines.
+> To deploy the extension at scale across all Windows machines, assign the following policy definitions:
+>   - [Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 
 ## Install the PowerShell module
 
@@ -220,8 +224,11 @@ Configuration AuditBitLocker
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker -out ./Config
+AuditBitLocker ./Config
 ```
+
+Save this file with name `config.ps1` in the project folder. Run it in PowerShell by executing `./config.ps1`
+in the terminal. A new mof file will be created.
 
 The `Node AuditBitlocker` command isn't technically required but it produces a file named
 `AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the

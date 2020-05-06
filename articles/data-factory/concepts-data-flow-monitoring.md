@@ -7,7 +7,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
+ms.date: 04/17/2020
 ---
 
 # Monitor Data Flows
@@ -27,6 +27,10 @@ You will see statistics at this level as well including the run times and status
 When you are in the graphical node monitoring view, you will see a simplified view-only version of your data flow graph.
 
 ![Data Flow Monitoring](media/data-flow/mon003.png "Data Flow Monitoring")
+
+Here is a video overview of monitoring performance of your data flows from the ADF monitoring screen:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u4mH]
 
 ## View Data Flow Execution Plans
 

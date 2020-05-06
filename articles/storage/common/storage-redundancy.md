@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -81,7 +81,7 @@ The primary difference between GRS and GZRS is how data is replicated in the pri
 
 With GRS or GZRS, the data in the secondary location isn't available for read or write access unless there is a failover to the secondary region. For read access to the secondary location, configure your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information, see [Read access to data in the secondary region](#read-access-to-data-in-the-secondary-region).
 
-If the primary region becomes unavailable, you can choose to fail over to the secondary region. After the failover has completed, the secondary region becomes the primary region, and you can again read and write data. For more information on disaster recovery and to learn how to fail over to the secondary region, see [Disaster recovery and account failover (preview)](storage-disaster-recovery-guidance.md).
+If the primary region becomes unavailable, you can choose to fail over to the secondary region (preview). After the failover has completed, the secondary region becomes the primary region, and you can again read and write data. For more information on disaster recovery and to learn how to fail over to the secondary region, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
 > Because data is replicated to the secondary region asynchronously, a failure that affects the primary region may result in data loss if the primary region cannot be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is known as the recovery point objective (RPO). The RPO indicates the point in time to which data can be recovered. Azure Storage typically has an RPO of less than 15 minutes, although there's currently no SLA on how long it takes to replicate data to the secondary region.
@@ -155,4 +155,4 @@ Azure Storage regularly verifies the integrity of data stored using cyclic redun
 - [Check the Last Sync Time property for a storage account](last-sync-time-get.md)
 - [Change the redundancy option for a storage account](redundancy-migration.md)
 - [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
-- [Disaster recovery and account failover (preview)](storage-disaster-recovery-guidance.md)
+- [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md)

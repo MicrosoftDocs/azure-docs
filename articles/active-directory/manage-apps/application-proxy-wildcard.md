@@ -46,8 +46,6 @@ For example: `http(s)://*.adventure-works.com`.
 
 While the internal and external URLs can use different domains, as a best practice, they should be same. When publishing the application, you see an error if one of the URLs doesn't have a wildcard.
 
-If you have additional applications with different configuration settings, you must publish these exceptions as separate applications to overwrite the defaults set for the wildcard. Applications without a wildcard do always take precedence over wildcard applications. From the configuration perspective, these are "just" regular applications.
-
 Creating a wildcard application is based on the same [application publishing flow](application-proxy-add-on-premises-application.md) that is available for all other applications. The only difference is that you include a wildcard in the URLs and potentially the SSO configuration.
 
 ## Prerequisites

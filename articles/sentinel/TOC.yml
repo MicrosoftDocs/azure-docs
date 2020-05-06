@@ -87,7 +87,7 @@
       - name: CEF-based solutions
         href: connect-common-event-format.md
         items:  
-        - name: STEP 1 Deploy the agent
+        - name: STEP 1 Deploy the log forwarder
           href: connect-cef-agent.md
         - name: STEP 2 Configure your security solution
           href: connect-cef-solution-config.md

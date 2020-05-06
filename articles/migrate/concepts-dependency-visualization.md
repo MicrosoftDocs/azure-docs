@@ -46,7 +46,7 @@ For agent-based analysis, Server Assessment uses the [Service Map solution](../a
 
 ### Collected data
 
-For agent-based visualization, the following data is collected:
+For agent-based analysis, the following data is collected:
 
 - Source machine server name, process, application name.
 - Destination machine server name, process, application name, and port.

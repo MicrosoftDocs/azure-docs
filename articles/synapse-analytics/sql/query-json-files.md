@@ -128,7 +128,7 @@ FROM
         ROWTERMINATOR = '0x0b'
     )
     WITH (
-        jsonContent NVARCHAR(4000) --Note that you have to use NVARCHAR(4000) for OPENJSON to work.
+        jsonContent NVARCHAR(max) -- Use appropriate length. Make sure JSON fits. 
     ) AS [r]
 CROSS APPLY OPENJSON(jsonContent) AS j
 WHERE
@@ -140,4 +140,4 @@ WHERE
 The next articles in this series will demonstrate how to:
 
 - [Querying folders and multiple files](query-folders-multiple-csv-files.md)
-- [Create and use views](create-use-views.md).
+- [Create and use views](create-use-views.md)

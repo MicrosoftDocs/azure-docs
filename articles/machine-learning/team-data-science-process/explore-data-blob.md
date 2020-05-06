@@ -31,6 +31,7 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
 
     ```python
     from azure.storage.blob import BlockBlobService
+    import pandas as pd
     import tables
 
     STORAGEACCOUNTNAME= <storage_account_name>

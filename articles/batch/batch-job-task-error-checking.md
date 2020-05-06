@@ -1,10 +1,7 @@
 ---
-title: Check for job and task errors - Azure Batch | Microsoft Docs
+title: Check for job and task errors
 description: Errors to check for and troubleshooting jobs and tasks
-services: batch
 author: mscurrell
-
-ms.service: batch
 ms.topic: article
 ms.date: 03/10/2019
 ms.author: markscu

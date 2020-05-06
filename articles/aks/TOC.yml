@@ -20,8 +20,8 @@
   - name: Develop applications
     expanded: true
     items:
-    - name: Use Draft
-      href: kubernetes-draft.md
+    - name: Develop with Helm
+      href: quickstart-helm.md
     - name: Azure Dev Spaces
       expanded: true
       items:
@@ -252,7 +252,7 @@
     - name: View container data real-time
       href: ../azure-monitor/insights/container-insights-livedata-overview.md
       maintainContext: true
-  - name: Use Windows Server containers (preview)
+  - name: Use Windows Server containers
     items:
     - name: Create an AKS cluster
       href: windows-container-cli.md
@@ -316,7 +316,7 @@
         - name: 3 - Team development
           href: ../dev-spaces/team-development-nodejs.md
           maintainContext: true
-    - name: Run applications with Helm
+    - name: Install existing applications with Helm
       href: kubernetes-helm.md
     - name: Use OpenFaaS
       href: openfaas.md

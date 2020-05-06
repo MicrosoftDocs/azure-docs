@@ -4,10 +4,10 @@ description: Create a new VM image version from an existing image version using 
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-manager: gwallace
+ms.reviewer: danis
 ---
 # Preview: Create a new VM image version from an existing image version using Azure Image Builder
 

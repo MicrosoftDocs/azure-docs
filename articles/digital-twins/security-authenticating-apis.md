@@ -8,6 +8,7 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/21/2020
+ms.custom: has-adal-ref
 ---
 
 # Connect to and authenticate with APIs

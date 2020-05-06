@@ -595,6 +595,10 @@
       href: self-hosted-integration-runtime-proxy-ssis.md
     - name: Enable Azure AD authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
+    - name: Connect to data with Windows Authentication
+      href: ssis-azure-connect-with-windows-auth.md
+    - name: Save files and connect to file shares
+      href: ssis-azure-files-file-shares.md
     - name: Provision Enterprise Edition for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-enterprise-edition.md
     - name: Customize setup for Azure-SSIS IR
@@ -671,6 +675,8 @@
       href: how-to-fixed-width.md
     - name: Error row handling
       href: how-to-data-flow-error-rows.md
+    - name: Azure SQL DB to CosmosDB
+      href: how-to-sqldb-to-cosmosdb.md
   - name: SSIS migration from on-premises
     items:
     - name: SSIS migration overview

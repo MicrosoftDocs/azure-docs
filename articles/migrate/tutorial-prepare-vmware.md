@@ -2,7 +2,7 @@
 title: Prepare VMware VMs for assessment/migration with Azure Migrate
 description: Learn how to prepare for assessment/migration of VMware VMs with Azure Migrate.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 04/19/2020
 ms.custom: mvc
 ---
 
@@ -146,7 +146,7 @@ Review the requirements for [agent-based migration](server-migrate-overview.md) 
 3. Agent-based migration uses a replication appliance:
     - [Review](migrate-replication-appliance.md#appliance-requirements) the deployment requirements for the replication appliance.
     - [Review the options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
-    - Note the URL access [required](migrate-replication-appliance.md#url-access).
+    - Note the URL access required for [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
     - Review  [port access](migrate-replication-appliance.md#port-access) requirements for the replication appliance.
     
 ## Next steps

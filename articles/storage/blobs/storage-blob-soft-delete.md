@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -189,7 +189,7 @@ Once you undelete a blob's snapshots, you can click **Promote** to copy a snapsh
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-# [Powershell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -369,4 +369,4 @@ It is possible to take advantage of soft delete regardless of the API version yo
 * [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api)
 * [Azure Storage Replication](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Disaster recovery and storage account failover (preview) in Azure Storage](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Disaster recovery and storage account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

@@ -221,7 +221,7 @@ This project has web app and web API projects. To deploy them to Azure websites,
    1. Right-click the project in Solution Explorer, and then select **Publish**.
    1. Select **Import Profile** on the bottom bar, and import the publish profile that you downloaded earlier.
 1. Select **Configure**.
-1. On the **Connection** tab, update the destination URL so that it uses "https." For example, use [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net). Select **Next**.
+1. On the **Connection** tab, update the destination URL so that it uses "https." For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`. Select **Next**.
 1. On the **Settings** tab, make sure that **Enable Organizational Authentication** is cleared.
 1. Select **Save**. Select **Publish** on the main screen.
 

@@ -36,7 +36,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     | Setting | Suggested value | Description |
     | :------ | :-------------- | :---------- |
     | **Subscription** | *Your subscription* | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-    | **Resource group** | *Any resource group* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
+    | **Resource group** | *Any resource group* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
     | **Workspace name** | mysampleworkspace | Specifies the name of the workspace, which will also be used for connection endpoints.|
     | **Region** | East US2 | Specifies the location of the workspace.|
     | **Data Lake Storage Gen2** | Account: `storage account name` </br> File system: `root file system to use` | Specifies the ADLS Gen2 storage account name to use as primary storage and the file system to use.|
@@ -49,7 +49,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     - Entered manually using the account name
 
     > [!IMPORTANT]
-    > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2 account.
+    > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2 account. In addition, for any storage account that you link as the primary storage account, you must have enabled **hierarchical namespace**  at the creation of the storage account.
     >
     > Below the ADLS Gen2 selection fields, there is a note saying that the managed identity of the workspace will be assigned the **Storaqe Blob Data Contributor** role on the selected Data Lake Storage Gen2 file system granting it full access.
 
