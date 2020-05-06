@@ -6,7 +6,7 @@ manager: dcscontentpm
 ms.service: storage
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: rogarana
+ms.author: tamram
 ms.subservice: files
 services: storage
 tags: ''
