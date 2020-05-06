@@ -23,20 +23,20 @@ ms.custom: aaddev
 
 You can use MSAL.NET to sign in users with social identities by using [Azure Active Directory B2C (Azure AD B2C)](https://aka.ms/aadb2c). Azure AD B2C is built around the notion of policies. In MSAL.NET, specifying a policy translates to providing an authority.
 
-- When you instantiate the public client application, you need to specify the policy in authority.
-- When you want to apply a policy, you need to call an override of `AcquireTokenInteractive` containing an `authority` parameter.
+- When you instantiate the public client application, you need to specify the policy as part of the authority.
+- When you want to apply a policy, call an override of `AcquireTokenInteractive` that supplies the `authority` parameter.
 
-This article is for MSAL 3.x. If you are interested in MSAL 2.x, see [Azure AD B2C specifics in MSAL 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x).
+This article applies to MSAL.NET 3.x. For MSAL.NET 2.x, see [Azure AD B2C specifics in MSAL 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x) in the MSAL.NET Wiki on GitHub.
 
 ## Authority for an Azure AD B2C tenant and policy
 
-The authority to use is `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}` where:
+The authority format for Azure AD B2C is: `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
 
-- `azureADB2CHostname` is the name of the Azure AD B2C tenant plus the host (for example `{your-tenant-name}.b2clogin.com`),
-- `tenant` is the full name of the Azure AD B2C tenant (for example, `{your-tenant-name}.onmicrosoft.com`) or the GUID for the tenant,
-- `policyName` the name of the policy or user flow to apply (for instance "b2c_1_susi" for sign-up/sign-in).
+- `azureADB2CHostname` - The name of the Azure AD B2C tenant plus the host. For example `{your-tenant-name}.b2clogin.com`.
+- `tenant` - The domain name or the directory (tenant) ID of the Azure AD B2C tenant. For example, `{your-tenant-name}.onmicrosoft.com` or a GUID, respectively.
+- `policyName` - The name of the user flow or custom policy to apply. For example, a sign-up/sign-in policy like *b2c_1_susi*.
 
-For more information about Azure AD B2C authorities, see [Set redirect URLs to b2clogin.com](../../active-directory-b2c/b2clogin.com).
+For more information about Azure AD B2C authorities, see [Set redirect URLs to b2clogin.com](../../active-directory-b2c/b2clogin.md).
 
 ## Instantiating the application
 
