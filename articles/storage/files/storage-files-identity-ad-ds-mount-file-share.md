@@ -9,7 +9,7 @@ ms.date: 04/20/2020
 ms.author: rogarana
 ---
 
-## Mount a file share from a domain-joined VM
+# Mount a file share from a domain-joined VM
 
 Before you begin this article, make sure you complete the previous article, [Configure NTFS permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
 
