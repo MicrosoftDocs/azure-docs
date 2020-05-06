@@ -35,7 +35,7 @@ You can leverage the Standard Contract for the Microsoft commercial marketplace 
 
 ## Customer experience
 
-During the discovery experience in Azure marketplace or AppSource, customers will be able to see the terms associated with the offer as the Standard Contract for the Microsoft commercial marketplace and any universal amendments.
+During the discovery experience in Azure Marketplace or AppSource, customers will be able to see the terms associated with the offer as the Standard Contract for the Microsoft commercial marketplace and any universal amendments.
 
 ![The Azure portal customer discovery experience.](media/marketplace-publishers-guide/azure-discovery-process.png)
 
