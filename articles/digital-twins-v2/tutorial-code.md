@@ -38,13 +38,13 @@ Navigate into the new directory.
 
 Once in the project directory, create an empty .NET console app project. In the command window, run the following command to create a minimal C# project for the console:
 
-```bash
+```cmd/sh
 dotnet new console
 ```
 
 Next, to use this project for developing against Azure Digital Twins, use the following commands to add two necessary dependencies:
 
-```bash
+```cmd/sh
 dotnet add package Azure.IoT.DigitalTwins
 dotnet add package Azure.identity
 ```
@@ -74,6 +74,8 @@ In this section, you will begin writing the code for your new app project to wor
 * Creating digital twins
 * Creating relationships
 * Querying digital twins
+
+There is also a section showing the complete code at the end of the tutorial. You can use this as a reference to check your program as you go.
 
 To begin, open the file *Program.cs* in any code editor. You will see a minimal code template that looks like this:
 
@@ -142,7 +144,8 @@ This type of credential will cause a browser window to open, asking you to provi
 > For information on other types of credentials, see the documentation for the [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
 In your command window, run the code with this command: 
-```bash
+
+```cmd/sh
 dotnet run
 ```
 
@@ -179,7 +182,7 @@ The next step is to create a model with a basic DTDL file. In the directory wher
 
 Next, add some more code to *Program.cs* to upload the model you've just created into your Azure Digital Twins instance.
 
-First, add a few using statements to the top of the file:
+First, add a few `using` statements to the top of the file:
 
 ```csharp
 using System.Threading.Tasks;
@@ -195,12 +198,13 @@ Next, prepare to use the asynchronous methods in the C# service SDK, by changing
 static async Task Main(string[] args)
 ```
 
->[!NOTE]
+> [!NOTE]
 > This is not strictly required, as the SDK also provides synchronous versions of all calls. This tutorial practices using async.
 
-Next comes the first bit of code that interacts with the Azure Digital Twins service. You can load the DTDL file from disk and then upload it to your Azure Digital Twins service instance. 
+Next comes the first bit of code that interacts with the Azure Digital Twins service. This code loads the DTDL file you created from your disk, and then uploads it to your Azure Digital Twins service instance. 
 
-Paste in the following code under the authorization code.
+Paste in the following code under the authorization code you added earlier.
+
 ```csharp
 Console.WriteLine();
 Console.WriteLine($"Upload a model");
@@ -211,14 +215,15 @@ typeList.Add(dtdl);
 client.CreateModelsAsync(typeList);
 ```
 
-Run the program with 
-```bash
+In your command window, run the program with this command: 
+
+```cmd/sh
 dotnet run
 ```
 
-Right now, there is no output for the successful call. Add some code to check if the model has actually been uploaded.
+You'll notice that right now, there is no output indicating the call was successful. 
 
-Add the following code right after the previous bit:
+To add a print statement indicating whether models are actually uploaded successfully, add the following code right after the previous section:
 
 ```csharp
 // Read a list of models back from the service
@@ -229,19 +234,22 @@ await foreach (ModelData md in modelDataList)
 }
 ```
 
-Run the program with 
-```bash
+Before you run the program again to test this new code, recall that the last time you ran the program, you uploaded your model already. Azure Digital Twins will not let you upload the same model twice, so expect to see an exception when you re-run the program.
+
+Now, run the program again with this command in your command window:
+
+```cmd/sh
 dotnet run
 ```
 
-You will see an exception thrown. What happened?
+The program should throw an exception. When you attempt to upload a model that has been uploaded already, the service returns a "bad request" error via the REST API. As a result, the Azure Digital Twins client SDK will in turn throw an exception, for every service return code other than success. 
+
+The next section talks about exceptions like this and how to handle them in your code.
 
 ### Catch errors
 
-The exception happens because Azure Digital Twins will not let you upload the same model twice. Instead, the service returns a "bad request" error via the REST API. 
-The Azure Digital Twins client SDK in turn will throw an exception for every service return code other than success. 
+To keep the program from crashing, you can add exception code around the model upload code. Wrap the existing client call `client.CreateModelsAsync` in a try/catch handler, like this:
 
-To keep the code from crashing, add an exception around the model upload code. Wrap the existing client call client.CreateModelsAsync in a try/catch handler:
 ```csharp
 try {
     await client.CreateModelsAsync(typeList);
@@ -250,9 +258,9 @@ try {
 }
 ```
 
-If you run the code now, you will see that you get an error code back:
+If you run the program with `dotnet run` in your command window now, you will see that you get an error code back. The output looks something like this:
 
-```bash
+```cmd/sh
 Hello World!
 Service client created - ready to go
 
@@ -272,18 +280,20 @@ Content-Type: application/json; charset=utf-8
 Type name: : urn:example:Simple:1
 ```
 
-From this point on, the tutorial will wrap all calls to service methods in try/catch handlers.
+From this point forward, the tutorial will wrap all calls to service methods in try/catch handlers.
 
 ### Create digital twins
 
-Now that you have configured Azure Digital Twins with at least one model, you can create twin instances. This section creates a few twins using the uploaded model.
+Now that you have uploaded a model to Azure Digital Twins, you can use this model definition to create digital twins. This section creates a few digital twins using the model you uploaded earlier.
 
-Add a new using statement at the top, as you will need the built-in .NET Json serializer in System.Text.Json:
+Add a new `using` statement at the top, as you will need the built-in .NET Json serializer in `System.Text.Json`:
+
 ```csharp
 using System.Text.Json;
 ```
 
-Then, add the following code to the end of the main method:
+Then, add the following code to the end of the `Main` method to create and initialize three digital twins based on this model.
+
 ```csharp
 // Initialize twin metadata
 var meta = new Dictionary<string, object>
@@ -307,18 +317,20 @@ for(int i=0; i<3; i++) {
 }
 ```
 
-Run this code twice. No error is thrown when the twins are created, although the twins already exist after the first run. Why is this? Unlike model creation, twin creation is, on the REST level, a put call with upsert semantics - if the twin already exists, it will be replaced and no error is thrown.
+In your command window, run the program with `dotnet run`. Then, repeat to run the program again. 
+
+Notice that no error is thrown when the twins are created the second time, even though the twins already exist after the first run. Unlike model creation, twin creation is, on the REST level, a *PUT* call with *upsert* semantics. This means that if a twin already exists, trying to create it again will just replace it. No error required.
 
 ### Create relationships
 
 Relationships are created between twins in order to connect them into a twin graph.
 
-Add a using statement for the edge base types in the SDK:
+To be able to create relationships, add a `using` statement for the edge (relationship) base types in the SDK:
 ```csharp
 using Azure.Iot.DigitalTwins.Edges;
 ```
 
-Add a new static method to the Program class:
+Next, add a new static method to the `Program` class, underneath the `Main` method:
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -339,23 +351,23 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-And add the following code to the main method:
+Then, add the following code to the end of the `Main` method to call the `CreateRelationship` code:
 ```csharp
 // Connect the twins with relationships
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-2");
 ```
 
-Run the program with 
-```bash
-dotnet run
-```
+In your command window, run the program with `dotnet run`.
 
-### List and display twins and relationships
+Note that Azure Digital Twins will not let you create a relationship if one with the same ID already exists—so if you run the program multiple times, you will see exceptions on relationship creation. This code catches the exceptions and ignores them. 
 
-It would be good to see the list of relationships.
+### List relationships
 
-In order to do that, add the following new method to Program.cs:
+The next code you'll add allows you to see the list of relationships you've created.
+
+Add the following new method to the `Program` class:
+
 ```csharp
 public async static Task ListRelationships(DigitalTwinsClient client, string srcId)
 {
@@ -373,24 +385,21 @@ public async static Task ListRelationships(DigitalTwinsClient client, string src
 }
 ```
 
-And the following line right before the end of the main method:
+THen, add the following code to the end of the `Main` method to call the `ListRelationships` code:
+
 ```csharp
 //List the relationships
 await ListRelationships(client, "sampleTwin-0");
 ```
 
-Run the program with 
-```bash
-dotnet run
-```
-
-Note that if you run the code multiple times, you will see exceptions on edge creation, as Azure Digital Twins will not let you create an edge if one with the same ID already exists. This code catches the exceptions and ignores them. 
+In your command window, run the program with `dotnet run`. You should see a list of all the relationships you have created.
 
 ### Query digital twins
 
-The final code example runs a query against Azure Digital Twins. 
+The last section of code to add runs a query against the Azure Digital Twins instance. The query used in this example selects all the digital twins in the instance.
 
-Add the following code:
+Add the following code to the end of the `Main` method:
+
 ```csharp
 // Run a query    
 AsyncPageable<string> result = client.QueryAsync("Select * From DigitalTwins");
@@ -403,7 +412,11 @@ await foreach (string twin in result)
 }
 ```
 
+In your command window, run the program with `dotnet run`. You should see all the digital twins in this instance in the output.
+
 ## Complete code example
+
+At this point in the tutorial, you have a complete client app, capable of performing basic actions against Azure Digital Twins. For reference, the full code of the program is listed below:
 
 ```csharp
 using System;
@@ -528,14 +541,13 @@ namespace minimal
 
 ## Next steps
 
-### An Exercise for the Reader
+In this tutorial, you created a .NET console client application from scratch. You wrote code for this client app to perform the basic actions on an Azure Digital Twins instance.
 
-In this example, you have uploaded models, created twins, set relationships, listed relationships and run a simple query.
+Next, continue to the next tutorial to connect a sample Azure Digital Twins solution to other Azure services to complete a data-driven, end-to-end scenario: 
 
-As an exercise for the reader, see the how-to document on patching twins [ToDo add link]. Then, add code to this tutorial sample to patch the data property on each of the twins in this simple twin graph.
+> [!div class="nextstepaction"]
+> [Tutorial: Build an end-to-end solution](tutorial-end-to-end.md)
 
-### More Tutorials
-
-To see a more complete example that demonstrates more coding patterns against the C# SDK, see... [ToDo]
-
-To see  an end-to-end example that demonstrates how to drive Azure Digital Twins with data from IoT Hub and process the data using Azure Functions please see... [ToDo]
+You can also add to the code you wrote in this tutorial by learning more management operations in the how-to articles, or start looking at the concept documentation to learn more about elements you worked with in the tutorial.
+* [How-to: Manage a twin model](how-to-manage-model.md)
+* [Concepts: Twin models](concepts-models.md)
