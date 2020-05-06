@@ -22,11 +22,9 @@ Azure Security Center continually compares the configuration of your resources w
 
 ## Overview of compliance packages
 
-Compliance 'packages' are essentially initiatives defined in Azure Policy. To see compliance data mapped as assessments in your dashboard, add a compliance package to your management group or subscription from within the **Security policy** page. 
+Industry standards, regulatory standards, and benchmarks are represented in Security Center as *compliance packages*.  Each package is an initiative defined in Azure Policy. To see compliance data mapped as assessments in your dashboard, add a compliance package to your management group or subscription from within the **Security policy** page. (Learn more about Azure Policy and initiatives in [Working with security policies](tutorial-security-policy.md).)
 
-Adding a compliance package effectively assigns the regulatory compliance initiative to your selected scope. In this way, you can track newly published regulatory initiatives as compliance standards in your dashboard. 
-
-When you've onboarded a standard or benchmark, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. You can also download summary reports for any of the standards that have been onboarded.
+When you've onboarded a standard or benchmark to your selected scope, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. You can also download summary reports for any of the standards that have been onboarded.
 
 Microsoft also tracks the regulatory standards themselves and automatically improves its coverage in some of the packages over time. When Microsoft releases new content for the initiative (new policies that map to more controls in the standard), the additional content appears automatically in your dashboard.
 
@@ -36,9 +34,11 @@ Microsoft also tracks the regulatory standards themselves and automatically impr
 
 ## Available packages
 
-You can add standards such as NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official and UK NHS, Canada Federal PBMM, and Azure CIS 1.1.0 (new), which is a more complete representation of Azure CIS 1.1.0. 
+You can add standards such as NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official and UK NHS, Canada Federal PBMM, and Azure CIS 1.1.0 (new) - a more complete representation of Azure CIS 1.1.0. 
 
-In addition, you can add Azure Security Benchmark, the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
+In addition, you can add **Azure Security Benchmark**, the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. ([Learn more about Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction).)
+
+Additional standards will be supported in the dashboard as they become available. 
 
 
 ## Adding a regulatory standard to your dashboard
@@ -57,20 +57,17 @@ The following steps explain how to add a package to monitor your compliance with
     > [!TIP]
     > We recommend selecting the highest scope for which the standard is applicable so that compliance data is aggregated and tracked for all nested resources. 
 
-1. Select standards relevant to you:
+1. To add the standards relevant to your organization, click **Add more standards**. 
 
-    - To update Azure CIS 1.1.0 with new content, select **Update now** alongside it in the Industry & regulatory standards section. 
+1. From the **Add regulatory compliance standards** page, you can search for packages for any of the available standards. Some of the standards available are:
 
-    - Optionally, click **Add more standards** to open the **Add regulatory compliance standards** page. There, you can search manually for packages for any of the available standards. Some of the standards available are:
-
-        - **Azure Security Benchmark** ([details here](https://docs.microsoft.com/azure/security/benchmarks/introduction))
-        - **NIST SP 800-53 R4**
-        - **SWIFT CSP CSCF-v2020**
-        - **UKO and UK NHS**
-        - **Canada PBMM**
+    - **Azure Security Benchmark**
+    - **NIST SP 800-53 R4**
+    - **SWIFT CSP CSCF-v2020**
+    - **UKO and UK NHS**
+    - **Canada PBMM**
     
     ![Adding regulatory packages to Azure Security Center's regulatory compliance dashboard](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
-
 
 1. From Security Center's sidebar, select **Regulatory compliance** again to go back to the regulatory compliance dashboard.
     * Your new standard appears in your list of Industry & regulatory standards. 
@@ -79,19 +76,14 @@ The following steps explain how to add a package to monitor your compliance with
     > [!NOTE]
     > It may take a few hours for a newly added standard to appear in the compliance dashboard.
 
-
-    [![Regulatory compliance dashboard showing old and new Azure CIS](media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-cis-old-and-new.png)](media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-cis-old-and-new.png#lightbox)
-
+    [![Regulatory compliance dashboard showing old and new Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-asb-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-asb.png#lightbox)
 
 ## Next steps
 
-In this article, you learned:
-
-* How to **upgrade the standards** shown in your regulatory compliance dashboard to the new *dynamic* packages
-* How to **add compliance packages** to monitor your compliance with additional standards. 
+In this article, you learned how to **add compliance packages** to monitor your compliance with additional standards. 
 
 For other related material, see the following articles: 
 
+- [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction)
 - [Security center regulatory compliance dashboard](security-center-compliance-dashboard.md)
 - [Working with security policies](tutorial-security-policy.md)
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) - Learn how to use recommendations in Azure Security Center to help protect your Azure resources.
