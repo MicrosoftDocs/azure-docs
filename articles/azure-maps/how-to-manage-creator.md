@@ -23,27 +23,27 @@ This article takes you through the steps to create and delete Creator in an Azur
 2. Select your Azure Maps account. If you can't see your Azure Maps account under the **Recent resources**, then navigate to the Azure portal menu. Select **All resources**, find, and select your Azure Maps account.
 
     > [!div class="mx-imgBorder"]
-    >![Azure Maps Portal home page](./media/how-to-manage-creator/select-your-azure-maps-account.png)
+    >![Azure Maps Portal home page](./media/how-to-manage-creator/select-your-azure-maps-account.PNG)
 
 3. Once you're on the Azure Maps account page, navigate to the **Overview** option under **Creator**. Click  **Create**  to create Azure Maps Creator.
 
     > [!div class="mx-imgBorder"]
-    >![Create Azure Maps Creator page](./media/how-to-manage-creator/creator-blade.png)
+    >![Create Azure Maps Creator page](./media/how-to-manage-creator/creator-blade.PNG)
 
 4. Enter the information for your Creator account and select the location for your Creator. Currently, the United States is the only supported geographical location. Click **Review + create**.
 
     > [!div class="mx-imgBorder"]
-    >![Enter Creator account information page](./media/how-to-manage-creator/creator-creation.png)
+    >![Enter Creator account information page](./media/how-to-manage-creator/creator-creation.PNG)
 
 5. Review your settings and click **Create**.
 
     > [!div class="mx-imgBorder"]
-    >![Confirm Creator account settings page](./media/how-to-manage-creator/creator-create.png)
+    >![Confirm Creator account settings page](./media/how-to-manage-creator/creator-create.PNG)
 
 6. When the deployment completes, you'll see a page with a success or a failure message.
 
     > [!div class="mx-imgBorder"]
-    >![Resource deployment status page](./media/how-to-manage-creator/creator-resourcecreated.png)
+    >![Resource deployment status page](./media/how-to-manage-creator/creator-resourcecreated.PNG)
 
     >[!TIP]
     >To troubleshoot any errors you may receive, see
@@ -52,7 +52,7 @@ This article takes you through the steps to create and delete Creator in an Azur
 7. Click **Go to resource**. Your Creator page should look like the page in the image below. It should show the status of your Creator and the chosen demographic region.
 
     > [!div class="mx-imgBorder"]
-    >![Creator status page](./media/how-to-manage-creator/creator-resourceview.png)
+    >![Creator status page](./media/how-to-manage-creator/creator-resourceview.PNG)
 
    >[!NOTE]
    >From the Creator resource page, you can navigate back to the Azure Maps account it belongs to by clicking Azure Maps Account.
