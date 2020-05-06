@@ -15,7 +15,8 @@ ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
 # Customer intent: As an application developer, I want to learn about specific considerations when using
-# Azure AD B2C and MSAL.NET so I can decide if this platform meets my application development needs and requirements.
+#                  Azure AD B2C and MSAL.NET so I can decide if this platform meets my application development
+#                  needs and requirements.
 ---
 
 # Use MSAL.NET to sign in users with social identities
@@ -35,11 +36,11 @@ The authority to use is `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
 - `tenant` is the full name of the Azure AD B2C tenant (for example, `{your-tenant-name}.onmicrosoft.com`) or the GUID for the tenant,
 - `policyName` the name of the policy or user flow to apply (for instance "b2c_1_susi" for sign-up/sign-in).
 
-For more information on the Azure AD B2C authorities, see this [documentation](/azure/active-directory-b2c/b2clogin).
+For more information about Azure AD B2C authorities, see [Set redirect URLs to b2clogin.com](../../active-directory-b2c/b2clogin.com).
 
 ## Instantiating the application
 
-When building the application, you need to provide the authority.
+Provide the authority by calling `WithB2CAuthority()` when you create the application object:
 
 ```csharp
 // Azure AD B2C Coordinates
@@ -81,13 +82,13 @@ In the preceding code snippet:
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
   {
-   foreach (var account in accounts)
-   {
-    string userIdentifier = account.HomeAccountId.ObjectId.Split('.')[0];
-    if (userIdentifier.EndsWith(policy.ToLower()))
-     return account;
-   }
-   return null;
+      foreach (var account in accounts)
+      {
+          string userIdentifier = account.HomeAccountId.ObjectId.Split('.')[0];
+          if (userIdentifier.EndsWith(policy.ToLower()))
+              return account;
+      }
+      return null;
   }
   ```
 
