@@ -25,7 +25,7 @@ A *data warehouse restore* is a new data warehouse that is created from a restor
 
 ## Automatic Restore Points
 
-Snapshots are a built-in feature of the service that creates restore points. You do not have to enable this capability. However, the SQL pool should be in an active state for restore point creation. If the SQL pool is paused frequently, automatic restore points may not be created so make sure to create user-defined restore point before pausing the SQL pool. Automatic restore points currently cannot be deleted by users as the service uses these restore points to maintain SLAs for recovery.
+Snapshots are a built-in feature that creates restore points. You do not have to enable this capability. However, the SQL pool should be in an active state for restore point creation. If the SQL pool is paused frequently, automatic restore points may not be created so make sure to create user-defined restore point before pausing the SQL pool. Automatic restore points currently cannot be deleted by users as the service uses these restore points to maintain SLAs for recovery.
 
 Snapshots of your data warehouse are taken throughout the day creating restore points that are available for seven days. This retention period cannot be changed. SQL pool supports an eight-hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days.
 
@@ -60,11 +60,11 @@ The following lists details for restore point retention periods:
 When you drop a SQL pool, a final snapshot is created and saved for seven days. You can restore the SQL pool to the final restore point created at deletion. If the SQL pool is dropped in a paused state, no snapshot is taken. In that scenario, make sure to create a user-defined restore point before dropping the SQL pool.
 
 > [!IMPORTANT]
-> If you delete a logical SQL server instance, all databases that belong to the instance are also deleted and cannot be recovered. You cannot restore a deleted server.
+> If you delete an Azure SQL server hosting a SQL pool, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
 
 ## Geo-backups and disaster recovery
 
-A geo-backup is created once per day to a [paired data center](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where SQL pool is supported. A geo-backup ensures you can restore data warehouse in case you cannot access the restore points in your primary region.
+A geo-backup is created once per day to a [paired data center](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to an Azure SQL server in any other region where SQL pool is supported. A geo-backup ensures you can restore data warehouse in case you cannot access the restore points in your primary region.
 
 > [!NOTE]
 > If you require a shorter RPO for geo-backups, vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse in a different region. Once you have restored, you have the data warehouse online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Premium Storage rate. Should you need an active copy of the data warehouse, you can resume which should take only a few minutes.
@@ -91,7 +91,7 @@ To restore a deleted or paused data warehouse, you can [create a support ticket]
 
 ## Cross subscription restore
 
-If you need to directly restore across subscription, vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restore to a different logical server and ['Move'](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) the server across subscriptions to perform a cross subscription restore.
+If you need to directly restore across subscription, vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restore to a different server and ['Move'](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) the server across subscriptions to perform a cross subscription restore.
 
 ## Geo-redundant restore
 

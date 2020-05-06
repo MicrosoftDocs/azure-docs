@@ -24,7 +24,7 @@ The Spark pools to SQL Analytics Connector is a data source implementation for A
 
 ## Authentication in Azure Synapse Analytics
 
-Authentication between systems is made seamless in Azure Synapse Analytics. There is a Token Service that connects with Azure Active Directory to obtain security tokens for use when accessing the storage account or the data warehouse server. For this reason, there is no need to create credentials or specify them in the connector API as long as AAD-Auth is configured at the storage account and the data warehouse server. If not, SQL Auth can be specified. Find more details in the [Usage](#usage) section.
+Authentication between systems is made seamless in Azure Synapse Analytics. There is a Token Service that connects with Azure Active Directory to obtain security tokens for use when accessing the storage account or the Azure SQL server. For this reason, there is no need to create credentials or specify them in the connector API as long as AAD-Auth is configured at the storage account and the Azure SQL server. If not, SQL Auth can be specified. Find more details in the [Usage](#usage) section.
 
 ## Constraints
 
@@ -51,7 +51,7 @@ EXEC sp_addrolemember 'db_exporter', 'Mary';
 
 The import statements do not need to be provided, they are pre-imported for the notebook experience.
 
-### Transferring data to or from a SQL pool in the Logical Server (DW Instance) attached with the workspace
+### Transferring data to or from a SQL pool attached with the workspace
 
 > [!NOTE]
 > **Imports not needed in notebook experience**
@@ -84,7 +84,7 @@ df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
 
 The authentication to Storage and the SQL Server is done
 
-### If you are transferring data to or from a SQL pool or database in a Logical Server outside the workspace
+### If you are transferring data to or from a SQL pool or database in an Azure SQL server outside the workspace
 
 > [!NOTE]
 > Imports not needed in notebook experience
@@ -155,9 +155,10 @@ val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 
 pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 ```
+
 Similarly, in the read scenario, read the data using Scala and write it into a temp table, and use Spark SQL in PySpark to query the temp table into a dataframe.
 
 ## Next steps
 
 - [Create a SQL pool]([Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md))
-- [Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md) 
+- [Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md)

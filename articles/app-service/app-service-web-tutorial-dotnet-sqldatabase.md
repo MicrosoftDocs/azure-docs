@@ -54,7 +54,7 @@ Test the **Edit**, **Details**, and **Delete** links.
 
 The app uses a database context to connect with the database. In this sample, the database context uses a connection string named `MyDbConnection`. The connection string is set in the *Web.config* file and referenced in the *Models/MyDatabaseContext.cs* file. The connection string name is used later in the tutorial to connect the Azure app to an Azure SQL Database.
 
-## Publish to ASP.NET application to Azure
+## Publish ASP.NET application to Azure
 
 In the **Solution Explorer**, right-click your **DotNetAppSqlDb** project and select **Publish**.
 
@@ -107,9 +107,9 @@ You can keep the generated web app name, or change it to another unique name (va
    |**Location**| West Europe | [Azure regions](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
    |**Size**| Free | [Pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
-### Create a server in Azure SQL Database
+### Create a server
 
-Before creating a database, you need a [server](../sql-database/sql-database-servers.md) in Azure SQL Database. A server is a logical construct that contains a group of databases managed as a group.
+Before creating a database, you need an [Azure SQL server](../sql-database/sql-database-servers.md). An Azure SQL server is a logical construct that contains a group of databases managed as a group.
 
 1. Click **Create a SQL Database**.
 
@@ -117,7 +117,7 @@ Before creating a database, you need a [server](../sql-database/sql-database-ser
 
 2. In the **Configure SQL Database** dialog, click **New** next to **SQL Server**.
 
-   A unique server name is generated. This name is used as part of the default URL for your server, `<server_name>.database.windows.net`. It must be unique across all servers in Azure SQL Database. You can change the server name, but for this tutorial, keep the generated value.
+   A unique server name is generated. This name is used as part of the default URL for your server, `<server_name>.database.windows.net`. It must be unique across all servers in Azure SQL. You can change the server name, but for this tutorial, keep the generated value.
 
 3. Add an administrator username and password. For password complexity requirements, see [Password Policy](/sql/relational-databases/security/password-policy).
 
@@ -174,7 +174,7 @@ Type the database administrator password you created earlier and click **Connect
 
 ### Allow client connection from your computer
 
-The **Create a new firewall rule** dialog is opened. By default, the server in SQL Database only allows connections to its databases from Azure services, such as your Azure app. To connect to your database from outside of Azure, create a firewall rule at the server level. The firewall rule allows the public IP address of your local computer.
+The **Create a new firewall rule** dialog is opened. By default, an Azure SQL server only allows connections to its databases from Azure services, such as your Azure app. To connect to your database from outside of Azure, create a firewall rule at the server level. The firewall rule allows the public IP address of your local computer.
 
 The dialog is already filled with your computer's public IP address.
 

@@ -41,7 +41,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank data warehouse in SQL pool
 
-A SQL pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The SQL pool is created within an [Azure resource group](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and in an [Azure SQL logical server](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+A SQL pool is created with a defined set of [compute resources](memory-concurrency-limits.md). The SQL pool is created within an [Azure resource group](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and in an [Azure SQL server](../../sql-database/sql-database-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Follow these steps to create a blank SQL pool.
 
@@ -58,7 +58,7 @@ Follow these steps to create a blank SQL pool.
    | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
 
-1. Under **SQL pool details**, provide a name for your SQL pool. Next, either select an existing server from the drop down, or select **Create new** under the **Server** settings to create a new server. Fill out the form with the following information:
+1. Under **SQL pool details**, provide a name for your SQL pool. Next, either select an existing server from the drop down, or select **Create new** under the **Server** settings to create a new Azure SQL server. Fill out the form with the following information:
 
     | Setting | Suggested value | Description |
     | ------- | --------------- | ----------- |
@@ -68,11 +68,11 @@ Follow these steps to create a blank SQL pool.
     | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
     | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
 
-    ![create database server](./media/load-data-wideworldimportersdw/create-database-server.png)
+    ![create server](./media/load-data-wideworldimportersdw/create-database-server.png)
 
 1. **Select performance level**. The slider by default is set to **DW1000c**. Move the slider up and down to choose the desired performance scale.
 
-    ![create database server](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
+    ![create server 2](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
 1. On the **Additional Settings** page, set the **Use existing data** to None, and leave the **Collation** at the default of *SQL_Latin1_General_CP1_CI_AS*.
 
@@ -85,7 +85,7 @@ Follow these steps to create a blank SQL pool.
 The Azure Synapse Analytics service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses.  Follow these steps to create a [server-level firewall rule](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) for your client's IP address.
 
 > [!NOTE]
-> The Azure Synapse Analytics SQL pool communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
+> The Azure Synapse Analytics SQL pool communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your server unless your IT department opens port 1433.
 >
 
 1. After the deployment completes, search for your pool name in the search box in the navigation menu, and select the SQL pool resource. Select the server name.
@@ -95,7 +95,7 @@ The Azure Synapse Analytics service creates a firewall at the server-level that 
 1. Select the server name.
     ![server name](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-1. Select **Show firewall settings**. The **Firewall settings** page for the SQL pool server opens.
+1. Select **Show firewall settings**. The **Firewall settings** page for the server opens.
 
     ![server settings](./media/load-data-wideworldimportersdw/server-settings.png)
 
@@ -103,20 +103,20 @@ The Azure Synapse Analytics service creates a firewall at the server-level that 
 
     ![server firewall rule](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
 
-1. Select **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
+1. Select **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the Azure SQL server.
 
-You can now connect to the SQL server using your client IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the serveradmin account you created previously.  
+You can now connect to the Azure SQL server using your client IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the serveradmin account you created previously.  
 
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page and then click **Save** to disable the firewall for all Azure services.
 
 ## Get the fully qualified server name
 
-The fully qualified server name is what is used to connect to the server. Go to your SQL pool resource  in the Azure portal and view the fully qualified name under **Server name**.
+The fully qualified server name is what is used to connect to the Azure SQL server. Go to your SQL pool resource  in the Azure portal and view the fully qualified name under **Server name**.
 
 ![server name](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-## Connect to the server as server admin
+## Connect to the Azure SQL server as server admin
 
 This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) to establish a connection to your Azure SQL server.
 
@@ -175,7 +175,7 @@ Since you are currently connected as the server admin, you can create logins and
 
 6. Click **Execute**.
 
-## Connect to the server as the loading user
+## Connect to the Azure SQL server as the loading user
 
 The first step toward loading data is to login as LoaderRC60.  
 
@@ -1082,7 +1082,7 @@ Follow these steps to clean up resources as you desire.
 
 3. If you want to remove future charges, you can delete the data warehouse. To remove the data warehouse so you won't be charged for compute or storage, click **Delete**.
 
-4. To remove the SQL server you created, click **sample-svr.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
+4. To remove the server you created, click **sample-svr.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this as deleting the Azure SQL server will delete all databases assigned to the server.
 
 5. To remove the resource group, click **SampleRG**, and then click **Delete resource group**.
 

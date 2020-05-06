@@ -24,7 +24,7 @@ In order to use Azure Function App with SQL pool, you must create a [Service Pri
 To deploy the template, you need the following information:
 
 - Name of the resource group your SQL pool instance is in
-- Name of the logical server your SQL pool instance is in
+- Name of the server your SQL pool instance is in
 - Name of your SQL pool instance
 - Tenant ID (Directory ID) of your Azure Active Directory
 - Subscription ID
