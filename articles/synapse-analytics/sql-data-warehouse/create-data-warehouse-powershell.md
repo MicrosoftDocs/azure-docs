@@ -74,9 +74,9 @@ Create an [Azure resource group](../../azure-resource-manager/management/overvie
 New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
 
-## Create an Azure SQL server
+## Create a server
 
-Create a [server](../../sql-database/sql-database-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command. An Azure SQL server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin user named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create a [logical SQL server](../../sql-database/sql-database-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command. A server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin user named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `
@@ -98,7 +98,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL endpoints communicate over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you won't be able to connect to your Azure SQL server unless your IT department opens port 1433.
+> SQL endpoints communicate over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you won't be able to connect to your server unless your IT department opens port 1433.
 >
 
 ## Create a SQL pool

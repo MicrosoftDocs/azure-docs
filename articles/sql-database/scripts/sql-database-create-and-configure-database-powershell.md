@@ -41,9 +41,9 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates an Azure SQL server that hosts databases and elastic pools. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a server-level firewall rule for an Azure SQL server. |
-| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a database in an Azure SQL server. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a server that hosts databases and elastic pools. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a server-level firewall rule for a server. |
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a database in a server. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
