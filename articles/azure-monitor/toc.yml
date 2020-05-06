@@ -960,6 +960,8 @@
     - name: Storage
       displayname: storage, monitor, insights, storage accounts, azure storage
       href: insights/storage-insights-overview.md
+    - name: Networks
+      href: insights/network-insights-overview.md
     - name: Cosmos DB
       href: insights/cosmosdb-insights-overview.md
     - name: Key Vault
@@ -990,8 +992,6 @@
         href: insights/sql-assessment.md
     - name: Networks
       items:
-      - name: Azure Monitor for Networks
-        href: insights/network-insights-overview.md
       - name: Networking Analytics
         href: insights/azure-networking-analytics.md
       - name: DNS
@@ -1151,14 +1151,14 @@
       href: platform/collect-sccm.md
 - name: Reference
   items:
+  - name: Terminology changes
+    href: terminology.md
   - name: Service limits
     href: service-limits.md
   - name: Diagnostics extension
     items: 
     - name: Windows configuration schema
       href: platform/diagnostics-extension-schema-windows.md
-  - name: Terminology changes
-    href: terminology.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection
