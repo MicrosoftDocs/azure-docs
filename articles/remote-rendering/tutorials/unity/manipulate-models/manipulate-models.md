@@ -144,9 +144,9 @@ Now, adding the **RemoteBounds** script to the same game object as the **RemoteR
 
 1. Using the **TestModel** GameObject created previously. Add the **RemoteBounds** component.
 1. Confirm the script is added and also added a **BoxCollider** component.\
- ![Add RemoteBounds component](./media/remote-bounds-script.png)\
+ ![Add RemoteBounds component](./media/remote-bounds-script.png)
 1. Run the application again. Shortly after the model loads, you will be able to see the bounds for the remote object. Something like the below values:\
- ![Bounds updated](./media/updated-bounds.png)\
+ ![Bounds updated](./media/updated-bounds.png)
 
 Now we have a local **BoxCollider** configured with accurate bounds on the local Unity object. The bounds allow for visualization and interaction using any of the strategies we'd use to interact with a locally rendered object, that is, scripts that alter the Transform, physics, etc.
 
@@ -159,9 +159,10 @@ This tutorial is using MRTK for object interaction. In the included [**Tutorial 
 1. Locate the **ModelViewController** prefab in *Assets/RemoteRenderingTutorial/Prefabs/ModelViewController*
 1. Ensure the **TestModel** GameObject created previously is in the scene.
 1. Drag the **ModelViewController** prefab into the scene, dropping it on top of the **TestModel** GameObject, making the new prefab a child of the **TestModel** GameObject.\
-![View controller child](./media/view-controller-child.png)\
+![View controller child](./media/view-controller-child.png)
+1. **TODO** - Add instructions for "Import TMP Essentials".
 1. Press Unity's Play button to play the scene and see the view controller.
-![View controller](./media/model-with-view-controller.png)\
+![View controller](./media/model-with-view-controller.png)
 
 This view controller script will show a UI with the model's name and controls specific to the model. The controls available will depend on the scripts attached to the target GameObject. When the GameObject contains a **RemoteBounds** component, the view controller will add a [**BoundingBox**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html) component, which is an MRTK component that renders a bounding box around an object that has a **BoxCollider**. Further, the **RemoteModelViewController** also adds [**ManipulationHandler**](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_ManipulationHandler.html), which is responsible for hand interactions like dragging and two handed interactions like rotating and scaling. These scripts combined will allow us to move, rotate and scale the remotely rendered model.
 
@@ -216,7 +217,7 @@ public class RemoteRayCaster
 > [!NOTE]
 > Unity has a class named [**RaycastHit**](https://docs.unity3d.com/ScriptReference/RaycastHit.html), and Azure Remote Rendering has a class named [**RayCastHit**](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.raycasthit). The uppercase **C** is an important difference to avoid compile errors.
 
-2. **RemoteRayCaster** provides a common access point for casting remote rays into the current session. To be more specific, next we'll implement an MRTK pointer handler. The script will implement the `IMixedRealityPointerHandler` interface, which will tell MRTK we want this script to listen for [Mixed Reality Pointer](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/Input/Pointers.html) events. Create a new script called **RemoteRaycastPointerHandler** and replace the code with the following code:
+2. **RemoteRayCaster** provides a common access point for casting remote rays into the current session. To be more specific, next we'll implement an MRTK pointer handler. The script will implement the `IMixedRealityPointerHandler` interface, which will tell MRTK we want this script to listen for [Mixed Reality Pointer](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/Input/Pointers.html) events. Create a new script called **RemoteRayCastPointerHandler** and replace the code with the following code:
 
 ```csharp
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -243,7 +244,7 @@ public class RemoteRayCastPointerHandler : BaseRemoteRayCastPointerHandler, IMix
     public void Awake()
     {
         // Forward events to Unity events
-        RemoteEntityClicked += (entity) => RemoteEntityClicked?.Invoke(entity);
+        RemoteEntityClicked += (entity) => OnRemoteEntityClicked?.Invoke(entity);
     }
 
     public async void OnPointerClicked(MixedRealityPointerEventData eventData)
@@ -270,6 +271,7 @@ public class RemoteRayCastPointerHandler : BaseRemoteRayCastPointerHandler, IMix
         {
             var endPoint = result.Details.Point;
             var direction = pointer.Rays[pointer.Result.RayStepIndex].Direction;
+            Debug.DrawRay(endPoint, direction, Color.green, 0);
             hit = (await RemoteRayCaster.RemoteRayCast(endPoint, direction, hitPolicy)).FirstOrDefault();
         }
         else
@@ -296,6 +298,7 @@ When a successful ray cast is completed in the **RemoteRayCastPointerHandler**, 
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using Microsoft.Azure.RemoteRendering;
+using Microsoft.Azure.RemoteRendering.Unity;
 using UnityEngine;
 
 public class RemoteEntityHelper : MonoBehaviour
