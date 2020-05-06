@@ -20,7 +20,7 @@ After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patt
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 > [!CAUTION]
-> Patterns only include machine-learned entity parents, not subcomponents.
+> Patterns only include machine-learned entity parents, not subentities.
 
 ## Adding example utterances as pattern
 

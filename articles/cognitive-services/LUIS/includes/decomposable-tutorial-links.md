@@ -13,5 +13,5 @@ To take advantage of [decomposable concepts](../luis-concept-model.md#v3-authori
 
 * [Create and label machine-learned entity](../tutorial-machine-learned-entity.md#label-text-as-entities-in-example-utterances) with structure and a feature (phrase list) from example utterance on **Intent detail page**
 * [Add prebuilt number entity](../tutorial-machine-learned-entity.md#add-prebuilt-number-entity-to-app) from the **Entities list page**.
-* [Add subcomponent entity with constraint](../tutorial-machine-learned-entity.md#create-subcomponent-entity-with-constraint-to-help-extract-data) from the **Entity detail page**.
-* [Label example utterance with subcomponent](../tutorial-machine-learned-entity.md#label-example-utterance-to-teach-luis-about-the-entity) on **Intent detail page**
+* [Add subentity with required feature](../tutorial-machine-learned-entity.md#create-subcomponent-entity-with-constraint-to-help-extract-data) from the **Entity detail page**.
+* [Label example utterance with subentity](../tutorial-machine-learned-entity.md#label-example-utterance-to-teach-luis-about-the-entity) on **Intent detail page**

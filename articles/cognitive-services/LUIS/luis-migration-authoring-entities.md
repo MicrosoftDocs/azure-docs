@@ -77,7 +77,7 @@ The following table notes which entities need to migrate from a V2 to a V3 entit
 
 ## Migrate V2 Composite entity
 
-Each child of the V2 composite should be represented with a subentity of the V3 machine-learned entity. If the composite child is a prebuilt, regular expression, or a list entity, this should be applied as a **constraint** on the subentity representing the child.
+Each child of the V2 composite should be represented with a subentity of the V3 machine-learned entity. If the composite child is a prebuilt, regular expression, or a list entity, this should be applied as a required feature on the subentity.
 
 Considerations when planning to migrate a composite entity to a machine-learned entity:
 * Child entities can't be used in patterns
@@ -110,8 +110,8 @@ The following table demonstrates the migration:
 |V2 models|V3 models|
 |--|--|
 |Parent - Component entity named `Order`|Parent - Machine-learned entity named `Order`|
-|Child - Prebuilt datetimeV2|* Migrate prebuilt entity to new app.<br>* Add Constraint on parent for prebuilt datetimeV2.|
-|Child - list entity for toppings|* Migrate list entity to new app.<br>* Then add a constraint on the parent for the list entity.|
+|Child - Prebuilt datetimeV2|* Migrate prebuilt entity to new app.<br>* Add required feature on parent for prebuilt datetimeV2.|
+|Child - list entity for toppings|* Migrate list entity to new app.<br>* Then add a required feature on the parent for the list entity.|
 
 
 ## Migrate V2 Hierarchical entity
