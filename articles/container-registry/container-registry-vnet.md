@@ -14,14 +14,13 @@ This article shows how to configure a container registry service endpoint (previ
 > [!IMPORTANT]
 > Azure Container Registry now supports [Azure Private Link](container-registry-private-link.md), enabling private endpoints from a virtual network to be placed on a registry. Private endpoints are accessible from within the virtual network, using private IP addresses. We recommend using private endpoints instead of service endpoints in most network scenarios.
 
-Configuring a registry service endpoint is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
+Configuring a registry service endpoint is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry tiers](container-registry-skus.md).
 
 ## Preview limitations
 
 * Future development of service endpoints for Azure Container Registry isn't currently planned. We recommend using [private endpoints](container-registry-private-link.md) instead.
 * You can't use the Azure portal to configure service endpoints on a registry.
 * Only an [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster or Azure [virtual machine](../virtual-machines/linux/overview.md) can be used as a host to access a container registry using a service endpoint. *Other Azure services including Azure Container Instances aren't supported.*
-* Running [ACR Tasks](container-registry-tasks-overview.md) in a container registry accessed in a virtual network requires a [dedicated agent pool](container-registry-tasks-agent-pools.md).
 * Each registry supports a maximum of 100 network access rules.
 
 ## Prerequisites

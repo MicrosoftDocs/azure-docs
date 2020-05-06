@@ -5,15 +5,17 @@ For test purposes, use a Docker-enabled Ubuntu VM to access an Azure container r
 You may use the same resource group for your virtual machine and your container registry. This setup simplifies clean-up at the end but isn't required. If you choose to create a separate resource group for the virtual machine and virtual network, run [az group create][az-group-create]. The following example assumes you've set environment variables for the resource group name and registry location:
 
 ```azurecli
-az group create --name $resourceGroup --location $registryLocation
+az group create --name $RESOURCE_GROUP --location $REGISTRY_LOCATION
 ```
 
 Now deploy a default Ubuntu Azure virtual machine with [az vm create][az-vm-create]. The following example creates a VM named *myDockerVM*.
 
 ```azurecli
+VM_NAME=myDockerVM
+
 az vm create \
-  --resource-group $resourceGroup \
-  --name $vmName \
+  --resource-group $RESOURCE_GROUP \
+  --name $VM_NAME \
   --image UbuntuLTS \
   --admin-username azureuser \
   --generate-ssh-keys

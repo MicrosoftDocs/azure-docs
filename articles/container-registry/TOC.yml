@@ -84,7 +84,7 @@
       items:
       - name: Restrict access using private endpoint
         href: container-registry-private-link.md
-      - name: Allow access from selected public networks
+      - name: Configure service firewall rules
         href: container-registry-access-selected-networks.md
       - name: Restrict access using service endpoint (preview)
         href: container-registry-vnet.md

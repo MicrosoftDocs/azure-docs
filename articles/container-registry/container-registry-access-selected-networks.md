@@ -1,23 +1,23 @@
 ---
-title: Configure access from public networks
+title: Configure service firewall rules
 description: Configure IP rules to enable access to an Azure container registry from selected public IP addresses or address ranges.
 ms.topic: article
 ms.date: 05/04/2020
 ---
 
-# Configure access from selected public networks
+# Configure public IP network rules
 
 An Azure container registry by default accepts connections over the internet from hosts on any network. This article shows how to configure your container registry to allow access from only specific public IP addresses or address ranges. Equivalent steps using the Azure CLI and Azure portal are provided.
 
-In IP network rules, provide allowed internet address ranges using CIDR notation such as *16.17.18.0/24* or an individual IP addresses like *16.17.18.19*. IP network rules are only allowed for *public* internet IP addresses. IP address ranges reserved for private networks (as defined in RFC 1918) aren't allowed.
+IP network rules are configured on the public registry endpoint. IP network rules do not apply to private endpoints configured with [Private Link](container-registry-private-link.md)
 
-Configuring IP access rules is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
+Configuring IP access rules is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry tiers](container-registry-skus.md).
 
 ## Access from selected public network - CLI
 
 ### Change default network access to registry
 
-By default, an Azure container registry allows connections from hosts on any network. To limit access to a selected network, change the default action to deny access. Substitute the name of your registry in the following [az acr update][az-acr-update] command:
+To limit access to a selected public network, first change the default action to deny access. Substitute the name of your registry in the following [az acr update][az-acr-update] command:
 
 ```azurecli
 az acr update --name myContainerRegistry --default-action Deny
@@ -33,7 +33,8 @@ az acr network-rule add \
   --ip-address <public-IP-address>
 ```
 
-After adding a rule, it takes a few minutes for the rule to take effect.
+> [!NOTE]
+> After adding a rule, it takes a few minutes for the rule to take effect.
 
 ## Access from selected public network - portal
 
@@ -45,45 +46,34 @@ After adding a rule, it takes a few minutes for the rule to take effect.
 
 ![Configure firewall rule for container registry][acr-access-selected-networks]
 
-After adding a rule, it takes a few minutes for the rule to take effect.
+> [!NOTE]
+> After adding a rule, it takes a few minutes for the rule to take effect.
 
 > [!TIP]
-> Optionally, enable registry access from a local client computer or IP address range. To allow this access, you need the computer's public IPv4 address. You can find this address using a search like "what is my IP address" in an Internet browser. The current client IPv4 address also appears automatically when you configure firewall settings on the **Networking** page in the portal.
+> Optionally, enable registry access from a local client computer or IP address range. To allow this access, you need the computer's public IPv4 address. You can find this address by searching "what is my IP address" in an internet browser. The current client IPv4 address also appears automatically when you configure firewall settings on the **Networking** page in the portal.
 
 ## Disable public network access
 
-In certain scenarios, you might want to disable all public network access to registry. For example, if you set up a [private endpoint](container-registry-private-link.md) for a registry in a virtual network, you might also decide to disable access from outside the virtual network.
-
-### Disable public access - CLI
-
-Substitute the name of your registry in the following [az acr update][az-acr-update] command:
-
-```azurecli
-az acr update --name myContainerRegistry --default-action Deny
-```
+To limit traffic to virtual networks using [Private Link](container-registry-private-link.md), disable the public endpoint on the registry. Disabling the public endpoint overrides all firewall configurations.
 
 ### Disable public access - Portal
 
 1. In the portal, navigate to your container registry and select **Settings > Networking**.
 1. On the **Public access** tab, in **Allow public access**, select **Disabled**. Then select **Save**.
 
+![Disable public access][acr-access-disabled]
+
 ## Restore default registry access
 
-To restore the registry to allow access by default, update the default action. Equivalent steps using the Azure CLI and Azure portal are provided. 
-
-### Restore default registry access - CLI
-
-Substitute the name of your registry in the following [az acr update][az-acr-update] command:
-
-```azurecli
-az acr update --name myContainerRegistry --default-action Allow
-```
+To restore the registry to allow access by default, update the default action. 
 
 ### Restore default registry access - portal
 
 1. In the portal, navigate to your container registry and select **Settings > Networking**.
 1. Under **Firewall**, select each address range, and then select the Delete icon.
 1. On the **Public access** tab, in **Allow public access**, select **All networks**. Then select **Save**.
+
+![Public access from all networks][acr-access-all-networks]
 
 ## Next steps
 
@@ -101,3 +91,5 @@ az acr update --name myContainerRegistry --default-action Allow
 [azure-portal]: https://portal.azure.com
 
 [acr-access-selected-networks]: ./media/container-registry-access-selected-networks/acr-access-selected-networks.png
+[acr-access-disabled]: ./media/container-registry-access-selected-networks/acr-access-disabled.png
+[acr-access-all-networks]: ./media/container-registry-access-selected-networks/acr-access-all-networks.png
