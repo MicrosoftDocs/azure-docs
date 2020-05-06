@@ -52,7 +52,7 @@ Follow this quickstart to learn how to make calls to the Bing Autosuggest API an
 
 ## Format the response
 
-Create a method named `prettify()` to format the response returned from the Bing Video API. Use the Gson library's `JsonParser` to take in a JSON string and convert it into an object. Then use `GsonBuilder()` and `toJson()` to create the formatted string.
+Create a method named `prettify()` to format the response returned from the Bing Video API. Use the Gson library's `JsonParser` to take in a JSON string and convert it into an object. Then, use `GsonBuilder()` and `toJson()` to create the formatted string.
 
 ```java
 // pretty-printer for JSON; uses GSON parser to parse and re-serialize

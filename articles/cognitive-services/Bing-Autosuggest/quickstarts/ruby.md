@@ -44,7 +44,7 @@ Follow this quickstart to learn how to make calls to the Bing Autosuggest API an
     query = 'sail'
     ```
 
-3. Create a parameters string by appending your market code to the `?mkt=` parameter, and appending your query to the `&q=` parameter. Then, construct your request URI by combining the API host, path, and the parameters string.
+3. Create a parameters string by appending your market code to the `mkt=` parameter, and appending your query to the `q=` parameter. Then, construct your request URI by combining the API host, path, and the parameters string.
 
     ```ruby
     params = '?mkt=' + mkt + '&q=' + query

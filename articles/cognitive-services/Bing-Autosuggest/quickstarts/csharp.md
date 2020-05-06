@@ -25,7 +25,7 @@ Follow this quickstart to learn how to make calls to the Bing Autosuggest API an
 
 ## Create a Visual Search Solution
 
-1. Create a new console solution in Visual Studio. Then add the following namespaces into the main code file.
+1. Create a new console solution in Visual Studio. Then, add the following namespaces into the main code file.
 
     ```csharp
     using System;
@@ -60,7 +60,7 @@ Follow this quickstart to learn how to make calls to the Bing Autosuggest API an
     }
     ```
 
-2. In the same function above, create a request URI by combining your API host and path. Append your market to the `?mkt=` parameter, and your query to the `&query=` parameter. Be sure to URL-encode your query. 
+2. In the same function above, create a request URI by combining your API host and path. Append your market to the `mkt=` parameter, and your query to the `query=` parameter. Be sure to URL-encode your query. 
 
     ```csharp
     string uri = host + path + "?mkt=" + market + "&query=" + System.Net.WebUtility.UrlEncode (query);

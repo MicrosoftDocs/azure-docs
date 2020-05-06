@@ -3,7 +3,7 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/05/2020
+ms.date: 05/06/2020
 ---
 
 ## Create an Azure resource

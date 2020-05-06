@@ -48,7 +48,7 @@ Follow this quickstart to learn how to make calls to the Bing Autosuggest API an
 
 ## Construct the search request and query.
 
-1. Create a parameters string for your query by appending the market code to the `mkt=` parameter, and your query to the `&q=` parameter.
+1. Create a parameters string for your query by appending the market code to the `mkt=` parameter, and your query to the `q=` parameter.
 
     ```javascript 
     let params = '?mkt=' + mkt + '&q=' + query;
