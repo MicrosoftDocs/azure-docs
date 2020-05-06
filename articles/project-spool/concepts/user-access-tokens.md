@@ -17,7 +17,7 @@ User Access Tokens enable you to build client applications that directly authent
 
 ## Creating User Access Tokens
 
-The Azure Communication Services Management SDK provides the functionality to create user access access tokens. You should expose this functionality via a trusted webservice that your users can authenticate against. Once your endpoint validates that a user should be authorized to access Azure Communication Services, you should use the management SDK to create a User Access Token for that user's unique identity, serialize it and return it to the user's client application so it can initialize an instance of Azure Communication Services' client SDK.
+The Azure Communication Services Management SDK provides the functionality to create user access tokens. You should expose this functionality via a trusted webservice that your users can authenticate against. Once your endpoint validates that a user should be authorized to access Azure Communication Services, you should use the management SDK to create a User Access Token for that user's unique identity, serialize it and return it to the user's client application so it can initialize an instance of Azure Communication Services' client SDK.
 
 ```csharp
 // TODO code sample for endpoint that creates tokens
@@ -36,7 +36,7 @@ Scopes allow you to specify the exact Azure Communications Services functionalit
 
 Scopes are applied to individual user access token. If you wish to remove a user's ability to access to a some specific functionality, you should create a first [revoke any existing access tokens](#revoking-user-access-tokens) that may include undesired scopes before issueing a new token with a more limited set of scopes.
 
-### Supported scopes:
+### Supported Scopes
 
 Azure Communication Services supports the following scopes for user access tokens (TODO I made all these up):
 
@@ -50,7 +50,7 @@ Azure Communication Services supports the following scopes for user access token
 
 
 
-## Access token life cycle (AKA refreshing access tokens)
+## Refreshing User Access Tokens
 
 User access tokens are short lived credentials that need to be rereshed in order to prevent your users from experiencing service disruptions. The client SDKs provide events to let you know when the provided user access token is about to expire. You should subcribe to these events and use them to fetch a new user access token from your trusted service.
 
