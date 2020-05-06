@@ -44,21 +44,15 @@ For more information about redundancy in Azure Storage, see [Azure Storage redun
 
 It's important to design your application for high availability from the start. Refer to these Azure resources for guidance in designing your application and planning for disaster recovery:
 
-<<<<<<< HEAD
-- [Designing resilient applications for Azure](/azure/architecture/checklist/resiliency-per-service): An overview of the key concepts for architecting highly available applications in Azure.
-- [Availability checklist](/azure/architecture/checklist/resiliency-per-service): A checklist for verifying that your application implements the best design practices for high availability.
+- [Designing resilient applications for Azure](/azure/architecture/framework/resiliency/app-design): An overview of the key concepts for architecting highly available applications in Azure.
+- [Resiliency checklist](/azure/architecture/checklist/resiliency-per-service): A checklist for verifying that your application implements the best design practices for high availability.
 - [Use geo-redundancy to design highly available applications](geo-redundant-design.md): Design guidance for building applications to take advantage of geo-redundant storage.
 - [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md): A tutorial that shows how to build a highly available application that automatically switches between endpoints as failures and recoveries are simulated. 
-=======
-- [Designing resilient applications for Azure]/azure/architecture/framework/resiliency/app-design): An overview of the key concepts for architecting highly available applications in Azure.
-- [Resiliency checklist](/azure/architecture/checklist/resiliency-per-service): A checklist for verifying that your application implements the best design practices for high availability.
-- [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md): A tutorial that shows how to build a highly available application that automatically switches between endpoints as failures and recoveries are simulated.
->>>>>>> 2e2ab6975b052fb63415f58db3105a9b1afbe3ed
 
 Additionally, keep in mind these best practices for maintaining high availability for your Azure Storage data:
 
 - **Disks:** Use [Azure Backup](https://azure.microsoft.com/services/backup/) to back up the VM disks used by your Azure virtual machines. Also consider using [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to protect your VMs in the event of a regional disaster.
-- **Block blobs:** Turn on [soft delete](../blobs/storage-blob-soft-delete.md) to protect against object-level deletions and overwrites, or copy block blobs to another storage account in a different region using [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+- **Block blobs:** Turn on [soft delete](../blobs/storage-blob-soft-delete.md) to protect against object-level deletions and overwrites, or copy block blobs to another storage account in a different region using [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/), or the [Azure Data Movement library](storage-use-data-movement-library.md).
 - **Files:** Use [AzCopy](storage-use-azcopy.md) or [Azure PowerShell](/powershell/module/az.storage/) to copy your files to another storage account in a different region.
 - **Tables:** use [AzCopy](storage-use-azcopy.md) to export table data to another storage account in a different region.
 
@@ -116,15 +110,7 @@ To avoid a major data loss, check the value of the **Last Sync Time** property b
 
 ## Initiate an account failover
 
-<<<<<<< HEAD
-You can initiate an account failover from the Azure portal, PowerShell, Azure CLI, or the Azure Storage resource provider API. For more information on how to initiate a failover, see [Initiate an account failover (preview)](storage-initiate-account-failover.md).
-
-## About the preview
-
-Account failover is available in preview for all customers using geo-redundancy with Azure Resource Manager deployments. General-purpose v1, General-purpose v2, and Blob storage account types are supported. Account failover is currently available in all public regions. Account failover is not available in sovereign/national clouds at this time.
-=======
 You can initiate an account failover from the Azure portal, PowerShell, Azure CLI, or the Azure Storage resource provider API. For more information on how to initiate a failover, see [Initiate an account failover](storage-initiate-account-failover.md).
->>>>>>> 2e2ab6975b052fb63415f58db3105a9b1afbe3ed
 
 ## Additional considerations
 
