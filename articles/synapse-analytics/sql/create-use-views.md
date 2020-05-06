@@ -49,6 +49,19 @@ WITH (
 ) AS [r];
 ```
 
+The view in this example uses `OPENROWSET` function that uses absolute path to the underlying files. If you have `EXTERNAL DATA SOURCE` with a root URL of your storage, you can use `OPENROWSET` with `DATA_SOURCE` and relative file path:
+
+```
+CREATE VIEW TaxiView
+AS SELECT *, nyc.filepath(1) AS [year], nyc.filepath(2) AS [month]
+FROM
+    OPENROWSET(
+        BULK 'parquet/taxi/year=*/month=*/*.parquet',
+        DATA_SOURCE = 'sqlondemandstorage',
+        FORMAT='PARQUET'
+    ) AS nyc
+```
+
 ## Use a view
 
 You can use views in your queries the same way you use views in SQL Server queries.
