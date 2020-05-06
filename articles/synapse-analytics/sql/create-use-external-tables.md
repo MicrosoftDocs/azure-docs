@@ -21,9 +21,9 @@ In this section, you'll learn how to create and use external tables in SQL on-de
 
 Your first step is to create database where the tables will be created and initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. All queries in this article will be executed on your sample database
 
-## Create an external table
+## Create an external table on top of protected Azure storage
 
-You can create external tables the same way you create regular SQL Server external tables. The query below creates an external table that reads *population.csv* file.
+You can create external tables that access data on Azure storage account that allows access to users with some Azure AD identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. The query below creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account protected with database scoped credential called `sqlondemand`. Database scoped credential is created in [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
 
 > [!NOTE]
 > Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
@@ -34,7 +34,7 @@ GO
 
 CREATE EXTERNAL DATA SOURCE [CsvDataSource] WITH (
     LOCATION = 'https://sqlondemandstorage.blob.core.windows.net/csv'
-    , CREDENTIAL = sqlondemand -- creadential created in setup script
+    , CREDENTIAL = sqlondemand -- credential created in setup script
 );
 GO
 
@@ -64,18 +64,29 @@ WITH (
 GO
 ```
 
-## Create an external table on public storage
+## Create an external table on top of public Azure storage
 
 You can create external tables that reads data from the files placed on publicly available Azure storage. [Setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) will create public external data source and Parquet file format definition that is used in the following query:
 
 ```sql
 CREATE EXTERNAL TABLE Taxi (
-     vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
-     pickup_datetime DATETIME2, 
-     dropoff_datetime DATETIME2
-) WITH ( LOCATION = 'puYear=*/puMonth=*/*.parquet',
+          vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+          pickup_datetime DATETIME2, 
+          dropoff_datetime DATETIME2,
+          passenger_count INT,
+          trip_distance FLOAT,
+          rate_code INT,
+          payment_type INT,
+          fare_amount FLOAT,
+          extra FLOAT,
+          mta_tax FLOAT,
+          tip_amount FLOAT,
+          tolls_amount FLOAT
+) WITH ( 
+         LOCATION = 'puYear=*/puMonth=*/*.parquet',
          DATA_SOURCE = YellowTaxi,
-         FILE_FORMAT = ParquetFormat );
+         FILE_FORMAT = ParquetFormat
+);
 ```
 ## Use a external table
 
