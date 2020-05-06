@@ -28,8 +28,6 @@
       href: quickstart-create-sql-pool.md
   - name: Use SQL on-demand
     href: quickstart-sql-on-demand.md
-  - name: Connect to Synapse Link for Cosmos DB
-    href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Tutorials
   items:
   # - name: Get started
@@ -408,6 +406,12 @@
          href: data-integration/data-integration-data-lake.md
   - name: Transform & analyze data
     items:
+    - name: Synapse Link
+      items:
+      - name: Connect to Synapse Link for Cosmos DB
+      href: how-to-connect-synapse-link-cosmos-db.md
+      - name: Query analytical store with Spark
+      href: how-to-query-analytical-store-spark.md
     - name: Synapse SQL
       items:
       - name: Query data in storage

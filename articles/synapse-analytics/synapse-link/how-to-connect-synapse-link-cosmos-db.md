@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Connect to Synapse Link for Azure Cosmos DB
 
-This article describes how to access an Azure Cosmos DB database from Azure Synapse Analytics studio with Synapse Link. 
+This article describes how to access an Azure Cosmos DB database from Azure Synapse Analytics Studio with Synapse Link. 
 
 ## Prerequisites
 
@@ -56,4 +56,5 @@ By right-clicking into a container, you have list of gestures that will trigger 
 
 ## Next steps
 
-* [Learn what is supported between Synapse and Azure Cosmos DB](./synapse-link/concept-synapse-link-cosmos-db-support.md)
+* [Learn what is supported between Synapse and Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
+* [Learn how to query the analytical store with Spark](./how-to-query-analytical-store-spark.md)

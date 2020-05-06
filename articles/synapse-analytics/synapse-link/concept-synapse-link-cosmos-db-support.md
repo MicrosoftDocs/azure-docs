@@ -50,4 +50,4 @@ Writing back into an Azure Cosmos DB container from Spark only happens through t
 
 ## Next steps
 
-See the [Connect to Synapse Link for Azure Cosmos DB quickstart](../quickstart-connect-synapse-link-cosmos-db.md)
+See how to [connect to Synapse Link for Azure Cosmos DB](./how-to-connect-synapse-link-cosmos-db.md)
