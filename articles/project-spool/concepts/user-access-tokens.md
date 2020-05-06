@@ -20,7 +20,30 @@ User Access Tokens enable you to build client applications that directly authent
 The Azure Communication Services Management SDK provides the functionality to create user access tokens. You should expose this functionality via a trusted webservice that your users can authenticate against. Once your endpoint validates that a user should be authorized to access Azure Communication Services, you should use the management SDK to create a User Access Token for that user's unique identity, serialize it and return it to the user's client application so it can initialize an instance of Azure Communication Services' client SDK.
 
 ```csharp
-// TODO code sample for endpoint that creates tokens
+[HttpPost]
+[Authorize]
+public async Task<ActionResult> CreateAccessToken(string userName)
+{
+    // validate the user that sent this request is authorized to
+    // access Azure Communication Services
+    
+    // initialize the management client with a connection string
+    // retrieved from the Azure Portal
+    var managementClient = new ManagementClient(CONNECTION_STRING);
+    
+    // create a user access token for the provided identity
+    var tokenResult = await managementClient.CreateUserAccessTokenAsync(userName);
+    
+    // TODO: we should handle failures
+    
+    // return the access token to the
+    vare response = new CreateAccessTokenResponse()
+    {
+      token: tokenResult.UserAccessToken,
+      ttl: tokenResult.Ttl,
+    }
+    return Ok(response);
+}
 ```
 
 By default, user access tokens expire after 24 hours but it is a good security practice to limit the lifetime to minimum duration required by your application. You can use the optional `ttl` parameter of the `CreateUserAccessTokenAsync` method to limit the duration of user access tokens.
