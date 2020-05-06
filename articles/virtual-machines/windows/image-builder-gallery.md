@@ -93,7 +93,7 @@ New-AzResourceGroup `
 
 
 ## Create a user-assigned identity and set permissions on the resource group
-Image Builder will use the [user-identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell) provided to inject the image into the Azure Shared Image Gallery (SIG). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
+Image Builder will use the [user-identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell) provided to inject the image into the Azure Shared Image Gallery (SIG). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
 
 ```powershell
 # setup role def names, these need to be unique
@@ -134,7 +134,7 @@ New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
 New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
 
 ### NOTE: If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' See this article to resolve:
-https://docs.microsoft.com/en-us/azure/role-based-access-control/troubleshooting
+https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
 ```
 
 
