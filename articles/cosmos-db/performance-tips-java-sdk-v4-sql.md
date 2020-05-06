@@ -91,7 +91,15 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     An app that interacts with a multi-region Azure Cosmos DB account needs to configure [preferred locations]() to ensure that requests are going to a collocated region.
 
-* **Enable [Accelerated Networking](https://www.360visibility.com/azure-accelerated-networking-and-how-to-enable-it/) for lower latency.**
+* **Enable Accelerated Networking on your Azure VM for lower latency.**
+
+It is recommended that you follow the instructions to enable Accelerated Networking in your [Windows (click for instructions)](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-powershell) or [Linux (click for instructions)](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli) Azure VM, in order to maximize performance.
+
+Without accelerated networking, IO that transits between your Azure VM and other Azure resources may be unnecessarily routed through a host and virtual switch situated between the VM and its network card. Having the host and virtual switch inline in the datapath not only increases latency and jitter in the communication channel, it also steals CPU cycles from the VM. With accelerated networking, the VM interfaces directly with the NIC without intermediaries; any network policy details which were being handled by the host and virtual switch are now handled in hardware at the NIC; the host and virtual switch are bypassed. Generally you can expect lower latency and higher throughput, as well as more *consistent* latency and decreased CPU utilization when you enable accelerated networking.
+
+Limitations: accelerated networking must be supported on the VM OS, and can only be enabled when the VM is stopped and deallocated. The VM cannot be deployed with Azure Resource Manager.
+
+Please see the [Windows](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Linux](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli) instructions for more details.
 
 ## SDK Usage
 * **Install the most recent SDK**
@@ -106,7 +114,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 * **Use the lowest consistency level required for your application**
 
-    When you create a *CosmosClient*, the default consistency used if not explicitly set is *Session*. If *Session* consistency is not required by your application logic set the *Consistency* to *Eventual*. Note: it is recommended to use at least *Session* consistency in applications employing the Azure Cosmos DB Change Feed.
+    When you create a *CosmosClient*, the default consistency used if not explicitly set is *Session*. If *Session* consistency is not required by your application logic set the *Consistency* to *Eventual*. Note: it is recommended to use at least *Session* consistency in applications employing the Azure Cosmos DB Change Feed processor.
 
 * **Use Async API to max out provisioned throughput**
 
@@ -168,7 +176,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     * ***ConnectionPolicy Configuration options for Direct mode***
 
-        As a first step, use the following recommended configuration settings below. Please contact the [Azure Cosmos DB team](mailto:CosmosDBPerformanceSupport@service.microsoft.com) if you run into issues on this particular topic.
+        These configuration settings control the behavior of the RNTBD architecture which governs Direct mode SDK behavior.
+        
+        As a first step, use the following recommended configuration settings below. These *ConnectionPolicy* options are advanced configuration settings which can affect SDK performance in unexpected ways; we recommend users avoid modifying them unless they feel very comfortable in understanding the tradeoffs and it is absolutely necessary. Please contact the [Azure Cosmos DB team](mailto:CosmosDBPerformanceSupport@service.microsoft.com) if you run into issues on this particular topic.
 
         If you are using Azure Cosmos DB as a reference database (that is, the database is used for many point read operations and few write operations), it may be acceptable to set *idleEndpointTimeout* to 0 (that is, no timeout).
 
@@ -189,21 +199,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
         | sendHangDetectionTime      | "PT10S"    |
         | shutdownTimeout            | "PT15S"    |
 
-    * ***Programming tips for Direct mode***
-
-        Review the Azure Cosmos DB [Java SDK v4 Troubleshooting](troubleshoot-java-sdk-v4-sql.md) article as a baseline for resolving any Java SDK v4 issues.
-
-        Some important programming tips when using Direct mode:
-
-        + **Use multithreading in your application for efficient TCP data transfer** - After making a request, your application should subscribe to receive data on another thread. Not doing so forces unintended "half-duplex" operation and the subsequent requests are blocked waiting for the previous request's reply.
-
-        + **Carry out compute-intensive workloads on a dedicated thread** - For similar reasons to the previous tip, operations such as complex data processing are best placed in a separate thread. A request that pulls in data from another data store (for example if the thread utilizes Azure Cosmos DB and Spark data stores simultaneously) may experience increased latency and it is recommended to spawn an additional thread that awaits a response from the other data store.
-
-            + The underlying network IO in Java SDK v4 is managed by Netty, see these [tips for avoiding coding patterns that block Netty IO threads](troubleshoot-java-sdk-v4-sql.md#invalid-coding-pattern-blocking-netty-io-thread).
-
-        + **Data modeling** - The Azure Cosmos DB SLA assumes document size to be less than 1KB. Optimizing your data model and programming to favor smaller document size will generally lead to decreased latency. If you are going to need storage and retrieval of docs larger than 1KB, the recommended approach is for documents to link to data in Azure Blob Storage.
-
-
 * **Tuning parallel queries for partitioned collections**
 
     Azure Cosmos DB SQL Java SDK v4 supports parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) related to working with Java SDK v4. Parallel queries are designed to improve query latency and throughput over their serial counterpart.
@@ -219,10 +214,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
         Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
         Pre-fetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.
-
-* **Implement backoff at getRetryAfterInMilliseconds intervals**
-
-    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries.
 
 * **Scale out your client-workload**
 
@@ -244,7 +235,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     
     In some applications, you may not require the full set of query results. In cases where you need to display only a few results, for example, if your user interface or application API returns only 10 results at a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
 
-    You may also set the page size using the setMaxItemCount method.
+    You may also set the preferred page size argument of the *byPage* method, rather than modifying the REST header field directly. Keep in mind that [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) or the preferred page size argument of *byPage* are only setting an upper limit on page size, not an absolute requirement; so for a variety of reason you may see Azure Cosmos DB return pages which are smaller than your preferred page size. 
 
 * **Use Appropriate Scheduler (Avoid stealing Event loop IO Netty threads)**
 
