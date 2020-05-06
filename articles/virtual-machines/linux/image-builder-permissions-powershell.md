@@ -123,17 +123,11 @@ To simplify the replacement of values in the example, set the following variable
 | \<Resource group\> | Resource group for custom image |
 
 ```powershell-interactive
-# Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
 $sub_id = "<Subscription ID>"
-
 # Resource group - For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image.
 $res_group = "<Resource group>"
-```
 
-First, use a sample JSON description as a role definition. Use a web request to download the JSON description and replace placeholder with variable values.
-
-```powershell-interactive
-# Download the role definition sample
+# Use a web request to download the sample JSON description
 $sample_uri="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $role_definition="aibRoleImageCreation.json"
 
@@ -143,51 +137,19 @@ Invoke-WebRequest -Uri $sample_uri -Outfile $role_definition -UseBasicParsing
 $timeInt=$(get-date -UFormat "%s")
 $imageRoleDefName="Azure Image Builder Image Def"+$timeInt
 
-# Update the definition placeholders with variable values
+# Update the JSON definition placeholders with variable values
 ((Get-Content -path $role_definition -Raw) -replace '<subscriptionID>',$sub_id) | Set-Content -Path $role_definition
 ((Get-Content -path $role_definition -Raw) -replace '<rgName>', $res_group) | Set-Content -Path $role_definition
 ((Get-Content -path $role_definition -Raw) -replace 'Azure Image Builder Service Image Creation Role', $imageRoleDefName) | Set-Content -Path $role_definition
-```
 
-The following is an example role definition.
-
-```json
-{
-    "Name": "Azure Image Builder Service Image Creation Role",
-    "IsCustom": true,
-    "Description": "Azure role to distribute a source custom image using Azure Image Builder Service",
-    "Actions": [
-        "Microsoft.Compute/galleries/read",
-        "Microsoft.Compute/galleries/images/read",
-        "Microsoft.Compute/galleries/images/versions/read",
-        "Microsoft.Compute/galleries/images/versions/write",
-    
-        "Microsoft.Compute/images/write",
-        "Microsoft.Compute/images/read",
-        "Microsoft.Compute/images/delete"
-    ],
-    "NotActions": [
-    
-    ],
-    "AssignableScopes": [
-        "/subscriptions/<Subscription ID>/resourceGroups/<Distribution resource group>"
-    ]
-}
-```
-
-Next, create a custom role from the `aibRoleImageCreation.json` description file. 
-
-```powershell-interactive
+# Create a custom role from the aibRoleImageCreation.json description file. 
 New-AzRoleDefinition -InputFile $role_definition
-```
 
-Next, grant the custom role to the user-assigned managed identity for Azure Image Builder.
-
-```powershell-interactive
 # Get the user-identity properties
 $identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
 $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
 
+# Grant the custom role to the user-assigned managed identity for Azure Image Builder.
 $parameters = @{
     ObjectId = $identityNamePrincipalId
     RoleDefinitionName = $imageRoleDefName
@@ -209,17 +171,10 @@ To simplify the replacement of values in the example, set the following variable
 | \<Resource group\> | VNET resource group |
 
 ```powershell-interactive
-# Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
 $sub_id = "<Subscription ID>"
-
-# Resource group - For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image.
 $res_group = "<Resource group>"
-```
 
-First, use a sample JSON description as a role definition. Use a web request to download the JSON description and replace placeholder with variable values.
-
-```powershell-interactive
-# Download the role definition sample
+# Use a web request to download the sample JSON description
 $sample_uri="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
 $role_definition="aibRoleNetworking.json"
 
@@ -229,46 +184,19 @@ Invoke-WebRequest -Uri $sample_uri -Outfile $role_definition -UseBasicParsing
 $timeInt=$(get-date -UFormat "%s")
 $networkRoleDefName="Azure Image Builder Network Def"+$timeInt
 
-# Update the definition placeholders with variable values
+# Update the JSON definition placeholders with variable values
 ((Get-Content -path $role_definition -Raw) -replace '<subscriptionID>',$sub_id) | Set-Content -Path $role_definition
 ((Get-Content -path $role_definition -Raw) -replace '<vnetRgName>', $res_group) | Set-Content -Path $role_definition
 ((Get-Content -path $role_definition -Raw) -replace 'Azure Image Builder Service Networking Role',$networkRoleDefName) | Set-Content -Path $role_definition
 
-```
-
-The following is an example role definition.
-
-```json
-{
-    "Name": "Azure Image Builder Service Networking Role",
-    "IsCustom": true,
-    "Description": "Image Builder access to create resources for the image build",
-    "Actions": [
-        "Microsoft.Network/virtualNetworks/read",
-        "Microsoft.Network/virtualNetworks/subnets/join/action"
-    ],
-    "NotActions": [
-  
-    ],
-    "AssignableScopes": [
-      "/subscriptions/<Subscription ID>/resourceGroups/<VNET resource group>"
-    ]
-  }
-```
-
-Create a custom role from the `aibRoleNetworking.json` description file.
-
-```powershell-interactive
+# Create a custom role from the aibRoleNetworking.json description file.
 New-AzRoleDefinition -InputFile $role_definition
-```
 
-Next, assign the custom role to Azure Image Builder service principal name to grant permission.
-
-```powershell-interactive
 # Get the user-identity properties
 $identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
 $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
 
+# Grant the custom role to the user-assigned managed identity for Azure Image Builder.
 $parameters = @{
     ObjectId = $identityNamePrincipalId
     RoleDefinitionName = $networkRoleDefName

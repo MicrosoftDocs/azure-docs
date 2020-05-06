@@ -125,61 +125,25 @@ subscriptionID=<Subscription ID>
 
 # Resource group - For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image.
 imageResourceGroup=<Resource group>
-```
 
-First, use a sample JSON description as a role definition. Use *cURL* to download the JSON description and *sed* stream editor to replace the subscription ID and resource group values.
-
-```azurecli-interactive
-# Download a role definition sample
+# Use *cURL* to download the a sample JSON description 
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 # Create a unique role name to avoid clashes in the same AAD Domain
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
 
-# Update the definition using stream editor
+# Update the JSON definition using stream editor
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" aibRoleImageCreation.json
 sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g" aibRoleImageCreation.json
-```
 
-The following is an example role definition.
-
-```json
-{
-    "Name": "Azure Image Builder Service Image Creation Role",
-    "IsCustom": true,
-    "Description": "Image Builder access to create resources for the image build, you should delete or split out as appropriate",
-    "Actions": [
-        "Microsoft.Compute/galleries/read",
-        "Microsoft.Compute/galleries/images/read",
-        "Microsoft.Compute/galleries/images/versions/read",
-        "Microsoft.Compute/galleries/images/versions/write",
-
-        "Microsoft.Compute/images/write",
-        "Microsoft.Compute/images/read",
-        "Microsoft.Compute/images/delete"
-    ],
-    "NotActions": [
-  
-    ],
-    "AssignableScopes": [
-      "/subscriptions/<subscriptionID>/resourceGroups/<rgName>"
-    ]
-  }
-```
-
-Next, create a custom role from the sample `aibRoleImageCreation.json` description file.
-
-```azurecli-interactive
+# Create a custom role from the sample aibRoleImageCreation.json description file.
 az role definition create --role-definition ./aibRoleImageCreation.json
-```
 
-Next, grant the custom role to the user-assigned managed identity for Azure Image Builder.
-
-```azurecli-interactive
 # Get the user-assigned managed identity id
 imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName | grep "clientId" | cut -c16- | tr -d '",')
 
+# Grant the custom role to the user-assigned managed identity for Azure Image Builder.
 az role assignment create \
     --assignee $imgBuilderCliId \
     --role $imageRoleDefName \
@@ -201,52 +165,25 @@ To simplify the replacement of values in the example, set the following variable
 # Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
 subscriptionID=<Subscription ID>
 VnetResourceGroup=<Resource group>
-```
 
-First, use a sample JSON description as a role definition. Use *cURL* to download the JSON description and *sed* stream editor to replace the subscription ID and resource group values.
-
-```azurecli-interactive
-# Download a role definition example
+# Use *cURL* to download the a sample JSON description 
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
 
 # Create a unique role name to avoid clashes in the same AAD Domain
 netRoleDefName="Azure Image Builder Network Def"$(date +'%s')
 
-# Update the definition using stream editor
+# Update the JSON definition using stream editor
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleNetworking.json
 sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
 sed -i -e "s/Azure Image Builder Service Networking Role/$netRoleDefName/g" aibRoleNetworking.json
-```
 
-The following is an example definition.
-
-```json
-{
-    "Name": "Azure Image Builder Service Networking Role",
-    "IsCustom": true,
-    "Description": "Image Builder access to create resources for the image build",
-    "Actions": [
-        "Microsoft.Network/virtualNetworks/read",
-        "Microsoft.Network/virtualNetworks/subnets/join/action"
-    ],
-    "NotActions": [
-  
-    ],
-    "AssignableScopes": [
-      "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>"
-    ]
-  }
-```
-
-Create a custom role from the `aibRoleNetworking.json` description file.
-
-```azurecli-interactive
+# Create a custom role from the aibRoleNetworking.json description file.
 az role definition create --role-definition ./aibRoleNetworking.json
-```
 
-Next, grant the custom role to the user-assigned managed identity for Azure Image Builder.
+# Get the user-assigned managed identity id
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName | grep "clientId" | cut -c16- | tr -d '",')
 
-```azurecli-interactive
+# Grant the custom role to the user-assigned managed identity for Azure Image Builder.
 az role assignment create \
     --assignee $imgBuilderCliId \
     --role $netRoleDefName \
