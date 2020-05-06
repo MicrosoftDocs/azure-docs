@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -64,7 +64,89 @@ For more information about deploying resources with templates in the Azure porta
 
 ## Modify a blob to trigger a new version
 
-.NET example here
+The following code example shows how to trigger the creation of a new version with the Azure Storage client library for .NET version 12. Before running this example, make sure you have enabled versioning for your storage account.
+
+The example creates a block blob, and then updates the blob's metadata. Updating the blob's metadata triggers the creation of a new version. The example retrieves the initial version and the current version, and shows that only the current version includes the metadata.
+
+```csharp
+public static async Task UpdateVersionedBlobMetadata(string containerName, string blobName)
+{
+    // Create a new service client from the connection string.
+    BlobServiceClient blobServiceClient = new BlobServiceClient(ConnectionString);
+
+    // Create a new container client.
+    BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+
+    try
+    {
+        // Create the container.
+        await containerClient.CreateIfNotExistsAsync();
+
+        // Upload a block blob.
+        BlockBlobClient blockBlobClient = containerClient.GetBlockBlobClient(blobName);
+
+        string blobContents = string.Format("Block blob created at {0}.", DateTime.Now);
+        byte[] byteArray = Encoding.ASCII.GetBytes(blobContents);
+
+        string initalVersionId;
+        using (MemoryStream stream = new MemoryStream(byteArray))
+        {
+            Response<BlobContentInfo> uploadResponse = await blockBlobClient.UploadAsync(stream, null, default);
+
+            // Get the version ID for the current version.
+            initalVersionId = uploadResponse.Value.VersionId;
+        }
+
+        // Update the blob's metadata to trigger the creation of a new version.
+        Dictionary<string, string> metadata = new Dictionary<string, string>
+        {
+            { "key", "value" },
+            { "key1", "value1" }
+        };
+
+        Response<BlobInfo> metadataResponse = await blockBlobClient.SetMetadataAsync(metadata);
+
+        // Get the version ID for the new current version.
+        string newVersionId = metadataResponse.Value.VersionId;
+
+        // Request metadata on the previous version.
+        BlockBlobClient initalVersionBlob = blockBlobClient.WithVersion(initalVersionId);
+        Response<BlobProperties> propertiesResponse = await initalVersionBlob.GetPropertiesAsync();
+        PrintMetadata(propertiesResponse);
+
+        // Request metadata on the current version.
+        BlockBlobClient newVersionBlob = blockBlobClient.WithVersion(newVersionId);
+        Response<BlobProperties> newPropertiesResponse = await newVersionBlob.GetPropertiesAsync();
+        PrintMetadata(newPropertiesResponse);
+    }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
+    finally
+    {
+        await containerClient.DeleteAsync();
+    }
+}
+
+static void PrintMetadata(Response<BlobProperties> propertiesResponse)
+{
+    if (propertiesResponse.Value.Metadata.Count > 0)
+    {
+        Console.WriteLine("Metadata values for version {0}:", propertiesResponse.Value.VersionId);
+        foreach (var item in propertiesResponse.Value.Metadata)
+        {
+            Console.WriteLine("Key:{0}  Value:{1}", item.Key, item.Value);
+        }
+    }
+    else
+    {
+        Console.WriteLine("Version {0} has no metadata.", propertiesResponse.Value.VersionId);
+    }
+}
+```
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
 title: Blob versioning (preview)
 titleSuffix: Azure Storage
-description: Blob storage versioning (preview) automatically maintains prior versions of an object and identifies them with timestamps. You can restore a prior version of a blob to recover your data if it is erroneously modified or deleted.
+description: Blob storage versioning (preview) automatically maintains prior versions of an object and identifies them with timestamps. You can restore  prior versions of a blob to recover your data if it is erroneously modified or deleted.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -47,7 +47,7 @@ The version ID remains the same for the lifetime of the version.
 
 When blob versioning is turned on, each write operation to a blob creates a new version. Write operations include [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), [Copy Blob](/rest/api/storageservices/copy-blob), and [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata).
 
-If the write operation creates a new blob, then the resulting blob is the current version of the blob. If the write operation modifies an existing blob, then the new data is captured in the updated blob, which is the current version, and Azure Storage creates a new version that saves the blob's previous state.
+If the write operation creates a new blob, then the resulting blob is the current version of the blob. If the write operation modifies an existing blob, then the new data is captured in the updated blob, which is the current version, and Azure Storage creates a version that saves the blob's previous state.
 
 For simplicity, the diagrams shown in this article display the version ID as a simple integer value. In reality, the version ID is a timestamp. The current version is shown in blue, and previous versions are shown in gray.
 
@@ -60,11 +60,11 @@ The following diagram shows how write operations affect blob versions. When a bl
 
 ### Versioning on delete operations
 
-When you delete a blob, Azure Storage creates a version to save the state of the blob immediately prior to deletion. All existing previous versions of the blob are preserved when the blob is deleted.
+When you delete a blob, the current version of the blob becomes a previous version, and the base blob is deleted. All existing previous versions of the blob are preserved when the blob is deleted.
 
-You can also delete a specific version of the blob by specifying its version ID. However, you cannot delete the current version of the blob using its version ID.
+Calling the [Delete Blob](/rest/api/storageservices/delete-blob) operation without a version ID deletes the base blob. To delete a specific version, provide the ID for that version on the delete operation.
 
-The following diagram shows the effect of a delete operation on a versioned blob. The current version blob is deleted, but the prior versions persist.
+The following diagram shows the effect of a delete operation on a versioned blob:
 
 :::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram showing deletion of versioned blob":::
 
@@ -89,13 +89,13 @@ The following operations do not trigger the creation of a new version. To captur
 - [Put Page](/rest/api/storageservices/put-page) (page blob)
 - [Append Block](/rest/api/storageservices/append-block) (append blob)
 
-All versions of a blob must be of the same blob type. When blob versioning is enabled, you cannot overwrite a blob of one type with another type unless you first delete the blob and all its versions.
+All versions of a blob must be of the same blob type. If a blob has previous versions, you cannot overwrite a blob of one type with another type unless you first delete the blob and all its versions.
 
 ### Access tiers
 
-You can move any version of a blob, including the current version, to a different blob access tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation. You can take advantage of lower capacity pricing by moving older versions of a blob to the cool or archive tier. For more information, see [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md).
+You can move any version of a block blob, including the current version, to a different blob access tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation. You can take advantage of lower capacity pricing by moving older versions of a blob to the cool or archive tier. For more information, see [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md).
 
-To automate the process of moving blobs to the appropriate tier, use blob life cycle management. For more information on life cycle management, see [Manage the Azure Blob storage life cycle](storage-lifecycle-management-concepts.md).
+To automate the process of moving block blobs to the appropriate tier, use blob life cycle management. For more information on life cycle management, see [Manage the Azure Blob storage life cycle](storage-lifecycle-management-concepts.md).
 
 ## Enable or disable blob versioning
 
@@ -150,7 +150,7 @@ A blob snapshot is a read-only copy of a blob that's taken at a specific point i
 
 ### Snapshot a blob when versioning is enabled
 
-Although it is not recommended, you can take a snapshot of a blob that is also versioned. If you cannot update your application to stop taking snapshots of block blobs when you enable versioning, your application can support both snapshots and versions.
+Although it is not recommended, you can take a snapshot of a blob that is also versioned. If you cannot update your application to stop taking snapshots of blobs when you enable versioning, your application can support both snapshots and versions.
 
 When you take a snapshot of a versioned blob, a new version is created at the same time that the snapshot is created. A new current version is also created when a snapshot is taken.
 
@@ -177,7 +177,9 @@ The following table shows which RBAC actions support deleting a blob or a blob v
 | Deleting the current version of the blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete/actionDeleting** | Storage Blob Data Contributor |
 | Deleting a version | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/** | Storage Blob Data Owner |
 
-### SAS permission to delete a blob version
+### Shared access signature (SAS) parameters
+
+The signed resource for a blob version is `bv`. For more information, see [Create a service SAS](/rest/api/storageservices/create-service-sas) or [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
 
 The following table shows the permission required on a SAS to delete a blob version.
 
@@ -196,7 +198,7 @@ Blob versioning is available in preview in the following regions:
 
 The preview is intended for non-production use only.
 
-Version 2019-10-10 of the Azure Storage REST API supports blob versioning.
+Version 2019-10-10 and higher of the Azure Storage REST API supports blob versioning.
 
 ### Storage account support
 
@@ -209,6 +211,57 @@ Blob versioning is available for the following types of storage accounts:
 If your storage account is a general-purpose v1 account, use the Azure portal to upgrade to a general-purpose v2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
 Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not currently supported.
+
+### Register for the preview
+
+To enroll in the blob versioning preview, use PowerShell or Azure CLI to submit a request to register the feature with your subscription. After your request is approved, you can enable blob versioning with any new or existing general-purpose v2, Blob storage, or premium block blob storage accounts.
+
+# [PowerShell](#tab/powershell)
+
+To register with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+
+```powershell
+Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName Versioning
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To register with Azure CLI, call the [az feature register](/cli/azure/feature#az-feature-register) command.
+
+```azurecli
+az feature register --namespace Microsoft.Storage \
+    --name Versioning
+```
+
+---
+
+### Check the status of your registration
+
+To check the status of your registration, use PowerShell or Azure CLI.
+
+# [PowerShell](#tab/powershell)
+
+To check the status of your registration with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+
+```powershell
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName Versioning
+
+# Refresh the Azure Storage provider namespace
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az-feature-show) command.
+
+```azurecli
+az feature show --namespace Microsoft.Storage \
+    --name Versioning
+```
+
+---
 
 ## Pricing and billing
 
@@ -240,7 +293,7 @@ In scenario 1, the blob has a prior version. The blob has not been updated since
 
 #### Scenario 2
 
-In scenario 2, one block (block 3 in the diagram) in the blob has been updated. Even though the updated block contains the same data and the same ID, it is not the same as block 3 in the previous version. As a result, the account is charged for four blocks. ???here, the blob shown in #1 should have two versions - do we want to show that here?
+In scenario 2, one block (block 3 in the diagram) in the blob has been updated. Even though the updated block contains the same data and the same ID, it is not the same as block 3 in the previous version. As a result, the account is charged for four blocks.
 
 ![Azure Storage resources](./media/versioning-overview/versions-billing-scenario-2.png)
 
@@ -252,7 +305,7 @@ In scenario 3, the blob has been updated, but the version has not. Block 3 was r
 
 #### Scenario 4
 
-In scenario 4, the base blob has been completely updated and contains none of its original blocks. As a result, the account is charged for all eight unique blocks -- four in the base blob, and four in the previous version. This scenario can occur if you are using an update method such as [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream], or [UploadFromByteArray][dotnet_UploadFromByteArray], because these methods replace all of the contents of a blob.
+In scenario 4, the base blob has been completely updated and contains none of its original blocks. As a result, the account is charged for all eight unique blocks &mdash; four in the base blob, and four in the previous version. This scenario can occur if you are writing to a blob with the Put Blob operation, because it replaces the entire contents of the base blob.
 
 ![Azure Storage resources](./media/versioning-overview/versions-billing-scenario-4.png)
 

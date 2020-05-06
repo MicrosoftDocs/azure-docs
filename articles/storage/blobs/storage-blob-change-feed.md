@@ -37,7 +37,7 @@ Change feed support is well-suited for scenarios that process data based on obje
 
 ## Enable and disable the change feed
 
-You must enable the change feed on your storage account to begin capturing and recording changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using Azure Resource Manager templates on Portal or Powershell.
+You must enable the change feed on your storage account to begin capturing and recording changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using Azure Resource Manager templates on Portal or PowerShell.
 
 Here's a few things to keep in mind when you enable the change feed.
 
@@ -76,7 +76,7 @@ Enable change feed by using PowerShell:
    Install-Module PowerShellGet –Repository PSGallery –Force
    ```
 
-2. Close, and then reopen the Powershell console.
+2. Close, and then reopen the PowerShell console.
 
 3. Install the **Az.Storage** preview module.
 

@@ -56,7 +56,7 @@ Once you undelete a blob's snapshots, you can click **Promote** to copy a snapsh
 
 ![](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-# [Powershell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -170,3 +170,7 @@ blockBlob.StartCopy(copySource);
 
 ---
 
+## Next steps
+
+- [Soft delete for Blob storage](soft-delete-overview.md)
+- [Blob versioning (preview)](versioning-overview.md)
