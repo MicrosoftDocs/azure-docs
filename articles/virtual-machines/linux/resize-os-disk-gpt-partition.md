@@ -1,5 +1,5 @@
 ---
-title: Resize an OS Disk with a GPT Partition | Microsoft Docs
+title: Resize an OS disk with a GPT partition | Microsoft Docs
 description: This article provides instructions on resizing an OS Disk with GPT Partition.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -33,7 +33,7 @@ Use the **parted** command to identify if the disk partition has been created wi
 In the following output, the **Partition Table** shows a value of **msdos**, identifying an **MBR** Partition.
 
 ```
-[root@rhel6 ~]# parted -l /dev/sda
+[user@myvm ~]# parted -l /dev/sda
 Model: Msft Virtual Disk (scsi)
 Disk /dev/sda: 107GB
 Sector size (logical/physical): 512B/512B
@@ -41,7 +41,7 @@ Partition Table: msdos
 Number  Start   End     Size    Type     File system  Flags
 1       1049kB  525MB   524MB   primary  ext4         boot
 2       525MB   34.4GB  33.8GB  primary  ext4
-[root@rhel6 ~]#
+[user@myvm ~]#
 ```
 
 ### GPT partition
@@ -49,7 +49,7 @@ Number  Start   End     Size    Type     File system  Flags
 In the following output, the **Partition Table** shows a value of **gpt**, identifying a GPT partition.
 
 ```
-[root@rhel7lvm ~]# parted -l /dev/sda
+[user@myvm ~]# parted -l /dev/sda
 Model: Msft Virtual Disk (scsi)
 Disk /dev/sda: 68.7GB
 Sector size (logical/physical): 512B/512B
@@ -84,7 +84,7 @@ To increase the size of the OS Disk in Ubuntu 16.x and 18.x:
 As shown in the following example, the OS Disk has been resized from the portal to 100 GB, as the **/dev/sda1** file system mounted on **/** now displays 97 GB.
 
 ```
-root@ubuntu:~# df -Th
+user@myvm:~# df -Th
 Filesystem     Type      Size  Used Avail Use% Mounted on
 udev           devtmpfs  314M     0  314M   0% /dev
 tmpfs          tmpfs      65M  2.3M   63M   4% /run
@@ -95,7 +95,7 @@ tmpfs          tmpfs     324M     0  324M   0% /sys/fs/cgroup
 /dev/sda15     vfat      105M  3.6M  101M   4% /boot/efi
 /dev/sdb1      ext4       20G   44M   19G   1% /mnt
 tmpfs          tmpfs      65M     0   65M   0% /run/user/1000
-root@ubuntu1604:~#
+user@myvm:~#
 ```
 
 ### SUSE 12 SP4,SUSE SLES 12 for SAP, SUSE SLES 15, and SUSE SLES 15 for SAP
@@ -129,7 +129,7 @@ When the VM has restarted, perform the following steps:
       The following output shows that the **/dev/sda4** partition has been resized to 98.5 GB.
 
       ```
-      susesels15serialconsole:~ # lsblk
+      user@myvm:~ # lsblk
       NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
       sda      8:0    0  100G  0 disk
       ├─sda1   8:1    0    2M  0 part
@@ -137,7 +137,8 @@ When the VM has restarted, perform the following steps:
       └─sda4   8:4    0 98.5G  0 part /
       sdb      8:16   0   20G  0 disk
       └─sdb1   8:17   0   20G  0 part /mnt/resource
-
+      ```
+      
    1. Identify the type of file system on the OSDisk using the following command:
 
       `blkid`
@@ -147,7 +148,7 @@ When the VM has restarted, perform the following steps:
       ```
       #blkid
 
-      susesels15serialconsole:~ # blkid
+      user@myvm:~ # blkid
       /dev/sda1: PARTLABEL="p.legacy" PARTUUID="0122fd4c-0069-4a45-bfd4-98b97ccb6e8c"
       /dev/sda2: SEC_TYPE="msdos" LABEL_FATBOOT="EFI" LABEL="EFI" UUID="00A9-D170" TYPE="vfat" PARTLABEL="p.UEFI" PARTUUID="abac3cd8-949b-4e83-81b1-9636493388c7"
       /dev/sda3: LABEL="BOOT" UUID="aa2492db-f9ed-4f5a-822a-1233c06d57cc" TYPE="xfs" PARTLABEL="p.lxboot" PARTUUID="dfb36c61-b15f-4505-8e06-552cf1589cf7"
@@ -164,7 +165,7 @@ When the VM has restarted, perform the following steps:
       Example output:
 
       ```
-      susesels15serialconsole:~ # xfs_growfs /
+      user@myvm:~ # xfs_growfs /
       meta-data=/dev/sda4              isize=512    agcount=4, agsize=1867583 blks
                =                       sectsz=512   attr=2, projid32bit=1
                =                       crc=1        finobt=1 spinodes=0 rmapbt=0
@@ -189,7 +190,7 @@ When the VM has restarted, perform the following steps:
       Example output:
 
       ```
-	  susesels15serialconsole:~ # df -Th
+	  user@myvm:~ # df -Th
 	  Filesystem     Type      Size  Used Avail Use% Mounted on
 	  devtmpfs       devtmpfs  306M  4.0K  306M   1% /dev
 	  tmpfs          tmpfs     320M     0  320M   0% /dev/shm
@@ -200,10 +201,10 @@ When the VM has restarted, perform the following steps:
 	  /dev/sda2      vfat      512M  1.1M  511M   1% /boot/efi
 	  /dev/sdb1      ext4       20G   45M   19G   1% /mnt/resource
 	  tmpfs          tmpfs      64M     0   64M   0% /run/user/1000
-	  susesels15serialconsole:~ #
+	  user@myvm:~ #
       ```
 
-As shown in the proceeding example, we can see the file system size for the OSDisk has been increased.
+As shown in the preceding example, we can see the file system size for the OSDisk has been increased.
 
 ### RHEL 7.x with LVM
 
@@ -236,7 +237,7 @@ When the VM has restarted, perform the following steps:
       The following output shows that the **/dev/sda4** partition has been resized to 99 GB.
 
       ```
-      [root@rhel7lvm ~]# lsblk
+      [user@myvm ~]# lsblk
       NAME              MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
       fd0                 2:0    1    4K  0 disk
       sda                 8:0    0  100G  0 disk
@@ -261,11 +262,11 @@ When the VM has restarted, perform the following steps:
       The following output shows that the PV has been resized to 99.02 GB.
 
       ```
-      [root@rhel7lvm ~]# pvresize /dev/sda4
+      [user@myvm ~]# pvresize /dev/sda4
       Physical volume "/dev/sda4" changed
       1 physical volume(s) resized or updated / 0 physical volume(s) not resized
 
-      [root@rhel7lvm ~]# pvs
+      [user@myvm ~]# pvs
       PV         VG     Fmt  Attr PSize   PFree
       /dev/sda4  rootvg lvm2 a--  <99.02g <74.02g
       ```
@@ -277,7 +278,7 @@ When the VM has restarted, perform the following steps:
       Example output:
 
       ```
-      [root@rhel7lvm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
+      [user@myvm ~]# lvresize -r -L +10G /dev/mapper/rootvg-rootlv
       Size of logical volume rootvg/rootlv changed from 2.00 GiB (512 extents) to 12.00 GiB (3072 extents).
       Logical volume rootvg/rootlv successfully resized.
       meta-data=/dev/mapper/rootvg-rootlv isize=512    agcount=4, agsize=131072 blks
@@ -299,10 +300,10 @@ When the VM has restarted, perform the following steps:
       Example output:
 
       ```
-      [root@rhel7lvm ~]# df -Th /
+      [user@myvm ~]# df -Th /
       Filesystem                Type  Size  Used Avail Use% Mounted on
       /dev/mapper/rootvg-rootlv xfs    12G   71M   12G   1% /
-      [root@rhel7lvm ~]#
+      [user@myvm ~]#
       ```
 
       > [!NOTE]
