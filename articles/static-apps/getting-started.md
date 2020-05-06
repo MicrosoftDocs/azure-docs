@@ -131,7 +131,7 @@ Click the **Create** button
 
 Once the deployment is complete, click the **Go to resource** button
 
-:::image type="content" source="media/getting-started/go-to-resource-button.png" alt-text="Go to resource button":::
+:::image type="content" source="media/getting-started/resource-button.png" alt-text="Go to resource button":::
 
 ## View website
 
