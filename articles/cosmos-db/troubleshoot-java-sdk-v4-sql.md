@@ -148,6 +148,10 @@ By using `publishOn(customScheduler)`, you release the Netty IO thread and switc
 ### Request rate too large
 This failure is a server-side failure. It indicates that you consumed your provisioned throughput. Retry later. If you get this failure often, consider an increase in the collection throughput.
 
+* **Implement backoff at getRetryAfterInMilliseconds intervals**
+
+    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries.
+
 ### Failure connecting to Azure Cosmos DB emulator
 
 The Azure Cosmos DB emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB emulator certificates](local-emulator-export-ssl-certificates.md).
