@@ -81,7 +81,7 @@ For step-by-step instructions on creating a new Azure Relay namespace and entiti
 11. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
     
     ![Create Private Endpoint - Review and Create page](./media/private-link-service/create-private-endpoint-review-create-page.png)
-12. On the **Private endpoint** page, you can see the status of the private endpoint connection. If you are the owner of the Relay namespace or have manage access over it and had selected **Connect to an Azure resource in my directory** option for the **Connection method**, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
+12. On the **Private endpoint** page, you can see the status of the private endpoint connection. If you are the owner of the Relay namespace or have the manage access over it and had selected **Connect to an Azure resource in my directory** option for the **Connection method**, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
 
     ![Private endpoint page](./media/private-link-service/private-endpoint-page.png)
 13. Navigate back to the **Networking** page of the **namespace**, and switch to the **Private endpoint connections (preview)** tab. You should see the private endpoint that you created. 
