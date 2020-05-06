@@ -17,6 +17,8 @@
     href: front-door-custom-domain-https.md
   - name: Set up a geo-filtering policy for your Front Door
     href: front-door-tutorial-geo-filtering.md
+  - name: Web Application Firewall and Front Door
+    href: front-door-waf.md
 - name: Samples
   items:
   - name: Resource Manager Templates
