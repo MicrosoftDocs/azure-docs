@@ -61,10 +61,6 @@ Availability Zones | Standard load balancer supports additional abilities in reg
 
 ## <a name = "limitations"></a>Limitations
 
-- SKUs aren't mutable. You can't change the SKU of an existing resource.
-- A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
-- A load balancer rule can't span two virtual networks.  Front-ends and their related backend instances must be located in the same virtual network.  
-- [Move subscription operations](../azure-resource-manager/management/move-resource-group-and-subscription.md) aren't supported for standard load balancer and public IP resources.
 - Web Worker Roles without a virtual network and other Microsoft platform services can be accessible from instances behind only an internal standard load balancer. Don't rely on this accessibility, as the respective service itself or the underlying platform can change without notice. If outbound connectivity is required when using a standard internal load balancer, [outbound connectivity](load-balancer-outbound-connections.md) must be configured.
 - Load balancer provides load balancing and port forwarding for specific TCP or UDP protocols. Load-balancing rules and inbound NAT rules support TCP and UDP, but not other IP protocols including ICMP.
 
