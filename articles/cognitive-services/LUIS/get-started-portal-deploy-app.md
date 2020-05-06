@@ -25,7 +25,7 @@ In this quickstart, you learn to deploy an application. You create a prediction 
 
 Every time you create a new authoring or query prediction resource for LUIS, you need to assign the resource to the LUIS app. After it's assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries.
 
-1. Sign in to the [preview LUIS portal](https://preview.luis.ai) and choose the **myEnglishApp** app from the apps list.
+1. Sign in to the [LUIS portal](https://www.luis.ai) and choose the **myEnglishApp** app from the apps list.
 
 1. Select **Manage** in the upper-right menu, and then select **Azure Resources**.
 
@@ -54,7 +54,7 @@ Every time you create a new authoring or query prediction resource for LUIS, you
 
 ## Prediction endpoint request
 
-In the preview portal, `query=` at the end of the URL is where the user's utterance is appended to the GET request. After the `query=`, enter the same user utterance used at the end of the previous quickstart:
+In the portal, `query=` at the end of the URL is where the user's utterance is appended to the GET request. After the `query=`, enter the same user utterance used at the end of the previous quickstart:
 
 ```Is there a form named hrf-234098```
 
