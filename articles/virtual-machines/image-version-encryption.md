@@ -19,7 +19,7 @@ Server-side encryption using customer-managed keys uses Azure Key Vault. You can
 
 To use customer managed keys for images, you first need an Azure Key Vault. You then create a disk encryption set. The disk encryption set is then used when creating you image versions.
 
-For more information about creating and using disk encryption sets, see [Customer managed keys](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+For more information about creating and using disk encryption sets, see [Customer managed keys](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
 
 ## Limitations
 
