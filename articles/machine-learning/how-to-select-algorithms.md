@@ -35,7 +35,35 @@ Machine Learning designer provides a comprehensive portfolio of algorithms, such
 
 Along with guidance in the Azure Machine Learning Algorithm Cheat Sheet, keep in mind other requirements when choosing a machine learning algorithm for your solution. Following are additional factors to consider, such as the accuracy, training time, linearity, number of parameters and number of features.
 
-## Additional requirements for a data science scenario
+## Comparison of machine learning algorithms
+
+Some learning algorithms make particular assumptions about the structure of the data or the desired results. If you can find one that fits your needs, it can give you more useful results, more accurate predictions, or faster training times.
+
+The following table summarizes some of the most important characteristics of algorithms from the classification, regression and clustering families:
+
+| **Algorithm** | **Accuracy** | **Training time** | **Linearity** | **Parameters** | **Notes** |
+| --- |:---:|:---:|:---:|:---:| --- |
+| **Classification family** | | | | | |
+| [Two-Class logistic regression](azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |Good  |Fast |Yes |4 | |
+| [Two-class decision forest](azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |Excellent |Moderate |No |5 |Shows slower scoring times. Suggest not working with One-vs-All Multiclass, because of slower scoring times caused by tread locking in accumulating tree predictions |
+| [Two-class boosted decision tree](azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Excellent |Moderate |No |6 |Large memory footprint |
+| [Two-class neural network](azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |Good |Moderate |No |8 | |
+| [Two-class averaged perceptron](azure/machine-learning/algorithm-module-reference/two-class-averaged-perceptron?WT.mc_id=docs-article-lazzeri) |Good |Moderate |Yes |4 | |
+| [Two-class support vector machine](azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) |Good |Fast |Yes |5 |Good for large feature sets |
+| [Multiclass logistic regression](azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri) |Good |Fast |Yes |4 | |
+| [Multiclass decision forest](azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |Excellent |Moderate |No |5 |Shows slower scoring times |
+| [Multiclass boosted decision tree](azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Excellent |Moderate |No |6 | Tends to improve accuracy with some small risk of less coverage |
+| [Multiclass neural network](azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |Good |Moderate |No |8 | |
+| [One-vs-all multiclass](azure/machine-learning/algorithm-module-reference/one-vs-all-multiclass?WT.mc_id=docs-article-lazzeri) | - | - | - | - |See properties of the two-class method selected |
+| **[Regression family]** | | | | | |
+| [Linear regression](azure/machine-learning/algorithm-module-reference/linear-regression?WT.mc_id=docs-article-lazzeri) |Good |Fast |Yes |4 | |
+| [Decision forest regression](azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|Excellent |Moderate |No |5 | |
+| [Boosted decision tree regression](azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |Excellent |Moderate |No |6 |Large memory footprint |
+| [Neural network regression](azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |Good |Moderate |No |8 | |
+| **Clustering family** | | | | | |
+| [K-means clustering](/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) |Excellent |Moderate |Yes |8 |A clustering algorithm |
+
+## Requirements for a data science scenario
 
 Once you know what you want to do with your data, you need to determine additional requirements for your solution. 
 
