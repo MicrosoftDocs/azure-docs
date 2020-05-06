@@ -2,8 +2,7 @@
 title: "Quickstart: Create a new app in the LUIS portal"
 description: In this quickstart, you create the basic parts of an app, intents, and entities as well as test with sample utterance in the LUIS portal.
 ms.topic: quickstart
-ms.date: 04/14/2020
-#Customer intent: As a new user, I want to quickly get a LUIS app created in the LUIS portal so I can understand the different models of intent, entity, and example utterances.
+ms.date: 05/05/2020
 ---
 
 # Quickstart: Create a new app in the LUIS portal
@@ -14,7 +13,7 @@ In this quickstart, you build a new app in the LUIS portal. First, create the ba
 
 ## Create an app
 
-1. Select **+ New app for conversation** from the context toolbar, then select **New app for conversation**.
+1. Select **+ New app for conversation** from the context toolbar, then select **+ New app for conversation** again.
 
     > [!div class="mx-imgBorder"]
     > [![Create new app in LUIS portal](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
