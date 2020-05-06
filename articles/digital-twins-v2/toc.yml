@@ -56,6 +56,8 @@
     href: how-to-use-cli.md
 - name: Reference
   items:
+  - name: Azure IoT CLI Extension
+    href: https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest
   - name: Service limits
     href: reference-service-limits.md
   - name: Customer data requests
