@@ -61,7 +61,7 @@ To continue with the tutorial's development steps, you need to create an Azure D
 
 If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip to the next section.
 
-Otherwise, you can run [this shell script](...) to run through the setup automatically. Take note of the `appId` that is printed out by the script; this is your *Application (client) ID*. Also note the `hostName`. You will use these values later.
+Otherwise, you can run [this shell script](https://github.com/Azure-Samples/digital-twins-samples) to run through the setup automatically. Take note of the `appId` that is printed out by the script; this is your *Application (client) ID*. Also note the `hostName`. You will use these values later.
 
 > [!TIP]
 > To see the steps for setting up an Azure Digital Twins instance in more detail, you can visit [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md).
