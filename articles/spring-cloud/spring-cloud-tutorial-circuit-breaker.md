@@ -10,9 +10,9 @@ ms.date: 04/06/2020
 ---
 
 # Use Circuit Breaker Dashboard with Azure Spring Cloud | Microsoft Docs
-Spring Cloud Netflix Turbine is widely used to aggregate multiple Hystrix metrics streams so that streams can be monitored in a single view using Hystrix dashboard. This tutorial demonstrates how to use them on Azure Spring Cloud.
+Spring [Cloud Netflix Turbine](github.com/Netflix/Turbine) is widely used to aggregate multiple Hystrix metrics streams so that streams can be monitored in a single view using Hystrix dashboard. This tutorial demonstrates how to use them on Azure Spring Cloud.
 > [!NOTE]
-> Netflix Hystrix is widely used in existing Spring Cloud apps, but it is no longer in active development. If you are developing new project, you can consider resilience4j instead. Circuit Breaker Dashboard for resilience4j depends on micrometer, which is currently not supported for Azure Spring Cloud, so it will not be covered by this tutorial.
+> Netflix Hystrix is widely used in existing Spring Cloud apps, but it is no longer in active development. If you are developing new project, you can consider [resilience4j](https://github.com/resilience4j/resilience4j) instead. Circuit Breaker Dashboard for resilience4j depends on micrometer, which is currently not supported for Azure Spring Cloud, so it will not be covered by this tutorial.
 
 ## Prepare your sample applications
 The sample is forked from this [repository](https://github.com/StackAbuse/spring-cloud/tree/master/spring-turbine).
