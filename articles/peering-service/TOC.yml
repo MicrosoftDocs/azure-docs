@@ -11,7 +11,7 @@
   - name: Create a Peering Service Connection
     href: create-connection.md
   - name: Measure Peering Service connection telemetry
-    href: prefix-telemetry.md
+    href: measure-connection-telemetry.md
 - name: Concepts
   items:
   - name: Locations and partners
