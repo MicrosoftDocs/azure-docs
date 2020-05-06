@@ -15,16 +15,11 @@ ms.author: mbaldwin
 
 ---
 
-# Tutorial: Use a managed identity to connect a key vault to an Azure Web App in .NET
+# Tutorial: Use a managed identity to connect Key Vault to an Azure Web App with .NET
 
-This tutorial illustrates how to use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to authenticate an Azure Web App with an Azure Key Vault. You can use a managed identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
+Azure Key Vault provides a way to securely store credentials and other secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../../active-directory/managed-identities-azure-resources/overview.md) helps to solve this problem by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having to display credentials in your code.
 
-> [!NOTE]
->
-> This tutorial uses the [Azure Key Vault v4 client library for .NET](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) and the [Azure CLI](/cli/azure/get-started-with-azure-cli). However, the same basic principles apply when using the development language of your choice and/or Azure PowerShell.
-
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+This tutorial uses a managed identity to authenticate an Azure Web App with an Azure Key Vault. Although the steps use the [Azure Key Vault v4 client library for .NET](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) and the [Azure CLI](/cli/azure/get-started-with-azure-cli), the same basic principles apply when using the development language of your choice, Azure PowerShell, and/or the Azure portal.
 
 ## Prerequisites
 
@@ -34,13 +29,11 @@ To complete this quickstart:
 * The [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
 
-This quickstart assumes you are running `dotnet`, [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), and Windows commands in a Windows terminal (such as [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6), or the [Azure Cloud Shell](https://shell.azure.com/)).
+This quickstart assumes you are running `dotnet` and the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) in a Windows terminal (such as [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6), or the [Azure Cloud Shell](https://shell.azure.com/)).
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. 
-
-Your first step is to create a resource group to house both your key vault and your web app. You can do so with the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command:
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to house both your key vault and your web app with the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command:
 
 ```azurecli
 az group create --name "myResourceGroup" -l "EastUS"
@@ -53,18 +46,18 @@ You will now create a key vault and place a secret in it, for use later in this 
 To create a key vault, use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command:
 
 > [!Important]
-> Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
+> Each key vault must have a unique name. Replace <your-keyvault-name> with the name of your key vault in the following examples.
 
 ```azurecli
-az keyvault create --name "<your-unique-keyvault-name>" -g "myResourceGroup"
+az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 ```
 
-Make a note of the returned `vaultUri`, which will be in the format"https://<your-unique-keyvault-name>.vault.azure.net/". It will be used in the [Update the code](#update-the-code) step.
+Make a note of the returned `vaultUri`, which will be in the format"https://<your-keyvault-name>.vault.azure.net/". It will be used in the [Update the code](#update-the-code) step.
 
 You can now place a secret in your key vault with the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command. Set the name of your secret to MySecret and the value to "Success!".
 
 ```azurecli
-az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "MySecret" --value "Success!"
+az keyvault secret set --vault-name "<your-keyvault-name>" --name "MySecret" --value "Success!"
 ```
 
 ## Create a .NET web app
@@ -244,8 +237,6 @@ You will see the "Hello World!" message you previously saw when visiting `http:/
 
 ## Create and assign a managed identity
 
-Azure Key Vault provides a way to securely store credentials and other secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../../active-directory/managed-identities-azure-resources/overview.md) helps to solve this problem by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having to display credentials in your code.
-
 In the Azure CLI, to create the identity for this application, run the [az webapp-identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) command:
 
 ```azurecli
@@ -265,7 +256,7 @@ The operation will return this JSON snippet:
 To give your web app permission to do **get** and **list** operations on your key vault, pass the principalID to the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command:
 
 ```azurecli
-az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
+az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
 ```
 
 
