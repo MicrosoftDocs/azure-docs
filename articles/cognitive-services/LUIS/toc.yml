@@ -68,6 +68,8 @@
   - name: Plan your app
     displayName: simple, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
+  - name: Data collection
+    href: data-collection.md
   - name: App models
     items:
     - name: Types
