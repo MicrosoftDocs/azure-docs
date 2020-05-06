@@ -60,11 +60,11 @@ The following diagram shows how write operations affect blob versions. When a bl
 
 ### Versioning on delete operations
 
-When you delete a blob, Azure Storage creates a version to save the state of the blob immediately prior to deletion. All existing previous versions of the blob are preserved when the blob is deleted.
+When you delete a blob, the current version of the blob becomes a previous version, and the base blob is deleted. All existing previous versions of the blob are preserved when the blob is deleted.
 
-You can also delete a specific version of the blob by specifying its version ID. However, you cannot delete the current version of the blob using its version ID.
+Calling the [Delete Blob](/rest/api/storageservices/delete-blob) operation without a version ID deletes the base blob. To delete a specific version, provide the ID for that version on the delete operation.
 
-The following diagram shows the effect of a delete operation on a versioned blob. The current version blob is deleted, but the prior versions persist.
+The following diagram shows the effect of a delete operation on a versioned blob:
 
 :::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram showing deletion of versioned blob":::
 
@@ -89,7 +89,7 @@ The following operations do not trigger the creation of a new version. To captur
 - [Put Page](/rest/api/storageservices/put-page) (page blob)
 - [Append Block](/rest/api/storageservices/append-block) (append blob)
 
-All versions of a blob must be of the same blob type. When blob versioning is enabled, you cannot overwrite a blob of one type with another type unless you first delete the blob and all its versions.
+All versions of a blob must be of the same blob type. If a blob has previous versions, you cannot overwrite a blob of one type with another type unless you first delete the blob and all its versions.
 
 ### Access tiers
 
@@ -247,6 +247,9 @@ To check the status of your registration with PowerShell, call the [Get-AzProvid
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
+
+# Refresh the Azure Storage provider namespace
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
 
 # [Azure CLI](#tab/azure-cli)
