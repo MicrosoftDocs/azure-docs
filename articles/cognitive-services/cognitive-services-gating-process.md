@@ -14,7 +14,7 @@ ms.author: aahi
 # Gating process for Azure Cognitive Services
 
 > [!NOTE]
-> After a service offering completes a gated preview, it goes into an "ungated" public preview which does not require an application for access. After the preview process, it's released as Generally Available(GA).
+> After a service offering completes a gated preview, it goes into an "ungated" public preview which does not require an application for access. After the preview process, it's released as Generally Available (GA).
 
 As new Azure Cognitive Services offerings are introduced, they go through a gated preview where customers have to request access through an application. This gating process helps identify opportunities for improvements to service offerings before they're widely available. 
 
@@ -57,8 +57,6 @@ Currently, the services below are offered through the gating process:
 > If a service or containerized offering is not listed, it's either not gated, or unavailable.
 
 ## Next steps
-
-If you have questions, email the Microsoft team at <a href="mailto:cognitivegate@microsoft.com">cognitivegate@microsoft.com</a>.
 
 > [!div class="nextstepaction"]
 > [Sign up for gated services](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u)
