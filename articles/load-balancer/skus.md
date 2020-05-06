@@ -45,6 +45,12 @@ Standalone VMs, availability sets, and virtual machine scale sets can be connect
 
 For more information, see [Load balancer limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). For Standard Load Balancer details, see [overview](load-balancer-standard-overview.md), [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
 
+## Limitations
+
+- SKUs aren't mutable. You can't change the SKU of an existing resource.
+- A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
+- [Move subscription operations](../azure-resource-manager/management/move-resource-group-and-subscription.md) aren't supported for Standard Load Balancer and Standard Public IP resources.
+
 ## Next steps
 
 - See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
