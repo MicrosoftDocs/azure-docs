@@ -143,7 +143,7 @@ Here are links to some helpful reference tables:
 
 [Endpoint Health](troubleshoot-message-routing.md#endpoint-health)
 
-[Last Known Errors](troubleshootg-message-routing.md#last-known-errors)
+[Last Known Errors](troubleshoot-message-routing.md#last-known-errors)
 
 [Diagnostics error codes](troubleshoot-message-routing.md#diagnostics-error-codes)
 
