@@ -23,21 +23,24 @@ The Microsoft Authenticator app for Android is available for download in China. 
 - [Huawei](https://appgallery.cloud.huawei.com/uowap/index.html#/detailApp/C100262999?source=appshare&subsource=C100262999&shareTo=weixin&locale=zh_CN)
 - [Samsung Galaxy Store](http://apps.samsung.com/appquery/appDetail.as?appId=com.azure.authenticator)
 
-The most current build of the app is in the Google Play Store, but we're making best efforts to update the app on all other app stores. Because there is no custom Android application package (APK) deployed to any app store, the app can be seamlessly updated either from the store it was downloaded from or the Google Play Store if the user crosses regions.
+The most current build of the app is in the Google Play Store, but we're updating the app on all other app stores as quickly as we can. Because there's no custom Android application package (APK) deployed to any app store, the app can be seamlessly updated from one of the following locations:
+
+- The store it was downloaded from
+- The Google Play Store if the user crosses regions
 
 ## Limitations
 
 The Microsoft Authenticator app for Android uses Google’s Firebase Cloud Messaging system and Google Play Services to receive push notifications. Because neither service is available in China, there are some limitations in functionalities of the app:
 
-- Registration of the Authenticator app as a multi-factor authentication authentication method using push notifications will not work.
+- Registration of the Authenticator app as a multi-factor authentication (MFA) method using push notifications doesn't work.
 
-- [Phone sign-in](https://docs.microsoft.com/en-us/azure/active-directory/user-help/howto-authentication-sms-signin) can't be set up because it requires the user to set up the app as an multi-factor authentication method capable of receiving push notifications, which currently don't work.
+- [Phone sign-in](https://docs.microsoft.com/en-us/azure/active-directory/user-help/howto-authentication-sms-signin) can't be set up. It requires the user to set up the app as an MFA method using push notifications, which currently don't work.
 
-If a user has previously managed to set up phone sign-in or multi-factor authentication using the app, they will be able to perform a manual check for notifications requests in the app and use it for identity verification.
+If a user has previously managed to set up phone sign-in or multi-factor authentication using the app, they can perform a manual check for notifications requests in the app and use it for identity verification.
 
-## Multi-factor authentication
+## Multi-factor authentication workaround
 
-Instead of using push notifications for multi-factor authentication, users can set up their multi-factor authentication to receive verification codes they can use to verify their identity. These verification codes are valid for 30 seconds and to use them, admins must enable their tenant to perform verification using Time-based One-Time Password (TOTP) verification codes.
+Instead of using push notifications for multi-factor authentication, users can set up their MFA to receive verification codes on their device that they can use to verify their identity. These verification codes are valid for 30 seconds and to use them, admins must enable their tenant to perform verification using Time-based One-Time Password (TOTP) verification codes.
 
 ## Availability
 
