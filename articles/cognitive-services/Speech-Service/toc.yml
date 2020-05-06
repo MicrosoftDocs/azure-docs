@@ -426,6 +426,8 @@
               href: faq-voice-assistants.md
     - name: Custom Keyword
       items:
+        - name: Custom keyword overview
+          href: custom-keyword-overview.md
         - name: Custom keyword naming guidelines
           href: speech-devices-sdk-kws-guidelines.md
         - name: Custom keyword spotting
@@ -519,6 +521,10 @@
           href: speech-devices-sdk-roobo-v1.md
         - name: Roobo v2 details
           href: speech-devices-sdk-roobo-v2.md
+    - name: How-to guides
+      items:
+        - name: How to configure a Microphone Array
+          href: how-to-devices-microphone-array-configuration.md
     - name: Quickstart
       items:
         - name: Use Speech devices SDK
