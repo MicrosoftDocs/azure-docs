@@ -176,7 +176,8 @@ Records stored in Kafka are stored in the order they're received within a partit
     If your cluster is Enterprise Security Pack enabled, use the [pre-built JAR files for producer and consumer](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar).
 
     
-    ESP jar can be built from from `DomainJoined-Producer-Consumer`subdirectory. https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer . Note the Producer & Consumer properties. They have an additional property CommonClientConfigs.SECURITY_PROTOCOL_CONFIG for ESP enabled clusters
+The ESP jar can be built from from the code in the [`DomainJoined-Producer-Consumer` subdirectory](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). Note that the producer and consumer properties ave an additional property `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` for ESP enabled clusters.
+
     
 2. Facing issue with ESP enabled clusters
 
