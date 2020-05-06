@@ -4,7 +4,7 @@
   items:
   - name: What is Azure Load Balancer?
     href: load-balancer-overview.md
-  - name: Frequently Asked Questions
+  - name: Frequently asked questions
     href: load-balancer-faqs.md
 - name: Quickstart
   items:
