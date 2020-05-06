@@ -249,10 +249,13 @@ Finally, delete the project sample folder you downloaded from your local machine
 
 In this quickstart, you got started with Azure Digital Twins by setting up an instance and a client application to interact with the instance. You built a basic Azure Digital Twins solution using models, digital twins, and relationships, and ran some queries on the solution to get an idea of what kinds of questions Azure Digital Twins can answer about an environment.
 
-Continue on to the tutorial to see how to connect a sample solution to other Azure services to complete a data-driven, end-to-end scenario: 
+Continue on to the tutorials to see how to code a client app from scratch, or connect a sample Azure Digital Twins solution to other Azure services to complete a data-driven, end-to-end scenario: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build an end-to-end solution](tutorial.md)
+> [Tutorial: Code a client app](tutorial-code.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Build an end-to-end solution](tutorial-end-to-end.md)
 
 Or, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
 * [Concepts: Twin models](concepts-models.md)
