@@ -63,7 +63,29 @@ For storage, primary endpoints always use the **Microsoft global network**. You 
 * Files
 * Web
 * Azure DataLake
+## Pricing
 
+The price difference between both options is reflected in internet egress data transfer pricing. Routing via **Microsoft Global Network** data transfer price is same as current internet egress price. Visit [Azure bandwidth pricing page](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) for the latest pricing information. Routing via **Public Internet** is priced lower as shown in the table below:
+
+| Egress source region | 0-5 GB/Month | 5GB-10 TB/Month | 10-50 TB/Month | 50-150 TB/Month | 150-500 TB/Month |
+| --- | --- | --- | --- | --- | --- |
+| Zone 1 | $0/GB | $0.085/GB | $0.065/GB | $0.06/GB | $0.04/GB |
+| Zone 2 | $0/GB | $0.11/GB | $0.075/GB | $0.07/GB | $0.06/GB  |
+
+[Contact us](https://azure.microsoft.com/en-us/overview/sales-number/) for monthly volume over 500 TB
+* Zone 1—Australia Central, Australia Central 2, Canada Central, Canada East, North Europe, West Europe, France Central, France South, Germany North (Public), Germany West Central (Public), Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, Central US, East US, East US 2, North Central US, South Central US, West US, West US 2, West Central US
+
+* Zone 2—East Asia, Southeast Asia, Australia East, Australia Southeast, Central India, South India, West India, Japan East, Japan West, Korea Central, Korea South
+
+* Zone 3—Brazil South, South Africa North, South Africa West, UAE Central, UAE North
+
+## Availability
+
+Routing Preference support is available in the following regions for services such as virtual machine, internet facing load balancer that uses public ip for internet egress:
+* North Europe, West Europe, France Central, UK South, Central US, East US, East US 2, North Central US, South Central US, West US, West US 2, West Central US, Southeast Asia, Australia East
+
+Routing Preference support for storage account is available in the following azure regions:
+* France Central, North Central US, West Central US
 ## Limitations
 
 * Routing preference is only compatible with standard SKU of public IP address. Basic SKU of public IP address is not supported.
