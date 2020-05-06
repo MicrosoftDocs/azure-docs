@@ -54,7 +54,7 @@ az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 
 Make a note of the returned `vaultUri`, which will be in the format"https://<your-keyvault-name>.vault.azure.net/". It will be used in the [Update the code](#update-the-code) step.
 
-You can now place a secret in your key vault with the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command. Set the name of your secret to MySecret and the value to "Success!".
+You can now place a secret in your key vault with the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command. Set the name of your secret to "MySecret" and the value to "Success!".
 
 ```azurecli
 az keyvault secret set --vault-name "<your-keyvault-name>" --name "MySecret" --value "Success!"
@@ -87,9 +87,9 @@ Open a web browser, and navigate to the app at `http://localhost:5000`.
 
 You will see the **Hello World** message from the sample app displayed in the page.
 
-### Initialize the git repository
+### Initialize the Git repository
 
-In your terminal window, press **Ctrl+C** to exit the web server.  Initialize a git repository for the .NET Core project.
+In your terminal window, press **Ctrl+C** to exit the web server.  Initialize a Git repository for the .NET Core project.
 
 ```bash
 git init
@@ -148,7 +148,7 @@ When the App Service plan has been created, the Azure CLI shows information simi
 Create an [Azure web app](../../app-service/containers/app-service-linux-intro.md) in the `myAppServicePlan` App Service plan. 
 
 > [!Important]
-> Similar to Key Vault, an Azure Web App must have a unique name. Replace <your-webapp-name> with the name of your web app the following examples.
+> Similar to Key Vault, an Azure Web App must have a unique name. Replace \<your-webapp-name\> with the name of your web app the following examples.
 
 
 ```azurecli-interactive
@@ -187,7 +187,7 @@ You will see the default webpage for a newly created Azure Web App.
 
 ### Deploy your local app
 
-Back in the local terminal window, add an Azure remote to your local Git repository. Replace *\<deploymentLocalGitUrl-from-create-step>* with the URL of the Git remote that you saved from [Create a remote web app](#create-a-remote-web-app).
+Back in the local terminal window, add an Azure remote to your local Git repository, replacing *\<deploymentLocalGitUrl-from-create-step>* with the URL of the Git remote that you saved from [Create a remote web app](#create-a-remote-web-app) step.
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
@@ -302,7 +302,7 @@ Be certain to save your changes before proceeding to the next step.
 
 ### Redeploy your web app
 
-Having updated your code, you can redeploy it to Azure with the following git commands:
+Having updated your code, you can redeploy it to Azure with the following Git commands:
 
 ```bash
 git add .
