@@ -46,8 +46,8 @@ identityName="aibIdentity"
 imageResourceGroup=<Resource group>
 
 az identity create \
-    -resource-group $imageResourceGroup \
-    -name $identityName
+    --resource-group $imageResourceGroup \
+    --name $identityName
 ```
 
 For more information about Azure user-assigned identities, see the [Azure user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) documentation on how to create an identity.
@@ -122,9 +122,9 @@ To simplify the replacement of values in the example, set the following variable
 ```azurecli-interactive
 # Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
 subscriptionID=<Subscription ID>
-
 # Resource group - For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image.
 imageResourceGroup=<Resource group>
+identityName="aibIdentity"
 
 # Use *cURL* to download the a sample JSON description 
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
@@ -165,6 +165,7 @@ To simplify the replacement of values in the example, set the following variable
 # Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
 subscriptionID=<Subscription ID>
 VnetResourceGroup=<Resource group>
+identityName="aibIdentity"
 
 # Use *cURL* to download the a sample JSON description 
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json

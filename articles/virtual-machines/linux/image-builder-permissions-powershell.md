@@ -125,7 +125,8 @@ To simplify the replacement of values in the example, set the following variable
 ```powershell-interactive
 $sub_id = "<Subscription ID>"
 # Resource group - For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image.
-$res_group = "<Resource group>"
+$imageResourceGroup = "<Resource group>"
+$identityName = "aibIdentity"
 
 # Use a web request to download the sample JSON description
 $sample_uri="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
@@ -139,7 +140,7 @@ $imageRoleDefName="Azure Image Builder Image Def"+$timeInt
 
 # Update the JSON definition placeholders with variable values
 ((Get-Content -path $role_definition -Raw) -replace '<subscriptionID>',$sub_id) | Set-Content -Path $role_definition
-((Get-Content -path $role_definition -Raw) -replace '<rgName>', $res_group) | Set-Content -Path $role_definition
+((Get-Content -path $role_definition -Raw) -replace '<rgName>', $imageResourceGroup) | Set-Content -Path $role_definition
 ((Get-Content -path $role_definition -Raw) -replace 'Azure Image Builder Service Image Creation Role', $imageRoleDefName) | Set-Content -Path $role_definition
 
 # Create a custom role from the aibRoleImageCreation.json description file. 
@@ -153,7 +154,7 @@ $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageR
 $parameters = @{
     ObjectId = $identityNamePrincipalId
     RoleDefinitionName = $imageRoleDefName
-    Scope = '/subscriptions/' + $sub_id + '/resourceGroups/' + $res_group
+    Scope = '/subscriptions/' + $sub_id + '/resourceGroups/' + $imageResourceGroup
 }
 
 New-AzRoleAssignment @parameters
@@ -173,6 +174,7 @@ To simplify the replacement of values in the example, set the following variable
 ```powershell-interactive
 $sub_id = "<Subscription ID>"
 $res_group = "<Resource group>"
+$identityName = "aibIdentity"
 
 # Use a web request to download the sample JSON description
 $sample_uri="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
