@@ -50,7 +50,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
 ### <a id="create-custom-conflict-resolution-policy-lww-java"></a>Java SDK
 
-# [Java Async SDK](#tab/javaasync)
+# [Java Async SDK](#tab/async)
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -60,7 +60,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-# [Java sync SDK](#tab/javasync)
+# [Java sync SDK](#tab/sync)
 
 ```java
 DocumentCollection lwwCollection = new DocumentCollection();
@@ -218,7 +218,7 @@ await container.Scripts.CreateStoredProcedureAsync(
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java"></a>Java SDK
 
-# [Java Async SDK](#tab/javaasync)
+# [Java Async SDK](#tab/async)
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -230,7 +230,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 After your container is created, you must create the `resolver` stored procedure.
 
-# [Java sync SDK](#tab/javasync)
+# [Java sync SDK](#tab/sync)
 
 ```java
 DocumentCollection udpCollection = new DocumentCollection();
@@ -315,7 +315,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
 ### <a id="create-custom-conflict-resolution-policy-java"></a>Java SDK
 
-# [Java Async SDK](#tab/javaasync)
+# [Java Async SDK](#tab/async)
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -325,7 +325,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-# [Java sync SDK](#tab/javasync)
+# [Java sync SDK](#tab/sync)
 
 ```java
 DocumentCollection manualCollection = new DocumentCollection();
@@ -400,7 +400,7 @@ while (conflictFeed.HasMoreResults)
 
 ### <a id="read-from-conflict-feed-java"></a>Java SDK
 
-# [Java Async SDK](#tab/javaasync)
+# [Java Async SDK](#tab/async)
 
 ```java
 FeedResponse<Conflict> response = client.readConflicts(this.manualCollectionUri, null)
@@ -409,7 +409,7 @@ for (Conflict conflict : response.getResults()) {
     /* Do something with conflict */
 }
 ```
-# [Java Async SDK](#tab/javaasync)
+# [Java Async SDK](#tab/sync)
 
 ```java
 Iterator<Conflict> conflictsIterator = client.readConflicts(this.collectionLink, null).getQueryIterator();
