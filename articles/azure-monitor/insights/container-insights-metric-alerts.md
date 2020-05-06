@@ -15,6 +15,7 @@ To alert on performance issues with Azure Monitor for containers, you would crea
 To alert on what matters, Azure Monitor for containers includes the following metric alerts for your AKS clusters:
 
 |Name| Description |
+|----|-------------|
 | Average CPU % | Calculates average CPU used per node.<br> Default trigger threshold: When average CPU usage per node is greater than 80%.| 
 | Average Working set memory % | Calculates average working set memory used per node.<br> Default trigger threshold: When average working set memory usage per node is greater than 80%. |
 | Failed Pod Counts | Calculates if any pod in failed state.<br> Default trigger threshold: When a number of pods in failed state are greater than 0. |
