@@ -20,31 +20,19 @@ manager: lizross
 
 Windows Virtual Desktop uses [Azure Monitor](../azure-monitor/overview.md) for monitoring and alerts like many other Azure services. This lets admins identify issues through a single interface. The service creates activity logs for both user and administrative actions. Each activity log falls under the following categories:  
 
-- Management Activities:  
-
-   - Track whether attempts to change Windows Virtual Desktop objects using APIs or PowerShell are successful. For example, can someone successfully create a host pool using PowerShell?
-
+- Management Activities:
+    - Track whether attempts to change Windows Virtual Desktop objects using APIs or PowerShell are successful. For example, can someone successfully create a host pool using PowerShell?
 - Feed: 
-
-   - Can users successfully subscribe to workspaces? 
-
-   - Do users see all resources published in the Remote Desktop client?
-
+    - Can users successfully subscribe to workspaces? 
+    - Do users see all resources published in the Remote Desktop client?
 - Connections: 
-
-   - When users initiate and complete connections to the service. 
-
+    - When users initiate and complete connections to the service. 
 - Host registration: 
-
-   - Was the session host successfully registered with the service upon connecting?
-
+    - Was the session host successfully registered with the service upon connecting?
 - Errors: 
-
-   - Are users encountering any issues with specific activities? This feature can generate a table that tracks activity data for you as long as the information is joined with the activities.
-
+    - Are users encountering any issues with specific activities? This feature can generate a table that tracks activity data for you as long as the information is joined with the activities.
 - Checkpoints:  
-
-   - Specific steps in the lifetime of an activity that were reached. For example, during a session, a user was load balanced to a particular host, then the user was signed on during a connection, and so on.
+    - Specific steps in the lifetime of an activity that were reached. For example, during a session, a user was load balanced to a particular host, then the user was signed on during a connection, and so on.
 
 Connections that don't reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the user is experiencing network connectivity issues.
 
@@ -141,7 +129,7 @@ The following example queries show how the diagnostics feature generates a repor
 
 To get a list of connections made by your users, run this cmdlet:
 
-```powershell
+```kusto
 WVDConnections 
 | project-away TenantId,SourceSystem 
 | summarize arg_max(TimeGenerated, *), StartTime =  min(iff(State== 'Started', TimeGenerated , datetime(null) )), ConnectTime = min(iff(State== 'Connected', TimeGenerated , datetime(null) ))   by CorrelationId 
@@ -164,45 +152,29 @@ WVDConnections
 
 To view feed activity of your users:
 
-```powershell
+```kusto
 WVDFeeds  
-
 | project-away TenantId,SourceSystem  
-
 | join kind=leftouter (  
-
     WVDErrors  
-
     |summarize Errors=makelist(pack('Code', Code, 'CodeSymbolic', CodeSymbolic, 'Time', TimeGenerated, 'Message', Message ,'ServiceError', ServiceError, 'Source', Source)) by CorrelationId  
-
     ) on CorrelationId      
-
 | join kind=leftouter (  
-
    WVDCheckpoints  
-
    | summarize Checkpoints=makelist(pack('Time', TimeGenerated, 'Name', Name, 'Parameters', Parameters, 'Source', Source)) by CorrelationId  
-
    | mv-apply Checkpoints on  
-
     (  
-
         order by todatetime(Checkpoints['Time']) asc  
-
         | summarize Checkpoints=makelist(Checkpoints)  
-
     )  
-
    ) on CorrelationId  
-
 | project-away CorrelationId1, CorrelationId2  
-
 | order by  TimeGenerated desc 
 ```
 
 To find all connections for a single user: 
 
-```powershell
+```kusto
 |where UserName == "userupn" 
 |take 100 
 |sort by TimeGenerated asc, CorrelationId 
@@ -211,7 +183,7 @@ To find all connections for a single user:
 
 To find the number of times a user connected per day:
 
-```powershell
+```kusto
 WVDConnections 
 |where UserName == "userupn" 
 |take 100 
@@ -222,7 +194,7 @@ WVDConnections
 
 To find session duration by user:
 
-```powershell
+```kusto
 let Events = WVDConnections | where UserName == "userupn" ; 
 Events 
 | where State == "Connected" 
@@ -237,15 +209,15 @@ on CorrelationId
 
 To find errors for a specific user:
 
-```powershell
+```kusto
 WVDErrors
-| where UserName == "johndoe@contoso.com" 
+| where UserName == "userupn" 
 |take 100
 ```
 
 To find out whether a specific error occurred:
 
-```powershell
+```kusto
 WVDErrors 
 | where CodeSymbolic =="ErrorSymbolicCode" 
 | summarize count(UserName) by CodeSymbolic 
@@ -253,7 +225,7 @@ WVDErrors
 
 To find the occurrence of an error across all users:
 
-```powershell
+```kusto
 WVDErrors 
 | where ServiceError =="false" 
 | summarize usercount = count(UserName) by CodeSymbolic 
