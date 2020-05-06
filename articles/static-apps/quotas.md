@@ -30,7 +30,7 @@ The following quotas exist for Azure Static Web Apps Preview.
 
 ## GitHub storage
 
-GitHub Actions and Packages use GitHub Storage, which has it's own set of quotas. When you create an Azure Static Web Apps site, GitHub stores the artifacts for your site even after deployment.
+GitHub Actions and Packages use GitHub Storage, which has its own set of quotas. When you create an Azure Static Web Apps site, GitHub stores the artifacts for your site even after deployment.
 
 See the following resources for more detail:
 
