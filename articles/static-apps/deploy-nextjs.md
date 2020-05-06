@@ -77,7 +77,7 @@ When you build a Next.js site using `npm run build`, the app is built as a tradi
     };
     ```
     
-  This configuration maps `/` to the Next.js page that is served for the `/` route, and that is the _pages/index.js_ page file.
+      This configuration maps `/` to the Next.js page that is served for the `/` route, and that is the _pages/index.js_ page file.
 
 1. Update the _package.json_'s build script to also generate a static site after building, using the `next export` command. The `export` command generates a static site.
 
@@ -126,7 +126,7 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 
 ### Create a static app
 
-1. Navigate to the [Azure Portal](https://portal.azure.com).
+1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Click **Create a Resource** then search for **Static Web Apps** and select the matching result.
 
 
@@ -170,10 +170,6 @@ Azure Static Web Apps is built to automatically carry out common tasks like inst
 If the website does note immediately load, then the background GitHub Actions workflow is still running. Once the workflow is complete you can then click refresh the browser to view your web app.
 If the website does note immediately load, then the background GitHub Actions workflow is still running. Once the workflow is complete you can then click refresh the browser to view your web app.
 
-You can check the status of the Actions workflows by navigating to the Actions for your repository:
-
-```bash
-https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 You can check the status of the Actions workflows by navigating to the Actions for your repository:
 
 ```url

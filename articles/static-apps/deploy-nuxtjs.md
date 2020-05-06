@@ -108,7 +108,7 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 
 ### Create an Azure Static Apps resource
 
-1. Navigate to the [Azure Portal](https://portal.azure.com).
+1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Click **Create a Resource** then search for **Static Web Apps** and select the matching result.
 
 
@@ -137,7 +137,7 @@ Azure Static Web Apps is built to automatically carry out common tasks like inst
 
 1. Click on the **Build** tab to configure the static output folder.
 
-  :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Build tab":::
+      :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Build tab":::
 
 1. Type **dist** in the *App artifact location* text box.
 
@@ -205,6 +205,5 @@ If the page is a dynamic page, for example `_id.vue`, it won't have enough infor
 
 :::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="404 on dynamic routes fixed":::
 
-## Next Steps
 > [!div class="nextstepaction"]
 > [Set up a custom domain](custom-domain.md)
