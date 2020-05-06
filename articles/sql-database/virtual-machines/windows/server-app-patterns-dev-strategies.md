@@ -193,13 +193,14 @@ Another approach to implement this application pattern is to use a consolidated 
 ![Application patterns with Cloud Services](./media/server-app-patterns-dev-strategies/IC728014.png)
 
 ## Pattern with Azure VMs, Azure SQL Database, and Azure App Service (Web Apps)
+
 The primary goal of this application pattern is to show you how to combine Azure infrastructure as a service (IaaS) components with Azure platform-as-a-service components (PaaS) in your solution. This pattern is focused on Azure SQL Database for relational data storage. It does not include SQL Server in an Azure virtual machine, which is part of the Azure infrastructure as a service offering.
 
 In this application pattern, you deploy a database application to Azure by placing the presentation and business tiers in the same virtual machine and accessing a database in Azure SQL Database (SQL Database) servers. You can implement the presentation tier by using traditional IIS-based web solutions. Or, you can implement a combined presentation and business tier by using [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/).
 
 This application pattern is useful when:
 
-* You already have an existing SQL Database server configured in Azure and you want to test your application quickly.
+* You already have an existing database server and you want to test your application quickly.
 * You want to test the capabilities of Azure environment.
 * You want to quickly provision development and test environments for short periods of time.
 * Your business logic and data access components can be self-contained within a web application.
@@ -213,6 +214,7 @@ If you choose to implement a combined web and application tier by using Azure We
 In addition, review the recommendations given in the [Comparing web development strategies in Azure](#comparing-web-development-strategies-in-azure) section at the end of this article to learn more about programming techniques.
 
 ## N-tier hybrid application pattern
+
 In n-tier hybrid application pattern, you implement your application in multiple tiers distributed between on-premises and Azure. Therefore, you create a flexible and reusable hybrid system, which you can modify or add a specific tier without changing the other tiers. To extend your corporate network to the cloud, you use [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md) service.
 
 This hybrid application pattern is useful when:
