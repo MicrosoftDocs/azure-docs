@@ -20,6 +20,8 @@ ms.reviewer: sngun
 > 
 
 > [!IMPORTANT]
+> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using __[Java SDK v4](sql-api-sdk-java-v4-sql.md)__ for your project. Guidance on upgrading can be found __[here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/migration-guide.md)__ and __[here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md)__. 
+>
 > This article covers troubleshooting for Async Java SDK v2 only. Please see the __[Release Notes](sql-api-sdk-async-java)__ and __[Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)__ for more information.
 >
 
