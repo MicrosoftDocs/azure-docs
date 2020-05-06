@@ -93,7 +93,7 @@ To configure Azure AD single sign-on with Mind Tools Toolkit, perform the follow
 	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
 
-	> [!Note]
+	> [!NOTE]
 	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [Mind Tools Toolkit Client support team](mailto:support@goodpractice.com) to get the value.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
