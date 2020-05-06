@@ -16,11 +16,11 @@ To alert on what matters, Azure Monitor for containers includes the following me
 
 |Name| Description |
 |----|-------------|
-| Average CPU % | Calculates average CPU used per node.<br> Default trigger threshold: When average CPU usage per node is greater than 80%.| 
-| Average Working set memory % | Calculates average working set memory used per node.<br> Default trigger threshold: When average working set memory usage per node is greater than 80%. |
-| Failed Pod Counts | Calculates if any pod in failed state.<br> Default trigger threshold: When a number of pods in failed state are greater than 0. |
-| Node NotReady status | Calculates if any node is in NotReady state.<br> Default trigger threshold: When a number of nodes in NotReady state are greater than 0. |
-| Metric heartbeat | Alerts when all nodes are down and are not sending any metric data.<br> Default trigger threshold: When a number of nodes not sending metric data are less than or equal to 0.|
+| Average CPU % | Calculates average CPU used per node.<br> Alerts when average CPU usage per node is greater than 80%.| 
+| Average Working set memory % | Calculates average working set memory used per node.<br> Alerts when average working set memory usage per node is greater than 80%. |
+| Failed Pod Counts | Calculates if any pod in failed state.<br> Alerts when a number of pods in failed state are greater than 0. |
+| Node NotReady status | Calculates if any node is in NotReady state.<br> Alerts when a number of nodes in NotReady state are greater than 0. |
+| Metric heartbeat | Alerts when all nodes are down and are not sending any metric data.<br> Alerts when a number of nodes not sending metric data are less than or equal to 0.|
 
 There are common properties across all of these alert rules:
 
