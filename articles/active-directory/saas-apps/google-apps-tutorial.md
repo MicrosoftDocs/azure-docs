@@ -137,8 +137,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | |
 	|--|
-	| `https://google.com` |
-	| `https://google.com/a/<yourdomain.com>` |
+	| `https://www.google.com` |
+	| `https://www.google.com/a/<yourdomain.com>` |
 
 
 1. On the **Basic SAML Configuration** section, if you want to configure for the **Google Cloud Platform** perform the following steps:
