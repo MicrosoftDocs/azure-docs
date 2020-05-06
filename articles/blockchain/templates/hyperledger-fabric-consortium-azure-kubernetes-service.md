@@ -243,7 +243,7 @@ For peer organization:
 The following are the two channel management commands:
 
 1. [Create channel command](#create-channel-command)
-2. [Setting anchor peer(s) command](#setting-anchor-peer-s-command)
+2. [Setting anchor peer(s) command](#setting-anchor-peers-command)
 
 
 #### Create channel command
