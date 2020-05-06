@@ -28,49 +28,54 @@ What you need to begin:
 * .NET Core 3.1 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 * The Azure CLI
 
-## Preparation
+## Set up project
 
-First, set up a project. Open a command prompt or shell window and create an empty directory, for example called "firstSteps" at a convenient location.
-Then change directory into the newly created location.
+The first step is to set up a project. 
 
-Next, create an empty .NET console app project. In a command prompt or shell window, type:
+Open a command prompt or shell window on your machine, and create an empty project directory where you would like to store your work during this tutorial. Name the directory whatever you would like (for example, *DigitalTwinsCodeTutorial*).
+
+Navigate into the new directory.
+
+Once in the project directory, create an empty .NET console app project. In the command window, run the following command to create a minimal C# project for the console:
+
 ```bash
 dotnet new console
 ```
 
-This will create a minimal C# project. To develop against Azure Digital Twins, you need to add two dependencies to the project:
+Next, to use this project for developing against Azure Digital Twins, use the following commands to add two necessary dependencies:
 
 ```bash
 dotnet add package Azure.IoT.DigitalTwins
 dotnet add package Azure.identity
 ```
 
-The first is the Azure Digital Twins SDK for .Net. The second dependency provides tools that make authentication against Azure a lot more comfortable.
+The first dependency is the Azure Digital Twins SDK for .Net. 
+The second dependency provides tools to help with authentication against Azure.
+
+Keep the command window open, as you'll continue to use it throughout the tutorial.
 
 ## Set up an Azure Digital Twins instance
 
-Before you can follow the development steps in this tutorial, you will have to create an Azure Digital Twins service instance. For this tutorial, there are two options to do so:
-* You can follow the manual steps described in this how-to document [point to how-to]. 
-* You can run a shell script that handles the basic setup automatically. 
+To continue with the tutorial's development steps, you need to create an Azure Digital Twins service instance to program against. 
 
-ToDo - Need to figure out how to get the script. FOr this exercise, my preference would be to just have a script that is short enough to fit in right here:
-```bash
-***
-*** In an ideal world, we would be able 
-*** to have the setups script included right here *** ready for a simple cut and past step. 
-*** The script needs to:
-- Register the resource provider
-- Create an app registration
-- Create a resource group
-- Create the service instance 
-- Add permissions for Azure Digital Twins
-- Set environment variables 
-***
-```
+If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip to the next section.
 
-## Get started with coding against Azure Digital Twins
+Otherwise, you can run [this shell script](...) to run through the setup automatically. Take note of the `appId` that is printed out by the script; this is your *Application (client) ID*. Also note the `hostName`. You will use these values later.
 
-To begin, open the file Program.cs in any code editor. You will see a minimal code template:
+> [!TIP]
+> To see the steps for setting up an Azure Digital Twins instance in more detail, you can visit [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md).
+
+## Get started with project code
+
+In this section, you will begin writing the code for your new app project to work with Azure Digital Twins. The actions convered include:
+* Authenticating against the service
+* Uploading a model
+* Catching errors
+* Creating digital twins
+* Creating relationships
+* Querying digital twins
+
+To begin, open the file *Program.cs* in any code editor. You will see a minimal code template that looks like this:
 
 ```csharp
 using System;
@@ -87,57 +92,69 @@ namespace FirstSteps
 }
 ```
 
-Over the course of this tutorial, you will add code that illustrates some of the basic techniques of programming against Azure Digital Twins. 
-
-### Authenticate against the service
-
-First, add some "using" lines at the top of the code.
+First, add some `using` lines at the top of the code to pull in necessary dependencies.
 
 ```csharp
 using Azure.Iot.DigitalTwins;
 using Azure.Identity;
 ```
 
-Before you do anything else, you need to be able to create a service client class to access the SDK functions. To do so, you need to be able to authenticate against the service. 
+Next, you'll add code to this file to fill out some functionality. 
 
-To do so, you need three pieces of information:
-* The tenant id for your subscription
-* The client id (or app registration) created when you set up the service instance. It would have been printed out by the script if you used it.
-* The access URL of your service instance.
+### Authenticate against the service
 
-The following code sample assumes that you wrote these three values into environment variables for future convenience. You can also copy them directly into the variable declarations below for the clientId, tenantId and adtInstanceUrl variables.
+The first thing your app will need to do is authenticate against the Azure Digital Twins service. Then, you can create a service client class to access the SDK functions.
 
-Paste the following code below the "Hello, World!" printout line in Program.cs.
+In order to authenticate, you need three pieces of information:
+* The *Directory (tenant) ID* for your subscription
+* The *Application (client) ID* created when you set up the service instance earlier
+* The *hostName* of your service instance
+
+>[!TIP]
+> If you don't know your *Directory (tenant) ID*, you can get it by running this command in [Azure Cloud Shell]((https://shell.azure.com)):
+> 
+> ```azurecli-interactive
+> az account show --query tenantId
+> ```
+
+In *Program.cs*, paste the following code below the "Hello, World!" printout line. 
+Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *hostName*, `clientId` to your *Application ID*, and `tenantId` to your *Directory ID*.
 
 ```csharp
-string clientId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID");
-string tenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID");
-string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
+string clientId = "<your-application-ID>";
+string tenantId = "<your-directory-ID>";
+string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
 var credentials = new InteractiveBrowserCredential(tenantId, clientId);
 DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
 Console.WriteLine($"Service client created – ready to go");
 ```
 
-Run the code by typing: 
-```bash
-dotnet run
-```
-
-This will restore the dependencies on first run, and then execute the program. If no error occurs, the program will print "Service client created - ready to go".
-In this simple example, you have not added any error handling. If anything is going wrong, you will see an exception thrown by the code.
+Save the file. 
 
 Note that this example uses an interactive browser credential:
 ```csharp
 var credentials = new InteractiveBrowserCredential(tenantId, clientId);
 ```
 
-This will cause a browser to open, asking you to provide your Azure credentials. If you need other types of credentials, see the documentation for the Azure identity library for more information (ToDo - add link) 
+This type of credential will cause a browser window to open, asking you to provide your Azure credentials. 
+
+>[!NOTE]
+> For information on other types of credentials, see the documentation for the [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
+
+In your command window, run the code with this command: 
+```bash
+dotnet run
+```
+
+This will restore the dependencies on first run, and then execute the program. 
+* If no error occurs, the program will print *Service client created - ready to go*.
+* Since there is not yet any error handling in this project, if anything goes wrong, you will see an exception thrown by the code.
 
 ### Upload a model
 
 Azure Digital Twins service instances out of the box have no domain vocabulary. You need to upload model definitions (in form of JSON-DL DTDL, or Digital Twins Definition Language, files).
 
-Let's create a simple DTDL file. In the directory where you created your project, create a json file "Simple.json" and paste in the following content. 
+The next step is to create a model with a basic DTDL file. In the directory where you created your project, create a new *.json* file called *Simple.json*. Paste in the following file body: 
 
 ```json
 {
@@ -160,7 +177,10 @@ Let's create a simple DTDL file. In the directory where you created your project
 }
 ```
 
-Next, add a few using statements.
+Next, add some more code to *Program.cs* to upload the model you've just created into your Azure Digital Twins instance.
+
+First, add a few using statements to the top of the file:
+
 ```csharp
 using System.Threading.Tasks;
 using System.IO;
@@ -169,12 +189,16 @@ using Azure;
 using Azure.Iot.DigitalTwins.Models;
 ```
 
-As you are going to use async methods on the service SDK, change the main method signature to allow for async execution. This is not strictly required as the SDK also provides synchronous versions of all calls, but it is good to practice.
+Next, prepare to use the asynchronous methods in the C# service SDK, by changing the `Main` method signature to allow for async execution. 
+
 ```csharp
 static async Task Main(string[] args)
 ```
 
-This is the first bit of real Azure Digital Twins code. You can load the DTDL file from disk and then upload it to your Azure Digital Twins service instance. 
+>[!NOTE]
+> This is not strictly required, as the SDK also provides synchronous versions of all calls. This tutorial practices using async.
+
+Next comes the first bit of code that interacts with the Azure Digital Twins service. You can load the DTDL file from disk and then upload it to your Azure Digital Twins service instance. 
 
 Paste in the following code under the authorization code.
 ```csharp
