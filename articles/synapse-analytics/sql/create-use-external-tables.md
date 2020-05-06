@@ -19,7 +19,12 @@ In this section, you'll learn how to create and use external tables in SQL on-de
 
 ## Prerequisites
 
-Your first step is to create database where the tables will be created and initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. All queries in this article will be executed on your sample database.
+Your first step is to create database where the tables will be created and initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This  setup script will create the following objects that are used in this sample:
+- DATABASE SCOPED CREDENTIAL `sqlondemand` that enables access to SAS-protected `https://sqlondemandstorage.blob.core.windows.net` Azure storage account.
+- EXTERNAL DATA SOURCE `YellowTaxi` that references publicly available Azure storage account on location `https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/`.
+- File format `ParquetFormat` that describes parquet file type.
+
+The queries in this article will be executed on your sample database and use these objects. 
 
 ## Create an external table on protected data
 
@@ -69,6 +74,10 @@ GO
 You can create external tables that reads data from the files placed on publicly available Azure storage. [Setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) will create public external data source and Parquet file format definition that is used in the following query:
 
 ```sql
+/* Public data source created in setup script: 
+CREATE EXTERNAL DATA SOURCE YellowTaxi WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/')
+*/
+
 CREATE EXTERNAL TABLE Taxi (
      vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
      pickup_datetime DATETIME2, 
