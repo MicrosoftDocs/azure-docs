@@ -93,6 +93,29 @@ It is possible with ACS for a communication identity to communicate on behalf of
 
 
 ## User access token scopes
+
+Scopes enable you to limit the functionality available to a .user when creating access tokens. 
+
+```csharp
+// TODO code sample to create user access token with optional scopes
+```
+
+Scopes are applied to individual user access token. If you wish to remove a user's ability to access to a some specific functionality, you should create a first [revoke any existing access tokens](#revoking-user-access-tokens) that may include undesired scopes before issueing a new token with a more limited set of scopes.
+
+### Supported scopes:
+
+Azure Communication Services supports the following scopes for user access tokens (TODO I made all these up):
+
+| Name                   | Description  |
+| -----------------------|--------------|
+| `chat:send_message`    | Grants the ability to send chat messages |
+| `chat:manage_threads`  | Grants the create new chat threads and add users to chat threads |
+| `voip:adhoc`           | Grants the ability to make outbound VOIP calls |
+| `voip:pstn`            | Grants the ability to make outbound PSTN calls using with the calling SDK |
+| `rooms:manage`            | Grants the ability to make outbound PSTN calls using with the calling SDK |
+
+
+
 ## Access token life cycle (AKA refreshing access tokens)
 
 User access tokens are short lived credentials that need to be rereshed in order to prevent your users from experiencing service disruptions. The client SDKs provide events to let you know when the provided user access token is about to expire. You should subcribe to these events and use them to fetch a new user access token from your trusted service.
