@@ -41,7 +41,7 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates an Azure SQL server. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a server. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a database or elastic pool. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Creates a storage account. |
 | [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | Sets the auditing policy for a database. |
