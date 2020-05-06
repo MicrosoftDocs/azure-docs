@@ -155,9 +155,10 @@ These commands will clone Azure HLF client application code from public GitHub r
 ### Setup environment variables
 
 > [!NOTE]
-> All environmental variables follow the Azure resource naming convention  
-> **Set below environment variables for orderer organization client**
-> OrdererOrgName and PeerOrgName are the ABS resource names used to set up Orderer Service > or Peer Org respectively
+> All environmental variables follow the Azure resource naming convention.
+
+
+**Set below environment variables for orderer organization client**
 
 
 ```bash
@@ -167,7 +168,7 @@ ORDERER_ORG_NAME=<ordererOrgName>
 ORDERER_ADMIN_IDENTITY="admin.$ORDERER_ORG_NAME"
 CHANNEL_NAME=<channelName>
 ```
-Set the below environment variables for peer organization client
+**Set the below environment variables for peer organization client**
 
 ```bash
 PEER_ORG_SUBSCRIPTION=<peerOrgSubscritpion>
@@ -208,8 +209,10 @@ az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE
 Follow below steps for generating Azure file share connection string
 
 ```bash
+STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 SAS_TOKEN=$(az storage account generate-sas --account-key $STORAGE_KEY --account-name $STORAGE_ACCOUNT --expiry `date -u -d "1 day" '+%Y-%m-%dT%H:%MZ'` --https-only --permissions lruwd --resource-types sco --services f | tr -d '"')
-AZURE_FILE_CONNECTION_STRING="https://$STORAGE_ACCOUNT.file.core.windows.net/$STORAGE_FILE_SHARE?$SAS_TOKEN"
+AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STORAGE_FILE_SHARE?$SAS_TOKEN
+
 ```
 
 ### Import organization connection profile, admin user identity, and MSP
@@ -242,6 +245,21 @@ From orderer organization client, issue command to create a new channel. This co
 ```bash
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
+
+From peer organization client, issue below command to set anchor peer(s) for the peer organization on the specified channel.
+
+>[!NOTE]
+> Before executing this command, ensure that peer organization is added in the channel using Consortium management commands.
+
+```bash
+./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY
+```
+
+`<anchorPeersList>` is a space separated list of peer nodes to be set as an anchor peer. For example,
+
+  - Set `<anchorPeersList>` as “peer1” if you want to set only peer1 node as anchor peer.
+  - Set `<anchorPeersList>` as “peer1” “peer3” if you want to set both peer1 and peer3 node as anchor peer.
+
 ### Consortium management commands
 
 >[!NOTE]
@@ -286,17 +304,17 @@ Similarly, to add more peer organizations in the channel, update peer environmen
 
 ```bash
 # peer organization name where chaincode operation is to be performed
-ORGNAME=<ABS resource name for the Peer Org>
+ORGNAME=<PeerOrgName>
 USER_IDENTITY="admin.$ORGNAME"  
-# If you are using chaincode_example02 then set CC_NAME=” chaincode_example02”
+# If you are using chaincode_example02 then set CC_NAME=“chaincode_example02”
 CC_NAME=<chaincodeName>  
-# If you are using chaincode_example02 then set CC_VERSION=”1” for validation
+# If you are using chaincode_example02 then set CC_VERSION=“1” for validation
 CC_VERSION=<chaincodeVersion>
 # Language in which chaincode is written. Supported languages are 'node', 'golang' and 'java'  
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
 # CC_PATH contains the path where your chaincode is place.
-# If you are using chaincode_example02 to validate then CC_PATH=”/home/<username>/azhlfTool/chaincode/src/chaincode_example02”
+# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/chaincode/src/chaincode_example02/go”
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode is to be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
