@@ -57,10 +57,10 @@ Change Tracking and Inventory specifically requires the network addresses listed
 
 |Azure Public  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.azure-automation.us|
+|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
+|*.azure-automation.net | *.azure-automation.us|
 
 ## Change Tracking and Inventory user interface
 
