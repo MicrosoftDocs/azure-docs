@@ -96,38 +96,30 @@ Next, add configuration details specific to your preferred front-end framework.
 - Enter **src** in the _App location_ box
 - Clear the default value from the _Api location_ box
 - Enter **dist/angular-basic** in the _App artifact location_ box
-- Click the **Review + create** button
-
-:::image type="content" source="media/getting-started/review-create.png" alt-text="Review create button":::
 
 # [React](#tab/react)
 
 - Enter **/** in the _App location_ box
 - Clear the default value from the _Api location_ box
 - Enter **build** in the _App artifact location_ box
-- Click the **Review + create** button
-
-:::image type="content" source="media/getting-started/review-create.png" alt-text="Review create button":::
 
 # [Vue](#tab/vue)
 
 - Enter **/** in the _App location_ box
 - Clear the default value from the _Api location_ box
 - Enter **dist** in the _App artifact location_ box
-- Click the **Review + create** button
-
-:::image type="content" source="media/getting-started/review-create.png" alt-text="Review create button":::
 
 # [No Framework](#tab/vanilla-javascript)
 
 - Enter **/** in the _App location_ box
 - Clear the default value from the _Api location_ box
 - Clear the default value from _App artifact location_ box
-- Click the **Review + create** button
-
-:::image type="content" source="media/getting-started/review-create.png" alt-text="Review create button":::
 
 ---
+
+Click the **Review + create** button.
+
+:::image type="content" source="media/getting-started/review-create.png" alt-text="Review create button":::
 
 ### Review + create
 
