@@ -1,7 +1,7 @@
 ---
 title: Enable and manage point-in-time restore for block blobs (preview)
 titleSuffix: Azure Storage
-description: 
+description: Learn how to use point-in-time restore (preview) to restore block blobs to a state at an earlier point in time.
 services: storage
 author: tamram
 
@@ -16,14 +16,19 @@ ms.subservice: blobs
 
 You can use point-in-time restore (preview) to restore block blobs to a state at an earlier point in time. This article describes how to enable point-in-time restore for a storage account. It also shows how to perform a restore operation.
 
+To learn more about point-in-time restore, see [Point-in-time restore for block blobs (preview)](point-in-time-restore-overview.md).
+
+> [!CAUTION]
+> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation during the point-in-time restore preview, that container is not restored when you initiate a restore operation. During the preview, be careful to delete individual blobs only if you may want to restore them. Avoid deleting blobs by deleting their parent container.
+
+> [!IMPORTANT]
+> The point-in-time restore preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
+
 ## Install the preview module
 
 To configure Azure point-in-time restore with PowerShell, first install version [1.14.1-preview](https://www.powershellgallery.com/packages/Az.Storage/1.14.1-preview) of the Az.Storage PowerShell module. Follow these steps to install the preview module:
 
-1. Uninstall any previous installations of Azure PowerShell:
-
-    - Remove any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
-    - Remove all **Azure** modules from `%Program Files%\WindowsPowerShell\Modules`.
+1. Uninstall any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
 
 1. Make sure that you have the latest version of PowerShellGet installed. Open a Windows PowerShell window, and run the following command to install the latest version:
 
@@ -127,9 +132,7 @@ Keep in mind the following rules when specifying a range of blobs to restore:
 - The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum.
 - Only one range can be specified per restore operation.
 - Wildcard characters are not supported. They are treated as standard characters.
-- You can restore blobs in the `$root` and `$web` containers by explicitly specifying them in a range pass to a restore operation. The `$root` and `$web` containers are not restored unless they are explicitly specified, so they are not restored when a restore operation restores all containers in the storage account.
-
-    Other system containers cannot restored.
+- You can restore blobs in the `$root` and `$web` containers by explicitly specifying them in a range pass to a restore operation. The `$root` and `$web` containers are not restored unless they are explicitly specified, so they are not restored when a restore operation restores all containers in the storage account. Other system containers cannot restored.
 
 ## Next steps
 
