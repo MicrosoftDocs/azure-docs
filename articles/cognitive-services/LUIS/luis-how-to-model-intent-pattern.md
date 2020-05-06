@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 05/06/2020
 ms.author: diberry
 ---
 
@@ -33,7 +33,7 @@ If you want to add a pattern for an entity, the _easiest_ way is to create the p
     > [!div class="mx-imgBorder"]
     > ![Screenshot of selecting example utterance as a template pattern on the Intent details page.](./media/luis-how-to-model-intent-pattern/add-example-utterances-as-pattern-template-utterance-from-intent-detail-page.png)
 
-1. In the pop-up box, select **Done** on the **Confirm patterns** page. You don't need to define the entities' subcomponents, constraints, or descriptors. You only need to list the machine-learned entity.
+1. In the pop-up box, select **Done** on the **Confirm patterns** page. You don't need to define the entities' subentities, or features. You only need to list the machine-learned entity.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of confirming example utterance as a template pattern on the Intent details page.](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)

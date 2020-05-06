@@ -42,7 +42,7 @@
       href: tutorial-intents-only.md
     - name: 2. Extract user data
       href: tutorial-machine-learned-entity.md
-      displayName: n-depth, constraint, descriptor, phrase list, entity
+      displayName: n-depth, constraint, descriptor, phrase list, entity, feature
     - name: 3. Get sentiment from user utterances
       href: tutorial-publish-settings.md
   - name: Improve app
@@ -88,7 +88,7 @@
       displayName: roles
     - name: Features
       href: luis-concept-feature.md
-      displayName: descriptor, phrase list
+      displayName: descriptor, phrase list, feature
     - name: Extend app at runtime
       href: schema-change-prediction-runtime.md
   - name: Prediction score
@@ -144,8 +144,8 @@
       href: howto-add-prebuilt-models.md
     - name: Label entity in utterance
       href: label-entity-example-utterance.md
-    - name: Add Descriptor
-      displayName: synonym, interchange, phrase list, descriptor
+    - name: Add Feature
+      displayName: synonym, interchange, phrase list, descriptor, feature
       href: luis-how-to-add-features.md
     - name: With REST APIs
       items:

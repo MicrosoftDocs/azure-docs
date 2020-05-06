@@ -2,7 +2,7 @@
 title: Limits - LUIS
 description: This article contains the known limits of Azure Cognitive Services Language Understanding (LUIS). LUIS has several limits areas. Model limit controls intents, entities, and features in LUIS. Quota limits based on key type. Keyboard combination controls the LUIS website.
 ms.topic: reference
-ms.date: 04/23/2020
+ms.date: 05/06/2020
 ---
 # Limits for your LUIS model and keys
 LUIS has several limit areas. The first is the [model limit](#model-limits), which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of limits is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS [endpoint](luis-glossary.md#endpoint) APIs.
@@ -23,7 +23,7 @@ If your app exceeds the LUIS model limits, consider using a [LUIS dispatch](luis
 | [Intents][intents]|500 per application: 499 custom intents, and the required _None_ intent.<br>[Dispatch-based](https://aka.ms/dispatch-tool) application has corresponding 500 dispatch sources.|
 | [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonym values have no length restriction. |
 | [Machine-learned entities + roles](./luis-concept-entity-types.md):<br> composite,<br>simple,<br>entity role|A limit of either 100 parent entities or 330 entities, whichever limit the user hits first. A role counts as an entity for the purpose of this limit. An example is a composite with a simple entity, which has 2 roles is: 1 composite + 1 simple + 2 roles = 4 of the 330 entities.<br>Subentities can be nested up to 5 levels.|
-|Model as a feature| Maximum number of models that can be used as a descriptor (feature) to a specific model to be 10 models. The maximum number of phrase lists used as a descriptor (feature) for a specific model to be 10 phrase lists.|
+|Model as a feature| Maximum number of models that can be used as a feature to a specific model to be 10 models. The maximum number of phrase lists used as a feature for a specific model to be 10 phrase lists.|
 | [Preview - Dynamic list entities](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 lists of ~1k per query prediction endpoint request|
 | [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per application, 3 pattern.any entities per pattern |
