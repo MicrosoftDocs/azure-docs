@@ -180,7 +180,8 @@ Records stored in Kafka are stored in the order they're received within a partit
     
 2. Facing issue with ESP enabled clusters
 
-    We have seen issues where create/produce and consumer fail in an ESP enabled cluster. Please check all the Ranger policies and validate that user "kafka" is added to all of them. If it is not present please add it in all the policies.      
+If produce and consume operations fail and you are using an ESP enabled cluster, check that the user `kafka` is present in all Ranger policies. If it is not present, add it to all Ranger policies.      
+
 
 ## Clean up resources
 
