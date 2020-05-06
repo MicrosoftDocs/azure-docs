@@ -41,7 +41,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     The *ConnectionMode* is configured during the construction of the Azure Cosmos DB client instance with the *ConnectionPolicy* parameter.
     
-    ### <a id="java4-connection-policy"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+   #### [Async](#tab/api-async)
+
+   ### <a id="java4-connection-policy-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
     public ConnectionPolicy getConnectionPolicy() {
@@ -57,6 +59,27 @@ So if you're asking "How can I improve my database performance?" consider the fo
         .setConnectionPolicy(connectionPolicy)
         .buildAsyncClient();
     ```
+
+    #### [Sync](#tab/api-sync)
+
+    ### <a id="java4-connection-policy-sync"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
+
+    ```java
+    public ConnectionPolicy getConnectionPolicy() {
+        ConnectionPolicy policy = new ConnectionPolicy();
+        policy.setMaxPoolSize(1000);
+        return policy;
+    }
+
+    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+    CosmosAsyncClient client = new CosmosClientBuilder()
+        .setEndpoint(HOST)
+        .setKey(MASTER)
+        .setConnectionPolicy(connectionPolicy)
+        .buildClient();
+    ```
+
+    --- 
 
 <a name="collocate-clients"></a>
 * **Collocate clients in same Azure region for performance**
