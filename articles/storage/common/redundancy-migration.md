@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -22,7 +22,7 @@ Azure Storage offers the following types of replication:
 - Locally redundant storage (LRS)
 - Zone-redundant storage (ZRS)
 - Geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS)
-- Geo-zone-redundant storage (GZRS) or read-access geo-zone-redundant storage (RA-GZRS) (preview)
+- Geo-zone-redundant storage (GZRS) or read-access geo-zone-redundant storage (RA-GZRS)
 
 For an overview of each of these options, see [Azure Storage redundancy](storage-redundancy.md).
 
@@ -191,4 +191,4 @@ If you migrate your storage account from GRS to LRS, there is no additional cost
 
 - [Azure Storage redundancy](storage-redundancy.md)
 - [Check the Last Sync Time property for a storage account](last-sync-time-get.md)
-- [Designing highly available applications using read-access geo-redundant storage](storage-designing-ha-apps-with-ragrs.md)
+- [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
