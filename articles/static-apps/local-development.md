@@ -33,9 +33,9 @@ This article demonstrates recommended best-practices for local development, incl
 
 Running an Azure Static Web App locally involves three processes, depending on whether or not your project contains an API.
 
-1. Running a local web server
-1. Running the API
-1. Connecting the web project to the API
+* Running a local web server
+* Running the API
+* Connecting the web project to the API
 
 Depending on how a website is built, a local web server may or may not be required to run the application in the browser. When using front-end JavaScript frameworks and static site generators, this functionality is built in to their respective CLIs (Command Line Interfaces). The following links point to the CLI reference for a selection of frameworks, libraries, and generators.
 
@@ -65,7 +65,7 @@ The Live Server extension for Visual Studio Code provides a local development we
 
 1. Open Visual Studio Code.
 
-1. Press <kbd>F1</kbd> to open the Command Palette.
+1. Press **F1** to open the Command Palette.
 
 1. Type **clone** in the search box and select **Git: Clone**.
 
@@ -87,7 +87,7 @@ Visual Studio Code will open the cloned project in the editor.
 
 ### Run the website locally with Live Server
 
-1.  Press <kbd>F1</kbd> to open the Command Palette.
+1.  Press **F1** to open the Command Palette.
 
 1.  Type **Live Server** in the search box and select **Live Server: Open with Live Server**
 
@@ -103,7 +103,7 @@ Azure Static Web Apps APIs are powered by Azure Functions. See [Add an API to Az
 
 As part of the API creation process, a launch configuration is created for Visual Studio Code. This configuration is located in the _.vscode_ folder. This folder contains all of the required settings for building and running the API locally.
 
-1. In Visual Studio Code, press <kbd>F5</kbd> to start the API.
+1. In Visual Studio Code, press **F5** to start the API.
 
 1. A new terminal instance opens showing the output from the API build process.
 
@@ -111,7 +111,7 @@ As part of the API creation process, a launch configuration is created for Visua
 
    The status bar in Visual Studio Code is now orange. This indicates that the API is now running and the debugger is attached.
 
-1. Next, press <kbd>Ctrl/Cmd</kbd> and click on the URL in the terminal to open a browser window that calls the API.
+1. Next, press **Ctrl/Cmd** and click on the URL in the terminal to open a browser window that calls the API.
 
     :::image type="content" source="media/local-development/hello-from-the-api.png" alt-text="Browser display result of API call":::
 
@@ -180,13 +180,13 @@ For more information on configuring environment files for front-end JavaScript f
 
 ##### Restart Live Server
 
-1. Press <kbd>F1</kbd> to open the Command Palette in Visual Studio Code
+1. Press **F1** to open the Command Palette in Visual Studio Code
 
 1. Type **Live Server** and select **Live Server: Stop Live Server**.
 
-    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Stop Live Server command in Visual Studio command palatte":::
+    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Stop Live Server command in Visual Studio command palette":::
 
-1. Press <kbd>F1</kbd> to open the Command Palette
+1. Press **F1** to open the Command Palette
 
 1. Type **Live Server** and select **Live Server: Open with Live Server**.
 
