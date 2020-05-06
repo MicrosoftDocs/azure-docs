@@ -32,22 +32,22 @@ Understand that you will **not** have any billing implications if the Synapse Li
 ## Azure Cosmos DB analytical store
 
 ### Can I enable analytical store on existing containers?
-Currently, analytical store can only be enabled for new containers (both in new and existing accounts).
+Currently, the analytical store can only be enabled for new containers (both in new and existing accounts).
 
 ### Can I disable analytical store on my Azure Cosmos containers after enabling it during container creation?
-Currently, analytical store cannot be disabled on an Azure Cosmos container after it is enabled during container creation.
+Currently, the analytical store cannot be disabled on an Azure Cosmos container after it is enabled during container creation.
 
 ### Is analytical store supported for Azure Cosmos containers with autoscale provisioned throughput?
-Yes, analytical store can be enabled on containers with autoscale provisioned throughput.
+Yes, the analytical store can be enabled on containers with autoscale provisioned throughput.
 
 ### Is there any effect on Azure Cosmos DB transactional store provisioned RUs?
-Azure Cosmos DB guarantees performance isolation between the transactional and analytical workloads. Enabling analytical store on a container will not impact the RU/s provisioned on the Azure Cosmos DB transactional store. The transactions (read & write) and storage costs for the analytical store will be charged separately. See the [pricing page of Azure Cosmos DB analytical store]() for more details.
+Azure Cosmos DB guarantees performance isolation between the transactional and analytical workloads. Enabling the analytical store on a container will not impact the RU/s provisioned on the Azure Cosmos DB transactional store. The transactions (read & write) and storage costs for the analytical store will be charged separately. See the [pricing page of Azure Cosmos DB analytical store]() for more details.
 
 ### Are deletes & updates to the transactional store reflected in the analytical store? 
 Yes, deletes and updates to the data in the transactional store will be reflected in the analytical store. When analytical TTL is configured to include historical data, the analytical store retains all versions of items.
 
 ### Can I connect to analytical store from analytics engines other than Azure Synapse Analytics?
-You can only access and run queries against analytical store using the various run-times provided by Azure Synapse Analytics. The analytical store can be queried and analyzed using:
+You can only access and run queries against an analytical store using the various run-times provided by Azure Synapse Analytics. The analytical store can be queried and analyzed using:
 
 * Synapse Spark with full support for Scala, Python, SparkSQL, and C#. Synapse Spark is central to data engineering and science scenarios
 * SQL serverless with T-SQL language and support for familiar BI tools (For example, Power BI Premium, etc.)
@@ -62,7 +62,7 @@ Analytical store is a read-only store in an Azure Cosmos container. So, you cann
 The replication is asynchronous, and currently the expected latency is around 2 min. 
 
 ### Are there any constraints on the schema of data when analytical store is enabled?
-Yes, we have a private preview of full-fidelity analytical schema representation available if you have changing types for properties, please reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
+Yes. If you have changing types for properties, a private preview of full-fidelity analytical schema representation is also available, email the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com) to request access.
 
 ### Can I partition the data in analytical store differently from transactional store?
 The data in analytical store is partitioned based on the horizontal partitioning of shards in the transactional store. Currently, you cannot choose a different partitioning strategy for the analytical store.
@@ -89,7 +89,7 @@ All transactional updates and deletes are copied to the analytical store but if 
 ## Security
 
 ### What are the ways to authenticate with the analytical store?
-Authentication with the analytical store is the same as transactional store. For a given database, you can authenticate with the master or read-only key. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available for everyone who has access into the workspace.
+Authentication with an analytical store is the same as a transactional store. For a given database, you can authenticate with the master or read-only key. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available for everyone who has access to the workspace.
 
 ## Synapse run-times
 
@@ -109,7 +109,7 @@ Currently Spark structured streaming support for Azure Cosmos DB is implemented 
 
 ## Synapse Studio
 
-### In the Synapse Studio how do I recognize if I am connected to an Azure Cosmos DB container with analytics store enabled?
+### In the Synapse Studio, how do I recognize if I'm connected to an Azure Cosmos DB container with an analytics store enabled?
 An Azure Cosmos DB container enabled with analytical store has the following icon:
 
 ![Azure Cosmos DB container enabled with analytical store- icon](./media/synapse-link-frequently-asked-questions/analytical-store-icon.png)
