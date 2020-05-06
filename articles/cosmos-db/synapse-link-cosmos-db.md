@@ -20,7 +20,7 @@ Synapse Link for Azure Cosmos DB is a cloud native hybrid transactional and anal
 
 ![Architecture diagram for Azure Synapse Analytics integration with Azure Cosmos DB](./media/synapse-link-cosmos-db/synapse-analytics-cosmos-db-architecture.png)
 
-## Benefits of Synapse Link
+## <a id="synapse-link-benefits"></a> Benefits of Synapse Link
 
 To analyze large operational datasets without impacting the performance of mission-critical transactional workloads, traditionally, the operational data in Azure Cosmos DB is extracted and processed by Extract-Transform-Load (ETL) pipelines. ETL pipelines require many layers of data movement resulting in a lot of operational complexity, performance impact on your transactional workloads. It also increases the latency to analyze the operational data from the time of origin.
 
@@ -58,7 +58,7 @@ Analytical store automatically picks up high frequency inserts, updates, deletes
 
 If you have a globally distributed Azure Cosmos account, after you enable analytical store for a container, it will be available in all regions for that account. For more information on the analytical store, see [Azure Cosmos DB Analytical store overview]() article.
 
-### Integration with Azure Synapse Analytics
+### <a id="synapse-link-integration"></a>Integration with Azure Synapse Analytics
 
 With Synapse Link, you can now directly connect to your Azure Cosmos containers from Azure Synapse Analytics and access the analytical store with no separate connectors. Azure Synapse Analytics currently supports Synapse Link with [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) and [Synapse SQL (serverless)](../synapse-analytics/sql/on-demand-workspace-overview.md).
 
@@ -116,4 +116,4 @@ Synapse Link for Azure Cosmos DB is currently available in the following Azure r
 
 ## Next steps
 
-[Frequently asked questions about Synapse Link for Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Frequently asked questions about Synapse Link for Azure Cosmos DB](synapse-link-frequently-asked-questions.md)

@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions about Synapse Link for Azure Cosmos DB 
-description: Get answers to frequently asked questions related to billing, analytical TTL, analytical store, and security on Synapse Link for Azure Cosmos DB. 
+description: Get answers to frequently asked questions about Synapse Link for Azure Cosmos DB in areas such as billing, analytical store, security, time to live on analytical store. 
 author: srchi
 ms.author: srchi
 ms.service: cosmos-db
@@ -47,7 +47,7 @@ Azure Cosmos DB guarantees performance isolation between the transactional and a
 Yes, deletes and updates to the data in the transactional store will be reflected in the analytical store. You can configure the Time to Live (TTL) on the container to include historical data so that the analytical store retains all versions of items.
 
 ### Can I connect to analytical store from analytics engines other than Azure Synapse Analytics?
-You can only access and run queries against an analytical store using the various run-times provided by Azure Synapse Analytics. The analytical store can be queried and analyzed using:
+You can only access and run queries against the analytical store using the various run-times provided by Azure Synapse Analytics. The analytical store can be queried and analyzed using:
 
 * Synapse Spark with full support for Scala, Python, SparkSQL, and C#. Synapse Spark is central to data engineering and science scenarios
 * SQL serverless with T-SQL language and support for familiar BI tools (For example, Power BI Premium, etc.)
@@ -70,10 +70,10 @@ The data in analytical store is partitioned based on the horizontal partitioning
 ### Can I customize or override the way transactional data is transformed into columnar format in the analytical store?
 Currently you can’t customize the transactional data format. If you need only a subset of properties to be available in the analytical store, please reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
 
-## Analytical TTL
+## Time to live (TTL) for analytical data
 
-### Is analyticalTTL supported for both container and item level?
-At this time, analytical TTL can only be configured at container level and there is no support to set analytical TTL at item level.
+### Is TTl for analytical data supported at both container and item level?
+At this time, TTl for analytical data can only be configured at container level and there is no support to set analytical TTL at item level.
 
 ### After setting the container level  analytical TTL on an Azure Cosmos DB container, can I change to a different value later?
 Yes, analytical TTL can be updated to any valid value. See the [Analytical TTL]() article for more details about analytical TTL.
@@ -89,7 +89,7 @@ All transactional updates and deletes are copied to the analytical store but if 
 ## Security
 
 ### What are the ways to authenticate with the analytical store?
-Authentication with an analytical store is the same as a transactional store. For a given database, you can authenticate with the master or read-only key. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available for everyone who has access to the workspace.
+Authentication with the analytical store is the same as a transactional store. For a given database, you can authenticate with the master or read-only key. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available for everyone who has access to the workspace.
 
 ## Synapse run-times
 
@@ -109,7 +109,7 @@ Currently Spark structured streaming support for Azure Cosmos DB is implemented 
 
 ## Synapse Studio
 
-### In the Synapse Studio, how do I recognize if I'm connected to an Azure Cosmos DB container with an analytics store enabled?
+### In the Synapse Studio, how do I recognize if I'm connected to an Azure Cosmos DB container with the analytics store enabled?
 An Azure Cosmos DB container enabled with analytical store has the following icon:
 
 ![Azure Cosmos DB container enabled with analytical store- icon](./media/synapse-link-frequently-asked-questions/analytical-store-icon.png)
@@ -122,3 +122,5 @@ A transactional store container will be represented with the following icon:
 Currently Azure Cosmos DB credentials are passed while creating the linked service by the user who has access to the Azure Cosmos DB databases. Access to that store is available to other users who have access to the workspace.
 
 ## Next steps
+
+* Learn about the [benefits of Synapse Link](synapse-link-cosmos-db.md#synapse-link-benefits) and [integration between Synapse Link and Azure Cosmos DB](synapse-link-cosmos-db.md#synapse-link-integration).
