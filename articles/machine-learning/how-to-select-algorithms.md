@@ -55,7 +55,7 @@ The following table summarizes some of the most important characteristics of alg
 | [Multiclass boosted decision tree](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Excellent |Moderate |No |6 | Tends to improve accuracy with some small risk of less coverage |
 | [Multiclass neural network](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |Good |Moderate |No |8 | |
 | [One-vs-all multiclass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/one-vs-all-multiclass?WT.mc_id=docs-article-lazzeri) | - | - | - | - |See properties of the two-class method selected |
-| **[Regression family]** | | | | | |
+| **Regression family** | | | | | |
 | [Linear regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/linear-regression?WT.mc_id=docs-article-lazzeri) |Good |Fast |Yes |4 | |
 | [Decision forest regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|Excellent |Moderate |No |5 | |
 | [Boosted decision tree regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |Excellent |Moderate |No |6 |Large memory footprint |
