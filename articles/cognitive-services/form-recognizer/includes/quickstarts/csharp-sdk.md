@@ -23,7 +23,7 @@ ms.author: pafarley
 
 ### Create a Form Recognizer Azure resource
 
-[!INCLUDE [create resource](../includes/create-resource.md)]
+[!INCLUDE [create resource](../create-resource.md)]
 
 ### Create environment variables
 
@@ -134,11 +134,11 @@ If you're using the Visual Studio IDE, the client library is available as a down
 These code snippets show you how to do the following tasks with the Form Recognizer client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Recognize form contents](#detect-contents)
-* [Recognize receipts](#receipts)
-* [Train a custom Form Recognizer model](#train-a-custom-model)
+* [Recognize form contents](#recognize-form-contents)
+* [Recognize receipts](#recognize-receipts)
+* [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
-* [Manage your custom models](#manage-custom-models)
+* [Manage your custom models](#manage-your-custom-models)
 
 
 ## Authenticate the client
@@ -295,7 +295,7 @@ Finally, the last block of code prints the rest of the major receipt details.
 }
 ```
 
-## Train a custom Form Recognizer model
+## Train a custom model
 
 This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
 
@@ -389,7 +389,7 @@ The returned **CustomFormModel** indicates the fields the model can extract, alo
 This section demonstrates how to extract key/value information and other content from your custom form types, using models you trained with your own forms.
 
 > [!IMPORTANT]
-> In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below. See the [Train a model](#Train-a-model-without-labels) section.
+> In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below. See the [Train a model](#train-a-model-without-labels) section.
 
 You'll use the **StartRecognizeCustomFormsFromUri** method. The returned value is a collection of **RecognizedForm** objects: one for each page in the submitted document.
 
@@ -468,7 +468,7 @@ The following code block lists the current models in your account and prints the
 
 ### Get a specific model using the model's ID
 
-The following code block trains a new model (just like in the [Train a model](#Train-a-model-without-labels) section) and then retrieves a second reference to it using its ID.
+The following code block trains a new model (just like in the [Train a model](#train-a-model-without-labels) section) and then retrieves a second reference to it using its ID.
 
 ```csharp
     // Create a new model to store in the account
@@ -518,8 +518,8 @@ dotnet run
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Troubleshooting
 
@@ -565,6 +565,6 @@ Headers:
 In this quickstart, you used the Form Recognizer .NET client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
-> [Build a training data set](../build-training-data-set.md)
+> [Build a training data set](../../build-training-data-set.md)
 
-* [What is Form Recognizer?](../overview.md)
+* [What is Form Recognizer?](../../overview.md)
