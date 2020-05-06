@@ -1,8 +1,7 @@
 ---
 title: How to recover a deleted storage account
 description: Learn how to recover a deleted storage account
-author: todmccoy
-manager: dcscontentpm
+author: tamram
 ms.service: storage
 ms.topic: conceptual
 ms.date: 11/19/2019
