@@ -29,23 +29,25 @@ In this article you will learn how to:
 > * Submit an experiment
 > * View results
 
-This article is based on the [RLlib Pong example](https://github.com/Azure/azureml-rl-preview/blob/master/Rllib%20Pong.ipynb) that can found in the Azure Machine Learning reinforcement learning [GitHub repository](https://github.com/Azure/azureml-rl-preview). 
+This article is based on the [RLlib Pong example](https://aka.ms/azureml-rl-pong) that can found in the Azure Machine Learning notebook [GitHub repository](https://aka.ms/azureml-rl-notebooks).
 
 ## Prerequisites
 
-Run this code in either of the following environments. We recommend you try  Azure Machine Learning compute instance for the fastest experience.
+Run this code in either of the following environments. We recommend that you try Azure Machine Learning compute instance for the fastest start up experience. The reinforcement sample notebooks are available to quickly clone and run on Azure Machine Learning compute instance.
 
  - Azure Machine Learning compute instance
 
-     - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK.
-     - Run the [workspace setup notebook](https://github.com/Azure/azureml-rl-preview/blob/master/Workspace%20Setup.ipynb) to create a virtual network (VNET) that allows network ports used for distributed training.
+     - Learn how to clone sample notebooks in [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+         - Clone the **how-to-use-azureml** folder instead of **tutorials**
+     - Run the virtual network (VNET) setup notebook located at `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb` to open network ports used for distributed reinforcement learning.
+     - Run the sample notebook `/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`
  
  - Your own Jupyter Notebook server
 
     - Install the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
     - Install the [Azure Machine Learning RL SDK](https://review.docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&branch=harnvirdebug): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Create a [workspace configuration file](how-to-configure-environment.md#workspace).
-    - Run the [workspace setup notebook](https://github.com/Azure/azureml-rl-preview/blob/master/Workspace%20Setup.ipynb) to create a virtual network (VNET) that allows network ports used for distributed training.
+    - Run the virtual network (VNET) [setup notebook](https://aka.ms/azure-rl-env-setup) to open network ports used for distributed reinforcement learning.
 
 
 ## How to train a Pong-playing agent
@@ -108,7 +110,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### Specify a VNET
 
-For RL jobs that use multiple compute targets, you must specify a VNET in your resource group with open ports that allow worker nodes and head nodes to communicate with each other. For more information on setting up your VNET, see the [workspace setup notebook](https://github.com/Azure/azureml-rl-preview/blob/master/Workspace%20Setup.ipynb) that can found in the prerequisites section. Here, you specify the name of the VNET in your resource group.
+For RL jobs that use multiple compute targets, you must specify a VNET in your resource group with open ports that allow worker nodes and head nodes to communicate with each other. For more information on setting up your VNET, see the [workspace setup notebook](https://aka.ms/azure-rl-env-setup) that can found in the prerequisites section. Here, you specify the name of the VNET in your resource group.
 
 ```python
 vnet = 'your_vnet'
@@ -324,7 +326,7 @@ rl_estimator = ReinforcementLearningEstimator(
 
 ### Entry script
 
-The [entry script](https://github.com/Azure/azureml-rl-preview/blob/master/files/rllib-pong.py) `rllib-pong.py` trains a neural network using the [OpenAI Gym environment](https://github.com/openai/gym/) `PongNoFrameSkip-v4`. OpenAI Gyms are standardized interfaces to test reinforcement learning algorithms on classic Atari games.
+The [entry script](https://aka.ms/azure-rl-pong-script) `rllib-pong.py` trains a neural network using the [OpenAI Gym environment](https://github.com/openai/gym/) `PongNoFrameSkip-v4`. OpenAI Gyms are standardized interfaces to test reinforcement learning algorithms on classic Atari games.
 
 This example using a training agent known as [IMPALA](https://arxiv.org/abs/1802.01561) (Importance Weighted Actor-Learner Architecture) to implement a training architecture that greatly parallelizes each individual learning actor. As a result, IMPALA is highly scalable across many compute nodes, and does so without sacrificing speed or stability.
 
@@ -432,4 +434,4 @@ In short work, you have learned to configure multiple compute resources to train
 
 ## Next steps
 
-In this article, you learned how to train a reinforcement learning agent using an IMPALA learning agent. To see additional examples of Azure Machine Learning reinforcement learning, go to the [Azure Machine Learning reinforcement learning GitHub repository](https://github.com/Azure/azureml-rl-preview).
+In this article, you learned how to train a reinforcement learning agent using an IMPALA learning agent. To see additional examples of Azure Machine Learning reinforcement learning, go to the [Azure Machine Learning reinforcement learning GitHub repository](https://aka.ms/azureml-rl-notebooks).
