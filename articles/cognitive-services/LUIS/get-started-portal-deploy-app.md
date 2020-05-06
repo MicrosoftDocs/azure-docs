@@ -3,7 +3,6 @@ title: "Quickstart: Deploy an app with the LUIS portal"
 description: This quickstart shows how to deploy an app by creating a prediction endpoint resource, assigning the resource, training, and publishing the app.
 ms.topic: quickstart
 ms.date: 05/06/2020
-#Customer intent: As a new user, I want to deploy a LUIS app in the LUIS portal so I can understand the process of putting the model on the prediction endpoint.
 ---
 
 # Quickstart: Deploy an app in the LUIS portal
