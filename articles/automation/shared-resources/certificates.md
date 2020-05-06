@@ -62,7 +62,7 @@ When you create a new certificate, you upload a .cer or .pfx file to Automation.
 
 ### Create a new certificate with the Azure portal
 
-1. From your Automation account, select **Assets** > **Certificates** > **Add a certificate**..
+1. From your Automation account, select **Assets** > **Certificates** > **Add a certificate**.
 1. In the **Name** field, type a name for the certificate.
 1. To browse for a **.cer** or **.pfx** file, under **Upload a certificate file**, choose **Select a file**. If you select a **.pfx** file, specify a password and indicate if it can be exported.
 1. Select **Create** to save the new certificate asset.
