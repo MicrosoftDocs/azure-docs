@@ -65,6 +65,8 @@ In this 16-minute video, software engineer Raouf Merouche explains the process o
 + 4 - 6 minutes cover querying: retrieval and ranking.
 + 7 - 16 minutes covers scoring profiles.
 
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
+
 ## See also
 
  [Scoring Profiles](index-add-scoring-profiles.md)
