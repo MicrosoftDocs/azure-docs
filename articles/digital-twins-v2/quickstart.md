@@ -46,7 +46,7 @@ In the remainder of this quickstart, you will use the sample project and some pr
 
 ### Model a physical environment with DTDL
 
-The first step in building out an Azure Digital Twins solution is concepting and defining twin [**models**](concepts-models.md) for your environment. 
+The first step in **building** out an Azure Digital Twins solution is concepting and defining twin [**models**](concepts-models.md) for your environment. 
 
 Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *commands*, *relationships*, and *components*.
 
@@ -253,3 +253,6 @@ Continue on to the tutorial to see how to connect a sample solution to other Azu
 
 > [!div class="nextstepaction"]
 > [Tutorial: Build an end-to-end solution](tutorial.md)
+
+Or, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
+* [Concepts: Twin models](concepts-models.md)
