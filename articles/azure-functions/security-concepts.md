@@ -13,15 +13,15 @@ In many ways, planning for secure development, deployment, and operation of serv
 
 [!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
-For a complete set of security recommendations for Azure Functions that follows the [Azure Security Benchmark](/azure/security/benchmarks/overview), see [Azure Security Baseline for Azure Functions](security-baseline.md).
+For a set of security recommendations that follow the [Azure Security Benchmark](/azure/security/benchmarks/overview), see [Azure Security Baseline for Azure Functions](security-baseline.md).
 
 ## Secure operation 
 
-This section provides guidance for ways to configure and run your function app as securely as possible. 
+This section guides you on configuring and running your function app as securely as possible. 
 
 ### Security Center
 
-Security Center integrates with your function app in the portal. It provides, for free, a quick assessment of potential configuration-related security vulnerabilities. Function apps running in a dedicated plan can also leverage the real-time security features of Security Center, for an additional cost. To learn more, see [Protect your Azure App Service web apps and APIs](../security-center/security-center-app-services.md). 
+Security Center integrates with your function app in the portal. It provides, for free, a quick assessment of potential configuration-related security vulnerabilities. Function apps running in a dedicated plan can also use the real-time security features of Security Center, for an additional cost. To learn more, see [Protect your Azure App Service web apps and APIs](../security-center/security-center-app-services.md). 
 
 ### Log and monitor
 
@@ -33,11 +33,11 @@ For more security recommendations for observability, see the [Azure security bas
 
 ### Require HTTPS
 
-By default, clients can connect to function endpoints by using both HTTP or HTTPS. We recommend redirecting HTTP to HTTPs because HTTPS uses the SSL/TLS protocol to provide a secure connection, which is both encrypted and authenticated. To learn how, see [Enforce HTTPS](../app-service/configure-ssl-bindings.md#enforce-https).
+By default, clients can connect to function endpoints by using both HTTP or HTTPS. You should redirect HTTP to HTTPs because HTTPS uses the SSL/TLS protocol to provide a secure connection, which is both encrypted and authenticated. To learn how, see [Enforce HTTPS](../app-service/configure-ssl-bindings.md#enforce-https).
 
 When you require HTTPS, you should also Require the latest TLS version. To learn how, see [Enforce TLS versions](../app-service/configure-ssl-bindings.md#enforce-tls-versions).
 
-For more information see [Secure connections (TSL)](../app-service/overview-security.md#https-and-certificates).
+For more information, see [Secure connections (TSL)](../app-service/overview-security.md#https-and-certificates).
 
 ### Function access keys
 
@@ -73,7 +73,7 @@ For more information, see [How to use managed identities for App Service and Azu
 
 [Cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is a way to allow web apps running in another domain to make requests to your HTTP trigger endpoints. App Service provides built-in support for handing the required CORS headers in HTTP requests. CORS rules are defined on a function app level.  
 
-While it's tempting to use a wildcard that allow all sites to access your endpoint, this defeats the purpose of CORS, which is to help prevent cross-site scripting attacks. You should instead add a separate CORS entry to for the domain of each web app that must access your endpoint. 
+It's tempting to use a wildcard that allows all sites to access your endpoint. But, this defeats the purpose of CORS, which is to help prevent cross-site scripting attacks. Instead, add a separate CORS entry to for the domain of each web app that must access your endpoint. 
 
 ### Managing secrets 
 
@@ -87,7 +87,7 @@ By default, you store connection strings and secrets used by your function app a
 
 For example, every function app requires an associated storage account, which is used by the runtime. By default, the connection to this storage account is stored in an application setting named `AzureWebJobsStorage`.
 
-App settings and connection strings are stored encrypted in Azure, and they're decrypted only before being injected into your app's process memory when the app starts. The encryption keys are rotated regularly. If you prefer to instead manage the secure storage of your secrets, the app setting should instead be references to Azure Key Vault. 
+App settings and connection strings are stored encrypted in Azure. They're decrypted only before being injected into your app's process memory when the app starts. The encryption keys are rotated regularly. If you prefer to instead manage the secure storage of your secrets, the app setting should instead be references to Azure Key Vault. 
 
 #### Key Vault references
 
@@ -101,7 +101,7 @@ Consider setting a usage quota on functions running in a Consumption plan. When 
 
 ### Data validation
 
-The triggers and bindings used by your functions don't provide any additional data validation. You should validate any data received from a trigger or input binding. If an upstream service is compromised, you don't want unvalidated inputs flowing through your functions. For example, if your function stores data from an Azure Storage queue in a relational database, you must validate the data and parameterize your commands to avoid SQL injection attacks. 
+The triggers and bindings used by your functions don't provide any additional data validation. Validate any data received from a trigger or input binding. If an upstream service is compromised, you don't want unvalidated inputs flowing through your functions. For example, if your function stores data from an Azure Storage queue in a relational database, you must validate the data and parameterize your commands to avoid SQL injection attacks. 
 
 Never assume that the data coming into your function has already been validated or sanitized. It's also a good idea to verify that the data being written to output bindings is valid. 
 
@@ -153,11 +153,11 @@ By having a separate scm endpoint, you can control deployments and other advance
 
 ## Network security
 
-Restricting network access to your function app lets you control who can access your functions endpoints. Functions leverages App Service infrastructure to enable your functions to access resources without using internet-routable addresses or to restrict internet access to a function endpoints. To learn more about these networking options, see [Azure Functions networking options](functions-networking-options.md).
+Restricting network access to your function app lets you control who can access your functions endpoints. Functions leverages App Service infrastructure to enable your functions to access resources without using internet-routable addresses or to restrict internet access to function endpoints. To learn more about these networking options, see [Azure Functions networking options](functions-networking-options.md).
 
 ### Set access restrictions
 
-Access restrictions allow you to define lists of allow/deny rules to control traffic to your app. Rules are evaluated in priority order. If there are no rules defined then your app will accept traffic from any address.To learn more, see [Azure App Service Access Restrictions #](../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json).
+Access restrictions allow you to define lists of allow/deny rules to control traffic to your app. Rules are evaluated in priority order. If there are no rules defined, then your app will accept traffic from any address. To learn more, see [Azure App Service Access Restrictions #](../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json).
 
 ### Private site access
 
@@ -169,7 +169,7 @@ Access restrictions allow you to define lists of allow/deny rules to control tra
 
 ### Use a gateway service
 
-Gateway services, such as [Azure Application Gateway](../application-gateway/overview.md) and [Azure Front Door](../frontdoor/front-door-overview.md) let you setup a Web Application Firewall (WAF). WAF rules are used to monitor or block detected attacks, which provides an extra layer of protection for your functions. To setup a WAF, your function app needs to be running in an ASE or using Private Endpoints (preview). To learn more, see [Using Private Endpoints](../app-service/networking/private-endpoint.md).    
+Gateway services, such as [Azure Application Gateway](../application-gateway/overview.md) and [Azure Front Door](../frontdoor/front-door-overview.md) let you set up a Web Application Firewall (WAF). WAF rules are used to monitor or block detected attacks, which provide an extra layer of protection for your functions. To set up a WAF, your function app needs to be running in an ASE or using Private Endpoints (preview). To learn more, see [Using Private Endpoints](../app-service/networking/private-endpoint.md).    
 
 ## Next steps
 
