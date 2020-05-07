@@ -41,7 +41,7 @@ You will be impacted if you have:
 - Hard coded the IP address for any particular Gateway in your on-premises firewall
 - Any subnets using Microsoft.SQL as a Service Endpoint but cannot communicate with the Gateway IP addresses
 
-You will not be impacted if you have:
+You will not be impacted if you have :
 
 - Redirection as the connection policy
 - Connections to SQL Database from inside Azure and using Service Tags
