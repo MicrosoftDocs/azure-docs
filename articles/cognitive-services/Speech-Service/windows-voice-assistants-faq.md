@@ -1,6 +1,5 @@
 ---
-title: 
-Voice Assistants on Windows - FAQ
+title: Voice Assistants on Windows - FAQ
 titleSuffix: Azure Cognitive Services
 description: Common questions that frequently come up during Windows voice agent development.
 services: cognitive-services
