@@ -19,7 +19,7 @@ The `OPENROWSET` function can be referenced in the `FROM` clause of a query as i
 
 ## Data source
 
-OPENROWSET function in Synapse SQL reads content of the file(s) from a data source. Data surce is Azure storage and it can be explicitly referenced in `OPENROWSET` function or can be dynamically inferred from URL of the files that you want to read.
+OPENROWSET function in Synapse SQL reads content of the file(s) from a data source. Data source is Azure storage account and it can be explicitly referenced in `OPENROWSET` function or can be dynamically inferred from URL of the files that you want to read.
 The `OPENROWSET` function can optionally contain `DATA_SOURCE` parameter that specify data source that contains files.
 - `OPENROWSET` without `DATA_SOURCE` can be used to directly read content of the files form the URL location specified as `BULK` option:
 
