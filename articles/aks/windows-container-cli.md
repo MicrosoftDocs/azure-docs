@@ -3,7 +3,7 @@ title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cl
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
 ms.topic: article
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
@@ -20,18 +20,6 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-
-### Install aks-preview CLI extension
-
-To use Windows Server containers, you need the *aks-preview* CLI extension version 0.4.12 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ### Limitations
 
@@ -90,9 +78,6 @@ az aks create \
     --enable-addons monitoring \
     --kubernetes-version 1.16.7 \
     --generate-ssh-keys \
-    --enable-vmss \
-    --vm-set-type VirtualMachineScaleSets \
-    --load-balancer-sku standard \
     --network-plugin azure
 ```
 
