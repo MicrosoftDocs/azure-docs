@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 05/06/2020
 ms.author: v-jambra
 ---
 
@@ -14,13 +14,13 @@ ms.author: v-jambra
 
 The IoT Plug and Play Preview model repository stores the interfaces that define and compose models. The repository makes the models and interfaces discoverable and consumable by solution developers.
 
-You use the [Azure IoT Model Repository portal](https://test.adb.trafficmanager.net/) to manage models in the repository.  
+You use the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo) to manage models in the repository.  
 
 ## Public and Private models
 
 Interfaces can be public or private.
 
-Private interfaces are maintained by your company. Access to private interfaces is controlled through role-based access control (RBAC) both on your organization's Azure AD tenant and on individual interfaces. Tenant roles determine who can create and publish interfaces in your organization. Roles at the interface-level allow you to grant read access to external users. Using roles, you can choose to keep a private model internal to your company or to expose it to a limited audience of your partners. For more information about roles and permissions, see [Understand the IoT Plug and Play Preview model repository](concepts-model-repository.md).
+Private interfaces are maintained by your company. Access to private interfaces is controlled through role-based access control (RBAC) both on your organization's Azure AD tenant and on individual interfaces. Tenant roles determine who can create and publish interfaces in your organization. Roles on individual interfaces allow you to grant read access to external users. Using roles, you can choose to keep a private model internal to your company or to share it with a limited audience of your partners. For more information about roles and permissions, see [Understand the IoT Plug and Play Preview model repository](concepts-model-repository.md).
 
 Once an interface has been published, it is public. Public interfaces are available through anonymous authentication and can be read by any user or service principal. The [common interfaces](./concepts-common-interfaces.md) published by Microsoft are examples of public interfaces.
 
@@ -28,7 +28,7 @@ For an overview of the model repository including tenant and interface roles, se
 
 ## Model repository sign-in
 
-Use your Microsoft _work account_ to sign in to the [Azure IoT Model Repository portal](https://test.adb.trafficmanager.net/). The portal checks your membership with the Microsoft Partner Center when you sign in:
+Use your Microsoft _work account_ to sign in to the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo). The portal checks your membership with the Microsoft Partner Center when you sign in:
 
 - If you're the first user from your organization to sign in to the portal, you're granted the _Tenant Administrator_ role. This role allows you to assign roles to other users in your company (Azure Active Directory tenant).
 - If you're not the first user from your organization to sign in to the portal, you're granted _ReadTenantModels_ permission. This enables you to read your company's interfaces as well as all public interfaces. You can be assigned other roles by a _Tenant Administrator_.
@@ -37,11 +37,11 @@ Use your Microsoft _work account_ to sign in to the [Azure IoT Model Repository 
 
 ## Manage tenant roles
 
- When a user initially signs in to the portal, by default, they are granted access to read their company's private interfaces, interfaces that have been shared with them by other companies, and all public interfaces. Tenant administrators can add users to tenant roles so that they can create models, publish models, or manage roles for other users.
+ By default, users can read their company's private interfaces, interfaces that have been shared with them by other companies, and all public interfaces. Tenant administrators can add users to tenant roles so that they can create private interfaces, publish private interfaces, or manage roles for other users.
 
 To add a user to a tenant role:
 
-1. Sign-in to the [Azure IoT Model Repository portal](https://test.adb.trafficmanager.net/) portal.
+1. Sign-in to the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo).
 
 2. Select **Access management** on the left pane, then select **+Add**. On the **Add Permission** pane, type the work address of the user you want to add to the role.
 
@@ -51,11 +51,11 @@ To add a user to a tenant role:
 
     ![Choose tenant role.](./media/howto-manage-models/choose-role.png)
 
-## Create (upload) an interface
+## Create an interface
 
-To create an interface, you must be a member of the tenant  _Creator_ role.
+To create an interface in the model repository, you must be a member of the tenant  _Creator_ role.
 
-1. Sign-in to the [Azure IoT Model Repository portal](https://test.adb.trafficmanager.net/) portal.
+1. Sign-in to the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo).
 
 2. Expand **Company Models** on the left pane and select **Create model**. Then select **Import Json**.
 
@@ -63,9 +63,9 @@ To create an interface, you must be a member of the tenant  _Creator_ role.
 
 3. Select the file you want to upload. If the portal successfully validates your interface, select **Save**.
 
-## Share private interfaces
+## Share a private interface
 
-You can share interfaces that you have created with external users. In this way, you can allow your partners to read and develop solutions with your private interfaces.
+You can share private interfaces that you have created with external users. In this way, you can allow your partners to view and develop solutions with your private interfaces.
 
 If you're the creator of an interface, the **Share** and **Shared with** buttons will be active when you view the interface in your Company models.
 
@@ -82,6 +82,15 @@ If you're the creator of an interface, the **Share** and **Shared with** buttons
 ## Publish an interface
 
 To publish an interface, you must be a member of the tenant _Publisher_ role.
+
+1. Sign-in to the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo).
+
+2. Expand **Company Models** on the left pane and select the interface you want to publish. Then select **Publish**.
+
+    ![Publish a model.](./media/howto-manage-models/publish-model.png)
+
+    > [!NOTE]
+    > If you get a notification saying that that you don't have a Microsoft Partner (MPN) ID, follow the registration steps in the notification. For more information, see [Model repository sign-in](#model-repository-sign-in).
 
 ## Next steps
 
