@@ -69,10 +69,10 @@ This table lists required and optional headers for speech-to-text requests.
 
 Audio is sent in the body of the HTTP `POST` request. It must be in one of the formats in this table:
 
-| Format | Codec | Bitrate | Sample Rate  |
-|--------|-------|---------|--------------|
-| WAV    | PCM   | 16-bit  | 16 kHz, mono |
-| OGG    | OPUS  | 16-bit  | 16 kHz, mono |
+| Format | Codec | Bit rate | Sample Rate  |
+|--------|-------|----------|--------------|
+| WAV    | PCM   | 256 kbps | 16 kHz, mono |
+| OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
 
 >[!NOTE]
 >The above formats are supported through REST API and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) currently supports the WAV format with PCM codec as well as [other formats](how-to-use-codec-compressed-audio-input-streams.md).
@@ -195,9 +195,9 @@ The `RecognitionStatus` field may contain these values:
 > [!NOTE]
 > If the audio consists only of profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result.
 
-The `detailed` format includes the same data as the `simple` format, along with `NBest`, a list of alternative interpretations of the same recognition result. These results are ranked from most likely to least likely. The first entry is the same as the main recognition result.  When using the `detailed` format, `DisplayText` is provided as `Display` for each result in the `NBest` list.
+The `detailed` format includes the same data as the `simple` format, along with `NBest`, an alternative interpretation of the same recognition result. When using the `detailed` format, `DisplayText` is provided as `Display` for each result in the `NBest` list.
 
-Each object in the `NBest` list includes:
+The object in the `NBest` list can include:
 
 | Parameter | Description |
 |-----------|-------------|
@@ -239,13 +239,6 @@ A typical response for `detailed` recognition:
         "ITN" : "remind me to buy 5 pencils",
         "MaskedITN" : "remind me to buy 5 pencils",
         "Display" : "Remind me to buy 5 pencils.",
-      },
-      {
-        "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five pencils",
-        "ITN" : "rewind me to buy 5 pencils",
-        "MaskedITN" : "rewind me to buy 5 pencils",
-        "Display" : "Rewind me to buy 5 pencils.",
       }
   ]
 }
