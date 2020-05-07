@@ -49,8 +49,8 @@ In general, we recommend only adding additional properties to fields if you inte
 One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you're using the [Add Documents REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) or the [Index method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
 
 Using batches to index documents will significantly improve indexing performance. Determining the optimal batch size for your data is a key component of optimizing indexing speeds. The two primary factors influencing the optimal batch size are:
-1. The schema of your index
-1. The size of your data
++ The schema of your index
++ The size of your data
 
 Because the optimal batch size depends on your index and your data, the best approach is to test different batch sizes to determine what results in the fastest indexing speeds for your scenario. This [tutorial](tutorial-optimize-indexing-pushapi.md) provides sample code for testing batch sizes using the .NET SDK. 
 
@@ -60,10 +60,10 @@ To take full advantage of Azure Cognitive Search's indexing speeds, you'll likel
 
 The optimal number of threads is determined by:
 
-1. The tier of your search service
-1. The number of partitions
-1. The size of your batches
-1. The schema of your index
++ The tier of your search service
++ The number of partitions
++ The size of your batches
++ The schema of your index
 
 You can modify this sample and test with different thread counts to determine the optimal thread count for your scenario. However, as long as you have several threads running concurrently, you should be able to take advantage of most of the efficiency gains. 
 
@@ -72,8 +72,8 @@ You can modify this sample and test with different thread counts to determine th
 
 As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) indicating the request didn't fully succeed. During indexing, two common HTTP status codes are:
 
-* **503 Service Unavailable** - This error means that the system is under heavy load and your request can't be processed at this time.
-* **207 Multi-Status** - This error means that some documents succeeded, but at least one failed.
++ **503 Service Unavailable** - This error means that the system is under heavy load and your request can't be processed at this time.
++ **207 Multi-Status** - This error means that some documents succeeded, but at least one failed.
 
 ### Retry strategy 
 

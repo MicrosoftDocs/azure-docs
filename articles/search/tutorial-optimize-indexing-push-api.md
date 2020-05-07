@@ -48,12 +48,12 @@ When pushing data into an index, there's several key considerations that impact 
 
 Six key factors to consider are:
 
-1. **Service tier and number of partitions/replicas** - Adding partitions and increasing your tier will both increase indexing speeds.
-1. **Index Schema** - Adding fields and adding additional properties to fields (such as *searchable*, *facetable*, or *filterable*) both reduce indexing speeds.
-1. **Batch size** - The optimal batch size varies based on your index schema and dataset.
-1. **Number of threads/workers** - a single thread won't take full advantage of indexing speeds
-1. **Retry strategy** - An exponential backoff retry strategy should be used to optimize indexing.
-1. **Network data transfer speeds** - Data transfer speeds can be a limiting factor. Index data from within your Azure environment to increase data transfer speeds.
++ **Service tier and number of partitions/replicas** - Adding partitions and increasing your tier will both increase indexing speeds.
++ **Index Schema** - Adding fields and adding additional properties to fields (such as *searchable*, *facetable*, or *filterable*) both reduce indexing speeds.
++ **Batch size** - The optimal batch size varies based on your index schema and dataset.
++ **Number of threads/workers** - a single thread won't take full advantage of indexing speeds
++ **Retry strategy** - An exponential backoff retry strategy should be used to optimize indexing.
++ **Network data transfer speeds** - Data transfer speeds can be a limiting factor. Index data from within your Azure environment to increase data transfer speeds.
 
 
 ## 1 - Create Azure Cognitive Search service
@@ -92,11 +92,11 @@ This code is derived from the [C# Quickstart](search-get-started-dotnet.md). You
 
 This simple C#/.NET console app performs the following tasks:
 
-* Creates a new index based on the data structure of the C# Hotel class (which also references the Address class).
-* Tests various batch sizes to determine the most efficient size
-* Indexes data asynchronously
-    * Using multiple threads to increase indexing speeds
-    * Using an exponential backoff retry strategy to retry failed items
++ Creates a new index based on the data structure of the C# Hotel class (which also references the Address class).
++ Tests various batch sizes to determine the most efficient size
++ Indexes data asynchronously
+    + Using multiple threads to increase indexing speeds
+    + Using an exponential backoff retry strategy to retry failed items
 
  Before running the program, take a minute to study the code and the index definitions for this sample. The relevant code is in several files:
 
@@ -165,8 +165,8 @@ Indexing documents in batches will significantly improve indexing performance. T
 
 Determining the optimal batch size for your data is a key component of optimizing indexing speeds. The two primary factors influencing the optimal batch size are:
 
-1. The schema of your index
-1. The size of your data
++ The schema of your index
++ The size of your data
 
 Because the optimal batch size is dependent on your index and your data, the best approach is to test different batch sizes to determine what results in the fastest indexing speeds for your scenario.
 
@@ -256,8 +256,8 @@ Several of the key considerations mentioned above impact the optimal number of t
 
 As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) indicating the request didn't fully succeed. During indexing, two common HTTP status codes are:
 
-* **503 Service Unavailable** - This error means that the system is under heavy load and your request can't be processed at this time.
-* **207 Multi-Status** - This error means that some documents succeeded, but at least one failed.
++ **503 Service Unavailable** - This error means that the system is under heavy load and your request can't be processed at this time.
++ **207 Multi-Status** - This error means that some documents succeeded, but at least one failed.
 
 ### Implement an exponential backoff retry strategy
 
