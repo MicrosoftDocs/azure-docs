@@ -14,11 +14,6 @@ ms.custom: mvc
 
 # Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution (Node.js)
 
----
-**Out of scope for the 5/8 bug bash.**
-Know issue on property update, package not ready.
----
-
 [!INCLUDE [iot-pnp-quickstarts-service-selector.md](../../includes/iot-pnp-quickstarts-service-selector.md)]
 
 IoT Plug and Play Preview simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This quickstart shows you how to use Node.js to connect to and control an IoT Plug and Play device that's connected to your solution.
