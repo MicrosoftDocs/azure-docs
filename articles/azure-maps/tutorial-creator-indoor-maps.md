@@ -123,7 +123,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
 >[!NOTE]
 >The Postman application does not natively support HTTP Long Running Requests. As a result, you may notice a long delay while making a **GET** request at the status URL.  Wait about thirty seconds and try clicking the **Send** button again until the response shows success or fail.
 
-The sample Drawing package should be converted without errors. However, if you receive errors using your own Drawing package, the response, as shown below, will give you a link to the [Drawing error visualizer](azure-maps-drawing-errors-visualizer.md). To receive recommendations on how to resolve conversion errors and warnings, see the [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
+The sample Drawing package should be converted without errors. However, if you receive errors from your own Drawing package, the JSON response, will give you a link to the [Drawing error visualizer](azure-maps-drawing-errors-visualizer.md). The Drawing error visualizer allows you to inspect the details of errors and warnings. To receive recommendations on how to resolve conversion errors and warnings, see the [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
 
 ```json
 {
@@ -199,7 +199,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 ## Query datasets with WFS API
 
- Datasets can be queried using  [WFS API](https://docs.microsoft.com/rest/api/maps/wfs). The steps below show you how to retrieve all feature collections in a dataset, a specific collection, and a specific feature and feature **ID** in a collection. The feature **ID** uniquely identifies the feature within the dataset. It's used, for example, to identify which feature state should be updated in a given stateset.
+ Datasets can be queried using  [WFS API](https://docs.microsoft.com/rest/api/maps/wfs). With the WFS API you can query for feature collections, a specific collection, or a specific feature with a feature **ID**. The feature **ID** uniquely identifies the feature within the dataset. It's used, for example, to identify which feature state should be updated in a given stateset.
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 

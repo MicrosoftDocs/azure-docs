@@ -37,7 +37,7 @@ To use the globally hosted Azure Content Delivery Network version of the *Azure 
 
  Or, you can download the *Azure Maps Indoor* module. The *Azure Maps Indoor* module contains a client library for accessing Azure Maps services. Follow the steps below to install and load the *Indoor* module into your web application.  
   
-  1. Download the [azure-maps-indoor package] (https://www.npmjs.com/package/azure-maps-indoor).
+  1. Download the [azure-maps-indoor package](https://www.npmjs.com/package/azure-maps-indoor).
   
   2. Install the NPM package. Make sure you use administrator privileges in the console:
 
