@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
 ---
@@ -92,8 +92,8 @@ If you receive any errors related to your customer-managed key, use the followin
 
 | Error code     |Details     | Recoverable?    |
 |----------------|------------|-----------------|
-| CmkErrorAccessRevoked | Applied a customer-managed key but the key access is currently revoked. For more information, see how to [Enable the key access](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Yes, check if: <ol><li>Key vault still has the MSI in the access policy.</li><li>Access policy provides permissions to Get, Wrap, Unwrap.</li><li>If key vault is in a vNet behind the firewall, check if **Allow Microsoft Trusted Services** is enabled.</li></ol>                                                                                            |
-| CmkErrorKeyDisabled      | The order is halted as the selected customer managed key {keyname} is disabled. For more information, see how to [Enable the key](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate)..                                                                             | Yes, by enabling the key version     |
+| CmkErrorAccessRevoked | Applied a customer-managed key but the key access is currently revoked. For more information, see how to [Enable the key access](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy)| Yes, check if: <ol><li>Key vault still has the MSI in the access policy.</li><li>Access policy provides permissions to Get, Wrap, Unwrap.</li><li>If key vault is in a vNet behind the firewall, check if **Allow Microsoft Trusted Services** is enabled.</li></ol> |
+| CmkErrorKeyDisabled      | The order is halted as the selected customer managed key {keyname} is disabled. For more information, see how to [Enable the key](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).| Yes, by enabling the key version     |
 | CmkErrorKeyNotFound      | Applied a customer-managed key but can't find the key vault associated with the key.<br>If you deleted the key vault, you can't recover the customer-managed key.  If you migrated the key vault to a different tenant, see [Change a key vault tenant ID after a subscription move](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   If you deleted the key vault:<ol><li>Yes, if it is in the purge-protection duration, using the steps at [Recover a key vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>No, if it is beyond the purge-protection duration.</li></ol><br>Else if the key vault underwent a tenant migration, yes, it can be recovered using one of the below steps: <ol><li>Revert the key vault back to the old tenant.</li><li>Set `Identity = None` and then set the value back to `Identity = SystemAssigned`. This deletes and recreates the identity once the new identity has been created. Enable `Get`, `Wrap`, and `Unwrap` permissions to the new identity in the key vault's Access policy.</li></ol>|-->
 
 ## Troubleshoot errors
@@ -102,12 +102,14 @@ If you receive any errors related to your customer-managed key, use the followin
 
 | Error   code| Error message| Details|
 |-------------|--------------|---------|
-| SsemUserErrorEncryptionKeyDisabled| Could not fetch the passkey as the customer managed key is disabled.| The order is halted as the selected customer managed key {keyname} is disabled. For more information, see how to Enable the key.|
-| SsemUserErrorEncryptionKeyExpired| Could not fetch the passkey as the customer managed key has expired.| The order is stuck as the customer managed key {keyname} as expired. For more information, see how to Enable the key access.|
-| SsemUserErrorKeyDetailsNotFound| Could not fetch the passkey as the customer managed key could not be found.| The order is halted as the selected customer managed key {keyname} could not be found. If the key is deleted and purged after the retention period, you can't recover the key. If you backed up the key, you can restore it to resolve the issue. For more information, see how to Enable the key.|
-| SsemUserErrorKeyVaultBadRequestException| Could not fetch the passkey as the customer managed key access is revoked.| The order is halted as access to   the customer managed key is revoked. Add the identity '01ff4c63-f516-4bb4-b17f-06f963ef988d' to your key vault to enable key   access. For more information, see how to Enable the key access.|
-| SsemUserErrorKeyVaultDetailsNotFound| Could not fetch the passkey as   the associated key vault for the customer managed key could not be found. | The order is halted as the key vault {keyvault name}   associated with the customer managed key couldn’t be found. If you deleted the key vault,  you can’t recover the customer managed key. If you migrated the key vault to a different tenant, see how to Migrate the key vault to original tenant. |
-| SsemUserErrorSystemAssignedIdentityAbsent  | Could not fetch the passkey as   the customer managed key could not be found.| The order is halted as the customer managed key {keyname} could not be accessed. Either the Managed System Identity (MSI) associated with the key is deleted or the MSI type has changed.|
+| SsemUserErrorEncryptionKeyDisabled| Could not fetch the passkey as the customer managed key is disabled.| The order is halted as the selected customer managed key {keyname} is disabled. For more information, see how to [Enable the key](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).|
+| SsemUserErrorEncryptionKeyExpired| Could not fetch the passkey as the customer managed key has expired.| The order is stuck as the customer managed key {keyname} as expired. For more information, see how to [Enable the key access](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).|
+| SsemUserErrorKeyDetailsNotFound| Could not fetch the passkey as the customer managed key could not be found.| The order is halted as the selected customer managed key {keyname} could not be found. If the key is deleted and purged after the retention period, you can't recover the key. If you backed up the key, you can restore it to resolve the issue. For more information, see how to [Enable the key](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).|
+| SsemUserErrorKeyVaultBadRequestException| Could not fetch the passkey as the customer managed key access is revoked.| The order is halted as access to   the customer managed key is revoked. Add the identity '01ff4c63-f516-4bb4-b17f-06f963ef988d' to your key vault to enable key   access. For more information, see how to [Enable the key access](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).|
+| SsemUserErrorKeyVaultDetailsNotFound| Could not fetch the passkey as the associated key vault for the customer managed key could not be found. | The order is halted as the key vault {keyvault name} associated with the customer managed key couldn’t be found. If you deleted the key vault, you can’t recover the customer managed key. If you migrated the key vault to a different tenant, see how to Migrate the key vault to original tenant. |
+| SsemUserErrorSystemAssignedIdentityAbsent  | Could not fetch the passkey as the customer managed key could not be found.| The order is halted as the customer managed key {keyname} could not be accessed. Either the Managed System Identity (MSI) associated with the key is deleted or the MSI type has changed.|
+| Generic error  | Could not fetch the passkey.| An error occurred during this operation. Contact Microsoft Support for next steps.|
+
 
 ## Next steps
 
