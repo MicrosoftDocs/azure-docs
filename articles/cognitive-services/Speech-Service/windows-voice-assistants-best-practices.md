@@ -163,4 +163,4 @@ The Contoso assistant has a home on the taskbar: their swirling, circular icon.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about the process of voice activation](windows-voice-assistants-voice-activation.md)
+> [Get started on developing your voice assistant](how-to-windows-voice-assistants-get-started.md)

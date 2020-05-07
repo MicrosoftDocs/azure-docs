@@ -19,7 +19,7 @@ This guide walks through important implementation details for creating a voice a
 
 ## Implementing voice activation
 
-After [setting up your environment](how-to-windows-voice-assistants-get-started.md) and learning [how voice activation works](windows-voice-assistants-voice-activation.md), you can start implementing voice activation for your own voice assistant application.
+After [setting up your environment](how-to-windows-voice-assistants-get-started.md) and learning [how voice activation works](windows-voice-assistants-overview.md#how-does-voice-activation-work?), you can start implementing voice activation for your own voice assistant application.
 
 ### Registration
 
