@@ -15,7 +15,6 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about considerations for using Xamarin iOS and MSAL.NET so I can decide if this platform meets my application development needs.
-ms.collection: M365-identity-device-management
 ---
 
 # Considerations for using Xamarin iOS with MSAL.NET

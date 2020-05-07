@@ -32,6 +32,11 @@
         href: container-registry-tutorial-deploy-app.md
       - name: 3 - Update web application
         href: container-registry-tutorial-deploy-update.md
+  - name: Samples
+    items:
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-samples.md
   - name: Concepts
     expanded: false
     items:
@@ -82,10 +87,12 @@
         href: container-registry-webhook.md
     - name: Security and authentication
       items:
-      - name: Limit access with virtual network (preview)
-        href: container-registry-vnet.md
       - name: Integrate with Azure Private Link (preview)
         href: container-registry-private-link.md
+      - name: Limit access with virtual network (preview)
+        href: container-registry-vnet.md
+      - name: Encrypt with customer-managed key
+        href: container-registry-customer-managed-keys.md
       - name: Access behind a firewall
         href: container-registry-firewall-access-rules.md
       - name: Authentication
@@ -110,8 +117,6 @@
         href: container-registry-content-trust.md
       - name: Image scanning with Security Center
         href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
-      - name: Encrypt registry data (preview)
-        href: container-registry-customer-managed-keys.md
     - name: Registries and other Azure services
       expanded: false
       items:

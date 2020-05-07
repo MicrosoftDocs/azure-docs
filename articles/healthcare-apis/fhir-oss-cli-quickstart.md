@@ -39,7 +39,7 @@ az group deployment create -g $servicename --template-uri https://raw.githubuser
 
 Obtain a capability statement from the FHIR server with:
 
-```console
+```azurecli-interactive
 metadataurl="https://${servicename}.azurewebsites.net/metadata"
 curl --url $metadataurl
 ```
