@@ -96,7 +96,7 @@ Currently, there are only two scaling functions included within the template. Wi
 
    ![Create new function](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. From Language, select *Javascript*, then select *TimerTrigger*.
+2. From Language, select *JavaScript*, then select *TimerTrigger*.
 
    ![Create new function](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
