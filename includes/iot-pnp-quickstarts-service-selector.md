@@ -11,5 +11,5 @@
 ---
 
 > [!div class="op_single_selector"]
-> * [C](../articles/iot-pnp/quickstart-connect-device-c.md)
-> * [Node.js](../articles/iot-pnp/quickstart-connect-device-node.md)
+> * [Node.js](../articles/iot-pnp/quickstart-service-node.md)
+> * [Python](../articles/iot-pnp/quickstart-service-python.md)

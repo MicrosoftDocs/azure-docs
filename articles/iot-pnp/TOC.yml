@@ -15,6 +15,14 @@
         href: quickstart-connect-device-c.md
       - name: Node.js
         href: quickstart-connect-device-node.md
+      - name: Python
+        href: quickstart-connect-device-python.md
+  - name: Interact with a device from your solution
+    items:
+      - name: Node.js
+        href: quickstart-service-node.md
+      - name: Python
+        href: quickstart-service-python.md
 - name: Tutorials
   items:
   - name: Connect a device to IoT Central
