@@ -373,9 +373,9 @@
             - name: Speech SDK
               items:
                 - name: C++
-                  href: 'https://aka.ms/csspeech/cppref'
+                  href: 'https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace'
                 - name: 'C#'
-                  href: 'https://aka.ms/csspeech/csharpref'
+                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription'
                 - name: 'Java'
                   href: 'https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription'
 - name: Voice assistants
