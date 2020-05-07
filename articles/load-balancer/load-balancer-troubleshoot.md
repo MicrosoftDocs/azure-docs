@@ -131,11 +131,15 @@ There are several ways to unblock this scenario, including using a proxy. Evalua
 **Resolution** 
 In order to change the port, you can remove the health probe by updating the VM Scale Set, update the port and then configure the health probe again.
 
+## Symptom: Small traffic is still going through load balancer after removing VMs from backend pool of the load balancer. 
+### Cause : VMs removed from backend pool should no longer receive traffic. The small amount of network traffic could be related to storage, DNS, and other functions within Azure. 
+To verify, you can conduct a network trace. The FQDN used for your blob storage accounts are listed within the properties of each storage account.  From a virtual machine within your Azure subscription, you can perform an nslookup to determine the Azure IP assigned to that storage account.
+
 ## Additional network captures
 If you decide to open a support case, collect the following information for a quicker resolution. Choose a single backend VM to perform the following tests:
 - Use Psping from one of the backend VMs within the VNet to test the probe port response (example: psping 10.0.0.4:3389) and record results. 
 - If no response is received in these ping tests, run a simultaneous Netsh trace on the backend VM and the VNet test VM while you run PsPing then stop the Netsh trace. 
-  
+ 
 ## Next steps
 
 If the preceding steps do not resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).

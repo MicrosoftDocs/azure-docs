@@ -62,6 +62,9 @@
   items:
   - name: Azure PowerShell
     href: platform/powershell-samples.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: What can you monitor?
@@ -441,9 +444,7 @@
       - name: Correlate custom data sources
         href: app/custom-data-correlation.md
       - name: Connection strings
-        href: app/sdk-connection-string.md
-      - name: Connection strings
-        href: app/sdk-connection-string.md
+        href: app/sdk-connection-string.md      
       - name: GetMetric
         displayname: get metric, custom metrics, metrics, TrackMetric
         href: app/get-metric.md
@@ -750,8 +751,6 @@
       href: insights/containers.md
   - name: Monitor other resources
     items:
-    - name: Key Vault
-      href: insights/key-vault-insights-overview.md
     - name: Storage
       items:
       - name: Azure Monitor for Storage
