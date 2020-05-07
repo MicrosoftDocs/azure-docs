@@ -63,7 +63,7 @@ You have two choices for input files that contain the target data for querying. 
 
 **'unstructured_data_path'**
 
-The unstructured_data_path defined where are placed the files that shoudl be read by `OPENROESET` function. there are two types of data paths:  
+The unstructured_data_path that establishes a path to the data may have absolute or relative path:
 - Absolute path in the format '\<prefix>://\<storage_account_path>/\<storage_path>'. 
 - Relative path in the format '<storage_path>' that must be used with `DATA_SOURCE` parameter and describes file pattern within <storage_account_path> location defined in `EXTERNAL DATA SOURCE`. 
 
