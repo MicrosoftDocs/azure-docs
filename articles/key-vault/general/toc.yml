@@ -15,7 +15,7 @@
       href: tutorial-net-windows-virtual-machine.md
     - name: Use Azure Key Vault with a Windows virtual machine in Python
       href: tutorial-python-windows-virtual-machine.md
-  - name: Use Azure Key Vault with an Azure web app in .NET
+  - name:  Connect Key Vault to an Web App with a managed identity and .NET
     href: tutorial-net-create-vault-azure-web-app.md
 
 - name: Concepts 
