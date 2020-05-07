@@ -15,7 +15,7 @@ ms.date: 04/02/2020
 
 # What is Azure SQL Managed Instance?
 
-Part of the Azure SQL service portfolio, Azure SQL Managed Instance is the intelligent, scalable, cloud database service that combines the broadest SQL Server engine compatibility with all the benefits of a fully managed and evergreen platform as a service. SQL Managed instance boasts near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. SQL Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, the SQL Managed Instance preserves all PaaS capabilities (automatic patching and version updates, [automated backups](sql-database-automated-backups.md), [high-availability](sql-database-high-availability.md) ), that drastically reduce management overhead and TCO.
+Part of the Azure SQL service portfolio, Azure SQL Managed Instance is the intelligent, scalable, cloud database service that combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service. SQL Managed instance boasts near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. SQL Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, the SQL Managed Instance preserves all PaaS capabilities (automatic patching and version updates, [automated backups](sql-database-automated-backups.md), [high-availability](sql-database-high-availability.md) ), that drastically reduce management overhead and TCO.
 
 > [!IMPORTANT]
 > For a list of regions where SQL Managed Instance is currently available, see [supported regions](sql-database-managed-instance-resource-limits.md#supported-regions).
@@ -46,7 +46,7 @@ The key features of SQL Managed Instance are shown in the following table:
 
 |Feature | Description|
 |---|---|
-| SQL Server version / build | SQL Server Database Engine (latest stable) |
+| SQL Server version / build | SQL Server database engine (latest stable) |
 | Managed automated backups | Yes |
 | Built-in instance and database monitoring and metrics | Yes |
 | Automatic software patching | Yes |
@@ -63,7 +63,7 @@ The key features of SQL Managed Instance are shown in the following table:
 
 ## vCore-based purchasing model
 
-The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for SQL Managed Instance gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to change compute, memory, and storage based upon your workload needs. The vCore model is also eligible for up to 55 percent savings with the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
+The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for SQL Managed Instance gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to change compute, memory, and storage based upon your workload needs. The vCore model is also eligible for up to 55 percent savings with the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server.
 
 In vCore model, you can choose between generations of hardware.
 
