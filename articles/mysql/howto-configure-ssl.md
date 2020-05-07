@@ -98,7 +98,7 @@ conn = pymysql.connect(user='myadmin@mydemoserver',
                        password='yourpassword',
                        database='quickstartdb',
                        host='mydemoserver.mysql.database.azure.com',
-                       ssl={'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
+                       ssl={'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'})
 ```
 
 ### Django (PyMySQL)
