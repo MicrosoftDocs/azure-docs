@@ -6,7 +6,7 @@ ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 11/04/2019
+ms.date: 05/06/2020
 ---
 
 # What are Azure Open Datasets and how can you use them?
