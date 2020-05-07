@@ -14,7 +14,7 @@ ms.date: 04/09/2020
 ---
 # Elastic pools help you manage and scale multiple Azure SQL databases
 
-Azure SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resources at a set price. Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database.
+Azure SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single server and share a set number of resources at a set price. Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database.
 
 ## What are SQL elastic pools
 
@@ -125,7 +125,6 @@ The following steps can help you estimate whether a pool is more cost-effective 
 
 > [!IMPORTANT]
 > If the number of databases in a pool approaches the maximum supported, make sure to consider [Resource management in dense elastic pools](sql-database-elastic-pool-resource-management.md).
-> 
 
 ## Using other SQL Database features with elastic pools
 
@@ -161,8 +160,7 @@ There are two ways you can create an elastic pool in the Azure portal.
 
    ![Create an elastic pool](./media/sql-database-elastic-pool/create-elastic-pool.png)
 
-
-1. Or you can create an elastic pool by navigating to an existing Azure SQL server and clicking **+ New pool** to create a pool directly into that server.
+4. Or you can create an elastic pool by navigating to an existing server and clicking **+ New pool** to create a pool directly into that server.
 
 > [!NOTE]
 > You can create multiple pools on a server, but you can't add databases from different servers into the same pool.
@@ -216,9 +214,9 @@ For more information, see [create SQL Database alerts in Azure portal](sql-datab
 
   Umbraco uses elastic pools with Azure SQL Database to quickly provision and scale services for thousands of tenants in the cloud.
 
-- [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
+- [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)
 
-   Daxko/CSI uses elastic pools with Azure SQL Database to accelerate its development cycle and to enhance its customer services and performance.    
+   Daxko/CSI uses elastic pools with Azure SQL Database to accelerate its development cycle and to enhance its customer services and performance.
 
 ## Next steps
 

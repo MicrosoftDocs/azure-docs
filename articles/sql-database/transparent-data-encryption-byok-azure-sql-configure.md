@@ -16,7 +16,7 @@ ms.date: 03/12/2019
 
 # PowerShell and CLI: Enable Transparent Data Encryption with customer-managed key from Azure Key Vault
 
-This article walks through how to use a key from Azure Key Vault for Transparent Data Encryption (TDE) on Azure SQL Database or Azure Synapse Analytics (formerly SQL DW). To learn more about the TDE with Azure Key Vault integration - Bring Your Own Key (BYOK) Support, visit [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-azure-sql.md). 
+This article walks through how to use a key from Azure Key Vault for Transparent Data Encryption (TDE) on Azure SQL Database or Azure Synapse Analytics (formerly SQL DW). To learn more about the TDE with Azure Key Vault integration - Bring Your Own Key (BYOK) Support, visit [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-azure-sql.md).
 
 ## Prerequisites for PowerShell
 
@@ -28,9 +28,9 @@ This article walks through how to use a key from Azure Key Vault for Transparent
     - The key vault must have the following property to be used for TDE:
   - [soft-delete](../key-vault/general/overview-soft-delete.md) and purge protection
 - The key must have the following attributes to be used for TDE:
-   - No expiration date
-   - Not disabled
-   - Able to perform *get*, *wrap key*, *unwrap key* operations
+  - No expiration date
+  - Not disabled
+  - Able to perform *get*, *wrap key*, *unwrap key* operations
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -43,7 +43,7 @@ For specifics on Key Vault, see [PowerShell instructions from Key Vault](../key-
 
 ## Assign an Azure AD identity to your server
 
-If you have an existing [logical SQL server](sql-database-servers.md), use the following to add an Azure AD identity to your server:
+If you have an existing [server](sql-database-servers.md), use the following to add an Azure AD identity to your server:
 
    ```powershell
    $server = Set-AzSqlServer -ResourceGroupName <SQLDatabaseResourceGroupName> -ServerName <LogicalServerName> -AssignIdentity

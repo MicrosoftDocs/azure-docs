@@ -22,7 +22,7 @@ ms.date: 02/26/2019
 
 ## Health checks
 
-Resource Health determines the health of your SQL resource by examining the success and failure of logins to the resource. Currently, Resource Health for your SQL DB resource only examines login failures due to system error and not user error. The Resource Health status is updated every 1-2 minutes.
+Resource Health determines the health of your SQL resource by examining the success and failure of logins to the resource. Currently, Resource Health for your SQL Database resource only examines login failures due to system error and not user error. The Resource Health status is updated every 1-2 minutes.
 
 ## Health States
 

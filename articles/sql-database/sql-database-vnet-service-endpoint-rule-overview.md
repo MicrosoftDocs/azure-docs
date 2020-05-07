@@ -1,5 +1,5 @@
 ---
-title: VNet endpoints and rules for databases in Azure SQL Database and Azure Synapse Analytics 
+title: VNet endpoints and rules for databases in Azure SQL Database 
 description: "Mark a subnet as a Virtual Network service endpoint. Then the endpoint as a virtual network rule to the ACL your database. Your database then accepts communication from all virtual machines and other nodes on the subnet."
 services: sql-database
 ms.service: sql-database
@@ -12,9 +12,9 @@ ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
 ---
-# Use virtual network service endpoints and rules for servers
+# Use virtual network service endpoints and rules for servers in Azure SQL Database
 
-*Virtual network rules* are one firewall security feature that controls whether the [logical SQL server](sql-database-servers.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to Azure SQL Database and Azure Synapse Analytics.
+*Virtual network rules* are one firewall security feature that controls whether the server for your databases and elastic pools in [Azure SQL Database](sql-database-technical-overview.md) or for your databases in [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database and SQL Data Warehouse.
 
 > [!NOTE]
 > This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](sql-database-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics.
@@ -99,7 +99,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## Impact of using VNet Service Endpoints with Azure storage
 
-Azure Storage has implemented the same feature that allows you to limit connectivity to your Azure Storage account. If you choose to use this feature with an Azure Storage account that is being used by Azure SQL Database or Azure Synapse, you can run into issues. Next is a list and discussion of Azure SQL Database and Azure SQL Data Warehouse features that are impacted by this.
+Azure Storage has implemented the same feature that allows you to limit connectivity to your Azure Storage account. If you choose to use this feature with an Azure Storage account that is being used by Azure SQL Database, you can run into issues. Next is a list and discussion of Azure SQL Database and Azure SQL Data Warehouse features that are impacted by this.
 
 ### Azure Synapse PolyBase
 
@@ -116,12 +116,12 @@ PolyBase is commonly used to load data into Azure Synapse Analytics from Azure S
 
 #### Steps
 
-1. In PowerShell, **register your server** hosting your Azure Synapse Analytics instance with Azure Active Directory (AAD):
+1. In PowerShell, **register your server** hosting Azure Synapse with Azure Active Directory (AAD):
 
    ```powershell
    Connect-AzAccount
    Select-AzSubscription -SubscriptionId <subscriptionId>
-   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-servername -AssignIdentity
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
 1. Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).

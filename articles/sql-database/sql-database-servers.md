@@ -1,7 +1,7 @@
 ---
-title: What is a logical SQL server in Azure? 
+title: What is a server in Azure SQL Database and Azure Synapse? 
 titleSuffix: ""
-description: Learn about logical SQL servers used by Azure SQL Database and Azure Synapse Analytics, and how to manage them. 
+description: Learn about logical servers used by Azure SQL Database and Azure Synapse, and how to manage them. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -13,9 +13,9 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 03/12/2019
 ---
-# What is a logical SQL server in Azure?
+# What is a logical SQL server in Azure SQL Database and Azure Synapse?
 
-A logical SQL server (a "server") in Azure is a logical construct that acts as a central administrative point for a collection of databases: single and pooled databases in Azure SQL Database and a data warehouse database in Azure Synapse. At the server level, you can administer [logins](sql-database-manage-logins.md), [firewall rules](sql-database-firewall-configure.md), [auditing rules](sql-database-auditing.md), [threat detection policies](sql-database-threat-detection.md), and [failover groups](sql-database-auto-failover-group.md). A server can be in a different region than its resource group. The server must exist before you can create a database in Azure SQL Database or a data warehouse database in Azure Synapse. All databases managed by a single server are created within the same region as the server.
+In Azure SQL Database and Azure Synapse, a server is a logical construct that acts as a central administrative point for a collection of databases. At the server level, you can administer [logins](sql-database-manage-logins.md), [firewall rules](sql-database-firewall-configure.md), [auditing rules](sql-database-auditing.md), [threat detection policies](sql-database-threat-detection.md), and [failover groups](sql-database-auto-failover-group.md). A server can be in a different region than its resource group. The server must exist before you can create a database in Azure SQL Database or a data warehouse database in Azure Synapse. All databases managed by a single server are created within the same region as the server.
 
 This server is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, there are no guarantees regarding location of the databases or data warehouse database in relation to the server that manages them. Furthermore, neither Azure SQL Database nor Azure Synapse expose any instance-level access or features. In contrast, the instance databases in a managed instance are all physically co-located - in the same way that you are familiar with SQL Server in the on-premises or virtual machine world.
 

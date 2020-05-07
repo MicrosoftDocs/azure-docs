@@ -58,7 +58,7 @@ Additional credentials are needed when using the **OpenConnectionForKey**  ([Jav
 using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate))
 ```
 
-In this example, **smmUserConnectionString** holds the connection string for the user credentials. For Azure SQL DB, here is a typical connection string for user credentials:
+In this example, **smmUserConnectionString** holds the connection string for the user credentials. For Azure SQL Database, here is a typical connection string for user credentials:
 
 ```java
 "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  

@@ -25,6 +25,7 @@ In part two of this three-part tutorial series, you'll create two predictive mod
 In this article, you'll learn how to:
 
 > [!div class="checklist"]
+>
 > * Train two machine learning models
 > * Make predictions from both models
 > * Compare the results to choose the most accurate model
@@ -106,7 +107,7 @@ It looks like the decision tree model is the more accurate of the two models.
 
 ## Clean up resources
 
-If you're not going to continue with this tutorial, delete the TutorialDB database from your Azure SQL Database server.
+If you're not going to continue with this tutorial, delete the TutorialDB database from your server.
 
 From the Azure portal, follow these steps:
 

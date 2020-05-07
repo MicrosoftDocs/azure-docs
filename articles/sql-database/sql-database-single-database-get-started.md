@@ -14,17 +14,17 @@ ms.date: 04/19/2020
 ---
 # Quickstart: Create an Azure SQL Database single database
 
-In this quickstart, you use the Azure portal, a PowerShell script, or an Azure CLI script to create a single Azure SQL Database. You then query the database using **Query editor** in the Azure portal. 
+In this quickstart, you use the Azure portal, a PowerShell script, or an Azure CLI script to create a single Azure SQL Database. You then query the database using **Query editor** in the Azure portal.
 
-A [single database](sql-database-single-database.md) is the quickest and simplest deployment option for Azure SQL Database. You manage a single database within a [logical SQL server](sql-database-servers.md), which is inside an [Azure resource group](../azure-resource-manager/management/overview.md) in a specified Azure region. In this quickstart, you create a new resource group and logical SQL server for the new database.
+A [single database](sql-database-single-database.md) is the quickest and simplest deployment option for Azure SQL Database. You manage a single database within a [server](sql-database-servers.md), which is inside an [Azure resource group](../azure-resource-manager/management/overview.md) in a specified Azure region. In this quickstart, you create a new resource group and server for the new database.
 
-You can create a single database in the *provisioned* or *serverless* compute tier. A provisioned database is pre-allocated a fixed amount of compute resources, including CPU and memory, and uses one of two [purchasing models](sql-database-purchase-models.md). This quickstart creates a provisioned database using the [vCore-based](sql-database-service-tiers-vcore.md) purchasing model, but you can also choose a [DTU-based](sql-database-service-tiers-DTU.md) model. 
+You can create a single database in the *provisioned* or *serverless* compute tier. A provisioned database is pre-allocated a fixed amount of compute resources, including CPU and memory, and uses one of two [purchasing models](sql-database-purchase-models.md). This quickstart creates a provisioned database using the [vCore-based](sql-database-service-tiers-vcore.md) purchasing model, but you can also choose a [DTU-based](sql-database-service-tiers-DTU.md) model.
 
 The serverless compute tier is only available in the vCore-based purchasing model, and has an auto-scaled range of compute resources, including CPU and memory. To create a single database in the serverless compute tier, see [Create a serverless database](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).
 
 ## Prerequisite
 
-- An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/). 
+- An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 
 ## Create a single database
 
@@ -37,7 +37,7 @@ Once your database is created, you can use the built-in **Query editor** in the 
 1. In the portal, search for and select **SQL databases**, and then select your database from the list.
 1. On the **SQL Database** page for your database, select **Query editor (preview)** in the left menu.
 1. Enter your server admin login information, and select **OK**.
-   
+
    ![Sign in to Query editor](./media/sql-database-single-database-get-started/query-editor-login.png)
 
 1. Enter the following query in the **Query editor** pane.
@@ -92,5 +92,4 @@ Remove-AzResourceGroup -Name <your resource group>
 [Connect and query](sql-database-connect-query.md) your database using different tools and languages:
 > [!div class="nextstepaction"]
 > [Connect and query using SQL Server Management Studio](sql-database-connect-query-ssms.md)
-> 
 > [Connect and query using Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)

@@ -1,5 +1,5 @@
 ---
-title: Import a BACPAC file to create an Azure SQL Database
+title: Import a BACPAC file to create a database in Azure SQL
 description: Create a new Azure SQL Database or Azure SQL Managed Instance database from a BACPAC file.
 services: sql-database
 ms.service: sql-database
@@ -59,14 +59,14 @@ To import a SQL Server database using the [SqlPackage](https://docs.microsoft.co
 
 For scale and performance, we recommend using SqlPackage in most production environments rather than using the Azure portal. For a SQL Server Customer Advisory Team blog about migrating using `BACPAC` files, see [migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
-The following SqlPackage command imports the **AdventureWorks2008R2** database from local storage to an Azure SQL Database logical server named **mynewserver20170403**. It creates a new database called **myMigratedDatabase** with a **Premium** service tier and a **P6** Service Objective. Change these values as appropriate for your environment.
+The following SqlPackage command imports the **AdventureWorks2008R2** database from local storage to a SQL Database server named **mynewserver20170403**. It creates a new database called **myMigratedDatabase** with a **Premium** service tier and a **P6** Service Objective. Change these values as appropriate for your environment.
 
 ```cmd
 sqlpackage.exe /a:import /tcs:"Data Source=<serverName>.database.windows.net;Initial Catalog=<migratedDatabase>;User Id=<userId>;Password=<password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
 > [!IMPORTANT]
-> To connect to the logical server managing a single database from behind a corporate firewall, the firewall must have port 1433 open. To connect to a SQL Managed Instance, you must have a [point-to-site connection](sql-database-managed-instance-configure-p2s.md) or an express route connection.
+> To connect to Azure SQL Database from behind a corporate firewall, the firewall must have port 1433 open. To connect to SQL Managed Instance, you must have a [point-to-site connection](sql-database-managed-instance-configure-p2s.md) or an express route connection.
 
 This example shows how to import a database using SqlPackage with Active Directory Universal Authentication.
 

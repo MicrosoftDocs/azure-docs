@@ -14,7 +14,7 @@ ms.date: 12/12/2018
 ---
 # Connect to SQL Database using C and C++
 
-This post is aimed at C and C++ developers trying to connect to Azure SQL DB. It is broken down into sections so you can jump to the section that best captures your interest.
+This post is aimed at C and C++ developers trying to connect to Azure SQL Database. It is broken down into sections so you can jump to the section that best captures your interest.
 
 ## Prerequisites for the C/C++ tutorial
 
@@ -26,13 +26,13 @@ Make sure you have the following items:
 
 ## <a id="AzureSQL"></a>Azure SQL Database and SQL Server on virtual machines
 
-Azure SQL is built on Microsoft SQL Server and is designed to provide a high-availability, performant, and scalable service. There are many benefits to using SQL Azure over your proprietary database running on premises. With SQL Azure you don't have to install, set up, maintain, or manage your database but only the content and the structure of your database. Typical things that we worry about with databases like fault tolerance and redundancy are all built in.
+Azure SQL is built on Microsoft SQL Server and is designed to provide a high-availability, performant, and scalable service. There are many benefits to using Azure SQL over your proprietary database running on premises. With Azure SQL you don't have to install, set up, maintain, or manage your database but only the content and the structure of your database. Typical things that we worry about with databases like fault tolerance and redundancy are all built in.
 
 Azure currently has two options for hosting SQL server workloads: Azure SQL Database, database as a service and SQL server on Virtual Machines (VM). We will not get into detail about the differences between these two except that Azure SQL Database is your best bet for new cloud-based applications to take advantage of the cost savings and performance optimization that cloud services provide. If you are considering migrating or extending your on-premises applications to the cloud, SQL server on Azure virtual machine might work out better for you. To keep things simple for this article, let's create an Azure SQL Database.
 
 ## <a id="ODBC"></a>Data access technologies: ODBC and OLE DB
 
-Connecting to Azure SQL DB is no different and currently there are two ways to connect to databases: ODBC (Open Database connectivity) and OLE DB (Object Linking and Embedding database). In recent years, Microsoft has aligned with [ODBC for native relational data access](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC is relatively simple, and also much faster than OLE DB. The only caveat here is that ODBC does use an old C-style API.
+Connecting to Azure SQL Database is no different and currently there are two ways to connect to databases: ODBC (Open Database connectivity) and OLE DB (Object Linking and Embedding database). In recent years, Microsoft has aligned with [ODBC for native relational data access](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC is relatively simple, and also much faster than OLE DB. The only caveat here is that ODBC does use an old C-style API.
 
 ## <a id="Create"></a>Step 1:  Creating your Azure SQL Database
 
@@ -56,11 +56,11 @@ Go to the firewall section for your Database server and add your [client IP to t
 
 ![AddyourIPWindow](./media/sql-database-develop-cplusplus-simple/ip.png)
 
-At this point, you have configured your Azure SQL DB and are ready to connect from your C++ code.
+At this point, you have configured your Azure SQL Database and are ready to connect from your C++ code.
 
 ## <a id="Windows"></a>Step 4: Connecting from a Windows C/C++ application
 
-You can easily connect to your [Azure SQL DB using ODBC on Windows using this sample](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28windows%29) that builds with Visual Studio. The sample implements an ODBC command-line interpreter that can be used to connect to our Azure SQL DB. This sample takes either a Database source name file (DSN) file as a command-line argument or the verbose connection string that we copied earlier from the Azure portal. Bring up the property page for this project and paste the connection string as a command argument as shown here:
+You can easily connect to your [Azure SQL Database using ODBC on Windows using this sample](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28windows%29) that builds with Visual Studio. The sample implements an ODBC command-line interpreter that can be used to connect to our Azure SQL Database. This sample takes either a Database source name file (DSN) file as a command-line argument or the verbose connection string that we copied earlier from the Azure portal. Bring up the property page for this project and paste the connection string as a command argument as shown here:
 
 ![DSN Propsfile](./media/sql-database-develop-cplusplus-simple/props.png)
 
@@ -120,7 +120,7 @@ If your connection was successful, you should now see the current database name 
 
 ![Linux Console Window Output](./media/sql-database-develop-cplusplus-simple/linuxconsolewindow.png)
 
-Congratulations! You have successfully completed the tutorial and can now connect to your Azure SQL DB from C++ on Windows and Linux platforms.
+Congratulations! You have successfully completed the tutorial and can now connect to your Azure SQL Database from C++ on Windows and Linux platforms.
 
 ## <a id="GetSolution"></a>Get the complete C/C++ tutorial solution
 
@@ -138,4 +138,3 @@ You can find the GetStarted solution that contains all the samples in this artic
 
 * [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
-

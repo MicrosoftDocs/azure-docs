@@ -23,7 +23,7 @@ tags: azure-synapse
 This article demonstrates a PowerShell script that takes the following actions:
 
 1. Creates a Microsoft Azure *Virtual Service endpoint* on your subnet.
-2. Adds the endpoint to the firewall of your Azure SQL Database server, to create a *virtual network rule*.
+2. Adds the endpoint to the firewall of your server, to create a *virtual network rule*.
 
 For more background, see [Virtual Service endpoints for Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
 
@@ -37,7 +37,7 @@ For more background, see [Virtual Service endpoints for Azure SQL Database][sql-
 
 ## Major cmdlets
 
-This article emphasizes the [**New-AzSqlServerVirtualNetworkRule** cmdlet](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule) that adds the subnet endpoint to the access control list (ACL) of your Azure SQL Database server, thereby creating a rule.
+This article emphasizes the [**New-AzSqlServerVirtualNetworkRule** cmdlet](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule) that adds the subnet endpoint to the access control list (ACL) of your server, thereby creating a rule.
 
 The following list shows the sequence of other *major* cmdlets that you must run to prepare for your call to **New-AzSqlServerVirtualNetworkRule**. In this article, these calls occur in [script 3 "Virtual network rule"](#a-script-30):
 
@@ -45,7 +45,7 @@ The following list shows the sequence of other *major* cmdlets that you must run
 2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): Creates your virtual network, giving it the subnet.
 3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): Assigns a Virtual Service endpoint to your subnet.
 4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): Persists updates made to your virtual network.
-5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): After your subnet is an endpoint, adds your subnet as a virtual network rule, into the ACL of your Azure SQL Database server.
+5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): After your subnet is an endpoint, adds your subnet as a virtual network rule, into the ACL of your server.
    - This cmdlet Offers the parameter **-IgnoreMissingVNetServiceEndpoint**, starting in Azure RM PowerShell Module version 5.1.1.
 
 ## Prerequisites for running PowerShell
@@ -147,10 +147,10 @@ else { Write-Host "Good, your Resource Group already exists - $ResourceGroupName
 $gottenResourceGroup = $null;
 
 ###########################################################
-## Ensure your Azure SQL Database server already exists. ##
+## Ensure your server already exists. ##
 ###########################################################
 
-Write-Host "Check whether your Azure SQL Database server already exists.";
+Write-Host "Check whether your server already exists.";
 
 $sqlDbServer = $null;
 
@@ -160,8 +160,8 @@ $sqlDbServer = Get-AzSqlServer `
   -ErrorAction       SilentlyContinue;
 
 if ($null -eq $sqlDbServer) {
-    Write-Host "Creating the missing Azure SQL Database server - $SqlDbServerName.";
-    Write-Host "Gather the credentials necessary to next create an Azure SQL Database server.";
+    Write-Host "Creating the missing server - $SqlDbServerName.";
+    Write-Host "Gather the credentials necessary to next create a server.";
 
     $sqlAdministratorCredentials = New-Object `
       -TypeName     System.Management.Automation.PSCredential `
@@ -178,7 +178,7 @@ if ($null -eq $sqlDbServer) {
         return;
     }
 
-    Write-Host "Create your Azure SQL Database server.";
+    Write-Host "Create your server.";
 
     $sqlDbServer = New-AzSqlServer `
       -ResourceGroupName $ResourceGroupName `
@@ -189,7 +189,7 @@ if ($null -eq $sqlDbServer) {
     $sqlDbServer;
 }
 else {
-    Write-Host "Good, your Azure SQL Database server already exists - $SqlDbServerName."; 
+    Write-Host "Good, your server already exists - $SqlDbServerName.";
 }
 
 $sqlAdministratorCredentials = $null;
@@ -262,7 +262,7 @@ $subnet = Get-AzVirtualNetworkSubnetConfig `
   -Name           $SubnetName `
   -VirtualNetwork $vnet;
 
-Write-Host "Add the subnet .Id as a rule, into the ACLs for your Azure SQL Database server.";
+Write-Host "Add the subnet .Id as a rule, into the ACLs for your server.";
 
 $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
   -ResourceGroupName      $ResourceGroupName `
@@ -272,7 +272,7 @@ $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
 
 $vnetRuleObject1;
 
-Write-Host "Verify that the rule is in the SQL DB ACL.";
+Write-Host "Verify that the rule is in the SQL Database ACL.";
 
 $vnetRuleObject2 = Get-AzSqlServerVirtualNetworkRule `
   -ResourceGroupName      $ResourceGroupName `
@@ -301,12 +301,12 @@ You can run script 4 any time after script 1 completes.
 ######### Script 4 ########################################
 ##   Clean-up phase A:  Unconditional deletes.           ##
 ##                                                       ##
-##   1. The test rule is deleted from SQL DB ACL.        ##
+##   1. The test rule is deleted from SQL Database ACL.        ##
 ##   2. The test endpoint is deleted from the subnet.    ##
 ##   3. The test virtual network is deleted.             ##
 ###########################################################
 
-Write-Host "Delete the rule from the SQL DB ACL.";
+Write-Host "Delete the rule from the SQL Database ACL.";
 
 Remove-AzSqlServerVirtualNetworkRule `
   -ResourceGroupName      $ResourceGroupName `
@@ -341,9 +341,9 @@ Remove-AzVirtualNetwork `
 ##   2. Azure resource group                             ##
 ###########################################################
 
-$yesno = Read-Host 'CAUTION !: Do you want to DELETE your Azure SQL Database server AND your Resource Group?  [yes/no]';
+$yesno = Read-Host 'CAUTION !: Do you want to DELETE your server AND your resource group?  [yes/no]';
 if ('yes' -eq $yesno) {
-    Write-Host "Remove the Azure SQL DB server.";
+    Write-Host "Remove the server.";
 
     Remove-AzSqlServer `
       -ServerName        $SqlDbServerName `
