@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Deploy server-rendered Nuxt.js websites on App Service Static Apps"
-description: #Required; article description that is displayed in search results. 
+title: "Tutorial: Deploy server-rendered Nuxt.js websites on Azure Static Web Apps"
+description: "Generate and deploy Nuxt.js dynamic sites with Azure Static Web Apps."
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
 author: christiannwamba
 ms.service: azure-functions
@@ -9,170 +9,201 @@ ms.date: 05/08/2020
 ms.author: chnwamba
 ---
 
-<!--
-Refer to the following guide for more details:
-  https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-mvc-tutorial?branch=master
--->
+# Deploy server-rendered Nuxt.js websites on App Service Static Apps
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
-
-# Tutorial: Deploy server-rendered Nuxt.js websites on App Service Static Apps
-
-<!---Required:
-Starts with "Tutorial: "
-Make the first word following "Tutorial:" a verb.
---->
-
-Introductory paragraph.
-
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language,
-what the customer will learn, or do, or accomplish. Answer the
-fundamental "why would I want to do this?" question.
---->
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-<!---Required:
-The outline of the tutorial should be included in the beginning and at
-the end of every tutorial. These will align to the **procedural** H2
-headings for the activity. You do not need to include all H2 headings.
-Leave out the prerequisites, clean-up resources and next steps--->
-
-If you don't have a <service> subscription, create a free trial account...
-<!--- Required, if a free trial account exists
-Because tutorials are intended to help new customers use the product or
-service to complete a top task, include a link to a free trial before the
-first H2, if one exists. You can find listed examples in
-[Write tutorials](contribute-how-to-mvc-tutorial.md)
---->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over
-them. Better to put that info directly into the article text.--->
+In this tutorial, you learn to deploy a [Nuxt.js](https://nuxtjs.org) generated static website to [Azure Static Web Apps](overview.md). To begin, you learn to set up, configure, and deploy a Nuxt.js app. During this process, you also learn to deal with common challenges often faced when generating static pages with Nuxt.js
 
 ## Prerequisites
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!---If you need them, make Prerequisites your first H2 in a tutorial. If
-there's something a customer needs to take care of before they start (for
-example, creating a VM) it's OK to link to that content before they
-begin.--->
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+- A GitHub account. [Create an account for free](https://github.com/join).
+- [Node.js](https://nodejs.org) installed.
 
-## Sign in to <service/product/tool name>
+## Set up a Nuxt.js app
 
-Sign in to the <service> portal.
-<!---If you need to sign in to the portal to do the tutorial, this H2 and
-link are required.--->
+You can set up a new Nuxt.js project using `create-nuxt-app`. Instead of a new project, in this tutorial you begin by cloning an existing repository. This repository is set up to demonstrate how to deploy a dynamic Nuxt.js app as a static site.
 
-## Procedure 1
+1. Create a new repository under your GitHub account from a template repository. 
+1. Navigate to <http://github.com/staticwebdev/nuxtjs-starter/generate>
+1. Name the repository **nuxtjs-starter**
+1. Next, clone the new repo to your machine. Make sure to replace <YOUR_GITHUB_ACCOUNT_NAME> with your account name.
 
-<!---Required:
-Tutorials are prescriptive and guide the customer through an end-to-end
-procedure. Make sure to use specific naming for setting up accounts and
-configuring technology.
-Don't link off to other content - include whatever the customer needs to
-complete the scenario in the article. For example, if the customer needs
-to set permissions, include the permissions they need to set, and the
-specific settings in the tutorial procedure. Don't send the customer to
-another article to read about it.
-In a break from tradition, do not link to reference topics in the
-procedural part of the tutorial when using cmdlets or code. Provide customers what they need to know in the tutorial to successfully complete
-the tutorial.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
+    ```bash
+    git clone http://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/nuxtjs-starter
+    ```
 
-Include a sentence or two to explain only what is needed to complete the
-procedure.
+1. Navigate to the newly cloned Nuxt.js app:
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
-   
-   <!---Use screenshots but be judicious to maintain a reasonable length. 
-   Make sure screenshots align to the
-   [current standards](https://review.docs.microsoft.com/help/contribute/contribute-how-to-create-screenshot?branch=master).
-   If users access your product/service via a web browser the first 
-   screenshot should always include the full browser window in Chrome or
-   Safari. This is to show users that the portal is browser-based - OS 
-   and browser agnostic.--->
-1. Step 4 of the procedure
+   ```bash
+   cd nuxtjs-starter
+   ```
+1. Install dependencies:
 
-## Procedure 2
+    ```bash
+    npm install
+    ```
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+1. Start Nuxt.js app in development:
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+    ```bash
+    npm run dev
+    ```
 
-## Procedure 3
+Navigate to <http://localhost:3000> to open the app, where you should see the following website open in your preferred browser:
 
-Include a sentence or two to explain only what is needed to complete the
-procedure.
-<!---Code requires specific formatting. Here are a few useful examples of
-commonly used code blocks. Make sure to use the interactive functionality
-where possible.
+:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-app.png" alt-text="Start Nuxt.js app":::
 
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
+When you click on a framework/library, you should see a details page about the selected item:
 
-Here is an example of a code block for Java:
+:::image type="content" source="media/deploy-nuxtjs/start-nuxtjs-details.png" alt-text="Details page":::
 
-```java
-cluster = Cluster.build(new File("src/remote.yaml")).create();
-...
-client = cluster.connect();
+## Generate a static website from Nuxt.js build
+
+When you build a Nuxt.js site using `npm run build`, the app is built as a traditional web app, not a static site. To generate a static site, use the following application configuration.
+
+1. Update the _package.json_'s build script to only generate a static site using the `nuxt generate` command:
+
+    ```json
+    "scripts": {
+      "dev": "nuxt dev",
+      "build": "nuxt generate",
+    },
+    ```
+
+    Now with this command in place, Static Web Apps will run the `build` script every time you push a commit.
+
+1. Generate a static site:
+
+    ```bash
+    npm run build
+    ```
+
+    Nuxt.js will generate the static site and copy it into a _dist_ folder at the root of your working directory.
+
+    > [!NOTE]
+    > This folder is listed in the _.gitignore_ file because it should be generated by CI/CD when you deploy.
+
+## Push your static website to GitHub
+
+Azure Static Web Apps deploys your app from a GitHub repository and keeps doing so for every pushed commit to a designated branch. Use the following commands sync your changes to GitHub.
+
+1. Stage all changed files
+    ```bash
+    git add .
+    ```
+1. Commit all changes
+    ```bash
+    git commit -m "Update build config"
+    ```
+
+1. Push your changes to GitHub.
+
+    ```bash
+    git push origin master
+    ```
+
+## Deploy your static website
+
+The following steps show how to link the app you just pushed to GitHub to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
+
+### Create an Azure Static Apps resource
+
+1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Click **Create a Resource** then search for **Static Web Apps** and select the matching result.
+
+
+1. Select a subscription from the *Subscription* drop-down list or use the default value.
+1. Click the **New** link below the *Resource group* drop-down. In *New resource group name*, type **mystaticsite** and click **OK**
+1. Provide a globally unique name for your app in the **Name** text box. Valid characters include `a-z`, `A-Z`, `0-9`, and `-`. This value is used as the URL prefix for your static app in the format of `https://<APP_NAME>.azurestaticapps.net`.
+1. In the *Region* drop-down, choose a region closest to you.
+1. Select **Free** from the SKU drop-down.
+
+  :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Create Static Web App":::
+
+### Add a GitHub repository
+
+The new Static Web Apps account needs access to the repository with your Nuxt.js app so it can automatically deploy commits.
+
+1. Click the **Sign in with GitHub button**
+1. Select the **Organization** under which you created the repo for your Nuxt.js project, which may be your GitHub username.
+1. Find and select the name of the repository you created earlier.
+1. Choose **master** as the branch from the *Branch* drop-down.
+
+  :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Connect GitHub":::
+
+### Configure the build process
+
+Azure Static Web Apps is built to automatically carry out common tasks like installing npm modules and running `npm run build` during each deployment. There are, however, a few settings like the application source folder and the build destination folder that you need to configure manually.
+
+1. Click on the **Build** tab to configure the static output folder.
+
+      :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Build tab":::
+
+1. Type **dist** in the *App artifact location* text box.
+
+### Review and create
+
+1. Click the **Review + Create** button to verify the details are all correct.
+1. Click **Create** to start the creation of the resource and also provision a GitHub Action for deployment.
+1. Once the deployment is completed, click **Go to resource**
+1. On the _Overview_ window, click the *URL* link to open your deployed application. 
+
+If the website does note immediately load, then the background GitHub Actions workflow is still running. Once the workflow is complete you can then click refresh the browser to view your web app.
+
+You can check the status of the Actions workflows by navigating to the Actions for your repository:
+
+```url
+https://github.com/<YOUR_GITHUB_USERNAME>/nuxtjs-starter/actions
 ```
 
-or a code block for Azure CLI:
+### Sync changes
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
-```
+When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. You need to bring this file down to your local repository so your git history is synchronized.
 
-or a code block for Azure PowerShell:
+Return to the terminal and run the following command `git pull origin master`.
 
-```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
-```
+## Configure dynamic routes
 
+Navigate to the newly-deployed site and click on one of the framework or library logos. Instead of getting a details page, you get a 404 error page.
 
-## Clean up resources
+:::image type="content" source="media/deploy-nuxtjs/404-in-production.png" alt-text="404 on dynamic routes":::
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+The reason for this is, Nuxt.js generated the static site, it only did so for the home page. Nuxt.js can generate equivalent static `.html` files for every `.vue` pages file, but there's an exception. 
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
+If the page is a dynamic page, for example `_id.vue`, it won't have enough information to generate a static HTML from such dynamic page. You'll have to explicitly provide the possible paths for the dynamic routes.
 
-<!---Required:
-To avoid any costs associated with following the tutorial procedure, a
-Clean up resources (H2) should come just before Next steps (H2)
---->
+## Generate static pages from dynamic routes
 
-## Next steps
+1. Update the _nuxt.config.js_ file so that Nuxt.js uses a list of all available data to generate static pages for each framework/library:
 
-<!-- Uncomment this block and add the appropriate link
+  ```javascript
+    import { projects } from "./utils/projectsData";
+    
+    export default {
+      mode: "universal",
+
+      //...truncated
+
+      generate: {
+        async routes() {
+          const paths = [];
+    
+          projects.forEach(project => {
+            paths.push(`/project/${project.slug}`);
+          });
+    
+          return paths;
+        }
+      }
+    };
+  ```
+
+  > [!NOTE]
+  > `routes` is an async function, so you can make a request to an API in this function and use the returned list to generate the paths.
+
+2. Push the new changes to your GitHub repository and wait for a few minutes while GitHub Actions builds your site again. After the build is complete, the 404 error disappears.
+
+:::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="404 on dynamic routes fixed":::
 
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
--->
-
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next
-logical tutorial in a series, or, if there are no other tutorials, to
-some other cool thing the customer can do. A single link in the blue box
-format should direct the customer to the next article - and you can
-shorten the title in the boxes if the original one doesn't fit.
-Do not use a "More info section" or a "Resources section" or a "See also
-section". --->
+> [Set up a custom domain](custom-domain.md)
