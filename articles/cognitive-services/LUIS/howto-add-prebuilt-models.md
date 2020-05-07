@@ -47,7 +47,7 @@ LUIS includes a set of prebuilt models for quickly adding common, conversational
 1. Open your app by selecting its name on **My Apps** page.
 1. Select **Entities** in the left side.
 
-1. On the **Entities** page, click **Add prebuilt entity**.
+1. On the **Entities** page, select **Add prebuilt entity**.
 
 1. In **Add prebuilt entities** dialog box, select the prebuilt entity.
 
