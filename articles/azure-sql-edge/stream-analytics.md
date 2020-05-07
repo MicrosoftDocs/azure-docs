@@ -171,6 +171,4 @@ To deploy the streaming job to the SQL Edge module, update the SQL Edge module c
 
 ## Next steps
 
-- For pricing and availability details, see [Azure SQL Edge](https://azure.microsoft.com/services/azure-sql-edge/).
-- Request enabling Azure SQL Edge for your subscription.
 - To get started, see [Deploy SQL Edge through Azure portal](deploy-portal.md).

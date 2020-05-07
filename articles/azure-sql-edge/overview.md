@@ -37,7 +37,7 @@ SQL Edge is available with three different editions or software plans. These edi
 
 ## Pricing and Availability
 
-Azure SQL Database is currently in preview. For more information on the pricing and availability, see [Azure SQL Edge](https://azure.microsoft.com/services/azure-sql-edge/).
+Azure SQL Edge is currently in preview. For more information on the pricing and availability, see [Azure SQL Edge](https://azure.microsoft.com/services/sql-database-edge/).
 
 > [!IMPORTANT]
 > To understand the feature differences between Azure SQL Edge and SQL Server, as well as the differences among different Azure SQL Edge options, see [Supported features of Azure SQL Edge](features.md).
@@ -67,8 +67,6 @@ Azure SQL Edge makes developing and maintaining applications easier and more pro
 
 ## Next steps
 
-- For pricing and availability-related details, see [Azure SQL Edge](https://azure.microsoft.com/services/azure-sql-edge/).
-- To get started, see the following:
-  - [Deploy SQL Edge through Azure portal](deploy-portal.md)
-  - [Machine Learning and Artificial Intelligence with SQL Edge](onnx-overview.md)
-  - [Building an end-to-end IoT solution with SQL Edge](onnx-demo.md)
+- [Deploy SQL Edge through Azure portal](deploy-portal.md)
+- [Machine Learning and Artificial Intelligence with SQL Edge](onnx-overview.md)
+- [Building an end-to-end IoT solution with SQL Edge](onnx-demo.md)
