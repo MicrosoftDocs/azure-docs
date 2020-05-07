@@ -44,7 +44,7 @@ Learn more about [monitoring Azure Firewall logs](https://docs.microsoft.com/azu
 
     1. Click **Save** at the top of the screen.
 
-1. To use the relevant schema in Log Analytics for the Microsoft web application firewall alerts, search for **AzureDiagnostics**.
+1. To use the relevant schema in Log Analytics for Azure Firewall alerts, search for **AzureDiagnostics**.
 
 ## Next steps
 In this document, you learned how to connect Azure Firewall logs to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
