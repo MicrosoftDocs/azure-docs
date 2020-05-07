@@ -29,6 +29,9 @@ Modifies the definition of an External Stream. Modifying an External Stream that
     , OUTPUT_OPTIONS = <output_options> 
 ```
 
+## Arguments
+
+For details on the Alter External Stream T-SQL command arguments refer [CREATE EXTERNAL STREAM (Transact-SQL)](create-external-stream-transact-sql.md)
 
 ## Return code values
 
