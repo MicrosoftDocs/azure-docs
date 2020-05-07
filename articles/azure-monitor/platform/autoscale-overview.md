@@ -101,7 +101,7 @@ You can set up autoscale via
 | Virtual Machines: Windows Example |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
 | API Management service|[Automatically scale an Azure API Management instance](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 | Azure Data Explorer Clusters|[Manage Azure Data Explorer clusters scaling to accommodate changing demand](https://docs.microsoft.com/azure/data-explorer/manage-cluster-horizontal-scaling)|
-
+| Azure App Service |[Scale up an app in Azure App service](https://docs.microsoft.com/azure/app-service/manage-scale-up)|
 ## Next steps
 To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources:
 
