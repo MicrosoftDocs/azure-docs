@@ -1,18 +1,32 @@
 
 Q: How do support code snippets across multiple languages within my docs?
 
-A: Take a look at this:
+A: An example of tabs:
 
-1. Example of tabs:
+#### [C#](#tab/c-sharp)
 
-    #### [C#](#tab/c#)
-    C# Test
+<!--- Content here  -->
 
-    #### [JS](#tab/js)
-    JS Test
+#### [Javascript](#tab/javascript)
 
-Source: https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows
+<!--- Content here  -->
 
+--- 
+
+This was generated with the following markdown:
+
+``` 
+#### [C#](#tab/c-sharp)
+
+<!--- Content here  -->
+
+#### [Javascript](#tab/javascript)
+
+<!--- Content here  -->
+--- 
+```
+
+The three dashes close out the tabbed conceptual entry.
 
 ~
 
