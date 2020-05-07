@@ -24,20 +24,20 @@ You can add serverless APIs to Azure Static Web Apps via integration with Azure 
 
 The following steps demonstrate how to create a new repository and clone the files to your computer.
 
-1. Navigate to https://github.com/staticwebdev/vanilla-basic/generate to create a new repository
-1. In the _Repository name_ box, enter **my-vanilla-api**
-1. Click **Create repository from template**
+1. Navigate to https://github.com/staticwebdev/vanilla-basic/generate to create a new repository.
+1. In the _Repository name_ box, enter **my-vanilla-api**.
+1. Click **Create repository from template**.
 
-:::image type="content" source="media/add-api/create-repository.png" alt-text="Create a new repository from vanilla-basic":::
+   :::image type="content" source="media/add-api/create-repository.png" alt-text="Create a new repository from vanilla-basic":::
 
 Once your project is created, you can use Visual Studio Code to clone the Git repository.
 
- 1. Press **F1** to open command in the Command Palette.
- 1. Paste the URL into the _Git: Clone_ prompt, and press **Enter**.
+1. Press **F1** to open command in the Command Palette.
+1. Paste the URL into the _Git: Clone_ prompt, and press **Enter**.
 
-:::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Clone a GitHub project using Visual Studio Code":::
+   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Clone a GitHub project using Visual Studio Code":::
 
-:::image type="content" source="media/add-api/github-clone-url.png" alt-text="Clone a GitHub project using Visual Studio Code":::
+   :::image type="content" source="media/add-api/github-clone-url.png" alt-text="Clone a GitHub project using Visual Studio Code":::
 
 
 ## Create your local project
@@ -46,8 +46,8 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Inside the _my-vanilla-api_ project, create a sub-folder named **api**.
 
-> [!NOTE]
-> You can give this folder any name. This example uses `api` 
+   > [!NOTE]
+   > You can give this folder any name. This example uses `api`. 
 
 2. Press **F1** to open the Command Palette
 3. Type **Azure Functions: Create New Project...**
@@ -56,7 +56,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 6. Select the **api** folder as the directory for your project workspace
 7. Choose **Select**
 
-:::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
 8. Provide the following information at the prompts:
 
@@ -72,61 +72,63 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 10. Your app should now have a project structure similar to this example.
 
-```files
-├── api
-│   ├── GetMessage
-│   │   ├── function.json
-│   │   ├── index.js
-│   │   └── sample.dat
-│   ├── host.json
-│   ├── local.settings.json
-│   ├── package.json
-│   └── proxies.json
-├── index.html
-├── readme.md
-└── styles.css
-```
+    ```files
+    ├── api
+    │   ├── GetMessage
+    │   │   ├── function.json
+    │   │   ├── index.js
+    │   │   └── sample.dat
+    │   ├── host.json
+    │   ├── local.settings.json
+    │   ├── package.json
+    │   └── proxies.json
+    ├── index.html
+    ├── readme.md
+    └── styles.css
+    ```
 
 11. Next, update the `GetMessage` function under _api/GetMessage/index.js_ with the following code.
 
-```JavaScript
-module.exports = async function (context, req) {
-  context.res = {
-    body: { 
-      text: "Hello from the API" 
-    }
-  };
-};
-```
+    ```JavaScript
+    module.exports = async function (context, req) {
+      context.res = {
+        body: { 
+          text: "Hello from the API" 
+        }
+      };
+    };
+    ```
 
 12. Update the `GetMessage` configuration under `api/GetMessage/function.json` with the following settings.
 
-```json
-{
-  "bindings": [
+    ```json
     {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get"
-      ],
-      "route": "message"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
+      "bindings": [
+        {
+          "authLevel": "anonymous",
+          "type": "httpTrigger",
+          "direction": "in",
+          "name": "req",
+          "methods": [
+            "get"
+          ],
+          "route": "message"
+        },
+        {
+          "type": "http",
+          "direction": "out",
+          "name": "res"
+        }
+      ]
     }
-  ]
-}
-```
+    ```
+    
 With the above settings, the API endpoint is:
 
 - Triggered with an HTTP request is made to the function
 - Available to all requests regardless of authentication status
 - Exposed via the _/api/message_ route
+
 ## Run the function locally
 
 Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local) to let you run this project on your local development computer before you publish to Azure.
@@ -137,15 +139,15 @@ Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.mic
 
     When the Core Tools are installed, your app starts in the _Terminal_ panel. As a part of the output, you can see the URL endpoint of your HTTP-triggered function running locally.
 
-:::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
+    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
 3. With Core Tools running, navigate to the following URL to execute a `GET` request.
 
    <http://localhost:7071/api/message>
 
-A response is returned, which looks like the following in the browser:
+   A response is returned, which looks like the following in the browser:
 
-:::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
 After you've verified that the function runs correctly, you can call the API from the JavaScript application.
 
@@ -155,44 +157,45 @@ After you've verified that the function runs correctly, you can call the API fro
 
 
 #### Update files to access the API
+
 1. Next, update the content of the _index.html_ file with the following code to fetch the text from the API function and display it on the screen:
 
-```html
-<!DOCTYPE html>
-<html lang="en">
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
-</head>
+   <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="styles.css">
+     <title>Vanilla JavaScript App</title>
+   </head>
 
-<body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-    <p>Loading message from the API: <b id="name">...</b></p>
-  </main>
+   <body>
+     <main>
+       <h1>Vanilla JavaScript App</h1>
+       <p>Loading message from the API: <b id="name">...</b></p>
+     </main>
 
-  <script>
-    (async function() {
-      let { text } = await( await fetch(`/api/message`)).json();
-      document.querySelector('#name').textContent = text;
-    }())
-  </script>
-</body>
+     <script>
+       (async function() {
+         let { text } = await( await fetch(`/api/message`)).json();
+         document.querySelector('#name').textContent = text;
+       }())
+     </script>
+   </body>
 
-</html>
-```
+   </html>
+   ```
 
-With Core Tools running, use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Visual Studio Code extension to serve the _index.html_ file and open it a in browser. 
+   With Core Tools running, use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Visual Studio Code extension to serve the _index.html_ file and open it a in browser. 
 
 2. Press **F1** and choose **Live Server: Open with Live Server**.
 
-:::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
-> [!NOTE]
-> You can use other HTTP servers or proxies to serve the `index.html` file. Accessing the `index.html` from `file:///` will not work.
+   > [!NOTE]
+   > You can use other HTTP servers or proxies to serve the `index.html` file. Accessing the `index.html` from `file:///` will not work.
 
 ### Commit and push your changes to GitHub
 
@@ -226,11 +229,15 @@ Using Visual Studio Code, commit and push your changes to the remote git reposit
 
 Next, add the following the build details.
 
-1. Enter **./** for the _App location_
-1. Enter **api** in the _Api location_ box
-    - This is the name of the API folder created in the previous step.
-1. Clear the default value out of the _App artifact location_, leaving the box empty
-1. Click **Review + create**
+1. Enter **./** for the _App location_.
+
+1. Enter **api** in the _Api location_ box.
+
+   This is the name of the API folder created in the previous step.
+   
+1. Clear the default value out of the _App artifact location_, leaving the box empty.
+
+1. Click **Review + create**.
 
 | Setting | Description             | Required |
 | -------- | ----------------------- |
