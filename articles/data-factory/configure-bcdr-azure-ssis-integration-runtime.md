@@ -115,7 +115,7 @@ When failover occurs, take the following steps:
 
 ### Scenario 4: Attach an existing SSISDB instance (SSIS catalog) to a new Azure-SSIS IR
 
-This scenario is suitable if you want to provision a new Azure-SSIS IR in a secondary region. It's also suitable if you want SSISDB to keep working with a new Azure-SSIS IR in a new region when an Azure Data Factory or Azure-SSIS IR disaster occurs in the current region.
+This scenario is suitable if you want SSISDB to work with a new Azure-SSIS IR in a new region when an Azure Data Factory or Azure-SSIS IR disaster occurs in the current region.
 
 #### Solution
 
