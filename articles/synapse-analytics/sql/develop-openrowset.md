@@ -157,7 +157,7 @@ Parser version 2.0 specifics:
 
 - Not all data types are supported.
 - Maximum row size limit is 8MB.
-- Following options are not supported: DATA_COMPRESSION, USE_TYPE_DEFAULT, CODEPAGE.
+- Following options are not supported: DATA_COMPRESSION.
 - Quoted empty string ("") is interpreted as empty string.
 
 ## Examples
