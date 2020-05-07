@@ -9,8 +9,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2029
-ms.author: tremansdoerfer
+ms.date: 05/06/2020
+ms.author: rimansdo
 ---
 
 # Quickly scale and protect a web application using Azure Front Door and Azure Web Application Firewall (WAF)
