@@ -21,8 +21,8 @@
     href: ../iot-central/core/tutorial-connect-pnp-device.md
 - name: Concepts
   items:
-  - name: Glossary
-    href: iot-plug-and-play-glossary.md
+  - name: Architecture
+    href: concepts-architecture.md
   - name: Developer guide
     href: concepts-developer-guide.md
   - name: Common interfaces
@@ -33,6 +33,8 @@
     href: concepts-model-discovery.md
   - name: Limits and quotas
     href: concepts-limits-quotas.md
+  - name: Glossary
+    href: iot-plug-and-play-glossary.md
 - name: How-to guides
   items:
   - name: Install IoT explorer
