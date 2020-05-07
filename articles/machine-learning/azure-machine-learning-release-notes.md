@@ -1698,7 +1698,7 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
 
 + **New features**
   + Azure Machine Learning Pipelines added AzureBatchStep ([notebook](https://aka.ms/pl-azbatch)), HyperDriveStep (notebook), and time-based scheduling functionality ([notebook](https://aka.ms/pl-schedule)).
-  +  DataTranferStep updated to work with Azure SQL Server and Azure database for PostgreSQL ([notebook](https://aka.ms/pl-data-trans)).
+  +  DataTranferStep updated to work with Azure SQL Database and Azure database for PostgreSQL ([notebook](https://aka.ms/pl-data-trans)).
 
 + **Changes**
   + Deprecated `PublishedPipeline.get_published_pipeline` in favor of `PublishedPipeline.get`.
