@@ -46,8 +46,8 @@ To add SharePoint on-premises from the gallery:
 
 1. In the [Azure portal](https://portal.azure.com), on the leftmost pane, select **Azure Active Directory**.
 
- > [!NOTE]
- > If the element isn't available, you can also open it through the **All services** link at the top of the leftmost pane. In the following overview, the **Azure Active Directory** link is located in the **Identity** section. You can also search for it by using the filter box.
+   > [!NOTE]
+   > If the element isn't available, you can also open it through the **All services** link at the top of the leftmost pane. In the following overview, the **Azure Active Directory** link is located in the **Identity** section. You can also search for it by using the filter box.
 
 1. Go to **Enterprise applications**, and then select **All applications**.
 
@@ -176,7 +176,7 @@ The objective of this section is to create a test user in the Azure portal.
   
     1. In the **User name** box, enter `TestUser@yourcompanydomain.extension`. This example shows `TestUser@contoso.com`.
 
-    ![The User dialog box](./media/sharepoint-on-premises-tutorial/user-properties.png)
+       ![The User dialog box](./media/sharepoint-on-premises-tutorial/user-properties.png)
 
     1. Select the **Show password** check box, and then write down the value that appears in the **Password** box.
 
