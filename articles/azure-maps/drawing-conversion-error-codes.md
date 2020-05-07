@@ -22,39 +22,37 @@ The Conversion service will succeed if there are any conversion warnings, but it
 
 #### *Description for geometryWarning*
 
-A **geometryWarning** warning occurs when the Conversion service discovers an invalid entity. An invalid entity is an entity that does not conform to geometric constraints. The Conversion service is unable to create a map feature from an invalid entity and instead ignores it.
+A **geometryWarning** occurs when the drawing contains an invalid entity. An invalid entity is an entity that does not conform to geometric constraints, such as a self-intersecting polygon or a non-closed PolyLine in a layer that only supports closed geometry.
 
-The following are examples of invalid entities:
+The Conversion service is unable to create a map feature from an invalid entity and instead ignores it.
 
-* PolyLine features not meeting perfectly at a point.
-* A self-intersecting polygon.
-* An unclosed polygon.
-* Gaps between polygon borders.
-* Overlapping polygon borders.
+#### *Examples for geometryWarning*
 
-#### *Example for geometryWarning*
+* The two images below show examples of self-intersecting polygons.
 
- ![Example of a geometric error](./media/drawing-conversion-error-codes/placeholder.png)
+     ![Example of a self-intersecting polygon](./media/drawing-conversion-error-codes/geometryWarning1.png)
+
+     ![Example of a self-intersecting polygon](./media/drawing-conversion-error-codes/geometryWarning2.png)
+
+* Below is an image that shows a non-closed PolyLine. Assume that the layer only supports closed geometry.
+
+    ![Example of a non-closed PolyLine](./media/drawing-conversion-error-codes/geometryWarning3.png)
 
 #### *How to fix geometryWarning*
 
-Inspect the **geometryWarning** warning for each entity to verify that it follows geometric constraints.
+Inspect the **geometryWarning** for each entity to verify that it follows geometric constraints.
 
 ### **unexpectedGeometryInLayer**
 
 #### *Description for unexpectedGeometryInLayer*
 
-The **unexpectedGeometryInLayer** warning occurs when the Conversion service finds a geometry that is incompatible with its current layer. When the Conversion service throws an **unexpectedGeometryInLayer** warning, it will ignore that geometry.
+An **unexpectedGeometryInLayer** warning occurs when the drawing contains geometry that is incompatible with the expected geometry type for a given layer. When the Conversion service returns an **unexpectedGeometryInLayer** warning, it will ignore that geometry.
 
-#### *Examples for unexpectedGeometryInLayer*
+#### *Example for unexpectedGeometryInLayer*
 
-* The Conversion service finds a non-closed PolyLine in the level outline layer, unit layer, zone layer, or wall layer.
+The image below shows a non-closed PolyLine. Assume that the layer only supports closed geometry.
 
-    ![Example of a non-closed Polyline](./media/drawing-conversion-error-codes/placeholder.png)
-
-* The Conversion service finds a non-text entity in the zoneLabel layer or the unitLabel layer.
-
-    ![Example of a non-text entity](./media/drawing-conversion-error-codes/placeholder.png)
+![Example of a non-closed PolyLine](./media/drawing-conversion-error-codes/geometryWarning3.png)
 
 #### *How to fix unexpectedGeometryInLayer*
 
@@ -64,21 +62,13 @@ Inspect each **unexpectedGeometryInLayer** warning and move the incompatible geo
 
 #### *Description for unsupportedFeatureRepresentation*
 
-The **unsupportedFeatureRepresentation** warning occurs when the Conversion service finds an unsupported entity type.
+The **unsupportedFeatureRepresentation** warning occurs when the drawing contains an unsupported entity type.
 
-#### *Examples for unsupportedFeatureRepresentation*
+#### *Example for unsupportedFeatureRepresentation*
 
-* The Conversion service finds a multi-line text object on a label layer.
+The image belows shows an unsupported entity type as a multi-line text object on a label layer.
   
-    ![Example of a multi-line text object on label layer](./media/drawing-conversion-error-codes/placeholder.png)
-
-* The Conversion service finds a 3D Face in the unit layer.
-
-    ![Example of a 3D Face on unit layer](./media/drawing-conversion-error-codes/placeholder.png)
-
-* The Conversion service finds an old-style Polyline2D entity that hasn't been converted to a regular Polyline.
-
-    ![Example of a Polyline2D entity](./media/drawing-conversion-error-codes/placeholder.png)
+![Example of a multi-line text object on label layer](./media/drawing-conversion-error-codes/multiLine.png)
 
 #### *How to fix unsupportedFeatureRepresentation*
 
@@ -88,21 +78,21 @@ Ensure that your DWG files contain only the supported entity types listed under 
 
 #### *Description for automaticRepairPerformed*
 
-The **automaticRepairPerformed** warning occurs when the Conversion service finds invalid geometry and automatically repairs it.
+The **automaticRepairPerformed** warning occurs when the Conversion service automatically repairs invalid geometry.
 
 #### *Examples for automaticRepairPerformed*
 
-* The Conversion service found and repaired a self-intersecting polygon.
+* The following image shows how the Conversion service repaired a self-intersecting polygon into valid geometry.
 
-    ![Example of a self-intersecting polygon repaired](./media/drawing-conversion-error-codes/placeholder.png)
+    ![Example of a self-intersecting polygon repaired](./media/drawing-conversion-error-codes/automaticRepair1.png)
 
-* The Conversion service found and repaired a non-closed Polyline with first and last vertices closer than 1 mm were snapped to make a closed Polyline.
+* The image below shows how the Conversion service snapped the first and last vertex of a non-closed PolyLine to create a closed PolyLine, where the first and last vertex were less than 1 mm apart.  
 
-    ![Example of a snapped Polyline](./media/drawing-conversion-error-codes/placeholder.png)
+    ![Example of a snapped PolyLine](./media/drawing-conversion-error-codes/automaticRepair2.png)
 
-* In a layer that only supports closed Polylines, the Conversion service found, and repaired multiple non-closed Polylines to to combine them into a single closed Polyline. This fix was done to avoid discarding the Polylines.
+* The image below shows how, in a layer that supports only closed PolyLines, the Conversion service repaired multiple non-closed PolyLines by combining them into a single closed PolyLine. This fix was done to avoid discarding the PolyLines.
 
-    ![Example of non-closed Polylines converted to closed Polyline](./media/drawing-conversion-error-codes/placeholder.png)
+    ![Example of non-closed Polylines combined into a single closed PolyLine](./media/drawing-conversion-error-codes/automaticRepair3.png)
 
 #### *How to fix automaticRepairPerformed*
 
@@ -121,42 +111,88 @@ To fix an **automaticRepairPerformed** warning, do the following:
 
 #### *Description for redundantAttribution*
 
-The **redundantAttribution** warning occurs when the Conversion service finds redundant or conflicting object properties.
+The **redundantAttribution** warning occurs when the manifest contains redundant or conflicting object properties.
 
 #### *Examples for redundantAttribution*
 
-* The Conversion service finds two or more `unitProperties` objects with the same `name`.
+* The JSON snippet below contains two or more `unitProperties` objects with the same `name`.
 
-    ![Example of `unitProperty` objects with same name](./media/drawing-conversion-error-codes/placeholder.png)
+    ```json
+    "unitProperties": [
+        {
+            "unitName": "L1-100",
+            "categoryName": "room.office"
+        },
+        {
+            "unitName": "L1-101",
+            "categoryName": "room.office"
+        },
+        {
+            "unitName": "L1-101",
+            "categoryName": "room.office"
+        }
+    ]
+    ```
 
-* The Conversion service finds two or more `zoneProperties` objects with the same `name`.
-    ![Example of ``zoneProperty` objects with same name](./media/drawing-conversion-error-codes/placeholder.png)
+* In the JSON snippet below, two or more `zoneProperties` objects have the same `name`.
+
+    ```json
+     "zoneProperties": [
+        {
+            "zoneName": "Assembly Area 1",
+            "categoryName": "zone.assembly"
+        },
+        {
+            "zoneName": "Assembly Area 2",
+            "categoryName": "zone.assembly"
+        },
+        {
+            "zoneName": "Assembly Area 2",
+            "categoryName": "zone.assembly"
+        }
+    ```
 
 #### *How to fix redundantAttribution*
 
 To fix a **redundantAttribution* warning, remove redundant or conflicting object properties.
 
-## Level warnings
+### **manifestWarning**
+
+#### *Description for manifestWarning*
+
+A **manifestWarning** occurs when the manifest contains unitProperties or zoneProperties objects that are unused during conversion.
+
+#### *Examples for manifestWarning*
+
+* The manifest contains a `unitProperties` object with a `unitName` that has no matching label in a `unitLabel` layer.
+
+* The manifest contains a `zoneProperties` object with a `zoneName` that has no matching label in a `zoneLabel` layer.
+
+#### *How to fix manifestWarning*
+
+To fix a **manifestWarning**, remove the unused `unitProperties` or `zoneProperties` object from the manifest, or add a unit/zone label to the drawing so that the properties object is used during conversion.
+
+## Wall warnings
 
 ### **wallOutsideLevel**
 
 #### *Description for wallOutsideLevel*
 
-The **wallOutsideLevel** warning occurs when the Conversion service finds a Wall geometry outside the bounds of a level outline.
+The **wallOutsideLevel** warning occurs when the drawing contains a Wall geometry outside the bounds of a level outline.
 
 #### *Example for wallOutsideLevel*
 
-* The Conversion service finds an interior wall, shown in red, outside the yellow level boundary.
+* The image below shows an interior wall, in red, outside the yellow level boundary.
 
-    ![Interior wall goes outside the level boundary](./media/drawing-conversion-error-codes/interior-wall-outside-level-boundary.png)
+    ![Example of interior wall outside the level boundary](./media/drawing-conversion-error-codes/wallOutsideLevel.png)
 
-* The Conversion service finds an exterior wall, shown in red, outside the yellow level boundary.
+* The following image shows an exterior wall, in red, outside the yellow level boundary.
 
-    ![Exterior wall goes outside the level boundary](./media/drawing-conversion-error-codes/exterior-wall-outside-level-boundary.png)
+    ![Example of exterior wall outside the level boundary](./media/drawing-conversion-error-codes/wallOutsideLevelExterior.png)
 
 #### *How to fix wallOutsideLevel*
 
-To fix an **wallOutsideLevel** warning, expand the level geometry to include all walls. Or, modify wall boundaries to fit inside the level boundary.
+To fix a **wallOutsideLevel** warning, expand the level geometry to include all walls. Or, modify wall boundaries to fit inside the level boundary.
 
 ## Unit warnings
 
@@ -164,29 +200,29 @@ To fix an **wallOutsideLevel** warning, expand the level geometry to include all
 
 #### *Description for unitOutsideLevel*
 
-An **unitOutsideLevel** warning occurs when the Conversion service finds a unit geometry outside the bounds of the level outline.
+A **unitOutsideLevel** warning occurs when the drawing contains unit geometry outside the bounds of the level outline.
 
 #### *Example for unitOutsideLevel*
 
- In the following image, a unit geometry, shown in red, exceeds the bounds of the yellow level boundary.
+ In the following image, unit geometry, in red, exceeds the bounds of the yellow level boundary.
 
- ![Unit goes outside the level boundary](./media/drawing-conversion-error-codes/unit-outside-level-boundary.png)
+ ![Example of unit exceeding the level boundary](./media/drawing-conversion-error-codes/unitOutsideLevel.png)
 
 #### *How to fix unitOutsideLevel*
 
-To fix an **unitOutsideLevel** warning, expand the level boundary to include all units. Or, modify unit geometry to fit inside the level boundary.
+To fix a **unitOutsideLevel** warning, expand the level boundary to include all units. Or, modify unit geometry to fit inside the level boundary.
 
 ### **partiallyOverlappingUnit**
 
 #### *Description for partiallyOverlappingUnit*
 
-A **partiallyOverlappingUnit** occurs when the Conversion service finds a unit geometry partially overlapping on another unit geometry. The Conversion service ignores overlapping units.
+A **partiallyOverlappingUnit** warning occurs when the drawing contains a unit geometry partially overlapping on another unit geometry. The Conversion service discards overlapping units.
 
 #### *Example scenarios partiallyOverlappingUnit*
 
-In the following image, the overlapping units are highlighted in red. `UNIT136` overlaps `CIRC103`, `UNIT126`, and `UNIT135`.
+In the following image, the overlapping unit is highlighted in red. `UNIT110` and `HALLWAY` are discarded.
 
-![Unit overlap](./media/drawing-conversion-error-codes/unit-overlap.png)
+![Example of overlapping units](./media/drawing-conversion-error-codes/partiallyOverlappingUnit.png)
 
 #### *How to fix partiallyOverlappingUnit*
 
@@ -198,13 +234,13 @@ To fix a **partiallyOverlappingUnit** warning, redraw each partially overlapping
 
 #### *Description for doorOutsideLevel*
 
-The **doorOutsideLevel** warning occurs when the Conversion service finds a door geometry outside the bounds of the level geometry.
+A **doorOutsideLevel** warning occurs when the drawing contains a door geometry outside the bounds of the level geometry.
 
 #### *Example for doorOutsideLevel*
 
 In the following image, the door geometry, highlighted in red, overlaps the yellow level boundary.
 
-![Example of a door outside level boundary](./media/drawing-conversion-error-codes/placeholder.png)
+![Example of a door overlapping a level boundary](./media/drawing-conversion-error-codes/doorOutsideLevel.png)
 
 #### *How to fix doorOutsideLevel*
 
@@ -216,17 +252,45 @@ To fix a **doorOutsideLevel** warning, redraw your door geometry so that it is i
 
 #### *Description for zoneWarning*
 
-The **zoneWarning** warning occurs when the Conversion service encounters an error while attempting to create a zone feature.
+The **zoneWarning** occurs when a zone does not contain a abel. The Conversion service discards a zone that is not label.l
 
 #### *Example for zoneWarning*
 
-The Conversion service finds a zone that contains multiple zone labels or no zone labels.
+The following image shows a zone that does not contain a label.
 
-![Example of a zone that contains multiple zone labels or no zone labels](./media/drawing-conversion-error-codes/placeholder.png)
+![Example of a zone does not contain a label](./media/drawing-conversion-error-codes/zoneWarning.png)
 
 #### *How to fix zoneWarning*
 
-To fix a **zoneWarning**, verify that each zone has only one label.
+To fix a **zoneWarning**, verify that each zone has a single label.
+
+## Label Warnings
+
+### *labelWarning*
+
+#### *Description for labelWarning*
+
+The **labelWarning** occurs when the drawing contains ambiguous or contradictory labels feature.
+
+A **labelWarning** occurs because of one or more of the following reasons:
+
+* A unit label is not in any units.
+* A zone label is not in any zones.
+* A zone label is inside two or more zones.
+
+#### *Example for labelWarning*
+
+The following image shows a label that inside two zones.
+
+![Example of a label inside two zones ](./media/drawing-conversion-error-codes/labelWarning.png)
+
+#### *How to fix labelWarning*
+
+To fix a **labelWarning**, ensure that:
+
+* all unit labels are inside units.
+* all zone labels are inside zones.
+* all zone labels are in one and only one zone.
 
 ## Drawing Package errors
 
@@ -234,20 +298,17 @@ To fix a **zoneWarning**, verify that each zone has only one label.
 
 #### *Description for invalidArchiveFormat*
 
-The **invalidArchiveFormat** error occurs when the Conversion service detects an invalid archive format such as GZIP or 7-Zip. Only the ZIP archive format is supported.
-The **invalidArchiveFormat** error will also occur if the ZIP archive is empty.
+An **invalidArchiveFormat** error occurs when the drawing package is in an invalid archive format such as GZIP or 7-Zip. Only the ZIP archive format is supported.
 
-#### *Example scenario for invalidArchiveFormat*
-
-![Example of invalidarchiveformat](./media/drawing-conversion-error-codes/placeholder.png)
+An **invalidArchiveFormat** error will also occur if the ZIP archive is empty.
 
 #### *How to fix invalidArchiveFormat*
 
-To fix an **invalidArchiveFormat** error, do the following:
+To fix an **invalidArchiveFormat** error, verify that:
 
-* Verify that your archive file name ends in _.zip_.
-* Verify that your ZIP archive contains data.
-* Verify that you can open your ZIP archive.
+* your archive file name ends in _.zip_.
+* your ZIP archive contains data.
+* you can open your ZIP archive.
 
 ### **invalidUserData**
 
@@ -261,34 +322,29 @@ You attempted to upload a Drawing package with an incorrect `udid` parameter.
 
 #### *How to fix invalidUserData*
 
-To fix a **invalidUserData** error, verify all of the following:
+To fix an **invalidUserData** error, verify that:
 
-* That you have provided a correct `udid` for the uploaded package.
-* That Azure Maps Creator has been enabled for the Azure Maps account you used for uploading the Drawing package.
-* That the API request to the Conversion service contains the subscription key to the Azure Maps account you used for uploading the Drawing package.
+* you have provided a correct `udid` for the uploaded package.
+* Azure Maps Creator has been enabled for the Azure Maps account you used for uploading the Drawing package.
+* the API request to the Conversion service contains the subscription key to the Azure Maps account you used for uploading the Drawing package.
 
 ### **dwgError**
 
 #### *Description for dwgError*
 
-The **dwgError** occurs when the Conversion service finds an issue with one or more DWG files in the uploaded ZIP archive.
+A **dwgError** when the drawing package contains an issue with one or more DWG files in the uploaded ZIP archive.
 
-The **dwgError** error occurs because of one or more of the following reasons: because of the following:
+The **dwgError** occurs when the drawing package contains a DWG file that cannot be opened because it is invalid or corrupt.
 
 * A DWG file isn't a valid AutoCAD DWG file format drawing.
 * A DWG file is corrupt.
 * A DWG file is listed in the _manifest.json_ file, but it's missing from the ZIP archive.
 
-#### *Example scenario for dwgError*
-
-![Example of dwgError](./media/drawing-conversion-error-codes/placeholder.png)
-
 #### *How to fix dwgError*
 
-To fix a **dwgError** error, inspect your _manifest.json_ file and do one or more of the following:
+To fix a **dwgError**, inspect your _manifest.json_ file and do one or more of the following:
 
-* Confirm that all DWG files in your ZIP archive are valid AutoCAD DWG file format drawings. Remove or fix all invalid drawings.
-* If the _manifest.json_ is corrupted, repair your corrupt DWG file. Or, discard it and create a new one.
+* To confirm that all DWG files in your ZIP archive are valid AutoCAD DWG format drawings, open each one in AutoCAD. Remove or fix all invalid drawings.
 * Confirm that the list of  DWG files in the _manifest.json_  matches the DWG files in the ZIP archive.
 
 ## Manifest errors
@@ -297,17 +353,9 @@ To fix a **dwgError** error, inspect your _manifest.json_ file and do one or mor
 
 #### Description for invalidJsonFormat
 
-The **invalidJsonFormat** error occurs when the _manifest.json_ file cannot be read.
+An **invalidJsonFormat** error occurs when the _manifest.json_ file cannot be read.
 
-The _manifest.json_file cannot be read because of one or more of the following reasons:
-
-* The _manifest.json_ doesn't contain any JSON text.
-* The _manifest.json_ contains non-JSON text.
-* The _manifest.json_ has JSON syntax errors.
-
-#### *Example scenario for invalidJsonFormat*
-
-![Example of invalidJsonFormat](./media/drawing-conversion-error-codes/placeholder.png)
+The _manifest.json_file cannot be read due to JSON formatting or syntax errors. To learn more about how JSON format and syntax, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://tools.ietf.org/html/rfc7159)
 
 #### *How to fix invalidJsonFormat*
 
@@ -318,15 +366,6 @@ To fix an **invalidJsonFormat** error, use a JSON linter to detect and resolve a
 #### *Description for missingRequiredField*
 
 A **missingRequiredField** error occurs when the _manifest.json_ file is missing required data.
-
-A **missingRequiredField** error occurs because of the following reasons:
-
-* The _manifest.json_ is missing a "version" object.
-* The _manifest.json_ is missing a "dwgLayers" object.
-
-#### *Example scenario for missingRequiredField*
-
-![Example of missingRequiredField](./media/drawing-conversion-error-codes/placeholder.png)
 
 #### *How to fix missingRequiredField*
 
@@ -344,10 +383,6 @@ The **missingManifest** error occurs because of one or more of the following rea
 * The _manifest.json_ is missing.
 * The _manifest.json_ is not inside the root directory of the ZIP archive.
 
-#### *Example scenario for missingManifest*
-
-![Example of missingManifest](./media/drawing-conversion-error-codes/placeholder.png)
-
 #### *How to fix missingManifest*
 
 To fix a **missingManifest** error, confirm that the archive has a file named _manifest.json_ at the root level of the ZIP archive.
@@ -360,9 +395,25 @@ The **conflict** error occurs when the _manifest.json_ file contains conflicting
 
 #### *Example scenario for conflict*
 
-The Conversion service will return a **conflict** error  when more than one level is defined with the same level ordinal.
+The Conversion service will return a **conflict** error  when more than one level is defined with the same level ordinal. The following JSON snippet shows two levels defined with the same ordinal.
 
-![Example of conflict](./media/drawing-conversion-error-codes/placeholder.png)
+```JSON
+"buildingLevels":
+{
+    "levels": [
+        {
+            "levelName": "Ground",
+            "ordinal": 0,
+            "filename": "./Level_0.dwg"
+        },
+        {
+            "levelName": "Parking",
+            "ordinal": 0,
+            "filename": "./Level_P.dwg"
+        }
+    ]
+}
+```
 
 #### *How to fix conflict*
 
@@ -381,7 +432,17 @@ The **invalidGeoreference** error occurs because of one or more of the following
 
 #### *Example scenario for invalidGeoreference*
 
-![Example of invalidGeoreference](./media/drawing-conversion-error-codes/placeholder.png)
+In the JSON snippet below, the latitude is above the upper limit.
+
+```json
+"georeference"
+{
+    "lat": 88.0,
+    "lon": -122.132600,
+    "angle": 0
+},
+```
+
 #### *How to fix invalidGeoreference*
 
 To fix an **invalidGeoreference** error, verify that the georeferenced values are within range.
@@ -395,13 +456,13 @@ To fix an **invalidGeoreference** error, verify that the georeferenced values ar
 
 #### *Description for wallError*
 
-The **wallError** error occurs when the Conversion service finds an error while attempting to create a wall feature.
+The **wallError** occurs when the drawing contains an error while attempting to create a wall feature.
 
 #### *Example scenario for wallError*
 
 The following image displays a wall feature that doesn't overlap any units.
 
-![Example of Wall feature that doesn't overlap any units](./media/drawing-conversion-error-codes/placeholder.png)
+![Example of Wall feature that doesn't overlap any units](./media/drawing-conversion-error-codes/wallError.png)
 
 #### *How to fix wallError*
 
@@ -413,16 +474,22 @@ To fix a **wallError** error, redraw the wall so that it overlaps at least one u
 
 #### *Description for verticalPenetrationError*
 
-The **verticalPenetrationError** error occurs when the Conversion service finds an error while creating a vertical penetration feature.
+The **verticalPenetrationError** occurs when the drawing contains an ambiguous vertical penetration feature.
 
-The **verticalPenetrationError** error occurs because of one or more of the following reasons:
+The **verticalPenetrationError** occurs because of one or more of the following reasons:
 
-* The Conversion service finds a vertical penetration area with no overlapping vertical penetration areas on any levels above or below it.
-* The Conversion service finds a level that exists with two or more vertical penetration features on it that overlap this one.
+* The drawing contains a vertical penetration area with no overlapping vertical penetration areas on any levels above or below it.
+* The drawing package contains a level with two or more vertical penetration features on it that both overlap a single vertical penetration feature on another level directly above or below it.
 
 #### *Example scenario for verticalPenetrationError*
 
-![Example of verticalPenetrationError](./media/drawing-conversion-error-codes/placeholder.png)
+The image below shows a vertical penetration area with no overlapping vertical penetration areas on any levels above or below it.
+
+![Example of a vertical penetration area with no overlapping vertical penetration areas on levels above or below](./media/drawing-conversion-error-codes/VRT.png)
+
+The following image shows a vertical penetration area that overlaps more than one vertical penetration area on an adjacent level.
+
+![Example of a vertical penetration area which overlaps more than one vertical penetration area on an adjacent levelE](./media/drawing-conversion-error-codes/VRT2.png)
 
 #### How to fix verticalPenetrationError
 
