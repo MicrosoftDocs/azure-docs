@@ -15,7 +15,7 @@ tags: azure-synapse
 ---
 # PowerShell: Create a Virtual Service endpoint and VNet rule for Azure SQL Database
 
-*Virtual network rules* are one firewall security feature that controls whether the database server for your [Azure SQL Database]((sql-database-technical-overview.md) databases, elastic pools, or databases in [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accept communications that are sent from particular subnets in virtual networks.
+*Virtual network rules* are one firewall security feature that controls whether the [logical SQL server](sql-database-servers.md) for your [Azure SQL Database]((sql-database-technical-overview.md) databases, elastic pools, or databases in [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accept communications that are sent from particular subnets in virtual networks.
 
 > [!IMPORTANT]
 > This article applies to Azure SQL Database, including Azure Synapse (formerly SQL DW). For simplicity, the term Azure SQL Database in this article applies to databases belonging to either Azure SQL Database or Azure Synapse. This article does *not* apply to Azure SQL Managed Instance because it does not have a service endpoint associated with it.
@@ -115,7 +115,7 @@ Write-Host 'Completed script 1, the "Variables".';
 This script prepares for the next script, where the endpoint action is. This script creates for you the following listed items, but only if they do not already exist. You can skip script 2 if you are sure these items already exist:
 
 - Azure resource group
-- Azure SQL Database server
+- Logical SQL server
 
 ### PowerShell script 2 source code
 
@@ -202,7 +202,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 ## Script 3: Create an endpoint and a rule
 
-This script creates a virtual network with a subnet. Then the script assigns the **Microsoft.Sql** endpoint type to your subnet. Finally the script adds your subnet to the access control list (ACL) of your database server, thereby creating a rule.
+This script creates a virtual network with a subnet. Then the script assigns the **Microsoft.Sql** endpoint type to your subnet. Finally the script adds your subnet to the access control list (ACL) of your logical SQL server, thereby creating a rule.
 
 ### PowerShell script 3 source code
 
@@ -290,7 +290,7 @@ Write-Host 'Completed script 3, the "Virtual-Network-Rule".';
 
 This final script deletes the resources that the previous scripts created for the demonstration. However, the script asks for confirmation before it deletes the following:
 
-- Azure SQL Database server
+- Logical SQL server
 - Azure Resource Group
 
 You can run script 4 any time after script 1 completes.
@@ -337,7 +337,7 @@ Remove-AzVirtualNetwork `
 ##   These might have already existed, so user might     ##
 ##   want to keep.                                       ##
 ##                                                       ##
-##   1. Azure SQL Database server                        ##
+##   1. Logical SQL server                        ##
 ##   2. Azure resource group                             ##
 ###########################################################
 

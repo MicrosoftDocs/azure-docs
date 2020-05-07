@@ -83,7 +83,7 @@ In the **paste** function, replace **Server**, **UID**, and **PWD** with your ow
 ```r
 # Define the connection string to connect to the tpcxbb_1gb database
 connStr <- paste("Driver=SQL Server",
-               "; Server=", "<Azure SQL Database Server>",
+               "; Server=", "<Logical SQL server>",
                "; Database=tpcxbb_1gb",
                "; UID=", "<user>",
                "; PWD=", "<password>",

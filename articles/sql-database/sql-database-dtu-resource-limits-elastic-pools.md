@@ -157,4 +157,4 @@ The following table describes the properties for pooled databases.
 * For vCore resource limits for elastic pools, see [resource limits for elastic pools using the vCore purchasing model](sql-database-vcore-resource-limits-elastic-pools.md)
 * For resource limits for SQL Managed Instances, see [SQL Managed Instance resource limits](sql-database-managed-instance-resource-limits.md).
 * For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
-* For information about resource limits on a database server, see [overview of resource limits on a server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.
+* For information about resource limits on a logical SQL server, see [overview of resource limits on a logical SQL server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.

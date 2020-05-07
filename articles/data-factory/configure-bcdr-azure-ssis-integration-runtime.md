@@ -49,8 +49,8 @@ When a failover occurs, if you want to use existing Azure-SSIS IR on primary reg
 
 ```powershell
   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                -CatalogAdminCredential "Azure SQL Database server admin credentials" `
+                -CatalogServerEndpoint "Azure SQL Database endpoint" `
+                -CatalogAdminCredential "Azure SQL Database admin credentials" `
                 -VNetId "new VNet" `
                 -Subnet "new subnet" `
                 -SetupScriptContainerSasUri "new custom setup SAS URI"
@@ -135,7 +135,7 @@ This section applies when one of the following conditions is true:
 
   OR
 
-- The Azure SQL Database server is configured with the virtual network service endpoint rule.
+- Azure SQL Database is configured with the virtual network service endpoint rule.
 
 
 #### Solution
@@ -146,8 +146,8 @@ This section applies when one of the following conditions is true:
 
 ```powershell
   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                    -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                    -CatalogAdminCredential "Azure SQL Database server admin credentials" `
+                    -CatalogServerEndpoint "Azure SQL Database endpoint" `
+                    -CatalogAdminCredential "Azure SQL Database admin credentials" `
                     -VNetId "new VNet" `
                     -Subnet "new subnet" `
                     -SetupScriptContainerSasUri "new custom setup SAS URI"

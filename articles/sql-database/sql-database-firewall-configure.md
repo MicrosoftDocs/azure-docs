@@ -80,7 +80,7 @@ Yes. Some users, such as administrators, might need server-level IP firewall rul
 
 ### Connections from the internet
 
-When a computer tries to connect to your database server from the internet, the firewall first checks the originating IP address of the request against the database-level IP firewall rules for the database that the connection requests.
+When a computer tries to connect to your server from the internet, the firewall first checks the originating IP address of the request against the database-level IP firewall rules for the database that the connection requests.
 
 - If the address is within a range that's specified in the database-level IP firewall rules, the connection is granted to the database that contains the rule.
 - If the address isn't within a range in the database-level IP firewall rules, the firewall checks the server-level IP firewall rules. If the address is within a range that's in the server-level IP firewall rules, the connection is granted. Server-level IP firewall rules apply to all databases managed by the server.  
@@ -91,7 +91,7 @@ When a computer tries to connect to your database server from the internet, the 
 
 ### Connections from inside Azure
 
-To allow applications hosted inside Azure to connect to your SQL server, Azure connections must be enabled. When an application from Azure tries to connect to your database server, the firewall verifies that Azure connections are allowed. This can be turned on directly from the Azure portal blade by setting Firewall rules, as well as switching the **Allow Azure Services and resources to access this server** to **ON** in the **Firewalls and virtual networks** settings. If the connection isn't allowed, the request doesn't reach the server.
+To allow applications hosted inside Azure to connect to your SQL server, Azure connections must be enabled. When an application from Azure tries to connect to your server, the firewall verifies that Azure connections are allowed. This can be turned on directly from the Azure portal blade by setting Firewall rules, as well as switching the **Allow Azure Services and resources to access this server** to **ON** in the **Firewalls and virtual networks** settings. If the connection isn't allowed, the request doesn't reach the server.
 
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. If you select this option, make sure that your login and user permissions limit access to authorized users only.

@@ -103,7 +103,7 @@ Get the connection information you need to connect to the Azure SQL Database. Yo
 
 1. Create a file named **sample.go** in the **SqlServerSample** folder.
 
-2. In the file, paste this code. Add the values for your server, database, username, and password. This example uses the Golang [context methods](https://golang.org/pkg/context/) to make sure there's an active database server connection.
+2. In the file, paste this code. Add the values for your server, database, username, and password. This example uses the Golang [context methods](https://golang.org/pkg/context/) to make sure there's an active connection.
 
    ```go
    package main

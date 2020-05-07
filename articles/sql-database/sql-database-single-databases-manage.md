@@ -78,7 +78,7 @@ To create and manage servers, single and pooled databases, and server-level fire
 
 ## Azure CLI
 
-To create and manage the SQL Database servers, databases, and firewalls with [Azure CLI](/cli/azure), use the following [Azure CLI](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+To create and manage the servers, databases, and firewalls with [Azure CLI](/cli/azure), use the following [Azure CLI](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 > [!TIP]
 > For an Azure CLI quickstart, see [Create a single Azure SQL Database using the Azure CLI](sql-database-cli-samples.md). For Azure CLI example scripts, see [Use CLI to create a single Azure SQL Database and configure a SQL Database firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale a single Azure SQL Database](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -108,7 +108,7 @@ To create and manage the SQL Database servers, databases, and firewalls with [Az
 
 ## Transact-SQL (T-SQL)
 
-To create and manage the SQL Database servers, databases, and firewalls with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to a server in SQL Database and pass Transact-SQL commands. For managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+To create and manage the servers, databases, and firewalls with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to a server in SQL Database and pass Transact-SQL commands. For managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 > [!TIP]
 > For a quickstart using SQL Server Management Studio on Microsoft Windows, see [Azure SQL Database: Use SQL Server Management Studio to connect and query data](sql-database-connect-query-ssms.md). For a quickstart using Visual Studio Code on the macOS, Linux, or Windows, see [Azure SQL Database: Use Visual Studio Code to connect and query data](sql-database-connect-query-vscode.md).
@@ -134,7 +134,7 @@ To create and manage the SQL Database servers, databases, and firewalls with Tra
 
 ## REST API
 
-To create and manage the SQL Database servers, databases, and firewalls, use these REST API requests.
+To create and manage the servers, databases, and firewalls, use these REST API requests.
 
 | Command | Description |
 | --- | --- |

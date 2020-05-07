@@ -52,7 +52,7 @@ Copy the contents of the **ODBC (Includes Node.js) [SQL authentication]** string
 
 ## <a id="Firewall"></a>Step 3:  Add your IP to the firewall
 
-Go to the firewall section for your Database server and add your [client IP to the firewall using these steps](sql-database-configure-firewall-settings.md) to make sure we can establish a successful connection:
+Go to the firewall section for your server and add your [client IP to the firewall using these steps](sql-database-configure-firewall-settings.md) to make sure we can establish a successful connection:
 
 ![AddyourIPWindow](./media/sql-database-develop-cplusplus-simple/ip.png)
 

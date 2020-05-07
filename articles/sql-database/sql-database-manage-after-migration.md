@@ -163,7 +163,7 @@ For protecting your sensitive data in-flight and at rest, SQL Database provides 
 |**Characteristics**|**Always Encrypted**|**Transparent Data Encryption**|
 |---|---|---|
 |**Encryption span**|End-to-end|At-rest data|
-|**Database server can access sensitive data**|No|Yes, since encryption is for the data at rest|
+|**Server can access sensitive data**|No|Yes, since encryption is for the data at rest|
 |**Allowed T-SQL operations**|Equality comparison|All T-SQL surface area is available|
 |**App changes required to use the feature**|Minimal|Very Minimal|
 |**Encryption granularity**|Column level|Database level|

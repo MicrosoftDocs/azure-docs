@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Find documentation about Azure SQL single databases, database servers, and elastic pools
-summary: Find concepts, quickstarts, tutorials, and samples for Azure SQL Database single databases, elastic pools, and database servers.
+title: Find documentation about Azure SQL single databases, logical SQL servers, and elastic pools
+summary: Find concepts, quickstarts, tutorials, and samples for Azure SQL Database single databases, elastic pools, and logical SQL servers.
 
 metadata:
   title: Documentation
@@ -50,11 +50,11 @@ landingContent:
 
 
   # Card 
-  - title: SQL Database server
+  - title: Logical SQL server
     linkLists:
       - linkListType: concept
         links:
-          - text: SQL Database servers
+          - text: Logical SQL servers
             url: sql-database-servers.md
           - text: Connectivity settings
             url: sql-database-connectivity-settings.md

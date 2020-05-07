@@ -14,7 +14,7 @@ The Azure portal provides a single page where you can manage [all of your Azure 
 To access the **Azure SQL resources** page, from the Azure portal menu, select **Azure SQL** or search for and select **Azure SQL** in any page.
 
 > [!NOTE]
-> **Azure SQL** provides a quick and easy way to access all of your SQL databases, elastic pools, database servers, SQL managed instances, and SQL virtual machines. Azure SQL is not a service or resource. 
+> **Azure SQL** provides a quick and easy way to access all of your SQL databases, elastic pools, logical SQL servers, SQL managed instances, and SQL virtual machines. Azure SQL is not a service or resource. 
 
 To manage existing resources, select the desired item in the list. To create new Azure SQL resources, select **+ Add**. 
 
