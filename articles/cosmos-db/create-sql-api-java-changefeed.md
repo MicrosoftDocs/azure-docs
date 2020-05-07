@@ -1,18 +1,18 @@
 ---
-title: Tutorial - an end-to-end Async Java SQL API application sample with Change Feed
-description: This tutorial walks you through a simple Java SQL API application which inserts documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed.
+title: Use change feed with an Async Java SQL API application in Azure Cosmos DB
+description: Learn how to use develop a Async Java SQL API application which inserts documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using change feed.
 author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: tutorial
-ms.date: 04/01/2020
+ms.topic: conceptual
+ms.date: 05/07/2020
 ms.author: anfeldma
 ---
 
-# Tutorial - an end-to-end Async Java SQL API application sample with Change Feed
+# How to use change feed with an Async Java SQL API application in Azure Cosmos DB
 
-This tutorial guide walks you through a simple Java SQL API application which inserts documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed.
+This tutorial guide walks you through a simple Java SQL API application which inserts documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using change feed.
 
 ## Prerequisites
 
@@ -26,11 +26,11 @@ This tutorial guide walks you through a simple Java SQL API application which in
 
 ## Background
 
-The Azure Cosmos DB Change Feed provides an event-driven interface to trigger actions in response to document insertion. This has many uses. For example in applications which are both read and write heavy, a chief use of Change Feed is to create a real-time **materialized view** of a container as it is ingesting documents. The materialized view container will hold the same data but partitioned for efficient reads, making the application both read and write efficient.
+The Azure Cosmos DB change feed provides an event-driven interface to trigger actions in response to document insertion. This has many uses. For example in applications which are both read and write heavy, a chief use of change feed is to create a real-time **materialized view** of a container as it is ingesting documents. The materialized view container will hold the same data but partitioned for efficient reads, making the application both read and write efficient.
 
-The work of managing Change Feed events is largely taken care of by the Change Feed Processor library built into the SDK. This library is powerful enough to distribute Change Feed events among multiple workers, if that is desired. All you have to do is provide the Change Feed library a callback.
+The work of managing change feed events is largely taken care of by the change feed Processor library built into the SDK. This library is powerful enough to distribute change feed events among multiple workers, if that is desired. All you have to do is provide the change feed library a callback.
 
-This simple example demonstrates Change Feed Processor library with a single worker creating and deleting documents from a materialized view.
+This simple example demonstrates change feed Processor library with a single worker creating and deleting documents from a materialized view.
 
 ## Setup
 
@@ -70,7 +70,7 @@ mvn clean package
 
     * **InventoryContainer** - The inventory record for our example grocery store, partitioned on item ```id``` which is a UUID.
     * **InventoryContainer-pktype** - A materialized view of the inventory record, optimized for queries over item ```type```
-    * **InventoryContainer-leases** - A leases container is always needed for Change Feed; leases track the app's progress in reading the Change Feed.
+    * **InventoryContainer-leases** - A leases container is always needed for change feed; leases track the app's progress in reading the change feed.
 
 
     ![Empty containers](media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG)
@@ -82,7 +82,7 @@ mvn clean package
     Press enter to start creating the materialized view...
     ```
 
-    Press enter. Now the following block of code will execute and initialize the Change Feed processor on another thread: 
+    Press enter. Now the following block of code will execute and initialize the change feed processor on another thread: 
 
    # [Java SDK 4.0](#tab/v4sdk)
 
@@ -95,7 +95,7 @@ mvn clean package
         })
         .subscribe();
 
-    while (!isProcessorRunning.get()); //Wait for Change Feed processor start
+    while (!isProcessorRunning.get()); //Wait for change feed processor start
     ```
 
    # [Java SDK 3.7.0](#tab/v3sdk)
@@ -109,17 +109,17 @@ mvn clean package
         })
         .subscribe();
 
-    while (!isProcessorRunning.get()); //Wait for Change Feed processor start    
+    while (!isProcessorRunning.get()); //Wait for change feed processor start    
     ```
    ---
 
-    ```"SampleHost_1"``` is the name of the Change Feed processor worker. ```changeFeedProcessorInstance.start()``` is what actually starts the Change Feed processor.
+    ```"SampleHost_1"``` is the name of the change feed processor worker. ```changeFeedProcessorInstance.start()``` is what actually starts the change feed processor.
 
-    Return to the Azure Portal Data Explorer in your browser. Under the **InventoryContainer-leases** container, click **items** to see its contents. You will see that Change Feed Processor has populated the lease container, i.e. the processor has assigned the ```SampleHost_1``` worker a lease on some partitions of the **InventoryContainer**.
+    Return to the Azure Portal Data Explorer in your browser. Under the **InventoryContainer-leases** container, click **items** to see its contents. You will see that change feed Processor has populated the lease container, i.e. the processor has assigned the ```SampleHost_1``` worker a lease on some partitions of the **InventoryContainer**.
 
     ![Leases](media/create-sql-api-java-changefeed/cosmos_leases.JPG)
 
-1. Press enter again in the terminal. This will trigger 10 documents to be inserted into **InventoryContainer**. Each document insertion appears in the Change Feed as JSON; the following callback code handles these events by mirroring the JSON documents into a materialized view:
+1. Press enter again in the terminal. This will trigger 10 documents to be inserted into **InventoryContainer**. Each document insertion appears in the change feed as JSON; the following callback code handles these events by mirroring the JSON documents into a materialized view:
 
    # [Java SDK 4.0](#tab/v4sdk)
 
@@ -180,7 +180,7 @@ mvn clean package
 
     ![Feed container](media/create-sql-api-java-changefeed/cosmos_items.JPG)
 
-1. Now, in Data Explorer navigate to **InventoryContainer-pktype > items**. This is the materialized view - the items in this container mirror **InventoryContainer** because they were inserted programmatically by Change Feed. Note the partition key (```type```). So this materialized view is optimized for queries filtering over ```type```, which would be inefficient on **InventoryContainer** because it is partitioned on ```id```.
+1. Now, in Data Explorer navigate to **InventoryContainer-pktype > items**. This is the materialized view - the items in this container mirror **InventoryContainer** because they were inserted programmatically by change feed. Note the partition key (```type```). So this materialized view is optimized for queries filtering over ```type```, which would be inefficient on **InventoryContainer** because it is partitioned on ```id```.
 
     ![Materialized view](media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG)
 
@@ -248,10 +248,10 @@ mvn clean package
     ```
    ---
 
-    The Change Feed ```feedPollDelay``` is set to 100ms; therefore, Change Feed responds to this update almost instantly and calls ```updateInventoryTypeMaterializedView()``` shown above. That last function call will upsert the new document with TTL of 5sec into **InventoryContainer-pktype**.
+    The change feed ```feedPollDelay``` is set to 100ms; therefore, change feed responds to this update almost instantly and calls ```updateInventoryTypeMaterializedView()``` shown above. That last function call will upsert the new document with TTL of 5sec into **InventoryContainer-pktype**.
 
     The effect is that after about 5 seconds, the document will expire and be deleted from both containers.
 
-    This procedure is necessary because Change Feed only issues events on item insertion or update, not on item deletion.
+    This procedure is necessary because change feed only issues events on item insertion or update, not on item deletion.
 
 1. Press enter one more time to close the program and clean up its resources.
