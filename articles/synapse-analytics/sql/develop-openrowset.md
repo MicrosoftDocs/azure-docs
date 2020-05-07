@@ -17,7 +17,10 @@ The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. 
 
 The `OPENROWSET` function can be referenced in the `FROM` clause of a query as if it were a table name `OPENROWSET`. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
 
-The `OPENROWSET` function can optionally contain `DATA_SOURCE` parameter.
+## Data source
+
+OPENROWSET function in Synapse SQL reads content of the file(s) from a data source. Data surce is Azure storage and it can be explicitly referenced in `OPENROWSET` function or can be dynamically inferred from URL of the files that you want to read.
+The `OPENROWSET` function can optionally contain `DATA_SOURCE` parameter that specify data source that contains files.
 - `OPENROWSET` without `DATA_SOURCE` can be used to directly read content of the files form the URL location specified as `BULK` option:
 
 ```sql
@@ -33,16 +36,19 @@ This is quick and easy way to read the content of the files without some pre-con
 ```sql
 SELECT *
 FROM OPENROWSET(BULK '/folder/*.parquet',
-                DATA_SOURCE='storage',
+                DATA_SOURCE='storage', --> Root URL is in LOCATION of DATA SOURCE
                 TYPE = 'PARQUET') AS file
 ```
 
 This option enables you to configure location of storage account in data source and specify authentication method that should be used to access storage. This option enables you to access publicly available storage, or access storage using SAS token, Managed Identity of workspace, or [Azure AD identity of caller](develop-storage-files-storage-access-control.md#user-identity) (if caller is Azure AD principal). If `DATA_SOURCE` references Azure storage that is not public, you would need to [create database-scoped credential](develop-storage-files-storage-access-control.md#examples) and reference it in `DATA SOURCE` to allow access to storage files.
 
-Learn more about storage access control in [this article](develop-storage-files-storage-access-control.md).
-
 > [!IMPORTANT]
 > `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Azure AD principal can access files only using their [Azure AD identity](develop-storage-files-storage-access-control.md#user-identity) and cannot access publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
+
+## Security
+
+Database user must have `ADMINISTER BULK OPERATIONS` permission to use `OPENROWSET` function.
+Storage administrator also must enable user to access the files by providing valid SAS token or enabling Azure AD principal to access storage files. Learn more about storage access control in [this article](develop-storage-files-storage-access-control.md).
 
 OPENROWSET is currently not supported in SQL pool.
 
@@ -216,7 +222,7 @@ FROM
     ) AS [r]
 ```
 
-If you are getting the error sayng that the files cannot be listed, you need to enable Synapse SQL on-demand to access public storage:
+If you are getting the error saying that the files cannot be listed, you need to enable Synapse SQL on-demand to access public storage:
 - If you are using SQL login you need to [create server-scoped credential that allows access to public storage](develop-storage-files-storage-access-control.md#examples).
 - If you are using Azure AD principal to access public storage, you would need to [create server-scoped credential that allows access to public storage](develop-storage-files-storage-access-control.md#examples) and disable [Azure AD passthrough authentication](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
 
