@@ -16,7 +16,7 @@ ms.service: azure-project-spool
 
 ~
 
-# ACS Docs Philosophy
+### ACS Docs Philosophy
 
 - **Docs are a forcing function** for clarity between stakeholders as we approach public preview and GA.
 - **Docs can serve as the North Star** - the source of truth - for all stakeholders as ambiguity is minimized.
@@ -28,6 +28,20 @@ ms.service: azure-project-spool
 - To make progress, **all primitive owners and engineers can and should contribute docs and samples**. Docs can be the thing that anchors everyone to an ever-improving, unified understanding of our desired customer experience.
 - To maintain progress and accountability, **we need to track docs ownership and status**. This is being tracked [here](https://microsoft.sharepoint-df.com/:x:/t/IC3SDK/EasbZy5MyMBLq2S0NyTNBVABhKiR6r8bq8Ld8clQQkgOeA?e=jxpgWn).
 - The most mature components of our product are Calling (voice + video) and SMS. These are the first scenarios we'll complete depth-first. Then we'll expand breadth of our docs.
+
+### Authorship / Style Guidelines
+
+- **Quickstarts** are for explaining things in less than 10 minutes.
+- **Tutorials** are for more in-depth explanations that explain how to complete a commonly encountered customer task.
+- **Concepts** are for the foundational ideas that developers need to know before diving into the code.
+- Assume that all developers are under incredible time-pressure to find solutions to problems, and make sure the solutions are ridiculously easy to find by articulating the customer intent in the title and in the first paragraph.
+- Don't assume that developers are familiar with technical terminology or jargon. Use everyday words as much as possible.
+- Try to emphasize the plain-english benefits as much as possible, not the technologies. For example, don't talk about "PSTN integration", talk about "phone calls".
+- Try to write as you speak.
+- Relentlessly simplify and minimize. Fewer words = more engagement.
+- Prioritize minimal code over words and diagrams whenever possible.
+- Make your content easy to scan with thoughful headers and other formatting.
+
 
 ### How Twilio Does Docs
 
