@@ -29,16 +29,18 @@ To assess physical servers, you create an Azure Migrate project, and add the Ser
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
 | **Physical server deployment**       | The physical server can be standalone, or deployed in a cluster. |
-| **Permissions**           | **Windows:** You need a local or domain user account on all the Windows servers you want to discover. The user account should be added to these groups: Remote Desktop Users, Performance Monitor Users, and Performance Log users. <br/><br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
-| **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems that are supported by Azure, except for Windows Server 2003, and SUSE Linux.|
+| **Permissions**           | **Windows:** You need to be a domain admin, or local admin on all the Windows servers you want to discover. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log users. <br/><br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
+| **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) server operating systems that are supported by Azure, except for Windows Server 2003, and SUSE Linux.<br/><br/> Windows 10 and Windows 8 client operating systems. |
 
 
 ## Azure Migrate appliance requirements
 
-Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for physical servers can run on a VM or a physical machine. You set the appliance up using a PowerShell script that you download from the Azure portal.
+Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for physical servers can run on a VM or a physical machine. 
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---physical) for physical servers.
 - Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
+- You set the appliance up using a [PowerShell script](how-to-set-up-appliance-physical.md) that you download from the Azure portal.
+In Azure Government, deploy the appliance [using this script](deploy-appliance-script-government.md).
 
 ## Port access
 

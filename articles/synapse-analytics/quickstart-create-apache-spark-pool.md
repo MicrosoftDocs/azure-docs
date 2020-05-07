@@ -20,16 +20,16 @@ In this quickstart, you learn how to use the Azure portal to create an Apache Sp
 > [!IMPORTANT]
 > Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the **Clean up resources** section of this article.
 
-If you don't have an Azure subscription, [create a free account before you begin](https:/azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https:/azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [Synapse Analytics workspace](quickstart-create-workspace.md)
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https:/portal.azure.com/)
+Sign in to the [Azure portal](https://portal.azure.com/)
 
 ## Create new Apache Spark pool
 

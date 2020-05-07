@@ -123,7 +123,7 @@ serviceContext =>
                     int port = serviceContext.CodePackageActivationContext.GetEndpoint("EndpointHttps").Port;
                     opt.Listen(IPAddress.IPv6Any, port, listenOptions =>
                     {
-                        listenOptions.UseHttps(GetHttpsCertificateFromStore());
+                        listenOptions.UseHttps(FindMatchingCertificateBySubject());
                         listenOptions.NoDelay = true;
                     });
                 })

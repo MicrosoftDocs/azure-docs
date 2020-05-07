@@ -1,6 +1,6 @@
 ---
 title: IP firewall rules
-description: Configure server-level IP firewall rules for a SQL database or SQL Data Warehouse firewall. Manage access and configure database-level IP firewall rules for a single or pooled database.
+description: Configure server-level IP firewall rules for a SQL database or Azure Synapse Analytics firewall. Manage access and configure database-level IP firewall rules for a single or pooled database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,14 +13,13 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
 ---
-# Azure SQL Database and Azure SQL Data Warehouse IP firewall rules
+# Azure SQL Database and Azure Synapse Analytics IP firewall rules
 
-When you create a new Azure SQL Database logical server named *mysqlserver*, for example, an Azure SQL Database firewall blocks all access to the public endpoint for the server (which is accessible at *mysqlserver.database.windows.net*). This article applies to Azure SQL Database logical servers, and to both Azure SQL Database and Azure SQL Data Warehouse databases on an Azure SQL Database logical server. For simplicity, *SQL Database* is used to refer to both SQL Database and SQL Data Warehouse.
+When you create a new Azure SQL Database logical server named *mysqlserver*, for example, an Azure SQL Database firewall blocks all access to the public endpoint for the server (which is accessible at *mysqlserver.database.windows.net*). This article applies to Azure SQL servers, and to both Azure SQL Database and Azure Synapse Analytics databases on an Azure SQL server. For simplicity, *SQL Database* is used to refer to both SQL Database and Azure Synapse.
 
 > [!IMPORTANT]
-> This article does *not* apply to *Azure SQL Managed Instance*. For information about network configuration, see [Connect your application to Azure SQL Managed Instance](sql-database-managed-instance-connect-app.md).
->
-> SQL Data Warehouse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
+> - This article does *not* apply to *Azure SQL Managed Instance*. For information about network configuration, see [Connect your application to Azure SQL Managed Instance](sql-database-managed-instance-connect-app.md).
+> - Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
 
 ## How the firewall works
 

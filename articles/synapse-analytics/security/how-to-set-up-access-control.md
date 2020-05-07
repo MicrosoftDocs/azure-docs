@@ -159,9 +159,21 @@ Synapse Studio will behave differently based on user roles. Some items may be hi
 | Manage Hub / Linked services | YES | YES | YES |
 | Manage Hub / Access Control (assign users to Synapse workspace roles) | YES | NO | NO |
 | Manage Hub / Integration runtimes | YES | YES | YES |
+| Use the Monitor Hub | YES | YES | YES |
+| Monitor Hub / Orchestration / Pipeline runs  | YES | NO | NO |
+| Monitor Hub / Orchestration / Trigger runs  | YES | NO | NO |
+| Monitor Hub / Orchestration / Integration runtimes  | YES | YES | YES |
+| Monitor Hub / Activities / Spark applications | YES | YES | NO  |
+| Monitor Hub / Activities / SQL requests | YES | NO | YES |
+| Monitor Hub / Activities / Spark pools | YES | YES | NO  |
+| Monitor Hub / Triggers | YES | NO | NO |
+| Manage Hub / Linked services | YES | YES | YES |
+| Manage Hub / Access Control (assign users to Synapse workspace roles) | YES | NO | NO |
+| Manage Hub / Integration runtimes | YES | YES | YES |
+
 
 > [!NOTE]
-> [1] Access to data in containers depends on the access control in ADLSGen2
+> [1] Access to data in containers depends on the access control in ADLSGen2. </br>
 > [2] SQL OD tables and Spark tables store their data in ADLSGen2 and access requires the appropriate permissions on ADLSGen2.
 
 ## Next steps

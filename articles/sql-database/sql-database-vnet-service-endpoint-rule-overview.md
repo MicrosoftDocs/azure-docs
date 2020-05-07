@@ -16,8 +16,8 @@ ms.date: 11/14/2019
 
 *Virtual network rules* are one firewall security feature that controls whether the [logical SQL server](sql-database-servers.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to Azure SQL Database and Azure Synapse Analytics.
 
-> [!IMPORTANT]
-> This article does *not* apply to Azure SQL Managed Instance because it does not have a service endpoint associated with it.
+> [!NOTE]
+> This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](sql-database-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics.
 
 To create a virtual network rule, there must first be a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference.
 
@@ -103,7 +103,7 @@ Azure Storage has implemented the same feature that allows you to limit connecti
 
 ### Azure Synapse PolyBase
 
-PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. For enabling both PolyBase import and export scenarios with Azure SQL Data Warehouse connecting to Azure Storage that's secured to VNet, follow the steps indicated below:
+PolyBase is commonly used to load data into Azure Synapse Analytics from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. For enabling both PolyBase import and export scenarios with Azure Synapse Analytics connecting to Azure Storage that's secured to VNet, follow the steps indicated below:
 
 #### Prerequisites
 
@@ -116,7 +116,7 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure 
 
 #### Steps
 
-1. In PowerShell, **register your server** hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
+1. In PowerShell, **register your server** hosting your Azure Synapse Analytics instance with Azure Active Directory (AAD):
 
    ```powershell
    Connect-AzAccount
@@ -131,10 +131,10 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure 
    > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
 
-1. Under your storage account, navigate to **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to the server hosting your Azure SQL Data Warehouse which you've registered with Azure Active Directory (AAD) as in step#1.
+1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to the server hosting your Azure Synapse Analytics which you've registered with Azure Active Directory (AAD) as in step #1.
 
    > [!NOTE]
-   > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Only members with Owner privilege  on the storage account can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Polybase connectivity to the Azure Storage account:**
 
