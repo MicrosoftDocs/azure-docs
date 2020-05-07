@@ -199,19 +199,14 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--csharp`**<br/> **`--dotnet`** | Initializes a [C# class library (.cs) project](functions-dotnet-class-library.md). |
-| **`--csx`** | Initializes a [C# script (.csx) project](functions-reference-csharp.md). You must specify `--csx` in subsequent commands. |
-| **`--docker`** | Create a Dockerfile for a container using a base image that is based on the chosen `--worker-runtime`. Use this option when you plan to publish to a custom Linux container. |
+| **`--worker-runtime`** | Sets the runtime framework. Valid values are `dotnet`, `node`, `python`, `powershell`. For Java, use [Maven](functions-reference-java.md#create-java-functions). |
+| **`--language`** | Initializes a language specific project. Currently supported when `--worker-runtime` set to `node`. Options are - `typescript` and `javascript` |
+| **`--csx`** | Uses CSX .NET functions. Valid for `dotnet` worker-runtime only. |
+| **`--docker`** | Creates a Dockerfile for a container using a base image that is based on the chosen `--worker-runtime`. Use this option when you plan to publish to a custom Linux container. |
 | **`--docker-only`** |  Adds a Dockerfile to an existing project. Prompts for the worker-runtime if not specified or set in local.settings.json. Use this option when you plan to publish an existing project to a custom Linux container. |
 | **`--force`** | Initialize the project even when there are existing files in the project. This setting overwrites existing files with the same name. Other files in the project folder aren't affected. |
-| **`--java`**  | Initializes a [Java project](functions-reference-java.md). |
-| **`--javascript`**<br/>**`--node`**  | Initializes a [JavaScript project](functions-reference-node.md). |
-| **`--no-source-control`**<br/>**`-n`** | Prevents the default creation of a Git repository in version 1.x. In version 2.x/3.x, the git repository isn't created by default. |
-| **`--powershell`**  | Initializes a [PowerShell project](functions-reference-powershell.md). |
-| **`--python`**  | Initializes a [Python project](functions-reference-python.md). |
-| **`--source-control`** | Controls whether a git repository is created. By default, a repository isn't created. When `true`, a repository is created. |
-| **`--typescript`**  | Initializes a [TypeScript project](functions-reference-node.md#typescript). |
-| **`--worker-runtime`** | Sets the language runtime for the project. Supported values are: `csharp`, `dotnet`, `java`, `javascript`,`node` (JavaScript), `powershell`, `python`, and `typescript`. When not set, you're prompted to choose your runtime during initialization. |
+| **`--source-control`** | Runs git init. Default is false. |
+| **`--managed-dependencies`**  | Installs managed dependencies. Currently, only the PowerShell worker runtime supports this functionality. |
 
 > [!IMPORTANT]
 > By default, version 2.x and above of the Core Tools creates function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you create and deploy functions.
@@ -302,10 +297,10 @@ You can also specify these options in the command using the following arguments:
 
 | Argument     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--csx`** | (Version 2.x and above) Generates the same C# script (.csx) templates used in version 1.x and in the portal. |
 | **`--language`**, **`-l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x and above, do not use this option or choose a language that matches the worker runtime. |
 | **`--name`**, **`-n`** | The function name. |
 | **`--template`**, **`-t`** | Use the `func templates list` command to see the complete list of available templates for each supported language.   |
+| **`--csx`** | (Version 2.x and above) Generates the same C# script (.csx) templates used in version 1.x and in the portal. |
 
 For example, to create a JavaScript HTTP trigger in a single command, run:
 
@@ -362,11 +357,10 @@ npm start
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Do no build current project before running. For dotnet projects only. Default is set to false. Not supported for version 1.x. |
-| **`--cert`** | The path to a .pfx file that contains a private key. Only used with `--useHttps`. Not supported for version 1.x. |
 | **`--cors-credentials`** | Allow cross-origin authenticated requests (i.e. cookies and the Authentication header) Not supported for version 1.x. |
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
 | **`--language-worker`** | Arguments to configure the language worker. For example, you may enable debugging for language worker by providing [debug port and other required arguments](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Not supported for version 1.x. |
-| **`--nodeDebugPort`**, **`-n`** | The port for the Node.js debugger to use. Default: A value from launch.json or 5858. Version 1.x only. |
+| **`--cert`** | The path to a .pfx file that contains a private key. Only used with `--useHttps`. Not supported for version 1.x. |
 | **`--password`** | Either the password or a file that contains the password for a .pfx file. Only used with `--cert`. Not supported for version 1.x. |
 | **`--port`**, **`-p`** | The local port to listen on. Default value: 7071. |
 | **`--pause-on-error`** | Pause for additional input before exiting the process. Used only when launching Core Tools from an integrated development environment (IDE).|
