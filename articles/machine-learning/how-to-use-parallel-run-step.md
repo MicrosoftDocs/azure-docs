@@ -294,7 +294,7 @@ batch_env.spark.precache_packages = False
 - `environment`: The Python environment definition. You can configure it to use an existing Python environment or to set up a temporary environment for the experiment. The definition is also responsible for setting the required application dependencies (optional).
 - `logging_level`: Log verbosity. Values in increasing verbosity are: `WARNING`, `INFO`, and `DEBUG`. (optional; the default value is `INFO`)
 - `run_invocation_timeout`: The `run()` method invocation timeout in seconds. (optional; default value is `60`)
-- `run_max_try`: Max call count for `run()` method against a mini batch in case of failure. A `run()` is failed if there's any system error, an exception, or timed out (optional; default value is `3`). 
+- `run_max_try`: Max call count for `run()` method against a mini batch in case of failure. A `run()` is failed if an exception is thrown, or nothing is returned when `run_invocation_timeout` is reached (optional; default value is `3`). 
 
 You can also use `PipelineParameter` for parameters in `ParallelRunConfig` so that when you resubmit a pipeline run, you can pass in different values. In this example, we use PipelineParameter for `mini_batch_size` and `Process_count_per_node` and we will tune these values when resubmit run later. 
 
