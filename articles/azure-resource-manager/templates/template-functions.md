@@ -13,7 +13,6 @@ To create your own functions, see [User-defined functions](template-syntax.md#fu
 Most functions work the same when deployed to a resource group, subscription, management group, or tenant. A few functions can't be used in all scopes. They're noted in the lists below.
 
 <a id="array" aria-hidden="true" />
-<a id="coalesce" aria-hidden="true" />
 <a id="concatarray" aria-hidden="true" />
 <a id="contains" aria-hidden="true" />
 <a id="createarray" aria-hidden="true" />
@@ -49,6 +48,7 @@ Resource Manager provides several functions for working with arrays.
 * [take](template-functions-array.md#take)
 * [union](template-functions-array.md#union)
 
+<a id="coalesce" aria-hidden="true" />
 <a id="equals" aria-hidden="true" />
 <a id="less" aria-hidden="true" />
 <a id="lessorequals" aria-hidden="true" />
@@ -59,6 +59,7 @@ Resource Manager provides several functions for working with arrays.
 
 Resource Manager provides several functions for making comparisons in your templates.
 
+* [coalesce](template-functions-comparison.md#coalesce)
 * [equals](template-functions-comparison.md#equals)
 * [less](template-functions-comparison.md#less)
 * [lessOrEquals](template-functions-comparison.md#lessorequals)

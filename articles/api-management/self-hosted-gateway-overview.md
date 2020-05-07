@@ -43,6 +43,7 @@ The self-hosted gateway is a containerized, functionally-equivalent version of t
 
 The following functionality found in the managed gateways is **not available** in the self-hosted gateways:
 
+- Azure Monitor logs
 - Upstream (backend side) TLS version and cipher management
 - Validation of server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to API Management service. To add support for custom CA, add a layer to the self-hosted gateway container image that installs the CA's root certificate.
 - Integration with the [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)

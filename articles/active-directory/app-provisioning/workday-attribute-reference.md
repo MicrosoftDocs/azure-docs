@@ -1,21 +1,20 @@
 ---
-title: 'Workday attribute reference | Microsoft Docs'
+title: Workday attribute reference
 description: Learn which attributes from SuccessFactors are supported by SuccessFactors-HR driven provisioning 
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/19/2020
 ms.author: chmutali
+ms.reviewer: celested
 ---
+
 # Workday attribute reference
+
 This section provides a list of attributes that you can fetch from Workday using XPATH queries. Based on the Workday Web Services API version, you plan to use, refer to the appropriate section. 
 
 ## XPATH values for Workday Web Services (WWS) API v21.1

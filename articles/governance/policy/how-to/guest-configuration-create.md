@@ -14,7 +14,7 @@ To learn about creating Guest Configuration policies for Linux, see the page
 
 When auditing Windows, Guest Configuration uses a
 [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) resource module to
-and configuration file. The DSC configuration defines the condition that the machine should be in.
+create the configuration file. The DSC configuration defines the condition that the machine should be in.
 If the evaluation of the configuration fails, the policy effect **auditIfNotExists** is triggered
 and the machine is considered **non-compliant**.
 

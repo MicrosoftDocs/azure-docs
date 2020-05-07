@@ -2,11 +2,11 @@
  title: Azure IoT Hub support for virtual networks
  description: How to use virtual networks connectivity pattern with IoT Hub
  services: iot-hub
- author: rezasherafat
+ author: jlian
  ms.service: iot-fundamentals
  ms.topic: conceptual
- ms.date: 03/13/2020
- ms.author: rezas
+ ms.date: 04/28/2020
+ ms.author: jlian
 ---
 
 # IoT Hub support for virtual networks
@@ -195,7 +195,7 @@ A managed service identity can be assigned to your hub at resource provisioning 
 After substituting the values for your resource `name`, `location`, `SKU.name` and `SKU.tier`, you can use Azure CLI to deploy the resource in an existing resource group using:
 
 ```azurecli-interactive
-az group deployment create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
+az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
 ```
 
 After the resource is created, you can retrieve the managed service identity assigned to your hub using Azure CLI:
