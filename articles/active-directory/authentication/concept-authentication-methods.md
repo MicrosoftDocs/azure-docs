@@ -32,16 +32,17 @@ Many accounts in Azure AD are enabled for self-service password reset (SSPR) or 
 
 The following table outlines what authentication or verification methods are available for the different scenarios:
 
-|Method|Usage|
-| --- | --- |
-| [Password](#password) | MFA and SSPR |
-| [Microsoft Authenticator app](#microsoft-authenticator-app) | MFA and SSPR |
-| [OATH Hardware token](#oath-hardware-tokens-preview) | Public preview for MFA and SSPR |
-| [SMS](#phone-options) | MFA and SSPR |
-| [Voice call](#phone-options) | MFA and SSPR |
-| [Security questions](#security-questions) | SSPR Only |
-| [Email address](#email-address) | SSPR Only |
-| [App passwords](#app-passwords) | MFA only in certain cases |
+| Method | Use at sign-in | Use during verification |
+| --- | --- | --- |
+| [Password](#password) | Yes | MFA and SSPR |
+| [Microsoft Authenticator app](#microsoft-authenticator-app) | Yes (preview) | MFA and SSPR |
+| [FIDO2 security keys (preview)](#fido2-security-keys) | Yes | |
+| [OATH hardware tokens (preview)](#oath-hardware-tokens) | Yes | |
+| [SMS](#phone-options) | Yes (preview) | MFA and SSPR |
+| [Voice call](#phone-options) | No | MFA and SSPR |
+| [Security questions](#security-questions) | No | SSPR-only |
+| [Email address](#email-address) | No | SSPR-only |
+| [App passwords](#app-passwords) | No | MFA only in certain cases |
 
 This article outlines these different authentication and verification methods available in Azure AD and any specific limitations or restrictions.
 
@@ -55,11 +56,11 @@ Even if you use an authentication method such as [SMS-based sign-in](howto-authe
 
 ## Microsoft Authenticator app
 
-With the Microsoft Authenticator app, users can authenticate passwordless during sign-in, or as an additional verification option during self-service password reset (SSPR) or Azure Multi-Factor Authentication events.
-
-The Authenticator app provides an additional level of security to your Azure AD work or school account or your Microsoft account and is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
+The Authenticator app provides an additional level of security to your Azure AD work or school account or your Microsoft account and is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). With the Microsoft Authenticator app, users can authenticate in a passwordless way during sign-in, or as an additional verification option during self-service password reset (SSPR) or Azure Multi-Factor Authentication events.
 
 Users may receive a notification through the mobile app for them to approve or deny, or use the Authenticator app to generate an OATH verification code that can be entered in a sign-in interface. If you enable both a notification and verification code, users who register the Authenticator app can use either method to verify their identity.
+
+To use the Authenticator app at a sign-in prompt rather than a username and password combination, see [Enable passwordless sign-in with the Microsoft Authenticator app (preview)](howto-authentication-passwordless-phone.md).
 
 > [!NOTE]
 > Users don't have the option to register their mobile app when they enable SSPR. Instead, users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup) or as part of the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
@@ -84,7 +85,17 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 >
 > When two methods are required, users can reset using either a notification or verification code in addition to any other enabled methods.
 
-## OATH hardware tokens (preview)
+## FIDO2 security keys
+
+The FIDO (Fast IDentity Online) Alliance helps to promote open authentication standards and reduce the user of passwords as a form of authentication. FIDO2 is the latest standard that incorporates the web authentication (WebAuthn) standard.
+
+Users can register and then select a FIDO2 security key at the sign-in interface as their main means of authentication. These FIDO2 security keys are typically USB devices, but could also use Bluetooth or NFC. With a hardware device that handles the authentication, the security of an account is increased as there's no password that could be exposed or guessed.
+
+To use FIDO2 security keys at a sign-in prompt rather than a username and password combination, see [Enable passwordless FIDO2 security key sign-in (preview)](howto-authentication-passwordless-security-key.md).
+
+FIDO2 security keys in Azure AD are currently in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## OATH hardware tokens
 
 OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD supports the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can purchase these tokens from the vendor of their choice.
 
@@ -114,9 +125,9 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 
 ## Phone options
 
-Users can verify themselves using a mobile phone or office phone. Phone authentication is a secondary form of authentication used during Azure Multi-Factor Authentication or self-service password reset (SSPR). For direct authentication using text message, you can [Configure and enable users for SMS-based authentication(preview)](howto-authentication-sms-signin.md).
+For direct authentication using text message, you can [Configure and enable users for SMS-based authentication(preview)](howto-authentication-sms-signin.md). SMS-based sign-in is great for front-line workers. With SMS-based sign-in, users don't need to know a username and password to access applications and services. The user instead enters their registered mobile phone number, receives a text message with a verification code, and enters that in the sign-in interface.
 
-With the mobile phone authentication option, a text message is sent with a verification code to enter into the sign-in interface. Both mobile and office phones can also receive a phone call that prompts the user to enter their defined code to complete the sign-in process.
+Users can also verify themselves using a mobile phone or office phone as secondary form of authentication used during Azure Multi-Factor Authentication or self-service password reset (SSPR).
 
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, *+1 4251234567*.
 
@@ -125,9 +136,9 @@ To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*
 >
 > Password reset doesn't support phone extensions. Even in the *+1 4251234567X12345* format, extensions are removed before the call is placed.
 
-### Mobile phone
+### Mobile phone verification
 
-Users can choose to receive a text message with a verification code to enter in the sign-in interface, or receive a phone call with a prompt to enter their defined pin code.
+For Azure Multi-Factor Authentication or SSPR, users can choose to receive a text message with a verification code to enter in the sign-in interface, or receive a phone call with a prompt to enter their defined pin code.
 
 If users don't want their mobile phone number to be visible in the directory but want to use it for password reset, administrators shouldn't populate the phone number in the directory. Instead, users should populate their **Authentication Phone** attribute via the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo). Administrators can see this information in the user's profile, but it's not published elsewhere.
 
@@ -135,19 +146,19 @@ If users don't want their mobile phone number to be visible in the directory but
 
 Microsoft doesn't guarantee consistent SMS or voice-based Azure Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft doesn't support short codes for countries / regions besides the United States and Canada.
 
-#### Text message
+#### Text message verification
 
-With text message authentication during SSPR or Azure Multi-Factor Authentication, an SMS is sent to the mobile phone number containing a verification code. To complete the sign-in process, the verification code provided is entered into the sign-in interface.
+With text message verification during SSPR or Azure Multi-Factor Authentication, an SMS is sent to the mobile phone number containing a verification code. To complete the sign-in process, the verification code provided is entered into the sign-in interface.
 
-#### Phone call
+#### Phone call verification
 
-With phone call authentication during SSPR or Azure Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to enter their pin number followed by # on their keypad.
+With phone call verification during SSPR or Azure Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to enter their pin number followed by # on their keypad.
 
-### Office phone
+### Office phone verification
 
 The office phone attribute is managed by the Azure AD administrator and can't be registered by a user themselves.
 
-With phone call authentication during SSPR or Azure Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to enter their pin number followed by # on their keypad.
+With phone call verification during SSPR or Azure Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to enter their pin number followed by # on their keypad.
 
 ### Troubleshooting phone options
 
@@ -183,7 +194,7 @@ Security questions can be less secure than other methods because some people mig
 
 ### Predefined questions
 
-The following predefined security questions are available for use as an verification method with SSPR. All of these security questions are translated and localized into the full set of Office 365 languages based on the user's browser locale:
+The following predefined security questions are available for use as a verification method with SSPR. All of these security questions are translated and localized into the full set of Office 365 languages based on the user's browser locale:
 
 * In what city did you meet your first spouse/partner?
 * In what city did your parents meet?
@@ -240,7 +251,7 @@ For both default and custom security questions, the following requirements and l
 
 ## Email address
 
-An email address can't be used as a direct authentication method. Email address is only available as an verification option for self-service password reset (SSPR). When email address is selected during SSPR, an email is sent to the user to complete the authentication / verification process.
+An email address can't be used as a direct authentication method. Email address is only available as a verification option for self-service password reset (SSPR). When email address is selected during SSPR, an email is sent to the user to complete the authentication / verification process.
 
 During registration for SSPR, a user provides the email address to use. It's recommended that they use a different email account than their corporate account to make sure they can access it during SSPR.
 
