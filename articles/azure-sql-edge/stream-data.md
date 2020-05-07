@@ -18,7 +18,7 @@ Azure SQL Edge Preview introduces support for a new feature, **T-SQL Streaming**
 > [!NOTE]
 > Azure SQL Edge is currently in Preview, which means the T-SQL Streaming feature is also under preview and should NOT be used in production or pre-production environments.
 
-As with Azure Stream Analytics, T-SQL Streaming enables recognition of patterns and relationships in information extracted from a number of IoT input sources including devices, sensors, and applications. These patterns can be used to trigger actions and initiate workflows such creating alerts, feeding information to a reporting or visualization solution, or storing the data for later usage. The following scenarios are examples of when you can use T-SQL Streaming can be used
+As with Azure Stream Analytics, T-SQL Streaming enables recognition of patterns and relationships in information extracted from a number of IoT input sources including devices, sensors, and applications. These patterns can be used to trigger actions and initiate workflows such as creating alerts, feeding information to a reporting or visualization solution, or storing the data for later usage. The following scenarios are examples of when you can use T-SQL Streaming
 
 * Analyze real-time telemetry streams from IoT devices
 * Real-time Analytics of data generated from autonomous and driverless vehicles.
@@ -38,7 +38,7 @@ T-SQL Streaming works in exactly the same manner as [Azure Stream Analytics](htt
     * SQL - The SQL output can be a local database within the SQL Edge instance or a remote SQL Server or Azure SQL Database. 
     * Azure Blob Storage
 
-- Stream Query - The stream query defines the transformation, aggregations, filter, sorting, and joins that needs to be applied to the input stream before it's written to the stream output. The stream query is based on the same query language used by Azure Stream Analytics. For more information on Azure Stream Analytics query language, refer [Stream Analytics Query Language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?).
+- Stream Query - The stream query defines the transformations, aggregations, filters, sorting, and joins that needs to be applied to the input stream before it's written to the stream output. The stream query is based on the same query language used by Azure Stream Analytics. For more information on Azure Stream Analytics query language, refer [Stream Analytics Query Language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?).
 
 > [!IMPORTANT]
 > T-SQL Streaming, unlike Azure Stream Analytics, currently does not support [using reference data for lookups](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data) or [using UDF's and UDA's in stream job](https://docs.microsoft.com/azure/stream-analytics/streaming-technologies#you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c).
@@ -50,7 +50,7 @@ T-SQL Streaming works in exactly the same manner as [Azure Stream Analytics](htt
 
 The following limitations and restrictions apply to SQL Streaming. 
 
-- Only one streaming job can be active at any give time. Users will have to stop and already executing job before starting another job.
+- Only one streaming job can be active at any give time. Users will have to stop an already executing job before starting another job.
 - Each streaming job execution is single threaded. If the streaming job contains multiple queries, each query will be evaluated in serial order.
 
 ## Next steps
