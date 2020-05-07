@@ -1,6 +1,6 @@
 ---
-title: Get shared access signature URI for your VM image | Azure Marketplace
-description: This article explains how to get the shared access signature (SAS) URI for each virtual hard disk (VHD).
+title: Shared access signature URI for VM images - Azure Marketplace
+description: Generate a shared access signature (SAS) URI for your virtual hard disks (VHD) in Azure Marketplace.
 author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

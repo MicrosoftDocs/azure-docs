@@ -1010,6 +1010,8 @@
     - name: Security overview
       href: /azure/databricks/security/index
       maintainContext: true
+    - name: Security baseline
+      href: security-baseline.md
     - name: Access control
       items:
       - name: Access control overview
@@ -1025,7 +1027,7 @@
         href: /azure/databricks/security/access-control/pool-acl
         maintainContext: true  
       - name: Jobs access control
-        href: /azure/databricks/security/access-control/job-acl
+        href: /azure/databricks/security/access-control/jobs-acl
         maintainContext: true
       - name: Table access control
         items:
@@ -1664,7 +1666,7 @@
           - name: SCIM API (Users)
             href: /azure/databricks/dev-tools/api/latest/scim/scim-users
           - name: SCIM API (Groups)
-            href: /azure/databricks/dev-tools/api/latest/scim/scim-group
+            href: /azure/databricks/dev-tools/api/latest/scim/scim-groups
         maintainContext: true 
       - name: Secrets
         href: /azure/databricks/dev-tools/api/latest/secrets
