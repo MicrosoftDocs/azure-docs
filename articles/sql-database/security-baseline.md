@@ -301,7 +301,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ### 2.8: Centralize anti-malware logging
 
-**Guidance**: Not applicable; for Azure SQL Databawe, the anti-malware solution is managed by Microsoft on the underlying platform.
+**Guidance**: Not applicable; for Azure SQL Database, the anti-malware solution is managed by Microsoft on the underlying platform.
 
 **Azure Security Center monitoring**: Not applicable
 
