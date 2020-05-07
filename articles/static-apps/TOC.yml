@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Build your first static app
+    - name: Build your first static web app
       href: getting-started.md
 - name: Concepts
   items:
