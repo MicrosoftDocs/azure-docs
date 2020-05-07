@@ -86,7 +86,7 @@ This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, 
 - If a device is connected and actively sending data, you can view the [telemetry](../iot-hub/iot-hub-devguide-messages-read-builtin.md) on the **Telemetry** tab.
 - You can call a [direct method](../iot-hub/iot-hub-devguide-direct-methods.md) on the device on the **Direct method** tab.
 - You can send a [cloud-to-device message](../iot-hub/iot-hub-devguide-messages-c2d.md) on the **Cloud-to-device messages** tab.
-- You can access the [module twin](../iot-hub/iot-hub-devguide-module-twins) information.
+- You can access the [module twin](../iot-hub/iot-hub-devguide-module-twins.md) information.
 
 ### Plug and Play Components
 
