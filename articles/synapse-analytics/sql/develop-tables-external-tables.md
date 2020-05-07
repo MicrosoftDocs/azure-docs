@@ -49,7 +49,7 @@ External data sources are used to connect to storage accounts. The complete docu
 
 #### [SQL pool](#tab/sql-pool)
 
-```syntaxsql
+```sql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
 WITH
 (    LOCATION         = '<prefix>://<path>'
@@ -61,7 +61,7 @@ WITH
 
 #### [SQL on-demand](#tab/sql-ondemand)
 
-```syntaxsql
+```sql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
 WITH
 (    LOCATION         = '<prefix>://<path>'
@@ -98,7 +98,7 @@ TYPE = `HADOOP` is mandatory option in SQL pool and specify that Polybase techno
 
 The following example creates an external data source for Azure Data Lake Gen2 pointing to the New York data set:
 
-```syntaxsql
+```sql
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH
   -- Please note the abfss endpoint when your account has secure transfer enabled
@@ -112,7 +112,7 @@ WITH
 
 The following example creates an external data source for Azure Data Lake Gen2 that can be accessed using SAS credential:
 
-```syntaxsql
+```sql
 CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
 SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
@@ -126,7 +126,7 @@ CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
 
 The following example creates an external data source for Azure Data Lake Gen2 pointing to the publicly available New York data set:
 
-```syntaxsql
+```sql
 CREATE EXTERNAL DATA SOURCE YellowTaxi
 WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/')
 ```
@@ -140,7 +140,7 @@ By creating an external file format, you specify the actual layout of the data r
 
 ### Syntax for CREATE EXTERNAL FILE FORMAT
 
-```syntaxsql
+```sql
 -- Create an external file format for PARQUET files.  
 CREATE EXTERNAL FILE FORMAT file_format_name  
 WITH (  
@@ -240,7 +240,7 @@ The CREATE EXTERNAL TABLE command creates an external table for Synapse SQL to a
 
 ### Syntax for CREATE EXTERNAL TABLE
 
-```syntaxsql
+```sql
 CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table_name | table_name }
     ( <column_definition> [ ,...n ] )  
     WITH (
