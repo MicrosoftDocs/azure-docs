@@ -13,15 +13,33 @@ ms.reviewer: jrasnick
 
 # How to use OPENROWSET with SQL on-demand (preview)
 
-The OPENROWSET(BULK...) function allows you to access files in Azure Storage. Within the SQL on-demand (preview) resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
+The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of some remote data source (for example file) and returns the content as a set of rows. Within the SQL on-demand (preview) resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
 
 The `OPENROWSET` function can be referenced in the `FROM` clause of a query as if it were a table name `OPENROWSET`. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
 
 The `OPENROWSET` function can optionally contain `DATA_SOURCE` parameter.
-- `OPENROWSET` without `DATA_SOURCE` can be used for ad-hoc analysis of files placed on some Azure Storage URL address.
-  - AAD logins can access files only using their own [Azure AD identity](develop-storage-files-storage-access-control.md#user-identity) if Azure storage allows the Azure AD user to access underlying files (for example, if the caller has Storage Reader permission on storage) and if you [enable Azure AD passthrough authentication](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) on Synapse SQL service.
-  - SQL logins can also use `OPENROWSET` without `DATA_SOURCE` to access publicly available files, files protected using SAS key or Managed Identity of Synapse workspace. You would need to [create server-scoped credential](develop-storage-files-storage-access-control.md#examples) to allow access to storage files.
-- `OPENROWSET` with `DATA_SOURCE` can be used to access storage accounts using a variety of authentication methods. This option enables you to access publicly available storage, or access storage using SAS key, Managed Identity of workspace, or [Azure AD identity of caller](develop-storage-files-storage-access-control.md#user-identity) (if caller is Azure AD principal). If `DATA_SOURCE` references Azure storage that is not public, you would need to [create database-scoped credential](develop-storage-files-storage-access-control.md#examples) and reference it in `DATA SOURCE` to allow access to storage files.
+- `OPENROWSET` without `DATA_SOURCE` can be used to directly read content of the files form the URL location specified as `BULK` option:
+
+```sql
+SELECT *
+FROM OPENROWSET(BULK 'http://storage..../container/folder/*.parquet',
+                TYPE = 'PARQUET') AS file
+```
+
+This is quick and easy way to read the content of the files without some pre-configuration. This option enables you to use basic authentication option to access the storage:
+    - AAD logins can access files only using their own [Azure AD identity](develop-storage-files-storage-access-control.md#user-identity) if Azure storage allows the Azure AD user to access underlying files (for example, if the caller has Storage Reader permission on storage) and if you [enable Azure AD passthrough authentication](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) on Synapse SQL service.
+    - SQL logins can also use `OPENROWSET` without `DATA_SOURCE` to access publicly available files, files protected using SAS key or Managed Identity of Synapse workspace. You would need to [create server-scoped credential](develop-storage-files-storage-access-control.md#examples) to allow access to storage files.
+    
+- `OPENROWSET` with `DATA_SOURCE` can be used to access files on specified storage account:
+
+```sql
+SELECT *
+FROM OPENROWSET(BULK '/folder/*.parquet',
+                DATA_SOURCE='storage',
+                TYPE = 'PARQUET') AS file
+```
+
+This option enables you to configure location of storage account in data source and specify authentication method that should be used to access storage. This option enables you to access publicly available storage, or access storage using SAS token, Managed Identity of workspace, or [Azure AD identity of caller](develop-storage-files-storage-access-control.md#user-identity) (if caller is Azure AD principal). If `DATA_SOURCE` references Azure storage that is not public, you would need to [create database-scoped credential](develop-storage-files-storage-access-control.md#examples) and reference it in `DATA SOURCE` to allow access to storage files.
 
 Learn more about storage access control in [this article](develop-storage-files-storage-access-control.md).
 
