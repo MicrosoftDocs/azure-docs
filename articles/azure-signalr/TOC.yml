@@ -79,9 +79,9 @@
     - name: Access key rotation
       href: signalr-howto-key-rotation.md
     - name: Use Azure Private Endpoints
-      href: signalr-private-endpoints.md
+      href: signalr-howto-private-endpoints.md
     - name: Manage network access control
-      href: signalr-network-acl.md
+      href: signalr-howto-network-acl.md
   - name: Integrate
     items:
     - name: Azure Functions bindings
