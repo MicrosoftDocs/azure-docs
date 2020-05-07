@@ -42,7 +42,7 @@ Be sure to fill in your values for `subscriptionKey`, `servcieRegion`, and `file
 ```
 ## Load the file into an PushAudioInputStream
 
-For NodeJS the Speech SDK doesn't natively support file access directly, so we'll load the file and put into into a `PushAudioInputStream`. This will work well for smaller files, but for a larger one using a `PullAudioInputStream` would be more memory effecient.
+For NodeJS the Speech SDK doesn't natively support file access directly, so we'll load the file and put into into a `PushAudioInputStream`. This will work well for smaller files, but for a larger one using a `PullAudioInputStream` would be more memory efficient.
 
 ```JavaScript
 // create the push stream we need for the speech sdk.
