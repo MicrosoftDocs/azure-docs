@@ -1,12 +1,12 @@
 ---
-title: Alternate email user sign in for Azure Active Directory
+title: Alternate email user sign-in for Azure Active Directory
 description: Learn how to configure and enable users to sign in to Azure Active Directory using alternate email address (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 05/11/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -14,17 +14,16 @@ manager: daveba
 ms.reviewer: scottsta
 
 ---
-
 # Configure user sign-in with an alternate email address in Azure Active Directory (preview)
 
 Many organizations want to use hybrid authentication to allow their users to sign in directly to Azure Active Directory (Azure AD). With hybrid authentication, users have the same sign-in credentials in an on-premises environment and in the cloud. However, hybrid authentication may currently be blocked in your environment because of the following reasons:
 
-* The unique principal name (UPN) for a user must be identical in the on-premises directory and in Azure AD.
+* For best compatibility, you require the user principle name (UPN) for the user to be identical in the on-premises directory and in Azure AD.
     * Azure AD requires users to sign in with their Azure AD UPN.
 * Your users can't sign in with their UPN because they don't know, can't remember, or just don't associate with their UPN.
     * Especially for large organizations with multiple subsidiaries or acquired companies, users may not be allowed to use an account with the parent company as part of their UPN.
 
-If this situation describes your organization, you can now use the preview for Azure AD user sign-in with an alternate email address. With this approach, you enable your users to sign in with their well-known email address in the cloud, just like they do in your on-premises network. Users only need to know their email address, not their UPN.
+For these scenarios and more, you can now use the preview for Azure AD user sign-in with an alternate email address. With this approach, you enable your users to sign in with their well-known email address in the cloud, just like they do in your on-premises network. Users only need to know their email address, not their UPN.
 
 |     |
 | --- |
@@ -73,7 +72,7 @@ Once your users with the *ProxyAddresses* attribute set are synchronized to Azur
 
 During preview, you can currently only enable the alternate email user sign-in feature using PowerShell. You need *tenant administrator* permissions to complete the following steps:
 
-1. Open an PowerShell session and install the *AzureADPreview* module using the [Install-Module][Install-Module] cmdlet:
+1. Open an PowerShell session as an administrator, then install the *AzureADPreview* module using the [Install-Module][Install-Module] cmdlet:
 
     ```powershell
     Install-Module AzureADPreview
