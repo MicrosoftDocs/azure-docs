@@ -12,9 +12,9 @@ manager: philMea
 
 # Drawing conversion errors and warnings
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert uploaded Drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If one or more requirements are not met, then the Conversion service will return errors and/or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert uploaded Drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If one or more requirements aren't met, then the Conversion service will return errors or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
 
-The Conversion service will succeed if there are any conversion warnings, but it’s recommended that you review and/or resolve all warnings. A warning means part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes.
+The Conversion service will succeed if there are any conversion warnings. However, it's recommended that you review and resolve all warnings. A warning means part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes.
 
 ## General Warnings
 
@@ -22,7 +22,7 @@ The Conversion service will succeed if there are any conversion warnings, but it
 
 #### *Description for geometryWarning*
 
-A **geometryWarning** occurs when the drawing contains an invalid entity. An invalid entity is an entity that does not conform to geometric constraints, such as a self-intersecting polygon or a non-closed PolyLine in a layer that only supports closed geometry.
+A **geometryWarning** occurs when the drawing contains an invalid entity. An invalid entity is an entity that doesn't conform to geometric constraints. Examples of an invalid entity are a self-intersecting polygon or a non-closed PolyLine in a layer that only supports closed geometry.
 
 The Conversion service is unable to create a map feature from an invalid entity and instead ignores it.
 
@@ -56,7 +56,7 @@ The image below shows a non-closed PolyLine. Assume that the layer only supports
 
 #### *How to fix unexpectedGeometryInLayer*
 
-Inspect each **unexpectedGeometryInLayer** warning and move the incompatible geometry to a compatible layer. If it is not compatible with any of the other layers, it should be removed.
+Inspect each **unexpectedGeometryInLayer** warning and move the incompatible geometry to a compatible layer. If it isn't compatible with any of the other layers, it should be removed.
 
 ### **unsupportedFeatureRepresentation**
 
@@ -66,13 +66,13 @@ The **unsupportedFeatureRepresentation** warning occurs when the drawing contain
 
 #### *Example for unsupportedFeatureRepresentation*
 
-The image belows shows an unsupported entity type as a multi-line text object on a label layer.
+The image below shows an unsupported entity type as a multi-line text object on a label layer.
   
 ![Example of a multi-line text object on label layer](./media/drawing-conversion-error-codes/multiLine.png)
 
 #### *How to fix unsupportedFeatureRepresentation*
 
-Ensure that your DWG files contain only the supported entity types listed under the [Drawing files requirements section in the Drawing package requirements article](drawing-requirements.md#drawing-package-requirements).
+Ensure that your DWG files contain only the supported entity types. Supported types are listed under the [Drawing files requirements section in the Drawing package requirements article](drawing-requirements.md#drawing-package-requirements).
 
 ### **automaticRepairPerformed**
 
@@ -90,20 +90,20 @@ The **automaticRepairPerformed** warning occurs when the Conversion service auto
 
     ![Example of a snapped PolyLine](./media/drawing-conversion-error-codes/automaticRepair2.png)
 
-* The image below shows how, in a layer that supports only closed PolyLines, the Conversion service repaired multiple non-closed PolyLines by combining them into a single closed PolyLine. This fix was done to avoid discarding the PolyLines.
+* The image below shows how, in a layer that supports only closed PolyLines, the Conversion service repaired multiple non-closed PolyLines. In order to avoid discarding the non-closed PolyLines, the service combined them into a single closed PolyLine.
 
     ![Example of non-closed Polylines combined into a single closed PolyLine](./media/drawing-conversion-error-codes/automaticRepair3.png)
 
 #### *How to fix automaticRepairPerformed*
 
-To fix an **automaticRepairPerformed** warning, do the following:
+To fix an **automaticRepairPerformed** warning, take the following actions:
 
 1. Inspect each warning's geometry and the specific warning text.
 2. Determine if the automated repair is correct.
 3. If the repair is correct, continue. Otherwise, go to the design file and resolve the warning manually.
 
 >[!TIP]
->To suppress a warning in the future, make changes to the original drawing such that the original drawing matches the repaired drawing.
+>To suppress a warning in the future, make changes to the original drawing so that the original drawing matches the repaired drawing.
 
 ## Manifest warnings
 
@@ -252,13 +252,13 @@ To fix a **doorOutsideLevel** warning, redraw your door geometry so that it is i
 
 #### *Description for zoneWarning*
 
-The **zoneWarning** occurs when a zone does not contain a abel. The Conversion service discards a zone that is not label.l
+The **zoneWarning** occurs when a zone doesn't contain a label. The Conversion service discards a zone that isn't label.l
 
 #### *Example for zoneWarning*
 
-The following image shows a zone that does not contain a label.
+The following image shows a zone that doesn't contain a label.
 
-![Example of a zone does not contain a label](./media/drawing-conversion-error-codes/zoneWarning.png)
+![Example of a zone doesn't contain a label](./media/drawing-conversion-error-codes/zoneWarning.png)
 
 #### *How to fix zoneWarning*
 
@@ -274,8 +274,8 @@ The **labelWarning** occurs when the drawing contains ambiguous or contradictory
 
 A **labelWarning** occurs because of one or more of the following reasons:
 
-* A unit label is not in any units.
-* A zone label is not in any zones.
+* A unit label isn't in any units.
+* A zone label isn't in any zones.
 * A zone label is inside two or more zones.
 
 #### *Example for labelWarning*
@@ -324,7 +324,7 @@ You attempted to upload a Drawing package with an incorrect `udid` parameter.
 
 To fix an **invalidUserData** error, verify that:
 
-* you have provided a correct `udid` for the uploaded package.
+* you've provided a correct `udid` for the uploaded package.
 * Azure Maps Creator has been enabled for the Azure Maps account you used for uploading the Drawing package.
 * the API request to the Conversion service contains the subscription key to the Azure Maps account you used for uploading the Drawing package.
 
@@ -334,7 +334,7 @@ To fix an **invalidUserData** error, verify that:
 
 A **dwgError** when the drawing package contains an issue with one or more DWG files in the uploaded ZIP archive.
 
-The **dwgError** occurs when the drawing package contains a DWG file that cannot be opened because it is invalid or corrupt.
+The **dwgError** occurs when the drawing package contains a DWG file that can't be opened because it is invalid or corrupt.
 
 * A DWG file isn't a valid AutoCAD DWG file format drawing.
 * A DWG file is corrupt.
@@ -353,9 +353,9 @@ To fix a **dwgError**, inspect your _manifest.json_ file and do one or more of t
 
 #### Description for invalidJsonFormat
 
-An **invalidJsonFormat** error occurs when the _manifest.json_ file cannot be read.
+An **invalidJsonFormat** error occurs when the _manifest.json_ file can't be read.
 
-The _manifest.json_file cannot be read due to JSON formatting or syntax errors. To learn more about how JSON format and syntax, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://tools.ietf.org/html/rfc7159)
+The _manifest.json_file can't be read because of JSON formatting or syntax errors. To learn more about how JSON format and syntax, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://tools.ietf.org/html/rfc7159)
 
 #### *How to fix invalidJsonFormat*
 
@@ -381,7 +381,7 @@ The **missingManifest** error occurs because of one or more of the following rea
 
 * The _manifest.json_ file is misspelled.
 * The _manifest.json_ is missing.
-* The _manifest.json_ is not inside the root directory of the ZIP archive.
+* The _manifest.json_ isn't inside the root directory of the ZIP archive.
 
 #### *How to fix missingManifest*
 
@@ -483,13 +483,13 @@ The **verticalPenetrationError** occurs because of one or more of the following 
 
 #### *Example scenario for verticalPenetrationError*
 
-The image below shows a vertical penetration area with no overlapping vertical penetration areas on any levels above or below it.
+The image below shows a vertical penetration area with no overlapping vertical penetration areas on levels above or below it.
 
-![Example of a vertical penetration area with no overlapping vertical penetration areas on levels above or below](./media/drawing-conversion-error-codes/VRT.png)
+![Example of a vertical penetration 1](./media/drawing-conversion-error-codes/VRT.png)
 
 The following image shows a vertical penetration area that overlaps more than one vertical penetration area on an adjacent level.
 
-![Example of a vertical penetration area which overlaps more than one vertical penetration area on an adjacent levelE](./media/drawing-conversion-error-codes/VRT2.png)
+![Example of a vertical penetration 2](./media/drawing-conversion-error-codes/VRT2.png)
 
 #### How to fix verticalPenetrationError
 
