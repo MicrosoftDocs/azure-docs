@@ -1,3 +1,10 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 05/06/2020
+ms.author: glenga
+---
 Functions lets you use keys to make it harder to access your HTTP function endpoints during development. Unless the HTTP access level on an HTTP triggered function is set to `anonymous`, requests must include an API access key in the request. 
 
 #### Authorization scopes (function-level)
