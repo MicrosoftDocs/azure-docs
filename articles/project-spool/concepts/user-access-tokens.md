@@ -68,15 +68,15 @@ Scopes are applied to individual user access tokens. If you wish to remove a use
 
 Azure Communication Services supports the following scopes for user access tokens:
 
-> TODO I made all these up, we should align on what is required
-
 | Name                   | Description  |
 | -----------------------|--------------|
-| `chat:send_message`    | Grants the ability to send chat messages |
-| `chat:manage_threads`  | Grants the create and invite users to chat threads|
-| `voip:adhoc`           | Grants the ability to make outbound VOIP calls using the calling SDK|
+| `chat:message`         | Grants the ability to participate in chat threads |
+| `chat:manage_threads`  | Grants the ability create and invite users to chat threads |
+| `voip:adhoc`           | Grants the ability to make outbound VOIP calls using the calling SDK |
 | `voip:pstn`            | Grants the ability to make outbound PSTN calls using the calling SDK |
-| `spaces:manage`        | Grants the ability to create and invite users to communication spaces |
+| `rooms:manage`         | Grants the ability to create and invite users to rooms |
+
+> NOTE: These scopes are illustrative. We currently are not planning to support `chat:manage_threads`, but will continue to discuss offline.
 
 ## Reissuing User Access Tokens
 
