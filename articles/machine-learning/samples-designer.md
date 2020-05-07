@@ -53,18 +53,18 @@ Here's how to use a designer sample:
 
    Use the samples as starting points for some of the most common machine learning scenarios.
 
-## Regression samples
+## Regression
 
-Learn more about the built-in regression samples.
+Explore these built-in regression samples.
 
 | Sample title | Description | 
 | --- | --- |
 | [Sample 1: Regression - Automobile Price Prediction (Basic)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md) | Predict car prices using linear regression. |
 | [Sample 2: Regression - Automobile Price Prediction (Advanced)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md) | Predict car prices using decision forest and boosted decision tree regressors. Compare models to find the best algorithm.
 
-## Classification samples
+## Classification
 
-Learn more about the built-in classification samples. You can learn more about the samples without documentation links by opening the samples and viewing the module comments instead.
+Explore these built-in classification samples. You can learn more about the samples without documentation links by opening the samples and viewing the module comments instead.
 
 | Sample title | Description | 
 | --- | --- |
@@ -74,15 +74,15 @@ Learn more about the built-in classification samples. You can learn more about t
 | [Sample 7: Text Classification - Wikipedia SP 500 Dataset](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | Classify company types from Wikipedia articles with multiclass logistic regression. |
 | Sample 12: Multiclass Classification - Letter Recognition | Create an ensemble of binary classifiers to classify written letters. |
 
-## Recommender samples
+## Recommender
 
-Learn more about the built-in recommender samples. You can learn more about the samples without documentation links by opening the samples and viewing the module comments instead.
+Explore these built-in recommender samples. You can learn more about the samples without documentation links by opening the samples and viewing the module comments instead.
 
 | Sample title | Description | 
 | --- | --- |
 | Sample 10: Recommendation - Movie Rating Tweets | Build a movie recommender engine from movie titles and rating. |
 
-## Utility samples
+## Utility
 
 Learn more about the samples that demonstrate machine learning utilities and features. You can learn more about the samples without documentation links by opening the samples and viewing the module comments instead.
 
@@ -93,7 +93,7 @@ Learn more about the samples that demonstrate machine learning utilities and fea
 | Sample 9: Permutation Feature Importance | Use permutation feature importance to compute importance scores for the test dataset. 
 | Sample 11: Tune Parameters for Binary Classification - Adult Income Prediction | Use Tune Model Hyperparameters to find optimal hyperparameters to build a binary classifier. |
 
-## Designer datasets
+## Datasets
 
 When you create a new pipeline in Azure Machine Learning designer, a number of sample datasets are included by default. These sample datasets are used by the sample pipelines in the designer homepage. 
 
