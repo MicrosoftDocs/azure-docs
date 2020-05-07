@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 05/05/2020
 ms.author: jingwang
 
 ---
@@ -87,16 +87,15 @@ Supported **JSON write settings** under `formatSettings`:
 | Property      | Description                                                  | Required                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | The type of formatSettings must be set to **JsonWriteSettings**. | Yes                                                   |
-| filePattern |Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is **setOfObjects**. See [JSON file patterns](#json-file-patterns) section for details about these patterns. |No |
+| filePattern |Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** (JSON Lines) and **arrayOfObjects**. The **default** value is **setOfObjects**. See [JSON file patterns](#json-file-patterns) section for details about these patterns. |No |
 
 ### JSON file patterns
 
-Copy activity can automatically detect and parse the following patterns of JSON files. 
+When copying data from JSON files, copy activity can automatically detect and parse the following patterns of JSON files. When writing data to JSON files, you can configure the file pattern on copy activity sink.
 
 - **Type I: setOfObjects**
 
-    Each file contains single object, or line-delimited/concatenated multiple objects. 
-    When this option is chosen in copy activity sink, copy activity produces a single JSON file with each object per line (line-delimited).
+    Each file contains single object, JSON lines, or concatenated objects.
 
     * **single object JSON example**
 
@@ -111,7 +110,7 @@ Copy activity can automatically detect and parse the following patterns of JSON 
         }
         ```
 
-    * **line-delimited JSON example**
+    * **JSON Lines (default for sink)**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}

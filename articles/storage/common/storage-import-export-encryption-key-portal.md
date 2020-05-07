@@ -5,7 +5,7 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -85,9 +85,8 @@ Configuring customer-managed key for your Import/Export service is optional. By 
 
 In the **Encryption** blade, you can see the key vault and the key selected for your customer managed key.
 
-## Disable keys
-
-You can only disable Microsoft managed keys and move to customer managed keys at any stage of the import/export job. However, you cannot disable the customer managed key once you have created it.
+> [!IMPORTANT]
+> You can only disable Microsoft managed keys and move to customer managed keys at any stage of the import/export job. However, you cannot disable the customer managed key once you have created it.
 
 ## Troubleshoot customer managed key errors
 

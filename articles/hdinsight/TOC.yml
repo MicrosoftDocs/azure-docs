@@ -155,8 +155,16 @@
       items:
       - name: Manage clusters using the Apache Ambari web UI
         href: ./hdinsight-hadoop-manage-ambari.md
-      - name: Optimize clusters with the Apache Ambari web UI
-        href: ./hdinsight-changing-configs-via-ambari.md
+      - name: Optimize with Apache Ambari
+        items:
+        - name: Optimize clusters
+          href: ./hdinsight-changing-configs-via-ambari.md
+        - name: Optimize Apache HBase
+          href: ./optimize-hbase-ambari.md
+        - name: Optimize Apache Hive
+          href: ./optimize-hive-ambari.md
+        - name: Optimize Apache Pig
+          href: ./optimize-pig-ambari.md
       - name: Use Apache Ambari REST API
         href: ./hdinsight-hadoop-manage-ambari-rest-api.md
       - name: Delete a cluster
@@ -939,6 +947,8 @@
       href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     - name: Use firewall to restrict outbound traffic
       href: ./hdinsight-restrict-outbound-traffic.md
+    - name: Configure network virtual appliance
+      href: ./network-virtual-appliance.md
     - name: Troubleshoot
       items:
       - name: ESP Authentication issues
