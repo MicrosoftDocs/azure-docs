@@ -1,5 +1,5 @@
 ---
-title: Azure Automation Configure Start/Stop VMs during off hours solution
+title: Azure Automation Configure Start/Stop VMs during off-hours solution
 description: This article describes how to configure the Start/Stop VMs during off-hours solution to support different use cases or scenarios.
 services: automation
 ms.subservice: process-automation
@@ -7,9 +7,9 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ---
 
-# How to configure Start/Stop VMs during off hours solution
+# How to configure Start/Stop VMs during off-hours solution
 
-With the **Start/Stop VMs during off hours** solution, you can:
+With the **Start/Stop VMs during off-hours** solution, you can:
 
 - [Schedule VMs to start and stop](#schedule).
 - Schedule VMs to start and stop in ascending order by [using Azure Tags](#tags) (not supported for classic VMs).
