@@ -14,7 +14,7 @@ ms.subservice: pod
 
 Azure Data Box protects the device unlock keys (also known as device password) used to lock the device via an encryption key. By default, device unlock keys are encrypted with Microsoft managed keys. For additional control over device unlock keys, you can also provide customer-managed keys. 
 
-Customer managed keys must be created and stored in an Azure Key Vault. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md).
+Customer-managed keys must be created and stored in an Azure Key Vault. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md).
 
 This article shows how to use customer-managed keys with Azure Data Box in the [Azure portal](https://portal.azure.com/).
 
@@ -36,7 +36,7 @@ Before you begin, make sure:
 
 ## Enable keys
 
-Configuring customer managed key for your Azure Data Box is optional. By default, Data Box uses a Microsoft managed key to protect your BitLocker key. To enable customer managed keys in the Azure portal, follow these steps:
+Configuring customer-managed key for your Azure Data Box is optional. By default, Data Box uses a Microsoft managed key to protect your BitLocker key. To enable customer-managed keys in the Azure portal, follow these steps:
 
 1. Go to the **Overview** blade for your Data Box order.
 
@@ -46,9 +46,9 @@ Configuring customer managed key for your Azure Data Box is optional. By default
 
     ![Choose encryption option](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-2.png)
 
-3. Select encryption type as **Customer managed key**. After you have selected the customer managed key, **Select key vault and a key**.
+3. Select encryption type as **Customer managed key**. After you have selected the customer-managed key, **Select key vault and a key**.
 
-    ![Select customer managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
+    ![Select customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
 
 5. In the **Select key from Azure Key Vault** blade, the subscription is automatically populated. For **Key vault**, you can select an existing key vault from the dropdown list.
 
@@ -79,22 +79,22 @@ Configuring customer managed key for your Azure Data Box is optional. By default
 
     ![New key created in key vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
-12. In the **Encryption type** pane, you can see the key vault and the key selected for your customer managed key.
+12. In the **Encryption type** pane, you can see the key vault and the key selected for your customer-managed key.
 
-    ![Key and key vault for customer managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
+    ![Key and key vault for customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
 > [!IMPORTANT]
-> You can disable Microsoft managed key and move to customer managed key at any stage of the Data Box order. However, once you have created the customer managed key, you cannot disable the key.
+> You can disable Microsoft managed key and move to customer-managed key at any stage of the Data Box order. However, once you have created the customer-managed key, you cannot disable the key.
 
 <!--## Troubleshoot errors
 
-If you receive any errors related to your customer managed key, use the following table to troubleshoot.
+If you receive any errors related to your customer-managed key, use the following table to troubleshoot.
 
 | Error code     |Details     | Recoverable?    |
 |----------------|------------|-----------------|
-| CmkErrorAccessRevoked | Applied a customer managed key but the key access is currently revoked. For more information, see how to [Enable the key access](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Yes, check if: <ol><li>Key vault still has the MSI in the access policy.</li><li>Access policy provides permissions to Get, Wrap, Unwrap.</li><li>If key vault is in a vNet behind the firewall, check if **Allow Microsoft Trusted Services** is enabled.</li></ol>                                                                                            |
-| CmkErrorKeyDisabled      | Applied a customer managed key but the key is disabled. For more information, see how to [Enable the key](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Yes, by enabling the key version     |
-| CmkErrorKeyNotFound      | Applied a customer managed key but can't find the key vault associated with the key.<br>If you deleted the key vault, you can't recover the customer managed key.  If you migrated the key vault to a different tenant, see [Change a key vault tenant ID after a subscription move](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   If you deleted the key vault:<ol><li>Yes, if it is in the purge-protection duration, using the steps at [Recover a key vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>No, if it is beyond the purge-protection duration.</li></ol><br>Else if the key vault underwent a tenant migration, yes, it can be recovered using one of the below steps: <ol><li>Revert the key vault back to the old tenant.</li><li>Set `Identity = None` and then set the value back to `Identity = SystemAssigned`. This deletes and recreates the identity once the new identity has been created. Enable `Get`, `Wrap`, and `Unwrap` permissions to the new identity in the key vault's Access policy.</li></ol>|-->
+| CmkErrorAccessRevoked | Applied a customer-managed key but the key access is currently revoked. For more information, see how to [Enable the key access](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Yes, check if: <ol><li>Key vault still has the MSI in the access policy.</li><li>Access policy provides permissions to Get, Wrap, Unwrap.</li><li>If key vault is in a vNet behind the firewall, check if **Allow Microsoft Trusted Services** is enabled.</li></ol>                                                                                            |
+| CmkErrorKeyDisabled      | Applied a customer-managed key but the key is disabled. For more information, see how to [Enable the key](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Yes, by enabling the key version     |
+| CmkErrorKeyNotFound      | Applied a customer-managed key but can't find the key vault associated with the key.<br>If you deleted the key vault, you can't recover the customer-managed key.  If you migrated the key vault to a different tenant, see [Change a key vault tenant ID after a subscription move](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   If you deleted the key vault:<ol><li>Yes, if it is in the purge-protection duration, using the steps at [Recover a key vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>No, if it is beyond the purge-protection duration.</li></ol><br>Else if the key vault underwent a tenant migration, yes, it can be recovered using one of the below steps: <ol><li>Revert the key vault back to the old tenant.</li><li>Set `Identity = None` and then set the value back to `Identity = SystemAssigned`. This deletes and recreates the identity once the new identity has been created. Enable `Get`, `Wrap`, and `Unwrap` permissions to the new identity in the key vault's Access policy.</li></ol>|-->
 
 ## Next steps
 
