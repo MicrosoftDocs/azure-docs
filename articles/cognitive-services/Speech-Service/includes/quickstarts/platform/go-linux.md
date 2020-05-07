@@ -1,17 +1,10 @@
 ---
-title: 'Quickstart: Speech SDK C++ (Linux) platform setup - Speech service'
-titleSuffix: Azure Cognitive Services
-description: Use this guide to set up your platform for C++ on Linux with the Speech service SDK.
-services: cognitive-services
-author: markamos
-manager: nitinme
+author: glecaros
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/14/2019
-ms.author: erhopf
+ms.date: 03/30/2020
+ms.author: gelecaro
 ---
-
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Linux
 
@@ -25,7 +18,8 @@ Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)
 
 To complete this quickstart, you'll need:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+* gcc
+* go (1.13 or later)
 
 * Supported Linux platforms will require certain libraries installed (`libssl` for secure sockets layer support and `libasound2` for sound support). Refer to your distribution below for the commands needed to install the correct versions of these libraries.
 
@@ -56,6 +50,23 @@ To complete this quickstart, you'll need:
 
 [!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
 
+
+## Configure Go environment
+
+1. Since the bindings rely on `cgo`, you need to set the environment variables so Go can find the SDK:
+
+   ```sh
+   export CGO_CFLAGS="-I$SPEECHSDK_ROOT/include/c_api"
+   export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib -lMicrosoft.CognitiveServices.Speech.core"
+   ```
+
+1. Additionally, to run applications including the SDK, we need to tell the OS
+where to find the libs:
+
+   ```sh
+   export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/<arch>:$LD_LIBRARY_PATH"
+   ```
+
 ## Next steps
 
-[!INCLUDE [windows](../quickstart-list.md)]
+[!INCLUDE [windows](../quickstart-list-go.md)]
