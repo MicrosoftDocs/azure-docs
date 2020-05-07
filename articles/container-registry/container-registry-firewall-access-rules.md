@@ -26,12 +26,10 @@ If your registry is [geo-replicated](container-registry-geo-replication.md), a c
 * **REST endpoint** - Allow access to the fully qualified registry login server name, `<registry-name>.azurecr.io`, or an associated IP address range
 * **Storage (data) endpoint** - Enable access to a [dedicated data endpoint](#configure-dedicated-data-endpoints-preview) (preview) in each region where the registry is located or replicated, `<registry-name>.<region>.data.azurecr.io`. Alternatively, and less specifically, allow access to all Azure blob storage accounts using the wildcard `*.blob.core.windows.net`, or an associated IP address range.
 
-## Configure dedicated data endpoints (preview)
+## Enable dedicated data endpoints (preview)
 
 > [!WARNING]
 > If you previously configured client firewall access to the existing `*.blob.core.windows.net` endpoints, switching to dedicated data endpoints will impact client connectivity, causing pull failures. To ensure clients have consistent access, add the new data endpoint rules to the client firewall rules. Once completed, enable dedicated data endpoints for your registries using the Azure CLI or other tools.
-
-### Enable data endpoint (preview)
 
 A dedicated data endpoint is an optional feature of the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry Tiers](container-registry-skus.md). To enable data endpoints using the Azure CLI, use Azure CLI version 2.4.0 or higher. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
