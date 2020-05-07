@@ -110,7 +110,7 @@ WITH
 
 #### [SQL on-demand](#tab/sql-ondemand)
 
-The following example creates an external data source for Azure Data Lake Gen2 that can be accesed using SAS credential:
+The following example creates an external data source for Azure Data Lake Gen2 that can be accessed using SAS credential:
 
 ```syntaxsql
 CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
