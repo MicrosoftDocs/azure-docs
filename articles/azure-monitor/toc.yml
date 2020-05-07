@@ -62,6 +62,9 @@
   items:
   - name: Azure PowerShell
     href: platform/powershell-samples.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: What can you monitor?
