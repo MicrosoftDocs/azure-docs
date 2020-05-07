@@ -48,7 +48,7 @@ The example below creates an external stream object for the Edge Hub. To create 
 1. Create an External File Format with format type of JSON.
 
     ```sql
-    Create External file format InputFileFormat1
+    Create External file format InputFileFormat
     WITH (  
        format_type = JSON,
     )
@@ -58,7 +58,7 @@ The example below creates an external stream object for the Edge Hub. To create 
 2. Create a External Data Source for the IoT Edge Hub. The T-SQL script below create a data source connection to an Edge hub running on the same docker host as SQL Edge.
 
     ```sql
-    CREATE EXTERNAL DATA SOURCE EdgeHubInput3 WITH (
+    CREATE EXTERNAL DATA SOURCE EdgeHubInput WITH (
     LOCATION = 'edgehub://'
     )
     go
@@ -69,7 +69,7 @@ The example below creates an external stream object for the Edge Hub. To create 
     ```sql
     CREATE EXTERNAL STREAM MyTempSensors WITH (
     DATA_SOURCE = EdgeHubInput,
-    FILE_FORMAT = InputFileFormat1,
+    FILE_FORMAT = InputFileFormat,
     LOCATION = N'TemperatureSensors',
     INPUT_OPTIONS = N'',
     OUTPUT_OPTIONS = N''
@@ -90,7 +90,7 @@ The example below creates an external stream object to the local SQL Edge databa
 2. Create a database scoped credential for accessing the SQL Server source. The following example creates a credential to the external data source with IDENTITY = 'username' and SECRET = 'password'.
 
     ```sql
-    CREATE DATABASE SCOPED CREDENTIAL SQLCredential1 
+    CREATE DATABASE SCOPED CREDENTIAL SQLCredential
     WITH IDENTITY = '<SQL_Login>', SECRET = '<SQL_Login_PASSWORD>'
     go
     ```
@@ -104,7 +104,7 @@ The example below creates an external stream object to the local SQL Edge databa
     ```sql
     CREATE EXTERNAL DATA SOURCE LocalSQLOutput WITH (
     LOCATION = 'sqlserver://tcp:.,1433'
-    ,CREDENTIAL = SQLCredential1
+    ,CREDENTIAL = SQLCredential
     )
     go
     ```
@@ -131,7 +131,7 @@ The example below create a simple streaming job with one streaming query. This q
 
 ```sql
 EXEC sys.sp_create_streaming_job @name=N'StreamingJob1',
-@statement= N'Select * INTO TemperatureMeasurements from MyEdgeHubInput1'
+@statement= N'Select * INTO TemperatureMeasurements from MyEdgeHubInput'
 ```
 
 The example below creates a more complex streaming job with multiple different queries, including a query which uses the in-built AnomalyDetection_ChangePoint function to identify anomalies in the temperature data.
