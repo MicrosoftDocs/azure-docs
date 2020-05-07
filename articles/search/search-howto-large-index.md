@@ -25,7 +25,7 @@ The following sections explore techniques for indexing large amounts of data usi
 
 When pushing data into an index, there's several key considerations that impact indexing speeds for the push API. These factors are outlined in the section below. 
 
-In addition to the information in this article, you can also take advantage of the code samples in the [optimizing indexing speeds tutorial](tutorial-optimize-indexing-pushapi.md) to learn more.
+In addition to the information in this article, you can also take advantage of the code samples in the [optimizing indexing speeds tutorial](tutorial-optimize-indexing-push-api.md) to learn more.
 
 ### Service tier and number of partitions/replicas
 
@@ -52,7 +52,7 @@ Using batches to index documents will significantly improve indexing performance
 + The schema of your index
 + The size of your data
 
-Because the optimal batch size depends on your index and your data, the best approach is to test different batch sizes to determine what results in the fastest indexing speeds for your scenario. This [tutorial](tutorial-optimize-indexing-pushapi.md) provides sample code for testing batch sizes using the .NET SDK. 
+Because the optimal batch size depends on your index and your data, the best approach is to test different batch sizes to determine what results in the fastest indexing speeds for your scenario. This [tutorial](tutorial-optimize-indexing-push-api.md) provides sample code for testing batch sizes using the .NET SDK. 
 
 ### Number of threads/workers
 
