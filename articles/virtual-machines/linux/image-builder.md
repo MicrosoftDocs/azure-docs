@@ -240,7 +240,7 @@ az resource delete \
     -n helloImageTemplateforSIG01
 ```
 
-Delete permissions asssignments, roles and identity
+Delete permissions assignments, roles and identity
 ```azurecli-interactive
 az role assignment delete \
     --assignee $imgBuilderCliId \
