@@ -1,5 +1,16 @@
-- name: SQL Database Documentation
+- name: Azure SQL 
   href: index.yml
+  items:
+  - name: Overview
+    items: 
+    - name: Overview-old
+      href: sql-database-paas-vs-sql-server-iaas.md
+    - name: Overview-new
+      href: what-is-azure-sql-iaas-vs-paas.md
+    - name: SQL Managed Instance rebrand
+      href: azure-sql-rebrand-explanation.md
+  - name: Concepts 
+
 
 - name: Overview
   items:
