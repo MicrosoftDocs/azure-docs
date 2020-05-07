@@ -1,61 +1,87 @@
 ---
 title: Manage IoT Plug and Play Preview models in the repository| Microsoft Docs'
 description: How to manage device capability models in the repository using the Azure Certified for IoT portal, the Azure CLI, and Visual Studio code.
-author: Philmea
+author: JimacoMS3
 manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
 ms.topic: how-to
-ms.date: 12/26/2019
-ms.author: philmea
+ms.date: 04/30/2020
+ms.author: v-jambra
 ---
 
 # Manage models in the repository
 
-The IoT Plug and Play Preview model repository stores device capability models and interfaces. The repository makes the models and interfaces discoverable and consumable by solution developers.
+The IoT Plug and Play Preview model repository stores the interfaces that define and compose models. The repository makes the models and interfaces discoverable and consumable by solution developers.
 
-There are three tools you can use to manage the repository:
+You use the [Azure IoT Model Repository portal](https://test.adb.trafficmanager.net/) to manage models in the repository.  
 
-- The Azure CLI
+## Public and Private models
 
-- Visual Studio Code
+Interfaces can be public or private.
 
-- The [Azure Certified for IoT portal](https://aka.ms/ACFI)  
+Private interfaces are maintained by your company. Access to private interfaces is controlled through role-based access control (RBAC) both on your organization's Azure AD tenant and on individual interfaces. Tenant roles determine who can create and publish interfaces in your organization. Roles at the interface-level allow you to grant read access to external users. Using roles, you can choose to keep a private model internal to your company or to expose it to a limited audience of your partners. For more information about roles and permissions, see [Understand the IoT Plug and Play Preview model repository](concepts-model-repository.md).
 
-## Public and Private models and interfaces
+Once an interface has been published, it is public. Public interfaces are available through anonymous authentication and can be read by any user or service principal. The [common interfaces](./concepts-common-interfaces.md) published by Microsoft are examples of public interfaces.
 
-Models and interfaces can be public or private.
+For an overview of the model repository including tenant and interface roles, see [Understand the IoT Plug and Play Preview model repository](concepts-model-repository.md).
 
-Public models and interfaces have been published and are visible to all service principals and users. Some examples of public models are:
+## Model repository sign-in
 
-- The device capability models and interfaces for devices in the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat).
+Use your Microsoft _work account_ to sign in to the [Azure IoT Model Repository portal](https://test.adb.trafficmanager.net/). The portal checks your membership with the Microsoft Partner Center when you sign in:
 
-- The [common interfaces](./concepts-common-interfaces.md) and DCMs and interfaces published by Microsoft Partners.
+- If you're the first user from your organization to sign in to the portal, you're granted the _Tenant Administrator_ role. This role allows you to assign roles to other users in your company (Azure Active Directory tenant).
+- If you're not the first user from your organization to sign in to the portal, you're granted _ReadTenantModels_ permission. This enables you to read your company's interfaces as well as all public interfaces. You can be assigned other roles by a _Tenant Administrator_.
+- If your organization isn't a member of the [Microsoft Partner Center](https://docs.microsoft.com/partner-center/), you can't publish your models.
+- If you see a notification message that your Microsoft Partner Network ID is missing, you should [create a Partner Center account](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account). When your account is approved, you can return to the portal and publish your models. For more information, see the [Partner Center FAQ](https://support.microsoft.com/help/4340639/partner-center-account-faqs).
 
-Private models and interfaces are maintained by your company. Access to these models and interfaces is controlled with role-based access control (RBAC) both on your organization's tenant and on individual models and interfaces. These controls determine who can create, read, and publish interfaces and models in your organization. You can also grant read access on your private models and interfaces to service principals and external users. Some examples of the use of private models and interfaces are:
+## Manage tenant roles
 
-- Models and interfaces that your company uses during development and test.
+ When a user initially signs in to the portal, by default, they are granted access to read their company's private interfaces, interfaces that have been shared with them by other companies, and all public interfaces. Tenant administrators can add users to tenant roles so that they can create models, publish models, or manage roles for other users.
 
-- Models and interfaces that you may choose to expose to only a limited audience of your partners.
+To add a user to a tenant role:
 
-To learn more about the model repository and RBAC, see [Understand the IoT Plug and Play Preview model repository](concepts-model-repository.md).
+1. Sign-in to the [Azure IoT Model Repository portal](https://test.adb.trafficmanager.net/) portal.
 
-## Visual Studio Code
+2. Select **Access management** on the left pane, then select **+Add**. On the **Add Permission** pane, type the work address of the user you want to add to the role.
 
-To open the **Model Repository** view in Visual Studio Code.
+    ![Add tenant permission to user.](./media/howto-manage-models/add-permission.png)
 
-1. Open Visual Studio Code, use **Ctrl+Shift+P**, type and select **IoT Plug and Play: Open Model Repository**.
+3. Choose the role you want to add the user to from the **Role** dropdown. Then select **Save**.
 
-1. You can choose to **Open Public Model Repository** or **Open Organizational Model Repository**. For company model repository, you need to enter your model repository connection string. You can find this connection string in the [Azure Certified for IoT portal](https://preview.catalog.azureiotsolutions.com) on the **Connection strings** tab for your **Company repository**.
+    ![Choose tenant role.](./media/howto-manage-models/choose-role.png)
 
-1. A new tab opens the **Model Repository** view.
+## Create (upload) an interface
 
-    Use this view to add, download, and delete device capability models and interfaces. You can use a filter to find specific items in the list.
+To create an interface, you must be a member of the tenant  _Creator_ role.
 
-1. To switch between your company model repository and the public model repository, use **Ctrl+Shift+P**, type and select **IoT Plug and Play: Sign out Model Repository**. Then use the **IoT Plug and Play: Open Model Repository** command again.
+1. Sign-in to the [Azure IoT Model Repository portal](https://test.adb.trafficmanager.net/) portal.
 
-> [!NOTE]
-> In VS Code, the public model repository is read-only. Microsoft Partners can update the public repository in the [Azure Certified for IoT portal](https://preview.catalog.azureiotsolutions.com).
+2. Expand **Company Models** on the left pane and select **Create model**. Then select **Import Json**.
+
+    ![Create a model.](./media/howto-manage-models/create-model.png)
+
+3. Select the file you want to upload. If the portal successfully validates your interface, select **Save**.
+
+## Share private interfaces
+
+You can share interfaces that you have created with external users. In this way, you can allow your partners to read and develop solutions with your private interfaces.
+
+If you're the creator of an interface, the **Share** and **Shared with** buttons will be active when you view the interface in your Company models.
+
+![Model sharing.](./media/howto-manage-models/share-model.png)
+
+- To share the interface with an external user, select **Share**. In the **Share model** pane, enter the email address of the external user and select **Save**.
+
+- To see the users who you have shared the model with, select **Shared with**.
+
+- To stop sharing the interface with a specific user, select the user from the list of users on the **Shared with** pane. Then select **Remove** and confirm your choice when prompted.
+
+    ![Stop sharing a model.](./media/howto-manage-models/unshare-model.png)
+
+## Publish an interface
+
+To publish an interface, you must be a member of the tenant _Publisher_ role.
 
 ## Next steps
 
