@@ -54,7 +54,7 @@ On the **Basics** tab, enter values for the fields. The following table shows a 
 | **Resource group** | The resource group for your private cloud resources. |
 | **Location** | Select a location, such as **east us**.|
 | **Resource name** | The name of your AVS private cloud. |
-| **SKU** | Select the appropriate SKU, available values are: |
+| **SKU** | Select the followng SKU value: AV36 |
 | **Hosts** | This is the number of hosts to add to the private cloud cluster. The default value is 3. This value can be raised or lowered after deployment.  |
 | **vCenter admin password** | Enter a cloud administrator password. |
 | **NSX-T manager password** | Enter a NSX-T administrator password. |
