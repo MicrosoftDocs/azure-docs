@@ -89,7 +89,7 @@ Follow the steps in our quickstarts:
 - [Quickstart: Creating a new SQL pool](quickstart-create-sql-pool.md)
 - [Quickstart: Creating a new Apache Spark pool](/quickstart-create-an-apache-spark-pool.md)
 
-## Add users into the workspace
+<!--## Add users into the workspace--->
 <!--- Optional Saveen --->
 
 ## Adding an additional storage account
@@ -289,16 +289,16 @@ This results in a chart like the following;
 
 Finally if you want to understand more details about what happened when you were running the Spark SQL and PySpark code select the monitoring view or the Spark UI view highlighted in red.
 
-### Analyze with SQL script
+<!--### Analyze with SQL script--->
 <!--- Josh 
 
-### Analyze with Power BI
+<!--### Analyze with Power BI--->
 <!--- Josh 
 
-## Serve via Power BI
+<!--## Serve via Power BI--->
 <!--- Josh 
 
-## Serve via SQL pool
+<!--## Serve via SQL pool--->
 <!--- Matthew
 --->
 
