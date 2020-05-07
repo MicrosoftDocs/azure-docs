@@ -9,9 +9,14 @@ ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor alerts 
 
-This article discusses common problems in Azure Monitor alerting.
+This article discusses common problems in Azure Monitor alerting notifications
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](alerts-overview.md).
+
+The sections below cover common problems with alert notifications.  
+To troubleshooting problems with the alerts themselves, see 
+- [Troubleshooting Azure Monitor Metric Alerts in Microsoft Azure](alerts-troubleshoot-metric.md)  
+- [Troubleshooting Azure Monitor Log Alerts in Microsoft Azure](alerts-troubleshoot-metric.md)
 
 ## Action or notification on my alert did not work as expected
 

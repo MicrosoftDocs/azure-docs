@@ -4363,6 +4363,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/alert-log-troubleshoot.md",
+      "redirect_url": "/azure/azure-monitor/platform/alerts-troubleshoot-log",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/azure-monitor-log-hub.md",
       "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false

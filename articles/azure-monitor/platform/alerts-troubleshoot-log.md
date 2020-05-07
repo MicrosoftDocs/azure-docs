@@ -10,9 +10,9 @@ ms.date: 10/29/2018
 ---
 # Troubleshoot log alerts in Azure Monitor  
 
-This article shows you how to resolve common issues that might happen when you're setting up log alerts in Azure Monitor. It also provides solutions to common problems with functionality or configuration of log alerts.
+This article shows you how to resolve common issues with log alerts in Azure Monitor. It also provides solutions to common problems with the functionality and configuration of log alerts.
 
-The term *log alerts* describe rules that fire based on a log query in an [Azure Log Analytics workspace](../learn/tutorial-viewdata.md) or in [Azure Application Insights](../../azure-monitor/app/analytics.md). Learn more about functionality, terminology, and types in [Log alerts in Azure Monitor](../platform/alerts-unified-log.md).
+The term *log alerts* describes rules that fire based on a log query in an [Azure Log Analytics workspace](../learn/tutorial-viewdata.md) or in [Azure Application Insights](../../azure-monitor/app/analytics.md). Learn more about functionality, terminology, and types in [Log alerts in Azure Monitor](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > This article doesn't consider cases where the Azure portal shows an alert rule triggered and a notification is not performed by an associated action group. For such cases, see the details in [Create and manage action groups in the Azure portal](../platform/action-groups.md).
