@@ -4,7 +4,7 @@ description: Azure security baseline for Container Instances
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -94,7 +94,7 @@ Azure Security Center Just In Time Network Access Control: https://docs.microsof
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18875).
 
-**Guidance**: Enable network security group (NSG) flow logs for the NSG attached to the subnet being used to protect your Azure container registry. You can record the NSG flow logs into a Azure Storage Account to generate flow records. If required for investigating anomalous activity, enable Azure Network Watcher packet capture.
+**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, you can enable network security group (NSG) flow logs for the NSG attached to the subnet being used to protect your Azure container registry. You can record the NSG flow logs into a Azure Storage Account to generate flow records. If required for investigating anomalous activity, enable Azure Network Watcher packet capture.
 
 How to enable NSG Flow Logs: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
@@ -139,7 +139,7 @@ How to configure alerts with Azure Firewall: https://docs.microsoft.com/azure/fi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18878).
 
-**Guidance**: For resources that need access to your container registry, use virtual network service tags for the Azure Container Registry service to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name "AzureContainerRegistry" in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, for resources that need access to your container registry, use virtual network service tags for the Azure Container Registry service to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name "AzureContainerRegistry" in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
 Allow access by service tag: https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules#allow-access-by-service-tag
 
@@ -152,7 +152,7 @@ Allow access by service tag: https://docs.microsoft.com/azure/container-registry
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18879).
 
-**Guidance**: Define and implement standard security configurations for network resources associated with your Azure container registries with Azure Policy. Use Azure Policy aliases in the "Microsoft.ContainerRegistry" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your container registries.
+**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, define and implement standard security configurations for network resources associated with your Azure container registries with Azure Policy. Use Azure Policy aliases in the "Microsoft.ContainerRegistry" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your container registries.
 
 You may use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and fine-tune control and management through versioning.
 
@@ -214,7 +214,7 @@ How to configure time synchronization for Azure compute resources: https://docs.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18883).
 
-**Guidance**: Ingest logs via Azure Monitor to aggregate security data generated by an Azure container registry. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage.
+**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, ingest logs via Azure Monitor to aggregate security data generated by an Azure container registry. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage.
 
 Azure Container Registry logs for diagnostic evaluation and auditing: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
@@ -264,7 +264,7 @@ How to set log retention parameters for Log Analytics Workspaces: https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18887).
 
-**Guidance**: Analyze and monitor Azure Container Registry logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data.
+**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, analyze and monitor Azure Container Registry logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data.
 
 Azure Container Registry logs for diagnostic evaluation and auditing: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
@@ -281,7 +281,7 @@ How to perform custom queries in Azure Monitor: https://docs.microsoft.com/azure
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18888).
 
-**Guidance**: Use Azure Log Analytics workspace for monitoring and alerting on anomalous activities in security logs and events related to your Azure container registry.
+**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, use Azure Log Analytics workspace for monitoring and alerting on anomalous activities in security logs and events related to your Azure container registry.
 
 Azure Container Registry logs for diagnostic evaluation and auditing: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
@@ -296,7 +296,8 @@ How to alert on log analytics log data: https://docs.microsoft.com/azure/azure-m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18889).
 
-**Guidance**: Not applicable. Azure Container Registry does not process or produce anti-malware related logs.
+**Guidance**: Not applicable. If using a cloud-based private registry like Azure container registry with Azure Container Instances, Azure container registry does not process or produce anti-malware related logs.
+
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -307,7 +308,8 @@ How to alert on log analytics log data: https://docs.microsoft.com/azure/azure-m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18890).
 
-**Guidance**: Not applicable. Azure Container Registry is an endpoint and does not initiate communication, and the service does not query DNS.
+**Guidance**: Not applicable. If using a cloud-based private registry like Azure container registry with Azure Container Instances, Azure container registry is an endpoint and does not initiate communication, and the service does not query DNS.
+
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -334,7 +336,7 @@ How to alert on log analytics log data: https://docs.microsoft.com/azure/azure-m
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18892).
 
 **Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
-For each Azure container registry, track whether the built-in admin account is enabled or disabled. Disable the account when not in use.
+If using a cloud-based private registry like Azure container registry with Azure Container Instances, for each Azure container registry, track whether the built-in admin account is enabled or disabled. Disable the account when not in use.
 
 How to get a directory role in Azure AD with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
@@ -353,7 +355,7 @@ Azure Container Registry admin account: https://docs.microsoft.com/azure/contain
 
 **Guidance**: Azure Active Directory (Azure AD) does not have the concept of default passwords. Other Azure resources requiring a password force a password to be created with complexity requirements and a minimum password length, which differ depending on the service. You are responsible for third-party applications and Marketplace services that may use default passwords.
 
-If the default admin account of an Azure container registry is enabled, complex passwords are automatically created and should be rotated. Disable the account when not in use.
+If using a cloud-based private registry like Azure container registry with Azure Container Instances, if the default admin account of an Azure container registry is enabled, complex passwords are automatically created and should be rotated. Disable the account when not in use.
 
 Azure Container Registry admin account: https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account
 
@@ -368,7 +370,7 @@ Azure Container Registry admin account: https://docs.microsoft.com/azure/contain
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
 
-Also, create procedures to enable the built-in admin account of a container registry. Disable the account when not in use.
+If using a cloud-based private registry like Azure container registry with Azure Container Instances, create procedures to enable the built-in admin account of a container registry. Disable the account when not in use.
 
 Understand Azure Security Center Identity and Access: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
@@ -385,7 +387,7 @@ Azure Container Registry admin account: https://docs.microsoft.com/azure/contain
 
 **Guidance**: Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
-For individual access to the container registry, use individual login integrated with Azure Active Directory.
+If using a cloud-based private registry like Azure container registry with Azure Container Instances, for individual access to the container registry, use individual login integrated with Azure Active Directory.
 
 Understand SSO with Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
@@ -516,7 +518,7 @@ How to configure and enable Identity Protection risk policies: https://docs.micr
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18904).
 
-**Guidance**: Not available; Customer Lockbox not currently supported for Azure Container Registry.
+**Guidance**: Not available; Customer Lockbox not currently supported for Azure Container Instances.
 
 List of Customer Lockbox supported services: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
@@ -609,9 +611,11 @@ Understand encryption in transit with Azure: https://docs.microsoft.com/azure/se
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18909).
 
-**Guidance**: Data identification, classification, and loss prevention features are not yet available for Azure Container Registry. Implement third-party solution if required for compliance purposes.
+**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, data identification, classification, and loss prevention features are not yet available for Azure Container Registry. Implement third-party solution if required for compliance purposes.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
+
+Encrypt deployment data with Azure Container Instances: https://docs.microsoft.com/azure/container-instances/container-instances-encrypt-data
 
 Understand customer data protection in Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
@@ -624,7 +628,7 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18910).
 
-**Guidance**: Use Azure Active Directory (Azure AD) RBAC to control access to data and resources in an Azure container registry.
+**Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, use Azure Active Directory (Azure AD) RBAC to control access to data and resources in an Azure container registry.
 
 How to configure RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -654,7 +658,7 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18912).
 
-**Guidance**: Use encryption at rest on all Azure resources. By default, all data in an Azure container registry is encrypted at rest using Microsoft-managed keys.
+**Guidance**: Use encryption at rest on all Azure resources. If using a cloud-based private registry like Azure container registry with Azure Container Instances, by default, all data in an Azure container registry is encrypted at rest using Microsoft-managed keys.
 
 Understand encryption at rest in Azure: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
 
@@ -669,9 +673,11 @@ Customer-managed keys in Azure Container Registry: https://aka.ms/acr/cmk
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18913).
 
-**Guidance**: Azure Monitor collects resource logs (formerly called diagnostic logs) for user-driven events in your registry. Collect and consume this data to audit registry authentication events and provide a complete activity trail on registry artifacts such as pull and pull events so you can diagnose operational issues with your registry.
+**Guidance**: 
+Log Analytics workspaces provide a centralized location for storing and querying log data not only from Azure resources, but also on-premises resources and resources in other clouds. Azure Container Instances includes built-in support for sending logs and event data to Azure Monitor logs.
 
-Azure Container Registry logs for diagnostic evaluation and auditing: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
+Container group and instance logging with Azure Monitor logs: https://docs.microsoft.com/azure/container-instances/container-instances-log-analytics
+
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -686,11 +692,13 @@ Azure Container Registry logs for diagnostic evaluation and auditing: https://do
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18914).
 
-**Guidance**: Follow recommendations from Azure Security Center on performing vulnerability assessments on your container images. Optionally deploy third-party solutions from Azure Marketplace to perform image vulnerability assessments.
+**Guidance**: Take advantage of solutions to scan container images in a private registry and identify potential vulnerabilities. It’s important to understand the depth of threat detection that the different solutions provide. Follow recommendations from Azure Security Center on performing vulnerability assessments on your container images. Optionally deploy third-party solutions from Azure Marketplace to perform image vulnerability assessments.
+
+Container monitoring and scanning security recommendations for Azure Container Instances: https://docs.microsoft.com/azure/container-instances/container-instances-image-security
 
 How to implement Azure Security Center vulnerability assessment recommendations: https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations
 
-Azure Container Registry integration with Security Center (Preview): https://docs.microsoft.com/azure/security-center/azure-container-registry-integration
+Azure Container Registry integration with Security Center: https://docs.microsoft.com/azure/security-center/azure-container-registry-integration
 
 **Azure Security Center monitoring**: Yes
 
