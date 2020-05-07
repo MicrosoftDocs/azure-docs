@@ -227,12 +227,10 @@ nslookup <your-relay-namespace-name>.servicebus.windows.net
 You should see a result that looks like the following. 
 
 ```console
-c:\ >nslookup <your-relay-namespace-name>.servicebus.windows.net
-...
 Non-authoritative answer:
-Name:    
-Address:  10.1.0.5 (private IP address associated to the private endpoint)
-Aliases:  <your-relay-namespace-name>.servicebus.windows.net
+Name:    <namespace-name>.privatelink.servicebus.windows.net
+Address:  10.0.0.4 (private IP address associated with the private endpoint)
+Aliases:  <namespace-name>.servicebus.windows.net
 ```
 
 ## Limitations and Design Considerations
