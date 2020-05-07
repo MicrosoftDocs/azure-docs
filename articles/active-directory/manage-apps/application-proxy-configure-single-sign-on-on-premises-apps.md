@@ -71,14 +71,14 @@ Before you can provide SSO for on-premises applications, you need to enable Appl
 
 2. In the **Set up Single Sign-On with SAML** page, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). Make sure the **External URL** you configured in Application Proxy is populated in the **Identifier**, **Reply URL**, and **Logout URL** fields. These URLs are required for Application Proxy to work correctly. 
 
-3. Edit the **Reply URL** configured earlier so that its domain is reachable by Application Proxy. For example, if your **External URL** is `https://contosotravel-f128.msappproxy.net` and the original **Reply URL** was `https://contosotravel.com/acs`, you'll need to update the original **Reply URL** to `https://contosotravel-f128.msappproxy.net/acs`. 
+3. Edit the **Reply URL** configured earlier so that its domain reachable on the internet via Application Proxy. For example, if your **External URL** is `https://contosotravel-f128.msappproxy.net` and the original **Reply URL** was `https://contosotravel.com/acs`, you'll need to update the original **Reply URL** to `https://contosotravel-f128.msappproxy.net/acs`.
 
     ![Enter basic SAML configuration data](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
 
 4. Select the checkbox next to the updated **Reply URL** to mark it as the default.
 
-   * If the required **Reply URL** is already listed, mark this **Reply URL** as default and delete the previously configured **Reply URL**.
+   * Aftering marking the required **Reply URL** as default, you can also delete the previously configured **Reply URL** that used the internal URL.
 
    * For an SP-initiated flow, make sure the back-end application specifies the correct **Reply URL** or Assertion Consumer Service URL for receiving the authentication token.
 

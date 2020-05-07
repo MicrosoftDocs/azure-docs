@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 03/18/2020
 ms.author: juliako
 
 ---
@@ -115,12 +115,16 @@ The asset that the live output is archiving to, automatically becomes an on-dema
 - [States and billing](live-event-states-billing.md)
 - [Latency](live-event-latency.md)
 
+## Frequently asked questions
+
+See the [Frequently asked questions](frequently-asked-questions.md#live-streaming) article.
+
 ## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 
-* [Live streaming quickstart](live-events-wirecast-quickstart.md(
+* [Live streaming quickstart](live-events-wirecast-quickstart.md)
 * [Live streaming tutorial](stream-live-tutorial-with-api.md)
 * [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md)

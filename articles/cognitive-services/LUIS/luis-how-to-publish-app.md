@@ -3,7 +3,6 @@ title: Publish app - LUIS
 titleSuffix: Azure Cognitive Services 
 description: When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint.
 services: cognitive-services
-titleSuffix: Azure Cognitive Services
 author: diberry
 manager: nitinme
 ms.custom: seodec18

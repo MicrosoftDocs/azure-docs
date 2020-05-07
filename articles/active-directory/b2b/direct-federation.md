@@ -44,6 +44,7 @@ With direct federation, guest users sign into your Azure AD tenant using their o
 
 ### DNS-verified domains in Azure AD
 The domain you want to federate with must ***not*** be DNS-verified in Azure AD. You're allowed to set up direct federation with unmanaged (email-verified or "viral") Azure AD tenants because they aren't DNS-verified.
+
 ### Authentication URL
 Direct federation is only allowed for policies where the authentication URL’s domain matches the target domain, or where the authentication URL is one of these allowed identity providers (this list is subject to change):
 -	accounts.google.com

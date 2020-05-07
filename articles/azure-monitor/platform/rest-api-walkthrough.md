@@ -4,7 +4,7 @@ description: How to authenticate requests and use the Azure Monitor REST API to 
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-
+ms.custom: has-adal-ref
 ---
 
 # Azure Monitoring REST API walkthrough
@@ -307,7 +307,7 @@ Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filte
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
+**Request URI**: https:\//management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
 
 For example, to retrieve the top 3 APIs, in descending value, by the number of 'Transactions' during a 5 min range, where the GeotType was 'Primary', the request would be as follows:
 
@@ -459,7 +459,7 @@ Once the available metric definitions are known, it is then possible to retrieve
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*
+**Request URI**: `https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 For example, to retrieve the RunsSucceeded metric data points for the given time range and for a time grain of 1 hour, the request would be as follows:
 

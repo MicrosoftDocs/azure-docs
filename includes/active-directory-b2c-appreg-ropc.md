@@ -33,3 +33,9 @@ To register an application in your Azure AD B2C tenant, you can use the current 
 1. Select **Try out the new experience** (if shown).
 1. Under **Default client type**, select **Yes** to treat the application as a public client. This setting is required for the ROPC flow.
 1. Select **Save**.
+1. In the left menu, select **Manifest** to open the manifest editor. 
+1. Set the **oauth2AllowImplicitFlow** attribute to *true*:
+    ```json
+    "oauth2AllowImplicitFlow": true,
+    ```
+1. Select **Save**.

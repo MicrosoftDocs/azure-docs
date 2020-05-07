@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 03/25/2020
 ms.author: mimart
 ms.reviewer: kasimpso
 
@@ -48,7 +48,7 @@ Connect-AzureAD
 $objectId = "<objectId>"
 $servicePrincipal = Get-AzureADServicePrincipal -ObjectId $objectId
 $tags = $servicePrincipal.tags
-$tags.Add("HideApp")
+$tags += "HideApp"
 Set-AzureADServicePrincipal -ObjectId $objectId -Tags $tags
 ```
 

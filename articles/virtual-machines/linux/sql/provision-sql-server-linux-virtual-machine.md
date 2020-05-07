@@ -5,7 +5,6 @@ services: virtual-machines-linux
 author: MashaMSFT 
 manager: craigg
 ms.date: 10/22/2019
-ms.topic: article
 tags: azure-service-management
 
 ms.topic: conceptual

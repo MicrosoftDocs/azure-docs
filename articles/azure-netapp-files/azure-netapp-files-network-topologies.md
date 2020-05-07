@@ -34,10 +34,11 @@ The features below are currently unsupported for Azure NetApp Files:
 * User-defined routes (UDRs) with address prefix as Azure NetApp files subnet
 * Azure policies (for example, custom naming policies) on the Azure NetApp Files interface
 * Load balancers for Azure NetApp Files traffic
+* Azure NetApp Files is not supported with Azure Virtual WAN
 
 The following network restrictions apply to Azure NetApp Files:
 
-* The number of IPs in use in a VNet with Azure NetApp Files (including peered VNets) cannot exceed 1000. We are working towards increasing this limit to meet customer scale demands. In the interim, if you require for more IPs, reach out to our support team with your use case and required limit.
+* The number of IPs in use in a VNet with Azure NetApp Files (including peered VNets) cannot exceed 1000. We are working towards increasing this limit to meet customer scale demands. 
 * In each Azure Virtual Network (VNet), only one subnet can be delegated to Azure NetApp Files.
 
 
@@ -118,8 +119,8 @@ In the topology illustrated above, the on-premises network is connected to a hub
 * On-premises resources VM 1 and VM 2 can connect to Volume 2 or Volume 3 over a site-to-site VPN and regional Vnet peering.
 * VM 3 in the hub VNet can connect to Volume 2 in spoke VNet 1 and Volume 3 in spoke VNet 2.
 * VM 4 from spoke VNet 1 and VM 5 from spoke VNet 2 can connect to Volume 1 in the hub VNet.
-
-VM 4 in spoke VNet 1 cannot connect to Volume 3 in spoke VNet 2. Also, VM 5 in spoke VNet2 cannot connect to Volume 2 in spoke VNet 1. This is the case because the spoke VNets are not peered and _transit routing is not supported over VNet peering_.
+* VM 4 in spoke VNet 1 cannot connect to Volume 3 in spoke VNet 2. Also, VM 5 in spoke VNet2 cannot connect to Volume 2 in spoke VNet 1. This is the case because the spoke VNets are not peered and _transit routing is not supported over VNet peering_.
+* In the above architecture if there is a gateway in the spoke VNET as well, the connectivity to the ANF volume from on-prem connecting over the gateway in the Hub will be lost. By design, preference would be given to the gateway in the spoke VNet and so only machines connecting over that gateway can connect to the ANF volume.
 
 ## Next steps
 

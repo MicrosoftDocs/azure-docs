@@ -1,22 +1,22 @@
 ---
-title: Azure Event Grid Machine Learning event schema
+title: Azure Machine Learning as Event Grid source
 description: Describes the properties that are provided for Machine Learning Workspace events with Azure Event Grid
 services: event-grid
-author: jenns
+author: spelluru
 
 ms.service: event-grid
-ms.topic: reference
-ms.date: 10/18/2019
-ms.author: jenns
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
 ---
 
-# Azure Event Grid event schema for Azure Machine Learning
+# Azure Machine Learning as an Event Grid source
 
 This article provides the properties and schema for machine learning workspace events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
-For a list of sample scripts and tutorials, see [AzureML event source](event-sources.md#azure-machine-learning).
+## Event Grid event schema
 
-## Available event types
+### Available event types
 
 Azure Machine Learning emits the following event types:
 
@@ -28,7 +28,7 @@ Azure Machine Learning emits the following event types:
 | Microsoft.MachineLearningServices.DatasetDriftDetected | Raised when a Dataset drift monitor detects drift. |
 | Microsoft.MachineLearningServices.RunStatusChanged | Raised when a run status changes to 'failed'. |
 
-## The contents of an event response
+### The contents of an event response
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint.
 
@@ -182,10 +182,7 @@ This section contains an example of what that data would look like for each even
 }]
 ```
 
-
-
-
-## Event properties
+### Event properties
 
 An event has the following top-level data:
 
@@ -256,6 +253,11 @@ The data object has the following properties for each event type:
 | RunTags | object | The tags of the completed Run. |
 | RunProperties | object | The properties of the completed Run. |
 | RunStatus | string | The status of the Run. |
+
+## Tutorials and how-tos
+| Title | Description |
+| ----- | ----- |
+| [Consume Azure Machine Learning events](../machine-learning/concept-event-grid-integration.md) | Overview of integrating Azure Machine Learning with Event Grid. |
 
 ## Next steps
 

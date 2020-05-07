@@ -137,7 +137,7 @@ If outbound access for VMs is controlled with URLs, allow these URLs.
 ### Outbound connectivity for IP address ranges
 
 To control outbound connectivity for VMs using IP addresses, allow these addresses.
-Please note that details of network connectivity requirements can be found in  [networking white paper](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) 
+Please note that details of network connectivity requirements can be found in  [networking white paper](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
 
 #### Source region rules
 
@@ -172,7 +172,7 @@ If you control VM connectivity by filtering network traffic to and from Azure ne
     - Service tags represent a group of IP address prefixes gathered together to minimize complexity when creating security rules.
     - Microsoft automatically updates service tags over time. 
  
-Learn more about [outbound connectivity](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) for Site Recovery, and [controlling connectivity with NSGs](concepts-network-security-group-with-site-recovery.md).
+Learn more about [outbound connectivity](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) for Site Recovery, and [controlling connectivity with NSGs](concepts-network-security-group-with-site-recovery.md).
 
 
 ### Connectivity for multi-VM consistency

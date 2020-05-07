@@ -1,9 +1,8 @@
 ---
-title: Marketplace metering service APIs | Azure Marketplace
-description: Usage event for SaaS offers in the Azure Marketplace. 
-author: MaggiePucciEvans 
-manager: evansma
-ms.author: evansma 
+title: Metering service APIs - Microsoft commercial marketplace
+description: The usage event API allows you to emit usage events for SaaS offers in Microsoft AppSource and Azure Marketplace.
+author: dsindona 
+ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

@@ -9,9 +9,8 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 03/17/2020
-ms.custom: seoapril2019
+ms.custom: seoapril2019, seodec18
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
-ms.custom: seodec18
 ---
 
 # How Azure Machine Learning works: Architecture and concepts
@@ -116,7 +115,7 @@ For example run configurations, see [Select and use a compute target to train yo
 When you submit a run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip file is then extracted, and the script is run there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
 
 > [!NOTE]
-> To prevent unnecessary files from being included in the snapshot, make an ignore file (.gitignore or .amlignore). Place this file in the Snapshot directory and add the filenames to ignore in it. The .amlignore file uses the same [syntax and patterns as the .gitignore file](https://git-scm.com/docs/gitignore). If both files exist, the .amlignore file takes precedence.
+> [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 
 ### GitHub tracking and integration
 
@@ -184,7 +183,7 @@ For more information, see the following articles:
 * [Train ML models with estimators](how-to-train-ml-models.md).
 * [Train Pytorch deep learning models at scale with Azure Machine Learning](how-to-train-pytorch.md).
 * [Train and register TensorFlow models at scale with Azure Machine Learning](how-to-train-tensorflow.md).
-* [Train and register Chainer models at scale with Azure Machine Learning](how-to-train-chainer.md).
+* [Train and register Chainer models at scale with Azure Machine Learning](how-to-train-ml-models.md).
 
 ### Endpoints
 
@@ -221,7 +220,7 @@ Learn more about [compute instances](concept-compute-instance.md).
 
 Datasets provide methods for working with data in popular formats, such as using `from_delimited_files()` or `to_pandas_dataframe()`.
 
-For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).  For more examples using Datasets, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets).
+For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).  For more examples using Datasets, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets-tutorial).
 
 A **datastore** is a storage abstraction over an Azure storage account. The datastore can use either an Azure blob container or an Azure file share as the back-end storage. Each workspace has a default datastore, and you can register additional datastores. Use the Python SDK API or the Azure Machine Learning CLI to store and retrieve files from the datastore.
 

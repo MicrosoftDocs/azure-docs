@@ -52,7 +52,7 @@ In this example, you have a global policy that applies to two sites. You have a 
 
 ## Existing WAF configurations
 
-All new Web Application Firewall's WAF settings (custom rules, managed rule set configurations, exclusions, and so on.) exist in a WAF policy. If you have an existing WAF, these settings may still exist in your WAF configuration. For more information about moving to the new WAF policy, see (link: Migrate WAF Config to a WAF Policy). 
+All new Web Application Firewall's WAF settings (custom rules, managed rule set configurations, exclusions, and so on.) exist in a WAF policy. If you have an existing WAF, these settings may still exist in your WAF configuration. For more information about moving to the new WAF policy, [Migrate WAF Config to a WAF Policy](https://docs.microsoft.com/azure/web-application-firewall/ag/migrate-policy). 
 
 
 ## Next steps

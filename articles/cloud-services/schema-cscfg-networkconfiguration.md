@@ -1,5 +1,6 @@
 ---
 title: Azure Cloud Services NetworkConfiguration Schema | Microsoft Docs
+description: Learn about the child elements of the NetworkConfiguration element of the service configuration file, which specifies Virtual Network and DNS values.
 ms.custom: 
 ms.date: 12/07/2016
 services: cloud-services

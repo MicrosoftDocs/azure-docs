@@ -45,7 +45,7 @@ You can create JIRA tickets on Azure Monitor alerts.
 
 ![Circonus Logo](./media/partners/circonus.png)
 
-Circonus is a microservices monitoring and analytics platform built for on premises or SaaS deployment. It is fully automatable API-Centric platform is more scalable and reliable than systems it monitors. Developed for the requirements of DevOps, Circonus delivers percentile-based alerts, graphs, dashboards, and machine-learning intelligence that enable business optimization. Circonus monitors your Microsoft Azure cloud resources and their applications in real time. You can use Circonus to collect and track metrics for the variables you want to measure for your resources and applications. With Circonus, you gain system-wide visibility into Azure's resource utilization, application performance, and operational health.
+Circonus is the machine data intelligence expert, providing the only machine data intelligence platform capable of handling billions of metric streams in real time to drive unprecedented business insight and value. Use Circonus to collect, track, and visualize key metrics related to your Microsoft Azure setup. Gain system-wide visibility into Azure’s resource utilization, application performance, and operational health.
 
 [Go to the documentation.][circonus-doc]
 
@@ -201,6 +201,14 @@ Serverless360 is a one platform tool to operate, manage, and monitor Azure serve
 
 [Learn more.][serverless360-doc]
 
+## ServiceNow
+
+![ServiceNow Logo](./media/partners/servicenow.png)
+
+Reduce incidents and MTTR with NOW AIOps platform to eliminate noise, prioritize, identify root cause detection using ML, and remediate with ITX workflows.  Understand the current state of your Iaas/PaaS/FaaS services from Azure and build service maps from tags to build application service context for the business impact analysis.    
+
+[Learn more.](https://www.servicenow.com/solutions/aiops.html)
+
 ## SignalFx
 
 ![SignalFX Logo](./media/partners/signalfx.png)
@@ -267,7 +275,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics documentation."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric introduction."
-[circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
+[circonus-doc]: https://docs.circonus.com/circonus/agents/cloud-agent/azure/ 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
 [datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Datadog documentation."

@@ -63,7 +63,7 @@ Unfortunately, there's no easy answer.  Each application needs to decide what op
 If you would like to test how your code works under error conditions, consider using the [Reboot feature](cache-administration.md#reboot). Rebooting allows you to see how connection blips affect your application.
 
 ## Performance testing
- * **Start by using `redis-benchmark.exe`** to get a feel for possible throughput/latency before writing your own perf tests.  Redis-benchmark documentation can be [found here](https://redis.io/topics/benchmarks).  Note that redis-benchmark doesn't support SSL, so you'll have to [enable the Non-SSL port through the Portal](cache-configure.md#access-ports) before you run the test.  [A windows compatible version of redis-benchmark.exe can be found here](https://github.com/MSOpenTech/redis/releases)
+ * **Start by using `redis-benchmark.exe`** to get a feel for possible throughput/latency before writing your own perf tests.  Redis-benchmark documentation can be [found here](https://redis.io/topics/benchmarks).  Note that redis-benchmark doesn't support TLS, so you'll have to [enable the Non-TLS port through the Portal](cache-configure.md#access-ports) before you run the test.  [A windows compatible version of redis-benchmark.exe can be found here](https://github.com/MSOpenTech/redis/releases)
  * The client VM used for testing should be **in the same region** as your Redis cache instance.
  * **We recommend using Dv2 VM Series** for your client as they have better hardware and will give the best results.
  * Make sure the client VM you use has **at least as much compute and bandwidth* as the cache being tested. 

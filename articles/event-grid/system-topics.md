@@ -11,7 +11,7 @@ ms.author: spelluru
 ---
 
 # System topics in Azure Event Grid
-The Azure Event Grid service creates system topics when you create a first event subscription for an Azure event source. This article describes **system topics** in Azure Event Grid.
+The Azure Event Grid service creates system topics when you create a first event subscription for an Azure event source. Currently, Event Grid doesn't create system topics for topic sources that were created before Mar, 15, 2020. For all the topic sources you created on or after this date, Event Grid automatically creates system topics. This article describes **system topics** in Azure Event Grid.
 
 > [!NOTE]
 > This feature is currently not enabled for Azure Government cloud. 
@@ -34,5 +34,5 @@ When you try to delete the resource group with the storage account, you'll see t
 ## Next steps
 See the following articles: 
 
-- [Custom topics](event-sources.md#custom-topics)
+- [Custom topics](custom-topics.md)
 - [Domains](event-domains.md)

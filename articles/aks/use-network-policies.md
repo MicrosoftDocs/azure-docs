@@ -1,5 +1,6 @@
 ---
-title: Secure pods with network policies in Azure Kubernetes Service (AKS)
+title: Secure pod traffic with network policy
+titleSuffix: Azure Kubernetes Service
 description: Learn how to secure traffic that flows in and out of pods by using Kubernetes network policies in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
@@ -77,6 +78,8 @@ The following example script:
 * Assigns *Contributor* permissions for the AKS cluster service principal on the virtual network.
 * Creates an AKS cluster in the defined virtual network and enables network policy.
     * The *azure* network policy option is used. To use Calico as the network policy option instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
+
+Note that instead of using a service principal, you can use a managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md).
 
 Provide your own secure *SP_PASSWORD*. You can replace the *RESOURCE_GROUP_NAME* and *CLUSTER_NAME* variables:
 
@@ -474,7 +477,7 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[use-advanced-networking]: configure-advanced-networking.md
+[use-advanced-networking]: configure-azure-cni.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [concepts-network]: concepts-network.md
 [az-feature-register]: /cli/azure/feature#az-feature-register

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 3/13/2020
+ms.date: 4/17/2020
 ms.author: swmachan
 ---
 
@@ -70,7 +70,7 @@ Here's an example request to call the Translator API using the global translator
 
 ```curl
 // Pass secret key using headers
-curl -X POST "https://api.cognitive.microsoft.com/translate?api-version=3.0&to=es" \
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=es" \
      -H "Ocp-Apim-Subscription-Key:<your-key>" \
      -H "Content-Type: application/json" \
      -d "[{'Text':'Hello, what is your name?'}]"
@@ -90,7 +90,7 @@ Here's an example request to call the Translator API using the regional translat
 
 ```curl
 // Pass secret key and region using headers
-curl -X POST "https://api.cognitive.microsoft.com/translate?api-version=3.0&to=es" \
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=es" \
      -H "Ocp-Apim-Subscription-Key:<your-key>" \
      -H "Ocp-Apim-Subscription-Region:<your-region>" \
      -H "Content-Type: application/json" \
@@ -142,7 +142,7 @@ An authentication token is valid for 10 minutes. The token should be reused when
 
 ## Virtual Network support
 
-Translator service is now available with Virtual Network capabilities in limited regions (`WestUS2`, `EastUS`, `SouthCentralUS`, `WestUS`, `Central US EUAP`, `global`). To enable Virtual Network, please see [Configuring Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Translator service is now available with Virtual Network capabilities in limited regions (`WestUS2`, `EastUS`, `SouthCentralUS`, `WestUS`, `CentralUSEUAP`, `global`). To enable Virtual Network, please see [Configuring Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
 Once you turn on this capability, you must use the custom endpoint to call the Translator API. You cannot use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you cannot authenticate with an access token.
 

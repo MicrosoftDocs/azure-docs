@@ -109,24 +109,31 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageC
 
 ## How to specify source language in Python
 
-The first step is to create a `speech_config`:
+In this example, the source language is provided explicitly as a parameter using `SpeechRecognizer` construct.
 
 ```Python
-speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
-speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+speech_recognizer = speechsdk.SpeechRecognizer(
+        speech_config=speech_config, language="de-DE", audio_config=audio_config)
 ```
 
-Next, specify the source language of your audio with `speech_recognition_language`:
+In this example, the source language is provided using `SourceLanguageConfig`. Then, the `SourceLanguageConfig` is passed as a parameter to `SpeechRecognizer` construct.
 
 ```Python
-speech_config.speech_recognition_language="de-DE"
+source_language_config = speechsdk.languageconfig.SourceLanguageConfig("de-DE")
+speech_recognizer = speechsdk.SpeechRecognizer(
+        speech_config=speech_config, source_language_config=source_language_config, audio_config=audio_config)
 ```
 
-If you're using a custom model for recognition, you can specify the endpoint with `endpoint_id`:
+In this example, the source language and custom endpoint are provided using `SourceLanguageConfig`. Then, the `SourceLanguageConfig` is passed as a parameter to `SpeechRecognizer` construct.
 
 ```Python
-speech_config.endpoint_id = "The Endpoint ID for your custom model."
+source_language_config = speechsdk.languageconfig.SourceLanguageConfig("de-DE", "The Endpoint ID for your custom model.")
+speech_recognizer = speechsdk.SpeechRecognizer(
+        speech_config=speech_config, source_language_config=source_language_config, audio_config=audio_config)
 ```
+
+>[!Note]
+> `speech_recognition_language` and `endpoint_id` properties are deprecated from the `SpeechConfig` class in Python. The use of these properties are discouraged, and shouldn't be used when constructing a `SpeechRecognizer`.
 
 ::: zone-end
 

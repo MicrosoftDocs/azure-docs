@@ -5,7 +5,7 @@ description: Learn how to enable passwordless security key sign-in to Azure Acti
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/30/2020
 
 ms.author: iainfou

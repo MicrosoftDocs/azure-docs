@@ -88,6 +88,9 @@ This risk detection type considers past sign-in locations (IP, Latitude / Longit
 
 Identity Protection detects sign-ins from unfamiliar locations also for basic authentication / legacy protocols. Because these protocols do not have modern familiar features such as client id, there is not enough telemetry to reduce false positives. To reduce the number of detected risk detections, you should move to modern authentication.   
 
+> [!NOTE]
+> If the login username and password do not match, the sign-in will fail and the risk detection does not occur. Sign-in from unfamiliar location risk detections only are triggered on succesful logins.
+
 ### Sign-ins from infected devices
 
 This risk detection type identifies sign-ins from devices infected with malware, that are known to actively communicate with a bot server. This is determined by correlating IP addresses of the user’s device against IP addresses that were in contact with a bot server. 

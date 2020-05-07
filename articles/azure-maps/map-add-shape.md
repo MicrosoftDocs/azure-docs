@@ -1,7 +1,7 @@
 ---
 title: Add a polygon layer to a map | Microsoft Azure Maps
 description: In this article, you will learn how to render a polygon and multi polygon on a map in the Microsoft Azure Maps Web SDK.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -26,19 +26,19 @@ map.sources.add(dataSource);
 
 //Create a rectangular polygon.
 dataSource.add(new atlas.data.Feature(
-	new atlas.data.Polygon([[
-		[-73.98235, 40.76799],
-		[-73.95785, 40.80044],
-		[-73.94928, 40.7968],
-		[-73.97317, 40.76437],
-		[-73.98235, 40.76799]
-	]])
+    new atlas.data.Polygon([[
+        [-73.98235, 40.76799],
+        [-73.95785, 40.80044],
+        [-73.94928, 40.7968],
+        [-73.97317, 40.76437],
+        [-73.98235, 40.76799]
+    ]])
 ));
 
 //Create and add a polygon layer to render the polygon to the map, below the label layer.
 map.layers.add(new atlas.layer.PolygonLayer(dataSource, null,{
-	fillColor: 'red',
-	fillOpacity: 0.7
+    fillColor: 'red',
+    fillOpacity: 0.7
 }), 'labels');
 ```
 

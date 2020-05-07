@@ -51,7 +51,7 @@ Here's what's supported if you want to back up on-premises machines:
 
 **Limit** | **Details**
 --- | ---
-**Azure VM data disks** | Limit of 16 <br> To sign up for the private preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com
+**Azure VM data disks** | Limit of 16 <br> To sign up for the limited preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com
 **Azure VM data disk size** | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 
 ### Azure VM backup options
@@ -85,7 +85,7 @@ Azure Backup doesn't support automatic clock adjustment for daylight saving time
 
 Disk deduplication support is as follows:
 
-- Disk deduplication is supported on-premises when you use DPM or MABs to back up Hyper-V VMs that are running Windows. Windows Server performs data deduplication (at the host level) on virtual hard disks (VHDs) that are attached to the VM as backup storage.
+- Disk deduplication is supported on-premises when you use DPM or MABS to back up Hyper-V VMs that are running Windows. Windows Server performs data deduplication (at the host level) on virtual hard disks (VHDs) that are attached to the VM as backup storage.
 - Deduplication isn't supported in Azure for any Backup component. When DPM and MABS are deployed in Azure, the storage disks attached to the VM can't be deduplicated.
 
 ## Security and encryption support
@@ -146,7 +146,7 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Yes. Public limited Preview  Supported for encrypted VMs and VMs with lesser than 4-TB  disks | West Central US   |
+| Azure VM               | Yes.   Supported for encrypted VMs and VMs with lesser than 4-TB  disks | All Azure public regions.  |
 | MARS Agent/On premises | No                                                           | N/A               |
 | SQL /SAP HANA          | No                                                           | N/A               |
 | AFS                    | No                                                           | N/A               |

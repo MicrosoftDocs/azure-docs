@@ -92,6 +92,10 @@ This error means that the CLI was unable to find the login server of the given r
 
 *Potential solutions*: Verify that the spelling is correct and that the registry exists; verify that user has the right permissions on the registry, and that the clouds of the registry and the CLI environment match; update Azure CLI to the latest version.
 
+## NOTARY_VERSION_ERROR
+
+This error means that the CLI is not compatible with the currently installed version of Docker/Notary. Try downgrading your notary.exe version to a version earlier than 0.6.0 by replacing your Docker installation's Notary client manually to resolve this issue.
+
 ## Next steps
 
 For options to check the health of a registry, see [Check the health of an Azure container registry](container-registry-check-health.md).

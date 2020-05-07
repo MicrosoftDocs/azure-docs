@@ -68,5 +68,6 @@ Security Center automatically collects, analyzes, and integrates log data from y
 
 In this document, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following:
 
+- [The Microsoft Learn module on how to use the alert capabilities of Azure Security Center to watch for and respond to threats](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 * [Security alerts in Azure Security Center](security-center-alerts-overview.md).
 * [Handling security incidents](security-center-incident.md)

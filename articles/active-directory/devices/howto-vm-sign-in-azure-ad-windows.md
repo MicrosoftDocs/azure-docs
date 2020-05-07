@@ -277,7 +277,7 @@ This exit code translates to DSREG_E_MSI_TENANTID_UNAVAILABLE because the extens
 
 #### Issue 2: AADLoginForWindows extension fails to install with Exit code: -2145648607
 
-This Exit code translates to DSREG_AUTOJOIN_DISC_FAILED because the extension is not able to reach the https://enterpriseregistration.windows.net endpoint.
+This Exit code translates to DSREG_AUTOJOIN_DISC_FAILED because the extension is not able to reach the `https://enterpriseregistration.windows.net` endpoint.
 
 1. Verify the required endpoints are accessible from the VM using the command line:
 

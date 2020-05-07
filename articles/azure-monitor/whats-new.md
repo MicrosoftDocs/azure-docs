@@ -5,12 +5,119 @@ ms.subservice:
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 03/05/2020
+ms.date: 04/06/2020
 
 ---
 
 # What's new in Azure Monitor documentation?
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
+
+## April 2020
+
+### General
+- [Azure Monitor customer-managed key](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys.md) - Added section on asynchronous operations
+- [Manage Log Analytics workspaces in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access.md) - Updated custom logs sections.
+
+### Alerts
+- [Action rules for Azure Monitor alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) - Added video.
+- [Overview of alerting and notification monitoring in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview.md) - Added video.
+
+### Application Insights
+- [Application Map in Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-map.md) - Added cloud role names config for java agent.
+- [Azure Application Insights .Net Agent API reference](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference.md) - Consolidated API Reference.
+- [IP addresses used by Application Insights and Log Analytics](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses.md) - Updated IP addresses for App Insights and Log Analytics APIs, Action group webhooks, Azure US Government.
+- [Monitor Java applications anywhere](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config.md) - New article
+- [Monitor Java applications on any environment](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent.md) - New article
+- [Monitor Java applications running in any environment](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments.md) - New article
+- [Monitor Java applications running on premises](https://docs.microsoft.com/azure/azure-monitor/app/java-on-premises.md) - New article
+- [Remove Application Insights in Visual Studio](https://docs.microsoft.com/azure/azure-monitor/app/remove-application-insights.md) - New article
+- [Telemetry sampling in Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sampling) - Fix in fixed-rate sample in Python.
+
+### Containers
+- [Configure Azure Red Hat OpenShift v4.x with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-azure-redhat4-setup) - New article
+- [How to manually fix ServiceNow sync problems](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow) - New article
+- [How to stop monitoring your Azure and Red Hat OpenShift v4 cluster](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-openshift-v4) - New article
+- [How to stop monitoring your Azure Red Hat OpenShift v3 cluster](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-openshift-v3) - New article
+- [How to stop monitoring your hybrid Kubernetes cluster](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-hybrid) - New article
+
+### Insights
+- [Monitor Azure Key Vaults with Azure Monitor for Key Vaults (preview)](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview) - New article
+
+### Logs
+- [Azure Monitor service limits](https://docs.microsoft.com/azure/azure-monitor/service-limits) - Added user query throttling.
+- [Manage usage and costs for Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage) - Added billing for Logs clusters. Added Kusto query to enable customers with legacy Per Node pricing tier to determine whether they should move to a Per GB or Capacity Reservation tier.
+
+### Metrics
+- [Advanced features of Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) - Added aggregation section.
+
+### Workbooks
+- [Azure Monitor Workbooks and Azure Resource Manager Templates](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-automate) - Added resource manager template for deploying a workbook template.
+
+
+
+## March 2020
+
+### General
+- [Azure Monitor overview](overview.md) - Added Azure Monitor overview video.
+- [Azure Monitor customer-managed key configuration](platform/customer-managed-keys.md) - General updates.
+- [Azure Monitor data reference](/azure/azure-monitor/reference) - New site.
+
+### Alerts
+
+- [Create, view, and manage activity log alerts in Azure Monitor](platform/alerts-activity-log.md) - Additional explanation of Resource Manager template.
+- [Understand how metric alerts work in Azure Monitor.](platform/alerts-metric-overview.md) - Updated for government support.
+- [Troubleshooting Azure Monitor alerts and notifications](platform/alerts-troubleshoot.md) - New article
+
+### Application Insights
+- [Automate Azure Application Insights with PowerShell](app/powershell.md) - Added ARMClient examples.
+- [Continuous export of telemetry from Application Insights](app/export-telemetry.md) - Add table with details of export structure.
+- [Enable Snapshot Debugger for .NET apps in Azure App Service](app/snapshot-debugger-appservice.md) - Added Resource Manager template example.
+- [Manage usage and costs for Azure Application Insights](app/pricing.md) - Added information on data cap alert.
+- [Monitor Python applications with Azure Monitor (preview)](app/opencensus-python.md) - Added standard metrics.
+- [Source map support for JavaScript applications - Azure Monitor Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/source-map-support) - New article.
+
+
+### Containers
+- [Azure Monitor FAQ](faq.md) - Update for Azure Monitor for containers.
+- [Configure GPU monitoring with Azure Monitor for containers](insights/container-insights-gpu-monitoring.md) - New article
+
+### Insights
+- [Office 365 management solution in Azure](insights/solution-office-365.md) - Updated deprecation date.
+
+### Logs
+- [Optimize log queries in Azure Monitor](log-query/query-optimization.md) - Added CPU condition for XML and JSON parsing.
+- [Delete and recover Azure Log Analytics workspace](platform/delete-workspace.md) - Added troubleshooting.
+- [Use Azure Monitor Logs with Azure Logic Apps and Power Automate](platform/logicapp-flow-connector.md) - Updated for new Azure Monitor connector.
+
+### Metrics
+- [Disk metrics deprecation in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/portal-disk-metrics-deprecation) - New article.
+- [Tutorial - Create a metrics chart in Azure Monitor](learn/tutorial-metrics-explorer.md) - Added video.
+
+### Platform logs
+- [Collect and analyze Azure activity log in Azure Monitor](platform/activity-log-collect.md) - Rewrite to better explain collecting Activity log with diagnostic settings.
+
+### Virtual machines
+- [Monitor Azure virtual machines with Azure Monitor](insights/monitor-vm-azure.md) - New article.
+- [Quickstart: Monitor Azure virtual machines with Azure Monitor](learn/quick-monitor-azure-vm.md) - Updated to add Azure Monitor for VMs.
+- [Alerts from Azure Monitor for VMs](insights/vminsights-alerts.md) - New article
+- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Updated agent download links.
+
+
+General updates for general availability of Azure Monitor for VMs
+- [What is Azure Monitor for VMs?](insights/vminsights-overview.md)
+- [Azure Monitor for VMs (GA) frequently asked questions](insights/vminsights-ga-release-faq.md) 
+- [Enable Azure Monitor for VMs by using Azure Policy](insights/vminsights-enable-at-scale-policy.md) 
+- [How to chart performance with Azure Monitor for VMs](insights/vminsights-performance.md)
+- [How to Query Logs from Azure Monitor for VMs](insights/vminsights-log-search.md)
+- [View app dependencies with Azure Monitor for VMs](insights/vminsights-maps.md) 
+
+
+### Visualizations
+- [Visualizing data from Azure Monitor](visualizations.md) - Updated to note planned deprecation of View Designer.
+
+
+
+
 
 ## February 2020
 
@@ -23,7 +130,7 @@ Multiple updates as part of rewrite of diagnostics extension content.
 - [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install.md) - New article. 
 - [Windows diagnostics extension schema](platform/diagnostics-extension-schema-windows.md) - Reorganized.
 - [Send data from Windows Azure diagnostics extension to Azure Event Hubs](platform/diagnostics-extension-stream-event-hubs.md) - Completely rewritten and updated.
-- [Store and view diagnostic data in Azure Storage](platform/diagnostics-extension-to-storage.md) - Completely rewritten and updated.
+- [Store and view diagnostic data in Azure Storage](/azure/cloud-services/diagnostics-extension-to-storage) - Completely rewritten and updated.
 - [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md) - Better clarifies relationship with Log Analytics agent.
 - [Azure Monitor virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md) - Better clarifies relationship with Log Analytics agent.
 

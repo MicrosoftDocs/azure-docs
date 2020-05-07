@@ -1,7 +1,6 @@
 ---
-title: Getting started with R
-titleSuffix: ML Studio (classic) - Azure
-description: Use this R programming tutorial to get started using the R language with Azure Machine Learning Studio (classic) to create a forecasting solution.
+title: Use R with ML Studio (classic) - Azure
+description: Use this R programming tutorial to get started with Azure Machine Learning Studio (classic) in R to create a forecasting solution.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -12,14 +11,11 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
 ---
-# Getting started with the R programming language in Azure Machine Learning Studio (classic)
+# Get started with Azure Machine Learning Studio (classic) in R
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
-
-## Introduction
-
 This tutorial helps you start extending Azure Machine Learning Studio (classic) by using the R programming language. Follow this R programming tutorial to create, test and execute R code within Studio (classic). As you work through tutorial, you will create a complete forecasting solution by using the R language in Studio (classic).  
 
 Azure Machine Learning Studio (classic) contains many powerful machine learning and data manipulation modules. The powerful R language has been described as the lingua franca of analytics. Happily, analytics and data manipulation in Studio (classic) can be extended by using R. This combination provides the scalability and ease of deployment of Studio (classic) with the flexibility and deep analytics of R.

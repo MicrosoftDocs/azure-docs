@@ -47,6 +47,8 @@ landingContent:
         links:
           - text: JavaScript
             url: quickstart-v2-javascript.md
+          - text: Angular
+            url: quickstart-v2-angular.md
       - linkListType: tutorial
         links:
           - text: JavaScript

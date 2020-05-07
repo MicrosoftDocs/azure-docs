@@ -167,7 +167,7 @@ The following code snippet:
 Add this code to the end of the `try` block:
 
 ```python
-# Create a file in local Documents directory to upload and download
+# Create a file in local data directory to upload and download
 local_path = "./data"
 local_file_name = "quickstart" + str(uuid.uuid4()) + ".txt"
 upload_file_path = os.path.join(local_path, local_file_name)
@@ -210,7 +210,7 @@ Add this code to the end of the `try` block:
 
 ```python
 # Download the blob to a local file
-# Add 'DOWNLOAD' before the .txt extension so you can see both files in Documents
+# Add 'DOWNLOAD' before the .txt extension so you can see both files in the data directory
 download_file_path = os.path.join(local_path, str.replace(local_file_name ,'.txt', 'DOWNLOAD.txt'))
 print("\nDownloading blob to \n\t" + download_file_path)
 
@@ -272,7 +272,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Before you begin the clean up process, check your *Documents* folder for the two files. You can open them and observe that they are identical.
+Before you begin the clean up process, check your *data* folder for the two files. You can open them and observe that they are identical.
 
 After you've verified the files, press the **Enter** key to delete the test files and finish the demo.
 

@@ -1,8 +1,8 @@
 ---
 title:  Core IO operations | Microsoft Azure Maps
 description: Learn how to efficiently read and write XML and delimited data using core libraries from the spatial IO module.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -32,23 +32,6 @@ By default, the reader will use the comma character as the delimiter. However, t
 | Pipe | `|` |
 
 This reader also supports text qualifiers that are used to handle cells that contain the delimiter character. The quote (`'"'`) character is the default text qualifier, but it can be changed to any single character.
-
-> [!NOTE]
-> The delimited reader and writer functionality  interprets column names that contain forward slashes "/" as property paths. This allows for complex JSON objects to be flattened into a two-dimensional table. If this is not your intention, download the file outside of the reader and replace the forward slash character with the escaped hex code `&#x2F;` or html code `&#47;`. 
->
-> ```JavaScript
-> fetch('<URL to a delimited file to read>').then((response) => {
-> 	return response.text();
-> }).then((data) => { 
-> 	//Replace all forward slash charcters with the escaped hex code "&#x2F;" or html code "&#47;"
-> 	data = data.replace(/\//g, '&#x2F;');
-> 	
-> 	//Pass the delimited data into the reader.
-> 	var csvTable = atlas.io.core.CsvReader.read(data);
-> 
->   //Do something with the parsed data.
-> });
-> ```
 
 ## Write delimited files
 

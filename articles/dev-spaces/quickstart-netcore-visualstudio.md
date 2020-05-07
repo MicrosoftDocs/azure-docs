@@ -83,12 +83,12 @@ Built container image in 39s
 Waiting for container...
 36s
 
-Service 'webfrontend' port 'http' is available at http://default.webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 'http' is available at `http://default.webfrontend.1234567890abcdef1234.eus.azds.io/`
 Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-In the above example, the public URL is http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. 
+In the above example, the public URL is `http://default.webfrontend.1234567890abcdef1234.eus.azds.io/`. 
 
 Select **Debug** then **Start Debugging**. After a few seconds, your service will start and Visual Studio will open a browser with the public URL of the service. If a browser does not automatically open, navigate to your service's public URL in a browser and interact with the service running in your dev space.
 
@@ -129,5 +129,5 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-netcore-visualstudio.md)
 
-[ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[ingress-update]: how-dev-spaces-works-up.md#how-running-your-code-is-configured
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

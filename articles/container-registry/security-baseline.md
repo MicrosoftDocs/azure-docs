@@ -63,16 +63,13 @@ Protect your network resources: https://docs.microsoft.com/azure/security-center
 
 You may use Azure Security Center Just In Time Network access to configure NSGs to limit exposure of endpoints to approved IP addresses for a limited period.​ Also , use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit Ports and Source IPs based on actual traffic and threat intelligence.​
 
-How to configure DDoS protection:  https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection​
-​
+How to configure DDoS protection:  https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
-How to deploy Azure Firewall:​ https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal​
-​
+How to deploy Azure Firewall:​ https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
-Understand Azure Security Center Integrated Threat Intelligence:​ https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer​
-​
+Understand Azure Security Center Integrated Threat Intelligence:​ https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-Understand Azure Security Center Adaptive Network Hardening​: https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening​
+Understand Azure Security Center Adaptive Network Hardening​: https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
 
 Azure Security Center Just In Time Network Access Control​: https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
@@ -793,7 +790,7 @@ Azure Automation:  https://docs.microsoft.com/azure/automation/automation-intro
 
 Audit compliance of Azure container registries using Azure Policy:  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
-How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage​
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 How to deny a specific resource type with Azure Policy:  https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
@@ -870,7 +867,7 @@ Audit compliance of Azure container registries using Azure Policy:  https://docs
 
 **Guidance**: Utilize Azure Security Center recommendation "Remediate Vulnerabilities in Security Configurations on your Virtual Machines" to maintain security configurations on all compute resources.
 
-How to monitor Azure Security Center recommendations:  https://docs.microsoft.com/azure/security-center/security-center-recommendations​
+How to monitor Azure Security Center recommendations:  https://docs.microsoft.com/azure/security-center/security-center-recommendations
 
 How to remediate Azure Security Center recommendations:​  https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
@@ -881,11 +878,11 @@ How to remediate Azure Security Center recommendations:​  https://docs.microso
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
 Audit compliance of Azure container registries using Azure Policy:  https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
 
-How to configure and manage Azure Policy:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Understand Azure Policy effects:  https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
@@ -905,7 +902,7 @@ Understand Azure Policy effects:  https://docs.microsoft.com/azure/governance/po
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: If using custom Azure policy definitions, use Azure Repos to securely store and manage your code.
+**Guidance**: If using custom Azure Policy definitions, use Azure Repos to securely store and manage your code.
 
 How to store code in Azure DevOps:  https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops​
 
@@ -1139,7 +1136,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ### 10.3: Test security response procedures
 
-**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
+**Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
 Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities:  https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
@@ -1191,7 +1188,7 @@ How to configure Workflow Automation and Logic Apps:  https://docs.microsoft.com
 
 **Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies:  https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here:  https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+You can find more information on Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here:  https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 
 

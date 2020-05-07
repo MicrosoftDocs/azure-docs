@@ -6,12 +6,12 @@ metadata:
   title: Speech translation documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 03/10/2020
-  ms.author: dapine
+  ms.date: 04/13/2020
+  ms.author: trbye
 
 landingContent:
 - title: About speech translation
@@ -20,6 +20,8 @@ landingContent:
       links:
       - text: What is speech translation?
         url: speech-translation.md
+      - text: Speech translation basics
+        url: speech-translation-basics.md
     - linkListType: quickstart
       links:
         - text: Translate speech-to-text

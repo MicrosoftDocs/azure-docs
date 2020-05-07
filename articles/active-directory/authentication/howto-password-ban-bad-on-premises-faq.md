@@ -5,7 +5,7 @@ description: Review frequently asked questions for Azure AD Password Protection 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: iainfou

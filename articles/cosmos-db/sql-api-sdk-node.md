@@ -291,14 +291,14 @@ Not always the most visible changes, but they help our team ship better code, fa
 
 ### <a name="1.14.0"/>1.14.0</a>
 * Adds support for Session Consistency.
-* This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
+* This SDK version requires the latest version of [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
 
 ### <a name="1.13.0"/>1.13.0</a>
 * Split proofed cross partition queries.
 * Adds supports for resource link with leading and trailing slashes (and corresponding tests).
 
 ### <a name="1.12.2"/>1.12.2</a>
-*	npm documentation fixed.
+*    npm documentation fixed.
 
 ### <a name="1.12.1"/>1.12.1</a>
 * Fixed a bug in executeStoredProcedure where documents involved had special Unicode characters (LS, PS).
@@ -314,7 +314,7 @@ Not always the most visible changes, but they help our team ship better code, fa
 ### <a name="1.11.0"/>1.11.0</a>
 * Added the support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
 * Added the option for controlling degree of parallelism for cross partition queries.
-* Added the option for disabling SSL verification when running against Azure Cosmos DB Emulator.
+* Added the option for disabling TLS verification when running against Azure Cosmos DB Emulator.
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 * Fixed the continuation token bug for single partition collection. GitHub issue #107.
 * Fixed the executeStoredProcedure bug in handling 0 as single param. GitHub issue #155.
@@ -324,7 +324,7 @@ Not always the most visible changes, but they help our team ship better code, fa
 * Minor code cleanup.
 
 ### <a name="1.10.1"/>1.10.1</a>
-* Disabling SSL verification when using the SDK to target the emulator(hostname=localhost).
+* Disabling TLS verification when using the SDK to target the emulator(hostname=localhost).
 * Added support for enabling script logging during stored procedure execution.
 
 ### <a name="1.10.0"/>1.10.0</a>
@@ -352,7 +352,7 @@ Not always the most visible changes, but they help our team ship better code, fa
 * Fixed hashPartitionResolver resolveForRead(): When no partition key supplied was throwing exception, instead of returning a list of all registered links.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Fixes issue [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Dedicated HTTPS Agent: Avoid modifying the global agent for Azure Cosmos DB purposes. Use a dedicated agent for all of the lib’s requests.
+* Fixes issue [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Dedicated HTTPS Agent: Avoid modifying the global agent for Azure Cosmos DB purposes. Use a dedicated agent for all of the lib's requests.
 
 ### <a name="1.5.3"/>1.5.3</a>
 * Fixes issue [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - Properly handle dashes in media ids.

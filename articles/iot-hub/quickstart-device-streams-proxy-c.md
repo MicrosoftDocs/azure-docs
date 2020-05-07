@@ -28,7 +28,7 @@ The following figure illustrates how the device- and service-local proxy program
 * [SSH/RDP over IoT Hub device streams using C# proxy](./quickstart-device-streams-proxy-csharp.md)
 * [SSH/RDP over IoT Hub device streams using NodeJS proxy](./quickstart-device-streams-proxy-nodejs.md).
 
-![Local proxy setup](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
+![Local proxy setup](./media/quickstart-device-streams-proxy-c/device-stream-proxy-diagram.png)
 
 1. The service-local proxy connects to the IoT hub and starts a device stream to the target device.
 
@@ -43,7 +43,7 @@ The following figure illustrates how the device- and service-local proxy program
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 

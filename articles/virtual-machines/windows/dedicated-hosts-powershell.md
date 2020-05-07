@@ -7,6 +7,7 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
+ms.reviewer: zivr
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
@@ -163,7 +164,7 @@ Tags                   : {}
 
 ## Add an existing VM 
 
-You can add an exiting VM to a dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
+You can add an existing VM to a dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
 
 - The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it could not be a Standard_A4_v2. 
 - The VM needs to be located in same region as the dedicated host.

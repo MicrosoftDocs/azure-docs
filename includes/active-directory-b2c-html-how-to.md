@@ -3,7 +3,7 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 03/16/2020
+ms.date: 03/19/2020
 ms.author: mimart
 ---
 ## Use custom page content
@@ -66,6 +66,7 @@ When using your own HTML and CSS files to customize the UI, host your UI content
   - Limited support for Internet Explorer 9 and 8
   - Google Chrome 42.0 and above
   - Mozilla Firefox 38.0 and above
+  - Safari for iOS and macOS, version 12 and above
 - Due to security restrictions, Azure AD B2C doesn't support `frame`, `iframe`, or `form` HTML elements.
 
 ## Custom page content walkthrough
