@@ -9,7 +9,7 @@ ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 05/08/2020
 ---
 
 # Plan and manage costs for Azure Machine Learning
@@ -58,7 +58,7 @@ View costs in graphs and tables for different time intervals. Some examples are 
 
 You won't see a separate service area for Machine Learning.  Instead you'll see the various resources you've added to your Machine Learning workspaces.
 
-## Use AmlCompute
+## Use Azure Machine Learning compute cluster (AmlCompute)
 
 With constantly changing data, you need fast and streamlined model training and retraining to maintain accurate models. However, continuous training comes at a cost, especially for deep learning models on GPUs. 
 
@@ -134,5 +134,7 @@ Azure Machine Learning Compute supports reserved instances inherently. So if you
 
 ## Next steps
 
-* Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* Learn more about [Azure Machine Learning compute](how-to-set-up-training-targets.md#amlcompute).
+Learn more about:
+* [Manage and increase resource quotas](how-to-manage-quotas.md)
+* [Managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+* [Azure Machine Learning compute](how-to-set-up-training-targets.md#amlcompute).
