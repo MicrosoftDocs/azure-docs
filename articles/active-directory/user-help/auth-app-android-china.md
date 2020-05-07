@@ -16,7 +16,7 @@ ms.author: curtand
 
 # Microsoft Authenticator for Android in the public cloud in China
 
-The Microsoft Authenticator app for Android is available for download in China. Because the Google Play Store isn't available in China, the app must be downloaded from other Chinese app marketplaces. The Microsoft Authenticator app for Android is currently available in the following stores in China:
+The Microsoft Authenticator app for Android is available for download in China. The Google Play Store isn't available in China, so the app must be downloaded from other Chinese app marketplaces. The Microsoft Authenticator app for Android is currently available in the following stores in China:
 
 - [Baidu](https://shouji.baidu.com/software/26638379.html)
 - [Lenovo](https://www.lenovomm.com/appdetail/com.azure.authenticator/20197724)
