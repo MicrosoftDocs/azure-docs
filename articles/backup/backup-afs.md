@@ -92,7 +92,7 @@ To modify the storage replication type:
 
       1. To create a new backup policy for your file share, click the link text below the drop-down list in the **Backup Policy** section.<br>
 
-            ![Create new policy](./media/backup-afs/create-new-policy.png)
+         ![Create new policy](./media/backup-afs/create-new-policy.png)
 
       1. The **Backup Policy** context pane opens on the right. Specify a policy name in the text box and choose the retention period according to your requirement. Only the daily retention option is enabled by default. If you want to have weekly, monthly, or yearly retention, select the corresponding checkbox and provide the desired retention value.
 
