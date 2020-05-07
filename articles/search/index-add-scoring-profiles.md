@@ -18,7 +18,7 @@ ms.date: 05/06/2020
 
  The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search.
  
-> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=462&end=970]
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
 
 ## Scoring profile definitions
 
