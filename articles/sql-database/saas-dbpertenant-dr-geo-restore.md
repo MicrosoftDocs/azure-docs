@@ -90,7 +90,7 @@ Before you start the recovery process, review the normal healthy state of the ap
 
 3. In the [Azure portal](https://portal.azure.com), review and open the resource group in which you deployed the app.
 
-   Notice the resources and the region in which the app service components and SQL Database logical servers are deployed.
+   Notice the resources and the region in which the app service components and SQL Database is deployed.
 
 ## Sync the tenant configuration into the catalog
 

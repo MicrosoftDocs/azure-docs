@@ -28,7 +28,7 @@ Azure SQL Database provides a relational database service in Azure. To protect c
 Azure SQL Database supports only the tabular data stream (TDS) protocol, which requires the database to be accessible over only the default port of TCP/1433.
 
 ### Azure SQL Database firewall
-To help protect customer data, Azure SQL Database includes a firewall functionality, which by default prevents all access to the SQL Database server, as shown below.
+To help protect customer data, Azure SQL Database includes a firewall functionality, which by default prevents all access to SQL Database, as shown below.
 
 ![Azure SQL Database firewall](./media/infrastructure-sql/sql-database-firewall.png)
 

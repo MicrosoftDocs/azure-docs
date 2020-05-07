@@ -69,7 +69,7 @@ The sample scripts in this section require you to update the script before you r
 |:-----|:-----|
 |`<subscriptionId>`| Azure subscription ID|
 |`<resource group>`| Resource group|
-|`<sql database server>`| Server name|
+|`<logical SQL server>`| Server name|
 |`<administrator login>`| Administrator account |
 |`<complex password>`| Complex password for the administrator account|
 
