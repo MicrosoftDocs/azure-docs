@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > - Create logins for SQL Server
 > - Create a test database for migration
 > - Create logins, users, and roles
-> - Backup and restore your database to SQL Managed Instance (MI) 
+> - Backup and restore your database to SQL Managed Instance (MI)
 > - Manually migrate users to MI using ALTER USER syntax
 > - Testing authentication with the new mapped users
 
@@ -331,7 +331,7 @@ Test authenticating to a SQL Managed Instance using a member of a Windows group 
     ```
 
 > [!NOTE]
-> Due to a known design issue for Azure SQL DB, a create a table statement executed as a member of a group will fail with the following error: </br> </br>
+> Due to a known design issue for Azure SQL Database, a create a table statement executed as a member of a group will fail with the following error: </br> </br>
 > `Msg 2760, Level 16, State 1, Line 4
 The specified schema name "testGroupUser@aadsqlmi.net" either does not exist or you do not have permission to use it.` </br> </br>
 > The current workaround is to create a table with an existing schema in the case above <dbo.new>
