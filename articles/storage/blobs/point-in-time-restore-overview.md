@@ -116,7 +116,9 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
 
 Billing for point-in-time restore depends on the quantity of data processed to perform the restore operation. The quantity of data processed is a function of the number of objects in the storage account and the number of changes that occurred between the restore point and the present moment. For example, assuming a relatively constant rate of change to block blob data in a storage account, a restore operation that goes back in time 1 day would cost 1/10th of a restore that goes back in time 10 days.
 
-To estimate the cost of a restore operation, review the change feed log to estimate the quantity of data modified during the restore period. For example, if the retention period for change feed is 30 days, and the size of the change feed is 10 MB, then restoring to a point 10 days earlier for a locally redundant (LRS) storage account would cost approximately one-third of the price listed for an LRS account in that region. To restore to a point that is 27 days earlier, then the cost would be nine-tenths of the price listed.
+To estimate the cost of a restore operation, review the change feed log to estimate the quantity of data modified during the restore period. For example, if the retention period for change feed is 30 days, and the size of the change feed is 10 MB, then restoring to a point 10 days earlier for a locally redundant (LRS) storage account would cost approximately one-third of the price listed for an LRS account in that region. Restoring to a point that is 27 days earlier would cost approximately nine-tenths of the price listed.
+
+For more information about pricing for point-in-time restore, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Ask questions or provide feedback
 
