@@ -37,10 +37,10 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
    ```
    If your version of Azure CLI is lower than `2.0.67`, then install a later version. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-3. Install the `storage-preview` extension.
+3. Install the `storage` extension.
 
    ```azurecli
-   az extension add -n storage-preview
+   az extension add -n storage
    ```
 
 ## Connect to the account
@@ -65,15 +65,30 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
+> ![!NOTE]
+> The example presented in this article reflect account key authorization. If you want to use Azure Active Directory (AD) authorization, either set the **AZURE_STORAGE_AUTH_MODE** environment variable to `login` or append `--auth-mode login` to each of these command examples. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli).
+
 ## Create a file system
 
-A file system acts as a container for your files. You can create one by using the `az storage container create` command. 
+A file system acts as a container for your files. You can create one by using the `az storage fs create` command. 
 
 This example creates a file system named `my-file-system`.
 
 ```azurecli
-az storage container create --name my-file-system --account-name mystorageaccount
+az storage fs create -n my-file-system --account-name mystorageaccount
 ```
+
+## Show file system properties
+
+// put here.
+
+## Show file system properties
+
+// put here.
+
+## List file system contents
+
+// put here.
 
 ## Create a directory
 
