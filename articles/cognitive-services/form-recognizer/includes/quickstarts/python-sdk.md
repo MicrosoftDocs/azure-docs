@@ -1,143 +1,51 @@
 ---
-title: "Quickstart: [Product name] client library for Python | Microsoft Docs"
-description: Get started with the [Product Name] client library for Python...
+title: "Quickstart: Form Recognizer client library for Python"
+description: In this quickstart, get started with the Form Recognizer client library for Python.
 services: cognitive-services
-author: 
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
-ms.topic: quickstart
-ms.date: 
-ms.author: 
+ms.subservice: forms-recognizer
+ms.topic: include
+ms.date: 05/07/2020
+ms.author: pafarley
 ---
 
-<!-- 
-You can find more guidance for formatting these quickstarts at: 
-https://review.docs.microsoft.com/help/contribute/contribute-how-to-write-library-quickstart-v2?branch=pr-en-us-2187
-
-
-Title: 
-    The H1 of your Quickstart should be in the format: # Quickstart: [Product Name] client library for [Language]
--->
-
-# Quickstart: [Product Name] client library for Python
-
-Get started with the [Product Name] client library for Python. Follow these steps to install the package and try out the example code for basic tasks. 
-
-<!-- 
-    After the above line, briefly describe the service. You can often use the first line of the service's docs landing page for this.
-
-    Next, add a bulleted list of the most common tasks supported by the library, prefaced with "Use the [Product Name] client library for [Language] to:". You provide code snippets for these tasks in the Code examples section later in the Quickstart. Keep the list short but include those tasks most developers need to perform with the library.
-
-    Lastly, include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, for example NuGet instead of PyPi:
--->
-
-Use the [Product Name] client library for Python to:
-
-* TBD
-* TBD
-
-<!--
-    Include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, but try not to include any other links or content in the introduction.
--->
-
-[Reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (PiPy)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Samples](https://github.com/Azure-Samples/anomalydetector)
+[Reference documentation](https://aka.ms/azsdk-python-formrecognizer-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* [Python 3.x](https://www.python.org/)
+* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
+* [Python 2.7, or 3.5 or later](https://www.python.org/)
 
 ## Setting up
 
-<!--
-    Walk the reader through preparing their environment for working with the client library. Include instructions for creating the Azure resources required to make calls to the service, obtaining credentials, and setting up their local development environment.
+### Create a Form Recognizer Azure resource
 
-    See the "setting up" section for more details: 
-    https://review.docs.microsoft.com/help/contribute/contribute-how-to-write-library-quickstart-v2?branch=pr-en-us-2187#setting-up 
--->
+[!INCLUDE [create resource](../create-resource.md)]
 
-<!-- 
-    Consider turning this setup section into a reusable include file for your service 
--->
+### Create environment variables
 
-### Create a [Product Name] Azure resource
+[!INCLUDE [env-vars](../env-vars.md)]
 
-Begin using the [Product Name] by creating an Azure resource. Choose the resource type below that's right for you:
-
-* A [trial resource](https://azure.microsoft.com/try/cognitive-services/#decision) (no Azure subscription needed): 
-    * Valid for seven days, for free. After signing up, a trial key and endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
-    * This is a great option if you want to try [Product Name], but don't have an Azure subscription.
-<!-- Link to the 'create' blade in the azure portal -->
-* A [ [Product Name] resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
-    * Available through the Azure portal until you delete the resource.
-    * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
-<!-- remove the below text if your service is not supported by the multi-service option. -->
-* A [Multi-Service resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
-    * Available through the Azure portal until you delete the resource.  
-    * Use the same key and endpoint for your applications, across multiple Cognitive Services.
-
-### Create an environment variable
-
->[!NOTE]
-> The endpoints for non-trial resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
-
-Using your key and endpoint from the resource you created, create two environment variables for authentication:
-<!-- replace the below variable names with the names expected in the code sample.-->
-* `PRODUCT_NAME_KEY` - The resource key for authenticating your requests.
-* `PRODUCT_NAME_ENDPOINT` - The resource endpoint for sending API requests. It will look like this: 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
-
-Use the instructions for your operating system.
-<!-- replace the below endpoint and key examples -->
-#### [Windows](#tab/windows)
-
-```console
-setx PRODUCT_NAME_KEY <replace-with-your-product-name-key>
-setx PRODUCT_NAME_ENDPOINT <replace-with-your-product-name-endpoint>
-```
-
-After you add the environment variable, restart the console window.
-
-#### [Linux](#tab/linux)
-
-```bash
-export PRODUCT_NAME_KEY=<replace-with-your-product-name-key>
-export PRODUCT_NAME_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
-
-#### [macOS](#tab/unix)
-
-Edit your `.bash_profile`, and add the environment variable:
-
-```bash
-export PRODUCT_NAME_KEY=<replace-with-your-product-name-key>
-export PRODUCT_NAME_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
-***
 
 ### Create a new python application
 
 Create a new Python application in your preferred editor or IDE. Then import the following libraries.
 
 ```python
-import ...
+import os
+import azure.ai.formrecognizer
+from azure.core.credentials import AzureKeyCredential
+from azure.core.exceptions import ResourceNotFoundError
 ```
-
-<!--
-    change the environment key variable to something descriptive for your service.
-    For example: TEXT_ANALYTICS_KEY
--->
-
 
 Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
 ```python
-
+endpoint = os.environ["FORM_RECOGNIZER_ENDPOINT"]
+key = os.environ["FORM_RECOGNIZER_KEY"]
 ```
 
 ### Install the client library
@@ -145,76 +53,314 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 After installing Python, you can install the client library with:
 
 ```console
-pip install --upgrade azure-cognitiveservices-[Product Name]
+pip install azure-ai-formrecognizer
 ```
 
-## Object model
-
 <!-- 
-    Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages.
-
-    Explain the object hierarchy and how the classes work together to manipulate resources in the service.
+tbd object model
 -->
 
 ## Code examples
 
-<!--
-    Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
+These code snippets show you how to do the following tasks with the Form Recognizer client library for Python:
 
-    Include links to the service's reference content when introducing a class for the first time
--->
+* [Authenticate the client](#authenticate-the-client)
+* [Recognize form contents](#recognize-form-contents)
+* [Recognize receipts](#recognize-receipts)
+* [Train a custom model](#train-a-custom-model)
+* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
+* [Manage your custom models](#manage-your-custom-models)
 
-These code snippets show you how to do the following with the [Product Name] client library for .NET:
-
-* [Authenticate the client](#)
-* [Example task 1 (anchor link)](#)
-* [Example task 2 (anchor link)](#)
-* [Example task 3 (anchor link)](#)
 
 ## Authenticate the client
 
-<!-- 
-    The authentication section (and its H3) is required and must be the first code example in the section if your library requires authentication for use.
--->
+Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects.
+
+```python
+form_recognizer_client = FormRecognizerClient(endpoint=self.endpoint, credential=AzureKeyCredential(self.key))
+
+form_training_client = FormTrainingClient(self.endpoint, AzureKeyCredential(self.key))
+```
+
+## Define variables
 
 > [!NOTE]
-> This quickstart assumes you've [created an environment variable](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for your [Product Name] key, named `[PRODUCT]_KEY`.
+> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://aka.ms/azsdk-python-formrecognizer-ref-docs) and [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
-Instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials]() object with your key, and use it with your endpoint to create an [ApiClient]() object.
-
-```python
-
-```
-
-## Example task 1
-
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
+You'll also need to add references to the URLs for your training and testing data.
+* To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* To get a URL of a form to test, you can use the above steps to get the SAS URL of an individual document in blob storage. Or, take the URL of a document located elsewhere.
+* Use the above method to get the URL of a receipt image as well, or use the sample image URL provided.
 
 ```python
-
+trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>"
+formUrl = "<SAS-URL-of-a-form-in-blob-storage>"
+receiptUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/tests/sample_forms/receipt/contoso-receipt.png"
 ```
 
-<!-- 
-    If this code sample is in a function, tell the reader to call it. For example:
+## Recognize form contents
 
-    Call the `example()` function.
+You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model.
 
--->
+To recognize the contents of a file at a given URL, use the **begin_recognize_content** method.
 
-## Example task 2
+```Python
+poller = form_recognizer_client.begin_recognize_content_from_url(url=formUrl)
+contents = poller.result()
+```
 
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
+The returned value is a collection of **FormPage** objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
 
 ```python
-
+for idx, content in enumerate(contents):
+    print("----Recognizing content from page #{}----".format(idx))
+    print("Has width: {} and height: {}, measured with unit: {}".format(
+        content.width,
+        content.height,
+        content.unit
+    ))
+    for table_idx, table in enumerate(content.tables):
+        print("Table # {} has {} rows and {} columns".format(table_idx, table.row_count, table.column_count))
+        for cell in table.cells:
+            print("...Cell[{}][{}] has text '{}' within bounding box '{}'".format(
+                cell.row_index,
+                cell.column_index,
+                cell.text,
+                format_bounding_box(cell.bounding_box)
+            ))
+            # [END recognize_content]
+    for line_idx, line in enumerate(content.lines):
+        print("Line # {} has word count '{}' and text '{}' within bounding box '{}'".format(
+            line_idx,
+            len(line.words),
+            line.text,
+            format_bounding_box(line.bounding_box)
+        ))
+    print("----------------------------------------")
 ```
 
-<!-- 
-    If this code sample is in a function, tell the reader to call it. For example:
+## Recognize receipts
 
-    Call the `example()` function.
+This section demonstrates how to recognize and extract common fields from US receipts, using a pre-trained receipt model. To recognize receipts from a URL, use the **begin_recognize_receipts_from_url** method. 
 
--->
+```python
+poller = form_recognizer_client.begin_recognize_receipts_from_url(url=receiptUrl)
+receipts = poller.result()
+```
+
+The returned value is a collection of **RecognizedReceipt** objects: one for each page in the submitted document. The following block of code prints basic receipt information to the console.
+
+```python
+for idx, receipt in enumerate(receipts):
+    print("--------Recognizing receipt #{}--------".format(idx))
+    print("Receipt Type: {} has confidence: {}".format(receipt.receipt_type.type, receipt.receipt_type.confidence))
+    print("Merchant Name: {} has confidence: {}".format(receipt.merchant_name.value, receipt.merchant_name.confidence))
+    print("Transaction Date: {} has confidence: {}".format(receipt.transaction_date.value, receipt.transaction_date.confidence))
+```
+
+The next block of code iterates through the individual items detected on the receipt and prints their details to the console.
+
+
+```python
+    print("Receipt items:")
+    for item in receipt.receipt_items:
+        print("...Item Name: {} has confidence: {}".format(item.name.value, item.name.confidence))
+        print("...Item Quantity: {} has confidence: {}".format(item.quantity.value, item.quantity.confidence))
+        print("...Individual Item Price: {} has confidence: {}".format(item.price.value, item.price.confidence))
+        print("...Total Item Price: {} has confidence: {}".format(item.total_price.value, item.total_price.confidence))
+```
+
+Finally, the last block of code prints the rest of the major receipt details.
+
+```python
+    print("Subtotal: {} has confidence: {}".format(receipt.subtotal.value, receipt.subtotal.confidence))
+    print("Tax: {} has confidence: {}".format(receipt.tax.value, receipt.tax.confidence))
+    print("Tip: {} has confidence: {}".format(receipt.tip.value, receipt.tip.confidence))
+    print("Total: {} has confidence: {}".format(receipt.total.value, receipt.total.confidence))
+    print("--------------------------------------")
+# [END recognize_receipts_from_url]
+```
+
+
+## Train a custom model
+
+This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
+
+> [!NOTE]
+> You can also train models with a graphical user interface such as the [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md).
+
+### Train a model without labels
+
+Train custom models to recognize all fields and values found in your custom forms without manually labeling the training documents.
+
+The following code uses the **begin_train_model** function to train a model on a given set of documents.
+
+```python
+# Default for begin_train_model is `use_labels=False`
+poller = form_training_client.begin_train_model(self.trainingDataUrl)
+model = poller.result()
+```
+
+The returned **CustomFormModel** object contains information on the form types the model can recognize and the fields it can extract from each form type. The following code block prints this information to the console.
+
+```python
+# Custom model information
+print("Model ID: {}".format(model.model_id))
+print("Status: {}".format(model.status))
+print("Created on: {}".format(model.created_on))
+print("Last modified: {}".format(model.last_modified))
+
+print("Recognized fields:")
+# Looping through the submodels, which contains the fields they were trained on
+for submodel in model.models:
+    print("...The submodel has form type '{}'".format(submodel.form_type))
+    for name, field in submodel.fields.items():
+        print("...The model found field '{}' to have label '{}'".format(
+            name, field.label
+        ))
+# [END training]
+```
+
+### Train a model with labels
+
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. 
+
+> [!IMPORTANT]
+> To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **begin_train_model** function with the *use_labels* parameter set to `true`.
+
+```python
+poller = form_training_client.begin_train_model(self.trainingDataUrl, use_labels=True)
+model = poller.result()
+```
+
+The returned **CustomFormModel** indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
+
+```python
+# Custom model information
+print("Model ID: {}".format(model.model_id))
+print("Status: {}".format(model.status))
+print("Created on: {}".format(model.created_on))
+print("Last modified: {}".format(model.last_modified))
+
+print("Recognized fields:")
+# looping through the submodels, which contains the fields they were trained on
+# The labels are based on the ones you gave the training document.
+for submodel in model.models:
+    print("...The submodel with form type {} has accuracy '{}'".format(submodel.form_type, submodel.accuracy))
+    for name, field in submodel.fields.items():
+        print("...The model found field '{}' to have name '{}' with an accuracy of {}".format(
+            name, field.name, field.accuracy
+        ))
+```
+
+## Analyze forms with a custom model
+
+This section demonstrates how to extract key/value information and other content from your custom form types, using models you trained with your own forms.
+
+> [!IMPORTANT]
+> In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below. See the [Train a model](#train-a-model-without-labels) section.
+
+You'll use the **begin_recognize_custom_forms_from_url** method. The returned value is a collection of **RecognizedForm** objects: one for each page in the submitted document.
+
+```python
+# Make sure your form's type is included in the list of form types the custom model can recognize
+poller = form_recognizer_client.begin_recognize_custom_forms_from_url(
+    model_id=model.model_id, url=formUrl)
+forms = poller.result()
+```
+
+The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
+
+```python
+for idx, form in enumerate(forms):
+    print("--------Recognizing Form #{}--------".format(idx))
+    print("Form {} has type {}".format(idx, form.form_type))
+    for name, field in form.fields.items():
+        # each field is of type FormField
+        # The value of the field can also be a FormField, or a list of FormFields
+        # In our sample, it is just a FormField.
+        print("...Field '{}' has value '{}' with a confidence score of {}".format(
+            name, field.value, field.confidence
+        ))
+        # label data is populated if you are using a model trained with unlabeled data, since the service needs to make predictions for
+        # labels if not explicitly given to it.
+        if field.label_data:
+            print("...Field '{}' has label '{}' with a confidence score of {}".format(
+                name,
+                field.label_data.text,
+                field.confidence
+            ))
+    print("-----------------------------------")
+# [END recognize_custom_forms]
+```
+
+## Manage your custom models
+
+This section demonstrates how to manage the custom models stored in your account. 
+
+### Check the number of models in the FormRecognizer resource account
+
+The following code block checks how many models you have saved in your Form Recognizer account and compares it to the account limit.
+
+```python
+# First, we see how many custom models we have, and what our limit is
+account_properties = form_training_client.get_account_properties()
+print("Our account has {} custom models, and we can have at most {} custom models".format(
+    account_properties.custom_model_count, account_properties.custom_model_limit
+))
+# [END get_account_properties]
+```
+
+### List the models currently stored in the resource account
+
+The following code block lists the current models in your account and prints their details to the console. It also saves a reference to the first model.
+
+```python
+# Next, we get a paged list of all of our custom models
+# [START list_model_infos]
+custom_models = form_training_client.list_model_infos()
+
+print("We have models with the following ids:")
+
+# Let's pull out the first model
+first_model = next(custom_models)
+print(first_model.model_id)
+for model in custom_models:
+    print(model.model_id)
+# [END list_model_infos]
+```
+
+### Get a specific model using the model's ID
+
+The following code block uses the model ID saved from the previous section and uses it to retrieve details about the model.
+
+```python
+# Now we'll get the first custom model in the paged list
+# [START get_custom_model]
+custom_model = form_training_client.get_custom_model(model_id=first_model.model_id)
+print("Model ID: {}".format(custom_model.model_id))
+print("Status: {}".format(custom_model.status))
+print("Created on: {}".format(custom_model.created_on))
+print("Last modified: {}".format(custom_model.last_modified))
+# [END get_custom_model]
+```
+
+### Delete a model from the resource account
+
+You can also delete a model from your account by referencing its ID. This code deletes the model used in the previous section.
+
+```python
+# [START delete_model]
+form_training_client.delete_model(model_id=custom_model.model_id)
+
+# Confirm deletion:
+try:
+    form_training_client.get_custom_model(model_id=custom_model.model_id)
+except ResourceNotFoundError:
+    print("Successfully deleted model with id {}".format(custom_model.model_id))
+# [END delete_model]
+}
+```
 
 ## Run the application
 
@@ -228,21 +374,53 @@ python quickstart-file.py
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
-* [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## Troubleshooting
+##Troubleshooting
 
-<!--
-    This section is optional. If you know of areas that people commonly run into trouble, help them resolve those issues in this section
--->
+###General
+
+The Form Recognizer client library will raise exceptions defined in [Azure Core](https://aka.ms/azsdk-python-azure-core).
+
+## Logging
+
+This library uses the [standard logging library](https://docs.python.org/3/library/logging.html) for logging. Basic information about HTTP sessions (URLs, headers, and so on) is logged at the INFO level.
+
+Detailed DEBUG level logging, including request/response bodies and unredacted headers, can be enabled on a client with the `logging_enable` keyword argument:
+
+```python
+import sys
+import logging
+from azure.ai.formrecognizer import FormRecognizerClient
+from azure.core.credentials import AzureKeyCredential
+
+# Create a logger for the 'azure' SDK
+logger = logging.getLogger('azure')
+logger.setLevel(logging.DEBUG)
+
+# Configure a console output
+handler = logging.StreamHandler(stream=sys.stdout)
+logger.addHandler(handler)
+
+endpoint = "https://<my-custom-subdomain>.cognitiveservices.azure.com/"
+credential = AzureKeyCredential("<api_key>")
+
+# This client will log detailed information about its HTTP sessions, at DEBUG level
+form_recognizer_client = FormRecognizerClient(endpoint, credential, logging_enable=True)
+```
+
+Similarly, `logging_enable` can enable detailed logging for a single operation, even when it isn't enabled for the client:
+
+```python
+poller = form_recognizer_client.begin_recognize_receipts(receipt, logging_enable=True)
+```
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->[Next article]()
+In this quickstart, you used the Form Recognizer Python client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
-* [What is the [Product Name] API?](../overview.md)
-* [Article2](../overview.md)
-* [Article3](../overview.md)
-* The source code for this sample can be found on [GitHub]().
+> [!div class="nextstepaction"]
+> [Build a training data set](../../build-training-data-set.md)
+
+* [What is Form Recognizer?](../../overview.md)
