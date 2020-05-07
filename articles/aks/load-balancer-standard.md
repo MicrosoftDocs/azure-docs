@@ -94,6 +94,7 @@ By bringing multiple IP addresses or prefixes, you are able to define multiple b
    ```
  1. The public IPs and IP prefixes must be in the same region and part of the same subscription as your AKS cluster.
  1. The public IPs and IP prefixes cannot be IPs created by AKS as a managed IP. Ensure any IPs specified as custom IPs were created manually and not be the AKS service.
+ 1. The public IPs and IP prefixes cannot be used by another resource or service.
 
  ### Define your own public IP or prefixes on an existing cluster
 
