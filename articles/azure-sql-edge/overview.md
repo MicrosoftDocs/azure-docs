@@ -15,7 +15,7 @@ ms.date: 05/05/2020
 
 Azure SQL Edge Preview is an optimized relational database engine geared for IoT and IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. Azure SQL Edge provides capabilities to stream, process, and analyze relational and non-relational such as JSON, graph and time-series data, which makes it the right choice for a variety of modern IoT applications.
 
-Azure SQL Edge is built on the latest versions of the [Microsoft SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database-edge/toc.json), which provides industry-leading performance, security and query processing capabilities. Since, Azure SQL Edge is built on the same engine as SQL Server and Azure SQL Database, it provides the same T-SQL programming surface area that makes development of applications or solutions easier and faster, and at the same time makes application portability between IoT Edge devices, data centers and the cloud straight forward.
+Azure SQL Edge is built on the latest versions of the [Microsoft SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json), which provides industry-leading performance, security and query processing capabilities. Since, Azure SQL Edge is built on the same engine as SQL Server and Azure SQL Database, it provides the same T-SQL programming surface area that makes development of applications or solutions easier and faster, and at the same time makes application portability between IoT Edge devices, data centers and the cloud straight forward.
 
 > [!NOTE]
 > Azure SQL Edge is currently in Preview and as such should NOT be used in production environments.
@@ -37,10 +37,10 @@ SQL Edge is available with three different editions or software plans. These edi
 
 ## Pricing and Availability
 
-Azure SQL Database is currently in preview. For more information on the pricing and availability, see [Azure SQL Edge](https://azure.microsoft.com/services/sql-database-edge/).
+Azure SQL Edge is currently in preview. For more information on the pricing and availability, see [Azure SQL Edge](https://azure.microsoft.com/services/sql-database-edge/).
 
 > [!IMPORTANT]
-> To understand the feature differences between Azure SQL Edge and SQL Server, as well as the differences among different Azure SQL Edge options, see [SQL Edge Database features](features.md).
+> To understand the feature differences between Azure SQL Edge and SQL Server, as well as the differences among different Azure SQL Edge options, see [Supported features of Azure SQL Edge](features.md).
 
 ## Streaming Capabilities  
 
@@ -67,8 +67,6 @@ Azure SQL Edge makes developing and maintaining applications easier and more pro
 
 ## Next steps
 
-- For pricing and availability-related details, see [Azure SQL Edge](https://azure.microsoft.com/services/sql-database-edge/).
-- To get started, see the following:
-  - [Deploy SQL Edge through Azure portal](deploy-portal.md)
-  - [Machine Learning and Artificial Intelligence with SQL Edge](onnx-overview.md)
-  - [Building an end-to-end IoT solution with SQL Edge](onnx-demo.md)
+- [Deploy SQL Edge through Azure portal](deploy-portal.md)
+- [Machine Learning and Artificial Intelligence with SQL Edge](onnx-overview.md)
+- [Building an end-to-end IoT solution with SQL Edge](onnx-demo.md)

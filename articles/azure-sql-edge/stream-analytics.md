@@ -32,7 +32,7 @@ Azure SQL Edge exposes two optional parameters through the `module twin's desire
 |Field | Description |
 |------|-------------|
 | SqlPackage | Azure Blob storage URI for the *.zip file that contains the SQL Database DAC package.
-| ASAJobInfo | Azure Blob storage URI for the ASA Edge job. For more information, see [Publishing an ASA Edge job for SQL Edge](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
+| ASAJobInfo | Azure Blob storage URI for the ASA Edge job. For more information, see [Publishing an ASA Edge job for SQL Edge](#using-streaming-jobs-with-sql-edge).
 
 ## Using SQL Database DAC packages with SQL Edge
 
@@ -171,6 +171,4 @@ To deploy the streaming job to the SQL Edge module, update the SQL Edge module c
 
 ## Next steps
 
-- For pricing and availability details, see [Azure SQL Edge](https://azure.microsoft.com/services/sql-database-edge/).
-- Request enabling Azure SQL Edge for your subscription.
 - To get started, see [Deploy SQL Edge through Azure portal](deploy-portal.md).
