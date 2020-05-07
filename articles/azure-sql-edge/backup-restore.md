@@ -8,29 +8,29 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 04/28/2020
+ms.date: 05/19/2020
 ---
 
 # Backup and Restore databases in Azure SQL Edge Preview
 
-Azure SQL Edge is built on the latest versions of the Microsoft SQL Server Database Engine on Linux, providing similar backup and restore database capabilities as those available in SQL Server on Linux and SQL Server running in containers. Backup and restore component provides an essential safeguard for protecting data stored in your Azure SQL Edge databases. To minimize the risk of catastrophic data loss, its recommended that you back up your databases periodically to preserve modifications to your data on a regular basis. A well-planned backup and restore strategy helps protect databases against data loss caused by a variety of failures. Test your strategy by restoring a set of backups and then recovering your database to prepare you to respond effectively to a disaster.
+Azure SQL Edge is built on the latest versions of the Microsoft SQL Server Database Engine on Linux, providing similar backup and restore database capabilities as those available in SQL Server on Linux and SQL Server running in containers. Backup and restore component provides an essential safeguard for protecting data stored in your Azure SQL Edge databases. To minimize the risk of catastrophic data loss, it's recommended that you back up your databases periodically to preserve modifications to your data on a regular basis. A well-planned backup and restore strategy helps protect databases against data loss caused by a variety of failures. Test your strategy by restoring a set of backups and then recovering your database to prepare you to respond effectively to a disaster.
 
-To read more about why backups are important, please refer [Back Up and Restore of SQL Server Databases](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases?view=sql-server-ver15).
+To read more about why backups are important, see [Back Up and Restore of SQL Server Databases](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases/).
 
-Azure SQL Edge supports backing up and restoring from both local storage or from Azure blobs. For more information on backup to and restore from Azure Blob Storage, refer [SQL Server Backup and Restore with Microsoft Azure Blob Storage Service](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?view=sql-server-ver15) and [SQL Server Backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-ver15).
+Azure SQL Edge supports backup to and restore from both local storage or from Azure blobs. For more information on backup to and restore from Azure Blob Storage, refer [SQL Server Backup and Restore with Microsoft Azure Blob Storage Service](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service/) and [SQL Server Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
 ## Backing up a database in Azure SQL Edge
 
-Azure SQL Edge supports the same backup types as supported by SQL Server. For a complete list of the backup types supported in SQL Server, refer [Backup Overview](https://docs.microsoft.com/sql/relational-databases/backup-restore/backup-overview-sql-server?view=sql-server-ver15).
+Azure SQL Edge supports the same backup types as supported by SQL Server. For a complete list of the backup types supported in SQL Server, refer [Backup Overview](/sql/relational-databases/backup-restore/backup-overview-sql-server/).
 
 > [!IMPORTANT] 
-> Databases created in Azure SQL Edge use simple recovery model by default. As such log backups cannot be performed on these databases. If there is a need to perform log backups on these databases, an administrator would need to change the database recovery model to full recovery model. For a complete list of recovery models supported by SQL Server, refer [Recovery Model Overview](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15#RMov).
+> Databases created in Azure SQL Edge use simple recovery model by default. As such log backups cannot be performed on these databases. If there is a need to perform log backups on these databases, an administrator would need to change the database recovery model to full recovery model. For a complete list of recovery models supported by SQL Server, refer [Recovery Model Overview](/sql/relational-databases/backup-restore/recovery-models-sql-server#RMov).
 
 ### Backup to local disk
 
-In the example provided below, BACKUP DATABASE Transact-SQL command to create a database backup in the container. For the purpose of this example, a new folder called "backup" is created to store the backup files.
+In the example provided below, BACKUP DATABASE Transact-SQL command is used to create a database backup in the container. For the purpose of this example, a new folder called "backup" is created to store the backup files.
 
-1. Create a folder to for the backups. This command needs to be executed on the host where your Azure SQL Edge container is running. In the command below replace **<AzureSQLEdge_Container_Name>** with the name of Azure SQL Edge container in your deployment.
+1. Create a folder for the backups. This command needs to be executed on the host where your Azure SQL Edge container is running. In the command below replace **<AzureSQLEdge_Container_Name>** with the name of Azure SQL Edge container in your deployment.
 
     ```bash
     sudo docker exec -it <AzureSQLEdge_Container_Name> mkdir /var/opt/mssql/backup
@@ -46,7 +46,7 @@ In the example provided below, BACKUP DATABASE Transact-SQL command to create a 
     GO
     ```
 
-3. After you run the command and if the backup of the database is successful, you'll messages similar to the following in the results section of SSMS or ADS.
+3. After you run the command and if the backup of the database is successful, you'll see messages similar to the following in the results section of SSMS or ADS.
 
     ```txt
     10 percent processed.
@@ -170,6 +170,5 @@ WITH MOVE 'IronOreSilicaPrediction' TO '/var/opt/mssql/data/IronOreSilicaPredict
 MOVE 'IronOreSilicaPrediction_log' TO '/var/opt/mssql/data/IronOreSilicaPrediction_Primary_3.ldf',
 STATS = 10;
 ```
-
 
 
