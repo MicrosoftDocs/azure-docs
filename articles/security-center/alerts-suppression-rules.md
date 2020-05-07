@@ -1,5 +1,5 @@
 ---
-title: Using alerts suppression rules for to suppress false positives or other unwanted security alerts in Azure Security Center.
+title: Using alerts suppression rules to suppress false positives or other unwanted security alerts in Azure Security Center.
 description: This article explains how to use Azure Security Center's suppression rules to hide unwanted security alerts.  
 author: memildin
 manager: rkarlin
@@ -11,6 +11,8 @@ ms.topic: conceptual
 ---
 
 # Suppressing alerts from Azure Security Center's threat protection
+
+This page explains how you can use alerts suppression rules to suppress false positives or other unwanted security alerts in Azure Security Center.
 
 ## Availability
 
@@ -52,7 +54,7 @@ To create a rule directly in the Azure portal:
 
     - Locate the specific alert you don't want to see anymore, and from the ellipsis menu (...) for the alert, select **Create suppression rule**:
 
-        [![**Create suppression rule** option](media/alerts-suppression-rules/auto-dismiss-in-future-option.png)](media/alerts-suppression-rules/auto-dismiss-in-future-option.png#lightbox)
+        [![**Create suppression rule** option](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
 
     - Or, select the **suppression rules** link at the top of the page, and from the suppression rules page select **Create new suppression rule**:
 
@@ -106,7 +108,7 @@ To delete one or more rules you've created, use the suppression rules page.
 
 1. To delete multiple rules, select the check boxes for the rules to be deleted and select **Delete**.
 
-    ![Deleting one or more suppression rules](media/alerts-suppression-rules/deleting-multiple-alerts.png)
+    ![Deleting one or more suppression rules](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
 ## Viewing alerts that have been suppressed
 
@@ -119,10 +121,10 @@ Use Security Center's filter to view alerts that have been dismissed by your rul
 
 * From Security Center's security alerts page, open the filter options and select **Dismissed**.  
 
-   [![Viewing dismissed alerts](media/alerts-suppression-rules/viewing-dismissed-alerts.png)](media/alerts-suppression-rules/viewing-dismissed-alerts.png#lightbox)
+   [![Viewing dismissed alerts](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
 
 
-## Using the REST API to create and manage suppression rules
+## Using the API to create and manage suppression rules
 
 You can create, view, or delete alert suppression rules via Security Center's REST API. 
 
