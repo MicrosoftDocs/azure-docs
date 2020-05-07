@@ -87,10 +87,10 @@ Once this has occurred, the next attempt to acquire the second required lock han
 
 ### Process overview
 
-1. [Create and access a Repair VM](#create-and-access-a-repair-vm)
-2. [Enable Serial Console and memory dump collection](#enable-serial-console-and-memory-dump-collection)
-3. [Rebuild the VM](#rebuild-the-vm)
-4. [Collect the memory dump file](#collect-the-memory-dump-file)
+1. [Create and access a Repair VM](#step-1-create-and-access-a-repair-vm)
+2. [Enable Serial Console and memory dump collection](#step-2-enable-serial-console-and-memory-dump-collection)
+3. [Rebuild the VM](#step-3-rebuild-the-vm)
+4. [Collect the memory dump file](#step-4-collect-the-memory-dump-file)
 
 > [!NOTE]
 > When encountering this boot error, the Guest OS is not operational. You will be troubleshooting in Offline mode to resolve this issue.
