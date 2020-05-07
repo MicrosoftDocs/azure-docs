@@ -123,10 +123,7 @@ The IR Location defines the location of its back-end compute, and essentially th
 
 ### Azure IR location
 
-You can set a certain location of an Azure IR, in which case the data movement or activity dispatch will happen in that specific region.
-
->[!TIP] 
->If you have strict data compliance requirements and need ensure that data do not leave a certain geography, you can explicitly create an Azure IR in a certain region and point the Linked Service to this IR using ConnectVia property. For example, if you want to copy data from Blob in UK South to SQL DW in UK South and want to ensure data do not leave UK, create an Azure IR in UK South and link both Linked Services to this IR.
+You can set a certain location of an Azure IR, in which case the activity execution or dispatch will happen in that specific region.
 
 If you choose to use the auto-resolve Azure IR, which is the default,
 
@@ -136,6 +133,9 @@ If you choose to use the auto-resolve Azure IR, which is the default,
   
   - When copy data to Azure Blob in West US, if ADF successfully detected that the Blob is in West US, copy activity is executed on IR in West US; if the region detection fails, copy activity is executed on IR in East US.
   - When copy data to Salesforce of which the region is not detectable, copy activity is executed on IR in East US.
+
+  >[!TIP] 
+  >If you have strict data compliance requirements and need ensure that data do not leave a certain geography, you can explicitly create an Azure IR in a certain region and point the Linked Service to this IR using ConnectVia property. For example, if you want to copy data from Blob in UK South to SQL DW in UK South and want to ensure data do not leave UK, create an Azure IR in UK South and link both Linked Services to this IR.
 
 - For Lookup/GetMetadata/Delete activity execution (also known as Pipeline activities), transformation activity dispatching (also known as External activities), and authoring operations (test connection, browse folder list and table list, preview data), ADF uses the IR in the data factory region.
 
