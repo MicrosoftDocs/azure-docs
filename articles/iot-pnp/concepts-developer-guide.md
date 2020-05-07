@@ -22,7 +22,7 @@ With DTDL, you create a model to describe the parts of your device. A typical Io
 - Custom parts, which are the things that make your device unique.
 - Standard parts, which are things that are common to all devices.
 
-These parts are called _components_ in a device model. Interfaces define the details of each part your device implements.
+These parts are called _components_ in a device model. Components use interfaces to define the details of each part your device implements.
 
 The following example shows the model for a thermostat device:
 
@@ -55,8 +55,8 @@ A model has some required fields:
 
 Each entry in the list of interfaces in the contents section has a:
 
-- `type`: this value must be `Component`.
-- `name`: the programming name of the interface.
+- `@type`: This must be `Component`
+- `name`: the programming name of the component.
 - `schema`: the interface the components implements.
 
 There are other optional fields you can use to add more details to the model, such as display name and description.
@@ -125,7 +125,7 @@ A command must execute within 30 seconds by default, and the device must be conn
 
 ## Register a device
 
-IoT Plug and Play makes it easy to advertise the capabilities of your device. With IoT Plug and Play you must specify the **Model ID** when you establish the connection with the IoT Hub. The ID will be available in the Digital Twin associated to your device, under the `$metadata.$model` property.
+IoT Plug and Play makes it easy to advertise the capabilities of your device. A Plug and Play device must send it's **Model ID** when it connects to IoT Hub. The ID will be available in the Digital Twin associated to your device, under the `$metadata.$model` property.
 
 This guide shows you how to connect a device and advertise the Model ID using the Azure IoT Device SDK for C.
 
@@ -178,16 +178,16 @@ If your thermostat device is called `t-123`, you get the all the properties on a
 GET /digitalTwins/t-123
 ```
 
-More generally, all properties on all interfaces are accessed with this REST API template where `{device-id}` is the identifier for the device:
+More generally, all properties on all interfaces are accessed with the `GET /DigitalTwin/{device-id}` REST API template where `{device-id}` is the identifier for the device:
 
 ```REST
 GET /digitalTwins/{device-id}
 ```
 
-You can call IoT Plug and Play device commands directly. If the `Thermostat` interface in the `t-123` device has a `restart` command, you can call it with a REST API POST call:
+You can call IoT Plug and Play device commands directly. If the `Thermostat` component in the `t-123` device has a `restart` command, you can call it with a REST API POST call:
 
 ```REST
-POST /digitalTwins/t-123/interfaces/thermostat/commands/restart
+POST /digitalTwins/t-123/components/Thermostat/commands/restart
 ```
 
 More generally, commands can be called through this REST API template:
@@ -197,7 +197,7 @@ More generally, commands can be called through this REST API template:
 - `command-name`: the name of the command.
 
 ```REST
-/digitalTwins/{device-id}/components/{interface-name}/commands/{command-name}
+/digitalTwins/{device-id}/components/{component-name}/commands/{command-name}
 ```
 
 ## Next steps
