@@ -46,7 +46,7 @@ Configuring customer-managed key for your Azure Data Box is optional. By default
 
     ![Choose encryption option](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-2.png)
 
-3. Select encryption type as **Customer managed key**. After you have selected the customer-managed key, **Select key vault and a key**.
+3. Select encryption type as **Customer managed key**. After you have selected the customer-managed key, **Select a key vault and key**.
 
     ![Select customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
 
@@ -54,7 +54,7 @@ Configuring customer-managed key for your Azure Data Box is optional. By default
 
     ![Create new Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-31.png)
 
-    You can also select **Create new** to create a new key vault. In the **Create key vault blade**, enter the resource group and the key vault name. Accept all other defaults. Select **Review + Create**.
+    You can also select **Create new** to create a new key vault. In the **Create key vault blade**, enter the resource group and the key vault name. Ensure that the **Soft delete** and **Purge protection** are enabled. Accept all other defaults. Select **Review + Create**.
 
     ![Create new Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
@@ -66,22 +66,30 @@ Configuring customer-managed key for your Azure Data Box is optional. By default
 
     ![Create new key in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-9. If you want to create a new key vault, select **Create new** to create a key. RSA key size can be 2048 or greater.
+9. If you want to create a new key, select **Create new** to create a key. RSA key size can be 2048 or greater.
 
     ![Create new key in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
 
-10. Provide the name for your key, accept the other defaults, and select **Create**. You are notified that a key is created in your key vault.
+10. Provide the name for your key, accept the other defaults, and select **Create**. 
 
     ![Create new key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
 
-11. Select the **Version** and then choose **Select**.
+11. You are notified that a key is created in your key vault. Select the **Version** and then choose **Select**.
 
     ![New key created in key vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
 12. In the **Encryption type** pane, you can see the key vault and the key selected for your customer-managed key.
 
     ![Key and key vault for customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
+
+13. Save the key. 
+
+    ![Save customer-managed key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
+
+    The key URL is displayed under **Encryption type**.
+
+    ![Customer-managed key URL](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)
 
 > [!IMPORTANT]
 > You can disable Microsoft managed key and move to customer-managed key at any stage of the Data Box order. However, once you have created the customer-managed key, you cannot disable the key.
