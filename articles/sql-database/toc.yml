@@ -59,6 +59,12 @@
   - name: SQL managed instances
     href: sql-database-managed-instance-quickstart-guide.md
 
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
+
 - name: Concepts
   items:
   - name: Feature comparison
