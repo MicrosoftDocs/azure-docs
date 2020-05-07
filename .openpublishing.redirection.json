@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/container-registry/container-registry-tasks-agent-pools.md",
+      "redirect_url": "/azure/container-registry/container-registry-tasks-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/openshift/tutorial-scale-cluster.md",
       "redirect_url": "articles/openshift/tutorial-connect-cluster.md",
       "redirect_document_id": false
@@ -17943,7 +17948,7 @@
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md",
       "redirect_url": "/power-bi/service-azure-sql-data-warehouse-with-direct-connect",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-how-to-configure-workload-importance.md",
@@ -52343,7 +52348,81 @@
       "source_path": "articles/load-balancer/azure-media-player/components-limitations.md",
       "redirect_url": "/articles/load-balancer/concepts",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-webjobs-what-happened.md",
+      "redirect_url": "/azure/storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet5-getting-started-blobs.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet-legacy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet5-getting-started-tables.md",
+      "redirect_url": "/azure/storage/tables/table-storage-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet-getting-started-queues.md",
+      "redirect_url": "/azure/storage/queues/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet-what-happened.md",
+      "redirect_url": "/azure/storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-webjobs-getting-started-tables.md",
+      "redirect_url": "/azure/storage/tables/table-storage-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet-core-getting-started-blobs.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet-legacy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet5-getting-started-queues.md",
+      "redirect_url": "/azure/storage/queues/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vs-azure-tools-storage-emulator-using.md",
+      "redirect_url": "/azure/storage/common/storage-use-emulator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet-getting-started-blobs.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet-legacy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet5-what-happened.md",
+      "redirect_url": "/azure/storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet-getting-started-tables.md",
+      "redirect_url": "/azure/storage/tables/table-storage-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-webjobs-getting-started-blobs.md",
+      "redirect_url": "/azure/storage/blobs/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-webjobs-getting-started-queues.md",
+      "redirect_url": "/azure/storage/queues/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-cloud-services-what-happened.md",
+      "redirect_url": "/azure/storage",
+      "redirect_document_id": false
     }
- 
  ]
 }
