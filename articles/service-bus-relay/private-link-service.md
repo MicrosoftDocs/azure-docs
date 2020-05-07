@@ -56,7 +56,7 @@ For step-by-step instructions on creating a new Azure Relay namespace and entiti
 
         ![Create Private Endpoint - Basics page](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. On the **Resource** page, follow these steps:
-    1. For connection method, if you select **Connect to an Azure resource in my directory** if you have owner or contributor access to the namespace, follow these steps: 
+    1. For connection method, if you select **Connect to an Azure resource in my directory**, you have owner or contributor access to the namespace and that namespace is in the same directory as the private endpoint, follow these steps: 
         1. Select the **Azure subscription** in which your **Azure Relay namespace** exists. 
         2. For **Resource type**, Select **Microsoft.Relay/namespaces** for the **Resource type**.
         3. For **Resource**, select a Relay namespace from the drop-down list. 
@@ -64,7 +64,7 @@ For step-by-step instructions on creating a new Azure Relay namespace and entiti
         5. Select **Next: Configuration >** button at the bottom of the page. 
         
             ![Create Private Endpoint - Resource page](./media/private-link-service/create-private-endpoint-resource-page.png)    
-    2. If you select **Connect to an Azure resource by resource ID or alias**, follow these steps:
+    2. If you select **Connect to an Azure resource by resource ID or alias** because the namespace is not under the same directory as that of the private endpoint, follow these steps:
         1. Enter the **resource ID** or **alias**. It can be the resource ID or alias that someone has shared with you. The easiest way to get the resource ID is to navigate to the Azure Relay namespace in the Azure portal and copy the portion of URI starting from `/subscriptions/`. Here is an example: `/subscriptions/000000000-0000-0000-0000-000000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Relay/namespaces/myrelaynamespace.` 
         2. For **Target sub-resource**, enter **namespace**. It's the type of the sub-resource that your private endpoint can access.
         3. (optional) Enter a **request message**. The resource owner sees this message while managing private endpoint connection.
@@ -74,10 +74,11 @@ For step-by-step instructions on creating a new Azure Relay namespace and entiti
 9. On the **Configuration** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
     1. Select a **virtual network**. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
     2. Select a **subnet** in the virtual network you selected. 
+    3. To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a **private DNS zone**. You can also utilize your own DNS servers or create DNS records using the host files on your virtual machines. For more information, see [Azure Private Endpoint DNS Configuration](../private-link/private-endpoint-dns.md). In this example, the **Integrate with private DNS zone** option is selected and a private DNS zone will be created for you. 
     3. Select **Next: Tags >** button at the bottom of the page. 
 
         ![Create Private Endpoint - Configuration page](./media/private-link-service/create-private-endpoint-configuration-page.png)
-10. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource. Then, select **Review + create** button at the bottom of the page. 
+10. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint and the private DNS zone (if you had enabled the option). Then, select **Review + create** button at the bottom of the page. 
 11. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
     
     ![Create Private Endpoint - Review and Create page](./media/private-link-service/create-private-endpoint-review-create-page.png)
@@ -216,7 +217,7 @@ In the **Networking** tab:
 1. For **NIC network security group**, select **None**.
 1. For **Load balancing**, select **No**.
 
-Open the command line and run the following command:
+Connect to the VM, open the command line, and run the following command:
 
 ```console
 nslookup <your-relay-namespace-name>.servicebus.azure.net
