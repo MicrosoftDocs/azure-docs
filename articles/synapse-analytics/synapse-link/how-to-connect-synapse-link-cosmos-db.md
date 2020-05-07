@@ -24,7 +24,7 @@ Before you connect an Azure Cosmos DB account to your workspace, there are a few
 
 ## Enable Azure Cosmos DB analytical store
 
-To run large-scale analytics into Azure Cosmos DB without impacting your operational performance, we recommend enabling  Synapse Link for Azure Cosmos DB which bring HTAP capability to a container and built-in support in Azure Synapse. Follow this quickstart to enable Synapse Link  for Cosmos DB containers.
+To run large-scale analytics into Azure Cosmos DB without impacting your operational performance, we recommend enabling Synapse Link for Azure Cosmos DB. Synapse Link brings HTAP capability to a container and built-in support in Azure Synapse.
 
 ## Connect an Azure Cosmos DB database to a Synapse workspace 
 
