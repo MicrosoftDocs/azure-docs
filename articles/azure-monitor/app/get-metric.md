@@ -182,7 +182,22 @@ However, you will notice that you aren't able to split the metric by your new cu
 
 ![Splitting support](./media/get-metric/splitting-support.png)
 
-By default multi-dimensional metrics within the Metric explorer experience are not turned on in Application Insights resources. To turn on this behavior follow [this](#enable-multi-dimensional-metrics).
+By default multi-dimensional metrics within the Metric explorer experience are not turned on in Application Insights resources.
+
+### Enable multi-dimensional metrics
+
+To enable multi-dimensional metrics for an Application Insights resource, Select **Usage and estimated costs** > **Custom Metrics** > **Enable alerting on custom metric dimensions** > **OK**. More details about this can be found [here](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+
+Once you have made that change and send new multi-dimensional telemetry, you will be able to **Apply splitting**.
+
+> [!NOTE]
+> Only newly sent metrics after the feature was turned on in the portal will have dimensions stored.
+
+![Apply splitting](./media/get-metric/apply-splitting.png)
+
+And view your metric aggregations for each _FormFactor_ dimension:
+
+![Form factors](./media/get-metric/formfactor.png)
 
 ### How to use MetricIdentifier when there are more than three dimensions
 
@@ -195,21 +210,6 @@ MetricIdentifier id = new MetricIdentifier("CustomMetricNamespace","ComputerSold
 Metric computersSold  = _telemetryClient.GetMetric(id);
 computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
 ```
-
-### Enable multi-dimensional metrics
-
-To enable multi-dimensional metrics for an Application Insights resource, Select **Usage and estimated costs** > **Custom Metrics** > **Enable alerting on custom metric dimensions** > **OK**.
-
-Once you have made that change and send new multi-dimensional telemetry, you will be able to **Apply splitting**.
-
-> [!NOTE]
-> Only newly sent metrics after the feature was turned on in the portal will have dimensions stored.
-
-![Apply splitting](./media/get-metric/apply-splitting.png)
-
-And view your metric aggregations for each _FormFactor_ dimension:
-
-![Form factors](./media/get-metric/formfactor.png)
 
 ## Custom metric configuration
 
