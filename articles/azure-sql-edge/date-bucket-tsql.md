@@ -50,7 +50,7 @@ The part of *date* that is used with the ‘number’ parameter. Ex. Year, month
 |**nanosecond**|**ns**|  
 
 *number*
-2
+
 The integer number that decides the width of the bucket combined with *datePart* argument. This represents the width of the dataPart buckets from the origin time.
 
 *date*
@@ -74,7 +74,7 @@ The return value data type for this method is dynamic. The return type depends o
 
 ### Understanding the output from `DATE_BUCKET`
 
-`Data_Bucket` returns the latest date or time value, corresponding to the datePart and number parameter. For example, in the expressions below, `Date_Bucket` will return the output value of `2020-04-13 00:00:00.0000000`, as the output is calculated based on one week buckets from the default origin time of `1900-01-01 00:00:00.000`. The value `2020-04-13 00:00:00.0000000` is 6276 weeks from the origin value of `1900-01-01 00:00:00.000`. 
+`Date_Bucket` returns the latest date or time value, corresponding to the datePart and number parameter. For example, in the expressions below, `Date_Bucket` will return the output value of `2020-04-13 00:00:00.0000000`, as the output is calculated based on one week buckets from the default origin time of `1900-01-01 00:00:00.000`. The value `2020-04-13 00:00:00.0000000` is 6276 weeks from the origin value of `1900-01-01 00:00:00.000`. 
 
 ```sql
 declare @date datetime2 = '2020-04-15 21:22:11'
@@ -134,7 +134,7 @@ Use `DATE_BUCKET` in the following clauses:
 
 ### A. Calculating Date_Bucket with a bucket width of 1 from the origin time
 
-Each of these statements increments *data_bucket* with a bucket width of 1 from the origin time:
+Each of these statements increments *date_bucket* with a bucket width of 1 from the origin time:
 
 ```sql
 declare @date datetime2 = '2020-04-30 21:21:21'
