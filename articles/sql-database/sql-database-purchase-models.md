@@ -20,10 +20,10 @@ Azure SQL Database & SQL Managed Instan lets you easily purchase a fully managed
 - [Virtual core (vCore)-based purchasing model](sql-database-service-tiers-vcore.md) (recommended). This purchasing model provides a choice between a provisioned compute tier and a serverless compute tier. With the provisioned compute tier, you choose the exact amount of compute resources that are always provisioned for your workload. With the serverless compute tier, you specify the autoscaling of the compute resources over a configurable compute range. With this compute tier, you can also automatically pause and resume the database based on workload activity. The vCore unit price per unit of time is lower in the provisioned compute tier than it is in the serverless compute tier.
 - [Database transaction unit (DTU)-based purchasing model](sql-database-service-tiers-dtu.md). This purchasing model provides bundled compute and storage packages balanced for common workloads.
 
-There are two purchasing models: 
+There are two purchasing models:
 
 - [vCore-based purchasing model](sql-database-service-tiers-vcore.md) is available for both [Azure SQL Database](sql-database-technical-overview.md) and [Azure SQL Managed Instance](sql-database-managed-instance.md). The [Hyperscale service tier](sql-database-service-tier-hyperscale.md) is available for single SQL Databases that are using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
-- [DTU-based purchasing model](sql-database-service-tiers-dtu.md) is available for [Azure SQL Database](sql-database-single-databases-manage.md). 
+- [DTU-based purchasing model](sql-database-service-tiers-dtu.md) is available for [Azure SQL Database](sql-database-single-databases-manage.md).
 
 The following table and chart compare and contrast the vCore-based and the DTU-based purchasing models:
 
@@ -81,17 +81,15 @@ To convert from the DTU-based purchasing model to the vCore-based purchasing mod
 - Every 125 DTUs in the premium tier require at least 1 vCore in the Business Critical service tier.
 
 > [!NOTE]
-> The DTU to vCore sizing guidelines are approximate, and are provided to help in the initial estimation of the target database service objective. The optimal configuration of the target database is workload-dependent. 
-> 
+> The DTU to vCore sizing guidelines are approximate, and are provided to help in the initial estimation of the target database service objective. The optimal configuration of the target database is workload-dependent.
+>
 > Achieving the optimal price/performance ratio may require leveraging the flexibility of the vCore model to adjust the number of vCores, the [hardware generation](sql-database-service-tiers-vcore.md#hardware-generations), the [service](sql-database-service-tiers-vcore.md#service-tiers) and [compute](sql-database-service-tiers-vcore.md#compute-tiers) tiers, as well as tuning of other database configuration parameters, such as [maximum degree of parallelism](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
 
 ## DTU-based purchasing model
 
 A database transaction unit (DTU) represents a blended measure of CPU, memory, reads, and writes. The DTU-based purchasing model offers a set of preconfigured bundles of compute resources and included storage to drive different levels of application performance. If you prefer the simplicity of a preconfigured bundle and fixed payments each month, the DTU-based model might be more suitable for your needs.
 
-In the DTU-based purchasing model, you can choose between the basic, standard, and premium service tiers for Azure SQL Database. The DTU-based purchasing model is not available for Azure SQL Managed Instance. 
-
-
+In the DTU-based purchasing model, you can choose between the basic, standard, and premium service tiers for Azure SQL Database. The DTU-based purchasing model is not available for Azure SQL Managed Instance.
 
 ### Database transaction units (DTUs)
 
@@ -116,7 +114,7 @@ To gain deeper insight into the resource (DTU) consumption of your workload, use
 
 ### Elastic database transaction units (eDTUs)
 
-For SQL Databases that are always available, rather than provide a dedicated set of resources (DTUs) that might not always be needed, you can place these databases into an [elastic pool](sql-database-elastic-pool.md). The databases in an elastic pool are on a single logical SQL server and share a pool of resources.
+For SQL Databases that are always available, rather than provide a dedicated set of resources (DTUs) that might not always be needed, you can place these databases into an [elastic pool](sql-database-elastic-pool.md). The databases in an elastic pool are on a single server and share a pool of resources.
 
 The shared resources in an elastic pool are measured by elastic database transaction units (eDTUs). Elastic pools provide a simple, cost-effective solution to manage performance goals for multiple databases that have widely varying and unpredictable usage patterns. An elastic pool guarantees that all the resources can't be consumed by one database in the pool, while ensuring that each database in the pool always has a minimum amount of necessary resources available.
 
@@ -150,7 +148,7 @@ In the DTU-based purchasing model, customers cannot choose the hardware generati
 
 For example, a database can be moved to a different hardware generation if it is scaled up or down to a different service objective, or if the current infrastructure in a data center is approaching its capacity limits, or if the currently used hardware is being decommissioned due to its end of life.
 
-If a database is moved to different hardware, workload performance can change. The DTU model guarantees that the throughput and response time of the [DTU benchmark](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark) workload will remain substantially identical as the database moves to a different hardware generation, as long as its service objective (the number of DTUs) stays the same. 
+If a database is moved to different hardware, workload performance can change. The DTU model guarantees that the throughput and response time of the [DTU benchmark](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark) workload will remain substantially identical as the database moves to a different hardware generation, as long as its service objective (the number of DTUs) stays the same.
 
 However, across the wide spectrum of customer workloads running in Azure SQL Database, the impact of using different hardware for the same service objective can be more pronounced. Different workloads will benefit from different hardware configuration and features. Therefore, for workloads other than the DTU benchmark, it is possible to see performance differences if the database moves from one hardware generation to another.
 

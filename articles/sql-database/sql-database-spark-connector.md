@@ -49,7 +49,7 @@ Currently, the connector project uses maven. To build the connector without depe
 
 - mvn clean package
 - Download the latest versions of the JAR from the release folder
-- Include the SQL DB Spark JAR
+- Include the SQL Database Spark JAR
 
 ## Connect and read data using the Spark connector
 
