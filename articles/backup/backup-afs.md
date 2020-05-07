@@ -51,17 +51,17 @@ To modify the storage replication type:
 
    ![Recovery Services vault](./media/backup-afs/recovery-services-vault.png)
 
-    a. In the **Backup Goal** pane, set **Where is your workload running?** to **Azure** by selecting the **Azure** option from the drop-down list.
+    1. In the **Backup Goal** pane, set **Where is your workload running?** to **Azure** by selecting the **Azure** option from the drop-down list.
 
-    ![Choose Azure as workload](./media/backup-afs/backup-goal.png)
+          ![Choose Azure as workload](./media/backup-afs/backup-goal.png)
 
-    b.  In **What do you want to back up?**, select **Azure File Share** from the drop-down list.
+    2. In **What do you want to back up?**, select **Azure File Share** from the drop-down list.
 
-    ![Select Azure FileShare](./media/backup-afs/select-azure-file-share.png)
+          ![Select Azure FileShare](./media/backup-afs/select-azure-file-share.png)
 
-    c.  Select **Backup** to register the Azure file share extension in the vault.
+    3. Select **Backup** to register the Azure file share extension in the vault.
 
-    ![Select Backup to associate the Azure file share with vault](./media/backup-afs/register-extension.png)
+          ![Select Backup to associate the Azure file share with vault](./media/backup-afs/register-extension.png)
 
 1. After you select **Backup**, the **Backup** pane opens. To select the storage account hosting the file share that you want to protect, click the **Select** link text below the **Storage Account** textbox.
 
@@ -89,14 +89,21 @@ To modify the storage replication type:
    This option allows you to enable daily backup that will be retained for 30 days. If you don’t have an existing backup policy in the vault, the backup pane opens with the default policy settings. If you want to choose the default settings, you can directly click **Enable backup**.
 
    * Create a new policy <br>
-   a. To create a new backup policy for your file share, click the link text below the drop-down list in the **Backup Policy** section.
-      ![Create new policy](./media/backup-afs/create-new-policy.png)
-   b. The **Backup Policy** context pane opens on the right. Specify a policy name in the text box and choose the retention period according to your requirement. Only the daily retention option is enabled by default. If you want to have weekly, monthly, or yearly retention, select the corresponding checkbox and provide the desired retention value.
-   c. After specifying the retention values and a valid policy name, click OK.
-      ![Give policy name and retention values](./media/backup-afs/policy-name.png)
+
+      1. To create a new backup policy for your file share, click the link text below the drop-down list in the **Backup Policy** section.<br>
+
+            ![Create new policy](./media/backup-afs/create-new-policy.png)
+
+      1. The **Backup Policy** context pane opens on the right. Specify a policy name in the text box and choose the retention period according to your requirement. Only the daily retention option is enabled by default. If you want to have weekly, monthly, or yearly retention, select the corresponding checkbox and provide the desired retention value.
+
+      1. After specifying the retention values and a valid policy name, click OK.<br>
+
+         ![Give policy name and retention values](./media/backup-afs/policy-name.png)
 
    * Choose one of the existing backup policies <br>
-   To choose one of the existing backup policies for configuring protection, select the desired policy from the **Backup policy** drop-down list.
+
+   To choose one of the existing backup policies for configuring protection, select the desired policy from the **Backup policy** drop-down list.<br>
+
    ![Choose existing policy](./media/backup-afs/choose-existing-policy.png)
 
 1. Click **Enable Backup** to start protecting the file share.
