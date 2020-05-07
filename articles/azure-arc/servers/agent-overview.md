@@ -100,12 +100,12 @@ After installing the Connected Machine agent for Linux, the following additional
 
     |Log |Description |
     |----|------------|
-    |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Records details of the agents (himds) service and interaction with Azure.|
-    |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contains the output of the azcmagent tool commands, when the verbose (-v) argument is used.|
-    |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |Records details of the DSC service activity,<br> in particular the connectivity between the himds service and Azure Policy.|
-    |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Records details about DSC service telemetry and verbose logging.|
+    |/var/opt/azcmagent/log/himds.log |Records details of the agents (himds) service and interaction with Azure.|
+    |/var/opt/azcmagent/log/azcmagent.log |Contains the output of the azcmagent tool commands, when the verbose (-v) argument is used.|
+    |/opt/logs/dsc.log |Records details of the DSC service activity,<br> in particular the connectivity between the himds service and Azure Policy.|
+    |/opt/logs/dsc.telemetry.txt |Records details about DSC service telemetry and verbose logging.|
 
-* The following environmental variables are created during agent installation.
+* The following environmental variables are created during agent installation. These variables are set in `/lib/systemd/system.conf.d/azcmagent.conf`.
 
 |Name |Default value |Description |
 |-----|--------------|------------|
