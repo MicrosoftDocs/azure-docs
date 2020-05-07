@@ -16,6 +16,7 @@ ms.topic: conceptual
 
 - Release state: **Preview**
 - Required roles: Security admin and owner can create/delete rules. Security reader and reader can view rules.
+- Clouds: All (Global, National, Government, and Sovereign)
 
 
 ## Introduction to suppression rules
