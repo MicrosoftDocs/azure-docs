@@ -1,3 +1,10 @@
+---
+author: dlepow
+ms.service: container-registry
+ms.topic: include
+ms.date: 05/07/2020
+ms.author: danlep
+---
 ## Create a Docker-enabled virtual machine
 
 For test purposes, use a Docker-enabled Ubuntu VM to access an Azure container registry. To use Azure Active Directory authentication to the registry, also install the [Azure CLI][azure-cli] on the VM. If you already have an Azure virtual machine, skip this creation step.

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2019
+ms.date: 05/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -95,7 +95,6 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |
 | UpgradeNotSupportedNonMsolAccount |The [AD DS Connector account](reference-connect-accounts-permissions.md#ad-ds-connector-account) is not the default MSOL_ account anymore. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | When setting up AAD Connect, you chose *Do Not Configure* when selecting the sign-on method. |
-| UpgradeNotSupportedPtaSignInMethod | You have selected Pass-through Authentication as the sign-in method. |
 | UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](how-to-connect-sync-staging-server.md). |
 | UpgradeNotSupportedUserWritebackEnabled |You have enabled the [user writeback](how-to-connect-preview.md#user-writeback) feature. |
 
