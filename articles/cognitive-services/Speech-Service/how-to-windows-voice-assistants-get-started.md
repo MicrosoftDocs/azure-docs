@@ -47,7 +47,7 @@ The following provides the requirements to create a simple dialog service using 
 
 ## Try out the sample app
 
-With the subscription key from your Speech Services subscription and bot id from your echo bot, you are ready to try out the [UWP Voice Assistant sample](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample.md). Follow the instructions in the readme to run the app and enter your credentials.
+With the subscription key from your Speech Services subscription and bot id from your echo bot, you are ready to try out the [UWP Voice Assistant sample](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample). Follow the instructions in the readme to run the app and enter your credentials.
 
 ## Create your own voice assistant for Windows
 

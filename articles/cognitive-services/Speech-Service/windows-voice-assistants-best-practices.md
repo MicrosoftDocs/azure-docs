@@ -12,7 +12,6 @@ ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
 ---
-
 # Design assistant experiences for Windows 10
 
 Voice assistants developed on Windows 10 must implement the user experience guidelines below in order to provide the best possible experiences for voice activation on Windows 10. This document will guide developers through understanding the key work needed for a voice assistant to integrate with the Windows 10 Shell.

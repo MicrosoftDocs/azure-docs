@@ -1,7 +1,7 @@
 ---
-title: Privacy guidelines for Windows Voice Assistants
+title: Privacy guidelines for voice assistants on Windows
 titleSuffix: Azure Cognitive Services
-description: The instructions to enable voice activation for a voice agent by default.
+description:  The instructions to enable voice activation for a voice agent by default.
 services: cognitive-services
 author: cfogg6
 manager: trrwilson
@@ -11,7 +11,6 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ---
-
 # Privacy guidelines for voice assistants on Windows
 
 It's important that users are given clear information about how their voice data is collected and used and important that they are given control over if and how this collection happens. These core facets of privacy -- *disclosure* and *consent* -- are especially important for voice assistants integrated into Windows given the always-listening nature of their use.

@@ -19,7 +19,7 @@ This guide walks through important implementation details for creating a voice a
 
 ## Implementing voice activation
 
-After [setting up your environment](how-to-windows-voice-assistants-get-started.md) and learning [how voice activation works](windows-voice-assistants-overview.md#how-does-voice-activation-work?), you can start implementing voice activation for your own voice assistant application.
+After [setting up your environment](how-to-windows-voice-assistants-get-started.md) and learning [how voice activation works](windows-voice-assistants-overview.md#how-does-voice-activation-work), you can start implementing voice activation for your own voice assistant application.
 
 ### Registration
 
@@ -137,4 +137,4 @@ To properly close the application programmatically while above or below lock, us
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Visit the UWP Voice Assistant Sample app for examples and code walk-throughs](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample.md)
+> [Visit the UWP Voice Assistant Sample app for examples and code walk-throughs](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample)
