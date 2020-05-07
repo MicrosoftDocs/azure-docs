@@ -127,6 +127,9 @@
       href: functions-reference-node.md#typescript
   - name: Security
     items:
+    - name: Security overview
+      href: security-concepts.md
+      displayName: secure, ssl
     - name: Security baseline
       href: security-baseline.md
   - name: Diagnostics
