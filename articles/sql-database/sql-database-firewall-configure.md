@@ -1,10 +1,10 @@
 ---
-title: IP firewall rules
-description: Configure server-level IP firewall rules for a SQL database or SQL Data Warehouse firewall. Manage access and configure database-level IP firewall rules for a single or pooled database.
+title: Server-level and database-level IP firewall rules
+description: Configure and manage IP firewall rules for Azure SQL Database or Azure Synapse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
@@ -13,33 +13,33 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
 ---
-# Azure SQL Database and Azure SQL Data Warehouse IP firewall rules
+# Azure SQL Database and Azure Synapse IP firewall rules
 
-When you create a new Azure SQL Database logical server named *mysqlserver*, for example, an Azure SQL Database firewall blocks all access to the public endpoint for the server (which is accessible at *mysqlserver.database.windows.net*). This article applies to Azure SQL Database logical servers, and to both Azure SQL Database and Azure SQL Data Warehouse databases on an Azure SQL Database logical server. For simplicity, *SQL Database* is used to refer to both SQL Database and SQL Data Warehouse.
+When you create a new server in Azure SQL Database or Azure Synapse named *mysqlserver*, for example, a server-level firewall blocks all access to the public endpoint for the server (which is accessible at *mysqlserver.database.windows.net*). For simplicity, *SQL Database* is used to refer to both SQL Database and Azure Synapse (formerly Azure SQL Data Warehouse).
 
 > [!IMPORTANT]
 > This article does *not* apply to *Azure SQL Managed Instance*. For information about network configuration, see [Connect your application to Azure SQL Managed Instance](sql-database-managed-instance-connect-app.md).
 >
-> SQL Data Warehouse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
+> Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
 
 ## How the firewall works
 
-Connection attempts from the internet and Azure must pass through the firewall before they reach your Azure SQL Database logical server or database, as the following diagram shows.
+Connection attempts from the internet and Azure must pass through the firewall before they reach your server or database, as the following diagram shows.
 
    ![Firewall configuration diagram][1]
 
 ### Server-level IP firewall rules
 
-These rules enable clients to access your entire Azure SQL Database logical server, that is, all the databases within the same logical server. The rules are stored in the *master* database. You can have a maximum of 128 server-level IP firewall rules for an Azure SQL Server. If you have the **Allow Azure Services and resources to access this server** setting enabled, this counts as a single firewall rule for Azure SQL Server.
+These rules enable clients to access your entire server, that is, all the databases managed by the server. The rules are stored in the *master* database. You can have a maximum of 128 server-level IP firewall rules for a server. If you have the **Allow Azure Services and resources to access this server** setting enabled, this counts as a single firewall rule for the server.
   
 You can configure server-level IP firewall rules by using the Azure portal, PowerShell, or Transact-SQL statements.
 
 - To use the portal or PowerShell, you must be the subscription owner or a subscription contributor.
-- To use Transact-SQL, you must connect to Azure SQL Database as the server-level principal login or as the Azure Active Directory administrator. (A server-level IP firewall rule must first be created by a user who has Azure-level permissions.)
+- To use Transact-SQL, you must connect to the *master* database as the server-level principal login or as the Azure Active Directory administrator. (A server-level IP firewall rule must first be created by a user who has Azure-level permissions.)
 
 ### Database-level IP firewall rules
 
-These rules enable clients to access certain (secure) databases within the same logical server. You create the rules for each database (including the *master* database), and they're stored in the individual database.
+Database-level IP firewall rules enable clients to access certain (secure) databases. You create the rules for each database (including the *master* database), and they're stored in the individual database.
   
 - You can only create and manage database-level IP firewall rules for master and user databases by using Transact-SQL statements and only after you configure the first server-level firewall.
 - If you specify an IP address range in the database-level IP firewall rule that's outside the range in the server-level IP firewall rule, only those clients that have IP addresses in the database-level range can access the database.
@@ -83,7 +83,7 @@ Yes. Some users, such as administrators, might need server-level IP firewall rul
 When a computer tries to connect to your database server from the internet, the firewall first checks the originating IP address of the request against the database-level IP firewall rules for the database that the connection requests.
 
 - If the address is within a range that's specified in the database-level IP firewall rules, the connection is granted to the database that contains the rule.
-- If the address isn't within a range in the database-level IP firewall rules, the firewall checks the server-level IP firewall rules. If the address is within a range that's in the server-level IP firewall rules, the connection is granted. Server-level IP firewall rules apply to all databases on the logical server.  
+- If the address isn't within a range in the database-level IP firewall rules, the firewall checks the server-level IP firewall rules. If the address is within a range that's in the server-level IP firewall rules, the connection is granted. Server-level IP firewall rules apply to all databases managed by the server.  
 - If the address isn't within a range that's in any of the database-level or server-level IP firewall rules, the connection request fails.
 
 > [!NOTE]
@@ -91,7 +91,7 @@ When a computer tries to connect to your database server from the internet, the 
 
 ### Connections from inside Azure
 
-To allow applications hosted inside Azure to connect to your SQL server, Azure connections must be enabled. When an application from Azure tries to connect to your database server, the firewall verifies that Azure connections are allowed. This can be turned on directly from the Azure portal blade by setting Firewall rules, as well as switching the **Allow Azure Services and resources to access this server** to **ON** in the **Firewalls and virtual networks** settings. If the connection isn't allowed, the request doesn't reach the Azure SQL Database logical server.
+To allow applications hosted inside Azure to connect to your SQL server, Azure connections must be enabled. When an application from Azure tries to connect to your database server, the firewall verifies that Azure connections are allowed. This can be turned on directly from the Azure portal blade by setting Firewall rules, as well as switching the **Allow Azure Services and resources to access this server** to **ON** in the **Firewalls and virtual networks** settings. If the connection isn't allowed, the request doesn't reach the server.
 
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. If you select this option, make sure that your login and user permissions limit access to authorized users only.
@@ -110,14 +110,14 @@ To improve performance, server-level IP firewall rules are temporarily cached at
 
 ### Use the Azure portal to manage server-level IP firewall rules
 
-To set a server-level IP firewall rule in the Azure portal, go to the overview page for your database or your logical server.
+To set a server-level IP firewall rule in the Azure portal, go to the overview page for your database or your server.
 
 > [!TIP]
 > For a tutorial, see [Create a database using the Azure portal](sql-database-single-database-get-started.md).
 
 #### From the database overview page
 
-1. To set a server-level IP firewall rule from the database overview page, select **Set server firewall** on the toolbar, as the following image shows. 
+1. To set a server-level IP firewall rule from the database overview page, select **Set server firewall** on the toolbar, as the following image shows.
 
     ![Server IP firewall rule](./media/sql-database-get-started-portal/sql-database-server-set-firewall-rule.png)
 
@@ -243,13 +243,13 @@ Consider the following points when access to Azure SQL Database doesn't behave a
 
 - **The login isn't authorized, or an incorrect password was used:**
 
-  If a login doesn't have permissions on the logical server or the password is incorrect, the connection to the server is denied. Creating a firewall setting only gives clients an *opportunity* to try to connect to your server. The client must still provide the necessary security credentials. For more information about preparing logins, see [Controlling and granting database access](sql-database-manage-logins.md).
+  If a login doesn't have permissions on the server or the password is incorrect, the connection to the server is denied. Creating a firewall setting only gives clients an *opportunity* to try to connect to your server. The client must still provide the necessary security credentials. For more information about preparing logins, see [Controlling and granting database access](sql-database-manage-logins.md).
 
 - **Dynamic IP address:**
 
   If you have an internet connection that uses dynamic IP addressing and you have trouble getting through the firewall, try one of the following solutions:
   
-  - Ask your internet service provider for the IP address range that's assigned to your client computers that access the logical server. Add that IP address range as an IP firewall rule.
+  - Ask your internet service provider for the IP address range that's assigned to your client computers that access the server. Add that IP address range as an IP firewall rule.
   - Get static IP addressing instead for your client computers. Add the IP addresses as IP firewall rules.
 
 ## Next steps

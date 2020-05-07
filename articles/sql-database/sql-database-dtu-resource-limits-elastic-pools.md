@@ -16,12 +16,13 @@ ms.date: 04/17/2020
 
 This article provides the detailed resource limits for Azure SQL Databases that are within an elastic pool using the DTU purchasing model.
 
-* For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits - Azure SQL Database](sql-database-vcore-resource-limits-elastic-pools.md). 
+* For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits - Azure SQL Database](sql-database-vcore-resource-limits-elastic-pools.md).
 * For vCore resource limits, see [vCore resource limits - Azure SQL Database](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
 ## Elastic pool: Storage sizes and compute sizes
 
 For Azure SQL Database elastic pools, the following tables show the resources available at each service tier and compute size. You can set the service tier, compute size, and storage amount using:
+
 * [Azure portal](sql-database-elastic-pool-manage.md#azure-portal)
 * [PowerShell](sql-database-elastic-pool-manage.md#powershell)
 * [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli)
@@ -29,10 +30,10 @@ For Azure SQL Database elastic pools, the following tables show the resources av
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale an elastic pool](sql-database-elastic-pool-scale.md)
-> [!NOTE]
-> The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier. For example, the max concurrent workers for an S2 database is 120 workers. So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
 
 > [!NOTE]
+> The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier. For example, the max concurrent workers for an S2 database is 120 workers. So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
+>
 > The storage per pool resource limit in each of the following tables do not include tempdb and log storage.
 
 ### Basic elastic pool limits
@@ -151,9 +152,9 @@ The following table describes the properties for pooled databases.
 
 ## Next steps
 
-- For vCore resource limits for a single database, see [resource limits for single databases using the vCore purchasing model](sql-database-vcore-resource-limits-single-databases.md)
-- For DTU resource limits for a single database, see [resource limits for single databases using the DTU purchasing model](sql-database-dtu-resource-limits-single-databases.md)
-- For vCore resource limits for elastic pools, see [resource limits for elastic pools using the vCore purchasing model](sql-database-vcore-resource-limits-elastic-pools.md)
-- For resource limits for SQL Managed Instances, see [SQL Managed Instance resource limits](sql-database-managed-instance-resource-limits.md).
-- For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- For information about resource limits on a database server, see [overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.
+* For vCore resource limits for a single database, see [resource limits for single databases using the vCore purchasing model](sql-database-vcore-resource-limits-single-databases.md)
+* For DTU resource limits for a single database, see [resource limits for single databases using the DTU purchasing model](sql-database-dtu-resource-limits-single-databases.md)
+* For vCore resource limits for elastic pools, see [resource limits for elastic pools using the vCore purchasing model](sql-database-vcore-resource-limits-elastic-pools.md)
+* For resource limits for SQL Managed Instances, see [SQL Managed Instance resource limits](sql-database-managed-instance-resource-limits.md).
+* For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
+* For information about resource limits on a database server, see [overview of resource limits on a server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.

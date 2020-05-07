@@ -48,7 +48,7 @@ Exporting a BACPAC of a database from an [Azure SQL Managed Instance](sql-databa
 
 3. Click **OK**.
 
-4. To monitor the progress of the export operation, open the page for the SQL Database server containing the database being exported. Under to **Settings** and then click **Import/Export history**.
+4. To monitor the progress of the export operation, open the page for the server containing the database being exported. Under to **Settings** and then click **Import/Export history**.
 
    ![export history](./media/sql-database-export/export-history.png)
 
@@ -64,7 +64,7 @@ This example shows how to export a database using SqlPackage.exe with Active Dir
 SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
-##  SQL Server Management Studio (SSMS)
+## SQL Server Management Studio (SSMS)
 
 The newest versions of SQL Server Management Studio provides a wizard to export an Azure SQL Database or SQL Managed Instance database to a BACPAC file. See the [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
 

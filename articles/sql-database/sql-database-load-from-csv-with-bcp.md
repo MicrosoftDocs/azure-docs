@@ -30,7 +30,7 @@ You can download the bcp and sqlcmd utilities from the [Microsoft Download Cente
 
 ### Data in ASCII or UTF-16 format
 
-If you are trying this tutorial with your own data, your data needs to use the ASCII or UTF-16 encoding since bcp does not support UTF-8. 
+If you are trying this tutorial with your own data, your data needs to use the ASCII or UTF-16 encoding since bcp does not support UTF-8.
 
 ## 1. Create a destination table
 
@@ -49,7 +49,6 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
     ;
 "
 ```
-
 
 ## 2. Create a source data file
 
@@ -73,7 +72,7 @@ Open Notepad and copy the following lines of data into a new text file and then 
 (Optional) To export your own data from a SQL Server database, open a command prompt and run the following command. Replace TableName, ServerName, DatabaseName, Username, and Password with your own information.
 
 ```bcp
-bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 
+bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ,
 ```
 
 ## 3. Load the data
