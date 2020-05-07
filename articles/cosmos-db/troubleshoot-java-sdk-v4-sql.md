@@ -1,17 +1,16 @@
 ---
-title: Diagnose and troubleshoot Azure Cosmos DB Async Java SDK v2
-description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Async Java SDK v2.
+title: Diagnose and troubleshoot Azure Cosmos DB Java SDK v4
+description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Java SDK v4.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/04/2020
+ms.date: 05/05/2020
 ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
-ms.reviewer: sngun
 ---
 
-# Troubleshoot issues when you use the Java Async SDK with Azure Cosmos DB SQL API accounts
+# Troubleshoot issues when you use Azure Cosmos DB Java SDK v4 with Azure Cosmos DB SQL API accounts
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
@@ -20,28 +19,28 @@ ms.reviewer: sngun
 > 
 
 > [!IMPORTANT]
-> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using Azure Cosmos DB Java SDK v4 for your project. Follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/migration-guide.md) guide and [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guide to upgrade. 
->
-> This article covers troubleshooting for Azure Cosmos DB Async Java SDK v2 only. See the Azure Cosmos DB Async Java SDK v2 [Release Notes](sql-api-sdk-async-java.md), [Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) and [performance tips](performance-tips-async-java.md) for more information.
+> This article covers troubleshooting for Azure Cosmos DB Java SDK v4 only. Please see the Azure Cosmos DB Java SDK v4 Release Notes, [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), and performance tips for more information.
 >
 
-This article covers common issues, workarounds, diagnostic steps, and tools when you use the [Java Async SDK](sql-api-sdk-async-java.md) with Azure Cosmos DB SQL API accounts.
-The Java Async SDK provides client-side logical representation to access the Azure Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
+This article covers common issues, workarounds, diagnostic steps, and tools when you use Azure Cosmos DB Java SDK v4 with Azure Cosmos DB SQL API accounts.
+Azure Cosmos DB Java SDK v4 provides client-side logical representation to access the Azure Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
 
 Start with this list:
 
 * Take a look at the [Common issues and workarounds] section in this article.
-* Look at the SDK, which is available [open source on GitHub](https://github.com/Azure/azure-cosmosdb-java). It has an [issues section](https://github.com/Azure/azure-cosmosdb-java/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed.
-* Review the [performance tips](performance-tips-async-java.md), and follow the suggested practices.
-* Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-cosmosdb-java/issues).
+* Look at the Java SDK in the Azure Cosmos DB central repo, which is available [open source on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). It has an [issues section](https://github.com/Azure/azure-sdk-for-java/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed. One helpful tip is to filter issues by the *cosmos:v4-item* tag.
+* Review the performance tips for Azure Cosmos DB Java SDK v4, and follow the suggested practices.
+* Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-sdk-for-java/issues). If there is an option to add tags to your GitHub issue, add a *cosmos:v4-item* tag.
 
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
 
 ### Network issues, Netty read timeout failure, low throughput, high latency
 
 #### General suggestions
+For best performance:
 * Make sure the app is running on the same region as your Azure Cosmos DB account. 
-* Check the CPU usage on the host where the app is running. If CPU usage is 90 percent or more, run your app on a host with a higher configuration. Or you can distribute the load on more machines.
+* Check the CPU usage on the host where the app is running. If CPU usage is 50 percent or more, run your app on a host with a higher configuration. Or you can distribute the load on more machines.
+    * If you are running your application on Azure Kubernetes Service, you can [use Azure Monitor to monitor CPU utilization](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-analyze).
 
 #### Connection throttling
 Connection throttling can happen because of either a [connection limit on a host machine] or [Azure SNAT (PAT) port exhaustion].
@@ -53,7 +52,7 @@ Run the following command.
 ```bash
 ulimit -a
 ```
-The number of max allowed open files, which are identified as "nofile," needs to be at least double your connection pool size. For more information, see [Performance tips](performance-tips-async-java.md).
+The number of max allowed open files, which are identified as "nofile," needs to be at least double your connection pool size. For more information, see the Azure Cosmos DB Java SDK v4 performance tips.
 
 ##### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
 
@@ -83,97 +82,73 @@ Otherwise, you face connection issues.
 
 #### Invalid coding pattern: Blocking Netty IO thread
 
-The SDK uses the [Netty](https://netty.io/) IO library to communicate with Azure Cosmos DB. The SDK has Async APIs and uses non-blocking IO APIs of Netty. The SDK's IO work is performed on IO Netty threads. The number of IO Netty threads is configured to be the same as the number of CPU cores of the app machine. 
+The SDK uses the [Netty](https://netty.io/) IO library to communicate with Azure Cosmos DB. The SDK has an Async API and uses non-blocking IO APIs of Netty. The SDK's IO work is performed on IO Netty threads. The number of IO Netty threads is configured to be the same as the number of CPU cores of the app machine. 
 
 The Netty IO threads are meant to be used only for non-blocking Netty IO work. The SDK returns the API invocation result on one of the Netty IO threads to the app's code. If the app performs a long-lasting operation after it receives results on the Netty thread, the SDK might not have enough IO threads to perform its internal IO work. Such app coding might result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation takes time.
 
-For example, take a look at the following code snippet. You might perform long-lasting work that takes more than a few milliseconds on the Netty thread. If so, you eventually can get into a state where no Netty IO thread is present to process IO work. As a result, you get a ReadTimeoutException failure.
+For example, take a look at the following code snippet which adds items to a container (look [here](create-sql-api-java.md) for guidance on setting up the database and container.) You might perform long-lasting work that takes more than a few milliseconds on the Netty thread. If so, you eventually can get into a state where no Netty IO thread is present to process IO work. As a result, you get a ReadTimeoutException failure.
 
-### <a id="asyncjava2-readtimeout"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+### <a id="java4-readtimeout"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
 ```java
 @Test
 public void badCodeWithReadTimeoutException() throws Exception {
-    int requestTimeoutInSeconds = 10;
-
-    ConnectionPolicy policy = new ConnectionPolicy();
-    policy.setRequestTimeoutInMillis(requestTimeoutInSeconds * 1000);
-
-    AsyncDocumentClient testClient = new AsyncDocumentClient.Builder()
-            .withServiceEndpoint(TestConfigurations.HOST)
-            .withMasterKeyOrResourceToken(TestConfigurations.MASTER_KEY)
-            .withConnectionPolicy(policy)
-            .build();
-
-    int numberOfCpuCores = Runtime.getRuntime().availableProcessors();
-    int numberOfConcurrentWork = numberOfCpuCores + 1;
-    CountDownLatch latch = new CountDownLatch(numberOfConcurrentWork);
-    AtomicInteger failureCount = new AtomicInteger();
-
-    for (int i = 0; i < numberOfConcurrentWork; i++) {
-        Document docDefinition = getDocumentDefinition();
-        Observable<ResourceResponse<Document>> createObservable = testClient
-                .createDocument(getCollectionLink(), docDefinition, null, false);
-        createObservable.subscribe(r -> {
-                    try {
-                        // Time-consuming work is, for example,
-                        // writing to a file, computationally heavy work, or just sleep.
-                        // Basically, it's anything that takes more than a few milliseconds.
-                        // Doing such operations on the IO Netty thread
-                        // without a proper scheduler will cause problems.
-                        // The subscriber will get a ReadTimeoutException failure.
-                        TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
-                    } catch (Exception e) {
-                    }
-                },
-
-                exception -> {
-                    //It will be io.netty.handler.timeout.ReadTimeoutException.
-                    exception.printStackTrace();
-                    failureCount.incrementAndGet();
-                    latch.countDown();
-                },
-                () -> {
-                    latch.countDown();
-                });
-    }
-
-    latch.await();
-    assertThat(failureCount.get()).isGreaterThan(0);
+  int requestTimeoutInSeconds = 10;
+  ConnectionPolicy policy = new ConnectionPolicy();
+  policy.setRequestTimeout(Duration.ofMillis(requestTimeoutInSeconds * 1000));
+  AtomicInteger failureCount = new AtomicInteger();
+  // Max number of concurrent item inserts is # CPU cores + 1
+  Flux<Family> familyPub = 
+      Flux.just(Families.getAndersenFamilyItem(), Families.getWitherspoonFamilyItem(), Families.getCarltonFamilyItem());
+  familyPub.flatMap(family -> {
+      return container.createItem(family);
+  }).flatMap(r -> {
+      try {
+          // Time-consuming work is, for example,
+          // writing to a file, computationally heavy work, or just sleep.
+          // Basically, it's anything that takes more than a few milliseconds.
+          // Doing such operations on the IO Netty thread
+          // without a proper scheduler will cause problems.
+          // The subscriber will get a ReadTimeoutException failure.
+          TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
+      } catch (Exception e) {
+      }
+      return Mono.empty();
+  }).doOnError(Exception.class, exception -> {
+      failureCount.incrementAndGet();
+  }).blockLast();
+  assert(failureCount.get() > 0);
 }
 ```
+
 The workaround is to change the thread on which you perform work that takes time. Define a singleton instance of the scheduler for your app.
 
-### <a id="asyncjava2-scheduler"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
 ```java
 // Have a singleton instance of an executor and a scheduler.
 ExecutorService ex  = Executors.newFixedThreadPool(30);
-Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
+Scheduler customScheduler = Schedulers.fromExecutor(ex);
 ```
-You might need to do work that takes time, for example, computationally heavy work or blocking IO. In this case, switch the thread to a worker provided by your `customScheduler` by using the `.observeOn(customScheduler)` API.
+You might need to do work that takes time, for example, computationally heavy work or blocking IO. In this case, switch the thread to a worker provided by your `customScheduler` by using the `.publishOn(customScheduler)` API.
 
-### <a id="asyncjava2-applycustomscheduler"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+### <a id="java4-apply-custom-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
 ```java
-Observable<ResourceResponse<Document>> createObservable = client
-        .createDocument(getCollectionLink(), docDefinition, null, false);
-
-createObservable
-        .observeOn(customScheduler) // Switches the thread.
-        .subscribe(
-            // ...
-        );
+container.createItem(family)
+    .publishOn(customScheduler) // Switches the thread.
+    .subscribe(
+        // ...
+    );
 ```
-By using `observeOn(customScheduler)`, you release the Netty IO thread and switch to your own custom thread provided by the custom scheduler. 
-This modification solves the problem. You won't get a `io.netty.handler.timeout.ReadTimeoutException` failure anymore.
-
-### Connection pool exhausted issue
-
-`PoolExhaustedException` is a client-side failure. This failure indicates that your app workload is higher than what the SDK connection pool can serve. Increase the connection pool size or distribute the load on multiple apps.
+By using `publishOn(customScheduler)`, you release the Netty IO thread and switch to your own custom thread provided by the custom scheduler. This modification solves the problem. You won't get a `io.netty.handler.timeout.ReadTimeoutException` failure anymore.
 
 ### Request rate too large
 This failure is a server-side failure. It indicates that you consumed your provisioned throughput. Retry later. If you get this failure often, consider an increase in the collection throughput.
+
+* **Implement backoff at getRetryAfterInMilliseconds intervals**
+
+    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries.
 
 ### Failure connecting to Azure Cosmos DB emulator
 
@@ -181,31 +156,27 @@ The Azure Cosmos DB emulator HTTPS certificate is self-signed. For the SDK to wo
 
 ### Dependency Conflict Issues
 
-```console
-Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
-```
+The Azure Cosmos DB Java SDK pulls in a number of dependencies; generally speaking, if your project dependency tree includes an older version of an artifact that Azure Cosmos DB Java SDK depends on, this may result in unexpected errors being generated when you run your application. If you are debugging why your application unexpectedly throws an exception, it is a good idea to double-check that your dependency tree is not accidentally pulling in an older version of one or more of the Azure Cosmos DB Java SDK dependencies.
 
-The above exception suggests you have a dependency on an older version of RxJava lib (e.g., 1.2.2). Our SDK relies on RxJava 1.3.8 which has APIs not available in earlier version of RxJava. 
+The workaround for such an issue is to identify which of your project dependencies brings in the old version and exclude the transitive dependency on that older version, and allow Azure Cosmos DB Java SDK to bring in the newer version.
 
-The workaround for such issues is to identify which other dependency brings in RxJava-1.2.2 and exclude the transitive dependency on RxJava-1.2.2, and allow CosmosDB SDK bring the newer version.
-
-To identify which library brings in RxJava-1.2.2 run the following command next to your project pom.xml file:
+To identify which of your project dependencies brings in an older version of something that Azure Cosmos DB Java SDK depends on, run the following command against your project pom.xml file:
 ```bash
 mvn dependency:tree
 ```
 For more information, see the [maven dependency tree guide](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
 
-Once you identify  RxJava-1.2.2 is transitive dependency of which other dependency of your project, you can modify the dependency on that lib in your pom file and exclude RxJava transitive dependency it:
+Once you know which dependency of your project depends on an older version, you can modify the dependency on that lib in your pom file and exclude the transitive dependency, following the example below (which assumes that *reactor-core* is the outdated dependency):
 
 ```xml
 <dependency>
-  <groupId>${groupid-of-lib-which-brings-in-rxjava1.2.2}</groupId>
-  <artifactId>${artifactId-of-lib-which-brings-in-rxjava1.2.2}</artifactId>
-  <version>${version-of-lib-which-brings-in-rxjava1.2.2}</version>
+  <groupId>${groupid-of-lib-which-brings-in-reactor}</groupId>
+  <artifactId>${artifactId-of-lib-which-brings-in-reactor}</artifactId>
+  <version>${version-of-lib-which-brings-in-reactor}</version>
   <exclusions>
     <exclusion>
-      <groupId>io.reactivex</groupId>
-      <artifactId>rxjava</artifactId>
+      <groupId>io.projectreactor</groupId>
+      <artifactId>reactor-core</artifactId>
     </exclusion>
   </exclusions>
 </dependency>
@@ -216,7 +187,7 @@ For more information, see the [exclude transitive dependency guide](https://mave
 
 ## <a name="enable-client-sice-logging"></a>Enable client SDK logging
 
-The Java Async SDK uses SLF4j as the logging facade that supports logging into popular logging frameworks such as log4j and logback.
+Azure Cosmos DB Java SDK v4 uses SLF4j as the logging facade that supports logging into popular logging frameworks such as log4j and logback.
 
 For example, if you want to use log4j as the logging framework, add the following libs in your Java classpath.
 
@@ -260,6 +231,12 @@ On Linux, you can run the following command.
 ```bash
 netstat -nap
 ```
+
+On Windows, you can run the same command with different argument flags:
+```bash
+netstat -abn
+```
+
 Filter the result to only connections to the Azure Cosmos DB endpoint.
 
 The number of connections to the Azure Cosmos DB endpoint in the `ESTABLISHED` state can't be greater than your configured connection pool size.
