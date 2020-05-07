@@ -88,6 +88,8 @@ Indexer was not able to run a skill in the skillset.
 ## Error: Could not execute skill because the Web API request failed
 Skill execution failed because the call to the Web API failed. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, refer to the error message for help in fixing the issue.
 
+While debugging this issue, be sure to pay attention to any [skill input warnings](#warning-skill-input-was-invalid) for this skill. Your Web API endpoint may be failing because the indexer is passing it unexpected input.
+
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"/>
 
 ## Error: Could not execute skill because Web API skill response is invalid

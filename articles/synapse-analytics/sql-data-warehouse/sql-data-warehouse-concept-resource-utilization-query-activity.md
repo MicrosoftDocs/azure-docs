@@ -51,14 +51,14 @@ Things to consider when viewing metrics and setting alerts:
 
 For a programmatic experience when monitoring SQL Analytics via T-SQL, the service provides a set of Dynamic Management Views (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
 
-To view the list of DMVs that SQL Analytics provides, refer to this [documentation](sql-data-warehouse-reference-tsql-system-views.md#sql-data-warehouse-dynamic-management-views-dmvs).
+To view the list of DMVs that apply to Synapse SQL, refer to this [documentation](../sql/reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs). 
 
-## Metrics and diagnostics logging
+## Metrics and diagnostics logging 
 
 Both metrics and logs can be exported to Azure Monitor, specifically the [Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) component and can be programmatically accessed through [log queries](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). The log latency for SQL Analytics is about 10-15 minutes. For more details on the factors impacting latency, visit the following documentation.
 
 ## Next steps
 
-The following How-to guides describe common scenarios and use cases when monitoring and managing your data warehouse:
+The following How-to guide describes common scenarios and use cases when monitoring and managing your data warehouse:
 
 - [Monitor your data warehouse workload with DMVs](sql-data-warehouse-manage-monitor.md)

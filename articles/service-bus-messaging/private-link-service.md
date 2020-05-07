@@ -18,7 +18,21 @@ A private endpoint is a network interface that connects you privately and secure
 
 For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
-> [!NOTE]
+>[!WARNING]
+> Implementing private endpoints can prevent other Azure services from interacting with Service Bus.
+>
+> Trusted Microsoft services are not supported when using Virtual Networks.
+>
+> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
+> - Integration with Azure Event Grid
+> - Azure IoT Hub Routes
+> - Azure IoT Device Explorer
+>
+> The below Microsoft services are required to be on a virtual network
+> - Azure App Service
+> - Azure Functions
+
+> [!IMPORTANT]
 > This feature is supported with the **premium** tier of Azure Service Bus. For more information about the premium tier, see the [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md) article.
 >
 > This feature is currently in **preview**. 
@@ -53,7 +67,7 @@ If you already have an existing namespace, you can create a private endpoint by 
     1. Select the **Azure subscription** in which you want to create the private endpoint. 
     2. Select the **resource group** for the private endpoint resource.
     3. Enter a **name** for the private endpoint. 
-    5. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region fro the private link resource that you are connecting to. 
+    5. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the private link resource that you are connecting to. 
     6. Select **Next: Resource >** button at the bottom of the page.
 
         ![Create Private Endpoint - Basics page](./media/private-link-service/create-private-endpoint-basics-page.png)
@@ -67,7 +81,7 @@ If you already have an existing namespace, you can create a private endpoint by 
         
             ![Create Private Endpoint - Resource page](./media/private-link-service/create-private-endpoint-resource-page.png)
     2. If you select **Connect to an Azure resource by resource ID or alias**, follow these steps:
-        1. Enter the **resource ID** or **alias**. It can be the resource ID or alias that some has shared with you.
+        1. Enter the **resource ID** or **alias**. It can be the resource ID or alias that someone has shared with you. The easiest way to get the resource ID is to navigate to the Service Bus namespace in the Azure portal and copy the portion of URI starting from `/subscriptions/`. See the following image for an example. 
         2. For **Target sub-resource**, enter **namespace**. It's the type of the sub-resource that your private endpoint can access. 
         3. (optional) Enter a **request message**. The resource owner sees this message while managing private endpoint connection. 
         4. Then, select **Next: Configuration >** button at the bottom of the page. 

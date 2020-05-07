@@ -56,7 +56,7 @@ npm init
 Install the `@azure/ai-text-analytics` NPM packages:
 
 ```console
-npm install --save @azure/ai-text-analytics@1.0.0-preview.3
+npm install --save @azure/ai-text-analytics@1.0.0-preview.4
 ```
 
 > [!TIP]
@@ -83,7 +83,7 @@ Create a file named `index.js` and add the following:
 ```javascript
 "use strict";
 
-const { TextAnalyticsClient, TextAnalyticsApiKeyCredential } = require("@azure/ai-text-analytics");
+const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 ```
 
 #### [Version 2.1](#tab/version-2)
@@ -101,7 +101,7 @@ Create variables for your resource's Azure endpoint and key.
 
 ```javascript
 const key = '<paste-your-text-analytics-key-here>';
-const endpoint = `<paste-your-text-analytics-endpoint-here>`;
+const endpoint = '<paste-your-text-analytics-endpoint-here>';
 ```
 
 ## Object model
@@ -128,7 +128,7 @@ The response object is a list containing the analysis information for each docum
 Create a new `TextAnalyticsClient` object with your key and endpoint as parameters.
 
 ```javascript
-const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new TextAnalyticsApiKeyCredential(key));
+const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 ```
 
 #### [Version 2.1](#tab/version-2)
@@ -261,7 +261,6 @@ Document ID: 3 , Language: Chinese_Simplified
 
 > [!NOTE]
 > In version `3.0-preview`:
-> * NER includes separate methods for detecting personal information. 
 > * Entity linking is a separate request than NER.
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizeEntities()` method and get the `RecognizeEntitiesResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length, and score.
@@ -313,40 +312,6 @@ Document ID: 1
         Score: 0.8
         Name: Seattle   Category: Location      Subcategory: GPE
         Score: 0.31
-```
-
-## Using NER to detect personal information
-
-Create an array of strings containing the document you want to analyze. Call the client's `recognizePiiEntities()` method and get the `EntitiesBatchResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length, and score.
-
-
-```javascript
-async function entityPiiRecognition(client){
-
-    const entityPiiInput = [
-        "Insurance policy for SSN on file 123-12-1234 is here by approved."
-    ];
-    const entityPiiResults = await client.recognizePiiEntities(entityPiiInput);
-
-    entityPiiResults.forEach(document => {
-        console.log(`Document ID: ${document.id}`);
-        document.entities.forEach(entity => {
-            console.log(`\tName: ${entity.text} \tCategory: ${entity.category} \tSubcategory: ${entity.subCategory ? entity.subCategory : "N/A"}`);
-            console.log(`\tScore: ${entity.score}`);
-        });
-    });
-}
-entityPiiRecognition(textAnalyticsClient);
-```
-
-Run your code with `node index.js` in your console window.
-
-### Output
-
-```console
-Document ID: 0
-        Name: 123-12-1234       Category: U.S. Social Security Number (SSN)     Subcategory: N/A
-        Score: 0.85
 ```
 
 ## Entity Linking
