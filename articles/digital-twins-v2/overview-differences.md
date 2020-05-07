@@ -37,6 +37,10 @@ The chart below provides a side-by-side view of major concepts that have changed
 | **Security**<br>*More standard* | The previous release had several pre-defined roles that you could use to manage access to your instance. | The new release integrates with the same Azure [role-based access control (RBAC)](../role-based-access-control/overview.md) back-end service that other Azure services use. This may make it simpler to authenticate between other Azure services in your solution, like IoT Hub, Azure Functions, Event Grid, and more. | You can still use pre-defined roles, or you can build your own custom roles. You can also configure which actions a role applies to (such as ability to upload models or ability to run queries).<br>Learn more in [Concepts: Securing Azure Digital Twins solutions](concepts-security.md). |
 | **Scale**<br>*Greater* | | The new release is designed to run at greater scale, with more compute power for handling large numbers of messages and API requests. | See <limits section> for details of the limits in public preview now. |
 
+## Service limits in public preview
+
+For a list of Azure Digital Twins limits during this public preview, see [Reference: Public preview service limits](reference-service-limits.md).
+
 ## Next steps
 
 Next dive into working with Azure Digital Twins in the quickstart:

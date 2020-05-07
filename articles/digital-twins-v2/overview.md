@@ -85,6 +85,10 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 
 :::image type="content" source="media/overview/solution-context.png" alt-text="Azure Digital Twins shown connecting to other services in a solution context. Devices connect through IoT Hub to Azure Digital Twins; client apps connect to Azure Digital Twins directly; and Azure Digital Twins exchanges data with other Azure services like compute resources and cold storage." border="false":::
 
+## Service limits in public preview
+
+For a list of Azure Digital Twins limits during public preview, see [Reference: Public preview service limits](reference-service-limits.md).
+
 ## Next steps
 
 If you have worked with the previous preview release of Azure Digital Twins, learn what has changed:

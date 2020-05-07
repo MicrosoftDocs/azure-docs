@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins service limits
+title: Public preview service limits
 titleSuffix: Azure Digital Twins
 description: Chart showing the limits of the Azure Digital Twins service during public preview.
 author: baanders
