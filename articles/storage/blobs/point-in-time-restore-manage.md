@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/01/2020
+ms.date: 05/06/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -16,12 +16,10 @@ ms.subservice: blobs
 
 You can use point-in-time restore (preview) to restore block blobs to their state at an earlier point in time. This article describes how to enable point-in-time restore for a storage account with PowerShell. It also shows how to perform a restore operation with PowerShell.
 
-To learn more about point-in-time restore, see [Point-in-time restore for block blobs (preview)](point-in-time-restore-overview.md).
+For more information and to learn how to register for the preview, see [Point-in-time restore for block blobs (preview)](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation during the point-in-time restore preview, that container cannot be restored with a restore operation.
->
-> During the preview, be careful to delete blobs individually if you may want to restore them. Avoid deleting blobs by deleting their parent container.
+> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation during the point-in-time restore preview, that container cannot be restored with a restore operation. During the preview, instead of deleting a container, delete individual blobs if you may want to restore them.
 
 > [!IMPORTANT]
 > The point-in-time restore preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
@@ -94,9 +92,20 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName
 ```
 
-## Restore all containers in the account
+## Perform a restore operation
 
-To restore all containers and blobs in the storage account, call the Restore-AzStorageBlobRange command, specifying a UTC **DateTime** value that indicates the restore point. The following example restores containers in the storage account to their state 12 hours before the present moment:
+To initiate a restore operation, call the Restore-AzStorageBlobRange command, specifying the restore point as a UTC **DateTime** value. You can specify one or more lexicographical ranges of blobs to restore, or omit a range to restore all blobs in all containers in the storage account. The restore operation may take several minutes to complete.
+
+Keep in mind the following rules when specifying a range of blobs to restore:
+
+- The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum.
+- Only one range can be specified per restore operation.
+- Wildcard characters are not supported. They are treated as standard characters.
+- You can restore blobs in the `$root` and `$web` containers by explicitly specifying them in a range pass to a restore operation. The `$root` and `$web` containers are not restored unless they are explicitly specified, so they are not restored when a restore operation restores all containers in the storage account. Other system containers cannot restored.
+
+### Restore all containers in the account
+
+To restore all containers and blobs in the storage account, call the Restore-AzStorageBlobRange command, omitting the -BlobRestoreRange parameter. The following example restores containers in the storage account to their state 12 hours before the present moment:
 
 ```powershell
 # Specify -TimeToRestore as a UTC value
@@ -105,9 +114,9 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddHours(-12)
 ```
 
-## Restore a range of block blobs
+### Restore a single range of block blobs
 
-To restore a range of blobs, call the Restore-AzStorageBlobRange command and specify a lexicographical range of container and blob names for the **-BlobRestoreRange** parameter. The start of the range is in inclusive, and the end of the range is exclusive.
+To restore a range of blobs, call the Restore-AzStorageBlobRange command and specify one or more lexicographical ranges of container and blob names for the `-BlobRestoreRange` parameter. The start of the range is in inclusive, and the end of the range is exclusive.
 
 For example, to restore the blobs in a single container named *sample-container*, you can specify a range that starts with *sample-container* and ends with *sample-container1*. There is no requirement for the containers named in the start and end ranges to exist. Because the end of the range is exclusive, even if the storage account includes a container named *sample-container1*, only the container named *sample-container* will be restored by the restore operation:
 
@@ -131,12 +140,19 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddDays(-3)
 ```
 
-Keep in mind the following rules when specifying a range of blobs to restore:
+### Restore multiple ranges of block blobs
 
-- The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum.
-- Only one range can be specified per restore operation.
-- Wildcard characters are not supported. They are treated as standard characters.
-- You can restore blobs in the `$root` and `$web` containers by explicitly specifying them in a range pass to a restore operation. The `$root` and `$web` containers are not restored unless they are explicitly specified, so they are not restored when a restore operation restores all containers in the storage account. Other system containers cannot restored.
+To restore multiple ranges of block blobs, specify an array of ranges for the `-BlobRestoreRange` parameter:
+
+```powershell
+$range1 = New-AzStorageBlobRangeToRestore -StartRange container1 -EndRange container2
+$range2 = New-AzStorageBlobRangeToRestore -StartRange container4 -EndRange container5
+
+Restore-AzStorageBlobRange -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -TimeToRestore (Get-Date).AddMinutes(-30) `
+    -BlobRestoreRange @($range1, $range2)
+```
 
 ## Next steps
 

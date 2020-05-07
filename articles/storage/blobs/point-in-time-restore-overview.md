@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/06/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -24,15 +24,24 @@ To enable point-in-time restore, you create a management policy for the storage 
 
 To initiate a point-in-time restore, call the [Restore Blob Ranges](/rest/api/storagerp/storageaccounts/restoreblobranges) operation and specify a restore point in UTC time. You can specify a lexicographical range of container and blob names to restore, or omit the range to restore all containers in the storage account. The **Restore Blob Ranges** operation returns a restore ID that uniquely identifies the operation.
 
-When you request a restore operation, Azure Storage blocks data operations on the blobs in the range being restored for the duration of the operation. Read, write, and delete operations are blocked in the primary location. Read operations from the secondary location may proceed during the restore operation if the storage account is geo-replicated.
-
 Azure Storage analyzes all changes that have been made to the specified blobs between the requested restore point, specified in UTC time, and the present moment. The restore operation is atomic, so it either succeeds completely in restoring all changes, or it fails. If there are any blobs that cannot be restored, then the operation fails, and read and write operations to the affected containers resume.
 
-When the restore operation begins, a system table named `$RestoreTable-{RestoreID}` is created in the storage account. This table is deleted when the restore operation completes successfully, or if it fails.
+When you request a restore operation, Azure Storage blocks data operations on the blobs in the range being restored for the duration of the operation. Read, write, and delete operations are blocked in the primary location. Read operations from the secondary location may proceed during the restore operation if the storage account is geo-replicated.
 
-To check the status of a point-in-time restore, call the [Get Restore Status](???this is in the spec, but i don't see it in the SRP REST API) operation with the restore ID.
+To check the status of a point-in-time restore, call the **Get Restore Status** operation with the restore ID returned from the **Restore Blob Ranges** operation.
 
-Only one restore operation can be run on a storage account at a time. A restore operation cannot be canceled once it is in progress, but a second restore operation can be performed to undo the first operation.
+Keep in mind the following points about restore operations:
+
+- Only one restore operation can be run on a storage account at a time. A restore operation cannot be canceled once it is in progress, but a second restore operation can be performed to undo the first operation.
+- A block that has been uploaded via [Put Block](/rest/api/storageservices/put-block) or [Put Block from URL](/rest/api/storageservices/put-block-from-url), but not committed via [Put Block List](/rest/api/storageservices/put-block-list), is not part of a blob and so is not restored as part of a restore operation.
+- A blob with an active lease cannot be restored. If a blob with an active lease is included in the range of blobs to restore, the restore operation will fail atomically.
+- Snapshots are not created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
+- If a blob has moved between the hot and cool tiers in the period between the present moment and the restore point, the blob is restored to its previous tier. However, a blob that has moved to the archive tier will not be restored.
+
+Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored.
+
+> [!CAUTION]
+> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation during the point-in-time restore preview, that container cannot be restored with a restore operation. During the preview, instead of deleting a container, delete individual blobs if you may want to restore them.
 
 ### Prerequisites for point-in-time restore
 
@@ -50,38 +59,11 @@ When you enable point-in-time restore for a storage account, you specify a reten
 
 The retention period begins when you enable point-in-time restore. Keep in mind that you cannot restore blobs to a state prior to the beginning of the retention period. For example, if you enabled point-in-time restore on May 1st with a retention of 30 days, then on May 15th you can restore to a maximum of 15 days. On June 1st, you can restore data from between 1 and 30 days.
 
-The retention period for point-in-time restore must be at least one day greater than the retention period specified for soft delete.
+The retention period for point-in-time restore must be at least one day less than the retention period specified for soft delete. For example, if the soft delete retention period is set to 7 days, then the point-in-time restore retention period may be between 1 and 6 days.
 
 ### Permissions for point-in-time restore
 
-To initiate a restore operation, a client must have write permissions to all containers in the storage account. To grant permissions to authorize a restore operation with Azure Active Directory (Azure AD), assign the **Storage Blob Data Contributor** role to the security principal at the level of the storage account, resource group, or subscription.
-
-## Supported operations
-
-Point-in-time restore will restore data affected by the following write operations on block blobs, if these operations have been called during the interval between the restore point and the present moment:
-
-- [Put Blob](/rest/api/storageservices/put-blob)
-- [Put Block List](/rest/api/storageservices/put-block-list)
-- [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
-- [Set Blob Properties](/rest/api/storageservices/set-blob-properties)
-- [Copy Blob](/rest/api/storageservices/copy-blob)
-- [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob)
-- [Delete Blob](/rest/api/storageservices/delete-blob)
-- [Undelete Blob](/rest/api/storageservices/undelete-blob)
-
-Keep in mind the following points about restore operations:
-
-- A block that has been uploaded via [Put Block](/rest/api/storageservices/put-block) or [Put Block from URL](/rest/api/storageservices/put-block-from-url), but not committed via [Put Block List](/rest/api/storageservices/put-block-list), is not part of a blob and so is not restored as part of a restore operation.
-- A blob with an active lease cannot be restored. If a blob with an active lease is included in the range of blobs to restore, the restore operation will fail atomically.
-- Only the base blob is restored to its previous state. Snapshots are not created or deleted as part of a restore operation.
-- If a blob has moved between the hot and cool tiers in the period between the present moment and the restore point, the blob is restored to its previous tier. However, a blob that has moved to the archive tier will not be restored.
-
-Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored.
-
-> [!CAUTION]
-> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation during the point-in-time restore preview, that container cannot be restored with a restore operation.
->
-> During the preview, be careful to delete blobs individually if you may want to restore them. Avoid deleting blobs by deleting their parent container.
+To initiate a restore operation, a client must have write permissions to all containers in the storage account. To grant permissions to authorize a restore operation with Azure Active Directory (Azure AD), assign the **Storage Account Contributor** role to the security principal at the level of the storage account, resource group, or subscription.
 
 ## About the preview
 
@@ -92,7 +74,6 @@ The following regions support point-in-time restore in preview:
 - Canada Central
 - Canada East
 - France Central
-- France South
 
 The preview includes the following limitations:
 
@@ -130,6 +111,16 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Changefeed
 ```
+
+## Pricing and billing
+
+Billing for point-in-time restore depends on the quantity of data processed to perform the restore operation. The quantity of data processed is a function of the number of objects in the storage account and the number of changes that occurred between the restore point and the present moment. For example, assuming a relatively constant rate of change to block blob data in a storage account, a restore operation that goes back in time 1 day would cost 1/10th of a restore that goes back in time 10 days.
+
+To estimate the cost of a restore operation, review the change feed log to estimate the quantity of data modified during the restore period. For example, if the retention period for change feed is 30 days, and the size of the change feed is 10 MB, then restoring to a point 10 days earlier for a locally redundant (LRS) storage account would cost approximately one-third of the price listed for an LRS account in that region. To restore to a point that is 27 days earlier, then the cost would be nine-tenths of the price listed.
+
+## Ask questions or provide feedback
+
+To ask questions about the point-in-time restore preview, or to provide feedback, contact Microsoft at pitrdiscussion@microsoft.com.
 
 ## Next steps
 
