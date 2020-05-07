@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 In order to use the Azure VMWare Solution you must first register the resource provider. The following example registers the resource provider with your subscription.
 
 ```azurecli-interactive
-az provider register -n Microsoft.VMwareVirtustream --subscription <your subscription ID>
+az provider register -n Microsoft.AVS --subscription <your subscription ID>
 ```
 
 For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
