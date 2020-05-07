@@ -17,7 +17,7 @@ You can use [private endpoints](../../private-link/private-endpoint-overview.md)
 
 Using private endpoints for your Azure SignalR Service enables you to:
 
-- Secure your Azure SignalR Service by configuring the network ACL to block all or certain types of connections on the public endpoint for Azure SignalR Service.
+- Secure your Azure SignalR Service by configuring the network access control to block all or certain types of connections on the public endpoint for Azure SignalR Service.
 - Increase security for the virtual network (VNet), by enabling you to block exfiltration of data from the VNet.
 - Securely connect to Azure SignalR Services from on-premises networks that connect to the VNet using [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../../expressroute/expressroute-locations.md) with private-peering.
 
@@ -34,7 +34,7 @@ When you create a private endpoint for an Azure SignalR Service in your VNet, a 
 Azure SignalR Service owners can manage consent requests and the private endpoints, through the '*Private endpoints*' tab for the Azure SignalR Service in the [Azure portal](https://portal.azure.com).
 
 > [!TIP]
-> If you want to restrict access to your Azure SignalR Service through the private endpoint only, [configure the Network ACL](signalr-network-acl.md#change-the-default-network-access-rule) to deny or control access through the public endpoint.
+> If you want to restrict access to your Azure SignalR Service through the private endpoint only, [configure the Network Access Control](signalr-howto-network-acl.md#managing-network-access-control) to deny or control access through the public endpoint.
 
 For more detailed information on creating a private endpoint for your Azure SignalR Service, refer to the following articles:
 
@@ -64,7 +64,7 @@ For the illustrated example above, the DNS resource records for the Azure Signal
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
 | ``foobar.privatelink.service.signalr.net``            | A     | \<Azure SignalR Service public IP address\>           |
 
-As previously mentioned, you can deny or control access for clients outside the VNet through the public endpoint using the network ACL.
+As previously mentioned, you can deny or control access for clients outside the VNet through the public endpoint using the network access control.
 
 The DNS resource records for 'foobar', when resolved by a client in the VNet hosting the private endpoint, will be:
 
@@ -111,4 +111,4 @@ Currently, you can't configure [Network Security Group](../../virtual-network/se
 
 ## Next steps
 
-- [Configure Network ACL](signalr-network-acl.md)
+- [Configure Network Access Control](signalr-howto-network-acl.md)
