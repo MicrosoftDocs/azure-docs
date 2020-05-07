@@ -11,9 +11,9 @@
     href: azure-sql-managed-instance-rebrand.md
  
 
-- name: Common SQL DB & SQL MI content 
+- name: Common SQL DB & SQL MI docs 
   items:
-  - name: Common Concepts 
+  - name: Common concepts 
     itemS: 
     - name: Feature comparison
       href: sql-database-features.md
@@ -199,20 +199,20 @@
           - name: Long-term backup retention
             href: sql-database-long-term-retention.md
 
-      - name: Failover groups and geo-replication
-        items:
-        - name: Active geo-replication
-          href: sql-database-active-geo-replication.md
-        - name: Auto-failover groups
-          href: sql-database-auto-failover-group.md
-        - name: Configure security for replicas
-          href: sql-database-geo-replication-security-config.md
-        - name: Outage recovery guidance
-          href: sql-database-disaster-recovery.md
-        - name: Recovery drills
-          href: sql-database-disaster-recovery-drills.md
-        - name: Configure failover group
-          href: sql-database-configure-failover-group.md
+    - name: Failover groups and geo-replication
+      items:
+      - name: Active geo-replication
+        href: sql-database-active-geo-replication.md
+      - name: Auto-failover groups
+        href: sql-database-auto-failover-group.md
+      - name: Configure security for replicas
+        href: sql-database-geo-replication-security-config.md
+      - name: Outage recovery guidance
+        href: sql-database-disaster-recovery.md
+      - name: Recovery drills
+        href: sql-database-disaster-recovery-drills.md
+      - name: Configure failover group
+        href: sql-database-configure-failover-group.md
 
     - name: Monitor and tune
       items:
