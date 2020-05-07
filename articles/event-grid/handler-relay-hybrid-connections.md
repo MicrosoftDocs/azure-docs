@@ -10,7 +10,7 @@ ms.date: 01/21/2020
 ms.author: spelluru
 ---
 
-## Relay Hybrid connection as an event handler for Azure Event Grid events
+# Relay Hybrid connection as an event handler for Azure Event Grid events
 
 An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events. You can also use any WebHook for handling events. The WebHook doesn't need to be hosted in Azure to handle events. Event Grid only supports HTTPS WebHook endpoints.
 
