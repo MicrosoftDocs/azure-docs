@@ -14,46 +14,51 @@ ms.reviewer: jrasnick, carlrab
 # Create and use external tables in SQL on-demand (preview) using Azure Synapse Analytics
 
 In this section, you'll learn how to create and use external tables in SQL on-demand (preview). External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand. External tables can access two types of storage:
-- Public storage where user access public storage files
+- Public storage where user access public storage files.
 - Protected storage where user access storage files using SAS credential, Azure AD identity, or Managed Identity of Synapse workspace.
 
 ## Prerequisites
 
 Your first step is to create database where the tables will be created and initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This  setup script will create the following objects that are used in this sample:
 - DATABASE SCOPED CREDENTIAL `sqlondemand` that enables access to SAS-protected `https://sqlondemandstorage.blob.core.windows.net` Azure storage account.
-- EXTERNAL DATA SOURCE `YellowTaxi` that references publicly available Azure storage account on location `https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/`.
-- File format `ParquetFormat` that describes parquet file type.
+```sql
+CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
+WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
+```
+- EXTERNAL DATA SOURCE `sqlondemanddemo` that references demo storage account protected with SAS key, and EXTERNAL DATA SOURCE `YellowTaxi` that references publicly available Azure storage account on location `https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/`.
+```sql
+CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
+    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
+    CREDENTIAL = sqlondemand
+);
+GO
+CREATE EXTERNAL DATA SOURCE YellowTaxi
+WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/')
+```
+- File formats `QuotedCSVWithHeaderFormat` and `ParquetFormat` that describe CSV and parquet file types.
+```sql
+CREATE EXTERNAL FILE FORMAT QuotedCsvWithHeaderFormat
+WITH (  
+    FORMAT_TYPE = DELIMITEDTEXT,
+    FORMAT_OPTIONS ( FIELD_TERMINATOR = ',', STRING_DELIMITER = '"', FIRST_ROW = 2   )
+);
+GO
+CREATE EXTERNAL FILE FORMAT ParquetFormat WITH (  FORMAT_TYPE = PARQUET );
+```
 
 The queries in this article will be executed on your sample database and use these objects. 
 
 ## Create an external table on protected data
 
-You can create external tables that access data on Azure storage account that allows access to users with some Azure AD identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. The query below creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account protected with database scoped credential called `sqlondemand`. Database scoped credential is created in [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
+You can create external tables that access data on Azure storage account that allows access to users with some Azure AD identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. The query below creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account that is referenced using `sqlondemanddemo` data source and protected with database scoped credential called `sqlondemand`. Data source and database scoped credential are created in [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created. 
 
 ```sql
 USE [mydbname];
 GO
-
-CREATE EXTERNAL DATA SOURCE [CsvDataSource] WITH (
-    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net/csv'
-    , CREDENTIAL = sqlondemand -- credential created in setup script
-);
-GO
-
-CREATE EXTERNAL FILE FORMAT CSVFileFormat
-WITH (  
-    FORMAT_TYPE = DELIMITEDTEXT,
-    FORMAT_OPTIONS (
-        FIELD_TERMINATOR = ',',
-        STRING_DELIMITER = '"',
-        FIRST_ROW = 2
-    )
-);
-GO
-
 CREATE EXTERNAL TABLE populationExternalTable
 (
     [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
@@ -62,9 +67,9 @@ CREATE EXTERNAL TABLE populationExternalTable
     [population] bigint
 )
 WITH (
-    LOCATION = 'population/population.csv',
-    DATA_SOURCE = CsvDataSource,
-    FILE_FORMAT = CSVFileFormat
+    LOCATION = 'csv/population/population.csv',
+    DATA_SOURCE = sqlondemanddemo,
+    FILE_FORMAT = QuotedCSVWithHeaderFormat
 );
 GO
 ```
@@ -74,10 +79,6 @@ GO
 You can create external tables that reads data from the files placed on publicly available Azure storage. [Setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) will create public external data source and Parquet file format definition that is used in the following query:
 
 ```sql
-/* Public data source created in setup script: 
-CREATE EXTERNAL DATA SOURCE YellowTaxi WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/')
-*/
-
 CREATE EXTERNAL TABLE Taxi (
      vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
      pickup_datetime DATETIME2, 
