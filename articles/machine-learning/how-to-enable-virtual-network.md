@@ -21,7 +21,13 @@ ms.custom: contperfq4
 In this article, you'll learn how to isolate experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network (vnet). You'll also learn about some *advanced security settings*, information that isn't necessary for basic or experimental use cases.
 
 > [!WARNING]
-> If your underlying storage is in a virtual network, users will not be able to use Azure Machine Learning's studio web experience for drag-n-drop designer, the UI for automated machine learning, and data labeling. 
+> If your underlying storage is in a virtual network, users will not be able to use Azure Machine Learning's studio web experience, including:
+> - drag-n-drop designer
+> - UI for automated machine learning
+> - UI for data labeling
+> - UI for data sets
+> 
+>  If you try, you will receive an error when visualizing data from a storage account inside a virtual network similar to: `__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
 
 ## What is a VNET?
 
