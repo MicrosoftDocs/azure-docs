@@ -76,7 +76,7 @@ The following steps explain how to add a package to monitor your compliance with
     > [!NOTE]
     > It may take a few hours for a newly added standard to appear in the compliance dashboard.
 
-    [![Regulatory compliance dashboard showing old and new Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-asb-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-asb.png#lightbox)
+    [![Regulatory compliance dashboard showing old and new Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
 
 ## Next steps
 
