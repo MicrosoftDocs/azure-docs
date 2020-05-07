@@ -109,7 +109,7 @@ git clone https://github.com/Azure-Samples/DynamoDB-to-CosmosDB
 
 ### Set up your code
 
-Add the following "nuget package" to your project:
+Add the following "NuGet package" to your project:
 
 ```bash
 Install-Package Microsoft.Azure.Cosmos 
@@ -513,8 +513,9 @@ await cosmosDatabase.DeleteAsync();
 
 As you can see, Azure Cosmos DB supports natural queries (SQL), operations are asynchronous and much easier. You can easily migrate your complex code to Azure Cosmos DB, which becomes simpler after the migration.
 
-### Next steps
+### Next Steps
 
 - Learn about [performance optimization](performance-tips.md).
 - Learn about [optimize reads and writes](key-value-store-cost.md)
+- Learn about [Monitoring in Cosmos DB](monitor-cosmos-db.md)
 
