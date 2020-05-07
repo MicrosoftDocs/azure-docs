@@ -12,17 +12,19 @@ manager: lizross
 ---
 # Security best practices
 
-Windows Virtual Desktop is a managed virtual desktop service that includes many security capabilities for keeping your organization safe. In a Windows Virtual Desktop deployment, Microsoft manages portions of the services on the customer’s behalf. The service has namyh built-in advanced security features, such as Reverse Connect, which reduces the risk involved with having remote desktops accessible from anywhere.
+Windows Virtual Desktop is a managed virtual desktop service that includes many security capabilities for keeping your organization safe. In a Windows Virtual Desktop deployment, Microsoft manages portions of the services on the customer’s behalf. The service has many built-in advanced security features, such as Reverse Connect, which reduce the risk involved with having remote desktops accessible from anywhere.
 
 This article describes additional steps you can take as an admin to keep your customers' Windows Virtual Desktop deployments secure.
 
 ## Security responsibilities
 
-Many cloud services share certain security responsibilities. When you use Windows Virtual Desktop, it’s important to understand that while some components come already secured for your environment, you'll need to configure other areas yourself to fit your organization’s security needs.
+What makes cloud services different from traditional on-premises virtual desktop infrastructures (VDIs) is how they handle security responsibilities. For example, in a traditional on-premises VDI, the customer would be responsible for all aspects of security. However, in most cloud services, these responsibilities are shared between the customer and the company.
 
-The following table shows which security needs users are responsible for.
+When you use Windows Virtual Desktop, it’s important to understand that while some components come already secured for your environment, you'll need to configure other areas yourself to fit your organization’s security needs.
 
-| Security need | Is the user responsible for this? |
+Here are the security needs you're responsible for in your Windows Virtual Desktop deployment:
+
+| Security need | Is the customer responsible for this? |
 |---------------|:-------------------------:|
 |Identity|Yes|
 |User devices (mobile and PC)|Yes|
@@ -35,7 +37,11 @@ The following table shows which security needs users are responsible for.
 |Physical network|No|
 |Physical datacenter|No|
 
+The security needs the customer isn't responsible for are handled by Microsoft.
+
 ## Azure security best practices
+
+Windows Virtual Desktop is a service under Azure. To maximize the safety of your Windows Virtual Desktop deployment, you should make sure to secure the surrounding Azure infrastructure and management plane as well. To secure your infrastructure, consider how Windows Virtual Desktop fits into your larger Azure ecosystem. To learn more about the Azure ecosystem, see [Azure security best practices and patterns](../security/fundamentals/best-practices-and-patterns.md).
 
 This section describes best practices for securing your Azure ecosystem.
 
@@ -55,13 +61,9 @@ To learn more, see [Onboard your Azure subscription to Security Center Standard]
 
 Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations are prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up to date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Azure Security Center](../security-center/security-center-secure-score.md).
 
-### Windows Virtual Desktop as part of your Azure environment
+## Windows Virtual Desktop security best practices
 
-To maximize the safety of your Windows Virtual Desktop deployment, you should make sure to secure the surrounding infrastructure and management plane as well. To secure your infrastructure, consider how Windows Virtual Desktop fits into your larger Azure ecosystem. To learn more about the Azure ecosystem, see [Azure security best practices and patterns](../security/fundamentals/best-practices-and-patterns.md).
-
-## Windows Virtual Desktop service security best practices
-
-This section explains best practices for Windows Virtual Desktop service security.
+Windows Virtual Desktop has many built-in security controls. In this section, you'll learn about security controls you can use to keep your users and data safe.
 
 ### Require multi-factor authentication
 
@@ -92,7 +94,7 @@ Monitor your Windows Virtual Desktop service's usage and availability with [Azur
 
 ## Session host security best practices
 
-This section describes best practices for session host security.
+Session hosts are virtual machines that run inside an Azure subscription and virtual network. Your Windows Virtual Desktop deployment's overall security depends on the security controls you put on your session hosts. This section describes best practices for keeping your session hosts secure.
 
 ### Enable endpoint protection
 
