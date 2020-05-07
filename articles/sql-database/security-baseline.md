@@ -96,7 +96,7 @@ https://docs.microsoft.com/azure/security-center/security-center-alerts-data-ser
 
 ### 1.5: Record network packets and flow logs
 
-**Guidance**: For Azure Virtual Machines (VMs) that will be connecting to your Azure SQL Database instance, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into a Azure Storage Account for traffic audit. If required for investigating anomalous activity, enable Network Watcher packet capture.
+**Guidance**: For Azure Virtual Machines (VMs) that will be connecting to your Azure SQL Database instance, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into an Azure Storage Account for traffic audit. If required for investigating anomalous activity, enable Network Watcher packet capture.
 
 How to Enable NSG Flow Logs:
 
@@ -301,7 +301,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ### 2.8: Centralize anti-malware logging
 
-**Guidance**: Not applicable; for Azure SQL Databawe, the anti-malware solution is managed by Microsoft on the underlying platform.
+**Guidance**: Not applicable; for Azure SQL Database, the anti-malware solution is managed by Microsoft on the underlying platform.
 
 **Azure Security Center monitoring**: Not applicable
 
