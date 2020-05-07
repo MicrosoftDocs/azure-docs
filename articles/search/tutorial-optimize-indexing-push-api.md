@@ -322,7 +322,7 @@ From here, we wrap the exponential backoff code into a function so it can be eas
 
 Another function is then created to manage the active threads. For simplicity, that function isn't included here but can be found in [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/OptimizeDataIndexing/ExponentialBackoff.cs). The function can be called with the following command where `hotels` is the data we want to upload, `1000` is the batch size, and `8` is the number of concurrent threads:
 
-```cmd
+```csharp
 ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();
 ```
 
