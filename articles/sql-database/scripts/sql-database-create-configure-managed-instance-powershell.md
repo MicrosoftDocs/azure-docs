@@ -37,7 +37,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## Script explanation
 
-This script uses some of the following commands. Each command in the table links to command specific documentation.
+This script uses some of the following commands. For more information about used and other commands in the table below, click on the links to command specific documentation.
 
 | Command | Notes |
 |---|---|
