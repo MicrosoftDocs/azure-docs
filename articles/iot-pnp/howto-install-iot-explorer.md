@@ -3,7 +3,7 @@ title: Install and use Azure IoT explorer | Microsoft Docs
 description: Install the Azure IoT explorer tool and use it to interact with the IoT Plug and Play Preview devices connected to IoT hub.
 author: rido-min
 ms.author: rmpablos
-ms.date: 04/29/2020
+ms.date: 05/06/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
@@ -37,7 +37,7 @@ To use the Azure IoT explorer tool, you need:
 Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. Download and install the most recent version of the application.
 
 >[!Important]
->From version 0.10.18 IoT Explorer only supports the latest PnP release. To use the features available in the previous preview-release you must install version 0.10.17 or lower.
+>From version 0.11.0 IoT Explorer only supports the PnP May 2020 preview-release. To use the features available in the previous preview-release from Aug 2019 you must install a 0.10.x version.
 
 ## Use Azure IoT explorer
 
@@ -51,27 +51,26 @@ The model definition for an IoT Plug and Play device is stored in either the pub
 
 To add a source:
 
-1. Go to **Settings**.
-1. Select **New** and choose your source.
-1. If you're adding your company model repository, provide the model repository connection string.
+1. Go to **Home/IoT Plug and Play Settings**
+2. Select **Add** and choose your source, from a repository or local folder.
 
 To remove a source:
 
-1. Go to **Settings**.
-1. Find the source you want to remove.
-1. Select **X** to remove it. You can't remove the public model repository because the common interface definitions come from this repository.
+1. Go to **Home/IoT Plug and Play Settings**
+2. Find the source you want to remove.
+3. Select **X** to remove it.
 
 Change the source priorities:
 
-You can drag and drop one of the model definition sources to a different ranking in the list. If there's a conflict, definition sources with higher rankings override sources with lower rankings.
+You can drag and drop one of the model definition sources to a different ranking in the list. 
 
 ### View devices
 
-After the tool connects to your IoT hub, it displays the **Devices** list page that lists the device identities registered with your IoT hub. You can expand any entry in the list to see more information.
+After the tool connects to your IoT hub, it displays the **Devices** list page that lists the device identities registered with your IoT hub. You can select any entry in the list to see more information.
 
 On the **Devices** list page you can:
 
-- Select **Add** to register a new device with your hub. Then enter a device ID. Use the default settings to automatically generate authentication keys and enable the connection to your hub.
+- Select **New** to register a new device with your hub. Then enter a device ID. Use the default settings to automatically generate authentication keys and enable the connection to your hub.
 - Select a device and then select **Delete** to delete a device identity. Review the device details before you complete this action to be sure you're deleting the right device identity.
 
 ## Interact with a device
@@ -80,22 +79,20 @@ On the **Devices** list page, select a value in the **Device ID** column to view
 
 ### Device
 
-This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, **Direct method** and **Cloud-to-device message** tabs.
+This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, **Direct method**, **Cloud-to-device message**, **Module Identity**  tabs.
 
 - You can view and update the [device identity](../iot-hub/iot-hub-devguide-identity-registry.md) information on the **Device identity** tab.
 - You can access the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) information on the **Device Twin** tab.
 - If a device is connected and actively sending data, you can view the [telemetry](../iot-hub/iot-hub-devguide-messages-read-builtin.md) on the **Telemetry** tab.
 - You can call a [direct method](../iot-hub/iot-hub-devguide-direct-methods.md) on the device on the **Direct method** tab.
 - You can send a [cloud-to-device message](../iot-hub/iot-hub-devguide-messages-c2d.md) on the **Cloud-to-device messages** tab.
+- You can access the [module twin](../iot-hub/iot-hub-devguide-module-twins) information.
 
-### Digital twin
+### Plug and Play Components
 
 If the device is connected to hub using a Model Id, the tool will show the tab `IoT Plug and Play components` where users can see the ModelId.
 
-If the ModelId is available in one of the configured sources - Public Repo, Company Repo or Local Folder, the list of components will be displayed. Selecting a component will show the properties, commands and telemetry available.
-
-
-### Components
+If the ModelId is available in one of the configured sources - Public Repo or Local Folder, the list of components will be displayed. Selecting a component will show the properties, commands and telemetry available.
 
 On the **Component** page, you can view the non-writable properties , update writable properties, invoke commands and see the telemetry messages produced by this component,
 
