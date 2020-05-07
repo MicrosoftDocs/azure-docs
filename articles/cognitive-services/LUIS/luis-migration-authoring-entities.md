@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/06/2020
 ms.author: diberry
 ---
 
@@ -21,12 +21,12 @@ The V3 authoring provides one new entity type, the machine-learned entity, along
 
 Entities created with the V3 authoring APIs, either using the [APIs](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) or with the [preview portal](https://preview.luis.ai/), allow you to build a layered entity model with a parent and children. The parent is known to as the **machine-learned entity** and the children are known as **subentities** of the machine learned entity.
 
-Each subentity is also a machine-learned entity but with the added configuration options of constraints and descriptors.
+Each subentity is also a machine-learned entity but with the added configuration options of features.
 
-* **Constraints** are exact text matching rules that guarantee an entity is extracted when it matches a rule. The rule is defined by an exact text matching entity, currently: a [prebuilt entity](luis-reference-prebuilt-entities.md), a [regular expression entity](reference-entity-regular-expression.md), or [list entity](reference-entity-list.md).
-* **Descriptors** are [features](luis-concept-feature.md), such as phrase lists or entities, that are used to strongly indicate the entity.
-
-The V3 authoring provides one new entity type, the machine-learned entity, along with the ability to add relationships to the machine-learned entity and other entities or features of the application.
+* **Required features** are rules that guarantee an entity is extracted when it matches a feature. The rule is defined by required feature to the model:
+    * [Prebuilt entity](luis-reference-prebuilt-entities.md)
+    * [Regular expression entity](reference-entity-regular-expression.md)
+    * [List entity](reference-entity-list.md).
 
 ## How do these new relationships compare to V2 authoring
 
@@ -66,7 +66,7 @@ If you don't have batch tests in place for your V2 model, and migrate the batch 
 
 ## Migrating from V2 entities
 
-As you begin to move to the V3 authoring model, you should consider how to move to the machine-learned entity, and its subentities including the constraints and descriptors.
+As you begin to move to the V3 authoring model, you should consider how to move to the machine-learned entity, and its subentities and features.
 
 The following table notes which entities need to migrate from a V2 to a V3 entity design.
 
@@ -77,20 +77,20 @@ The following table notes which entities need to migrate from a V2 to a V3 entit
 
 ## Migrate V2 Composite entity
 
-Each child of the V2 composite should be represented with a subentity of the V3 machine-learned entity. If the composite child is a prebuilt, regular expression, or a list entity, this should be applied as a **constraint** on the subentity representing the child.
+Each child of the V2 composite should be represented with a subentity of the V3 machine-learned entity. If the composite child is a prebuilt, regular expression, or a list entity, this should be applied as a required feature on the subentity.
 
 Considerations when planning to migrate a composite entity to a machine-learned entity:
 * Child entities can't be used in patterns
 * Child entities are no longer shared
 * Child entities need to be labeled if they used to be non-machine-learned
 
-### Existing descriptors
+### Existing features
 
-Any phrase list used to boost words in the composite entity should be applied as a descriptor to either the machine-learned (parent) entity, the subentity (child) entity, or the intent (if the phrase list only applies to one intent). Plan to add the descriptor to the entity it should boost most significantly. Do not add the descriptor generically to the machine-learned (parent) entity, if it will most significantly boost the prediction of a subentity (child).
+Any phrase list used to boost words in the composite entity should be applied as a feature to either the machine-learned (parent) entity, the subentity (child) entity, or the intent (if the phrase list only applies to one intent). Plan to add the feature to the entity where it should boost most significantly. Do not add the feature generically to the machine-learned (parent) entity, if it will most significantly boost the prediction of a subentity (child).
 
-### New descriptors
+### New features
 
-In V3 authoring, add a planning step to evaluate entities as possible descriptors for all the entities and intents.
+In V3 authoring, add a planning step to evaluate entities as possible features for all the entities and intents.
 
 ### Example entity
 
@@ -110,8 +110,8 @@ The following table demonstrates the migration:
 |V2 models|V3 models|
 |--|--|
 |Parent - Component entity named `Order`|Parent - Machine-learned entity named `Order`|
-|Child - Prebuilt datetimeV2|* Migrate prebuilt entity to new app.<br>* Add Constraint on parent for prebuilt datetimeV2.|
-|Child - list entity for toppings|* Migrate list entity to new app.<br>* Then add a constraint on the parent for the list entity.|
+|Child - Prebuilt datetimeV2|* Migrate prebuilt entity to new app.<br>* Add required feature on parent for prebuilt datetimeV2.|
+|Child - list entity for toppings|* Migrate list entity to new app.<br>* Then add a required feature on the parent for the list entity.|
 
 
 ## Migrate V2 Hierarchical entity
