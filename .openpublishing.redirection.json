@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/container-registry/container-registry-tasks-agent-pools.md",
+      "redirect_url": "/azure/container-registry/container-registry-tasks-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/openshift/tutorial-scale-cluster.md",
       "redirect_url": "articles/openshift/tutorial-connect-cluster.md",
       "redirect_document_id": false
@@ -6495,6 +6500,11 @@
     {
       "source_path": "articles/active-directory-b2c/saml-technical-profile.md",
       "redirect_url": "/azure/active-directory-b2c/saml-identity-provider-technical-profile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-policy-manage-sso-and-token-config.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-tokens-custom-policy.md",
       "redirect_document_id": false
     },
     {
@@ -17812,6 +17822,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md",
+      "redirect_url": "/power-bi/service-azure-sql-data-warehouse-with-direct-connect",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory",
       "redirect_document_id": false
@@ -17948,8 +17963,8 @@
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md",
-      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi",
-      "redirect_document_id": true
+      "redirect_url": "/power-bi/service-azure-sql-data-warehouse-with-direct-connect",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-how-to-configure-workload-importance.md",
@@ -28217,6 +28232,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/blobs/storage-blob-snapshots.md",
+      "redirect_url": "/azure/storage/blobs/snapshots-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-blob-soft-delete.md",
+      "redirect_url": "/azure/storage/blobs/soft-delete-overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-blob-storage-tiers.md",
       "redirect_url": "/azure/storage/blobs/storage-blob-storage-tiers",
       "redirect_document_id": true
@@ -28445,6 +28470,11 @@
       "source_path": "articles/storage/storage-how-to-use-files-linux.md",
       "redirect_url": "/azure/storage/files/storage-how-to-use-files-linux",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/files/storage-how-to-recover-deleted-account.md",
+      "redirect_url": "/azure/storage/common/storage-account-create",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/storage-https-custom-domain-cdn.md",
@@ -52334,10 +52364,79 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-machines/troubleshooting/linux-virtual-machine-cannot-start-fstab-errors.md",
-      "redirect_url": "/articles/virtual-machines/troubleshooting",
+      "source_path": "articles/visual-studio/vs-storage-webjobs-what-happened.md",
+      "redirect_url": "/azure/storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet5-getting-started-blobs.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet-legacy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet5-getting-started-tables.md",
+      "redirect_url": "/azure/storage/tables/table-storage-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet-getting-started-queues.md",
+      "redirect_url": "/azure/storage/queues/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet-what-happened.md",
+      "redirect_url": "/azure/storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-webjobs-getting-started-tables.md",
+      "redirect_url": "/azure/storage/tables/table-storage-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet-core-getting-started-blobs.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet-legacy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet5-getting-started-queues.md",
+      "redirect_url": "/azure/storage/queues/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vs-azure-tools-storage-emulator-using.md",
+      "redirect_url": "/azure/storage/common/storage-use-emulator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet-getting-started-blobs.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet-legacy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet5-what-happened.md",
+      "redirect_url": "/azure/storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-aspnet-getting-started-tables.md",
+      "redirect_url": "/azure/storage/tables/table-storage-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-webjobs-getting-started-blobs.md",
+      "redirect_url": "/azure/storage/blobs/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-webjobs-getting-started-queues.md",
+      "redirect_url": "/azure/storage/queues/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/visual-studio/vs-storage-cloud-services-what-happened.md",
+      "redirect_url": "/azure/storage",
       "redirect_document_id": false
     }
- 
  ]
 }

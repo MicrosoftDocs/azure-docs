@@ -62,6 +62,9 @@
   items:
   - name: Azure PowerShell
     href: platform/powershell-samples.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: What can you monitor?
@@ -441,9 +444,7 @@
       - name: Correlate custom data sources
         href: app/custom-data-correlation.md
       - name: Connection strings
-        href: app/sdk-connection-string.md
-      - name: Connection strings
-        href: app/sdk-connection-string.md
+        href: app/sdk-connection-string.md      
       - name: GetMetric
         displayname: get metric, custom metrics, metrics, TrackMetric
         href: app/get-metric.md
@@ -927,6 +928,10 @@
         href: platform/workbooks-data-sources.md
       - name: Deploy with Azure Resource Manager
         href: platform/workbooks-automate.md
+      - name: Groups
+        href: platform/workbooks-groups.md
+      - name: Transform JSON data with JSONPath
+        href: platform/workbooks-jsonpath.md
       - name: Configuration
         items:
         - name: Access control
