@@ -594,7 +594,7 @@
     {
       "source_path": "articles/machine-learning/service/concept-accelerate-inferencing-with-gpus.md",
       "redirect_url": "/azure/machine-learning/how-to-deploy-inferencing-gpus",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/open-datasets/tutorial-opendatasets-automl.md",
