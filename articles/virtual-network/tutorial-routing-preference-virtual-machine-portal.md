@@ -48,21 +48,21 @@ Sign in to the [Azure portal](https://preview.portal.azure.com/).
 5. Under **Networking** tab, click on **Create new** for **Public IP address**.
 6. Enter *myPublicIpAddress*, select sku as **Standard**, and then select routing preference **Internet** and then hit **ok**, as shown in the following picture:
 
-   ![Select static](./media/tutorial-routing-preference-virtual-machine-portal/routing-preference-internet.png)
+   ![Select static](./media/tutorial-routing-preference-virtual-machine-portal/routing-preference-internet-new.png)
 
 6. Select a port, or no ports under **Select public inbound ports**. Portal 3389 is selected, to enable remote access to the Windows Server virtual machine from the internet. Opening port 3389 from the internet is not recommended for production workloads.
 
-   ![Select a port](./media/tutorial-routing-preference-virtual-machine-portal/pip-ports.png)
+   ![Select a port](./media/tutorial-routing-preference-virtual-machine-portal/pip-ports-new.png)
 
 7. Accept the remaining default settings and select **OK**.
 8. On the **Summary** page, select **Create**. The virtual machine takes a few minutes to deploy.
 9. Once the virtual machine is deployed, enter *myPublicIpAddress* in the search box at the top of the portal. When **myPublicIpAddress** appears in the search results, select it.
 10. You can view the public IP address that is assigned, and that the address is assigned to the **myVM** virtual machine, as shown in the following picture:
 
-    ![View public IP address](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties.png)
+    ![View public IP address](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
 
 11. Select **Networking** , then click on nic **mynic** and then click on the public ip address to confirm that the routing preference is assigned as **Internet**.
-    ![View public IP address](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet.png)
+    ![View public IP address](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
 
 ## Clean up resources
 
