@@ -55,12 +55,12 @@ After installing the Connected Machine agent for Windows, the following addition
 
 * There are four log files available for troubleshooting. They are described in the following table.
 
-    |Log |Location |Description |
-    |----|---------|------------|
-    |himds.log |%ProgramData%\AzureConnectedMachineAgent\Log |Records details of the agents (himds) service<br> and interaction with Azure.|
-    |azcmagent.log |%ProgramData%\AzureConnectedMachineAgent\Log |Contains the output of the azcmagent tool commands,<br> when the verbose (-v) argument is used.|
-    |gc_agent.log |%ProgramData%\GuestConfig\gc_agent_logs |Records details of the DSC service activity,<br> in particular the connectivity between the himds service and Azure Policy.|
-    |gc_agent_telemetry.txt |%ProgramData%\GuestConfig\gc_agent_logs |Records details about DSC service telemetry and verbose logging.|
+    |Log |Description |
+    |----|------------|
+    |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Records details of the agents (himds) service and interaction with Azure.|
+    |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contains the output of the azcmagent tool commands, when the verbose (-v) argument is used.|
+    |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |Records details of the DSC service activity,<br> in particular the connectivity between the himds service and Azure Policy.|
+    |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Records details about DSC service telemetry and verbose logging.|
 
 * The following environmental variables are created during agent installation.
 
