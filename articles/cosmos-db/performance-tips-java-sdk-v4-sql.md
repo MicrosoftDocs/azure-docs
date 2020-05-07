@@ -101,7 +101,7 @@ Limitations: accelerated networking must be supported on the VM OS, and can only
 
 Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) and [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) instructions for more details.
 
-## SDK Usage
+## SDK usage
 * **Install the most recent SDK**
 
     The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](sql-api-sdk-async-java.md) pages to determine the most recent SDK and review improvements.
@@ -362,7 +362,7 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
     The latter is supported but will add latency to your application; the SDK must parse the item and extract the partition key.
 
-## Indexing Policy
+## Indexing policy
  
 * **Exclude unused paths from indexing for faster writes**
 
