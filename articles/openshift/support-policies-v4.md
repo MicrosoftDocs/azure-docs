@@ -23,7 +23,8 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * Don't modify the OpenShift cluster version.
 * Don't remove or modify Azure Red Hat OpenShift service logging (mdsd pods).
 * Don't remove or modify the 'arosvc.azurecr.io' cluster pull secret.
-* All cluster virtual machines must have outbound internet access, at least to the Azure Resource Manager (ARM) and service logging (Geneva) endpoints.
+* All cluster virtual machines must have direct outbound internet access, at least to the Azure Resource Manager (ARM) and service logging (Geneva) endpoints.  No form of HTTPS proxying is supported.
+* Don't modify the DNS configuration of the cluster's vnet.  The default Azure DNS resolver must be used.
 * The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Don't remove or modify service access.
 * Non-RHCOS compute nodes aren't supported. For example, you can't use a RHEL compute node.
 
