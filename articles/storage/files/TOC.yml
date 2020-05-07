@@ -138,10 +138,12 @@
     items:
     - name: Enable on-premises authentication and authorization
       items:
-      - name: Enable AD DS authentication
+      - name: AD DS overview
         href: storage-files-identity-auth-active-directory-enable.md
-      - name: Assign permissions
+      - name: Enable AD DS authentication
         href: storage-files-identity-ad-ds-enable.md
+      - name: Assign permissions
+        href: storage-files-identity-ad-ds-assign-permissions.md
       - name: Configure permissions
         href: storage-files-identity-ad-ds-configure-permissions.md
       - name: Mount file share
