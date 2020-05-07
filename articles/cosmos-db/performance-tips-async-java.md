@@ -20,12 +20,12 @@ ms.author: anfeldma
 > 
 
 > [!IMPORTANT]  
-> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using [Java SDK v4](sql-api-sdk-java-v4-sql.md) for your project. Guidance on upgrading can be found [here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/migration-guide.md) and [here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md). 
->
-> These performance tips are for Async Java SDK v2 only. Please view the Async Java SDK v2 __[Release notes](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-async-java)__, __[Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)__ and __[troubleshooting guide](troubleshoot-java-async-sdk.md)__ for more information.
+> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4-sql.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/migration-guide.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guide. 
+> 
+> The performance tips in this article are for Azure Cosmos DB Async Java SDK v2 only. See the Azure Cosmos DB Async Java SDK v2 [Release notes](sql-api-sdk-async-java.md), [Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb), and Azure Cosmos DB Async Java SDK v2 [troubleshooting guide](troubleshoot-java-async-sdk.md) for more information.
 >
 
-Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using the [SQL Async Java SDK v2](sql-api-sdk-async-java.md).
+Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using the [Azure Cosmos DB Async Java SDK v2](sql-api-sdk-async-java.md).
 
 So if you're asking "How can I improve my database performance?" consider the following options:
 
@@ -34,7 +34,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 * **Connection mode: Use Direct mode**
 <a id="direct-connection"></a>
     
-    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of client-side latency. The *ConnectionMode* is a key configuration setting available for configuring the client *ConnectionPolicy*. For Async Java SDK, the two available ConnectionModes are:  
+    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of client-side latency. The *ConnectionMode* is a key configuration setting available for configuring the client *ConnectionPolicy*. For Azure Cosmos DB Async Java SDK v2, the two available ConnectionModes are:  
       
     * [Gateway (default)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
     * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
@@ -67,7 +67,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 ## SDK Usage
 * **Install the most recent SDK**
 
-    The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](sql-api-sdk-async-java.md) pages to determine the most recent SDK and review improvements.
+    The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the Azure Cosmos DB Async Java SDK v2 [Release Notes](sql-api-sdk-async-java.md) pages to determine the most recent SDK and review improvements.
 
 * **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
@@ -77,9 +77,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 * **Tuning ConnectionPolicy**
 
-    By default, Direct mode Cosmos DB requests are made over TCP when using the Async Java SDK. Internally the SDK uses a special Direct mode architecture to dynamically manage network resources and get the best performance.
+    By default, Direct mode Cosmos DB requests are made over TCP when using the Azure Cosmos DB Async Java SDK v2. Internally the SDK uses a special Direct mode architecture to dynamically manage network resources and get the best performance.
 
-    In the Async Java SDK, Direct mode is the best choice to improve database performance with most workloads. 
+    In the Azure Cosmos DB Async Java SDK v2, Direct mode is the best choice to improve database performance with most workloads. 
 
     * ***Overview of Direct mode***
 
@@ -112,7 +112,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     * ***Programming tips for Direct mode***
 
-        Review the Azure Cosmos DB [Async Java SDK Troubleshooting](troubleshoot-java-async-sdk.md) article as a baseline for resolving any Async Java SDK issues.
+        Review the Azure Cosmos DB Async Java SDK v2 [Troubleshooting](troubleshoot-java-async-sdk.md) article as a baseline for resolving any SDK issues.
 
         Some important programming tips when using Direct mode:
 
@@ -120,14 +120,14 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
         + **Carry out compute-intensive workloads on a dedicated thread** - For similar reasons to the previous tip, operations such as complex data processing are best placed in a separate thread. A request that pulls in data from another data store (for example if the thread utilizes Azure Cosmos DB and Spark data stores simultaneously) may experience increased latency and it is recommended to spawn an additional thread that awaits a response from the other data store.
 
-            + The underlying network IO in the Async Java SDK is managed by Netty, see these [tips for avoiding coding patterns that block Netty IO threads](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
+            + The underlying network IO in the Azure Cosmos DB Async Java SDK v2 is managed by Netty, see these [tips for avoiding coding patterns that block Netty IO threads](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
 
         + **Data modeling** - The Azure Cosmos DB SLA assumes document size to be less than 1KB. Optimizing your data model and programming to favor smaller document size will generally lead to decreased latency. If you are going to need storage and retrieval of docs larger than 1KB, the recommended approach is for documents to link to data in Azure Blob Storage.
 
 
 * **Tuning parallel queries for partitioned collections**
 
-    Azure Cosmos DB SQL Async Java SDK supports parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) related to working with the SDKs. Parallel queries are designed to improve query latency and throughput over their serial counterpart.
+    Azure Cosmos DB Async Java SDK v2 supports parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) related to working with the SDKs. Parallel queries are designed to improve query latency and throughput over their serial counterpart.
 
     * ***Tuning setMaxDegreeOfParallelism\:***
     
@@ -165,7 +165,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 * **Use Appropriate Scheduler (Avoid stealing Event loop IO Netty threads)**
 
-    The Async Java SDK uses [netty](https://netty.io/) for non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Observable returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
+    The Azure Cosmos DB Async Java SDK v2 uses [netty](https://netty.io/) for non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Observable returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
 
     For example the following code executes a cpu intensive work on the event loop IO netty thread:
 
@@ -209,7 +209,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     Based on the type of your work you should use the appropriate existing RxJava Scheduler for your work. Read here
     [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
 
-	For More Information, Please look at the [GitHub page](https://github.com/Azure/azure-cosmosdb-java) for Async Java SDK.
+	For More Information, Please look at the [GitHub page](https://github.com/Azure/azure-cosmosdb-java) for Azure Cosmos DB Async Java SDK v2.
 
 * **Disable netty's logging**
 
