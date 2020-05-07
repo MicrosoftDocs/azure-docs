@@ -1,6 +1,6 @@
 ---
-title: Synapse Link for Cosmos DB supported features
-description: Understand the current list of actions supported by Synapse Link for Cosmos DB
+title: Azure Synapse Link for Cosmos DB supported features
+description: Understand the current list of actions supported by Azure Synapse Link for Cosmos DB
 services: synapse-analytics 
 author: ArnoMicrosoft
 ms.service: synapse-analytics 
@@ -11,7 +11,7 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Synapse Link for Azure Cosmos DB supported features
+# Azure Synapse Link for Azure Cosmos DB supported features
 
 This article describes what functionalities are currently supported in Azure Synapse Link for Azure Cosmos DB. 
 
