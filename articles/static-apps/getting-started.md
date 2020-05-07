@@ -29,30 +29,33 @@ This article uses GitHub template repositories to make it easy for you to create
 - Navigate to the following location to create a new repository
   - https://github.com/staticwebdev/angular-basic/generate
 - Name your repository **my-first-static-web-app**
-- Click the **Create repository from template** button
 
 # [React](#tab/react)
 
 - Navigate to the following location to create a new repository
   - https://github.com/staticwebdev/react-basic/generate
 - Name your repository **my-first-static-web-app**
-- Click the **Create repository from template** button
 
 # [Vue](#tab/vue)
 
 - Navigate to the following location to create a new repository
   - https://github.com/staticwebdev/vue-basic/generate
 - Name your repository **my-first-static-web-app**
-- Click the **Create repository from template** button
 
 # [No Framework](#tab/vanilla-javascript)
 
 - Navigate to the following location to create a new repository
   - https://github.com/staticwebdev/vanilla-basic/generate
 - Name your repository **my-first-static-web-app**
-- Click the **Create repository from template** button
+
+> [!NOTE]
+> Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
 
 ---
+
+Click the **Create repository from template** button.
+
+:::image type="content" source="media/getting-started/create-template.png" alt-text="Create repository from template":::
 
 ## Create a static web app
 
@@ -74,7 +77,7 @@ Begin by configuring your new app and linking it to a GitHub repository.
 - Select or create a new _Resource Group_
 - Name the app **my-first-static-web-app**.
   - Valid characters are `a-z` (case insensitive), `0-9`, and `_`.
-- Select _Region_ closest to you
+- Select a _Region_ closest to you
 - Select the **Free** _SKU_
 - Click the **Sign-in with GitHub** button and authenticate with GitHub
 
@@ -125,13 +128,13 @@ Click the **Review + create** button.
 
 ### Review + create
 
-After the build validates, you can continue to create the application.
+After the request validates, you can continue to create the application.
 
 Click the **Create** button
 
 :::image type="content" source="media/getting-started/create-button.png" alt-text="Create button":::
 
-Once the deployment is complete, click the **Go to resource** button
+Once the resource is created, click the **Go to resource** button
 
 :::image type="content" source="media/getting-started/resource-button.png" alt-text="Go to resource button":::
 
@@ -147,7 +150,7 @@ The Static Web Apps overview window displays a series of links that help you int
 
 1. Clicking on the banner that says, "Click here to check the status of your GitHub Actions runs" takes you to the GitHub Actions running against your repository. Once you verify the deployment job is complete, then you can navigate to your website via the generated URL.
 
-2. Once the provisioning and deployment is complete, you can click on the _URL_ link to open the website in new tab.
+2. Once GitHub Actions workflow is complete, you can click on the _URL_ link to open the website in new tab.
 
 ## Clean up resources
 
