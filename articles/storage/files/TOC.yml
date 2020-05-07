@@ -200,8 +200,6 @@
       href: storage-sync-files-troubleshoot.md
     - name: Troubleshoot Deleting Azure Files
       href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
-    - name: Recover a deleted storage account
-      href: storage-how-to-recover-deleted-account.md
 - name: Reference
   items:
   - name: Azure PowerShell (Storage)
