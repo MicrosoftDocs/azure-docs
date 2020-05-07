@@ -1,5 +1,5 @@
 ---
-title: VNet endpoints and rules for single and pooled databases in Azure SQL Database 
+title: VNet endpoints and rules for databases in Azure SQL Database and Azure Synapse Analytics 
 description: "Mark a subnet as a Virtual Network service endpoint. Then the endpoint as a virtual network rule to the ACL your database. Your database then accepts communication from all virtual machines and other nodes on the subnet."
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
 ---
-# Use virtual network service endpoints and rules for database servers
+# Use virtual network service endpoints and rules for servers
 
-*Virtual network rules* are one firewall security feature that controls whether the database server for your single databases and elastic pool in [Azure SQL Database](sql-database-technical-overview.md) or for your databases in [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database and SQL Data Warehouse.
+*Virtual network rules* are one firewall security feature that controls whether the [logical SQL server](sql-database-servers.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to Azure SQL Database and Azure Synapse Analytics.
 
 > [!IMPORTANT]
-> This article applies to an Azure SQL logical server, and to both Azure SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, Azure SQL Database is used when referring to both Azure SQL Database and SQL Data Warehouse. This article does *not* apply to Azure SQL Managed Instance because it does not have a service endpoint associated with it.
+> This article does *not* apply to Azure SQL Managed Instance because it does not have a service endpoint associated with it.
 
 To create a virtual network rule, there must first be a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference.
 
@@ -39,7 +39,7 @@ Any virtual network rule is limited to the region that its underlying endpoint a
 
 ### Server-level, not database-level
 
-Each virtual network rule applies to your whole Azure SQL Database logical server, not just to one particular database on the server. In other words, virtual network rule applies at the server-level, not at the database-level.
+Each virtual network rule applies to your whole server, not just to one particular database on the server. In other words, virtual network rule applies at the server-level, not at the database-level.
 
 - In contrast, IP rules can apply at either level.
 
@@ -48,7 +48,7 @@ Each virtual network rule applies to your whole Azure SQL Database logical serve
 There is a separation of security roles in the administration of Virtual Network service endpoints. Action is required from each of the following roles:
 
 - **Network Admin:** &nbsp; Turn on the endpoint.
-- **Database Admin:** &nbsp; Update the access control list (ACL) to add the given subnet to the Azure SQL Database logical server.
+- **Database Admin:** &nbsp; Update the access control list (ACL) to add the given subnet to the server.
 
 *RBAC alternative:*
 
@@ -69,7 +69,7 @@ For Azure SQL Database, the virtual network rules feature has the following limi
 
 - In the firewall for your Azure SQL Database, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the Azure SQL Database.
 
-- Each Azure SQL Database logical server can have up to 128 ACL entries for any given virtual network.
+- Each server can have up to 128 ACL entries for any given virtual network.
 
 - Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
 
@@ -99,9 +99,9 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## Impact of using VNet Service Endpoints with Azure storage
 
-Azure Storage has implemented the same feature that allows you to limit connectivity to your Azure Storage account. If you choose to use this feature with an Azure Storage account that is being used by Azure SQL Server, you can run into issues. Next is a list and discussion of Azure SQL Database and Azure SQL Data Warehouse features that are impacted by this.
+Azure Storage has implemented the same feature that allows you to limit connectivity to your Azure Storage account. If you choose to use this feature with an Azure Storage account that is being used by Azure SQL Database or Azure Synapse, you can run into issues. Next is a list and discussion of Azure SQL Database and Azure SQL Data Warehouse features that are impacted by this.
 
-### Azure SQL Data Warehouse PolyBase
+### Azure Synapse PolyBase
 
 PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. For enabling both PolyBase import and export scenarios with Azure SQL Data Warehouse connecting to Azure Storage that's secured to VNet, follow the steps indicated below:
 
@@ -116,12 +116,12 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure 
 
 #### Steps
 
-1. In PowerShell, **register your Azure SQL Server** hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
+1. In PowerShell, **register your server** hosting your Azure SQL Data Warehouse instance with Azure Active Directory (AAD):
 
    ```powershell
    Connect-AzAccount
    Select-AzSubscription -SubscriptionId <subscriptionId>
-   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-servername -AssignIdentity
    ```
 
 1. Create a **general-purpose v2 Storage Account** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
@@ -131,7 +131,7 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure 
    > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
 
-1. Under your storage account, navigate to **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your Azure SQL Server hosting your Azure SQL Data Warehouse which you've registered with Azure Active Directory (AAD) as in step#1.
+1. Under your storage account, navigate to **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to the server hosting your Azure SQL Data Warehouse which you've registered with Azure Active Directory (AAD) as in step#1.
 
    > [!NOTE]
    > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
@@ -189,7 +189,7 @@ Connection error 40914 relates to *virtual network rules*, as specified on the F
 
 *Message text:* Cannot open server '*[server-name]*' requested by the login. Client is not allowed to access the server.
 
-*Error description:* The client is in a subnet that has virtual network server endpoints. But the Azure SQL Database logical server has no virtual network rule that grants to the subnet the right to communicate with the database.
+*Error description:* The client is in a subnet that has virtual network server endpoints. But the server has no virtual network rule that grants to the subnet the right to communicate with the database.
 
 *Error resolution:* On the Firewall pane of the Azure portal, use the virtual network rules control to [add a virtual network rule](#anchor-how-to-by-using-firewall-portal-59j) for the subnet.
 
@@ -197,7 +197,7 @@ Connection error 40914 relates to *virtual network rules*, as specified on the F
 
 *Message text:* Cannot open server '{0}' requested by the login. Client with IP address '{1}' is not allowed to access the server.
 
-*Error description:* The client is trying to connect from an IP address that is not authorized to connect to the Azure SQL Database logical server. The server firewall has no IP address rule that allows a client to communicate from the given IP address to the database.
+*Error description:* The client is trying to connect from an IP address that is not authorized to connect to the server. The server firewall has no IP address rule that allows a client to communicate from the given IP address to the database.
 
 *Error resolution:* Enter the client's IP address as an IP rule. Do this by using the Firewall pane in the Azure portal.
 
@@ -208,7 +208,7 @@ Connection error 40914 relates to *virtual network rules*, as specified on the F
 This section illustrates how you can use the [Azure portal][http-azure-portal-link-ref-477t] to create a *virtual network rule* in your Azure SQL Database. The rule tells your database to accept communication from a particular subnet that has been tagged as being a *Virtual Network service endpoint*.
 
 > [!NOTE]
-> If you intend to add a service endpoint to the VNet firewall rules of your Azure SQL Database logical server, first ensure that service endpoints are turned On for the subnet.
+> If you intend to add a service endpoint to the VNet firewall rules of your server, first ensure that service endpoints are turned On for the subnet.
 >
 > If service endpoints are not turned on for the subnet, the portal asks you to enable them. Click the **Enable** button on the same blade on which you add the rule.
 
@@ -240,7 +240,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 3. Set the **Allow access to Azure services** control to OFF.
 
     > [!IMPORTANT]
-    > If you leave the control set to ON, your Azure SQL Database logical server accepts communication from any subnet inside the Azure boundary i.e. originating from one of the IP addresses that is recognized as those within ranges defined for Azure data centers. Leaving the control set to ON might be excessive access from a security point of view. The Microsoft Azure Virtual Network service endpoint feature, in coordination with the virtual network rule feature of SQL Database, together can reduce your security surface area.
+    > If you leave the control set to ON, your server accepts communication from any subnet inside the Azure boundary i.e. originating from one of the IP addresses that is recognized as those within ranges defined for Azure data centers. Leaving the control set to ON might be excessive access from a security point of view. The Microsoft Azure Virtual Network service endpoint feature, in coordination with the virtual network rule feature of SQL Database, together can reduce your security surface area.
 
 4. Click the **+ Add existing** control, in the **Virtual networks** section.
 
@@ -273,7 +273,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 ## Related articles
 
 - [Azure virtual network service endpoints][vm-virtual-network-service-endpoints-overview-649d]
-- [Azure SQL Database server-level and database-level firewall rules][sql-db-firewall-rules-config-715d]
+- [Server-level and database-level firewall rules][sql-db-firewall-rules-config-715d]
 
 ## Next steps
 
