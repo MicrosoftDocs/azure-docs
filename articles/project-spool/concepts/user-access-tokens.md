@@ -105,15 +105,14 @@ client.on('token_will_expire', (tokenProvider) => {
     .then((newToken) => tokenProvider.udpateToken(newToken));
 });
 ```
-
-If your client application is using several of the Azure Communication Services client SDKs, you should instantiate each SDK with a shared instance of the `UserAccessTokenProvider` class and use that instance to manage the user access token refresh process.
+If your client application is using several of the Azure Communication Services client SDKs, you should instantiate each SDK with a shared instance of the `UserAccessTokenCredential` class and use that instance to manage the user access token refresh process.
 
 ```javascript
-const { ChatClient, UserAccessTokenProvider } = require('@azure/communicationservices-chat');
+const { ChatClient, UserAccessTokenCredential } = require('@azure/communicationservices-chat');
 const { CallingClient } = require('@azure/communicationservices-calling');
 
-// initialize a UserAccessTokenProvider instance
-const tokenProvider = new UserAccessTokenProvider(token);
+// initialize a UserAccessTokenCredential instance
+const tokenProvider = new UserAccessTokenCredential(token);
 
 // single function to refresh tokens across all SDK instances
 tokenProvider.on('token_will_expire', (tokenProvider) => { 
@@ -132,6 +131,37 @@ const callingClient = new CallingClient(endpoint, tokenProvider);
 
 >> [akania] getToken | event should accept GetTokenOptions with abortSignal|cancellation token and additional options ( timeout? )
 
+## Lazy Loading User Access Tokens
+
+By default, the Azure Communication Services SDKs cache user access tokens in memory. This works well for long-running client applications but is not optimized for implementing communication functionality in a stateless web service (e.g. a chatbot).
+
+Instead, you should initialize a `UserAccessTokenCredential` with a lambda that enables you to fetch user access tokens on demand using a caching strategy that suites your application architecture.
+
+```csharp
+const tokenProvider = new UserAccessTokenCredential(async (cancelationToken) => {
+    // try to fetch the access token from the application cache
+    var token = await FetchTokenFromCache(userName);
+    if (token) 
+    {
+        return token;
+    }
+    
+    // create a new token using the management SDK 
+    tokenResult = await managementClient.CreateUserAccessTokenAsync(username);
+
+    // set the token in the cache for the next request
+    await CacheAccessToken(
+        key: username, 
+        value: tokenResult.token, 
+        ttl: tokenResult.ttl
+    );
+
+    return tokenResult.token;
+});
+```
+
+[!NOTE] Tokens are sensitive data, because they grant access to a user's resources. Therefore, it's critical to protect tokens from being compromised. If your custom caching logic involves writing user access tokens to a backing store, it is strongly reccomended that you use encryption.
+
 ## Revoking User Access Tokens
 
 In some cases, you may need to explicitly revoke user access tokens, for example, when a user changes the password they use to authenticate to your service. This functionality is available via the Azure Communication Services Management SDK.
@@ -140,12 +170,6 @@ In some cases, you may need to explicitly revoke user access tokens, for example
 // revoke all access tokens issued for a given user
 var result = await managementClient.RevokeUserAccessTokenAsync(userName);
 ```
-
-## Impersonating users
-
-> marobert: do we want to include this?
-
-In some cases, you may want a user to communicate on behalf of another user. There are no explicit flows for impersonation with ACS, and you accomplish impersonation by providing another person's user access token.
 
 ## Trouble Shooting
 
