@@ -13,16 +13,19 @@ manager: carmonm
 
 # Troubleshoot Windows update agent issues
 
-There can be many reasons why your machine isn't showing up as ready (healthy) in Update Management. In Update Management, you can check the health of a Hybrid Runbook Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal, and non-Azure machines in the [offline scenario](#troubleshoot-offline).
+There can be many reasons why your machine isn't showing up as ready (healthy) in Update Management. You can check the health of a Windows Hybrid Runbook Worker agent to determine the underlying problem. The following are the three readiness states for a machine:
 
-The following are the three readiness states for a machine:
-
-* Ready: The Hybrid Runbook Worker is deployed and was last seen less than 1 hour ago.
-* Disconnected: The Hybrid Runbook Worker is deployed and was last seen over 1 hour ago.
+* Ready: The Hybrid Runbook Worker is deployed and was last seen less than one hour ago.
+* Disconnected: The Hybrid Runbook Worker is deployed and was last seen over one hour ago.
 * Not configured: The Hybrid Runbook Worker isn't found or hasn't finished onboarding.
 
 > [!NOTE]
 > There can be a slight delay between what the Azure portal shows and the current state of a machine.
+
+This article discusses how to run the troubleshooter for Azure machines from the Azure portal, and non-Azure machines in the [offline scenario](#troubleshoot-offline). The troubleshooter now includes checks for Windows Server Update Services (WSUS) and for the autodownload and install keys.
+
+> [!NOTE]
+> The troubleshooter script currently doesn't route traffic through a proxy server if one is configured.
 
 ## Start the troubleshooter
 
