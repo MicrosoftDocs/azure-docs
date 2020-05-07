@@ -695,7 +695,7 @@ productDirectory:
       azureCategories:
         - databases
         - iot
-      url: sql-database-edge/index.yml
+      url: azure-sql-edge/index.yml
     # Card
     - title: Table Storage
       summary: NoSQL key-value store using semi-structured datasets
