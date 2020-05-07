@@ -35,7 +35,7 @@ To use the globally hosted Azure Content Delivery Network version of the *Azure 
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css">
   ```
 
- Or, you can download the *Azure Maps Indoor* module which contains a client library for accessing Azure Maps services. Follow the steps below to install and load the *Azure Maps Indoor* module into your web application.  
+ Or, you can download the *Azure Maps Indoor* module. The *Azure Maps Indoor* module contains a client library for accessing Azure Maps services. Follow the steps below to install and load the *Indoor* module into your web application.  
   
   1. Download the [azure-maps-indoor package] (https://www.npmjs.com/package/azure-maps-indoor).
   
@@ -72,7 +72,7 @@ First, create a *Map object*. The *Map object* will be used in the next step to 
 
 ## Instantiate the Indoor Manager
 
-To load the indoor tilesets and map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *Map object* and the corresponding `tilesetId`. If you wish to support [dynamic map styling](indoor-map-dynamic-styling.md), you must pass the `stateSetId`. Note that the `stateSetId` variable name is case sensitive. You code should like the JavaScript below.
+To load the indoor tilesets and map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *Map object* and the corresponding `tilesetId`. If you wish to support [dynamic map styling](indoor-map-dynamic-styling.md), you must pass the `stateSetId`. The `stateSetId` variable name is case-sensitive. Your code should like the JavaScript below.
 
 ```javascript
 const tilesetId = "";
@@ -131,8 +131,6 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 
 The `eventData` variable holds information about the level or facility that invoked the `levelchanged` or `facilitychanged` event, respectively. When a level changes, the `eventData` object will contain the `facilityId`, the new `levelNumber`, and other metadata. When a facility changes, the `eventData` object will contain the new `facilityId`, the new `levelNumber`, and other metadata.
 
-You can incorporate this data in your web application. For example, you can keep a log of the facilities the user has visited. At the end of a session, you can ask the user to rate their experience at each facility. You can also visualize your facility's IoT devices at each level. Use the event handlers to reset and redraw the IoT devices whenever the level of the facility changes.
-
 ## Example: Use the Indoor Maps Module
 
 This example shows you how to use the *Azure Maps Indoor* module in your web application. Although the example is limited in scope, it covers the basics of what you need to get started using the *Azure Maps Indoor* module. The complete HTML code is below these steps.
@@ -145,8 +143,8 @@ This example shows you how to use the *Azure Maps Indoor* module in your web app
 
 4. Initialize a *Map object*. The *Map object* supports the following options:
     - `Subscription key` is your Azure Maps primary subscription key.
-    - `center` defines a latitude and longitude for your indoor map center location. Provide a value for `center` if you do not want to provide a value for `bounds`. Format should appear as `center`: [-122.13315, 47.63637].
-    - `bounds` is the smallest rectangular shape that encloses the tileset map data. Set a value for `bounds` if you do not want to set a value for `center`. You can find your map bounds by calling the [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). The Tileset List API returns the `bbox`, which you can parse and assign to `bounds`. Format should appear as `bounds`: [ # , # , # , # ].
+    - `center` defines a latitude and longitude for your indoor map center location. Provide a value for `center` if you don't want to provide a value for `bounds`. Format should appear as `center`: [-122.13315, 47.63637].
+    - `bounds` is the smallest rectangular shape that encloses the tileset map data. Set a value for `bounds` if you don't want to set a value for `center`. You can find your map bounds by calling the [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). The Tileset List API returns the `bbox`, which you can parse and assign to `bounds`. Format should appear as `bounds`: [ # , # , # , # ].
     - `style` allows you to set the color of the background. To display a white background, define `style` as "blank".
     - `zoom` allows you to specify the min and max zoom levels for your map.
 
