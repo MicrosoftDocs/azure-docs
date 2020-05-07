@@ -76,11 +76,11 @@ The model you want to validate might be composed of one or more interfaces descr
         Console.WriteLine(m.Key);
         foreach (var item in m.Value.AsEnumerable<DTEntityInfo>())
         {
-            var p = item as DTPropertyInfo;
+            var p = item as DTInterfaceInfo;
             if (p!=null)
             {
-                Console.WriteLine($"\t{p.Name}");
-                Console.WriteLine($"\t {p.Schema.Id}");
+                Console.WriteLine($"\t{p.Id}");
+                Console.WriteLine($"\t{p.Description.FirstOrDefault()}");
             }
             Console.WriteLine("--------------");
         }
