@@ -1,7 +1,7 @@
 ---
-title: Create event driven machine learning workflows 
+title: Trigger events in ML workflows 
 titleSuffix: Azure Machine Learning
-description: Learn how to use event grid with Azure Machine Learning to enable event driven solutions.
+description: Learn how to trigger event-driven applications, processes, or CI/CD workflows based on Azure Machine Learning events to simplify your ML lifecycle.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,9 +12,9 @@ ms.reviewer: larryfr
 ms.date: 03/11/2020
 ---
 
-# Create event driven machine learning workflows (Preview)
+# Trigger event-driven applications, processes, or CI/CD workflows based on Azure Machine Learning events (Preview)
 
-In this article, you learn how to define machine learning actions, such as failure notification emails or ML pipeline runs when events or conditions are detected by [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
+In this article, you learn how to set up event-driven applications, processes, or CI/CD workflows based on Azure Machine Learning events, such as failure notification emails or ML pipeline runs, when certain conditions are detected by [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
 
 Azure Machine Learning manages the entire lifecycle of machine learning process, including model training, model deployment, and monitoring. You can use Event Grid to react to Azure Machine Learning events, such as the completion of training runs, the registration and deployment of models, and the detection of data drift, by using modern serverless architectures. You can then subscribe and consume events such as run status changed, run completion, model registration, model deployment, and data drift detection within a workspace.
 
