@@ -19,12 +19,14 @@ The `OPENROWSET` function can be referenced in the `FROM` clause of a query as i
 
 The `OPENROWSET` function can optionally contain `DATA_SOURCE` parameter.
 - `OPENROWSET` without `DATA_SOURCE` can be used for ad-hoc analysis of files placed on some Azure Storage URL address.
-  - AAD logins can access files only if Azure storage allows the Azure AD user to access underlying files (for example, if the caller has Storage Reader permission on storage).
-  - SQL logins can also use `OPENROWSET` without `DATA_SOURCE` to access publicly available files, files protected using SAS key or Managed Identity of Synapse workspace.
-- `OPENROWSET` with `DATA_SOURCE` can be used to access storage accounts using a variety of authentication methods. This option enables you to access publicly available storage, or access storage using SAS key, Managed Identity of workspace, or Azure AD identity of caller (if caller is Azure AD principal). Learn more about storage access control in [this article](develop-storage-files-storage-access-control.md).
+  - AAD logins can access files only using their own [Azure AD identity](develop-storage-files-storage-access-control.md#user-identity) if Azure storage allows the Azure AD user to access underlying files (for example, if the caller has Storage Reader permission on storage) and if you [enable Azure AD passthrough authentication](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) on Synapse SQL service.
+  - SQL logins can also use `OPENROWSET` without `DATA_SOURCE` to access publicly available files, files protected using SAS key or Managed Identity of Synapse workspace. You would need to [create server-scoped credential](develop-storage-files-storage-access-control.md#examples) to allow access to storage files.
+- `OPENROWSET` with `DATA_SOURCE` can be used to access storage accounts using a variety of authentication methods. This option enables you to access publicly available storage, or access storage using SAS key, Managed Identity of workspace, or [Azure AD identity of caller](develop-storage-files-storage-access-control.md#user-identity) (if caller is Azure AD principal). If `DATA_SOURCE` references Azure storage that is not public, you would need to [create database-scoped credential](develop-storage-files-storage-access-control.md#examples) and reference it in `DATA SOURCE` to allow access to storage files.
+
+Learn more about storage access control in [this article](develop-storage-files-storage-access-control.md).
 
 > [!IMPORTANT]
-> `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Azure AD principal can access files only using their Azure AD identity and cannot access publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
+> `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Azure AD principal can access files only using their [Azure AD identity](develop-storage-files-storage-access-control.md#user-identity) and cannot access publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
 
 OPENROWSET is currently not supported in SQL pool.
 
@@ -174,17 +176,6 @@ Parser version 2.0 specifics:
 The following example returns only two columns with ordinal numbers 1 and 4 from the population*.csv files. Since there's no header row in the files, it starts reading from the first line:
 
 ```sql
-/* make sure you have credentials for storage account access created
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-GO
-
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = ''
-GO
-*/
-
 SELECT * 
 FROM OPENROWSET(
         BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
@@ -222,7 +213,7 @@ FROM
     ) AS [r]
 ```
 
-
+If you are using Azure AD principal to access public storage, you would need to disable [Azure AD passthrough authentication](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through)
 
 ## Next steps
 
