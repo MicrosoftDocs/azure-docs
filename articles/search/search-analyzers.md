@@ -15,6 +15,11 @@ ms.date: 12/10/2019
 
 An *analyzer* is a component of the [full text search engine](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Different analyzers manipulate text in different ways depending on the scenario. Language analyzers process text using linguistic rules in order to improve search quality, while other analyzers perform more basic tasks like converting characters to lower case, for example. 
 
+The following video segment fast-forwards to an explanation of how text processing works in Azure Cognitive Search.
+
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=132&end=189]
+
+
 Language analyzers are the most frequently used, and there is default language analyzer assigned to every searchable field in an Azure Cognitive Search index. The following language transformations are typical during text analysis:
 
 + Non-essential words (stopwords) and punctuation are removed.
