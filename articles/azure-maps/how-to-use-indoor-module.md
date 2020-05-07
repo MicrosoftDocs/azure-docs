@@ -63,7 +63,7 @@ First, create a *Map object*. The *Map object* will be used in the next step to 
   const map = new atlas.Map("map-id", {
     //use your facility's location
     center: [-122.13315, 47.63637],
-    //or, you can use bounds: [ # , # , # , # ] and replace # with your map's bounds
+    //or, you can use bounds: [#,#,#,#] and replace # with your map's bounds
     style: "blank",
     subscriptionKey,
     zoom: 19,
@@ -144,7 +144,7 @@ This example shows you how to use the *Azure Maps Indoor* module in your web app
 4. Initialize a *Map object*. The *Map object* supports the following options:
     - `Subscription key` is your Azure Maps primary subscription key.
     - `center` defines a latitude and longitude for your indoor map center location. Provide a value for `center` if you don't want to provide a value for `bounds`. Format should appear as `center`: [-122.13315, 47.63637].
-    - `bounds` is the smallest rectangular shape that encloses the tileset map data. Set a value for `bounds` if you don't want to set a value for `center`. You can find your map bounds by calling the [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). The Tileset List API returns the `bbox`, which you can parse and assign to `bounds`. Format should appear as `bounds`: [ # , # , # , # ].
+    - `bounds` is the smallest rectangular shape that encloses the tileset map data. Set a value for `bounds` if you don't want to set a value for `center`. You can find your map bounds by calling the [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). The Tileset List API returns the `bbox`, which you can parse and assign to `bounds`. Format should appear as `bounds`: [#,#,#,#].
     - `style` allows you to set the color of the background. To display a white background, define `style` as "blank".
     - `zoom` allows you to specify the min and max zoom levels for your map.
 

@@ -31,7 +31,7 @@ Use the [Azure Maps Data Upload API](https://docs.microsoft.com/rest/api/maps/da
 
 ## Convert a Drawing package
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts an uploaded Drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types: errors and warnings. If any errors are detected, the conversion process fails. Should warnings be detected, the conversion will succeed, but it’s recommended that you review and/or resolve all warnings. A warning means that part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes. For more details, see [Drawing package warnings and errors](drawing-conversion-error-codes.md).
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts an uploaded Drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types: errors and warnings. If any errors are detected, the conversion process fails. Should warnings be detected, the conversion will succeed. However, it’s recommended that you review and resolve all warnings. A warning means that part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes. For more information, see [Drawing package warnings and errors](drawing-conversion-error-codes.md).
 
 When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer](azure-maps-drawing-errors-visualizer.md) stand-alone web application. You can use the Drawing Error Visualizer to inspect [Drawing package warnings and errors](drawing-conversion-error-codes.md) that occurred during the conversion process. Once you have fixed the errors, you can then attempt to upload and convert the package.
 
@@ -47,7 +47,7 @@ Use the Tileset service to create a vector-based representation of a dataset. Ap
 
 ### Datasets
 
-A dataset is a collection of indoor map features. The indoor map features represent  facilities defined in a converted Drawing package. After creating a dataset with the [Dataset service](https://docs.microsoft.com/rest/api/maps/dataset/createpreview), developers can create any number of [tilesets](#tilesets) or [feature statesets](#feature-statesets).
+A dataset is a collection of indoor map features. The indoor map features represent facilities defined in a converted Drawing package. After creating a dataset with the [Dataset service](https://docs.microsoft.com/rest/api/maps/dataset/createpreview), you can create any number of [tilesets](#tilesets) or [feature statesets](#feature-statesets).
 
 The [Dataset service](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) allows developers, at any time, to add or remove facilities to an existing dataset. For more information on how to update an existing dataset using the API, see the append options in [Dataset service](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). For an example of how to update a dataset, see [Data Maintenance](#data-maintenance).
 
@@ -55,7 +55,7 @@ The [Dataset service](https://docs.microsoft.com/rest/api/maps/dataset/createpre
 
 A tileset is a collection of vector data that represents a set of uniform grid tiles. Developers can use the [Tileset service](https://docs.microsoft.com/rest/api/maps/tileset/createpreview) to create tilesets from a dataset.
 
-To reflect different content stages, developers can create multiple tilesets from the same dataset. For example, a developer can make one tileset with furniture and equipment, and another tileset without furniture and equipment.  They can generate one tileset with the most recent data updates, and one without the most recent data updates.
+To reflect different content stages, you can create multiple tilesets from the same dataset. For example, you could make one tileset with furniture and equipment, and another tileset without furniture and equipment.  You might choose to generate one tileset with the most recent data updates, and one without the most recent data updates.
 
 In addition to the vector data, the tileset provides metadata for map rendering optimization. For example, tileset metadata contains a min and max zoom level for the tileset. The metadata also provides a bounding box defining the geographic extent of the tileset. The bounding box allows an application to programmatically set the correct center point. For more information about tileset metadata, see [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview).
 
@@ -70,7 +70,7 @@ If a tileset becomes outdated and is no longer useful, you can delete the tilese
 
 Feature statesets are collections of dynamic properties (*states*) assigned to dataset features such as rooms or equipment. An example of a *state* could be temperature or occupancy. Each *state* is a key/value pair containing the name of the property, the value, and the timestamp of the last update.
 
-The [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview) lets developers create and manage a feature stateset for a dataset. The stateset is defined by one or more *states*. Each feature, such as a room, can have one *state* attached to it.
+The [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview) lets you create and manage a feature stateset for a dataset. The stateset is defined by one or more *states*. Each feature, such as a room, can have one *state* attached to it.
 
 The value of each *state* in a stateset can be updated or retrieved by IoT devices or other applications.  For example, using the [Feature State Update API](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview), devices measuring space occupancy can systematically post the state change of a room.
 
@@ -89,13 +89,13 @@ The Azure Maps [Render V2 service-Get Map Tile API](https://docs.microsoft.com/r
 
 ### Web Feature Service API
 
-Datasets can be queried using the [Web Feature Service (WFS) API](https://docs.microsoft.com/rest/api/maps/wfs). WFS follows the [Open Geospatial Consortium API Features](http://docs.opengeospatial.org/DRAFTS/17-069r1.html). The WFS API is helpful when there is a need to query features within the dataset itself. For example, you can use WFS to find all mid-size meeting rooms of a given facility and floor level.
+Datasets can be queried using the [Web Feature Service (WFS) API](https://docs.microsoft.com/rest/api/maps/wfs). WFS follows the [Open Geospatial Consortium API Features](http://docs.opengeospatial.org/DRAFTS/17-069r1.html). The WFS API lets you query features within the dataset itself. For example, you can use WFS to find all mid-size meeting rooms of a given facility and floor level.
 
 ### Indoor Maps module
 
 The [Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/) includes the Indoor Maps module. This module offers extended functionalities to the Azure Maps *Map Control* library. The Indoor Maps module renders indoor maps created in Creator. It integrates widgets such as *floor picker*, which helps users visualize the different floors.
 
-The Indoor Maps module allows developers to create web applications that integrate indoor map data with other [Azure Maps services](https://docs.microsoft.com/azure/azure-maps/). The most common application setups could include adding knowledge to indoor maps from other maps such as road, imagery, weather, and transit.
+The Indoor Maps module allows you to create web applications that integrate indoor map data with other [Azure Maps services](https://docs.microsoft.com/azure/azure-maps/). The most common application setups could include adding knowledge to indoor maps from other maps such as road, imagery, weather, and transit.
 
 The Indoor Maps module also supports dynamic map styling. For a step-by-step walk-through on how to implement feature stateset dynamic styling in an application, see [How to Use the Indoor Map Module](how-to-use-indoor-module.md)
 
