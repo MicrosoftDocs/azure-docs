@@ -286,7 +286,7 @@ The snippet above creates the two `PipelineData` objects for the metrics and mod
 
 ### Configure and create the automated ML pipeline step
 
-Once the inputs and outputs are defined, it's time to create the `AutoMLConfig` and `AutoMLStep`. The details of the configuration will depend on your task, as described in [Configure automated ML experiments in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train]). For the Titanic survival classification task, the following snippet demonstrates a simple configuration.
+Once the inputs and outputs are defined, it's time to create the `AutoMLConfig` and `AutoMLStep`. The details of the configuration will depend on your task, as described in [Configure automated ML experiments in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train). For the Titanic survival classification task, the following snippet demonstrates a simple configuration.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -419,7 +419,7 @@ metrics_output_port.download('.', show_progress=True)
 model_output_port.download('.', show_progress=True)
 ```
 
-Downloaded files are written to the sub-directory `azureml/{run.id}/`. The metrics file is JSON-formatted and can be converted into a Pandas dataframe for examination.
+Downloaded files are written to the subdirectory `azureml/{run.id}/`. The metrics file is JSON-formatted and can be converted into a Pandas dataframe for examination.
 
 For local processing, you may need to install relevant packages, such as Pandas, Pickle, the AzureML SDK, and so forth. For this example, it's likely that the best model found by automated ML will depend on XGBoost.
 
@@ -441,7 +441,7 @@ df = pd.DataFrame(deserialized_metrics_output)
 df
 ```
 
-The code snippet above shows the metrics file being loaded from it's location on the Azure datastore. You can also load it from the downloaded file, as shown in the comment. Once you've deserialized it and converted it to a Pandas DataFrame, you can see detailed metrics for each of the iterations of the automated ML step.
+The code snippet above shows the metrics file being loaded from its location on the Azure datastore. You can also load it from the downloaded file, as shown in the comment. Once you've deserialized it and converted it to a Pandas DataFrame, you can see detailed metrics for each of the iterations of the automated ML step.
 
 The model file can be deserialized into a `Model` object that you can use for inferencing, further metrics analysis, and so forth. 
 
@@ -463,7 +463,7 @@ For more information on loading and working with existing models, see [Use an ex
 
 If you've been following along with the article, you'll have an instantiated `run` object. But you can also retrieve completed `Run` objects from the `Workspace` by way of an `Experiment` object.
 
-The workspace contains a complete record of all your experiments and runs. You can either use the portal to find and download the outputs of experiments or use code. To access the records from a historic run, use Azure Machine Learning to find the ID of the run in which you are interested. With that, you can choose the specific `run` by way of the `Workspace` and `Experiment`.
+The workspace contains a complete record of all your experiments and runs. You can either use the portal to find and download the outputs of experiments or use code. To access the records from a historic run, use Azure Machine Learning to find the ID of the run in which you are interested. With that ID, you can choose the specific `run` by way of the `Workspace` and `Experiment`.
 
 ```python
 # Retrieved from Azure Machine Learning web UI
