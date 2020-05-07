@@ -433,20 +433,16 @@
             - name: 'Start developing your assistant with Windows'
               href: how-to-windows-voice-assistants-get-started.md
             - name: 'Enable voice activation'
-              href: windows-voice-assistants-implementation-guide.md#implementing-voice-activation
-            - name: 'Enable above lock activation'
-              href: windows-voice-assistants-implementation-guide.md#implementing-above-lock-activation
+              href: windows-voice-assistants-implementation-guide.md
         - name: Resources
           items:
-            - name: 'Explore the Windows assistant sample'
-              href: windows-voice-assistants-sample-info.md
             - name: 'Voice Activation Walkthrough'
               href: windows-voice-assistants-voice-activation.md
             - name: 'Privacy requirements and guidelines'
               href: windows-voice-assistants-automatic-enablement-guidelines.md
             - name: 'Best practices for assistant experiences'
               href: windows-voice-assistants-best-practices.md
-            - name: 'Frequently asked questions'
+            - name: 'Samples and frequently asked questions'
               href: windows-voice-assistants-faq.md
     - name: Custom Keyword
       items:
