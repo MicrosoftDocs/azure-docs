@@ -220,71 +220,7 @@ Responses from Sentiment Analysis v3 contain sentiment labels and scores for eac
 
 ### Sentiment Analysis v3.1 example response
 
-Sentiment Analysis v3.1 offers opinion mining. In the below response, the sentence *The restaurant had great food and our waiter was friendly* has two aspects: *food* and *waiter*. Each aspect's `relations` property contains a `ref` attribute with the location of the associated opinion. 
-
-
-|Aspect  |`relations` object or string | `opinion` object  |
-|---------|---------|---------|
-|Row1     |         |         |
-|Row2     |         |         |
-
-
-#/documents/0/sentences/0/opinions/0
-
-:::row:::
-   :::column span="":::
-      Aspect
-   :::column-end:::
-   :::column span="":::
-      `relations` object or string
-   :::column-end:::
-   :::column span="":::
-      `opinion` object
-   :::column-end:::
-:::row-end:::
-
-:::row:::
-    :::column span="":::
-        Food
-    :::column-end:::
-    :::column span="":::
-        ```json
-        {
-            "sentiment": "positive",
-            "confidenceScores": {
-                "positive": 1.0,
-                "negative": 0.0
-            },
-            "offset": 25,
-            "length": 4,
-            "text": "food",
-            "relations": [
-                {
-                    "relationType": "opinion",
-                    "ref": "#/documents/0/sentences/0/opinions/0"
-                }
-            ]
-        },
-        ```
-    :::column-end:::
-    :::column span="":::
-        ```json
-        {
-            "sentiment": "positive",
-            "confidenceScores": {
-                "positive": 1.0,
-                "negative": 0.0
-            },
-            "offset": 19,
-            "length": 5,
-            "text": "great",
-            "isNegated": false
-        }
-        ```
-    :::column-end:::
-:::row-end:::
-
-The full JSON result is below. 
+Sentiment Analysis v3.1 offers opinion mining in addition to the response object in the **Version 3.0** tab. In the below response, the sentence *The restaurant had great food and our waiter was friendly* has two aspects: *food* and *waiter*. Each aspect's `relations` property contains a `ref` attribute with an index to the associated `documents`, `sentences`, and `opinions` objects. For example, the first aspect would contain `#/documents/0/sentences/0/opinions/0`, indicating the aspect belongs to the objects at index `0`. 
 
 ```json
 {
