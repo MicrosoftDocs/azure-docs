@@ -30,7 +30,7 @@ Azure SQL Database and SQL Data Warehouse provide a relational database service 
 
 ## Use a centralized identity repository
 
-Azure SQL databases can be configured to use one of two types of authentication:
+Azure SQL Database can be configured to use one of two types of authentication:
 
 - **SQL authentication** uses a username and password. When you created the server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner.
 
@@ -52,7 +52,7 @@ To learn more about Azure AD authentication, see:
 
 - [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or SQL Data Warehouse](../../sql-database/sql-database-aad-authentication.md)
 - [Authentication to Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
-- [Token-based authentication support for Azure SQL DB using Azure AD authentication](../../sql-database/sql-database-aad-authentication.md)
+- [Token-based authentication support for Azure SQL Database using Azure AD authentication](../../sql-database/sql-database-aad-authentication.md)
 
 > [!NOTE]
 > To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations](../../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations).

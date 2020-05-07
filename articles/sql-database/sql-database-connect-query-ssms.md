@@ -14,9 +14,9 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 03/10/2020
 ---
-# Quickstart: Use SSMS to connect and query an Azure SQL database
+# Quickstart: Use SSMS to connect and query Azure SQL Database
 
-In this quickstart, you'll learn how to use SQL Server Management Studio (SSMS) to connect to an Azure SQL database or SQL Managed Instance and run some queries.
+In this quickstart, you'll learn how to use SQL Server Management Studio (SSMS) to connect to Azure SQL Database or SQL Managed Instance and run some queries.
 
 ## Prerequisites
 

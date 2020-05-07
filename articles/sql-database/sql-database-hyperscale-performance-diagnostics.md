@@ -14,7 +14,7 @@ ms.date: 10/18/2019
 
 # SQL Hyperscale performance troubleshooting diagnostics
 
-To troubleshoot performance problems in a Hyperscale database, [general performance tuning methodologies](sql-database-monitor-tune-overview.md) on the Azure SQL database compute node is the starting point of a performance investigation. However, given the [distributed architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) of Hyperscale, additional diagnostics have been added to assist. This article describes Hyperscale-specific diagnostic data.
+To troubleshoot performance problems in a Hyperscale database, [general performance tuning methodologies](sql-database-monitor-tune-overview.md) on the Azure SQL Database compute node is the starting point of a performance investigation. However, given the [distributed architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) of Hyperscale, additional diagnostics have been added to assist. This article describes Hyperscale-specific diagnostic data.
 
 ## Log rate throttling waits
 

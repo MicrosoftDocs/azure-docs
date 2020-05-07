@@ -45,7 +45,7 @@ These resources are defined in the template:
 - [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts)
 - [**Microsoft.Storage/storageAccounts/providers/roleAssignments**](/azure/templates/microsoft.authorization/roleassignments)
 
-More Azure SQL database template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
+More Azure SQL Database template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
 
 ### Deploy the template
 

@@ -26,11 +26,11 @@ The following diagram provides a high-level overview of the connectivity archite
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-overview.png)
 
-The following steps describe how a connection is established to an Azure SQL database:
+The following steps describe how a connection is established to Azure SQL Database:
 
 - Clients connect to the gateway, that has a public IP address and listens on port 1433.
 - The gateway, depending on the effective connection policy, redirects or proxies the traffic to the right database cluster.
-- Inside the database cluster traffic is forwarded to the appropriate Azure SQL database.
+- Inside the database cluster traffic is forwarded to the appropriate Azure SQL Database.
 
 ## Connection policy
 
@@ -48,7 +48,7 @@ We highly recommend the `Redirect` connection policy over the `Proxy` connection
 
 ## Connectivity from within Azure
 
-If you are connecting from within Azure your connections have a connection policy of `Redirect` by default. A policy of `Redirect` means that after the TCP session is established to the Azure SQL database, the client session is then redirected to the right database cluster with a change to the destination virtual IP from that of the Azure SQL Database gateway to that of the cluster. Thereafter, all subsequent packets flow directly to the cluster, bypassing the Azure SQL Database gateway. The following diagram illustrates this traffic flow.
+If you are connecting from within Azure your connections have a connection policy of `Redirect` by default. A policy of `Redirect` means that after the TCP session is established to Azure SQL Database, the client session is then redirected to the right database cluster with a change to the destination virtual IP from that of the Azure SQL Database gateway to that of the cluster. Thereafter, all subsequent packets flow directly to the cluster, bypassing the Azure SQL Database gateway. The following diagram illustrates this traffic flow.
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-azure.png)
 

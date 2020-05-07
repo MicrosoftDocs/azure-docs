@@ -226,6 +226,6 @@ For pricing details, see the [Azure SQL Database pricing page](https://azure.mic
 For details about the specific compute and storage sizes available in the general purpose and business critical service tiers, see: 
 
 - [vCore-based resource limits for Azure SQL Database](sql-database-vcore-resource-limits-single-databases.md).
-- [vCore-based resource limits for pooled Azure SQL Databases](sql-database-vcore-resource-limits-elastic-pools.md).
+- [vCore-based resource limits for pooled Azure SQL Database](sql-database-vcore-resource-limits-elastic-pools.md).
 - [vCore-based resource limits for Azure SQL Managed Instance](sql-database-managed-instance-resource-limits.md). 
 

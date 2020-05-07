@@ -49,7 +49,7 @@ By default, your connection connects to the *master* database and not your user 
 Azure Active Directory benefits include:
 
 * Provides an alternative to SQL Server authentication.
-* Helps stop the proliferation of user identities across database servers.
+* Helps stop the proliferation of user identities across servers.
 * Allows password rotation in a single place
 * Manage database permissions using external (Azure AD) groups.
 * Eliminates storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.

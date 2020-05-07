@@ -306,7 +306,7 @@ In this tutorial you learned how to:
 > * Fail over the application and catalog and tenant databases to the recovery region 
 > * Fail back the application, catalog and tenant databases to the original region after the outage is resolved
 
-You can learn more about the technologies Azure SQL database provides to enable business continuity in the [Business Continuity Overview](sql-database-business-continuity.md) documentation.
+You can learn more about the technologies Azure SQL Database provides to enable business continuity in the [Business Continuity Overview](sql-database-business-continuity.md) documentation.
 
 ## Additional resources
 

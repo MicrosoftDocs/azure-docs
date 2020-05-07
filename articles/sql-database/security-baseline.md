@@ -281,7 +281,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-porta
 
 ### 2.7: Enable alerts for anomalous activity
 
-**Guidance**: Use Azure Security Center Advanced Threat Protection for Azure SQL Databases for monitoring and alerting on anomalous activity. Enable Advanced Data Security for your SQL Databases. Advanced Data Security includes functionality for discovering and classifying sensitive data, surfacing and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database.
+**Guidance**: Use Azure Security Center Advanced Threat Protection for Azure SQL Database for monitoring and alerting on anomalous activity. Enable Advanced Data Security for your SQL Databases. Advanced Data Security includes functionality for discovering and classifying sensitive data, surfacing and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database.
 
 Understand Advanced Threat Protection and alerting for Azure SQL Database:
 
@@ -553,7 +553,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-over
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
-**Guidance**: For Azure SQL Databases storing or processing sensitive information, mark the database and related resources as sensitive using Tags. Configure Private Link in conjunction with Network Security Group Service Tags on your Azure SQL Database instances to prevent the exfiltration of sensitive information.
+**Guidance**: For Azure SQL databases storing or processing sensitive information, mark the database and related resources as sensitive using Tags. Configure Private Link in conjunction with Network Security Group Service Tags on your Azure SQL Database instances to prevent the exfiltration of sensitive information.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 

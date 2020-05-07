@@ -135,4 +135,4 @@ az sql server dns-alias delete –-resource-group $resourceGroupName2 --server $
 
 ## Next steps
 
-For a full explanation of the DNS alias feature for SQL Database, see [DNS alias for Azure SQL database](dns-alias-overview.md).
+For a full explanation of the DNS alias feature for SQL Database, see [DNS alias for Azure SQL Database](dns-alias-overview.md).
