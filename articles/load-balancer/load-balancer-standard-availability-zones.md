@@ -33,13 +33,19 @@ When a public IP resource or a private IP address has been guaranteed to a zone,
 
 ### Zone redundant 
 
-In a region with availability zones, a Standard Load Balancer frontend can be zone-redundant.  Zone-redundant means that all inbound or outbound flows are served by multiple availability zones in a region simultaneously using a single IP address. DNS redundancy schemes aren't required. A single frontend IP address can survive zone failure and can be used to reach all (non-impacted) backend pool members irrespective of the zone. One or more availability zones can fail and the data path survives as long as one zone in the region remains healthy. The frontend's single IP address is served simultaneously by multiple independent infrastructure deployments in multiple availability zones.  This doesn't mean hitless data path, but any retries or reestablishment will succeed in other zones not impacted by the zone failure.   
+In a region with availability zones, a Standard Load Balancer frontend can be zone-redundant.  Zone-redundant means that all inbound or outbound flows are served by multiple availability zones in a region simultaneously using a single IP address. DNS redundancy schemes aren't required. A single frontend IP address can survive zone failure and can be used to reach all (non-impacted) backend pool members irrespective of the zone. One or more availability zones can fail and the data path survives as long as one zone in the region remains healthy. The frontend's single IP address is served simultaneously by multiple independent infrastructure deployments in multiple availability zones.  This doesn't mean hitless data path, but any retries or reestablishment will succeed in other zones not impacted by the zone failure. 
+
+:::image type="content" source="./media/az-zonal/zone-redundant-lb-1.svg" alt-text="Zone redundant" border="true":::
+
+*Figure: Zone redundant load balancer*
 
 ### Zonal
 
 You can choose to have a frontend guaranteed to a single zone, which is known as a *zonal frontend*.  This means any inbound or outbound flow is served by a single zone in a region.  Your frontend shares fate with the health of the zone.  The data path is unaffected by failures in zones other than where it was guaranteed. You can use zonal frontends to expose an IP address per Availability Zone.  
 
 Additionally, you can consume zonal frontends directly for load balanced endpoints within each zone. You can also use this to expose per zone load-balanced endpoints to individually monitor each zone.  Or for public endpoints you can integrate them with a DNS load-balancing product like [Traffic Manager](../traffic-manager/traffic-manager-overview.md) and use a single DNS name. The client then will then resolve to this DNS name to multiple zonal IP addresses.  
+
+:::image type="content" source="./media/az-zonal/zonal-lb-1.svg" alt-text="Zone redundant" border="true":::
 
 If you wish to blend these concepts (zone-redundant and zonal for same backend), review [multiple frontends for Azure Load Balancer](load-balancer-multivip-overview.md).
 
