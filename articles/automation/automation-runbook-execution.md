@@ -82,7 +82,7 @@ Azure Automation makes use of the [Azure Monitor](https://docs.microsoft.com/azu
 
 ### Log Analytics agent for Windows
 
-The [Log Analytics agent for Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windowsmonitor) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter. You must configure the agent to report to one or more Log Analytics workspaces. 
+The [Log Analytics agent for Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter. You must configure the agent to report to one or more Log Analytics workspaces. 
 
 >[!NOTE]
 >The Log Analytics agent for Windows was previously known as the Microsoft Monitoring Agent (MMA).
