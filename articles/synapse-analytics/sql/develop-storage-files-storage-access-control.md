@@ -193,7 +193,7 @@ GO
 The following script creates a credential that is used to access files on storage using SAS token specified in the credential.
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
+CREATE DATABASE SCOPED CREDENTIAL [SasToken]
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
@@ -203,8 +203,8 @@ GO
 The following script creates a credential that is used by external tables and `OPENROWSET` functions that use data source with credential to access storage files using their own Azure AD identity.
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
-WITH IDENTITY = 'Managed Identity';
+CREATE DATABASE SCOPED CREDENTIAL [AzureAD]
+WITH IDENTITY = 'User Identity';
 GO
 ```
 
