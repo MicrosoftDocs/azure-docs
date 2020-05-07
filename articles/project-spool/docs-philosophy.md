@@ -25,7 +25,7 @@ ms.service: azure-project-spool
 - As a developer, I decide to pay (or advocate for) a service when it's painless. I look for simplicity that **doesn't make me think**. If the docs don't make me think, then I trust that the product won't make me think.
 - **We can use docs to unify our thinking in service of our customer's need for simplicity.** To facilitate that, a docs skeleton has been created. We can all add meat to the skeleton.
 - The core priorities of docs are **simplicity** and **progress**.
-- To make progress, **all primitive owners can contribute docs and samples**. Mick's role is not to create all docs - it's to integrate and edit content while providing docs-ops support.
+- To make progress, **all primitive owners and engineers can and should contribute docs and samples**. Docs can be the thing that anchors everyone to an ever-improving, unified understanding of our desired customer experience.
 - To maintain progress and accountability, **we need to track docs ownership and status**. This is being tracked [here](https://microsoft.sharepoint-df.com/:x:/t/IC3SDK/EasbZy5MyMBLq2S0NyTNBVABhKiR6r8bq8Ld8clQQkgOeA?e=jxpgWn).
 - The most mature components of our product are Calling (voice + video) and SMS. These are the first scenarios we'll complete depth-first. Then we'll expand breadth of our docs.
 
