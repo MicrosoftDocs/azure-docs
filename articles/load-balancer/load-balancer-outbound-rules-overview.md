@@ -61,7 +61,7 @@ API version "2018-07-01" permits an outbound rule definition structured as follo
 
 ### <a name="scale"></a> Scale outbound NAT with multiple IP addresses
 
-While an outbound rule can be used with just a single public IP address, outbound rules ease the configuration burden for scaling outbound NAT. You can use multiple IP addresses to plan for large-scale scenarios and you can use outbound rules to mitigate [SNAT exhaustion](load-balancer-outbound-connections.md#snatexhaust) prone patterns.  
+While an outbound rule can be used with just a single public IP address, outbound rules ease the configuration burden for scaling outbound NAT. You can use multiple IP addresses to plan for large-scale scenarios and you can use outbound rules to mitigate [SNAT exhaustion](troubleshoot-outbound-connection.md#snatexhaust) prone patterns.  
 
 Each additional IP address provided by a frontend provides 64,000 ephemeral ports for Load Balancer to use as SNAT ports. While load balancing or inbound NAT rules have a single frontend, the outbound rule expands the frontend notion and allows multiple frontends per rule.  With multiple frontends per rule, the quantity of available SNAT ports is multiplied with each public IP address, and large scenarios can be supported.
 
