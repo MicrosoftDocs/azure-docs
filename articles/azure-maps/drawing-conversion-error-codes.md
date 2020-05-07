@@ -342,10 +342,10 @@ The **dwgError** occurs when the drawing package contains a DWG file that can't 
 
 #### *How to fix dwgError*
 
-To fix a **dwgError**, inspect your _manifest.json_ file and do one or more of the following:
+To fix a **dwgError**, inspect your _manifest.json_ file confirm that:
 
-* To confirm that all DWG files in your ZIP archive are valid AutoCAD DWG format drawings, open each one in AutoCAD. Remove or fix all invalid drawings.
-* Confirm that the list of  DWG files in the _manifest.json_  matches the DWG files in the ZIP archive.
+* All DWG files in your ZIP archive are valid AutoCAD DWG format drawings, open each one in AutoCAD. Remove or fix all invalid drawings.
+* The list of  DWG files in the _manifest.json_  matches the DWG files in the ZIP archive.
 
 ## Manifest errors
 

@@ -174,7 +174,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Make a **POST** request in the builder tab. The request URL should look like the following:
+2. Make a **POST** request in the builder tab. The request URL should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/tileset/create/vector?api-version=1.0&datasetID={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
