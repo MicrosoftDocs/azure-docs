@@ -247,6 +247,8 @@
     items:
     - name: VS project with pipelines
       href: add-template-to-azure-pipelines.md
+    - name: Deploy - GitHub Actions
+      href: deploy-github-actions.md
   - name: Export template
     href: export-template-portal.md
   - name: View deployment history
