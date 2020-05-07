@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2020
+ms.date: 05/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
@@ -31,7 +31,11 @@ Custom roles can be shared between subscriptions that trust the same Azure AD di
 
 ## Custom role example
 
-The following shows what a custom role looks like as displayed in JSON format. This custom role can be used for monitoring and restarting virtual machines.
+When you create a custom role, it appears in the Azure portal with an orange resource icon.
+
+![Custom role icon](./media/custom-roles/roles-custom-role-icon.png)
+
+The following shows what a custom role looks like as displayed using Azure PowerShell in JSON format. This custom role can be used for monitoring and restarting virtual machines.
 
 ```json
 {
@@ -63,9 +67,45 @@ The following shows what a custom role looks like as displayed in JSON format. T
 }
 ```
 
-When you create a custom role, it appears in the Azure portal with an orange resource icon.
+The following shows the same custom role as displayed using Azure CLI.
 
-![Custom role icon](./media/custom-roles/roles-custom-role-icon.png)
+```json
+[
+  {
+    "assignableScopes": [
+      "/subscriptions/{subscriptionId1}",
+      "/subscriptions/{subscriptionId2}",
+      "/providers/Microsoft.Management/managementGroups/{groupId1}"
+    ],
+    "description": "Can monitor and restart virtual machines.",
+    "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/88888888-8888-8888-8888-888888888888",
+    "name": "88888888-8888-8888-8888-888888888888",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Storage/*/read",
+          "Microsoft.Network/*/read",
+          "Microsoft.Compute/*/read",
+          "Microsoft.Compute/virtualMachines/start/action",
+          "Microsoft.Compute/virtualMachines/restart/action",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.ResourceHealth/availabilityStatuses/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Insights/diagnosticSettings/*",
+          "Microsoft.Support/*"
+        ],
+        "dataActions": [],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Virtual Machine Operator",
+    "roleType": "CustomRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
 
 ## Steps to create a custom role
 
@@ -75,17 +115,17 @@ When you create a custom role, it appears in the Azure portal with an orange res
 
 1. Determine the permissions you need
 
-    When you create a custom role, you need to know the resource provider operations that are available to define your permissions. To view the list of operations, see the [Azure Resource Manager resource provider operations](resource-provider-operations.md). You will add the operations to the `Actions` or `NotActions` properties of the [role definition](role-definitions.md). If you have data operations, you will add those to the `DataActions` or `NotDataActions` properties.
+    When you create a custom role, you need to know the operations that are available to define your permissions. To view the list of operations, see the [Azure Resource Manager resource provider operations](resource-provider-operations.md). You will add the operations to the `Actions` or `NotActions` properties of the [role definition](role-definitions.md). If you have data operations, you will add those to the `DataActions` or `NotDataActions` properties.
 
 1. Create the custom role
 
-    Typically, you start with an existing built-in role and then modify it for your needs. Then you use the [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) or [az role definition create](/cli/azure/role/definition#az-role-definition-create) commands to create the custom role. To create a custom role, you must have the `Microsoft.Authorization/roleDefinitions/write` permission on all `AssignableScopes`, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+    Typically, you start with an existing built-in role and then modify it for your needs. The easiest way to create a custom role is to use the Azure portal, but can you can also create custom roles using commands. To create a custom role, you must be signed in with a user that has the `Microsoft.Authorization/roleDefinitions/write` permission on all `AssignableScopes`, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
 
 1. Test the custom role
 
     Once you have your custom role, you have to test it to verify that it works as you expect. If you need to make adjustments later, you can update the custom role.
 
-For a step-by-step tutorial on how to create a custom role, see [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md) or [Tutorial: Create an Azure custom role using Azure CLI](tutorial-custom-role-cli.md).
+For steps on how to create a custom role using the Azure portal, see [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md).
 
 ## Custom role properties
 
@@ -126,7 +166,148 @@ The following list describes the limits for custom roles.
 
 For more information about custom roles and management groups, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
 
+## Custom role formats
+
+To create a custom role using the command line, you typically use JSON to specify the properties you want for the custom role. Depending on the tools you use, the JSON format will look slightly different. The following shows the JSON format depending on the tool.
+
+### Azure PowerShell
+
+To create a custom role using Azure PowerShell, you must provide following input.
+
+```json
+{
+  "Name": "",
+  "Description": "",
+  "Actions": [],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": []
+}
+```
+
+To update a custom role using Azure PowerShell, you must provide the following input. Note that the `Id` property has been added. 
+
+```json
+{
+  "Name": "",
+  "Id": "",
+  "Description": "",
+  "Actions": [],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": []
+}
+```
+
+The following shows an example of the output when listing a custom role using Azure PowerShell and the [ConvertTo-Json](/powershell/module/microsoft.powershell.utility/convertto-json) command. 
+
+```json
+{
+  "Name": "",
+  "Id": "",
+  "IsCustom": true,
+  "Description": "",
+  "Actions": [],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": []
+}
+```
+
+### Azure CLI
+
+To create or update a custom role using Azure CLI, you must provide following input. This format is the same format when you create a custom role using Azure PowerShell.
+
+```json
+{
+  "Name": "",
+  "Description": "",
+  "Actions": [],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": []
+}
+```
+
+The following shows an example of the output when listing a custom role using Azure CLI.
+
+```json
+[
+  {
+    "assignableScopes": [],
+    "description": "",
+    "id": "",
+    "name": "",
+    "permissions": [
+      {
+        "actions": [],
+        "dataActions": [],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "",
+    "roleType": "CustomRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
+
+### REST API
+
+To create or update a custom role using the REST API, you must provide following input. This format is the same format that gets generated when you create a custom role using the Azure portal.
+
+```json
+{
+  "properties": {
+    "roleName": "",
+    "description": "",
+    "assignableScopes": [],
+    "permissions": [
+      {
+        "actions": [],
+        "notActions": [],
+        "dataActions": [],
+        "notDataActions": []
+      }
+    ]
+  }
+}
+```
+
+The following shows an example of the output when listing a custom role using the REST API.
+
+```json
+{
+    "properties": {
+        "roleName": "",
+        "type": "CustomRole",
+        "description": "",
+        "assignableScopes": [],
+        "permissions": [
+            {
+                "actions": [],
+                "notActions": []
+            }
+        ],
+        "createdOn": "",
+        "updatedOn": "",
+        "createdBy": "",
+        "updatedBy": ""
+    },
+    "id": "",
+    "type": "Microsoft.Authorization/roleDefinitions",
+    "name": ""
+}
+```
+
 ## Next steps
-- [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md)
+
+- [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Tutorial: Create an Azure custom role using Azure CLI](tutorial-custom-role-cli.md)
 - [Understand Azure role definitions](role-definitions.md)
 - [Troubleshoot Azure RBAC](troubleshooting.md)
