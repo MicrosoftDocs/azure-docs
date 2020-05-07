@@ -5,12 +5,55 @@ ms.subservice:
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 03/05/2020
+ms.date: 04/06/2020
 
 ---
 
 # What's new in Azure Monitor documentation?
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
+
+## April 2020
+
+### General
+- [Azure Monitor customer-managed key](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys.md) - Added section on asynchronous operations
+- [Manage Log Analytics workspaces in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access.md) - Updated custom logs sections.
+
+### Alerts
+- [Action rules for Azure Monitor alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) - Added video.
+- [Overview of alerting and notification monitoring in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview.md) - Added video.
+
+### Application Insights
+- [Application Map in Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-map.md) - Added cloud role names config for java agent.
+- [Azure Application Insights .Net Agent API reference](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference.md) - Consolidated API Reference.
+- [IP addresses used by Application Insights and Log Analytics](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses.md) - Updated IP addresses for App Insights and Log Analytics APIs, Action group webhooks, Azure US Government.
+- [Monitor Java applications anywhere](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config.md) - New article
+- [Monitor Java applications on any environment](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent.md) - New article
+- [Monitor Java applications running in any environment](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments.md) - New article
+- [Monitor Java applications running on premises](https://docs.microsoft.com/azure/azure-monitor/app/java-on-premises.md) - New article
+- [Remove Application Insights in Visual Studio](https://docs.microsoft.com/azure/azure-monitor/app/remove-application-insights.md) - New article
+- [Telemetry sampling in Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sampling) - Fix in fixed-rate sample in Python.
+
+### Containers
+- [Configure Azure Red Hat OpenShift v4.x with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-azure-redhat4-setup) - New article
+- [How to manually fix ServiceNow sync problems](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow) - New article
+- [How to stop monitoring your Azure and Red Hat OpenShift v4 cluster](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-openshift-v4) - New article
+- [How to stop monitoring your Azure Red Hat OpenShift v3 cluster](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-openshift-v3) - New article
+- [How to stop monitoring your hybrid Kubernetes cluster](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-hybrid) - New article
+
+### Insights
+- [Monitor Azure Key Vaults with Azure Monitor for Key Vaults (preview)](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview) - New article
+
+### Logs
+- [Azure Monitor service limits](https://docs.microsoft.com/azure/azure-monitor/service-limits) - Added user query throttling.
+- [Manage usage and costs for Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage) - Added billing for Logs clusters. Added Kusto query to enable customers with legacy Per Node pricing tier to determine whether they should move to a Per GB or Capacity Reservation tier.
+
+### Metrics
+- [Advanced features of Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) - Added aggregation section.
+
+### Workbooks
+- [Azure Monitor Workbooks and Azure Resource Manager Templates](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-automate) - Added resource manager template for deploying a workbook template.
+
+
 
 ## March 2020
 

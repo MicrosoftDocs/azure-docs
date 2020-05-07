@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 04/30/2020
+ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -62,8 +62,8 @@ We plan to add support for the following OSes, so make sure you have the [approp
 
 |OS|Required license|
 |---|---|
-|Windows 10 Enterprise multi-session or Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise multi-session or Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|RDS Client Access License (CAL) with Software Assurance|
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
@@ -178,16 +178,16 @@ Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, 
 
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
 
-|Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|Windows Virtual Desktop Agent updates|
-|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 multi-session, version 1903|Yes|Yes|Yes|Yes|Automatic|
-|Windows 10 multi-session, version 1809|Yes|Yes|No|No|Automatic|
-|Windows 10 Enterprise, version 1903|Yes|Yes|Yes|Yes|Automatic|
-|Windows 10 Enterprise, version 1809|Yes|Yes|No|No|Automatic|
-|Windows 7 Enterprise|Yes|Yes|No|No|Manual|
-|Windows Server 2019|Yes|Yes|No|No|Automatic|
-|Windows Server 2016|Yes|Yes|Yes|Yes|Automatic|
-|Windows Server 2012 R2|Yes|Yes|No|No|Automatic|
+|Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|
+|--------------------------------------|:------:|:------:|:------:|:------:|
+|Windows 10 multi-session, version 1903|Yes|Yes|Yes|Yes|
+|Windows 10 multi-session, version 1809|Yes|Yes|No|No|
+|Windows 10 Enterprise, version 1903|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise, version 1809|Yes|Yes|No|No|
+|Windows 7 Enterprise|Yes|Yes|No|No|
+|Windows Server 2019|Yes|Yes|No|No|
+|Windows Server 2016|Yes|Yes|Yes|Yes|
+|Windows Server 2012 R2|Yes|Yes|No|No|
 
 ## Next steps
 
