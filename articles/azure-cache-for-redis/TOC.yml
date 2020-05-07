@@ -130,7 +130,7 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.redis
   - name: Java
-    href: /java/api/com.microsoft.azure.management.redis._redis_cache
+    href: /java/api/com.microsoft.azure.management.redis.rediscache
   - name: Redis clients
     href: https://redis.io/clients
   - name: Redis commands

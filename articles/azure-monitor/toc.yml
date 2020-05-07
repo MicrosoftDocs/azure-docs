@@ -927,6 +927,10 @@
         href: platform/workbooks-data-sources.md
       - name: Deploy with Azure Resource Manager
         href: platform/workbooks-automate.md
+      - name: Groups
+        href: platform/workbooks-groups.md
+      - name: Transform JSON data with JSONPath
+        href: platform/workbooks-jsonpath.md
       - name: Configuration
         items:
         - name: Access control
