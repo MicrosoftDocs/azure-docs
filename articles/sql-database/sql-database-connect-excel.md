@@ -29,12 +29,11 @@ You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https
 
    ![Select data source: Connect Excel to SQL Database.](./media/sql-database-connect-excel/excel_data_source.png)
 
-   The Data Connection Wizard opens.
-3. In the **Connect to Database Server** dialog box, type the SQL Database **Server name** you want to connect to in the form <*servername*>**.database.windows.net**. For example, **msftestserver.database.windows.net**. Optionally, enter in the name of your database. Select **OK** to open the credentials window.
+3. In the **SQL Server database** dialog box, type the **Server name** you want to connect to in the form <*servername*>**.database.windows.net**. For example, **msftestserver.database.windows.net**. Optionally, enter in the name of your database. Select **OK** to open the credentials window.
 
    ![Connect to Database Server Dialog box](media/sql-database-connect-excel/server-name.png)
 
-4. In the **SQL Server Database** dialog box, select **Database** on the left side, and then enter in your **User Name** and **Password** for the server you want to connect to. Select **Connect** to open the **Navigator**.
+4. In the **SQL Server database** dialog box, select **Database** on the left side, and then enter in your **User Name** and **Password** for the server you want to connect to. Select **Connect** to open the **Navigator**.
 
    ![Type the server name and login credentials](./media/sql-database-connect-excel/connect-to-server.png)
 

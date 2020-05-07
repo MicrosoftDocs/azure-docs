@@ -77,7 +77,7 @@ To register and set necessary permissions for your application:
 
 For your C# program to run, a [logical SQL server](sql-database-servers.md) admin needs to assign an Azure AD admin for your server.
 
-On the **SQL Server** page, select **Active Directory admin** > **Set admin**.
+On the **SQL server** page, select **Active Directory admin** > **Set admin**.
 
 For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-database).
 

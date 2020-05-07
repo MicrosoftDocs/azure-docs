@@ -1,7 +1,7 @@
 ---
 title: "What is an Azure SQL Managed Instance pool?" 
 titleSuffix: Azure SQL Managed Instance
-description: Learn about Azure SQL Managed Instance pools (preview), a feature that provides a convenient and cost-efficient way to migrate smaller SQL Server databases to the cloud at scale, and manage multiple SQL managed Instances.  
+description: Learn about Azure SQL Managed Instance pools (preview), a feature that provides a convenient and cost-efficient way to migrate smaller SQL Server databases to the cloud at scale, and manage multiple SQL Managed Instances.  
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -21,7 +21,7 @@ Instance pools allow you to pre-provision compute resources according to your to
 
 Additionally, instance pools support native VNet integration so you can deploy multiple instance pools and multiple single instances in the same subnet.
 
-## Key capabilities 
+## Key capabilities
 
 Instance pools provide the following benefits:
 
@@ -41,7 +41,7 @@ Because all instances in a pool share the same virtual machine, the total IP all
 
 Each pool has a fixed IP allocation of only nine IP addresses (not including the five IP addresses in the subnet that are reserved for its own needs). For details, see [subnet size requirements for single instances](sql-database-managed-instance-determine-size-vnet-subnet.md).
 
-## Application scenarios 
+## Application scenarios
 
 The following list provides the main use cases where instance pools should be considered:
 
@@ -50,8 +50,7 @@ The following list provides the main use cases where instance pools should be co
 - Scenarios where having a *fixed cost* or *spending limit* is important. For example, running shared dev-test or demo environments of a fixed (or infrequently changing) size, where you periodically deploy managed instances when needed.
 - Scenarios where *minimal IP address allocation* in a VNet subnet is important. All instances in a pool are sharing a virtual machine, so the number of allocated IP addresses is lower than in the case of single instances.
 
-
-## Architecture 
+## Architecture
 
 Instance pools have a similar architecture to regular (*single*) Managed Instances. To support [deployments within Azure Virtual Networks (VNets)](../virtual-network/virtual-network-for-azure-services.md) and to provide isolation and security for customers, instance pools also rely on [virtual clusters](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Virtual clusters represent a dedicated set of isolated virtual machines deployed inside the customer's virtual network subnet.
 

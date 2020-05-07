@@ -97,7 +97,7 @@ If your subscription needs access in a particular region, please use the **Other
 
 ## <a id="sqlmiquota"></a> Managed instance quota type
 
-For the **SQL Server Managed Instance** quota type, use the following steps:
+For the **SQL Managed Instance** quota type, use the following steps:
 
 1. In the **Region** list, select the Azure region to target.
 

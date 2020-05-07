@@ -24,7 +24,7 @@ This article describes how to prevent, troubleshoot, diagnose, and mitigate conn
 
 A transient error, also known as a transient fault, has an underlying cause that soon resolves itself. An occasional cause of transient errors is when the Azure system quickly shifts hardware resources to better load-balance various workloads. Most of these reconfiguration events finish in less than 60 seconds. During this reconfiguration time span, you might have connectivity issues to SQL Database. Applications that connect to SQL Database should be built to expect these transient errors. To handle them, implement retry logic in their code instead of surfacing them to users as application errors.
 
-If your client program uses ADO.NET, your program is told about the transient error by the throw of **SqlException**. 
+If your client program uses ADO.NET, your program is told about the transient error by the throw of **SqlException**.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -63,7 +63,7 @@ Client programs that occasionally encounter a transient error are more robust wh
 
 We recommend that you wait for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry, the delay should grow exponentially, up to a maximum of 60 seconds.
 
-For a discussion of the blocking period for clients that use ADO.NET, see [SQL Server connection pooling (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
+For a discussion of the blocking period for clients that use ADO.NET, see [Connection pooling (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 You also might want to set a maximum number of retries before the program self-terminates.
 
@@ -442,7 +442,7 @@ public bool IsTransient(Exception ex)
 ## Next steps
 
 - [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
-- [SQL Server connection pooling (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
+- [Connection pooling (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 - [*Retrying* is an Apache 2.0 licensed general-purpose retrying library, written in Python,](https://pypi.python.org/pypi/retrying) to simplify the task of adding retry behavior to just about anything.
 
 <!-- Link references. -->

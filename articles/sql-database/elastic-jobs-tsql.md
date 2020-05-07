@@ -1344,4 +1344,4 @@ Shows all members of all target groups.
 ## Next steps
 
 - [Create and manage Elastic Jobs using PowerShell](elastic-jobs-powershell.md)
-- [Authorization and Permissions SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
+- [Authorization and Permissions](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)

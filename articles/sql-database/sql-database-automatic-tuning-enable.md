@@ -54,7 +54,7 @@ Automatic tuning options on a server are applied to all databases on this server
 
 ### REST API
 
-Find out more about using REST API to enable automatic tuning on a **server**, see [SQL Server Automatic tuning UPDATE and GET HTTP methods](/rest/api/sql/serverautomatictuning).
+Find out more about using REST API to enable automatic tuning on a **server**, see [Server Automatic tuning UPDATE and GET HTTP methods](/rest/api/sql/serverautomatictuning).
 
 ## Enable automatic tuning on an individual database
 
@@ -111,7 +111,7 @@ Automatic tuning is monitoring all the actions it takes on the database and in s
 
 As automatic tuning is Azure feature, to use it you will need to use Azure's built-in RBAC roles. Using SQL Authentication only will not be sufficient to use the feature from Azure portal.
 
-To use automatic tuning, the minimum required permission to grant to the user is Azure's built-in [SQL Database contributor](../role-based-access-control/built-in-roles.md#sql-db-contributor) role. You can also consider using higher privilege roles such are SQL Server Contributor, Contributor and Owner.
+To use automatic tuning, the minimum required permission to grant to the user is Azure's built-in [SQL Database contributor](../role-based-access-control/built-in-roles.md#sql-db-contributor) role. You can also consider using higher privilege roles such are SQL Server Contributor, SQL Managed Instance Contributor, Contributor, and Owner.
 
 ## Configure automatic tuning e-mail notifications
 

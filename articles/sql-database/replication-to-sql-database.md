@@ -66,7 +66,7 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 - You must have an existing Azure subscription.  
 - The Azure SQL Database subscriber can be in any region.  
 - A single publication on SQL Server can support both Azure SQL Database and SQL Server (on-premises and SQL Server in an Azure virtual machine) subscribers.  
-- Replication management, monitoring, and troubleshooting must be performed from the SQL Server.  
+- Replication management, monitoring, and troubleshooting must be performed from SQL Server rather than Azure SQL Database.  
 - Only `@subscriber_type = 0` is supported in **sp_addsubscription** for SQL Database.  
 - Azure SQL Database does not support bi-directional, immediate, updatable, or peer-to-peer replication.
 
