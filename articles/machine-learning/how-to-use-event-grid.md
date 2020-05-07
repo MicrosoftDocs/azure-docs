@@ -52,7 +52,7 @@ Azure Machine Learning provides events in the various points of machine learning
 
 ### Filter & subscribe to events
 
-These events are published through Azure Event Grid. Using Azure portal, Powershell or Azure CLI, customers can easily subscribe to events by [specifying one or more event types, and filtering conditions](/azure/event-grid/event-filtering). 
+These events are published through Azure Event Grid. Using Azure portal, PowerShell or Azure CLI, customers can easily subscribe to events by [specifying one or more event types, and filtering conditions](/azure/event-grid/event-filtering). 
 
 When setting up your events, you can apply filters to only trigger on specific event data. In the example below, for run status changed events, you can filter by run types. The event only triggers when the criteria is met. Refer to the [Azure Machine Learning event grid schema](/azure/event-grid/event-schema-machine-learning) to learn about event data you can filter by. 
 
