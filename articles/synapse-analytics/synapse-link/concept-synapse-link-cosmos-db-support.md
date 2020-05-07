@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Synapse Link for Azure Cosmos DB supported features
 
-This article describes what functionalities are currently supported in Synapse Link for Azure Cosmos DB. 
+This article describes what functionalities are currently supported in Azure Synapse Link for Azure Cosmos DB. 
 
 ## Azure Synapse support
 
