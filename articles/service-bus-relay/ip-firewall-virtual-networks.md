@@ -9,7 +9,7 @@ ms.service: service-bus-relay
 ms.devlang: na
 ms.custom: seodec18
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 05/07/2020
 ms.author: spelluru
 
 ---

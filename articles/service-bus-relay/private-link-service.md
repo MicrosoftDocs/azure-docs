@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Relay with Azure Private Link Service
 services: service-bus-relay
 author: spelluru
 ms.author: spelluru
-ms.date: 03/09/2020
+ms.date: 05/07/2020
 ms.service: service-bus-relay
 ms.topic: article
 

@@ -6,7 +6,7 @@ author: spelluru
 
 ms.service: service-bus-relay
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 05/07/2020
 ms.author: spelluru
 ---
 
