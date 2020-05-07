@@ -160,7 +160,8 @@ var tokenProvider = new UserAccessTokenCredential(async (cancelationToken) => {
 });
 ```
 
-[!NOTE] Tokens are sensitive data, because they grant access to a user's resources. Therefore, it's critical to protect tokens from being compromised. If your custom caching logic involves writing user access tokens to a backing store, it is strongly reccomended that you use encryption.
+> [!CAUTION] 
+> Tokens are sensitive data, because they grant access to a user's resources. Therefore, it's critical to protect tokens from being compromised. If your custom caching logic involves writing user access tokens to a backing store, it is strongly reccomended that you use encryption.
 
 ## Revoking User Access Tokens
 
