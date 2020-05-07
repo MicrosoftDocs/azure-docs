@@ -3,7 +3,7 @@ title: "Tutorial: Deploy server-rendered Next.js websites on Azure Static Web Ap
 description: "Generate and deploy Next.js dynamic sites with Azure Static Web Apps."
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
 author: christiannwamba
-ms.service: azure-functions
+ms.service: static-web-apps
 ms.topic:  tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
@@ -106,10 +106,13 @@ When you build a Next.js site using `npm run build`, the app is built as a tradi
 Azure Static Web Apps deploys your app from a GitHub repository and keeps doing so for every pushed commit to a designated branch. Use the following commands sync your changes to GitHub.
 
 1. Stage all changed files
+
     ```bash
     git add .
     ```
+
 1. Commit all changes
+
     ```bash
     git commit -m "Update build config"
     ```
@@ -129,14 +132,12 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Click **Create a Resource** then search for **Static Web Apps** and select the matching result.
 
-
 1. Select a subscription from the *Subscription* drop-down list or use the default value.
 1. Click the **New** link below the *Resource group* drop-down. In *New resource group name*, type **mystaticsite** and click **OK**
 1. Provide a globally unique name for your app in the **Name** text box. Valid characters include `a-z`, `A-Z`, `0-9`, and `-`. This value is used as the URL prefix for your static app in the format of `https://<APP_NAME>.azurestaticapps.net`.
 1. In the *Region* drop-down, choose a region closest to you.
 1. Select **Free** from the SKU drop-down.
 
-  
   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Create Static Web App":::
 
 ### Add a GitHub repository
@@ -222,7 +223,6 @@ The reason for this error is because Next.js only generated the home page based 
 
 2. Push the new changes to your GitHub repository and wait for a few minutes while GitHub Actions builds your site again. After the build is complete, the 404 error disappears.
 
-  
 :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="404 on dynamic routes fixed":::
 
 > [!div class="nextstepaction"]

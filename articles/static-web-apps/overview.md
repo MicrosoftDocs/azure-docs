@@ -14,7 +14,7 @@ ms.author: cshoe
 
 Azure Static Web Apps is a service that automatically builds and deploys full stack web apps to Azure from a GitHub repository.
 
-:::image type="content" source="media/overview/static-apps-overview.png" alt-text="Static Apps overview":::
+:::image type="content" source="media/overview/static-apps-overview.png" alt-text="Static Web Apps overview":::
 
 The workflow of Azure Static Web Apps is tailored to a developer's daily workflow. Apps are built and deployed based off GitHub interactions.
 

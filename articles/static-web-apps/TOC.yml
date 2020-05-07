@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-    - name: About Static Apps
+    - name: About Static Web Apps
       href: overview.md
 - name: Quickstarts
   expanded: true
