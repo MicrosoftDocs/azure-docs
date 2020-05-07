@@ -2,7 +2,7 @@
 title: Firewall access rules
 description: Configure rules to access an Azure container registry from behind a firewall, by allowing access to ("whitelisting") REST API and data endpoint domain names or service-specific IP address ranges.
 ms.topic: article
-ms.date: 05/06/2020
+ms.date: 05/07/2020
 ---
 
 # Configure rules to access an Azure container registry behind a firewall
@@ -17,53 +17,16 @@ To pull or push images or other artifacts to an Azure container registry, a clie
 
 * **Registry REST API endpoint** - Authentication and registry management operations are handled through the registry's public REST API endpoint. This endpoint is the login server name of the registry. Example: `myregistry.azurecr.io`
 
-* **Data endpoint** - Azure [allocates blob storage](container-registry-storage.md) in Azure Storage accounts on behalf of each registry to manage the data for container images and other artifacts. When a client accesses image layers in an Azure container registry, it makes requests using a storage account endpoint provided by the registry.
+* **Storage (data) endpoint** - Azure [allocates blob storage](container-registry-storage.md) in Azure Storage accounts on behalf of each registry to manage the data for container images and other artifacts. When a client accesses image layers in an Azure container registry, it makes requests using a storage account endpoint provided by the registry.
 
 If your registry is [geo-replicated](container-registry-geo-replication.md), a client might need to interact with the data endpoint in a specific region or in multiple replicated regions.
 
 ## Allow access to REST and data endpoints
 
 * **REST endpoint** - Allow access to the fully qualified registry login server name, `<registry-name>.azurecr.io`, or an associated IP address range
-* **Storage (data) endpoint** - Enable access to a [dedicated data endpoint](#enable-dedicated-data-endpoints-preview) (preview) in each region where the registry is located or replicated, `<registry-name>.<region>.data.azurecr.io`. Alternatively, and less specifically, allow access to all Azure blob storage accounts using the wildcard `*.blob.core.windows.net`, or an associated IP address range.
-
-## Enable dedicated data endpoints (preview)
-
-> [!WARNING]
-> If you previously configured client firewall access to the existing `*.blob.core.windows.net` endpoints, switching to dedicated data endpoints will impact client connectivity, causing pull failures. To ensure clients have consistent access, add the new data endpoint rules to the client firewall rules. Once completed, enable dedicated data endpoints for your registries using the Azure CLI or other tools.
-
-A dedicated data endpoint is an optional feature of the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry Tiers](container-registry-skus.md). To enable data endpoints using the Azure CLI, use Azure CLI version 2.4.0 or higher. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-The following [az acr update][az-acr-update] command enables data endpoints on a registry *myregistry*. For demonstration purpose, assume that the registry is replicated in two regions:
-
-```azurecli
-az acr update --name myregistry --data-endpoint-enabled
-```
-
-To view the data endpoints, including regional endpoints for geo-replicated registries, use the [az acr show-endpoints][az-acr-show-endpoints] command:
-
-```azurecli
-az acr show-endpoints --name myregistry
-```
-
-Output:
-
-```
-{
-    "loginServer": "myregistry.azurecr.io",
-    "dataEndpoints": [
-        {
-            "region": "eastus",
-            "endpoint": "myregistry.eastus.data.azurecr.io",
-        },
-        {
-            "region": "westus",
-            "endpoint": "myregistry.westus.data.azurecr.io",
-        }
-    ]
-}
-```
-
-After you set up dedicated data endpoints for your registry, you can enable client firewall access rules for the data endpoints. Enable data endpoint access rules for all required registry regions.
+* **Storage (data) endpoint** - Allow access to all Azure blob storage accounts using the wildcard `*.blob.core.windows.net`, or an associated IP address range.
+> [!NOTE]
+> Azure Container Registry is introducing  [dedicated data endpoints](#enable-dedicated-data-endpoints-preview) (preview), allowing you to tightly scope client firewall rules for your registry storage. Optionally enable data endpoints in all regions where the registry is located or replicated, using the form `<registry-name>.<region>.data.azurecr.io`.
 
 ## Allow access by IP address range
 
@@ -148,6 +111,45 @@ Search for the specific region, such as **Storage.AustraliaCentral**.
 In an Azure virtual network, use network security rules to filter traffic from a resource such as a virtual machine to a container registry. To simplify the creation of the Azure network rules, use the **AzureContainerRegistry** [service tag](../virtual-network/security-overview.md#service-tags). A service tag represents a group of IP address prefixes to access an Azure service globally or per Azure region. The tag is automatically updated when addresses change. 
 
 For example, create an outbound network security group rule with destination **AzureContainerRegistry** to allow traffic to an Azure container registry. To allow access to the service tag only in a specific region, specify the region in the following format: **AzureContainerRegistry**.[*region name*].
+
+## Enable dedicated data endpoints (preview)
+
+> [!WARNING]
+> If you previously configured client firewall access to the existing `*.blob.core.windows.net` endpoints, switching to dedicated data endpoints will impact client connectivity, causing pull failures. To ensure clients have consistent access, add the new data endpoint rules to the client firewall rules. Once completed, enable dedicated data endpoints for your registries using the Azure CLI or other tools.
+
+Dedicated data endpoints is an optional feature of the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry Tiers](container-registry-skus.md). To enable data endpoints using the Azure CLI, use Azure CLI version 2.4.0 or higher. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+
+The following [az acr update][az-acr-update] command enables dedicated data endpoints on a registry *myregistry*. For demonstration purpose, assume that the registry is replicated in two regions:
+
+```azurecli
+az acr update --name myregistry --data-endpoint-enabled
+```
+
+The data endpoints use a regional pattern, `<registry-name>.<region>.data.azurecr.io`. To view the data endpoints, use the [az acr show-endpoints][az-acr-show-endpoints] command:
+
+```azurecli
+az acr show-endpoints --name myregistry
+```
+
+Output:
+
+```
+{
+    "loginServer": "myregistry.azurecr.io",
+    "dataEndpoints": [
+        {
+            "region": "eastus",
+            "endpoint": "myregistry.eastus.data.azurecr.io",
+        },
+        {
+            "region": "westus",
+            "endpoint": "myregistry.westus.data.azurecr.io",
+        }
+    ]
+}
+```
+
+After you set up dedicated data endpoints for your registry, you can enable client firewall access rules for the data endpoints. Enable data endpoint access rules for all required registry regions.
 
 ## Configure client firewall rules for MCR
 
