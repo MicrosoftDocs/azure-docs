@@ -82,14 +82,10 @@
         href: concepts/video/ice-stun-nat-turn-sdp.md
       - name: Data Channels
         href: concepts/video/data-channels.md
-  - name: Messaging
+  - name: Chat
     items: 
-      - name: About Messaging
-        href: concepts/messaging/messaging.md
-      - name: Real-Time Chat
-        href: concepts/messaging/real-time-chat.md
-      - name: SMS and MMS
-        href: concepts/messaging/sms-mms.md
+      - name: About Chat
+        href: concepts/chat/chat.md
   - name: Client and Server Architecture
     href: concepts/client-and-server-architecture.md
   - name: How Voice, Video, and Messaging Relate
