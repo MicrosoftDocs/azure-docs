@@ -1,135 +1,38 @@
 ---
-title: "Quickstart: [Product Name] client library for Java | Microsoft Docs"
-description: Get started with the [Product Name] client library for Java...
+title: "Quickstart: Form Recognizer client library for Java"
+description: In this quickstart, get started with the Form Recognizer client library for Java.
 services: cognitive-services
-author: 
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
-ms.topic: quickstart
-ms.date: 
-ms.author: 
+ms.subservice: forms-recognizer
+ms.topic: include
+ms.date: 05/06/2020
+ms.author: pafarley
 ---
 
-<!-- 
-You can find more guidance for formatting these quickstarts at: 
-https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-library-quickstart-v2?branch=pr-en-us-2187
-
-
-Title: 
-    The H1 of your Quickstart should be in the format: # Quickstart: [Product Name] client library for [Language]
--->
-
-# Quickstart: [Product Name] client library for Java
-
-Get started with the [Product Name] client library for Java. Follow these steps to install the package and try out the example code for basic tasks. 
-
-<!-- 
-    After the above line, briefly describe the service. You can often use the first line of the service's docs landing page for this.
-
-    Next, add a bulleted list of the most common tasks supported by the library, prefaced with "Use the [Product Name] client library for [Language] to:". You provide code snippets for these tasks in the Code examples section later in the Quickstart. Keep the list short but include those tasks most developers need to perform with the library.
-
-    Lastly, include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, for example NuGet instead of PyPi:
--->
-
-Use the [Product Name] client library for Java to:
-
-* TBD
-* TBD
-
-<!--
-    Include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, but try not to include any other links or content in the introduction.
--->
-
-[Reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/1.0.2/jar) | [Samples](https://github.com/Azure-Samples/anomalydetector)
+[Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/1.0.0-beta.1/index.html) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
 * The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
 
 ## Setting up
 
-<!--
-    Walk the reader through preparing their environment for working with the client library. Include instructions for creating the Azure resources required to make calls to the service, obtaining credentials, and setting up their local development environment.
+### Create a Form Recognizer Azure resource
 
-    See the "setting up" section for more details: 
-    https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-library-quickstart-v2?branch=pr-en-us-2187#setting-up -->
+[!INCLUDE [create resource](../create-resource.md)]
 
-<!-- 
-    Consider turning this setup section into a reusable include file for your service 
--->
+### Create environment variables
 
-### Create a [Product Name] Azure resource
-
-<!--
-    replace the links below with ones for your service.
--->
-
-Begin using the [Product Name] by creating an Azure resource. Choose the resource type below that's right for you:
-
-* A [trial resource](https://azure.microsoft.com/try/cognitive-services/#decision) (no Azure subscription needed): 
-    * Valid for seven days, for free. After signing up, a trial key and endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
-    * This is a great option if you want to try [Product Name], but don't have an Azure subscription.
-<!-- Link to the 'create' blade in the azure portal -->
-* A [ [Product Name] resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
-    * Available through the Azure portal until you delete the resource.
-    * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
-<!-- remove the below text if your service is not supported by the multi-service option. -->
-* A [Multi-Service resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
-    * Available through the Azure portal until you delete the resource.  
-    * Use the same key and endpoint for your applications, across multiple Cognitive Services.
-
-### Create an environment variable
-
->[!NOTE]
-> The endpoints for non-trial resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
-
-Using your key and endpoint from the resource you created, create two environment variables for authentication:
-<!-- replace the below variable names with the names expected in the code sample.-->
-* `PRODUCT_NAME_KEY` - The resource key for authenticating your requests.
-* `PRODUCT_NAME_ENDPOINT` - The resource endpoint for sending API requests. It will look like this: 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
-
-Use the instructions for your operating system.
-<!-- replace the below endpoint and key examples -->
-#### [Windows](#tab/windows)
-
-```console
-setx PRODUCT_NAME_KEY <replace-with-your-product-name-key>
-setx PRODUCT_NAME_ENDPOINT <replace-with-your-product-name-endpoint>
-```
-
-After you add the environment variable, restart the console window.
-
-#### [Linux](#tab/linux)
-
-```bash
-export PRODUCT_NAME_KEY=<replace-your-product-name-key>
-export PRODUCT_NAME_ENDPOINT=<replace-your-product-name-endpoint>
-```
-
-After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
-
-#### [macOS](#tab/unix)
-
-Edit your `.bash_profile`, and add the environment variable:
-
-```bash
-export PRODUCT_NAME_KEY=<replace-with-your-product-name-key>
-export PRODUCT_NAME_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
-***
+[!INCLUDE [env-vars](../env-vars.md)]
 
 ### Create a new Gradle project
 
 
-<!--
-    replace the product with your product 
--->
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
 ```console
@@ -149,99 +52,373 @@ Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Th
 ```kotlin
 
 ```
-<!-- replace <classname> with a descriptive name for your service-->
 Create a folder for your sample app. From your working directory, run the following command:
 
 ```console
 mkdir -p src/main/java
 ```
 
-Navigate to the new folder and create a file called *<classname>.java*. Open it in your preferred editor or IDE and add the following `import` statements:
+Navigate to the new folder and create a file called *formrecognizer-quickstart.java*. Open it in your preferred editor or IDE and add the following `import` statements:
 
 ```java
+import Azure.AI.FormRecognizer;
+import Azure.AI.FormRecognizer.Models;
 ```
 
 In the application's `main` method, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. You will define the methods later.
 
-<!-- 
-    Be sure the main method calls the example task functions in this quickstart.
--->
 
 ```java
-
+public static void Main(string[] args)
+{
+    String key = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
+    String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
+    
+    TBD
+    
+}
 ```
 
 ### Install the client library
 
-This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
+This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
 
 In your project's *build.gradle.kts* file, be sure to include the client library as an `implementation` statement. 
 
 ```kotlin
 dependencies {
-    compile("com.squareup.okhttp:okhttp:2.5.0")
-    compile("com.microsoft....") <!-- Consider highlighting the line containing the library-->
+    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '1.0.0-beta.1'
 }
 ```
 
-## Object model
-
 <!-- 
-    Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages.
-    Briefly explain the object hierarchy and how the classes work together to manipulate resources in the service.
+    Object model tbd
 -->
 
 ## Code examples
 
-<!--
-    Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
-
-    Include links to the service's reference content when introducing a class for the first time
--->
-
-These code snippets show you how to do the following tasks with the [Product Name] client library for Java:
+These code snippets show you how to do the following tasks with the Form Recognizer client library for Java:
 
 * [Authenticate the client](#authenticate-the-client)
-* [link to example task 1]()
-* [link to example task 2]()
-* [link to example task 3]()
-
-<!--
-    change the environment key variable to something descriptive for your service.
-    For example: TEXT_ANALYTICS_KEY
--->
+* [Recognize form contents](#recognize-form-contents)
+* [Recognize receipts](#recognize-receipts)
+* [Train a custom model](#train-a-custom-model)
+* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
+* [Manage your custom models](#manage-your-custom-models)
 
 ## Authenticate the client
 
-<!-- 
-    The authentication section (and its H3) is required and must be the first code example in the section if your library requires authentication for use.
--->
+Inside the `Main` method, add the following code. Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects.
+
+```java
+FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder()
+        .credential(new AzureKeyCredential("{key}"))
+        .endpoint("{endpoint}")
+        .buildClient();
+    
+    FormTrainingClient trainingClient = new FormRecognizerClientBuilder()
+        .credential(new AzureKeyCredential("{key}"))
+        .endpoint("{endpoint}")
+        .buildClient();
+```
+
+### Call client-specific methods
+
+The next block of code uses the client objects to call methods for each of the major tasks in the Form Recognizer SDK. You'll define these methods later on.
+
+You'll also need to add references to the URLs for your training and testing data. 
+* To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* To get a URL of a form to test, you can use the above steps to get the SAS URL of an individual document in blob storage. Or, take the URL of a document located elsewhere.
+* Use the above method to get the URL of a receipt image as well.
 
 > [!NOTE]
-> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your [Product Name] key, named `TBD_KEY`.
-
-
-In a new method, instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials]() object with your key, and use it with your endpoint to create an [ApiClient]() object.
+> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://aka.ms/azsdk-java-formrecognizer-ref-docs).
 
 ```java
+    string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
+    string formUrl = "<SAS-URL-of-a-form-in-blob-storage>";
 
+    string receiptUrl = "https://docs.microsoft.com/azure/cognitive-services/form-recognizer/media"
+    + "/contoso-allinone.jpg";
+
+    // Call Form Recognizer scenarios:
+    System.out.println("Get form contents...");
+    GetContents(recognizerClient, formUrl);
+
+    System.out.println("Analyze receipt...");
+    AnalyzeReceipt(recognizerClient, receiptUrl);
+
+    System.out.println("Train Model with training data...");
+    modelId = await TrainModel(trainingClient, trainingDataUrl);
+
+    System.out.println("Analyze PDF form...");
+    AnalyzePdfForm(recognizerClient, modelId, formUrl);
+
+    System.out.println("Manage models...");
+    ManageModels(trainingClient, trainingDataUrl) ;
 ```
 
-## Example task 1
 
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
+## Recognize form contents
+
+You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model.
+
+To recognize the contents of a file at a given URI, use the **beginRecognizeContentFromUrl** method.
 
 ```java
-
+private static void GetContents(
+    FormRecognizerClient recognizerClient, string invoiceUri)
+{
+    String analyzeFilePath = "{invoiceUri}";
+    SyncPoller<OperationResult, IterableStream<FormPage>> recognizeLayoutPoller =
+        recognizerClient.beginRecognizeContentFromUrl(analyzeFilePath);
+    
+    IterableStream<FormPage> layoutPageResults = recognizeLayoutPoller.getFinalResult();
 ```
 
-## Example task 2
-
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
+The returned value is a collection of **FormPage** objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
 
 ```java
-
+    layoutPageResults.forEach(formPage -> {
+        // Table information
+        System.out.println("----Recognizing content ----");
+        System.out.printf("Has width: %d and height: %d, measured with unit: %s.%n", formPage.getWidth(),
+            formPage.getHeight(),
+            formPage.getUnit());
+        formPage.getTables().forEach(formTable -> {
+            System.out.printf("Table has %d rows and %d columns.%n", formTable.getRowCount(),
+                formTable.getColumnCount());
+            formTable.getCells().forEach(formTableCell -> {
+                System.out.printf("Cell has text %s.%n", formTableCell.getText());
+            });
+            System.out.println();
+        });
+    });
+}
 ```
+
+## Recognize receipts
+
+This section demonstrates how to recognize and extract common fields from US receipts, using a pre-trained receipt model.
+
+To recognize receipts from a URI, use the **beginRecognizeReceiptsFromUrl** method. The returned value is a collection of **RecognizedReceipt** objects: one for each page in the submitted document.
+
+```java
+private static void AnalyzeReceipt(
+    FormRecognizerClient recognizerClient, string receiptUri)
+{
+    SyncPoller<OperationResult, IterableStream<RecognizedReceipt>> syncPoller =
+        formRecognizerClient.beginRecognizeReceiptsFromUrl(receiptUri);
+    IterableStream<RecognizedReceipt> receiptPageResults = syncPoller.getFinalResult();
+```
+
+The next block of code iterates through the receipts and prints their details to the console.
+
+```java
+    receiptPageResults.forEach(recognizedReceipt -> {
+        USReceipt usReceipt = ReceiptExtensions.asUSReceipt(recognizedReceipt);
+        System.out.printf("Page Number: %s%n", usReceipt.getMerchantName().getPageNumber());
+        System.out.printf("Merchant Name %s%n", usReceipt.getMerchantName().getName());
+        System.out.printf("Merchant Name Value: %s%n", usReceipt.getMerchantName().getFieldValue());
+        System.out.printf("Merchant Address %s%n", usReceipt.getMerchantAddress().getName());
+        System.out.printf("Merchant Address Value: %s%n", usReceipt.getMerchantAddress().getFieldValue());
+        System.out.printf("Merchant Phone Number %s%n", usReceipt.getMerchantPhoneNumber().getName());
+        System.out.printf("Merchant Phone Number Value: %s%n", usReceipt.getMerchantPhoneNumber().getFieldValue());
+        System.out.printf("Total: %s%n", usReceipt.getTotal().getName());
+        System.out.printf("Total Value: %s%n", usReceipt.getTotal().getFieldValue());
+    });
+}
+```
+
+## Train a custom model
+
+This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
+
+> [!NOTE]
+> You can also train models with a graphical user interface such as the [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md).
+
+### Train a model without labels
+
+Train custom models to recognize all fields and values found in your custom forms without manually labeling the training documents.
+
+The following method trains a model on a given set of documents and prints the model's status to the console. 
+
+```java
+private static Guid TrainModel(
+    FormRecognizerClient trainingClient, string trainingDataUrl)
+{
+    String trainingSetSource = "{unlabeled_training_set_SAS_URL}";
+    SyncPoller<OperationResult, CustomFormModel> trainingPoller =
+        formTrainingClient.beginTraining(trainingSetSource, false);
+    
+    CustomFormModel customFormModel = trainingPoller.getFinalResult();
+    
+    // Model Info
+    System.out.printf("Model Id: %s%n", customFormModel.getModelId());
+    System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
+    System.out.printf("Model created on: %s%n", customFormModel.getCreatedOn());
+    System.out.printf("Model last updated: %s%n%n", customFormModel.getLastUpdatedOn());
+```
+The returned **CustomFormModel** object contains information on the form types the model can recognize and the fields it can extract from each form type. The following code block prints this information to the console.
+
+```java 
+    System.out.println("Recognized Fields:");
+    // looping through the sub-models, which contains the fields they were trained on
+    // Since the given training documents are unlabeled, we still group them but they do not have a label.
+    customFormModel.getSubModels().forEach(customFormSubModel -> {
+        // Since the training data is unlabeled, we are unable to return the accuracy of this model
+        customFormSubModel.getFieldMap().forEach((field, customFormModelField) ->
+            System.out.printf("Field: %s Field Label: %s%n",
+                field, customFormModelField.getLabel()));
+    });
+```
+
+Finally, this method returns the unique ID of the model.
+
+```java
+    return customFormModel.getModelId();
+}
+```
+
+### Train a model with labels
+
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **StartTrainingAsync** method with the *uselabels* parameter set to `true`.
+
+```java
+private static Guid TrainModelWithLabelsAsync(
+    FormRecognizerClient trainingClient, string trainingDataUrl)
+{
+    // Train custom model
+    String trainingSetSource = trainingDataUrl;
+    SyncPoller<OperationResult, CustomFormModel> trainingPoller = client.beginTraining(trainingSetSource, true);
+
+    CustomFormModel customFormModel = trainingPoller.getFinalResult();
+
+    // Model Info
+    System.out.printf("Model Id: %s%n", customFormModel.getModelId());
+    System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
+    System.out.printf("Model created on: %s%n", customFormModel.getCreatedOn());
+    System.out.printf("Model last updated: %s%n%n", customFormModel.getLastUpdatedOn());
+```
+
+The returned **CustomFormModel** indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
+
+```java
+    // looping through the sub-models, which contains the fields they were trained on
+    // The labels are based on the ones you gave the training document.
+    System.out.println("Recognized Fields:");
+    // Since the data is labeled, we are able to return the accuracy of the model
+    customFormModel.getSubModels().forEach(customFormSubModel -> {
+        System.out.printf("Sub-model accuracy: %.2f%n", customFormSubModel.getAccuracy());
+        customFormSubModel.getFieldMap().forEach((label, customFormModelField) ->
+            System.out.printf("Field: %s Field Name: %s Field Accuracy: %.2f%n",
+                label, customFormModelField.getName(), customFormModelField.getAccuracy()));
+    });
+    return customFormModel.getModelId();
+}
+```
+
+## Analyze forms with a custom model
+
+This section demonstrates how to extract key/value information and other content from your custom form types, using models you trained with your own forms.
+
+> [!IMPORTANT]
+> In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below. See the [Train a model](#train-a-model-without-labels) section.
+
+You'll use the **beginRecognizeCustomFormsFromUrl** method. The returned value is a collection of **RecognizedForm** objects: one for each page in the submitted document.
+
+```java
+// Analyze PDF form data
+private static void AnalyzePdfForm(
+    FormRecognizerClient formClient, Guid modelId, string pdfFormFile)
+{    
+    String analyzeFilePath = "{file_source_url}";
+    String modelId = "{custom_trained_model_id}";
+    SyncPoller<OperationResult, IterableStream<RecognizedForm>> recognizeFormPoller =
+        client.beginRecognizeCustomFormsFromUrl(analyzeFilePath, modelId);
+
+    IterableStream<RecognizedForm> recognizedForms = recognizeFormPoller.getFinalResult();
+```
+
+The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
+
+```java
+    recognizedForms.forEach(form -> {
+        System.out.println("----------- Recognized Form -----------");
+        System.out.printf("Form type: %s%n", form.getFormType());
+        form.getFields().forEach((label, formField) -> {
+            System.out.printf("Field %s has value %s with confidence score of %.2f.%n", label,
+                formField.getFieldValue(),
+                formField.getConfidence());
+        });
+        System.out.print("-----------------------------------");
+    });
+}
+```
+
+## Manage your custom models
+
+This section demonstrates how to manage the custom models stored in your account. The following code does all of the model management tasks in a single method, as an example. Start by copying the method signature below:
+
+```java
+private static void ManageModels(
+    FormRecognizerClient trainingClient, string trainingFileUrl)
+{
+```
+
+### Check the number of models in the FormRecognizer resource account
+
+The following code block checks how many models you have saved in your Form Recognizer account and compares it to the account limit.
+
+```java
+    // First, we see how many custom models we have, and what our limit is
+    AccountProperties accountProperties = client.getAccountProperties();
+    System.out.printf("The account has %s custom models, and we can have at most %s custom models",
+        accountProperties.getCount(), accountProperties.getLimit());
+```
+
+### List the models currently stored in the resource account
+
+The following code block lists the current models in your account and prints their details to the console.
+
+```java
+    // Next, we get a paged list of all of our custom models
+    PagedIterable<CustomFormModelInfo> customModels = client.getModelInfos();
+    System.out.println("We have following models in the account:");
+    customModels.forEach(customFormModelInfo -> {
+        System.out.printf("Model Id: %s%n", customFormModelInfo.getModelId());
+        // get custom model info
+        modelId.set(customFormModelInfo.getModelId());
+        CustomFormModel customModel = client.getCustomModel(customFormModelInfo.getModelId());
+        System.out.printf("Model Id: %s%n", customModel.getModelId());
+        System.out.printf("Model Status: %s%n", customModel.getModelStatus());
+        System.out.printf("Created on: %s%n", customModel.getCreatedOn());
+        System.out.printf("Updated on: %s%n", customModel.getLastUpdatedOn());
+        customModel.getSubModels().forEach(customFormSubModel -> {
+            System.out.printf("Custom Model Form type: %s%n", customFormSubModel.getFormType());
+            System.out.printf("Custom Model Accuracy: %.2f%n", customFormSubModel.getAccuracy());
+            if (customFormSubModel.getFieldMap() != null) {
+                customFormSubModel.getFieldMap().forEach((fieldText, customFormModelField) -> {
+                    System.out.printf("Field Text: %s%n", fieldText);
+                    System.out.printf("Field Accuracy: %.2f%n", customFormModelField.getAccuracy());
+                });
+            }
+
+        });
+    });
+```
+
+### Delete a model from the resource account
+
+You can also delete a model from your account by referencing its ID.
+
+```java
+    // Delete Custom Model
+    System.out.printf("Deleted model with model Id: %s operation completed with status: %s%n", modelId.get(),
+        client.deleteModelWithResponse(modelId.get(), Context.NONE).getStatusCode());
+}
+```
+
 
 ## Run the application
 
@@ -261,21 +438,27 @@ gradle run
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Troubleshooting
 
-<!--
-    This section is optional. If you know of areas that people commonly run into trouble, help them resolve those issues in this section
--->
+Form Recognizer clients raises `ErrorResponseException` exceptions. For example, if you try to provide an invalid file source URL an `ErrorResponseException` would be raised with an error indicating the failure cause. In the following code snippet, the error is handled gracefully by catching the exception and display the additional information about the error.
+
+```java Snippet:FormRecognizerBadRequest
+try {
+    formRecognizerClient.beginRecognizeContentFromUrl("invalidSourceUrl");
+} catch (ErrorResponseException e) {
+    System.out.println(e.getMessage());
+}
+```
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->[Next article]()
+In this quickstart, you used the Form Recognizer Java client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
-* [What is the [Product Name] API?](../overview.md)
-* [Article2](../overview.md)
-* [Article3](../overview.md)
-* The source code for this sample can be found on [GitHub]().
+> [!div class="nextstepaction"]
+> [Build a training data set](../../build-training-data-set.md)
+
+* [What is Form Recognizer?](../../overview.md)
+* The sample code from this guide (and more) can be found on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples).
