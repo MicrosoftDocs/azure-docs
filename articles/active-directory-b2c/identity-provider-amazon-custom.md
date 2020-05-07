@@ -25,7 +25,16 @@ This article shows you how to enable sign-in for users from an Amazon account by
 - Complete the steps in [Get started with custom policies](custom-policy-get-started.md).
 - If you don't already have an Amazon account, create one at [https://www.amazon.com/](https://www.amazon.com/).
 
-[!INCLUDE [active-directory-b2c-identity-provider-amazon](../../includes/active-directory-b2c-identity-provider-amazon.md)]
+## Create an app in the Amazon developer console
+
+To use an Amazon account as a federated identity provider in Azure Active Directory B2C (Azure AD B2C), you need to create an application in your [Amazon Developer Services and Technologies](https://developer.amazon.com). If you don't already have an Amazon account, you can sign up at [https://www.amazon.com/](https://www.amazon.com/).
+
+> [!NOTE]  
+> Use the following URLs in **step 8** below, replacing `your-tenant-name` with the name of your tenant. When entering your tenant name, use all lowercase letters, even if the tenant is defined with uppercase letters in Azure AD B2C.
+> - For **Allowed Origins**, enter `https://your-tenant-name.b2clogin.com` 
+> - For **Allowed Return URLs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
+
+[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
 
 ## Create a policy key
 
