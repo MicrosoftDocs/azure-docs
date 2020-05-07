@@ -67,7 +67,7 @@ You can either manually apply tuning recommendations using the Azure portal or y
 
 In case you are applying tuning recommendations through T-SQL, the automatic performance validation, and reversal mechanisms are not available. Recommendations applied in such way will remain active and shown in the list of tuning recommendations for 24-48 hrs. before the system automatically withdraws them. If you would like to remove a recommendation sooner, you can discard it from Azure portal.
 
-Automatic tuning options can be independently enabled or disabled per database, or they can be configured on Azure SQL Database servers and applied on every database that inherits settings from the server. Azure SQL Database servers can inherit Azure defaults for automatic tuning settings. Azure defaults at this time are set to FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.
+Automatic tuning options can be independently enabled or disabled per database, or they can be configured at the server-level and applied on every database that inherits settings from the server. Servers can inherit Azure defaults for automatic tuning settings. Azure defaults at this time are set to FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.
 
 > [!IMPORTANT]
 > As of March, 2020 changes to Azure defaults for automatic tuning will take effect as follows:

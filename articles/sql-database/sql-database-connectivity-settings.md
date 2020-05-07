@@ -12,23 +12,21 @@ ms.date: 03/09/2020
 ---
 
 # Azure SQL Connectivity Settings
-> [!NOTE]
-> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
+
+This article introduces settings that control connectivity to the server for Azure SQL Database and Azure Synapse Analytics. These settings apply to **all** SQL Database and Azure Synapse databases associated with the server.
 
 > [!IMPORTANT]
 > This article does *not* apply to **Azure SQL Database Managed Instance**
-
-This article introduces settings that control connectivity to Azure SQL Database at the server level. These settings apply to **all** SQL Database and SQL Data Warehouse databases associated with the server.
-
-> [!NOTE]
-> Once these settings are applied, they **take effect immediately** and may result in connection loss for your clients if they do not meet the requirements for each setting.
 
 The connectivity settings are accessible from the **Firewalls and virtual networks** blade as shown in the screenshot below:
 
  ![Screenshot of connectivity settings][1]
 
+> [!NOTE]
+> Once these settings are applied, they **take effect immediately** and may result in connection loss for your clients if they do not meet the requirements for each setting.
 
 ## Deny public network access
+
 In the Azure portal, when the **Deny public network access** setting is set to **Yes**, only connections via private endpoints are allowed. When this setting is set to **No**, clients can connect using the private or public endpoint.
 
 After setting **Deny public network access** to **Yes**, login attempts from clients using public endpoint will fail with the following error:
@@ -39,11 +37,12 @@ An instance-specific error occurred while establishing a connection to SQL Serve
 ```
 
 ## Change Public Network Access via PowerShell
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
-The following PowerShell script shows how to `Get` and `Set` the **Public Network Access** property at the logical server level:
+The following PowerShell script shows how to `Get` and `Set` the **Public Network Access** property at the server level:
 
 ```powershell
 #Get the Public Network Access property
@@ -52,14 +51,16 @@ The following PowerShell script shows how to `Get` and `Set` the **Public Networ
 # Update Public Network Access to Disabled
 $SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
 
-Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Enabled" 
+Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Enabled"
 ```
 
 ## Change Public Network Access via CLI
+
 > [!IMPORTANT]
 > All scripts in this section requires [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### Azure CLI in a bash shell
+
 The following CLI script shows how to change the **Public Network Access** in a bash shell:
 
 ```azurecli-interactive
@@ -72,11 +73,12 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 ```
 
-
 ## Connection policy
-[Connection policy](sql-database-connectivity-architecture.md#connection-policy) determines how clients connect to Azure SQL Server. 
+
+[Connection policy](sql-database-connectivity-architecture.md#connection-policy) determines how clients connect to Azure SQL Database.
 
 ## Change Connection policy via PowerShell
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
@@ -98,11 +100,13 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
 ## Change Connection policy via Azure CLI
+
 > [!IMPORTANT]
 > All scripts in this section requires [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### Azure CLI in a bash shell
-The following CLI script shows how to change the connection policy in a bash shell: 
+
+The following CLI script shows how to change the connection policy in a bash shell:
 
 ```azurecli-interactive
 # Get SQL Server ID
@@ -119,6 +123,7 @@ az resource update --ids $ids --set properties.connectionType=Proxy
 ```
 
 ### Azure CLI from a Windows command prompt
+
 The following CLI script shows how to change the connection policy from a Windows command prompt (with Azure CLI installed).
 
 ```azurecli
@@ -133,8 +138,9 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
 ## Next steps
+
 - For an overview of how connectivity works in Azure SQL Database, refer to [Azure SQL Connectivity Architecture](sql-database-connectivity-architecture.md)
-- For information on how to change the Azure SQL Database connection policy for an Azure SQL Database server, see [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- For information on how to change the connection policy for a server, see [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 
 <!--Image references-->
 [1]: ./media/sql-database-get-started-portal/manage-connectivity-settings.png
