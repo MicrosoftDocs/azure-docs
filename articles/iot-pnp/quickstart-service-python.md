@@ -53,8 +53,12 @@ In this quickstart, you use a sample environmental sensor that's written in Pyth
     ```cmd/sh
     set IOTHUB_DEVICE_CONNECTION_STRING=<YourIOTDeviceHubConnectionString>
     ```
+1. Navigate to sample folder:
 
+    ```azure-iot-sdk-python\azure-iot-hub\samples```
 1. Run the sample with the following command:
+
+
 
     ```cmd/sh
     python iothub_digital_twin_manager_sample.py
