@@ -34,7 +34,7 @@ To complete the steps in this article, you need the following resources:
 
 - An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 - A database in Azure SQL Database. For details, see [Create a single database in Azure SQL Database](sql-database-single-database-get-started.md).
-- A firewall rule allowing your computer to connect to the Azure SQL server. For details, see [Create a server-level firewall rule](sql-database-server-level-firewall-rule.md).
+- A firewall rule allowing your computer to connect to the server. For details, see [Create a server-level firewall rule](sql-database-server-level-firewall-rule.md).
 
 ## Configure Stream analytics integration
 

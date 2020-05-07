@@ -27,7 +27,7 @@ None
 
 ## Create a single database
 
-A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing models](sql-database-purchase-models.md). When you create a single database, you also define a [logical SQL server](sql-database-servers.md) to manage it and place it within [Azure resource group](../azure-resource-manager/management/overview.md) in a specified region.
+A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing models](sql-database-purchase-models.md). When you create a single database, you also define a [server](sql-database-servers.md) to manage it and place it within [Azure resource group](../azure-resource-manager/management/overview.md) in a specified region.
 
 ### Review the template
 
