@@ -38,6 +38,17 @@ Run the following command to get the _IoT hub connection string_ for your hub (n
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
 
+---
+**Installation for Bug Bash 5/8** 
+
+For this bug bash, we'll use a private package. This will be published to pip for the public preview refresh.
+Please go to https://aka.ms/PythonDevicePnP0508 and download the wheel (.whl) file. Once downloaded, in your local python environment please install the file. 
+
+```cmd/sh
+pip install azure_iot_device-2.1.0-preview-pnp-py2.py3-none-any.whl 
+```
+---
+
 ## Run the sample device
 
 In this quickstart, you use a sample environmental sensor that's written in Python as the IoT Plug and Play device. The following instructions show you how to install and run the device:
