@@ -7,7 +7,7 @@ ms.date: 05/06/2020
 
 # Configure Azure Private Link for an Azure container registry 
 
-Limit access to a registry by assigning virtual network private IP addressess to the registry endpoints using [Azure Private Link](../private-link/private-link-overview.md). Network traffic between the clients on the virtual network and the registry traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+Limit access to a registry by assigning virtual network private IP addresses to the registry endpoints using [Azure Private Link](../private-link/private-link-overview.md). Network traffic between the clients on the virtual network and the registry traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 You can [configure DNS settings](../private-link/private-endpoint-overview.md#dns-configuration) for your private endpoint, so that the settings resolve to the registry's allocated private IP address. With DNS configuration, clients and services in the network can continue to access the registry at the registry's fully qualified domain name, such as *myregistry.azurecr.io*.
 
@@ -337,6 +337,10 @@ az acr private-endpoint-connection list \
 ```
 
 When you set up a private endpoint connection using the steps in this article, the registry automatically accepts connections from clients and services that have RBAC permissions on the registry. You can set up the endpoint to require manual approval of connections. For information about how to approve and reject private endpoint connections, see [Manage a Private Endpoint Connection](../private-link/manage-private-endpoint.md).
+
+## Add zone records for replicas
+
+As shown in this article, when you add a private endpoint connection to a registry, DNS records in the `privatelink.azurecr.io` zone are created for the registry and its data endpoints in all regions where the registry is [replicated](container-registry-geo-replication.md). If you later add a new replica, you need to manually add a new zone record for the data endpoint in that region. For example, if you create a replica of *myregistry* in the *northeurope* location, add a zone record for `myregistry.northeurope.data.azurecr.io`. For steps, see [Create DNS records in the private zone](#create-dns-records-in-the-private-zone) in this article.
 
 ## Clean up resources
 
