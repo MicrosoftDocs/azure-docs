@@ -139,7 +139,21 @@
     - name: Cloud event schema
       href: cloud-event-schema.md
   - name: Event handlers
-    displayName: Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks
+    href: event-handlers.md  
+    items:
+    - name: Webhooks, Azure Automation, Logic Apps
+      href: event-handlers.md
+      displayName: Azure Automation, Logic Apps, Webhooks      
+    - name: Azure Functions
+      href: azure-functions-handler.md
+    - name: Event Hubs 
+      href: event-hubs-handler.md
+    - name: Service Bus
+      href: service-bus-handler.md
+    - name: Relay hybrid connections
+      href: hybrid-connections-handler.md
+    - name: Storage queues
+      href: storage-queue-handler.md
     href: event-handlers.md
   - name: Event delivery
     items: 

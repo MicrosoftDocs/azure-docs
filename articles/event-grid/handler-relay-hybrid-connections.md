@@ -1,6 +1,6 @@
 ---
-title: Azure Event Grid event handlers
-description: Describes supported event handlers for Azure Event Grid. Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks.
+title: Relay Hybrid connection as an event handler for Azure Event Grid events
+description: Describes how you can use Azure Relay hybrid connections as event handlers for Azure Event Grid events.
 services: event-grid
 author: spelluru
 
@@ -10,18 +10,17 @@ ms.date: 01/21/2020
 ms.author: spelluru
 ---
 
-# Event handlers in Azure Event Grid
+## Relay Hybrid connection as an event handler for Azure Event Grid events
 
 An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events. You can also use any WebHook for handling events. The WebHook doesn't need to be hosted in Azure to handle events. Event Grid only supports HTTPS WebHook endpoints.
 
-Here are the supported event handlers: 
+Use Azure Relay Hybrid Connections to send events to applications that are within an enterprise network and don't have a publicly accessible endpoint.
 
-- [WebHooks](handler-webhooks.md). Azure Automation runbooks and logic apps are supported via webhooks. 
-- [Azure functions](handler-functions.md)
-- [Event hubs](handler-event-hubs.md)
-- [Relay hybrid connections](handler-relay-hybrid-connections.md)
-- [Service Bus queues and topics](handler-service-bus.md)
-- [Storage queues](handler-storage-queues.md)
+## Tutorials
+
+|Title  |Description  |
+|---------|---------|
+| [Tutorial: send events to hybrid connection](custom-event-to-hybrid-connection.md) | Sends a custom event to an existing hybrid connection for processing by a listener application. |
 
 ## Next steps
 
