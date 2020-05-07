@@ -18,8 +18,6 @@ Create entities to extract key data from user utterances in Language Understandi
 
 The entity represents a word or phrase inside the utterance that you want extracted. Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. You can create entities when you add an example utterance to an intent or apart from (before or after) adding an example utterance to an intent.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 ## Plan entities, then create and label
 
 Machine-learned entities can be created from the example utterances or created from the **Entities** page.

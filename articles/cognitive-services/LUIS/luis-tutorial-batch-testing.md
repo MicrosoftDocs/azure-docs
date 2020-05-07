@@ -2,7 +2,7 @@
 title: "Tutorial: Batch testing to find issues - LUIS"
 description: This tutorial demonstrates how to use batch testing to validate the quality of your Language Understanding (LUIS) app.
 ms.topic: tutorial
-ms.date: 03/02/2020
+ms.date: 05/07/2020
 ---
 
 # Tutorial: Batch test data sets
@@ -36,7 +36,7 @@ Import an app that takes a pizza order such as `1 pepperoni pizza on thin crust`
 
 1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
-1. Use the [preview LUIS portal](https://preview.luis.ai/), import the JSON into a new app, name the app `Pizza app`.
+1. Use the [LUIS portal](https://www.luis.ai/), import the JSON into a new app, name the app `Pizza app`.
 
 1. Select **Train** in the top-right corner of the navigation to train the app.
 
