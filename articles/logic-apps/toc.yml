@@ -27,6 +27,9 @@
     href: https://docs.microsoft.com/samples/browse/?products=azure-logic-apps
   - name: Resource Manager quickstart templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Connectors for Logic Apps

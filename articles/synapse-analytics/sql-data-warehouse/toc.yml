@@ -49,10 +49,14 @@
     items: 
     - name: Create workload classifier
       items:
+      - name: Portal
+        href: quickstart-create-a-workload-classifier-portal.md 
       - name: T-SQL
         href: quickstart-create-a-workload-classifier-tsql.md 
     - name: Create workload isolation
       items:
+      - name: Portal
+        href: quickstart-configure-workload-isolation-portal.md
       - name: T-SQL
         href: quickstart-configure-workload-isolation-tsql.md
   - name: Pause and resume
@@ -360,7 +364,7 @@
     - name: Build dashboards and reports 
       items:
       - name: Visualize with Power BI
-        href: sql-data-warehouse-get-started-visualize-with-power-bi.md 
+        href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect.md 
   - name: Troubleshoot
     items:
     - name: Connectivity
