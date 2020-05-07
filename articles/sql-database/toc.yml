@@ -2,15 +2,14 @@
   href: index.yml
 
 - name: Overview
-    items: 
-    - name: Overview-old
-      href: sql-database-paas-vs-sql-server-iaas.md
-    - name: Overview-new
-      href: what-is-azure-sql-iaas-vs-paas.md
-    - name: SQL Managed Instance rebrand
-      href: azure-sql-managed-instance-rebrand.md
-  - name: Concepts 
-
+  items: 
+  - name: Overview-old
+    href: sql-database-paas-vs-sql-server-iaas.md
+  - name: Overview-new
+    href: what-is-azure-sql-iaas-vs-paas.md
+  - name: SQL Managed Instance rebrand
+    href: azure-sql-managed-instance-rebrand.md
+ 
 
 - name: Common SQL DB & SQL MI content 
   items:
