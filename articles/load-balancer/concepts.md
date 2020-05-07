@@ -61,38 +61,15 @@ Availability Zones | Standard load balancer supports additional abilities in reg
 
 ## <a name = "limitations"></a>Limitations
 
-- SKUs aren't mutable. You can't change the SKU of an existing resource.
-- A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
-- A load balancer rule can't span two virtual networks.  Front-ends and their related backend instances must be located in the same virtual network.  
-- [Move subscription operations](../azure-resource-manager/management/move-resource-group-and-subscription.md) aren't supported for standard load balancer and public IP resources.
-- Web Worker Roles without a virtual network and other Microsoft platform services can be accessible from instances behind only an internal standard load balancer. Don't rely on this accessibility, as the respective service itself or the underlying platform can change without notice. If outbound connectivity is required when using a standard internal load balancer, [outbound connectivity](load-balancer-outbound-connections.md) must be configured.
+- A load balancer rule can't span two virtual networks.  Frontends and their backend instances must be located in the same virtual network.  
+
+- Web Worker Roles without a virtual network and other Microsoft platform services can be accessible from instances behind only a Standard internal Load balancer. Don't rely on this accessibility, as the respective service itself or the underlying platform can change without notice. If outbound connectivity is required when using a standard internal load balancer, [outbound connectivity](load-balancer-outbound-connections.md) must be configured.
+
 - Load balancer provides load balancing and port forwarding for specific TCP or UDP protocols. Load-balancing rules and inbound NAT rules support TCP and UDP, but not other IP protocols including ICMP.
 
-  Load balancer doesn't close, respond, or otherwise interact with the payload of a UDP or TCP flow. Load balancer doesn't function as a proxy. 
-  
-  A successful connection to a front end must take place. This connection must be with the same port used in a load balancing or inbound NAT rule. To see a response from the frontend, one virtual machine in the backend pool must respond.
+- Outbound flow from a backend VM to a frontend of an internal Load Balancer will fail.
 
-  Failure to receive a response from the front end indicates no virtual machines could respond. Interact with a load balancer front end will fail without a virtual machine to respond. 
-  
-  This principle also applies to outbound connections where port masquerade SNAT is only supported for TCP and UDP. Any other IP protocols, including ICMP, fail. 
-  
-  Assign a public IP address to the resource to resolve this issue. For more information, see [Understanding SNAT and PAT](load-balancer-outbound-connections.md#snat).
-
-- Internal load balancers don't translate outbound originated connections to the front end of an internal load balancer because both are in private IP address space. Public load balancers provide [outbound connections](load-balancer-outbound-connections.md) from private IP addresses inside the virtual network to public IP addresses. For internal load balancers, this approach avoids potential SNAT port exhaustion inside a unique internal IP address space, where translation isn't required.
-
-  Outbound flow from a backend VM to a frontend of an internal load balancer will fail. The failure occurs when the flow is mapped backed to itself. The two legs of the flow don't match and the flow will fail.
-  
-  When the flow maps back to itself, the outbound flow appears to originate from the VM to the front end.
-
-  The flow succeeds if it didn't map back to the same VM in the back-end that created the flow.
-  
-  The inbound and outbound parts of the flow don't match inside the VM. The TCP stack won't recognize these halves of the same flow as being part of the same flow. The source and destination don't match. The VM can respond when the flow maps to another VM in the backend. The halves for the flow match, and the connection can continue.
-
-  The symptom for this scenario is intermittent connection timeouts. Common workarounds include insertion of a proxy layer behind the internal load balancer and using Direct Server Return (DSR) style rules. For more information, see [Multiple Front ends for Azure Load Balancer](load-balancer-multivip-overview.md).
-
-  You can combine an internal load balancer with any third-party proxy. Use of internal [Application Gateway](../application-gateway/application-gateway-introduction.md) for proxy scenarios with HTTP/HTTPS is also available. While you could use a public load balancer to mitigate this issue, the resulting scenario is prone to [SNAT exhaustion](load-balancer-outbound-connections.md#snat). Avoid this second approach unless carefully managed.
-
-- In general, forwarding IP fragments isn't supported on load-balancing rules. IP fragmentation of UDP and TCP packets isn't supported on load-balancing rules. HA ports load-balancing rules can be used to forward existing IP fragments. For more information, see [High availability ports overview](load-balancer-ha-ports-overview.md).
+- Forwarding IP fragments isn't supported on load-balancing rules. IP fragmentation of UDP and TCP packets isn't supported on load-balancing rules. HA ports load-balancing rules can be used to forward existing IP fragments. For more information, see [High availability ports overview](load-balancer-ha-ports-overview.md).
 
 ## Next steps
 
