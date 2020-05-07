@@ -67,7 +67,7 @@ CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
 
 The following example illustrates the use of the CREATE statement for external data sources.
 
-``sql
+```sql
 CREATE EXTERNAL DATA SOURCE RemoteReferenceData
    WITH
       (
