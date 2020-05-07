@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
 ---
 
@@ -17,7 +17,7 @@ ms.author: aahi
 
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple Python application sends a news search query to the API, and displays the response. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
 
-While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
+Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ While this application is written in Python, the API is a RESTful Web service co
 
 ## Create and initialize the application
 
-1. Create a new Python file in your favorite IDE or editor, and add the following imports. Create variables for your subscription key, endpoint, market, and a search query. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+1. Create a new Python file in your favorite IDE or editor, and add the following imports. Create variables for your subscription key, endpoint, market, and search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```python
     import http.client, urllib.parse
@@ -40,7 +40,7 @@ While this application is written in Python, the API is a RESTful Web service co
     query = 'italian restaurants near me'
     ```
 
-2. Create a request url by appending your market variable to the `?mkt=` parameter. Url-encode your query and appending it to the `&q=` parameter. 
+2. Create a request url by appending your market variable to the `?mkt=` parameter. Url-encode your query and append it to the `&q=` parameter. 
     
     ```python
     params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
@@ -48,10 +48,13 @@ While this application is written in Python, the API is a RESTful Web service co
 
 ## Send a request and get a response
 
-1. Create a function called `get_suggestions()`. Then perform the following steps.
-   1. Add your subscription key to a dictionary with `Ocp-Apim-Subscription-Key` as a key.
-   2. Use `http.client.HTTPSConnection()` to create a HTTPS client object. Send a `GET` request using `request()` with your path and parameters, and header information.
-   3. Store the response with `getresponse()`, and return `response.read()`.
+1. Create a function called `get_suggestions()`. 
+
+2. In this function, add your subscription key to a dictionary with `Ocp-Apim-Subscription-Key` as a key.
+
+3. Use `http.client.HTTPSConnection()` to create an HTTPS client object. Send a `GET` request using `request()` with your path and parameters, and header information.
+
+4. Store the response with `getresponse()`, and return `response.read()`.
 
       ```python
       def get_suggestions ():
@@ -62,7 +65,7 @@ While this application is written in Python, the API is a RESTful Web service co
        return response.read()
       ```
 
-2. Call `get_suggestions()`, and print the json response.
+5. Call `get_suggestions()`, and print the JSON response.
 
     ```python
     result = get_suggestions ()

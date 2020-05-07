@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
 ---
 
@@ -17,7 +17,7 @@ ms.author: aahi
 
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple Ruby application sends a news search query to the API, and displays the response. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
 
-While this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages.
+Although this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ While this application is written in Ruby, the API is a RESTful Web service comp
 
 ## Create and initialize the application
 
-1. In your favorite IDE or code editor, create a news Ruby file and import the following packages.
+1. In your favorite IDE or code editor, create a news Ruby file and import the following packages:
 
     ```ruby
     require 'net/https'
@@ -35,7 +35,7 @@ While this application is written in Ruby, the API is a RESTful Web service comp
     require 'json'
     ```
 
-2. Create variables for your API endpoint, News search URL, your subscription key, and a search query. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your API endpoint, News search URL, your subscription key, and search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
     
     ```ruby
     host = 'https://api.cognitive.microsoft.com'
@@ -61,7 +61,7 @@ While this application is written in Ruby, the API is a RESTful Web service comp
     request['Ocp-Apim-Subscription-Key'] = subscriptionKey
     ```
 
-3. Send the request, and print the response
+3. Send the request, and print the response.
 
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
 ---
 
@@ -17,26 +17,26 @@ ms.author: aahi
 
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple JavaScript application sends a news search query to the API, and displays the response. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
 
-While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
+Although this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
 * The latest version of [Node.js](https://nodejs.org/en/download/).
 
-* The [JavaScript Request Library](https://github.com/request/request)
+* The [JavaScript Request Library](https://github.com/request/request).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## Create and initialize the application
 
-1. Create a new JavaScript file in your favorite IDE or editor, and set the strictness and https requirements.
+1. Create a new JavaScript file in your favorite IDE or editor, and set the strictness and HTTPS requirements.
 
     ```javaScript
     'use strict';
     let https = require ('https');
     ```
 
-2. Create variables for the API endpoint, your subscription key, and search query. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, your subscription key, and search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';
@@ -63,14 +63,14 @@ While this application is written in JavaScript, the API is a RESTful Web servic
         };
         ```
 
-    2. Store the body of the response when the **data** flag is called
+    2. Store the body of the response when the `data` flag is called.
         ```javascript
         response.on('data', function (d) {
             body += d;
         });
         ```
 
-    3. When an **end** flag is signaled, parse the JSON, and print it.
+    3. When an `end` flag is signaled, parse the JSON, and print it.
 
         ```javascript
         response.on ('end', function () {
@@ -81,10 +81,10 @@ While this application is written in JavaScript, the API is a RESTful Web servic
 
 ## Send a request
 
-1. Create a function called `Search` to send a search request. In it, perform the following steps.
+1. Create a function called `Search` to send a search request. In it, perform the following steps:
 
-   1. Create a JSON object containing your request parameters: use `Get` for the method, and add your host and path information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
-   2. Use `https.request()` to send the request with the response handler created earlier, and your search parameters.
+   1. Create a JSON object containing your request parameters. Use `Get` for the method, and add your host and path information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
+   2. Use `https.request()` to send the request with the response handler created previously, and your search parameters.
     
       ```javascript
       let Search = function () {
