@@ -26,7 +26,7 @@ To deliver this experience with your hybrid machines hosted outside of Azure, th
 Azure Arc for servers (preview) supports the following scenarios with connected machines:
 
 - Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines.
-- Log data collected by the Log Analytics agent and stored in the Log Analytics workspace the machine is registered with now contains properties specific to the machine, such as Resource ID, which can be used to support [resource-context](../../azure-monitor/platform/design-logs-deployment.md#access-mode) log access.
+- Log data collected by the Log Analytics agent, stored in the Log Analytics workspace the machine is registered. The log data from the hybrid machine now contains properties specific to the machine, such as a Resource ID, which can be used to support [resource-context](../../azure-monitor/platform/design-logs-deployment.md#access-mode) log access.
 
 ## Supported regions
 
