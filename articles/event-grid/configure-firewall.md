@@ -1,5 +1,5 @@
 ---
-title: Configure IP firewall for Azure Event Grid topics or domains
+title: Configure IP firewall for Azure Event Grid topics or domains (Preview)
 description: This article describes how to configure firewall settings for Event Grid topics or domains. 
 services: event-grid
 author: spelluru
@@ -10,7 +10,7 @@ ms.date: 04/22/2020
 ms.author: spelluru
 ---
 
-# Configure IP firewall for Azure Event Grid topics or domains
+# Configure IP firewall for Azure Event Grid topics or domains (Preview)
 By default, topic and domain are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation. Publishers originating from any other IP address will be rejected and will receive a 403 (Forbidden) response. For more information about network security features supported by Event Grid, see [Network security for Event Grid](network-security.md).
 
 This article describes how to configure IP firewall settings for Azure Event Grid topics or domains.
