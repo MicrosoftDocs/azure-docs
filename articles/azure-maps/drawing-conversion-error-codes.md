@@ -485,11 +485,11 @@ The **verticalPenetrationError** occurs because of one or more of the following 
 
 The image below shows a vertical penetration area with no overlapping vertical penetration areas on levels above or below it.
 
-![Example of a vertical penetration 1](./media/drawing-conversion-error-codes/VRT.png)
+![Example of a vertical penetration 1](./media/drawing-conversion-error-codes/VRT2.png)
 
 The following image shows a vertical penetration area that overlaps more than one vertical penetration area on an adjacent level.
 
-![Example of a vertical penetration 2](./media/drawing-conversion-error-codes/VRT2.png)
+![Example of a vertical penetration 2](./media/drawing-conversion-error-codes/VRT.png)
 
 #### How to fix verticalPenetrationError
 

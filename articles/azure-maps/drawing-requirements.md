@@ -38,7 +38,7 @@ A Drawing package is a .zip file that consists of files in AutoCAD DWG file form
 
 ## DWG files requirements
 
-A single DWG file is required for each level of the facility. And the level's data must be contained in a single DWG file. Any external references (_xrefs_) must be bound to the parent drawing. Additionally, each DWG file:
+A single DWG file is required for each level of the facility. The level's data must be contained in a single DWG file. Any external references (_xrefs_) must be bound to the parent drawing. Additionally, each DWG file:
 
 * Must define the _Exterior_ and _Unit_ layers. It may optionally define the following optional layers: _Wall_, _Door_, _UnitLabel_, _Zone_, and _ZoneLabel_.
 * Must not contain features from multiple levels.
@@ -117,11 +117,11 @@ An example of the Walls layer can be seen as the WALLS layer in the [sample Draw
 
 ### Door layer
 
-You may include a DWG layer containing doors. Each door must overlap the edge of a unit from the unit layer. Each facility level can have a separate doors layer since each level is in a separate DWG file.
+You may include a DWG layer containing doors. Each door must overlap the edge of a unit from the unit layer.
 
-Doors from the layer won't be rendered on the resulting map as they appear in the CAD software. They'll be drawn according to the Azure Maps styling rules for the opening features.
+Doors (openings) in an Azure Maps dataset are represented as a single line segment that overlaps multiple unit boundaries. The following steps are taken to convert geometry in the door layer to opening features in a dataset.
 
-An example of the Doors layer can be seen as the DOORS layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+![Steps to generate openings](./media/drawing-requirements/opening-steps.png)
 
 ### Zone layer
 
@@ -159,7 +159,7 @@ An example of the Zonelabel layer can be seen as the ZONELABELS layer in the [sa
 
 The zip folder must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. It describes the DWG files to allow the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) to parse their content. Only the files identified by the manifest will be ingested. Files that are in the zip folder, but aren't properly listed in the manifest, will be ignored.
 
-The file paths, in the **building_levels** object of the manifest file, must be relative to the root of the zip folder. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level would be "Basement.dwg." A DWG file for level 2 would be named as "level_2.dwg." Use an underscore, if your level name has a space. 
+The file paths, in the **buildingLevels** object of the manifest file, must be relative to the root of the zip folder. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level would be "Basement.dwg." A DWG file for level 2 would be named as "level_2.dwg." Use an underscore, if your level name has a space. 
 
 Although there are requirements when using the manifest objects, not all objects are required. The table below shows the required and the optional objects for version 1.1 of the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion).
 
@@ -199,7 +199,7 @@ The `buildingLevels` object contains a JSON array of buildings levels.
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|level_name    |string/int    |true |    Descriptive level name. For example: Floor 1, Lobby, Blue Parking, Basement, and so on.|
+|levelName    |string/int    |true |    Descriptive level name. For example: Floor 1, Lobby, Blue Parking, Basement, and so on.|
 |ordinal | integer |    true | Ordinal is used to determine the vertical order of levels. Every facility must have a level with ordinal 0. |
 |heightAboveFacilityAnchor | numeric |    false |    Level height above the ground floor in meters. |
 | verticalExtent | numeric | false | Floor to ceiling height (thickness) of the level in meters. |
@@ -211,7 +211,7 @@ The `buildingLevels` object contains a JSON array of buildings levels.
 |-----------|------|----------|-------------|
 |lat    | numeric |    true |    Decimal representation of degrees latitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (EPSG:3857).|
 |lon    |numeric|    true|    Decimal representation of degrees longitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (EPSG:3857). |
-|angle|    numeric|    true|    The angle from the desired orientation of the building on a map to the orientation of the building in the DWG file. The angle is measured clockwise and in degrees. |
+|angle|    numeric|    true|   The clockwise angle, in degrees, between true north and the drawing’s vertical (Y) axis.   |
 
 ### dwgLayers
 
@@ -233,14 +233,14 @@ The `unitProperties` object contains a JSON array of unit properties.
 |-----------|------|----------|-------------|
 |unitName    |string/int    |true    |Name of unit to associate with this `unitProperty` record. This record is only valid when a label matching `unitName` is found in the `unitLabel` layer(s). |
 |categoryName|    string/int|    false    |Category Name. For a complete list of categories, refer to [categories](https://aka.ms/pa-indoor-spacecategories). |
-|navigableBy| Array of strings |    false    |Indicates the types of navigating agents that can traverse the unit. For example, "pedestrian". This property will inform the wayfinding capabilities.  The permitted values are `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hired_auto`, `bus`, `railcar`, `emergency`, `ferry`, `boat`, and `disallowed`.|
+|navigableBy| Array of strings |    false    |Indicates the types of navigating agents that can traverse the unit. For example, "pedestrian". This property will inform the wayfinding capabilities.  The permitted values are `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hiredAuto`, `bus`, `railcar`, `emergency`, `ferry`, `boat`, and `disallowed`.|
 |routeThroughBehavior|    string|    false    |The route through behavior for the unit. The permitted values are `disallowed`, `allowed`, and `preferred`. Default value is `allowed`.|
 |occupants    |Array of directoryInfo objects |false    |List of occupants for the unit. |
 |nameAlt|    string/int|    false|    Alternate Name of the unit. |
 |nameSubtitle|    string/int    |false|    Subtitle of the unit. |
 |addressRoomNumber|    string/int|    false|    Room/Unit/Apartment/Suite number of the unit.|
 |verticalPenetrationCategory|    string/int|    false| When this property is defined, the resulting feature will be a Vertical Penetration (VRT) rather than a unit. VRTs can be used to navigate to other VRT features in the levels above or below it. Vertical Penetration is a [Category](https://aka.ms/pa-indoor-spacecategories) Name. If this property is defined, categoryName property is overridden with verticalPenetrationCategory. |
-|verticalPenetrationDirection|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are `low_to_high`, `high_to_low`, `both`, and `closed`. Default value is `both`.|
+|verticalPenetrationDirection|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are `lowToHigh`, `highToLow`, `both`, and `closed`. Default value is `both`.|
 | nonPublic | bool | false | Indicates if the unit is open to the public. |
 | isRoutable | bool | false | When set to `false`, unit can't be navigated to, or through. Default value is `true`. |
 | isOpenArea | bool | false | Allows navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to `true` unless the unit has an opening. |
