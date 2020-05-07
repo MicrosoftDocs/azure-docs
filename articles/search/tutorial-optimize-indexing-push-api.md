@@ -245,8 +245,8 @@ Identify which batch size is most efficient and then use that batch size in the 
 
 Now that we've identified the batch size we intend to use, the next step is to begin to index the data. To index data efficiently, this sample:
 
-1. Uses multiple threads/workers
-1. Implements an exponential backoff retry strategy
+* Uses multiple threads/workers.
+* Implements an exponential backoff retry strategy.
 
 ### Use multiple threads/workers
 
