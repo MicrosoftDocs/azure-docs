@@ -14,23 +14,47 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 
-#Customer intent: As an IT admin, I need to understand what the location condition is so that I can configure location- based Conditional Access policies
 ms.collection: M365-identity-device-management
 ---
-# What is the location condition in Azure Active Directory Conditional Access? 
+# Using the location condition in a Conditional Access policy 
 
-With [Azure Active Directory (Azure AD) Conditional Access](../active-directory-conditional-access-azure-portal.md), you can control how authorized users can access your cloud apps. The location condition of a Conditional Access policy enables you to tie access controls settings to the network locations of your users.
+As explained in the [overview article](overview.md) Conditional Access policies are at their most basic an if-then statement combining signals, to make decisions, and enforce organization policies. One of those signals that can be incorporated into the decision-making process is network location.
 
-This article provides you with the information you need to configure the location condition.
+![Conceptual Conditional signal plus decision to get enforcement](./media/location-condition/conditional-access-signal-decision-enforcement.png)
 
-## Locations
-
-Azure AD enables single sign-on to devices, apps, and services from anywhere on the public internet. With the location condition, you can control access to your cloud apps based on the network location of a user. Common use cases for the location condition are:
+Organizations can use this network location for common tasks like: 
 
 - Requiring multi-factor authentication for users accessing a service when they are off the corporate network.
 - Blocking access for users accessing a service from specific countries or regions.
 
-A location is a label for a network location that either represents a named location or multi-factor authentication Trusted IPs.
+The network location is determined by the public IPV4 address a client provides to Azure Active Directory. 
+
+ > [!NOTE]
+ > IPv6 address ranges cannot currently be included in a named location. This means IPv6 ranges cannot be excluded from a Conditional Access policy.
+
+## Locations
+
+Locations are designated in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
+
+To configure a location, you will need to provide at least a **Name** and the IP range. 
+
+![Create a new named location in the Azure portal](./media/location-condition/new-named-location.png)
+
+### Trusted locations
+
+When creating a network location, an administrator has the option to mark a location as a trusted location. 
+
+This option can factor in to Conditional Access policies where you may, for example,  require registration for multi-factor authentication from a trusted network location. It also factors in to Azure AD Identity Protection's risk calculation, lowering a users' sign-in risk when coming from a location marked as trusted.
+
+### Countries and regions
+
+Some organizations may choose to define entire countries or regions IP boundaries as named locations for Conditional Access policies. They may use these when blocking unnecessary traffic when they know valid users will never come from a location such as North Korea. These IP to country mappings are updated periodically. 
+
+![Create a new counrty or region based location in the Azure portal](./media/location-condition/new-named-location-country-region.png)
+
+#### Include unknown areas
+
+Some IP addresses are not mapped to a specific country or region. To capture these IP locations check the box **Include unknown areas** when defining a location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
 ## Named locations
 
