@@ -39,7 +39,7 @@ Once throttling is detected, SQL on-demand has built-in handling of this scenari
 
 If possible, you can prepare files for better performance:
 
-- Convert CSV to Parquet - Parquet is columnar format. Since it's compressed, its file sizes are smaller than CSV files with the same data. SQL on-demand will need less time and storage requests to read it.
+- Convert CSV and JSON to Parquet - Parquet is columnar format. Since it's compressed, its file sizes are smaller than CSV or JSON files with the same data. SQL on-demand will need less time and storage requests to read it.
 - If a query targets a single large file, you'll benefit from splitting it into multiple smaller files.
 - Try keeping your CSV file size below 10 GB.
 - It's better to have equally sized files for a single OPENROWSET path or an external table LOCATION.
@@ -114,6 +114,10 @@ For more information, check [filename](develop-storage-files-overview.md#filenam
 > Always cast result of filepath and fileinfo functions to appropriate data types. If you use character data types, make sure appropriate length is used.
 
 If your stored data isn't partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files. When [querying partitioned Spark tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only the files needed.
+
+## Use PARSER_VERSION 2.0 for querying CSV files
+
+You can use performance optimized parser when querying CSV files. Check [PARSER_VERSION](develop-openrowset.md) for details.
 
 ## Use CETAS to enhance query performance and joins
 
