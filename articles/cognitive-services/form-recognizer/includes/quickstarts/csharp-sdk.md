@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/05/2020
+ms.date: 05/06/2020
 ms.author: pafarley
 ---
 
@@ -27,46 +27,7 @@ ms.author: pafarley
 
 ### Create environment variables
 
-Using your key and endpoint from the resource you created, create two environment variables for authentication:
-
-* `FORM_RECOGNIZER_KEY` - The resource key for authenticating your requests.
-* `FORM_RECOGNIZER_ENDPOINT` - The resource endpoint for sending API requests. It will look like this: 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
-
->[!NOTE]
-> The endpoints for non-trial resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
-
-Use the following instructions to set environment variables on your operating system.
-
-#### [Windows](#tab/windows)
-
-```console
-setx FORM_RECOGNIZER_KEY <replace-with-your-form-recognizer-key>
-setx FORM_RECOGNIZER_ENDPOINT <replace-with-your-form-recognizer-endpoint>
-```
-
-After you add the environment variables, close and reopen the console window.
-
-#### [Linux](#tab/linux)
-
-```bash
-export FORM_RECOGNIZER_KEY=<replace-with-your-product-name-key>
-export FORM_RECOGNIZER_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
-
-#### [macOS](#tab/unix)
-
-Edit your `.bash_profile`, and add the environment variable:
-
-```bash
-export FORM_RECOGNIZER_KEY=<replace-with-your-product-name-key>
-export FORM_RECOGNIZER_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-After you add the environment variables, run `source .bash_profile` from your console window to make the changes effective.
-***
+[!INCLUDE [env-vars](../env-vars.md)]
 
 ### Create a new C# application
 
@@ -165,7 +126,7 @@ The next block of code uses the client objects to call methods for each of the m
 You'll also need to add references to the URLs for your training and testing data. 
 * To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * To get a URL of a form to test, you can use the above steps to get the SAS URL of an individual document in blob storage. Or, take the URL of a document located elsewhere.
-* Use the above method to get the URL of a receipt image as well.
+* Use the above method to get the URL of a receipt image as well, or use the sample image URL provided.
 
 > [!NOTE]
 > The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/1.0.0-preview.1/api/index.html).
@@ -173,7 +134,8 @@ You'll also need to add references to the URLs for your training and testing dat
 ```csharp
     string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
     string formUrl = "<SAS-URL-of-a-form-in-blob-storage>";
-    string receiptUrl = "<SAS-URL-of-a-form-in-blob-storage>";
+    string receiptUrl = "https://docs.microsoft.com/azure/cognitive-services/form-recognizer/media"
+    + "/contoso-allinone.jpg";
 
     // Call Form Recognizer scenarios:
     Console.WriteLine("Get form contents...");
@@ -382,6 +344,7 @@ The returned **CustomFormModel** indicates the fields the model can extract, alo
             Console.WriteLine("");
         }
     }
+    return model.ModelId;
 }
 ```
 
@@ -541,7 +504,7 @@ catch (RequestFailedException e)
 }
 ```
 
-You'll notice that additional, like the client request ID of the operation, is logged.
+You'll notice that additional information, like the client request ID of the operation, is logged.
 
 ```
 Message:
