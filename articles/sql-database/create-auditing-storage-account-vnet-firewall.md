@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 Auditing for [Azure SQL Database](sql-database-technical-overview.md) and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) supports writing database events to an [Azure Storage account](../storage/common/storage-account-overview.md) behind a virtual network and firewall.
 
-This article explains two ways to configure Azure SQL Server and Azure storage account for this option. The first uses the Azure portal, the second uses REST.
+This article explains two ways to configure Azure SQL Database and Azure storage account for this option. The first uses the Azure portal, the second uses REST.
 
 ## Background
 
@@ -109,7 +109,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
    }
    ```
 
-2. Open [Azure portal](https://portal.azure.com). Navigate to your storage account. Locate **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your Azure SQL Server hosting your Azure SQL database that you registered with Azure Active Directory (Azure AD) as in the previous step.
+2. Open [Azure portal](https://portal.azure.com). Navigate to your storage account. Locate **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to the server hosting the database that you registered with Azure Active Directory (Azure AD) as in the previous step.
 
    > [!NOTE]
    > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to [Azure built-in roles](../role-based-access-control/built-in-roles.md).

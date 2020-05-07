@@ -25,21 +25,21 @@ You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https
 ## Connect Excel to a SQL Database and load data
 
 1. To connect Excel to a SQL Database, open Excel and then create a new workbook or open an existing Excel workbook.
-2. In the menu bar at the top of the page, select the **Data** tab, select **Get Data**, select From Azure, and then select **From Azure SQL Database**. 
+2. In the menu bar at the top of the page, select the **Data** tab, select **Get Data**, select From Azure, and then select **From Azure SQL Database**.
 
    ![Select data source: Connect Excel to SQL Database.](./media/sql-database-connect-excel/excel_data_source.png)
 
    The Data Connection Wizard opens.
-3. In the **Connect to Database Server** dialog box, type the SQL Database **Server name** you want to connect to in the form <*servername*>**.database.windows.net**. For example, **msftestserver.database.windows.net**. Optionally, enter in the name of your database. Select **OK** to open the credentials window. 
+3. In the **Connect to Database Server** dialog box, type the SQL Database **Server name** you want to connect to in the form <*servername*>**.database.windows.net**. For example, **msftestserver.database.windows.net**. Optionally, enter in the name of your database. Select **OK** to open the credentials window.
 
    ![Connect to Database Server Dialog box](media/sql-database-connect-excel/server-name.png)
 
-4. In the **SQL Server Database** dialog box, select **Database** on the left side, and then enter in your **User Name** and **Password** for the SQL Database server you want to connect to. Select **Connect** to open the **Navigator**. 
+4. In the **SQL Server Database** dialog box, select **Database** on the left side, and then enter in your **User Name** and **Password** for the server you want to connect to. Select **Connect** to open the **Navigator**.
 
    ![Type the server name and login credentials](./media/sql-database-connect-excel/connect-to-server.png)
 
    > [!TIP]
-   > Depending on your network environment, you may not be able to connect or you may lose the connection if the SQL Database server doesn't allow traffic from your client IP address. Go to the [Azure portal](https://portal.azure.com/), click SQL servers, click your server, click firewall under settings and add your client IP address. See [How to configure firewall settings](sql-database-configure-firewall-settings.md) for details.
+   > Depending on your network environment, you may not be able to connect or you may lose the connection if the server doesn't allow traffic from your client IP address. Go to the [Azure portal](https://portal.azure.com/), click SQL servers, click your server, click firewall under settings and add your client IP address. See [How to configure firewall settings](sql-database-configure-firewall-settings.md) for details.
 
 5. In the **Navigator**, select the database you want to work with from the list, select the tables or views you want to work with (we chose **vGetAllCategories**), and then select **Load** to move the data from your database to your Excel spreadsheet.
 
@@ -47,10 +47,10 @@ You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https
 
 ## Import the data into Excel and create a pivot chart
 
-Now that you've established the connection, you have several different options with how to load the data. For example, the following steps create a pivot chart based on the data found in your SQL Database. 
+Now that you've established the connection, you have several different options with how to load the data. For example, the following steps create a pivot chart based on the data found in your SQL Database.
 
 1. Follow the steps in the previous section, but this time, instead of selecting **Load**, select **Load to** from the **Load** drop-down.
-2. Next, select how you want to view this data in your workbook. We chose **PivotChart**. You can also choose to create a **New worksheet** or to **Add this data to a Data Model**. For more information on Data Models, see [Create a data model in Excel](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B). 
+2. Next, select how you want to view this data in your workbook. We chose **PivotChart**. You can also choose to create a **New worksheet** or to **Add this data to a Data Model**. For more information on Data Models, see [Create a data model in Excel](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B).
 
     ![Choosing the format for data in Excel](./media/sql-database-connect-excel/import-data.png)
 
@@ -65,30 +65,30 @@ Now that you've established the connection, you have several different options w
 
 ## Create a permanent connection using .odc file
 
-To save the connection details permanently, you can create an .odc file and make this connection a selectable option within the **Existing Connections** dialog box. 
+To save the connection details permanently, you can create an .odc file and make this connection a selectable option within the **Existing Connections** dialog box.
 
-1. In the menu bar at the top of the page, select the **Data** tab, and then select **Existing Connections** to launch the **Existing Connections** dialog box. 
-   1. Select **Browse for more** to open the **Select Data Source** dialog box.   
+1. In the menu bar at the top of the page, select the **Data** tab, and then select **Existing Connections** to launch the **Existing Connections** dialog box.
+   1. Select **Browse for more** to open the **Select Data Source** dialog box.
    2. Select the **+NewSqlServerConnection.odc** file and then select **Open** to open the **Data Connection Wizard**.
 
       ![New Connection dialog box](media/sql-database-connect-excel/new-connection.png)
 
-2. In the **Data Connection Wizard**, type in your server name and your SQL Database credentials. Select **Next**. 
-   1. Select the database that contains your data from the drop-down. 
+2. In the **Data Connection Wizard**, type in your server name and your SQL Database credentials. Select **Next**.
+   1. Select the database that contains your data from the drop-down.
    2. Select the table or view you're interested in. We chose vGetAllCategories.
-   3. Select **Next**. 
+   3. Select **Next**.
 
-      ![Data Connection Wizard](media/sql-database-connect-excel/data-connection-wizard.png) 
+      ![Data Connection Wizard](media/sql-database-connect-excel/data-connection-wizard.png)
 
-3. Select the location of your file, the **File Name**, and the **Friendly Name** in the next screen of the Data Connection Wizard. You can also choose to save the password in the file, though this can potentially expose  your data to unwanted access. Select **Finish** when ready. 
+3. Select the location of your file, the **File Name**, and the **Friendly Name** in the next screen of the Data Connection Wizard. You can also choose to save the password in the file, though this can potentially expose  your data to unwanted access. Select **Finish** when ready.
 
     ![Save Data Connection](media/sql-database-connect-excel/save-data-connection.png)
 
-4. Select how you want to import your data. We chose to do a PivotTable. You can also modify the properties of the connection by select **Properties**. Select **OK** when ready. If you did not choose to save the password with the file, then you will be prompted to enter your credentials. 
+4. Select how you want to import your data. We chose to do a PivotTable. You can also modify the properties of the connection by select **Properties**. Select **OK** when ready. If you did not choose to save the password with the file, then you will be prompted to enter your credentials.
 
     ![Import Data](media/sql-database-connect-excel/import-data2.png)
 
-5. Verify that your new connection has been saved by expanding the **Data** tab, and selecting **Existing Connections**. 
+5. Verify that your new connection has been saved by expanding the **Data** tab, and selecting **Existing Connections**.
 
     ![Existing Connection](media/sql-database-connect-excel/existing-connection.png)
 

@@ -19,6 +19,7 @@ With Azure Data Share service, you can share data without exchanging credentials
 Azure Data Share resource's managed identity needs to be granted access to Azure data store. Azure Data Share service then uses this managed identity to read and write data for snapshot-based sharing, and to establish symbolic link for in-place sharing. 
 
 To share or receive data from an Azure data store, user needs at least the following permissions. Additional permissions are required for SQL-based sharing.
+
 * Permission to write to the Azure data store. Typically, this permission exists in the **Contributor** role.
 * Permission to create role assignment in the Azure data store. Typically, permission to create role assignments exists in the **Owner** role, User Access Administrator role, or a custom role with Microsoft.Authorization/role assignments/write permission assigned. This permission is not required if the data share resource's managed identity is already granted access to the Azure data store. See table below for required role.
 
@@ -43,8 +44,8 @@ For SQL-based sharing, a SQL user needs to be created from an external provider 
 |Azure Synapse Analytics (formerly SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
 
+### Data provider
 
-### Data provider 
 To add a dataset in Azure Data Share, provider data share resource's managed identity needs to be granted access to the source Azure data store. For example, in the case of storage account, the data share resource's managed identity is granted the Storage Blob Data Reader role. 
 
 This is done automatically by the Azure Data Share service when user is adding dataset via Azure portal and the user has the proper permission. For example, user is an owner of the Azure data store, or is a member of a custom role that has the Microsoft.Authorization/role assignments/write permission assigned. 

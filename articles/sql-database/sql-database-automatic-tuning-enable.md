@@ -41,7 +41,7 @@ On the server level you can choose to inherit automatic tuning configuration fro
 
 ### Azure portal
 
-To enable automatic tuning on an Azure SQL Database logical **server**, navigate to the server in Azure portal and then select **Automatic tuning** in the menu.
+To enable automatic tuning on a [server](sql-database-servers.md) in Azure SQL Database, navigate to the server in Azure portal and then select **Automatic tuning** in the menu.
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
@@ -50,11 +50,11 @@ To enable automatic tuning on an Azure SQL Database logical **server**, navigate
 
 Select the automatic tuning options you want to enable and select **Apply**.
 
-Automatic tuning options on a logical server are applied to all databases on this server. By default, all databases inherit configuration from their parent server, but this can be overridden and specified for each database individually.
+Automatic tuning options on a server are applied to all databases on this server. By default, all databases inherit configuration from their parent server, but this can be overridden and specified for each database individually.
 
 ### REST API
 
-Find out more about using REST API to enable automatic tuning on an Azure SQL Database logical **server**, see [SQL Server Automatic tuning UPDATE and GET HTTP methods](/rest/api/sql/serverautomatictuning).
+Find out more about using REST API to enable automatic tuning on a **server**, see [SQL Server Automatic tuning UPDATE and GET HTTP methods](/rest/api/sql/serverautomatictuning).
 
 ## Enable automatic tuning on an individual database
 
@@ -101,7 +101,7 @@ Setting the individual tuning option to ON, will override any setting that datab
 > In case of [active geo-replication](sql-database-auto-failover-group.md), Automatic tuning needs to be configured on the primary database only. Automatically applied tuning actions, such are for example index create or delete will be automatically replicated to the read-only secondary. Attempting to enable Automatic tuning via T-SQL on the read-only secondary will result in a failure as having a different tuning configuration on the read-only secondary is unsupported.
 >
 
-Find our more abut T-SQL options to configure Automatic tuning, see [ALTER DATABASE SET Options (Transact-SQL) for Azure SQL Database servers](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Find our more abut T-SQL options to configure Automatic tuning, see [ALTER DATABASE SET Options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 ## Disabled by the system
 
@@ -111,7 +111,7 @@ Automatic tuning is monitoring all the actions it takes on the database and in s
 
 As automatic tuning is Azure feature, to use it you will need to use Azure's built-in RBAC roles. Using SQL Authentication only will not be sufficient to use the feature from Azure portal.
 
-To use automatic tuning, the minimum required permission to grant to the user is Azure's built-in [SQL DB contributor](../role-based-access-control/built-in-roles.md#sql-db-contributor) role. You can also consider using higher privilege roles such are SQL Server Contributor, Contributor and Owner.
+To use automatic tuning, the minimum required permission to grant to the user is Azure's built-in [SQL Database contributor](../role-based-access-control/built-in-roles.md#sql-db-contributor) role. You can also consider using higher privilege roles such are SQL Server Contributor, Contributor and Owner.
 
 ## Configure automatic tuning e-mail notifications
 
