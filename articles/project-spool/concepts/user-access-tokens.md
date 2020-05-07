@@ -48,6 +48,10 @@ public async Task<ActionResult> CreateAccessToken(string userName)
 
 By default, user access tokens expire after 24 hours but it is a good security practice to limit the lifetime to the minimum duration required by your application. You can use the optional `ttl` parameter of the `CreateUserAccessTokenAsync` method to limit the duration of user access tokens.
 
+> Questions
+
+>> [akania] What should be inside tokenResult, should it be a black box that contoso will just pass down to the client? is it Implementing [AccessToken interface from Azure](https://docs.microsoft.com/en-us/dotnet/api/azure.core.accesstoken?view=azure-dotnet)
+
 ## User access token scopes
 
 Scopes allow you to specify the exact Azure Communications Services functionality that a user access token will be able to authorize. By default, user access tokens enable clients to participate in chat threads they have been invited to and to receive incoming VOIP calls. Additional scopes must be specified when creating user access tokens.
@@ -122,6 +126,11 @@ const chatClient = new ChatClient(endpoint, tokenProvider);
 // initialize the calling SDK with the token provider
 const callingClient = new CallingClient(endpoint, tokenProvider);
 ```
+
+> Questions
+>> [akania] Should ChatClient/CallingClient/SMSClient take TokenCredential ( or something aligned with it ) in ctor? This way we can use 'getToken' sementics for refreshing/revocation ? in general - getToken vs events for token refresh.
+
+>> [akania] getToken | event should accept GetTokenOptions with abortSignal|cancellation token and additional options ( timeout? )
 
 ## Revoking User Access Tokens
 
