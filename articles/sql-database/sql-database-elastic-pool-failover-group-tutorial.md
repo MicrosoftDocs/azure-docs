@@ -33,7 +33,7 @@ To complete this tutorial, make sure you have:
 
 [!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
-## 2 - Add database to am elastic pool
+## 2 - Add database to an elastic pool
 
 In this step, you will create an elastic pool and add your database to it.
 
