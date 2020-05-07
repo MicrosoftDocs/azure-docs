@@ -376,6 +376,8 @@
                   href: 'https://aka.ms/csspeech/cppref'
                 - name: 'C#'
                   href: 'https://aka.ms/csspeech/csharpref'
+                - name: 'Java'
+                  href: 'https://aka.ms/csspeech/javaref'
 - name: Voice assistants
   items:
     - name: Voice assistants documentation
