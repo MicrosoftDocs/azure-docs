@@ -399,7 +399,7 @@
     {
       "source_path": "articles/machine-learning/service/setup-create-workspace.md",
       "redirect_url": "/azure/machine-learning/how-to-manage-workspace",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/concept-accelerate-with-fpgas.md",
@@ -424,7 +424,7 @@
     {
       "source_path": "articles/machine-learning/service/quickstart-run-cloud-notebook.md",
       "redirect_url": "/azure/machine-learning/tutorial-1st-experiment-sdk-setup",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/ui-quickstart-run-experiment.md",
@@ -599,7 +599,7 @@
     {
       "source_path": "articles/open-datasets/tutorial-opendatasets-automl.md",
       "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/windows/high-performance-computing.md",
