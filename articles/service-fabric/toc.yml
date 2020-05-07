@@ -657,7 +657,7 @@
       - name: Scale
         items:
         - name: Manually scale out
-          href: service-fabric-cluster-scale-up-down.md
+          href: service-fabric-cluster-scale-in-out.md
         - name: Programmatically scale out
           href: service-fabric-cluster-programmatic-scaling.md
         - name: Scale up primary node type
