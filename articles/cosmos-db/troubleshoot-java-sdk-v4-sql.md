@@ -19,7 +19,7 @@ ms.topic: troubleshooting
 > 
 
 > [!IMPORTANT]
-> This article covers troubleshooting for Azure Cosmos DB Java SDK v4 only. Please see the __[Release Notes](sql-api-sdk-java-v4-sql.md)__, __[Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos)__, and __[performance tips](performance-tips-java-sdk-v4-sql.md)__ for more information.
+> This article covers troubleshooting for Azure Cosmos DB Java SDK v4 only. Please see the [Release Notes](sql-api-sdk-java-v4-sql.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), and [performance tips](performance-tips-java-sdk-v4-sql.md) for more information.
 >
 
 This article covers common issues, workarounds, diagnostic steps, and tools when you use [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4-sql.md) with Azure Cosmos DB SQL API accounts.
