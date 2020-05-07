@@ -1,20 +1,18 @@
 ---
-title: Support for the commercial marketplace | Azure Marketplace
-description: Support information and links for Azure Marketplace and AppSource
+title: Microsoft commercial marketplace support - Azure Marketplace
+description: Support information and links for Azure Marketplace and AppSource in Partner Center
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 04/14/2020
 ms.author: dsindona
 
 ---
 
-# Support for the Marketplace
+# Support for Microsoft commercial marketplace
 
-Here is a list of support options for the Marketplace.  
-
-Additionally, you can get many of your questions answered in the [Marketplace channel of C+AI Community Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
+Do you have questions about getting started as a Microsoft commercial marketplace publisher? Here's a list of support options for the commercial marketplace. In addition to the following resources, you can also get many of your questions answered in the [Marketplace channel of C+AI Community Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
 ## Onboarding
 

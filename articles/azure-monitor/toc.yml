@@ -214,6 +214,7 @@
       - name: Web pages
         items:
         - name: Client-side JavaScript
+          displayname: SPA, Single Page Applications, React, JS, Angular
           href: app/javascript.md
         - name: Source map for JavaScript
           href: app/source-map-support.md
@@ -441,6 +442,11 @@
         href: app/custom-data-correlation.md
       - name: Connection strings
         href: app/sdk-connection-string.md
+      - name: Connection strings
+        href: app/sdk-connection-string.md
+      - name: GetMetric
+        displayname: get metric, custom metrics, metrics, TrackMetric
+        href: app/get-metric.md
       - name: Special topics
         items:
         - name: Deep diagnostics for web apps and services
