@@ -17948,7 +17948,7 @@
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md",
       "redirect_url": "/power-bi/service-azure-sql-data-warehouse-with-direct-connect",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-how-to-configure-workload-importance.md",
