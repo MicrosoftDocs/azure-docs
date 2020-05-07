@@ -11,12 +11,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2029
 ms.author: tremansdoerfer
-
-// Application  Gateway --  (How-to)
-// Assign teresa as reviewer 
 ---
-
-// Add to tutorial part under Front Door Documentation 
 
 # Quickly scale and protect a web application using Azure Front Door and Azure Web Application Firewall (WAF)
 
