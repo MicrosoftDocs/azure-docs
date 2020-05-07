@@ -387,6 +387,8 @@
         href: crossknowledge-learning-suite-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
+      - name: Cyara CX Assurance Platform
+        href: cyara-cx-assurance-platform-tutorial.md
       - name: CyberArk SAML Authentication
         href: cyberark-saml-authentication-tutorial.md
       - name: CylancePROTECT
@@ -453,6 +455,8 @@
         href: eab-navigate-impl-tutorial.md
       - name: EAB Navigate Strategic Care
         href: eab-navigate-strategic-care-tutorial.md
+      - name: EasySSO for Bamboo
+        href: easysso-for-bamboo-tutorial.md
       - name: EasyTerritory
         href: easyterritory-tutorial.md
       - name: EBSCO
@@ -1560,6 +1564,8 @@
         href: tripactions-tutorial.md
       - name: Trisotech Digital Enterprise Server
         href: trisotechdigitalenterpriseserver-tutorial.md
+      - name: Torii
+        href: torii-tutorial.md
       - name: TruNarrative
         href: trunarrative-tutorial.md
       - name: TurboRater
