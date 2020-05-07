@@ -14,9 +14,11 @@ ms.custom: mvc
 
 # Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution (Node.js)
 
-[!INCLUDE [iot-pnp-quickstarts-3-selector.md](../../includes/iot-pnp-quickstarts-3-selector.md)]
+[!INCLUDE [iot-pnp-quickstarts-service-selector.md](../../includes/iot-pnp-quickstarts-service-selector.md)]
 
 IoT Plug and Play Preview simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This quickstart shows you how to use Node.js to connect to and control an IoT Plug and Play device that's connected to your solution.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 
@@ -27,8 +29,6 @@ You can verify the current version of Node.js on your development machine using 
 ```cmd/sh
 node --version
 ```
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
@@ -48,10 +48,9 @@ In this quickstart, you use a sample environmental sensor that's written in Node
 git clone https://github.com/Azure/azure-iot-sdk-node  -b public-preview-pnp
 ```
 
-
 This operation may take several minutes to complete.
 
-1. This terminal window will now be used as your _device_ terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-sdk-node/digitaltwins/samples/device/javascript** folder. Install all the dependencies by running the following command:
+1. This terminal window is used as your _device_ terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-sdk-node/digitaltwins/samples/device/javascript** folder. Install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
@@ -69,13 +68,13 @@ This operation may take several minutes to complete.
     node sample_device.js
     ```
 
-1. You see messages saying that the device has sent some information and reported itself online. This indicates that the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates. Don't close this terminal, you'll need it later to confirm the service samples also worked.
+1. You see messages saying that the device has sent some information and reported itself online. These messages indicate that the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates. Don't close this terminal, you'll need it later to confirm the service samples also worked.
 
 ## Run the sample solution
 
 In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device.
 
-1. Open another terminal window (this will be your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-node/digital-twins/Quickstarts/Service** folder. Install all the dependencies by running the following command:
+1. Open another terminal window to use as your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-node/digital-twins/Quickstarts/Service** folder. Install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
@@ -162,14 +161,15 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     Received an update for brightness: 42
     updated the property
     ```
-2. Go back to your _service_ terminal and run the below command to get the device information again, to confirm the property has been updated.
-    
+
+1. Go back to your _service_ terminal and run the below command to get the device information again, to confirm the property has been updated.
+
     ```cmd/sh
     node get_digital_twin.js
     ```
 
-3. In the _service_ terminal output, under the `environmentalSensor` component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
-    
+1. In the _service_ terminal output, under the `environmentalSensor` component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has processed the property update.
+
     ```json
     "environmentalSensor": {
       "name": "environmentalSensor",
