@@ -91,7 +91,8 @@ There's no supported upgrade path from previous versions of HDInsight to HDInsig
 * You can't *disable* LLAP on a Spark-LLAP cluster. You can only turn LLAP off.
 * Azure Data Lake Storage Gen2 can't save Juypter notebooks in a Spark cluster.
 * Apache pig runs on Tez by default, However you can change it to Mapreduce
-* Spark SQL Ranger integration for row and column security is depricated
+* Spark SQL Ranger integration for row and column security is deprecated
+* Spark 2.4 and Kafka 2.1 are available in HDInsight 4.0, so Spark 2.3 and Kafka 1.1 are no longer supported. We recommend using Spark 2.4 & Kafka 2.3 and above in HDInsight 4.0.
 
 
 ## Next steps
