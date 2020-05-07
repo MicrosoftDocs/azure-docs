@@ -33,7 +33,7 @@ ms.service: azure-project-spool
 
 - source: https://www.youtube.com/watch?v=hTMuAPaKMI4
 - Key takeaways / principles:
-  - The purpose of docs is to help developers get shit done. **They don't need flowery prose for that** - they need simple code.
+  - The purpose of docs is to help developers get things done. **They don't need flowery prose for that** - they need simple code.
   - UX principles apply to docs as much as they apply to products. **"Don't make me think!"**
   - Whenever possible, the first step of any tutorial should be a **concise, minimal code snippet**.
   - Simply **reducing copy** can yield significant improvement to engagement and conversion.
@@ -48,7 +48,7 @@ ms.service: azure-project-spool
 - The best way to get under the skin of an application is to sit next to the person who wrote it so they could point at code and explain how it solves problems.
 - The percentage of developers who completed a tutorial depended primarily on how the tutorial was built. Some of Twilio's tutorials outperformed others. They found that **there was a 30% boost to completion rate whenever the first step contained code, but less than 20 lines of code.** Instead of showing a controller and a service and error handling and try/catch logic, they started just... sharing the minimal amount of code necessary to directly and clearly solve the developer's problem. 
 - Anecdote: One of the most frustrating things that I experience when consuming docs is fluff. When I want to learn how to parse an enum out of a string, I don't need a full page of context-setting code. I need a single line that shows me what I need to copy and paste to keep moving forward.
-- They also found a **12% increase in completion rate if they just reduced the copy**. Less words = more completion.
+- They also found a **12% increase in completion rate if they just reduced the copy**. Fewer words = more completion.
 - They also learned that developers **love how to send SMS messages when an error happens in their app**.
 - When you think of documentation as a product, you can start thinking about the data that you need to inform your product design decisions.
 - They used **Optimizely** for A/B testing. They used **mixpanel** to track events down the funnel. They were able to see which steps performed better than others and were then able to optimize accordingly. This is how they learned about the importance of reducing friction in the first step of their tutorials down to 20 lines of code, max. They used **usertesting** for interviews and collaboration with their users. This was super valuable to them - they selected rockstar developers and would do this every month if they could - it's gold data.
