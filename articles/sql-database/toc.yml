@@ -309,143 +309,144 @@
         href: sql-database-job-automation-overview.md
 
   - name: Common how-to's
+    items:
+    - name: Request quota increases
+      href: quota-increase-request.md      
+    - name: Design a database
       items:
-      - name: Design a database
+      - name: Design database using SSMS
+        href: sql-database-design-first-database.md
+      - name: Design database using .NET
+        href: sql-database-design-first-database-csharp.md
+    - name: Load and move data
+      items:
+      - name: Import or export from an Azure VM
+        href: import-export-from-vm.md
+      - name: Import a database from a BACPAC file
+        href: sql-database-import.md
+      - name: Export a database to a BACPAC file
+        href: sql-database-export.md
+      - name: Copy a database within Azure
+        href: sql-database-copy.md
+      - name: Move resources to a new region
+        href: sql-database-move-resources-across-regions.md
+      - name: Load data with BCP
+        href: sql-database-load-from-csv-with-bcp.md
+      - name: Load data with ADF
+        href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
+    - name: Develop data applications
+      items:
+      - name: Overview
+        href: sql-database-develop-overview.md
+      - name: Working with JSON data
+        href: sql-database-json-features.md
+      - name: Use ASP.NET App Service
+        href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/sql-database/toc.json
+      - name: Use Azure Functions
+        href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/azure/sql-database/toc.json
+      - name: Use Azure Logic Apps
+        href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
+      - name: Use Spark Connector
+        href: sql-database-spark-connector.md
+      - name: Index with Azure Cognitive Search
+        href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/sql-database/toc.json
+      - name: Configure temporal retention policy
+        href: sql-database-temporal-tables-retention-policy.md
+      - name: Authenticate app
+        href: sql-database-client-id-keys.md
+      - name: Batching for perf
+        href: sql-database-use-batching-to-improve-performance.md
+      - name: Connectivity guidance
+        href: sql-database-connectivity-issues.md
+      - name: DNS aliases
+        href: dns-alias-overview.md
+      - name: DNS alias PowerShell
+        href: dns-alias-powershell.md
+      - name: Ports - ADO.NET
+        href: sql-database-develop-direct-route-ports-adonet-v12.md
+      - name: C and C ++
+        href: sql-database-develop-cplusplus-simple.md
+      - name: Excel
+        href: sql-database-connect-excel.md
+      - name: Server-side CLR/.NET integration
+        href: https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/sql-database/toc.json
+      - name: Java
         items:
-        - name: Design database using SSMS
-          href: sql-database-design-first-database.md
-        - name: Design database using .NET
-          href: sql-database-design-first-database-csharp.md
-      - name: Load and move data
+        - name: Use Spring Data JDBC
+          href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server
+        - name: Use Spring Data JPA
+          href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server
+    - name: Design data applications
+      items:
+      - name: Design for disaster recovery
+        href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
+      - name: Design for elastic pools
+        href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+      - name: Design for app upgrades
+        href: sql-database-manage-application-rolling-upgrade.md
+      - name: Multi-tenant SaaS
         items:
-        - name: Import or export from an Azure VM
-          href: import-export-from-vm.md
-        - name: Import a database from a BACPAC file
-          href: sql-database-import.md
-        - name: Export a database to a BACPAC file
-          href: sql-database-export.md
-        - name: Copy a database within Azure
-          href: sql-database-copy.md
-        - name: Move resources to a new region
-          href: sql-database-move-resources-across-regions.md
-        - name: Load data with BCP
-          href: sql-database-load-from-csv-with-bcp.md
-        - name: Load data with ADF
-          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
-      - name: Develop data applications
-        items:
-        - name: Overview
-          href: sql-database-develop-overview.md
-        - name: Working with JSON data
-          href: sql-database-json-features.md
-        - name: Use ASP.NET App Service
-          href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/sql-database/toc.json
-        - name: Use Azure Functions
-          href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/azure/sql-database/toc.json
-        - name: Use Azure Logic Apps
-          href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
-        - name: Use Spark Connector
-          href: sql-database-spark-connector.md
-        - name: Index with Azure Cognitive Search
-          href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/sql-database/toc.json
-        - name: Configure temporal retention policy
-          href: sql-database-temporal-tables-retention-policy.md
-        - name: Authenticate app
-          href: sql-database-client-id-keys.md
-        - name: Batching for perf
-          href: sql-database-use-batching-to-improve-performance.md
-        - name: Connectivity guidance
-          href: sql-database-connectivity-issues.md
-        - name: DNS aliases
-          href: dns-alias-overview.md
-        - name: DNS alias PowerShell
-          href: dns-alias-powershell.md
-        - name: Ports - ADO.NET
-          href: sql-database-develop-direct-route-ports-adonet-v12.md
-        - name: C and C ++
-          href: sql-database-develop-cplusplus-simple.md
-        - name: Excel
-          href: sql-database-connect-excel.md
-        - name: Server-side CLR/.NET integration
-          href: https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/sql-database/toc.json
-        - name: Java
+        - name: SaaS design patterns
+          href: saas-tenancy-app-design-patterns.md
+        - name: SaaS video indexer
+          href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
+        - name: SaaS app security
+          href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
+        - name: Multi-tenant SaaS sample application
           items:
-          - name: Use Spring Data JDBC
-            href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server
-          - name: Use Spring Data JPA
-            href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server
-      - name: Design data applications
-        items:
-        - name: Design for disaster recovery
-          href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-        - name: Design for elastic pools
-          href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-        - name: Design for app upgrades
-          href: sql-database-manage-application-rolling-upgrade.md
-        - name: Multi-tenant SaaS
-          items:
-          - name: SaaS design patterns
-            href: saas-tenancy-app-design-patterns.md
-          - name: SaaS video indexer
-            href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
-          - name: SaaS app security
-            href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
-          - name: Multi-tenant SaaS sample application
-            items:
-            - name: Wingtip Tickets sample
-              href: saas-tenancy-welcome-wingtip-tickets-app.md
-            - name: General guidance
-              href: saas-tenancy-wingtip-app-guidance-tips.md
-            - name: Single application
-              items:
-              - name: Deploy example app
-                href: saas-standaloneapp-get-started-deploy.md
-              - name: Provision tenants
-                href: saas-standaloneapp-provision-and-catalog.md
-            - name: Database per tenant
-              items:
-              - name: Tutorial intro
-                href: saas-dbpertenant-wingtip-app-overview.md
-              - name: Deploy example app
-                href: saas-dbpertenant-get-started-deploy.md
-              - name: Provision tenants
-                href: saas-dbpertenant-provision-and-catalog.md
-              - name: Monitor database performance
-                href: saas-dbpertenant-performance-monitoring.md
-              - name: Monitor with Azure Monitor logs
-                href: saas-dbpertenant-log-analytics.md
-              - name: Restore one tenant
-                href: saas-dbpertenant-restore-single-tenant.md
-              - name: Manage tenant schema
-                href: saas-tenancy-schema-management.md
-              - name: Cross-tenant reporting
-                href: saas-tenancy-cross-tenant-reporting.md
-              - name: Tenant analytics
-                items:
-                - name: With SQL Database
-                  href: saas-tenancy-tenant-analytics.md
-                - name: With SQL Data Warehouse
-                  href: saas-tenancy-tenant-analytics-adf.md
-            - name: Disaster recovery using geo-restore
-              href: saas-dbpertenant-dr-geo-restore.md
-            - name: Disaster recovery using database geo-replication
-              href: saas-dbpertenant-dr-geo-replication.md
-          - name: Multi-tenant database
+          - name: Wingtip Tickets sample
+            href: saas-tenancy-welcome-wingtip-tickets-app.md
+          - name: General guidance
+            href: saas-tenancy-wingtip-app-guidance-tips.md
+          - name: Single application
             items:
             - name: Deploy example app
-              href: saas-multitenantdb-get-started-deploy.md
+              href: saas-standaloneapp-get-started-deploy.md
             - name: Provision tenants
-              href: saas-multitenantdb-provision-and-catalog.md
+              href: saas-standaloneapp-provision-and-catalog.md
+          - name: Database per tenant
+            items:
+            - name: Tutorial intro
+              href: saas-dbpertenant-wingtip-app-overview.md
+            - name: Deploy example app
+              href: saas-dbpertenant-get-started-deploy.md
+            - name: Provision tenants
+              href: saas-dbpertenant-provision-and-catalog.md
             - name: Monitor database performance
-              href: saas-multitenantdb-performance-monitoring.md
-            - name: Run ad-hoc queries
-              href: saas-multitenantdb-adhoc-reporting.md
+              href: saas-dbpertenant-performance-monitoring.md
+            - name: Monitor with Azure Monitor logs
+              href: saas-dbpertenant-log-analytics.md
+            - name: Restore one tenant
+              href: saas-dbpertenant-restore-single-tenant.md
             - name: Manage tenant schema
-              href: saas-multitenantdb-schema-management.md
-            - name: ETL for analytics
-              href: saas-multitenantdb-tenant-analytics.md
-      - name: Request quota increases
-        href: quota-increase-request.md
+              href: saas-tenancy-schema-management.md
+            - name: Cross-tenant reporting
+              href: saas-tenancy-cross-tenant-reporting.md
+            - name: Tenant analytics
+              items:
+              - name: With SQL Database
+                href: saas-tenancy-tenant-analytics.md
+              - name: With SQL Data Warehouse
+                href: saas-tenancy-tenant-analytics-adf.md
+          - name: Disaster recovery using geo-restore
+            href: saas-dbpertenant-dr-geo-restore.md
+          - name: Disaster recovery using database geo-replication
+            href: saas-dbpertenant-dr-geo-replication.md
+        - name: Multi-tenant database
+          items:
+          - name: Deploy example app
+            href: saas-multitenantdb-get-started-deploy.md
+          - name: Provision tenants
+            href: saas-multitenantdb-provision-and-catalog.md
+          - name: Monitor database performance
+            href: saas-multitenantdb-performance-monitoring.md
+          - name: Run ad-hoc queries
+            href: saas-multitenantdb-adhoc-reporting.md
+          - name: Manage tenant schema
+            href: saas-multitenantdb-schema-management.md
+          - name: ETL for analytics
+            href: saas-multitenantdb-tenant-analytics.md
+
 
 
 - name: Azure SQL Database
