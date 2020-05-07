@@ -24,7 +24,7 @@ If your registry is [geo-replicated](container-registry-geo-replication.md), a c
 ## Allow access to REST and data endpoints
 
 * **REST endpoint** - Allow access to the fully qualified registry login server name, `<registry-name>.azurecr.io`, or an associated IP address range
-* **Storage (data) endpoint** - Enable access to a [dedicated data endpoint](#configure-dedicated-data-endpoints-preview) (preview) in each region where the registry is located or replicated, `<registry-name>.<region>.data.azurecr.io`. Alternatively, and less specifically, allow access to all Azure blob storage accounts using the wildcard `*.blob.core.windows.net`, or an associated IP address range.
+* **Storage (data) endpoint** - Enable access to a [dedicated data endpoint](#enable-dedicated-data-endpoints-preview) (preview) in each region where the registry is located or replicated, `<registry-name>.<region>.data.azurecr.io`. Alternatively, and less specifically, allow access to all Azure blob storage accounts using the wildcard `*.blob.core.windows.net`, or an associated IP address range.
 
 ## Enable dedicated data endpoints (preview)
 
