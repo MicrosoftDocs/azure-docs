@@ -46,7 +46,7 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ---
 **Installation for Bug Bash 5/8** 
 
-We'll use for the bug bash a private package.
+For this bug bash, we'll use a private package. This will be published to pip for the public preview refresh.
 Please go to https://aka.ms/PythonDevicePnP0508 and download the wheel (.whl) file. Once downloaded, in your local python environment please install the file. 
 
 ```cmd/sh
