@@ -17,7 +17,6 @@ ms.date: 03/11/2020
 
 [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) supports Azure Machine Learning events. You can subscribe and consume events such as run status changed, run completion, model registration, model deployment, and data drift detection within a workspace.
 
-For more information on event types, see [Azure Machine Learning integration with Event Grid](concept-event-grid-integration.md) and the [Azure Machine Learning event grid schema](/azure/event-grid/event-schema-machine-learning).
 
 Use Event Grid to enable common scenarios such as:
 
