@@ -95,11 +95,11 @@ callingClient.call(/* callee */ [bobIdentity]);
 ## Identity resolution 
 > akania
 
+>> **[TODO Short term we'll need custom resolver, Describe how resolution works using Contoso's mapping, how contoso can set custom resolver](https://microsoft.sharepoint-df.com/:w:/t/IC3SDK/EQhr_nKkinVKtHeg41SMKS4BJyEogRGfn5c_PxflSpdLZw?e=bHA14u)**
+
 >> TODO Describe how we map contoso userIds on ACS side
 
 >> TODO Describe how resolution works using ACS Mapping service
-
->> TODO Describe how resolution works using Contoso's mapping, how contoso can set custom resolver
 
 >> If contoso chooses to - it doesn't have to resolve identity
 
