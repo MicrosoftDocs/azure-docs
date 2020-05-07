@@ -138,7 +138,7 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 1. In the *Region* drop-down, choose a region closest to you.
 1. Select **Free** from the SKU drop-down.
 
-  :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Create Static Web App":::
+   :::image type="content" source="media/deploy-nextjs/create-static-web-app.png" alt-text="Create Static Web App":::
 
 ### Add a GitHub repository
 
@@ -149,7 +149,7 @@ The new Static Web Apps account needs access to the repository with your Next.js
 1. Find and select the name of the repository you created earlier.
 1. Choose **master** as the branch from the *Branch* drop-down.
 
-  :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Connect GitHub":::
+   :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Connect GitHub":::
 
 ### Configure the build process
 
@@ -157,7 +157,7 @@ Azure Static Web Apps is built to automatically carry out common tasks like inst
 
 1. Click on the **Build** tab to configure the static output folder.
 
-  :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Build tab":::
+   :::image type="content" source="media/deploy-nextjs/build-tab.png" alt-text="Build tab":::
 
 2. Type **out** in the *App artifact location* text box.
 
@@ -195,35 +195,35 @@ The reason for this error is because Next.js only generated the home page based 
 
 1. Update the _next.config.js_ file so that Next.js uses a list of all available data to generate static pages for each framework/library:
 
-  ```javascript
-  const data = require('./utils/projectsData');
+   ```javascript
+   const data = require('./utils/projectsData');
 
-  module.exports = {
-    exportTrailingSlash: true,
-    exportPathMap: async function () {
-      const { projects } = data;
-      const paths = {
-        '/': { page: '/' },
-      };
+   module.exports = {
+     exportTrailingSlash: true,
+     exportPathMap: async function () {
+       const { projects } = data;
+       const paths = {
+         '/': { page: '/' },
+       };
   
-      projects.forEach((project) => {
-        paths[`/project/${project.slug}`] = {
-          page: '/project/[path]',
-          query: { path: project.slug },
-        };
-      });
+       projects.forEach((project) => {
+         paths[`/project/${project.slug}`] = {
+           page: '/project/[path]',
+           query: { path: project.slug },
+         };
+       });
   
-      return paths;
-    },
-  };
-  ```
+       return paths;
+     },
+   };
+   ```
 
-  > [!NOTE]
-  > The `exportPathMap` function is an async function, so you can make a request to an API in this function and use the returned list to generate the paths.
+   > [!NOTE]
+   > The `exportPathMap` function is an async function, so you can make a request to an API in this function and use the returned list to generate the paths.
 
 2. Push the new changes to your GitHub repository and wait for a few minutes while GitHub Actions builds your site again. After the build is complete, the 404 error disappears.
 
-:::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="404 on dynamic routes fixed":::
+   :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="404 on dynamic routes fixed":::
 
 > [!div class="nextstepaction"]
 > [Set up a custom domain](custom-domain.md)
