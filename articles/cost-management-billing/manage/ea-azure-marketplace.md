@@ -58,8 +58,6 @@ To enable Azure Marketplace purchases:
 > [!NOTE]
 > BYOL (bring your own license) and the Free Only option limits the purchase and acquisition of Azure Marketplace SKUs to BYOL and Free SKUs only.
 
-Get more information about [Azure Marketplace charges in Azure Enterprise portal reports](#azure-marketplace-charges-in-azure-enterprise-portal-reports).
-
 ### Services billed hourly for Azure EA
 
 The following services are billed hourly under an Enterprise Agreement instead of the monthly rate in MOSP:
@@ -112,4 +110,4 @@ Specific Azure Marketplace offers can use monetary commitment funds. See [third-
 
 ## Next steps
 
-- Get more information about [Pricing](ea-pricing.md).
+- Get more information about [Pricing](ea-pricing-overview.md).
