@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 04/28/2020
+ms.date: 05/06/2020
 ---
 
 # Supported features of Azure SQL Edge Preview
@@ -37,7 +37,7 @@ The recommended configuration for running Azure SQL Edge on Windows is to config
 
 ## Hardware Support
 
-Azure SQL Edge requires a 64-bit processor, which can be from Intel, AMD or ARM, with a minimum of 1 processor and 1 GM of RAM on the host. While the startup memory footprint of Azure SQL Edge is close to 500 MB, the additional memory is needed for other IoT Edge modules running on the edge device.
+Azure SQL Edge requires a 64-bit processor, which can be from Intel, AMD or ARM, with a minimum of one processor and one GB of RAM on the host. While the startup memory footprint of Azure SQL Edge is close to 500 MB, the additional memory is needed for other IoT Edge modules running on the edge device.
 
 ## Azure SQL Edge Components
 
