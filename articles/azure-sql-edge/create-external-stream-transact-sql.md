@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/04/2020
+ms.date: 05/06/2020
 ---
 
 # CREATE EXTERNAL STREAM (Transact-SQL)
@@ -60,7 +60,7 @@ WITH
 
 - [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql/)
 - [EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql/)
-- **LOCATION**: Specifies the name for the actual data or location in the data source.
+- **LOCATION**: Specifies the name for the actual data or location in the data source. In case of an Edge Hub or Kafka stream object, location specifies the name of the Edge Hub or Kafka topic to read from or write to.
 - **INPUT_OPTIONS**: Specify options as key-value pairs for services such as Event and IOT Hubs that are inputs to streaming queries
     - CONSUMER_GROUP:
       Event and IoT Hubs limit the number of readers within one consumer group (to 5). Leaving this field empty will use the '$Default' consumer group.
@@ -112,117 +112,92 @@ WITH
 
 ## Examples
 
-### Example 1 - Event Hub
+### Example 1 - EdgeHub
 
 Type: Input or Output<br>
 Parameters:
-- Input or Output:
+- Input or Output
   - Alias 
-  - Service Bus namespace 
-  - Event Hub name 
-  - Event Hub policy name 
-  - Event Hub policy key 
   - Event serialization format 
   - Encoding 
 - Input only: 
-  - Event Hub consumer group 
   - Event compression type 
-- Output only: 
-  - Partition key column 
-  - Property columns 
 
 Syntax:
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL eventHubCredName 
-WITH IDENTITY = 'Shared Access Signature’, 
-SECRET = '<policyName>'; 
- 
-CREATE EXTERNAL DATA SOURCE MyEventHub_tweets 
-WITH 
-(     
-  LOCATION = 'sb://my-sb-namespace.servicebus.windows.net’, 
-  CREDENTIAL = eventHubCredName 
+CREATE EXTERNAL DATA SOURCE MyEdgeHub 
+WITH  
+(      
+  LOCATION = 'edgehub://'       
 ); 
  
-CREATE EXTERNAL FILE FORMAT myFileFormat 
-WITH ( 
-    FORMAT_TYPE = 'CSV', 
-    DATA_COMPRESSION = 'GZIP', 
-    ENCODING = ‘UTF-8’, 
-    DELIMITER = ‘|’ 
+CREATE EXTERNAL FILE FORMAT myFileFormat  
+WITH (  
+   FORMAT_TYPE = 'JSON', 
 ); 
  
- 
-CREATE EXTERNAL STREAM Stream_A (user_id VARCHAR, tweet VARCHAR) 
-WITH   
-(  
-    DATA_SOURCE = MyEventHub_tweets, 
-    LOCATION = ‘<topicname>’, 
-   --JSON: Format, CSV: Delimiter and Encoding, AVRO: None 
-    EXTERNAL_FILE_FORMAT = myFileFormat,  
- 
-    INPUT_OPTIONS =  
-      ‘CONSUMER_GROUP: FirstConsumerGroup’, 
-          
-    OUTPUT_OPTIONS =  
-      ‘REJECT_TYPE: Drop, 
-      PARTITION_KEY_COLUMN: , 
-      PROPERTY_COLUMNS: ()’ 
+CREATE EXTERNAL STREAM Stream_A  
+WITH    
+(   
+   DATA_SOURCE = MyEdgeHub, 
+   EXTERNAL_FILE_FORMAT = myFileFormat, 
+   LOCATION = ‘<mytopicname>’, 
+   OUTPUT_OPTIONS =   
+     ‘REJECT_TYPE: Drop’ 
 );
 ```
 
 
-### Example 2 - IOT Hub
+### Example 2 - Azure SQL Database, Azure SQL Edge, SQL Server
 
-Type: Input<br>
+Type: Output<br>
 Parameters:
-
-- Input alias 
-- IoT Hub 
-- Endpoint 
-- Shared access policy name 
-- Shared access policy key 
-- Consumer group 
-- Event serialization format 
-- Encoding 
-- Event compression type 
+- Output alias  
+- Database (required for SQL Database) 
+- Server (required for SQL Database) 
+- Username (required for SQL Database) 
+- Password (required for SQL Database) 
+- Table 
+- Merge all input partitions into a single write or Inherit partition scheme of previous query step or input (required for SQL Database) 
+- Max batch count 
 
 Syntax:
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL IoTHubCredName 
-WITH IDENTITY = 'Shared Access Signature’, 
-SECRET = '<policyName>'; 
+CREATE DATABASE SCOPED CREDENTIAL SQLCredName 
+WITH IDENTITY = '<user>’, 
+SECRET = '<password>'; 
  
-CREATE EXTERNAL DATA SOURCE MyIoTHub_tweets 
+-- Azure SQL Database 
+CREATE EXTERNAL DATA SOURCE MyTargetSQLTabl 
 WITH 
 (     
-  LOCATION = ' iot://iot_hub_name.azure-devices.net’, 
-  CREDENTIAL = IoTHubCredName 
-);	
-
- 
- 
-CREATE EXTERNAL FILE FORMAT myFileFormat 
-WITH ( 
-    FORMAT_TYPE = 'CSV', --Event serialization format 
-    DATA_COMPRESSION = 'GZIP', 
-    ENCODING = ‘UTF-8’ 
+  LOCATION = ' <my_server_name>.database.windows.net’, 
+  CREDENTIAL = SQLCredName 
 ); 
  
-CREATE EXTERNAL STREAM Stream_A (user_id VARCHAR, tweet VARCHAR) 
+--SQL Server or Azure SQL Edge
+CREATE EXTERNAL DATA SOURCE MyTargetSQLTabl 
+WITH 
+(     
+  LOCATION = ' <sqlserver://<ipaddress>,<port>’, 
+  CREDENTIAL = SQLCredName 
+); 
+ 
+--SQL Database/Edge 
+CREATE EXTERNAL STREAM Stream_A 
 WITH   
 (  
-    DATA_SOURCE = MyIoTHub_tweets, 
-    LOCATION = ‘<name>’, 
+    DATA_SOURCE = MyTargetSQLTable, 
+    LOCATION = ‘<DatabaseName>.<SchemaName>.<TableName>’ 
+   --Note: If table is container in the database, <TableName> should be sufficient 
+   --Note: Do not need external file format in this case 
     EXTERNAL_FILE_FORMAT = myFileFormat,  
-    INPUT_OPTIONS =  
-      ‘ENDPOINT: Messaging, 
-      CONSUMER_GROUP: ‘FirstConsumerGroup’ 
+    OUTPUT_OPTIONS =  
+      ‘REJECT_TYPE: Drop 
 ); 
 ```
-
 
 ### Example 3 - Kafka
 
@@ -261,12 +236,10 @@ WITH
     LOCATION = ‘<KafkaTopicName>’, 
    --JSON: Format, CSV: Delimiter and Encoding, AVRO: None 
     EXTERNAL_FILE_FORMAT = myFileFormat,  
- 
     INPUT_OPTIONS =  
       ‘PARTITIONS: 5’ 
 ); 
 ```
-
 
 ### Example 4 - Blob storage
 
@@ -332,97 +305,113 @@ WITH
 ); 
 ```
 
-
-### Example 5 - EdgeHub
+### Example 5 - Event Hub
 
 Type: Input or Output<br>
 Parameters:
-- Input or Output
+- Input or Output:
   - Alias 
+  - Service Bus namespace 
+  - Event Hub name 
+  - Event Hub policy name 
+  - Event Hub policy key 
   - Event serialization format 
   - Encoding 
 - Input only: 
+  - Event Hub consumer group 
   - Event compression type 
+- Output only: 
+  - Partition key column 
+  - Property columns 
 
 Syntax:
 
 ```sql
-CREATE EXTERNAL DATA SOURCE MyEdgeHub 
-WITH  
-(      
-  LOCATION = 'edgehub://'       
+CREATE DATABASE SCOPED CREDENTIAL eventHubCredName 
+WITH IDENTITY = 'Shared Access Signature’, 
+SECRET = '<policyName>'; 
+ 
+CREATE EXTERNAL DATA SOURCE MyEventHub_tweets 
+WITH 
+(     
+  LOCATION = 'sb://my-sb-namespace.servicebus.windows.net’, 
+  CREDENTIAL = eventHubCredName 
 ); 
  
-CREATE EXTERNAL FILE FORMAT myFileFormat  
-WITH (  
-   FORMAT_TYPE = 'CSV', 
-   EVENT_COMPRESSION_TYPE = 'NONE',  
-   ENCODING = ‘UTF-8’, 
-   FIELD_TERMINATOR = ‘,’ 
+CREATE EXTERNAL FILE FORMAT myFileFormat 
+WITH ( 
+    FORMAT_TYPE = 'CSV', 
+    DATA_COMPRESSION = 'GZIP', 
+    ENCODING = ‘UTF-8’, 
+    DELIMITER = ‘|’ 
 ); 
  
-CREATE EXTERNAL STREAM Stream_A  
-WITH    
-(   
-   DATA_SOURCE = MyEdgeHub, 
-   EXTERNAL_FILE_FORMAT = myFileFormat, 
-   LOCATION = ‘<mytopicname>’, 
-   OUTPUT_OPTIONS =   
-     ‘REJECT_TYPE: Drop’ 
+ 
+CREATE EXTERNAL STREAM Stream_A (user_id VARCHAR, tweet VARCHAR) 
+WITH   
+(  
+    DATA_SOURCE = MyEventHub_tweets, 
+    LOCATION = ‘<topicname>’, 
+   --JSON: Format, CSV: Delimiter and Encoding, AVRO: None 
+    EXTERNAL_FILE_FORMAT = myFileFormat,  
+ 
+    INPUT_OPTIONS =  
+      ‘CONSUMER_GROUP: FirstConsumerGroup’, 
+          
+    OUTPUT_OPTIONS =  
+      ‘REJECT_TYPE: Drop, 
+      PARTITION_KEY_COLUMN: , 
+      PROPERTY_COLUMNS: ()’ 
 );
 ```
 
+### Example 6 - IOT Hub
 
-### Example 6 - SQL Database, SQL Edge, SQL Server
-
-Type: Output<br>
+Type: Input<br>
 Parameters:
-- Output alias  
-- Database (required for SQL Database) 
-- Server (required for SQL Database) 
-- Username (required for SQL Database) 
-- Password (required for SQL Database) 
-- Table 
-- Merge all input partitions into a single write or Inherit partition scheme of previous query step or input (required for SQL Database) 
-- Max batch count 
+
+- Input alias 
+- IoT Hub 
+- Endpoint 
+- Shared access policy name 
+- Shared access policy key 
+- Consumer group 
+- Event serialization format 
+- Encoding 
+- Event compression type 
 
 Syntax:
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL SQLCredName 
-WITH IDENTITY = '<user>’, 
-SECRET = '<password>'; 
+CREATE DATABASE SCOPED CREDENTIAL IoTHubCredName 
+WITH IDENTITY = 'Shared Access Signature’, 
+SECRET = '<policyName>'; 
  
---SQL Database/Edge 
-CREATE EXTERNAL DATA SOURCE MyTargetSQLTabl 
+CREATE EXTERNAL DATA SOURCE MyIoTHub_tweets 
 WITH 
 (     
-  LOCATION = ' <my_server_name>.database.windows.net’, 
-  CREDENTIAL = SQLCredName 
+  LOCATION = ' iot://iot_hub_name.azure-devices.net’, 
+  CREDENTIAL = IoTHubCredName 
+);	
+
+CREATE EXTERNAL FILE FORMAT myFileFormat 
+WITH ( 
+    FORMAT_TYPE = 'CSV', --Event serialization format 
+    DATA_COMPRESSION = 'GZIP', 
+    ENCODING = ‘UTF-8’ 
 ); 
  
---SQL Server 
-CREATE EXTERNAL DATA SOURCE MyTargetSQLTabl 
-WITH 
-(     
-  LOCATION = ' <sqlserver://<ipaddress>,<port>’, 
-  CREDENTIAL = SQLCredName 
-); 
- 
---SQL Database/Edge 
-CREATE EXTERNAL STREAM Stream_A 
+CREATE EXTERNAL STREAM Stream_A (user_id VARCHAR, tweet VARCHAR) 
 WITH   
 (  
-    DATA_SOURCE = MyTargetSQLTable, 
-    LOCATION = ‘<DatabaseName>.<SchemaName>.<TableName>’ 
-   --Note: If table is container in the database, <TableName> should be sufficient 
-   --Note: Do not nejkked external file format in this case 
+    DATA_SOURCE = MyIoTHub_tweets, 
+    LOCATION = ‘<name>’, 
     EXTERNAL_FILE_FORMAT = myFileFormat,  
-    OUTPUT_OPTIONS =  
-      ‘REJECT_TYPE: Drop 
+    INPUT_OPTIONS =  
+      ‘ENDPOINT: Messaging, 
+      CONSUMER_GROUP: ‘FirstConsumerGroup’ 
 ); 
 ```
-
 
 ### Example 7 - Azure Synapse Analytics (formerly SQL Data Warehouse)
 
@@ -623,8 +612,6 @@ WITH (
         
 );
 ```
-
-
 
 ### Example 12 - Azure function
 
