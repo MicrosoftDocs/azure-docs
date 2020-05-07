@@ -43,8 +43,10 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , FIELDTERMINATOR = 'char' ]    
 [ , ROWTERMINATOR = 'char' ] 
 [ , ESCAPE_CHAR = 'char' ] 
-[ , FIRSTROW = 'first_row'  ]     
-[ , FIELDQUOTE = 'quote_characters']
+[ , FIRSTROW = 'first_row' ]     
+[ , FIELDQUOTE = 'quote_characters' ]
+[ , DATA_COMPRESSION = 'data_compression_method' ]
+[ , PARSER_VERSION = 'parser_version' ]
 ```
 
 ## Arguments
@@ -59,8 +61,8 @@ You have two choices for input files that contain the target data for querying. 
 
 The unstructured_data_path that establishes a path to the data is structured as follows:  
 '\<prefix>://\<storage_account_path>/\<storage_path>'
- 
- 
+
+
  Below you'll find the relevant storage account paths that will link to your particular external data source. 
 
 | External Data Source       | Prefix | Storage account path                                 |
@@ -73,7 +75,7 @@ The unstructured_data_path that establishes a path to the data is structured as 
 '\<storage_path>'
 
  Specifies a path within your storage that points to the folder or file you want to read. If the path points to a container or folder, all files will be read from that particular container or folder. Files in subfolders won't be included. 
- 
+
  You can use wildcards to target multiple files or folders. Usage of multiple nonconsecutive wildcards is allowed.
 Below is an example that reads all *csv* files starting with *population* from all folders starting with */csv/population*:  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
@@ -120,7 +122,7 @@ Specifies the field terminator to be used. The default field terminator is a com
 
 ROWTERMINATOR ='row_terminator'`
 
-Specifies the row terminator to be used. The default row terminator is a newline character such as \r\n.
+Specifies the row terminator to be used. If row terminator is not specified one of default terminators will be used. Default terminators for PARSER_VERSION = '1.0' are \r\n, \n and \r. Default terminators for PARSER_VERSION = '2.0' are \r\n and \n.
 
 ESCAPE_CHAR = 'char'
 
@@ -135,6 +137,28 @@ Specifies the number of the first row to load. The default is 1. This indicates 
 FIELDQUOTE = 'field_quote' 
 
 Specifies a character that will be used as the quote character in the CSV file. If not specified, the quote character (") will be used. 
+
+DATA_COMPRESSION = 'data_compression_method'
+
+Specifies compression method. Following compression method is supported:
+
+- org.apache.hadoop.io.compress.GzipCodec
+
+PARSER_VERSION = 'parser_version'
+
+Specifies parser version to be used when reading files. Currently supported parser versions are 1.0 and 2.0
+
+- PARSER_VERSION = '1.0'
+- PARSER_VERSION = '2.0'
+
+Parser version 1.0 is default and feature-rich, while 2.0 is built for performance and does not support all options and encodings. 
+
+Parser version 2.0 specifics:
+
+- Not all data types are supported.
+- Maximum row size limit is 8MB.
+- Following options are not supported: DATA_COMPRESSION, USE_TYPE_DEFAULT, CODEPAGE.
+- Quoted empty string ("") is interpreted as empty string.
 
 ## Examples
 
