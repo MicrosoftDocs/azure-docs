@@ -56,11 +56,13 @@ This article uses GitHub template repositories to make it easy for you to create
 
 ## Create a static web app
 
-Now that the repo is created, you can create a static web app from the Azure portal.
+Now that the repository is created, you can create a static web app from the Azure portal.
 
 - Navigate to the [Azure portal](https://portal.azure.com)
-- In the top bar, search for **Static Web Apps**
-- Click **Static Web Apps**
+- Click **Create a Resource**
+- Search for **Static Web Apps**
+- Click **Static Web Apps (Preview)**
+- Click **Create**
 
 ### Basics
 
