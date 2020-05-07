@@ -114,6 +114,8 @@
     href: concepts/acs-event-grid.md
   - name: User Access Tokens
     href: concepts/user-access-tokens.md
+  - name: Identity Model
+    href: concepts/identity-model.md
 - name: References
   items:
   - name: Client SDK for C#
