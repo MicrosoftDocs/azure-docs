@@ -12,24 +12,16 @@ ms.reviewer: sngun
 
 # Change feed pull model in Azure Cosmos DB
 
-The change feed pull model is part of the [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3). You can use the change feed pull model to parallelize processing of changes across multiple change feed consumers.
+With the change feed pull model, you can consume the Azure Cosmos DB change feed at your own pace. As you can already do with the [change feed processor](change-feed-processor.md), you can use the change feed pull model to parallelize the processing of changes across multiple change feed consumers.
 
 > [!NOTE]
 > The change feed pull model is currently in [preview in the Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.9.0-preview) only. The preview is not yet available for other SDK versions.
 
-## Using FeedRange for parallelization
+## Consuming an entire container's changes
 
-In the change feed pull model, you can use the `FeedRange` to parallelize the processing of the change feed. A `FeedRange` represents a single [physical partition](partition-data.md#physical-partitions).
+You can crete a `FeedIterator` to process the change feed using the pull model. When you initially create a `FeedIterator`, you can specify an optional `StartTime` within the `ChangeFeedRequestOptions`. When left unspecified, the `StartTime` will be the current time.
 
-Here's an example showing how to obtain a list of ranges for your container.
-
-```csharp
-IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
-```
-
-Using a `FeedRange`, you can then create a `FeedIterator` to parallelize the processing of change feed across multiple machines or threads. When you initially obtain a `FeedIterator`, you can specify an optional `StartTime` within the `ChangeFeedRequestOptions`. When left unspecified, the `StartTime` will be the current time.
-
-The `FeedIterator` comes in two flavors. In addition to the examples below that return entity objects, you can also obtain the response with `Stream` support.
+The `FeedIterator` comes in two flavors. In addition to the examples below that return entity objects, you can also obtain the response with `Stream` support. Streams allow you to read data without having it first deserialized, saving on client resources.
 
 Here's an example for obtaining a `FeedIterator` that returns entity objects, in this case a `User` object:
 
@@ -43,7 +35,58 @@ Here's an example for obtaining a `FeedIterator` that returns a `Stream`:
 FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator();
 ```
 
-Here's a sample that shows reading an example `User` object from the beginning of the container's change feed using two hypothetical separate machines that are reading in parallel:
+Using a `FeedIterator`, you can easily process an entire container's change feed at your own pace. Here's an example:
+
+```csharp
+FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+
+while (iteratorForTheEntireContainer.HasMoreResults)
+{
+   FeedResponse<User> users = await iteratorForTheEntireContainer.ReadNextAsync();
+
+   foreach (User user in users)
+    {
+        Console.WriteLine($"Detected change for user with id {user.id}");
+    }
+}
+```
+
+## Consuming a partition key's changes
+
+In some cases, you may only want to process a specific partition key's changes. You can obtain a `FeedIterator` for a specific partition key and process the changes the same way that you can for an entire container:
+
+```csharp
+FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+
+while (iteratorForThePartitionKey.HasMoreResults)
+{
+   FeedResponse<User> users = await iteratorForThePartitionKey.ReadNextAsync();
+
+   foreach (User user in users)
+    {
+        Console.WriteLine($"Detected change for user with id {user.id}");
+    }
+}
+```
+
+## Using FeedRange for parallelization
+
+In [change feed processor](change-feed-processor.md), change feed processing is automatically spread across multiple consumers. In the change feed pull model, you can use the `FeedRange` to parallelize the processing of the change feed. A `FeedRange` represents a single [physical partition](partition-data.md#physical-partitions).
+
+Here's an example showing how to obtain a list of ranges for your container.
+
+```csharp
+IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
+```
+
+Using a `FeedRange`, you can then create a `FeedIterator` to parallelize the processing of change feed across multiple machines or threads. Unlike the previous example that showed how to obtain a single `FeedIterator` for the entire container, you can use the `FeedRange` to obtain multiple FeedIterators which can process the change feed in parallel.
+
+In the case where you want to use FeedRanges, you need to have an orchestrator process that obtains FeedRanges and distributes them to those machines. This distribution could be:
+
+* Using `FeedRange.ToJsonString` and storing/distributing this string value. The consumers can use this value with `FeedRange.FromJsonString`
+* If the distribution is in-process, passing the `FeedRange` object reference.
+
+Here's a sample that shows how to read from the beginning of the container's change feed using two hypothetical separate machines that are reading in parallel:
 
 Machine 1:
 
@@ -96,48 +139,8 @@ while (iterator.HasMoreResults)
 }
 
 // Some time later
-FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(lastProcessedToken);
+FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(continuation);
 ```
-
-## Consuming an entire container's changes
-
-Sometimes you might not need any parallelization when reading the change feed. By creating a `FeedIterator` without any `FeedRange` input, you can read an entire container's change feed on one machine:
-
-```csharp
-FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
-
-while (iteratorForTheEntireContainer.HasMoreResults)
-{
-   FeedResponse<User> users = await iteratorForTheEntireContainer.ReadNextAsync();
-
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
-    }
-}
-```
-
-If you need to stop and resume reading from the entire container's change feed, you can obtain a continuation token from the `FeedIterator`, just as you can for a `FeedRange`.
-
-## Consuming a partition key's changes
-
-In some cases, you may only want to process a specific partition key's changes. You can obtain a `FeedIterator` for a specific partition key.
-
-```csharp
-FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
-
-while (iteratorForThePartitionKey.HasMoreResults)
-{
-   FeedResponse<User> users = await iteratorForThePartitionKey.ReadNextAsync();
-
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
-    }
-}
-```
-
-If you need to stop and resume reading from the change feed for a specific partition key, you can obtain a continuation token from the `FeedIterator`, just as you can for a `FeedRange`.
 
 ## Comparing with change feed processor
 

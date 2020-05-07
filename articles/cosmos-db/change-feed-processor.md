@@ -98,5 +98,6 @@ You can now proceed to learn more about change feed processor in the following a
 
 * [Overview of change feed](change-feed.md)
 * [Change feed pull model](change-feed-pull-model.md)
+* [How to migrate from the change feed processor library](how-to-migrate-from-change-feed-library.md)
 * [Using the change feed estimator](how-to-use-change-feed-estimator.md)
 * [Change feed processor start time](how-to-configure-change-feed-start-time.md)
