@@ -116,6 +116,8 @@
       items:
       - name: Manage via Azure portal
         href: data-box-portal-ui-admin.md
+      - name: Enable customer managed key
+        href: data-box-customer-managed-encryption-key-portal.md      
       - name: Troubleshoot
         items:
         - name: Unlock issues
