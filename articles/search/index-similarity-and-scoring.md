@@ -54,7 +54,7 @@ Azure Cognitive Search supports two different similarity ranking algorithms: A *
 
 For now, you can specify which similarity ranking algorithm you would like to use. For more information, see [Ranking algorithm](index-ranking-similarity.md).
 
-The following video segment starts on an explanation of the ranking algorithms used in Azure Cognitive Search. You can watch the full video for more background.
+The following video segment fast-forwards to an explanation of the ranking algorithms used in Azure Cognitive Search. You can watch the full video for more background.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 

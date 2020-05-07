@@ -151,4 +151,4 @@ Search engines are the common drivers of information retrieval in mobile apps, o
 
 In this 15-minute video, program manager Luis Cabrera introduces Azure Cognitive Search. 
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
+>[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]

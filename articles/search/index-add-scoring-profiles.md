@@ -16,7 +16,7 @@ ms.date: 05/06/2020
 
  Azure Cognitive Search uses default scoring to compute an initial score, but you can customize the calculation through a *scoring profile*. Scoring profiles give you greater control over the ranking of items in search results. For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.  
 
- The following video segment explains scoring profiles in Azure Cognitive Search.
+ The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search.
  
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=462&end=970]
 
