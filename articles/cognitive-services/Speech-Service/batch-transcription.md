@@ -12,7 +12,7 @@ ms.date: 03/18/2020
 ms.author: wolfma
 ---
 
-# What is batch transcription
+# What is batch transcription?
 
 Batch transcription is a set of REST API operations that enables you to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results.
 
