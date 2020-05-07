@@ -30,21 +30,26 @@ Next, learn the specific aspects of application registration that apply to singl
 
 ## MSAL.js 2.0  
 
-The following steps apply for registering redirect URIs for apps using MSAL.js 2.0. The latest version on MSAL supports the Authorization Code Flow with CORS support [link to docs TODO]. 
+The following steps apply for registering redirect URIs for apps using MSAL.js 2.0. The latest version on MSAL supports the Authorization Code Flow with PKCE and CORS support [link to docs TODO]. 
 
 ### New Application or redirect URI 
  
 #### Add MSAL to your application
 
 The following applies for apps using MSAL.js for the first time. Further bellow you will find steps to migrate from MSAL 1.0 to 2.0.
-+add to app 
-  +code snippet (adding client id) 
+
+Install MSAL via the following npm command: 
+```bash 
+npm install @azure/msal-browser
+```
+
+Follow the [tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code) or [quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript-auth-code) for information on configuring your application and using MSAL.  
 
 #### Register a **new** redirect URI 
 
 1. Go to your app registration and select the **Authentication** blade. 
 [Screenshot TODO]
-2. Select the "Add a platform" button at the top of the page. (If you do not see this, click "switch to new experience" at the top of the page.
+2. Select the "Add a platform" button at the top of the page. (If you do not see this, click "switch to new experience" at the top of the page.)
 [Screenshot TODO]
 3. Select the "Single Page Application" platform tile.
 [Screenshot TODO]
@@ -54,18 +59,13 @@ The following applies for apps using MSAL.js for the first time. Further bellow 
 [final screenshot] 
 
 >[!NOTE] 
->Applications created in the SPA platform will by default be enabled for the Auth Code Flow. To actually take advantage of this flow, you will have to update your app to be using MSAL 2.0. Once none of your in production apps are using MSAL.js and Implicit Flow, you can uncheck the implicit settings in the SPA platform tile of the Authentication Blade of the Azure portal. So long as the implicit settings are still checked, your app can use MSAL 1.0 and the implicit flow. 
-
-You can now refer to the [tutorial](link TODO) for a guide to using MSAL in your app. 
+>Applications created in the SPA platform will by default be enabled for the Auth Code Flow. To actually take advantage of this flow, you will have to update your app to be using MSAL 2.0. Once none of your in production apps are using MSAL.js and Implicit Flow, you can uncheck the implicit settings in the Authentication Blade of the Azure portal. So long as the implicit settings are still checked, your app can use MSAL 1.0 and the implicit flow. 
 
 ### Existing Application Migrating from MSAL.js 1.0 to 2.0
 
 If you already have an application using MSAL.js 1.0 in production and would like to update to 2.0 and use the same redirect URIs, carefully follow the bellow steps. You can always also register new redirect URIs instead and delete old URIs, as instucted above. 
 
 #### Add MSAL 2.0 to your application
-
-+code snippet
-+code migration guide (link)
 
 #### Update existing redirect URIs to new "SPA" platform 
 1.Navigate to the Authentication blade of your app registration
@@ -74,7 +74,7 @@ If you already have an application using MSAL.js 1.0 in production and would lik
 [screenshot]
 3.In the pane that pops up on the side, select **only the redirect URIs used with MSAL.js***
 [screenshot]
-4.These redirect URIs will now appear in the new "SPA" platform tile. This enables CORS support with the Auth Code Flow for these URIs. 
+4.These redirect URIs will now appear in the new "SPA" platform tile. This enables CORS support with the Auth Code Flow and PKCE for these URIs. 
 [screenshot] 
 
 #### Uncheck implicit settings 
