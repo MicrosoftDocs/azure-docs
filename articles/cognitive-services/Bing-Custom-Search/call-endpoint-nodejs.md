@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Call your Bing Custom Search endpoint using Node.js | Microsoft Docs"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using Node.js
+description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using Node.js.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2020
+ms.date: 05/08/2020
 ms.author: aahi
 ---
 
@@ -54,7 +54,7 @@ Use this quickstart to learn how to request search results from your Bing Custom
     }
     ```
 
-1. Use the JavaScript request library to send a search request to your Bing Custom Search instance and print out information about the results, including its name, url, and the date the webpage was last crawled.
+1. Use the JavaScript request library to send a search request to your Bing Custom Search instance and print information about the results, including its name, url, and the date the webpage was last crawled.
 
     ```javascript
     request(info, function(error, response, body){

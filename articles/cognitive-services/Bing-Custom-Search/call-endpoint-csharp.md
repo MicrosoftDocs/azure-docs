@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2020
+ms.date: 05/08/2020
 ms.author: aahi
 ---
 
@@ -23,11 +23,11 @@ Use this quickstart to learn how to request search results from your Bing Custom
 - [Microsoft .NET Core](https://www.microsoft.com/net/download/core).
 - Any edition of [Visual Studio 2019 or later](https://www.visualstudio.com/downloads/).
 - If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
-- The [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) NuGet package. 
+- The [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/2.0.0) NuGet package. 
 
    To install this package in Visual Studio, right-click your project in **Solution Explorer**, and then select **Manage NuGet Packages**. Browse for and install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package. 
 
-   Installing the NuGet Custom Search package also installs the following assemblies:
+   When you install the Bing Custom Search NuGet package, Visual Studio also installs the following assemblies:
      - `Microsoft.Rest.ClientRuntime`
      - `Microsoft.Rest.ClientRuntime.Azure`
      - `Newtonsoft.Json`
@@ -69,7 +69,7 @@ Use this quickstart to learn how to request search results from your Bing Custom
     }
     ```
 
-3. In the main method of your project, create variables for your Bing Custom Search API subscription key, your search instance's custom configuration ID, and a search term.
+3. In the main method of your project, create the following variables for your Bing Custom Search API subscription key, search instance's custom configuration ID, and search term:
 
     ```csharp
     var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
@@ -77,7 +77,7 @@ Use this quickstart to learn how to request search results from your Bing Custom
     var searchTerm = args.Length > 0 ? args[0]:"microsoft";
     ```
 
-4. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's custom configuration ID to `customconfig=`. Separate the parameters with an ampersand (`&`). For the `url` variable value, you can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+4. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's custom configuration ID to the `customconfig=` parameter. Separate the parameters with an ampersand (`&`). For the `url` variable value, you can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +

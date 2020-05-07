@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2020
+ms.date: 05/08/2020
 ms.author: aahi
 ---
 
@@ -46,7 +46,7 @@ Use this quickstart to learn how to request search results from your Bing Custom
     import com.google.gson.JsonParser;
     ```
 
-2. Create a class named `CustomSrchJava`, and then create variables for your subscription key, custom search endpoint, and your search instance's custom configuration ID. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create a class named `CustomSrchJava`, and then create variables for your subscription key, custom search endpoint, and search instance's custom configuration ID. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
     ```java
     public class CustomSrchJava {
         static String host = "https://api.cognitive.microsoft.com";
@@ -116,7 +116,7 @@ Use this quickstart to learn how to request search results from your Bing Custom
         }
     ```
 
-3. In the main method of your application, call `SearchWeb()` with your search term, 
+3. Print the JSON response.
 
     ```java
     System.out.println("\nJSON Response:\n");
