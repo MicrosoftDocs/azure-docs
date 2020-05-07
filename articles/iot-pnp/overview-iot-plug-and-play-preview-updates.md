@@ -13,7 +13,7 @@ manager: eliotgra
 
 # IoT Plug and Play Preview - May 2020
 
-This article describes the key changes in the IoT Plug and Play May 2020 preview release SDKs, libraries, tools, and services. The previous IoT Plug and Play preview release was in August 2019.
+This article describes the key changes in the SDKS, libraries, tools, and services in IoT Plug and Play May 2020 preview release. The previous IoT Plug and Play preview release was in August 2019.
 
 ## Digital Twin Definition Language (DTDL)
 
@@ -37,6 +37,8 @@ In this release, all libraries, services, and tooling continue to support both D
 There's now a single model repository that contains both public published models, and private RBAC-protected company models. Both public and private models are now available at the same endpoint. All models have a unique identifier and are immutable once created.
 
 Existing company model repositories from the previous release are supported in this release. You can continue to use the [Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com/products) website to manage the old DTDL v1 models. However, you can no longer use this website to register, test, and certify devices.
+
+The Azure IoT extension for the Azure CLI does not support the new model repository. The `az iot pnp` commands only work the model repositories from the previous release.
 
 ## Model resolution
 
@@ -69,17 +71,11 @@ The event structure of the **DigitalTwinChangeEvents** [event source](../iot-hub
 
 The [Azure IoT Device Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) extension now provides authoring support for DTDL v2.
 
-The extension no longer provides integration with the model repository or code generation.
-
-Code generation from DTDL v2 models is now provided by the [Device Code Generator for Azure Digital Twins](https://github.com/microsoft/azure-digital-twins-codegen).
-
-Managing models in the repository is now done using a web UI.
+The extension no longer provides integration with the model repository or code generation. Managing models in the repository is now done using a web UI.
 
 If you require DTDL v1 support in VS Code, including the model repository UI and code generation, install the last version of the extension that supports DTDL v1.
 
 ## Code generation CLI
-
-The [Device Code Generator for Azure Digital Twins](https://github.com/microsoft/azure-digital-twins-codegen) now supports DTDL v2 and generates C code from a model.
 
 The previous version of the code generator remains available if you need to work with DTDL v1 models.
 

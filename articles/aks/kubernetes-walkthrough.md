@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an Azure Kubernetes Service cluster'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 04/28/2020
 
 ms.custom: [H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019]
 
@@ -14,7 +14,7 @@ ms.custom: [H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-j
 
 In this quickstart, you deploy an Azure Kubernetes Service (AKS) cluster using the Azure CLI. AKS is a managed Kubernetes service that lets you quickly deploy and manage clusters. A multi-container application that includes a web front end and a Redis instance is run in the cluster. You then see how to monitor the health of the cluster and pods that run your application.
 
-If you want to use Windows Server containers (currently in preview in AKS), see [Create an AKS cluster that supports Windows Server containers][windows-container-cli].
+To learn more about creating a Windows Server node pool, see [Create an AKS cluster that supports Windows Server containers][windows-container-cli].
 
 ![Voting app deployed in Azure Kubernetes Service](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
