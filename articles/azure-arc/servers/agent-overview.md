@@ -43,7 +43,7 @@ After installing the Connected Machine agent for Windows, the following addition
     |C:\Program Files\AzureConnectedMachineAgent |Default installation path containing the agent support files.|
     |%ProgramData%\AzureConnectedMachineAgent |Contains the agent configuration files.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contains the acquired tokens.|
-    |%ProgramData%\AzureConnectedMachineAgent\Config |Contain the agent configuration file `agentconfig.json` recording its registration information with the service.|
+    |%ProgramData%\AzureConnectedMachineAgent\Config |Contains the agent configuration file `agentconfig.json` recording its registration information with the service.|
     |%ProgramData%\GuestConfig |Contains the (applied) Azure policies related files.|
 
 * The following Windows services are created on the target machine during installation of the agent.
@@ -56,11 +56,11 @@ After installing the Connected Machine agent for Windows, the following addition
 * There are four log files available for troubleshooting. They are described in the following table.
 
     |Log |Location |Description |
-    |----|----------|-------------|
-    |himds.log | %ProgramData%\AzureConnectedMachineAgent\Log | Records details of the agents (himds) service and interaction with Azure. |
-    |azcmagent.log | %ProgramData%\AzureConnectedMachineAgent\Log | Contains the output of the azcmagent tool commands, when the verbose (-v) argument is used. |
-    |gc_agent.log | %ProgramData%\GuestConfig\gc_agent_logs | Records details of the DSC service activity, in particular the connectivity between the himds service and Azure Policy.|
-    |gc_agent_telemetry.txt | %ProgramData%\GuestConfig\gc_agent_logs | Records details about DSC service telemetry / verbose logging.|
+    |----|----------|-----------|
+    |himds.log |%ProgramData%\AzureConnectedMachineAgent\Log | Records details of the agents (himds) service and interaction with Azure. |
+    |azcmagent.log |%ProgramData%\AzureConnectedMachineAgent\Log | Contains the output of the azcmagent tool commands, when the verbose (-v) argument is used. |
+    |gc_agent.log |%ProgramData%\GuestConfig\gc_agent_logs | Records details of the DSC service activity, in particular the connectivity between the himds service and Azure Policy.|
+    |gc_agent_telemetry.txt |%ProgramData%\GuestConfig\gc_agent_logs | Records details about DSC service telemetry / verbose logging.|
 
 * The following environmental variables are created during agent installation.
 
