@@ -2,13 +2,12 @@
 title: Prepare Azure Migrate to work with ISV tools/Movere 
 description: Prepare Azure Migrate to work with ISV tools/Movere 
 ms.topic: how-to
-ms.date: 04/26/2020
+ms.date: 05/07/2020
 ---
 
 # Prepare to work with ISV tools/Movere
 
-If you've added an ISV tool, or Movere, to an Azure Migrate project, there are a couple of steps to prepare before you link the tool, and send data to Azure Migrate. 
-
+If you've added an [ISV tool](migrate-services-overview.md#isv-integration), or Movere, to an Azure Migrate project, there are a couple of steps to prepare before you link the tool, and send data to Azure Migrate. 
 
 ## Check Azure AD permissions
 
@@ -43,7 +42,6 @@ In your Azure subscription, your account needs **Microsoft.Authorization/*/Write
 
 ## Next steps
 
-Add additional [assessment](how-to-assess.md) and [migration](how-to-migrate.md) tools.
-
+Follow the ISV or Movere instructions to send data to Azure Migrate.
 
    
