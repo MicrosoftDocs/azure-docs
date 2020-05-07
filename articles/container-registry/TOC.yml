@@ -32,6 +32,11 @@
         href: container-registry-tutorial-deploy-app.md
       - name: 3 - Update web application
         href: container-registry-tutorial-deploy-update.md
+  - name: Samples
+    items:
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-samples.md
   - name: Concepts
     expanded: false
     items:
@@ -189,8 +194,6 @@
           href: container-registry-tasks-authentication-key-vault.md
       - name: Quick task run with Resource Manager template 
         href: container-registry-task-run-template.md
-      - name: Run task on dedicated agent pool (preview)
-        href: container-registry-tasks-agent-pools.md
       - name: Build image with Buildpacks (preview)
         href: container-registry-tasks-pack-build.md
       - name: View task logs

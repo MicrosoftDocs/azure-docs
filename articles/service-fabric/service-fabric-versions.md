@@ -51,6 +51,7 @@ The following table lists the supported operating systems for the supported Serv
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |
+| Linux Ubuntu 18.04 | 7.1 |
 
 ## Supported version names
 
