@@ -119,7 +119,7 @@ Make sure that remote debugging is disabled, except when you are actively debugg
 
 Don't use wildcards in your allowed origins list. Instead, list the specific domains from which you expect to get requests.
 
-### Storing data
+### Store data encrypted
 
 [!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
@@ -151,32 +151,28 @@ Every function app has a corresponding `scm` service endpoint that used by the A
 
 By having a separate scm endpoint, you can control deployments and other advanced tools functionalities for function app that are isolated or running in a virtual network. The scm endpoint supports both basic authentication (using deployment credentials) and single sign-on with your Azure portal credentials. To learn more, see [Accessing the Kudu service](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service). 
 
-
 ## Network security
 
-For any service, the prim
-
+Restricting network access to your function app lets you control who can access your functions endpoints. Functions leverages App Service infrastructure to enable your functions to access resources without using internet-routable addresses or to restrict internet access to a function endpoints. To learn more about these networking options, see [Azure Functions networking options](functions-networking-options.md).
 
 ### Set access restrictions
 
 Access restrictions allow you to define lists of allow/deny rules to control traffic to your app. Rules are evaluated in priority order. If there are no rules defined then your app will accept traffic from any address.To learn more, see [Azure App Service Access Restrictions #](../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json).
 
-### Use a gateway service
+### Private site access
 
+[!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
 
-
-### Run in a virtual network
-
-Service endpoints
-
-    [Restrict IPs](../app-service/overview-security.md#static-ip-restrictions) 
-
- 
-
-Function endpoints
+### Deploy your function app in isolation
 
 [!INCLUDE [functions-deploy-isolation](../../includes/functions-deploy-isolation.md)]
 
+### Use a gateway service
 
+Gateway services, such as [Azure Application Gateway](../application-gateway/overview.md) and [Azure Front Door](../frontdoor/front-door-overview.md) let you setup a Web Application Firewall (WAF). WAF rules are used to monitor or block detected attacks, which provides an extra layer of protection for your functions. To setup a WAF, your function app needs to be running in an ASE or using Private Endpoints (preview). To learn more, see [Using Private Endpoints](../app-service/networking/private-endpoint.md).    
 
+## Next steps
+
++ [Azure Security Baseline for Azure Functions](security-baseline.md)
++ [Azure Functions diagnostics](functions-diagnostics.md)
         
