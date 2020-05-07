@@ -629,7 +629,7 @@ For more information about remote debugging for App Service apps and WebJobs, se
 * [Introduction to Remote Debugging on Azure App Service part 3 - Multi-Instance environment and GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [WebJobs Debugging (video)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
-If your app uses an Azure Web API or Mobile Services back-end and you need to debug that, see [Debugging .NET Backend in Visual Studio](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
+If your app uses an Azure Web API or Mobile Services back-end and you need to debug that, see [Debugging .NET Backend in Visual Studio](/archive/blogs/azuremobile/debugging-net-backend-in-visual-studio).
 
 ### Tracing in ASP.NET applications
 There are no thorough and up-to-date introductions to ASP.NET tracing available on the Internet. The best you can do is get started with old introductory materials written for Web Forms because MVC didn't exist yet, and supplement that with newer blog posts that focus on specific issues. Some good places to start are the following resources:
@@ -642,7 +642,7 @@ There are no thorough and up-to-date introductions to ASP.NET tracing available 
   Information about trace listeners but doesn't mention the [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
 * [Walkthrough: Integrating ASP.NET Tracing with System.Diagnostics Tracing](/previous-versions/b0ectfxd(v=vs.140))<br/>
   This article is also old, but includes some additional information that the introductory article doesn't cover.
-* [Tracing in ASP.NET MVC Razor Views](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+* [Tracing in ASP.NET MVC Razor Views](https://devblogs.microsoft.com/aspnet/tracing-in-asp-net-mvc-razor-views/)<br/>
   Besides tracing in Razor views, the post also explains how to create an error filter in order to log all unhandled exceptions in an MVC application. For information about how to log all unhandled exceptions in a Web Forms application, see the Global.asax example in [Complete Example for Error Handlers](/previous-versions/bb397417(v=vs.140)) on MSDN. In either MVC or Web Forms, if you want to log certain exceptions but let the default framework handling take effect for them, you can catch and rethrow as in the following example:
 
     ```csharp
