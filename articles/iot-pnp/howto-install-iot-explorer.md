@@ -90,7 +90,7 @@ This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, 
 
 ### Plug and Play Components
 
-If the device is connected to hub using a Model Id, the tool will show the tab `IoT Plug and Play components` where users can see the ModelId.
+If the device is connected to hub using a ModelId, the tool will show the tab `IoT Plug and Play components` where users can see the ModelId.
 
 If the ModelId is available in one of the configured sources - Public Repo or Local Folder, the list of components will be displayed. Selecting a component will show the properties, commands and telemetry available.
 
