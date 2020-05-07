@@ -7,8 +7,8 @@
     href: docs-philosophy.md
   - name: Contributor Quickstart
     href: contribute.md
-  - name: Canonical Scenarios
-    href: canonicalscenarios.md
+  - name: Docs FAQ
+    href: docs-faq.md
   - name: Generating Reference Docs
     href: automatingreferencedocs.md
 - name: Overview

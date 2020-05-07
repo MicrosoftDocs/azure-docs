@@ -94,3 +94,9 @@ Preparation instructions: TODO
 **Q:** Would it be possible to send you partially-completed SDKs to "flush the pipes" – whereby partial reference docs are generated and dropped into ACS's private repository?
 
 **A:** Yes, we can start working with incomplete content, as long as its available in a feed. This is actually a great way to train your team on how to trigger new doc builds and manage the configuration yourself.
+
+~
+
+**Q:** What other processes need to be followed?
+
+**A:** TODO: https://dev.azure.com/azure-sdk/internal/_wiki/wikis/internal.wiki/200/Azure-SDK-CLI-Product-Launch-Criteria

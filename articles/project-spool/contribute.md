@@ -33,9 +33,22 @@ For a list of available docs UI components and Markdown features, see [the Docs 
 
 For Microsoft Docs writing principles, see [this](https://review.docs.microsoft.com/en-us/help/contribute/writing-principles?branch=master) and [this](https://styleguides.azurewebsites.net/StyleGuide/Read?id=2700).
 
-To add **new docs** or **images to existing docs**, feel free to ping Mick.
+
+### Authorship / Style Guidelines
+
+- **Quickstarts** are for explaining things in less than 10 minutes.
+- **Tutorials** are for more in-depth explanations that explain how to complete a commonly encountered customer task.
+- **Concepts** are for the foundational ideas that developers need to know before diving into the code.
+- Assume that all developers are under incredible time-pressure to find solutions to problems, and make sure the solutions are ridiculously easy to find by articulating the customer intent in the title and in the first paragraph.
+- Don't assume that developers are familiar with technical terminology or jargon. Use everyday words as much as possible.
+- Try to emphasize the plain-english benefits as much as possible, not the technologies. For example, don't talk about "PSTN integration", talk about "phone calls".
+- Try to write as you speak.
+- Relentlessly simplify and minimize. Fewer words = more engagement.
+- Prioritize minimal code over words and diagrams whenever possible.
+- Make your content easy to scan with thoughtful headers and other formatting.
 
 
+~~
 -----------------
 
 ## Technical Details
