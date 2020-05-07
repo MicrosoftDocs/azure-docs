@@ -207,23 +207,21 @@ There are four provisioning states:
 3. You should see the status changed to **Disconnected**. Then, you will see the endpoint disappear from the list. 
 
 ## Validate that the private link connection works
+You should validate that resources within the same subnet of the private endpoint are connecting to your Azure Relay namespace over its private IP address.
 
-You should validate that the resources within the same subnet of the private endpoint resource are connecting to your Azure Relay namespace over its private IP address. 
+For this test, create a virtual machine by following the steps in the [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
-First, create a virtual machine by following the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
-
-For this test, create a VM in the Azure portal. Do the following steps in the **Networking** tab of the wizard: 
+In the **Networking** tab: 
 
 1. Specify **Virtual network** and **Subnet**. You must select the Virtual Network on which you deployed the private endpoint.
 2. Specify a **public IP** resource.
 3. For **NIC network security group**, select **None**.
 4. For **Load balancing**, select **No**.
 
-
 Connect to the VM and open the command line and run the following command:
 
 ```console
-nslookup <your-relay-namespace-name>.servicebus.azure.net
+nslookup <your-relay-namespace-name>.servicebus.windows.net
 ```
 
 You should see a result that looks like the following. 

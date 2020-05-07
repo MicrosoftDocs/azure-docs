@@ -13,7 +13,7 @@ ms.author: spelluru
 # Network security for Azure Relay 
 This article describes how to use the following security features with Azure Relay: 
 
-- IP Firewall rules
+- IP firewall rules (preview)
 - Private endpoints (preview)
 
 > [!NOTE]

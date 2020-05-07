@@ -19,6 +19,11 @@ By default, Relay namespaces are accessible from internet as long as the request
 
 This feature is helpful in scenarios in which Azure Relay should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Relay with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services), you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses. 
 
+
+> [!IMPORTANT]
+> This feature is currently in preview. 
+
+
 ## Enable IP firewall rules
 The IP firewall rules are applied at the namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
@@ -26,7 +31,7 @@ The IP firewall rules are applied at the namespace level. Therefore, the rules a
 This section shows you how to use the Azure portal to create IP firewall rules for a namespace. 
 
 1. Navigate to your **Relay namespace** in the [Azure portal](https://portal.azure.com).
-2. On the left menu, select **Networking** option. If you select the **All networks** option, the Relay namespace accepts connections from any IP address. This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+2. On the left menu, select **Networking** option. If you select the **All networks** option in the  **Allow access from** section, the Relay namespace accepts connections from any IP address. This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
     ![Firewall - All networks option selected](./media/ip-firewall/all-networks-selected.png)
 1. To restrict access to specific networks and IP addresses, select the **Selected networks** option. In the **Firewall** section, follow these steps:
