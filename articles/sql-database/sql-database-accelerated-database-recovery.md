@@ -30,13 +30,13 @@ ms.date: 03/24/2020
 
 ## The current database recovery process
 
-Database recovery in SQL Server follows the [ARIES](https://people.eecs.berkeley.edu/~brewer/cs262/Aries.pdf) recovery model and consists of three phases, which are illustrated in the following diagram and explained in more detail following the diagram.
+Database recovery follows the [ARIES](https://people.eecs.berkeley.edu/~brewer/cs262/Aries.pdf) recovery model and consists of three phases, which are illustrated in the following diagram and explained in more detail following the diagram.
 
 ![current recovery process](./media/sql-database-accelerated-database-recovery/current-recovery-process.png)
 
 - **Analysis phase**
 
-  Forward scan of the transaction log from the beginning of the last successful checkpoint (or the oldest dirty page LSN) until the end, to determine the state of each transaction at the time SQL Server stopped.
+  Forward scan of the transaction log from the beginning of the last successful checkpoint (or the oldest dirty page LSN) until the end, to determine the state of each transaction at the time the database stopped.
 
 - **Redo phase**
 
@@ -46,7 +46,7 @@ Database recovery in SQL Server follows the [ARIES](https://people.eecs.berkeley
 
   For each transaction that was active as of the time of the crash, traverses the log backwards, undoing the operations that this transaction performed.
 
-Based on this design, the time it takes the SQL database engine to recover from an unexpected restart is (roughly) proportional to the size of the longest active transaction in the system at the time of the crash. Recovery requires a rollback of all incomplete transactions. The length of time required is proportional to the work that the transaction has performed and the time it has been active. Therefore, the SQL Server recovery process can take a long time in the presence of long-running transactions (such as large bulk insert operations or index build operations against a large table).
+Based on this design, the time it takes the SQL database engine to recover from an unexpected restart is (roughly) proportional to the size of the longest active transaction in the system at the time of the crash. Recovery requires a rollback of all incomplete transactions. The length of time required is proportional to the work that the transaction has performed and the time it has been active. Therefore, the recovery process can take a long time in the presence of long-running transactions (such as large bulk insert operations or index build operations against a large table).
 
 Also, cancelling/rolling back a large transaction based on this design can also take a long time as it is using the same Undo recovery phase as described above.
 
@@ -75,11 +75,11 @@ The ADR recovery process has the same three phases as the current recovery proce
   - Phase 1
 
       Redo from sLog (oldest uncommitted transaction up to last checkpoint). Redo is a fast operation as it only needs to process a few records from the sLog.
-      
+
   - Phase 2
 
      Redo from Transaction Log starts from last checkpoint (instead of oldest uncommitted transaction)
-     
+
 - **Undo phase**
 
    The Undo phase with ADR completes almost instantaneously by using sLog to undo non-versioned operations and Persisted Version Store (PVS) with Logical Revert to perform row level version-based Undo.
@@ -120,5 +120,4 @@ The following types of workloads benefit most from ADR:
 
 - Workloads with long-running transactions.
 - Workloads that have seen cases where active transactions are causing the transaction log to grow significantly.  
-- Workloads that have experienced long periods of database unavailability due to SQL Server long running recovery (such as unexpected SQL Server restart or manual transaction rollback).
-
+- Workloads that have experienced long periods of database unavailability due to long running recovery (such as unexpected service restart or manual transaction rollback).

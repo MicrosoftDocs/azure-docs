@@ -36,12 +36,12 @@ The following document includes links to Azure examples showing how to connect a
 |||
 
 ## TLS considerations for SQL Database connectivity
-Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or supports for connecting to Azure SQL Database. No
-special configuration is necessary. For all connections to SQL Server or to Azure SQL Database, we recommend that all applications set
+
+Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or supports for connecting to Azure SQL Database. No special configuration is necessary. For all connections to SQL Server, Azure SQL Database or Azure SQL Managed Instance, we recommend that all applications set
 the following configurations, or their equivalents:
 
- - **Encrypt = On**
- - **TrustServerCertificate = Off**
+- **Encrypt = On**
+- **TrustServerCertificate = Off**
 
 Some systems use different yet equivalent keywords for those configuration keywords. These configurations ensure that the client driver
 verifies the identity of the TLS certificate received from the server.
@@ -55,9 +55,9 @@ and applications before using them on systems that interact with sensitive data.
 
 ## Libraries
 
-You can use various libraries and frameworks to connect to Azure SQL Database. Check out our [Get started tutorials](https://aka.ms/sqldev) to quickly get started with programming languages such as C#, Java, Node.js, PHP, and Python. Then build an app by using SQL Server on Linux or Windows or Docker on macOS.
+You can use various libraries and frameworks to connect to Azure SQL Database or Azure SQL Managed Instance. Check out our [Get started tutorials](https://aka.ms/sqldev) to quickly get started with programming languages such as C#, Java, Node.js, PHP, and Python. Then build an app by using SQL Server on Linux or Windows or Docker on macOS.
 
-The following table lists connectivity libraries or *drivers* that client applications can use from a variety of languages to connect to and use SQL Server running on-premises or in the cloud. You can use them on Linux, Windows, or Docker and use them to connect to Azure SQL Database and Azure SQL Data Warehouse. 
+The following table lists connectivity libraries or *drivers* that client applications can use from a variety of languages to connect to and use SQL Server running on-premises or in the cloud. You can use them on Linux, Windows, or Docker and use them to connect to Azure SQL Database and Azure SQL Data Warehouse.
 
 | Language | Platform | Additional resources | Download | Get started |
 | :-- | :-- | :-- | :-- | :-- |
@@ -69,7 +69,7 @@ The following table lists connectivity libraries or *drivers* that client applic
 | Ruby | Windows, Linux, macOS | [Ruby driver for SQL Server](https://msdn.microsoft.com/library/mt691981.aspx) | [Install](https://msdn.microsoft.com/library/mt711041.aspx) | [Get started](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [Microsoft ODBC driver for SQL Server](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [Download](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
 
-The following table lists examples of object-relational mapping (ORM) frameworks and web frameworks that client applications can use with SQL Server running on-premises or in the cloud. You can use the frameworks on Linux, Windows, or Docker and use them to connect to SQL Database and SQL Data Warehouse. 
+The following table lists examples of object-relational mapping (ORM) frameworks and web frameworks that client applications can use with SQL Server, Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics. You can use the frameworks on Linux, Windows, or Docker.
 
 | Language | Platform | ORM(s) |
 | :-- | :-- | :-- |
@@ -86,10 +86,10 @@ The following table lists examples of object-relational mapping (ORM) frameworks
 - For connectivity architecture information, see [Azure SQL Database Connectivity Architecture](sql-database-connectivity-architecture.md).
 - Find [SQL Server drivers](https://msdn.microsoft.com/library/mt654049.aspx) that are used to connect from client applications
 - Connect to SQL Database:
-  - [Connect to SQL Database by using .NET (C#)](sql-database-connect-query-dotnet.md) 
-  - [Connect to SQL Database by using PHP](sql-database-connect-query-php.md) 
-  - [Connect to SQL Database by using Node.js](sql-database-connect-query-nodejs.md) 
-  - [Connect to SQL Database by using Java](sql-database-connect-query-java.md) 
+  - [Connect to SQL Database by using .NET (C#)](sql-database-connect-query-dotnet.md)
+  - [Connect to SQL Database by using PHP](sql-database-connect-query-php.md)
+  - [Connect to SQL Database by using Node.js](sql-database-connect-query-nodejs.md)
+  - [Connect to SQL Database by using Java](sql-database-connect-query-java.md)
   - [Connect to SQL Database by using Python](sql-database-connect-query-python.md)
   - [Connect to SQL Database by using Ruby](sql-database-connect-query-ruby.md)
 - Retry logic code examples:

@@ -26,7 +26,7 @@ Make sure you have the following items:
 
 ## <a id="AzureSQL"></a>Azure SQL Database and SQL Server on virtual machines
 
-Azure SQL is built on Microsoft SQL Server and is designed to provide a high-availability, performant, and scalable service. There are many benefits to using Azure SQL over your proprietary database running on premises. With Azure SQL you don't have to install, set up, maintain, or manage your database but only the content and the structure of your database. Typical things that we worry about with databases like fault tolerance and redundancy are all built in.
+Azure SQL Database is built on Microsoft SQL Server and is designed to provide a high-availability, performant, and scalable service. There are many benefits to using Azure SQL over your proprietary database running on premises. With Azure SQL you don't have to install, set up, maintain, or manage your database but only the content and the structure of your database. Typical things that we worry about with databases like fault tolerance and redundancy are all built in.
 
 Azure currently has two options for hosting SQL server workloads: Azure SQL Database, database as a service and SQL server on Virtual Machines (VM). We will not get into detail about the differences between these two except that Azure SQL Database is your best bet for new cloud-based applications to take advantage of the cost savings and performance optimization that cloud services provide. If you are considering migrating or extending your on-premises applications to the cloud, SQL server on Azure virtual machine might work out better for you. To keep things simple for this article, let's create an Azure SQL Database.
 

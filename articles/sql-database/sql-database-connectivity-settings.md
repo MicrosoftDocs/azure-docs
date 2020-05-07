@@ -33,7 +33,7 @@ After setting **Deny public network access** to **Yes**, login attempts from cli
 
 ```output
 Error 47073
-An instance-specific error occurred while establishing a connection to SQL Server. The public network interface on this server is not accessible. To connect to this server, use the Private Endpoint from inside your virtual network.
+An instance-specific error occurred while establishing a connection. The public network interface on this server is not accessible. To connect to this server, use the Private Endpoint from inside your virtual network.
 ```
 
 ## Change Public Network Access via PowerShell

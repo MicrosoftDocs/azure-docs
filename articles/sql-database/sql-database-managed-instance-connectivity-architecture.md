@@ -14,7 +14,7 @@ ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
 ---
 
-# Connectivity architecture for Azure SQL Managed Instance 
+# Connectivity architecture for Azure SQL Managed Instance
 
 This article explains communication in an Azure SQL Managed Instance. It also describes connectivity architecture and how the components direct traffic to the SQL Managed Instance.  
 
@@ -33,7 +33,7 @@ The following diagram shows entities that connect to a SQL Managed Instance. It 
 
 A SQL Managed Instance is a platform as a service (PaaS) offering. Azure uses automated agents (management, deployment, and maintenance) to manage this service based on telemetry data streams. Because Azure is responsible for management, customers can't access the SQL Managed Instance virtual cluster machines through Remote Desktop Protocol (RDP).
 
-Some SQL Server operations started by end users or applications might require SQL Managed Instances to interact with the platform. One case is the creation of a SQL Managed Instance database. This resource is exposed through the Azure portal, PowerShell, Azure CLI, and the REST API.
+Some operations started by end users or applications might require SQL Managed Instances to interact with the platform. One case is the creation of a SQL Managed Instance database. This resource is exposed through the Azure portal, PowerShell, Azure CLI, and the REST API.
 
 SQL Managed Instances depend on Azure services such as Azure Storage for backups, Azure Event Hubs for telemetry, Azure Active Directory for authentication, Azure Key Vault for Transparent Data Encryption (TDE) and a couple of Azure platform services that provide security and supportability features. The SQL Managed Instances makes connections to these services.
 
@@ -85,7 +85,7 @@ With service-aided subnet configuration user is in full control of data (TDS) tr
 
 Service-aided subnet configuration builds on top of virtual network [subnet delegation](../virtual-network/subnet-delegation-overview.md) feature to provide automatic network configuration management and enable service endpoints. Service endpoints could be used to configure virtual network firewall rules on storage accounts that keep backups / audit logs.
 
-### Network requirements 
+### Network requirements
 
 Deploy a SQL Managed Instance in a dedicated subnet inside the virtual network. The subnet must have these characteristics:
 
@@ -98,7 +98,7 @@ Deploy a SQL Managed Instance in a dedicated subnet inside the virtual network. 
 > [!IMPORTANT]
 > When you create a SQL Managed Instance, a network intent policy is applied on the subnet to prevent noncompliant changes to networking setup. After the last instance is removed from the subnet, the network intent policy is also removed.
 
-### Mandatory inbound security rules with service-aided subnet configuration 
+### Mandatory inbound security rules with service-aided subnet configuration
 
 | Name       |Port                        |Protocol|Source           |Destination|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
@@ -108,14 +108,14 @@ Deploy a SQL Managed Instance in a dedicated subnet inside the virtual network. 
 |mi_subnet   |Any                         |Any     |MI SUBNET        |MI SUBNET  |Allow |
 |health_probe|Any                         |Any     |AzureLoadBalancer|MI SUBNET  |Allow |
 
-### Mandatory outbound security rules with service-aided subnet configuration 
+### Mandatory outbound security rules with service-aided subnet configuration
 
 | Name       |Port          |Protocol|Source           |Destination|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Allow |
 |mi_subnet   |Any           |Any     |MI SUBNET        |MI SUBNET  |Allow |
 
-### User defined routes with service-aided subnet configuration 
+### User defined routes with service-aided subnet configuration
 
 |Name|Address prefix|Next Hop|
 |----|--------------|-------|
@@ -299,6 +299,7 @@ If the virtual network includes a custom DNS, the custom DNS server must be able
 **TLS 1.2 is enforced on outbound connections**: In January 2020 Microsoft enforced TLS 1.2 for intra-service traffic in all Azure services. For Azure SQL Managed Instance, this resulted in TLS 1.2 being enforced on outbound connections used for replication and linked server connections to SQL Server. If you are using versions of SQL Server older then 2016 with SQL Managed Instance, please ensure that [TLS 1.2 specific updates](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) have been applied.
 
 Following virtual network features are currently not supported with SQL Managed Instance:
+
 - **Microsoft peering**: Enabling [Microsoft peering](../expressroute/expressroute-faqs.md#microsoft-peering) on express route circuits peered directly or transitively with virtual network where SQL Managed Instance resides affect traffic flow between SQL Managed Instance components inside virtual network and services it depends on causing availability issues. Managed Instance deployments to virtual network with Microsoft peering already enabled are expected to fail.
 - **Global virtual network peering**: [Virtual network peering](../virtual-network/virtual-network-peering-overview.md) connectivity across Azure regions doesn't work for SQL Managed Instance due to [documented load balancer constraints](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 - **AzurePlatformDNS**: Using AzurePlatformDNS [service tag](../virtual-network/service-tags-overview.md) to block platform DNS resolution would render SQL Managed Instance unavailable. Although SQL Managed Instance supports customer defined DNS for DNS resolution inside the engine there is a dependency on platform DNS for platform operations.
@@ -525,4 +526,4 @@ Deploy a SQL Managed Instance in a dedicated subnet inside the virtual network. 
   - From the [Azure portal](sql-database-managed-instance-get-started.md).
   - By using [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - By using [an Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - By using [an Azure Resource Manager template (using JumpBox, with SSMS included)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 
+  - By using [an Azure Resource Manager template (using JumpBox, with SSMS included)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/).
