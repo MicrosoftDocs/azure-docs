@@ -138,7 +138,7 @@
     items:
     - name: Enable on-premises authentication and authorization
       items:
-      - name: Beginning
+      - name: Enable AD DS authentication
         href: storage-files-identity-auth-active-directory-enable.md
       - name: Assign permissions
         href: storage-files-identity-ad-ds-enable.md
