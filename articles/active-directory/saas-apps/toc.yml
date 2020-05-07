@@ -1192,7 +1192,7 @@
         href: procoresso-tutorial.md
       - name: productboard
         href: productboard-tutorial.md
-      - name: Profit.co SAML App
+      - name: Profit.co
         href: profitco-saml-app-tutorial.md
       - name: Projectplace
         href: projectplace-tutorial.md
@@ -1412,6 +1412,8 @@
         href: smarteru-tutorial.md
       - name: SmartFile
         href: smartfile-tutorial.md
+      - name: Smart Global Governance
+        href: smart-global-governance-tutorial.md
       - name: SmartLPA
         href: smartlpa-tutorial.md
       - name: SmartRecruiters
