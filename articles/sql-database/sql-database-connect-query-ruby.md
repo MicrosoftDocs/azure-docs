@@ -46,7 +46,7 @@ To complete this quickstart, you need the following prerequisites:
 
 ## Get SQL server connection information
 
-Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+Get the connection information you need to connect to Azure SQL Database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -58,7 +58,7 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 
 1. In a text or code editor, create a new file named *sqltest.rb*.
    
-1. Add the following code. Substitute the values from your Azure SQL database for `<server>`, `<database>`, `<username>`, and `<password>`.
+1. Add the following code. Substitute the values from your Azure SQL Database for `<server>`, `<database>`, `<username>`, and `<password>`.
    
    >[!IMPORTANT]
    >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 

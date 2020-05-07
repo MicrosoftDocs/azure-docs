@@ -106,7 +106,7 @@ To setup a database-level firewall rule:
 
 ## Create an Azure AD admin
 
-Make sure you're using the appropriate Azure Active Directory (AD) managed domain. To select the AD domain, use the upper-right corner of the Azure portal. This process confirms the same subscription is used for both Azure AD and the SQL Server hosting your Azure SQL database or data warehouse.
+Make sure you're using the appropriate Azure Active Directory (AD) managed domain. To select the AD domain, use the upper-right corner of the Azure portal. This process confirms the same subscription is used for both Azure AD and the logical SQL server hosting your Azure SQL database or data warehouse.
 
    ![choose-ad](./media/sql-database-security-tutorial/8choose-ad.png)
 

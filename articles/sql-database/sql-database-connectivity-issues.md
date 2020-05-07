@@ -198,7 +198,7 @@ If your program uses ADO.NET classes like **System.Data.SqlClient.SqlConnection*
 
 #### Starting with ADO.NET 4.6.2
 
-- The connection open attempt to be retried immediately for Azure SQL databases, thereby improving the performance of cloud-enabled apps.
+- The connection open attempt to be retried immediately for Azure SQL Database, thereby improving the performance of cloud-enabled apps.
 
 #### Starting with ADO.NET 4.6.1
 

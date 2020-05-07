@@ -186,4 +186,4 @@ There are a few things to know when working with the query editor.
 
 ## Next steps
 
-To learn more about the Transact-SQL (T-SQL) supported in Azure SQL databases, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
+To learn more about the Transact-SQL (T-SQL) supported in Azure SQL Database, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
