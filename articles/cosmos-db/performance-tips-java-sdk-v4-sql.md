@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB performance tips for Java SDK v4
+title: Performance tips for Azure Cosmos DB Java SDK v4
 description: Learn client configuration options to improve Azure Cosmos database performance for Java SDK v4
 author: anfeldma-ms
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ ms.author: anfeldma
 
 ---
 
-# Performance tips for Azure Cosmos DB and Java SDK v4
+# Performance tips for Azure Cosmos DB Java SDK v4
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -20,10 +20,10 @@ ms.author: anfeldma
 > 
 
 > [!IMPORTANT]  
-> These performance tips are for Java SDK v4 only. Please view the Java SDK v4 __[Release notes](sql-api-sdk-java-v4-sql.md)__, __[Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos)__ and __[troubleshooting guide](troubleshoot-java-sdk-v4-sql.md)__ for more information.
+> These performance tips are for Azure Cosmos DB Java SDK v4 only. Please view the Azure Cosmos DB Java SDK v4 [Release notes](sql-api-sdk-java-v4-sql.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos) and [troubleshooting guide](troubleshoot-java-sdk-v4-sql.md) for more information.
 >
 
-Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using the [SQL Java SDK v4](sql-api-sdk-async-java.md).
+Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using [Azure Cosmos DB Java SDK v4](sql-api-sdk-async-java.md).
 
 So if you're asking "How can I improve my database performance?" consider the following options:
 
@@ -32,7 +32,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 * **Connection mode: Use Direct mode**
 <a id="direct-connection"></a>
     
-    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of client-side latency. The *ConnectionMode* is a key configuration setting available for configuring the client *ConnectionPolicy*. For Java SDK v4, the two available *ConnectionMode*s are:  
+    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of client-side latency. The *ConnectionMode* is a key configuration setting available for configuring the client *ConnectionPolicy*. For Azure Cosmos DB Java SDK v4, the two available *ConnectionMode*s are:  
       
     * [Gateway (default)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
     * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
@@ -118,7 +118,7 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
 * **Use Async API to max out provisioned throughput**
 
-    Java SDK v4 bundles two APIs, Sync and Async. Roughly speaking, the Async API implements SDK functionality, whereas the Sync API is a thin wrapper that makes blocking calls to the Async API. This stands in contrast to the older Async Java SDK v2, which was Async-only, and to the older Legacy Sync Java SDK v2, which was Sync-only and had a completely separate implementation. 
+    Azure Cosmos DB Java SDK v4 bundles two APIs, Sync and Async. Roughly speaking, the Async API implements SDK functionality, whereas the Sync API is a thin wrapper that makes blocking calls to the Async API. This stands in contrast to the older Azure Cosmos DB Async Java SDK v2, which was Async-only, and to the older Azure Cosmos DB Sync Java SDK v2, which was Sync-only and had a completely separate implementation. 
     
     The choice of API is determined during client initialization; a *CosmosAsyncClient* supports Async API while a *CosmosClient* supports Sync API. 
     
@@ -130,7 +130,7 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
     
     Geographic collocation can give you higher and more consistent throughput when using Sync API (see [Collocate clients in same Azure region for performance](#collocate-clients)) but still is not expected to exceed Async API attainable throughput.
 
-    Some users may also be unfamiliar with [Project Reactor](https://projectreactor.io/), the Reactive Streams framework used to implement Java SDK v4 Async API. If this is a concern, we recommend you read our introductory [Reactor Pattern Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) and then take a look at this [Introduction to Reactive Programming](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) in order to familiarize yourself. If you have already used Azure Cosmos DB with an Async interface, and the SDK you used was Async Java SDK v2, then you may be familiar with [ReactiveX](http://reactivex.io/)/[RxJava](https://github.com/ReactiveX/RxJava) but be unsure what has changed in Project Reactor. In that case, please take a look at our [Reactor vs. RxJava Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) to become familiarized.
+    Some users may also be unfamiliar with [Project Reactor](https://projectreactor.io/), the Reactive Streams framework used to implement Azure Cosmos DB Java SDK v4 Async API. If this is a concern, we recommend you read our introductory [Reactor Pattern Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) and then take a look at this [Introduction to Reactive Programming](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) in order to familiarize yourself. If you have already used Azure Cosmos DB with an Async interface, and the SDK you used was Azure Cosmos DB Async Java SDK v2, then you may be familiar with [ReactiveX](http://reactivex.io/)/[RxJava](https://github.com/ReactiveX/RxJava) but be unsure what has changed in Project Reactor. In that case, please take a look at our [Reactor vs. RxJava Guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) to become familiarized.
 
     The following code snippets show how to initialize your Azure Cosmos DB client for Async API or Sync API operation, respectively:
 
@@ -164,9 +164,9 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
 * **Tuning ConnectionPolicy**
 
-    By default, Direct mode Cosmos DB requests are made over TCP when using Java SDK v4. Internally the SDK uses a special Direct mode architecture to dynamically manage network resources and get the best performance.
+    By default, Direct mode Cosmos DB requests are made over TCP when using Azure Cosmos DB Java SDK v4. Internally the SDK uses a special Direct mode architecture to dynamically manage network resources and get the best performance.
 
-    In Java SDK v4, Direct mode is the best choice to improve database performance with most workloads. 
+    In Azure Cosmos DB Java SDK v4, Direct mode is the best choice to improve database performance with most workloads. 
 
     * ***Overview of Direct mode***
 
@@ -201,7 +201,7 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
 * **Tuning parallel queries for partitioned collections**
 
-    Azure Cosmos DB SQL Java SDK v4 supports parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) related to working with Java SDK v4. Parallel queries are designed to improve query latency and throughput over their serial counterpart.
+    Azure Cosmos DB Java SDK v4 supports parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) related to working with Azure Cosmos DB Java SDK v4. Parallel queries are designed to improve query latency and throughput over their serial counterpart.
 
     * ***Tuning setMaxDegreeOfParallelism\:***
     
@@ -239,7 +239,7 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
 * **Use Appropriate Scheduler (Avoid stealing Event loop IO Netty threads)**
 
-    The asynchronous functionality of Java SDK is based on [netty](https://netty.io/) non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Flux returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
+    The asynchronous functionality of Azure Cosmos DB Java SDK is based on [netty](https://netty.io/) non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Flux returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
 
     For example the following code executes a cpu intensive work on the event loop IO netty thread:
     ### <a id="java4-noscheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
@@ -278,7 +278,7 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
     Based on the type of your work you should use the appropriate existing Reactor Scheduler for your work. Read here
     [``Schedulers``](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html).
 
-	For more information on Java SDK v4, please look at the [Cosmos DB directory of the Azure SDK for Java monorepo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos).
+	For more information on Azure Cosmos DB Java SDK v4, please look at the [Cosmos DB directory of the Azure SDK for Java monorepo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos).
 
 * **Optimize logging settings in your application**
 

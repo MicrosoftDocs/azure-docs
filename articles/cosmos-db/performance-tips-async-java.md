@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB performance tips for Async Java SDK v2
+title: Performance tips for Azure Cosmos DB Async Java SDK v2
 description: Learn client configuration options to improve Azure Cosmos database performance for Async Java SDK v2
 author: anfeldma-ms
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ ms.author: anfeldma
 
 ---
 
-# Performance tips for Azure Cosmos DB and Async Java SDK v2
+# Performance tips for Azure Cosmos DB Async Java SDK v2
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -20,7 +20,7 @@ ms.author: anfeldma
 > 
 
 > [!IMPORTANT]  
-> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using __[Java SDK v4](sql-api-sdk-java-v4-sql.md)__ for your project. Guidance on upgrading can be found __[here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/migration-guide.md)__ and __[here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md)__. 
+> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using [Java SDK v4](sql-api-sdk-java-v4-sql.md) for your project. Guidance on upgrading can be found [here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/migration-guide.md) and [here](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md). 
 >
 > These performance tips are for Async Java SDK v2 only. Please view the Async Java SDK v2 __[Release notes](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-async-java)__, __[Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)__ and __[troubleshooting guide](troubleshoot-java-async-sdk.md)__ for more information.
 >

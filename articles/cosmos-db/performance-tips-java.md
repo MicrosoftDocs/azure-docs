@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB performance tips for Sync Java SDK v2
+title: Performance tips for Azure Cosmos DB Sync Java SDK v2
 description: Learn client configuration options to improve Azure Cosmos database performance for Sync Java SDK v2
 author: anfeldma-ms
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ ms.author: anfeldma
 
 ---
 
-# Performance tips for Azure Cosmos DB and Sync Java SDK v2
+# Performance tips for Azure Cosmos DB Sync Java SDK v2
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
