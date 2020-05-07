@@ -109,15 +109,15 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-1. Set up the .NET development source list before doing an APT update.
+1. Set up the APT source list before doing an APT update.
 
-   To set up the APT source list for Ubuntu, run this command:
+    ##### Ubuntu
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
-   To set up the APT source list for Debian, run this command:
+    ##### Debian
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -143,8 +143,16 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 1. Install the Core Tools package:
 
+    ##### v2.x
+
     ```bash
     sudo apt-get install azure-functions-core-tools
+    ```
+
+    ##### v3.x
+
+    ```bash
+    sudo apt-get install azure-functions-core-tools-3
     ```
 
 1. If you don't plan to use [extension bundles], install [.NET Core 2.x SDK for Linux](https://www.microsoft.com/net/download/linux).
