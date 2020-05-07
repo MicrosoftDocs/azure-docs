@@ -88,6 +88,8 @@ After installing the Connected Machine agent for Linux, the following additional
     |/var/opt/azcmagent/ |Default installation path containing the agent support files.|
     |/opt/azcmagent/ |
     |/opt/DSC/ |
+    |/var/opt/azcmagent/tokens |Contains the acquired tokens.|
+    |/var/lib/GuestConfig |Contains the (applied) Azure policies related files.|
 
 * The following daemons are created on the target machine during installation of the agent.
 
@@ -114,9 +116,8 @@ After installing the Connected Machine agent for Linux, the following additional
 
 * During uninstall of the agent, the following artifacts are not removed.
 
-    * C:\Program Files\AzureConnectedMachineAgent\Logs
-    * %ProgramData%\AzureConnectedMachineAgent and subdirectories
-    * %ProgramData%\GuestConfig
+    * /var/opt/azcmagent
+    * /opt/logs
 
 ## Prerequisites
 
