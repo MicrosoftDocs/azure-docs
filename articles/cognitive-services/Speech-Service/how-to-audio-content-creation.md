@@ -12,7 +12,7 @@ ms.date: 01/31/2020
 ms.author: trbye
 ---
 
-# Improve synthesis with Audio Content creation
+# Improve synthesis with the Audio Content Creation tool
 
 [Audio Content Creation](https://aka.ms/audiocontentcreation) is an online tool that allows you to customize and fine-tune Microsoft's text-to-speech output for your apps and products. You can use this tool to fine-tune public and custom voices for more accurate natural expressions, and manage your output in the cloud.
 
