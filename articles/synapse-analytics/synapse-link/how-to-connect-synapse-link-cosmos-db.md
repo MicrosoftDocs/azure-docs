@@ -40,15 +40,15 @@ From the Data Object Explorer, you can directly connect an Azure Cosmos DB datab
 7. (Optional) If no region is specified, Synapse run-time operations will be routed toward the nearest region where the analytical store is enabled. However you can set manually which region you want your users to access Cosmos DB analytical store. Select **Additional connection properties** and then **New**. Under **Property Name**, write ***PreferredRegions*** and set the **Value** to the region you want (example: WestUS2, there is no space between words and number)
 8. Select ***Create***
 
-Azure Cosmos DB database are visible under the tab **Linked** in the Azure Cosmos DB section. You can differentiate an HTAP enabled Azure Cosmos DB container from an OLTP only container with the following icons:
-
-**Synapse container**:
-
-![HTAP container](./media/quickstart-connect-synapse-link-cosmosdb/htap-container.png)
+Azure Cosmos DB database are visible under the tab **Linked** in the Azure Cosmos DB section. With Azure Cosmos DB, you can differentiate an HTAP enabled container from an OLTP only container through the following icons:
 
 **OLTP only container**:
 
 ![OLTP container](./media/quickstart-connect-synapse-link-cosmosdb/oltp-container.png)
+
+**HTAP enabled container**:
+
+![HTAP container](./media/quickstart-connect-synapse-link-cosmosdb/htap-container.png)
 
 ## Quickly interact with code-generated actions
 

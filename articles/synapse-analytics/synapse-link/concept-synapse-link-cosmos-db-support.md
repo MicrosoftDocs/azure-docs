@@ -17,21 +17,22 @@ This article describes what functionalities are currently supported in Synapse L
 
 ## Azure Synapse support
 
-Here is list of the currently supported features within Synapse Link for Cosmos DB. 
+Here is list of the currently supported features within Synapse Link for Cosmos DB. An OLTP container only contains a transactional store. An HTAP enabled container contains both a transactional and analytical store.
 
-| Category              | Description |Spark | SQL serverless |
+| Category              | Description |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | :-------------------- | :----------------------------------------------------------- |:----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | **Run-time Support** |Support for read or write by Azure Synapse run-time| ✓ | [Contact Us](mailto:AskSynapse@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB)|
 | **Cosmos DB API support** |API support as a Synapse Link| SQL / Mongo DB | SQL / Mongo DB |
 | **Object**  |Objects such as table that can be created, pointing directly to Azure Cosmos DB container| View, Table | View |
-| **Read**    |Read data from an Azure Cosmos DB container| OLTP / HTAP | HTAP |
-| **Write**   |Write data from run-time into an Azure Cosmos DB container| OLTP | n/a |
+| **Read**    |Read data from an Azure Cosmos DB container| OLTP only / HTAP enabled | HTAP enabled |
+| **Write**   |Write data from run-time into an Azure Cosmos DB container| OLTP only | n/a |
 
-Writing back into an Azure Cosmos DB container from Spark only happens through the transactional store of Azure Cosmos DB and will impact the transactional performance of Azure Cosmos DB by consuming Request Units. Data will be automatically replicated into the analytical store if analytical store is enabled at the database level.
+* If you write data into an Azure Cosmos DB container from Spark happens through the transactional store of Azure Cosmos DB and will impact the transactional performance of Azure Cosmos DB by consuming Request Units.
+* SQL pool integration through external tables is currently not supported.
 
 ## Supported code-generated actions for Spark
 
-| Gesture              | Description |OLTP only container |HTAP container |
+| Gesture              | Description |OLTP only |HTAP enabled |
 | :-------------------- | :----------------------------------------------------------- |:----------------------------------------------------------- |:----------------------------------------------------------- |
 | **Load to DataFrame** |Load and read data into a Spark DataFrame |X| ✓ |
 | **Create Spark table** |Create a table pointing to an Azure Cosmos DB container|X| ✓ |
@@ -43,7 +44,7 @@ Writing back into an Azure Cosmos DB container from Spark only happens through t
 
 ## Supported code-generated actions for SQL serverless
 
-| Gesture              | Description |OLTP only container |HTAP container |
+| Gesture              | Description |OLTP only |HTAP enabled |
 | :-------------------- | :----------------------------------------------------------- |:----------------------------------------------------------- |:----------------------------------------------------------- |
 | **Select top 100** |Preview top 100 items from a container|X| ✓ |
 | **Create view** |Create a view to directly have BI access in a container through Synapse SQL|X| ✓ |
