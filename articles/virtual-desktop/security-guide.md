@@ -6,7 +6,7 @@ author: heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -30,9 +30,9 @@ Here are the security needs you're responsible for in your Windows Virtual Deskt
 |User devices (mobile and PC)|Yes|
 |App security|Yes|
 |Session host OS|Yes|
-|Virtualization control plane|No|
 |Deployment configuration|Yes|
 |Network controls|Yes|
+|Virtualization control plane|No|
 |Physical hosts|No|
 |Physical network|No|
 |Physical datacenter|No|
