@@ -27,9 +27,9 @@ After voice activation, Windows will manage multiple active agents properly and 
 
 ## How does voice activation work?
 
-### Agent Activation Runtime
-
 The Agent Activation Runtime (AAR) is the ongoing process in Windows that manages application activation on a spoken keyword or button press. It starts with Windows as long as there is at least one application on the system that is registered with the system. Applications interact with AAR through the ConversationalAgent APIs in the Windows SDK.
+
+When the user speaks a keyword, the software or hardware keyword spotter on the system notifies AAR that a keyword has been detected, providing a keyword ID. AAR in turn sends a request to BackgroundService to start the application with the corresponding application ID.
 
 ### Registration
 
@@ -37,25 +37,17 @@ The first time a voice activated application is run, it registers its app id and
 
 Note that this means an application cannot be activated by voice until it has been run once and registration has been allowed to complete.
 
-### Activation
-
-When the user speaks a keyword, the software or hardware keyword spotter on the system notifies AAR that a keyword has been detected, providing a keyword ID. AAR in turn sends a request to BackgroundService to start the application with the corresponding application ID.
-
 ### Receiving an activation
 
-Upon receiving the request from AAR, the Background Service launches the application. The application receives a signal through the OnBackgroundActivated life cycle method in `App.xaml.cs` with a unique event argument. This tells the application that it was activated by AAR and should act accordingly.
+Upon receiving the request from AAR, the Background Service launches the application. The application receives a signal through the OnBackgroundActivated life cycle method in `App.xaml.cs` with a unique event argument. This tells the application that it was activated by AAR and should start keyword verification.
+
+If the application successfully verifies the keyword, it can make a request to be shown in the foreground. When this request succeeds, the application displays UI and continue its interaction with the user.
+
+AAR still signals active applications when their keyword is spoken. Rather than signalling through the life cycle method in `App.xaml.cs`, though, it signals through an event in the ConversationalAgent APIs.
 
 ### Keyword verification
 
-The keyword spotter that triggered the application to start has achieved low power consumption by simplifying the keyword model. This allows the keyword spotter to be "always on" without a high power impact, but it also means the keyword spotter will likely have a high number of "false accepts" where it detects a keyword even though no keyword was spoken. This is why the voice activation system launches the application in the background: to give the application a chance to verify that the keyword was spoken before interrupting the user's current session. AAR saves the audio since a few seconds before the keyword was spotted and makes it accessible to the application. The application can use this to run a more reliable keyword spotter on the same audio.
-
-### Foreground Activation
-
-If the application successfully verifies the keyword, it can make a request to be shown in the foreground and display UI.
-
-### Voice activation while app is active
-
-AAR still signals active applications when their keyword is spoken. Rather than signalling through the life cycle method in `App.xaml.cs`, though, it signals through an event in the ConversationalAgent APIs.
+The keyword spotter that triggers the application to start has achieved low power consumption by simplifying the keyword model. This allows the keyword spotter to be "always on" without a high power impact, but it also means the keyword spotter will likely have a high number of "false accepts" where it detects a keyword even though no keyword was spoken. This is why the voice activation system launches the application in the background: to give the application a chance to verify that the keyword was spoken before interrupting the user's current session. AAR saves the audio since a few seconds before the keyword was spotted and makes it accessible to the application. The application can use this to run a more reliable keyword spotter on the same audio.
 
 ## Next steps
 

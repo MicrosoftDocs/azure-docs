@@ -436,8 +436,6 @@
               href: windows-voice-assistants-implementation-guide.md
         - name: Resources
           items:
-            - name: 'Voice Activation Walkthrough'
-              href: windows-voice-assistants-voice-activation.md
             - name: 'Privacy requirements and guidelines'
               href: windows-voice-assistants-automatic-enablement-guidelines.md
             - name: 'Best practices for assistant experiences'
