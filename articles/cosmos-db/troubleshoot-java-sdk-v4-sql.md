@@ -231,6 +231,12 @@ On Linux, you can run the following command.
 ```bash
 netstat -nap
 ```
+
+On Windows, you can run the same command with different argument flags:
+```bash
+netstat -abn
+```
+
 Filter the result to only connections to the Azure Cosmos DB endpoint.
 
 The number of connections to the Azure Cosmos DB endpoint in the `ESTABLISHED` state can't be greater than your configured connection pool size.
