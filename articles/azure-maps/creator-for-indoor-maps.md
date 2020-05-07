@@ -3,7 +3,7 @@ title: Creator for indoor maps| Microsoft Azure Maps
 description: This article introduces concepts that apply to Azure Maps Creator services.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/27/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -43,8 +43,6 @@ Azure Maps Creator provides four services:
 Use the Dataset service to create a dataset from a converted Drawing package data.
 * [Tileset service](https://docs.microsoft.com/rest/api/maps/tileset/createpreview).
 Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
-* [Alias service]()
-Use the Alias service to avoid application code change when updating or deleting tilesets.
 * [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate).Use the Feature State service to support dynamic map styling. Dynamic map styling allows applications to reflect real-time events on spaces provided by IoT system.
 
 ### Datasets
@@ -67,10 +65,6 @@ If a tileset becomes outdated and is no longer useful, you can delete the tilese
 
 >[!NOTE]
 >A tileset is independent of the dataset from which it was created. If you create tilesets from a dataset, and then subsequently update that dataset, the tilesets will not be updated. To reflect changes in a dataset, you must create new tilesets. Similarly, if you delete a tileset, the dataset will not be affected.
-
-### Alias service
-
-The [Alias service]() allows for the efficient governance and distribution of tilesets and respective metadata. It's often the case that an application expects to reference and use the most appropriate (for example, most recent) tileset. To replace a tileset without any application code change, you can use the Alias Assign API to configure an alias for a tileset. For more information on how to use the [Alias service](), see [How to use the Alias API]().
 
 ### Feature statesets
 
@@ -126,7 +120,7 @@ The following example shows you how to update a dataset, create a new tileset, a
 
 3. Use the [Tileset Create API](https://docs.microsoft.com/rest/api/maps/tileset/createpreview) to generate a new tileset out of the updated dataset. Save the new tilesetId for step 4.
 
-4. Update the tileset identifier in your application to enable the visualization of the updated campus dataset. If you have no control over the application, you can use the [Alias API]() to configure the newly created tileset as a replacement of the old tileset. If the old tileset is no longer in use, you can delete it.
+4. Update the tileset identifier in your application to enable the visualization of the updated campus dataset. If the old tileset is no longer in use, you can delete it.
 
 ## Next steps
 
