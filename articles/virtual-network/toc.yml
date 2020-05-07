@@ -227,12 +227,16 @@
         items:
         - name: Create public IP address
           items:
+          - name: Azure portal
+            href: routing-preference-portal.md
           - name: Azure PowerShell
             href: routing-preference-powershell.md
           - name: Azure CLI
             href: routing-preference-cli.md
         - name: Configure VM with internet routing preference
           items:
+          - name: Azure portal
+            href: tutorial-routing-preference-virtual-machine-portal.md
           - name: Azure PowerShell
             href: configure-routing-preference-virtual-machine-powershell.md
           - name: Azure CLI
