@@ -112,21 +112,6 @@ var cursor = db.coll.watch(
     { fullDocument: "updateLookup" });
 
 ```
-```java
-	Bson match=Aggregates.match(Filters.in("operationType", 
-					asList("update", "replace", "insert")));
-			Bson project=Aggregates.project(fields(include("_id","ns","documentKey","fullDocument")));
-			
-			List<Bson> pipeline =Arrays.asList(match,project);
-			MongoChangeStreamCursor<ChangeStreamDocument<org.bson.Document>> cursor  = 
-					collection.watch(pipeline).fullDocument(FullDocument.UPDATE_LOOKUP).cursor();
-			
-			while (cursor.hasNext()) {
-				System.out.println(cursor.next());
-			}
-			cursor.close();
-```
-Refer [here](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream), for full sample in Java.
 ## Current limitations
 
 The following limitations are applicable when using change streams:
