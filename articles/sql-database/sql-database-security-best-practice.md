@@ -259,11 +259,11 @@ The following best practices are optional but will result in better manageabilit
   
 - Use built-in roles only when the permissions of the roles match exactly the needed permissions for the user. You can assign users to multiple roles.
 
-- Remember that permissions in the SQL Server database engine can be applied within the the following scopes (the smaller the scope, the smaller the impact of the granted permissions):
+- Remember that permissions in the database engine can be applied within the the following scopes (the smaller the scope, the smaller the impact of the granted permissions):
   - Server (special roles in master database) in Azure
   - Database
   - Schema
-    - It is a best practice to use schemas to grant permissions inside a database. (also see: [Schema-design for SQL Server: recommendations for Schema design with security in mind](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
+    - It is a best practice to use schemas to grant permissions inside a database. (also see: [Schema-design: Recommendations for Schema design with security in mind](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Object (table, view, procedure, etc.)
 
   > [!NOTE]
@@ -334,8 +334,8 @@ For the readers that want to dive deeper into SoD, we recommend the following re
 - For Azure SQL Database and SQL Managed Instance :  
   - [Controlling and granting database access](sql-database-manage-logins.md)
   - [Engine Separation of Duties for the Application Developer](https://docs.microsoft.com/previous-versions/sql/sql-server-2008/cc974525(v=sql.100))
-  - [Separation of Duties in SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=39269)
-  - [Signing Stored Procedures in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
+  - [Separation of Duties](https://www.microsoft.com/download/details.aspx?id=39269)
+  - [Signing Stored Procedures](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - For Azure Resource Management:
   - [Built-in roles for Azure](../role-based-access-control/built-in-roles.md)
@@ -406,7 +406,7 @@ Encryption at rest is the cryptographic protection of data when it is persisted 
 
 ### Protect sensitive data in use from high-privileged, unauthorized users
 
-Data in use is the data stored in memory of the database system during the execution of SQL queries. If your database stores sensitive data, your organization may be required to ensure that high-privileged users are prevented from viewing sensitive data in your database. High-privilege users, such as Microsoft operators or DBAs in your organization should be able to manage the database, but prevented from viewing and potentially exfiltrating sensitive data from the memory of the SQL Server process or by querying the database.
+Data in use is the data stored in memory of the database system during the execution of SQL queries. If your database stores sensitive data, your organization may be required to ensure that high-privileged users are prevented from viewing sensitive data in your database. High-privilege users, such as Microsoft operators or DBAs in your organization should be able to manage the database, but prevented from viewing and potentially exfiltrating sensitive data from the memory of the SQL process or by querying the database.
 
 The policies that determine which data is sensitive and whether the sensitive data must be encrypted in memory and not accessible to administrators in plaintext, are specific to your organization and compliance regulations you need to adhere to. Please see the related requirement: [Identify and tag sensitive data](#identify-and-tag-sensitive-data).
 

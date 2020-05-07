@@ -50,7 +50,7 @@ For code examples of retry logic, see:
 
 For additional information on handling transient errors in your application review [Troubleshooting transient connection errors to SQL Database](sql-database-connectivity-issues.md)
 
-A discussion of the *blocking period* for clients that use ADO.NET is available in [SQL Server Connection Pooling (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
+A discussion of the *blocking period* for clients that use ADO.NET is available in [Connection Pooling (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ## A network-related or instance-specific error occurred while establishing a connection to your server
 
@@ -80,13 +80,11 @@ To resolve these issues, try the steps (in the order presented) in the [Steps to
 
 ### Error 40615: Cannot connect to < servername >
 
-To resolve this issue, [configure firewall settings on SQL Database through the Azure portal.](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)
+To resolve this issue, [configure firewall settings on SQL Database through the Azure portal](sql-database-firewall-configure.md).
 
 ### Error 5: Cannot connect to < servername >
 
 To resolve this issue, make sure that port 1433 is open for outbound connections on all firewalls between the client and the internet.
-
-For more information, see [Configure the Windows Firewall to allow SQL Server access](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 
 ## Unable to log in to the server (errors 18456, 40531)
 
@@ -94,7 +92,7 @@ For more information, see [Configure the Windows Firewall to allow SQL Server ac
 
 ``Login failed for user '<User name>'.This session has been assigned a tracing ID of '<Tracing ID>'. Provide this tracing ID to customer support when you need assistance. (Microsoft SQL Server, Error: 18456)``
 
-To resolve this issue, contact your service administrator to provide you with a valid SQL Server user name and password.
+To resolve this issue, contact your service administrator to provide you with a valid user name and password.
 
 Typically, the service administrator can use the following steps to add the login credentials:
 
@@ -368,11 +366,11 @@ For additional guidance on fine-tuning performance, see the following resources:
 
 ## Steps to fix common connection issues
 
-1. Make sure that TCP/IP is enabled as a client protocol on the application server. For more information, see [Configure client protocols](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-client-protocols). On application servers where you don't have SQL Server tools installed, verify that TCP/IP is enabled by running **cliconfg.exe** (SQL Server Client Network utility).
+1. Make sure that TCP/IP is enabled as a client protocol on the application server. For more information, see [Configure client protocols](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-client-protocols). On application servers where you don't have SQL tools installed, verify that TCP/IP is enabled by running **cliconfg.exe** (SQL Server Client Network utility).
 2. Check the application’s connection string to make sure it's configured correctly. For example, make sure that the connection string specifies the correct port (1433) and fully qualified server name.
-See [Get SQL Server connection information](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms#get-sql-server-connection-information).
+See [Get connection information](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms#get-sql-server-connection-information).
 3. Try increasing the connection timeout value. We recommend using a connection timeout of at least 30 seconds.
-4. Test the connectivity between the application server and the Azure SQL Database by using [SQL Server management Studio (SSMS)](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms), a UDL file, ping, or telnet. For more information, see [Troubleshooting SQL Server connectivity issues](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) and [Diagnostics for connectivity issues](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues#diagnostics).
+4. Test the connectivity between the application server and the Azure SQL Database by using [SQL Server management Studio (SSMS)](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms), a UDL file, ping, or telnet. For more information, see [Troubleshooting connectivity issues](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) and [Diagnostics for connectivity issues](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues#diagnostics).
 
    > [!NOTE]
    > As a troubleshooting step, you can also test connectivity on a different client computer.

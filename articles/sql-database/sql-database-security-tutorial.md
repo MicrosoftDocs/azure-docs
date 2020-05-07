@@ -131,7 +131,7 @@ To set the Azure AD administrator:
     The process of changing an administrator may take several minutes. The new administrator will appear in the **Active Directory admin** box.
 
 > [!NOTE]
-> When setting an Azure AD admin, the new admin name (user or group) cannot exist as a SQL Server authentication user in the *master* database. If present, the setup will fail and roll back changes, indicating that such an admin name already exists. Since the SQL Server authentication user is not part of Azure AD, any effort to connect the user using Azure AD authentication fails.
+> When setting an Azure AD admin, the new admin name (user or group) cannot exist as a SQL Server login or user in the *master* database. If present, the setup will fail and roll back changes, indicating that such an admin name already exists. Since the SQL Server login or user is not part of Azure AD, any effort to connect the user using Azure AD authentication fails.
 
 For information about configuring Azure AD, see:
 
