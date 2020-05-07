@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 05/04/2020
+  ms.date: 05/06/2020
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -464,7 +464,7 @@ additionalContent:
         - title: White papers and analyst reports
           links:
             - text: Overview of Azure compliance
-              url: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers
             - text: Azue security, privacy and compliance
               url: https://gallery.technet.microsoft.com/Response-to-GCIO-Cloud-e117bbb9
             - text: Data residency and security
