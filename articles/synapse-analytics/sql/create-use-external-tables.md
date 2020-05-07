@@ -79,10 +79,6 @@ GO
 You can create external tables that reads data from the files placed on publicly available Azure storage. [Setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) will create public external data source and Parquet file format definition that is used in the following query:
 
 ```sql
-/* Public data source created in setup script: 
-CREATE EXTERNAL DATA SOURCE YellowTaxi WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/')
-*/
-
 CREATE EXTERNAL TABLE Taxi (
      vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
      pickup_datetime DATETIME2, 
