@@ -109,7 +109,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 
 > [!div renderon="portal" class="sxs-lookup"]
 > > [!NOTE]
-> > `Enter_the_Supported_Account_Info_Here`
+> > :::no-loc text="Enter_the_Supported_Account_Info_Here":::
 
 > [!div renderon="docs"]
 >
@@ -175,7 +175,8 @@ Run the project with a web server by using [Node.js](https://nodejs.org/en/downl
 The MSAL.js library signs in users and requests the tokens that are used to access an API that's protected by Microsoft identity platform. The sample's *index.html* file contains a reference to the library:
 
 ```html
-<script type="text/javascript" src="https://alcdn.msftauth.net/lib/1.2.1/js/msal.js" integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://alcdn.msauth.net/browser/2.0.0-beta.0/js/msal-browser.js" integrity=
+"sha384-r7Qxfs6PYHyfoBR6zG62DGzptfLBxnREThAlcJyEfzJ4dq5rqExc1Xj3TPFE/9TH" crossorigin="anonymous"></script>
 ```
 > [!TIP]
 > You can replace the preceding version with the latest released version under [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
@@ -183,7 +184,7 @@ The MSAL.js library signs in users and requests the tokens that are used to acce
 Alternatively, if you have Node.js installed, you can download the latest version by using the Node.js Package Manager (npm):
 
 ```batch
-npm install msal
+npm install @azure/msal-browser
 ```
 
 ## Next steps
