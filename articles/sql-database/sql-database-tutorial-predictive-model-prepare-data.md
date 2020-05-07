@@ -29,6 +29,7 @@ In parts one and two of this series, you'll develop some R scripts in RStudio to
 In this article, you'll learn how to:
 
 > [!div class="checklist"]
+>
 > * Import a sample database into an Azure SQL database using R
 > * Load the data from the Azure SQL database into an R data frame
 > * Prepare the data in R by identifying some columns as categorical
@@ -143,7 +144,7 @@ The data is now prepared for training.
 
 ## Clean up resources
 
-If you're not going to continue with this tutorial, delete the TutorialDB database from your Azure SQL Database server.
+If you're not going to continue with this tutorial, delete the TutorialDB database from your server.
 
 From the Azure portal, follow these steps:
 

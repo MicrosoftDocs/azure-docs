@@ -16,7 +16,7 @@ ms.date: 03/11/2020
 
 This article provides the detailed resource limits for single Azure SQL Databases using the vCore purchasing model.
 
-For DTU purchasing model limits for single databases on a SQL Database server, see [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md).
+For DTU purchasing model limits for single databases on a server, see [Overview of resource limits on a server](sql-database-resource-limits-database-server.md).
 
 You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](sql-database-single-databases-manage.md#azure-portal), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-t-sql), [PowerShell](sql-database-single-databases-manage.md#powershell), the [Azure CLI](sql-database-single-databases-manage.md#azure-cli), or the [REST API](sql-database-single-databases-manage.md#rest-api).
 
@@ -481,4 +481,4 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 - For DTU resource limits for elastic pools, see [resource limits for elastic pools using the DTU purchasing model](sql-database-dtu-resource-limits-elastic-pools.md)
 - For resource limits for SQL Managed Instances, see [SQL Managed Instance resource limits](sql-database-managed-instance-resource-limits.md).
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- For information about resource limits on a database server, see [overview of resource limits on logical SQL server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.
+- For information about resource limits on a server, see [overview of resource limits on a server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.

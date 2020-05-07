@@ -31,7 +31,8 @@ In parts one and two of this series, you'll develop some R scripts in RStudio to
 In this article, you'll learn how to:
 
 > [!div class="checklist"]
-> * Import a sample database into an Azure SQL database
+>
+> * Import a sample database into Azure SQL Database
 > * Separate customers along different dimensions using R
 > * Load the data from the Azure SQL database into an R data frame
 
@@ -92,7 +93,7 @@ connStr <- paste("Driver=SQL Server",
 #Define the query to select data from SQL Server
 input_query <- "
 SELECT ss_customer_sk AS customer
-    ,round(CASE 
+    ,round(CASE
             WHEN (
                        (orders_count = 0)
                     OR (returns_count IS NULL)
@@ -102,7 +103,7 @@ SELECT ss_customer_sk AS customer
                 THEN 0.0
             ELSE (cast(returns_count AS NCHAR(10)) / orders_count)
             END, 7) AS orderRatio
-    ,round(CASE 
+    ,round(CASE
             WHEN (
                      (orders_items = 0)
                   OR (returns_items IS NULL)
@@ -112,7 +113,7 @@ SELECT ss_customer_sk AS customer
             THEN 0.0
             ELSE (cast(returns_items AS NCHAR(10)) / orders_items)
             END, 7) AS itemsRatio
-    ,round(CASE 
+    ,round(CASE
             WHEN (
                      (orders_money = 0)
                   OR (returns_money IS NULL)
@@ -122,7 +123,7 @@ SELECT ss_customer_sk AS customer
             THEN 0.0
             ELSE (cast(returns_money AS NCHAR(10)) / orders_money)
             END, 7) AS monetaryRatio
-    ,round(CASE 
+    ,round(CASE
             WHEN (returns_count IS NULL)
             THEN 0.0
             ELSE returns_count
@@ -191,7 +192,7 @@ You should see results similar to the following.
 
 ## Clean up resources
 
-***If you're not going to continue with this tutorial***, delete the tpcxbb_1gb database from your Azure SQL Database server.
+***If you're not going to continue with this tutorial***, delete the tpcxbb_1gb database from your server.
 
 From the Azure portal, follow these steps:
 
