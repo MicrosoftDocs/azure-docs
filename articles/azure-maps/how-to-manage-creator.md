@@ -28,7 +28,7 @@ This article takes you through the steps to create and delete a Creator resource
 
     ![Create Azure Maps Creator page](./media/how-to-manage-creator/creator-blade.PNG)
 
-4. Enter the name and location for your Creator resource. Currently, the United States is the only supported geographical location. Click **Review + create**.
+4. Enter the name and location for your Creator resource. Currently, Creator is only supported in the United States. Click **Review + create**.
 
    ![Enter Creator account information page](./media/how-to-manage-creator/creator-creation.PNG)
 
@@ -62,11 +62,13 @@ To delete the Creator resource, navigate to your Azure Maps account. Select **Ov
 
 Click the **Delete** button and type your Creator name to confirm deletion. Once the resource is deleted, you'll see a confirmation page, like in the image below:
 
-![Creator delete confirmation](./media/how-to-manage-creator/creator-confirmdelete.png)
+![Creator page with delete confirmation](./media/how-to-manage-creator/creator-confirmdelete.png)
 
 ## Authentication
 
-Creator inherits Azure Maps Access Control (IAM) settings. All API calls for data access must be sent with authentication and authorization rules. Also, Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more detail, see [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Creator inherits Azure Maps Access Control (IAM) settings. All API calls for data access must be sent with authentication and authorization rules.
+
+Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more information, see [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 ## Access to Creator services
 

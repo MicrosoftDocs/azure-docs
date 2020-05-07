@@ -288,9 +288,9 @@ The following image shows a label that inside two zones.
 
 To fix a **labelWarning**, ensure that:
 
-* all unit labels are inside units.
-* all zone labels are inside zones.
-* all zone labels are in one and only one zone.
+* All unit labels are inside units.
+* All zone labels are inside zones.
+* All zone labels are in one and only one zone.
 
 ## Drawing Package errors
 
@@ -306,9 +306,9 @@ An **invalidArchiveFormat** error will also occur if the ZIP archive is empty.
 
 To fix an **invalidArchiveFormat** error, verify that:
 
-* your archive file name ends in _.zip_.
-* your ZIP archive contains data.
-* you can open your ZIP archive.
+* Your archive file name ends in _.zip_.
+* Your ZIP archive contains data.
+* You can open your ZIP archive.
 
 ### **invalidUserData**
 
@@ -324,9 +324,9 @@ You attempted to upload a Drawing package with an incorrect `udid` parameter.
 
 To fix an **invalidUserData** error, verify that:
 
-* you've provided a correct `udid` for the uploaded package.
+* You've provided a correct `udid` for the uploaded package.
 * Azure Maps Creator has been enabled for the Azure Maps account you used for uploading the Drawing package.
-* the API request to the Conversion service contains the subscription key to the Azure Maps account you used for uploading the Drawing package.
+* The API request to the Conversion service contains the subscription key to the Azure Maps account you used for uploading the Drawing package.
 
 ### **dwgError**
 

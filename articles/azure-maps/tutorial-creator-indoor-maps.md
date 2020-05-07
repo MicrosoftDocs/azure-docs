@@ -98,7 +98,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
 
 3. Click the **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response, and look for the **Location** key. Copy the value of the **Location** key, which is the `status URL` for the conversion request.
 
-4. Start a new **GET** HTTP method in the builder tab. Append your Azure Maps primary subscription key to the `status URL`. Make a **GET** request at the `status URL` from the previous step. If the conversion process hasn't yet completed, you may see something like the following:
+4. Start a new **GET** HTTP method in the builder tab. Append your Azure Maps primary subscription key to the `status URL`. Make a **GET** request at the `status URL` from the previous step. If the conversion process hasn't yet completed, you may see something like the following JSON response:
 
     ```json
     {
@@ -123,7 +123,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
 >[!NOTE]
 >The Postman application does not natively support HTTP Long Running Requests. As a result, you may notice a long delay while making a **GET** request at the status URL.  Wait about thirty seconds and try clicking the **Send** button again until the response shows success or fail.
 
-The sample Drawing package should be converted without errors. However, if you receive errors from your own Drawing package, the JSON response, will give you a link to the [Drawing error visualizer](azure-maps-drawing-errors-visualizer.md). The Drawing error visualizer allows you to inspect the details of errors and warnings. To receive recommendations on how to resolve conversion errors and warnings, see the [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
+The sample Drawing package should be converted without errors or warnings. However, if you receive errors or warnings from your own Drawing package, the JSON response will give you a link to the [Drawing error visualizer](azure-maps-drawing-errors-visualizer.md). The Drawing Error visualizer allows you to inspect the details of errors and warnings. To receive recommendations on how to resolve conversion errors and warnings, see the [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
 
 ```json
 {

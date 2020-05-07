@@ -20,7 +20,7 @@ The Drawing package includes drawings saved in DWG format, which is the native f
 
 You may choose any CAD software to produce the drawings in the Drawing package.  
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts the Drawing package into map data.  The Conversion service as been developed and tested using the AutoCAD DWG file format, with AC1032 as the internal format version for the DWG files. You're encouraged to select AC1032 for the internal DWG file format version.  
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts the Drawing package into map data.  The Conversion service has been developed and tested using the AutoCAD DWG file format. `AC1032` is the internal format version for the DWG files. You're encouraged to select `AC1032` for the internal DWG file format version.  
 
 Glossary of terms used within this document.
 
@@ -34,7 +34,12 @@ Glossary of terms used within this document.
 
 ## Drawing Package structure
 
-A Drawing package is a .zip file that consists of files in AutoCAD DWG file format and a manifest file for a single facility. The DWG files can be organized in any way inside the folder, but the manifest file must live at the root directory of the folder. The folder must be zipped in a single archive file, with a .zip extension. The next sections detail the requirements for the DWG files, manifest file, and the content of these files.  
+A Drawing package is a .zip archive that contains the following files:
+
+* DWG files in AutoCAD DWG file format.
+* A _manifest.json_ file for a single facility.
+
+The DWG files can be organized in any way inside the folder, but the manifest file must live at the root directory of the folder. The folder must be zipped in a single archive file, with a .zip extension. The next sections detail the requirements for the DWG files, manifest file, and the content of these files.  
 
 ## DWG files requirements
 
@@ -55,9 +60,9 @@ The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/dat
 
 All conversion jobs result in a minimal set of default categories: room, structure.wall, opening.door, zone, and facility. Additional categories are for each Category Name referenced by objects.  
 
-A DWG layer must contain features of a single class, and classes must not share a layer. For example, units and walls can't share a layer.
+A DWG layer must contain features of a single class. Classes must not share a layer. For example, units and walls can't share a layer.
 
-Moreover:
+DWG layers must also follow the following criteria:
 
 * The origins of drawings for all DWG files must align to the same latitude and longitude.
 * Each level must be in the same orientation as the other levels.
@@ -71,11 +76,11 @@ The table below outlines the supported entity types and supported features for e
 | :----- | :-------------------| :-------
 | [Exterior](#exterior-layer) | Polygon, PolyLine (closed), Circle | Levels
 | [Unit](#unit-layer) |  Polygon, PolyLine (closed), Circle | Vertical Penetrations, Units
-| [Wall](#wall-layer)  | Polygon, PolyLine (closed), Circle | Not applicable. For more details, see the [Wall layer](#wall-layer).
+| [Wall](#wall-layer)  | Polygon, PolyLine (closed), Circle | Not applicable. For more information, see the [Wall layer](#wall-layer).
 | [Door](#door-layer) | Polygon, PolyLine, Line, CircularArc, Circle | Openings
 | [Zone](#zone-layer) | Polygon, PolyLine (closed), Circle | Zone
-| [UnitLabel](#unitlabel-layer) | Text (single line) | Not applicable. This layer can only add properties to the unit features from the Units layer. For more details, see the [UnitLabel layer](#unitlabel-layer).
-| [ZoneLabel](#zonelabel-layer) | Text (single line) | Not applicable. This layer can only add properties to zone features from the ZonesLayer. For more details, see the [ZoneLabel layer](#zonelabel-layer)
+| [UnitLabel](#unitlabel-layer) | Text (single line) | Not applicable. This layer can only add properties to the unit features from the Units layer. For more information, see the [UnitLabel layer](#unitlabel-layer).
+| [ZoneLabel](#zonelabel-layer) | Text (single line) | Not applicable. This layer can only add properties to zone features from the ZonesLayer. For more information, see the [ZoneLabel layer](#zonelabel-layer)
 
 The next sections detail the requirements for each layer.
 
@@ -119,7 +124,7 @@ An example of the Walls layer can be seen as the WALLS layer in the [sample Draw
 
 You may include a DWG layer containing doors. Each door must overlap the edge of a unit from the unit layer.
 
-Doors (openings) in an Azure Maps dataset are represented as a single line segment that overlaps multiple unit boundaries. The following steps are taken to convert geometry in the door layer to opening features in a dataset.
+Doors openings in an Azure Maps dataset are represented as a single-line segment that overlaps multiple unit boundaries. The following steps are taken to convert geometry in the door layer to opening features in a dataset.
 
 ![Steps to generate openings](./media/drawing-requirements/opening-steps.png)
 
@@ -131,7 +136,7 @@ The DWG file for each level may contain a zone layer that defines the physical e
 * Zones may overlap.
 * Zones may fall inside or outside the facility's exterior perimeter.
 
-Name a zone by creating a text object in the _zoneLabel_ layer, and placing the text object inside the bounds of the zone. For more details, see [ZoneLabel layer](#zonelabel-layer).
+Name a zone by creating a text object in the _zoneLabel_ layer, and placing the text object inside the bounds of the zone. For more information, see [ZoneLabel layer](#zonelabel-layer).
 
 An example of the Zones layer can be seen as the ZONES layer in the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
@@ -209,8 +214,8 @@ The `buildingLevels` object contains a JSON array of buildings levels.
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|lat    | numeric |    true |    Decimal representation of degrees latitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (EPSG:3857).|
-|lon    |numeric|    true|    Decimal representation of degrees longitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (EPSG:3857). |
+|lat    | numeric |    true |    Decimal representation of degrees latitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (`EPSG:3857`).|
+|lon    |numeric|    true|    Decimal representation of degrees longitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (`EPSG:3857`). |
 |angle|    numeric|    true|   The clockwise angle, in degrees, between true north and the drawing’s vertical (Y) axis.   |
 
 ### dwgLayers
