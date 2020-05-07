@@ -1,5 +1,5 @@
 ---
-title: Configure a VM with Internet routing preference using the Azure Portal - Azure portal
+title: Configure a VM with Internet routing preference using the Azure portal
 description: Learn how to create a VM with a public IP address with routing preference choice using the Azure portal.
 services: virtual-network
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.date: 05/18/2020
 ms.author: mnayak
 
 ---
-# Configure a virtual machine to route traffic via the internet using the Azure Portal
+# Configure a virtual machine to route traffic via the internet using the Azure portal
 
 You can create a virtual machine with a public IP address with a routing preference choice. Internet bound traffic from the VM will be routed to and from internet via respective network based on the routing preference selection. The default routing is via Microsoft global network.
 
@@ -73,6 +73,6 @@ When no longer needed, delete the resource group and all of the resources it con
 3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
 
 ## Next steps
-
+- Learn more about [Public IP with routing preference](routing-preference-overview.md).
 - Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address)

@@ -122,6 +122,7 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-* Learn more about [routing preference in public IP addresses](routing-preference-overview.md).
-* Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
-* Learn more about [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
+- Learn more about [Public IP with routing preference](routing-preference-overview.md).
+- Learn more about [routing preference in public IP addresses](routing-preference-overview.md).
+- Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
+- Learn more about [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).

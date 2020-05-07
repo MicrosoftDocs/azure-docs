@@ -73,6 +73,6 @@ Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## Next steps
-
-* Learn more about [routing preference in public IP addresses](routing-preference-overview.md).
-* [Deploy a VM and associate a public IP with routing preference choice using the Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md).
+- Learn more about [Public IP with routing preference](routing-preference-overview.md).
+- Learn more about [routing preference in public IP addresses](routing-preference-overview.md).
+- [Deploy a VM and associate a public IP with routing preference choice using the Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md).
