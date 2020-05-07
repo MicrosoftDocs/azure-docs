@@ -158,7 +158,7 @@ The Azure Cosmos DB emulator HTTPS certificate is self-signed. For the SDK to wo
 
 The Azure Cosmos DB Java SDK pulls in a number of dependencies; generally speaking, if your project dependency tree includes an older version of an artifact that Azure Cosmos DB Java SDK depends on, this may result in unexpected errors being generated when you run your application. If you are debugging why your application unexpectedly throws an exception, it is a good idea to double-check that your dependency tree is not accidentally pulling in an older version of one or more of the Azure Cosmos DB Java SDK dependencies.
 
-The workaround for such an issue is to identify which of your project dependencies brings in the old version and exclude the transitive dependency on that older version, and allow CosmosDB SDK to bring in the newer version.
+The workaround for such an issue is to identify which of your project dependencies brings in the old version and exclude the transitive dependency on that older version, and allow Azure Cosmos DB Java SDK to bring in the newer version.
 
 To identify which of your project dependencies brings in an older version of something that Azure Cosmos DB Java SDK depends on, run the following command against your project pom.xml file:
 ```bash
@@ -187,7 +187,7 @@ For more information, see the [exclude transitive dependency guide](https://mave
 
 ## <a name="enable-client-sice-logging"></a>Enable client SDK logging
 
-The Java Async SDK uses SLF4j as the logging facade that supports logging into popular logging frameworks such as log4j and logback.
+Azure Cosmos DB Java SDK v4 uses SLF4j as the logging facade that supports logging into popular logging frameworks such as log4j and logback.
 
 For example, if you want to use log4j as the logging framework, add the following libs in your Java classpath.
 
