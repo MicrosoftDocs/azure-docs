@@ -49,7 +49,7 @@ In this quickstart, you prepare a development environment you can use to clone a
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository into this location:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-node --recursive -b digitaltwins-preview
+git clone https://github.com/Azure/azure-iot-sdk-node -b public-preview-pnp
 ```
 
 This operation may take several minutes to complete.
@@ -70,8 +70,17 @@ You use the device SDK to build the included sample code. The application you bu
     ```
 
 ## Run the sample device
+Look at sample_device.js. Notice how: 
 
-Run a sample application in the SDK to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use the following command:
+1. The interfaces are imported 
+1. A property update handler and command handler are written 
+1. Instances of the environmental sensor and deviceInformation are created 
+1. The digital twin client for the device is created from its connection string 
+1. The interfaces are added to the newly created digital twin client 
+1. The command and property update handlers are enabled 
+1. Interface specific properties and telemetry are reported 
+
+Run the sample application to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use the following command:
 
 ```cmd\sh
     node sample_device.js
