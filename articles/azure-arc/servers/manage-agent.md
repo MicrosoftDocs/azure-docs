@@ -166,7 +166,7 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 
 This parameter reconnects the already registered or connected machine with Azure Arc for servers (preview). This may be necessary if the machine has been turned off, at least 45 days, for its certificate to expire. This parameter uses the authentication options provided to retrieve new credentials corresponding to the Azure Resource Manager resource representing this machine.
 
-This command requires higher privileges than the [Azure Connected Machine Onboarding](overview.md#required-permissions) role.
+This command requires higher privileges than the [Azure Connected Machine Onboarding](agent-overview.md#required-permissions) role.
 
 To reconnect using a service principal, run the following command:
 
@@ -202,7 +202,7 @@ Both of the following methods remove the agent, but they do not remove the *C:\P
 #### Uninstall from the command line
 
 To uninstall the agent manually from the Command Prompt or to use an automated method, such as a script, you can use the following example. First you need to retrieve the product code, which is a GUID that is the principal identifier of the application package, from the operating system. The uninstall is performed by using the Msiexec.exe command line - `msiexec /x {Product Code}`.
-    
+
 1. Open the Registry Editor.
 
 2. Under registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, look for and copy the product code GUID.
