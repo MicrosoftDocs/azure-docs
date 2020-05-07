@@ -19,17 +19,17 @@ ms.topic: troubleshooting
 > 
 
 > [!IMPORTANT]
-> This article covers troubleshooting for Azure Cosmos DB Java SDK v4 only. Please see the Azure Cosmos DB Java SDK v4 [Release Notes](sql-api-sdk-java-v4-sql.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), and [performance tips](performance-tips-java-sdk-v4-sql.md) for more information.
+> This article covers troubleshooting for Azure Cosmos DB Java SDK v4 only. Please see the Azure Cosmos DB Java SDK v4 Release Notes, [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), and performance tips for more information.
 >
 
-This article covers common issues, workarounds, diagnostic steps, and tools when you use [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4-sql.md) with Azure Cosmos DB SQL API accounts.
+This article covers common issues, workarounds, diagnostic steps, and tools when you use Azure Cosmos DB Java SDK v4 with Azure Cosmos DB SQL API accounts.
 Azure Cosmos DB Java SDK v4 provides client-side logical representation to access the Azure Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
 
 Start with this list:
 
 * Take a look at the [Common issues and workarounds] section in this article.
 * Look at the Java SDK in the Azure Cosmos DB central repo, which is available [open source on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). It has an [issues section](https://github.com/Azure/azure-sdk-for-java/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed. One helpful tip is to filter issues by the *cosmos:v4-item* tag.
-* Review the [performance tips for Azure Cosmos DB Java SDK v4](performance-tips-java-sdk-v4-sql.md), and follow the suggested practices.
+* Review the performance tips for Azure Cosmos DB Java SDK v4, and follow the suggested practices.
 * Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-sdk-for-java/issues). If there is an option to add tags to your GitHub issue, add a *cosmos:v4-item* tag.
 
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
@@ -52,7 +52,7 @@ Run the following command.
 ```bash
 ulimit -a
 ```
-The number of max allowed open files, which are identified as "nofile," needs to be at least double your connection pool size. For more information, see [Performance tips](performance-tips-java-sdk-v4-sql.md).
+The number of max allowed open files, which are identified as "nofile," needs to be at least double your connection pool size. For more information, see the Azure Cosmos DB Java SDK v4 performance tips.
 
 ##### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
 
