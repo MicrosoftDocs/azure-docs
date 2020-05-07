@@ -1,4 +1,4 @@
-
+---
 title: Developer guide - IoT Plug and Play Preview | Microsoft Docs
 description: Description of device modeling for IoT Plug and Play developers
 author: rido-min
