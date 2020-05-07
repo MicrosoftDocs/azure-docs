@@ -23,7 +23,8 @@ To enable active learning, you must log user queries. This is accomplished by ca
 
 Use the LUIS portal to construct the correct endpoint query.
 
-1. In the [LUIS portal](https://www.luis.ai/), select your app from the list of apps.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
 1. Go to the **Manage** section, then select **Azure resources**.
 1. For the assigned prediction resource, select **Change query parameters**.
 

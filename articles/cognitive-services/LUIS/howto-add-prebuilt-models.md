@@ -18,7 +18,8 @@ LUIS includes a set of prebuilt models for quickly adding common, conversational
 
 ## Add a prebuilt domain
 
-1. On the **My Apps** page, select your app. This opens your app to the **Build** section of the app.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
 
 1. Select **Prebuilt domains** from the left toolbar.
 
@@ -29,7 +30,8 @@ LUIS includes a set of prebuilt models for quickly adding common, conversational
 
 ## Add a prebuilt intent
 
-1. On the **My Apps** page, select your app. This opens your app to the **Build** section of the app.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
 
 1. On the **Intents** page, select **Add prebuilt domain intent** from the toolbar above the intents list.
 
@@ -41,8 +43,9 @@ LUIS includes a set of prebuilt models for quickly adding common, conversational
 1. Select the **Done** button.
 
 ## Add a prebuilt entity
-
-1. Open your app by clicking its name on **My Apps** page, and then click **Entities** in the left side.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. Select **Entities** in the left side.
 
 1. On the **Entities** page, click **Add prebuilt entity**.
 

@@ -21,7 +21,8 @@ Intents are managed from top navigation bar's **Build** section, then from the l
 
 ## Add intent
 
-1. In the [LUIS portal](https://www.luis.ai), select **Build** to view intents.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
 1. On the **Intents** page, select **+ Create**.
 1. In the **Create new intent** dialog box, enter the intent name, for example `ModifyOrder`, and select **Done**.
 

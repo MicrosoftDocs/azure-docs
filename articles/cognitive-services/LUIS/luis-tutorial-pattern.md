@@ -37,6 +37,7 @@ Use the following steps:
 
 1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
 1. Import the JSON into a new app into the [LUIS portal](https://www.luis.ai). On the **My Apps** page, select **+ New app for conversation**, then select **Import as JSON**. Select the file you downloaded in the previous step.
 
 1. From the **Manage** section, on the **Versions** tab, select the active version, then select **Clone**. Name the cloned version `patterns`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.

@@ -18,7 +18,8 @@ ms.author: diberry
 When you finish building, training, and testing your active LUIS app, make it available to your client application by publishing it to the endpoint.
 
 ## Publishing
-
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
 1. To publish to the endpoint, select **Publish** in the top, right panel.
 
     ![Publish button in top, right nav bar](./media/luis-how-to-publish-app/publish-top-nav-bar.png)

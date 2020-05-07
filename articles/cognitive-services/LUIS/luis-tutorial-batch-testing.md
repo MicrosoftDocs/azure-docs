@@ -36,7 +36,9 @@ Import an app that takes a pizza order such as `1 pepperoni pizza on thin crust`
 
 1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
-1. Use the [LUIS portal](https://www.luis.ai/), import the JSON into a new app, name the app `Pizza app`.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Import the JSON into a new app, name the app `Pizza app`.
+
 
 1. Select **Train** in the top-right corner of the navigation to train the app.
 

@@ -17,13 +17,16 @@ ms.date: 05/07/2020
 
 ## Train before testing
 
-In order to test against the most recent version of the active app, select **Train** from the top menu, before testing.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. In order to test against the most recent version of the active app, select **Train** from the top menu, before testing.
 
 ## Test an utterance
 
 The test utterance should not be exactly the same as any example utterances in the app. The test utterance should include word choice, phrase length, and entity usage you expect for a user.
 
-1. Access your app by selecting its name on the **My Apps** page.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
 
 1. To access the **Test** slide-out panel, select **Test** in your application's top panel.
 
