@@ -39,7 +39,7 @@ After installing the Connected Machine agent for Windows, the following addition
 * The following installation folders are created during setup.
 
     |Folder |Description |
-    |-------|-------------|
+    |-------|------------|
     |C:\Program Files\AzureConnectedMachineAgent |Default installation path containing the agent support files.|
     |%ProgramData%\AzureConnectedMachineAgent |Contains the agent configuration files.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contains the acquired tokens.|
@@ -49,18 +49,18 @@ After installing the Connected Machine agent for Windows, the following addition
 * The following Windows services are created on the target machine during installation of the agent.
 
     |Service name |Display name |Process name |Description |
-    |-------------|--------------|--------------|-------------|
-    | himds | Azure Hybrid Instance Metadata Service | himds.exe | This service implements the Azure Instance Metadata service (IMDS) to track the machine.|
-    | DscService | Guest Configuration Service | dsc_service.exe | This is the Desired State Configuration (DSC v2) codebase used inside Azure to implement In-Guest Policy.|
+    |-------------|-------------|-------------|------------|
+    |himds |Azure Hybrid Instance Metadata Service |himds.exe |This service implements the Azure Instance Metadata service (IMDS) to track the machine.|
+    |DscService |Guest Configuration Service |dsc_service.exe |This is the Desired State Configuration (DSC v2) codebase used inside Azure to implement In-Guest Policy.|
 
 * There are four log files available for troubleshooting. They are described in the following table.
 
     |Log |Location |Description |
-    |----|----------|-----------|
-    |himds.log |%ProgramData%\AzureConnectedMachineAgent\Log | Records details of the agents (himds) service<br> and interaction with Azure. |
-    |azcmagent.log |%ProgramData%\AzureConnectedMachineAgent\Log | Contains the output of the azcmagent tool commands,<br> when the verbose (-v) argument is used. |
-    |gc_agent.log |%ProgramData%\GuestConfig\gc_agent_logs | Records details of the DSC service activity,<br> in particular the connectivity between the himds service and Azure Policy.|
-    |gc_agent_telemetry.txt |%ProgramData%\GuestConfig\gc_agent_logs | Records details about DSC service telemetry and verbose logging.|
+    |----|---------|------------|
+    |himds.log |%ProgramData%\AzureConnectedMachineAgent\Log |Records details of the agents (himds) service<br> and interaction with Azure.|
+    |azcmagent.log |%ProgramData%\AzureConnectedMachineAgent\Log |Contains the output of the azcmagent tool commands,<br> when the verbose (-v) argument is used.|
+    |gc_agent.log |%ProgramData%\GuestConfig\gc_agent_logs |Records details of the DSC service activity,<br> in particular the connectivity between the himds service and Azure Policy.|
+    |gc_agent_telemetry.txt |%ProgramData%\GuestConfig\gc_agent_logs |Records details about DSC service telemetry and verbose logging.|
 
 * The following environmental variables are created during agent installation.
 
@@ -73,7 +73,7 @@ After installing the Connected Machine agent for Windows, the following addition
 
     * C:\Program Files\AzureConnectedMachineAgent\Logs
     * %ProgramData%\AzureConnectedMachineAgent and subdirectories
-    * %ProgramData%\GuestConfig 
+    * %ProgramData%\GuestConfig
 
 ## Linux agent installation details
 
