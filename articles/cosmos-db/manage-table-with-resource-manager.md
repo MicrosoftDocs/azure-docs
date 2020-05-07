@@ -37,9 +37,9 @@ This template will create an Azure Cosmos account for Table API with one table w
 
 <a id="create-manual"></a>
 
-## Azure Cosmos account for Table with manual throughput
+## Azure Cosmos account for Table with standard (manual) throughput
 
-This template will create an Azure Cosmos account for Table API with one table with manual throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
+This template will create an Azure Cosmos account for Table API with one table with standard throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-table%2Fazuredeploy.json)
 
