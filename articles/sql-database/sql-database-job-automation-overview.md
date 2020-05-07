@@ -47,7 +47,7 @@ It is worth noting a couple of differences between SQL Agent (available on-premi
 
 | |Elastic Jobs |SQL Agent |
 |---------|---------|---------|
-|Scope | Any number of Azure SQL Databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different SQL Database servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any individual database in the same instance as the SQL agent. |
+|Scope | Any number of Azure SQL Databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any individual database in the same instance as the SQL agent. |
 |Supported APIs and Tools | Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
 
 ## SQL Agent Jobs
@@ -235,14 +235,14 @@ The following examples show how different target group definitions are dynamical
 ![Target group examples](media/elastic-jobs-overview/targetgroup-examples1.png)
 
 **Example 1** shows a target group that consists of a list of individual databases. When a job step is executed using this target group, the job step's action will be executed in each of those databases.<br>
-**Example 2** shows a target group that contains an Azure SQL Server as a target. When a job step is executed using this target group, the server is dynamically enumerated to determine the list of databases that are currently in the server. The job step's action will be executed in each of those databases.<br>
+**Example 2** shows a target group that contains a server as a target. When a job step is executed using this target group, the server is dynamically enumerated to determine the list of databases that are currently in the server. The job step's action will be executed in each of those databases.<br>
 **Example 3** shows a similar target group as *Example 2*, but an individual database is specifically excluded. The job step's action will *not* be executed in the excluded database.<br>
 **Example 4** shows a target group that contains an elastic pool as a target. Similar to *Example 2*, the pool will be dynamically enumerated at job run time to determine the list of databases in the pool.
 <br><br>
 
 ![Target group examples](media/elastic-jobs-overview/targetgroup-examples2.png)
 
-**Example 5** and **Example 6** show advanced scenarios where Azure SQL Servers, elastic pools, and databases can be combined using include and exclude rules.<br>
+**Example 5** and **Example 6** show advanced scenarios where servers, elastic pools, and databases can be combined using include and exclude rules.<br>
 **Example 7** shows that the shards in a shard map can also be evaluated at job run time.
 
 > [!NOTE]

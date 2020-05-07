@@ -21,7 +21,7 @@ The elastic query feature (in preview) enables you to run a Transact-SQL query t
 
 ### Azure SQL Database
 
-Query across Azure SQL databases completely in T-SQL. This allows for read-only querying of remote databases and provides an option for current on-premises SQL Server customers to migrate applications using three- and four-part names or linked server to SQL DB.
+Query across Azure SQL databases completely in T-SQL. This allows for read-only querying of remote databases and provides an option for current on-premises SQL Server customers to migrate applications using three- and four-part names or linked server to SQL Database.
 
 ### Available on standard tier
 
@@ -135,7 +135,7 @@ Elastic query is included into the cost of Azure SQL Database. Note that topolog
 
 * Running your first elastic query can take up to a few minutes on the Standard service tier. This time is necessary to load the elastic query functionality; loading performance improves with higher service tiers and compute sizes.
 * Scripting of external data sources or external tables from SSMS or SSDT is not yet supported.
-* Import/Export for SQL DB does not yet support external data sources and external tables. If you need to use Import/Export, drop these objects before exporting and then re-create them after importing.
+* Import/Export for SQL Database does not yet support external data sources and external tables. If you need to use Import/Export, drop these objects before exporting and then re-create them after importing.
 * Elastic query currently only supports read-only access to external tables. You can, however, use full T-SQL functionality on the database where the external table is defined. This can be useful to, e.g., persist temporary results using, for example, SELECT <column_list> INTO <local_table>, or to define stored procedures on the elastic query database that refer to external tables.
 * Except for nvarchar(max), LOB types (including spatial types) are not supported in external table definitions. As a workaround, you can create a view on the remote database that casts the LOB type into nvarchar(max), define your external table over the view instead of the base table and then cast it back into the original LOB type in your queries.
 * Columns of nvarchar(max) data type in result set disable advanced batching technics used in Elastic Query implementation and may affect performance of query for an order of magnitude, or even two orders of magnitude in non-canonical use cases where large amount of non-aggregated data is being transferred as a result of query.
