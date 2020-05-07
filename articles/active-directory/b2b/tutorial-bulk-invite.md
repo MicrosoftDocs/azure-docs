@@ -60,11 +60,11 @@ You need two or more test email accounts that you can send the invitations to. T
 1. Sign in to the Azure portal with an account that is a User administrator in the organization.
 2. In the navigation pane, select **Azure Active Directory**.
 3. Under **Manage**, select **Users** > **Bulk invite**.
-4. On the **Bulk invite users** page, select **Download** to get a valid .csv file with invitation properties.
+4. On the **Bulk invite users** page, select **Download** to get a valid .csv template with invitation properties.
 
     ![Bulk invite download button](media/tutorial-bulk-invite/bulk-invite-button.png)
 
-5. Open the .csv file and add a line for each guest user. Required values are:
+5. Open the .csv template and add a line for each guest user. Required values are:
 
    * **Email address to invite** - the user who will receive an invitation
 
