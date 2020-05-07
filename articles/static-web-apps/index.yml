@@ -17,7 +17,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What are Azure Static Web Apps?
+          - text: What is Azure Static Web Apps?
             url: overview.md
       # - linkListType: video
       #   links:
