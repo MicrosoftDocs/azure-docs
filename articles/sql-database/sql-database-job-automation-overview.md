@@ -218,7 +218,7 @@ During job agent creation, a schema, tables, and a role called *jobs_reader* are
 
 A *target group* defines the set of databases a job step will execute on. A target group can contain any number and combination of the following:
 
-- **SQL Database server** - if a server is specified, all databases that exist in the server at the time of the job execution are part of the group. The master database credential must be provided so that the group can be enumerated and updated prior to job execution.
+- **Logical SQL server** - if a server is specified, all databases that exist in the server at the time of the job execution are part of the group. The master database credential must be provided so that the group can be enumerated and updated prior to job execution.
 - **Elastic pool** - if an elastic pool is specified, all databases that are in the elastic pool at the time of the job execution are part of the group. As for a server, the master database credential must be provided so that the group can be updated prior to the job execution.
 - **Single database** - specify one or more individual databases to be part of the group.
 - **Shardmap** - databases of a shardmap.

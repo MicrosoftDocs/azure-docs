@@ -491,7 +491,7 @@
       href: sql-database-single-database.md
     - name: Elastic pools
       href: sql-database-elastic-pool.md
-    - name: Database servers
+    - name: Logical SQL servers
       href: sql-database-servers.md
 
   - name: Quickstarts
@@ -552,7 +552,7 @@
         - name: Manage pool resources
           href: sql-database-elastic-pool-manage.md
 
-      - name: Database server resources
+      - name: Logical SQL server resources
         items:
         - name: Database resource limits
           href: sql-database-resource-limits-database-server.md

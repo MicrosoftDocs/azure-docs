@@ -34,7 +34,7 @@ How to set up Private Link for Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database
 
-How to use virtual network service endpoints and rules for database servers:
+How to use virtual network service endpoints and rules for servers:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
 

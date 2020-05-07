@@ -18,7 +18,7 @@ ms.author: ninarn
 
 3. Scroll and select **SQL servers**.
 
-    ![Find your Azure SQL Database server in the portal][b21-FindServerInPortal]
+    ![Find your logical SQL server in the portal][b21-FindServerInPortal]
 5. In the filter text box, start typing the name of your server. Your row is displayed.
 
 6. Select the row for your server. A blade for your server is displayed.

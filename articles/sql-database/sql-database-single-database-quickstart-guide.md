@@ -18,7 +18,7 @@ ms.date: 07/29/2019
 
 ## Quickstart overview
 
-In this section, you will see an overview of available articles that can help you to quickly get started with single databases. The following quickstarts enable you to quickly create a single database, configure a database server firewall rule, and then import a database into the new single database using a `.bacpac` file:
+In this section, you will see an overview of available articles that can help you to quickly get started with single databases. The following quickstarts enable you to quickly create a single database, configure a server-level firewall rule, and then import a database into the new single database using a `.bacpac` file:
 
 - [Create a single database using the Azure portal](sql-database-single-database-get-started.md).
 - After creating the database, you would need to [secure your database by configuring firewall rules](sql-database-server-level-firewall-rule.md).

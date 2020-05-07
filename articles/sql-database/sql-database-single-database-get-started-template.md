@@ -95,7 +95,7 @@ To query the database, see [Query the database](./sql-database-single-database-g
 
 ## Clean up resources
 
-Keep this resource group, database server, and single database if you want to go to the [Next steps](#next-steps). The next steps show you how to connect and query your database using different methods.
+Keep this resource group, server, and single database if you want to go to the [Next steps](#next-steps). The next steps show you how to connect and query your database using different methods.
 
 To delete the resource group:
 

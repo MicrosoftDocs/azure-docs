@@ -64,7 +64,7 @@ Configuring an Azure Active Directory (Azure AD) administrator enables you to us
 > * Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as Azure AD admins. Make sure to choose a user created either natively in the Azure AD, or federated into the Azure AD.
 > * Azure AD admin sign in doesn't work with accounts that have 2-factor authentication enabled.
 
-#### Set an Active Directory admin for the database server
+#### Set an Active Directory admin for the server
 
 1. In the Azure portal, select your SQL server.
 

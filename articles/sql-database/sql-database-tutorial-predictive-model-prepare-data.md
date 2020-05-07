@@ -75,7 +75,7 @@ Create a new RScript file in RStudio and run the following script. Replace **Ser
 ```r
 #Define the connection string to connect to the TutorialDB database
 connStr <- paste("Driver=SQL Server",
-               "; Server=", "<Azure SQL Database Server>",
+               "; Server=", "<Logical SQL server>",
                "; Database=TutorialDB",
                "; UID=", "<user>",
                "; PWD=", "<password>",

@@ -101,7 +101,7 @@ You can now add these as distinct firewall rules and then set **Allow Azure serv
 
 ## IP firewall rules
 
-IP based firewall is a feature of the server that prevents all access to your database server until you explicitly [add IP addresses](sql-database-server-level-firewall-rule.md) of the client machines.
+IP based firewall is a feature of the server that prevents all access to your server until you explicitly [add IP addresses](sql-database-server-level-firewall-rule.md) of the client machines.
 
 ## Virtual Network firewall rules
 
