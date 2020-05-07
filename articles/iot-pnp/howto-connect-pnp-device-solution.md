@@ -144,7 +144,7 @@ In this article, you use a sample IoT solution written in Node.js to interact wi
     acknowledgement succeeded.
     ```
 
-### Creating digital twin routes
+## Create a digital twin route
 
 Your solution can receive notifications of digital twin change events. To subscribe to these notifications, use the [IoT Hub routing feature](../iot-hub/iot-hub-devguide-endpoints.md) to send the notifications to an endpoint such as blob storage, EventGrid, Event Hubs, or a Service Bus queue.
 
@@ -156,6 +156,43 @@ To create a digital twin route:
 1. Enter a value in the **Name** field and choose an **Endpoint**. If you haven't configured an endpoint, select **Add endpoint**.
 1. In the **Data source** drop-down, select **Digital Twin Change Events**.
 1. Select **Save**.
+
+The following JSON shows an example of a digital twin change event:
+
+```json
+{
+  "EnqueuedTimeUtc": "2020-02-03T18:20:41.2870000Z",
+  "Properties": {
+    "hubName": "myiothub",
+    "deviceId": "mytestdevice",
+    "operationTimestamp": "2020-02-03T18:20:38.4735971Z",
+    "iothub-message-schema": "digitalTwinChangeNotification",
+    "opType": "updateTwin"
+  },
+  "SystemProperties": {
+    "correlationId": "8f5e6738aa6",
+    "connectionDeviceId": "mytestdevice",
+    "contentType": "application/json-patch+json",
+    "contentEncoding": "utf-8",
+    "userId": "bXVnc2h1YmNlbnQ=",
+    "enqueuedTime": "2020-02-03T18:20:41.2870000Z"
+  },
+  "Body": [
+    {
+      "op": "add",
+      "path": "/myComp",
+      "value": {
+        "$metadata": {
+          "prop1": {
+            "desiredVersion": 2,
+            "desiredValue": "hello device"
+          }
+        }
+      }
+    }
+  ]
+}
+```
 
 ## Next steps
 
