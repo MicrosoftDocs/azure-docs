@@ -33,7 +33,7 @@ In your Azure subscription, your account needs **Microsoft.Authorization/*/Write
 3. Select **My permissions**. Then, select **Click here to view complete access details for this subscription**.
 4. In **Role assignments** > **View**, and check the permissions.
 5. If your account doesn't have permissions, ask the subscription administrator to add you to [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) role, or the [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role.
- to 
+ 
 
 ## Start using the tool
 
