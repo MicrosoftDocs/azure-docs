@@ -88,8 +88,11 @@ There's no supported upgrade path from previous versions of HDInsight to HDInsig
 * HDInsight 4.0 doesn't support Apache Storm.
 * Hive View is no longer available in HDInsight 4.0.
 * Shell interpreter in Apache Zeppelin isn't supported in Spark and Interactive Query clusters.
-* You can't *disable* LLAP on a Spark-LLAP cluster. You can only turn off LLAP.
-* Azure Data Lake Storage Gen2 can't save Jupyter notebooks in a Spark cluster.
+* You can't *disable* LLAP on a Spark-LLAP cluster. You can only turn LLAP off.
+* Azure Data Lake Storage Gen2 can't save Juypter notebooks in a Spark cluster.
+* Apache pig runs on Tez by default, However you can change it to Mapreduce
+* Spark SQL Ranger integration for row and column security is depricated
+
 
 ## Next steps
 
