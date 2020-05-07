@@ -139,7 +139,7 @@ The `repo_token`, `action`, and `azure_static_web_apps_api_token` values are set
 
 ## Customizations
 
-There are few additional configuration settings available that are not generated in the workflow file by default.
+There are few additional configuration settings available that are not generated in the workflow file by default. The following customizations can be defined under a job's `with` section.
 
 ### Custom build commands
 
@@ -149,7 +149,7 @@ The deployment always calls `npm install` before any custom command.
 
 | Command            | Description |
 |---------------------|-------------|
-| `app_build_command` | Defines a custom command to run during deployment of the static content application.<br><br>For example, to configure a production build for an Angular application enter `ng build -prod`.  |
+| `app_build_command` | Defines a custom command to run during deployment of the static content application.<br><br>For example, to configure a production build for an Angular application enter `ng build -prod`. If left blank, the workflow tries to run the `build` or `build:Azure` commands.  |
 | `api_build_command` | Defines a custom command to run during deployment of the Azure Functions API application. |
 
 ### Route file location

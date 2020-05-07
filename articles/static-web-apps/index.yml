@@ -7,7 +7,7 @@ metadata:
   title: Azure Static Web Apps documentation
   description: Azure Static Web Apps allows you to build JavaScript web applications that automatically publish from changes made in GitHub.
   ms.topic: landing-page
-  ms.service: azure-functions
+  ms.service: static-web-apps
   author: craigshoemaker
   ms.author: cshoe
   ms.date: 04/09/2020
@@ -17,7 +17,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What are Static Web Apps?
+          - text: What are Azure Static Web Apps?
             url: overview.md
       # - linkListType: video
       #   links:

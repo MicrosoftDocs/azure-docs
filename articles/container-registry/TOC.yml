@@ -189,8 +189,6 @@
           href: container-registry-tasks-authentication-key-vault.md
       - name: Quick task run with Resource Manager template 
         href: container-registry-task-run-template.md
-      - name: Run task on dedicated agent pool (preview)
-        href: container-registry-tasks-agent-pools.md
       - name: Build image with Buildpacks (preview)
         href: container-registry-tasks-pack-build.md
       - name: View task logs

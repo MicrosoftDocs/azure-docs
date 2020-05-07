@@ -20,16 +20,7 @@ Azure Static Web Apps provides serverless API endpoints via [Azure Functions](..
 
 ## Configuration
 
-API endpoints are available to the web app through the _api_ route. While this route is fixed, you have control over the folder where you locate the associated Azure Functions app. You can change this location by editing the workflow YAML file located in your repository's _.github/workflows_ folder.
-
-Set the the following location's value to the desired folder location for the API app in your repository.
-
-```schema
-jobs
-└── steps
-  └── with
-    └── api_location
-```
+API endpoints are available to the web app through the _api_ route. While this route is fixed, you have control over the folder where you locate the associated Azure Functions app. You can change this location by [editing the workflow YAML file](github-actions-workflow.md#build-and-deploy) located in your repository's _.github/workflows_ folder.
 
 ## Constraints
 
@@ -38,6 +29,7 @@ Azure Static Web Apps provides an API through Azure Functions. The capabilities 
 - The API route prefix is must be _api_.
 - Triggers and bindings are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).
   - All other [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings) except for output bindings are restricted.
+- Logs are only available if you add [Application Insights](../azure-functions/functions-monitoring.md) to your Functions app.
 
 ## Next steps
 
