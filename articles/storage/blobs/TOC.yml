@@ -107,6 +107,9 @@
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
       href: storage-samples-blobs-cli.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ../common/policy-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Concepts
     items:
     - name: Storage accounts
@@ -651,6 +654,11 @@
       href: data-lake-storage-tutorial-extract-transform-load-hive.md
     - name: Insert data into Databricks Delta tables by using Event Grid
       href: data-lake-storage-events.md
+  - name: Samples
+    items:
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ../common/policy-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Concepts
     items:
     - name: Processing big data
