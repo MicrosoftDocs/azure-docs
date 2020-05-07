@@ -15,11 +15,16 @@ ms.reviewer: jrasnick
 
 The OPENROWSET(BULK...) function allows you to access files in Azure Storage. Within the SQL on-demand (preview) resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
 
-The OPENROWSET function can be referenced in the FROM clause of a query as if it were a table name OPENROWSET. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
+The `OPENROWSET` function can be referenced in the `FROM` clause of a query as if it were a table name `OPENROWSET`. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
 
 The `OPENROWSET` function can optionally contain `DATA_SOURCE` parameter.
-- `OPENROWSET` without `DATA_SOURCE` can be used for ad-hoc analysis of publicly available files placed on som Azure Storage URL address. SQL logins can also use `OPENROWSET` without `DATA_SOURCE` to access files using SAS key or Managed Identity of Synapse workspace defined in server-level credential.
-- `OPENROWSET` with `DATA_SOURCE` can be used to access storage accounts that enable access only to readers who have SAS token or some Azure AD identity. Learn more about storage access control in [this article](develop-storage-files-storage-access-control.md).
+- `OPENROWSET` without `DATA_SOURCE` can be used for ad-hoc analysis of files placed on some Azure Storage URL address.
+  - AAD logins can access files only if Azure storage allows the Azure AD user to access underlying files (for example, if the caller has Storage Reader permission on storage).
+  - SQL logins can also use `OPENROWSET` without `DATA_SOURCE` to access publicly available files, files protected using SAS key or Managed Identity of Synapse workspace.
+- `OPENROWSET` with `DATA_SOURCE` can be used to access storage accounts using a variety of authentication methods. This option enables you to access publicly available storage, or access storage using SAS key, Managed Identity of workspace, or Azure AD identity of caller (if caller is Azure AD principal). Learn more about storage access control in [this article](develop-storage-files-storage-access-control.md).
+
+> [!IMPORTANT]
+> `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Azure AD principal can access files only using their Azure AD identity and cannot access publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
 
 OPENROWSET is currently not supported in SQL pool.
 
@@ -64,7 +69,7 @@ You have two choices for input files that contain the target data for querying. 
 **'unstructured_data_path'**
 
 The unstructured_data_path that establishes a path to the data may have absolute or relative path:
-- Absolute path in the format '\<prefix>://\<storage_account_path>/\<storage_path>'. 
+- Absolute path in the format '\<prefix>://\<storage_account_path>/\<storage_path>' enables user to directly read the files.
 - Relative path in the format '<storage_path>' that must be used with `DATA_SOURCE` parameter and describes file pattern within <storage_account_path> location defined in `EXTERNAL DATA SOURCE`. 
 
  Below you'll find the relevant <storage account path> values that will link to your particular external data source. 
