@@ -44,11 +44,11 @@ Azure Cosmos DB database are visible under the tab **Linked** in the Azure Cosmo
 
 **OLTP only container**:
 
-![OLTP container](./media/quickstart-connect-synapse-link-cosmosdb/oltp-container.png)
+![OLTP container](../media/quickstart-connect-synapse-link-cosmosdb/oltp-container.png)
 
 **HTAP enabled container**:
 
-![HTAP container](./media/quickstart-connect-synapse-link-cosmosdb/htap-container.png)
+![HTAP container](../media/quickstart-connect-synapse-link-cosmosdb/htap-container.png)
 
 ## Quickly interact with code-generated actions
 
