@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/container-registry/container-registry-tasks-agent-pools.md",
+      "redirect_url": "/azure/container-registry/container-registry-tasks-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/openshift/tutorial-scale-cluster.md",
       "redirect_url": "articles/openshift/tutorial-connect-cluster.md",
       "redirect_document_id": false
