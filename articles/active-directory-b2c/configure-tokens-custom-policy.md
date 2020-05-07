@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -87,5 +87,5 @@ The following values are set in the previous example:
 ## Next steps
 
 - Learn more about [Azure AD B2C session](session-overview.md).
-- Learn how to [configure session behavior in custom policy](session-behavior-custom-policy.md).
+- Learn how to [configure session behavior in custom policies](session-behavior-custom-policy.md).
 - Reference: [JwtIssuer](jwt-issuer-technical-profile.md).

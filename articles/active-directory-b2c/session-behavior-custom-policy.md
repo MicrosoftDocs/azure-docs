@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -30,7 +30,7 @@ You can use the following properties to manage web application sessions:
 
 ## Configure the properties
 
-To change your session behavior and SSO configurations, you add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element.  The **UserJourneyBehaviors** element must immediately follow the **DefaultUserJourney**. The inside of your **UserJourneyBehavors** element should look like this example:
+To change your session behavior and SSO configurations, you add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element.  The **UserJourneyBehaviors** element must immediately follow the **DefaultUserJourney**. Your **UserJourneyBehavors** element should look like this example:
 
 ```XML
 <UserJourneyBehaviors>
@@ -47,18 +47,18 @@ To change your session behavior and SSO configurations, you add a **UserJourneyB
 When you redirect the user to the Azure AD B2C sign-out endpoint (for both OAuth2 and SAML protocols), Azure AD B2C clears the user's session from the browser.  To allow [Single sign-out](session-overview.md#single-sign-out), set the `LogoutUrl` of the application from the Azure portal:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Choose your Active B2C directory by clicking your account in the top right corner of the page.
-1. From the left hand navigation panel, choose **Azure AD B2C**, select **App registrations**, and then select your application.
+1. Choose your Azure AD B2C directory by clicking your account in the top right corner of the page.
+1. In the left menu, choose **Azure AD B2C**, select **App registrations**, and then select your application.
 1. Select **Settings**, select **Properties**, and then find the **Logout URL** text box. 
 
 ### Configure the token issuer 
 
-To support sing-sign out, the token issuer technical profiles, for both JWT and SAML must specify:
+To support single sign-out, the token issuer technical profiles for both JWT and SAML must specify:
 
-1. The protocol name, such as `<Protocol Name="OpenIdConnect" />`
-1. Reference to the session technical profile, such as `UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />`.
+- The protocol name, such as `<Protocol Name="OpenIdConnect" />`
+- The reference  to the session technical profile, such as `UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />`.
 
-The following example illustrates the JWT and SMAL token issuers with single sign-out:
+The following example illustrates the JWT and SAML token issuers with single sign-out:
 
 ```xml
 <ClaimsProvider>

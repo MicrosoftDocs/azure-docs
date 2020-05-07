@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -101,7 +101,7 @@ The sign-out clears the user's single sign-on state with Azure AD B2C, but it mi
 
 
 > [!NOTE]
-> This feature is limited to [custom policy](custom-policy-overview.md).
+> This feature is limited to [custom policies](custom-policy-overview.md).
 
 When you redirect the user to the Azure AD B2C sign-out endpoint (for both OAuth2 and SAML protocols), Azure AD B2C clears the user's session from the browser. However, the user might still be signed in to other applications that use Azure AD B2C for authentication. To enable those applications to sign the user out simultaneously, Azure AD B2C sends an HTTP GET request to the registered `LogoutUrl` of all the applications that the user is currently signed in to.
 
@@ -111,4 +111,4 @@ Applications must respond to this request by clearing any session that identifie
 ## Next steps
 
 - Learn how to [configure session behavior in user flow](session-behavior.md).
-- Learn how to [configure session behavior in custom policy](session-behavior-custom-policy.md).
+- Learn how to [configure session behavior in custom policies](session-behavior-custom-policy.md).
