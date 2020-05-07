@@ -31,7 +31,7 @@ We also have published updates to end of support date for major releases startin
 We are excited to announce the next release of Service Fabric. This release is loaded with key features and improvements. Some of the key features are highlighted below:
 ## Key Announcements
 - **General Availability** of [**Service Fabric Managed Identities for Service Fabric applications**](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity)
-- [**Support for Ubuntu 1804**](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster)
+- [**Support for Ubuntu 18.04**](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster)
  - [**Preview: VMSS Ephemeral OS disk support**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-azure-deployment-preparation#use-ephemeral-os-disks-for-virtual-machine-scale-sets)**: Ephemeral OS disks are storage created on the local virtual machine, and not saved to remote Azure Storage. They are recommended for all Service Fabric node types (Primary and Secondary), because compared to traditional persistent OS disks, ephemeral OS disks:
       -  Reduce read/write latency to OS disk
       -  Enable faster reset/re-image node management operations
