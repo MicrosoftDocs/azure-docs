@@ -133,16 +133,19 @@ Once the deployment is complete, click the **Go to resource** button
 
 :::image type="content" source="media/getting-started/resource-button.png" alt-text="Go to resource button":::
 
-## View website
+## View the website
 
 There are two aspects to deploying a static app. The first provisions the underlying Azure resources that make up your app. The second is a GitHub Actions workflow that builds and publishes your application.
 
-> [!NOTE]
-> You can ensure that the GitHub Actions workflow is complete by checking the status of your commits available at `https://github.com/<YOUR_GITHUB_USERNAME>/my-first-static-app/actions`.
+Before you can navigate to your new static site, the deployment build must first finish running.
 
-Once the provisioning and deployment is complete, you can click on the _URL_ link in the Azure portal _Overview_ window to launch your app in the browser.
+The Static Web Apps overview window displays a series of links that help you interact with your web app.
 
 :::image type="content" source="media/getting-started/overview-window.png" alt-text="Overview window":::
+
+1. Clicking on the banner that says, "Click here to check the status of your GitHub Actions runs" takes you to the GitHub Actions running against your repository. Once you verify the deployment job is complete, then you can navigate to your website via the generated URL.
+
+2. Once the provisioning and deployment is complete, you can click on the _URL_ link to open the website in new tab.
 
 ## Clean up resources
 
