@@ -100,6 +100,18 @@ With a GZRS storage account, you can continue to read and write data if an avail
 
 Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md). GZRS and RA-GZRS support block blobs, page blobs (except for VHD disks), files, tables, and queues. GZRS and RA-GZRS are available in all Azure regions.
 
+GZRS and RA-GZRS are supported in the following regions:
+
+- Asia Southeast
+- Europe North
+- Europe West
+- Japan East
+- UK South
+- US Central
+- US East
+- US East 2
+- US West 2
+
 For information on pricing, see pricing details for [Blobs](https://azure.microsoft.com/pricing/details/storage/blobs), [Files](https://azure.microsoft.com/pricing/details/storage/files/), [Queues](https://azure.microsoft.com/pricing/details/storage/queues/), and [Tables](https://azure.microsoft.com/pricing/details/storage/tables/).
 
 ## Read access to data in the secondary region
