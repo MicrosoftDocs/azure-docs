@@ -46,7 +46,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint
 
 **Guidance**: Use Azure Security Center and remediate network protection recommendations for the subnet your Azure SQL Database Server is deployed to.
 
-For Azure Virtual Machines (VM) that will be connecting to your Azure SQL Database Server instance, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into a Azure Storage Account for traffic auditing.
+For Azure Virtual Machines (VM) that will be connecting to your Azure SQL Database Server instance, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into an Azure Storage Account for traffic auditing.
 
 You may also send NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
@@ -96,7 +96,7 @@ https://docs.microsoft.com/azure/security-center/security-center-alerts-data-ser
 
 ### 1.5: Record network packets and flow logs
 
-**Guidance**: For Azure Virtual Machines (VMs) that will be connecting to your Azure SQL Database instance, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into a Azure Storage Account for traffic audit. If required for investigating anomalous activity, enable Network Watcher packet capture.
+**Guidance**: For Azure Virtual Machines (VMs) that will be connecting to your Azure SQL Database instance, enable network security group (NSG) flow logs for the NSGs protecting those VMs and send logs into an Azure Storage Account for traffic audit. If required for investigating anomalous activity, enable Network Watcher packet capture.
 
 How to Enable NSG Flow Logs:
 
@@ -301,7 +301,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ### 2.8: Centralize anti-malware logging
 
-**Guidance**: Not applicable; for Azure SQL Databawe, the anti-malware solution is managed by Microsoft on the underlying platform.
+**Guidance**: Not applicable; for Azure SQL Database, the anti-malware solution is managed by Microsoft on the underlying platform.
 
 **Azure Security Center monitoring**: Not applicable
 
