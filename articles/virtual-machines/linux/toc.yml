@@ -702,8 +702,6 @@
       href: disks-shared-enable.md
     - name: Upload a vhd to a disk - CLI
       href: disks-upload-vhd-to-managed-disk-cli.md
-    - name: Resize OS disk with a GPT partition
-      href: resize-os-disk-gpt-partition.md
     - name: Resize a disk
       href: expand-disks.md
     - name: Use Storage Explorer to manage disks
