@@ -1,17 +1,15 @@
 ---
-title: Use Key Vault to store and access Azure Cosmos DB keys
-description: Use Azure Key Vault to store and access Azure Cosmos DB connection string, keys, endpoints.
-author: markjbrown
-ms.author: mjbrown
+title: Migrate your application to use the Java V4 SDK in Azure Cosmos DB (com.azure.cosmos)
+description: Learn how to upgrade your existing Java application from using the older Azure Cosmos DB Java SDK to the newer Java SDK 4.0 (com.azure.cosmos package)for Core (SQL) API.
+author: anfeldma-ms
+ms.author: anfeldma
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 05/07/2020
 ms.reviewer: sngun
 ---
 
-# Migrate your application to use the Java V4 SDK (com.azure.cosmos)
+# Migrate your application to use the Java V4 SDK
 
 This article explains how to upgrade your existing Java application that is using older Azure Cosmos DB Java SDK to the newer Java SDK 4.0 for Core (SQL) API. The Java V4 SDK corresponds to the `com.azure.cosmos` package. You can use the instructions in this doc if you are migrating your application from any of the following SDKs: 
 
@@ -463,7 +461,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 ```
 ---
 
-### Item Time-To-Live(TTL)
+### Item level Time-To-Live(TTL)
 
 The following code snippet shows the differences in how to create time to live for an item using the 4.0 and 3.x.x Async APIs:
 
