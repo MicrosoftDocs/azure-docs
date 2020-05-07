@@ -18,11 +18,11 @@ Once cloud-init is installed into a generalized image, and then booted, it will 
 
 ## Cloud-init boot stages
 
-When provisioning with cloud-init, there are 5 stages of boot, which are shown in the logs, to help you focus.
+When provisioning with cloud-init, there are 5 stages of boot, which are shown in the logs.
 
-* [Generator Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#generator): The cloud-init systemd generator starts, and determines that cloud-init should be included in the boot goals, and if do, it enables cloud-init.
+* [Generator Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#generator): The cloud-init systemd generator starts, and determines that cloud-init should be included in the boot goals, and if so, it enables cloud-init.
 
-If you wish to disable cloud-init, you have the option here, for example by creating this file '/etc/cloud/cloud-init.disabled'
+If you wish to disable cloud-init, you have the option here. For example, create this file `/etc/cloud/cloud-init.disabled`.
 
 * [Cloud-init Local Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#local): Here cloud-init will look for the local "Azure" datasource, which will enable cloud-init to interface with Azure, and apply a networking configuration, including fallback.
 
@@ -59,7 +59,7 @@ In the directories below, you can run scripts, but placing them in the directori
 
 Configuring a VM to run on a platform, means cloud-init needs to apply multiple configurations.
 
-- User data (AKA customData), there are multiple formats documented [here](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). 
+- User data (`customData`), there are multiple formats documented [here](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). 
 - cloud data source - in [Azure](https://cloudinit.readthedocs.io/en/latest/topics/datasources/azure.html#azure) we mount a CD and connect to endpoints.
 - Image config (/etc/cloud)
 - Runtime config (/run/cloud-init), like `/etc/cloud/cloud.cfg`, `/etc/cloud/cloud.cfg.d/*.cfg`. See the details later in this section.
@@ -69,8 +69,8 @@ Configuring a VM to run on a platform, means cloud-init needs to apply multiple 
 
 `/etc/cloud/cloud.cfg` - is a global cloud-init configuration file which configures the following, and more:
 - Define default users to enable login and configure sudo access
-- Enable/Disable root login (ssh)
-- Enable Passwordless login
+- Enable and disable root login (ssh)
+- Enable passwordless login
 - Hostname configuration
 - Define modules that runs in various stages of cloud-init.
 
