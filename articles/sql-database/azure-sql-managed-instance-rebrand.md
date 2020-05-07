@@ -14,14 +14,14 @@ ms.date: 05/27/2020
 ---
 # What's changed with the Azure SQL Managed Instance rebrand?
 
-Instead of being treated as a deployment option of Azure SQL Database, [Azure SQL Managed Instance](sql-database-managed-instance.md) is being split off and rebranded as its own independent service within the [Azure SQL service family](what-is-azure-sql-iaas-vs-paas.md). 
+Instead of being treated as a deployment option of Azure SQL Database, [Azure SQL Managed Instance](sql-database-managed-instance.md) has been split off and rebranded as its own independent service within the [Azure SQL service family](what-is-azure-sql-iaas-vs-paas.md). 
 
-This article explains the rebrand, as well as what's different and what's the same with Azure SQL Managed Instance, previously known as `Azure SQL Database managed instance`. 
+This article explains the rebrand, as well as what's different and what's the same with Azure SQL Managed Instance, previously known as _Azure SQL Database_managed instance_. 
 
 
 ## Why?
 
-When Azure SQL Managed Instance was originally developed, it was seen as just a deployment variation option of Azure SQL Database - you could deploy a database in Azure SQL Database either as a single database, or to a managed instance. However, as the service matured, it became evident that treating it in as an option of Azure SQL Database not only detracts from effectively showcasing its functionality, but constantly grouping the two causes confusion across both products. 
+When Azure SQL Managed Instance was originally developed, it was seen as just a deployment variation option of Azure SQL Database - you could deploy a database in Azure SQL Database either as a single database, or to a managed instance. However, as the service matured, it became evident that treating it in as an option of Azure SQL Database not only detracts from effectively showcasing its functionality, but constantly grouping the two causes confusion for customers trying to use either service. 
 
 In the content, we would have to constantly differentiate between the different deployment options:
 Azure SQL Database single database
@@ -37,7 +37,9 @@ This change simplifies and streamlines the process when working with SQL in Azur
 
 ## What's changed? 
 
-Most of the associated changes with the Azure SQL Managed Instance rebrand are superficial, such as the name itself. Azure SQL Managed Instance has a new [service page](https://azure.microsoft.com/en-us/services/sql-managed-instance/), and a new [pricing page](https://azure.microsoft.com/en-us/pricing/details/sql-managed-instance) - though the billing structure hasn't changed. 
+Most of the associated changes with the Azure SQL Managed Instance rebrand are superficial, such as the name itself. Azure SQL Managed Instance has a new [service page????](https://azure.microsoft.com/services/sql-managed-instance/), and a new [pricing page???????](https://azure.microsoft.com/pricing/details/sql-managed-instance) - though the billing structure hasn't changed. 
+
+( the question marks are to indicate the links don't exist yet and serve to remind me to update these - pls ignore for now)
 
 
 This table provides a quick comparison for the change in terminology: 
@@ -68,20 +70,20 @@ Currently, when you deploy an Azure SQL Managed Instance, the billing statement 
 
 There are places in the Azure portal where the name is still inconsistent. 
 
-### Cost analysis 
+#### Cost analysis 
 
 When reviewing costs associated with Azure SQL Managed Instance on the **Cost Analysis** page, the service name is still `sql database`, even though the meter subcategories are managed instance specific. 
 
 ![Cost analysis blade](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
 
-### Support tickets
+#### Support tickets
 
 When you create a support ticket, the name of the service is still listed as `SQL Database Managed Instance`. 
 
 
 ![Support topic product](./media/quota-increase-request/select-quota-type.png)
 
-### Reservations
+#### Reservations
 
 [Reserved capacity](sql-database-reserved-capacity.md) for an Azure SQL Managed Instance is still listed under the  **SQL Database** product. 
 
