@@ -107,7 +107,6 @@ The following list outlines the key characteristics of the Business Critical ser
 
 Find more information about the difference between service tiers in [SQL Managed Instance resource limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
-
 ## Management operations
 
 Azure SQL Managed Instance provides management operations that you can use to automatically deploy new managed instances, update instance properties, and delete instances when no longer needed. This section provides information about management operations and their typical durations.
@@ -118,7 +117,7 @@ Subsequent operations on deployed managed instances might also have effects on i
 
 All management operations can be categorized as follows:
 
-- Instance deployment (new instance creation). 
+- Instance deployment (new instance creation).
 - Instance update (changing instance properties, such as vCores or reserved storage.
 - Instance deletion.
 
@@ -167,7 +166,6 @@ SQL Managed Instances are available during update operations but there is a shor
 > [!CAUTION]
 > Duration of a failover can vary significantly in case of long-running transactions that happen on the databases due to [prolonged recovery time](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Hence it's not recommended to scale compute or storage of the SQL Managed Instance or to change service tier at the same time with the long-running transactions (data import, data processing jobs, index rebuild, etc.). Database failover that will be performed at the end of the operation will cancel ongoing transactions and result in prolonged recovery time.
 
-
 [Accelerated database recovery](sql-database-accelerated-database-recovery.md) is not currently available for Azure SQL Managed Instance. Once enabled, this feature will significantly reduce variability of failover time, even in case of long-running transactions.
 
 ### Canceling management operations
@@ -187,9 +185,9 @@ Category  |Operation  |Cancelable  |Estimated cancel duration  |
 
 In order to cancel the management operation, go to the overview blade and click on notification box of ongoing operation. From the right side, a screen with ongoing operation will appear and there will be button for canceling operation. After first click, you will be asked to click again and confirm that you want to cancel the operation.
 
-[![](./media/sql-database-managed-instance/canceling-operation.png)](./media/sql-database-managed-instance/canceling-operation.png#lightbox)
+[![Cancel operation](./media/sql-database-managed-instance/canceling-operation.png)](./media/sql-database-managed-instance/canceling-operation.png#lightbox)
 
-After cancel request has been submitted and processed, you will get notification if cancel submission has been successful or not. 
+After cancel request has been submitted and processed, you will get notification if cancel submission has been successful or not.
 
 In case of cancel success, management operation will be canceled in couple of minutes resulting with a failure.
 
@@ -236,7 +234,7 @@ Migration of an encrypted database to a SQL Managed Instance is supported via th
 
 ## Azure Active Directory Integration
 
-SQL Managed Instance supports traditional SQL Server Database engine logins and logins integrated with Azure Active Directory (Azure AD). Azure AD server principals (logins) (**public preview**) are Azure cloud version of on-premises database logins that you are using in your on-premises environment. Azure AD server principals (logins) enable you to specify users and groups from your Azure Active Directory tenant as true instance-scoped principals, capable of performing any instance-level operation, including cross-database queries within the same managed instance.
+SQL Managed Instance supports traditional SQL Server database engine logins and logins integrated with Azure Active Directory (Azure AD). Azure AD server principals (logins) (**public preview**) are Azure cloud version of on-premises database logins that you are using in your on-premises environment. Azure AD server principals (logins) enable you to specify users and groups from your Azure Active Directory tenant as true instance-scoped principals, capable of performing any instance-level operation, including cross-database queries within the same managed instance.
 
 A new syntax is introduced to create Azure AD server principals (logins), **FROM EXTERNAL PROVIDER**. For more information on the syntax, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, and review the [Provision an Azure Active Directory administrator for your SQL Managed Instance](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance) article.
 
@@ -275,7 +273,7 @@ The migration approach leverages SQL backups to Azure Blob storage. Backups stor
 
 ### Data Migration Service
 
-The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure SQL Database (single databases, pooled databases in elastic pools, and instance databases in a managed instance) and SQL Server in Azure VM. See [How to migrate your on-premises database to SQL Managed Instance using DMS](https://aka.ms/migratetoMIusingDMS).
+The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure SQL Database, Azure SQL Managed Instance, and SQL Server in Azure VM. See [How to migrate your on-premises database to SQL Managed Instance using DMS](https://aka.ms/migratetoMIusingDMS).
 
 ## SQL features supported
 
@@ -289,9 +287,9 @@ The following diagram outlines surface area compatibility in SQL Managed Instanc
 
 ### Key differences on-premises and SQL Managed Instance
 
-SQL Managed Instance benefits from being always-up-to-date in the cloud, which means that some features in on-premises SQL Server may be either obsolete, retired, or have alternatives. There are specific cases when tools need to recognize that a particular feature works in a slightly different way or that the service is running in an environment you do not fully control. 
+SQL Managed Instance benefits from being always-up-to-date in the cloud, which means that some features in on-premises SQL Server may be either obsolete, retired, or have alternatives. There are specific cases when tools need to recognize that a particular feature works in a slightly different way or that the service is running in an environment you do not fully control.
 
-Some key differences: 
+Some key differences:
 
 - High-availability is built in and pre-configured using technology similar to [Always On availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - There are only automated backups and point in time restore. Customer can initiate `copy-only` backups that do not interfere with automatic backup chain.

@@ -50,8 +50,7 @@ Azure SQL Database and Azure SQL Managed Instance offer graph database capabilit
 - You can express pattern matching and multi-hop navigation queries easily.
 - You can express transitive closure and polymorphic queries easily.
 
-The graph relationships and graph query capabilities are integrated into Transact-SQL and receive the benefits of using SQL Server as the foundational database management system.
-[Graph processing](/sql/relational-databases/graphs/sql-graph-overview) is the core SQL Server Database Engine feature, so you can find more info about the Graph processing there.
+The [graph relationships and graph query capabilities](/sql/relational-databases/graphs/sql-graph-overview) are integrated into Transact-SQL and receive the benefits of using the SQL Server database engine as the foundational database management system.
 
 ### When to use a graph capability
 
@@ -74,7 +73,7 @@ Azure SQL Database and Azure SQL Managed Instance let you work with JSON data ea
 If you have JSON text, you can extract data from JSON or verify that JSON is properly formatted by using the built-in functions [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql), [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql), and [ISJSON](/sql/t-sql/functions/isjson-transact-sql). The [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql) function lets you update value inside JSON text. For more advanced querying and analysis, [OPENJSON](/sql/t-sql/functions/openjson-transact-sql) function can transform an array of JSON objects into a set of rows. Any SQL query can be executed on the returned result set. Finally, there is a [FOR JSON](/sql/relational-databases/json/format-query-results-as-json-with-for-json-sql-server) clause that lets you format data stored in your relational tables as JSON text.
 
 For more information, see [How to work with JSON data](sql-database-json-features.md).
-[JSON](/sql/relational-databases/json/json-data-sql-server) is core SQL Server Database Engine feature, so you can find more info about the JSON feature there.
+[JSON](/sql/relational-databases/json/json-data-sql-server) is a core SQL Server database engine feature.
 
 ### When to use a JSON capability
 
@@ -99,11 +98,11 @@ There area number of Spatial objects that can be used in Azure SQL Database and 
 
 Azure SQL Database and Azure SQL Managed Instance also provide specialized [Spatial indexes](/sql/relational-databases/spatial/spatial-indexes-overview) that can be used to improve performance of your spatial queries.
 
-[Spatial support](/sql/relational-databases/spatial/spatial-data-sql-server) is core SQL Server Database Engine feature, so you can find more info about the spatial feature there.
+[Spatial support](/sql/relational-databases/spatial/spatial-data-sql-server) is a core SQL Server database engine feature.
 
 ## XML features
 
-SQL Server provides a powerful platform for developing rich applications for semi-structured data management. Support for XML is integrated into all the components in SQL Server and includes the following:
+The SQL Server database engine provides a powerful platform for developing rich applications for semi-structured data management. Support for XML is integrated into all the components of the database engine and includes the following:
 
 - The xml data type. XML values can be stored natively in an xml data type column that can be typed according to a collection of XML schemas, or left untyped. You can index the XML column.
 - The ability to specify an XQuery query against XML data stored in columns and variables of the xml type. XQuery functionalities can be used in any Transact-SQL query that access any data model that you use in your database.
@@ -111,7 +110,7 @@ SQL Server provides a powerful platform for developing rich applications for sem
 - OPENROWSET that allows bulk loading of XML data.
 - Transform relational data to XML format.
 
-[XML](/sql/relational-databases/xml/xml-data-sql-server) is core SQL Server Database Engine feature, so you can find more info about the XML feature there.
+[XML](/sql/relational-databases/xml/xml-data-sql-server) is a core SQL Server database engine feature.
 
 ### When to use an XML capability
 
@@ -139,7 +138,7 @@ See [how BWin is using In-Memory OLTP to achieve unprecedented performance and s
 
 ## Next steps
 
-Multi-model capabilities in Azure SQL Database and Azure SQL Managed Instance are also the core SQL Server Database Engine features that are shared among Azure SQL Database, Azure SQL Managed Instance, and SQL Server. To learn more details about these features, visit the SQL Relational database documentation pages:
+Multi-model capabilities in Azure SQL Database and Azure SQL Managed Instance are also the core SQL Server database engine features that are shared among Azure SQL Database, Azure SQL Managed Instance, and SQL Server. To learn more details about these features, visit the SQL Relational database documentation pages:
 
 - [Graph processing](/sql/relational-databases/graphs/sql-graph-overview)
 - [JSON data](/sql/relational-databases/json/json-data-sql-server)
