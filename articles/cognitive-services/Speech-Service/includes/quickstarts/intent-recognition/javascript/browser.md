@@ -232,7 +232,8 @@ Insert this code below the model addition:
 ```
 
 ## Check your code
- [!code-html [SampleCode](index.html)]
+
+ [!code-html [SampleCode](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/index-intent-recognition.html)]
 
 ## Create the token source (optional)
 

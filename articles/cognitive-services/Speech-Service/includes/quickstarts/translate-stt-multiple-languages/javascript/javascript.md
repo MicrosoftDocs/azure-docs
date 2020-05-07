@@ -29,7 +29,7 @@ Create a new file in the folder, named `index.html` and open this file with a te
 
 1. Create the following HTML skeleton:
 
- [!code-html [SampleCode](index.html)]
+ [!code-html [SampleCode](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/index-multiple-langs.html)]
 
 ## Create the token source (optional)
 

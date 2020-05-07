@@ -199,7 +199,8 @@ recognizer.recognizeOnceAsync(
 ```
 
 ## Check your code
- [!code-html [SampleCode](index.html)]
+
+ [!code-html [SampleCode](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/index-from-file.html)]
 
 ## Create the token source (optional)
 
