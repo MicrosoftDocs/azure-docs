@@ -69,6 +69,7 @@
       "feedback_product_url": "https://feedback.azure.com/forums/34192--general-feedback",
       "breadcrumb_path": "/azure/bread/toc.json",
       "brand": "azure",
+      "uhfHeaderId": "azure",
       "searchScope": [
         "Azure"
       ],
@@ -130,16 +131,6 @@
       }
     },
     "fileMetadata": {
-      "uhfHeaderId": {
-        "articles/active-directory/**/*.md": "azure",
-        "articles/active-directory/**/*.yml": "azure",
-        "articles/active-directory-domain-services/**/*.md": "azure",
-        "articles/active-directory-domain-services/**/*.yml": "azure",
-        "articles/active-directory-b2c/**/*.md": "azure",
-        "articles/active-directory-b2c/**/*.yml": "azure",
-        "articles/storage/**/*.md": "azure",
-        "articles/storage/**/*.yml": "azure"
-      },
       "author": {
         "articles/advisor/*.md": "saket-ms",
         "articles/connectors/*.md": "ecfan",
@@ -343,7 +334,7 @@
         "articles/load-balancer/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77467",
         "articles/log-analytics/**/*.md": "https://feedback.azure.com/forums/267889-log-analytics",
         "articles/logic-apps/**/*.md": "https://feedback.azure.com/forums/287593-logic-apps",
-        "articles/machine-learning/service/*.md": "https://feedback.azure.com/forums/257792-machine-learning",
+        "articles/machine-learning/*.md": "https://feedback.azure.com/forums/257792-machine-learning",
         "articles/machine-learning/studio/*.md": "https://feedback.azure.com/forums/257792-machine-learning",
         "articles/machine-learning/team-data-science-process/*.md": "https://feedback.azure.com/forums/257792-machine-learning",
         "articles/machine-learning/data-science-virtual-machine/*.md": "https://feedback.azure.com/forums/910651-data-science-vms",
