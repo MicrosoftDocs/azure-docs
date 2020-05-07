@@ -6,7 +6,7 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 04/15/2020
+ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
@@ -17,6 +17,10 @@ The OPENROWSET(BULK...) function allows you to access files in Azure Storage. Wi
 
 The OPENROWSET function can be referenced in the FROM clause of a query as if it were a table name OPENROWSET. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
 
+The `OPENROWSET` function can optionally contain `DATA_SOURCE` parameter.
+- `OPENROWSET` without `DATA_SOURCE` can be used for ad-hoc analysis of publicly available files placed on som Azure Storage URL address. SQL logins can also use `OPENROWSET` without `DATA_SOURCE` to access files using SAS key or Managed Identity of Synapse workspace defined in server-level credential.
+- `OPENROWSET` with `DATA_SOURCE` can be used to access storage accounts that enable access only to readers who have SAS token or some Azure AD identity. Learn more about storage access control in [this article](develop-storage-files-storage-access-control.md).
+
 OPENROWSET is currently not supported in SQL pool.
 
 ## Syntax
@@ -24,7 +28,7 @@ OPENROWSET is currently not supported in SQL pool.
 ```syntaxsql
 --OPENROWSET syntax for reading Parquet files
 OPENROWSET  
-( { BULK 'unstructured_data_path' , 
+( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ]
     FORMAT='PARQUET' }  
 )  
 [WITH ( {'column_name' 'column_type' }) ]
@@ -32,7 +36,7 @@ OPENROWSET
 
 --OPENROWSET syntax for reading delimited text files
 OPENROWSET  
-( { BULK 'unstructured_data_path' , 
+( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ] 
     FORMAT = 'CSV'
     [ <bulk_options> ] }  
 )  
@@ -59,11 +63,11 @@ You have two choices for input files that contain the target data for querying. 
 
 **'unstructured_data_path'**
 
-The unstructured_data_path that establishes a path to the data is structured as follows:  
-'\<prefix>://\<storage_account_path>/\<storage_path>'
+The unstructured_data_path defined where are placed the files that shoudl be read by `OPENROESET` function. there are two types of data paths:  
+- Absolute path in the format '\<prefix>://\<storage_account_path>/\<storage_path>'. 
+- Relative path in the format '<storage_path>' that must be used with `DATA_SOURCE` parameter and describes file pattern within <storage_account_path> location defined in `EXTERNAL DATA SOURCE`. 
 
-
- Below you'll find the relevant storage account paths that will link to your particular external data source. 
+ Below you'll find the relevant <storage account path> values that will link to your particular external data source. 
 
 | External Data Source       | Prefix | Storage account path                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
