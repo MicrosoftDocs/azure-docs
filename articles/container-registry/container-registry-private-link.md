@@ -2,7 +2,7 @@
 title: Set up private link
 description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network
 ms.topic: article
-ms.date: 05/06/2020
+ms.date: 05/07/2020
 ---
 
 # Configure Azure Private Link for an Azure container registry 
@@ -49,16 +49,16 @@ If you don't have them already, you'll need the names of a virtual network and s
 When you create a VM, Azure by default creates a virtual network in the same resource group. The name of the virtual network is based on the name of the virtual machine. For example, if you name your virtual machine *myDockerVM*, the default virtual network name is *myDockerVMVNET*, with a subnet named *myDockerVMSubnet*. Set these values in environment variables by running the [az network vnet list][az-network-vnet-list] command:
 
 ```azurecli
-networkName=$(az network vnet list \
+NETWORK_NAME=$(az network vnet list \
   --resource-group $RESOURCE_GROUP \
   --query '[].{Name: name}' --output tsv)
 
-subnetName=$(az network vnet list \
+SUBNET_NAME=$(az network vnet list \
   --resource-group $RESOURCE_GROUP \
   --query '[].{Subnet: subnets[0].name}' --output tsv)
 
-echo networkName=$networkName
-echo subnetName=$subnetName
+echo NETWORK_NAME=$NETWORK_NAME
+echo SUBNET_NAME=$SUBNET_NAME
 ```
 
 ### Disable network policies in subnet
@@ -67,8 +67,8 @@ echo subnetName=$subnetName
 
 ```azurecli
 az network vnet subnet update \
- --name $subnetName \
- --vnet-name $networkName \
+ --name $SUBNET_NAME \
+ --vnet-name $NETWORK_NAME \
  --resource-group $RESOURCE_GROUP \
  --disable-private-endpoint-network-policies
 ```
@@ -94,7 +94,7 @@ az network private-dns link vnet create \
   --resource-group $RESOURCE_GROUP \
   --zone-name "privatelink.azurecr.io" \
   --name MyDNSLink \
-  --virtual-network $networkName \
+  --virtual-network $NETWORK_NAME \
   --registration-enabled false
 ```
 
@@ -103,7 +103,7 @@ az network private-dns link vnet create \
 In this section, create the registry's private endpoint in the virtual network. First, get the resource ID of your registry:
 
 ```azurecli
-registryID=$(az acr show --name $REGISTRY_NAME \
+REGISTRY_ID=$(az acr show --name $REGISTRY_NAME \
   --query 'id' --output tsv)
 ```
 
@@ -115,9 +115,9 @@ The following example creates the endpoint *myPrivateEndpoint* and service conne
 az network private-endpoint create \
     --name myPrivateEndpoint \
     --resource-group $RESOURCE_GROUP \
-    --vnet-name $networkName \
-    --subnet $subnetName \
-    --private-connection-resource-id $registryID \
+    --vnet-name $NETWORK_NAME \
+    --subnet $SUBNET_NAME \
+    --private-connection-resource-id $REGISTRY_ID \
     --group-ids registry \
     --connection-name myConnection
 ```
@@ -127,31 +127,38 @@ az network private-endpoint create \
 Run [az network private-endpoint show][az-network-private-endpoint-show] to query the endpoint for the network interface ID:
 
 ```azurecli
-networkInterfaceID=$(az network private-endpoint show \
+NETWORK_INTERFACE_ID=$(az network private-endpoint show \
   --name myPrivateEndpoint \
   --resource-group $RESOURCE_GROUP \
   --query 'networkInterfaces[0].id' \
   --output tsv)
 ```
 
-Associated with the network interface are two private IP addresses for the container registry: one for the registry itself, and one for the registry's data endpoint. Run the following [az resource show][az-resource-show] commands to get the private IP addresses for the container registry and the registry's data endpoint:
+Associated with the network interface in this example are two private IP addresses for the container registry: one for the registry itself, and one for the registry's data endpoint. The following [az resource show][az-resource-show] commands get the private IP addresses for the container registry and the registry's data endpoint:
 
 ```azurecli
-privateIP=$(az resource show \
-  --ids $networkInterfaceID \
-  --api-version 2019-04-01 --query 'properties.ipConfigurations[1].properties.privateIPAddress' \
+PRIVATE_IP=$(az resource show \
+  --ids $NETWORK_INTERFACE_ID \
+  --api-version 2019-04-01 \
+  --query 'properties.ipConfigurations[1].properties.privateIPAddress' \
   --output tsv)
 
-dataEndpointPrivateIP=$(az resource show \
-  --ids $networkInterfaceID \
+DATA_ENDPOINT_PRIVATE_IP=$(az resource show \
+  --ids $NETWORK_INTERFACE_ID \
   --api-version 2019-04-01 \
   --query 'properties.ipConfigurations[0].properties.privateIPAddress' \
   --output tsv)
 ```
 
+> [!NOTE]
+> If your registry is [geo-replicated](container-registry-geo-replication.md), query for the additional data endpoint for each registry replica.
+
 ### Create DNS records in the private zone
 
 The following commands create DNS records in the private zone for the registry endpoint and its data endpoint. For example, if you have a registry named *myregistry* in the *westeurope* region, the endpoint names are `myregistry.azurecr.io` and `myregistry.westeurope.data.azurecr.io`. 
+
+> [!NOTE]
+> If your registry is [geo-replicated](container-registry-geo-replication.md), create additonal DNS records for each replica's data endpoint IP.
 
 First run [az network private-dns record-set a create][az-network-private-dns-record-set-a-create] to create empty A record sets for the registry endpoint and data endpoint:
 
@@ -175,21 +182,17 @@ az network private-dns record-set a add-record \
   --record-set-name $REGISTRY_NAME \
   --zone-name privatelink.azurecr.io \
   --resource-group $RESOURCE_GROUP \
-  --ipv4-address $privateIP
+  --ipv4-address $PRIVATE_IP
 
 # Specify registry region in data endpoint name
 az network private-dns record-set a add-record \
   --record-set-name ${REGISTRY_NAME}.${REGISTRY_LOCATION}.data \
   --zone-name privatelink.azurecr.io \
   --resource-group $RESOURCE_GROUP \
-  --ipv4-address $dataEndpointPrivateIP
+  --ipv4-address $DATA_ENDPOINT_PRIVATE_IP
 ```
 
 The private link is now configured and ready for use.
-
-> [!IMPORTANT]
-> If you later add a registry [replica](container-registry-geo-replication.md), you currently need to manually add a DNS record for the replica's data endpoint. 
-
 
 ## Set up private link - portal
 
@@ -274,7 +277,7 @@ Your private link is now configured and ready for use.
 
 ## Disable public access
 
-For many scenarios, also configure the registry to disable access from public networks. This configuration prevents clients outside the virtual network from reaching the registry endpoints. To disable public access using the portal:
+For many scenarios, disable registry access from public networks. This configuration prevents clients outside the virtual network from reaching the registry endpoints. To disable public access using the portal:
 
 1. In the portal, navigate to your container registry and select **Settings > Networking**.
 1. On the **Public access** tab, in **Allow public access**, select **Disabled**. Then select **Save**.
@@ -340,7 +343,9 @@ When you set up a private endpoint connection using the steps in this article, t
 
 ## Add zone records for replicas
 
-As shown in this article, when you add a private endpoint connection to a registry, DNS records in the `privatelink.azurecr.io` zone are created for the registry and its data endpoints in all regions where the registry is [replicated](container-registry-geo-replication.md). If you later add a new replica, you need to manually add a new zone record for the data endpoint in that region. For example, if you create a replica of *myregistry* in the *northeurope* location, add a zone record for `myregistry.northeurope.data.azurecr.io`. For steps, see [Create DNS records in the private zone](#create-dns-records-in-the-private-zone) in this article.
+As shown in this article, when you add a private endpoint connection to a registry, DNS records in the `privatelink.azurecr.io` zone are created for the registry and its data endpoints in the regions where the registry is [replicated](container-registry-geo-replication.md). 
+
+If you later add a new replica, you need to manually add a new zone record for the data endpoint in that region. For example, if you create a replica of *myregistry* in the *northeurope* location, add a zone record for `myregistry.northeurope.data.azurecr.io`. For steps, see [Create DNS records in the private zone](#create-dns-records-in-the-private-zone) in this article.
 
 ## Clean up resources
 
