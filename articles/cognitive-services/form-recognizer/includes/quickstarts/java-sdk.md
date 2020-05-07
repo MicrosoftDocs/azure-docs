@@ -16,7 +16,7 @@ ms.author: pafarley
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
+* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
 * The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
 
@@ -65,7 +65,7 @@ import Azure.AI.FormRecognizer;
 import Azure.AI.FormRecognizer.Models;
 ```
 
-In the application's `main` method, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. You will define the methods later.
+In the application's `main` method, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you'll need to close and reopen the editor, IDE, or shell to access the variable. You'll define the methods later.
 
 
 ```java
@@ -73,9 +73,6 @@ public static void Main(string[] args)
 {
     String key = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
     String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
-    
-    TBD
-    
 }
 ```
 
@@ -112,14 +109,14 @@ Inside the `Main` method, add the following code. Here, you'll authenticate two 
 
 ```java
 FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder()
-        .credential(new AzureKeyCredential("{key}"))
-        .endpoint("{endpoint}")
-        .buildClient();
+    .credential(new AzureKeyCredential("{key}"))
+    .endpoint("{endpoint}")
+    .buildClient();
     
-    FormTrainingClient trainingClient = new FormRecognizerClientBuilder()
-        .credential(new AzureKeyCredential("{key}"))
-        .endpoint("{endpoint}")
-        .buildClient();
+FormTrainingClient trainingClient = new FormRecognizerClientBuilder()
+    .credential(new AzureKeyCredential("{key}"))
+    .endpoint("{endpoint}")
+    .buildClient();
 ```
 
 ### Call client-specific methods
@@ -137,7 +134,6 @@ You'll also need to add references to the URLs for your training and testing dat
 ```java
     string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
     string formUrl = "<SAS-URL-of-a-form-in-blob-storage>";
-
     string receiptUrl = "https://docs.microsoft.com/azure/cognitive-services/form-recognizer/media"
     + "/contoso-allinone.jpg";
 
@@ -443,7 +439,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Troubleshooting
 
-Form Recognizer clients raises `ErrorResponseException` exceptions. For example, if you try to provide an invalid file source URL an `ErrorResponseException` would be raised with an error indicating the failure cause. In the following code snippet, the error is handled gracefully by catching the exception and display the additional information about the error.
+From Recognizer clients raise `ErrorResponseException` exceptions. For example, if you try to provide an invalid file source URL an `ErrorResponseException` would be raised with an error indicating the failure cause. In the following code snippet, the error is handled gracefully by catching the exception and display the additional information about the error.
 
 ```java Snippet:FormRecognizerBadRequest
 try {
@@ -452,6 +448,9 @@ try {
     System.out.println(e.getMessage());
 }
 ```
+
+### Enable client logging
+Azure SDKs for Java offer a consistent logging story to help aid in troubleshooting application errors and speeding up their resolution. The logs produced will capture the flow of an application before reaching the terminal state to help locate the root issue. View the [logging wiki](https://github.com/Azure/azure-sdk-for-java/wiki/Logging-with-Azure-SDK) for guidance about enabling logging.
 
 ## Next steps
 
