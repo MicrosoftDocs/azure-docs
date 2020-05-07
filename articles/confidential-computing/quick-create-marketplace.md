@@ -16,7 +16,7 @@ Get started with Azure confidential computing by using the Azure Marketplace to 
 
 This tutorial is recommended if you want to quickly start deploying a confidential computing virtual machine. The VMs are run on specialty hardware and require specific configuration inputs to run as intended. The marketplace offering described in this quickstart makes it easier to deploy, by restricting user input.
 
-If you're interested in deploying a confidential compute virtual machine with more custom configuration, follow the [Azure portal Confidential Compute virtual machine deployment steps.](quick-create-portal.md).
+If you're interested in deploying a confidential compute virtual machine with more custom configuration, follow the [Azure portal Confidential Compute virtual machine deployment steps](quick-create-portal.md).
 
 ## Prerequisites
 
@@ -103,7 +103,6 @@ ssh azureadmin@40.55.55.555
 
 You can find the Public IP address of your VM in the Azure portal, under the Overview section of your virtual machine.
 
-[!div class="mx-imgBorder"]
 ![IP address in Azure portal](media/quick-create-portal/public-ip-virtual-machine.png)
 
 If you're running on Windows and don't have a BASH shell, install an SSH client, such as PuTTY.

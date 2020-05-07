@@ -42,7 +42,7 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 
 1. **What’s the difference between DCsv2-Series and DC-Series VMs?**
 
-   DC-Series VMs run on older 6-core Intel Processors with SGX. These have less total memory, less EPC (Enclave Page Cage) memory, and are available in less regions. These VMs are only available in US East and Europe West are available in two sizes: Standard_DC2s and Standard_DC4s. They will not go GA and can only be deployed in the [Confidential Compute DC-Series VM [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) Marketplace instance
+   DC-Series VMs run on older 6-core Intel Processors with Intel SGX. These have less total memory, less EPC (Enclave Page Cage) memory, and are available in less regions. These VMs are only available in US East and Europe West are available in two sizes: Standard_DC2s and Standard_DC4s. They will not go GA and can only be deployed in the [Confidential Compute DC-Series VM [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) Marketplace instance
 
 1. **Are DCsv2 virtual machines available globally?**
 

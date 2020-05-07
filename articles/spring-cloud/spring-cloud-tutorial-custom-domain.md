@@ -1,6 +1,6 @@
 ---
-title: "Tutorial - Use custom domain with Azure Spring Cloud"
-description: How to map an existing custom DNS name to Azure Spring Cloud
+title: "Tutorial - Map an existing custom domain to Azure Spring Cloud"
+description: How to map an existing custom Distributed Name Service (DNS) name to Azure Spring Cloud
 author: MikeDodaro
 ms.service: spring-cloud
 ms.topic: tutorial
@@ -8,8 +8,8 @@ ms.date: 03/19/2020
 ms.author: brendm
 
 ---
-# Map an existing custom DNS name to Azure Spring Cloud
-This tutorial maps a domain, such as www.contoso.com, using a CNAME record. It secures the custom domain with a certificate and shows how to enforce Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL). 
+# Map an existing custom domain to Azure Spring Cloud
+Distributed Name Service (DNS) is a technique for storing network node names throughout a network. This tutorial maps a domain, such as www.contoso.com, using a CNAME record. It secures the custom domain with a certificate and shows how to enforce Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL). 
 
 Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Azure Key Vault. 
 

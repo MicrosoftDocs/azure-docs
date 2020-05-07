@@ -238,4 +238,4 @@ To enable DDoS protection for a virtual network, your account must also be assig
 
 ## Next steps
 
-- Create and apply [Azure policy](policy-samples.md) for virtual networks
+- Create and assign [Azure Policy defintions](policy-samples.md) for virtual networks

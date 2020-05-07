@@ -48,7 +48,7 @@ Flow logs are the source of truth for all network activity in your cloud environ
 - Logs are collected through the Azure platform and do not affect customer resources or network performance in any way.
 - Logs are written in the JSON format and show outbound and inbound flows on a per NSG rule basis.
 - Each log record contains the network interface (NIC) the flow applies to, 5-tuple information, the traffic decision & (Version 2 only) throughput information. See _Log Format_ below for full details.
-- Flow Logs have a retention feature that allows automatically deleting the logs up to a year after their creation
+- Flow Logs have a retention feature that allows automatically deleting the logs up to a year after their creation. **NOTE**: Retention is available only if you use [General purpose v2 Storage accounts (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
 
 **Core concepts**
 
@@ -364,13 +364,13 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 ## Troubleshooting common issues
 
-### **I could not enable NSG Flow Logs**
+**I could not enable NSG Flow Logs**
 
 - **Microsoft.Insights** resource provider is not registered
 
 If you received an _AuthorizationFailed_ or a _GatewayAuthenticationFailed_ error, you might have not enabled the Microsoft Insights resource provider on your subscription. [Follow the instructions](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#register-insights-provider) to enable the Microsoft Insights provider.
 
-### **I have enabled NSG Flow Logs but do not see data in my storage account**
+**I have enabled NSG Flow Logs but do not see data in my storage account**
 
 - **Setup time**
 
@@ -380,21 +380,21 @@ NSG Flow Logs may take up to 5 minutes to appear in your storage account (if con
 
 Sometimes you will not see logs because your VMs are not active or there are upstream filters at an App Gateway or other devices that are blocking traffic to your NSGs.
 
-### **I want to automate NSG Flow Logs**
+**I want to automate NSG Flow Logs**
 
 Support for automation via ARM templates is currently not available for NSG Flow Logs. Read the [feature announcement](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) for more information.
 
 ## FAQ
 
-### **What does NSG Flow Logs do?**
+**What does NSG Flow Logs do?**
 
 Azure network resources can be combined and managed through [Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/security-overview). NSG Flow Logs enable you to log 5-tuple flow information about all traffic through your NSGs. The raw flow logs are written to an Azure Storage account from where they can be further processed, analyzed, queried, or exported as needed.
 
-### **Does using Flow Logs impact my network latency or performance?**
+**Does using Flow Logs impact my network latency or performance?**
 
 Flow logs data is collected outside of the path of your network traffic, and therefore does not affect network throughput or latency. You can create or delete flow logs without any risk of impact to network performance.
 
-### **How do I use NSG Flow Logs with a Storage account behind a firewall?**
+**How do I use NSG Flow Logs with a Storage account behind a firewall?**
 
 To use a Storage account behind a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
 
@@ -406,11 +406,11 @@ To use a Storage account behind a firewall, you have to provide an exception for
 
 You can check the storage logs after a few minutes, you should see an updated TimeStamp or a new JSON file created.
 
-### **How do I use NSG Flow Logs with a Storage account behind a Service Endpoint?**
+**How do I use NSG Flow Logs with a Storage account behind a Service Endpoint?**
 
 NSG Flow Logs are compatible with Service Endpoints without requiring any extra configuration. See the [tutorial on enabling Service Endpoints](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) in your virtual network.
 
-### **What is the difference between flow logs versions 1 & 2?**
+**What is the difference between flow logs versions 1 & 2?**
 
 Flow Logs version 2 introduces the concept of _Flow State_ & stores information about bytes and packets transmitted. [Read more](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)
 
