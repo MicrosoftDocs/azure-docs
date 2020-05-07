@@ -52,7 +52,7 @@ Run the following commands to clone the sample repository.
 3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
 
     ```bash
-    git clone https://github.com/abhirockzz/monogdb-go-quickstart
+    git clone https://github.com/Azure-Samples/cosmosdb-go-mongodb-quickstart
     ```
 
 ## Review the code
@@ -68,7 +68,7 @@ This step is optional. If you're interested in learning how the application work
 
 The following snippets are all taken from the `todo.go` file.
 
-### Connecting the Go app to Cosmos DB
+### Connecting the Go app to Azure Cosmos DB
 
 [`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions) encapsulates the connection string for Azure Cosmos DB, which is passed in using an environment variable (details in the upcoming section). The connection is initialized using [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) to which the `clientOptions` instance is passed. [`Ping` function](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) is invoked to confirm successful connectivity (it is a fail-fast strategy)
 
@@ -94,7 +94,7 @@ The following snippets are all taken from the `todo.go` file.
 > Using the [`SetDirect(true)`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions.SetDirect) configuration is important, without which you will get the following connectivity error: `unable to connect connection(cdb-ms-prod-<azure-region>-cm1.documents.azure.com:10255[-4]) connection is closed`
 >
 
-### Create a `todo`
+### Create a `todo` item
 
 To create a `todo`, we get a handle to a [`mongo.Collection`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection) and invoke the [`InsertOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.InsertOne) function. 
 
@@ -120,7 +120,7 @@ type Todo struct {
     Status      string             `bson:"status"`
 }
 ```
-### List `todo`s
+### List `todo` items
 
 We can list TODOs based on criteria. A [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) is created to encapsulate the filter criteria
 
@@ -174,7 +174,7 @@ Finally, the information is rendered in tabular format
     table.Render()
 ```
 
-### Update a `todo`
+### Update a `todo` item
 
 A `todo` can be updated based on its `_id`. A [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) filter is created based on the `_id` and another one is created for the updated information, which is a new status (`completed` or `pending`) in this case. Finally, the [`UpdateOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.UpdateOne) function is invoked with the filter and the updated document
 
@@ -417,7 +417,7 @@ To view, query, and work with the user data created in the previous step, login 
 
 In the top Search box, enter **Azure Cosmos DB**. When your Cosmos account blade opens, select your Cosmos account. In the left navigation, select **Data Explorer**. Expand your collection in the Collections pane, and then you can view the documents in the collection, query the data, and even create and run stored procedures, triggers, and UDFs. 
 
-![Data Explorer showing the newly created document](./media/create-mongodb-go/go-cosmos-db-data-explorer.png)
+![Data Explorer showing the newly created document](./media/create-mongodb-go/go-cosmos-db-data-explorer.jpg)
 
 
 Delete a `todo` using it's ID
