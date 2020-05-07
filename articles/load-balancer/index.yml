@@ -67,7 +67,8 @@ landingContent:
             url: load-balancer-ipv6-internet-ps.md
           - text: Configure the distribution mode
             url: load-balancer-distribution-mode.md
-
+          - text: Upgrade from Basic to Standard
+            url: upgrade-basic-standard.md
   # Card
   - title: Deploy
     linkLists:
