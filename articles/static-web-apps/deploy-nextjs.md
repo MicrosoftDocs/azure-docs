@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Deploy server-rendered Next.js websites on Azure Static Web Apps"
 description: "Generate and deploy Next.js dynamic sites with Azure Static Web Apps."
-services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
+services: static-web-apps
 author: christiannwamba
 ms.service: static-web-apps
 ms.topic:  tutorial
