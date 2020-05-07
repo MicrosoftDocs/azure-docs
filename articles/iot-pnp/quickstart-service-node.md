@@ -44,11 +44,11 @@ In this quickstart, you use a sample environmental sensor that's written in Node
 
 1. Open a terminal window in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository into this location:
 
-```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-node  -b public-preview-pnp
-```
+    ```cmd/sh
+    git clone https://github.com/Azure/azure-iot-sdk-node  -b public-preview-pnp
+    ```
 
-This operation may take several minutes to complete.
+    This operation may take several minutes to complete.
 
 1. This terminal window is used as your _device_ terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-sdk-node/digitaltwins/samples/device/javascript** folder. Install all the dependencies by running the following command:
 
