@@ -40,7 +40,7 @@ SQL Edge is available with three different editions or software plans. These edi
 Azure SQL Database is currently in preview. For more information on the pricing and availability, see [Azure SQL Edge](https://azure.microsoft.com/services/azure-sql-edge/).
 
 > [!IMPORTANT]
-> To understand the feature differences between Azure SQL Edge and SQL Server, as well as the differences among different Azure SQL Edge options, see [SQL Edge Database features](features.md).
+> To understand the feature differences between Azure SQL Edge and SQL Server, as well as the differences among different Azure SQL Edge options, see [Supported features of Azure SQL Edge](features.md).
 
 ## Streaming Capabilities  
 

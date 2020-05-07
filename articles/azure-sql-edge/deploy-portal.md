@@ -19,7 +19,6 @@ Azure SQL Edge Preview is a relational database engine optimized for IoT and Azu
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 * Sign in to the [Azure portal](https://portal.azure.com/).
-* Submit a request [here](https://azure.microsoft.com/services/azure-sql-edge/#contact), to have the subscription enabled for deployment of SQL Edge.
 * Create an [Azure IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * Register an [IoT Edge Device from the Azure portal](../iot-edge/how-to-register-device-portal.md).
 * Prepare the IoT Edge device to [deploy IoT Edge module from the Azure portal](../iot-edge/how-to-deploy-modules-portal.md).
