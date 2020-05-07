@@ -44,7 +44,7 @@ operates.
 The frequency that Azure Monitor Storage accesses Key Vault for wrap and
 unwrap operations is between 6 to 60 seconds. Azure Monitor Storage always respects changes in key permissions within an hour.
 
-Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless CMK configuration, but your control over SSD data adheres to a [key revocation](#cmk-kek-revocation) and is inaccessible.
+Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless CMK configuration, but your control over SSD data adheres to a [key revocation](#cmk-kek-revocation) and is inaccessible. We are working to have the SSD data encrypted with CMK in the second half of 2020.
 
 ## How CMK works in Azure Monitor
 
