@@ -22,7 +22,7 @@ This document introduces you to the developer experience for the [elastic databa
 
 * A Java Developer Kit (JDK), version 1.8 or later
 * [Maven](https://maven.apache.org/download.cgi)
-* A SQL Database server in Azure or a local SQL Server instance
+* SQL Database or a local SQL Server instance
 
 ### Download and run the sample app
 

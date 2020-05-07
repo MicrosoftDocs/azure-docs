@@ -296,9 +296,9 @@ The job definition describes where to find the workflow.xml. It also describes w
     |---|---|
     |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Value received from step 1.|
     |admin| Your login name for the HDInsight cluster if not admin.|
-    |serverName| Azure SQL database server name.|
-    |sqlLogin| Azure SQL database server login.|
-    |sqlPassword| Azure SQL database server login password.|
+    |serverName| Azure SQL Database server name.|
+    |sqlLogin| Azure SQL Database server login.|
+    |sqlPassword| Azure SQL Database server login password.|
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>

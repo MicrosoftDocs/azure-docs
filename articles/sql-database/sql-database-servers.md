@@ -1,7 +1,7 @@
 ---
 title: What is a server in Azure SQL Database and Azure Synapse? 
 titleSuffix: ""
-description: Learn about logical servers used by Azure SQL Database and Azure Synapse, and how to manage them. 
+description: Learn about logical SQL servers used by Azure SQL Database and Azure Synapse, and how to manage them. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database

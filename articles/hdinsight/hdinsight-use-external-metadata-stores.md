@@ -33,7 +33,7 @@ By default, HDInsight creates a metastore with every cluster type. You can inste
 
 * You can't share the default metastore with other clusters.
 
-* The default metastore uses the basic Azure SQL DB, which has a five DTU (database transaction unit) limit.
+* The default metastore uses the basic Azure SQL Database, which has a five DTU (database transaction unit) limit.
 This default metastore is typically used for relatively simple workloads. Workloads that don't require multiple clusters and don't need metadata preserved beyond the cluster's lifecycle.
 
 ## Custom metastore
@@ -46,7 +46,7 @@ HDInsight also supports custom metastores, which are recommended for production 
 
 * A custom metastore lets you attach multiple clusters and cluster types to that metastore. For example, a single metastore can be shared across Interactive Query, Hive, and Spark clusters in HDInsight.
 
-* You pay for the cost of a metastore (Azure SQL DB) according to the performance level you choose.
+* You pay for the cost of a metastore (Azure SQL Database) according to the performance level you choose.
 
 * You can scale up the metastore as needed.
 
@@ -56,9 +56,9 @@ HDInsight also supports custom metastores, which are recommended for production 
 
 ### Create and config Azure SQL Database for the custom metastore
 
-Create or have an existing Azure SQL Database before setting up a custom Hive metastore for a HDInsight cluster.  For more information, see [Quickstart: Create a single database in Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
+Create or have an existing Azure SQL Database before setting up a custom Hive metastore for a HDInsight cluster.  For more information, see [Quickstart: Create a single database in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
-While creating the cluster, HDInsight service needs to connect to the external metastore and verify your credentials. Configure Azure SQL Database firewall rules to allow Azure services and resources to access the server. Enable this option in the Azure portal by selecting **Set server firewall**. Then select **No** underneath **Deny public network access**, and **Yes** underneath **Allow Azure services and resources to access this server** for the Azure SQL Database server or database. For more information, see [Create and manage IP firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+While creating the cluster, HDInsight service needs to connect to the external metastore and verify your credentials. Configure Azure SQL Database firewall rules to allow Azure services and resources to access the server. Enable this option in the Azure portal by selecting **Set server firewall**. Then select **No** underneath **Deny public network access**, and **Yes** underneath **Allow Azure services and resources to access this server** for Azure SQL Database. For more information, see [Create and manage IP firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
 ![set server firewall button](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 
