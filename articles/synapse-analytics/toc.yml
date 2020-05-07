@@ -413,9 +413,9 @@
     - name: Synapse Link
       items:
       - name: Connect to Synapse Link for Cosmos DB
-      href: how-to-connect-synapse-link-cosmos-db.md
+        href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
       - name: Query analytical store with Spark
-      href: how-to-query-analytical-store-spark.md
+        href: ./synapse-link/how-to-query-analytical-store-spark.md
     - name: Synapse SQL
       items:
       - name: Query data in storage
