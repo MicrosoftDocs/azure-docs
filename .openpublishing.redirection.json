@@ -4517,6 +4517,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-howto.md",
+      "redirect_url": "/azure/sql-database/sql-database-howto-single-database",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/extension-resource-types.md",
       "redirect_url": "/azure/azure-resource-manager/management/extension-resource-types",
       "redirect_document_id": false
