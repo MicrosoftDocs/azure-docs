@@ -150,8 +150,6 @@ spec:
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Exists
-      - key: azure.com/aci
-        effect: NoSchedule
 ```
 
 Run the application with the [kubectl apply][kubectl-apply] command.
