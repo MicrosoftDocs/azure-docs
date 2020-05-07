@@ -456,7 +456,7 @@
   - name: Overview
     items:
     - name: Overview
-      items: sql-database-technical-overview.md
+      href: sql-database-technical-overview.md
     - name: Single databases <- can cut? 
       href: sql-database-single-database.md
     - name: Elastic pools
