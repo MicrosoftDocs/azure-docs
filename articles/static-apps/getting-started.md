@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Building your first app with Azure Static Web Apps"
+title: "Quickstart: Building your first static web app with Azure Static Web Apps"
 description: Learn to build an Azure Static Web Apps instance with your preferred front-end framework.
 services: static-web-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-# Quickstart: Building your first static app
+# Quickstart: Building your first static web app
 
 Azure Static Web Apps publishes websites to a production environment by building apps from a GitHub repository. In this quickstart, you build a web application using your preferred front-end framework from a GitHub repository.
 
