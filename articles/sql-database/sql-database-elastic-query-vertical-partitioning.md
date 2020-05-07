@@ -76,6 +76,7 @@ CREATE EXTERNAL DATA SOURCE RemoteReferenceData
          DATABASE_NAME='ReferenceData',
          CREDENTIAL= SqlUser
       );
+```
 
 To retrieve the list of current external data sources:
 
