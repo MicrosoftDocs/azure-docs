@@ -163,7 +163,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 A functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file), along with subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
-Version 2.x requires you to select a default language for your project when it is initialized. In version 2.x, all functions added use default language templates. In version 1.x, you specify the language each time you create a function.
+Version 2.x/3.x requires you to select a default language for your project when it is initialized. All functions added use default language templates. In version 1.x, you specify the language each time you create a function.
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
@@ -172,7 +172,7 @@ func init MyFunctionProj
 ```
 
 When you provide a project name, a new folder with that name is created and initialized. Otherwise, the current folder is initialized.  
-In version 2.x, when you run the command you must choose a runtime for your project. 
+In version 2.x/3.x, when you run the command you must choose a runtime for your project. 
 
 <pre>
 Select a worker runtime:
@@ -195,7 +195,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 </pre>
 
-`func init` supports the following options, which are version 2.x-only, unless otherwise noted:
+`func init` supports the following options, which are version 2.x/3.x-only, unless otherwise noted:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
@@ -206,7 +206,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--force`** | Initialize the project even when there are existing files in the project. This setting overwrites existing files with the same name. Other files in the project folder aren't affected. |
 | **`--java`**  | Initializes a [Java project](functions-reference-java.md). |
 | **`--javascript`**<br/>**`--node`**  | Initializes a [JavaScript project](functions-reference-node.md). |
-| **`--no-source-control`**<br/>**`-n`** | Prevents the default creation of a Git repository in version 1.x. In version 2.x, the git repository isn't created by default. |
+| **`--no-source-control`**<br/>**`-n`** | Prevents the default creation of a Git repository in version 1.x. In version 2.x/3.x, the git repository isn't created by default. |
 | **`--powershell`**  | Initializes a [PowerShell project](functions-reference-powershell.md). |
 | **`--python`**  | Initializes a [Python project](functions-reference-python.md). |
 | **`--source-control`** | Controls whether a git repository is created. By default, a repository isn't created. When `true`, a repository is created. |
@@ -214,7 +214,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--worker-runtime`** | Sets the language runtime for the project. Supported values are: `csharp`, `dotnet`, `java`, `javascript`,`node` (JavaScript), `powershell`, `python`, and `typescript`. When not set, you're prompted to choose your runtime during initialization. |
 
 > [!IMPORTANT]
-> By default, version 2.x of the Core Tools creates function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you create and deploy functions.
+> By default, version 2.x and above of the Core Tools creates function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you create and deploy functions.
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
@@ -228,6 +228,8 @@ The function app settings values can also be read in your code as environment va
 * [C# script (.csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
+* [PowerShell](functions-reference-powershell.md#environment-variables)
+* [Python](functions-reference-python.md#environment-variables)
 
 When no valid storage connection string is set for [`AzureWebJobsStorage`] and the emulator isn't being used, the following error message is shown:
 
@@ -270,7 +272,7 @@ To create a function, run the following command:
 func new
 ```
 
-In version 2.x, when you run `func new` you are prompted to choose a template in the default language of your function app, then you are also prompted to choose a name for your function. In version 1.x, you are also prompted to choose the language.
+In version 2.x/3.x, when you run `func new` you are prompted to choose a template in the default language of your function app, then you are also prompted to choose a name for your function. In version 1.x, you are also prompted to choose the language.
 
 <pre>
 Select a language: Select a template:
@@ -300,8 +302,8 @@ You can also specify these options in the command using the following arguments:
 
 | Argument     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--csx`** | (Version 2.x) Generates the same C# script (.csx) templates used in version 1.x and in the portal. |
-| **`--language`**, **`-l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x, do not use this option or choose a language that matches the worker runtime. |
+| **`--csx`** | (Version 2.x and above) Generates the same C# script (.csx) templates used in version 1.x and in the portal. |
+| **`--language`**, **`-l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x and above, do not use this option or choose a language that matches the worker runtime. |
 | **`--name`**, **`-n`** | The function name. |
 | **`--template`**, **`-t`** | Use the `func templates list` command to see the complete list of available templates for each supported language.   |
 
@@ -501,17 +503,17 @@ func azure functionapp publish <FunctionAppName>
 This command publishes to an existing function app in Azure. You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). By default, this command uses [remote build](functions-deployment-technologies.md#remote-build) and deploys your app to [run from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the `--nozip` option.
 
 >[!IMPORTANT]
-> When you create a function app in the Azure portal, it uses version 2.x of the Function runtime by default. To make the function app use version 1.x of the runtime, follow the instructions in [Run on version 1.x](functions-versions.md#creating-1x-apps).
+> When you create a function app in the Azure portal, it uses version 3.x of the Function runtime by default. To make the function app use version 1.x of the runtime, follow the instructions in [Run on version 1.x](functions-versions.md#creating-1x-apps).
 > You can't change the runtime version for a function app that has existing functions.
 
-The following publish options apply for both versions, 1.x and 2.x:
+The following publish options apply for all versions:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you are using the Microsoft Azure Storage Emulator, first change the app setting to an [actual storage connection](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
 
-The following publish options are only supported in version 2.x:
+The following publish options are only supported in version 2.x and above:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
