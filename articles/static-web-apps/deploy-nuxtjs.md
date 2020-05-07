@@ -121,7 +121,7 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 1. In the *Region* drop-down, choose a region closest to you.
 1. Select **Free** from the SKU drop-down.
 
-:::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Create Static Web App":::
+   :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Create Static Web App":::
 
 ### Add a GitHub repository
 
@@ -132,7 +132,7 @@ The new Static Web Apps account needs access to the repository with your Nuxt.js
 1. Find and select the name of the repository you created earlier.
 1. Choose **master** as the branch from the *Branch* drop-down.
 
-  :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Connect GitHub":::
+   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Connect GitHub":::
 
 ### Configure the build process
 
@@ -179,34 +179,34 @@ If the page is a dynamic page, for example `_id.vue`, it won't have enough infor
 
 1. Update the _nuxt.config.js_ file so that Nuxt.js uses a list of all available data to generate static pages for each framework/library:
 
-  ```javascript
-    import { projects } from "./utils/projectsData";
+   ```javascript
+     import { projects } from "./utils/projectsData";
 
-    export default {
-      mode: "universal",
+     export default {
+       mode: "universal",
 
-      //...truncated
+       //...truncated
 
-      generate: {
-        async routes() {
-          const paths = [];
+       generate: {
+         async routes() {
+           const paths = [];
 
-          projects.forEach(project => {
-            paths.push(`/project/${project.slug}`);
-          });
+           projects.forEach(project => {
+             paths.push(`/project/${project.slug}`);
+           });
 
-          return paths;
-        }
-      }
-    };
-  ```
+           return paths;
+         }
+       }
+     };
+   ```
 
-  > [!NOTE]
-  > `routes` is an async function, so you can make a request to an API in this function and use the returned list to generate the paths.
+   > [!NOTE]
+   > `routes` is an async function, so you can make a request to an API in this function and use the returned list to generate the paths.
 
 2. Push the new changes to your GitHub repository and wait for a few minutes while GitHub Actions builds your site again. After the build is complete, the 404 error disappears.
 
-:::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="404 on dynamic routes fixed":::
+   :::image type="content" source="media/deploy-nuxtjs/404-in-production-fixed.png" alt-text="404 on dynamic routes fixed":::
 
 > [!div class="nextstepaction"]
 > [Set up a custom domain](custom-domain.md)
