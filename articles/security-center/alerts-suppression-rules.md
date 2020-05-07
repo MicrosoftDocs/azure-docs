@@ -12,11 +12,17 @@ ms.topic: conceptual
 
 # Suppressing alerts from Azure Security Center's threat protection
 
-## Introduction to suppression rules (preview)
+## Availability
+
+- Release state: **Preview**
+- Required roles: Security admin and owner can create/delete rules. Security reader and reader can view rules.
+
+
+## Introduction to suppression rules
 
 The threat protection components of Azure Security Center detect threats in any area of your environment and generate security alerts.
 
-When a single alert isn't interesting or relevant, you can manually dismiss it. Alternatively, use the suppression rules (preview) feature to automatically dismiss similar alerts in the future. Typically, you'd use a suppression rule to:
+When a single alert isn't interesting or relevant, you can manually dismiss it. Alternatively, use the suppression rules feature to automatically dismiss similar alerts in the future. Typically, you'd use a suppression rule to:
 
 - suppress alerts that you've identified as false positives
 
