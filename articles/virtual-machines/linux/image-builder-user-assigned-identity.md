@@ -91,7 +91,7 @@ az group create -n $strResourceGroup -l $location
 
 Create a user-assigned identity and set permissions on the resource group
 
-Image Builder will use the [user-identity]((https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity)) provided to inject the image into the resource group. In this example, you will create an Azure role definition that has the granular actions to perform distributing the image. The role definition will then be assigned to the user-identity.
+Image Builder will use the [user-identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) provided to inject the image into the resource group. In this example, you will create an Azure role definition that has the granular actions to perform distributing the image. The role definition will then be assigned to the user-identity.
 
 ```console
 # create user assigned identity for image builder to access the storage account where the script is located
