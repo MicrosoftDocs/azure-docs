@@ -35,7 +35,7 @@ SQL Server on Linux environment variables are NOT supported for Azure SQL Edge. 
 > The *MSSQL_PID* environment variable for SQL Edge only accepts **Premium** and **Developer** as the valid values. Azure SQL Edge does not support initialization using a product key.
 
 > [!NOTE]
-> Additionally, to download the Azure SQL Edge end user license agreement, refer [End-User Licensing Agreement](https://go.microsoft.com/fwlink/?linkid=2128283).
+> To download the Azure SQL Edge end user license agreement, refer [End-User Licensing Agreement](https://go.microsoft.com/fwlink/?linkid=2128283).
 
 ### Specifying the Environment Variables
 
