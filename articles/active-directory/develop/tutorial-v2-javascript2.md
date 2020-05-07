@@ -323,7 +323,7 @@ Create a new .js file named *authConfig.js* to contain your configuration parame
    - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
    - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
    - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**.
-- *\Enter_the_Redirect_Uri_Here>* is the port you registered in the portal (*`http://localhost:3000/`*)
+- *\<Enter_the_Redirect_Uri_Here>* is the port you registered in the portal (*`http://localhost:3000/`*)
 
 
 Create a new .js file named `graphConfig.js`, which will contain your configuration parameters calling Microsoft Graph API, and add the following code:
