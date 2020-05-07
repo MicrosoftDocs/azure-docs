@@ -53,6 +53,13 @@ After installing the Connected Machine agent for Windows, the following addition
     |himds |Azure Hybrid Instance Metadata Service |himds.exe |This service implements the Azure Instance Metadata service (IMDS) to track the machine.|
     |DscService |Guest Configuration Service |dsc_service.exe |This is the Desired State Configuration (DSC v2) codebase used inside Azure to implement In-Guest Policy.|
 
+* The following environmental variables are created during agent installation.
+
+    |Name |Default value |Description |
+    |-----|--------------|------------|
+    |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
+    |IMDS_ENDPOINT |http://localhost:40342 ||
+    
 * There are four log files available for troubleshooting. They are described in the following table.
 
     |Log |Description |
@@ -62,12 +69,7 @@ After installing the Connected Machine agent for Windows, the following addition
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |Records details of the DSC service activity,<br> in particular the connectivity between the himds service and Azure Policy.|
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Records details about DSC service telemetry and verbose logging.|
 
-* The following environmental variables are created during agent installation.
-
-    |Name |Default value |Description |
-    |-----|--------------|------------|
-    |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
-    |IMDS_ENDPOINT |http://localhost:40342 ||
+* The local security group **Hybrid agent extension applications** is created. 
 
 * During uninstall of the agent, the following artifacts are not removed.
 
