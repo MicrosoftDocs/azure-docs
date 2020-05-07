@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/15/2020
+ms.date: 05/07/2020
 ms.author: aahi
 ---
 
@@ -101,9 +101,11 @@ Set the HTTPS endpoint for sentiment analysis by using either a Text Analytics r
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment`
 
-To get opinion mining results, you must include the `TBD` parameter. For example:
+To get opinion mining results, you must include the `opinionMining=true` parameter. For example:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment?TBD`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/sentiment?opinionMining=true`
+
+This parameter is set to `false` by default. 
 
 ---
 
@@ -111,34 +113,19 @@ Set a request header to include your Text Analytics API key. In the request body
 
 ### Example Sentiment Analysis request 
 
-The following is an example of content you might submit for sentiment analysis. 
-
-#### [Version 3.0](#tab/version-3)
+The following is an example of content you might submit for sentiment analysis. The request format is the same for both versions.
     
 ```json
 {
-    "documents": [
+  "documents": [
     {
-        "language": "en",
-        "id": "1",
-        "text": "Hello world. This is some input text that I love."
-    },
-    {
-        "language": "en",
-        "id": "2",
-        "text": "It's incredibly sunny outside! I'm so happy."
+      "language": "en",
+      "id": "1",
+      "text": "The restaurant had great food and our waiter was friendly."
     }
-    ],
+  ]
 }
 ```
-
-#### [Version 3.1-preview](#tab/version-3-1)
-
-```json
-TBD
-```
-
----
 
 ### Post the request
 
@@ -233,11 +220,160 @@ Responses from Sentiment Analysis v3 contain sentiment labels and scores for eac
 
 ### Sentiment Analysis v3.1 example response
 
-> [!NOTE]
-> The following example response includes output for opinion mining.
+Sentiment Analysis v3.1 offers opinion mining. In the below response, the sentence *The restaurant had great food and our waiter was friendly* has two aspects: *food* and *waiter*. Each aspect's `relations` property contains a `ref` attribute with the location of the associated opinion. 
+
+
+|Aspect  |`relations` object or string | `opinion` object  |
+|---------|---------|---------|
+|Row1     |         |         |
+|Row2     |         |         |
+
+
+#/documents/0/sentences/0/opinions/0
+
+:::row:::
+   :::column span="":::
+      Aspect
+   :::column-end:::
+   :::column span="":::
+      `relations` object or string
+   :::column-end:::
+   :::column span="":::
+      `opinion` object
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column span="":::
+        Food
+    :::column-end:::
+    :::column span="":::
+        ```json
+        {
+            "sentiment": "positive",
+            "confidenceScores": {
+                "positive": 1.0,
+                "negative": 0.0
+            },
+            "offset": 25,
+            "length": 4,
+            "text": "food",
+            "relations": [
+                {
+                    "relationType": "opinion",
+                    "ref": "#/documents/0/sentences/0/opinions/0"
+                }
+            ]
+        },
+        ```
+    :::column-end:::
+    :::column span="":::
+        ```json
+        {
+            "sentiment": "positive",
+            "confidenceScores": {
+                "positive": 1.0,
+                "negative": 0.0
+            },
+            "offset": 19,
+            "length": 5,
+            "text": "great",
+            "isNegated": false
+        }
+        ```
+    :::column-end:::
+:::row-end:::
+
+The full JSON result is below. 
 
 ```json
-TBD
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "confidenceScores": {
+                "positive": 1.0,
+                "neutral": 0.0,
+                "negative": 0.0
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "confidenceScores": {
+                        "positive": 1.0,
+                        "neutral": 0.0,
+                        "negative": 0.0
+                    },
+                    "offset": 0,
+                    "length": 58,
+                    "text": "The restaurant had great food and our waiter was friendly.",
+                    "aspects": [
+                        {
+                            "sentiment": "positive",
+                            "confidenceScores": {
+                                "positive": 1.0,
+                                "negative": 0.0
+                            },
+                            "offset": 25,
+                            "length": 4,
+                            "text": "food",
+                            "relations": [
+                                {
+                                    "relationType": "opinion",
+                                    "ref": "#/documents/0/sentences/0/opinions/0"
+                                }
+                            ]
+                        },
+                        {
+                            "sentiment": "positive",
+                            "confidenceScores": {
+                                "positive": 1.0,
+                                "negative": 0.0
+                            },
+                            "offset": 38,
+                            "length": 6,
+                            "text": "waiter",
+                            "relations": [
+                                {
+                                    "relationType": "opinion",
+                                    "ref": "#/documents/0/sentences/0/opinions/1"
+                                }
+                            ]
+                        }
+                    ],
+                    "opinions": [
+                        {
+                            "sentiment": "positive",
+                            "confidenceScores": {
+                                "positive": 1.0,
+                                "negative": 0.0
+                            },
+                            "offset": 19,
+                            "length": 5,
+                            "text": "great",
+                            "isNegated": false
+                        },
+                        {
+                            "sentiment": "positive",
+                            "confidenceScores": {
+                                "positive": 1.0,
+                                "negative": 0.0
+                            },
+                            "offset": 49,
+                            "length": 8,
+                            "text": "friendly",
+                            "isNegated": false
+                        }
+                    ]
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2020-04-01"
+}
 ```
 
 ---
