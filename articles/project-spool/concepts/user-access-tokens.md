@@ -138,7 +138,7 @@ By default, the Azure Communication Services SDKs cache user access tokens in me
 Instead, you should initialize a `UserAccessTokenCredential` with a lambda that enables you to fetch user access tokens on demand using a caching strategy that suites your application architecture.
 
 ```csharp
-const tokenProvider = new UserAccessTokenCredential(async (cancelationToken) => {
+var tokenProvider = new UserAccessTokenCredential(async (cancelationToken) => {
     // try to fetch the access token from the application cache
     var token = await FetchTokenFromCache(userName);
     if (token) 
