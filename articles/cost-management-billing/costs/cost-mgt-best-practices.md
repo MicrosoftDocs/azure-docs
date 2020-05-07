@@ -3,7 +3,7 @@ title: Optimize your cloud investment with Azure Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
@@ -31,6 +31,10 @@ Three key groups, outlined below, must be aligned in your organization to make s
 ### Key principles
 
 Use the principles outlined below to position your organization for success in cloud cost management.
+
+To learn more, watch the [Cost Management setting up for success](https://www.youtube.com/watch?v=dVuwITdSAZ4) video. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/dVuwITdSAZ4]
 
 #### Planning
 
@@ -96,6 +100,12 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 - Options for up-front monetary commitments
 - Access to reduced Azure pricing
 
+#### [Azure in CSP](https://azure.microsoft.com/offers/ms-azr-0145p/)
+
+- CSP partners are the first point of contact for their customers’ needs and the center of the customer relationship
+- CSP partners provision new customers, order subscriptions, manage subscriptions, and perform admin tasks on behalf of their customers
+- CSP partners bundle services with unique solutions or resell Azure while controlling the pricing, terms and billing
+
 ## Estimate the cost of your solution
 
 Before you deploy any infrastructure, assess how much your solution will cost. The assessment will help you create a budget for your organization for the workload, up-front. Then you can use a budget over time to benchmark the validity of your initial estimation. And you can compare it with the actual cost of your deployed solution.
@@ -120,7 +130,7 @@ Keep informed about how your organization's costs evolve over time. Use the foll
 
 Organize your resources with cost in mind. As you create subscriptions and resource groups, think about the teams that are responsible for associated costs. Make sure your reporting keeps your organization in mind. Subscriptions and resource groups provide good buckets to organize and attribute spending across your organization. Tags provide a good way to attribute cost. You can use tags as a filter. And you can use them to group by when you analyze data and investigate costs. Enterprise Agreement customers can also create departments and place subscriptions under them. Cost-based organization in Azure helps keep the relevant people in your organization accountable for reducing their team's spending.
 
-Watch the video [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) to understand the tools available to you to enforce scalable resource tagging in your organization.
+Watch the video [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) to understand the tools available to you to enforce scalable resource tagging in your organization. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 

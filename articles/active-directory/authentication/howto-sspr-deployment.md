@@ -112,7 +112,7 @@ Before deploying SSPR, you may opt to determine the number and the average cost 
 
 Microsoft recommends that organizations enable the combined registration experience for SSPR and multi-factor authentication. When you enable this combined registration experience, users need only select their registration information once to enable both features.
 
-The combined registration experience does not require organizations to enable both SSPR and Azure Multi-Factor Authentication. Combined registration provides organizations a better user experience. For more information, see [Combined security information registration (preview)](concept-registration-mfa-sspr-combined.md)
+The combined registration experience does not require organizations to enable both SSPR and Azure Multi-Factor Authentication. Combined registration provides organizations a better user experience. For more information, see [Combined security information registration](concept-registration-mfa-sspr-combined.md)
 
 ## Plan the deployment project
 
@@ -340,7 +340,7 @@ Audit logs for registration and password reset are available for 30 days. If sec
 
 ## Next steps
 
-* To get started deploying SSPR, see [Enable Azure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr.md)
+* To get started deploying SSPR, see [Enable Azure AD self-service password reset](tutorial-enable-sspr.md)
 
 * [Consider implementing Azure AD password protection](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
 

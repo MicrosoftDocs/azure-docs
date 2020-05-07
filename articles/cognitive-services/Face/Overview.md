@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 #Customer intent: As the developer of an app that deals with images of humans, I want to learn what the Face service does so I can determine if I should use its features.
 ---
@@ -17,9 +17,9 @@ ms.author: pafarley
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-The Azure Cognitive Services Face service provides algorithms that are used to detect, recognize, and analyze human faces in images. The ability to process human face information is important in many different software scenarios. Example scenarios are security, natural user interface, image content analysis and management, mobile apps, and robotics.
+The Azure Cognitive Services Face service provides algorithms that detect, recognize, and analyze human faces in images. The ability to process human face information is important in many different software scenarios. Example scenarios include security, natural user interface, image content analysis and management, mobile apps, and robotics.
 
-The Face service provides several different functions. Each function is outlined in the following sections. Read on to learn more about them.
+The Face service provides several different functions which are each outlined in the following sections.
 
 ## Face detection
 
@@ -66,7 +66,7 @@ After you create and train a database, you can do identification against the gro
 
 For more information about person identification, see the [Face recognition](concepts/face-recognition.md) concepts guide or the [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) reference documentation.
 
-## Use containers
+## Containers
 
 [Use the Face container](face-how-to-install-containers.md) to detect, recognize, and identify faces by installing a standardized Docker container closer to your data.
 

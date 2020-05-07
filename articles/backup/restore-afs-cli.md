@@ -15,13 +15,16 @@ By the end of this article, you'll learn how to perform the following operations
 * Restore a full Azure file share.
 * Restore individual files or folders.
 
+>[!NOTE]
+> Azure Backup now supports restoring multiple files or folders to the original or an alternate location using Azure CLI. Refer to the [Restore multiple files or folders to original or alternate location](#restore-multiple-files-or-folders-to-original-or-alternate-location) section of this document to learn more.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Prerequisites
 
-This article assumes that you already have an Azure file share that's backed up by Azure Backup. If you don’t have one, see [Back up Azure file shares with the CLI](backup-afs-cli.md) to configure backup for your file share. For this article, you use the following resources:
+This article assumes that you already have an Azure file share that's backed up by Azure Backup. If you don't have one, see [Back up Azure file shares with the CLI](backup-afs-cli.md) to configure backup for your file share. For this article, you use the following resources:
 
 | File share  | Storage account | Region | Details                                                      |
 | ----------- | --------------- | ------ | ------------------------------------------------------------ |
@@ -37,7 +40,7 @@ Use the [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/back
 The following example fetches the list of recovery points for the *azurefiles* file share in the *afsaccount* storage account.
 
 ```azurecli-interactive
-az backup recoverypoint list --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --backup-management-type azurestorage --item-name “AzureFileShare;azurefiles” --workload-type azurefileshare --out table
+az backup recoverypoint list --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --backup-management-type azurestorage --item-name "AzureFileShare;azurefiles" --workload-type azurefileshare --out table
 ```
 
 You can also run the previous cmdlet by using the friendly name for the container and the item by providing the following two additional parameters:
@@ -77,7 +80,7 @@ When you restore to an original location, you don't need to specify target-relat
 The following example uses the [az backup restore restore-azurefileshare](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) cmdlet with restore mode set to *originallocation* to restore the *azurefiles* file share in the original location. You use the recovery point 932883129628959823, which you obtained in [Fetch recovery points for the Azure file share](#fetch-recovery-points-for-the-azure-file-share):
 
 ```azurecli-interactive
-az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932887541532871865   --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode originallocation --resolve-conflict overwrite --out table
+az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932887541532871865   --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation --resolve-conflict overwrite --out table
 ```
 
 ```output
@@ -97,10 +100,10 @@ You can use this option to restore a file share to an alternate location and kee
 * **--target-folder**: The folder under the file share to which data is restored. If the backed-up content is to be restored to a root folder, give the target folder values as an empty string.
 * **--resolve-conflict**: Instruction if there's a conflict with the restored data. Accepts **Overwrite** or **Skip**.
 
-The following example uses [az backup restore restore-azurefileshare](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) with restore mode as *alternatelocation* to restore the *azurefiles* file share in the *afsaccount* storage account to the *azurefiles1”* file share in the *afaccount1* storage account.
+The following example uses [az backup restore restore-azurefileshare](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) with restore mode as *alternatelocation* to restore the *azurefiles* file share in the *afsaccount* storage account to the *azurefiles1"* file share in the *afaccount1* storage account.
 
 ```azurecli-interactive
-az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932883129628959823 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --out table
+az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932883129628959823 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --out table
 ```
 
 ```output
@@ -133,7 +136,7 @@ Use the [az backup restore restore-azurefiles](https://docs.microsoft.com/cli/az
 The following example restores the *RestoreTest.txt* file in its original location: the *azurefiles* file share.
 
 ```azurecli-interactive
-az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode originallocation  --source-file-type file --source-file-path "Restore/RestoreTest.txt" --resolve-conflict overwrite  --out table
+az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore/RestoreTest.txt" --resolve-conflict overwrite  --out table
 ```
 
 ```output
@@ -155,7 +158,7 @@ To restore specific files or folders to an alternate location, use the [az backu
 The following example restores the *RestoreTest.txt* file originally present in the *azurefiles* file share to an alternate location: the *restoredata* folder in the *azurefiles1* file share hosted in the *afaccount1* storage account.
 
 ```azurecli-interactive
-az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --source-file-type file --source-file-path "Restore/RestoreTest.txt" --out table
+az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --source-file-type file --source-file-path "Restore/RestoreTest.txt" --out table
 ```
 
 ```output
@@ -165,6 +168,28 @@ df4d9024-0dcb-4edc-bf8c-0a3d18a25319  azurefiles
 ```
 
 The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your restore operation. To track the status of the job, use the [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+
+## Restore multiple files or folders to original or alternate location
+
+To perform restore for multiple items, pass the value for the **source-file-path** parameter as **space separated** paths of all files or folders you want to restore.
+
+The following example restores the *Restore.txt* and *AFS testing Report.docx* files in their original location.
+
+```azurecli-interactive
+az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932889937058317910 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore Test.txt" "AFS Testing Report.docx" --resolve-conflict overwrite  --out table
+```
+
+The output will be similar to the following:
+
+```output
+Name                                          ResourceGroup
+------------------------------------          ---------------
+649b0c14-4a94-4945-995a-19e2aace0305          azurefiles
+```
+
+The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your restore operation. To track the status of the job, use the [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+
+If you want to restore multiple items to an alternate location, use the command above by specifying target-related parameters as explained in the [Restore individual files or folders to an alternate location](#restore-individual-files-or-folders-to-an-alternate-location) section.
 
 ## Next steps
 

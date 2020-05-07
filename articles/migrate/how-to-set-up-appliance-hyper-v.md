@@ -8,12 +8,16 @@ ms.date: 03/23/2020
 
 # Set up an appliance for Hyper-V VMs
 
-This article describes how to set up the Azure Migrate appliance for assessment of Hyper-V VMs with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool.
+Follow this article to set up the Azure Migrate appliance for assessment of Hyper-V VMs with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool.
 
 The [Azure Migrate appliance](migrate-appliance.md)  is a lightweight appliance used by Azure Migrate:Server Assessment/Migration to discover on-premises Hyper-V VMs, and send VM metadata/performance data to Azure.
 
-You can set up the Azure Migrate appliance for Hyper-V VM assessment using a VHD template that you download, or using a PowerShell installation script. This article describes how to set up the appliance using the VHD template. If you want to set up the appliance using the script, follow the instructions in [this article](deploy-appliance-script.md).
+You can deploy the appliance using a couple of methods:
 
+- Set up on a Hyper-V VM using a downloaded VHD. This is the method described in this article.
+- Set up on a Hyper-V VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using a VHD, or if you're in Azure Government.
+
+After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
 ## Appliance deployment (VHD)
 
@@ -69,7 +73,7 @@ Import the downloaded file, and create the VM.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-appliance.md#url-access).
+Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
 ## Configure the appliance
 

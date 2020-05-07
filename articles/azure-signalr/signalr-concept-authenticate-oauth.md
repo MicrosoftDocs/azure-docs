@@ -539,8 +539,8 @@ The last thing you need to do is update the **Homepage URL** and **Authorization
 
     | Setting | Example |
     | ------- | ------- |
-    | Homepage URL | https://signalrtestwebapp22665120.azurewebsites.net/home |
-    | Authorization callback URL | https://signalrtestwebapp22665120.azurewebsites.net/signin-github |
+    | Homepage URL | `https://signalrtestwebapp22665120.azurewebsites.net/home` |
+    | Authorization callback URL | `https://signalrtestwebapp22665120.azurewebsites.net/signin-github` |
 
 3. Navigate to your web app URL and test the application.
 

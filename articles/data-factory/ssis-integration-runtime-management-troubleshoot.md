@@ -15,6 +15,8 @@ ms.date: 07/08/2019
 
 # Troubleshoot SSIS Integration Runtime management in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article provides troubleshooting guidance for management issues in Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR), also known as SSIS IR.
 
 ## Overview

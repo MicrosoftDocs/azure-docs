@@ -85,13 +85,19 @@ This article describes some items you should check to help you troubleshoot Azur
 
     If the request has any delivery errors, the request status will be **Undelivered** or **Partially delivered**.
 
-    If there are any delivery errors, in the request's detail pane, there will be a count of delivery errors.
+    If there are any delivery errors, a count of delivery errors will be displayed in the request's detail pane.
 
 1. Click the count to see all of the request's delivery errors.
 
 ### Reprocess a request
 
-If a request encounters an error, you can reprocess the request to try it again. You can only reprocess a request that has a status of **Delivery failed** or **Partially delivered** and a completed date of less than one week.
+If an error is met after triggering an access package reprocess request, you must wait while the system reprocesses the request. The system tries multiple times to reprocess for several hours, so you can't force reprocessing during this time. 
+
+You can only reprocess a request that has a status of **Delivery failed** or **Partially delivered** and a completed date of less than one week.
+
+- If the error is fixed during the trials window, the request status will change to **Delivering**. The request will reprocess without additional actions from the user.
+
+- If the error wasn't fixed during the trials window, the request status may be **Delivery failed** or **partially delivered**. You can then use the **reprocess** button. You'll have seven days to reprocess the request.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 

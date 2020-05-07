@@ -1,7 +1,7 @@
 ---
 title: Create a function app on Linux from the Azure portal 
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 02/28/2019
 #Customer intent: As a developer, learn how to use the Azure portal so that I can create a function app that runs on Linux in App Service plan so that I can have more control over how my functions are scaled.
 

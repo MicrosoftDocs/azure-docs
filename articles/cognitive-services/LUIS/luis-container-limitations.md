@@ -3,13 +3,13 @@ title: Container limitations - LUIS
 titleSuffix: Azure Cognitive Services
 description: The LUIS container languages that are supported.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Language Understanding (LUIS) container limitations
