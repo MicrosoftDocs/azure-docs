@@ -64,6 +64,49 @@ After installing the Connected Machine agent for Windows, the following addition
 
 * The following environmental variables are created during agent installation.
 
+    |Name |Default value |Description |
+    |-----|--------------|------------|
+    |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
+    |IMDS_ENDPOINT |http://localhost:40342 ||
+
+* During uninstall of the agent, the following artifacts are not removed.
+
+    * C:\Program Files\AzureConnectedMachineAgent\Logs
+    * %ProgramData%\AzureConnectedMachineAgent and subdirectories
+    * %ProgramData%\GuestConfig
+
+## Linux agent installation details
+
+The Connected Machine agent for Linux is provided in the preferred package format for the distribution (.RPM or .DEB) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/). The agent is installed and configured with the shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent). 
+
+After installing the Connected Machine agent for Linux, the following additional system-wide configuration changes are applied.
+
+* The following installation folders are created during setup.
+
+    |Folder |Description |
+    |-------|------------|
+    |/var/opt/azcmagent/ |Default installation path containing the agent support files.|
+    |/opt/azcmagent/ |
+    |/opt/DSC/ |
+
+* The following daemons are created on the target machine during installation of the agent.
+
+    |Service name |Display name |Process name |Description |
+    |-------------|-------------|-------------|------------|
+    |himdsd.service |Azure Hybrid Instance Metadata Service |/opt/azcmagent/bin/himds |This service implements the Azure Instance Metadata service (IMDS) to track the machine.|
+    |dscd.service |Guest Configuration Service |/opt/DSC/dsc_linux_service |This is the Desired State Configuration (DSC v2) codebase used inside Azure to implement In-Guest Policy.|
+
+* There are four log files available for troubleshooting. They are described in the following table.
+
+    |Log |Description |
+    |----|------------|
+    |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Records details of the agents (himds) service and interaction with Azure.|
+    |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contains the output of the azcmagent tool commands, when the verbose (-v) argument is used.|
+    |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |Records details of the DSC service activity,<br> in particular the connectivity between the himds service and Azure Policy.|
+    |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Records details about DSC service telemetry and verbose logging.|
+
+* The following environmental variables are created during agent installation.
+
 |Name |Default value |Description |
 |-----|--------------|------------|
 |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
@@ -74,10 +117,6 @@ After installing the Connected Machine agent for Windows, the following addition
     * C:\Program Files\AzureConnectedMachineAgent\Logs
     * %ProgramData%\AzureConnectedMachineAgent and subdirectories
     * %ProgramData%\GuestConfig
-
-## Linux agent installation details
-
-
 
 ## Prerequisites
 
