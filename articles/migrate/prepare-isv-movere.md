@@ -20,18 +20,18 @@ Your Azure user account needs these permissions:
 ### Set permissions to register an Azure AD app
 
 1. In Azure AD, check the role for your account.
-1. If you have the user role, select **User settings** on the left and verify whether users can register applications. If it's set to **Yes**, any users in the Azure AD tenant can register an app. If it's set to **No**, then only admin users can register apps.   
-1. If you don't have permissions, an admin user can provide your user account with the [Application Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-administrator) role, so that you can register the app.
-1. After the tool is linked to Azure Migrate, the admin can remove the role from your account.
+2. If you have the user role, select **User settings** on the left and verify whether users can register applications. If it's set to **Yes**, any users in the Azure AD tenant can register an app. If it's set to **No**, then only admin users can register apps.   
+3. If you don't have permissions, an admin user can provide your user account with the [Application Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-administrator) role, so that you can register the app.
+4. After the tool is linked to Azure Migrate, the admin can remove the role from your account.
 
 ### Set permissions to assign a role to an Azure AD app
  
 In your Azure subscription, your account needs **Microsoft.Authorization/*/Write** access to assign a role to an Azure AD app. 
 
 1. In the Azure portal, open **Subscriptions**.
-1. Select the relevant subscription. If you don't see it, select the **global subscriptions filter**. 
-1. Select **My permissions**. Then, select **Click here to view complete access details for this subscription**.
-1. In **Role assignments** > **View**, check the permissions.
+2. Select the relevant subscription. If you don't see it, select the **global subscriptions filter**. 
+3. Select **My permissions**. Then, select **Click here to view complete access details for this subscription**.
+4. In **Role assignments** > **View**, check the permissions.
    
    If your account doesn't have permissions, ask the subscription administrator to add you to [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role.
  
@@ -39,7 +39,7 @@ In your Azure subscription, your account needs **Microsoft.Authorization/*/Write
 ## Start using the tool
 
 1. If you don't yet have a license or free trial for the tool, in the tool entry in Azure Migrate, in **Register**, select **Learn more**.
-1. In the tool, follow the instructions to link from the tool to the Azure Migrate project, and to send data to Azure Migrate.
+2. In the tool, follow the instructions to link from the tool to the Azure Migrate project, and to send data to Azure Migrate.
 
 ## Next steps
 
