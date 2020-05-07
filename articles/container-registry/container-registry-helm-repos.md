@@ -5,11 +5,11 @@ ms.topic: article
 ms.date: 03/20/2020
 ---
 
-# Push and pull Helm charts to an Azure container registry
+# Push and pull Helm charts to an Azure Container Registry
 
 To quickly manage and deploy applications for Kubernetes, you can use the [open-source Helm package manager][helm]. With Helm, application packages are defined as [charts](https://helm.sh/docs/topics/charts/), which are collected and stored in a [Helm chart repository](https://helm.sh/docs/topics/chart_repository/).
 
-This article shows you how to host Helm charts repositories in an Azure container registry, using either a Helm 3 or Helm 2 installation. In many scenarios, you would build and upload your own charts for the applications you develop. For more information on how to build your own Helm charts, see the [Chart Template Developer's Guide][develop-helm-charts]. You can also store an existing Helm chart from another Helm repo.
+This article shows you how to host Helm charts repositories in an Azure Container Registry, using either a Helm 3 or Helm 2 installation. In many scenarios, you would build and upload your own charts for the applications you develop. For more information on how to build your own Helm charts, see the [Chart Template Developer's Guide][develop-helm-charts]. You can also store an existing Helm chart from another Helm repo.
 
 > [!IMPORTANT]
 > Support for Helm charts in Azure Container Registry is currently in preview. Previews are made available to you on the condition that you agree to the supplemental [terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -42,7 +42,7 @@ You can use either Helm 3 or Helm 2 to host Helm charts in Azure Container Regis
 
 With **Helm 3** you:
 
-* Can create one or more Helm repositories in an Azure container registry
+* Can create one or more Helm repositories in an Azure Container Registry
 * Store Helm 3 charts in a registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). Currently, Helm 3 support for OCI is *experimental*.
 * Authenticate with your registry using the `helm registry login` command.
 * Use `helm chart` commands in the Helm CLI to push, pull, and manage Helm charts in a registry
