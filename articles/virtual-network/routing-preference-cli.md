@@ -17,7 +17,7 @@ ms.author: mnayak
 ---
 # Create a public IP address with Internet traffic routing preference using Azure CLI
 
-This article shows you how to create a public IP address with an Internet routing preference using Azure CLI. After creating the public IP address is created, you can associate it with the following Azure resources for inbound and outbound traffic to internet:
+This article shows you how to create a public IP address with an Internet routing preference using Azure CLI. After creating the public IP address, you can associate it with the following Azure resources for inbound and outbound traffic to internet:
 
 * Virtual machine
 * Virtual machine scale set
