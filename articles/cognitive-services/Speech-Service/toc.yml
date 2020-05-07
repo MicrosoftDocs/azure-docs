@@ -377,7 +377,7 @@
                 - name: 'C#'
                   href: 'https://aka.ms/csspeech/csharpref'
                 - name: 'Java'
-                  href: 'https://aka.ms/csspeech/javaref'
+                  href: 'https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription'
 - name: Voice assistants
   items:
     - name: Voice assistants documentation
