@@ -154,6 +154,7 @@ WITH (
 CREATE EXTERNAL FILE FORMAT file_format_name  
 WITH (  
     FORMAT_TYPE = DELIMITEDTEXT  
+    [ , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' ]
     [ , FORMAT_OPTIONS ( <format_options> [ ,...n  ] ) ]  
     );  
 
@@ -214,12 +215,18 @@ Encoding = {'UTF8' | 'UTF16'} -
 SQL on-demand can read UTF8 and UTF16 encoded delimited text files.
 
 DATA_COMPRESSION = *data_compression_method* -
-This argument specifies the data compression method for the external data. When reading from external tables, it's ignored. It's only used when writing to external tables using [CETAS](develop-tables-cetas.md).
+This argument specifies the data compression method for the external data. 
 
 The PARQUET file format type supports the following compression methods:
 
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'
+
+When reading from PARQUET external tables, this argument is ignored, but is used when writing to external tables using [CETAS](develop-tables-cetas.md).
+
+The DELIMITEDTEXT file format type supports the following compression method:
+
+- DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
 
 ### Example for CREATE EXTERNAL FILE FORMAT
 
