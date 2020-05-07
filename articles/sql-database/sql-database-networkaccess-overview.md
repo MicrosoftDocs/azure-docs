@@ -16,15 +16,9 @@ ms.date: 03/09/2020
 
 # Azure SQL Database and Azure Synapse Analytics network access controls
 
-> [!NOTE]
-> This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse. Likewise, any references to 'server' is referring to the [server](sql-database-servers.md) that hosts Azure SQL Database and Azure Synapse.
+When you create a logical SQL server from the [Azure portal](sql-database-single-database-get-started.md) for Azure SQL Database and Azure Synapse Analytics, the result is a public endpoint in the format, *yourservername.database.windows.net*.
 
-> [!IMPORTANT]
-> This article does *not* apply to **SQL Managed Instance**. For more information about the networking configuration, see [connecting to Azure SQL Managed Instance](sql-database-managed-instance-connect-app.md) .
-
-When you create a server from the [Azure portal](sql-database-single-database-get-started.md) for Azure SQL Database or Synapse Analytics, the result is a public endpoint in the format, *yourservername.database.windows.net*.
-
-You can use the following network access controls to selectively allow access to the database pool via the public endpoint:
+You can use the following network access controls to selectively allow access to a database via the public endpoint:
 
 - Allow Azure Services: When set to ON, other resources within the Azure boundary, for example an Azure Virtual Machine, can access SQL Database
 - IP firewall rules: Use this feature to explicitly allow connections from a specific IP address, for example from on-premises machines
@@ -34,14 +28,18 @@ You can also allow private access to the database from [Virtual Networks](../vir
 - Virtual Network firewall rules: Use this feature to allow traffic from a specific Virtual Network within the Azure boundary
 - Private Link: Use this feature to create a private endpoint for [logical SQL server](sql-database-servers.md) within a specific Virtual Network
 
+> [!IMPORTANT]
+> This article does *not* apply to **SQL Managed Instance**. For more information about the networking configuration, see [connecting to Azure SQL Managed Instance](sql-database-managed-instance-connect-app.md) .
+
 See the below video for a high level explanation of these access controls and what they do:
+
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
 
 ## Allow Azure services
 
-During creation of a new server [from the Azure portal](sql-database-single-database-get-started.md), this setting is left unchecked.
+During creation of a new logical SQL server [from the Azure portal](sql-database-single-database-get-started.md), this setting is left unchecked.
 
-You can also change this setting via the firewall pane after the server is created as follows.
+You can also change this setting via the firewall pane after the logical SQL server is created as follows.
   
 ![Screenshot of manage server firewall][2]
 
@@ -101,7 +99,7 @@ You can now add these as distinct firewall rules and then set **Allow Azure serv
 
 ## IP firewall rules
 
-IP based firewall is a feature of the server that prevents all access to your server until you explicitly [add IP addresses](sql-database-server-level-firewall-rule.md) of the client machines.
+Ip based firewall is a feature of the logical SQL server in Azure that prevents all access to your database server until you explicitly [add IP addresses](sql-database-server-level-firewall-rule.md) of the client machines.
 
 ## Virtual Network firewall rules
 
