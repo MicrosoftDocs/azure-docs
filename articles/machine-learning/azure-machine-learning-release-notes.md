@@ -17,6 +17,33 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-05-04
+**New Notebook Experience**
+
+You can now create, edit, and share machine learning notebooks and files directly inside the studio web experience of Azure Machine Learning. You can use all the classes and methods available in [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) from inside these notebooks
+Get started [here](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks)
+
+**New Features Introduced:**
+
++ Improved editor (Monaco editor) used by VS Code 
++ UI/UX improvements
++ Cell Toolbar
++ New Notebook Toolbar and Compute Controls
++ Notebook Status Bar 
++ Inline Kernel Switching
++ R Support
++ Accessibility and Localization improvements
++ Command Palette
++ Additional Keyboard Shortcuts
++ Autosave
++ Improved performance and reliability
+
+Access the following web-based authoring tools from the studio:
+	
+| Web-based tool  | 	Description  | Edition | 
+|---|---|---|
+| Azure ML Studio Notebooks	  |  	First in-class authoring for notebook files and support all operation available in the Azure ML Python SDK. | Basic & Enterprise  |   
+
 ## 2020-04-27
 
 ### Azure Machine Learning SDK for Python v1.4.0
