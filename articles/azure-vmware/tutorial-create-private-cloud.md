@@ -23,6 +23,16 @@ In this tutorial, you learn how to:
 - Appropriate administrative rights and permission to create a private cloud.
 - Ensure you have the appropriate networking configured as described in [Tutorial: Network checklist](tutorial-network-checklist.md).
 
+## Register the resource provider
+
+In order to use the Azure VMWare Solution you must first register the resource provider. The following example registers the resource provider with your subscription.
+
+```azurecli-interactive
+az provider register -n Microsoft.VMwareVirtustream --subscription <your subscription ID>
+```
+
+For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -34,7 +44,7 @@ You can create an AVS private cloud by using the [Azure portal](#azure-portal) o
 ### Azure portal
 
 In the Azure portal, select **+ Create a new resource**. In the **Search the Marketplace**
-text box type `vmcp`, and select **VMCP - Private Cloud** from the list. On the **VMCP - Private Cloud** window, select **Create**
+text box type `Azure VMware Solution`, and select **Azure VMware Solution** from the list. On the **Azure VMware Solution** window, select **Create**
 
 On the **Basics** tab, enter values for the fields. The following table shows a detailed list of the properties.
 
@@ -66,14 +76,6 @@ Alternatively you can use the Azure CLI to create a AVS private cloud in Azure. 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to https://shell.azure.com/bash. Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
-
-#### Register the resource provider
-
-In order to use the Azure VMWare Solution you must first register the resource provider. The following example registers the resource provider with your subscription.
-
-```azurecli-interactive
-az extension add --name vmware
-```
 
 #### Create a resource group
 

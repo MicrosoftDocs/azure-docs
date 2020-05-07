@@ -53,6 +53,8 @@
               href: api-management-policies.md
       - name: Security
         items:
+            - name: Security baseline
+              href: security-baseline.md        
             - name: Built-in security controls
               href: api-management-security-controls.md
       - name: Subscriptions
