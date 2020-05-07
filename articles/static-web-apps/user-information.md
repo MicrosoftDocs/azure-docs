@@ -1,9 +1,9 @@
 ---
 title: Accessing user information in Azure Static Web Apps
 description: Learn to read authorization provider-returned user data.
-services: azure-functions
+services: static-web-apps
 author: craigshoemaker
-ms.service: azure-functions
+ms.service: static-web-apps
 ms.topic:  conceptual
 ms.date: 05/08/2020
 ms.author: cshoe

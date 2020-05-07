@@ -36,7 +36,9 @@ The following table lists the appropriate location to put your _routes.json_ fil
 
 ### Angular
 
-Angular apps do not copy files in the _src_ folder to the artifact folder by default. Use the following steps to ensure the _routes.json_ is copied to the appropriate location.
+Angular apps do not copy files in the _src_ folder to the artifact folder by default. You can point the GitHub Actions workflow directly to your _routes.json_ file via the [`routes_location` workflow customization](github-actions-workflow.md#route-file-location), or you can update the _angular.json_ file to copy the file.
+
+Using the `routes_location` customization is preferred, but you can also use the following steps update the _angular.json_ file.
 
 1. In Visual Studio Code, open the _angular.json_ file
 1. Go to the property at:

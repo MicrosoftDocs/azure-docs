@@ -96,7 +96,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. Select **Create a Resource** and search for **Static App**.
 
-   :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="Create a Static Apps (Preview) in the portal":::
+   :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="Create a Azure Static Web Apps resource in the portal":::
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 
