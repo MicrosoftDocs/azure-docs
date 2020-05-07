@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Use the Azure Digital Twins APIs and SDKs
 
-The Azure Digital Twins APIs are used to manage the major elements of your Azure Digital Twins solution. The API surface can be broadly divided into the following categories: 
+The Azure Digital Twins REST APIs are used to manage the major elements of your Azure Digital Twins solution. The API surface can be broadly divided into the following categories: 
 
 * **DigitalTwinsModels** - The DigitalTwinsModels category contains APIs to manage the [models](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, and retrieval of models authored in DTDL.
 * **DigitalTwins** - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
@@ -35,6 +35,33 @@ You can also view example call bodies in the Swagger's accompanying [examples fo
 ## Azure Digital Twins C# SDK
 
 The Azure Digital Twins C# SDK is part of the [Azure SDK for .NET](http://github.com/azure/azure-sdk-for-net).
+
+See the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html) for in-depth information on SDK design.
+
+To use the SDK, include the NuGet package **Azure.IoT.DigitalTwins** with your project. You will also need the **Azure.Identity** package.
+
+* In Visual Studio, you can add packages with the NuGet Package Manager (Tools>NuGet Package Manager>Manage NuGet Packages for Solution). 
+* Using the dotnet command line tool you can simply type:
+```bash
+dotnet add package Azure.IoT.DigitalTwins
+dotnet add package Azure.identity
+```
+
+For a detailed walk-through of using the APIs in practice, see the [coding with ADT tutorial](./tutorial-code.md).
+
+### General API Usage
+
+* To use the SDK, instantiate the **DigitalTwinsClient** class. The constructor requires credentials that can be obtained with a variety of authentication methods in the [Azure.Identity](https://docs.microsoft.com/en-us/dotnet/api/azure.identity?view=azure-dotnet) package. 
+* You may find the [InteractiveBrowserCredential](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) particularly useful to get started, but there are several other options here, including credentials for [managed identity](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet), which you will likely use to authenticate [Azure Functions set up with MSI](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet) against Azure Digital Twins.
+* All service API calls are exposed as member functions on the DigitalTwinsClient class.
+* All service functions exist in synchronous and asynchronous versions
+* All service functions throw an exception for any return status >= 400. Make sure you wrap calls into a try section appropriately and catch at least [**RequestFailedExceptions**](https://docs.microsoft.com/en-us/dotnet/api/azure.requestfailedexception?view=azure-dotnet).
+* Most service methods return **Response<T>** or (**Task<Response<T>>** for the asynchronous calls), where T is the class of return object for the service call. The [**Response**](https://docs.microsoft.com/en-us/dotnet/api/azure.response-1?view=azure-dotnet) class encapsulates the service return and presents return values in its Value field.  
+* Service methods with paged results return [**Pageable<T>**](https://docs.microsoft.com/en-us/dotnet/api/azure.pageable-1?view=azure-dotnet-preview) or [**AsyncPageable<T>**](https://docs.microsoft.com/en-us/dotnet/api/azure.asyncpageable-1?view=azure-dotnet-preview) as results.
+* You can iterate over paged results using an [**await foreach** loop](https://docs.microsoft.com/en-us/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
+* See [Azure.Core](https://docs.microsoft.com/en-us/dotnet/api/azure?view=azure-dotnet-preview) for reference on the underlying SDK infrastructure and types.
+
+Note that service methods return strongly typed objects wherever possible. However, because Azure Digital Twins mostly is based on models custom-configured by the user at run time (via DTDL files uploaded to the service), many service APIs take and return JSON.
 
 ## Other languages: Generate an Azure Digital Twins SDK 
 
@@ -89,7 +116,7 @@ To add these, open *Tools > NuGet Package Manager > Manage NuGet Packages for So
 
 You can now build the project, and include it as a project reference in any Azure Digital Twins application you write.
 
-### General SDK guidelines
+### General guidelines for generated SDKs
 
 This section contains general information about and guidelines for using the generated SDK.
 
