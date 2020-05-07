@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 3. In the search results, select **Public IP address**. Next, in the **Public IP address** page, select **Create**.
 3. In the **Routing preference** options, select **Internet**.
 
-      ![Create a public ip address](./media/routing-preference-portal/pip.png)
+      ![Create a public ip address](./media/routing-preference-portal/pip-new.png)
 
 > [!NOTE]
      > Public IP addresses are created with an IPv4 or IPv6 address. However, routing preference only supports IPV4 currently.
