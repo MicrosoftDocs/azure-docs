@@ -74,7 +74,7 @@ To install the agent silently and create a setup log file in the `C:\Support\Log
 msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
 ```
 
-Files for the Connected Machine agent are installed by default in *C:\Program Files\AzureConnectedMachineAgent*. If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### Install with the scripted method
 
@@ -83,6 +83,8 @@ Files for the Connected Machine agent are installed by default in *C:\Program Fi
 1. Open an elevated PowerShell command prompt.
 
 1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.ps1` script.
+
+If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### Configure the agent proxy setting
 

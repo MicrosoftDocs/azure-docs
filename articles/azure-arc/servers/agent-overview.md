@@ -32,31 +32,52 @@ The Connected Machine agent for Windows can be installed by using one of the fol
 
 * Double-click the file `AzureConnectedMachineAgent.msi`.
 * Manually by running the Windows Installer package `AzureConnectedMachineAgent.msi` from the Command shell.
-* From a PowerShell session using the scripted method.
+* From a PowerShell session using a scripted method.
 
-After installing the Connected Machine agent for Windows, the following additional system-wide configuration changes are applied. These artifacts are removed when the agent is uninstalled.
+After installing the Connected Machine agent for Windows, the following additional system-wide configuration changes are applied.
 
-* During installation of the agent, its supporting files are installed in `C:\Program Files\AzureConnectedMachineAgent` by default. Its configuration files are installed in `%ProgramData%\AzureConnectedMachineAgent`.
+* The following installation folders are created during setup.
+
+    |Folder |Description |
+    |-------|-------------|
+    |C:\Program Files\AzureConnectedMachineAgent |Default installation path containing the agent support files.|
+    |%ProgramData%\AzureConnectedMachineAgent |Contains the agent configuration files.|
+    |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contains the acquired tokens.|
+    |%ProgramData%\AzureConnectedMachineAgent\Config |Contain the agent configuration file `agentconfig.json` recording its registration information with the service.|
+    |%ProgramData%\GuestConfig |Contains the (applied) Azure policies related files.|
 
 * The following Windows services are created on the target machine during installation of the agent.
 
-    |Service name | Display name | Process name | Description |
+    |Service name |Display name |Process name |Description |
     |-------------|--------------|--------------|-------------|
     | himds | Azure Hybrid Instance Metadata Service | himds.exe | This service implements the Azure Instance Metadata service (IMDS) to track the machine.|
     | DscService | Guest Configuration Service | dsc_service.exe | This is the Desired State Configuration (DSC v2) codebase used inside Azure to implement In-Guest Policy.|
 
 * There are four log files available for troubleshooting. They are described in the following table.
 
-    |Log | Location | Description |
+    |Log |Location |Description |
     |----|----------|-------------|
     |himds.log | %ProgramData%\AzureConnectedMachineAgent\Log | Records details of the agents (himds) service and interaction with Azure. |
     |azcmagent.log | %ProgramData%\AzureConnectedMachineAgent\Log | Contains the output of the azcmagent tool commands, when the verbose (-v) argument is used. |
     |gc_agent.log | %ProgramData%\GuestConfig\gc_agent_logs | Records details of the DSC service activity, in particular the connectivity between the himds service and Azure Policy.|
     |gc_agent_telemetry.txt | %ProgramData%\GuestConfig\gc_agent_logs | Records details about DSC service telemetry / verbose logging.|
 
-If the agent fails to start after setup is finished, check the %ProgramData%\AzureConnectedMachineAgentAgent\logs\himds.log for detailed error information.
+* The following environmental variables are created during agent installation.
+
+|Name |Default value |Description |
+|-----|--------------|------------|
+|IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
+|IMDS_ENDPOINT |http://localhost:40342 ||
+
+* During uninstall of the agent, the following artifacts are not removed.
+
+    * C:\Program Files\AzureConnectedMachineAgent\Logs
+    * %ProgramData%\AzureConnectedMachineAgent and subdirectories
+    * %ProgramData%\GuestConfig 
 
 ## Linux agent installation details
+
+
 
 ## Prerequisites
 
