@@ -74,7 +74,9 @@ For step-by-step instructions on creating a new Azure Relay namespace and entiti
 9. On the **Configuration** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
     1. Select a **virtual network**. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
     2. Select a **subnet** in the virtual network you selected. 
-    3. To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a **private DNS zone**. You can also utilize your own DNS servers or create DNS records using the host files on your virtual machines. For more information, see [Azure Private Endpoint DNS Configuration](../private-link/private-endpoint-dns.md). In this example, the **Integrate with private DNS zone** option is selected and a private DNS zone will be created for you. 
+    3. Enable **Integrate with private DNS zone** if you want to integrate your private endpoint with a private DNS zone. 
+    
+        To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a **private DNS zone**. You can also utilize your own DNS servers or create DNS records using the host files on your virtual machines. For more information, see [Azure Private Endpoint DNS Configuration](../private-link/private-endpoint-dns.md). In this example, the **Integrate with private DNS zone** option is selected and a private DNS zone will be created for you. 
     3. Select **Next: Tags >** button at the bottom of the page. 
 
         ![Create Private Endpoint - Configuration page](./media/private-link-service/create-private-endpoint-configuration-page.png)
@@ -206,43 +208,33 @@ There are four provisioning states:
 
 ## Validate that the private link connection works
 
-You should validate that the resources within the same subnet of the private endpoint resource are connecting to your Azure Relay namespace over a private IP address, and that they have the correct private DNS zone integration.
+You should validate that the resources within the same subnet of the private endpoint resource are connecting to your Azure Relay namespace over its private IP address. 
 
 First, create a virtual machine by following the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
-In the **Networking** tab:
+For this test, create a VM in the Azure portal. Do the following steps in the **Networking** tab of the wizard: 
 
-1. Specify **Virtual network** and **Subnet**. You can create a new virtual network or select an existing one. If selecting an existing one, make sure the region matches.
-1. Specify a **public IP** resource.
-1. For **NIC network security group**, select **None**.
-1. For **Load balancing**, select **No**.
+1. Specify **Virtual network** and **Subnet**. You must select the Virtual Network on which you deployed the private endpoint.
+2. Specify a **public IP** resource.
+3. For **NIC network security group**, select **None**.
+4. For **Load balancing**, select **No**.
 
-Connect to the VM, open the command line, and run the following command:
+
+Connect to the VM and open the command line and run the following command:
 
 ```console
 nslookup <your-relay-namespace-name>.servicebus.azure.net
 ```
 
-If you run the ns lookup command to resolve the IP address of an Azure Relay namespace over a public endpoint, you will see a result that looks like this:
+You should see a result that looks like the following. 
 
 ```console
-c:\ >nslookup <your-relay-namespace-name>.servicebus.azure.net
-
+c:\ >nslookup <your-relay-namespace-name>.servicebus.windows.net
+...
 Non-authoritative answer:
 Name:    
-Address:  (public IP address)
-Aliases:  <your-relay-namespace-name>.servicebus.azure.net
-```
-
-If you run the ns lookup command to resolve the IP address of an Azure Relay namespace over a private endpoint, you will see a result that looks like this:
-
-```console
-c:\ >nslookup your_relay-namespace-name.servicebus.azure.net
-
-Non-authoritative answer:
-Name:    
-Address:  10.1.0.5 (private IP address)
-Aliases:  <your-relay-namespace-name>.servicebus.azure.net
+Address:  10.1.0.5 (private IP address associated to the private endpoint)
+Aliases:  <your-relay-namespace-name>.servicebus.windows.net
 ```
 
 ## Limitations and Design Considerations
