@@ -48,10 +48,6 @@ public async Task<ActionResult> CreateAccessToken(string userName)
 
 By default, user access tokens expire after 24 hours but it is a good security practice to limit the lifetime to the minimum duration required by your application. You can use the optional `ttl` parameter of the `CreateUserAccessTokenAsync` method to limit the duration of user access tokens.
 
-> Questions
-
->> [akania] What should be inside tokenResult, should it be a black box that contoso will just pass down to the client? is it Implementing [AccessToken interface from Azure](https://docs.microsoft.com/en-us/dotnet/api/azure.core.accesstoken?view=azure-dotnet)
-
 ## User access token scopes
 
 Scopes allow you to specify the exact Azure Communications Services functionality that a user access token will be able to authorize. By default, user access tokens enable clients to participate in chat threads they have been invited to and to receive incoming VOIP calls. Additional scopes must be specified when creating user access tokens.
@@ -82,9 +78,9 @@ Azure Communication Services supports the following scopes for user access token
 | `voip:pstn`            | Grants the ability to make outbound PSTN calls using the calling SDK |
 | `spaces:manage`        | Grants the ability to create and invite users to communication spaces |
 
-## Refreshing User Access Tokens
+## Reissuing User Access Tokens
 
-User access tokens are short-lived credentials that need to be refreshed in order to prevent your users from experiencing service disruptions. The client SDKs provide events to let you know when the provided user access token is about to expire. You should subscribe to these events and use them to fetch a new user access token from your trusted service.
+User access tokens are short-lived credentials that need to be reissued in order to prevent your users from experiencing service disruptions. The client SDKs provide events to let you know when the provided user access token is about to expire. You should subscribe to these events and use them to fetch a new user access token from your trusted service.
 
 ```javascript
 const { ChatClient } = require('@azure/communicationservices-chat');
@@ -105,7 +101,7 @@ client.on('token_will_expire', (tokenProvider) => {
     .then((newToken) => tokenProvider.udpateToken(newToken));
 });
 ```
-If your client application is using several of the Azure Communication Services client SDKs, you should instantiate each SDK with a shared instance of the `UserAccessTokenCredential` class and use that instance to manage the user access token refresh process.
+If your client application is using several of the Azure Communication Services client SDKs, you should instantiate each SDK with a shared instance of the `UserAccessTokenCredential` class and use that instance to manage the user access token reissuing process.
 
 ```javascript
 const { ChatClient, UserAccessTokenCredential } = require('@azure/communicationservices-chat');
@@ -114,7 +110,7 @@ const { CallingClient } = require('@azure/communicationservices-calling');
 // initialize a UserAccessTokenCredential instance
 const tokenProvider = new UserAccessTokenCredential(token);
 
-// single function to refresh tokens across all SDK instances
+// single function to reissue tokens across all SDK instances
 tokenProvider.on('token_will_expire', (tokenProvider) => { 
     // fetch a new token and pass it to the provider
 });
@@ -125,11 +121,6 @@ const chatClient = new ChatClient(endpoint, tokenProvider);
 // initialize the calling SDK with the token provider
 const callingClient = new CallingClient(endpoint, tokenProvider);
 ```
-
-> Questions
->> [akania] Should ChatClient/CallingClient/SMSClient take TokenCredential ( or something aligned with it ) in ctor? This way we can use 'getToken' sementics for refreshing/revocation ? in general - getToken vs events for token refresh.
-
->> [akania] getToken | event should accept GetTokenOptions with abortSignal|cancellation token and additional options ( timeout? )
 
 ## Lazy Loading User Access Tokens
 
