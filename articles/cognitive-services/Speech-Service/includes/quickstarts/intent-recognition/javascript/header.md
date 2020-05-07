@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize intent, Javascript - Speech service"
+title: "Quickstart: Recognize intent, JavaScript - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

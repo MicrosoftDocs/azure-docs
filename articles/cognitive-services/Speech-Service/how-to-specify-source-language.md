@@ -139,7 +139,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(
 
 ::: zone pivot="programming-language-javascript"
 
-## How to specify source language in Javascript
+## How to specify source language in JavaScript
 
 The first step is to create a `SpeechConfig`:
 
