@@ -1,18 +1,17 @@
 ---
-title: SaaS Fulfillment API v2 | Azure Marketplace 
-description: This article explains how to create and manage a SaaS offer on the AppSource and Azure Marketplace by using the associated fulfillment v2 APIs.
-services: Azure, Marketplace, Cloud Partner Portal, 
+title: SaaS fulfillment APIs v2 in Microsoft commercial marketplace
+description: Learn how to create and manage a SaaS offer on Microsoft AppSource and Azure Marketplace by using the fulfillment APIs version 2.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
-ms.author: evansma
+ms.author: dsindona
 ---
 
-# SaaS fulfillment APIs, version 2 
+# SaaS fulfillment APIs version 2 in Microsoft commercial marketplace
 
-This article details the APIs that enable partners to sell their SaaS applications in the AppSource marketplace and the Azure Marketplace. These APIs are a requirement for transactable SaaS offers on the AppSource and Azure Marketplace.
+This article details the fulfillment APIs that enable partners to sell their SaaS applications in Microsoft AppSource and Azure Marketplace. These APIs are required for transactable SaaS offers.
 
 ## Managing the SaaS subscription life cycle
 
@@ -276,7 +275,7 @@ Internal server error.
 
 Gets the specified SaaS subscription. Use this call to get license information and plan information.
 
-##### Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`
+##### Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Query parameters:*
 
@@ -588,7 +587,7 @@ Internal server error.
 
 Unsubscribe and delete the specified subscription.
 
-##### Delete<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`
+##### Delete<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Query parameters:*
 

@@ -108,7 +108,7 @@ To see deployment error codes and messages with PowerShell, use:
 To see deployment error codes and messages with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+az deployment group operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
 ```
 
 In the portal, select the notification.
@@ -166,7 +166,7 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 Examine the deployment operations with the following command:
 
 ```azurecli
-az group deployment operation list \
+az deployment group operation list \
   --resource-group examplegroup \
   --name exampledeployment
 ```
@@ -174,7 +174,7 @@ az group deployment operation list \
 Examine the request content with the following command:
 
 ```azurecli
-az group deployment operation list \
+az deployment group operation list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.request
@@ -183,7 +183,7 @@ az group deployment operation list \
 Examine the response content with the following command:
 
 ```azurecli
-az group deployment operation list \
+az deployment group operation list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.response

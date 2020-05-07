@@ -102,6 +102,8 @@
   - name: Analyze
     href: cdn-log-analysis.md
     items:
+    - name: HTTP raw logs
+      href: enable-raw-logs.md
     - name: Azure diagnostics logs
       href: cdn-azure-diagnostic-logs.md
     - name: Analytics tools for Azure CDN from Verizon

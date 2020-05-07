@@ -24,7 +24,7 @@ Azure Blockchain Workbench provides a web application and REST APIs for managing
 
 You can use the Blockchain Workbench REST APIs and message-based APIs to integrate with existing systems. The APIs provide an interface to allow for replacing or using multiple distributed ledger technologies, storage, and database offerings.
 
-Blockchain Workbench can transform messages sent to its message-based API to build transactions in a format expected by that blockchain’s native API.  Workbench can sign and route transactions to the appropriate blockchain. 
+Blockchain Workbench can transform messages sent to its message-based API to build transactions in a format expected by that blockchain's native API.  Workbench can sign and route transactions to the appropriate blockchain. 
 
 Workbench automatically delivers events to Service Bus and Event Grid to send messages to downstream consumers. Developers can integrate with either of these messaging systems to drive transactions and to look at results.
 

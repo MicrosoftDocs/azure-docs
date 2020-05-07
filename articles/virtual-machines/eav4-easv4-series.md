@@ -11,7 +11,7 @@
 
 # Eav4 and Easv4-series
 
-The Eav4-series and Easv4-series utilize AMD’s 2.35Ghz EPYC<sup>TM</sup> 7452 processor in a multi-threaded configuration with up to 256MB L3 cache, increasing options for running most memory optimized workloads. The Eav4-series and Easv4-series have the same memory and disk configurations as the Ev3 & Esv3-series.
+The Eav4-series and Easv4-series utilize AMD's 2.35Ghz EPYC<sup>TM</sup> 7452 processor in a multi-threaded configuration with up to 256MB L3 cache, increasing options for running most memory optimized workloads. The Eav4-series and Easv4-series have the same memory and disk configurations as the Ev3 & Esv3-series.
 
 ## Eav4-series
 
@@ -35,11 +35,9 @@ Eav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 | Standard\_E16a\_v4|16|128|400|32|24000 / 375 / 187|8 / 8000 |
 | Standard\_E20a\_v4|20|160|500|32|30000 / 468 / 234|8 / 10000 |
 | Standard\_E32a\_v4|32|256|800|32|48000 / 750 / 375|8 / 16000 |
-| Standard\_E48a\_v4 <sup>**</sup> |48|384|1200|32| | |
-| Standard\_E64a\_v4 <sup>**</sup> |64|512|1600|32| | |
-| Standard\_E96a\_v4 <sup>**</sup> |96|672|2400|32| | |
-
-<sup>**</sup>  These sizes are in Preview. If you are interested in trying out these larger sizes, sign up at [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
+| Standard\_E48a\_v4|48|384|1200|32|96000 / 1000 (500)|8 / 24000 |
+| Standard\_E64a\_v4|64|512|1600|32|96000 / 1000 (500)|8 / 30000 |
+| Standard\_E96a\_v4|96|672|2400|32|96000 / 1000 (500)|8 / 30000 |
 
 ## Easv4-series
 
@@ -63,11 +61,9 @@ Easv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 | Standard_E16as_v4|16|128|256|32|32000 / 255 (400)|25600 / 384|8 / 8000 |
 | Standard_E20as_v4|20|160|320|32|40000 / 320 (500)|32000 / 480|8 / 10000 |
 | Standard_E32as_v4|32|256|512|32|64000 / 510 (800)|51200 / 768|8 / 16000 |
-| Standard_E48as_v4 <sup>**</sup> |48|384|768|32|  | |
-| Standard_E64as_v4 <sup>**</sup> |64|512|1024|32| | |
-| Standard_E96as_v4 <sup>**</sup> |96|672|1344|32| | |  
-
-<sup>**</sup>  These sizes are in Preview. If you are interested in trying out these larger sizes, sign up at [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
+| Standard_E48as_v4|48|384|768|32|96000 / 1020 (1200)|76800 / 1148|8 / 24000 |
+| Standard_E64as_v4|64|512|1024|32|128000 / 1020 (1600)|80000 / 1200|8 / 30000 |
+| Standard_E96as_v4|96|672|1344|32|192000 / 1020 (2400)|80000 / 1200|8 / 30000 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

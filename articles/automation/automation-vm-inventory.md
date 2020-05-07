@@ -47,9 +47,9 @@ When the deployment is complete, the status bar disappears. The system is still 
 
 By default, software, Windows services, and Linux daemons are configured for collection. To collect Windows registry and file inventory, configure the inventory collection settings.
 
-1. In the **Inventory** view, select the **Edit Settings** button at the top of the window.
-2. To add a new collection setting, go to the setting category that you want to add by selecting the **Windows Registry**, **Windows Files**, and **Linux Files** tabs.
-3. Select the appropriate category and click **Add** at the top of the window.
+1. On the Inventory page, click **Edit Settings** at the top of the page.
+2. To add a new collection setting, go to the setting category that you want to add by selecting the **Windows Registry**, **Windows Files**, or **Linux Files** tab.
+3. Select the appropriate category and click **Add** at the top of the page.
 
 The following tables provide information about each property that can be configured for the various categories.
 
@@ -66,23 +66,23 @@ The following tables provide information about each property that can be configu
 
 |Property  |Description  |
 |---------|---------|
-|Enabled     | Determines if the setting is applied        |
-|Item Name     | Friendly name of the file to be tracked        |
-|Group     | A group name for logically grouping files        |
-|Enter Path     | The path to check for the file For example: "c:\temp\myfile.txt"
+|Enabled     | True if the setting is applied, and False otherwise.        |
+|Item Name     | The friendly name of the file to be tracked.        |
+|Group     | A group name for logically grouping files.       |
+|Enter Path     | The path to check for the file, for example, **c:\temp\myfile.txt**.
 
 ### Linux Files
 
 |Property  |Description  |
 |---------|---------|
-|Enabled     | Determines if the setting is applied        |
-|Item Name     | Friendly name of the file to be tracked        |
-|Group     | A group name for logically grouping files        |
-|Enter Path     | The path to check for the file For example: "/etc/*.conf"       |
-|Path Type     | Type of item to be tracked, possible values are File and Directory        |
-|Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
-|Use Sudo     | This setting determines if sudo is used when checking for the item.         |
-|Links     | This setting determines how symbolic links dealt with when traversing directories.<br> **Ignore** - Ignores symbolic links and does not include the files/directories referenced<br>**Follow** - Follows the symbolic links during recursion and also includes the files/directories referenced<br>**Manage** - Follows the symbolic links and allows alter the treatment of returned content      |
+|Enabled     | True if the setting is applied, and False otherwise.        |
+|Item Name     | The friendly name of the file to be tracked.        |
+|Group     | A group name for logically grouping files.        |
+|Enter Path     | The path to check for the file, for example, **/etc/*.conf**.       |
+|Path Type     | The type of item to be tracked. Values are File and Directory.        |
+|Recursion     | True if recursion is used when looking for the item to be tracked, and False otherwise.        |
+|Use Sudo     | True if sudo is used when checking for the item, and False otherwise.         |
+|Links     | Value indicating how symbolic links are dealt with when traversing directories. Possible values are: <br> Ignore - Ignores symbolic links and does not include the files/directories referenced<br>Follow - Follows the symbolic links during recursion and also includes the files/directories referenced<br>Manage - Follows the symbolic links and allows alter the treatment of returned content      |
 
 ## Manage machine groups
 
@@ -98,9 +98,9 @@ Selecting a machine group from the list opens the Machine groups page. This page
 
 ![View machine group page](./media/automation-vm-inventory/machine-group-page.png)
 
-Click the **+ Clone** button to clone the machine group. Here you must give the group a new name and alias for the group. The definition can be altered at this time. After changing the query press **Validate query** to preview the machines that would be selected. When you are happy with the group click **Create** to create the machine group
+Click **+ Clone** to clone the machine group. You must give the group a new name and alias for the group. The definition can be altered at this time. After changing the query, click **Validate query** to preview the machines that would be selected. When you are happy with the group, click **Create** to create the machine group.
 
-If you want to create a new machine group, select **+ Create a machine group**. This button opens the **Create a machine group page** where you can define your new group. Click **Create** to create the group.
+If you want to create a new machine group, click **+ Create a machine group**. This button opens the **Create a machine group** page, where you can define your new group. Click **Create** to create the group.
 
 ![Create new machine group](./media/automation-vm-inventory/create-new-group.png)
 
@@ -109,18 +109,17 @@ If you want to create a new machine group, select **+ Create a machine group**. 
 To remove your virtual machine from inventory management:
 
 1. In the left pane of the Azure portal, select **Log Analytics**, and then select the workspace that you used when you onboarded your virtual machine.
-2. In the **Log Analytics** window, on the **Resource** menu, under the **Workspace Data Sources** category, select **Virtual machines**.
-3. In the list, select the virtual machine that you want to disconnect. The virtual machine has a green check mark next to **This workspace** in the **OMS Connection** column.
+2. On the Log Analytics page, open the **Resource** menu.
+3. Select **Virtual Machines** under **Workspace Data Sources**.
+4. In the list, select the virtual machine that you want to disconnect. The virtual machine has a green check mark next to **This workspace** in the **OMS Connection** column.
 
    >[!NOTE]
-   >OMS is now referred to as Azure Monitor logs.
+   >Operations Management Suite (OMS) is now referred to as Azure Monitor logs.
    
-4. At the top of the next page, select **Disconnect**.
-5. In the confirmation window, select **Yes**.
-    This action disconnects the machine from management.
+5. At the top of the next page, click **Disconnect**.
+6. In the confirmation window, click **Yes** to disconnect the machine from management.
 
 ## Next steps
 
 * To learn about managing changes in files and registry settings on your virtual machines, see [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md).
 * To learn about managing Windows and package updates on your virtual machines, see [The Update Management solution in Azure](../operations-management-suite/oms-solution-update-management.md).
-

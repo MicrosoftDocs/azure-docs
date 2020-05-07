@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/31/2020
 ms.author: iainfou
 
@@ -17,7 +17,7 @@ ms.author: iainfou
 
 # Change the SKU for an existing Azure AD Domain Services managed domain
 
-In Azure Active Directory Domain Services (Azure AD DS), the available performance and features are based on the SKU type. These feature differences include the backup frequency or maximum number of one-way outbound forest trusts (currently in preview). You select a SKU when you create the managed domain, and you can switch SKUs as your business needs change after the managed domain has been deployed. Changes in business requirements could include the need for more frequent backups or to create additional forest trusts. For more information on the limits and pricing of the different SKUs, see [Azure AD DS SKU concepts][concepts-sku] and [Azure AD DS pricing][pricing] pages.
+In Azure Active Directory Domain Services (Azure AD DS), the available performance and features are based on the SKU type. These feature differences include the backup frequency or maximum number of one-way outbound forest trusts (currently in preview). You select a SKU when you create the managed domain, and you can switch SKUs up or down as your business needs change after the managed domain has been deployed. Changes in business requirements could include the need for more frequent backups or to create additional forest trusts. For more information on the limits and pricing of the different SKUs, see [Azure AD DS SKU concepts][concepts-sku] and [Azure AD DS pricing][pricing] pages.
 
 This article shows you how to change the SKU for an existing Azure AD DS managed domain using the Azure portal.
 
@@ -26,7 +26,7 @@ This article shows you how to change the SKU for an existing Azure AD DS managed
 To complete this article, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
@@ -34,9 +34,12 @@ To complete this article, you need the following resources and privileges:
 
 ## SKU change limitations
 
-There are some limitations for the SKU change operation if you use a resource forest (currently in preview) and have created one-way outbound forest trusts from Azure AD DS to an on-premises AD DS environment. The *Premium* and *Enterprise* SKUs define a limit on the number of trusts you can create. You can't change to a SKU with a lower maximum limit than you currently have configured.
+You can change SKUs up or down after the Azure AD DS managed domain has been deployed. However, if you use a resource forest (currently in preview) and have created one-way outbound forest trusts from Azure AD DS to an on-premises AD DS environment, there are some limitations for the SKU change operation. The *Premium* and *Enterprise* SKUs define a limit on the number of trusts you can create. You can't change to a SKU with a lower maximum limit than you currently have configured.
 
-For example, if you have created two forest trusts on the *Premium* SKU, you can't change down to the *Standard* SKU. The *Standard* SKU doesn't support forest trusts. Or, if you have created seven trusts on the *Premium* SKU, you can't change down to the *Enterprise* SKU. The *Enterprise* SKU supports a maximum of five trusts.
+For example:
+
+* If you have created two forest trusts on the *Premium* SKU, you can't change down to the *Standard* SKU. The *Standard* SKU doesn't support forest trusts.
+* Or, if you have created seven trusts on the *Premium* SKU, you can't change down to the *Enterprise* SKU. The *Enterprise* SKU supports a maximum of five trusts.
 
 For more information on these limits, see [Azure AD DS SKU features and limits][concepts-sku].
 

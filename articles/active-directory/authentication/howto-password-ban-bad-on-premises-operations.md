@@ -5,7 +5,7 @@ description: Learn how to enable Azure AD Password Protection for an on-premises
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/05/2020
 
 ms.author: iainfou
@@ -15,7 +15,7 @@ ms.reviewer: jsimmons
 
 ms.collection: M365-identity-device-management
 ---
-# Enable on-premises Azure Active Password Protection
+# Enable on-premises Azure Active Directory Password Protection
 
 Users often create passwords that use common local words such as a school, sports team, or famous person. These passwords are easy to guess, and weak against dictionary-based attacks. To enforce strong passwords in your organization, Azure Active Directory (Azure AD) Password Protection provides a global and custom banned password list. A password change request fails if there's a match in these banned password list.
 

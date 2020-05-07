@@ -1,5 +1,5 @@
 ---
-title: Create multiple endpoints for a model
+title: Create multiple model endpoints
 titleSuffix: ML Studio (classic) - Azure
 description: Use PowerShell to create multiple Machine Learning models and web service endpoints with the same algorithm but different training datasets.
 services: machine-learning
@@ -12,7 +12,9 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
 ---
-# Use PowerShell to create Studio (classic) models and web service endpoints from one experiment
+# Create multiple web service endpoints from one experiment with ML Studio (classic) and PowerShell
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Here's a common machine learning problem: You want to create many models that have the same training workflow and use the same algorithm. But you want them to have different training datasets as input. This article shows you how to do this at scale in Azure Machine Learning Studio (classic) using just a single experiment.
 

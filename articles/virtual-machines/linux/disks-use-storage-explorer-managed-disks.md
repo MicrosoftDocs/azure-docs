@@ -5,8 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 09/25/2019
 ms.topic: article
-ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
+ms.service: virtual-machines
 ms.subservice: disks
 ---
 

@@ -4,7 +4,7 @@ description: Learn how to build an end-to-end solution with Azure IoT Central an
 author: miriambrus
 ms.author: miriamb
 ms.date: 10/23/2019
-ms.topic: overview
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ---

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 03/25/2020
 ---
 
 # Quickstart: Create a search app in the portal (Azure Cognitive Search)
@@ -19,13 +19,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-You will want to upgrade to the [latest version of Microsoft Edge](https://www.microsoft.com/edge) or use Google's Chrome browser for this quickstart at this time.
+Upgrade to the [latest version of Microsoft Edge](https://www.microsoft.com/edge) or use Google's Chrome browser for this quickstart.
 
 [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 [Create an index](search-create-index-portal.md) to use as the basis of your application. 
 
-This quickstart uses the built-in Real Estate sample data and index because it has thumbnail images. To create the index used in this exercise, run the **Import data** wizard, choosing the *realestate-us-sample* data source.
+This quickstart uses the built-in Real Estate sample data and index because it has thumbnail images (the wizard supports adding images to the results page). To create the index used in this exercise, run the **Import data** wizard, choosing the *realestate-us-sample* data source.
 
 ![data source page for sample data](media/search-create-app-portal/import-data-realestate.png)
 

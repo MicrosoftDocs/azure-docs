@@ -1,23 +1,23 @@
 ---
-title: Create your first automated ML experiment
+title: Create automated ML classification models
 titleSuffix: Azure Machine Learning
-description: Learn how to train and deploy a classification model with automated machine learning in Azure Machine Learning studio.
+description: Learn how to train & deploy classification models with Azure Machine Learning's automated machine learning (automated ML)  interface.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.author: tzvikei
-author: tsikiksr
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 02/04/2020
+ms.date: 03/04/2020
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
 
-# Tutorial: Create your first classification model with automated machine learning
+# Tutorial: Create a classification model with automated ML in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In this tutorial, you learn how to create your first automated machine learning experiment through Azure Machine Learning studio without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
+In this tutorial, you learn how to create a basic classification model without writing a single line of code using Azure Machine Learning's automated machine learning interface. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to do the following tasks:
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 
 * Download the [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file. The **y** column indicates if a customer subscribed to a fixed term deposit, which is later identified as the target column for predictions in this tutorial. 
 
@@ -39,7 +39,7 @@ In this tutorial, you learn how to do the following tasks:
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service. 
 
-You create a workspace via the Azure Machine Learning studio, a web-based console for managing your Azure resources.
+You create a workspace via the Azure portal, a web-based console for managing your Azure resources.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
@@ -48,9 +48,9 @@ You create a workspace via the Azure Machine Learning studio, a web-based consol
 
 ## Create and run the experiment
 
-You complete the following experiment set-up and run steps in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
+You complete the following experiment set-up and run steps  via Azure Machine learning at https://ml.azure.com, a consolidated web interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. This interface is not supported on Internet Explorer browsers.
 
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
+1. Sign in to [Azure Machine Learning](https://ml.azure.com).
 
 1. Select your subscription and the workspace you created.
 
@@ -60,13 +60,13 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
    Since this is your first automated ML experiment, you'll see an empty list and links to documentation.
 
-   ![Azure Machine Learning studio](./media/tutorial-first-experiment-automated-ml/get-started.png)
+   ![Get started page](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
 1. Select **New automated ML run**. 
 
 1. Create a new dataset by selecting **From local files** from the  **+Create dataset** drop-down. 
 
-    1. On the **Basic info** form, give your dataset a name and provide an optional description. Automated ML in Azure Machine Learning studio currently only supports tabular datasets, so the dataset type should default to Tabular.
+    1. On the **Basic info** form, give your dataset a name and provide an optional description. The automated ML interface currently only supports TabularDatasets, so the dataset type should default to *Tabular*.
 
     1. Select **Next** on the bottom left
 
@@ -160,9 +160,9 @@ The following navigates through the **Model details** and the **Visualizations**
 
 ![Run iteration detail](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
-## Deploy the model
+## Deploy the best model
 
-Automated machine learning in Azure Machine Learning studio allows you to deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. 
+The automated machine learning interface allows you to deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. 
 
 For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable web solution for identifying potential fixed term deposit customers. 
 
@@ -199,9 +199,9 @@ Deployment files are larger than data and experiment files, so they cost more to
 
 ### Delete the deployment instance
 
-Delete just the deployment instance from the Azure Machine Learning studio, if you want to keep the resource group and workspace for other tutorials and exploration. 
+Delete just the deployment instance from Azure Machine Learning at https:\//ml.azure.com/, if you want to keep the resource group and workspace for other tutorials and exploration. 
 
-1. Go to the [Azure Machine Learning studio](https://ml.azure.com/). Navigate to your workspace and  on the left under the **Assets** pane, select **Endpoints**. 
+1. Go to [Azure Machine Learning](https://ml.azure.com/). Navigate to your workspace and  on the left under the **Assets** pane, select **Endpoints**. 
 
 1. Select the deployment you want to delete and select **Delete**. 
 
@@ -213,15 +213,15 @@ Delete just the deployment instance from the Azure Machine Learning studio, if y
 
 ## Next steps
 
-In this automated machine learning tutorial, you used Azure Machine Learning studio to create and deploy a classification model. See these articles for more information and next steps:
+In this automated machine learning tutorial, you used Azure Machine Learning's automated ML interface to create and deploy a classification model. See these articles for more information and next steps:
 
 > [!div class="nextstepaction"]
 > [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-+ Learn more about [featurization](how-to-create-portal-experiments.md#featurization).
-+ Learn more about [data profiling](how-to-create-portal-experiments.md#profile).
 + Learn more about [automated machine learning](concept-automated-ml.md).
-+ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
++ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.+ Learn more about [featurization](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile).
+
 
 >[!NOTE]
 > This Bank Marketing dataset is made available under the [Creative Commons (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Any rights in individual contents of the database are licensed under the [Database Contents License](https://creativecommons.org/publicdomain/zero/1.0/) and available on [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). This dataset was originally available within the [UCI Machine Learning Database](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>

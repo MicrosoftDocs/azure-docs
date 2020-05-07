@@ -56,6 +56,8 @@
   items:
   - name: Reports
     items:
+    - name: Manage inactive user accounts in Azure AD
+      href: howto-manage-inactive-user-accounts.md
     - name: Find activity reports
       href: howto-find-activity-reports.md
     - name: Troubleshoot sign-in errors for a user

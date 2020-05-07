@@ -1,4 +1,7 @@
 {
+    "markdown.docsetName": "azure",
+    "markdown.docsetRootFolderName": "articles",
+    "markdown.omitDefaultJsonProperties": true,
     "markdown.docsetLanguages": [
         ".NET Core CLI",
         "Apache",
@@ -58,5 +61,6 @@
     "cSpell.words": [
         "auditd",
         "covid"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }

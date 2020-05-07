@@ -1,7 +1,7 @@
 ---
 title: Ethics and responsible use - Personalizer
 titleSuffix: Azure Cognitive Services
-description: These guidelines are aimed at helping you to implement personalization in a way that helps you build trust in your company and service. Be sure to pause to research, learn and deliberate on the impact of the personalization on people’s lives. When in doubt, seek guidance.
+description: These guidelines are aimed at helping you to implement personalization in a way that helps you build trust in your company and service. Be sure to pause to research, learn and deliberate on the impact of the personalization on people's lives. When in doubt, seek guidance.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
 ---
-     
+
 # Guidelines for responsible implementation of Personalizer
 
-For people and society to realize the full potential of AI, implementations need to be designed in such a way that they earn the trust of those adding AI to their applications and the users of applications built with AI. These guidelines are aimed at helping you to implement Personalizer in a way that helps you build trust in your company and service. Be sure to pause to research, learn and deliberate on the impact of the personalization on people’s lives. When in doubt, seek guidance.
+For people and society to realize the full potential of AI, implementations need to be designed in such a way that they earn the trust of those adding AI to their applications and the users of applications built with AI. These guidelines are aimed at helping you to implement Personalizer in a way that helps you build trust in your company and service. Be sure to pause to research, learn and deliberate on the impact of the personalization on people's lives. When in doubt, seek guidance.
 
 These guidelines are not intended as legal advice and you should separately ensure that your application complies with the fast-paced developments in the law in this area and in your sector.
 
 Also, in designing your application using Personalizer, you should consider a broad set of responsibilities you have when developing any data-centric AI system, including ethics, privacy, security, safety, inclusion, transparency and accountability. You can read more about these in the [Recommended reading](#recommended-reading) section.
 
-You can use the following content as a starter checklist, and customize and refine it to your scenario. This document has two main sections: The first is dedicated to highlighting responsible use considerations when choosing scenarios, features and rewards for Personalizer. The second take a set of values Microsoft believes should be considered when building AI systems, and provides actionable suggestions and risks on how your use of Personalizer influences them. 
+You can use the following content as a starter checklist, and customize and refine it to your scenario. This document has two main sections: The first is dedicated to highlighting responsible use considerations when choosing scenarios, features and rewards for Personalizer. The second take a set of values Microsoft believes should be considered when building AI systems, and provides actionable suggestions and risks on how your use of Personalizer influences them.
 
 
 ## Your responsibility
@@ -37,18 +37,18 @@ Microsoft is continuously putting effort into its tools and documents to help yo
 Implementing Personalizer can be of great value to your users and your business. To implement Personalizer responsibly, start by considering the following guidelines when:
 
 * Choosing use cases to apply Personalization.
-* Building [reward functions](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-rewards.md).
-* Choosing which [features](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-features.md) about the context and possible actions you will use for personalization.
+* Building [reward functions](concept-rewards.md).
+* Choosing which [features](concepts-features.md) about the context and possible actions you will use for personalization.
 
 
 ## Choosing use cases for Personalizer
 
-Using a service that learns to personalize content and user interfaces is useful. It can also be misapplied if the way the personalization creates negative side effects in the real world, including if users are unaware of content personalization. 
+Using a service that learns to personalize content and user interfaces is useful. It can also be misapplied if the way the personalization creates negative side effects in the real world, including if users are unaware of content personalization.
 
-Examples of uses of Personalizer with heightened potential for negative side effects or a lack of transparency include scenarios where the "reward" depends on many long-term complex factors that, when over-simplified into an immediate reward can have unfavorable results for individuals. These tend to be considered “consequential” choices, or choices that involve a risk of harm. For example: 
+Examples of uses of Personalizer with heightened potential for negative side effects or a lack of transparency include scenarios where the "reward" depends on many long-term complex factors that, when over-simplified into an immediate reward can have unfavorable results for individuals. These tend to be considered "consequential" choices, or choices that involve a risk of harm. For example:
 
 
-* **Finance**: Personalizing offers on loan, financial, and insurance products, where risk factors are based on data the individuals don't know about, can't obtain, or can't dispute. 
+* **Finance**: Personalizing offers on loan, financial, and insurance products, where risk factors are based on data the individuals don't know about, can't obtain, or can't dispute.
 * **Education**: Personalizing ranks for school courses and education institutions where recommendations may propagate biases and reduce users' awareness of other options.
 * **Democracy and Civic Participation**: Personalizing content for users with the goal of influencing opinions is consequential and manipulative.
 * **Third-party reward evaluation**: Personalizing items where the reward is based on a latter 3rd party evaluation of the user, instead of having a reward generated by the user's own behavior.
@@ -73,7 +73,7 @@ Consider the effect of these features:
 * **User demographics**: Features regarding sex, gender, age, race, religion: These features may be not allowed in certain applications for regulatory reasons, and it may not be ethical to personalize around them because the personalization would propagate generalizations and bias. An example of this bias propagation is a job posting for engineering not being shown to elderly or gender-based audiences.
 * **Locale information**: In many places of the world, location information (such as a zip code, postal code, or neighborhood name) can be highly correlated with income, race and religion.
 * **User Perception of Fairness**: Even in cases where your application is making sound decisions, consider the effect of users perceiving that content displayed in your application changes in a way that appears to be correlated to features that would be discriminatory.
-* **Unintended Bias in Features**:	There are types of biases that may be introduced by using features that only affect a subset of the population. This requires extra attention if features are being generated algorithmically, such as when using image analysis to extract items in a picture or text analytics to discover entities in text. Make yourself aware of the characteristics of the services you use to create these features.
+* **Unintended Bias in Features**:       There are types of biases that may be introduced by using features that only affect a subset of the population. This requires extra attention if features are being generated algorithmically, such as when using image analysis to extract items in a picture or text analytics to discover entities in text. Make yourself aware of the characteristics of the services you use to create these features.
 
 Apply the following practices when choosing features to send in contexts and actions to Personalizer:
 
@@ -81,7 +81,7 @@ Apply the following practices when choosing features to send in contexts and act
 * Be transparent to users that algorithms and data analysis are being used to personalize the options they see.
 * Ask yourself: Would my users care and be happy if I used this information to personalize the content for them? Would I feel comfortable showing them how the decision was made to highlight or hide certain items?
 * Use behavioral rather than classification or segmentation data based on other characteristics. Demographic information was traditionally used by retailers for historical reasons – demographic attributes seemed simple to collect and act upon before a digital era, - but question how relevant demographic information is when you have actual interaction, contextual, and historical data that relates more closely to the preferences and identity of users.
-* Consider how to prevent features from being 'spoofed' by malicious users, which if exploited in large numbers can lead to training Personalizer in misleading ways to purposefully disrupt, embarrass and harass certain classes of users. 
+* Consider how to prevent features from being 'spoofed' by malicious users, which if exploited in large numbers can lead to training Personalizer in misleading ways to purposefully disrupt, embarrass and harass certain classes of users.
 * When appropriate and feasible, design your application to allow your users to opt in or opt out of having certain personal features used. These could be grouped, such as "Location information", "Device Information", "Past Purchase History" etc.
 
 
@@ -96,7 +96,7 @@ For example, rewarding on clicks will make the Personalizer Service seek clicks 
 As a contrasting example, a news site may want to set rewards tied to something more meaningful than clicks, such as "Did the user spend enough time to read the content?" "Did they click on relevant articles or references?". With Personalizer it is easy to tie metrics closely to rewards. But be careful not to confound short-term user engagement with good outcomes.
 
 ### Unintended consequences from reward scores
-Reward scores may be built with the best of intentions, but can still create unexpected consequences or unintended results on how Personalizer ranks content. 
+Reward scores may be built with the best of intentions, but can still create unexpected consequences or unintended results on how Personalizer ranks content.
 
 Consider the following examples:
 
@@ -117,7 +117,7 @@ The following are areas of design for responsible implementations of AI. Learn m
 ![AI Values from Future Computed](media/ethics-and-responsible-use/ai-values-future-computed.png)
 
 ### Accountability
-*People who design and deploy AI Systems must be accountable for how their systems operate*. 
+*People who design and deploy AI Systems must be accountable for how their systems operate*.
 
 * Create internal guidelines on how to implement Personalizer, document, and communicate them to your team, executives, and suppliers.
 * Perform periodic reviews of how reward scores are computed, perform offline evaluations to see what features are affecting Personalizer, and use the results to eliminate unneeded and unnecessary features.
@@ -150,9 +150,9 @@ The following are areas of design for responsible implementations of AI. Learn m
 *AI Systems should be secure and respect privacy*. When using Personalizer:
 
 * *Inform users up front about the data that is collected and how it is used and obtain their consent beforehand*, following your local and industry regulations.
-* *Provide privacy-protecting user controls.* For applications that store personal information, consider providing an easy-to-find button for functions such as: 
-   * `Show me all you know about me`    
-   * `Forget my last interaction` 
+* *Provide privacy-protecting user controls.* For applications that store personal information, consider providing an easy-to-find button for functions such as:
+   * `Show me all you know about me`
+   * `Forget my last interaction`
    * `Delete all you know about me`
 
 In some cases, these may be legally required. Consider the tradeoffs in retraining models periodically so they don't contain traces of deleted data.
@@ -160,7 +160,7 @@ In some cases, these may be legally required. Consider the tradeoffs in retraini
 ### Inclusiveness
 *Address a broad range of human needs and experiences*.
 * *Provide personalized experiences for accessibility-enabled interfaces.* The efficiency that comes from good personalization - applied to reduce the amount of effort, movement, and needless repetition in interactions-  can be especially beneficial to people with disabilities.
-* *Adjust application behavior to context*. You can use Personalizer to disambiguate between intents in a chat bot, for example, as the right interpretation may be contextual and one size may not fit all. 
+* *Adjust application behavior to context*. You can use Personalizer to disambiguate between intents in a chat bot, for example, as the right interpretation may be contextual and one size may not fit all.
 
 
 ## Proactive readiness for increased data protection and governance
@@ -180,14 +180,14 @@ Consider creating methods for team members, users and business owners to report 
 Any person thinking about side effects of use of any technology is limited by their perspective and life experience. Expand the range of opinions available by bringing in more diverse voices into your teams, users, or advisory boards; such that it is possible and encouraged for them to speak up. Consider training and learning materials to further expand the team knowledge in this domain, and to add capability to discuss complex and sensitive topics.
 
 Consider treating tasks regarding responsible use just like other crosscutting tasks in the application lifecycle, such as tasks related to user experience, security, or DevOps. These tasks and their requirements can't be an afterthought. Responsible use should be discussed and verified throughout the application lifecycle.
- 
+
 ## Questions and feedback
 
 Microsoft is continuously putting effort into tools and documents to help you act on these responsibilities. Our team invites you to [provide feedback to Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D)  if you believe additional tools, product features, and documents would help you implement these guidelines for using Personalizer.
 
 ## Recommended reading
 
-* See Microsoft’s six principles for the responsible development of AI published in the January 2018 book, [The Future Computed](https://news.microsoft.com/futurecomputed/)
+* See Microsoft's six principles for the responsible development of AI published in the January 2018 book, [The Future Computed](https://news.microsoft.com/futurecomputed/)
 * [Who Owns the Future?](https://www.goodreads.com/book/show/15802693-who-owns-the-future) by Jaron Lanier.
 * [Weapons of Math Destruction](https://www.goodreads.com/book/show/28186015-weapons-of-math-destruction) by - Cathy O'Neil
 * [Ethics and Data Science](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) by DJ Patil, Hilary Mason, Mike Loukides.

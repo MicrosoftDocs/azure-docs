@@ -70,7 +70,7 @@ Get-AzVMUsage -Location "South Central US"
 
 Which returns:
 
-```powershell
+```output
 Name                             Current Value Limit  Unit
 ----                             ------------- -----  ----
 Availability Sets                            0  2000 Count

@@ -26,6 +26,10 @@ landingContent:
         links:
           - text: What is Load Balancer?
             url: load-balancer-overview.md
+          - text: Load Balancer concepts
+            url: concepts.md
+          - text: Load Balancer components
+            url: components.md
       
   # Card (optional)
   - title: Get started
@@ -90,6 +94,8 @@ landingContent:
             url: load-balancer-standard-diagnostics.md
           - text: Troubleshoot Azure Load Balancer
             url: load-balancer-troubleshoot.md
+          - text: Common Azure Load Balancer errors
+            url: load-balancer-common-deployment-errors.md
       
      # Card
   - title: Reference
@@ -100,3 +106,7 @@ landingContent:
             url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
           - text: Azure CLI
             url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest
+          - text: ARM templates
+            url: https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates
+          - text: Frequently asked Load Balancer questions
+            url: load-balancer-faqs.md

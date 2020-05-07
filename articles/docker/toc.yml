@@ -1,5 +1,5 @@
-- name: Docker Documentation
-  href: index.md
+- name: Docker documentation
+  href: index.yml
 - name: Quickstart
   expanded: true
   items:

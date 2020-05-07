@@ -71,3 +71,4 @@ Available in all regions.
 
 - Learn about [Standard Load Balancer](load-balancer-standard-overview.md).
 - Learn about [outbound rules](load-balancer-outbound-rules-overview.md).
+- [Configure TCP RST on Idle Timeout](load-balancer-tcp-idle-timeout.md)
