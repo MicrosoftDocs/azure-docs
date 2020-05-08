@@ -271,6 +271,8 @@
       href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
     - name: Spatial IO module
       href: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/
+    - name: Indoor module
+      href: https://docs.microsoft.com/en-us/javascript/api/azure-maps-drawing-tools/
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
 - name: Resources
