@@ -24,7 +24,8 @@ This article shows you how to configure routing preference via ISP network (**In
 * Internet-facing load balancer
 * Application Gateway
 * Azure Firewall
-By default, traffic is routed via the Microsoft global network for all Azure services and can be associated with any Azure services.
+
+By default, the routing preference for public IP address is set to the Microsoft global network for all Azure services and can be associated with any Azure service.
 
 > [!IMPORTANT]
 > Routing preference is currently in public preview.
