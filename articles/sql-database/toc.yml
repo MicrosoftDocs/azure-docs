@@ -131,6 +131,8 @@
         items:
         - name: Vulnerability assessment  
           href: sql-vulnerability-assessment.md
+        - name: Vulnerability assessment rules
+          href: sql-database-vulnerability-assessment-rules.md
         - name: Storing VA scans behind firewalls and VNets
           href: sql-database-vulnerability-assessment-storage.md
       - name: Advanced Threat Protection
