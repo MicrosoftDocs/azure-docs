@@ -432,7 +432,7 @@
           href: custom-keyword-overview.md
         - name: Custom keyword naming guidelines
           href: speech-devices-sdk-kws-guidelines.md
-        - name: Custom keyword spotting
+        - name: Custom keyword recognition
           href: speech-devices-sdk-create-kws.md
 - name: Hosting
   items:

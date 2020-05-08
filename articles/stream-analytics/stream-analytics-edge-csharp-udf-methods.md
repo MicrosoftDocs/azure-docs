@@ -46,7 +46,7 @@ For Azure Stream Analytics values to be used in C#, they need to be marshaled fr
 |nvarchar(max) | string |
 |datetime | DateTime |
 |Record | Dictionary\<string, object> |
-|Array | Array\<object> |
+|Array | Object[] |
 
 The same is true when data needs to be marshaled from C# to Azure Stream Analytics, which happens on the output value of a UDF. The table below shows what types are supported:
 
@@ -58,7 +58,7 @@ The same is true when data needs to be marshaled from C# to Azure Stream Analyti
 |DateTime  |  dateTime   |
 |struct  |  Record   |
 |object  |  Record   |
-|Array\<object>  |  Array   |
+|Object[]  |  Array   |
 |Dictionary\<string, object>  |  Record   |
 
 ## CodeBehind
