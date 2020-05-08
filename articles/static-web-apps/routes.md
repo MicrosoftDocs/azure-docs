@@ -34,10 +34,6 @@ The following table lists the appropriate location to put your _routes.json_ fil
 | Svelte  | _public_   |
 | Vue     | _public_ |
 
-### Angular
-
-Angular apps do not copy all the files in the _src_ folder to the artifact folder by default. To ensure the _routes.json_ file is copied to the correct location, point the GitHub Actions workflow directly to your _routes.json_ file via the [`routes_location` workflow customization](github-actions-workflow.md#route-file-location).
-
 ## Defining routes
 
 Routes are defined in the _routes.json_ file as an array of route rules on the `routes` property. Each rule is composed of a route pattern, along with one or more of the optional rule properties. See the [example route file](#example-route-file) for usage examples.
