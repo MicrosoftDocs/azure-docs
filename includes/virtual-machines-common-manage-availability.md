@@ -106,7 +106,6 @@ For a tutorial on how to load balance across availability zones, see [Load balan
 
 <!-- Link references -->
 [Configure multiple virtual machines in an availability set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Configure each application tier into separate availability sets]: #configure-each-application-tier-into-separate-availability-zones-or-availability-sets
 [Combine a Load Balancer with availability sets]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Use managed disks for VMs in an availability set]: #use-managed-disks-for-vms-in-an-availability-set
