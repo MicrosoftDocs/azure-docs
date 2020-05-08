@@ -40,10 +40,6 @@ This article takes you through the steps to create and delete a Creator resource
 
    ![Resource deployment status page](./media/how-to-manage-creator/creator-resourcecreated.PNG)
 
-    >[!TIP]
-    >To troubleshoot any errors you may receive, see
-    [Troubleshoot query issues when using Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/troubleshoot-query-performance)
-
 7. Click **Go to resource**. Your Creator resource view page shows the status of your Creator resource and the chosen demographic region.
 
     ![Creator status page](./media/how-to-manage-creator/creator-resourceview.PNG)
@@ -73,6 +69,8 @@ Creator usage data is incorporated in your Azure Maps usage charts and activity 
 ## Access to Creator services
 
 Creator services are accessible only from within the location selected during creation. If calls are made to Creator services from outside the selected location, a user error message will be returned. To make calls from outside the selected location, the service URL must include the geographic prefix for the selected locations. For example, if Creator is created in the United States, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversion/convert`.
+
+Also, all data imported into Creator should be uploaded into the same geographical location as the Creator resource. For example, if Creator is provisioned in the United Stated, all raw data should be uploaded via `us.atlas.microsoft.com/mapData/upload`.
 
 ## Next steps
 
