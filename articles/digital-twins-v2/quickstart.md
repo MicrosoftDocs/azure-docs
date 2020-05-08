@@ -42,7 +42,7 @@ The quickstart is driven by a sample project written in C#. Get the sample proje
 
 ## Build out a sample solution
 
-In the remainder of this quickstart, you will use the sample project and some pre-written example code to build out a basic Azure Digital Twins solution. The major solution components are **models**, **digital twins**, and **relationships**, resulting in a queryable **twin graph** of an environment.
+Now that the instance and sample app are configured, you will use the sample project and some pre-written example code to build out a basic Azure Digital Twins solution. The major solution components are **models**, **digital twins**, and **relationships**, resulting in a queryable **twin graph** of an environment.
 
 ### Model a physical environment with DTDL
 
@@ -66,7 +66,7 @@ Open *Room.json*, and change it in the following ways:
       "schema": "string"
     }
     ```
-* **Add a relationship**. After the `DisplayName` property that ends on line 20, paste the following code to add the ability for this type of twin to form *contains* relationships with other twins:
+* **Add a relationship**. After the `DisplayName` property that you just added, paste the following code to add the ability for this type of twin to form *contains* relationships with other twins:
 
     ```json
     ,
@@ -85,7 +85,7 @@ When you are finished, the updated model should look like this:
 Make sure to save the file before moving on.
 
 > [!TIP]
-> If you want to try creating your own model, you can paste the Room model into a new file that you save with a *.json* extension in the *AdtSampleApp\SampleClientApp\Models* folder. Then play around with adding properties and relationships to represent whatever you would like. You can also look at the other sample models in this folder for ideas.
+> If you want to try creating your own model, you can paste the *Room* model code into a new file that you save with a *.json* extension in the *AdtSampleApp\SampleClientApp\Models* folder. Then, play around with adding properties and relationships to represent whatever you'd like. You can also look at the other sample models in this folder for ideas.
 
 #### Upload models to Azure Digital Twins
 
@@ -93,7 +93,7 @@ Once you have designed your model(s), you need to upload them to your Azure Digi
 
 Open _AdtSampleApp/**AdtE2ESample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
 
-:::image type="content" source="media/quickstart/start-button-sample.png" alt-text="The Visual Studio start button (DigitalTwinsSample project":::
+:::image type="content" source="media/quickstart/start-button-sample.png" alt-text="The Visual Studio start button (SampleClientApp project)":::
  
 A console window will open, carry out authentication, and wait for a command. In this console, run the following command to upload both your edited model for *Room* and another model, *Floor*.
 
