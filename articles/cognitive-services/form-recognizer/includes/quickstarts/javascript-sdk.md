@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Form Recognizer client library for .NET"
-description: In this quickstart, get started with the Form Recognizer client library for .NET.
+title: "Quickstart: Form Recognizer client library for JavaScript"
+description: In this quickstart, get started with the Form Recognizer client library for JavaScript.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/06/2020
+ms.date: 05/08/2020
 ms.author: pafarley
 ---
 
@@ -43,21 +43,21 @@ Run the `npm init` command to create a node application with a `package.json` fi
 npm init
 ```
 
-Create a file named `index.js` and import the following libraries:
+Create a file named `index.js`, open it, and import the following libraries:
 
 ```javascript
 const { FormRecognizerClient, AzureKeyCredential } = require("@azure/ai-form-recognizer");
 const fs = require("fs");
 ```
 
-Also load the environment variables
+Also load the environment variables.
 
 ```javascript
 // Load the .env file if it exists
 require("dotenv").config();
 ```
 
-In the `main` function, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell to access the variable.
+In the `main` function, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you'll need to close and reopen the editor, IDE, or shell to access the variable.
 
 ```javascript
 // You will need to set these environment variables or edit the following values
@@ -93,17 +93,17 @@ These code snippets show you how to do the following tasks with the Form Recogni
 
 ## Authenticate the client
 
-In the `Main` function, authenticate two objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects.
+In the `Main` function, authenticate a client object using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects. You'll also create a training client object.
 
 ```javascript
 const client = new FormRecognizerClient("<endpoint>", new AzureKeyCredential("<API key>"));
 
 const trainingClient = client.getFormTrainingClient();
-
 ```
+
 ### Call client-specific functions
 
-The next block of code uses the client objects to call functions for each of the major tasks in the Form Recognizer SDK. You'll define these functions later on.
+The next block of code in `main` uses the client objects to call functions for each of the major tasks in the Form Recognizer SDK. You'll define these functions later on.
 
 You'll also need to add references to the URLs for your training and testing data.
 * To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
@@ -111,11 +111,11 @@ You'll also need to add references to the URLs for your training and testing dat
 * Use the above method to get the URL of a receipt image as well, or use the sample image URL provided.
 
 > [!NOTE]
-> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/1.0.0-preview.1/api/index.html).
+> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://aka.ms/azsdk-js-formrecognizer-ref-docs).
 
 
 ```javascript
-const containerSasUrl = "<url/path to the labeled training documents>";
+const trainingDataUrl = "<url/path to the labeled training documents>";
 const formUrl = "<SAS-URL-of-a-form-in-blob-storage>";
 const receiptUrl = "https://docs.microsoft.com/azure/cognitive-services/form-recognizer/media/contoso-allinone.jpg";
 
@@ -130,9 +130,7 @@ await ManageModels(trainingClient, trainingDataUrl) ;
 
 ## Recognize form contents
 
-You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model.
-
-To recognize the contents of a file at a given URI, use the **beginRecognizeContentFromUrl** method.
+You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model. To recognize the contents of a file at a given URI, use the **beginRecognizeContentFromUrl** method.
 
 ```javascript
 async function Task<Guid> GetContents( recognizerClient, invoiceUri)
@@ -230,14 +228,14 @@ This section demonstrates how to train a model with your own data. A trained mod
 
 ### Train a model without labels
 
-Train custom models to recognize all fields and values found in your custom forms without manually labeling the training documents.
+Train custom models to recognize all the fields and values found in your custom forms without manually labeling the training documents.
 
 The following function trains a model on a given set of documents and prints the model's status to the console. 
 
 ```javascript
 async function TrainModel(trainingClient, trainingDataUrl)
 {
-    const poller = await trainingClient.beginTraining(containerSasUrl, false, {
+    const poller = await trainingClient.beginTraining(trainingDataUrl, false, {
         onProgress: (state) => {
             console.log(`training status: ${state.status}`);
         }
@@ -283,7 +281,7 @@ You can also train custom models by manually labeling the training documents. Tr
 
 ```javascript
 async function TrainModelWithLabelsAsync(
-    const poller = await trainingClient.beginTraining(containerSasUrl, true, {
+    const poller = await trainingClient.beginTraining(trainingDataUrl, true, {
         onProgress: (state) => {
             console.log(`training status: ${state.status}`);
         }
@@ -306,9 +304,9 @@ You'll use the **beginRecognizeFormsFromUrl** method. The returned value is a co
 
 ```javascript
 // Analyze PDF form data
-async function AnalyzePdfForm(formClient, modelId, pdfFormFile)
+async function AnalyzePdfForm(client, modelId, formUrl)
 {    
-    const poller = await client.beginRecognizeFormsFromUrl(modelId, pdfFormFile, {
+    const poller = await client.beginRecognizeFormsFromUrl(modelId, formUrl, {
         onProgress: (state) => {
             console.log(`status: ${state.status}`);
         }
@@ -333,7 +331,7 @@ The following code prints the analysis results to the console. It prints each re
 
 ## Manage your custom models
 
-This section demonstrates how to manage the custom models stored in your account. The following code does all of the model management tasks in a single method, as an example. Start by copying the method signature below:
+This section demonstrates how to manage the custom models stored in your account. The following code does all of the model management tasks in a single function, as an example. Start by copying the function signature below:
 
 ```javascript
 async function ManageModels(client, trainingClient, trainingFileUrl)
@@ -398,7 +396,7 @@ You can also delete a model from your account by referencing its ID. This code d
 
 ```javascript
     try {
-        const deleted = await client.getModel(firstModel.modelId);
+        const deleted = await client.deleteModel(firstModel.modelId);
         console.log(deleted);
     } catch (err) {
         // Expected
@@ -443,3 +441,4 @@ In this quickstart, you used the Form Recognizer Python client library to train 
 > [Build a training data set](../../build-training-data-set.md)
 
 * [What is Form Recognizer?](../../overview.md)
+* The sample code from this guide (and more) can be found on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples).
