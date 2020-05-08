@@ -27,21 +27,3 @@ From here, navigate into _AdtSampleApp/SampleClientApp_. Copy the contents of *s
 ```
 
 Save and close the file.
-
-Next, open a command prompt or other console window on your machine, and copy these same values into environment variables using the commands below.
-
-```cmd/sh
-SET AZURE_TENANT_ID = <your-directory-ID>
-SET AZURE_CLIENT_ID = <your-application-ID>
-SET ADT_SERVICE_URL = https://<your-Azure-Digital-Twins-instance-hostName>
-```
-
-Files within the sample project that need these values to reach your Azure Digital Twins instance will pull them from these environment variables.
-
->[!TIP]
-> You can check that these environment variables were set correctly by printing out their values with the `ECHO` command, like this:
-> ```cmd/sh
-> ECHO %AZURE_TENANT_ID%
-> ECHO %AZURE_CLIENT_ID%
-> ECHO %ADT_SERVICE_URL%
-> ```
