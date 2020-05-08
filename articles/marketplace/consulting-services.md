@@ -142,7 +142,6 @@ Offers must be of least one of the following five service types:
 
 > [!NOTE]
 > The *Briefing* service type must be provided *in person*. You can provide the other four consulting services in either of two ways:
-
 > * **In person** – Onsite at a customer's location or a partner's facility.
 > * **Virtually** – Via teleconferencing, web conferencing, or remote implementation.
 
