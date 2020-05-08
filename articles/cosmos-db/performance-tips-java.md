@@ -20,7 +20,7 @@ ms.author: anfeldma
 > 
 
 > [!IMPORTANT]  
-> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using Azure Cosmos DB Java SDK v4 for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/migration-guide.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guide. 
+> This is *not* the latest Java SDK for Azure Cosmos DB! Consider using Azure Cosmos DB Java SDK v4 for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guide. 
 > 
 > These performance tips are for Azure Cosmos DB Sync Java SDK v2 only. Please view the Azure Cosmos DB Sync Java SDK v2 [Release notes](sql-api-sdk-java.md) and [Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) for more information.
 >
