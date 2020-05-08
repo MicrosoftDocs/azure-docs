@@ -113,18 +113,17 @@ The deployment usually takes 10-12 minutes, might vary depending on the size and
 To build the blockchain consortium post deploying the ordering service and peer nodes, you need to carry out the below steps in sequence. Azure HLF script (azhlf), which helps you with setting up the consortium, creating channel, and chaincode operations.
 
 > [!NOTE]
+> There is an update in the script, this update is to provide more functionality with Azure HLF script. If you want to refer to the old script, [see here](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/blob/master/consortiumScripts/README.md). This script is compatible with Hyperledger Fabric on Azure Kubernetes Service template version 2.0.0 and above. To check the version of the deployment, follow the steps in [Troubleshoot](#troubleshoot).
+
+> [!NOTE]
 > Azure HLF (azhlf) script provided is to help with demo/DevTest scenarios only. Channel and consortium created by this script has basic HLF policies to simplify demo/DevTest scenario. For production setup, we recommend updating channel/consortium HLF policies in line with your organization compliance needs using the native HLF APIs.
 
-
->[!NOTE]
-> There is an update in the script and this update is to provide more functionlaity with Azure HLF script. If you want to refer to the old script, [see here](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/blob/master/consortiumScripts/README.md).
 
 All the commands to run the Azure HLF script can be executed through Azure Bash Command Line. Interface (CLI). You can login into Azure shell web version through  ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) option at the top-right corner of the Azure portal. On the command prompt, type bash and enter to switch to bash CLI.
 
 See [Azure shell](https://docs.microsoft.com/azure/cloud-shell/overview) for more information.
 
 ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
-
 
 
 The following image shows the step-by-step process to build consortium between an orderer organization and peer organization. Detailed commands to execute these steps are captured in the following sections.
@@ -392,3 +391,25 @@ Execute below command to query chaincode:
 ./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
 ```
 Pass query function name and space separated list of arguments in `<queryFunction>` and `<queryFuncArgs>` respectively. Again, taking chaincode_example02.go chaincode as reference, to query value of “a” in the world state set `<queryFunction>` to `query` and `<queryArgs>` to “a”.  
+
+## Troubleshoot
+
+**To verify the running template version**
+
+Run the below commands to find the version of your template deployment.
+
+Set below environment variables as per the resource group where template has been deployed.
+
+```bash
+
+SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 --subscription $3; }
+AKS_CLUSTER_SUBSCRIPTION=<AKSClusterSubscriptionID>
+AKS_CLUSTER_RESOURCE_GROUP=<AKSClusterResourceGroup>
+AKS_CLUSTER_NAME=<AKSClusterName>
+```
+Run below command to print the template version
+```bash
+SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
+kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
+
+```
