@@ -25,6 +25,8 @@ This article shows you how to configure routing preference via ISP network (**In
 * Application Gateway
 * Azure Firewall
 
+By default, traffic is routed via the Microsoft global network for all Azure services and can be associated with any Azure services.
+
 > [!IMPORTANT]
 > Routing preference is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
@@ -79,6 +81,6 @@ Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## Next steps
-- Learn more about [Public IP with routing preference](routing-preference-overview.md).
+
 - Learn more about [routing preference in public IP addresses](routing-preference-overview.md).
-- [Deploy a VM and associate a public IP with routing preference choice using the Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md).
+- [Configure routing preference for a VM using the Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md).

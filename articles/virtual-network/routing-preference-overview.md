@@ -26,13 +26,13 @@ Azure routing preference enables you to choose how your traffic routes between A
 
 ## Routing via Microsoft global network
 
-When you route your traffic via the *Microsoft global network*, traffic is delivered over one of the largest networks on the globe spanning over 160,000 miles of fiber with over 165 edge Point of Presence (POPs). The network is well provisioned with multiple redundant fiber paths to ensure exceptionally high reliability and availability. The traffic engineering is managed by a software defined WAN controller that ensures low latency path selection for your traffic and offers the premium network performance.
+When you route your traffic via the *Microsoft global network*, traffic is delivered over one of the largest networks on the globe spanning over 160,000 miles of fiber with over 165 edge Point of Presence (POP). The network is well provisioned with multiple redundant fiber paths to ensure exceptionally high reliability and availability. The traffic engineering is managed by a software defined WAN controller that ensures low latency path selection for your traffic and offers the premium network performance.
 
 ![Routing via Microsoft global network](media/routing-preference-overview/route-via-microsoft-global-network.png)
 
-**Ingress traffic:** The global BGP Anycast announcement ensures ingress traffic enters Microsoft network closest to the user. For example, if a user from Singapore accesses Azure resources hosted in Chicago, USA then traffic is entered into Microsoft global network in Singapore Edge Point Of Presence (PoP) and travels on Microsoft network to the service hosted in Chicago.
+**Ingress traffic:** The global BGP Anycast announcement ensures ingress traffic enters Microsoft network closest to the user. For example, if a user from Singapore accesses Azure resources hosted in Chicago, USA then traffic is entered into Microsoft global network in Singapore Edge POP and travels on Microsoft network to the service hosted in Chicago.
 
-**Egress traffic:** The egress traffic follows the same principle. Traffic travels majority of its journey on Microsoft global network and exits closest to the user. For example, if traffic from Azure Chicago is destined to a user from Singapore, then traffic travels on Microsoft network from Chicago to Singapore, and exits the Microsoft network in Singapore Edge Point Of Presence (PoP).
+**Egress traffic:** The egress traffic follows the same principle. Traffic travels majority of its journey on Microsoft global network and exits closest to the user. For example, if traffic from Azure Chicago is destined to a user from Singapore, then traffic travels on Microsoft network from Chicago to Singapore, and exits the Microsoft network in Singapore Edge POP.
 
 Both ingress and egress traffic stays bulk of the travel on the Microsoft global network. This is also known as *cold potato routing*.
 
@@ -94,5 +94,5 @@ Routing Preference support for storage account is available in the following Azu
 
 ## Next steps
 
-* [Create a VM with Internet routing preference using the Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md)
-* [Create a VM with Internet routing preference using the Azure CLI](configure-routing-preference-virtual-machine-cli.md)
+* [Configure routing preference for a VM using the Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md)
+* [Configure routing preference for a VM using the Azure CLI](configure-routing-preference-virtual-machine-cli.md)

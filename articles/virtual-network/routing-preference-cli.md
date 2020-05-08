@@ -26,6 +26,8 @@ This article shows you how to configure routing preference via ISP network (**In
 * Application Gateway
 * Azure Firewall
 
+By default, traffic is routed via the Microsoft global network for all Azure services and can be associated with any Azure services.
+
 > [!IMPORTANT]
 > Routing preference is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
@@ -71,7 +73,7 @@ az network public-ip create \
 You can associate the above created public IP address with a [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. Use the CLI section on the tutorial page: [Associate a public IP address to a virtual machine](associate-public-ip-address-vm.md#azure-cli) to associate the Public IP to your VM. You can also associate the public IP address created above with with an [Azure Load Balancer](../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP address serves as a load-balanced virtual IP address (VIP).
 
 ## Next steps
-- Learn more about [Public IP with routing preference](routing-preference-overview.md).
+
 - Learn more about [routing preference in public IP addresses](routing-preference-overview.md). 
-- [Deploy a VM and associate a public ip with routing preference choice using the Azure CLI](configure-routing-preference-virtual-machine-cli.md).
+- [Configure routing preference for a VM using the Azure CLI](configure-routing-preference-virtual-machine-cli.md).
 

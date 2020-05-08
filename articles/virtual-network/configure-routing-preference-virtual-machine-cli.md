@@ -16,7 +16,7 @@ ms.author: mnayak
 ---
 # Configure routing preference for a VM using Azure CLI
 
-This article shows you how to configure routing preference for a virtual machine. Internet bound traffic from the VM will be routed to and from internet via the ISP network when you choose **Internet** as your routing preference option . The default routing is via the Microsoft global network.
+This article shows you how to configure routing preference for a virtual machine. Internet bound traffic from the VM will be routed via the ISP network when you choose **Internet** as your routing preference option . The default routing is via the Microsoft global network.
 
 This article shows you how to create a virtual machine with a public IP that is set to route traffic via the public internet using Azure CLI.
 
@@ -127,7 +127,6 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-- Learn more about [Public IP with routing preference](routing-preference-overview.md).
 - Learn more about [routing preference in public IP addresses](routing-preference-overview.md).
 - Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
 - Learn more about [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).

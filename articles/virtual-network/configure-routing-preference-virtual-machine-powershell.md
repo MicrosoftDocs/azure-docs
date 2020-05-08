@@ -16,9 +16,9 @@ ms.author: mnayak
 ---
 # Configure routing preference for a VM using Azure PowerShell
 
-This article shows you how to configure routing preference for a virtual machine. Internet bound traffic from the VM will be routed to and from internet via the ISP network when you choose **Internet** as your routing preference option . The default routing is via the Microsoft global network.
+This article shows you how to configure routing preference for a virtual machine. Internet bound traffic from the VM will be routed via the ISP network when you choose **Internet** as your routing preference option . The default routing is via the Microsoft global network.
 
-This article shows you how to create a virtual machine with a public IP that is set to route traffic via the Internet using Azure PowerShell.
+This article shows you how to create a virtual machine with a public IP that is set to route traffic via the ISP network using Azure PowerShell.
 
 > [!IMPORTANT]
 > Routing preference is currently in public preview.
