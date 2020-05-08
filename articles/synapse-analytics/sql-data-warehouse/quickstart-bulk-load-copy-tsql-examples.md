@@ -87,14 +87,14 @@ Managed Identity authentication is required when your storage account is attache
    
 4. You can now run the COPY statement specifying "Managed Identity":
 
-```sql
-COPY INTO dbo.target_table
-FROM 'https://myaccount.blob.core.windows.net/myblobcontainer/folder1/*.txt'
-WITH (
-    FILE_TYPE = 'CSV',
-    CREDENTIAL = (IDENTITY = 'Managed Identity'),
-)
-```
+	```sql
+	COPY INTO dbo.target_table
+	FROM 'https://myaccount.blob.core.windows.net/myblobcontainer/folder1/*.txt'
+	WITH (
+	    FILE_TYPE = 'CSV',
+	    CREDENTIAL = (IDENTITY = 'Managed Identity'),
+	)
+	```
 
 > [!IMPORTANT]
 >
@@ -109,13 +109,13 @@ WITH (
 
 3. Connect to your SQL pool using Active Directory where you can now run the COPY statement without specifying any credentials:
 
-```sql
-COPY INTO dbo.target_table
-FROM 'https://myaccount.blob.core.windows.net/myblobcontainer/folder1/*.txt'
-WITH (
-    FILE_TYPE = 'CSV'
-)
-```
+	```sql
+	COPY INTO dbo.target_table
+	FROM 'https://myaccount.blob.core.windows.net/myblobcontainer/folder1/*.txt'
+	WITH (
+	    FILE_TYPE = 'CSV'
+	)
+	```
 
 > [!IMPORTANT]
 >
@@ -131,16 +131,16 @@ WITH (
 5. [Assign read, write, and execution permissions to your AAD application](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) on your storage account
 6. You can now run the COPY statement:
 
-```sql
-COPY INTO dbo.target_table
-FROM 'https://myaccount.blob.core.windows.net/myblobcontainer/folder0/*.txt'
-WITH (
-    FILE_TYPE = 'CSV'
-    ,CREDENTIAL=(IDENTITY= '<application_ID>@<OAuth_2.0_Token_EndPoint>' , SECRET= '<authentication_key>')
-    --CREDENTIAL should look something like this:
-	--,CREDENTIAL=(IDENTITY= '92761aac-12a9-4ec3-89b8-7149aef4c35b@https://login.microsoftonline.com/72f714bf-86f1-41af-91ab-2d7cd011db47/oauth2/token', SECRET='juXi12sZ6gse]woKQNgqwSywYv]7A.M')
-)
-```
+	```sql
+	COPY INTO dbo.target_table
+	FROM 'https://myaccount.blob.core.windows.net/myblobcontainer/folder0/*.txt'
+	WITH (
+	    FILE_TYPE = 'CSV'
+	    ,CREDENTIAL=(IDENTITY= '<application_ID>@<OAuth_2.0_Token_EndPoint>' , SECRET= '<authentication_key>')
+	    --CREDENTIAL should look something like this:
+		--,CREDENTIAL=(IDENTITY= '92761aac-12a9-4ec3-89b8-7149aef4c35b@https://login.microsoftonline.com/72f714bf-86f1-41af-91ab-2d7cd011db47/oauth2/token', SECRET='juXi12sZ6gse]woKQNgqwSywYv]7A.M')
+	)
+	```
 
 > [!IMPORTANT]
 >
