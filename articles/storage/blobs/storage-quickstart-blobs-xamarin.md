@@ -30,7 +30,7 @@ Use the Azure Blob storage client library v12 with Xamarin to:
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Visual Studio with [Mobile Development for .NET workload](https://docs.microsoft.com/en-us/xamarin/get-started/installation/?pivots=windows) installed or [Visual Studio for Mac](https://docs.microsoft.com/en-us/visualstudio/mac/installation?view=vsmac-2019)
+* Visual Studio with [Mobile Development for .NET workload](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=windows) installed or [Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
 
 ## Setting up
     
