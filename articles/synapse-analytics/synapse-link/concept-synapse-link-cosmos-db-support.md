@@ -59,5 +59,3 @@ Here is list of the currently supported features within Synapse Link for Cosmos 
 ## Next steps
 
 See how to [connect to Synapse Link for Azure Cosmos DB](./how-to-connect-synapse-link-cosmos-db.md)
-
-
