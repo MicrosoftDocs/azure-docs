@@ -37,7 +37,7 @@ While any HTML5-capable browser should work, we officially support the following
 In a browser, navigate to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient) and sign in with your user account.
 
 >[!NOTE]
->If you're using the Windows Virtual Desktop Spring 2020 release with Azure Resource Manager objects, use the web client link in [this article](../connect-web.md) to connect to your resources.
+>If you're using the Windows Virtual Desktop Spring 2020 release, use the web client link in [this article](../connect-web.md) to connect to your resources.
 
 >[!NOTE]
 >If you've already signed in with a different Azure Active Directory account than the one you want to use for Windows Virtual Desktop, you should either sign out or use a private browser window.
