@@ -1,5 +1,5 @@
 ---
-title: Use Azure CLI for files & ACLs in Azure Data Lake Storage Gen2 (preview)
+title: Use Azure CLI for files & ACLs in Azure Data Lake Storage Gen2
 description: Use the Azure CLI to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
 services: storage
 author: normesta
@@ -11,14 +11,12 @@ ms.author: normesta
 ms.reviewer: prishet
 ---
 
-# Use Azure CLI to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (preview)
+# Use Azure CLI to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
 
-> [!IMPORTANT]
-> The `storage-preview` extension that is featured in this article is currently in public preview.
+[Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 
-[Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 ## Prerequisites
 
 > [!div class="checklist"]
@@ -55,7 +53,7 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
 
    Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the authorization code displayed in your terminal. Then, sign in with your account credentials in the browser.
 
-   To learn more about different authentication methods, see Sign in with Azure CLI.
+   To learn more about different authentication methods, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli.md).
 
 2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
 
@@ -65,8 +63,8 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-> ![!NOTE]
-> The example presented in this article reflect account key authorization. If you want to use Azure Active Directory (AD) authorization, either set the **AZURE_STORAGE_AUTH_MODE** environment variable to `login` or append `--auth-mode login` to each of these command examples. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli).
+> [!NOTE]
+> The example presented in this article reflect account key authorization. If you want to use Azure Active Directory (AD) authorization, either set the **AZURE_STORAGE_AUTH_MODE** environment variable to `login` or append `--auth-mode login` to each of these command examples. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli.md).
 
 ## Create a file system
 
@@ -131,15 +129,13 @@ Rename or move a directory by using the `az storage fs directory move` command.
 This example renames a directory from the name `my-directory` to the name `my-new-directory` in the same file system.
 
 ```azurecli
-az storage fs directory move -n my-directory -f my-file-system \
--new-directory "my-file-system/my-new-directory" --account-name mystorageaccount
+az storage fs directory move -n my-directory -f my-file-system --new-directory "my-file-system/my-new-directory" --account-name mystorageaccount
 ```
 
 This example moves a directory to a file system named `my-second-file-system`.
 
 ```azurecli
-az storage fs directory move -n my-directory -f my-file-system \
--new-directory "my-second-file-system/my-new-directory" --account-name mystorageaccount
+az storage fs directory move -n my-directory -f my-file-system --new-directory "my-second-file-system/my-new-directory" --account-name mystorageaccount
 ```
 
 ## Delete a directory
@@ -164,12 +160,12 @@ az storage fs directory exists -n my-directory -f my-file-system --account-name 
 
 ## Download from a directory
 
-Download a file from a directory by using the `az storage fs directory download` command.
+Download a file from a directory by using the `az storage fs file download` command.
 
 This example downloads a file named `upload.txt` from a directory named `my-directory`. 
 
 ```azurecli
-az storage fs directory download -p upload.txt -f my-file-system -d my-directory/upload.txt --account-name mystorageaccount
+az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\myFolder\download.txt" --account-name mystorageaccount
 ```
 
 ## List directory contents
@@ -189,8 +185,7 @@ Upload a file to a directory by using the `az storage fs directory upload` comma
 This example uploads a file named `upload.txt` to a directory named `my-directory`. 
 
 ```azurecli
-az storage fs directory upload -s "C:\mylocaldirectory\upload.txt" \
--p my-directory/upload.txt -f my-file-system --account-name mystorageaccount
+az storage fs file upload -s "C:\myFolder\upload.txt" -p my-directory/upload.txt  -f my-file-system --account-name mystorageaccount
 ```
 
 ## Show file properties
@@ -208,7 +203,7 @@ Rename or move a file by using the `az storage fs file move` command.
 This example renames a file from the name `my-file.txt` to the name `my-file-renamed.txt`.
 
 ```azurecli
-az storage fs file move -p my-file.txt -f my-file-system -new-path my-file-renamed.txt --account-name mystorageaccount
+az storage fs file move -p my-file.txt -f my-file-system --new-path my-file-system/my-file-renamed.txt --account-name mystorageaccount
 ```
 
 ## Delete a file
@@ -218,7 +213,7 @@ Delete a file by using the `az storage fs file delete` command.
 This example deletes a file named `my-file.txt`
 
 ```azurecli
-az storage fs file delete -p my-directory/my-file.txt-f my-file-system  --account-name mystorageaccount 
+az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount 
 ```
 
 ## Manage permissions
@@ -259,13 +254,13 @@ Use the `az storage fs access set` command to set the ACL of a **directory**.
 This example sets the ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```azurecli
-az storage fs access set -a "user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount
+az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount
 ```
 
 This example sets the *default* ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```azurecli
-az storage fs access set -a "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount
+az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount
 ```
 
 Use the `az storage fs access set` command to set the acl of a **file**. 
@@ -273,7 +268,7 @@ Use the `az storage fs access set` command to set the acl of a **file**.
 This example sets the ACL on a file for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```azurecli
-az storage fs access set -a "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount
+az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount
 ```
 
 The following image shows the output after setting the ACL of a file.
@@ -316,7 +311,6 @@ az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-dir
 
 ## See also
 
-* [Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
 * [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 * [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
