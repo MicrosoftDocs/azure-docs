@@ -55,7 +55,7 @@ New-AzResourceGroup -ResourceGroupName "MyIoTCentralResourceGroup" `
 # Create an IoT Central application
 New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
   -Name "myiotcentralapp" -Subdomain "mysubdomain" `
-  -Sku "ST1" -Template "iotc-pnp-preview@1.0.0" `
+  -Sku "ST1" -Template "iotc-pnp-preview" `
   -DisplayName "My Custom Display Name"
 ```
 

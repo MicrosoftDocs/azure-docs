@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 05/08/2020
 ---
 # Release notes
 
@@ -42,17 +42,20 @@ No behavior changes for this release. To get ready for upcoming changes, see [Up
 ## Upcoming changes
 The following changes will happen in upcoming releases. 
 
-### Deprecate Spark 2.1 and 2.2 for HDInsight 3.6 Spark cluster
-Starting from July 1 2020, customers will not be able to create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6. Existing clusters will run as is without the support from Microsoft. Consider to move to Spark 2.3 on HDInight 3.6 by June 30 2020 to avoid potential system/support interruption.
+### Deprecate Spark 2.1 and 2.2 in HDInsight 3.6 Spark cluster
+Starting from July 1 2020, customers will not be able to create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6. Existing clusters will run as is without the support from Microsoft. Consider to move to Spark 2.3 on HDInsight 3.6 by June 30 2020 to avoid potential system/support interruption.
 
-### Deprecate Spark 2.3 for HDInsight 4.0 Spark cluster
-Starting from July 1 2020, customers will not be able to create new Spark clusters with Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider to move to Spark 2.4 on HDInight 4.0 by June 30 2020 to avoid potential system/support interruption.
+### Deprecate Spark 2.3 in HDInsight 4.0 Spark cluster
+Starting from July 1 2020, customers will not be able to create new Spark clusters with Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider moving to Spark 2.4 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
 
-### Deprecate Kafka 1.1 for HDInsight 4.0 Kafka cluster
-Starting from July 1 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider to move to Kafka 2.1 on HDInight 4.0 by June 30 2020 to avoid potential system/support interruption.
+### Deprecate Kafka 1.1 in HDInsight 4.0 Kafka cluster
+Starting from July 1 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
 
-### HBase 2.0 to 2.1
-In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.
+### HBase 2.0 to 2.1.6
+In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.6
+
+### Spark 2.4.0 to 2.4.4
+In the upcoming HDInsight 4.0 release, Spark version will be upgraded from version 2.4.0 to 2.4.4
 
 ### A minimum 4-core VM is required for Head Node 
 A minimum 4-core VM is required for Head Node to ensure the high availability and reliability of HDInsight clusters. Starting from April 6 2020, customers can only choose 4-core or above VM as Head Node for the new HDInsight clusters. Existing clusters will continue to run as expected. 

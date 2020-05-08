@@ -96,6 +96,10 @@ This feature is available in following Azure regions:
 
 - Australia East
 
+- Japan East
+
+- North Europe
+
 > [!NOTE]
 > Enabling Availability Zones for a single region Azure Cosmos account will result in charges that are equivalent to adding an additional region to your account. For details on pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) and the [multi-region cost in Azure Cosmos DB](optimize-cost-regions.md) articles.
 

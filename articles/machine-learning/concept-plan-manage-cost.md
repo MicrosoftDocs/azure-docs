@@ -9,7 +9,7 @@ ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 05/08/2020
 ---
 
 # Plan and manage costs for Azure Machine Learning
@@ -58,7 +58,7 @@ View costs in graphs and tables for different time intervals. Some examples are 
 
 You won't see a separate service area for Machine Learning.  Instead you'll see the various resources you've added to your Machine Learning workspaces.
 
-## Use AmlCompute
+## Use Azure Machine Learning compute cluster (AmlCompute)
 
 With constantly changing data, you need fast and streamlined model training and retraining to maintain accurate models. However, continuous training comes at a cost, especially for deep learning models on GPUs. 
 
@@ -86,7 +86,7 @@ az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 
 
 Much like other Azure compute resources, AmlCompute comes with an inherent [quota (or limit) configuration](how-to-manage-quotas.md#azure-machine-learning-compute). This quota is by VM family (for example, Dv2 series, NCv3 series) and varies by region for each subscription. Subscriptions start with small defaults to get you going, but use this setting to control the amount of Amlcompute resources available to be spun up in your subscription. 
 
-Also configure [workspace level quota by VM family](/how-to-manage-quotas.md#workspace-level-quota), for each workspace within a subscription. This allows you to have more granular control on the costs that each workspace might potentially incur and restrict certain VM families. 
+Also configure [workspace level quota by VM family](how-to-manage-quotas.md#workspace-level-quota), for each workspace within a subscription. This allows you to have more granular control on the costs that each workspace might potentially incur and restrict certain VM families. 
 
 To set quotas at the workspace level, start in the [Azure portal](https://portal.azure.com).  Select any workspace in your subscription, and select **Usages + quotas** in the left pane. Then select the **Configure quotas** tab to view the quotas. You need privileges at the subscription scope to set this quota, since it's a setting that affects multiple workspaces.
 
@@ -134,5 +134,7 @@ Azure Machine Learning Compute supports reserved instances inherently. So if you
 
 ## Next steps
 
-* Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* Learn more about [Azure Machine Learning compute](how-to-set-up-training-targets.md#amlcompute).
+Learn more about:
+* [Manage and increase resource quotas](how-to-manage-quotas.md)
+* [Managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+* [Azure Machine Learning compute](how-to-set-up-training-targets.md#amlcompute).

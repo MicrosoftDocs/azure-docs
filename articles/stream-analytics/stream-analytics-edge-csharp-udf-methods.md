@@ -37,17 +37,29 @@ There are three ways to implement UDFs:
 The format of any UDF package has the path `/UserCustomCode/CLR/*`. Dynamic Link Libraries (DLLs) and resources are copied under the `/UserCustomCode/CLR/*` folder, which helps isolate user DLLs from system and Azure Stream Analytics DLLs. This package path is used for all functions regardless of the method used to employ them.
 
 ## Supported types and mapping
+For Azure Stream Analytics values to be used in C#, they need to be marshaled from one environment to the other. Marshaling happens for all input parameters of a UDF. Every Azure Stream Analytics type has a corresponding type in C# shown on the table below:
 
-|**UDF type (C#)**  |**Azure Stream Analytics type**  |
+|**Azure Stream Analytics type** |**C# type** |
+|---------|---------|
+|bigint | long |
+|float | double |
+|nvarchar(max) | string |
+|datetime | DateTime |
+|Record | Dictionary\<string, object> |
+|Array | Array\<object> |
+
+The same is true when data needs to be marshaled from C# to Azure Stream Analytics, which happens on the output value of a UDF. The table below shows what types are supported:
+
+|**C# type**  |**Azure Stream Analytics type**  |
 |---------|---------|
 |long  |  bigint   |
-|double  |  double   |
+|double  |  float   |
 |string  |  nvarchar(max)   |
-|dateTime  |  dateTime   |
-|struct  |  IRecord   |
-|object  |  IRecord   |
-|Array\<object>  |  IArray   |
-|dictionary<string, object>  |  IRecord   |
+|DateTime  |  dateTime   |
+|struct  |  Record   |
+|object  |  Record   |
+|Array\<object>  |  Array   |
+|Dictionary\<string, object>  |  Record   |
 
 ## CodeBehind
 You can write user-defined functions in the **Script.asql** CodeBehind. Visual Studio tools will automatically compile the CodeBehind file into an assembly file. The assemblies are packaged as a zip file and uploaded to your storage account when you submit your job to Azure. You can learn how to write a C# UDF using CodeBehind by following the [C# UDF for Stream Analytics Edge jobs](stream-analytics-edge-csharp-udf.md) tutorial. 
