@@ -166,7 +166,10 @@ With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive 
 
 ## Submit interactive PySpark queries
 
-To submit interactive PySpark queries, follow these steps:
+Users have 3 ways to perform PySpark interactive:
+
+### Using the PySpark interactive command in PY file
+Using the PySpark interactive command to submit the queries, follow these steps:
 
 1. Reopen the **HDexample** folder that was discussed [earlier](#open-a-work-folder), if closed.  
 
@@ -188,31 +191,59 @@ To submit interactive PySpark queries, follow these steps:
         print(sortedCollection[i])
    ```
 
-4. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
+4. The prompt to install PySpark kernel is displayed in the lower right corner of the window. You can click on **Install** button to procced for the PySpark installations; or click on **Skip** button to skip this step. If you need to install it later, you can change it in the settings.
 
-5. Select all the code, right-click the script editor, and select **Spark: PySpark Interactive** to submit the query. Or, use the Ctrl+Alt+I shortcut.
+   ![Install PySpark kernel](./media/hdinsight-for-vscode/Install-PySpark-kernel.png)
 
-   ![pyspark interactive context menu](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
+5. If the installation is successful in step 4, the "PySpark installed successfully" message box is displayed in the lower right corner of the window. Click on **Reload** button to reload the window.
+    ![PySpark installed successfully](./media/hdinsight-for-vscode/PySpark-installed-successfully.png)
 
-6. Select the cluster, if you haven't specified a default cluster. After a few moments, the **Python Interactive** results appear in a new tab. The tools also let you submit a block of code instead of the whole script file by using the context menu:
+6. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
+
+7. Select all the code, right-click the script editor, and select **Spark: PySpark Interactive** to submit the query. Or, use the Ctrl+Alt+I shortcut.
+
+    ![pyspark interactive context menu](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
+
+8. Select the cluster, if you haven't specified a default cluster. After a few moments, the **Python Interactive** results appear in a new tab. Click on PySpark to switch the kernel to **PySpark**, and the code will run successfully. The tools also let you submit a block of code instead of the whole script file by using the context menu:
 
    ![pyspark interactive python interactive window](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-7. Enter **%%info**, and then press Shift+Enter to view the job information (optional):
+9. Enter **%%info**, and then press Shift+Enter to view the job information (optional):
 
    ![pyspark interactive view job information](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
-8. The tool also supports the **Spark SQL** query:
+10. The tool also supports the **Spark SQL** query:
 
    ![Pyspark Interactive view result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
 
-   The submission status appears on the left of the lower status bar when you're running queries. Don't submit other queries when the status is **PySpark Kernel (busy)**.  
+ The submission status appears on the left of the lower status bar when you're running queries. Don't submit other queries when the status is **PySpark Kernel (busy)**.
 
    > [!NOTE]
    >
    > When **Python Extension Enabled** is cleared in the settings (it's selected by default), the submitted pyspark interaction results will use the old window:
-   >
-   > ![pyspark interactive python extension disabled](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
+   >![pyspark interactive python extension disabled](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
+
+### Leverage IPYNB support from Python extension
+
+1. You can create a Jupter Notebook by command from the Command Palette or by creating a new .ipynb file in your workspace. For more information, see [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
+
+2. Click on PySpark to switch kernel to **PySpark**, and then click on **Run Cell**, after a while, the result will be displayed.
+
+   ![Run IPYNB results](./media/hdinsight-for-vscode/run-ipynb-results.PNG)
+
+
+### Perform interactive query in PY file using a #%% comment
+
+1. Add **#%%** before the Py code to get notebook experience.
+
+    ![Add #%%](./media/hdinsight-for-vscode/Add-before-the-code.png)
+
+2. Click on **Run Cell**. After a few moments, the Python Interactive results appear in a new tab.
+
+   ![Run cell results](./media/hdinsight-for-vscode/Run-cell-results.PNG)
+
+   > [!NOTE]  
+   > When the kernel or settings mess up, use the **Python: Select Interpreter to start Jupyter server** command and **Restart IPython kernel**, then reload the VSCode, it can be solved.
 
 ## Submit PySpark batch job
 
