@@ -39,7 +39,7 @@ WITH (
 )
 ```
 
-## B. Share Access Signatures (SAS) with CRLF as the row terminator
+## B. Shared Access Signatures (SAS) with CRLF as the row terminator
 ```sql
 COPY INTO target_table
 FROM 'https://adlsgen2account.dfs.core.windows.net/myblobcontainer/folder1/'
