@@ -85,6 +85,6 @@ Identities used to access Azure file shares must be synced to Azure AD to enforc
 
 ## Next steps
 
-For more information about Azure Files and how to use AD over SMB, see these resources:
+To enable on-premises AD DS authentication for your Azure file share, continue to the next article:
 
 [Enable AD DS authentication for your account](storage-files-identity-ad-ds-enable.md)
