@@ -1,5 +1,5 @@
 ---
-title: Query Cosmos DB analytical with Synapse Spark
+title: Query Azure Cosmos DB analytical store with Synapse Spark
 description: How to query Cosmos DB analytical with Synapse Spark
 services: synapse-analytics 
 author: ArnoMicrosoft
@@ -11,7 +11,7 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Query Cosmos DB analytical with Synapse Spark
+# Query Azure Cosmos DB analytical store with Synapse Spark
 
 This article gives some examples on how you can interact with the analytical store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
 
@@ -28,6 +28,16 @@ df = spark.read.format("cosmos.olap")\
     .load()
 
 ​df.show(10)
+```
+
+The equivalent code gesture in **Scala** would be the following code:
+```java
+// To select a preferred list of regions in a multi-region Cosmos DB account, add option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
+
+val df_olap = spark.read.format("cosmos.olap").
+    option("spark.synapse.linkedService", "pySparkSamplesDb").
+    option("spark.cosmos.container", "trafficSourceColl").
+    load()
 ```
 
 ## Create Spark table
@@ -60,6 +70,20 @@ YOURDATAFRAME.write.format("cosmos.oltp")\
     .save()
 ```
 
+The equivalent code gesture in **Scala** would be the following code:
+```java
+// To select a preferred list of regions in a multi-region Cosmos DB account, add option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
+
+import org.apache.spark.sql.SaveMode
+
+df.write.format("cosmos.oltp").
+    option("spark.synapse.linkedService", "pySparkSamplesDb").
+    option("spark.cosmos.container", "trafficSourceColl"). 
+    option("spark.cosmos.write.upsertEnabled", "true").
+    mode(SaveMode.Overwrite).
+    save()
+```
+
 ## Load streaming DataFrame from container
 In this gesture, you will use Spark Streaming capability to load data from a container into a dataframe. The data will be stored into the primary data lake account (and file system) that you connected to the workspace. If the folder /localReadCheckpointFolder is not created, it will be automatically created. This operation will impact the transactional performance of Cosmos DB.
 
@@ -75,6 +99,21 @@ dfStream = spark.readStream\
     .option("spark.cosmos.changeFeed.checkpointLocation", "/localReadCheckpointFolder")\
     .option("spark.cosmos.changeFeed.queryName", "streamQuery")\
     .load()
+```
+
+The equivalent code gesture in **Scala** would be the following code:
+```java
+// To select a preferred list of regions in a multi-region Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
+
+val dfStream = spark.readStream.
+    format("cosmos.oltp").
+    option("spark.synapse.linkedService", "pySparkSamplesDb").
+    option("spark.cosmos.container", "trafficSourceColl").
+    option("spark.cosmos.changeFeed.readEnabled", "true").
+    option("spark.cosmos.changeFeed.startFromTheBeginning", "true").
+    option("spark.cosmos.changeFeed.checkpointLocation", "/localReadCheckpointFolder").
+    option("spark.cosmos.changeFeed.queryName", "streamTestRevin2").
+    load()
 ```
 
 ## Write streaming DataFrame to container
@@ -94,4 +133,21 @@ streamQuery = dfStream\
         .start()
 
 streamQuery.awaitTermination()
+```
+
+The equivalent code gesture in **Scala** would be the following code:
+```java
+// To select a preferred list of regions in a multi-region Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
+
+val query = dfStream.
+            writeStream.
+            format("cosmos.oltp").
+            outputMode("append").
+            option("checkpointLocation", "/localWriteCheckpointFolder").
+            option("spark.synapse.linkedService", "pySparkSamplesDb").
+            option("spark.cosmos.container", "test2").
+            option("spark.cosmos.connection.mode", "gateway").
+            start()
+
+query.awaitTermination()
 ```

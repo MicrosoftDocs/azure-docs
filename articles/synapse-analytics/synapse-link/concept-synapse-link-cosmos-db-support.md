@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Link for Cosmos DB supported features
+title: Azure Synapse Link for Azure Cosmos DB supported features
 description: Understand the current list of actions supported by Azure Synapse Link for Cosmos DB
 services: synapse-analytics 
 author: ArnoMicrosoft
@@ -26,7 +26,7 @@ You can connect to Cosmos DB container without enabling Synapse Link, in which c
 Here is list of the currently supported features within Synapse Link for Cosmos DB. 
 
 | Category              | Description |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL serverless](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
-| :-------------------- | :----------------------------------------------------------- |:----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | **Run-time Support** |Support for read or write by Azure Synapse run-time| ✓ | [Contact Us](mailto:AskSynapse@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB)|
 | **Cosmos DB API support** |API support as a Synapse Link| SQL / Mongo DB | SQL / Mongo DB |
 | **Object**  |Objects such as table that can be created, pointing directly to Azure Cosmos DB container| View, Table | View |
@@ -39,7 +39,7 @@ Here is list of the currently supported features within Synapse Link for Cosmos 
 ## Supported code-generated actions for Spark
 
 | Gesture              | Description |OLTP |HTAP  |
-| :-------------------- | :----------------------------------------------------------- |:----------------------------------------------------------- |:----------------------------------------------------------- |
+| -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Load to DataFrame** |Load and read data into a Spark DataFrame |X| ✓ |
 | **Create Spark table** |Create a table pointing to an Azure Cosmos DB container|X| ✓ |
 | **Write DataFrame to container** |Write data into a container|✓| ✓ |
@@ -51,13 +51,10 @@ Here is list of the currently supported features within Synapse Link for Cosmos 
 ## Supported code-generated actions for SQL serverless
 
 | Gesture              | Description |OLTP |HTAP |
-=======
-| :-------------------- | :----------------------------------------------------------- |:----------------------------------------------------------- |:----------------------------------------------------------- |
+| -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Select top 100** |Preview top 100 items from a container|X| ✓ |
 | **Create view** |Create a view to directly have BI access in a container through Synapse SQL|X| ✓ |
 
 ## Next steps
 
 See how to [connect to Synapse Link for Azure Cosmos DB](./how-to-connect-synapse-link-cosmos-db.md)
-
-
