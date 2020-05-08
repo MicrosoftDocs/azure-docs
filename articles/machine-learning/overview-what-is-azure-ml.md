@@ -18,7 +18,7 @@ Azure Machine Learning can be used for any kind of machine learning, from classi
 
 Start training on your local machine and then scale out to the cloud. 
 
-The service also interoperates with popular open-source tools, such as PyTorch, TensorFlow, and scikit-learn.
+The service also interoperates with popular deep learning and reinforcement open-source tools such as PyTorch, TensorFlow, scikit-learn, and Ray RLlib. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
@@ -46,6 +46,8 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 + [Machine learning CLI](reference-azure-machine-learning-cli.md)
 
 + Open-source frameworks such as PyTorch, TensorFlow, and scikit-learn and many more
+
++ [Reinforcement learning](how-to-use-reinforcement-learning.md) with Ray RLlib
 
 You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
