@@ -44,7 +44,7 @@ Use the following steps to run analytical queries with the Synapse Link for Azur
 
 ### Azure Resource Manager template
 
-The [Azure Resource Manager template](manage-sql-with-resource-manager.md) creates a Synapse Link enabled Azure Cosmos account for SQL API. This template creates a Core (SQL) API account in one region with a container configured with analytical TTL enabled, and an option to use manual or autoscale throughput. To deploy this template, click on **Deploy to Azure** on the readme page.
+The [Azure Resource Manager template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) creates a Synapse Link enabled Azure Cosmos account for SQL API. This template creates a Core (SQL) API account in one region with a container configured with analytical TTL enabled, and an option to use manual or autoscale throughput. To deploy this template, click on **Deploy to Azure** on the readme page.
 
 ## <a id="create-analytical-ttl"></a> Create an Azure Cosmos container with analytical store
 
