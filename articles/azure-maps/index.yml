@@ -64,7 +64,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Creator concept
+          - text: Indoor map concepts
             url: creator-for-indoor-maps.md
       - linkListType: tutorial
         links:
@@ -74,11 +74,11 @@ landingContent:
         links:
           - text: Manage Creator indoor maps
             url: how-to-manage-creator.md
-          - text: Dynamic styling for indoor maps
+          - text: Implement Dynamic styling for indoor maps
             url: indoor-map-dynamic-styling.md
-          - text: Azure Maps drawing error visualizer
+          - text: Use Azure Maps drawing error visualizer
             url: azure-maps-drawing-errors-visualizer.md
-          - text: Azure Maps indoor map module
+          - text: Use the indoor map module
             url: how-to-use-indoor-module.md
       - linkListType: reference
         links:
