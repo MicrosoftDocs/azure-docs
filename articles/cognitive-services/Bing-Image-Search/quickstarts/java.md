@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/31/2020
+ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 # Quickstart: Search for images with the Bing Image Search API, an Azure cognitive service 
 
-Use this quickstart to send search requests to the Bing Image Search API in Azure Cognitive Services. This Java application sends a search query to the API, and displays the URL of the first image in the results. While this application is written in Java, the API is a RESTful web service compatible with most programming languages.
+Use this quickstart to learn how to send search requests to the Bing Image Search API in Azure Cognitive Services. This Java application sends a search query to the API, and displays the URL of the first image in the results. Although this application is written in Java, the API is a RESTful web service compatible with most programming languages.
 
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) with additional error handling and annotations.
 
@@ -29,7 +29,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Create and initialize a project
 
-1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
+1. Create a new Java project in your favorite IDE or editor, and import the following libraries:
 
     ```java
     import java.net.*;
@@ -42,7 +42,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     import com.google.gson.JsonParser;
     ```
 
-2. Create variables for the API endpoint, your subscription key, and search term. `host` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, your subscription key, and search term. For `host`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     static String subscriptionKey = "enter key here";
@@ -53,7 +53,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Construct the search request and query
 
-1. Use the variables from the last step to format a search URL for the API request. The search term must be URL-encoded before being appended to the request.
+1. Use the variables from the previous step to format a search URL for the API request. URL-encode the search term before you appended it to the request.
 
     ```java
     // construct the search request URL (in the form of endpoint + query string)
@@ -64,7 +64,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Receive and process the JSON response
 
-1. Receive the JSON response from the Bing Image Search API, and construct the result object.
+1. Receive the JSON response from the Bing Image Search API and construct the result object.
 
     ```java
     // receive JSON body
@@ -73,7 +73,8 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
     ```
-2. Separate the Bing-related HTTP headers from the JSON body
+2. Separate the Bing-related HTTP headers from the JSON body.\
+
     ```java
     // extract Bing-related HTTP headers
     Map<String, List<String>> headers = connection.getHeaderFields();
@@ -85,7 +86,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     }
     ```
 
-3. Close the stream, and parse the response. Get the total number of returned search results, and the thumbnail url to the first image result.
+3. Close the stream, and parse the response. Get the total number of returned search results and the thumbnail url to the first image result.
 
     ```java
     stream.close();
@@ -101,7 +102,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Example JSON response
 
-Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result.
+Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result:
 
 ```json
 {

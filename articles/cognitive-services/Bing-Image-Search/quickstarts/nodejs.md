@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/31/2020
+ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
 
 # Quickstart: Search for images using the Bing Image Search REST API and Node.js
 
-Use this quickstart to start sending search requests to the Bing Image Search API. This JavaScript application sends a search query to the API, and displays the URL of the first image in the results. While this application is written in Javascript, the API is a RESTful web service compatible with most programming languages.
+Use this quickstart to learn how to send search requests to the Bing Image Search API. This JavaScript application sends a search query to the API, and displays the URL of the first image in the results. Although this application is written in JavaScript, the API is a RESTful web service compatible with most programming languages.
 
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) with additional error handling and annotations.
 
@@ -24,22 +24,22 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 * The latest version of [Node.js](https://nodejs.org/en/download/).
 
-* The [JavaScript Request Library](https://github.com/request/request)  
+* The [JavaScript Request Library](https://github.com/request/request).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+For more information, see [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create and initialize the application
 
-1. Create a new JavaScript file in your favorite IDE or editor, and set the strictness and https requirements.
+1. Create a new JavaScript file in your favorite IDE or editor, and set the strictness and HTTPS requirements.
 
     ```javascript
     'use strict';
     let https = require('https');
     ```
 
-2. Create variables for the API endpoint, image API search path, your subscription key, and search term. `host` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, image API search path, your subscription key, and search term. For `host`, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     let subscriptionKey = 'enter key here';
@@ -50,7 +50,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
 
 ## Construct the search request and query.
 
-1. Use the variables from the last step to format a search URL for the API request. Your search term must be URL-encoded before being sent to the API.
+1. Use the variables from the last step to format a search URL for the API request. URL-encoded your search term before you send it to the API.
 
     ```javascript
     let request_params = {
@@ -63,7 +63,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     };
     ```
 
-2. Use the request library to send your query to the API. `response_handler` will be defined in the next section.
+2. Use the request library to send your query to the API. 
     ```javascript
     let req = https.request(request_params, response_handler);
     req.end();
@@ -71,36 +71,36 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
 
 ## Handle and parse the response
 
-1. define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. Do the following steps within this function:
+1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. Do the following steps within this function:
 
-    1. Define a variable to contain the body of the JSON response.  
-        ```javascript
-        let response_handler = function (response) {
-            let body = '';
-        };
-        ```
+2. Within this function, define a variable to contain the body of the JSON response.  
+    ```javascript
+    let response_handler = function (response) {
+        let body = '';
+    };
+    ```
 
-    2. Store the body of the response when the **data** flag is called
-        ```javascript
-        response.on('data', function (d) {
-            body += d;
-        });
-        ```
+3. Store the body of the response when the `data` flag is called
+    ```javascript
+    response.on('data', function (d) {
+        body += d;
+    });
+    ```
 
-    3. When an **end** flag is signaled, get the first result from the JSON response. Print the URL for the first image, along with the total number of returned images.
+4. When an `end` flag is signaled, get the first result from the JSON response. Print the URL for the first image, along with the total number of returned images.
 
-        ```javascript
-        response.on('end', function () {
-            let firstImageResult = imageResults.value[0];
-            console.log(`Image result count: ${imageResults.value.length}`);
-            console.log(`First image thumbnail url: ${firstImageResult.thumbnailUrl}`);
-            console.log(`First image web search url: ${firstImageResult.webSearchUrl}`);
-         });
-        ```
+    ```javascript
+    response.on('end', function () {
+        let firstImageResult = imageResults.value[0];
+        console.log(`Image result count: ${imageResults.value.length}`);
+        console.log(`First image thumbnail url: ${firstImageResult.thumbnailUrl}`);
+        console.log(`First image web search url: ${firstImageResult.webSearchUrl}`);
+     });
+    ```
 
 ## Example JSON response
 
-Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result.
+Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result:
 
 ```json
 {
