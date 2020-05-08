@@ -498,6 +498,8 @@
         href: synapse-link.md
       - name: Synapse Link FAQ
         href: synapse-link-frequently-asked-questions.md
+      - name: Synapse Link use cases
+        href: synapse-link-use-cases.md
     - name: Built-in Jupyter notebooks
       items:
       - name: Jupyter notebooks overview
@@ -1008,6 +1010,10 @@
         href: how-to-use-change-feed-estimator.md
       - name: Migrate from change feed processor library
         href: how-to-migrate-from-change-feed-library.md
+    - name: Analytics with Synapse Link
+      items:
+      - name: Configure Synapse Link
+        href: configure-synapse-link.md
     - name: Built-in analytics with Apache Spark
       items:
       - name: Azure Databricks Spark connector

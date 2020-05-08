@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Real-time analytics use cases with Azure Synapse Link for Azure Cosmos DB
+description: Learn how Azure Synapse Link for Azure Cosmos DB is used in Supply chain analytics, forecasting, reporting, real-time personalization, and IOT predictive maintenance.
 author: AnithaAdusumilli
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 05/19/2020
 ms.author: anithaa
 ---
 
-# Azure Synapse Link for Azure Cosmos DB: Near real-time analytics use cases 
+# Azure Synapse Link for Azure Cosmos DB: Near real-time analytics use cases
 
 [Azure Synapse Link](synapse-link.md) for Azure Cosmos DB is a cloud native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
