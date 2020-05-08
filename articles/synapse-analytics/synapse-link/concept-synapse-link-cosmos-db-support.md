@@ -19,7 +19,7 @@ This article describes what functionalities are currently supported in Azure Syn
 
 There are two types of containers in Azure Cosmos DB:
 * HTAP container - A container with Synapse Link enabled. This container has both transactional store and analytical store. 
-* OLTP container - A containter with only transaction store; Synapse Link is not enabled. 
+* OLTP container - A container with only transaction store; Synapse Link is not enabled. 
 
 You can connect to Cosmos DB container without enabling Synapse Link, in which case you can only read/write to the transactional store. 
 
