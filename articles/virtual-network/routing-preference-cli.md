@@ -1,5 +1,5 @@
 ---
-title: Create a public IP address with Internet traffic routing preference using Azure CLI
+title: Configure routing preference for a public IP address using Azure CLI
 titlesuffix: Azure Virtual Network
 description: Learn how to create a public IP with an Internet traffic routing preference
 services: virtual-network
@@ -15,9 +15,9 @@ ms.date: 05/18/2020
 ms.author: mnayak
 
 ---
-# Create a public IP address with Internet traffic routing preference using Azure CLI
+# Configure routing preference for a public IP address using Azure CLI
 
-This article shows you how to create a public IP address with an Internet routing preference using Azure CLI. After creating the public IP address, you can associate it with the following Azure resources for inbound and outbound traffic to the internet:
+This article shows you how to configure routing preference via ISP network (**Internet** option) for a public IP address using Azure CLI. After creating the public IP address, you can associate it with the following Azure resources for inbound and outbound traffic to the internet:
 
 * Virtual machine
 * Virtual machine scale set
@@ -38,9 +38,9 @@ If you decide to install and use Azure CLI locally instead, this quickstart requ
 
 ## Register the feature for your subscription
 The Routing Preference feature is currently in preview. You must register the feature for your subscription as follows:
-    ```azurecli
-    az feature register --namespace Microsoft.Network --name AllowRoutingPreferenceFeature
-    ```
+```azurecli
+az feature register --namespace Microsoft.Network --name AllowRoutingPreferenceFeature
+```
 
 ## Create a resource group
 Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the **East US** Azure region:

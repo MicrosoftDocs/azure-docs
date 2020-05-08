@@ -1,5 +1,5 @@
 ---
-title: Create a VM with a public IP address with routing preference choice - Azure PowerShell
+title: Configure routing preference for a VM - Azure PowerShell
 description: Learn how to create a VM with a public IP address with routing preference choice using the Azure PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -14,9 +14,9 @@ ms.date: 05/18/2020
 ms.author: mnayak
 
 ---
-# Configure a virtual machine to route traffic via the internet using Azure PowerShell
+# Configure routing preference for a VM using Azure PowerShell
 
-You can create a virtual machine with a public IP address with a routing preference choice. Internet bound traffic from the VM will be routed to and from internet via respective network based on the routing preference selection. The default routing is via Microsoft global network.
+This article shows you how to configure routing preference for a virtual machine. Internet bound traffic from the VM will be routed to and from internet via the ISP network when you choose **Internet** as your routing preference option . The default routing is via the Microsoft global network.
 
 This article shows you how to create a virtual machine with a public IP that is set to route traffic via the Internet using Azure PowerShell.
 
@@ -27,9 +27,9 @@ This article shows you how to create a virtual machine with a public IP that is 
 
 ## Register the feature for your subscription
 The Routing Preference feature is currently in preview. You must register the feature for your subscription as follows:
-    ```azurepowershell
-    Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNamespace Microsoft.Network
-    ```
+```azurepowershell
+Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNamespace Microsoft.Network
+```
 
 ## Create a resource group
 1. If using the Cloud Shell, skip to step 2. Open a command session and sign into Azure with `Connect-AzAccount`.

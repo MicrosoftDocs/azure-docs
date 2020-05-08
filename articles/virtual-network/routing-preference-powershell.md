@@ -1,5 +1,5 @@
 ---
-title: Create a public IP address with Internet traffic routing preference - Azure PowerShell
+title: Configure routing preference for a public IP address - Azure PowerShell
 titlesuffix: Azure Virtual Network
 description: Learn how to create a public IP with an Internet traffic routing preference using Azure PowerShell.
 services: virtual-network
@@ -14,9 +14,9 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
 ---
-# Create a public IP address with the routing preference type Internet using Azure PowerShell
+# Configure routing preference for a public IP address using Azure PowerShell
 
-This article shows you how to create a public IP address with the routing preference type Internet using Azure PowerShell. After creating the public IP address, you can associate it with the following Azure resources for inbound and outbound traffic to the internet:
+This article shows you how to configure routing preference via ISP network (**Internet** option) for a public IP address using Azure PowerShell. After creating the public IP address, you can associate it with the following Azure resources for inbound and outbound traffic to the internet:
 
 * Virtual machine
 * Virtual machine scale set
@@ -37,9 +37,9 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Register the feature for your subscription
 The Routing Preference feature is currently in preview. You must register the feature for your subscription as follows:
-    ```azurepowershell
-    Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNamespace Microsoft.Network
-    ```
+```azurepowershell
+Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
+```
 
 ## Create a resource group
 
