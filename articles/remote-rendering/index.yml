@@ -66,11 +66,11 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Unity: Setting up a project from scratch
+          - text: "Unity: Setting up a project from scratch"
             url: tutorials/unity/project-setup.md
-          - text: Unity: Working with remote entities
+          - text: "Unity: Working with remote entities"
             url: tutorials/unity/working-with-remote-entities.md
-          - text: Unity: Changing environment and materials
+          - text: "Unity: Changing environment and materials"
             url: tutorials/unity/changing-environment-and-materials.md
-          - text: Native C++: Integrate Remote Rendering into a HoloLens Holographic App
+          - text: "Native C++: Integrate Remote Rendering into a HoloLens Holographic App"
             url: tutorials/native-cpp/hololens/integrate-arr-into-holographic-app.md
