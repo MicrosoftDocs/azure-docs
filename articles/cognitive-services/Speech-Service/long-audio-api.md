@@ -52,6 +52,22 @@ After preparing the input content, follow the [long-form audio synthesis quickst
 * Server is allowed to run and queue up to 120 requests for each Azure subscription account. If it exceeds the limitation, server will return a 429 error code (too many requests). Please wait and avoid submitting new request until some requests are completed
 * Server will keep up to 20,000 requests for each Azure subscription account. If it exceeds the limitation, please delete some requests before submitting new ones
 
+## Regions and endpoints
+
+The Long audio API is available in multiple regions with unique endpoints.
+
+| Region | Endpoint |
+|--------|----------|
+| Australia East | `https://australiaeast.customvoice.api.speech.microsoft.com` |
+| Canada Central | `https://canadacentral.customvoice.api.speech.microsoft.com` |
+| East US | `https://eastus.customvoice.api.speech.microsoft.com` |
+| India Central | `https://centralindia.customvoice.api.speech.microsoft.com` |
+| South Central US | `https://southcentralus.customvoice.api.speech.microsoft.com` |
+| Southeast Asia | `https://southeastasia.customvoice.api.speech.microsoft.com` |
+| UK South | `https://uksouth.customvoice.api.speech.microsoft.com` |
+| West Europe | `https://westeurope.customvoice.api.speech.microsoft.com` |
+| West US 2 | `https://westus2.customvoice.api.speech.microsoft.com` |
+
 ## Audio output formats
 
 We support flexible audio output formats. You can generate audio outputs per paragraph or concatenate the audios into one output by setting the 'concatenateResult' parameter. The following audio output formats are supported by the Long Audio API:
