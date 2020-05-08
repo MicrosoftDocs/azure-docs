@@ -13,11 +13,10 @@ ms.date: 05/11/2020
 
 # Create a Private Endpoint for a secure connection to Azure Cognitive Search
 
-In this article, use the portal to create a new Azure Cognitive Search service instance that can't be accessed via a public IP address. Next, configure an Azure virtual machine in the same virtual network, and use it to access the search service via a private endpoint.
+In this article, you'll use the Azure portal to create a new Azure Cognitive Search service instance that can't be accessed via the internet. Next, you'll configure an Azure virtual machine in the same virtual network and use it to access the search service via a private endpoint.
 
 > [!Important]
-> Private Endpoint support for Azure Cognitive Search can be configured using the Azure portal or the [Management REST API version 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/).
-> When the service endpoint is private, some portal features are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
+> Private Endpoint support for Azure Cognitive Search can be configured using the Azure portal or the [Management REST API version 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/). When the service endpoint is private, some portal features are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
 
 ## Why use a Private Endpoint for secure access?
 
