@@ -61,7 +61,7 @@ The following three policies are available in Azure AD Identity Protection to pr
 * MFA registration policy
     * Makes sure users are registered for Azure Multi-Factor Authentication. If a sign-in risk policy prompts for MFA, the user must already be registered for Azure Multi-Factor Authentication.
 
-When you enable a policy, you can also choose the threshold for risk level - low and above, medium and above, or high. This flexibility lets you decide how aggressive you want to be in enforcing any controls for suspicious sign-in events.
+When you enable a policy user or sign in risk policy, you can also choose the threshold for risk level - low and above, medium and above, or high. This flexibility lets you decide how aggressive you want to be in enforcing any controls for suspicious sign-in events.
 
 For more information about Azure AD Identity Protection, see [What is Azure AD Identity Protection](../identity-protection/overview-identity-protection.md)
 
@@ -110,8 +110,26 @@ To enable this policy, complete the following steps:
 
     ![Screenshot of how to enable the sign-in risk policy in the Azure portal](./media/tutorial-risk-based-sspr-mfa/enable-sign-in-risk-policy.png)
 
+## Test risky sign events
+
+Most user sign-in events won't trigger the risk-based policies configured in the previous steps. A user may never see a prompt for additional MFA or to reset their password. If their credentials remain secure and their behavior consistent, their sign-in events would be successful.
+
+To test the Azure AD Identity Protection policies created in the previous steps, you need a way to simulate risky behavior or potential attacks. The steps to do these tests vary based on the Azure AD Identity Protection policy you want to validate. For more information on scenarios and steps, see [Simulate risk detections in Azure AD Identity Protection](../identity-protection/howto-identity-protection-simulate-risk.md).
+
 ## Clean up resources
 
 If you have completed tests and no longer want to have the risk-based policies enabled, return to each policy you want to disable and set *Enforce Policy* to **Off**.
 
 ## Next steps
+
+In this tutorial, you enabled risk-based user policies for Azure AD Identity Protection. You learned how to:
+
+> [!div class="checklist"]
+> * Understand the available policies for Azure AD Identity Protection
+> * Enable Azure Multi-Factor Authentication registration
+> * Enable risk-based password changes
+> * Enable risk-based Multi-Factor Authentication
+> * Test risk-based policies for user sign-in attempts
+
+> [!div class="nextstepaction"]
+> [Learn more about Azure AD Identity Protection](../identity-protection/overview-identity-protection.md
