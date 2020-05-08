@@ -50,7 +50,7 @@ There are a few pre-requisites for publisher verification, some of which will ha
 
 Developers who have already met these pre-requisites can get verified in a matter of minutes. If the requirements have not been met, getting set up is free. 
 
-## Frequently Asked Questions 
+## Frequently asked questions 
 
 - **What information does Publisher Verification not provide?**  When an application is marked publisher verified this does not indicate whether the application or its publisher  has achieved any specific certifications, complies with industry standards, adheres to best practices, etc. Other Microsoft programs do provide this information, including [Microsoft 365 App Certification](/microsoft-365-app-certification/overview).
 
@@ -111,5 +111,5 @@ Microsoft Partner Network (MPN) and Partner Center
 - [Partner Center Roles & Permissions](/partner-center/permissions-overview) 
 
 ## Next steps
-* Learn how to [mark an app as publisher verified](mark-app-as-publisher-verified.md)
-* [Troubleshoot](troubleshoot-publisher-verification.md) publisher verification
+* Learn how to [mark an app as publisher verified](mark-app-as-publisher-verified.md).
+* [Troubleshoot](troubleshoot-publisher-verification.md) publisher verification.
