@@ -1,130 +1,36 @@
 ---
-title: "Quickstart: [Product Name] client library for Node.js | Microsoft Docs"
-description: Get started with the [Product Name] client library for Node.js...
+title: "Quickstart: Form Recognizer client library for .NET"
+description: In this quickstart, get started with the Form Recognizer client library for .NET.
 services: cognitive-services
-author: 
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
-ms.topic: quickstart
-ms.date: 
-ms.author: 
+ms.subservice: forms-recognizer
+ms.topic: include
+ms.date: 05/06/2020
+ms.author: pafarley
 ---
 
-<!-- 
-You can find more guidance for formatting these quickstarts at: 
-https://review.docs.microsoft.com/help/contribute/contribute-how-to-write-library-quickstart-v2?branch=pr-en-us-2187
-
-
-Title: 
-    The H1 of your Quickstart should be in the format: # Quickstart: [Product Name] client library for [Language]
--->
-
-# Quickstart: [Product Name] client library for Node.js
-
-Get started with the [Product Name] client library for Node.js. Follow these steps to install the package and try out the example code for basic tasks. 
-
-<!-- 
-    After the above line, briefly describe the service. You can often use the first line of the service's docs landing page for this.
-
-    Next, add a bulleted list of the most common tasks supported by the library, prefaced with "Use the [Product Name] client library for [Language] to:". You provide code snippets for these tasks in the Code examples section later in the Quickstart. Keep the list short but include those tasks most developers need to perform with the library.
-
-    Lastly, include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, for example NuGet instead of PyPi:
--->
-
-Use the [Product Name] client library for Node.js to:
-
-* TBD
-* TBD
-
-<!--
-    Include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, but try not to include any other links or content in the introduction.
--->
-
-[Reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (npm)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Samples](https://github.com/Azure-Samples/anomalydetector)
+[Reference documentation](https://aka.ms/azsdk-js-formrecognizer-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
 * The current version of [Node.js](https://nodejs.org/)
 
 ## Setting up
 
-<!--
-    Walk the reader through preparing their environment for working with the client library. Include instructions for creating the Azure resources required to make calls to the service, obtaining credentials, and setting up their local development environment.
+### Create a Form Recognizer Azure resource
 
-    See the "setting up" section for more details: 
-    https://review.docs.microsoft.com/help/contribute/contribute-how-to-write-library-quickstart-v2?branch=pr-en-us-2187#setting-up 
--->
+[!INCLUDE [create resource](../create-resource.md)]
 
-<!-- 
-    Consider turning this setup section into a reusable include file for your service 
--->
+### Create environment variables
 
-### Create a [Product Name] Azure resource
-
-Begin using the [Product Name] by creating an Azure resource. Choose the resource type below that's right for you:
-
-* A [trial resource](https://azure.microsoft.com/try/cognitive-services/#decision) (no Azure subscription needed): 
-    * Valid for seven days, for free. After signing up, a trial key and endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
-    * This is a great option if you want to try [Product Name], but don't have an Azure subscription.
-<!-- Link to the 'create' blade in the azure portal -->
-* A [ [Product Name] resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
-    * Available through the Azure portal until you delete the resource.
-    * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
-<!-- remove the below text if your service is not supported by the multi-service option. -->
-* A [Multi-Service resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
-    * Available through the Azure portal until you delete the resource.  
-    * Use the same key and endpoint for your applications, across multiple Cognitive Services.
-
-### Create an environment variable
-
->[!NOTE]
-> The endpoints for non-trial resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
-
-Using your key and endpoint from the resource you created, create two environment variables for authentication:
-<!-- replace the below variable names with the names expected in the code sample.-->
-* `PRODUCT_NAME_KEY` - The resource key for authenticating your requests.
-* `PRODUCT_NAME_ENDPOINT` - The resource endpoint for sending API requests. It will look like this: 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
-
-Use the instructions for your operating system.
-<!-- replace the below endpoint and key examples -->
-#### [Windows](#tab/windows)
-
-```console
-setx PRODUCT_NAME_KEY <replace-with-your-product-name-key>
-setx PRODUCT_NAME_ENDPOINT <replace-with-your-product-name-endpoint>
-```
-
-After you add the environment variable, restart the console window.
-
-#### [Linux](#tab/linux)
-
-```bash
-export PRODUCT_NAME_KEY=<replace-with-your-product-name-key>
-export PRODUCT_NAME_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
-
-#### [macOS](#tab/unix)
-
-Edit your `.bash_profile`, and add the environment variable:
-
-```bash
-export PRODUCT_NAME_KEY=<replace-with-your-product-name-key>
-export PRODUCT_NAME_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
-***
+[!INCLUDE [env-vars](../env-vars.md)]
 
 ### Create a new Node.js application
 
-<!--
-    replace the product with your product 
--->
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
 ```console
