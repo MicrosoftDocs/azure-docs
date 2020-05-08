@@ -167,7 +167,7 @@ The `StreamingContext` class lets you publish diagnostic information using the `
 
 `StreamingContext` value does not need to be passed by the user in the SQL query, Azure Stream Analytics will provide a context object automatically if input parameter is present. The use of the `MyUdfMethod` does not change as shown below.
 
-```SQL
+```sql
     SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
 ```
 
