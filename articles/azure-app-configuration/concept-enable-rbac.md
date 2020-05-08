@@ -28,9 +28,10 @@ When an RBAC role is assigned to an Azure AD security principal, Azure grants ac
 ## Built-in RBAC roles for Azure App Configuration
 Azure provides the following built-in RBAC roles for authorizing access to App Configuration data using Azure AD and OAuth:
 
-- Azure App Configuration Data Owner: Use this role to give read/write access to App Configuration resources.
-- Azure App Configuration Data Reader: Use this role to give read access to App Configuration resources.
-- Contributor: Use this role to give admin access to the service without granting access to the data stored in the App Configuration instance.
+- Azure App Configuration Data Owner: Use this role to give read/write/delete access to App Configuration data.
+- Azure App Configuration Data Reader: Use this role to give read access to App Configuration data.
+- Contributor: Use this role to give admin access to the App Configuration resource.
+- Reader: Use this role to give read access to the App Configuration resource without granting access to the data stored in the App Configuration instance.
 
 ## Next steps
 Learn more about using [managed identities](howto-integrate-azure-managed-service-identity.md) to administer your App Configuration service.
