@@ -10,11 +10,11 @@
  ms.custom: include file
 ---
 
-The following table describes default limits for Azure general-purpose v1, v2, Blob storage, block blob storage, and Data Lake Storage Gen2 enabled storage accounts. The *ingress* limit refers to all data that is sent to a storage account. The *egress* limit refers to all data that is received from a storage account.
+The following table describes default limits for Azure general-purpose v1, v2, Blob storage, and block blob storage. The *ingress* limit refers to all data that is sent to a storage account. The *egress* limit refers to all data that is received from a storage account.
 
 | Resource | Limit |
 | --- | --- |
-| Number of storage accounts per region per subscription, including standard, premium, and Data Lake Storage Gen2 enabled storage accounts.<sup>3</sup> | 250 |
+| Number of storage accounts per region per subscription, including standard, and premium storage accounts.<sup>3</sup> | 250 |
 | Maximum storage account capacity | 5 PiB <sup>1</sup>|
 | Maximum number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
 | Maximum request rate<sup>1</sup> per storage account | 20,000 requests per second |
@@ -32,7 +32,7 @@ The following table describes default limits for Azure general-purpose v1, v2, B
 
 [!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
-<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Azure Storage and blob storage limitations apply to Data Lake Storage Gen2.
+<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) is a set of capabilities dedicated to big data analytics, built on Azure Blob storage.
 
 > [!NOTE]
 > Microsoft recommends that you use a general-purpose v2 storage account for most scenarios. You can easily upgrade a general-purpose v1 or an Azure Blob storage account to a general-purpose v2 account with no downtime and without the need to copy data. For more information, see [Upgrade to a general-purpose v2 storage account](../articles/storage/common/storage-account-upgrade.md).
