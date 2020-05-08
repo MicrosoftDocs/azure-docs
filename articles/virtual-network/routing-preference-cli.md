@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.49 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
 
 ## Register the feature for your subscription
-The Routing Preference feature is currently in preview. You must register the feature for your subscription as follows:
+The Routing Preference feature is currently in preview. Register the feature for your subscription as follows:
 ```azurecli
 az feature register --namespace Microsoft.Network --name AllowRoutingPreferenceFeature
 ```

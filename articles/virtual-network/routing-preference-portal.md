@@ -33,7 +33,7 @@ This article shows you how to configure routing preference via ISP network (**In
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
 ## Register the feature for your subscription
-The Routing Preference feature is currently in preview. You must register the feature for your subscription using Azure PowerShell as follows:
+The Routing Preference feature is currently in preview. Register the feature for your subscription using Azure PowerShell as follows:
 ```azurepowershell
 Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
 ```

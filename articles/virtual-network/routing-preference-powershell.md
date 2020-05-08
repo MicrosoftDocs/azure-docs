@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 6.9.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Register the feature for your subscription
-The Routing Preference feature is currently in preview. You must register the feature for your subscription as follows:
+The Routing Preference feature is currently in preview. Register the feature for your subscription as follows:
 ```azurepowershell
 Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
 ```

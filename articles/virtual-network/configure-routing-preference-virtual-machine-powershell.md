@@ -26,7 +26,7 @@ This article shows you how to create a virtual machine with a public IP that is 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Register the feature for your subscription
-The Routing Preference feature is currently in preview. You must register the feature for your subscription as follows:
+The Routing Preference feature is currently in preview. Register the feature for your subscription as follows:
 ```azurepowershell
 Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNamespace Microsoft.Network
 ```
