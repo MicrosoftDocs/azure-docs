@@ -27,10 +27,15 @@ To create an app registration, you need to provide the resource IDs for the Azur
 
 Save this file as *manifest.json*.
 
+In your Cloud Shell window, click the "Upload/Download files" icon and choose "Upload".
+
+:::image type="content" source="../articles/digital-twins-v2/media/include-setup/upload-extension.png" alt-text="Cloud Shell window showing selection of the Upload option":::
+Navigate to the *manifest.json* you just created and hit "Open."
+
 Next, run the following command to create an app registration (replacing placeholders as needed):
 
 ```azurecli
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses <path-to-manifest.json> --reply-url http://localhost
+az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
 ```
 
 The output from this command looks something like this.
