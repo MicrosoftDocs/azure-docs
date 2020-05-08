@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/09/2020
 tags: connectors
 ---
 
