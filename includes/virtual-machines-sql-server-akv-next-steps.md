@@ -11,9 +11,9 @@ After enabling Azure Key Vault Integration, you can enable SQL Server encryption
 
 There are several forms of encryption you can take advantage of:
 
-* [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
-* [Encrypted backups](https://msdn.microsoft.com/library/dn449489.aspx)
-* [Column Level Encryption (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
+* [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption)
+* [Encrypted backups](/sql/relational-databases/backup-restore/backup-encryption)
+* [Column Level Encryption (CLE)](/sql/t-sql/functions/cryptographic-functions-transact-sql)
 
 The following Transact-SQL scripts provide examples for each of these areas.
 
@@ -140,4 +140,4 @@ CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
 For more information on how to use these encryption features, see [Using EKM with SQL Server Encryption Features](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Note that the steps in this article assume that you already have SQL Server running on an Azure virtual machine. If not, see [Provision a SQL Server virtual machine in Azure](../articles/sql-database/virtual-machines/windows/create-vm-portal.md). For other guidance on running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../articles/sql-database/virtual-machines/windows/overview.md).
+Note that the steps in this article assume that you already have SQL Server running on an Azure virtual machine. If not, see [Provision a SQL Server virtual machine in Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). For other guidance on running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
