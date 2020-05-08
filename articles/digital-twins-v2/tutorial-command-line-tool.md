@@ -220,7 +220,7 @@ Content-Type: application/json; charset=utf-8
 
 ## Explore the commands and the code
 
-From this point, feel free to experiment with the commands. You can look at the implementations of the commands, and start adding to or manipulating them howeer you would like..
+From this point, feel free to experiment with the commands. You can look at the implementations of the commands, and start adding to or manipulating them however you would like.
 
 * The file *Program.cs* contains the authentication logic
 * The file *CommandLoop.cs* contains the bulk of the Azure Digital Twins commands
