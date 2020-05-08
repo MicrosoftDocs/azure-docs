@@ -19,6 +19,7 @@ ms.author: juergent
 
 ---
 
+# Set up IBM Db2 HADR on Azure virtual machines (VMs) on RHEL 
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553

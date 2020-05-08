@@ -2,24 +2,17 @@
 title: IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload | Microsoft Docs
 description: IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: patfilot
-editor: ''
 tags: azure-resource-manager
-keywords: ''
-
 ms.service: virtual-machines-linux
-
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
-
 # IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598

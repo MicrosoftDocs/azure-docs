@@ -20,6 +20,9 @@ ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
+
+# SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure
+
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
