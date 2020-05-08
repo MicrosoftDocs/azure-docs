@@ -127,14 +127,18 @@
       href: copy-job.md
     - name: Pair jobs for reliability
       href: stream-analytics-job-reliability.md
-    - name: Authenticate with managed identity - ADLS Gen 1 output
-      href: stream-analytics-managed-identities-adls.md
     - name: Use SQL reference data
       href: sql-reference-data.md
-    - name: Authenticate with managed identity - Blob output
-      href: blob-output-managed-identity.md
-    - name: Authenticate with managed identity - Power BI
-      href: powerbi-output-managed-identity.md
+    - name: Authenticate with managed identity
+      items:
+      - name: ADLS Gen 1
+        href: stream-analytics-managed-identities-adls.md
+      - name: Blob storage
+        href: blob-output-managed-identity.md
+      - name: Power BI
+        href: powerbi-output-managed-identity.md
+      - name: Azure SQL DB
+        href: sql-db-output-managed-identity.md
     - name: Encrypt your data
       href: data-protection.md
   - name: Build solutions
