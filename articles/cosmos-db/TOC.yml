@@ -39,8 +39,6 @@
           href: sql-api-java-get-started.md
         - name: Async Java
           href: sql-api-async-java-get-started.md
-        - name: Async Java sample with change feed
-          href: create-sql-api-java-changefeed.md
         - name: Node.js
           href: sql-api-nodejs-get-started.md
       - name: Build a web app
@@ -494,6 +492,8 @@
       - name: Trigger Azure Functions
         displayName: change feed
         href: change-feed-functions.md
+      - name: Change feed pull model
+        href: change-feed-pull-model.md
     - name: Globally distributed analytics and AI
       items:
       - name: Analytics use cases
@@ -665,6 +665,8 @@
           href: create-mongodb-xamarin.md
         - name: Golang
           href: create-mongodb-golang.md
+        - name: Go
+          href: create-mongodb-go.md
       - name: Tutorials
         items:
         - name: 1 - Create and manage data
@@ -972,10 +974,14 @@
           href: sql-api-query-metrics.md
         - name: Performance tips for .NET SDK
           href: performance-tips.md
-        - name: Performance tips for Java SDK
-          href: performance-tips-java.md
-        - name: Performance tips for Async Java SDK
-          href: performance-tips-async-java.md
+        - name: Performance tips for Java SDK v4
+          href: performance-tips-java-sdk-v4-sql.md  
+        - name: Performance tips for older Java SDKs
+          items:
+          - name: Async Java SDK v2
+            href: performance-tips-async-java.md          
+          - name: Sync Java SDK v2
+            href: performance-tips-java.md
         - name: Performance test - sample app
           href: performance-testing.md
       - name: Cost-effective reads and writes
@@ -992,6 +998,10 @@
           href: troubleshoot-java-async-sdk.md
       - name: Troubleshoot .NET SDK
         href: troubleshoot-dot-net-sdk.md
+    - name: Migrate to newer SDKs
+      items:
+      - name: Migrate to Java V4 SDK
+        href: migrate-java-v4-sdk.md
     - name: Change Feed
       items:
       - name: Azure Cosmos DB Trigger logs
@@ -1008,6 +1018,8 @@
         href: how-to-use-change-feed-estimator.md
       - name: Migrate from change feed processor library
         href: how-to-migrate-from-change-feed-library.md
+      - name: Create a Java SQL application with Change Feed
+        href: create-sql-api-java-changefeed.md
     - name: Built-in analytics with Apache Spark
       items:
       - name: Azure Databricks Spark connector

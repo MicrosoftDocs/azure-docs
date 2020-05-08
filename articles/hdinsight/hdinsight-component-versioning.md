@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 04/09/2020
+ms.date: 05/08/2020
 ---
 
-# What are the Apache Hadoop components and versions available with HDInsight?
+# Apache components and versions available for Azure HDInsight
 
 In this article, you learn about the [Apache Hadoop](https://hadoop.apache.org/) environment components and versions in Azure HDInsight and the Enterprise Security Package. You also learn how to check the Hadoop component versions in HDInsight.
 
-## Apache Hadoop components available with different HDInsight versions
+## Apache components available with different HDInsight versions
 
 Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. On April 4, 2017, the default cluster version used by Azure HDInsight was 3.6.
 
@@ -48,7 +48,7 @@ The component versions associated with HDInsight cluster versions are listed in 
 > [!NOTE]
 > Support for Kafka version 0.10 expired in March 2019 because of system performance considerations.
 
-## Check for current Hadoop component version information
+## Check for current Apache component version information
 
 The Hadoop environment component versions associated with HDInsight cluster versions can change with updates to HDInsight. To check the Hadoop components and to verify which versions are being used for a cluster, use the Ambari REST API. The **GetComponentInformation** command retrieves information about service components. For more information, see the [Apache Ambari documentation](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -99,51 +99,9 @@ This table lists the versions of HDInsight that aren't available in the Azure po
 > [!NOTE]
 > Highly available clusters with two head nodes are deployed by default for HDInsight version 2.1 and later. They aren't available for HDInsight version 1.6 clusters.
 
-## Enterprise Security Package for HDInsight
-
-The Enterprise Security Package is an optional package that you can add on to your HDInsight cluster as part of creating a cluster workflow. The Enterprise Security Package supports:
-
-- Integration with Active Directory for authentication.
-
-    In the past, you created HDInsight clusters with a local admin user and a local SSH user. The local admin user can access all the files, folders, tables, and columns. With the Enterprise Security Package, you enable role-based access control by integrating HDInsight with your Active Directory instance, which includes on-premises Active Directory, Azure Active Directory Domain Services, or Active Directory on infrastructure as a service (IaaS) virtual machines. The domain administrator on the cluster can grant users the right to use their own corporate (domain) username and password.
-
-    For more information, see:
-
-    - [An introduction to Apache Hadoop security with domain-joined HDInsight clusters](./domain-joined/hdinsight-security-overview.md)
-    - [Plan Azure domain-joined Apache Hadoop clusters in HDInsight](./domain-joined/apache-domain-joined-architecture.md)
-    - [Configure a domain-joined sandbox environment](./domain-joined/apache-domain-joined-configure.md)
-    - [Configure domain-joined HDInsight clusters by using Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
-
-- Authorization for data.
-
-  - Integration with Apache Ranger for authorization for Hive, Spark SQL, and Yarn Queues.
-  - You can set access control on files and folders.
-
-    For more information, see [Configure Apache Hive policies in domain-joined HDInsight](./domain-joined/apache-domain-joined-run-hive.md).
-
-- Viewing the audit logs to monitor accesses and the configured policies.
-
-### Supported cluster types
-
-Currently, only the following cluster types support the Enterprise Security Package:
-
-- Hadoop (HDInsight 3.6 only)
-- Spark
-- Kafka
-- HBase
-- Interactive Query
-
-### Support for Azure Data Lake Storage
-
-The Enterprise Security Package supports using Azure Data Lake Storage as both the primary storage and the add-on storage.
-
-### Pricing and service-level agreement
-
-For information on pricing and the service-level agreement (SLA) for the Enterprise Security Package, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
-
 ## Service-level agreement for HDInsight cluster versions
 
-The SLA is defined as a _support window_. A support window is the time period that an HDInsight version is supported by Microsoft Customer Service and Support. If the version has passed the _support expiration date_, the HDInsight cluster is outside the support window. Support expiration for HDInsight version X (after a newer X+1 version is available) is the later of:
+The service-level agreement is defined as a _support window_. A support window is the time period that an HDInsight version is supported by Microsoft Customer Service and Support. If the version has passed the _support expiration date_, the HDInsight cluster is outside the support window. Support expiration for HDInsight version X (after a newer X+1 version is available) is the later of:
 
 - **Formula 1:** Add 180 days to the date when the HDInsight cluster version X was released.
 - **Formula 2:** Add 90 days to the date when the HDInsight cluster version X+1 is made available in the Azure portal.
@@ -159,3 +117,4 @@ For more information on which virtual machine SKUs to select for your cluster, s
 - [Cluster setup for Apache Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)
 - [Hortonworks release notes associated with Azure HDInsight versions](./hortonworks-release-notes.md)
+- [Enterprise Security Package](./enterprise-security-package.md)
