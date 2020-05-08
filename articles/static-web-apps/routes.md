@@ -29,7 +29,7 @@ The following table lists the appropriate location to put your _routes.json_ fil
 
 |Framework / library | Location  |
 |---------|----------|
-| Angular | _src_   |
+| Angular | _assets_   |
 | React   | _public_  |
 | Svelte  | _public_   |
 | Vue     | _public_ |
