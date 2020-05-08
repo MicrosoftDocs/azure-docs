@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/08/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -36,8 +36,8 @@ The following table outlines what authentication or verification methods are ava
 | --- | --- | --- |
 | [Password](#password) | Yes | MFA and SSPR |
 | [Microsoft Authenticator app](#microsoft-authenticator-app) | Yes (preview) | MFA and SSPR |
-| [FIDO2 security keys (preview)](#fido2-security-keys) | Yes | |
-| [OATH hardware tokens (preview)](#oath-hardware-tokens) | Yes | |
+| [FIDO2 security keys (preview)](#fido2-security-keys) | Yes | MFA-only |
+| [OATH hardware tokens (preview)](#oath-hardware-tokens) | Yes | SSPR and MFA |
 | [SMS](#phone-options) | Yes (preview) | MFA and SSPR |
 | [Voice call](#phone-options) | No | MFA and SSPR |
 | [Security questions](#security-questions) | No | SSPR-only |
