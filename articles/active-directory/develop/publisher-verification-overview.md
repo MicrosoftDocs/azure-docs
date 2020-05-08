@@ -1,6 +1,6 @@
 ---
 title: Publisher verification overview
-description: Provides an overview of the publisher verification program for the Microsoft identity platform. Lists the benefits, program requirements, and frequently asked questions. When an application is marked as publisher verified, it means that the publisher has verified their identity using a Microsoft Partner Network account that has completed the verification process and has associated this MPN account with their application registration.
+description: Provides an overview of the publisher verification program (preview) for the Microsoft identity platform. Lists the benefits, program requirements, and frequently asked questions. When an application is marked as publisher verified, it means that the publisher has verified their identity using a Microsoft Partner Network account that has completed the verification process and has associated this MPN account with their application registration.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,7 +14,7 @@ ms.custom: aaddev
 ms.reviewer: jesakowi
 ---
 
-# Publisher verification
+# Publisher verification (preview)
 
 Publisher verification (preview) helps admins and end users understand the authenticity of application developers integrating with the Microsoft identity platform. In other words, is the publisher a known source or a bad actor disguising themselves as a well-known publisher? When an application is marked as publisher verified, it means that the publisher has verified their identity using a [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process and has associated this MPN account with their application registration. 
 
@@ -54,9 +54,9 @@ There are a few pre-requisites for publisher verification, some of which will ha
 Developers who have already met these pre-requisites can get verified in a matter of minutes. If the requirements have not been met, getting set up is free. 
 
 ## Frequently asked questions 
-Below are some frequently asked questions regarding the Publisher Verification program. For FAQs related to the requirements and the process, see [mark an app as publisher verified](mark-app-as-publisher-verified.md).
+Below are some frequently asked questions regarding the publisher verification program. For FAQs related to the requirements and the process, see [mark an app as publisher verified](mark-app-as-publisher-verified.md).
 
-- **What information does Publisher Verification __not__ provide?**  When an application is marked publisher verified this does not indicate whether the application or its publisher  has achieved any specific certifications, complies with industry standards, adheres to best practices, etc. Other Microsoft programs do provide this information, including [Microsoft 365 App Certification](/microsoft-365-app-certification/overview).
+- **What information does publisher verification __not__ provide?**  When an application is marked publisher verified this does not indicate whether the application or its publisher  has achieved any specific certifications, complies with industry standards, adheres to best practices, etc. Other Microsoft programs do provide this information, including [Microsoft 365 App Certification](/microsoft-365-app-certification/overview).
 
 - **How much does this cost? Does it require any license?** Microsoft does not charge developers for publisher verification and it does not require any specific license. 
 

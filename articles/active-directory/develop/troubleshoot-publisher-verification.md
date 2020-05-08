@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot publisher verification 
-description: Describes how to troubleshoot publisher verification for Microsoft identity platform by calling Microsoft Graph APIs.
+description: Describes how to troubleshoot publisher verification (preview) for Microsoft identity platform by calling Microsoft Graph APIs.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -15,7 +15,7 @@ ms.reviewer: jesakowi
 ---
 
 # Troubleshoot publisher verification (preview)
-If you are unable to complete the process or are experiencing unexpected behavior with [publisher verification](publisher-verification-overview.md), you should start by doing the following if you are receiving errors or seeing unexpected behavior: 
+If you are unable to complete the process or are experiencing unexpected behavior with [publisher verification (preview)](publisher-verification-overview.md), you should start by doing the following if you are receiving errors or seeing unexpected behavior: 
 
 1. Review the [requirements](publisher-verification-overview.md#requirements) and ensure they have all been met
 
