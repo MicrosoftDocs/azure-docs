@@ -266,7 +266,7 @@ This section demonstrates how to train a model with your own data. A trained mod
 
 ### Train a model without labels
 
-Train custom models to recognize all fields and values found in your custom forms without manually labeling the training documents.
+Train custom models to recognize all the fields and values found in your custom forms without manually labeling the training documents.
 
 The following method trains a model on a given set of documents and prints the model's status to the console. 
 
@@ -533,3 +533,4 @@ In this quickstart, you used the Form Recognizer .NET client library to train mo
 > [Build a training data set](../../build-training-data-set.md)
 
 * [What is Form Recognizer?](../../overview.md)
+* The sample code from this guide (and more) can be found on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).

@@ -424,3 +424,4 @@ In this quickstart, you used the Form Recognizer Python client library to train 
 > [Build a training data set](../../build-training-data-set.md)
 
 * [What is Form Recognizer?](../../overview.md)
+* The sample code from this guide (and more) can be found on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
