@@ -22,7 +22,7 @@ Azure Cognitive Search supports IP rules for inbound firewall support. This mode
 
 To set the IP access control policy in the Azure portal, go to your Azure Cognitive Search service page and select **Networking** on the navigation menu. Endpoint networking connectivity must be **Public**. If your connectivity is set to **Private**, you can only access your search service via a Private Endpoint.
 
-![Screenshot showing how to configure the IP firewall in the Azure portal](./media/service-configure-firewall/search-azure-portal-firewall.png)
+![Screenshot showing how to configure the IP firewall in the Azure portal](./media/service-configure-firewall/azure-portal-firewall.png)
 
 The Azure portal provides the ability to specify IP addresses and IP address ranges in the CIDR format. An example of CIDR notation is 8.8.8.0/24, which represents the IPs that range from 8.8.8.0 to 8.8.8.255.
 
@@ -37,7 +37,7 @@ The portal automatically detects your client IP address. It might be the client 
 
 To add your current IP to the list of IPs, check **Add your client IP address**. Then select **Save**.
 
-![Screenshot showing a how to configure IP firewall settings to allow the current IP](./media/how-to-configure-firewall/enable-current-ip.png)
+![Screenshot showing a how to configure IP firewall settings to allow the current IP](./media/service-configure-firewall/enable-current-ip.png)
 
 ## <a id="troubleshoot-ip-firewall"></a>Troubleshoot issues with an IP access control policy
 
@@ -50,10 +50,6 @@ Enabling an IP access control policy for your Azure Cognitive Search service blo
 ### SDKs
 
 When you access Azure Cognitive Search service using the SDK from machines that are not in the allowed list, a generic **403 Forbidden** response is returned with no additional details. Verify the allowed IP list for your account, and make sure that the correct configuration updated for your search service.
-
-### Requests from a subnet with a service endpoint for Azure Cosmos DB enabled
-
-Requests from a subnet in a virtual network that has a service endpoint for Azure Cosmos DB enabled sends the virtual network and subnet identity to Azure Cosmos DB accounts. These requests don't have the public IP of the source, so IP filters reject them. To allow access from specific subnets in virtual networks, add an access control list as outlined in [How to configure virtual network and subnet-based access for your Azure Cosmos DB account](how-to-configure-vnet-service-endpoint.md). It can take up to 15 minutes for firewall rules to apply.
 
 ## Next steps
 
