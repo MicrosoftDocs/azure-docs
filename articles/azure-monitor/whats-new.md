@@ -58,7 +58,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 ### Workbooks
 
-- [Azure Monitor Workbooks and Azure Resource Manager Templates](./platform/workbooks-automate.md) - Added resource manager template for deploying a workbook template.
+- [Azure Monitor Workbooks and Azure Resource Manager Templates](./platform/workbooks-automate.md) - Added Resource Manager template for deploying a workbook template.
 
 ## March 2020
 
