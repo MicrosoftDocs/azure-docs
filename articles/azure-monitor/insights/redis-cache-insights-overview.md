@@ -77,7 +77,7 @@ Select **Usage** at the top of the page and the **Usage** portion of the workboo
 
 Select **Failures** at the top of the page and the **Failures** portion of the workbook template opens. It shows `Total Errors`, `Failover/Errors`, `UnresponsiveClient/Errors`, `RDB/Errors`, `AOF/Errors`, `Export/Errors`, `Dataloss/Errors`, `Import/Errors`.
 
-![Screenshot of failures with breakdown by HTTP request type](./media/cosmosdb-insights-overview/failures.png)
+![Screenshot of failures with breakdown by HTTP request type](./media/redis-cache-insights-overview/failures.png)
 
 ### Metric definitions
 
