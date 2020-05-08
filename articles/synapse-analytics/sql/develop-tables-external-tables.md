@@ -41,6 +41,16 @@ You can create external tables using SQL on-demand via the following steps:
 
 ---
 
+### Security
+
+User must have `SELECT` permission on external table to read the data.
+External table access underlying Azure storage using the database scoped credential defined in data source using the following rules:
+- Data source without credential enable external tables to access publicly available files on Azure storage.
+- Data source can have credential that enables external tables to access only the files on Azure storage using SAS token or workspace Managed Identity - see [examples here](develop-storage-files-storage-access-control.md#examples).
+
+> [!IMPORTANT]
+> In SQL pool, datasource without creadential enables Azure AD user to access storage files using their Azure AD identity. In SQL on-demand, you need to create data source with database-scoped credential that has `IDENTITY='User Identity'` property - see [examples here](develop-storage-files-storage-access-control.md#examples).
+
 ## CREATE EXTERNAL DATA SOURCE
 
 External data sources are used to connect to storage accounts. The complete documentation is outlined [here](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
@@ -49,7 +59,7 @@ External data sources are used to connect to storage accounts. The complete docu
 
 #### [SQL pool](#tab/sql-pool)
 
-```sql
+```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
 WITH
 (    LOCATION         = '<prefix>://<path>'
@@ -61,7 +71,7 @@ WITH
 
 #### [SQL on-demand](#tab/sql-ondemand)
 
-```sql
+```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
 WITH
 (    LOCATION         = '<prefix>://<path>'
@@ -140,7 +150,7 @@ By creating an external file format, you specify the actual layout of the data r
 
 ### Syntax for CREATE EXTERNAL FILE FORMAT
 
-```sql
+```syntaxsql
 -- Create an external file format for PARQUET files.  
 CREATE EXTERNAL FILE FORMAT file_format_name  
 WITH (  
