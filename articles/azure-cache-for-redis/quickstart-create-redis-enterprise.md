@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 05/12/2020
 #Customer intent: As a developer new to Azure Cache for Redis, I want to create an instance of Azure Cache for Redis Enterprise tier.
 ---
-# Quickstart: Create an Enterprise tier cache (private preview)
+# Quickstart: Create an Enterprise tier cache (preview)
 
-Azure Cache for Redis' Enterprise tiers provide fully-integrated and fully-managed [Redis Enterprise](https://redislabs.com/redis-enterprise/) on Azure. They're currently available as a private preview. There are two new tiers in this preview:
+Azure Cache for Redis' Enterprise tiers provide fully integrated and managed [Redis Enterprise](https://redislabs.com/redis-enterprise/) on Azure. They're currently available as a preview. There are two new tiers in this preview:
 * Enterprise, which uses volatile memory (DRAM) on a virtual machine to store data
 * Enterprise SSD, which uses both volatile and non-volatile memory (NVMe) to store data.
 
-There is no cost for joining the private preview. If you're interested, please register through the [Azure Marketplace](https://aka.ms/redispreviewsignup/). We have very limited number of participant spots and can't guarantee that you'll be accepted into the preview.
+There isn't any cost for joining the preview. Register through the [Azure Marketplace](https://aka.ms/redispreviewsignup/) if you're interested. We have very limited number of participant spots and can't guarantee that you'll be accepted into the preview.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
 1. Select **Next: Advanced**.
    
-   You can keep the default settings or change them as appropriate. If you turn on **Allow access only via TLS**, you must use TLS to access the new cache from your application.
+   You can keep the default settings or change them as appropriate. When turning on **Allow access only via TLS**, you must use TLS to access the new cache from your application.
 
    ![Enterprise tier advanced](media/cache-create/enterprise-tier-advanced.png) 
 
