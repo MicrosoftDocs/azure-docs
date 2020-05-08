@@ -125,11 +125,6 @@ pass
 IrisPredictor(3,2,3,4)
 ```
 
-> [!NOTE]
-> Currently, the Azure Machine Learning library is supported only on Python 2.7.   
-> 
-> 
-
 ### Build and operationalize R models
 You can deploy R models built on the Data Science Virtual Machine or elsewhere onto Azure Machine Learning in a way that's similar to how it's done for Python. Here are the steps:
 
@@ -267,7 +262,7 @@ Azure Blob storage is a reliable, economical cloud storage service for data big 
 
 * Create your Azure Blob storage account from the [Azure portal](https://portal.azure.com).
 
-   ![Screenshot of the storage account creation process in the Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+   ![Screenshot of the storage account creation process in the Azure portal](./media/vm-do-ten-things/create-azure-blob.png)
 
 * Confirm that the command-line AzCopy tool is pre-installed: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. The directory that contains azcopy.exe is already on your PATH environment variable, so you can avoid typing the full command path when running this tool. For more information on the AzCopy tool, see the [AzCopy documentation](../../storage/common/storage-use-azcopy.md).
 * Start the Azure Storage Explorer tool. You can download it from the  [Storage Explorer webpage](https://storageexplorer.com/). 
@@ -369,7 +364,7 @@ Azure Data Lake Storage is a hyperscale repository for big data analytics worklo
 
 * Create your Azure Data Lake Analytics instance in the [Azure portal](https://portal.azure.com).
 
-   ![Screenshot of creating a Data Lake Analytics instance from the Azure portal](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
+   ![Screenshot of creating a Data Lake Analytics instance from the Azure portal](./media/vm-do-ten-things/azure-data-lake-create-v3.png)
 
 * The  [Azure Data Lake and Stream Analytics Tools for Visual Studio plug-in](https://www.microsoft.com/download/details.aspx?id=49504) is already installed in Visual Studio Community Edition on the virtual machine. After you start Visual Studio and sign in to your Azure subscription, you should see your Azure Data Analytics account and storage in the left panel of Visual Studio.
 
