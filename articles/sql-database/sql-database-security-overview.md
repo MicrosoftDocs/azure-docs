@@ -25,7 +25,7 @@ Microsoft Azure SQL Database and SQL Managed Instance provide a relational datab
 
 ### IP firewall rules
 
-IP firewall rules grant access to databases based on the originating IP address of each request. For more information, see [Overview of Azure SQL Database and SQL Data Warehouse firewall rules](sql-database-firewall-configure.md).
+IP firewall rules grant access to databases based on the originating IP address of each request. For more information, see [Overview of Azure SQL Database and Azure Synapse Analytics firewall rules](sql-database-firewall-configure.md).
 
 ### Virtual network firewall rules
 
@@ -51,7 +51,7 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
 - **Azure Active Directory authentication**:
 
-    Azure Active Directory authentication is a mechanism of connecting to Azure SQL Database, Azure SQL Managed Instance and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). Azure AD authentication allows administrators to centrally manage the identities and permissions of database users along with other Azure services in one central location. This includes the minimization of password storage and enables centralized password rotation policies.
+    Azure Active Directory authentication is a mechanism of connecting to [Azure SQL Database](sql-database-technical-overview.md), [Azure SQL Managed Instance](sql-database-managed-instance.md) and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). Azure AD authentication allows administrators to centrally manage the identities and permissions of database users along with other Azure services in one central location. This includes the minimization of password storage and enables centralized password rotation policies.
 
      A server admin called the **Active Directory administrator** must be created to use Azure AD authentication with SQL Database. For more information, see [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md). Azure AD authentication supports both managed and federated accounts. The federated accounts support Windows users and groups for a customer domain federated with Azure AD.
 

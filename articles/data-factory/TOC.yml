@@ -675,6 +675,8 @@
       href: how-to-fixed-width.md
     - name: Error row handling
       href: how-to-data-flow-error-rows.md
+    - name: Azure SQL DB to CosmosDB
+      href: how-to-sqldb-to-cosmosdb.md
   - name: SSIS migration from on-premises
     items:
     - name: SSIS migration overview

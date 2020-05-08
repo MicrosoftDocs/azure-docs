@@ -45,7 +45,9 @@ You can also change this setting via the firewall pane after the logical SQL ser
 
 When set  to **ON**, your server allows communications from all resources inside the Azure boundary, that may or may not be part of your subscription.
 
-In many cases, the **ON** setting is more permissive than what most customers want. They may want to set this setting to **OFF** and replace it with more restrictive IP firewall rules or Virtual Network firewall rules. Doing so affects the following features that run on VMs in Azure that not part of your VNet and hence connect to the database via an Azure IP address.
+In many cases, the **ON** setting is more permissive than what most customers want. You may want to set this setting to **OFF** and replace it with more restrictive IP firewall rules or Virtual Network firewall rules. 
+
+However, doing so affects the following features that run on virtual machines in Azure that are not part of your VNet and hence connect to the database via an Azure IP address:
 
 ### Import Export Service
 
@@ -56,7 +58,7 @@ Import Export Service does not work when **Allow access to Azure services** is s
 To use the Data sync feature with **Allow access to Azure services** set to **OFF**, you need to create individual firewall rule entries to [add IP addresses](sql-database-server-level-firewall-rule.md) from the **Sql service tag** for the region hosting the **Hub** database.
 Add these server-level firewall rules to the servers hosting both **Hub** and **Member** databases ( which may be in different regions)
 
-Use the following PowerShell script to generate the IP addresses corresponding to Sql service tag for West US region
+Use the following PowerShell script to generate IP addresses corresponding to the SQL service tag for West US region
 
 ```powershell
 PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
@@ -73,7 +75,7 @@ PS C:\> $sql.Properties.AddressPrefixes
 ```
 
 > [!TIP]
-> Get-AzNetworkServiceTag returns the global range for Sql Service Tag despite specifying the Location parameter. Be sure to filter it to the region that hosts the Hub database used by your sync group
+> Get-AzNetworkServiceTag returns the global range for SQL Service Tag despite specifying the Location parameter. Be sure to filter it to the region that hosts the Hub database used by your sync group
 
 Note that the output of the PowerShell script is in Classless Inter-Domain Routing (CIDR) notation and this needs to be converted to a format of Start and End IP address using [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) like this:
 
