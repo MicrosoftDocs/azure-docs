@@ -85,7 +85,7 @@ Synapse Link for Azure Cosmos DB use cases:
 
 * **Operational reporting:** With the growth of digital twin initiatives, companies are collecting vast amounts of operational data from large number of sensors to build a digital copy of each machine. This data powers BI needs to understand trends over historical data in addition to real-time applications over recent hot data.
 
-## Sample customer scenario walkthrough: HTAP for Azure Cosmos DB
+## Sample scenario: HTAP for Azure Cosmos DB
 
 For nearly a decade, Azure Cosmos DB has been used by thousands of customers for mission critical applications that require elastic scale, turnkey global distribution, multi-master replication for low latency and high availability of both reads & writes in their transactional workloads.
  
