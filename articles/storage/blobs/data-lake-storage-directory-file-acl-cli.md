@@ -64,7 +64,7 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
 > [!NOTE]
-> The example presented in this article reflect account key authorization. If you want to use Azure Active Directory (AD) authorization, either set the **AZURE_STORAGE_AUTH_MODE** environment variable to `login` or append `--auth-mode login` to each of these command examples. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli.md).
+> The example presented in this article show Azure Active Directory (AD) authorization. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli.md).
 
 ## Create a file system
 
@@ -73,7 +73,7 @@ A file system acts as a container for your files. You can create one by using th
 This example creates a file system named `my-file-system`.
 
 ```azurecli
-az storage fs create -n my-file-system --account-name mystorageaccount
+az storage fs create -n my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 ## Show file system properties
@@ -81,7 +81,7 @@ az storage fs create -n my-file-system --account-name mystorageaccount
 You can print the properties of a file system to the console by using the `az storage fs show` command.
 
 ```azurecli
-az storage fs show -n my-file-system --account-name mystorageaccount
+az storage fs show -n my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 ## List file system contents
@@ -91,7 +91,7 @@ List the contents of a directory by using the `az storage fs file list` command.
 This example lists the contents of a file system named `my-file-system`.
 
 ```azurecli
-az storage fs file list -f my-file-system --account-name mystorageaccount
+az storage fs file list -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 ## Delete a file system
@@ -101,7 +101,7 @@ Delete a file system by using the `az storage fs delete` command.
 This example deletes a file system named `my-file-system`. 
 
 ```azurecli
-az storage fs delete -n my-file-system --account-name mystorageaccount 
+az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 ## Create a directory
@@ -111,7 +111,7 @@ Create a directory reference by using the `az storage fs directory create` comma
 This example adds a directory named `my-directory` to a file system named `my-file-system` that is located in an account named `mystorageaccount`.
 
 ```azurecli
-az storage fs directory create -n my-directory -f my-file-system --account-name mystorageaccount
+az storage fs directory create -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 ## Show directory properties
@@ -119,7 +119,7 @@ az storage fs directory create -n my-directory -f my-file-system --account-name 
 You can print the properties of a directory to the console by using the `az storage fs directory show` command.
 
 ```azurecli
-az storage fs directory show -n my-directory -f my-file-system --account-name mystorageaccount
+az storage fs directory show -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 ## Rename or move a directory
@@ -129,13 +129,13 @@ Rename or move a directory by using the `az storage fs directory move` command.
 This example renames a directory from the name `my-directory` to the name `my-new-directory` in the same file system.
 
 ```azurecli
-az storage fs directory move -n my-directory -f my-file-system --new-directory "my-file-system/my-new-directory" --account-name mystorageaccount
+az storage fs directory move -n my-directory -f my-file-system --new-directory "my-file-system/my-new-directory" --account-name mystorageaccount --auth-mode login
 ```
 
 This example moves a directory to a file system named `my-second-file-system`.
 
 ```azurecli
-az storage fs directory move -n my-directory -f my-file-system --new-directory "my-second-file-system/my-new-directory" --account-name mystorageaccount
+az storage fs directory move -n my-directory -f my-file-system --new-directory "my-second-file-system/my-new-directory" --account-name mystorageaccount --auth-mode login
 ```
 
 ## Delete a directory
@@ -145,7 +145,7 @@ Delete a directory by using the `az storage fs directory delete` command.
 This example deletes a directory named `my-directory`. 
 
 ```azurecli
-az storage fs directory delete -n my-directory -f my-file-system  --account-name mystorageaccount 
+az storage fs directory delete -n my-directory -f my-file-system  --account-name mystorageaccount --auth-mode login 
 ```
 
 ## Check if a directory exists
@@ -155,7 +155,7 @@ Determine if a specific directory exists in the file system by using the `az sto
 This example reveals whether a directory named `my-directory` exists in the `my-file-system` file system. 
 
 ```azurecli
-az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount 
+az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login 
 ```
 
 ## Download from a directory
@@ -165,7 +165,7 @@ Download a file from a directory by using the `az storage fs file download` comm
 This example downloads a file named `upload.txt` from a directory named `my-directory`. 
 
 ```azurecli
-az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\myFolder\download.txt" --account-name mystorageaccount
+az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\myFolder\download.txt" --account-name mystorageaccount --auth-mode login
 ```
 
 ## List directory contents
@@ -175,7 +175,7 @@ List the contents of a directory by using the `az storage fs file list` command.
 This example lists the contents of a directory named `my-directory` that is located in the `my-file-system` file system of a storage account named `mystorageaccount`. 
 
 ```azurecli
-az storage fs file list -f my-file-system --path my-directory --account-name mystorageaccount
+az storage fs file list -f my-file-system --path my-directory --account-name mystorageaccount --auth-mode login
 ```
 
 ## Upload a file to a directory
@@ -185,7 +185,7 @@ Upload a file to a directory by using the `az storage fs directory upload` comma
 This example uploads a file named `upload.txt` to a directory named `my-directory`. 
 
 ```azurecli
-az storage fs file upload -s "C:\myFolder\upload.txt" -p my-directory/upload.txt  -f my-file-system --account-name mystorageaccount
+az storage fs file upload -s "C:\myFolder\upload.txt" -p my-directory/upload.txt  -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 ## Show file properties
@@ -193,7 +193,7 @@ az storage fs file upload -s "C:\myFolder\upload.txt" -p my-directory/upload.txt
 You can print the properties of a file to the console by using the `az storage fs file show` command.
 
 ```azurecli
-az storage fs file show -p my-file.txt -f my-file-system --account-name mystorageaccount
+az storage fs file show -p my-file.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 ## Rename or move a file
@@ -203,7 +203,7 @@ Rename or move a file by using the `az storage fs file move` command.
 This example renames a file from the name `my-file.txt` to the name `my-file-renamed.txt`.
 
 ```azurecli
-az storage fs file move -p my-file.txt -f my-file-system --new-path my-file-system/my-file-renamed.txt --account-name mystorageaccount
+az storage fs file move -p my-file.txt -f my-file-system --new-path my-file-system/my-file-renamed.txt --account-name mystorageaccount --auth-mode login
 ```
 
 ## Delete a file
@@ -213,7 +213,7 @@ Delete a file by using the `az storage fs file delete` command.
 This example deletes a file named `my-file.txt`
 
 ```azurecli
-az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount 
+az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
 ```
 
 ## Manage permissions
@@ -230,7 +230,7 @@ Get the ACL of a **directory** by using the `az storage fs access show` command.
 This example gets the ACL of a directory, and then prints the ACL to the console.
 
 ```azurecli
-az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount
+az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 Get the access permissions of a **file** by using the `az storage fs access show` command. 
@@ -238,7 +238,7 @@ Get the access permissions of a **file** by using the `az storage fs access show
 This example gets the ACL of a file and then prints the ACL to the console.
 
 ```azurecli
-az storage fs access show -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount
+az storage fs access show -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 The following image shows the output after getting the ACL of a directory.
@@ -254,13 +254,13 @@ Use the `az storage fs access set` command to set the ACL of a **directory**.
 This example sets the ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```azurecli
-az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount
+az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 This example sets the *default* ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```azurecli
-az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount
+az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 Use the `az storage fs access set` command to set the acl of a **file**. 
@@ -268,7 +268,7 @@ Use the `az storage fs access set` command to set the acl of a **file**.
 This example sets the ACL on a file for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```azurecli
-az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount
+az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 The following image shows the output after setting the ACL of a file.
@@ -286,13 +286,13 @@ Update the ACL of a directory or file by setting the `-permissions` parameter to
 This example updates the ACL of a **directory**.
 
 ```azurecli
-az storage fs access set --permissions rwxrwxrwx -p my-directory -f my-file-system --account-name mystorageaccount
+az storage fs access set --permissions rwxrwxrwx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 This example updates the ACL of a **file**.
 
 ```azurecli
-az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount
+az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 You can also update the owning user and group of a directory or file by setting the `--owner` or `group` parameters to the entity ID or User Principal Name (UPN) of a user. 
@@ -300,13 +300,13 @@ You can also update the owning user and group of a directory or file by setting 
 This example changes the owner of a directory. 
 
 ```azurecli
-az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory -f my-file-system --account-name mystorageaccount
+az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 This example changes the owner of a file. 
 
 ```azurecli
-az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount
+az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 ## See also
