@@ -481,9 +481,9 @@ Assume `element1` and `element2` are undefined. The following example returns `"
 "[coalesce(steps('foo').element1, steps('foo').element2, 'foobar')]"
 ```
 
-This function is especially in the context of optional invocation that happens due to user action after the page loads.  For example, if the constraints placed on one field in the UI depend on the currently selected value of another, **initially non-visible** field.  In this case, `coalesce()` can be used to allow the function to be syntactically valid at page load time, while having the desired effect when the user interacts with the field.
+This function is especially useful in the context of optional invocation that happens due to user action after the page loads. An example is if the constraints placed on one field in the UI depend on the currently selected value of another, **initially non-visible** field. In this case, `coalesce()` can be used to allow the function to be syntactically valid at page load time while having the desired effect when the user interacts with the field.
 
-Consider this `DropDown` which allows the user to choose from several different database types.
+Consider this `DropDown`, which allows the user to choose from several different database types:
 
 ```
 {
@@ -512,14 +512,13 @@ Consider this `DropDown` which allows the user to choose from several different 
     },
 ```
 
-To condition the action of another field on the current chosen value of this field, use `coalesce()`, as shown here.
+To condition the action of another field on the current chosen value of this field, use `coalesce()`, as shown here:
 
 ```
 "regex": "[concat('^jdbc:', coalesce(steps('section_database').databaseConnectionInfo.databaseType, ''), '.*$')]",
 ```
 
-This is necessary because the `databaseType` is initially not visible, and therefore does not have a value.  This causes the entire expression to not evaluate correctly.
-
+This is necessary because the `databaseType` is initially not visible and therefore does not have a value. This causes the entire expression to not evaluate correctly.
 
 ## Conversion functions
 These functions can be used to convert values between JSON data types and encodings.
