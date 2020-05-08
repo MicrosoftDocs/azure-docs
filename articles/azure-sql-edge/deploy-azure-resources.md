@@ -10,6 +10,7 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ---
+# Install software and set up resources for the tutorial
 In this tutorial, you will be predicting iron ore impurities as a % of Silica in Azure SQL Edge. Before you proceed with the tutorial, ensure you have an active Azure subscription and you have installed the below pre-requisite software.
 
 ## Pre-requisite software to be installed 
