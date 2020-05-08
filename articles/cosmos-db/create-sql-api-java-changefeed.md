@@ -1,5 +1,5 @@
 ---
-title: How-To - an end-to-end Azure Cosmos DB Java SDK v4 application sample with Change Feed
+title: Create an end-to-end Azure Cosmos DB Java SDK v4 application sample by using Change Feed
 description: This how-to guide walks you through a simple Java SQL API application which inserts documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed.
 author: anfeldma
 ms.service: cosmos-db
@@ -50,7 +50,7 @@ mvn clean package
 
 ## Walkthrough
 
-1. As a first check, you should have an Azure Cosmos DB account. Open the **Azure Portal** in your browser, go to your Azure Cosmos DB account, and in the left pane navigate to **Data Explorer**.
+1. As a first check, you should have an Azure Cosmos DB account. Open the **Azure portal** in your browser, go to your Azure Cosmos DB account, and in the left pane navigate to **Data Explorer**.
 
     ![Azure Cosmos DB account](media/create-sql-api-java-changefeed/cosmos_account_empty.JPG)
 
@@ -66,7 +66,7 @@ mvn clean package
     Press enter to create the grocery store inventory system...
     ```
 
-    then return to the Azure Portal Data Explorer in your browser. You will see a database **GroceryStoreDatabase** has been added with three empty containers: 
+    then return to the Azure portal Data Explorer in your browser. You will see a database **GroceryStoreDatabase** has been added with three empty containers: 
 
     * **InventoryContainer** - The inventory record for our example grocery store, partitioned on item ```id``` which is a UUID.
     * **InventoryContainer-pktype** - A materialized view of the inventory record, optimized for queries over item ```type```
@@ -100,7 +100,7 @@ mvn clean package
 
     ```"SampleHost_1"``` is the name of the Change Feed processor worker. ```changeFeedProcessorInstance.start()``` is what actually starts the Change Feed processor.
 
-    Return to the Azure Portal Data Explorer in your browser. Under the **InventoryContainer-leases** container, click **items** to see its contents. You will see that Change Feed Processor has populated the lease container, i.e. the processor has assigned the ```SampleHost_1``` worker a lease on some partitions of the **InventoryContainer**.
+    Return to the Azure portal Data Explorer in your browser. Under the **InventoryContainer-leases** container, click **items** to see its contents. You will see that Change Feed Processor has populated the lease container, i.e. the processor has assigned the ```SampleHost_1``` worker a lease on some partitions of the **InventoryContainer**.
 
     ![Leases](media/create-sql-api-java-changefeed/cosmos_leases.JPG)
 
@@ -133,7 +133,7 @@ mvn clean package
     }
     ```
 
-1. Allow the code to run 5-10sec. Then return to the Azure Portal Data Explorer and navigate to **InventoryContainer > items**. You should see that items are being inserted into the inventory container; note the partition key (```id```).
+1. Allow the code to run 5-10sec. Then return to the Azure portal Data Explorer and navigate to **InventoryContainer > items**. You should see that items are being inserted into the inventory container; note the partition key (```id```).
 
     ![Feed container](media/create-sql-api-java-changefeed/cosmos_items.JPG)
 
@@ -141,7 +141,7 @@ mvn clean package
 
     ![Materialized view](media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG)
 
-1. We're going to delete a document from both **InventoryContainer** and **InventoryContainer-pktype** using just a single ```upsertItem()``` call. First, take a look at Azure Portal Data Explorer. We'll delete the document for which ```/type == "plums"```; it is encircled in red below
+1. We're going to delete a document from both **InventoryContainer** and **InventoryContainer-pktype** using just a single ```upsertItem()``` call. First, take a look at Azure portal Data Explorer. We'll delete the document for which ```/type == "plums"```; it is encircled in red below
 
     ![Materialized view](media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG)
 
