@@ -117,7 +117,7 @@ To build the blockchain consortium post deploying the ordering service and peer 
 
 
 >[!NOTE]
-> There is an update in the script, if you want to refer to the old script, [see here](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/blob/master/consortiumScripts/README.md). This update is to provide more functionality with Azure HLF script.
+> There is an update in the script and this update is to provide more functionlaity with Azure HLF script. If you want to refer to the old script, [see here](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/blob/master/consortiumScripts/README.md).
 
 All the commands to run the Azure HLF script can be executed through Azure Bash Command Line. Interface (CLI). You can login into Azure shell web version through  ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) option at the top-right corner of the Azure portal. On the command prompt, type bash and enter to switch to bash CLI.
 
