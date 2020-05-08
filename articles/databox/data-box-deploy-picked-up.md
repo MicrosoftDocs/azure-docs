@@ -28,7 +28,7 @@ ms.localizationpriority: high
 
 ::: zone target="docs"
 
-This tutorial describes how to return Azure Data Box and verify the data uploaded to Azure. 
+This tutorial describes how to return Azure Data Box and verify the data uploaded to Azure.
 
 In this tutorial, you will learn about topics such as:
 
