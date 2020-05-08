@@ -171,7 +171,7 @@ The `StreamingContext` value doesn't need to be passed in by the SQL query. Azur
     SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
 ```
 
-Log messages can be accessed through the [Diagnostic Logs](data-errors.md).
+You can access log messages through the [diagnostic logs](data-errors.md).
 
 ## Limitations
 The UDF preview currently has the following limitations:
