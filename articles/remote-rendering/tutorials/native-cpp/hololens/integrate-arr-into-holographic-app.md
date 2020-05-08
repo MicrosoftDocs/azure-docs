@@ -110,7 +110,7 @@ This shortcut is useful so we don't have to write out the full namespace everywh
 
 ### Remote Rendering Initialization
  
-We need to hold a few objects for the session etc. during the lifetime of the application. The lifetime coincides with the lifetime of the application's `HolographicAppMain` object, so we simply add our objects as members to class `HolographicAppMain`. The next step is adding the following class members in file HolographicAppMain.h:
+We need to hold a few objects for the session etc. during the lifetime of the application. The lifetime coincides with the lifetime of the application's `HolographicAppMain` object, so we add our objects as members to class `HolographicAppMain`. The next step is adding the following class members in file HolographicAppMain.h:
 
 ```cpp
 class HolographicAppMain
