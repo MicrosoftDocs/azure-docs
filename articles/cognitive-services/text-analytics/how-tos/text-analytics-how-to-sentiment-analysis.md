@@ -60,7 +60,7 @@ For example, if a customer leaves feedback about a hotel such as "the room was g
 | room   | great      | positive  |
 | staff  | unfriendly | negative  |
 
-To get opinion mining in your results, you must include the `TBD` flag in a request for sentiment analysis. The opinion mining results will be included in the sentiment analysis response.
+To get opinion mining in your results, you must include the `opinionMining=true` flag in a request for sentiment analysis. The opinion mining results will be included in the sentiment analysis response.
 
 ## Sending a REST API request 
 
