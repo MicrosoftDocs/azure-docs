@@ -99,7 +99,7 @@ you also need to allow traffic between nodes. See the documentation for each DSC
 
 #### Proxy support
 
-Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` in the [metaconfiguration script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations)
+Proxy support for the DSC agent is available in Windows version 1809 and later. This option is enabled by setting the values for `ProxyURL` and `ProxyCredential` in the [metaconfiguration script](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)
 used to register nodes.
 
 >[!NOTE]

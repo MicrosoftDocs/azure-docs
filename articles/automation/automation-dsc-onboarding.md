@@ -62,7 +62,7 @@ To find the registration key and registration URL to use as parameters in the te
 You can enable Windows servers running on-premises or in other cloud environments (including AWS EC2 instances) to Azure Automation State Configuration. The servers must have [outbound access to Azure](automation-dsc-overview.md#network-planning).
 
 1. Make sure that the latest version of [WMF 5](https://aka.ms/wmf5latest) is installed on the machines to enable for State Configuration. In addition, WMF 5 must be installed on the computer that you are using for enabling the machines.
-1. Follow the directions in the section [Generating DSC metaconfigurations](#generating-dsc-metaconfigurations) to create a folder containing the required DSC metaconfigurations. 
+1. Follow the directions in [Generate DSC metaconfigurations](#generate-dsc-metaconfigurations) to create a folder containing the required DSC metaconfigurations. 
 1. Use the following cmdlet to apply the PowerShell DSC metaconfigurations remotely to the machines to enable. 
 
    ```powershell
@@ -87,7 +87,7 @@ You can enable Linux servers running on-premises or in other cloud environments 
 
 3. If the PowerShell DSC Local Configuration Manager (LCM) defaults don't match your use case, or you want to enable machines that only report to Azure Automation State Configuration, follow steps 4-7. Otherwise, proceed directly to step 7.
 
-4. Follow the directions in the [Generating DSC metaconfigurations](#generating-dsc-metaconfigurations) section to produce a folder containing the required DSC metaconfigurations.
+4. Follow the directions in [Generate DSC metaconfigurations](#generate-dsc-metaconfigurations) section to produce a folder containing the required DSC metaconfigurations.
 
 5. Make sure that the latest version of [WMF 5](https://aka.ms/wmf5latest) is installed on the computer being used to enable your machines for State Configuration.
 
