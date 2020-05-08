@@ -21,6 +21,8 @@ Azure Static Web Apps streamlines the authentication experience by managing auth
 
 Provider-specific [invitations](#invitations) associate users with roles, and authorized users are granted access to [routes](routes.md) by rules defined in the _routes.json_ file.
 
+All authentication providers are enabled by default. To restrict an authentication provider, [block access](#block-an-authorization-provider) with a custom route rule.
+
 The topics of authentication and authorization significantly overlap with routing concepts. Make sure to read the [routing guide](routes.md) along with this article.
 
 ## Roles
@@ -95,6 +97,8 @@ As you remove a user, keep in mind the following items:
 1. Removing a user invalidates their permissions.
 1. Worldwide propagation may take a few minutes.
 1. If the user is added back to the app, the [`userId` changes](user-information.md).
+
+## Remove personal identifying information
 
 When you grant consent to an application as an end-user, the application has access to your email address or your username depending on the identity provider. Once this information is provided, the owner of the application decides how to manage personally identifying information.
 

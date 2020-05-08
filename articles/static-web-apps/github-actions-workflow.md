@@ -137,13 +137,9 @@ with:
 
 The `repo_token`, `action`, and `azure_static_web_apps_api_token` values are set for you by Azure Static Web Apps shouldn't be manually changed.
 
-## Customizations
+## Custom build commands
 
-There are few additional configuration settings available that are not generated in the workflow file by default. The following customizations can be defined under a job's `with` section.
-
-### Custom build commands
-
-You can have fine-grained control over what commands run during a deployment.
+You can have fine-grained control over what commands run during a deployment. The following commands can be defined under a job's `with` section.
 
 The deployment always calls `npm install` before any custom command.
 
@@ -152,11 +148,15 @@ The deployment always calls `npm install` before any custom command.
 | `app_build_command` | Defines a custom command to run during deployment of the static content application.<br><br>For example, to configure a production build for an Angular application enter `ng build -prod`. If left blank, the workflow tries to run the `build` or `build:Azure` commands.  |
 | `api_build_command` | Defines a custom command to run during deployment of the Azure Functions API application. |
 
-### Route file location
+## Route file location
 
-You can customize the workflow to look for the [routes.json](routes.md) in any folder in your repository. The `routes_location` property defines the directory location where the _routes.json_ file is found. This location is relative to the root of the repository.
+You can customize the workflow to look for the [routes.json](routes.md) in any folder in your repository. The following property can be defined under a job's `with` section.
 
-Being explicit about the location of your _routes.json_ file is particularly important if your front-end framework build step does not move this file to the `app_artifact_location` by default.
+| Property            | Description |
+|---------------------|-------------|
+| `routes_location` | Defines the directory location where the _routes.json_ file is found. This location is relative to the root of the repository. |
+
+ Being explicit about the location of your _routes.json_ file is particularly important if your front-end framework build step does not move this file to the `app_artifact_location` by default.
 
 ## Next steps
 
