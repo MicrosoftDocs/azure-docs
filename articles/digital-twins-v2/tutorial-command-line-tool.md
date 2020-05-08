@@ -256,6 +256,8 @@ In the next tutorial, we will use the sample command line tool as the centerpiec
 
 ## Next steps
 
+Continue to the next tutorial to connect a sample Azure Digital Twins solution to other Azure services to complete a data-driven, end-to-end scenario: 
+
 > [!div class="nextstepaction"]
 > [Tutorial: Build an end-to-end solution](tutorial-end-to-end.md)
 
