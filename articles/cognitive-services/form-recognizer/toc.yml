@@ -36,8 +36,8 @@
       items:
       - name: Python
         href: quickstarts/python-layout.md
-  - name: Using the .NET SDK
-    href: quickstarts/dotnet-sdk.md
+  - name: Using client libarary
+    href: quickstarts/client-library.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Logic Apps
