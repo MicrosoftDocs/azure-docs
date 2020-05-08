@@ -103,9 +103,11 @@ The following steps show you how to create a new Static Web Apps application and
 
 ### Create the application
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
-
-1. Select **Create a Resource** and search for **Static Web Apps**.
+1. Navigate to the [Azure portal](https://portal.azure.com)
+1. Click **Create a Resource**
+1. Search for **Static Web Apps**
+1. Click **Static Web Apps (Preview)**
+1. Click **Create**
 
    :::image type="content" source="./media/publish-vuepress/create-in-portal.png" alt-text="Create a Static Web Apps (Preview) in the portal":::
 

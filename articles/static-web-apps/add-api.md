@@ -213,9 +213,10 @@ Using Visual Studio Code, commit and push your changes to the remote git reposit
 :::image type="content" source="media/add-api/create-static-app-on-azure-portal-1.png" alt-text="Create static app on the Azure portal - screen 1":::
 
 1. Navigate to the [Azure portal](https://portal.azure.com)
-1. Type **Static Web Apps** in the top search bar
-1. Click on **Static Web Apps**
-1. Click **Add**
+1. Click **Create a Resource**
+1. Search for **Static Web Apps**
+1. Click **Static Web Apps (Preview)**
+1. Click **Create**
 1. Select your _Azure subscription_
 1. Select or create a new _Resource Group_
 1. Name the app **my-vanilla-api**.

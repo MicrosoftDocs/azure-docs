@@ -112,8 +112,11 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 
 ### Create an Azure Static Web Apps Preview resource
 
-1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Click **Create a Resource** then search for **Static Web Apps** and select the matching result.
+1. Navigate to the [Azure portal](https://portal.azure.com)
+1. Click **Create a Resource**
+1. Search for **Static Web Apps**
+1. Click **Static Web Apps (Preview)**
+1. Click **Create**
 
 1. Select a subscription from the *Subscription* drop-down list or use the default value.
 1. Click the **New** link below the *Resource group* drop-down. In *New resource group name*, type **mystaticsite** and click **OK**
