@@ -44,7 +44,7 @@ The following screenshot shows the cost estimation by using the calculator:
 
 As you add new resources to your workspace, return to this calculator and add the same resource here to update your cost estimates.
 
-While the Enterprise edition is in preview,  there is no ML surcharge. When the Enterprise edition becomes generally available, it will have a machine learning surcharge (for training and inferencing).  For more details, [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
+While the Enterprise edition is in preview, there is no ML surcharge. When the Enterprise edition becomes generally available, it will have a surcharge (for training and inferencing).  For more information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ## Get cost alerts
 
@@ -54,7 +54,7 @@ Create [budgets](../cost-management/tutorial-acm-create-budgets.md) to manage co
 
 As you use resources with Azure Machine Learning, you incur costs. Azure resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by request unit usage. As soon as usage of Azure Machine Learning starts, costs are incurred. View these costs in the [cost analysis](../cost-management/quick-acm-cost-analysis.md) pane in the Azure portal.
 
-View costs in graphs and tables for different time intervals. Some examples are by day, current, prior month, and year. Also view costs against budgets and forecasted costs. Switching to longer views over time helps you identify spending trends and see where overspending might have occurred. If you've created budgets, see where they exceeded.  
+You can view costs in graphs and tables for different time intervals. You can also view costs against budgets and forecasted costs. Switching to longer views over time helps identify spending trends and see where overspending might have occurred. If you've created budgets, see where they exceeded.  
 
 You won't see a separate service area for Machine Learning.  Instead you'll see the various resources you've added to your Machine Learning workspaces.
 
@@ -62,18 +62,19 @@ You won't see a separate service area for Machine Learning.  Instead you'll see 
 
 With constantly changing data, you need fast and streamlined model training and retraining to maintain accurate models. However, continuous training comes at a cost, especially for deep learning models on GPUs. 
 
-Azure Machine Learning users can use the managed Azure Machine Learning compute cluster, also called AmlCompute. AmlCompute supports a variety of GPU and CPU options. The AmlCompute is internally hosted on behalf of your subscription by Azure Machine Learning, but provides the same enterprise grade security, compliance and governance at Azure IaaS cloud scale.
+Azure Machine Learning users can use the managed Azure Machine Learning compute cluster, also called AmlCompute. AmlCompute supports a variety of GPU and CPU options. The AmlCompute is internally hosted on behalf of your subscription by Azure Machine Learning. It provides the same enterprise grade security, compliance and governance at Azure IaaS cloud scale.
 
 Because these compute pools are inside of Azure's IaaS infrastructure, you can deploy, scale, and manage your training with the same security and compliance requirements as the rest of your infrastructure.  These deployments occur in your subscription and obey your governance rules. Learn more about [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute).
 
 ## Configure training clusters for autoscaling
 
-Autoscaling clusters based on the requirements of your workload helps reduce your costs so you only use what you need. 
-AmlCompute clusters are designed to autoscale dynamically based on the requirements of your workload. The cluster can be scaled up to the maximum number of nodes provisioned and within the quota designated for the subscription. As each run completes, the cluster will release nodes and autoscale to your designated minimum node count.
+Autoscaling clusters based on the requirements of your workload helps reduce your costs so you only use what you need.
+
+AmlCompute clusters are designed to scale dynamically based on your workload. The cluster can be scaled up to the maximum number of nodes you configure. As each run completes, the cluster will release nodes and scale to your configured minimum node count.
 
 [!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
 
-In addition to setting the minimum and maximum number of nodes, tweak the amount of time the node is idle before scale down. By default, idle time before scale down is set to 120 seconds.
+You can also configure the amount of time the node is idle before scale down. By default, idle time before scale down is set to 120 seconds.
 
 + If you perform less iterative experimentation, reduce this time to save costs. 
 + If you perform highly iterative dev/test experimentation, you might need to increase the time so you aren't paying for constant scaling up and down after each change to your training script or environment.
@@ -103,7 +104,7 @@ Here are a few options that you have:
 
 ## Use low-priority VMs
 
-Azure allows you to use excess unutilized capacity as Low-Priority VMs across virtual machine scale sets, Batch, and the Machine Learning service. These allocations are pre-emptible but come at a reduced price compared to dedicated VMs. In general, we recommend using Low-Priority VMs for Batch workloads or where interruptions are recoverable either through resubmits (for Batch Inferencing) or through restarts (for deep learning training with checkpointing).
+Azure allows you to use excess unutilized capacity as Low-Priority VMs across virtual machine scale sets, Batch, and the Machine Learning service. These allocations are pre-emptible but come at a reduced price compared to dedicated VMs. In general, we recommend using Low-Priority VMs for Batch workloads. You should also use them where interruptions are recoverable either through resubmits (for Batch Inferencing) or through restarts (for deep learning training with checkpointing).
 
 Low-Priority VMs have a single quota separate from the dedicated quota value, which is by VM family. Learn [more about AmlCompute quotas](how-to-manage-quotas.md).
 
@@ -131,7 +132,7 @@ Set the priority of your VM in any of these ways:
 
 Azure Reserved VM Instance provides another way to get huge savings on compute resources by committing to one-year or three-year terms. These discounts range up to 72% of the pay-as-you-go prices and are applied directly to your monthly Azure bill.
 
-Azure Machine Learning Compute supports reserved instances inherently. So if you have purchased a one-year or three-year reserved instance we will automatically apply that reserved instance discount against the managed compute that is used within Azure Machine Learning without requiring any additional setup from your end.
+Azure Machine Learning Compute supports reserved instances inherently. If you have purchased a one-year or three-year reserved instance we will automatically apply that reserved instance discount against the managed compute used within Azure Machine Learning. This does not require any additional setup from your end.
 
 
 ## Next steps
