@@ -158,5 +158,7 @@ await client.GetContainer("database", "container").ReplaceContainerAsync(contain
 
 ## Query analytical store using Synapse Spark
 
+Use the instructions in the [Query Azure Cosmos DB analytical store](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) article on how to query with Synapse Spark. That article gives some examples on how you can interact with the analytical store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
+
 ## Next steps
 
