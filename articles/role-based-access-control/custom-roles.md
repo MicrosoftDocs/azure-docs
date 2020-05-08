@@ -31,10 +31,6 @@ Custom roles can be shared between subscriptions that trust the same Azure AD di
 
 ## Custom role example
 
-When you create a custom role, it appears in the Azure portal with an orange resource icon.
-
-![Custom role icon](./media/custom-roles/roles-custom-role-icon.png)
-
 The following shows what a custom role looks like as displayed using Azure PowerShell in JSON format. This custom role can be used for monitoring and restarting virtual machines.
 
 ```json
@@ -107,29 +103,13 @@ The following shows the same custom role as displayed using Azure CLI.
 ]
 ```
 
-## Steps to create a custom role
+When you create a custom role, it appears in the Azure portal with an orange resource icon.
 
-1. Decide how you want to create the custom role
-
-    You can create custom roles using [Azure portal](custom-roles-portal.md), [Azure PowerShell](custom-roles-powershell.md), [Azure CLI](custom-roles-cli.md), or the [REST API](custom-roles-rest.md).
-
-1. Determine the permissions you need
-
-    When you create a custom role, you need to know the operations that are available to define your permissions. To view the list of operations, see the [Azure Resource Manager resource provider operations](resource-provider-operations.md). You will add the operations to the `Actions` or `NotActions` properties of the [role definition](role-definitions.md). If you have data operations, you will add those to the `DataActions` or `NotDataActions` properties.
-
-1. Create the custom role
-
-    Typically, you start with an existing built-in role and then modify it for your needs. The easiest way to create a custom role is to use the Azure portal, but can you can also create custom roles using commands. To create a custom role, you must be signed in with a user that has the `Microsoft.Authorization/roleDefinitions/write` permission on all `AssignableScopes`, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
-
-1. Test the custom role
-
-    Once you have your custom role, you have to test it to verify that it works as you expect. If you need to make adjustments later, you can update the custom role.
-
-For steps on how to create a custom role using the Azure portal, see [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md).
+![Custom role icon](./media/custom-roles/roles-custom-role-icon.png)
 
 ## Custom role properties
 
-A custom role has the following properties.
+The following table describes what the custom role properties mean.
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
@@ -142,6 +122,28 @@ A custom role has the following properties.
 | `DataActions` | No | String[] | An array of strings that specifies the data operations that the role allows to be performed to your data within that object. If you create a custom role with `DataActions`, that role cannot be assigned at the management group scope. For more information, see [DataActions](role-definitions.md#dataactions). |
 | `NotDataActions` | No | String[] | An array of strings that specifies the data operations that are excluded from the allowed `DataActions`. For more information, see [NotDataActions](role-definitions.md#notdataactions). |
 | `AssignableScopes` | Yes | String[] | An array of strings that specifies the scopes that the custom role is available for assignment. You can only define one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview. For more information, see [AssignableScopes](role-definitions.md#assignablescopes). |
+
+## Steps to create a custom role
+
+To create a custom role, here are basics steps you should follow.
+
+1. Decide how you want to create the custom role.
+
+    You can create custom roles using Azure portal, Azure PowerShell, Azure CLI, or the REST API.
+
+1. Determine the permissions you need.
+
+    When you create a custom role, you need to know the operations that are available to define your permissions. To view the list of operations, see the [Azure Resource Manager resource provider operations](resource-provider-operations.md). You will add the operations to the `Actions` or `NotActions` properties of the [role definition](role-definitions.md). If you have data operations, you will add those to the `DataActions` or `NotDataActions` properties.
+
+1. Create the custom role.
+
+    Typically, you start with an existing built-in role and then modify it for your needs. The easiest way is to use the Azure portal. For steps on how to create a custom role using the Azure portal, see [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md).
+    
+    To create a custom role, you must be signed in with a user that has the `Microsoft.Authorization/roleDefinitions/write` permission on all `AssignableScopes`, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+
+1. Test the custom role.
+
+    Once you have your custom role, you have to test it to verify that it works as you expect. If you need to make adjustments later, you can update the custom role.
 
 ## Who can create, delete, update, or view a custom role
 
