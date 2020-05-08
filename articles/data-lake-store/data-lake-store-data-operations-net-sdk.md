@@ -1,5 +1,5 @@
 ---
-title: '.NET SDK: Filesystem operations on Azure Data Lake Storage Gen1'
+title: .NET SDK - Filesystem operations on Data Lake Storage Gen1 - Azure
 description: Use the Azure Data Lake Storage Gen1 .NET SDK for filesystem operations on Data Lake Storage Gen1 such as create folders, etc.
 
 author: twooley

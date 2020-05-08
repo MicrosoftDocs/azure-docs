@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 05/02/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -267,6 +267,7 @@ The following are the IDs for a [one-time password technical profile](one-time-p
 |UserMessageIfSessionDoesNotExist |One time password verification session has expired |
 |UserMessageIfSessionConflict |One time password verification session has conflict |
 |UserMessageIfInvalidCode |One time password provided for verification is incorrect |
+|UserMessageIfVerificationFailedRetryAllowed |That code is incorrect. Please try again. | 
 
 ### Example
 
@@ -277,6 +278,7 @@ The following are the IDs for a [one-time password technical profile](one-time-p
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```

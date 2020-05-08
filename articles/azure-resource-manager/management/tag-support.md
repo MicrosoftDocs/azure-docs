@@ -1546,6 +1546,7 @@ Jump to a resource provider namespace:
 > | virtualHubs | Yes | Yes |
 > | virtualNetworkGateways | Yes | Yes |
 > | virtualNetworks | Yes | Yes |
+> | virtualNetworks / subnets | No | No |
 > | virtualNetworkTaps | Yes | Yes |
 > | virtualWans | Yes | No |
 > | vpnGateways | Yes | Yes |

@@ -48,8 +48,8 @@ To get the standard tier:
 >
 > You can enable threat protection for **Azure Storage accounts** at either the subscription level or resource level.
 > You can enable threat protection for **Azure SQL Database SQL servers** at either the subscription level or resource level.
-> You can enable threat protection for **SQL servers on VMs** at either the subscription level or workspace level. 
-> You can enable threat protection for **PaaS SQL servers** (MySQL, PostgreSQL, MariaDB) at the resource level only.
+> You can enable threat protection for **Azure Database for MariaDB/ MySQL/ PostgreSQL** at the resource level only.
+
 
 ## Why upgrade to standard?
 Security Center offers enhanced security and threat protection for your hybrid cloud workloads, including:

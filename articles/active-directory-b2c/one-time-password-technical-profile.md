@@ -140,6 +140,7 @@ The following metadata can be used to configure the error messages displayed upo
 | UserMessageIfSessionDoesNotExist | No | The message to display to the user if the code verification session has expired. It is either the code has expired or the code has never been generated for a given identifier. |
 | UserMessageIfMaxRetryAttempted | No | The message to display to the user if they've exceeded the maximum allowed verification attempts. |
 | UserMessageIfInvalidCode | No | The message to display to the user if they've provided an invalid code. |
+| UserMessageIfVerificationFailedRetryAllowed | No | The message to display to the user if they've provided an invalid code, and user is allowed to provide the correct code.  |
 |UserMessageIfSessionConflict|No| The message to display to the user if the code cannot be verified.|
 
 ### Example
