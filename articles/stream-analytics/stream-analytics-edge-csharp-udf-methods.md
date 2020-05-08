@@ -139,7 +139,7 @@ Expand the **User-Defined Code Configuration** section, and fill out the configu
 ## User logging
 The logging mechanism allows you to capture custom information while a job is running. You can use log data to debug or assess the correctness of the custom code in real-time.
 
-The `StreamingContext` class provides a mechanism for publishing diagnostics information using the `StreamingDiagnostics.WriteError` function. The code below shows the interface exposed by Azure Stream Analytics.
+The `StreamingContext` class lets you publish diagnostic information using the `StreamingDiagnostics.WriteError` function. The code below shows the interface exposed by Azure Stream Analytics.
 
 ```csharp
     public abstract class StreamingContext
