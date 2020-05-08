@@ -34,7 +34,7 @@ To include a service in Impact Level 5 scope, there are two key areas that will 
 
 ### Compute isolation
 
-The SRG focuses on segmentation of compute when 'processing' data for Impact Level 5. This means ensuring that a virtual machine that compromises the physical host cannot impact a DoD workload.  To remove the risk of runtime attacks and ensure long running workloads are not compromised from other workloads on the same host, all Impact Level 5 virtual machines should be isolated using Azure Dedicated Host
+The SRG focuses on segmentation of compute when 'processing' data for Impact Level 5. This means ensuring that a virtual machine that compromises the physical host cannot impact a DoD workload.  To remove the risk of runtime attacks and ensure long running workloads are not compromised from other workloads on the same host, all Impact Level 5 virtual machines should be isolated using Azure Dedicated Hosts
 which provides a dedicated physical server to host your Azure VMs for Windows and Linux. 
 
 For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data; isolation will be accomplished by focusing on the data being processed and how it is stored and retained. This approach ensures that the data in question is stored in protected mediums and not present on these services for extended periods unless also encrypted as necessary.
@@ -217,7 +217,7 @@ Current Dedicated Host SKUs (VM series and Host Type) that offer necessary compu
 
 #### Isolated Virtual Machines
 
-Virtual machine scale sets are not currently supported on Azure Dedicated Hosts. Specific VM types when deployed consume the entire physical host for that VM.  Each of the above VM types can be deployed leveraging virtual machine scale sets to provide proper compute isolation with all the benefits of virtual machine scale sets in place. When configuring your scale set, select the appropriate SKU. To encrypt the data at rest, see the next section for supportable encryption options.
+Virtual machine scale sets are not currently supported on Azure Dedicated Hosts. However, specific VM types when deployed consume the entire physical host for that VM.  Each of the above VM types can be deployed leveraging virtual machine scale sets to provide proper compute isolation with all the benefits of virtual machine scale sets in place. When configuring your scale set, select the appropriate SKU. To encrypt the data at rest, see the next section for supportable encryption options.
 
 Current VM SKUs that offer necessary compute isolation include specific offerings from our VM families:
 
@@ -318,7 +318,7 @@ Azure DevTest Labs can be used in Azure Government supporting Impact Level 5 wor
 
 Azure Stack Edge can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
 
-You can protect data via storage accounts as your device is associated with a storage account that's used as a destination for your data in Azure. Access to the storage account is controlled by the subscription and two 512-bit storage access keys associated with that storage account. (https://docs.microsoft.com/azure/databox-online/data-box-edge-security#protect-your-data) 
+You can protect data via storage accounts as your device is associated with a storage account that's used as a destination for your data in Azure. Access to the storage account is controlled by the subscription and FIPS compliant storage access keys associated with that storage account. (https://docs.microsoft.com/azure/databox-online/data-box-edge-security#protect-your-data) 
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -441,7 +441,7 @@ Azure Cost Management can be used in Azure Government supporting Impact Level 5 
 
 Azure Managed Applications can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-Bring your own storage for the managed application definition and store your managed application definition within a storage account provided by you during creation so that it's location and access can be fully managed by you for your regulatory needs. (https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-service-catalog-app#bring-your-own-storage-for-the-managed-application-definition)
+You can store your managed application definition within a storage account provided by you during creation so that it's location and access can be fully managed by you for your regulatory needs. (https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-service-catalog-app#bring-your-own-storage-for-the-managed-application-definition)
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -465,7 +465,7 @@ Azure Policy can be used in Azure Government supporting Impact Level 5 workloads
 
 ### [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/)
 
-Microsoft Azure portal can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
+Microsoft Azure portal can be used in Azure Government supporting Impact Level 5 workloads with no additional configuration in the following regions:
 
 You can add a markdown tile to your Azure dashboards to display custom, static content. For example, you can show basic instructions, an image, or a set of hyperlinks on a markdown tile (https://docs.microsoft.com/azure/azure-portal/azure-portal-markdown-tile)
 
