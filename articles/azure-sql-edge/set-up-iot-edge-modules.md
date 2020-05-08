@@ -110,3 +110,7 @@ Example
         "ASAJobInfo": "https://ASEstorage.blob.core.windows.net/bootdiagnostics-ironorepr-6984a2b8-6901-41a8-b3a6-49f86276e63d/ASAEdgeJobs/1278e9b9-94af-41ec-90b3-8172560340c1/e9bb25a6-d0a1-422b-9e29-4305a89e92f2/ASAEdgeJobDefinition.zip?sv=2018-03-28&sr=b&sig=KQZqR7diisByoUkCK6pEA3VJm%2FI2wHWEPDL1OwjMTJ8%3D&st=2020-04-01T20%3A21%3A20Z&se=2023-04-01T20%3A31%3A20Z&sp=r"
       }
 ```
+
+## Next Steps
+
+- [Deploying ML model on Azure SQL Edge using ONNX](run-ml-model-on-sql-edge.md)
