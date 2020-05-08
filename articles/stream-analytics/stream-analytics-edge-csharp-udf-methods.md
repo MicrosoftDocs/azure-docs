@@ -156,13 +156,13 @@ The `StreamingContext` class lets you publish diagnostic information using the `
 `StreamingContext` is passed as an input parameter to the UDF method and can be used within the UDF to publish custom log information. In the example below, `MyUdfMethod` defines a **data** input, which is provided by the query, and a **context** input as the `StreamingContext`, provided by the runtime engine. 
 
 ```csharp
-    public static long MyUdfMethod(long data, StreamingContext context)
-    {
-        // write log
-        context.Diagnostics.WriteError("User Log", "This is a log message");
-        
-        return data;
-    }
+public static long MyUdfMethod(long data, StreamingContext context)
+{
+    // write log
+    context.Diagnostics.WriteError("User Log", "This is a log message");
+    
+    return data;
+}
 ```
 
 The `StreamingContext` value doesn't need to be passed in by the SQL query. Azure Stream Analytics provides a context object automatically if an input parameter is present. The use of the `MyUdfMethod` does not change as shown in the query below.
