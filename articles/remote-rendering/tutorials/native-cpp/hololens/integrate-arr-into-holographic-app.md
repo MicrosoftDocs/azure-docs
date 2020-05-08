@@ -27,9 +27,9 @@ This tutorial focuses on adding the necessary bits to a native `Holographic App`
 For this tutorial you need:
 
 * Your account information (account ID, account key, subscription ID). If you don't have an account, [create an account](../../../how-tos/create-an-account.md).
-* Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* The Windows Mixed Reality App Templates for Visual Studio [(download)](https://marketplace.visualstudio.com/items?itemName=WindowsMixedRealityteam.WindowsMixedRealityAppTemplatesVSIX)
+* Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk).
+* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/).
+* The Windows Mixed Reality App Templates for Visual Studio [(download)](https://marketplace.visualstudio.com/items?itemName=WindowsMixedRealityteam.WindowsMixedRealityAppTemplatesVSIX).
 
 ## Create a new Holographic App sample
 
@@ -37,7 +37,7 @@ As a first step, we create a stock sample that is the basis for the Remote Rende
 
 ![Create new project](media/new-project-wizard.png)
 
-Type in a project name of your choice, choose the path and select the "Create" button.
+Type in a project name of your choice, choose a path and select the "Create" button.
 In the new project, switch the configuration to **"Debug / ARM64"**. You should now be able to compile and deploy it to a connected HoloLens 2 device. If you run it on HoloLens, you should see a rotating cube in front of you.
 
 ## Add Remote Rendering dependencies through NuGet
@@ -52,16 +52,16 @@ In the prompted dialog, browse for the **"Azure Remote Rendering"** NuGet packag
 and add it to the project by selecting the package and then pressing the "Install" button.
 
 The NuGet package adds the Remote Rendering dependencies to the project. Specifically:
-* link against the client library (RemoteRenderingClient.lib),
-* set up the .dll dependencies,
-* set the correct path to the include directory.
+* Link against the client library (RemoteRenderingClient.lib).
+* Set up the .dll dependencies.
+* Set the correct path to the include directory.
 
 ## Project preparation
 
 We need make small changes to the existing project. These changes are subtle, but without them Remote Rendering would not work.
 
-### Enable multithreaded protection on DirectX device
-The `DirectX11` device must have multithreaded protection enabled. To change that, open file DeviceResources.cpp in folder "Common", and insert the following code at the end of function `DeviceResources::CreateDeviceResources()`:
+### Enable multi thread protection on DirectX device
+The `DirectX11` device must have multi thread protection enabled. To change that, open file DeviceResources.cpp in folder "Common", and insert the following code at the end of function `DeviceResources::CreateDeviceResources()`:
 
 ```cpp
 // Enable multi thread protection as now multiple threads use the immediate context.
@@ -76,14 +76,13 @@ if (context.As(&contextMultithread) == S_OK)
 Network capabilities must be explicitly enabled for the deployed app. Without this being configured, connection queries will result in timeouts eventually. To enable, double-click on the `package.appxmanifest` item in the solution explorer. In the next UI, go to the **Capabilities** tab and select:
 * Internet (Client & Server)
 * Internet (Client)
-* Private Networks (Client & Server)
 
 ![Network capabilities](media/appx-manifest-caps.png)
 
 
 ## Integrate Remote Rendering
 
-Now that the project is prepared, we can start with the code. A good entry point into the application is class `HolographicAppMain`(file HolographicAppMain.h/cpp) because it has all the necessary hooks for initialization, de-initialization, and rendering.
+Now that the project is prepared, we can start with the code. A good entry point into the application is the class `HolographicAppMain`(file HolographicAppMain.h/cpp) because it has all the necessary hooks for initialization, de-initialization, and rendering.
 
 ### Includes
 
@@ -138,7 +137,7 @@ Add the following code to the beginning of the constructor body in file Holograp
 HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> const& deviceResources) :
     m_deviceResources(deviceResources)
 {
-    // 1. one time initialization
+    // 1. One time initialization
     {
         RR::RemoteRenderingInitialization clientInit;
         memset(&clientInit, 0, sizeof(RR::RemoteRenderingInitialization));
@@ -155,7 +154,7 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
 
     // 2. Create front end
     {
-        // users need to fill out the following with their account data and model
+        // Users need to fill out the following with their account data and model
         RR::AzureFrontendAccountInfo init;
         memset(&init, 0, sizeof(RR::AzureFrontendAccountInfo));
         init.AccountId = "00000000-0000-0000-0000-000000000000";
@@ -182,13 +181,13 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
                     OnConnectionStatusChanged(status, error);
                 });
 
-            // the following is async, but we'll get notifications via OnConnectionStatusChanged
+            // The following is async, but we'll get notifications via OnConnectionStatusChanged
             RR::ConnectToRuntimeParams init;
             init.mode = RR::ServiceRenderMode::Default;
             m_session->ConnectToRuntime(init);
         };
 
-        // if we had an old (valid) session that we can recycle, we call synchronous function m_frontEnd->OpenRenderingSession
+        // If we had an old (valid) session that we can recycle, we call synchronous function m_frontEnd->OpenRenderingSession
         if (!m_sessionOverride.empty())
         {
             auto openSessionRes = m_frontEnd->OpenRenderingSession(m_sessionOverride);
@@ -201,7 +200,7 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
 
         if (createNewSession)
         {
-            // create a new session
+            // Create a new session
             RR::RenderingSessionCreationParams init;
             memset(&init, 0, sizeof(RR::RenderingSessionCreationParams));
             init.MaxLease.minute = 10; // session is leased for 10 minutes
@@ -222,7 +221,7 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
         }
     }
 
-    // rest of constructor code:
+    // Rest of constructor code:
     ...
 }
 ```
@@ -233,20 +232,20 @@ We do the de-initialization symmetrically and in reverse order at the end of the
 ```cpp
 HolographicAppMain::~HolographicAppMain()
 {
-    // existing destructor code:
+    // Existing destructor code:
     ...
     
-    // destroy session:
+    // Destroy session:
     if (m_session != nullptr)
     {
         m_session->DisconnectFromRuntime();
         m_session = nullptr;
     }
 
-    // destroy front end:
+    // Destroy front end:
     m_frontEnd = nullptr;
 
-    // one-time de-initialization:
+    // One-time de-initialization:
     RR::ShutdownRemoteRendering();
 }
 ```
@@ -264,7 +263,7 @@ Add the following members and functions to the class declaration:
 ```cpp
 namespace HolographicApp
 {
-    // our application's possible states:
+    // Our application's possible states:
     enum class AppConnectionStatus
     {
         Disconnected,
@@ -280,18 +279,18 @@ namespace HolographicApp
     class HolographicAppMain
     {
         ...
-        // member functions for state transition handling
+        // Member functions for state transition handling
         void OnConnectionStatusChanged(RR::ConnectionStatus status, RR::Result error);
         void SetNewState(AppConnectionStatus state, RR::Result error);
         void StartModelLoading();
 
-        // members for state handling:
+        // Members for state handling:
 
-        // model loading:
+        // Model loading:
         std::string m_modelURI;
         RR::ApiHandle<RR::LoadModelAsync> m_loadModelAsync;
 
-        // connection state machine:
+        // Connection state machine:
         AppConnectionStatus m_currentStatus = AppConnectionStatus::Disconnected;
         RR::Result m_connectionResult = RR::Result::Success;
         RR::Result m_modelLoadResult = RR::Result::Success;
@@ -314,7 +313,7 @@ void HolographicAppMain::StartModelLoading()
     params.ModelUrl = m_modelURI.c_str();
     params.Parent = nullptr;
 
-    // start the async model loading
+    // Start the async model loading
     if (auto loadModel = m_api->LoadModelFromSASAsync(params))
     {
         m_loadModelAsync = *loadModel;
@@ -329,10 +328,10 @@ void HolographicAppMain::StartModelLoading()
             });
         m_loadModelAsync->ProgressUpdated([this](float progress)
         {
-            // progress callback
+            // Progress callback
             m_modelLoadingProgress = progress;
 
-            // output progress percentage to VS output
+            // Output progress percentage to VS output
             char buffer[1024];
             sprintf_s(buffer, "Remote Rendering: Model loading progress: %.1f\n", m_modelLoadingProgress * 100.f);
             OutputDebugStringA(buffer);
@@ -347,7 +346,7 @@ void HolographicAppMain::SetNewState(AppConnectionStatus state, RR::Result error
     m_currentStatus = state;
     m_connectionResult = error;
 
-    // some log for the VS output panel:
+    // Some log for the VS output panel:
     const char* appStatus = nullptr;
 
     switch (state)
@@ -417,14 +416,14 @@ We have to tick the client once per simulation tick. Class `HolographicApp1Main`
 // Updates the application state once per frame.
 HolographicFrame HolographicAppMain::Update()
 {
-    // tick Remote rendering:
+    // Tick Remote rendering:
     if (m_session != nullptr)
     {
-        // tick the client to receive messages
+        // Tick the client to receive messages
         m_api->Update();
     }
 
-    // rest of the body:
+    // Rest of the body:
     ...
 }
 ```
@@ -435,11 +434,11 @@ The last thing to do is invoking the rendering of the remote content. We have to
 
 ```cpp
         ...
-        // existing clear function:
+        // Existing clear function:
         context->ClearDepthStencilView(depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
 
-        // inject remote rendering: as soon as we are connected, start blitting the remote frame.
-        // We do the blitting after the Clear, and before cube rendering
+        // Inject remote rendering: as soon as we are connected, start blitting the remote frame.
+        // We do the blitting after the Clear, and before cube rendering.
         if (m_isConnected)
         {
             m_graphicsBinding->BlitRemoteFrame();
