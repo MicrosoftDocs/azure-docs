@@ -138,9 +138,6 @@
       href: concept-model-management-and-deployment.md
     - name: Model portability (ONNX)
       href: concept-onnx.md
-    - name: Model interpretability
-      displayName: explainability
-      href: how-to-machine-learning-interpretability.md
     - name: ML pipelines
       href: concept-ml-pipelines.md
     - name: Enterprise readiness & security
@@ -172,6 +169,20 @@
           href: how-to-setup-authentication.md
         - name: Monitor Azure Machine Learning
           href: monitor-azure-machine-learning.md
+    - name: Responsible ML
+      items:
+        - name: Responsible ML overview
+          displayName: responsible,ml
+          href: concept-responsible-ml.md
+        - name: Model interpretability
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Fairness in Machine Learning
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: Differential Privacy
+          displayName: differential,privacy
+          href: concept-differential-privacy.md
 - name: How-to guides
   items:
   - name: Create & manage workspaces
