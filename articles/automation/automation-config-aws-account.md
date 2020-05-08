@@ -27,4 +27,4 @@ After you have created and copied your AWS security keys, you need to create a C
 
 ## Next steps
 
-* Review the solution article [Automating deployment of a VM in Amazon Web Services](automation-scenario-aws-deployment.md) to learn how to create runbooks to automate tasks in AWS.
+* Review [Automating deployment of a VM in Amazon Web Services](automation-scenario-aws-deployment.md) to learn how to create runbooks to automate tasks in AWS.
