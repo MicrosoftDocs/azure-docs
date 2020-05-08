@@ -548,10 +548,10 @@ namespace minimal
 
 In this tutorial, you created a .NET console client application from scratch. You wrote code for this client app to perform the basic actions on an Azure Digital Twins instance.
 
-Next, continue to the next tutorial to connect a sample Azure Digital Twins solution to other Azure services to complete a data-driven, end-to-end scenario: 
+Continue to the next tutorial to explore the things you can do with such a sample client app: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build an end-to-end solution](tutorial-end-to-end.md)
+> [Tutorial: Explore with a command-line tool](tutorial-command-line-tool.md)
 
 You can also add to the code you wrote in this tutorial by learning more management operations in the how-to articles, or start looking at the concept documentation to learn more about elements you worked with in the tutorial.
 * [How-to: Manage a twin model](how-to-manage-model.md)
