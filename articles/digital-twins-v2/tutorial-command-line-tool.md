@@ -68,11 +68,11 @@ You can then close the browser tab or window.
 
 The command-line sample tool will show up as follows:
 
-:::image type="content" source="media/tutorial-command-line-tool/CLITool-01.png" alt-text="Welcome message from the command-line tool":::
+:::image type="content" source="media/tutorial-command-line-tool/command-line-tool-1.png" alt-text="Welcome message from the command-line tool":::
 
 Enter `help` in the command line, and press return. You will see a list of all the possible commands:
 
-:::image type="content" source="media/tutorial-command-line-tool/CLITool-02.png" alt-text="Help message from the command-line tool":::
+:::image type="content" source="media/tutorial-command-line-tool/command-line-tool-2.png" alt-text="Help message from the command-line tool":::
 
 
 ## Use the command-line tool to explore Azure Digital Twins
@@ -101,7 +101,7 @@ You can check if the model successfully made it to the service using this comman
 GetModels
 ```
 
-:::image type="content" source="media/tutorial-command-line-tool/CLITool-03.png" alt-text="Output message from the GetModels command":::
+:::image type="content" source="media/tutorial-command-line-tool/command-line-tool-3.png" alt-text="Output message from the GetModels command":::
 
 Without any further options, the `GetModels` API only returns a list of model metadata. This can be useful, for example, to create UI that displays available models. To get the full model text, try:
 
