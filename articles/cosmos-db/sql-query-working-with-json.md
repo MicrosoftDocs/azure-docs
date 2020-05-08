@@ -8,14 +8,17 @@ ms.date: 05/08/2020
 ms.author: tisande
 ---
 
+# Working with JSON in Azure Cosmos DB
+
 In Azure Cosmos DB's SQL (Core) API, items are stored as JSON. The type system and expressions are restricted to deal only with JSON types. For more information, see the [JSON specification](https://www.json.org/).
 
 We'll summarize some important aspects of working with JSON.
-    - JSON objects always begin with a `{` left brace and end with a `}` right brace
-    - You can have JSON properties [nested](#nested-properties) within one another
-    - JSON properties can have arrays values
-    - JSON properties are case sensitive
-    - JSON properties can have any string value (including spaces or characters that aren't letters)
+
+- JSON objects always begin with a `{` left brace and end with a `}` right brace
+- You can have JSON properties [nested](#nested-properties) within one another
+- JSON properties can have arrays values
+- JSON properties are case sensitive
+- JSON properties can have any string value (including spaces or characters that aren't letters)
 
 ## Nested properties
 
@@ -39,7 +42,7 @@ Here's a document with nested JSON:
 
 In this case, the `state`, `country`, and `city` properties are all nested within the `address` property.
 
-The following example projects two nested properties, `f.address.state` and `f.address.city`.
+The following example projects two nested properties: `f.address.state` and `f.address.city`.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -90,7 +93,7 @@ FROM Families f
 WHERE f.children[0].givenName = "Jesse"
 ```
 
-In most cases however, you'll use a [subquery](sql-query-subquery.md) or [self-join](sql-query-join.md) when working with arrays.
+In most cases, however, you'll use a [subquery](sql-query-subquery.md) or [self-join](sql-query-join.md) when working with arrays.
 
 For example, here's a document that shows the bank account balance of a customer over each month during 2020.
 
@@ -119,7 +122,7 @@ For example, here's a document that shows the bank account balance of a customer
 }
 ```
 
-If you wanted to run a query that showed all the customers that had a negative balance at some point during 2020, it would use [EXISTS](sql-query-subquery.md#exists-expression) with a subquery and look like this:
+If you wanted to run a query that showed all the customers that had a negative balance at some point during 2020, it would use [EXISTS](sql-query-subquery.md#exists-expression) with a subquery:
 
 ```sql
 SELECT c.id
@@ -133,7 +136,7 @@ WHERE EXISTS(
 
 ## Reserved keywords and special characters in JSON
 
-You can access properties using the quoted property operator []. For example, `SELECT c.grade` and `SELECT c["grade"]` are equivalent. This syntax is useful to escape a property that contains spaces, special characters, or has the same name as a SQL keyword or reserved word.
+You can access properties using the quoted property operator `[]`. For example, `SELECT c.grade` and `SELECT c["grade"]` are equivalent. This syntax is useful to escape a property that contains spaces, special characters, or has the same name as a SQL keyword or reserved word.
 
 For example, here's a document with a property named `order` and a property `price($)` that contains special characters:
 
@@ -229,7 +232,7 @@ You can explicitly alias values in queries. If a query has two properties with t
 
 ### Examples
 
-The AS keyword used for aliasing is optional, as shown in the following example when projecting the second value as `NameInfo`:
+The `AS` keyword used for aliasing is optional, as shown in the following example when projecting the second value as `NameInfo`:
 
 ```sql
     SELECT
@@ -253,7 +256,7 @@ The results are:
     }]
 ```
 
-You can't use alias to project a value as a property name with a space, special character, or reserved word. If you wanted to change a value's projection to, for example, have a property name with a space, you could use a [JSON expression](#json-expressions).
+You can't use aliasing to project a value as a property name with a space, special character, or reserved word. If you wanted to change a value's projection to, for example, have a property name with a space, you could use a [JSON expression](#json-expressions).
 
 Here's an example:
 
@@ -268,5 +271,5 @@ Here's an example:
 ## Next steps
 
 - [Getting started](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [SELECT clause](sql-query-select.md)
 - [WHERE clause](sql-query-where.md)
