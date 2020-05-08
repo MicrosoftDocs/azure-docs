@@ -28,7 +28,7 @@ To run large-scale analytics into Azure Cosmos DB without impacting your operati
 
 ## Navigate to Synapse Studio 
 
-From your Synapse workspace, select **Launch Synapse Studio**. On the Synapse Studio home page, select **Data** which will take you to the **Data Object Explorer**. 
+From your Synapse workspace, select **Launch Synapse Studio**. On the Synapse Studio home page, select **Data, which will take you to the **Data Object Explorer**. 
 
 ## Connect an Azure Cosmos DB database to a Synapse workspace 
 
@@ -44,7 +44,7 @@ From the Data Object Explorer, you can directly connect to an Azure Cosmos DB da
 7. (Optional) If no region is specified, Synapse run-time operations will be routed toward the nearest region where the analytical store is enabled. However, you can set manually which region you want your users to access Cosmos DB analytical store. Select **Additional connection properties** and then **New**. Under **Property Name**, write ***PreferredRegions*** and set the **Value** to the region you want (example: WestUS2, there is no space between words and number)
 8. Select ***Create***
 
-Azure Cosmos DB database are visible under the tab **Linked** in the Azure Cosmos DB section. With Azure Cosmos DB, you can differentiate an HTAP enabled container from an OLTP only container through the following icons:
+Azure Cosmos DB databases are visible under the tab **Linked** in the Azure Cosmos DB section. With Azure Cosmos DB, you can differentiate an HTAP enabled container from an OLTP only container through the following icons:
 
 **OLTP only container**:
 
