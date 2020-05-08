@@ -5,11 +5,12 @@ author: caya
 ms.service: application-gateway
 ms.topic: tutorial 
 ms.date: 5/19/20
+ms.author: caya
 ---
 
 # Tutorial: Enable Application Gateway Ingress Controller Add-On for an new AKS Cluster with an new Application Gateway with Azure CLI 
 
-You can use Azure CLI to enable the [Application Gateway Ingress Controller (AGIC)](ingress-controller-overview.md) add-on for your [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. In this tutorial, you will create an AKS cluster, an Application Gateway, and enable the AGIC add-on for the AKS cluster using the Application Gateway you created. The add-on provides a much faster way of deploying AGIC for your AKS cluster than previously through Helm.  
+You can use Azure CLI to enable the [Application Gateway Ingress Controller (AGIC)](ingress-controller-overview.md) add-on for your [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. In this tutorial, you will create an AKS cluster with the  AGIC add-on enabled which will automatically create an Application Gateway to use. You'll then deploy a sample application which will utilize the AGIC add-on to connect the Application Gateway to the AKS cluster. The add-on provides a much faster way of deploying AGIC for your AKS cluster than previously through Helm.  
 
 In this tutorial, you learn how to:
 
@@ -19,11 +20,6 @@ In this tutorial, you learn how to:
 > * Deploy a sample application using AGIC for Ingress on the AKS cluster
 > * Check status of Application Gateway connection to AKS cluster 
 
-<!---Required:
-The outline of the tutorial should be included in the beginning and at
-the end of every tutorial. These will align to the **procedural** H2
-headings for the activity. You do not need to include all H2 headings.
-Leave out the prerequisites, clean-up resources and next steps--->
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -54,69 +50,43 @@ az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-ma
 
 To configure additional parameters for the `az aks create` command, visit references [here](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
 
+> [!NOTE]
+> The AKS cluster that you've created will appear in the resource group you created, *myResourceGroup*. However, the automatically created Application Gateway will live in a separate resource group, which should be called *MC_myResourceGroup_myCluster_canadacentral*. 
+
 ## Deploy a sample application using AGIC for Ingress on the AKS cluster
 
-You will now deploy an AKS cluster to serve as the backend to our Application Gateway through Azure CLI. If you already have an existing AKS cluster that you would like to use  The following example 
+You will now deploy a sample application to the AKS cluster you created that will use the AGIC add-on for Ingress and connect the Application Gateway to the AKS cluster. First, you'll get credentials to the AKS cluster you deployed by running the `az aks get-credentials` command. 
 
-
-
-## Procedure 3
-
-Include a sentence or two to explain only what is needed to complete the
-procedure.
-<!---Code requires specific formatting. Here are a few useful examples of
-commonly used code blocks. Make sure to use the interactive functionality
-where possible.
-
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
-
-Here is an example of a code block for Java:
-
-```java
-cluster = Cluster.build(new File("src/remote.yaml")).create();
-...
-client = cluster.connect();
+```azurecli-interactive
+az aks get-credentials -n myCluster -g myResourceGroup
 ```
 
-or a code block for Azure CLI:
+Once you have the credentials to the cluster you created, run the following command to set up a sample application that uses AGIC for Ingress to the cluster. AGIC will communicate to the Application Gateway you set up earlier that there is a change in the cluster and update the backend pool with the new information. 
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
+```azurecli-interactive
+kubectl apply -f https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/aspnetapp.yaml 
 ```
 
-or a code block for Azure PowerShell:
+## Check status of Application Gateway connection to AKS cluster 
 
-```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
+Now that the Application Gateway is set up to serve traffic to the AKS cluster, let's verify that it's actually connected. You'll first get the IP address of the Ingress. 
+
+```azurecli-interactive
+kubectl get ingress
 ```
 
+Go to the IP address of the Application Gateway that you get from running the above command. It may take Application Gateway to get the update, so if the Application Gateway is still in an "Updating" state on Portal, then let it finish before trying to reach the IP address. 
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+When no longer needed, remove the resource group, application gateway, and all related resources.
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
-
-<!---Required:
-To avoid any costs associated with following the tutorial procedure, a
-Clean up resources (H2) should come just before Next steps (H2)
---->
+```azurecli-interactive
+az group delete --name myResourceGroup --location canadacentral
+```
 
 ## Next steps
+* [Learn more about which annotations are supported with AGIC](./ingress-controller-annotations.md)
+* [Enable multiple namespace support](./ingress-controller-multiple-namespace-support.md)
+* [Troubleshoot issues with AGIC](./ingress-controller-troubleshoot.md)
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next
-logical tutorial in a series, or, if there are no other tutorials, to
-some other cool thing the customer can do. A single link in the blue box
-format should direct the customer to the next article - and you can
-shorten the title in the boxes if the original one doesn't fit.
-Do not use a "More info section" or a "Resources section" or a "See also
-section". --->
