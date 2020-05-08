@@ -109,7 +109,7 @@ drop_index= silic_corr.index[:8].tolist()
 df = df.drop(drop_index, axis=1)
 df.describe()
 ```
-Now, start the AzureML experiment to find and train the best algorithm. IN this case, we are testing with all the regression algorithms, with a primary metric of Normalized Root Mean Squared Error (NRMSE). For more information, refer [Azure ML Experiments Primary Metric](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-auto-train#primary-metric). The below code will start a local run of the ML experiment. 
+Now, start the AzureML experiment to find and train the best algorithm. IN this case, we are testing with all the regression algorithms, with a primary metric of Normalized Root Mean Squared Error (NRMSE). For more information, refer [Azure ML Experiments Primary Metric](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#primary-metric). The below code will start a local run of the ML experiment. 
 ```python
 ## Define the X_train and the y_train data sets for the AutoML experiments. X_Train are the inputs or the features, while y_train is the outcome or the prediction result. 
 
