@@ -25,12 +25,16 @@ Use this quickstart to learn how to request search results from your Bing Custom
 - If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 - The [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/2.0.0) NuGet package. 
 
-   To install this package in Visual Studio, right-click your project in **Solution Explorer**, and then select **Manage NuGet Packages**. Browse for and install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package. 
+   To install this package in Visual Studio: 
 
-   When you install the Bing Custom Search NuGet package, Visual Studio also installs the following assemblies:
-     - `Microsoft.Rest.ClientRuntime`
-     - `Microsoft.Rest.ClientRuntime.Azure`
-     - `Newtonsoft.Json`
+   1. Right-click your project in **Solution Explorer**, and then select **Manage NuGet Packages**. 
+   2. Search for and install the **Microsoft.Azure.CognitiveServices.Search.CustomSearch** package. 
+
+   When you install the Bing Custom Search NuGet package, Visual Studio also installs the following packages:
+     - **Microsoft.Rest.ClientRuntime**
+     - **Microsoft.Rest.ClientRuntime.Azure**
+     - **Newtonsoft.Json**
+
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
