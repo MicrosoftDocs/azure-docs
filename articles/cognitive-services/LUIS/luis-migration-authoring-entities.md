@@ -11,7 +11,7 @@ The V3 authoring provides one new entity type, the machine-learned entity, along
 
 ## Entities are decomposable in V3
 
-Entities created with the V3 authoring APIs, either using the [APIs](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) or with the [preview portal](https://preview.luis.ai/), allow you to build a layered entity model with a parent and children. The parent is known to as the **machine-learned entity** and the children are known as **subentities** of the machine learned entity.
+Entities created with the V3 authoring APIs, either using the [APIs](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) or with the portal, allow you to build a layered entity model with a parent and children. The parent is known to as the **machine-learned entity** and the children are known as **subentities** of the machine learned entity.
 
 Each subentity is also a machine-learned entity but with the added configuration options of features.
 
