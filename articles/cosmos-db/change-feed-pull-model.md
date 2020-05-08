@@ -71,13 +71,15 @@ while (iteratorForThePartitionKey.HasMoreResults)
 
 ## Using FeedRange for parallelization
 
-In the [change feed processor](change-feed-processor.md), work is automatically spread across multiple consumers. In the change feed pull model, you can use the `FeedRange` to parallelize the processing of the change feed. A `FeedRange` represents a single [physical partition](partition-data.md#physical-partitions).
+In the [change feed processor](change-feed-processor.md), work is automatically spread across multiple consumers. In the change feed pull model, you can use the `FeedRange` to parallelize the processing of the change feed. A `FeedRange` represents a range of partition key values.
 
-Here's an example showing how to obtain a list of ranges for your container.
+Here's an example showing how to obtain a list of ranges for your container:
 
 ```csharp
 IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 ```
+
+When you obtain of list of FeedRanges for your container, you'll get one `FeedRange` per [physical partition](partition-data.md#physical-partitions).
 
 Using a `FeedRange`, you can then create a `FeedIterator` to parallelize the processing of the change feed across multiple machines or threads. Unlike the previous example that showed how to obtain a single `FeedIterator` for the entire container, you can use the `FeedRange` to obtain multiple FeedIterators which can process the change feed in parallel.
 
