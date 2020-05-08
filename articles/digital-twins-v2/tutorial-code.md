@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Coding with the Azure Digital Twins APIs
 
-It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the C# service SDK. It walks you through writing a basic client application from scratch.
+It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the C# service SDK. It walks you through writing a C# console client app step by step, starting from scratch.
 
 ## Prerequisites
 

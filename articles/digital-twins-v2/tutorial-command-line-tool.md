@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Explore ADT with a command line tool
 
-In this tutorial, you will use a command line tool, supplied in source code, to explore an Azure Digital Twins instance. You will also explore the basic coding patterns used in the tool.
+This tutorial introduces a sample application that implements a command line tool for interacting with an Azure Digital Twins instance. You can use this tool to perform essential Azure Digital Twins actions such as uploading and listing models, creating and modifying twins and relationships or manage event routes. You can learn the Azure Digital Twins APIs by looking at the code, implementing the commands, and modifying it how you would like.
 
 In this tutorial, you will...
 * Set up an Azure Digital Twins instance
