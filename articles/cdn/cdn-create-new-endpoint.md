@@ -39,9 +39,7 @@ After you've created a CDN profile, you use it to create an endpoint.
 
 1. In the Azure portal, select in your dashboard the CDN profile that you created. If you can't find it, you can either open the resource group in which you created it, or use the search bar at the top of the portal, enter the profile name, and select the profile from the results.
    
-1. On the CDN profile page, select 
-
-2. Select **+ Endpoint**.
+1. On the CDN profile page, select **+ Endpoint**.
    
     ![CDN profile](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
