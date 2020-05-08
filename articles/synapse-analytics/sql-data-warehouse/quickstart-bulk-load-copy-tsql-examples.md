@@ -38,6 +38,9 @@ WITH (
 	,ROWTERMINATOR='0x0A' --0x0A specifies to use the Line Feed character (Unix based systems)
 )
 ```
+> [!IMPORTANT]
+>
+> - Use the hexadecimal value (0x0A) to specify the Line Feed/Newline character. Note the COPY statement will interpret the '\n' string as '\r\n' (carriage return newline).
 
 ## B. Shared Access Signatures (SAS) with CRLF as the row terminator
 ```sql
@@ -54,7 +57,7 @@ WITH (
 
 > [!IMPORTANT]
 >
-> - Specifying the ROWTERMINATOR as '\r\n' will be interpreted as '\r\r\n' which will result in parsing issues
+> - Do not specify the ROWTERMINATOR as '\r\n' which will be interpreted as '\r\r\n' and can result in parsing issues
 
 ## C. Managed Identity
 
