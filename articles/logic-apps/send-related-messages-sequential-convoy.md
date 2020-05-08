@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: apseth, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/17/20
+ms.date: 05/12/20
 ---
 
 # Send related messages in order by using a sequential convoy in Azure Logic Apps with Azure Service Bus
@@ -64,7 +64,9 @@ If you're not sure whether your logic app has permissions to access your Service
    > If you find this parameter, the connection string is for a specific entity, 
    > and isn't the correct string to use with your logic app.
 
-## Connect to Service Bus namespace
+## Create logic app
+
+In this section, you create a logic app by using the **Correlated in-order delivery using service bus sessions** template, which includes the trigger and actions for implementing this workflow pattern. You also create a connection to your Service Bus namespace and specify the name for the Service Bus queue that you want to use.
 
 1. In the [Azure portal](https://portal.azure.com), create a blank logic app. From the Azure home page, select **Create a resource** > **Integration** > **Logic App**.
 
