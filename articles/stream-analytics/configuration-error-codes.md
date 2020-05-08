@@ -12,7 +12,7 @@ ms.service: stream-analytics
 
 You can use activity logs and resource logs to help debug unexpected behaviors from your Azure Stream Analytics job. This article lists the description for every configuration error code. Configuration errors are related to your job configuration, or input and output configurations.
 
-### Error code: KafkaInvalidPermission
+## Error code: KafkaInvalidPermission
 
 * **Cause**: The Stream Analytics job doesn't have the proper permission to perform certain actions.
 
