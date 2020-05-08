@@ -15,7 +15,7 @@ ms.reviewer: jesakowi
 ---
 
 # Troubleshoot publisher verification (preview)
-If you are unable to complete the process or are experiencing unexpected behavior with [Publisher verification](publisher-verification-overview.md), you should start by doing the following if you are receiving errors or seeing unexpected behavior: 
+If you are unable to complete the process or are experiencing unexpected behavior with [publisher verification](publisher-verification-overview.md), you should start by doing the following if you are receiving errors or seeing unexpected behavior: 
 
 1. Review the [requirements](publisher-verification-overview.md#requirements) and ensure they have all been met
 
@@ -62,7 +62,7 @@ If you are having an issue but unable to understand why based on what you are se
 
 The easiest way to make these requests is using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You may also consider other options like using [Postman](https://www.postman.com/), or using PowerShell to [invoke a web request](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7).  
 
-You can use Microsoft Graph to both set and unset your app’s Verified Publisher and check the result after performing one of these operations. The result can be seen on both the [application](/graph/api/resources/application?view=graph-rest-beta) object corresponding to your app registration and any [service principals](/graph/api/resources/serviceprincipal?view=graph-rest-beta) that have been instantiated from that app. For more information on the relationship between those objects, see: [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).  
+You can use Microsoft Graph to both set and unset your app’s verified publisher and check the result after performing one of these operations. The result can be seen on both the [application](/graph/api/resources/application?view=graph-rest-beta) object corresponding to your app registration and any [service principals](/graph/api/resources/serviceprincipal?view=graph-rest-beta) that have been instantiated from that app. For more information on the relationship between those objects, see: [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).  
 
 Here are examples of some useful requests:  
 

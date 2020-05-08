@@ -29,7 +29,7 @@ If you are already enrolled in the Microsoft Partner Network (MPN) and have met 
 
 1. Enter your MPN ID and click **Verify and save**.
 
-For more details on specific benefits, requirements, and frequent asked questions see the [overview](publisher-verification-overview.md).
+For more details on specific benefits, requirements, and frequently asked questions see the [overview](publisher-verification-overview.md).
 
 
 ## Mark your app as publisher verified

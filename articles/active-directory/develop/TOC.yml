@@ -505,11 +505,11 @@
       href: howto-configure-publisher-domain.md
     - name: Configure Terms of Service and Privacy Statement
       href: howto-add-terms-of-service-privacy-statement.md
-    - name: Configure Publisher Verification for your app 
+    - name: Configure publisher verification for your app 
       items:
-      - name: Mark your app as Publisher Verified 
+      - name: Mark your app as publisher verified 
         href: mark-app-as-publisher-verified.md
-      - name: Troubleshoot Publisher Verified 
+      - name: Troubleshoot publisher verification 
         href: troubleshoot-publisher-verification.md
   - name: Work with Microsoft Authentication Library
     displayName: MSAL
