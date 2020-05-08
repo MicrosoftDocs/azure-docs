@@ -50,7 +50,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 ### Fixed issues
 - Fixed an issue where unselected domains were getting incorrectly selected from the wizard UI.
-- Fixed an issue in ADSyncConfig PowerShell module when invoking DSACLS command used in all Set-ADSync* Permissions cmdlets that would cause one of the following errors:
+- Fixed an issue in the ADSyncConfig PowerShell module, where invoking DSACLS command used in all the Set-ADSync* Permissions cmdlets would cause one of the following errors:
      - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
      - `GrantAcls : No GUID Found for computer …`
 
