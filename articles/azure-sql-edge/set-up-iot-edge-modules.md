@@ -16,7 +16,7 @@ In this tutorial, we will be setting up the below IoT Edge modules
 1.  Azure SQL Edge 
 2.  A data generator module 
 
-Before proceeding, create an Azure Stream Analytics Module that will be used in the tutorial for predicting Iron Ore impurities. You can learn more about using streaming jobs with SQL Edge [here](https://docs.microsoft.com/en-us/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge)
+Before proceeding, create an Azure Stream Analytics Module that will be used in the tutorial for predicting Iron Ore impurities. You can learn more about using streaming jobs with SQL Edge [here](https://docs.microsoft.com/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge)
 
 The Azure Stream Analytics job is created with hosting environment set as Edge. Now, proceed with setting up the Inputs and Outputs specifically for the tutorial. 
 
@@ -81,7 +81,7 @@ ASEdemocontregistry.azurecr.io/silicaprediction:amd64
 
 ## Deploying the Azure SQL Edge module
 
-1. First, deploy the Azure SQL Edge module by following the steps listed [here](https://docs.microsoft.com/en-us/azure/sql-database-edge/deploy-portal#deploy-sql-database-edge)
+1. First, deploy the Azure SQL Edge module by following the steps listed [here](https://docs.microsoft.com/azure/sql-database-edge/deploy-portal#deploy-sql-database-edge)
 
 2. On the **Specify Route** of the **Set Modules** page, specify the routes for module to IoT Edge Hub communication as below 
 ```
