@@ -28,7 +28,7 @@ Use the following steps to run analytical queries with the Synapse Link for Azur
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](create-sql-api-dotnet.md#create-account.md), or select an existing Azure Cosmos account.
+1. [Create a new Azure Cosmos account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos account.
 
 1. Navigate to your Azure Cosmos account and open the **Features** pane.
 
