@@ -33,7 +33,7 @@ Here is list of the currently supported features within Synapse Link for Cosmos 
 | **Read**    |Read data from an Azure Cosmos DB container| OLTP / HTAP | HTAP  |
 | **Write**   |Write data from run-time into an Azure Cosmos DB container| OLTP | n/a |
 
-* If you write data into an Azure Cosmos DB container from Spark happens through the transactional store of Azure Cosmos DB and will impact the transactional performance of Azure Cosmos DB by consuming Request Units.
+* If you write data into an Azure Cosmos DB container from Spark, this process happens through the transactional store of Azure Cosmos DB and will impact the transactional performance of Azure Cosmos DB by consuming Request Units.
 * SQL pool integration through external tables is currently not supported.
 
 ## Supported code-generated actions for Spark
@@ -51,7 +51,6 @@ Here is list of the currently supported features within Synapse Link for Cosmos 
 ## Supported code-generated actions for SQL serverless
 
 | Gesture              | Description |OLTP |HTAP |
-=======
 | :-------------------- | :----------------------------------------------------------- |:----------------------------------------------------------- |:----------------------------------------------------------- |
 | **Select top 100** |Preview top 100 items from a container|X| ✓ |
 | **Create view** |Create a view to directly have BI access in a container through Synapse SQL|X| ✓ |
