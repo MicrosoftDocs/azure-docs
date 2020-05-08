@@ -10,7 +10,7 @@ ms.author: chnwamba
 ---
 
 
-# Deploy server-rendered Next.js websites on Azure Static Web Apps
+# Deploy server-rendered Next.js websites on Azure Static Web Apps Preview
 
 In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) generated static website to [Azure Static Web Apps](overview.md). To begin, you learn to set up, configure, and deploy a Next.js app. During this process, you also learn to deal with common challenges often faced when generating static pages with Next.js
 

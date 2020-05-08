@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: wachegha
 ---
 
-# Add an API to Azure Static Web Apps with Azure Functions
+# Add an API to Azure Static Web Apps Preview with Azure Functions
 
 You can add serverless APIs to Azure Static Web Apps via integration with Azure Functions. This article demonstrates how to add and deploy an API to an Azure Static Web Apps site.
 
