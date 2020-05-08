@@ -151,7 +151,7 @@ After the analytical store is enabled with an analytical TTL value, it can be up
 |Integer > 0 |  Analytical store actively expires historical versions of records after specified time period (in seconds)       |  Transactional TTL must be > 0 and analytical TTL must be >= transactional TTL (to maintain the invariant that analytical store is a super set of data in transactional store)       |
 |0, null or missing    |   Analytical store not enabled      | N/A    |
 
-To learn more, see [how to configure analytical TTL on a container]().
+To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md#create-analytical-ttl).
 
 ## Next steps
 

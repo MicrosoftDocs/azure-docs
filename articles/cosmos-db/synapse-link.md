@@ -84,7 +84,7 @@ This integration enables the following HTAP scenarios for different users:
 
 * A data engineer who wants to make data accessible for consumers of operational data in Azure Cosmos DB by creating SQL or Spark tables over the containers without manual ETL processes.
 
-For more information on Azure Synapse Analytics runtime support for Azure Cosmos DB, see [Azure Synapse Analytics Cosmos DB support](../synapse-analytics/cosmos-db-integration/concept-cosmos-db-support.md), and [Azure Synapse Analytics run time support](../synapse-analytics/overview-what-is.md) articles.
+For more information on Azure Synapse Analytics runtime support for Azure Cosmos DB, see [Azure Synapse Analytics Cosmos DB support](), and [Azure Synapse Analytics run time support](../synapse-analytics/overview-what-is.md) articles.
 
 ## When to use Azure Synapse Link for Azure Cosmos DB?
 
