@@ -18,8 +18,6 @@ Create entities to extract key data from user utterances in Language Understandi
 
 The entity represents a word or phrase inside the utterance that you want extracted. Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. You can create entities when you add an example utterance to an intent or apart from (before or after) adding an example utterance to an intent.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 ## Plan entities, then create and label
 
 Machine-learned entities can be created from the example utterances or created from the **Entities** page.
@@ -70,7 +68,9 @@ Prebuilt entities work without providing any custom training data. The other ent
 
 ### How to create a new custom entity
 
-1. In the LUIS portal, goto the **Manage** section, then the **Entities** page.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. Select the **Entities** page.
 1. Select **+ Create**, then select the entity type.
 1. Continue configuring the entity then select **Create** when you are done.
 
@@ -87,7 +87,8 @@ The following list demonstrates the canonical name and the synonyms.
 |Green|kelly, lime|
 
 Use the procedure to create a list entity. Once the list entity is created, you don't need to label example utterances in an intent. List items and synonyms are matched using exact text.
-
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
 1. From the **Build** section, select **Entities** in the left panel, and then select **+ Create**.
 
 1. In the **Create an entity type** dialog box, enter the name of the entity, such as `Colors` and select **List**.
@@ -114,7 +115,8 @@ In the following utterance, there are two locations, and each is specified seman
 `Pick up the package from Seattle and deliver to New York City.`
 
 In this procedure, add `origin` and `destination` roles to a prebuilt geographyV2 entity.
-
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
 1. From the **Build** section, select **Entities** in the left panel.
 
 1. Select **+ Add prebuilt entity**. Select **geographyV2** then select **Done**. This adds a prebuilt entity to the app.
@@ -131,7 +133,8 @@ In this procedure, add `origin` and `destination` roles to a prebuilt geographyV
     The role is added to the prebuilt entity but isn't added to any utterances using that entity.
 
 ### Label text with a role in an example utterance
-
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
 1. Go to the Intent details page, which has example utterances that use the role.
 1. To label with the role, select the entity label (solid line under text) in the example utterance, then select **View in entity palette** from the drop-down list.
 
@@ -152,7 +155,8 @@ In this procedure, add `origin` and `destination` roles to a prebuilt geographyV
 [Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md), not intents' example utterances. This type of entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance template.
 
 ### Steps to create a pattern.any entity
-
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
 1. From the **Build** section, select **Entities** in the left panel, and then select **+ Create**.
 
 1. In the **Choose an entity type** dialog box, enter the entity name in the **Name** box, and select **Pattern.Any** as the **Type** then select **Create**.

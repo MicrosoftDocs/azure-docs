@@ -17,8 +17,6 @@ ms.author: diberry
 # How to add patterns to improve prediction accuracy
 After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patterns.md) to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use specific [syntax](luis-concept-patterns.md#pattern-syntax) to indicate the location of: [entities](luis-concept-entity-types.md), entity [roles](luis-concept-roles.md), and optional text.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 > [!CAUTION]
 > Patterns only include machine-learned entity parents, not subentities.
 
@@ -26,7 +24,8 @@ After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patt
 
 If you want to add a pattern for an entity, the _easiest_ way is to create the pattern from the Intent details page. This ensures your syntax matches the example utterance.
 
-1. In the [preview LUIS portal](https://preview.luis.ai), select the app from the **My Apps** page.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
 1. On the **Intents** list page, select the intent name of the example utterance you want to create a template utterance from.
 1. On the Intent details page, select the row for the example utterance you want to use as the template utterance, then select **+ Add as pattern** from the context toolbar.
 
@@ -43,8 +42,9 @@ If you want to add a pattern for an entity, the _easiest_ way is to create the p
 1. In the navigation bar, select **Train** to train the app with the new pattern.
 
 ## Add template utterance using correct syntax
-
-1. Open your app by selecting its name on **My Apps** page, and then select **Patterns** in the left panel, under **Improve app performance**.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. Select **Patterns** in the left panel, under **Improve app performance**.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of Patterns List](./media/luis-how-to-model-intent-pattern/patterns-1.png)

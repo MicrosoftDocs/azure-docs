@@ -19,11 +19,11 @@ You can add features to your LUIS app to improve its accuracy. Features help LUI
 
 Review [concepts](luis-concept-feature.md) to understand when and why to use a feature.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 ## Add phrase list as a feature
 
-1. Open your app by selecting its name on **My Apps** page, and then select **Build**, then select **Features** in your app's left panel.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. Select **Build**, then select **Features** in your app's left panel.
 
 1. On the **Features** page, select **+ Create**.
 
