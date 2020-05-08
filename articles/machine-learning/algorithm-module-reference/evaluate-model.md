@@ -29,9 +29,14 @@ Use this module to measure the accuracy of a trained model. You provide a datase
 
 
 ## How to use Evaluate Model
-1. Connect the **Scored dataset** output of the [Score Model](./score-model.md) to the left input port of **Evaluate Model**. 
+1. Connect the **Scored dataset** output of the [Score Model](./score-model.md) or Result dataset output of the Assign Data to Clusters to the left input port of **Evaluate Model**. 
+Note: If use modules like "Select Columns in Dataset" to select part of input dataset, please ensure
 
-2. [Optional] Connect the **Scored dataset** output of the [Score Model](./score-model.md) for the second model to the **right-hand** input of **Evaluate Model**. You can easily compare results from two different models on the same data. The two input algorithms should be the same algorithm type. Or, you might compare scores from two different runs over the same data with different parameters.
+- actual label column (used in training), 'Scored Probabilities' column and 'Scored Labels' column exist to calculate metrics like AUC, Accuracy for binary classification/anomaly detection.
+- actual label column, 'Scored Labels' column exist to calculate metrics for multi-class classification/regression.
+- 'Assignments' column, columns 'DistancesToClusterCenter no.X' (X is centroid index, ranging from 0, ..., Number of centroids-1) exist to calculate metrics for clustering.
+
+2. [Optional] Connect the **Scored dataset** output of the [Score Model](./score-model.md) or Result dataset output of the Assign Data to Clusters for the second model to the **right-hand** input of **Evaluate Model**. You can easily compare results from two different models on the same data. The two input algorithms should be the same algorithm type. Or, you might compare scores from two different runs over the same data with different parameters.
 
     > [!NOTE]
     > Algorithm type refers to 'Two-class Classification', 'Multi-class Classification', 'Regression', 'Clustering' under 'Machine Learning Algorithms'. 
