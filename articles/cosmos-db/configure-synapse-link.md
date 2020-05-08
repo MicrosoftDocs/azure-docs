@@ -165,6 +165,20 @@ containerResponse.Resource. AnalyticalStorageTimeToLiveInSeconds = 60 * 60 * 24 
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
+#### Java V4 SDK
+
+The following code shows how to update the TTL for analytical store by using the Java V4 SDK:
+
+```java
+CosmosContainerProperties containerProperties = new CosmosContainerProperties("myContainer", "/myPartitionKey");
+
+// Update analytical store TTL to expire analytical store data in 6 months;
+containerProperties.setAnalyticalStoreTimeToLiveInSeconds (60 * 60 * 24 * 180 );  
+ 
+// Update container settings
+container.replace(containerProperties).block();
+```
+
 ## <a id="connect-to-cosmos-database"></a> Connect to a Synapse workspace
 
 Use the instructions in [Connect to Azure Synapse Link]() on how to access an Azure Cosmos DB database from Azure Synapse Analytics Studio with Azure Synapse Link.
