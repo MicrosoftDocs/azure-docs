@@ -25,6 +25,12 @@ This article shows you how to create a virtual machine with a public IP that is 
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## Register the feature for your subscription
+The Routing Preference feature is currently in preview. You must register the feature for your subscription as follows:
+    ```azurepowershell
+    Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNamespace Microsoft.Network
+    ```
+
 ## Create a resource group
 1. If using the Cloud Shell, skip to step 2. Open a command session and sign into Azure with `Connect-AzAccount`.
 2. Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. The following example creates a resource group in the East US Azure region:

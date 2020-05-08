@@ -26,7 +26,7 @@ Azure routing preference enables you to choose how your traffic routes between A
 
 ## Routing via Microsoft global network
 
-When you route your traffic via the *Microsoft global network*, traffic is delivered over one of the largest networks on the globe spanning over 130,000 miles of fiber with over 165 edge POPs. The network is well provisioned with multiple redundant fiber paths to ensure exceptionally high reliability and availability. The traffic engineering is managed by a software defined WAN control that ensures low latency path selection for your traffic and offers the premium network performance.
+When you route your traffic via the *Microsoft global network*, traffic is delivered over one of the largest networks on the globe spanning over 160,000 miles of fiber with over 165 edge Point of Presence (POPs). The network is well provisioned with multiple redundant fiber paths to ensure exceptionally high reliability and availability. The traffic engineering is managed by a software defined WAN controller that ensures low latency path selection for your traffic and offers the premium network performance.
 
 ![Routing via Microsoft global network](media/routing-preference-overview/route-via-microsoft-global-network.png)
 
@@ -89,6 +89,7 @@ Routing Preference support for storage account is available in the following Azu
 
 * Routing preference is only compatible with standard SKU of public IP address. Basic SKU of public IP address is not supported.
 * Routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses are not supported.
+* Virtual machines with multiple NICs can have only one type of routing preference.
 
 
 ## Next steps
