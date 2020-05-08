@@ -87,7 +87,7 @@ az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 
 
 ## Set quotas on resources
 
-Much like other Azure compute resources, AmlCompute comes with an inherent [quota (or limit) configuration](how-to-manage-quotas.md#azure-machine-learning-compute). This quota is by VM family (for example, Dv2 series, NCv3 series) and varies by region for each subscription. Subscriptions start with small defaults to get you going, but use this setting to control the amount of Amlcompute resources available to be spun up in your subscription. 
+AmlCompute comes with a [quota (or limit) configuration](how-to-manage-quotas.md#azure-machine-learning-compute). This quota is by VM family (for example, Dv2 series, NCv3 series) and varies by region for each subscription. Subscriptions start with small defaults to get you going, but use this setting to control the amount of Amlcompute resources available to be spun up in your subscription. 
 
 Also configure [workspace level quota by VM family](how-to-manage-quotas.md#workspace-level-quota), for each workspace within a subscription. Doing so allows you to have more granular control on the costs that each workspace might potentially incur and restrict certain VM families. 
 
@@ -99,7 +99,7 @@ In some cases, you should configure your training runs to limit their duration o
 
 Here are a few options that you have:
 * Define a parameter called `max_run_duration_seconds` in your RunConfiguration to control the maximum duration a run can extend to on the compute you choose (either local or remote cloud compute).
-* For [hyperparameter tuning](how-to-tune-hyperparameters.md#early-termination), define an early termination policy from a Bandit policy, a Median stopping policy, or a Truncation selection policy. In addition, also use parameters such as `max_total_runs` or `max_duration_minutes` to further control the various hyperparameter sweeps.
+* For [hyperparameter tuning](how-to-tune-hyperparameters.md#early-termination), define an early termination policy from a Bandit policy, a Median stopping policy, or a Truncation selection policy. To further control hyperparameter sweeps, use parameters such as `max_total_runs` or `max_duration_minutes`.
 * For [automated machine learning](how-to-configure-auto-train.md#exit), set similar termination policies using the  `enable_early_stopping` flag. Also use properties such as `iteration_timeout_minutes` and `experiment_timeout_minutes` to control the maximum duration of a run or for the entire experiment.
 
 ## Use low-priority VMs
@@ -130,9 +130,9 @@ Set the priority of your VM in any of these ways:
 
 ## Use reserved instances
 
-Azure Reserved VM Instance provides another way to get huge savings on compute resources by committing to one-year or three-year terms. These discounts range up to 72% of the pay-as-you-go prices and are applied directly to your monthly Azure bill.
+Another way to save money on compute resources is Azure Reserved VM Instance. With this offering, you commit to one-year or three-year terms. These discounts range up to 72% of the pay-as-you-go prices and are applied directly to your monthly Azure bill.
 
-Azure Machine Learning Compute supports reserved instances inherently. If you have purchased a one-year or three-year reserved instance we will automatically apply that reserved instance discount against the managed compute used within Azure Machine Learning. This does not require any additional setup from your end.
+Azure Machine Learning Compute supports reserved instances inherently. If you purchase a one-year or three-year reserved instance, we will automatically apply discount against your Azure Machine Learning managed compute.
 
 
 ## Next steps
