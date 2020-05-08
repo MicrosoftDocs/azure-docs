@@ -12,11 +12,11 @@ ms.subservice: pod
 
 # Use customer-managed keys in Azure Key Vault for Azure Data Box
 
-Azure Data Box protects the device unlock keys (also known as device password) used to lock the device via an encryption key. By default, device unlock keys are encrypted with Microsoft managed keys. For additional control over device unlock keys, you can also provide customer-managed keys. 
+Azure Data Box protects the device unlock key (also known as device password) that is used to lock the device via an encryption key. By default, device unlock key for a Data Box order is encrypted with a Microsoft managed key. For additional control over device unlock key, you can also provide a customer-managed key. 
 
 Customer-managed keys must be created and stored in an Azure Key Vault. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md).
 
-This article shows how to use customer-managed keys with Azure Data Box in the [Azure portal](https://portal.azure.com/).
+This article shows how to use customer-managed keys with Azure Data Box in the [Azure portal](https://portal.azure.com/). This article applies to both Azure Data Box devices and Azure Data Box Heavy devices.
 
 ## Prerequisites
 
@@ -31,12 +31,12 @@ Before you begin, make sure:
         - [How to use soft-delete with PowerShell](../key-vault/general/soft-delete-powershell.md).
         - [How to use soft-delete with CLI](../key-vault/general/soft-delete-cli.md).
     - The existing key vault should have an RSA key of 2048 size or more. For more information about keys, see [About Azure Key Vault keys](../key-vault/keys/about-keys.md).
-    - Key vault must be in the same region as the storage account for your data.  
+    - Key vault must be in the same region as the storage accounts used for your data. Multiple storage accounts can be linked with your Azure Data Box resource.
     - If you don't have an existing key vault, you can also create it inline as described in the following section.
 
 ## Enable keys
 
-Configuring customer-managed key for your Azure Data Box is optional. By default, Data Box uses a Microsoft managed key to protect your BitLocker key. To enable customer-managed keys in the Azure portal, follow these steps:
+Configuring customer-managed key for your Azure Data Box is optional. By default, Data Box uses a Microsoft managed key to protect your BitLocker key. To enable a customer-managed key in the Azure portal, follow these steps:
 
 1. Go to the **Overview** blade for your Data Box order.
 
@@ -92,17 +92,7 @@ Configuring customer-managed key for your Azure Data Box is optional. By default
     ![Customer-managed key URL](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)
 
 > [!IMPORTANT]
-> You can disable Microsoft managed key and move to customer-managed key at any stage of the Data Box order. However, once you have created the customer-managed key, you cannot disable the key.
-
-<!--## Troubleshoot errors
-
-If you receive any errors related to your customer-managed key, use the following table to troubleshoot.
-
-| Error code     |Details     | Recoverable?    |
-|----------------|------------|-----------------|
-| CmkErrorAccessRevoked | Applied a customer-managed key but the key access is currently revoked. For more information, see how to [Enable the key access](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy)| Yes, check if: <ol><li>Key vault still has the MSI in the access policy.</li><li>Access policy provides permissions to Get, Wrap, Unwrap.</li><li>If key vault is in a vNet behind the firewall, check if **Allow Microsoft Trusted Services** is enabled.</li></ol> |
-| CmkErrorKeyDisabled      | The order is halted as the selected customer managed key {keyname} is disabled. For more information, see how to [Enable the key](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).| Yes, by enabling the key version     |
-| CmkErrorKeyNotFound      | Applied a customer-managed key but can't find the key vault associated with the key.<br>If you deleted the key vault, you can't recover the customer-managed key.  If you migrated the key vault to a different tenant, see [Change a key vault tenant ID after a subscription move](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   If you deleted the key vault:<ol><li>Yes, if it is in the purge-protection duration, using the steps at [Recover a key vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>No, if it is beyond the purge-protection duration.</li></ol><br>Else if the key vault underwent a tenant migration, yes, it can be recovered using one of the below steps: <ol><li>Revert the key vault back to the old tenant.</li><li>Set `Identity = None` and then set the value back to `Identity = SystemAssigned`. This deletes and recreates the identity once the new identity has been created. Enable `Get`, `Wrap`, and `Unwrap` permissions to the new identity in the key vault's Access policy.</li></ol>|-->
+> You can disable Microsoft managed key and move to customer-managed key at any stage of the Data Box order. However, once you have created the customer-managed key, you cannot switch back to the Microsoft-managed key.
 
 ## Troubleshoot errors
 
@@ -110,13 +100,13 @@ If you receive any errors related to your customer-managed key, use the followin
 
 | Error   code| Error message| Details|
 |-------------|--------------|---------|
-| SsemUserErrorEncryptionKeyDisabled| Could not fetch the passkey as the customer managed key is disabled.| The order is halted as the selected customer managed key {keyname} is disabled. For more information, see how to [Enable the key](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).|
-| SsemUserErrorEncryptionKeyExpired| Could not fetch the passkey as the customer managed key has expired.| The order is stuck as the customer managed key {keyname} as expired. For more information, see how to [Enable the key access](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).|
-| SsemUserErrorKeyDetailsNotFound| Could not fetch the passkey as the customer managed key could not be found.| The order is halted as the selected customer managed key {keyname} could not be found. If the key is deleted and purged after the retention period, you can't recover the key. If you backed up the key, you can restore it to resolve the issue. For more information, see how to [Enable the key](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).|
-| SsemUserErrorKeyVaultBadRequestException| Could not fetch the passkey as the customer managed key access is revoked.| The order is halted as access to   the customer managed key is revoked. Add the identity '01ff4c63-f516-4bb4-b17f-06f963ef988d' to your key vault to enable key   access. For more information, see how to [Enable the key access](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).|
-| SsemUserErrorKeyVaultDetailsNotFound| Could not fetch the passkey as the associated key vault for the customer managed key could not be found. | The order is halted as the key vault {keyvault name} associated with the customer managed key couldn’t be found. If you deleted the key vault, you can’t recover the customer managed key. If you migrated the key vault to a different tenant, see how to Migrate the key vault to original tenant. |
-| SsemUserErrorSystemAssignedIdentityAbsent  | Could not fetch the passkey as the customer managed key could not be found.| The order is halted as the customer managed key {keyname} could not be accessed. Either the Managed System Identity (MSI) associated with the key is deleted or the MSI type has changed.|
-| Generic error  | Could not fetch the passkey.| An error occurred during this operation. Contact Microsoft Support for next steps.|
+| SsemUserErrorEncryptionKeyDisabled| Could not fetch the passkey as the customer managed key is disabled.| Yes, by enabling the key version.|
+| SsemUserErrorEncryptionKeyExpired| Could not fetch the passkey as the customer managed key has expired.| Yes, by enabling the key version.|
+| SsemUserErrorKeyDetailsNotFound| Could not fetch the passkey as the customer managed key could not be found.| If you deleted the key vault, you can't recover the customer-managed key.  If you migrated the key vault to a different tenant, see [Change a key vault tenant ID after a subscription move](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). If you deleted the key vault:<ol><li>Yes, if it is in the purge-protection duration, using the steps at [Recover a key vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>No, if it is beyond the purge-protection duration.</li></ol><br>Else if the key vault underwent a tenant migration, yes, it can be recovered using one of the below steps: <ol><li>Revert the key vault back to the old tenant.</li><li>Set `Identity = None` and then set the value back to `Identity = SystemAssigned`. This deletes and recreates the identity once the new identity has been created. Enable `Get`, `Wrap`, and `Unwrap` permissions to the new identity in the key vault's Access policy.</li></ol> |
+| SsemUserErrorKeyVaultBadRequestException| Could not fetch the passkey as the customer managed key access is revoked.| Yes, check if: <ol><li>Key vault still has the MSI in the access policy.</li><li>Access policy provides permissions to Get, Wrap, Unwrap.</li><li>If key vault is in a vNet behind the firewall, check if **Allow Microsoft Trusted Services** is enabled.</li></ol>|
+| SsemUserErrorKeyVaultDetailsNotFound| Could not fetch the passkey as the associated key vault for the customer managed key could not be found. | If you deleted the key vault, you can’t recover the customer managed key. If you migrated the key vault to a different tenant, see how to Migrate the key vault to original tenant. |
+| SsemUserErrorSystemAssignedIdentityAbsent  | Could not fetch the passkey as the customer managed key could not be found.| Yes, check if: <ol><li>Key vault still has the MSI in the access policy.</li><li>Identity is of type System assigned.</li><li>Enable Get, Wrap and Unwrap permissions to the identity in the key vault’s Access policy.</li></ol>|
+| Generic error  | Could not fetch the passkey.| This is a generic error. Contact Microsoft Support to troubleshoot the error and determine the next steps.|
 
 
 ## Next steps

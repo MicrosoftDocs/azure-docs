@@ -177,6 +177,8 @@
         href: data-box-portal-admin.md
       - name: Manage via local web UI
         href: data-box-local-web-ui-admin.md
+      - name: Enable customer managed key
+        href: data-box-customer-managed-encryption-key-portal.md
       - name: Troubleshoot device issues
         href: data-box-troubleshoot.md 
       - name: Move data to a blob tier
