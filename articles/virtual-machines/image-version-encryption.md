@@ -1,5 +1,5 @@
 ---
-title: Create an image version encrypted with your own keys 
+title: Preview - Create an image version encrypted with your own keys 
 description: Create a an image version in a Shared Image Gallery, using customer-managed encryption keys.
 author: cynthn
 ms.service: virtual-machines
@@ -9,7 +9,7 @@ ms.date: 05/06/2020
 ms.author: cynthn
 ---
 
-# Use customer-managed keys for encrypting images
+# Preview: Use customer-managed keys for encrypting images
 
 Gallery images are stored as managed disks, so they are automatically encrypted using server-side encryption. Server-side encryption uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
 
@@ -32,6 +32,12 @@ There are several limitations when using customer managed keys for encrypting sh
 - You cannot replicate images that use customer managed keys to other regions.
 
 - Once you have used your own keys to encrypt a disk or image, you cannot go back to using platform-managed keys for encrypting those disks or images.
+
+
+> [!IMPORTANT]
+> Encryption using customer-managed keys is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## PowerShell

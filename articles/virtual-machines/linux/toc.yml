@@ -300,6 +300,113 @@
       href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: FAQ
       href: migration-classic-resource-manager-faq.md
+  - name: Use Images
+    displayName: SIG, AMI, image
+    items:
+    - name: Shared Image Galleries
+      items:
+      - name: CLI
+        items:
+        - name: Create a gallery
+          href: ../shared-images-cli.md
+        - name: Create an image
+          items:
+          - name: From a VM
+            href: ../image-version-vm-cli.md
+          - name: Migrate from a managed image
+            href: ../image-version-managed-image-cli.md 
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-cli.md
+        - name: Create a VM
+          items:
+          - name: Generalized
+            href: ../vm-generalized-image-version-cli.md
+        - name: Update image resources
+          href: ../update-image-resources-cli.md
+        - name: App registration for sharing
+          href: share-images-across-tenants.md
+      - name: PowerShell
+        items:
+        - name: Create a gallery
+          href: ../shared-images-powershell.md
+        - name: Create an image version
+          items:
+          - name: From a VM
+            href: ../image-version-vm-powershell.md
+          - name: Migrate from a managed image
+            href: ../image-version-managed-image-powershell.md 
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-powershell.md            
+        - name: Create a VM
+          items:
+          - name: Generalized
+            href: ../vm-generalized-image-version-powershell.md
+          - name: Specialized
+            href: ../vm-specialized-image-version-powershell.md
+        - name: Update image resources
+          href: ../update-image-resources-powershell.md
+      - name: Portal
+        items:
+        - name: Create a gallery, image and VM
+          href: shared-images-portal.md
+      - name: Resource Manager Templates
+        items:
+        - name: Create a Shared Image Gallery
+          href: https://azure.microsoft.com/resources/templates/101-sig-create/
+        - name: Create an Image Definition in a Shared Image Gallery
+          href: https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/
+        - name: Create an Image Version in a Shared Image Gallery
+          href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
+        - name: Create a VM from Image Version
+          href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
+      - name: Troubleshoot shared images
+        href: troubleshooting-shared-images.md
+      - name: Using customer-managed keys
+        displayName: SSE, CMK, encrypt
+        href: ../image-version-encryption.md
+    - name: Image builder (preview)
+      items:
+      - name: Overview
+        href: image-builder-overview.md
+      - name: Use Azure CLI
+        href: image-builder.md
+      - name: ARM template reference
+        href: image-builder-json.md
+        displayName: ARM,Resource Manager
+      - name: Build for image galleries
+        href: image-builder-gallery.md
+      - name: Update an existing image
+        href: image-builder-gallery-update-image-version.md
+      - name: Troubleshoot
+        href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
+    - name: Find and use images
+      href: cli-ps-findimage.md
+    - name: Create custom image
+      items:
+      - name: Generic steps
+        href: create-upload-generic.md
+      - name: Ubuntu
+        href: create-upload-ubuntu.md
+      - name: CentOS
+        href: create-upload-centos.md
+      - name: Red Hat
+        href: redhat-create-upload-vhd.md
+      - name: Debian
+        href: debian-create-upload-vhd.md
+      - name: SUSE
+        href: suse-create-upload-vhd.md
+      - name: Oracle Linux
+        href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
+      - name: FreeBSD
+        href: freebsd-intro-on-azure.md
+    - name: Capture VM to image
+      href: capture-image.md
+    - name: Build image with Packer
+      href: build-image-with-packer.md
+    - name: Download existing disk
+      href: download-vhd.md
   - name: Secure VMs
     items:
     - name: Recommendations
@@ -458,110 +565,6 @@
       href: ../../azure-monitor/platform/alerts-metric.md
     - name: Create log alerts
       href: ../../azure-monitor/platform/alerts-log.md
-  - name: Use Images
-    displayName: SIG, AMI, image
-    items:
-    - name: Shared Image Galleries
-      items:
-      - name: CLI
-        items:
-        - name: Create a gallery
-          href: ../shared-images-cli.md
-        - name: Create an image
-          items:
-          - name: From a VM
-            href: ../image-version-vm-cli.md
-          - name: Migrate from a managed image
-            href: ../image-version-managed-image-cli.md 
-          - name: Copy from another gallery
-            href: ../image-version-another-gallery-cli.md
-        - name: Create a VM
-          items:
-          - name: Generalized
-            href: ../vm-generalized-image-version-cli.md
-        - name: Update image resources
-          href: ../update-image-resources-cli.md
-        - name: App registration for sharing
-          href: share-images-across-tenants.md
-      - name: PowerShell
-        items:
-        - name: Create a gallery
-          href: ../shared-images-powershell.md
-        - name: Create an image version
-          items:
-          - name: From a VM
-            href: ../image-version-vm-powershell.md
-          - name: Migrate from a managed image
-            href: ../image-version-managed-image-powershell.md 
-          - name: Copy from another gallery
-            href: ../image-version-another-gallery-powershell.md            
-        - name: Create a VM
-          items:
-          - name: Generalized
-            href: ../vm-generalized-image-version-powershell.md
-          - name: Specialized
-            href: ../vm-specialized-image-version-powershell.md
-        - name: Update image resources
-          href: ../update-image-resources-powershell.md
-      - name: Portal
-        items:
-        - name: Create a gallery, image and VM
-          href: shared-images-portal.md
-      - name: Resource Manager Templates
-        items:
-        - name: Create a Shared Image Gallery
-          href: https://azure.microsoft.com/resources/templates/101-sig-create/
-        - name: Create an Image Definition in a Shared Image Gallery
-          href: https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/
-        - name: Create an Image Version in a Shared Image Gallery
-          href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
-        - name: Create a VM from Image Version
-          href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
-      - name: Troubleshoot shared images
-        href: troubleshooting-shared-images.md
-    - name: Image builder (preview)
-      items:
-      - name: Overview
-        href: image-builder-overview.md
-      - name: Use Azure CLI
-        href: image-builder.md
-      - name: ARM template reference
-        href: image-builder-json.md
-        displayName: ARM,Resource Manager
-      - name: Build for image galleries
-        href: image-builder-gallery.md
-      - name: Update an existing image
-        href: image-builder-gallery-update-image-version.md
-      - name: Troubleshoot
-        href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
-    - name: Find and use images
-      href: cli-ps-findimage.md
-    - name: Create custom image
-      items:
-      - name: Generic steps
-        href: create-upload-generic.md
-      - name: Ubuntu
-        href: create-upload-ubuntu.md
-      - name: CentOS
-        href: create-upload-centos.md
-      - name: Red Hat
-        href: redhat-create-upload-vhd.md
-      - name: Debian
-        href: debian-create-upload-vhd.md
-      - name: SUSE
-        href: suse-create-upload-vhd.md
-      - name: Oracle Linux
-        href: oracle-create-upload-vhd.md
-      - name: OpenBSD
-        href: create-upload-openbsd.md
-      - name: FreeBSD
-        href: freebsd-intro-on-azure.md
-    - name: Capture VM to image
-      href: capture-image.md
-    - name: Build image with Packer
-      href: build-image-with-packer.md
-    - name: Download existing disk
-      href: download-vhd.md
   - name: Availability and scale
     items:
     - name: Autoscale
