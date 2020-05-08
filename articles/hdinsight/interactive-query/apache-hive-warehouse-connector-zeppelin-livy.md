@@ -68,10 +68,12 @@ Following configurations are required to be able to access hive tables from Zepp
 | livy.spark.submit.pyFiles | file:///usr/hdp/current/hive_warehouse_connector/pyspark_hwc-<STACK_VERSION>.zip |
 | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<headnode-FQDN>@<AAD-Domain>` (Needed only for ESP clusters) |
 | livy.spark.sql.hive.hiveserver2.jdbc.url | Set it to the HiveServer2 JDBC connection string of the Interactive Query cluster. REPLACE `LLAPCLUSTERNAME` with the name of your Interactive Query cluster |
-| zeppelin.livy.url | http://{hostname}:8998 |
+| zeppelin.livy.url | http://{headnode-FQDN}:8998 |
 | spark.security.credentials.hiveserver2.enabled | true |
 
-In `hive/<headnode-FQDN>@<AAD-Domain>` service principal, Replace `<headnode-FQDN>` with the Fully Qualified Domain Name of the head node of the Interactive Query cluster. Replace `<AAD-DOMAIN>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential won't be found. Check /etc/krb5.conf for the realm names if needed.
+In `hive/<headnode-FQDN>@<AAD-Domain>` service principal, Replace `<headnode-FQDN>` with the Fully Qualified Domain Name of the head node host of the Interactive Query cluster. Replace `<AAD-DOMAIN>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential won't be found. Check /etc/krb5.conf for the realm names if needed.
+
+For `zeppelin.livy.url` configuration, `headnode-FQDN` denotes the Fully Qualified Domain Name of the head node host of the Spark cluster.
 
 * Save the changes and restart the Livy interpreter.
 
