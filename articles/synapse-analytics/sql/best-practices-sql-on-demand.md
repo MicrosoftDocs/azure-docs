@@ -113,6 +113,9 @@ For more information, check [filename](develop-storage-files-overview.md#filenam
 > [!TIP]
 > Always cast result of filepath and fileinfo functions to appropriate data types. If you use character data types, make sure appropriate length is used.
 
+> [!NOTE]
+> Functions used for partition elimination, filepath and fileinfo, are not currently supported for external tables other than those created automatically for each table created in Synapse Spark.
+
 If your stored data isn't partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files. When [querying partitioned Spark tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only the files needed.
 
 ## Use PARSER_VERSION 2.0 for querying CSV files
@@ -126,6 +129,12 @@ You can use performance optimized parser when querying CSV files. Check [PARSER_
 You can use CETAS to store frequently used parts of queries, like joined reference tables, to a new set of files. Next, you can join to this single external table instead of repeating common joins in multiple queries.
 
 As CETAS generates Parquet files, statistics will be automatically created when the first query targets this external table, resulting in improved performance.
+
+## AAD pass-through performance
+
+SQL on-demand allows you to access files in storage using AAD pass-through or SAS credential. You might experience slower performance with AAD pass-through comparing to SAS. 
+
+If you need better performance, try SAS credentials to access storage until AAD pass-through performance is improved.
 
 ## Next steps
 

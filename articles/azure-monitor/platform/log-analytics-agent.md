@@ -170,7 +170,6 @@ The following table lists the proxy and firewall configuration information that'
 |*.oms.opinsights.azure.com |Port 443 |Inbound and Outbound|Yes |  
 |*.blob.core.windows.net |Port 443 |Inbound and Outbound|Yes |
 |*.azure-automation.net |Port 443 |Inbound and Outbound|Yes |
-|*.azure.com |Port 443|Inbound and Outbound|Yes |
 
 For firewall information required for Azure Government, see [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
