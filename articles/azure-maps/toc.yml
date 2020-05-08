@@ -79,6 +79,8 @@
     items:
     - name: Manage accounts
       href: how-to-manage-account-keys.md
+      name: How to manage Creator
+      href: how-to-manage-creator.md
     - name: Manage authentication
       href: how-to-manage-authentication.md
     - name: Manage pricing tier
