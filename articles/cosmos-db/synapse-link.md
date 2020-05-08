@@ -100,10 +100,6 @@ Synapse Link is recommended in the following cases:
 
 Synapse Link is not recommended if you are looking for traditional data warehouse requirements such as high concurrency, workload management, and persistence of aggregates across multiple data sources. For more details, see [common scenarios that can be powered with Synapse Link for Azure Cosmos DB](analytics-usecases.md).
 
-## Supported regions
-
-Synapse Link for Azure Cosmos DB is currently available in the following Azure regions: US West Central, East US, West US2, North Europe, West Europe, South Central US, Southeast Asia, Australia East, East U2, UK South.
-
 ## Limitations
 
 * During the public preview, Synapse Link is supported only for the Azure Cosmos DB SQL (Core) API. Support for Azure Cosmos DB’s API for MongoDB & Cassandra API are currently under a gated preview. To request access to the gated preview, email the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).

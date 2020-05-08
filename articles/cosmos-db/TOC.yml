@@ -121,8 +121,6 @@
         href: global-dist-under-the-hood.md
       - name: Regional presence
         href: regional-presence.md
-      - name: Transactional and analytical storage
-        href: globally-distributed-transactional-analytical-storage.md
     - name: Partitioning
       items:
       - name: Partitioning overview
@@ -497,7 +495,7 @@
     - name: Analytics with Synapse Link
       items:
       - name: Synapse Link for Azure Cosmos DB
-        href: synapse-link-cosmos-db.md
+        href: synapse-link.md
       - name: Synapse Link FAQ
         href: synapse-link-frequently-asked-questions.md
     - name: Built-in Jupyter notebooks

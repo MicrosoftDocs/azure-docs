@@ -123,4 +123,4 @@ Currently Azure Cosmos DB credentials are passed while creating the linked servi
 
 ## Next steps
 
-* Learn about the [benefits of Synapse Link](synapse-link-cosmos-db.md#synapse-link-benefits) and [integration between Synapse Link and Azure Cosmos DB](synapse-link-cosmos-db.md#synapse-link-integration).
+* Learn about the [benefits of Synapse Link](synapse-link.md#synapse-link-benefits) and [integration between Synapse Link and Azure Cosmos DB](synapse-link.md#synapse-link-integration).
