@@ -36,29 +36,7 @@ The following table lists the appropriate location to put your _routes.json_ fil
 
 ### Angular
 
-Angular apps do not copy files in the _src_ folder to the artifact folder by default. You can point the GitHub Actions workflow directly to your _routes.json_ file via the [`routes_location` workflow customization](github-actions-workflow.md#route-file-location), or you can update the _angular.json_ file to copy the file.
-
-Using the `routes_location` customization is preferred, but you can also use the following steps update the _angular.json_ file.
-
-1. In Visual Studio Code, open the _angular.json_ file
-1. Go to the property at:
-
-    ```schema
-    projects
-    └── <ANGULAR_APP_NAME>
-      └── architect
-        └── build
-          └── options
-            └── assets
-    ```
-
-1. Extend the `assets` array to include the _src/routes.json_ file:
-
-    ```json
-    "assets": ["src/favicon.ico", "src/assets", "src/routes.json"],
-    ```
-
-Now Angular is configured to copy the _routes.json_ file to your artifact location when your app builds.
+Angular apps do not copy all the files in the _src_ folder to the artifact folder by default. To ensure the _routes.json_ file is copied to the correct location, point the GitHub Actions workflow directly to your _routes.json_ file via the [`routes_location` workflow customization](github-actions-workflow.md#route-file-location).
 
 ## Defining routes
 
@@ -185,7 +163,7 @@ The following table lists the available platform error overrides:
 
 ## Example route file
 
-The following example shows how to build route rules in a _routes.json_ file. Some routes use the [_/.auth_ system folder](authentication-authorization.md) that access authentication-related endpoints.
+The following example shows how to build route rules for static content and APIs in a _routes.json_ file. Some routes use the [_/.auth_ system folder](authentication-authorization.md) that access authentication-related endpoints.
 
 ```json
 {
@@ -196,6 +174,10 @@ The following example shows how to build route rules in a _routes.json_ file. So
     },
     {
       "route": "/admin/*",
+      "allowedRoles": ["administrator"]
+    },
+{
+      "route": "/api/admin",
       "allowedRoles": ["administrator"]
     },
     {
@@ -243,6 +225,7 @@ The following examples describe what happens when a request matches a rule.
 |---------|---------|---------|
 | _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users redirected to _/login_. |
 | _/admin/reports_ | Authenticated users in the _administrators_ role are served the _/admin/reports/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>1</sup>. Unauthenticated users redirected to _/login_. |
+| _/api/admin_ | Requests from authenticated users in the _administrators_ role are sent to the API. Authenticated users not in the _administrators_ role and unauthenticated users are served a 401 error. |
 | _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file<sup>1</sup>. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error. Unauthenticated users redirected to _/login_. |
 | _/login_     | Unauthenticated users are challenged to authenticate with GitHub. |
 | _/.auth/login/twitter_     | Authorization with Twitter is disabled. The server responds with a 404 error. |
