@@ -16,15 +16,18 @@ ms.reviewer: jesakowi
 
 # Publisher verification
 
-Publisher verification allows developers to add a verified organizational identity to apps registered through Azure Active Directory (AAD). Verification is done by associating one or more apps with a Microsoft Partner Center (MPN) account.   
+Publisher verification (preview) helps admins and end users understand the authenticity of application developers integrating with the Microsoft identity platform. In other words, is the publisher a known source or a bad actor disguising themselves as a well-known publisher? When an application is marked as publisher verified, it means that the publisher has verified their identity using their Microsoft Partner Network (MPN) account and has associated this MPN account with their application registration.
 
-This feature is primarily targeted at developers building multi-tenant apps that leverage [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md) with the [Microsoft identity platform](v2-overview.md). These apps can sign users in using OpenID Connect, or they may use OAuth to request access to data using APIs like [Microsoft Graph](https://developer.microsoft.com/graph/).
+A blue "verified" badge appears on the Azure AD consent prompt and other screens:
+![Consent prompt][./media/publisher-verification-overview/consent-prompt.png]
+
+This feature is primarily for developers building multi-tenant apps that leverage [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md) with the [Microsoft identity platform](v2-overview.md). These apps can sign users in using OpenID Connect, or they may use OAuth to request access to data using APIs like [Microsoft Graph](https://developer.microsoft.com/graph/).
 
 ## Benefits
 Publisher verification provides the following benefits:
 - **Increased transparency and risk reduction for customers**- this capability helps customers understand which apps being used in their organizations are published by developers they trust. 
 
-- **Improved branding**- a “verified” badge appears on the Azure AD [consent prompt](application-consent-experience.md), Enterprise Apps page, and additional UX surfaces used by end-users and admins. 
+- **Improved branding**- a “verified” badge appears on the Azure AD [consent prompt](application-consent-experience.md), Enterprise Apps page, and additional UX surfaces used by end users and admins. 
 
 - **Smoother enterprise adoption**- admins can configure new User Consent Policies, and publisher verification status will be one of the primary policy criteria. 
 
@@ -45,11 +48,11 @@ There are a few pre-requisites for publisher verification, some of which will ha
 
   1. In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD). 
 
-Developers who have already met these pre-requisites can get verified in a matter of minutes. If the requiremets have not been met, getting set up is free. 
-
-If you cannot currently meet these requirements, or don’t know if you can, you can still participate in the private preview! We want to hear your feedback and help you understand how you can satisfy these requirements. 
+Developers who have already met these pre-requisites can get verified in a matter of minutes. If the requirements have not been met, getting set up is free. 
 
 ## Frequently Asked Questions 
+
+- **What information does Publisher Verification not provide?**  When an application is marked publisher verified this does not indicate whether the application or its publisher  has achieved any specific certifications, complies with industry standards, adheres to best practices, etc. Other Microsoft programs do provide this information, including [Microsoft 365 App Certification](/microsoft-365-app-certification/overview).
 
 - **When will the verified badge start showing up on the consent screen?** Users who get prompted to consent to your app see the badge soon after you've gone through the process successfully, although it may take some time for this to replicate throughout the system. This will generally be a few minutes but could be a few hours. 
 
@@ -88,45 +91,6 @@ If you cannot currently meet these requirements, or don’t know if you can, you
   You will need to complete the publisher verification process independently of participation in those programs. 
 
 - **Is this the same thing as the Azure AD Application Gallery?** No- publisher verification is a complementary but separate feature to the [Azure Active Directory application gallery](/azure/active-directory/azuread-dev/howto-app-gallery-listing). You will need to complete the publisher verification process independently of participation in that program. 
-
-
-
-
-**What information does publisher verification provide to customers?** 
-
-The primary goal of publisher verification (Preview) is to help admins and end users better understand the authenticity of application developers integrating with the Microsoft identity platform. In other words, is the publisher a known source or a bad actor disguising themselves as a well-known publisher? When an application is marked as publisher verified, it means that the publisher has verified their identity using their Microsoft Partner Network (MPN) account and has associated this MPN account with their application registration. 
-
-**What information does Publisher Verification not provide?**  
-
-When an application is marked publisher verified this does not indicate whether the application or its publisher  has achieved any specific certifications, complies with industry standards, adheres to best practices, etc. Other Microsoft programs do provide this information, including [Microsoft 365 App Certification](/microsoft-365-app-certification/overview).
-
-**How does a publisher obtain a verified publisher status?**  
-
-Publisher verification is performed on an application-by- application basis so a publisher must verify each application where they would like a publisher verification badge to appear.   
-
-The following requirements must be met for a publisher to mark an app as publisher verified: 
-
-1. The publisher must have a valid [Microsoft Partner Network account](https://partner.microsoft.com/membership).  
-
-1. This account must have completed the [MPN account verification](/partner-center/verification-responses) process.  
-
-1. This account must be the partner global account (PGA) for the publisher’s organization. 
-
-1. The app must be registered in an Azure Active Directory tenant.  
-
-1. A [publisher domain](/azure/active-directory/develop/howto-configure-publisher-domain) must be set on the application. 
-
-1. The domain used for email verification in the partner’s MPN account must match either: 
-
-  1. A DNS-verified [custom domain](/azure/active-directory/fundamentals/add-custom-domain) in the tenant where the app is registered  
-
-  1. The app publisher domain from #5 
-
-1. The user performing verification must be authorized to make changes to both the app registration in Azure AD and the MPN account in Partner Center. 
-
-  1. In Azure AD this user must either be the owner of the app or have one of the following [roles](/azure/active-directory/users-groups-roles/directory-assign-admin-roles): application admin, cloud application admin, global admin. 
-
-  1. In Partner Center this user must have one of the following [roles](/partner-center/permissions-overview): MPN admin, accounts admin, or a global admin (a shared role mastered in Azure AD). 
 
 ## Additional resources
 Microsoft identity platform & Azure AD 
