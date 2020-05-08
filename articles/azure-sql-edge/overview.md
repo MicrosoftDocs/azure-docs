@@ -1,6 +1,6 @@
 ---
-title: What is Azure SQL Edge? | Microsoft Docs
-description: Learn about Azure SQL Edge
+title: What is Azure SQL Edge (Preview)? 
+description: Learn about Azure SQL Edge (Preview)
 keywords: introduction to SQL Edge,what is SQL Edge, SQL Edge overview
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -8,17 +8,17 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/05/2020
+ms.date: 05/19/2020
 ---
 
-# What is Azure SQL Edge Preview?
+# What is Azure SQL Edge (Preview)?
 
-Azure SQL Edge Preview is an optimized relational database engine geared for IoT and IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. Azure SQL Edge provides capabilities to stream, process, and analyze relational and non-relational such as JSON, graph and time-series data, which makes it the right choice for a variety of modern IoT applications.
+Azure SQL Edge (Preview) is an optimized relational database engine geared for IoT and IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. Azure SQL Edge provides capabilities to stream, process, and analyze relational and non-relational such as JSON, graph and time-series data, which makes it the right choice for a variety of modern IoT applications.
 
 Azure SQL Edge is built on the latest versions of the [Microsoft SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json), which provides industry-leading performance, security and query processing capabilities. Since, Azure SQL Edge is built on the same engine as SQL Server and Azure SQL Database, it provides the same T-SQL programming surface area that makes development of applications or solutions easier and faster, and at the same time makes application portability between IoT Edge devices, data centers and the cloud straight forward.
 
 > [!NOTE]
-> Azure SQL Edge is currently in Preview and as such should NOT be used in production environments.
+> Azure SQL Edge is currently in preview and as such should NOT be used in production environments.
 
 ## Deployment Models
 

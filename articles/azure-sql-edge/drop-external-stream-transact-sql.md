@@ -1,6 +1,6 @@
 ---
-title: "DROP EXTERNAL STREAM (Transact-SQL)"
-description: Learn about the DROP EXTERNAL STREAM statement in Azure SQL Edge Preview
+title: DROP EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge (Peview)
+description: Learn about the DROP EXTERNAL STREAM statement in Azure SQL Edge (Preview) 
 keywords: 
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/04/2020
+ms.date: 05/19/2020
 ---
 
 # DROP EXTERNAL STREAM (Transact-SQL)

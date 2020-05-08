@@ -1,6 +1,6 @@
 ---
-title: Tracking data changes in Azure SQL Edge Preview
-description: Learn about change tracking and change data capture in Azure SQL Edge
+title: Tracking data changes in Azure SQL Edge (Preview)
+description: Learn about change tracking and change data capture in Azure SQL Edge (Preview)
 keywords:
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -8,10 +8,10 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 04/28/2020
+ms.date: 05/19/2020
 ---
 
-# Tracking Data Changes in Azure SQL Edge Preview
+# Tracking Data Changes in Azure SQL Edge (Preview)
 
 Azure SQL Edge supports the two SQL Server features that track changes to data in a database:[Change Tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Tracking) and [Change Data Capture](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture). These features enable applications to determine the DML changes (insert, update, and delete operations) that were made to user tables in a database. Change data capture and change tracking can be enabled on the same database; no special considerations are required.
 
@@ -53,10 +53,10 @@ For more information on Temporal Tables, refer [Temporal tables](https://docs.mi
 
 ## See Also
 
-- [Data Streaming in Azure SQL Edge Preview](stream-data.md)
-- [Machine learning and AI with ONNX in Azure SQL Edge Preview](onnx-overview.md)
-- [Configure replication to Azure SQL Edge Preview](configure-replication.md)
-- [Backup and Restore databases in Azure SQL Edge](backup-restore.md)
+- [Data Streaming in Azure SQL Edge (Preview) ](stream-data.md)
+- [Machine learning and AI with ONNX in Azure SQL Edge (Preview) ](onnx-overview.md)
+- [Configure replication to Azure SQL Edge (Preview) ](configure-replication.md)
+- [Backup and Restore databases in Azure SQL Edge (Preview)](backup-restore.md)
 
 
 

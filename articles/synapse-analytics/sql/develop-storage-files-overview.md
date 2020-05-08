@@ -120,11 +120,15 @@ OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
 ```
 
+Make sure [appropriate inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) are used for optimal performance. 
+
 ### Filename function
 
-This function returns the file name that the row originates from.
+This function returns the file name that the row originates from. 
 
 To query specific files, read the Filename section in the [Query specific files](query-specific-files.md#filename) article.
+
+Return data type is nvarchar(1024). For optimal performance, always cast result of filename function to appropriate data type. If you use character data type, make sure appropriate length is used.
 
 ### Filepath function
 
@@ -134,6 +138,8 @@ This function returns a full path or a part of path:
 - When called with parameter, it returns part of path that matches the wildcard on position specified in the parameter. For example, parameter value 1 would return part of path that matches the first wildcard.
 
 For additional information, read the Filepath section of the [Query specific files](query-specific-files.md#filepath) article.
+
+Return data type is nvarchar(1024). For optimal performance, always cast result of filepath function to appropriate data type. If you use character data type, make sure appropriate length is used.
 
 ### Work with complex types and nested or repeated data structures
 

@@ -1,6 +1,6 @@
 ---
-title: Sync data from Azure SQL Edge by using SQL Data Sync | Microsoft Docs
-description: Learn about syncing data from Azure SQL Edge by using Azure SQL Data Sync
+title: Sync data from Azure SQL Edge (Preview) by using SQL Data Sync
+description: Learn about syncing data from Azure SQL Edge (Preview) by using Azure SQL Data Sync
 keywords: SQL Edge,sync data from SQL Edge, SQL Edge data sync
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 11/04/2019
+ms.date: 05/19/2020
 ---
 
 # Tutorial: Sync data from SQL Edge to Azure SQL Database by using SQL Data Sync
