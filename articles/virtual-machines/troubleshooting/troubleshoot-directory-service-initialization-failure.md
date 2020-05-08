@@ -23,7 +23,7 @@ This article provides steps to resolve issues where an Active Directory domain c
 
 ## Symptom
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, the screenshot shows that the VM needs to restart due to an error, displaying the stop code **0xC00002E1** in Windows Server 2008 R2, or **0xC00002E2** in Windows Server 2012 or later.
+When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, the screenshot shows that the VM needs to restart because of an error, displaying the stop code **0xC00002E1** in Windows Server 2008 R2, or **0xC00002E2** in Windows Server 2012 or later.
 
 ![Windows Server 2012 startup screen states "Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you.".](./media/troubleshoot-directory-service-initialization-failure/1.png)
 
@@ -31,7 +31,7 @@ When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machine
 
 Error code **0xC00002E2** represents **STATUS_DS_INIT_FAILURE**, and error code **0xC00002E1** represents **STATUS_DS_CANT_START**. Both errors occur when there's an issue with the directory service.
 
-As the OS boots up, it is then forced to restart automatically by the Local Security Authentication Server (**LSASS.exe**), which authenticates user logins. Authentication can't be performed when the operating system on the VM is a domain controller that doesn't have read/write access to its local Active Directory database. Because of a lack of access to **Active Directory (AD)**, LSASS.exe can't authenticate, and it's forced to restart the OS.
+As the OS boots up, it's then forced to restart automatically by the Local Security Authentication Server (**LSASS.exe**), which authenticates user logins. Authentication can't happen when the operating system on the VM is a domain controller that doesn't have read/write access to its local Active Directory database. Because of a lack of access to **Active Directory (AD)**, LSASS.exe can't authenticate, and it's forced to restart the OS.
 
 This error can be caused by any of the following conditions:
 
@@ -54,7 +54,7 @@ This error can be caused by any of the following conditions:
 1. Reconfigure the SAN Policy.
 
    > [!NOTE]
-   > When encountering this error, the Guest OS is not operational. You will be troubleshooting in offline mode to resolve the issue.
+   > When encountering this error, the Guest OS isn't operational. You will be troubleshooting in offline mode to resolve the issue.
 
 ### Create and Access a Repair VM
 
@@ -66,20 +66,20 @@ This error can be caused by any of the following conditions:
 As the disk is now attached to a repair VM, verify that the disk holding the Active Directory internal database has enough space to perform correctly.
 
 1. Check whether the disk is full by right-clicking on the drive and selecting **Properties**.
-1. If the disk has less than 300Mb of free space, [expand it to a maximum of 1 Tb using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
-1. If the disk has reached 1Tb of used space, perform a disk cleanup.
+1. If the disk has less than 300 Mb of free space, [expand it to a maximum of 1 Tb using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. If the disk has reached 1 Tb of used space, perform a disk cleanup.
 
    1. Use PowerShell to [detach the data disk](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell) from the broken VM.
    1. Once detached from the broken VM, [attach the data disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm) to a functioning VM.
    1. Use the [Disk Cleanup tool](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) to free up additional space.
 
-1. **Optional** - If more space is needed, open an CMD instance and enter the `defrag <LETTER ASSIGNED TO THE OS DISK>: /u /x /g` command to perform a de-fragmentation on the drive:
+1. **Optional** - If more space is needed, open a CMD instance and enter the `defrag <LETTER ASSIGNED TO THE OS DISK>: /u /x /g` command to perform a de-fragmentation on the drive:
 
   * In the command, replace `<LETTER ASSIGNED TO THE OS DISK>` with the OS Disk's letter. For example, if the disk letter is `F:`, then the command would be `defrag F: /u /x /g`.
 
   * Depending upon the level of fragmentation, the de-fragmentation could take hours.
 
-If there is enough space on the disk, proceed to the next task.
+If there's enough space on the disk, continue to the next task.
 
 ### Check that the Drive containing the Active Directory database is attached
 
@@ -107,15 +107,15 @@ If there is enough space on the disk, proceed to the next task.
 1. Using Azure portal, verify that the drive where NTDS.DIT is set up, is added to the VM.
 1. Using the Disk Management console from the guest OS, verify that the disk containing NTDS.DIT is online.
    1. The Disk Management tool can be found in **Administrative Tools > Computer Management > Storage**, or may be accessed using the `diskmgmt.msc` command in a CMD instance.
-1. If the disk is not attached to the VM, reattach the data disk to fix the issue.
+1. If the disk isn't attached to the VM, reattach the data disk to fix the issue.
 
    If the disk was attached normally, continue with the next task.
 
 ### Enable Directory Services Restore Mode
 
-Setup the VM to boot on **Directory Services Restore Mode (DSRM)** mode to bypass checking the existence of the NTDS.DIT file during boot.
+Set up the VM to boot on **Directory Services Restore Mode (DSRM)** mode to bypass checking the existence of the NTDS.DIT file during boot.
 
-1. Before you proceed, verify that you have completed the previous tasks to attach the disk to a repair VM, and have determined which disk the NTDS.DIT file is located in.
+1. Before you continue, verify that you've completed the previous tasks to attach the disk to a repair VM, and have determined which disk the NTDS.DIT file is located in.
 1. Using an elevated CMD instance, list the booting partition info on that store to find the identifier from the active partition:
 
    `bcdedit /store <Drive Letter>:\boot\bcd /enum`
@@ -147,11 +147,11 @@ To enable memory dump collection and Serial Console, run the following script by
 
 1. Verify that the free space on the OS disk is at least equal to the memory size (RAM) on the VM.
 
-  1. If there's not enough space on the OS disk, change the location the location where the memory dump file will be created, and refer that to any data disk attached to the VM that has enough free space.
+  1. If there's not enough space on the OS disk, change the location where the memory dump file will be created, and refer that to any data disk attached to the VM that has enough free space.
 
      To change the location, replace `%SystemRoot%` with the drive letter (such as, `F:`) of the data disk in the following commands.
 
-  #### The following is a suggested configuration to enable OS Dump:
+  #### The following configuration is suggested to enable OS Dump:
 
   **Load Broken OS Disk**:
 
@@ -183,9 +183,9 @@ To enable memory dump collection and Serial Console, run the following script by
 
 ### Reconfigure the Storage Area Network Policy
 
-1. When booting in DSRM mode, the only user available to log in is the recovery administrator which was used when the VM was promoted to a domain controller. All other users will show an authentication error.
+1. When booting in DSRM mode, the only user available to log in is the recovery administrator, which was used when the VM was promoted to a domain controller. All other users will show an authentication error.
 
-   1. If no other DC is available, you must login locally using `.\administrator` or `machinename\administrator` and the DSRM password.
+   1. If no other DC is available, you must log in locally using `.\administrator` or `machinename\administrator` and the DSRM password.
 
 1. Set up the SAN policy so that all the disks are online.
 
