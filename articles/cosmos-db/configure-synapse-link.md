@@ -1,19 +1,19 @@
 ---
 title: Configure and use Azure Synapse Link for Azure Cosmos DB (preview)
 description: Learn how to enable synapse link for Azure Cosmos accounts, create a container with analytical store enabled, connect the Azure Cosmos database to synapse workspace, and run queries. 
-author: AnithaAdusumilli
+author: SriChintala
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: anithaa
+ms.author: srchi
 ---
 
 # Configure and use Azure Synapse Link for Azure Cosmos DB (preview)
 
-Synapse Link for Azure Cosmos DB is a cloud native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
+Synapse Link for Azure Cosmos DB is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
 > [!IMPORTANT]
-> Synapse Link for Azure Cosmos DB is currently available in only specific regions, see the [available regions](synapse-link.md#supported-regions) list for more details. To use Azure Synapse Link, ensure you provision your Azure Cosmos  account & Azure Synapse Analytics workspace in one of the above supported regions.
+> Synapse Link for Azure Cosmos DB is currently available in only specific regions, see the [available regions](synapse-link.md#supported-regions) list for more details. To use Azure Synapse Link, ensure you provision your Azure Cosmos account & Azure Synapse Analytics workspace in one of the above supported regions.
 
 Use the following steps to run analytical queries with the Synapse Link for Azure Cosmos DB:
 
@@ -22,13 +22,14 @@ Use the following steps to run analytical queries with the Synapse Link for Azur
 * [Connect your Azure Cosmos database to a Synapse workspace](#connect-to-cosmos-database)
 * [Query the analytical store using Synapse Spark](#query-analytical-store)
 
-## <a id="enable-synapse-link"></a>Enable Azure Synapse Link for Azure Cosmos DB accounts
+## <a id="enable-synapse-link"></a>Enable Azure Synapse Link for Azure Cosmos accounts
 
 ### Azure portal
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos account.
+1. [Create a new Azure 
+account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos account.
 
 1. Navigate to your Azure Cosmos account and open the **Features** pane.
 
@@ -191,9 +192,11 @@ Use the instructions in the [Query Azure Cosmos DB analytical store]() article o
 
 To learn more, see the following docs:
 
-* [Azure Synapse Link](synapse-link.md) for Azure Cosmos DB.
+* [Azure Synapse Link for Azure Cosmos DB.](synapse-link.md)
 
-* [Frequently asked questions](synapse-link-frequently-asked-questions.md) about Synapse Link for Azure Cosmos DB.
+* [Azure Cosmos DB analytical store overview.](analytical-store-introduction.md)
+
+* [Frequently asked questions about Synapse Link for Azure Cosmos DB.](synapse-link-frequently-asked-questions.md)
 
 * [Apache Spark in Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 
