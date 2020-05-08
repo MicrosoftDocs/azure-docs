@@ -61,7 +61,7 @@ The autosync capability along with analytical store provides the following key b
 
 By using horizontal partitioning, Azure Cosmos DB transactional store can elastically scale  the storage and throughput without any downtime. Horizontal partitioning in the transactional store provides scalability & elasticity in autosync to ensure data is synced to the analytical store in near real time. The data sync happens regardless of the transactional traffic throughput, whether it is 1000 operations/sec or 1 million operations/sec, and  it doesn't impact the provisioned throughput in the transactional store. Due to autosync, there will not be any hot partitions even during the peak transactional workload traffic.
 
-## <a id="analytical-schema"></a>Automatically handling schema updates
+## <a id="analytical-schema"></a>Automatically handle schema updates
 
 Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. With autosync capability, Azure Cosmos DB manages the schema inference over the latest updates from the transactional store.  It also manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types.
 
