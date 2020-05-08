@@ -22,7 +22,12 @@ There isn't any cost for joining the preview. Register through the [Azure Market
 You'll need an Azure subscription before you begin. If you don't have one, create a free account [create one for free](https://azure.microsoft.com/free/) first.
 
 ## Create a cache
-1. To create a cache, sign in to the Azure portal using the link in your preview invitation and select **Create a resource**. 
+1. To create a cache, sign in to the Azure portal using the link in your preview invitation and select **Create a resource**.
+
+   > [!IMPORTANT] 
+   > Don't subscribe to *Azure Cache for Redis, Enterprise Tiers* in the Marketplace directly.
+   > This step is performed by the Azure Cache for Redis portal UI automatically.
+   >
    
 1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
    
@@ -66,6 +71,12 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 1. Click the checkbox under **Terms**, review the settings, and then select **Review + create**.
    
    It takes some time for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
+
+   > [!NOTE] 
+   > Some time after the Enterprise tier cache is created, you'll receive an **Action required**
+   > email from Azure Marketplace to configure *Azure Cache for Redis, Enterprise Tiers*. This
+   > action isn't needed. You can safely ignore that email.
+   >
 
 ## Next steps
 
