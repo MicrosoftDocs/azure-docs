@@ -6,7 +6,6 @@ ms.topic: article
 ms.reviewer: v-umha
 ---
 
-
 # Hyperledger Fabric consortium on Azure Kubernetes Service (AKS)
 
 You can use the Hyperledger Fabric (HLF) on Azure Kubernetes Service (AKS) template to deploy and configure a Hyperledger Fabric consortium network on Azure.
@@ -116,11 +115,17 @@ To build the blockchain consortium post deploying the ordering service and peer 
 > [!NOTE]
 > Azure HLF (azhlf) script provided is to help with demo/DevTest scenarios only. Channel and consortium created by this script has basic HLF policies to simplify demo/DevTest scenario. For production setup, we recommend updating channel/consortium HLF policies in line with your organization compliance needs using the native HLF APIs.
 
+
+>[!NOTE]
+> There is an update in the script, if you want to refer to the old script, [see here](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/blob/master/consortiumScripts/README.md). This update is to provide more functionality with Azure HLF script.
+
 All the commands to run the Azure HLF script can be executed through Azure Bash Command Line. Interface (CLI). You can login into Azure shell web version through  ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) option at the top-right corner of the Azure portal. On the command prompt, type bash and enter to switch to bash CLI.
 
 See [Azure shell](https://docs.microsoft.com/azure/cloud-shell/overview) for more information.
 
 ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
+
+
 
 The following image shows the step-by-step process to build consortium between an orderer organization and peer organization. Detailed commands to execute these steps are captured in the following sections.
 
@@ -217,7 +222,7 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
 
 ### Import organization connection profile, admin user identity, and MSP
 
-Issue below commands to fetch organization’s connection profile, admin user identity, and MSP from Azure Cluster and store these identities in client application local store i.e. in “azhlfTool/stores” directory.
+Issue below commands to fetch organization’s connection profile, admin user identity, and MSP from Azure Kubernetes Cluster and store these identities in client application local store i.e. in “azhlfTool/stores” directory.
 
 For orderer organization:
 
