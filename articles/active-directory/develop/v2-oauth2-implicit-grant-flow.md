@@ -235,3 +235,6 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 ## Next steps
 
 * Go over the [MSAL JS samples](sample-v2-code.md) to get started coding.
+
+[OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
+[OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819

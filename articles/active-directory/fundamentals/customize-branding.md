@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 05/07/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: "it-pro, seodec18, fasttrack-edit"
@@ -48,9 +48,9 @@ Your custom branding won't immediately appear when your users go to sites such a
 
         - **Language.** The language is automatically set as your default and can't be changed.
         
-        - **Sign-in page background image.** Select a .png or .jpg image file to appear as the background for your sign-in pages. 
+        - **Sign-in page background image.** Select a .png or .jpg image file to appear as the background for your sign-in pages. The image will be anchored to the center of the browser, and will scale to the size of the viewable space. You can't select an image larger than 1920x1080 pixels in size or that has a file size more than 300 KB.
         
-            The image can't be larger than 1920x1080 pixels in size and must have a file size of less than 300 KB.
+            It's recommended to use images without a strong subject focus, e.g., an opaque white box appears in the center of the screen, and could cover any part of the image depending on the dimensions of the viewable space.
 
         - **Banner logo.** Select a .png or .jpg version of your logo to appear on the sign-in page after the user enters a username and on the **My Apps** portal page.
             
@@ -58,7 +58,7 @@ Your custom branding won't immediately appear when your users go to sites such a
 
         - **Username hint.** Type the hint text that appears to users if they forget their username. This text must be Unicode, without links or code, and can't exceed 64 characters. If guests sign in to your app, we suggest not adding this hint.
 
-        - **Sign-in page text.** Type the text that appears on the bottom of the sign-in page. You can use this text to communicate additional information, such as the phone number to your help desk or a legal statement. This text must be Unicode and not exceed 256 characters. We also suggest not including links or HTML tags.
+        - **Sign-in page text.** Type the text that appears on the bottom of the sign-in page. You can use this text to communicate additional information, such as the phone number to your help desk or a legal statement. This text must be Unicode and not exceed 256 characters.
 
     - **Advanced settings**
             
