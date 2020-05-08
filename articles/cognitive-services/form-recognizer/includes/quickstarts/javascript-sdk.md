@@ -125,7 +125,7 @@ await GetContents(recognizerClient, formUrl);
 await AnalyzeReceipt(recognizerClient, receiptUrl);
 modelId = await TrainModel(trainingClient, trainingDataUrl);
 await AnalyzePdfForm(recognizerClient, modelId, formUrl);
-await ManageModels(trainingClient, trainingDataUrl) ;
+await ManageModels(trainingClient, trainingDataUrl);
 ```
 
 ## Recognize form contents
@@ -334,7 +334,7 @@ The following code prints the analysis results to the console. It prints each re
 This section demonstrates how to manage the custom models stored in your account. The following code does all of the model management tasks in a single function, as an example. Start by copying the function signature below:
 
 ```javascript
-async function ManageModels(client, trainingClient, trainingFileUrl)
+async function ManageModels(trainingClient, trainingFileUrl)
 {
 ```
 
@@ -344,7 +344,7 @@ The following code block checks how many models you have saved in your Form Reco
 
 ```csharp
     // First, we see how many custom models we have, and what our limit is
-    const accountProperties = await client.getAccountProperties();
+    const accountProperties = await trainingClient.getAccountProperties();
     console.log(
         `Our account has ${accountProperties.count} custom models, and we can have at most ${accountProperties.limit} custom models`
     );
@@ -356,7 +356,7 @@ The following code block lists the current models in your account and prints the
 
 ```javascript
     // Next, we get a paged async iterator of all of our custom models
-    const result = client.listModels();
+    const result = trainingClient.listModels();
 
     // We could print out information about first ten models
     // and save the first model id for later use
@@ -380,7 +380,7 @@ The following code block uses the model ID saved from the previous section and u
 
 ```csharp
     // Now we'll get the first custom model in the paged list
-    const model = await client.getModel(firstModel.modelId);
+    const model = await trainingClient.getModel(firstModel.modelId);
     console.log(`Model Id: ${model.modelId}`);
     console.log(`Status: ${model.status}`);
     console.log("Documents used in training: [");
@@ -396,7 +396,7 @@ You can also delete a model from your account by referencing its ID. This code d
 
 ```javascript
     try {
-        const deleted = await client.deleteModel(firstModel.modelId);
+        const deleted = await trainingClient.deleteModel(firstModel.modelId);
         console.log(deleted);
     } catch (err) {
         // Expected
