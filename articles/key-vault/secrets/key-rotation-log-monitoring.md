@@ -107,7 +107,7 @@ Azure AD assigns a unique application, or client, ID to your app. The portal ope
 
 To add  capabilities to your application, you can select other configuration options including branding, certificates and secrets, API permissions, and more.
 
-![Example of a newly registered app overview page](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)
+![Example of a newly registered app overview page](../media//new-app-overview-page-expanded.png)
 
 Before you establish any calls from your application into the key vault, you must tell the key vault about your application and its permissions. The following command uses the vault name and the **Application (client) ID** from your Azure Active Directory app to grant the application **Get** access to your key vault.
 

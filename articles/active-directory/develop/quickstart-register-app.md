@@ -51,11 +51,11 @@ Your app is integrated with the Microsoft identity platform by registering it wi
 
 1. When finished, select **Register**.
 
-    ![Shows the screen to register a new application in the Azure portal](../media/quickstart-add-azure-ad-app-preview/new-app-registration.png)
+    ![Shows the screen to register a new application in the Azure portal](./media/quickstart-add-azure-ad-app-preview/new-app-registration.png)
 
 Azure AD assigns a unique application, or client, ID to your app. The portal opens your application's **Overview** page. To add  capabilities to your application, you can select other configuration options including branding, certificates and secrets, API permissions, and more.
 
-![Example of a newly registered app overview page](../media/new-app-overview-page-expanded.png)
+![Example of a newly registered app overview page](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)
 
 ## Next steps
 
