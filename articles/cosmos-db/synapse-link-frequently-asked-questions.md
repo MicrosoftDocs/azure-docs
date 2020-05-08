@@ -16,7 +16,7 @@ Synapse Link for Azure Cosmos DB creates a tight integration between Azure Cosmo
 ## General FAQ
 
 ### Is Synapse Link supported for all Azure Cosmos DB APIs?
-In the public preview release, Synapse Link is supported only for the Azure Cosmos DB SQL (Core) API. Support for Cosmos DB’s API for Mongo DB & Cassandra API is currently under gated preview.  To request access to gated preview, please reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
+In the public preview release, Synapse Link is supported only for the Azure Cosmos DB SQL (Core) API. Support for Cosmos DB’s API for Mongo DB & Cassandra API is currently under gated preview.  To request access to gated preview, reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
 
 ### Is Synapse Link supported for multi-region Azure Cosmos accounts?
 Yes, for multi-region Azure Cosmos accounts, the data stored in the analytical store is also globally distributed. Regardless of single write region (single master) or multiple write regions (also known as multi-master), analytical queries performed from Azure Synapse Analytics can be served from the closest local region.
@@ -43,7 +43,7 @@ Yes, the analytical store can be enabled on containers with autoscale provisione
 ### Is there any effect on Azure Cosmos DB transactional store provisioned RUs?
 Azure Cosmos DB guarantees performance isolation between the transactional and analytical workloads. Enabling the analytical store on a container will not impact the RU/s provisioned on the Azure Cosmos DB transactional store. The transactions (read & write) and storage costs for the analytical store will be charged separately. See the [pricing page of Azure Cosmos DB analytical store]() for more details.
 
-### Are deletes & updates to the transactional store reflected in the analytical store? 
+### Are delete and update operations on the transactional store reflected in the analytical store? 
 Yes, deletes and updates to the data in the transactional store will be reflected in the analytical store. You can configure the Time to Live (TTL) on the container to include historical data so that the analytical store retains all versions of items.
 
 ### Can I connect to analytical store from analytics engines other than Azure Synapse Analytics?
@@ -56,9 +56,9 @@ You can only access and run queries against the analytical store using the vario
 At this time, the analytical store cannot be accessed from Synapse SQL provisioned.
 
 ### Can I write back the query aggregation results from Synapse back to the analytical store?
-Analytical store is a read-only store in an Azure Cosmos container. So, you cannot directly write back the aggregation results to the analytical store, but can write them to the Azure Cosmos DB transactional store of another container which can later be leveraged as a serving layer.
+Analytical store is a read-only store in an Azure Cosmos container. So, you cannot directly write back the aggregation results to the analytical store, but can write them to the Azure Cosmos DB transactional store of another container, which can later be leveraged as a serving layer.
 
-### Is the auto-sync replication from transactional store to the analytical store asynchronous or synchronous and what are the latencies? 
+### Is the autosync replication from transactional store to the analytical store asynchronous or synchronous and what are the latencies? 
 The replication is asynchronous, and currently the expected latency is around 2 min. 
 
 ### Are there any constraints on the schema of data when analytical store is enabled?
@@ -68,7 +68,7 @@ Yes. If you have changing types for properties, a private preview of full-fideli
 The data in analytical store is partitioned based on the horizontal partitioning of shards in the transactional store. Currently, you cannot choose a different partitioning strategy for the analytical store.
 
 ### Can I customize or override the way transactional data is transformed into columnar format in the analytical store?
-Currently you can’t customize the transactional data format. If you need only a subset of properties to be available in the analytical store, please reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
+Currently you can’t customize the transactional data format. If you need only a subset of properties to be available in the analytical store, reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
 
 ## Time to live (TTL) for analytical data
 
