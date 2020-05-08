@@ -15,7 +15,7 @@ ms.author: anfeldma
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)
 > * [.NET V3 SDK Examples](sql-api-dotnet-v3sdk-samples.md)
-> * [Java V4 SDK Examples](sql-api-java-sdl-sql-samples.md)
+> * [Java V4 SDK Examples](sql-api-java-sdk-sql-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
 > * [Python Examples](sql-api-python-samples.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
