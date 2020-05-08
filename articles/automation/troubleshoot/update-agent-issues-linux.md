@@ -13,27 +13,30 @@ manager: carmonm
 
 # Troubleshoot Linux update agent issues
 
-There can be many reasons your machine isn't showing up as ready (healthy) in the Azure Automation Update Management solution. In Update Management, you can check the health of a Hybrid Runbook Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline). 
+There can be many reasons why your machine isn't showing up as ready (healthy) in Update Management. You can check the health of a Linux Hybrid Runbook Worker agent to determine the underlying problem. The following are the three readiness states for a machine:
 
-A machine can be in three readiness states:
-
-* **Ready**: The Hybrid Runbook Worker is deployed and was last seen less than one hour ago.
-* **Disconnected**: The Hybrid Runbook Worker is deployed and was last seen over one hour ago.
-* **Not configured**: The Hybrid Runbook Worker isn't found or hasn't finished onboarding.
+* Ready: The Hybrid Runbook Worker is deployed and was last seen less than one hour ago.
+* Disconnected: The Hybrid Runbook Worker is deployed and was last seen over one hour ago.
+* Not configured: The Hybrid Runbook Worker isn't found or hasn't finished onboarding.
 
 > [!NOTE]
 > There can be a slight delay between what the Azure portal shows and the current state of a machine.
 
+This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline). 
+
+> [!NOTE]
+> The troubleshooter script currently doesn't route traffic through a proxy server if one is configured.
+
 ## Start the troubleshooter
 
-For Azure machines, select the **troubleshoot** link under the **Update Agent Readiness** column in the portal to open the **Troubleshoot Update Agent** page. For non-Azure machines, the link brings you to this article. To troubleshoot a non-Azure machine, see the instructions in the "Troubleshoot offline" section.
+For Azure machines, select the **troubleshoot** link under the **Update Agent Readiness** column in the portal to open the Troubleshoot Update Agent page. For non-Azure machines, the link brings you to this article. To troubleshoot a non-Azure machine, see the instructions in the "Troubleshoot offline" section.
 
 ![VM list page](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
 > The checks require the VM to be running. If the VM isn't running, **Start the VM** appears.
 
-On the **Troubleshoot Update Agent** page, select **Run Checks** to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/linux/run-command.md) to run a script on the machine to verify the dependencies. When the troubleshooter is finished, it returns the result of the checks.
+On the Troubleshoot Update Agent page, select **Run Checks** to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/linux/run-command.md) to run a script on the machine to verify the dependencies. When the troubleshooter is finished, it returns the result of the checks.
 
 ![Troubleshoot page](../media/update-agent-issues-linux/troubleshoot-page.png)
 
@@ -79,6 +82,9 @@ This check verifies if the Log Analytics agent for Linux has the Hybrid Runbook 
 ### Hybrid Runbook Worker status
 
 This check makes sure the Hybrid Runbook Worker is running on the machine. The following processes should be present if the Hybrid Runbook Worker is running correctly. To learn more, see [Troubleshooting the Log Analytics Agent for Linux](hybrid-runbook-worker.md#oms-agent-not-running).
+
+> [!NOTE]
+> If the Hybrid Runbook Worker is not running and the operations endpoint has failed, the update can fail. Update Management downloads the hybrid worker packages from the operations endpoint.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
