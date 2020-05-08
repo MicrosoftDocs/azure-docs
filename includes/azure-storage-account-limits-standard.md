@@ -18,7 +18,7 @@ The following table describes default limits for Azure general-purpose v1, v2, B
 | Maximum storage account capacity | 5 PiB <sup>1</sup>|
 | Maximum number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
 | Maximum request rate<sup>1</sup> per storage account | 20,000 requests per second |
-| Maximum ingress<sup>1</sup> per storage account (US, Europe regions) | 25 Gbps |
+| Maximum ingress<sup>1</sup> per storage account (US, Europe regions) | 10 Gbps |
 | Maximum ingress<sup>1</sup> per storage account (regions other than US and Europe) | 5 Gbps if RA-GRS/GRS is enabled, 10 Gbps for LRS/ZRS<sup>2</sup> |
 | Maximum egress for general-purpose v2 and Blob storage accounts (all regions) | 50 Gbps |
 | Maximum egress for general-purpose v1 storage accounts (US regions) | 20 Gbps if RA-GRS/GRS is enabled, 30 Gbps for LRS/ZRS<sup>2</sup> |
