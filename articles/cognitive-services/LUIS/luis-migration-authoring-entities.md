@@ -1,16 +1,8 @@
 ---
 title: Migrate to V3 machine-learned entity
-titleSuffix: Azure Cognitive Services
 description: The V3 authoring provides one new entity type, the machine-learned entity, along with the ability to add relationships to the machine-learned entity and other entities or features of the application.
-services: cognitive-services
-author: diberry
-manager: nitinme
-
-ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 05/06/2020
-ms.author: diberry
+ms.topic: how-to
+ms.date: 05/08/2020
 ---
 
 # Migrate to V3 Authoring entity
@@ -19,7 +11,7 @@ The V3 authoring provides one new entity type, the machine-learned entity, along
 
 ## Entities are decomposable in V3
 
-Entities created with the V3 authoring APIs, either using the [APIs](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) or with the [portal](https://www.luis.ai/), allow you to build a layered entity model with a parent and children. The parent is known to as the **machine-learned entity** and the children are known as **subentities** of the machine learned entity.
+Entities created with the V3 authoring APIs, either using the [APIs](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) or with the [preview portal](https://preview.luis.ai/), allow you to build a layered entity model with a parent and children. The parent is known to as the **machine-learned entity** and the children are known as **subentities** of the machine learned entity.
 
 Each subentity is also a machine-learned entity but with the added configuration options of features.
 
@@ -137,6 +129,56 @@ The following table demonstrates the migration:
 |--|--|
 |Parent - Component entity named `Order`|Parent - Machine-learned entity named `Order`|
 |Child - Hierarchical entity with original and final pizza topping|* Add role to `Order` for each topping.|
+
+## API change - constraint replaced with required feature
+
+This change was made in May 2020 at the //Build conference.
+
+**Functionality** - ability to require an existing entity as a feature to another model and only extract that model if the entity is detected. The functionality has not changed but the API and terminology have changed.
+
+|Previous terminology|New terminology|
+|--|--|
+|`constrained feature`<br>`constraint`<br>`instanceOf`|`required feature`<br>`isRequired`|
+
+#### Automatic migration - no action required
+
+Starting **June 19 2020**, you won’t be allowed to create constraints programmatically using the previous authoring API that exposed this functionality.
+
+All existing constraint features will be automatically migrated to the required feature flag. No programmatic changes are required to your prediction API and no resulting change on the quality of the prediction accuracy.
+
+#### LUIS portal changes
+
+The LUIS preview portal referenced this functionality as a **constraint**. The current LUIS portal designates this functionality as a **required feature**.
+
+#### Previous authoring API
+
+This functionality was applied in the preview authoring **[Create Entity Child API](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5d86cf3c6a25a45529767d77)** as the part of an entity's definition, using the `instanceOf` property of an entity's child:
+
+```json
+{
+    "name" : "dayOfWeek",
+    "instanceOf": "datetimeV2",
+    "children": [
+        {
+           "name": "dayNumber",
+           "instanceOf": "number",
+           "children": []
+        }
+    ]
+}
+```
+
+#### New authoring API
+
+This functionality is now applied with the **[Add entity feature relation API](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5d9dc1781e38aaec1c375f26)** using the `featureName` and `isRequired` properties. The value of the `featureName` property is the name of the model.
+
+```json
+{
+    "featureName": "YOUR-MODEL-NAME-HERE",
+    "isRequired" : true
+}
+```
+
 
 ## Next steps
 
