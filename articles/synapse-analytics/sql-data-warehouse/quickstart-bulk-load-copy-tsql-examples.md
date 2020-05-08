@@ -34,8 +34,8 @@ WITH (
 	FILE_TYPE = 'CSV'
 	,CREDENTIAL=(IDENTITY= 'Storage Account Key', SECRET='<Your_Account_Key>')
 	--CREDENTIAL should look something like this:
-	--CREDENTIAL=(IDENTITY= 'Storage Account Key', 						SECRET='x6RWv4It5F2msnjelv3H4DA80n0QW0daPdw43jM0nyetx4c6CpDkdj3986DX5AHFMIf/YN4y6kkCnU8lb+Wx0Pj+6MDw=='),
-	,ROWTERMINATOR='0x0A' --0x0A specifies to use the Line Feed character (Unix based 	systems)
+	--CREDENTIAL=(IDENTITY= 'Storage Account Key', SECRET='x6RWv4It5F2msnjelv3H4DA80n0QW0daPdw43jM0nyetx4c6CpDkdj3986DX5AHFMIf/YN4y6kkCnU8lb+Wx0Pj+6MDw=='),
+	,ROWTERMINATOR='0x0A' --0x0A specifies to use the Line Feed character (Unix based systems)
 )
 ```
 
@@ -138,7 +138,7 @@ WITH (
     FILE_TYPE = 'CSV'
     ,CREDENTIAL=(IDENTITY= '<application_ID>@<OAuth_2.0_Token_EndPoint>' , SECRET= '<authentication_key>')
     --CREDENTIAL should look something like this:
-	--,CREDENTIAL=(IDENTITY= '92761aac-12a9-4ec3-89b8-7749aef4c35b@https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token', SECRET='juXi1OVZ6gf5]woKQNgqwSywYv]7A.M')
+	--,CREDENTIAL=(IDENTITY= '92761aac-12a9-4ec3-89b8-7149aef4c35b@https://login.microsoftonline.com/72f714bf-86f1-41af-91ab-2d7cd011db47/oauth2/token', SECRET='juXi12sZ6gse]woKQNgqwSywYv]7A.M')
 )
 ```
 
