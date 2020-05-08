@@ -22,7 +22,7 @@ Additional benefits of the Long Audio API:
 * There's no need to deploy a voice endpoint as it synthesizes voices in none real-time batch mode.
 
 > [!NOTE]
-> The Long Audio API now supports both [Public Neural Voices](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#neural-voices) and [Custom Neural Voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> The Long Audio API now supports both [Public Neural Voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) and [Custom Neural Voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
 
 ## Workflow
 
