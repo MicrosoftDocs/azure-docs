@@ -153,7 +153,7 @@ The `StreamingContext` class lets you publish diagnostic information using the `
     }
 ```
 
-`StreamingContext` is passed as an input parameter to the user UDF method and can be used within the UDF to publish user custom log information. In the example below `MyUdfMethod` defines a **data** input which the value will be provided by the query and a **context** input as the `StreamingContext` provided by the runtime engine. 
+`StreamingContext` is passed as an input parameter to the UDF method and can be used within the UDF to publish custom log information. In the example below, `MyUdfMethod` defines a **data** input, which is provided by the query, and a **context** input as the `StreamingContext`, provided by the runtime engine. 
 
 ```csharp
     public static long MyUdfMethod(long data, StreamingContext context)
