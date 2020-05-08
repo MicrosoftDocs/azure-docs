@@ -14,9 +14,9 @@ ms.date: 05/18/2020
 ms.author: mnayak
 
 ---
-# Create a public IP address with Internet traffic routing preference using the Azure portal
+# Create a public IP address with the routing preference type Internet using the Azure portal
 
-This article shows you how to create a public IP address with an Internet routing preference using the Azure portal. After creating the public IP address, you can associate it with the following Azure resources for inbound and outbound traffic to the internet:
+This article shows you how to create a public IP address with the routing preference type Internet using the Azure portal. After creating the public IP address, you can associate it with the following Azure resources for inbound and outbound traffic to the internet:
 
 * Virtual machine
 * Virtual machine scale set

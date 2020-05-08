@@ -32,14 +32,14 @@ When you route your traffic via the *Microsoft global network*, traffic is deliv
 
 **Ingress traffic:** The global BGP Anycast announcement ensures ingress traffic enters Microsoft network closest to the user. For example, if a user from Singapore accesses Azure resources hosted in Chicago, USA then traffic is entered into Microsoft global network in Singapore Edge Point Of Presence (PoP) and travels on Microsoft network to the service hosted in Chicago.
 
-**Egress traffic:** The egress traffic follows the same principle. Traffic travels majority of its journey on Microsoft global network and exists closest to the user. For example, if traffic from Azure Chicago is destined to a user from Singapore, then traffic travels on Microsoft network from Chicago to Singapore, and exits the network in Singapore Edge Point Of Presence (PoP).
+**Egress traffic:** The egress traffic follows the same principle. Traffic travels majority of its journey on Microsoft global network and exits closest to the user. For example, if traffic from Azure Chicago is destined to a user from Singapore, then traffic travels on Microsoft network from Chicago to Singapore, and exits the Microsoft network in Singapore Edge Point Of Presence (PoP).
 
 Both ingress and egress traffic stays bulk of the travel on the Microsoft global network. This is also known as *cold potato routing*.
 
 
 ## Routing over public Internet (ISP network)
 
-The new routing choice *Internet routing* minimizes travel on the Microsoft global network, and extensively uses the transit ISP network. This cost-optimized routing option offers network performance that is comparable to other cloud providers.
+The new routing choice *Internet routing* minimizes travel on the Microsoft global network, and uses the transit ISP network to route your traffic. This cost-optimized routing option offers network performance that is comparable to other cloud providers.
 
 ![Routing over public Internet](media/routing-preference-overview/route-via-isp-network.png)
 
@@ -84,7 +84,7 @@ The price difference between both options is reflected in the internet egress da
 
 Routing Preference support is available in the following regions for services such as virtual machine and internet-facing load balancer that use a public IP for internet egress - North Europe, West Europe, France Central, UK South, Central US, East US, East US 2, North Central US, South Central US, West US, West US 2, West Central US, Southeast Asia, and Australia East.
 
-Routing Preference support for storage account is available in the following Azure regions - France Central, North Central US, and West Central US.
+Routing Preference support for storage account is available in the following Azure regions - France South, North Central US, and West Central US.
 ## Limitations
 
 * Routing preference is only compatible with standard SKU of public IP address. Basic SKU of public IP address is not supported.
