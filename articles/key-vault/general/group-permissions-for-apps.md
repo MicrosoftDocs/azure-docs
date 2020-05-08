@@ -104,7 +104,8 @@ Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ...
 ```
 
-> [!WARNING] Azure Ad Groups does not support Managed Identities. Only service and user principals are supported.
+> [!WARNING]
+> Azure Ad Groups does not support Managed Identities. Only service and user principals are supported.
 
 #### Users
 
