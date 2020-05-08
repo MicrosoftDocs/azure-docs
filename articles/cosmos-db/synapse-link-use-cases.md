@@ -35,7 +35,7 @@ Based on previous architecture, you can achieve the following use cases with Syn
 
 * **Prepare & train predictive pipeline:** Generate insights over the operational data across the supply chain using machine learning translates. This way you can lower inventory, operations costs, and reduce the order-to-delivery times for customers.
 
-Synapse Link allows you to analyze the changing operational data in Azure Cosmos DB without any manual ETL processes. It saves you from additional cost, latency, and operational complexity. Synapse Link enables data engineers and data scientists to build robust predictive pipelines:
+  Synapse Link allows you to analyze the changing operational data in Azure Cosmos DB without any manual ETL processes. It saves you from additional cost, latency, and operational complexity. Synapse Link enables data engineers and data scientists to build robust predictive pipelines:
 
   * Query operational data from Azure Cosmos DB analytical store by leveraging native integration with Apache Spark pools in Azure Synapse Analytics. You can query the data  in an interactive notebook or scheduled remote jobs without complex data engineering.
 
@@ -43,13 +43,13 @@ Synapse Link allows you to analyze the changing operational data in Azure Cosmos
 
   * Write back the results after model inference into Azure Cosmos DB for operational near-real-time scoring.
 
-* **Operational reporting:** Supply chain teams need flexible and custom reports over real-time, accurate operational data. These reports are required to obtain a snapshot view of supply chain effectiveness, profitability, and productivity. It allows data analysts and other key stakeholders to constantly reevaluate the business and identify areas to tweak to reduce operational costs.
+* **Operational reporting:** Supply chain teams need flexible and custom reports over real-time, accurate operational data. These reports are required to obtain a snapshot view of supply chain effectiveness, profitability, and productivity. It allows data analysts and other key stakeholders to constantly reevaluate the business and identify areas to tweak to reduce operational costs. 
 
-Synapse Link for Azure Cosmos DB enables rich business intelligence (BI)/reporting scenarios:
+  Synapse Link for Azure Cosmos DB enables rich business intelligence (BI)/reporting scenarios:
 
   * Query operational data from Azure Cosmos DB analytical store by using native integration with Synapse SQL Serverless and full expressiveness of T-SQL language.
 
-  * Model and publish autorefreshing BI dashboards over Azure Cosmos DB through Synapse SQL Serverless support for familiar BI tools. For example, Azure Analysis Services, Power BI Premium, etc.
+  * Model and publish auto refreshing BI dashboards over Azure Cosmos DB through Synapse SQL Serverless support for familiar BI tools. For example, Azure Analysis Services, Power BI Premium, etc.
 
 The following is some guidance for data integration for batch & streaming data into Azure Cosmos DB:
 
