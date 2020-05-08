@@ -1,14 +1,15 @@
 ---
-title: Tutorial: Enable Ingress Controller Add-On for AKS with Application Gateway 
+title: Enable Ingress Controller Add-On for AKS with Application Gateway 
 description: Use this tutorial to enable the Ingress Controller Add-On for your AKS cluster with Application Gateway
+services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: tutorial 
-ms.date: 5/19/20
+ms.topic: article
+ms.date: 05/19/2019
 ms.author: caya
 ---
 
-# Tutorial: Enable Application Gateway Ingress Controller Add-On for an new AKS Cluster with an new Application Gateway with Azure CLI 
+# Tutorial: Enable Application Gateway Ingress Controller Add-On for a new AKS Cluster with a new Application Gateway Through Azure CLI 
 
 You can use Azure CLI to enable the [Application Gateway Ingress Controller (AGIC)](ingress-controller-overview.md) add-on for your [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. In this tutorial, you will create an AKS cluster with the  AGIC add-on enabled which will automatically create an Application Gateway to use. You'll then deploy a sample application which will utilize the AGIC add-on to connect the Application Gateway to the AKS cluster. The add-on provides a much faster way of deploying AGIC for your AKS cluster than previously through Helm.  
 
