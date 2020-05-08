@@ -55,7 +55,7 @@ WITH (
 
 > [!IMPORTANT]
 >
-> - Specifying the ROWTERMINATOR as '\r\n' will result in '\r\r\n' which will result in parsing issues
+> - Specifying the ROWTERMINATOR as '\r\n' will be interpreted as '\r\r\n' which will result in parsing issues
 
 ## C. Managed Identity
 
@@ -66,7 +66,6 @@ Managed Identity authentication is required when your storage account is attache
 1. Install Azure PowerShell using this [guide](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 3. You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Refer to this [guide](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions) for more information.
-
 #### Steps
 
 1. In PowerShell, **register your SQL server** with Azure Active Directory (AAD):
@@ -103,7 +102,6 @@ WITH (
 > - Specify the **Storage** **Blob Data** Owner, Contributor, or Reader RBAC role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader. 
 
 ## D. Azure Active Directory Authentication (AAD)
-
 #### Steps
 
 1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Owner, Contributor, or Reader** RBAC role to your AAD user. 
@@ -125,7 +123,6 @@ WITH (
 > - Specify the **Storage** **Blob Data** Owner, Contributor, or Reader RBAC role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader. 
 
 ## E. Service Principal Authentication
-
 #### Steps
 
 1. [Create an Azure Active Directory (AAD) application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
