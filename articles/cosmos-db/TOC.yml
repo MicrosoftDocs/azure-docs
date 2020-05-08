@@ -498,8 +498,6 @@
         href: synapse-link.md
       - name: Analytical store - Overview
         href: analytical-store-introduction.md
-      - name: 
-        href: .md
       - name: Synapse Link FAQ
         href: synapse-link-frequently-asked-questions.md
       - name: Synapse Link use cases
