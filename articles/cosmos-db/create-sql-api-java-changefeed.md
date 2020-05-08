@@ -10,9 +10,13 @@ ms.date: 05/08/2020
 ms.author: anfeldma
 ---
 
-# How to create a Java application that uses Azure Cosmos DB SQL API and Change Feed
+# How to create a Java application that uses Azure Cosmos DB SQL API and Change Feed Processor
 
-This how-to guide walks you through a simple Java application which uses the Azure Cosmos DB SQL API to insert documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed. The Java application communicates with the Azure Cosmos DB SQL API using Azure Cosmos DB Java SDK v4.
+> [!IMPORTANT]  
+> For more information on Azure Cosmos DB Java SDK v4, please view the Azure Cosmos DB Java SDK v4 Release notes, [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [performance tips](performance-tips-java-sdk-v4-sql.md), and Azure Cosmos DB Java SDK v4 [troubleshooting guide](troubleshoot-java-sdk-v4-sql.md).
+>
+
+This how-to guide walks you through a simple Java application which uses the Azure Cosmos DB SQL API to insert documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed and Change Feed Processor. The Java application communicates with the Azure Cosmos DB SQL API using Azure Cosmos DB Java SDK v4.
 
 ## Prerequisites
 
