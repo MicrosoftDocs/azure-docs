@@ -1,22 +1,20 @@
 ---
-title: Tutorial - an end-to-end Async Java SQL API application sample with Change Feed
+title: How-To - an end-to-end Azure Cosmos DB Java SDK v4 application sample with Change Feed
 description: This tutorial walks you through a simple Java SQL API application which inserts documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed.
 author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 04/01/2020
+ms.date: 05/08/2020
 ms.author: anfeldma
 ---
 
-# Tutorial - an end-to-end Async Java SQL API application sample with Change Feed
+# How to create an Azure Cosmos DB Java SDK v4 application with Change Feed
 
-This tutorial guide walks you through a simple Java SQL API application which inserts documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed.
+This how-to guide walks you through a simple Java application which uses the Azure Cosmos DB SQL API to insert documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed. The Java application communicates with the Azure Cosmos DB SQL API using Azure Cosmos DB Java SDK v4.
 
 ## Prerequisites
-
-* Personal computer
 
 * The URI and key for your Azure Cosmos DB account
 
