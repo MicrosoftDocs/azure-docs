@@ -3,7 +3,7 @@ title: Voice Assistants on Windows - Design Guidelines
 titleSuffix: Azure Cognitive Services
 description: Guidelines for best practices when designing a voice agent experience.
 services: cognitive-services
-author: adamwa
+author: cfogg6
 manager: spencer.king
 ms.service: cognitive-services
 ms.subservice: speech-service
