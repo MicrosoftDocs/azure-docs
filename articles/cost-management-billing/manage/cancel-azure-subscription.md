@@ -63,4 +63,4 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 # Next steps
 
-- 
+- If needed, you can reactivate a pay-as-you-go subscription in the [Account center](subscription-disabled.md).
