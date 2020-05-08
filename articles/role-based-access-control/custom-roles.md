@@ -138,8 +138,6 @@ To create a custom role, here are basics steps you should follow.
 1. Create the custom role.
 
     Typically, you start with an existing built-in role and then modify it for your needs. The easiest way is to use the Azure portal. For steps on how to create a custom role using the Azure portal, see [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md).
-    
-    To create a custom role, you must be signed in with a user that has the `Microsoft.Authorization/roleDefinitions/write` permission on all `AssignableScopes`, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
 
 1. Test the custom role.
 
