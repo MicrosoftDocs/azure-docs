@@ -34,8 +34,7 @@ To include a service in Impact Level 5 scope, there are two key areas that will 
 
 ### Compute isolation
 
-The SRG focuses on segmentation of compute when 'processing' data for Impact Level 5. This means ensuring that a virtual machine that compromises the physical host cannot impact a DoD workload.  To remove the risk of runtime attacks and ensure long running workloads are not compromised from other workloads on the same host, all Impact Level 5 virtual machines should be isolated using Azure Dedicated Hosts
-which provides a dedicated physical server to host your Azure VMs for Windows and Linux. 
+The SRG focuses on segmentation of compute when 'processing' data for Impact Level 5. This means ensuring that a virtual machine that compromises the physical host cannot impact a DoD workload.  To remove the risk of runtime attacks and ensure long running workloads are not compromised from other workloads on the same host, all Impact Level 5 virtual machines should be isolated using Azure Dedicated Hosts which provides a dedicated physical server to host your Azure VMs for Windows and Linux. 
 
 For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data; isolation will be accomplished by focusing on the data being processed and how it is stored and retained. This approach ensures that the data in question is stored in protected mediums and not present on these services for extended periods unless also encrypted as necessary.
 
