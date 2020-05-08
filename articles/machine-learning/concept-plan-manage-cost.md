@@ -71,10 +71,12 @@ Because these compute pools are inside of Azure's IaaS infrastructure, you can d
 Autoscaling clusters based on the requirements of your workload helps reduce your costs so you only use what you need. 
 AmlCompute clusters are designed to autoscale dynamically based on the requirements of your workload. The cluster can be scaled up to the maximum number of nodes provisioned and within the quota designated for the subscription. As each run completes, the cluster will release nodes and autoscale to your designated minimum node count.
 
+[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
+
 In addition to setting the minimum and maximum number of nodes, tweak the amount of time the node is idle before scale down. By default, idle time before scale down is set to 120 seconds.
 
 + If you perform less iterative experimentation, reduce this time to save costs. 
-+ If you perform highly iterative dev/test experimentation, you might need to increase this so you aren't paying for constant scaling up and down after each change to your training script or environment.
++ If you perform highly iterative dev/test experimentation, you might need to increase the time so you aren't paying for constant scaling up and down after each change to your training script or environment.
 
 AmlCompute clusters can be configured for your changing workload requirements in Azure portal, using the [AmlCompute SDK class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py), [AmlCompute CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute), with the [REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
@@ -86,17 +88,17 @@ az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 
 
 Much like other Azure compute resources, AmlCompute comes with an inherent [quota (or limit) configuration](how-to-manage-quotas.md#azure-machine-learning-compute). This quota is by VM family (for example, Dv2 series, NCv3 series) and varies by region for each subscription. Subscriptions start with small defaults to get you going, but use this setting to control the amount of Amlcompute resources available to be spun up in your subscription. 
 
-Also configure [workspace level quota by VM family](how-to-manage-quotas.md#workspace-level-quota), for each workspace within a subscription. This allows you to have more granular control on the costs that each workspace might potentially incur and restrict certain VM families. 
+Also configure [workspace level quota by VM family](how-to-manage-quotas.md#workspace-level-quota), for each workspace within a subscription. Doing so allows you to have more granular control on the costs that each workspace might potentially incur and restrict certain VM families. 
 
-To set quotas at the workspace level, start in the [Azure portal](https://portal.azure.com).  Select any workspace in your subscription, and select **Usages + quotas** in the left pane. Then select the **Configure quotas** tab to view the quotas. You need privileges at the subscription scope to set this quota, since it's a setting that affects multiple workspaces.
+To set quotas at the workspace level, start in the [Azure portal](https://portal.azure.com).  Select any workspace in your subscription, and select **Usages + quotas** in the left pane. Then select the **Configure quotas** tab to view the quotas. You need privileges at the subscription scope to set the quota, since it's a setting that affects multiple workspaces.
 
-## Set run auto-termination policies 
+## Set run autotermination policies 
 
-Configure your training runs to limit their duration or to terminate them early in case of certain conditions especially when you are using Azure Machine Learning's built-in Hyperparameter Tuning or Automated Machine Learning capabilities. 
+In some cases, you should configure your training runs to limit their duration or terminate them early. For example, when you are using Azure Machine Learning's built-in hyperparameter tuning or automated machine learning.
 
 Here are a few options that you have:
 * Define a parameter called `max_run_duration_seconds` in your RunConfiguration to control the maximum duration a run can extend to on the compute you choose (either local or remote cloud compute).
-* For [hyperparameter tuning](how-to-tune-hyperparameters.md#early-termination), define an early termination policy from a Bandit policy, a Median stopping policy or a Truncation selection policy. In addition, also use parameters such as `max_total_runs` or `max_duration_minutes` to further control the various hyperparameter sweeps.
+* For [hyperparameter tuning](how-to-tune-hyperparameters.md#early-termination), define an early termination policy from a Bandit policy, a Median stopping policy, or a Truncation selection policy. In addition, also use parameters such as `max_total_runs` or `max_duration_minutes` to further control the various hyperparameter sweeps.
 * For [automated machine learning](how-to-configure-auto-train.md#exit), set similar termination policies using the  `enable_early_stopping` flag. Also use properties such as `iteration_timeout_minutes` and `experiment_timeout_minutes` to control the maximum duration of a run or for the entire experiment.
 
 ## Use low-priority VMs
