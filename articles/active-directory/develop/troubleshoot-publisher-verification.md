@@ -15,7 +15,7 @@ ms.reviewer: jesakowi
 ---
 
 # Troubleshoot publisher verification
-Do the following if you are receiving errors or seeing unexpected behavior: 
+When an application is [marked as publisher verified](mark-app-as-publisher-verified.md), it means that the publisher has verified their identity using their Microsoft Partner Network (MPN) account and has associated this MPN account with their application registration. Do the following if you are receiving errors or seeing unexpected behavior while marking an app as publisher verified: 
 
 1. See if your issue is covered in the [frequently asked questions](publisher-verification-overview.md#frequently-asked-questions).  
 
@@ -222,3 +222,4 @@ These should be a rarity as these properties should only be modified by the App 
 
 - “Authorization_RequestDenied” - Error that will be received if an attempt is made to update VerifiedPublisher properties by an application or user that does not have the elevated permissions required to do so. 
 ## Next steps
+Learn about [publisher verification](publisher-verification-overview.md)
