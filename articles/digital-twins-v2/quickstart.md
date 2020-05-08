@@ -101,10 +101,12 @@ A console window will open, carry out authentication, and wait for a command. In
 CreateModels Room Floor
 ```
 
+The output should let you know that the models were created successfully.
+
 > [!TIP]
 > If you designed your own model earlier, you can also upload it here, by adding the part of its file name before the *.json* extension to the `Room Floor` list in the command above.
 
-Verify the models were created by running the `GetModels` command. This will query the Azure Digital Twins instance for all models that have been uploaded. Look for the edited *Room* model in the results:
+Verify the models were created by running the command `GetModels true`. This will query the Azure Digital Twins instance for all models that have been uploaded, and print out their full information. Look for the edited *Room* model in the results:
 
 :::image type="content" source="media/quickstart/output-get-models.png" alt-text="Results of GetModels, showing the updated Room model":::
 
@@ -138,7 +140,7 @@ You can also verify that the twins were created by running the `Query` command. 
 
 Next, you can create some **relationships** between these twins, to connect them into a [**twin graph**](concepts-twins-graph.md). Twin graphs are used to represent an entire environment. 
 
-To add a relationship, you use the `CreateEdge` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
+To add a relationship, use the `CreateEdge` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
 
 Run the following code to add a "contains" relationship from *floor2* to each of the *Room* twins you created earlier. Note that there must be a *contains* relationship defined on the *Floor* model for this to be possible.
 
@@ -147,7 +149,7 @@ CreateEdge floor0 contains room0 relationship0
 CreateEdge floor1 contains room1 relationship1
 ```
 
-The output from these commands shows information about the relationships being created:
+The output from these commands confirms that the relationships were created successfully:
 
 :::image type="content" source="media/quickstart/output-create-edge.png" alt-text="Excerpt from the results of CreateEdge commands, showing relationship0 and relationship1":::
 
@@ -157,7 +159,7 @@ To verify the relationships were created successfully, use either of the followi
     GetEdges floor0
     GetEdges floor1
     ```
-* To query for these relationships by ID, 
+* To query for these relationships individually, 
     ```cmd
     GetEdge floor0 contains relationship0
     GetEdge floor1 contains relationship1
@@ -177,9 +179,9 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
     Query
     ```
 
-    This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details.
+    This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details. Here is an excerpt:
 
-    :::image type="content" source="media/quickstart/output-query-all.png" alt-text="Results of twin query, showing floor0, floor1, room0, and room1":::
+    :::image type="content" source="media/quickstart/output-query-all.png" alt-text="Partial results of twin query, showing room0 and floor1":::
 
     >[!NOTE]
     >Observe how `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`.
@@ -220,7 +222,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'urn:example:Room:2') AND room.Temperature > 75
     ```
 
-    You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on *floor0*—which in this case, is none of them.
+    You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on *floor0*—which in this case, is none of them. The result set is empty.
 
     :::image type="content" source="media/quickstart/output-query-compound.png" alt-text="Results of compound query, showing no results":::
 
