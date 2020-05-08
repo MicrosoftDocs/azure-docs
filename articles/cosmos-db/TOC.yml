@@ -168,15 +168,15 @@
         - name: OFFSET LIMIT
           displayName: offset limit
           href: sql-query-offset-limit.md
+      - name: Working with JSON
+        displayName: alias, JSON, projection
+        href: sql-query-working-with-json.md
       - name: Subquery
         displayName: subquery, exists
         href: sql-query-subquery.md
       - name: Joins
         displayName: join
         href: sql-query-join.md
-      - name: Aliasing
-        displayName: alias, aliasing
-        href: sql-query-aliasing.md
       - name: Arrays and objects
         displayName: object and array creation, object and array
         href: sql-query-object-array.md
