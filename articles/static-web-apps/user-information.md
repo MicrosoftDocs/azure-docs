@@ -43,7 +43,7 @@ You can send a `GET` request to the `/.auth/me` route and receive direct access 
 
 For logged-in users, the response contains a client principal JSON object. Requests from unauthenticated users returns `null`.
 
-Using the [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch)\* API, you can access the client principal data using the following syntax.
+Using the [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch)<sup>1</sup> API, you can access the client principal data using the following syntax.
 
 ```javascript
 async function getUserInfo() {
@@ -60,7 +60,7 @@ console.log(getUserInfo());
 
 Client principal data is passed to API functions in the `x-ms-client-principal` request header. The client principal data is sent as a [Base64](https://www.wikipedia.org/wiki/Base64)-encoded string containing a serialized JSON object.
 
-The following example function, named `user`, shows how to read and return user information.
+The following example function shows how to read and return user information.
 
 ```javascript
 module.exports = async function (context, req) {
@@ -76,7 +76,7 @@ module.exports = async function (context, req) {
 };
 ```
 
-Using the [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch)\* browser API, you can access the API's response using the following syntax.
+Assuming the above function is named `user`, you can use the [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch)<sup>1</sup> browser API to access the API's response using the following syntax.
 
 ```javascript
 async function getUser() {
@@ -89,7 +89,7 @@ async function getUser() {
 console.log(getUser());
 ```
 
-\* The [fetch](https://caniuse.com/#feat=fetch) API and [await](https://caniuse.com/#feat=mdn-javascript_operators_await) operator aren't supported in Internet Explorer.
+<sup>1</sup> The [fetch](https://caniuse.com/#feat=fetch) API and [await](https://caniuse.com/#feat=mdn-javascript_operators_await) operator aren't supported in Internet Explorer.
 
 ## Next steps
 
