@@ -27,7 +27,7 @@ To set the IP access control policy in the Azure portal, go to your Azure Cognit
 The Azure portal provides the ability to specify IP addresses and IP address ranges in the CIDR format. An example of CIDR notation is 8.8.8.0/24, which represents the IPs that range from 8.8.8.0 to 8.8.8.255.
 
 > [!NOTE]
-> After you enable the IP access control policy for your Azure Cognitive Search service, all requests to the data plane from machines outside the allowed list of IP address ranges are rejected. When IP rules are configure, some features of the Azure portal are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
+> After you enable the IP access control policy for your Azure Cognitive Search service, all requests to the data plane from machines outside the allowed list of IP address ranges are rejected. When IP rules are configured, some features of the Azure portal are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
 
 ### Requests from your current IP
 
@@ -45,7 +45,7 @@ You can troubleshoot issues with an IP access control policy by using the follow
 
 ### Azure portal
 
-Enabling an IP access control policy for your Azure Cognitive Search service blocks all requests fom machines outside the allowed list of IP address ranges, including the Azure portal.  You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons. 
+Enabling an IP access control policy for your Azure Cognitive Search service blocks all requests from machines outside the allowed list of IP address ranges, including the Azure portal.  You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons. 
 
 ### SDKs
 
