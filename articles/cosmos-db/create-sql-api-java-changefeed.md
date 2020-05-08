@@ -1,11 +1,11 @@
 ---
 title: How-To - an end-to-end Azure Cosmos DB Java SDK v4 application sample with Change Feed
-description: This tutorial walks you through a simple Java SQL API application which inserts documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed.
+description: This how-to guide walks you through a simple Java SQL API application which inserts documents into an Azure Cosmos DB container, while maintaining a materialized view of the container using Change Feed.
 author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: tutorial
+ms.topic: howto
 ms.date: 05/08/2020
 ms.author: anfeldma
 ---
@@ -37,8 +37,6 @@ If you have not already done so, clone the app example repo:
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example.git
 ```
-
-> You have a choice to work through this Quickstart with Java SDK 4.0 or Java SDK 3.7.0. **If you would like to use Java SDK 3.7.0, in the terminal type ```git checkout SDK3.7.0```**. Otherwise, stay on the ```master``` branch, which defaults to Java SDK 4.0.
 
 Open a terminal in the repo directory. Build the app by running
 
