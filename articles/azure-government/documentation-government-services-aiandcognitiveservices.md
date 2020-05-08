@@ -65,7 +65,7 @@ For more information, see the [global Azure documentation](../cognitive-services
 
 ## Speech
 
-### Speech Services
+### Speech service
 
 Variations in Azure Government:
 
@@ -87,7 +87,7 @@ For more information, see What is the Speech service.
 
 ## Language
  
-### Translator (Text Translation): 
+### Translator (text translation): 
 
 Variations in Azure Government:
 
