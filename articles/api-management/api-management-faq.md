@@ -20,9 +20,6 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Contact us
-* [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
-
 ## Frequently asked questions
 * [What does it mean when a feature is in preview?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [How can I secure the connection between the API Management gateway and my back-end services?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
@@ -43,15 +40,8 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 * [Can I move an API Management service from one subscription to another?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [Are there restrictions on or known issues with importing my API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
-### How can I ask the Microsoft Azure API Management team a question?
-You can contact us by using one of these options:
-
-* Post your questions in our [API Management MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* Send an email to <mailto:apimgmt@microsoft.com>.
-* Send us a feature request in the [Azure feedback forum](https://feedback.azure.com/forums/248703-api-management).
-
 ### What does it mean when a feature is in preview?
-When a feature is in preview, it means that we're actively seeking feedback on how the feature is working for you. A feature in preview is functionally complete, but it's possible that we'll make a breaking change in response to customer feedback. We recommend that you don't depend on a feature that is in preview in your production environment. If you have any feedback on preview features, please let us know through one of the contact options in [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question).
+When a feature is in preview, it means that we're actively seeking feedback on how the feature is working for you. A feature in preview is functionally complete, but it's possible that we'll make a breaking change in response to customer feedback. We recommend that you don't depend on a feature that is in preview in your production environment.
 
 ### How can I secure the connection between the API Management gateway and my back-end services?
 You have several options to secure the connection between the API Management gateway and your back-end services. You can:

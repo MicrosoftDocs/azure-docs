@@ -35,7 +35,7 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 |Lifecycle management policies|Preview|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Diagnostic logs|Generally available|[Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Change feed|Not yet supported|[Change feed support in Azure Blob storage](storage-blob-change-feed.md)|
-|Account failover|Not yet supported|[Disaster recovery and account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Account failover|Not yet supported|[Disaster recovery and storage account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Blob container ACL|Not yet supported|[Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |Custom domains|Not yet supported|[Map a custom domain to an Azure Blob storage endpoint](storage-custom-domain-name.md)|
 |Immutable storage|Not yet supported|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
