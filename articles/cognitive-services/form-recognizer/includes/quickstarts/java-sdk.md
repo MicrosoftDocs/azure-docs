@@ -47,11 +47,6 @@ gradle init --type basic
 
 When prompted to choose a **DSL**, select **Kotlin**.
 
-Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in this build configuration:
-
-```kotlin
-
-```
 Create a folder for your sample app. From your working directory, run the following command:
 
 ```console
