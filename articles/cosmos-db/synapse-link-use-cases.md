@@ -25,7 +25,7 @@ You might be curious to understand what industry use cases can leverage this clo
 
 Research studies show that embedding big data analytics in supply chain operations leads to improvements in order-to-cycle delivery times and supply chain efficiency.
 
-Forward-thinking manufacturers are quickly onboarding to cloud-native  technologies to break out of constraints of legacy Enterprise Resource Planning (ERP) and Supply Chain Management (SCM) systems. With supply chains generating increasing volumes of operational data every minute (order, shipment, transaction data), manufacturers need an operational database. This operational database should scale to handle this data volumes as well as an analytical platform to get to a level of real-time contextual intelligence to stay ahead of the curve.
+Forward-thinking manufacturers are quickly onboarding to cloud-native  technologies to break out of constraints of legacy Enterprise Resource Planning (ERP) and Supply Chain Management (SCM) systems. With supply chains generating increasing volumes of operational data every minute (order, shipment, transaction data), manufacturers need an operational database. This operational database should scale to handle the data volumes as well as an analytical platform to get to a level of real-time contextual intelligence to stay ahead of the curve.
 
 The following architecture shows the power of leveraging Azure Cosmos DB as the cloud-native operational database and Synapse Link in supply chain analytics:
 
@@ -43,13 +43,13 @@ Synapse Link allows you to analyze the changing operational data in Azure Cosmos
 
   * Write back the results after model inference into Azure Cosmos DB for operational near-real-time scoring.
 
-* **Operational reporting:** Supply chain teams need flexible and custom reports over real-time, accurate operational data. These reports are required to obtain a snapshot view of supply chain effectiveness, profitability, and productivity. It allows data analysts and other key stakeholders to constantly re-evaluate the business and identify areas to tweak to reduce operational costs.
+* **Operational reporting:** Supply chain teams need flexible and custom reports over real-time, accurate operational data. These reports are required to obtain a snapshot view of supply chain effectiveness, profitability, and productivity. It allows data analysts and other key stakeholders to constantly reevaluate the business and identify areas to tweak to reduce operational costs.
 
 Synapse Link for Azure Cosmos DB enables rich business intelligence (BI)/reporting scenarios:
 
   * Query operational data from Azure Cosmos DB analytical store by using native integration with Synapse SQL Serverless and full expressiveness of T-SQL language.
 
-  * Model and publish auto-refreshing BI dashboards over Azure Cosmos DB through Synapse SQL Serverless support for familiar BI tools. For example. Azure Analysis Services, Power BI Premium, etc.
+  * Model and publish autorefreshing BI dashboards over Azure Cosmos DB through Synapse SQL Serverless support for familiar BI tools. For example, Azure Analysis Services, Power BI Premium, etc.
 
 The following is some guidance for data integration for batch & streaming data into Azure Cosmos DB:
 
@@ -63,13 +63,13 @@ The following is some guidance for data integration for batch & streaming data i
 
 ## Real-time personalization
 
-Retailers today must build secure and scalable e-commerce solutions that meet the demands of both customers and business. These e-commerce solutions need to engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service. Azure Cosmos DB along with the latest Synapse Link for Azure Cosmos DB allows retailers to generate personalized recommendations for customers in real time, They use low-latency and tunable consistency settings for immediate insights as shown in the following architecture:
+Retailers today must build secure and scalable e-commerce solutions that meet the demands of both customers and business. These e-commerce solutions need to engage customers through customized products and offers, process transactions quickly and securely, and focus on fulfillment and customer service. Azure Cosmos DB along with the latest Synapse Link for Azure Cosmos DB allows retailers to generate personalized recommendations for customers in real time. They use low-latency and tunable consistency settings for immediate insights as shown in the following architecture:
 
 ![Azure Synapse Link for Azure Cosmos DB in real-time personalization](./media/synapse-link-use-cases/real-time-personalization.png)
 
 Synapse Link for Azure Cosmos DB use case:
 
-* **Prepare & train predictive pipeline:** You can generate insights over the operational data across your business units or customer segments using Synapse Spark and machine learning models. This translates to personalized delivery to target customer segments, predictive end-user experiences and targeted marketing to fit your end user requirements.
+* **Prepare & train predictive pipeline:** You can generate insights over the operational data across your business units or customer segments using Synapse Spark and machine learning models. This translates to personalized delivery to target customer segments, predictive end-user experiences and targeted marketing to fit your end-user requirements.
 
 ## IOT predictive maintenance
 
@@ -105,7 +105,7 @@ Let us take the example of an e-commerce company CompanyXYZ with global operatio
 
   * By virtue of deep integration with Azure infrastructure and transparent multi-master global replication, Azure Cosmos DB provides industry-leading [99.999% high availability](high-availability.md) against regional outages.
 
-* CompanyXYZ’s supply chain partners may be in separate geographic locations but they may have to see a single view of the product inventory across the globe to support their local operations. This includes the need to be able to read updates made by other supply chain partners in real-time. As well as being able to make updates without worrying about conflicts with other partners at high throughput. Benefits of using Azure Cosmos DB:
+* CompanyXYZ’s supply chain partners may be in separate geographic locations but they may have to see a single view of the product inventory across the globe to support their local operations. This includes the need to be able to read updates made by other supply chain partners in real time. As well as being able to make updates without worrying about conflicts with other partners at high throughput. Benefits of using Azure Cosmos DB:
 
   * With its unique multi-master replication protocol and latch-free, write-optimized transactional store, Azure Cosmos DB guarantees less than 10-ms latencies for both indexed reads and writes at the 99th percentile globally.
 
@@ -117,9 +117,9 @@ Let us take the example of an e-commerce company CompanyXYZ with global operatio
 
   * Azure Cosmos DB’s transactional store supports elastic scalability of storage and throughput using horizontal partitioning. Containers and databases configured in Autopilot mode can automatically and instantly scale the provisioned throughput based on the application needs without impacting the availability, latency, throughput, or performance of the workload globally.
 
-* CompanyXYZ needs to establish a secure analytics platform to house system wide historical inventory data to enable analytics and insights across supply chain partner, business units and functions. The analytics platform needs to enable collaboration across the system, traditional BI/reporting use cases, advanced analytics use cases and predictive intelligent solutions over the operational inventory data. Benefits of using Synapse Link for Azure Cosmos DB:
+* CompanyXYZ needs to establish a secure analytics platform to house system-wide historical inventory data to enable analytics and insights across supply chain partner, business units and functions. The analytics platform needs to enable collaboration across the system, traditional BI/reporting use cases, advanced analytics use cases and predictive intelligent solutions over the operational inventory data. Benefits of using Synapse Link for Azure Cosmos DB:
 
-  * By using [Azure Cosmos DB analytical store](analytical-store-introduction.md), a fully isolated column store, Synapse Link enables no Extract-Transform-Load (ETL) analytics in [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) against globally distributed operational data at scale.  Business analysts, data engineers and data scientists can now use Synapse Spark or Synapse SQL in an interoperable manner to run near real-time business intelligence, analytics and machine learning pipelines without impacting the performance of their transactional workloads on Azure Cosmos DB. See the [benefits of Synapse Link in Azure Cosmos DB](synapse-link.md) for more details. 
+  * By using [Azure Cosmos DB analytical store](analytical-store-introduction.md), a fully isolated column store, Synapse Link enables no Extract-Transform-Load (ETL) analytics in [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) against globally distributed operational data at scale.  Business analysts, data engineers and data scientists can now use Synapse Spark or Synapse SQL in an interoperable manner to run near real-time business intelligence, analytics, and machine learning pipelines without impacting the performance of their transactional workloads on Azure Cosmos DB. See the [benefits of Synapse Link in Azure Cosmos DB](synapse-link.md) for more details. 
 
 ## Next steps
 
