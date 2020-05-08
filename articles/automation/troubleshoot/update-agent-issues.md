@@ -25,7 +25,7 @@ There can be many reasons why your machine isn't showing up as ready (healthy) i
 This article discusses how to run the troubleshooter for Azure machines from the Azure portal, and non-Azure machines in the [offline scenario](#troubleshoot-offline). 
 
 > [!NOTE]
-> The troubleshooter script now includes checks for Windows Server Update Services (WSUS) and for the autodownload and install keys. The troubleshooter currently doesn't route traffic through a proxy server if one is configured.
+> The troubleshooter script now includes checks for Windows Server Update Services (WSUS) and for the autodownload and install keys. 
 
 ## Start the troubleshooter
 
@@ -95,6 +95,9 @@ This check determines whether any 4502 events appear in the Azure Operations Man
 To learn more about this event, see the [Event 4502 in the Operations Manager log](hybrid-runbook-worker.md#event-4502) for this event.
 
 ## Access permissions checks
+
+> [!NOTE]
+> The troubleshooter currently doesn't route traffic through a proxy server if one is configured.
 
 ### Crypto folder access
 
