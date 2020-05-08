@@ -6,7 +6,7 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 11/24/2019
+ms.date: 05/08/2020
 ms.author: normesta
 ms.reviewer: prishet
 ---
@@ -80,132 +80,145 @@ az storage fs create -n my-file-system --account-name mystorageaccount
 
 ## Show file system properties
 
-// put here.
+You can print the properties of a file system to the console by using the `az storage fs show` command.
 
-## Show file system properties
-
-// put here.
+```azurecli
+az storage fs show -n my-file-system --account-name mystorageaccount
+```
 
 ## List file system contents
 
-// put here.
+List the contents of a directory by using the `az storage fs file list` command.
+
+This example lists the contents of a file system named `my-file-system`.
+
+```azurecli
+az storage fs file list -f my-file-system --account-name mystorageaccount
+```
+
+## Delete a file system
+
+Delete a file system by using the `az storage fs delete` command.
+
+This example deletes a file system named `my-file-system`. 
+
+```azurecli
+az storage fs delete -n my-file-system --account-name mystorageaccount 
+```
 
 ## Create a directory
 
-Create a directory reference by using the `az storage blob directory create` command. 
+Create a directory reference by using the `az storage fs directory create` command. 
 
 This example adds a directory named `my-directory` to a file system named `my-file-system` that is located in an account named `mystorageaccount`.
 
 ```azurecli
-az storage blob directory create -c my-file-system -d my-directory --account-name mystorageaccount
+az storage fs directory create -n my-directory -f my-file-system --account-name mystorageaccount
 ```
 
 ## Show directory properties
 
-You can print the properties of a directory to the console by using the `az storage blob show` command.
+You can print the properties of a directory to the console by using the `az storage fs directory show` command.
 
 ```azurecli
-az storage blob directory show -c my-file-system -d my-directory --account-name mystorageaccount
+az storage fs directory show -n my-directory -f my-file-system --account-name mystorageaccount
 ```
 
 ## Rename or move a directory
 
-Rename or move a directory by using the `az storage blob directory move` command.
+Rename or move a directory by using the `az storage fs directory move` command.
 
-This example renames a directory from the name `my-directory` to the name `my-new-directory`.
+This example renames a directory from the name `my-directory` to the name `my-new-directory` in the same file system.
 
 ```azurecli
-az storage blob directory move -c my-file-system -d my-new-directory -s my-directory --account-name mystorageaccount
+az storage fs directory move -n my-directory -f my-file-system \
+-new-directory "my-file-system/my-new-directory" --account-name mystorageaccount
+```
+
+This example moves a directory to a file system named `my-second-file-system`.
+
+```azurecli
+az storage fs directory move -n my-directory -f my-file-system \
+-new-directory "my-second-file-system/my-new-directory" --account-name mystorageaccount
 ```
 
 ## Delete a directory
 
-Delete a directory by using the `az storage blob directory delete` command.
+Delete a directory by using the `az storage fs directory delete` command.
 
 This example deletes a directory named `my-directory`. 
 
 ```azurecli
-az storage blob directory delete -c my-file-system -d my-directory --account-name mystorageaccount 
+az storage fs directory delete -n my-directory -f my-file-system  --account-name mystorageaccount 
 ```
 
 ## Check if a directory exists
 
-Determine if a specific directory exists in the file system by using the `az storage blob directory exist` command.
+Determine if a specific directory exists in the file system by using the `az storage fs directory exists` command.
 
 This example reveals whether a directory named `my-directory` exists in the `my-file-system` file system. 
 
 ```azurecli
-az storage blob directory exists -c my-file-system -d my-directory --account-name mystorageaccount 
+az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount 
 ```
 
 ## Download from a directory
 
-Download a file from a directory by using the `az storage blob directory download` command.
+Download a file from a directory by using the `az storage fs directory download` command.
 
 This example downloads a file named `upload.txt` from a directory named `my-directory`. 
 
 ```azurecli
-az storage blob directory download -c my-file-system --account-name mystorageaccount -s "my-directory/upload.txt" -d "C:\mylocalfolder\download.txt"
-```
-
-This example downloads an entire directory.
-
-```azurecli
-az storage blob directory download -c my-file-system --account-name mystorageaccount -s "my-directory/" -d "C:\mylocalfolder" --recursive
+az storage fs directory download -p upload.txt -f my-file-system -d my-directory/upload.txt --account-name mystorageaccount
 ```
 
 ## List directory contents
 
-List the contents of a directory by using the `az storage blob directory list` command.
+List the contents of a directory by using the `az storage fs file list` command.
 
 This example lists the contents of a directory named `my-directory` that is located in the `my-file-system` file system of a storage account named `mystorageaccount`. 
 
 ```azurecli
-az storage blob directory list -c my-file-system -d my-directory --account-name mystorageaccount
+az storage fs file list -f my-file-system --path my-directory --account-name mystorageaccount
 ```
 
 ## Upload a file to a directory
 
-Upload a file to a directory by using the `az storage blob directory upload` command.
+Upload a file to a directory by using the `az storage fs directory upload` command.
 
 This example uploads a file named `upload.txt` to a directory named `my-directory`. 
 
 ```azurecli
-az storage blob directory upload -c my-file-system --account-name mystorageaccount -s "C:\mylocaldirectory\upload.txt" -d my-directory
-```
-
-This example uploads an entire directory.
-
-```azurecli
-az storage blob directory upload -c my-file-system --account-name mystorageaccount -s "C:\mylocaldirectory\" -d my-directory --recursive 
+az storage fs directory upload -s "C:\mylocaldirectory\upload.txt" \
+-p my-directory/upload.txt -f my-file-system --account-name mystorageaccount
 ```
 
 ## Show file properties
 
-You can print the properties of a file to the console by using the `az storage blob show` command.
+You can print the properties of a file to the console by using the `az storage fs file show` command.
 
 ```azurecli
-az storage blob show -c my-file-system -b my-file.txt --account-name mystorageaccount
+az storage fs file show -p my-file.txt -f my-file-system --account-name mystorageaccount
 ```
 
 ## Rename or move a file
 
-Rename or move a file by using the `az storage blob move` command.
+Rename or move a file by using the `az storage fs file move` command.
 
 This example renames a file from the name `my-file.txt` to the name `my-file-renamed.txt`.
 
 ```azurecli
-az storage blob move -c my-file-system -d my-file-renamed.txt -s my-file.txt --account-name mystorageaccount
+az storage fs file move -p my-file.txt -f my-file-system -new-path my-file-renamed.txt --account-name mystorageaccount
 ```
 
 ## Delete a file
 
-Delete a file by using the `az storage blob delete` command.
+Delete a file by using the `az storage fs file delete` command.
 
 This example deletes a file named `my-file.txt`
 
 ```azurecli
-az storage blob delete -c my-file-system -b my-file.txt --account-name mystorageaccount 
+az storage fs file delete -p my-directory/my-file.txt-f my-file-system  --account-name mystorageaccount 
 ```
 
 ## Manage permissions
@@ -215,22 +228,22 @@ You can get, set, and update access permissions of directories and files.
 > [!NOTE]
 > If you're using Azure Active Directory (Azure AD) to authorize commands, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-### Get directory and file permissions
+### Get an ACL
 
-Get the ACL of a **directory** by using the `az storage blob directory access show` command.
+Get the ACL of a **directory** by using the `az storage fs access show` command.
 
 This example gets the ACL of a directory, and then prints the ACL to the console.
 
 ```azurecli
-az storage blob directory access show -d my-directory -c my-file-system --account-name mystorageaccount
+az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount
 ```
 
-Get the access permissions of a **file** by using the `az storage blob access show` command. 
+Get the access permissions of a **file** by using the `az storage fs access show` command. 
 
 This example gets the ACL of a file and then prints the ACL to the console.
 
 ```azurecli
-az storage blob access show -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
+az storage fs access show -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount
 ```
 
 The following image shows the output after getting the ACL of a directory.
@@ -239,29 +252,30 @@ The following image shows the output after getting the ACL of a directory.
 
 In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-### Set directory and file permissions
+### Set an ACL
 
-Use the `az storage blob directory access set` command to set the ACL of a **directory**. 
+Use the `az storage fs access set` command to set the ACL of a **directory**. 
 
 This example sets the ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```azurecli
-az storage blob directory access set -a "user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
+az storage fs access set -a "user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount
 ```
 
 This example sets the *default* ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```azurecli
-az storage blob directory access set -a "default:user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
+az storage fs access set -a "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount
 ```
 
-Use the `az storage blob access set` command to set the acl of a **file**. 
+Use the `az storage fs access set` command to set the acl of a **file**. 
 
 This example sets the ACL on a file for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```azurecli
-az storage blob access set -a "user::rw-,group::rw-,other::-wx" -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
+az storage fs access set -a "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount
 ```
+
 The following image shows the output after setting the ACL of a file.
 
 ![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
@@ -270,20 +284,20 @@ In this example, the owning user and owning group have only read and write permi
 
 ### Update directory and file permissions
 
-Another way to set this permission is to use the `az storage blob directory access update` or `az storage blob access update` command. 
+Another way to set this permission is to use the `az storage fs access set` command. 
 
 Update the ACL of a directory or file by setting the `-permissions` parameter to the short form of an ACL.
 
 This example updates the ACL of a **directory**.
 
 ```azurecli
-az storage blob directory access update --permissions "rwxrwxrwx" -d my-directory -c my-file-system --account-name mystorageaccount
+az storage fs access set --permissions rwxrwxrwx -p my-directory -f my-file-system --account-name mystorageaccount
 ```
 
 This example updates the ACL of a **file**.
 
 ```azurecli
-az storage blob access update --permissions "rwxrwxrwx" -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
+az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount
 ```
 
 You can also update the owning user and group of a directory or file by setting the `--owner` or `group` parameters to the entity ID or User Principal Name (UPN) of a user. 
@@ -291,28 +305,13 @@ You can also update the owning user and group of a directory or file by setting 
 This example changes the owner of a directory. 
 
 ```azurecli
-az storage blob directory access update --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -d my-directory -c my-file-system --account-name mystorageaccount
+az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory -f my-file-system --account-name mystorageaccount
 ```
 
 This example changes the owner of a file. 
 
 ```azurecli
-az storage blob access update --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
-```
-## Manage user-defined metadata
-
-You can add user-defined metadata to a file or directory by using the `az storage blob directory metadata update` command with one or more name-value pairs.
-
-This example adds user-defined metadata for a directory named `my-directory` directory.
-
-```azurecli
-az storage blob directory metadata update --metadata tag1=value1 tag2=value2 -c my-file-system -d my-directory --account-name mystorageaccount
-```
-
-This example shows all user-defined metadata for directory named `my-directory`.
-
-```azurecli
-az storage blob directory metadata show -c my-file-system -d my-directory --account-name mystorageaccount
+az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount
 ```
 
 ## See also
