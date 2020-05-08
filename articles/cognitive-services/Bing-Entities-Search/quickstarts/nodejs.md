@@ -54,52 +54,53 @@ Although this application is written in JavaScript, the API is a RESTful Web ser
 
 ## Handle and parse the response
 
-1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. Within this function, perform the following steps:
+1. Define a function named `response_handler()` that takes an HTTP call, `response`, as a parameter. 
 
-    1. Define a variable to contain the body of the JSON response.  
-        ```javascript
-        let response_handler = function (response) {
-            let body = '';
-        };
-        ```
+2. Within this function, define a variable to contain the body of the JSON response.  
+    ```javascript
+    let response_handler = function (response) {
+        let body = '';
+    };
+    ```
 
-    2. Store the body of the response when the `data` flag is called.
-        ```javascript
-        response.on('data', function (d) {
-            body += d;
-        });
-        ```
+3. Store the body of the response when the `data` flag is called.
+    ```javascript
+    response.on('data', function (d) {
+        body += d;
+    });
+    ```
 
-    3. When an `end` flag is signaled, parse the JSON, and print it.
+4. When an `end` flag is signaled, parse the JSON, and print it.
 
-        ```javascript
-        response.on ('end', function () {
-        let json = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log (json);
-        });
+    ```javascript
+    response.on ('end', function () {
+    let json = JSON.stringify(JSON.parse(body), null, '  ');
+    console.log (json);
+    });
         ```
 
 ## Send a request
 
-1. Create a function called `Search` to send a search request. In it, perform the following steps:
+1. Create a function called `Search()` to send a search request. In it, perform the following steps:
 
-   1. Create a JSON object containing your request parameters. Use `Get` for the method, and add your host and path information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
-   2. Use `https.request()` to send the request with the response handler created previously, and your search parameters.
+2. Within this function, create a JSON object containing your request parameters. Use `Get` for the method, and add your host and path information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
+
+3. Use `https.request()` to send the request with the response handler created previously, and your search parameters.
     
-      ```javascript
-      let Search = function () {
-       let request_params = {
-           method : 'GET',
-           hostname : host,
-           path : path + query,
-           headers : {
-               'Ocp-Apim-Subscription-Key' : subscriptionKey,
-           }
-       };
+   ```javascript
+   let Search = function () {
+    let request_params = {
+        method : 'GET',
+        hostname : host,
+        path : path + query,
+        headers : {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
     
-       let req = https.request (request_params, response_handler);
-       req.end ();
-      }
+    let req = https.request (request_params, response_handler);
+    req.end ();
+   }
       ```
 
 2. Call the `Search()` function.

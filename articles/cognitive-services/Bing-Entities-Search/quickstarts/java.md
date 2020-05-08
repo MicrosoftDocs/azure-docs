@@ -131,7 +131,7 @@ Although this application is written in Java, the API is a RESTful Web service c
 
 ## Call the search function
 
-1. From the main method of your project, call `search()`, and use `prettify()` to format the text.
+- From the main method of your project, call `search()`, and use `prettify()` to format the text.
     
     ```java
     	public static void main(String[] args) {

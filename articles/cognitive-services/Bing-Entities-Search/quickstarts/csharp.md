@@ -69,11 +69,13 @@ Although this application is written in C#, the API is a RESTful Web service com
 
 ## Send a request and get the API response
 
-1. Within the class, create a function called `Search()`. Create a new `HttpClient` object, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+1. Within the class, create a function called `Search()`. Within this function, create a new `HttpClient` object, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
-   1. Construct the URI for your request by combining the host and path. Then, add your market and URL-encode your query.
-   2. Await `client.GetAsync()` to get an HTTP response, and then store the JSON response by awaiting `ReadAsStringAsync()`.
-   3. Format the JSON string with `JsonConvert.DeserializeObject()` and print it to the console.
+2. Construct the URI for your request by combining the host and path. Then, add your market and URL-encode your query.
+
+3. Await `client.GetAsync()` to get an HTTP response, and then store the JSON response by awaiting `ReadAsStringAsync()`.
+
+4. Format the JSON string with `JsonConvert.DeserializeObject()` and print it to the console.
 
       ```csharp
       async static void Search()
@@ -92,7 +94,7 @@ Although this application is written in C#, the API is a RESTful Web service com
       }
       ```
 
-2. In the main method of your application, call the `Search()` function.
+5. In the `Main()` method of your application, call the `Search()` function.
     
     ```csharp
     static void Main(string[] args)
