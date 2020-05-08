@@ -1,5 +1,4 @@
 ---
-
 title: Azure Synapse Link for Cosmos DB supported features
 description: Understand the current list of actions supported by Azure Synapse Link for Cosmos DB
 services: synapse-analytics 
@@ -11,7 +10,6 @@ ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ---
-
 
 # Azure Synapse Link for Azure Cosmos DB supported features
 
@@ -41,7 +39,6 @@ Here is list of the currently supported features within Synapse Link for Cosmos 
 ## Supported code-generated actions for Spark
 
 | Gesture              | Description |OLTP |HTAP  |
-
 | :-------------------- | :----------------------------------------------------------- |:----------------------------------------------------------- |:----------------------------------------------------------- |
 | **Load to DataFrame** |Load and read data into a Spark DataFrame |X| ✓ |
 | **Create Spark table** |Create a table pointing to an Azure Cosmos DB container|X| ✓ |
@@ -54,12 +51,13 @@ Here is list of the currently supported features within Synapse Link for Cosmos 
 ## Supported code-generated actions for SQL serverless
 
 | Gesture              | Description |OLTP |HTAP |
+=======
 | :-------------------- | :----------------------------------------------------------- |:----------------------------------------------------------- |:----------------------------------------------------------- |
 | **Select top 100** |Preview top 100 items from a container|X| ✓ |
 | **Create view** |Create a view to directly have BI access in a container through Synapse SQL|X| ✓ |
 
 ## Next steps
 
-
 See how to [connect to Synapse Link for Azure Cosmos DB](./how-to-connect-synapse-link-cosmos-db.md)
+
 
