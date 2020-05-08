@@ -1000,6 +1000,10 @@
           href: troubleshoot-java-async-sdk.md
       - name: Troubleshoot .NET SDK
         href: troubleshoot-dot-net-sdk.md
+    - name: Migrate to newer SDKs
+      items:
+      - name: Migrate to Java V4 SDK
+        href: migrate-java-v4-sdk.md
     - name: Change Feed
       items:
       - name: Azure Cosmos DB Trigger logs
