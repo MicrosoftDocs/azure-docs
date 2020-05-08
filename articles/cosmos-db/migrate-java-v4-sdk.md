@@ -46,7 +46,7 @@ If you have been using the legacy Sync Java SDK 2.x.x, note that the direct conn
 
 The following are the API level changes between Java 3.x.x Vs 4.x.x SDK and Async Java SDK 2.x.x and Legacy sync Java SDK 2.x.x:
 
-![Azure Cosmos DB Java SDK naming conventions](./media/migrate-java-v4-sdk/java_sdk_naming_conventions.png)
+![Azure Cosmos DB Java SDK naming conventions](./media/migrate-java-v4-sdk/java-sdk-naming-conventions.png)
 
 * The Java SDK 3.x.x and 4.0 refer the client resources as `Cosmos<resourceName>`. For example, `CosmosClient`, `CosmosDatabase`, `CosmosContainer`. Whereas in version 2.x.x, the Java SDKs doesn’t have a uniform naming scheme.
 
