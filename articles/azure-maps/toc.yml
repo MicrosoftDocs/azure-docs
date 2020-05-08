@@ -23,6 +23,8 @@
       href: tutorial-create-store-locator.md
   - name: REST API Tutorials
     items:
+    - name: Create indoor maps
+      href: tutorial-creator-indoor-maps.md
     - name: Set up a geofence
       href: tutorial-geofence.md
     - name: Spatial analytics
@@ -51,12 +53,12 @@
     href: choose-pricing-tier.md
   - name: Creator
     items:
-    -name: Creator for indoor maps
-    -href: creator-for-indoor-maps.md
-    -name: Use the Azure Maps Indoor Maps module
-    -href: how-to-use-indoor-module.md
+    -name: Indoor maps
+     href: creator-for-indoor-maps.md
+    -name: Indoor Maps module
+     href: how-to-use-indoor-module.md
     -name: Drawing conversion errors and warnings
-    -href: drawing-conversion-error-codes.md
+     href: drawing-conversion-error-codes.md  
   - name: Coverage
     items:
     - name: Geocoding coverage
@@ -92,7 +94,7 @@
     - name: Manage pricing tier
       href: how-to-manage-pricing-tier.md
     - name: Manage Creator
-    - href: how-to-manage-creator.md
+      href: how-to-manage-creator.md
     - name: View usage metrics
       href: how-to-view-api-usage.md
   - name: Get map data from REST APIs
@@ -211,12 +213,20 @@
       href: how-to-add-tile-layer-android-map.md
     - name: Show traffic data 
       href: how-to-show-traffic-android.md
+  - name: Creator
+    items:
+    - name: Dynamic styling for indoor maps
+      href: indoor-map-dynamic-styling.md
+    - name: Drawing error visualizer
+      href: azure-maps-drawing-errors-visualizer.md
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
 - name: Reference
   items:
   - name: API and parameter extensions
     items:
+    - name: Drawing package requirements
+      href: drawing-requirements.md
     - name: Vehicle consumption model
       href: consumption-model.md
     - name: Extend GeoJSON format
