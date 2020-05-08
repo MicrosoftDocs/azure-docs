@@ -1,6 +1,6 @@
 ---
-title: Deploy and make predictions with ONNX in SQL Edge Preview
-description: Learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge Preview, and then run native PREDICT on data using the uploaded ONNX model.
+title: Deploy and make predictions with ONNX in Azure SQL Edge (Preview)
+description: Learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge (Preview), and then run native PREDICT on data using the uploaded ONNX model.
 keywords: deploy SQL Edge
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -8,18 +8,18 @@ ms.subservice: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
-ms.date: 04/23/2020
+ms.date: 05/19/2020
 ---
 
-# Deploy and make predictions with an ONNX model in SQL Edge Preview
+# Deploy and make predictions with an ONNX model in Azure SQL Edge (Preview)
 
-In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge Preview, and then run native PREDICT on data using the uploaded ONNX model. For more information, see [Machine learning and AI with ONNX in SQL Edge Preview](onnx-overview.md).
+In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge (Preview), and then run native PREDICT on data using the uploaded ONNX model. For more information, see [Machine learning and AI with ONNX in SQL Edge (Preview)](onnx-overview.md).
 
 This quickstart is based on **scikit-learn** and uses the [Boston Housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## Before you begin
 
-* If you haven't deployed an Azure SQL Edge module, follow the steps of [deploy SQL Edge Preview using the Azure portal](deploy-portal.md).
+* If you haven't deployed an Azure SQL Edge module, follow the steps of [deploy SQL Edge (Preview) using the Azure portal](deploy-portal.md).
 
 * Install [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 

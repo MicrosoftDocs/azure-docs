@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
-title: Azure SQL Edge documentation
+title: Azure SQL Edge (Preview) documentation
 summary: Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments.
 
 metadata:
-  title: Azure SQL Edge documentation
-  meta.description: Learn how to use Azure SQL Edge.
+  title: Azure SQL Edge (Preview) documentation
+  meta.description: Learn how to use Azure SQL Edge (Preview).
   services: sql-database-edge
   ms.service: sql-database-edge
   ms.topic: landing-page
   author: stevestein
   ms.author: sstein
-  ms.date: 11/04/2019
+  ms.date: 05/19/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

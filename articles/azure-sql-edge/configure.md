@@ -1,6 +1,6 @@
 ---
-title: Configure Azure SQL Edge Preview
-description: Learn about configuring Azure SQL Edge Preview
+title: Configure Azure SQL Edge (Preview)
+description: Learn about configuring Azure SQL Edge (Preview)
 keywords: 
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -8,10 +8,10 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/05/2020
+ms.date: 05/19/2020
 ---
 
-# Configure Azure SQL Edge Preview
+# Configure Azure SQL Edge (Preview)
 
 Azure SQL Edge supports configuration through one of the following two options:
 

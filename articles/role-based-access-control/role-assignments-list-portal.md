@@ -28,7 +28,9 @@ ms.reviewer: bagovind
 
 The easiest way to see the roles assigned to a user or group in a subscription is to use the **Azure resources** pane.
 
-1. In the Azure portal, click **All services** and then select **Users** or **Groups**.
+1. In the Azure portal, select **All services** from the Azure portal menu.
+
+1. Select **Azure Active Directory** and then select **Users** or **Groups**.
 
 1. Click the user or group you want list the role assignments for.
 

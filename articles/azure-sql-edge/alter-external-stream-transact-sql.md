@@ -1,6 +1,6 @@
 ---
-title: "ALTER EXTERNAL STREAM (Transact-SQL)"
-description: Learn about the ALTER EXTERNAL STREAM statement in Azure SQL Edge Preview
+title: ALTER EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge (Preview)
+description: Learn about the ALTER EXTERNAL STREAM statement in Azure SQL Edge (Preview)
 keywords: 
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/04/2020
+ms.date: 05/19/2020
 ---
 
 # ALTER EXTERNAL STREAM (Transact-SQL)
@@ -31,7 +31,7 @@ Modifies the definition of an External Stream. Modifying an External Stream that
 
 ## Arguments
 
-For details on the Alter External Stream T-SQL command arguments refer [CREATE EXTERNAL STREAM (Transact-SQL)](create-external-stream-transact-sql.md)
+For details on the Alter External Stream command arguments, see [CREATE EXTERNAL STREAM (Transact-SQL)](create-external-stream-transact-sql.md).
 
 ## Return code values
 
