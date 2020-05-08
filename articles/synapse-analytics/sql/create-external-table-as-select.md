@@ -27,7 +27,7 @@ Your first step is to review the articles below and make sure you've met the pre
 You can use CREATE EXTERNAL TABLE AS SELECT (CETAS) statement to store the query results to the storage.
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup). You need to change LOCATION for MyDataSource external data source to point to location you have write permission for. 
 
 ```sql
 USE [mydbname];
@@ -53,7 +53,7 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://showdemoweu.dfs.core.windows.net/data/population_csv/population.csv',
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv',
         FORMAT='CSV'
     ) WITH (
         CountryCode varchar(4),
