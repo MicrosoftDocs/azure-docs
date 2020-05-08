@@ -2437,6 +2437,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/analytics-usecases.md",
+      "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/analytics-solution-architectures.md",
+      "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/lambda-architecture.md",
+      "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/globally-distributed-transactional-analytical-storage.md",
+      "redirect_url": "/azure/cosmos-db/synapse-link",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/create-sql-api-dotnet-preview.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-dotnet",
       "redirect_document_id": false

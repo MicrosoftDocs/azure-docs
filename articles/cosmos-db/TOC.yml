@@ -121,8 +121,6 @@
         href: global-dist-under-the-hood.md
       - name: Regional presence
         href: regional-presence.md
-      - name: Transactional and analytical storage
-        href: globally-distributed-transactional-analytical-storage.md
     - name: Partitioning
       items:
       - name: Partitioning overview
@@ -494,14 +492,12 @@
       - name: Trigger Azure Functions
         displayName: change feed
         href: change-feed-functions.md
-    - name: Globally distributed analytics and AI
+    - name: Analytics with Synapse Link
       items:
-      - name: Analytics use cases
-        href: analytics-usecases.md
-      - name: Analytics - solution architectures
-        href: analytics-solution-architectures.md
-      - name: Lambda architecture
-        href: lambda-architecture.md
+      - name: Synapse Link for Azure Cosmos DB
+        href: synapse-link.md
+      - name: Synapse Link FAQ
+        href: synapse-link-frequently-asked-questions.md
     - name: Built-in Jupyter notebooks
       items:
       - name: Jupyter notebooks overview
