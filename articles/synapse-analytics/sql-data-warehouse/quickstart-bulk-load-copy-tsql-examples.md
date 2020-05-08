@@ -14,7 +14,6 @@ ms.reviewer: jrasnick
 # Securely load data using Synapse SQL
 
 This article highlights and provides examples on the secure authentication mechanisms for the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). The COPY statement is the most flexible and secure way of bulk loading data in Synapse SQL.
-
 ## Supported authentication mechanisms
 
 The following matrix describes the supported authentication methods for each file type and storage account. This applies to the source storage location and the error file location.
