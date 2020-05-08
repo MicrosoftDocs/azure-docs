@@ -20,17 +20,13 @@ landingContent:
 # Start card title with a verb
 
   # Card 
-  - title: SQL Edge
+  - title: SQL Edge 
     linkLists:
       - linkListType: overview
         links:
           - text: What is SQL Edge?
             url: overview.md
-
-  # Card 
-  - title: Deploy SQL Edge
-    linkLists:
-      - linkListType: quickstart
+      - linkListType: deploy
         links:
           - text: Deploy SQL Edge
             url: deploy-portal.md
@@ -45,6 +41,15 @@ landingContent:
           - text: Sync SQL Edge data with SQL Database
             url: tutorial-sync-data-sync.md
 
+  # Card 
+  - title: Data streaming
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Data streaming
+            url: stream-data.md
+          - text: Streaming catalog views
+            url: streaming-catalog-views.md
 
   # Card 
   - title: Machine learning
