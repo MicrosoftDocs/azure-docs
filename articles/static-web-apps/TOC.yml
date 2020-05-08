@@ -51,5 +51,7 @@
           href: deploy-nuxtjs.md
 - name: Resources
   items:
+    - name: Build your skills with Microsoft Learn
+      href: /learn/browse/?products=azure-app-service-static
     - name: Quotas
       href: quotas.md
