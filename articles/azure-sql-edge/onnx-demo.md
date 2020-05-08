@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Edge Preview demo
+title: Azure SQL Edge (Preview)  demo
 description: Learn how to use ONNX in Azure SQL Edge
 keywords: 
 services: sql-database-edge
@@ -8,10 +8,10 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 04/28/2020
+ms.date: 05/19/2020
 ---
 
-# ONNX in Azure SQL Edge Preview demo
+# ONNX in Azure SQL Edge (Preview)  demo
 
 In this AzureSQLEdge_Demo demo, we will be predicting iron ore impurities as a % of Silica with ONNX in Azure SQL Edge. Before implementing the demo please ensure, you have an active Azure subscription and you have installed the below prerequisite software.
 

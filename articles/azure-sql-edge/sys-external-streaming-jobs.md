@@ -1,6 +1,6 @@
 ---
-title: sys.external_streaming_jobs (Transact-SQL) - Azure SQL Edge
-description: Learn about using sys.external_streaming_jobs in SQL Edge
+title: sys.external_streaming_jobs (Transact-SQL) - Azure SQL Edge (Preview)
+description: Learn about using sys.external_streaming_jobs in Azure SQL Edge (Preview)
 keywords: sys.external_streaming_jobs, SQL Edge
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -8,7 +8,7 @@ ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/03/2019
+ms.date: 05/19/2019
 ---
 
 # sys.external_streaming_jobs (Transact-SQL)

@@ -1,6 +1,6 @@
 ---
-title: Deploy SQL Edge Preview using the Azure portal | Microsoft Docs
-description: Learn how to deploy Azure SQL Edge using the Azure portal
+title: Deploy Azure SQL Edge (Preview) using the Azure portal
+description: Learn how to deploy Azure SQL Edge (Preview) using the Azure portal
 keywords: deploy SQL Edge
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 11/04/2019
+ms.date: 05/19/2020
 ---
 
-# Deploy Azure SQL Edge Preview
+# Deploy Azure SQL Edge (Preview) 
 
-Azure SQL Edge Preview is a relational database engine optimized for IoT and Azure IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. This quickstart shows you how to get started with creating an Azure SQL Edge module through Azure IoT Edge using the Azure portal.
+Azure SQL Edge (Preview) is a relational database engine optimized for IoT and Azure IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. This quickstart shows you how to get started with creating an Azure SQL Edge module through Azure IoT Edge using the Azure portal.
 
 ## Before you begin
 

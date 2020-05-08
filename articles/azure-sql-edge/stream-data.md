@@ -1,6 +1,6 @@
 ---
-title: Data streaming in Azure SQL Edge Preview
-description: Learn about data streaming in Azure SQL Edge
+title: Data streaming in Azure SQL Edge (Preview)
+description: Learn about data streaming in Azure SQL Edge (Preview)
 keywords:
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -11,9 +11,9 @@ ms.reviewer: sstein
 ms.date: 05/19/2020
 ---
 
-# Data streaming in Azure SQL Edge Preview
+# Data streaming in Azure SQL Edge (Preview)
 
-Azure SQL Edge Preview provides two different options to implement data streaming. 
+Azure SQL Edge (Preview) provides two different options to implement data streaming. 
 
 1. Deploying Azure Streaming Analytics Edge jobs created in Azure. For more information on how to deploy Azure Streaming Analytics Edge jobs in Azure SQL Edge refer [Deploy Azure Stream Analytics Jobs](stream-analytics.md).
 2. Using the new **T-SQL Streaming** feature to create streaming jobs in SQL Edge, without the need to configure streaming jobs in Azure. 
@@ -63,6 +63,6 @@ The following limitations and restrictions apply to T-SQL Streaming.
 
 ## Next steps
 
-- [Create a Stream Analytics job in Azure SQL Edge Preview](create-stream-analytics-job.md)
-- [Viewing metadata associated with stream jobs in Azure SQL Edge Preview](streaming-catalog-views.md)
+- [Create a Stream Analytics job in Azure SQL Edge (Preview) ](create-stream-analytics-job.md)
+- [Viewing metadata associated with stream jobs in Azure SQL Edge (Preview) ](streaming-catalog-views.md)
 - [Create External Stream](create-external-stream-transact-sql.md)

@@ -1,15 +1,15 @@
 ---
-title: What's new in Azure SQL Edge Preview
-description: Learn what's new with Azure SQL Edge Preview, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
+title: What's new in Azure SQL Edge (Preview) 
+description: Learn what's new with Azure SQL Edge (Preview) , such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 services: sql-database-edge
 author: stevestein
 ms.service: sql-database-edge
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/19/2020
 ms.author: sstein
 
 ---
-# What's new in Azure SQL Edge Preview?
+# What's new in Azure SQL Edge (Preview) ?
 
 Azure SQL Edge is updated on an ongoing basis. To stay updated with the most recent developments, this article provides you with information about:
 

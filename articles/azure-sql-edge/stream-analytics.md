@@ -1,6 +1,6 @@
 ---
-title: Using SQL Database DAC packages and Stream Analytics jobs with Azure SQL Edge | Microsoft Docs
-description: Learn about using Stream Analytics jobs in SQL Edge
+title: Using SQL Database DAC packages and Stream Analytics jobs - Azure SQL Edge (Preview)
+description: Learn about using Stream Analytics jobs in Azure SQL Edge (Preview)
 keywords: SQL Edge, stream analytics, sqlpackage
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 11/04/2019
+ms.date: 05/19/2020
 ---
 
 # Using SQL Database DAC packages and Stream Analytics jobs with SQL Edge
 
-Azure SQL Edge Preview is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Server Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Edge provides in-built streaming capability for real-time analytics and complex event-processing.
+Azure SQL Edge (Preview) is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Server Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Edge provides in-built streaming capability for real-time analytics and complex event-processing.
 
 Azure SQL Edge also provides a native implementation of SqlPackage.exe that enables you to deploy a [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) package during the deployment of SQL Edge.
 

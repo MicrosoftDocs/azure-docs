@@ -1,6 +1,6 @@
 ---
-title: Backup and restore databases in Azure SQL Edge Preview
-description: Learn about backup and restore capabilities in Azure SQL Edge Preview
+title: Backup and restore databases - Azure SQL Edge (Preview)
+description: Learn about backup and restore capabilities in Azure SQL Edge (Preview)
 keywords: 
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -11,7 +11,7 @@ ms.reviewer: sstein
 ms.date: 05/19/2020
 ---
 
-# Backup and Restore databases in Azure SQL Edge Preview
+# Backup and Restore databases in Azure SQL Edge (Preview) 
 
 Azure SQL Edge is built on the latest versions of the Microsoft SQL Server Database Engine on Linux, providing similar backup and restore database capabilities as those available in SQL Server on Linux and SQL Server running in containers. Backup and restore component provides an essential safeguard for protecting data stored in your Azure SQL Edge databases. To minimize the risk of catastrophic data loss, it's recommended that you back up your databases periodically to preserve modifications to your data on a regular basis. A well-planned backup and restore strategy helps protect databases against data loss caused by a variety of failures. Test your strategy by restoring a set of backups and then recovering your database to prepare you to respond effectively to a disaster.
 
