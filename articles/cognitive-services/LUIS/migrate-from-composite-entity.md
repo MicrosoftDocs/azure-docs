@@ -21,7 +21,7 @@ The upgrade process:
     * If child entity is only used in composite entity, it will only be added to machine-learned entity.
     * If child entity is used in composite _and_ as a separate entity (labeled in example utterances), it will be added to the version as an entity and as a subentity to the new machine-learned entity.
     * If the child entity uses a role, each role will be converted into a subentity of the same name.
-    * If the child entity is a non-machine-learned entity (regular expression, list entity, or prebuilt entity), a new subentity is created with the same name, and the new subentity has a feature using the non-machine-learned entity with the constraint added.
+    * If the child entity is a non-machine-learned entity (regular expression, list entity, or prebuilt entity), a new subentity is created with the same name, and the new subentity has a feature using the non-machine-learned entity with the required feature added.
 * Names are retained but must be unique at same subentity/sibling level. Refer to [unique naming limits](luis-boundaries.md#name-uniqueness).
 * Labels in example utterances are switched to new machine-learned entity with subentities.
 
