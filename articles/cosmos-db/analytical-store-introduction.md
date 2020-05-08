@@ -115,9 +115,6 @@ By decoupling the analytical storage system from the analytical compute system, 
 
 ## Pricing
 
-> [!NOTE]
-> Azure Cosmos DB analytical store is available in public preview free of any charges for analytical store until August 30, 2020.
-
 Analytical store follows a consumption-based pricing model where you are charged for:
 
 * Storage: the volume of the data retained in the analytical store every month including historical versions of the operational data.
@@ -125,6 +122,9 @@ Analytical store follows a consumption-based pricing model where you are charged
 * Analytical write operations: the fully managed synchronization of operational data updates to the analytical store from the transactional store (autosync)
 
 * Analytical read operations: the read operations performed against the analytical store from Synapse Analytics Spark and SQL Serverless runtimes.
+
+> [!NOTE]
+> Azure Cosmos DB analytical store is available in public preview free of any charges for analytical store until August 30, 2020.
 
 Analytical store pricing is separate from the transaction store pricing model. There is no concept of provisioned RUs in the analytical store. See [Azure Cosmos DB pricing page](), for full details on the pricing model for analytical store.
 
@@ -157,10 +157,10 @@ To learn more, see [how to configure Analytical TTL on a container]().
 
 To learn more, see the following docs:
 
-* [Azure Synapse Link](synapse-link.md) for Azure Cosmos DB
+* [Azure Synapse Link](synapse-link.md) for Azure Cosmos DB.
 
-* [Frequently asked questions](synapse-link-frequently-asked-questions.md) about Synapse Link for Azure Cosmos DB
+* [Frequently asked questions](synapse-link-frequently-asked-questions.md) about Synapse Link for Azure Cosmos DB.
 
-* [Apache Spark in Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md) 
+* [Apache Spark in Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 
-* [SQL serverless/on-demand in Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview)
+* [SQL serverless/on-demand in Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).
