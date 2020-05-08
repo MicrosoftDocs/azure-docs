@@ -49,19 +49,19 @@ You will first create the Azure Digital Twins instance (**section A** in the dia
 
 To work through the scenario, you will interact with components of the pre-written sample app you downloaded earlier.
 
-Here are the components implemented by the sample app:
+Here are the components implemented by the building scenario *AdtSampleApp* sample app:
 * Device authentication 
 * Pre-generated AutoRest SDK
 * SDK usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
-* *buildingScenario* - A sample Azure Digital Twins solution
-* *SampleFunctionApp* - An Azure Functions app that updates your ADT graph as a result of telemetry from IoT Hub and ADT-generated events
+* *SampleClientApp* - A sample Azure Digital Twins solution
+* *SampleFunctionsApp* - An Azure Functions app that updates your ADT graph as a result of telemetry from IoT Hub and ADT-generated events
 
 The sample project also contains an interactive authorization component. Every time you start up the project, a browser window will open, prompting you to log in with your Azure account.
 
 ### Instantiate the pre-created twin graph
 
-First, you'll use the *BuildingScenario* solution from the sample project to build the Azure Digital Twins piece of the end-to-end scenario (**section A**):
+First, you'll use the *AdtSampleApp* solution from the sample project to build the Azure Digital Twins piece of the end-to-end scenario (**section A**):
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="An excerpt from the full building scenario graphic highlighting section A, the Azure Digital Twins instance":::
 
@@ -96,25 +96,9 @@ The next step is setting up an [Azure Functions app](../azure-functions/function
 
 In this section, you will publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (AAD) identity. Completing these steps will allow the rest of the tutorial to make use of the functions inside the function app. 
 
-### Configure the functions
-
-First, configure the functions to tie to your Azure Digital Twins instance. You will need the *resourceGroup* and *hostName* of your Azure Digital Twins instance that you noted earlier. You can also run this command in Azure Cloud Shell to see them outputted again, along with other properties of the instance: `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
-
-Go to your Visual Studio window where the _**AdtE2ESample**_ project is open.
-
-From the *Solution Explorer* pane, select _SampleFunctionsApp/**ProcessHubToDTEvents.cs**_ to open it in the editing window. Change the value of `AdtInstanceUrl` to your Azure Digital Twins instance's *hostName*. 
-
-```csharp
-private static string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"
-```
-
-Save the file.
-
-Next, open _SampleFunctionsApp/**ProcessDTRoutedData.cs**_ and do the same thing: change the value of `AdtInstanceUrl` in this file to also be your Azure Digital Twins instance's *hostName*. 
-
 ### Publish the app
 
-In the Solution Explorer menu, right-select the _**SampleFunctionsApp**_ project file and hit **Publish**.
+Go to your Visual Studio window where the _**AdtE2ESample**_ project is open. In the *Solution Explorer* menu, right-select the _**SampleFunctionsApp**_ project file and hit **Publish**.
 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Visual Studio: publish project":::
 
@@ -151,7 +135,7 @@ To enable the function app to access Azure Digital Twins, the next step is to as
 In Azure Cloud Shell, use the following command to create the system-managed identity. Take note of the *principalId* field in the output.
 
 ```azurecli-interactive
-az functionapp identity assign -g <your-resource-group> -n <your-HubToDT-function>
+az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
 Use the *principalId* value in the following command to assign the function app's identity to an AAD *owner* role:
@@ -248,11 +232,12 @@ az iot hub device-identity show-connection-string --device-id thermostat67 --hub
 
 You'll plug these values into the device simulator code in your local project to connect the simulator into this IoT hub and IoT hub device.
 
-In a new Visual Studio window, open _Device Simulator > **DeviceSimulator.sln**_. 
+In a new Visual Studio window, open _Device Simulator > **DeviceSimulator.sln**_.
+ 
 >[!NOTE]
 > You should now have two Visual Studio windows, one with _**DeviceSimulator.sln**_ and one from earlier with _**AdtE2ESample.sln**_.
 
-From the *Solution Explorer* pane, select _DeviceSimulator/**AzureIoTHub.cs**_ to open it in the editing window. Change the following connection string values to the values you gathered above:
+From the *Solution Explorer* pane in this new Visual Studio window, select _DeviceSimulator/**AzureIoTHub.cs**_ to open it in the editing window. Change the following connection string values to the values you gathered above:
 
 ```csharp
 connectionString = <Iot-hub-connection-string>
