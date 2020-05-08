@@ -30,11 +30,11 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Import example app
+## Download JSON file for app
 
-Use the following steps to import an app.
+Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
+## Import JSON file for app
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 

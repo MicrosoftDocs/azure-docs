@@ -2,7 +2,7 @@
 title: "Tutorial: extract structured data with machine-learned entity - LUIS"
 description: Extract structured data from an utterance using the machine-learned entity. To increase the extraction accuracy, add subentities with features and constraints.
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 05/08/2020
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
 ---
 
@@ -46,9 +46,11 @@ In this tutorial, you create a machine-learned entity to represent an order for 
 
 An utterance of `Please deliver one large cheese pizza to me` should extract `one large cheese pizza` as the order, then also extract `1` for quantity and `large` for size.
 
-## Import example .json to begin app
+## Download JSON file for app
 
-1.  Download and save the [app JSON file](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-intents-only.json).
+Download and save the [app JSON file](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-intents-only.json).
+
+## Import JSON file for app
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
