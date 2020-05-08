@@ -15,27 +15,6 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Common Da
 
 This article shows how you can build a logic app that creates a task record whenever a new lead record is created.
 
-> [!NOTE]
-> The [Common Data Service connector](https://docs.microsoft.com/connectors/commondataservice/) 
-> replaces the soon-to-be-deprecated Dynamics 365 connector and has all the Dynamics 365 
-> connector's capabilities plus improvements that increase reliability. Common Data Service 
-> helps you securely store and manage data that's used by business apps, such as Dynamics 365.
-> 
-> * For new logic apps, use the Common Data Service connector, rather than the Dynamics 365 connector. 
-> After deprecation, Dynamics 365 triggers and actions won't be available for you to include in logic apps.
->
-> * For existing logic apps, you're not currently required to use the Common Data Service 
-> connector or stop using the Dynamics 365 connector, which continues to work at this time.
->
-> At some point, the [Common Data Service (*Current Environment*) connector](https://docs.microsoft.com/connectors/commondataserviceforapps/), 
-> which is not yet available for Azure Logic Apps, will replace both the Dynamics 365 connector and the 
-> Common Data Service connector. At that time, both these connectors will be removed. For more 
-> information, see these resources:<p>
->
-> * [Power Platform blog: Dynamics 365 Connector is deprecated](https://docs.microsoft.com/power-platform/important-changes-coming)
-> * [Learn: Connect and analyze your Dynamics 365 data by using the Power Platform and Common Data Service](https://docs.microsoft.com/learn/wwl/connect-analyze-dynamics-365-data/)
-  
-
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
