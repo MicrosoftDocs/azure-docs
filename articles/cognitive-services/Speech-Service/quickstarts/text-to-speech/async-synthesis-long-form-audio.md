@@ -16,7 +16,7 @@ ms.author: erhopf
 
 In this quickstart, you'll use the Long Audio API to asynchronously convert text to speech, and retrieve the audio output from a URI provided by the service. This REST API is ideal for content providers that need to synthesize audio from text greater than 5,000 character (or more than 10 minutes in length). For more information, see [Long Audio API](../../long-audio-api.md).
 
-Asynchronous synthesis for long-form audio can be used with [Public Neural Voices](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#neural-voices) and [Custom Neural Voices](../../how-to-custom-voice.md#custom-neural-voices), each of which supports a specific language and dialect. 
+Asynchronous synthesis for long-form audio can be used with [Public Neural Voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) and [Custom Neural Voices](../../how-to-custom-voice.md#custom-neural-voices), each of which supports a specific language and dialect. 
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ These modules are used to parse arguments, construct the HTTP request, and call 
 
 ## Get a list of supported voices
 
-This code allows you to get a full list of voices for a specific region/endpoint that you can use. Please check the [supported region/endpoit](../../long-audio-api.md#regions-and-endpoints). Add the code to `voice_synthesis_client.py`:
+This code allows you to get a full list of voices for a specific region/endpoint that you can use. Please check the [supported region/endpoint](../../long-audio-api.md). Add the code to `voice_synthesis_client.py`:
 
 ```python
 parser = argparse.ArgumentParser(description='Text-to-speech client tool to submit voice synthesis requests.')
