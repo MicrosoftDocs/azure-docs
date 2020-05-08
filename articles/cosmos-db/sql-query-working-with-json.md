@@ -12,13 +12,13 @@ ms.author: tisande
 
 In Azure Cosmos DB's SQL (Core) API, items are stored as JSON. The type system and expressions are restricted to deal only with JSON types. For more information, see the [JSON specification](https://www.json.org/).
 
-We'll summarize some important aspects of working with JSON.
+We'll summarize some important aspects of working with JSON:
 
 - JSON objects always begin with a `{` left brace and end with a `}` right brace
 - You can have JSON properties [nested](#nested-properties) within one another
-- JSON properties can have arrays values
-- JSON properties are case sensitive
-- JSON properties can have any string value (including spaces or characters that aren't letters)
+- JSON property values can be arrays
+- JSON property names are case sensitive
+- JSON property name can be any string value (including spaces or characters that aren't letters)
 
 ## Nested properties
 
@@ -95,7 +95,7 @@ WHERE f.children[0].givenName = "Jesse"
 
 In most cases, however, you'll use a [subquery](sql-query-subquery.md) or [self-join](sql-query-join.md) when working with arrays.
 
-For example, here's a document that shows the bank account balance of a customer over each month during 2020.
+For example, here's a document that shows the daily balance of a customer's bank account.
 
 ```json
 {
@@ -122,7 +122,7 @@ For example, here's a document that shows the bank account balance of a customer
 }
 ```
 
-If you wanted to run a query that showed all the customers that had a negative balance at some point during 2020, it would use [EXISTS](sql-query-subquery.md#exists-expression) with a subquery:
+If you wanted to run a query that showed all the customers that had a negative balance at some point, you could use [EXISTS](sql-query-subquery.md#exists-expression) with a subquery:
 
 ```sql
 SELECT c.id
@@ -255,6 +255,8 @@ The results are:
       }
     }]
 ```
+
+### Aliasing with reserved keywords or special characters
 
 You can't use aliasing to project a value as a property name with a space, special character, or reserved word. If you wanted to change a value's projection to, for example, have a property name with a space, you could use a [JSON expression](#json-expressions).
 

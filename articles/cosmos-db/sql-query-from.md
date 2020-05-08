@@ -4,7 +4,7 @@ description: Learn about the SQL syntax, and example for FROM clause for Azure C
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: -5/08/2020
+ms.date: 05/08/2020
 ms.author: tisande
 
 ---
