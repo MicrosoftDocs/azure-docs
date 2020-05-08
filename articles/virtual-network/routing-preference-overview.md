@@ -49,7 +49,7 @@ The new routing choice *Internet routing* minimizes travel on the Microsoft glob
 
 ## Supported services
 
-Routing preference choice is enabled on a public IP address, which can be assigned to an Azure resource for inbound and outbound traffic to internet. Some of the resources you can associate a public IP address with routing preference type are:
+Public IP with Routing preference choice “Microsoft Global Network” can be associated with any Azure services. However, Public IP with Routing preference choice **Internet** can be associated with the following azure resources:
 
 * Virtual machine
 * Virtual machine scale set
@@ -82,7 +82,7 @@ The price difference between both options is reflected in the internet egress da
 
 ## Availability
 
-Routing Preference support is available in the following regions for services such as virtual machine and internet-facing load balancer that use a public IP for internet egress - North Europe, West Europe, France Central, UK South, Central US, East US, East US 2, North Central US, South Central US, West US, West US 2, West Central US, Southeast Asia, and Australia East.
+Routing Preference support is available in the following regions for services such as virtual machine and internet-facing load balancer that use a public IP for internet egress - North Europe, West Europe, France South, UK South, East US, North Central US, South Central US, West US,  West Central US, Southeast Asia, Germany West Central, Switzerland West, Japan East, and Japan West.
 
 Routing Preference support for storage account is available in the following Azure regions - France South, North Central US, and West Central US.
 ## Limitations
