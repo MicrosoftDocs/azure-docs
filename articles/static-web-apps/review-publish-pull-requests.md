@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: yolasors
 ---
 
-# Review pull requests in pre-production environments in Azure Static Web Apps
+# Review pull requests in pre-production environments in Azure Static Web Apps Preview
 
 This article demonstrates how to use pre-production environments to review changes to applications deployed with [Azure Static Web Apps](overview.md).
 

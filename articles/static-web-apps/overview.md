@@ -10,7 +10,7 @@ ms.author: cshoe
 # Customer intent: As a developer, I want to publish a website from a GitHub repository so that the app is publicly available on the web.
 ---
 
-# What is Azure Static Web Apps (Preview)?
+# What is Azure Static Web Apps Preview?
 
 Azure Static Web Apps is a service that automatically builds and deploys full stack web apps to Azure from a GitHub repository.
 

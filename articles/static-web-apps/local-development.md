@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ---
 
-# Set up local development for Azure Static Web Apps
+# Set up local development for Azure Static Web Apps Preview
 
 An Azure Static Web Apps instance is made up of two different types of applications. The first is a web app for your static content. Web apps are often created with front-end frameworks and libraries or with static site generators. The second aspect is the API, which is an Azure Functions app that provides a rich back-end development environment.
 

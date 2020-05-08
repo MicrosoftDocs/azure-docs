@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-# Routes in Azure Static Web Apps
+# Routes in Azure Static Web Apps Preview
 
 Routing in Azure Static Web Apps defines back-end routing rules and authorization behavior for both static content and APIs. The rules are defined as an array of rules in the _routes.json_ file.
 
