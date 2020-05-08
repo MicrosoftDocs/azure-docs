@@ -6,14 +6,12 @@
     href: overview.md
   - name: Differences from previous release
     href: overview-differences.md
-- name: Quickstart
-  items:
-  - name: Get started with Azure Digital Twins
-    href: quickstart.md
 - name: Tutorials
   items:
   - name: Code a client app
     href: tutorial-code.md
+  - name: Explore with a command line tool
+    href: tutorial-command-line-tool.md
   - name: Build an end-to-end solution
     href: tutorial-end-to-end.md
 - name: Concepts
