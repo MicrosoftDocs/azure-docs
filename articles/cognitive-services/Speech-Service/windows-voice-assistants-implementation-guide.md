@@ -72,7 +72,7 @@ The `ConversationalAgentSession` is a class in the Windows SDK that allows your 
 
 ### Listen to the two activation signals: the OnBackgroundActivated and OnSignalDetected
 
-Windows will signal your app when it detects a keyword in one of two ways. If the app is not active (ie you do not have a reference to a non-disposed instance of `ConversationalAgentSession`), then it will launch your app and call the OnBackgroundActivated method in the App.xaml.cs file of your application. If the event arguments' `BackgroundActivatedEventArgs.TaskInstance.Task.Name` field matches the string "AgentBackgroundTrigger", then the application startup was triggered by voice activation. The application needs to override this method and retrieve an instance of ConversationalAgentSession to signal to Windows that is now active. When the application is active, Windows will signal the occurrence of a voice activation using the `ConversationalAgentSession.OnSignalDetected` event. Add an event handler to this event as soon as you retrieve the `ConversationalAgentSession`.
+Windows will signal your app when it detects a keyword in one of two ways. If the app is not active (that is, you do not have a reference to a non-disposed instance of `ConversationalAgentSession`), then it will launch your app and call the OnBackgroundActivated method in the App.xaml.cs file of your application. If the event arguments' `BackgroundActivatedEventArgs.TaskInstance.Task.Name` field matches the string "AgentBackgroundTrigger", then the application startup was triggered by voice activation. The application needs to override this method and retrieve an instance of ConversationalAgentSession to signal to Windows that is now active. When the application is active, Windows will signal the occurrence of a voice activation using the `ConversationalAgentSession.OnSignalDetected` event. Add an event handler to this event as soon as you retrieve the `ConversationalAgentSession`.
 
 ## Keyword verification
 
@@ -89,7 +89,7 @@ inputNode.AddOutgoingConnection(outputNode);
 audioGraph.QuantumStarted += OnQuantumStarted;
 ```
 
-Note: The leading audio included in the audio buffer can cause keyword verification to fail. To fix this issue, it is recommended to trim the beginning of the audio buffer before sending the audio for keyword verification. This initial trim should be tailored to each assistant.
+Note: The leading audio included in the audio buffer can cause keyword verification to fail. To fix this issue, trim the beginning of the audio buffer before you send the audio for keyword verification. This initial trim should be tailored to each assistant.
 
 ### Launch in the foreground
 
@@ -127,7 +127,7 @@ conversationalAgentSession.SystemStateChanged += (s, e) =>
 
 ### Detecting above lock activation user preference
 
-The application entry in the Voice Activation Privacy settings page has a toggle for above lock functionality. For your app to be able to launch above lock, the user will need to turn this setting on.The status of above lock permissions is also stored in the ActivationSignalDetectionConfiguration object. The AvailabilityInfo.HasLockScreenPermission status reflects whether the user has given above lock permission. If this setting is disabled, a voice application can prompt the user to navigate to the appropriate settings page at the link "ms-settings:privacy-voiceactivation" with instructions on how to enable above-lock activation for the application.
+The application entry in the Voice Activation Privacy settings page has a toggle for above lock functionality. For your app to be able to launch above lock, the user will need to turn this setting on. The status of above lock permissions is also stored in the ActivationSignalDetectionConfiguration object. The AvailabilityInfo.HasLockScreenPermission status reflects whether the user has given above lock permission. If this setting is disabled, a voice application can prompt the user to navigate to the appropriate settings page at the link "ms-settings:privacy-voiceactivation" with instructions on how to enable above-lock activation for the application.
 
 ## Closing the application
 

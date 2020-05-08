@@ -32,7 +32,7 @@ The documentation provided with the sample app walks through the code path of vo
 
 ### How do I contact Microsoft for resources like Limited Access Feature tokens and keyword model files?
 
-
+Contact winvoiceassistants@microsoft.com to request these resources.
 
 ### My app is showing in a small window when I activate it by voice. How can I transition from the compact view to a full application window?
 

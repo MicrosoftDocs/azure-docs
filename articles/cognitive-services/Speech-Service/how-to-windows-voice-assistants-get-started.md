@@ -28,7 +28,7 @@ To start developing a voice assistant for Windows, you will need to mak
 
 Some resources necessary for a completely customized voice agent on Windows will require resources from Microsoft. The [UWP Voice Assistant Sample](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) provides sample versions of these resources for initial development and testing, so this section is unnecessary for initial development.
 
-- **Keyword model:** Voice activation requires a keyword model from Microsoft in the form of a .bin file. Note that the .bin file provided in the UWP Voice Assistant Sample is trained on the keyword "Contoso".
+- **Keyword model:** Voice activation requires a keyword model from Microsoft in the form of a .bin file. The .bin file provided in the UWP Voice Assistant Sample is trained on the keyword "Contoso".
 - **Limited Access Feature Token:** Since the ConversationalAgent APIs provide access to microphone audio, they are protected under Limited Access Feature restrictions. To use a Limited Access Feature, you will need to obtain a Limited Access Feature token connected to the package identity of your application from Microsoft.
 
 ## Establish a dialog service
@@ -40,18 +40,18 @@ For a complete voice assistant experience, the application will need a dialog se
 - Provide the text to a bot
 - Translate the text response of the bot to an audio output
 
-The following provides the requirements to create a simple dialog service using Direct Line Speech.
+These are the requirements to create a basic dialog service using Direct Line Speech.
 
 - **Speech Services subscription:** A subscription for Cognitive Speech Services for speech-to-text and text-to-speech conversions. Try Speech Services for free [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started).
-- **Bot Framework bot:**  A bot created using Bot Framework version 4.2 or above that's subscribed to to [Direct Line Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) to enable voice input and output. [This guide](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) contains step-by-step instructions to make a simple "echo bot" and subscribe it to Direct Line Speech. You can also go go [here](https://blog.botframework.com/2018/05/07/build-a-microsoft-bot-framework-bot-with-the-bot-builder-sdk-v4/) for steps on how to create a customized bot, then follow the same steps [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) to subscribe it to Direct Line Speech, but with your new bot rather than the "echo bot".
+- **Bot Framework bot:**  A bot created using Bot Framework version 4.2 or above that's subscribed to [Direct Line Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) to enable voice input and output. [This guide](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) contains step-by-step instructions to make an "echo bot" and subscribe it to Direct Line Speech. You can also go [here](https://blog.botframework.com/2018/05/07/build-a-microsoft-bot-framework-bot-with-the-bot-builder-sdk-v4/) for steps on how to create a customized bot, then follow the same steps [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk) to subscribe it to Direct Line Speech, but with your new bot rather than the "echo bot".
 
 ## Try out the sample app
 
-With the subscription key from your Speech Services subscription and bot id from your echo bot, you are ready to try out the [UWP Voice Assistant sample](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample). Follow the instructions in the readme to run the app and enter your credentials.
+With your Speech Services subscription key and echo bot's bot ID, you're ready to try out the [UWP Voice Assistant sample](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample). Follow the instructions in the readme to run the app and enter your credentials.
 
 ## Create your own voice assistant for Windows
 
-Once you have received your Limited Access Feature token and bin file from Microsoft, you can begin on your own voice assistant on Windows.
+Once you've received your Limited Access Feature token and bin file from Microsoft, you can begin on your own voice assistant on Windows.
 
 ## Next steps
 
