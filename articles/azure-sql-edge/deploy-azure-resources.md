@@ -239,4 +239,4 @@ az ml workspace create -w $MyWorkSpace -g $ResourceGroup
 
 ## Next Steps
 
--[Setting up IoT Edge modules and connections](set-up-iot-edge-modules.md)
+- [Setting up IoT Edge modules and connections](set-up-iot-edge-modules.md)
