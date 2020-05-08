@@ -42,20 +42,20 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
 1. Select **Next: Networking** and skip.
 
-> [!NOTE] 
-> Support for private link will come later.
->
+   > [!NOTE] 
+   > Support for private link will come later.
+   >
 
 1. Select **Next: Advanced**.
    
    You can keep the default settings or change them as appropriate. If you turn on **Allow access only via TLS**, you must use TLS to access the new cache from your application.
 
-> [!NOTE] 
-> Redis Modules aren't supported in Enterprise SSD tier yet. If you plan to use a Redis Module,
-> be sure to choose an Enterprise tier cache.
->
-
    ![Enterprise tier advanced](media/cache-create/enterprise-tier-advanced.png) 
+
+   > [!NOTE] 
+   > Redis Modules aren't supported in Enterprise SSD tier yet. If you plan to use a Redis Module,
+   > be sure to choose an Enterprise tier cache.
+   >
    
 1. Select **Next: Tags** and skip.
 
