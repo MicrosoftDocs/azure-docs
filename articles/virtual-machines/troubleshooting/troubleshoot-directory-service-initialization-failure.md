@@ -26,7 +26,7 @@ This article provides steps to resolve issues where an Active Directory domain c
 When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, the screenshot shows that the VM needs to restart due to an error, displaying the stop code **0xC00002E1** in Windows Server 2008 R2, or **0xC00002E2** in Windows Server 2012 or later.
 
 ![Windows Server 2012 startup screen states "Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you.".](./media/troubleshoot-directory-service-initialization-failure/1.png)
- 
+
 ## Cause
 
 Error code **0xC00002E2** represents **STATUS_DS_INIT_FAILURE**, and error code **0xC00002E1** represents **STATUS_DS_CANT_START**. Both errors occur when there's an issue with the directory service.
@@ -36,7 +36,7 @@ As the OS boots up, it is then forced to restart automatically by the Local Secu
 This error can be caused by any of the following conditions:
 
 - There's no access to the disk holding the local AD database (**NTDS.DIT**).
-- There isn't any free space on the disk holding the local AD database (NTDS.DIT).
+- The disk holding the local AD database (NTDS.DIT) has run out of free space.
 - The local AD database (NTDS.DIT) file is missing.
 - The VM has multiple disks and the Storage Area Network (SAN) policy is configured improperly. The SAN policy isn't set to **ONLINEALL**, and the non-OS disks are attached in offline mode on the disk manager.
 - The local AD database (NTDS.DIT) file is corrupt.
@@ -49,13 +49,9 @@ This error can be caused by any of the following conditions:
 1. Free space on disk.
 1. Check that the drive containing the AD database is attached.
 1. Enable Directory Services Restore Mode.
+1. **Recommended**: Before you rebuild the VM, enable serial console and memory dump collection.
 1. Rebuild the VM.
 1. Reconfigure the SAN Policy.
-1. Collect the Memory Dump File.
-
-   **Recommended**: Before you rebuild the VM, enable serial console and memory dump collection.
-
-1. Rebuild the VM.
 
    > [!NOTE]
    > When encountering this error, the Guest OS is not operational. You will be troubleshooting in offline mode to resolve the issue.
@@ -71,21 +67,17 @@ As the disk is now attached to a repair VM, verify that the disk holding the Act
 
 1. Check whether the disk is full by right-clicking on the drive and selecting **Properties**.
 1. If the disk has less than 300Mb of free space, [expand it to a maximum of 1 Tb using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
-1. Once the disk has reached 1Tb of used space, perform a disk cleanup.
+1. If the disk has reached 1Tb of used space, perform a disk cleanup.
 
    1. Use PowerShell to [detach the data disk](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell) from the broken VM.
    1. Once detached from the broken VM, [attach the data disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm) to a functioning VM.
    1. Use the [Disk Cleanup tool](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) to free up additional space.
 
-**Optional** - If more space is needed, open an CMD instance and perform a de-fragmentation on the drive:
+1. **Optional** - If more space is needed, open an CMD instance and enter the `defrag <LETTER ASSIGNED TO THE OS DISK>: /u /x /g` command to perform a de-fragmentation on the drive:
 
-   `defrag <LETTER ASSIGNED TO THE OS DISK>: /u /x /g`
+  * In the command, replace `<LETTER ASSIGNED TO THE OS DISK>` with the OS Disk's letter. For example, if the disk letter is `F:`, then the command would be `defrag F: /u /x /g`.
 
-Replace `< LETTER ASSIGNED TO THE OS DISK >` with the OS Disk's letter, such as `F:`.
-
-**Example:** `F: /u /x /g`
-
-Depending upon the level of fragmentation, the de-fragmentation could take hours. 
+  * Depending upon the level of fragmentation, the de-fragmentation could take hours.
 
 If there is enough space on the disk, proceed to the next task.
 
@@ -96,7 +88,7 @@ If there is enough space on the disk, proceed to the next task.
    1. Load registry file:
 
       `REG LOAD HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM`
-   
+
       The designation `f:` assumes that the disk is drive `F:`. Use the drive letter belonging to the drive containing the OS disk.
 
    1. Determine the drive letter and folder of **NTDS.DIT**:
@@ -135,12 +127,55 @@ Setup the VM to boot on **Directory Services Restore Mode (DSRM)** mode to bypas
 1. Enable the `safeboot DsRepair` flag on the booting partition:
 
    `bcdedit /store <Drive Letter>:\boot\bcd /set {<Identifier>} safeboot dsrepair`
-   
+
    Replace `< Drive Letter >` and `< Identifier >` with the values determined in the previous steps.
 
 1. Query the booting options again to ensure that your change was properly set.
 
    ![The screenshot shows an elevated CMD instance after enabling the safeboot DsRepair flag.](./media/troubleshoot-directory-service-initialization-failure/3.png)
+
+### Recommended: Before you rebuild the VM, enable serial console and memory dump collection
+
+To enable memory dump collection and Serial Console, run the following script by opening an elevated command prompt session (Run as administrator), and run the following commands.
+
+1. Enable the Serial Console:
+
+  ```
+  bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
+  bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+  ```
+
+1. Verify that the free space on the OS disk is at least equal to the memory size (RAM) on the VM.
+
+  1. If there's not enough space on the OS disk, change the location the location where the memory dump file will be created, and refer that to any data disk attached to the VM that has enough free space.
+
+     To change the location, replace `%SystemRoot%` with the drive letter (such as, `F:`) of the data disk in the following commands.
+
+  #### The following is a suggested configuration to enable OS Dump:
+
+  **Load Broken OS Disk**:
+
+  `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
+
+  **Enable on ControlSet001**:
+
+  ```
+  REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
+  REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+  REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+  ```
+
+  **Enable on ControlSet002**:
+
+  ```
+  REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
+  REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+  REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+  ```
+
+  **Unload Broken OS Disk**:
+
+  `REG UNLOAD HKLM\BROKENSYSTEM`
 
 ### Rebuild the VM
 
@@ -148,7 +183,7 @@ Setup the VM to boot on **Directory Services Restore Mode (DSRM)** mode to bypas
 
 ### Reconfigure the Storage Area Network Policy
 
-1. When booting in DSRM mode, the only user available to log in is the recovery administrator which was used when the VM was promoted to a domain controller. All other users will show an authentication error. 
+1. When booting in DSRM mode, the only user available to log in is the recovery administrator which was used when the VM was promoted to a domain controller. All other users will show an authentication error.
 
    1. If no other DC is available, you must login locally using `.\administrator` or `machinename\administrator` and the DSRM password.
 
@@ -172,7 +207,7 @@ Setup the VM to boot on **Directory Services Restore Mode (DSRM)** mode to bypas
       Current Read-only State : No
       Read-only : No
       Boot Disk : No
-      Pagefile Disk : No<
+      Pagefile Disk : No
       Hibernation File Disk : No
       Crashdump Disk : No
       Clustered Disk : No
@@ -184,8 +219,6 @@ Setup the VM to boot on **Directory Services Restore Mode (DSRM)** mode to bypas
       SAN Policy : Online All
       ```
 
-   1. If there is no need to change the SAN Policy, go to the next task.
-   
 1. Once the issue is fixed, ensure that the flag `DsRepair safeboot` is removed:
 
    `bcdedit /deletevalue {default} safeboot dsrepair`
@@ -194,70 +227,5 @@ Setup the VM to boot on **Directory Services Restore Mode (DSRM)** mode to bypas
 
    > [!NOTE]
    > If your VM was just migrated from on-premise and you want to migrate more domain controllers from on-premise to Azure, you should consider following the steps in the article below to prevent this issue from happening in future migrations:
-   > 
+   >
    > [How to upload existing on-premises Hyper-V domain controllers to Azure by using Azure PowerShell](https://support.microsoft.com/help/2904015)
-
-### Collect the Memory Dump File
-
-To resolve this problem, you would need first to gather the memory dump file for the crash and contact support with the memory dump file. To collect the dump file, follow these steps:
-
-**Attach the OS disk to a new Repair VM**
-
-1. Use [steps 1-3 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to prepare a new Repair VM.
-1. Use a Remote Desktop Connection to connect to the Repair VM.
-
-**Locate the dump file and submit a support ticket**
-
-1. On the repair VM, go to Windows folder in the attached OS disk. If the driver letter that is assigned to the attached OS disk is `F:`, then go to `F:\Windows`.
-1. Locate the **memory.dmp** file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the memory dump file.
-
-   > [!NOTE]
-   > If you cannot find the dump file, complete the below tasks to enable memory dump collection and Serial Console, then return to this section and repeat the above steps to collect the memory dump file.
-
-### Recommended: Before you rebuild the VM, enable serial console and memory dump collection
-
-To enable memory dump collection and Serial Console, run the following script by opening an elevated command prompt session (Run as administrator), and run the following commands.
-
-1. Enable the Serial Console: 
-
-   ```
-   bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
-   bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200 
-   ```
-
-1. Verify that the free space on the OS disk is at least equal to the memory size (RAM) on the VM.
-
-   1. If there's not enough space on the OS disk, change the location the location where the memory dump file will be created, and refer that to any data disk attached to the VM that has enough free space.
-   
-      To change the location, replace `%SystemRoot%` with the drive letter (such as, `F:`) of the data disk in the following commands.
-
-   The following is a suggested configuration to enable OS Dump:
-
-   **Load Broken OS Disk**:
-
-   `REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM`
-
-   **Enable on ControlSet001**:
-   
-   ```
-   REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
-   REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
-   REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
-   ```
-
-   **Enable on ControlSet002**:
-
-   ```
-   REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
-   REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
-   REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
-   ```
-
-   **Unload Broken OS Disk**:
-
-   `REG UNLOAD HKLM\BROKENSYSTEM`
-
-### Rebuild the VM
-
-   Use [step 5 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to reassemble the VM.
-
