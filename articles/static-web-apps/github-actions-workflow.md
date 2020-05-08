@@ -121,12 +121,12 @@ The step named `Build and Deploy` builds and deploys to your Azure Static Web Ap
 with:
     azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
     repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
-  action: 'upload'
-  ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
-  app_location: '/' # App source code path
-  api_location: 'api' # Api source code path - optional
-  app_artifact_location: 'dist' # Built app content directory - optional
-  ###### End of Repository/Build Configurations ######
+    action: 'upload'
+    ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+    app_location: '/' # App source code path
+    api_location: 'api' # Api source code path - optional
+    app_artifact_location: 'dist' # Built app content directory - optional
+    ###### End of Repository/Build Configurations ######
 ```
 
 | Property | Description | Required |
