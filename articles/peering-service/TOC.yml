@@ -7,7 +7,7 @@
 - name: Tutorials
   items:
   - name: Register a Peering Service connection
-    href: powershell.md
+    href: azure-portal.md
   - name: Create a Peering Service Connection
     href: create-connection.md
   - name: Measure Peering Service connection telemetry
@@ -26,8 +26,8 @@
   items:
   - name: Register Peering Service
     items:
-      - name: Azure portal
-        href: azure-portal.md
+      - name: Azure PowerShell
+        href: powershell.md
       - name: Azure CLI
         href: cli.md
 - name: References
