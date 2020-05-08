@@ -16,11 +16,11 @@ In this tutorial you will learn:
 > * Using Visual Studio to create a Holographic App that can be deployed to HoloLens
 > * Add the necessary code snippets and project settings to combine local rendering with remotely rendered content
 
-This tutorial focuses on adding the necessary bits to a native `Holographic App` sample to combine local rendering with Azure Remote Rendering. It leaves out the parts for proper error- and status display inside the app (for example through text panels), because adding UI elements in native C++ is beyond the scope of this sample. Building a dynamic text panel from scratch is cumbersome as you need to deal with writing text to native `DirectX11` resources via `DirectWrite` and then render these resources as 3d overlays in the scene using custom shaders. A good starting point is class `StatusDisplay`, which is part of the
+This tutorial focuses on adding the necessary bits to a native `Holographic App` sample to combine local rendering with Azure Remote Rendering. The only type of status feedback in this app is through the debug output panel inside Visual Studio, so it is recommended to start the sample from inside Visual Studio. Adding proper in-app feedback is beyond the scope of this sample, because building a dynamic text panel from scratch involves a lot of coding. A good starting point is class `StatusDisplay`, which is part of the
 [Remoting Player sample project on GitHub](https://github.com/microsoft/MixedReality-HolographicRemoting-Samples/tree/master/player/common/Content). In fact, the pre-canned version of this tutorial uses a local copy of that class.
 
 > [!TIP]
-> The [ARR samples repository](https://github.com/Azure/azure-remote-rendering) contains the outcome of this tutorial as a Visual Studio project that is ready to use. It is also enriched with proper error- and status reporting through UI class `StatusDisplay`. Inside the tutorial, all ARR specific additions are scoped by `#ifdef USE_REMOTE_RENDERING` / `#endif`, so it is easy to see what has been modified.
+> The [ARR samples repository](https://github.com/Azure/azure-remote-rendering) contains the outcome of this tutorial as a Visual Studio project that is ready to use. It is also enriched with proper error- and status reporting through UI class `StatusDisplay`. Inside the tutorial, all ARR specific additions are scoped by `#ifdef USE_REMOTE_RENDERING` / `#endif`, so it is easy to identify the Remote Rendering additions.
 
 ## Prerequisites
 
@@ -323,11 +323,19 @@ void HolographicAppMain::StartModelLoading()
             m_modelLoadResult = *async->Status();
             m_modelLoadFinished = true; // successful if m_modelLoadResult==RR::Result::Success
             m_loadModelAsync = nullptr;
-        });
+            char buffer[1024];
+            sprintf_s(buffer, "Remote Rendering: Model loading completed. Result: %s\n", RR::ResultToString(m_modelLoadResult));
+            OutputDebugStringA(buffer);
+            });
         m_loadModelAsync->ProgressUpdated([this](float progress)
         {
             // progress callback
             m_modelLoadingProgress = progress;
+
+            // output progress percentage to VS output
+            char buffer[1024];
+            sprintf_s(buffer, "Remote Rendering: Model loading progress: %.1f\n", m_modelLoadingProgress * 100.f);
+            OutputDebugStringA(buffer);
         });
     }
 }
@@ -338,7 +346,22 @@ void HolographicAppMain::SetNewState(AppConnectionStatus state, RR::Result error
 {
     m_currentStatus = state;
     m_connectionResult = error;
-    // status output here...
+
+    // some log for the VS output panel:
+    const char* appStatus = nullptr;
+
+    switch (state)
+    {
+        case AppConnectionStatus::Disconnected: appStatus = "Disconnected"; break;
+        case AppConnectionStatus::CreatingSession: appStatus = "CreatingSession"; break;
+        case AppConnectionStatus::Connecting: appStatus = "Connecting"; break;
+        case AppConnectionStatus::Connected: appStatus = "Connected"; break;
+        case AppConnectionStatus::ConnectionFailed: appStatus = "ConnectionFailed"; break;
+    }
+
+    char buffer[1024];
+    sprintf_s(buffer, "Remote Rendering: New status: %s, result: %s\n", appStatus, RR::ResultToString(error));
+    OutputDebugStringA(buffer);
 }
 
 
@@ -427,9 +450,9 @@ The last thing to do is invoking the rendering of the remote content. We have to
 
 ## Run the sample
 
-The sample should now be in a state to compile and run.
+The sample should now be in a state where it compiles and runs.
 
-When the sample runs properly, it shows the rotating cube right in front of you, and after some session creation and model loading, it renders the engine model located at current head position. Session creation and model loading may take up to a few minutes. There is no error- or state displaying integrated into this demo. So if something goes wrong (for example, authentication), there is no visible feedback and the engine model just won't appear. It is thus recommended to start the sample from inside Visual Studio and trace state transitions with breakpoints.
+When the sample runs properly, it shows the rotating cube right in front of you, and after some session creation and model loading, it renders the engine model located at current head position. Session creation and model loading may take up to a few minutes. The current status is only written to Visual Studio's output panel. It is thus recommended to start the sample from inside Visual Studio.
 
 > [!CAUTION]
 > The client disconnects from the server when the tick function is not called for a few seconds. So triggering breakpoints can very easily cause the application to disconnect.
