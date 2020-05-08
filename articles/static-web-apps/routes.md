@@ -29,14 +29,10 @@ The following table lists the appropriate location to put your _routes.json_ fil
 
 |Framework / library | Location  |
 |---------|----------|
-| Angular | _src_   |
+| Angular | _assets_   |
 | React   | _public_  |
 | Svelte  | _public_   |
 | Vue     | _public_ |
-
-### Angular
-
-Angular apps do not copy all the files in the _src_ folder to the artifact folder by default. To ensure the _routes.json_ file is copied to the correct location, point the GitHub Actions workflow directly to your _routes.json_ file via the [`routes_location` workflow customization](github-actions-workflow.md#route-file-location).
 
 ## Defining routes
 
