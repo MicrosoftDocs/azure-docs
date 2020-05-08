@@ -65,7 +65,7 @@ The Jupyter Notebook provides a browser-based IDE for data exploration and model
 
 To start the Jupyter Notebook, select the **Jupyter Notebook** icon on the **Start** menu or on the desktop. In the DSVM command prompt, you can also run the command ```jupyter notebook``` from the directory where you have existing notebooks or where you want to create new notebooks.  
 
-After you start Jupyter, you should see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
+After you start Jupyter, navigate to the `/notebooks` directory for example notebooks that are pre-packaged into the DSVM. Now you can:
 
 * Select the notebook to see the code.
 * Run each cell by selecting Shift+Enter.
