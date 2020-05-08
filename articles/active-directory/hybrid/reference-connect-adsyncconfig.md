@@ -54,25 +54,24 @@ Searches in AD starting from the SearchBase parameter and returns all objects, f
 ### EXAMPLES
 
 #### EXAMPLE 1
-```
 Find objects with disabled inheritance in 'Contoso' domain (by default returns 'organizationalUnit' objects only)
 ```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso'
+```
 
 #### EXAMPLE 2
-```
 Find 'user' objects with disabled inheritance in 'Contoso' domain
 ```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso' -ObjectClass 'user'
+```
 
 #### EXAMPLE 3
-```
 Find all types of objects with disabled inheritance in a OU
 ```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
+```
+
+
 
 ### PARAMETERS
 
