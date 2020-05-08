@@ -2,7 +2,7 @@
 title: Glossary - LUIS
 description: The glossary explains terms that you might encounter as you work with the LUIS API Service.
 ms.topic: reference
-ms.date: 04/30/2020
+ms.date: 05/08/2020
 ---
 
 # Language understanding glossary of common vocabulary and concepts
@@ -252,6 +252,10 @@ Renamed to [authoring key](#authoring-key).
 ## Quota
 
 LUIS quota is the limitation of the Azure subscription tier. The LUIS quota can be limited by both requests per second (HTTP Status 429) and total requests in a month (HTTP Status 403).
+
+## Schema
+
+Your schema includes your intents and entities along with the subentities. The schema is initially planned for then iterated over time. The schema doesn't include app settings, features, or example utterances. 
 
 ## Sentiment Analysis
 Sentiment analysis provides positive or negative values of the utterances provided by [Text Analytics](../text-analytics/overview.md).
