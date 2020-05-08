@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title:  Create custom SDKs for Azure Digital Twins with Autorest
+title:  Create custom SDKs for Azure Digital Twins with AutoRest
 titleSuffix: Azure Digital Twins
-description: See how to work with the Azure Digital Twins APIs, including via SDK.
+description: See how to generate custom SDKs, to use Azure Digital Twins with languages other than C#.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 4/24/2020
@@ -15,7 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Create custom SDKs for Azure Digital Twins with Autorest
+# Create custom SDKs for Azure Digital Twins with AutoRest
+
+Right now, the only published SDK for interacting with the Azure Digital Twins APIs is in C#. You can read about the C# SDK, and the APIs in general, in [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md). If you are working in another language, this article will show you how to generate your own SDK in the language of your choice, using AutoRest.
 
 To generate an SDK, you will need:
 * [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (version 3 isn't currently supported)
@@ -57,8 +59,8 @@ This section gives instructions on how to build the SDK as a class library, whic
 9. Select the files in the *Models* folder of the generated SDK and press "Ok"
 
 To build the SDK successfully, your project will need these references:
-* Microsoft.Rest.ClientRuntime 
-* Microsoft.Rest.ClientRuntime.Azure
+* `Microsoft.Rest.ClientRuntime`
+* `Microsoft.Rest.ClientRuntime.Azure`
 
 To add these, open *Tools > NuGet Package Manager > Manage NuGet Packages for Solution...*.
 
@@ -82,7 +84,7 @@ REST API calls generally return strongly-typed objects. However, because Azure D
 
 #### Error handling
 
-Whenever an error occurs in the SDK (including HTTP errors such as 404), the SDK will throw an exception. As a result, it is important to encapsulate all API calls within try/catch blocks.
+Whenever an error occurs in the SDK (including HTTP errors such as 404), the SDK will throw an exception. For this reason, it's important to encapsulate all API calls within try/catch blocks.
 
 Here is a code snippet that tries to add a twin and catches any errors in this process:
 
@@ -175,3 +177,8 @@ try
     Console.WriteLine($"*** Error in twin query: ${e.Response.StatusCode}");
 }
 ```
+
+## Next steps
+
+Walk through the steps to create a client app where you can use your SDK:
+* [Tutorial: Code a client app](tutorial-code.md)

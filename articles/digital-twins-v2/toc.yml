@@ -10,7 +10,7 @@
   items:
   - name: Code a client app
     href: tutorial-code.md
-  - name: Explore with a command line tool
+  - name: Explore with a command-line tool
     href: tutorial-command-line-tool.md
   - name: Build an end-to-end solution
     href: tutorial-end-to-end.md
@@ -40,6 +40,8 @@
     href: how-to-create-azure-function.md
   - name: Use the APIs and SDKs
     href: how-to-use-apis-sdks.md
+  - name: Create custom SDKs with AutoRest
+    href: how-to-create-custom-sdks.md
   - name: Manage a twin model
     href: how-to-manage-model.md
   - name: Manage a digital twin

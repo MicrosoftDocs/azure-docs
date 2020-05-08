@@ -28,7 +28,7 @@ landingContent:
             url: tutorial-code.md
       - linkListType: tutorial
         links:
-          - text: Explore Azure Digital Twins with a command line tool
+          - text: Explore Azure Digital Twins with a command-line tool
             url: tutorial-command-line-tool.md
       - linkListType: tutorial
         links:
