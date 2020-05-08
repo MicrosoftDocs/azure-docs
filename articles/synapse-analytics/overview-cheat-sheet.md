@@ -25,7 +25,7 @@ The Azure Synapse Analytics cheat sheet will guide you through the basic concept
 ## Concepts
 | Nouns and verbs                         | What it does       |
 |:---                                 |:---                 |
-| **Synapse Workspace (preview)** | A securable collaboration boundary for doing cloud-based enterprise analytics in Azure. A workspace is deployed in a specific region and has an associated ADLSg2 account and file system (for storing temporary data). A workspace is under a resource group. |
+| **Synapse Workspace (preview)** | A securable collaboration boundary for doing cloud-based enterprise analytics in Azure. A workspace is deployed in a specific region and has an associated ADLS Gen2 account and file system (for storing temporary data). A workspace is under a resource group. |
 | **SQL Analytics**   | Run analytics with pools or with on-demand capabilities.  |
 | **SQL pool**   | 0-to-N SQL provisioned resources with their corresponding databases can be deployed in a workspace. Each SQL pool has an associated database. A SQL pool can be scaled, paused and resumed manually or automatically. A SQL pool can scale from 100 DWU up to 30,000 DWU.       |
 | **SQL on-demand (preview)**   | Distributed data processing system built for large-scale data that lets you run T-SQL queries over data in data lake. It is serverless so you don't need to manage infrastructure.       |
