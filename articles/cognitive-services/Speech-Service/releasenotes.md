@@ -14,6 +14,46 @@ ms.custom: seodec18
 ---
 
 # Release notes
+## Speech SDK 1.12.0: 2020-May release
+
+**SPX Azure Speech Services Command Console**
+- **SPX** is a new command line tool that allows you to perform recognition, synthesis, translation, batch transcription, and custom speech management from the command line. Use it to test the Azure Speech service, or to script the Speech service tasks you need to perform. Download the tool and read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-overview).
+
+**New features**
+
+- **Go**: New Go language support for [speech recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone) and [custom voice assistant](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants). Set up your dev environment [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform).
+- **JavaScript**: Added Browser support for Text-To-Speech. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file?pivots=programming-language-JavaScript).
+- **C++, C#, Java**: New KeywordRecognizer object and APIs supported on Windows, Android, Linux & iOS platforms. Read documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-overview). For sample code, see the Samples section below. 
+- **Java**: Added multi-device conversation with translation support. See the reference doc [here](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription).
+
+**Improvements & Optimizations**
+
+- **JavaScript**: Optimized browser microphone implementation improving speech recognition accuracy.
+- **Java**: refactored bindings using direct JNI implementation without SWIG. This significantly reduces the bindings size for all Java packages used for Windows, Android, Linux and Mac and eases further development of Java SDK implementation.
+- **Linux**: Updated support [documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux) with the latest RHEL 7 specific notes.
+- Improved connection logic to attempt connecting multiple times in case of service and network errors.
+- Updated the [portal.azure.com](https://portal.azure.com) Speech Quickstart page to help developers take the next step in the Azure Speech journey.
+
+**Bug fixes**
+
+- **C#, Java**: Fixed an [issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/587) with loading SDK libraries on Linux ARM (both 32 and 64 bit).
+- **C#**: Fixed explicit disposal of native handles for TranslationRecognizer, IntentRecognizer and Connection objects.
+- **C#**: Fixed audio input lifetime management for ConversationTranscriber object.
+- Fixed an issue where IntentRecognizer result reason was not set properly when recognizing intents from simple phrases.
+- Fixed an issue where SpeechRecognitionEventArgs result offset was not set correctly.
+- Fixed a race condition where SDK was trying to send a network message before opening the websocket connection. Was reproable for TranslationRecognizer while adding participants.
+- Fixed memory leaks in the keyword recognizer engine.
+
+**Samples**
+
+- **JavaScript**: Added quickstarts for [Text-to-speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?tabs=dotnet%2Clinux%2Cjre&pivots=programming-language-javascript), [Translation](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text?tabs=dotnet&pivots=programming-language-javascript), and [Intent Recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
+- Keyword recognition samples for [C\#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) and [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) (Android).  
+
+**Covid19 abridged testing:**
+
+Due to working remotely over the last few weeks, we couldn't do as much manual verification testing as we normally do. An example of this is testing microphone input and speaker output on Linux, iOS, and macOS. We haven't made any changes we think could have broken anything on these platforms, and our automated tests all passed. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?page=2&q=is%3Aissue+is%3Aopen).<br>
+Stay healthy!
+
 ## Speech SDK 1.11.0: 2020-March release
 
 **New features**
