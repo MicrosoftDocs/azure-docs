@@ -42,7 +42,6 @@ The table below describes the permission required to cancel a subscription.
 |[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Account owner, owners, and contributors for the subscription       |
 |[Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g/) and [Azure plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Owners and contributors for the subscription      |
 
-
 ## What happens after I cancel my subscription?
 
 After you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation to show in the portal. If you cancel in the middle of a billing period, we send the final invoice on your typical invoice date after the period ends. 
@@ -61,6 +60,6 @@ If your subscription is not a subscription with Pay-As-You-Go rates, contact sup
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-# Next steps
+## Next steps
 
 - If needed, you can reactivate a pay-as-you-go subscription in the [Account center](subscription-disabled.md).
