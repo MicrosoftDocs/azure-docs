@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot publisher verification | Azure
+title: Troubleshoot publisher verification - Microsoft identity platform | Azure
 description: Describes how to troubleshoot publisher verification (preview) for Microsoft identity platform by calling Microsoft Graph APIs.
 services: active-directory
 author: rwike77
