@@ -19,7 +19,7 @@ The YAML below defines the Azure Container Instance resource. Copy and paste the
 apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >
-imageRegistryCredentials: # This is required if you are pulling a non-public image
+imageRegistryCredentials: # This is only required if you are pulling a non-public image that requires authentication to access.
   - server: containerpreview.azurecr.io
     username: # < The username for the preview container registry >
     password: # < The password for the preview container registry >
