@@ -220,7 +220,7 @@ Responses from Sentiment Analysis v3 contain sentiment labels and scores for eac
 
 ### Sentiment Analysis v3.1 example response
 
-Sentiment Analysis v3.1 offers opinion mining in addition to the response object in the **Version 3.0** tab. In the below response, the sentence *The restaurant had great food and our waiter was friendly* has two aspects: *food* and *waiter*. Each aspect's `relations` property contains a `ref` attribute with an index to the associated `documents`, `sentences`, and `opinions` objects. For example, the first aspect would contain `#/documents/0/sentences/0/opinions/0`, indicating the aspect belongs to the objects at index `0`. 
+Sentiment Analysis v3.1 offers opinion mining in addition to the response object in the **Version 3.0** tab. In the below response, the sentence *The restaurant had great food and our waiter was friendly* has two aspects: *food* and *waiter*. Each aspect's `relations` property contains a `ref` value with the URI-reference to the associated `documents`, `sentences`, and `opinions` objects. For example, the first aspect would contain `#/documents/0/sentences/0/opinions/0`.
 
 ```json
 {
