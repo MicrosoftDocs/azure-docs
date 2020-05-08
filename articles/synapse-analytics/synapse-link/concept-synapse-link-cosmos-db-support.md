@@ -39,7 +39,7 @@ Here is list of the currently supported features within Synapse Link for Cosmos 
 ## Supported code-generated actions for Spark
 
 | Gesture              | Description |OLTP |HTAP  |
-| :-------------------- | :----------------------------------------------------------- |:----------------------------------------------------------- |:----------------------------------------------------------- |
+| -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Load to DataFrame** |Load and read data into a Spark DataFrame |X| ✓ |
 | **Create Spark table** |Create a table pointing to an Azure Cosmos DB container|X| ✓ |
 | **Write DataFrame to container** |Write data into a container|✓| ✓ |
@@ -51,8 +51,7 @@ Here is list of the currently supported features within Synapse Link for Cosmos 
 ## Supported code-generated actions for SQL serverless
 
 | Gesture              | Description |OLTP |HTAP |
-=======
-| :-------------------- | :----------------------------------------------------------- |:----------------------------------------------------------- |:----------------------------------------------------------- |
+| -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Select top 100** |Preview top 100 items from a container|X| ✓ |
 | **Create view** |Create a view to directly have BI access in a container through Synapse SQL|X| ✓ |
 
