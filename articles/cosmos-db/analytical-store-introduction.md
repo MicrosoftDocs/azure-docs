@@ -39,7 +39,7 @@ For example, if your operational tables are in the following format:
 
 ![Example operational table](./media/analytical-store-introduction/sample-operational-data-table.png)
 
-The row store persists the above data in a serialized format, per row, on the disk. This format allows for faster transactional reads, writes, and point-decision queries, such as, "Return information about Product1". However, as the dataset grows large and if you want to run complex analytical queries on the data it can be expensive. For example, if you want to get "the sales  trends for a product under the category named ‘Equipment' across different business units and months", you need to run a complex query. Large scans on this dataset can get expensive in terms of provisioned throughput and can also impact the performance of the transactional workloads powering your real-time applications and services.
+The row store persists the above data in a serialized format, per row, on the disk. This format allows for faster transactional reads, writes, and point-decision queries, such as, "Return information about Product1". However, as the dataset grows large and if you want to run complex analytical queries on the data it can be expensive. For example, if you want to get "the sales  trends for a product under the category named 'Equipment' across different business units and months", you need to run a complex query. Large scans on this dataset can get expensive in terms of provisioned throughput and can also impact the performance of the transactional workloads powering your real-time applications and services.
 
 Analytical store, which is a column store, is better suited for such queries because it serializes similar fields of data together and reduced the disk IOPs.
 
@@ -61,9 +61,9 @@ The autosync capability along with analytical store provides the following key b
 
 By using horizontal partitioning, Azure Cosmos DB transactional store can elastically scale  the storage and throughput without any downtime. Horizontal partitioning in the transactional store provides scalability & elasticity in autosync to ensure data is synced to the analytical store in near real time. The data sync happens regardless of the transactional traffic throughput, whether it is 1000 operations/sec or 1 million operations/sec, and  it doesn't impact the provisioned throughput in the transactional store. Due to autosync, there will not be any hot partitions even during the peak transactional workload traffic.
 
-## Automatically handling schema updates
+## <a id="analytical-schema"></a>Automatically handling schema updates
 
-Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. With autosync capability, Azure Cosmos DB manages the schema inferencing over the latest updates from the transactional store.  It also manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types.
+Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. With autosync capability, Azure Cosmos DB manages the schema inference over the latest updates from the transactional store.  It also manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types.
 
 In there is a schema evolution, where new properties are added over time, the analytical store automatically presents a unionized schema across all historical schemas in the transactional store.
 
@@ -94,7 +94,7 @@ A well-defined schema for analytics is defined with the following considerations
 
 Data tiering refers to the separation of data between storage infrastructures optimized for different scenarios. Thereby improving the overall performance and cost-effectiveness of the end-to-end data stack. With analytical store, Azure Cosmos DB now supports automatic tiering of data from the transactional store to analytical store with different data layouts. With analytical store optimized in terms of storage cost compared to the transactional store, allows you to retain much longer horizons of operational data for historical analysis.
 
-After the analytical store is enabled, based on the data retention needs of the transactional workloads, you can configure the ‘Transactional Store Time to Live (Transactional TTL)' property to have records automatically deleted from the transactional store after a certain time period. Similarly, the  ‘Analytical Store Time To Live (Analytical TTL)' allows you to manage the lifecycle of data retained in the analytical store independent from the transactional store. By enabling analytical store and configuring TTL properties, you can seamlessly tier and define the data retention period for the two stores.
+After the analytical store is enabled, based on the data retention needs of the transactional workloads, you can configure the 'Transactional Store Time to Live (Transactional TTL)' property to have records automatically deleted from the transactional store after a certain time period. Similarly, the  'Analytical Store Time To Live (Analytical TTL)' allows you to manage the lifecycle of data retained in the analytical store independent from the transactional store. By enabling analytical store and configuring TTL properties, you can seamlessly tier and define the data retention period for the two stores.
 
 ## Global Distribution
 
@@ -113,7 +113,7 @@ By decoupling the analytical storage system from the analytical compute system, 
 > [!NOTE]
 > You can only read from analytical store using Synapse Analytics run time. You can write the data back to your transactional store as a serving layer.
 
-## Pricing
+## <a id="analytical-store-pricing"></a> Pricing
 
 Analytical store follows a consumption-based pricing model where you are charged for:
 
@@ -121,16 +121,16 @@ Analytical store follows a consumption-based pricing model where you are charged
 
 * Analytical write operations: the fully managed synchronization of operational data updates to the analytical store from the transactional store (autosync)
 
-* Analytical read operations: the read operations performed against the analytical store from Synapse Analytics Spark and SQL Serverless runtimes.
+* Analytical read operations: the read operations performed against the analytical store from Synapse Analytics Spark and SQL Serverless run times.
 
 > [!NOTE]
 > Azure Cosmos DB analytical store is available in public preview free of any charges for analytical store until August 30, 2020.
 
-Analytical store pricing is separate from the transaction store pricing model. There is no concept of provisioned RUs in the analytical store. See [Azure Cosmos DB pricing page](), for full details on the pricing model for analytical store.
+Analytical store pricing is separate from the transaction store pricing model. There is no concept of provisioned RUs in the analytical store. See [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/), for full details on the pricing model for analytical store.
 
 In order to get a high-level cost estimate to enable analytical store on an Azure Cosmos  container, you can use the [Azure Cosmos DB Capacity planner](https://cosmos.azure.com/capacitycalculator/) and get an estimate of your analytical storage and write operations costs. Analytical read operations costs depends on the analytics workload characteristics but as a high-level estimate, scan of 1 TB of data in analytical store typically results in 130,000 analytical read operations, and hence $0.065.
 
-## Analytical Time-to-Live (TTL)
+## <a id="analytical-ttl"></a> Analytical Time-to-Live (TTL)
 
 While transactional TTL can be set at the container or item level, analytical TTL can only be set at the container level currently. After you set the analytical TTL at the container level, Azure Cosmos DB automatically removes these items after the specified period. Analytical TTL is set in seconds and is interpreted as a delta from the time since a version of the record was last modified in the transactional store.
 
@@ -148,10 +148,10 @@ After the analytical store is enabled with an analytical TTL value, it can be up
 |Analytical TTL value  |Scenario  |Dependency on transactional TTL (if any)  |
 |---------|---------|---------|
 |-1     |  Analytical store retains all historical versions of records. Analytical store mirrors transactional store. There is no retention of additional data compared to transactional store.      |  N/A       |
-|Integer > 0 |  Analytical store actively expires historical versions of records after specified time period (in seconds)       |  Transactional TTL must be > 0 and analytical TTL must be >= transactional TTL (to maintain the invariant that analytical store is a superset of data in transactional store)       |
-|0, null or missing    |   Analytical store not enabled      |  	N/A    |
+|Integer > 0 |  Analytical store actively expires historical versions of records after specified time period (in seconds)       |  Transactional TTL must be > 0 and analytical TTL must be >= transactional TTL (to maintain the invariant that analytical store is a super set of data in transactional store)       |
+|0, null or missing    |   Analytical store not enabled      | N/A    |
 
-To learn more, see [how to configure Analytical TTL on a container]().
+To learn more, see [how to configure analytical TTL on a container]().
 
 ## Next steps
 

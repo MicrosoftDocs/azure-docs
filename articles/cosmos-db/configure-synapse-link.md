@@ -34,17 +34,17 @@ Use the following steps to run analytical queries with the Synapse Link for Azur
 
 1. Select **Synapse Link** from the features list.
 
-  ![Find Synapse Link preview feature](./media/configure-synapse-link/find-synapse-link-feature.png)
+   ![Find Synapse Link preview feature](./media/configure-synapse-link/find-synapse-link-feature.png)
 
 1. Next it prompts you to enable synapse link on your account. Select Enable.
 
-  ![Enable Synapse Link feature](./media/configure-synapse-link/enable-synapse-link-feature.png)
+   ![Enable Synapse Link feature](./media/configure-synapse-link/enable-synapse-link-feature.png)
 
 1. Your account is now enabled to use Synapse Link. Next see how to create analytical store enabled containers to automatically start replicating your operational data from the transactional store to the analytical store.
 
 ### Azure Resource Manager template
 
-The [Azure Resource Manager template]() creates a Synapse Link enabled Azure Cosmos account for SQL API. The account is configured with two regions and options to select consistency level, automatic failover, and multi-master. To deploy this template, click on Deploy to Azure on the readme page, Create Azure Cosmos account.
+The [Azure Resource Manager template]() creates a Synapse Link enabled Azure Cosmos account for SQL API. This template creates a Core (SQL) API account in one region with a container configured with analytical TTL enabled, and an option to use manual or autoscale throughput. To deploy this template, click on **Deploy to Azure** on the readme page.
 
 ## <a id="create-analytical-ttl"></a> Create an Azure Cosmos container with analytical store
 
@@ -61,7 +61,7 @@ You can turn on analytical store on an Azure Cosmos container while creating the
 
 1. Select **New Container** and enter a name for your database, container, partition key and throughput details. Turn on the **Analytical store** option. After you enable the analytical store, it creates a container with `AnalyicalTTL` property set to the default value of  -1 (infinite retention). This analytical store that retains all the historical versions of records.
 
-  ![Turn on analytical store for Azure Cosmos container](./media/configure-synapse-link/create-container-analytical-store.png)
+   ![Turn on analytical store for Azure Cosmos container](./media/configure-synapse-link/create-container-analytical-store.png)
 
 1. If you have previously not enabled Synapse Link on this account, it will prompt you to do so because it's a pre-requisite to create an analytical store enabled container. If prompted, select **Enable Synapse Link**.
 
@@ -69,7 +69,7 @@ You can turn on analytical store on an Azure Cosmos container while creating the
 
 ### .NET SDK
 
-The following code creates a container with analytical store by using the .NET SDK. Set the analyticalTTL property to the required value. For the list of allowed values, see the analytical TTL supported values article.
+The following code creates a container with analytical store by using the .NET SDK. Set the analytical TTL property to the required value. For the list of allowed values, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article:
 
 ```csharp
 // Create a container with a partition key, and analytical TTL configured to  -1 (infinite retention)
@@ -82,6 +82,19 @@ PartitionKeyPath = "/id",
 AnalyticalStorageTimeToLiveInSeconds = analyticalTtlInSec,
 };
  await this. cosmosClient.GetDatabase("myDatabase").CreateContainerAsync(cpInput);
+```
+
+### Java V4 SDK
+
+The following code creates a container with analytical store by using the Java V4 SDK. Set the `AnalyticalStoreTimeToLiveInSeconds` property to the required value:
+
+```java
+// Create a container with a partition key and  analytical TTL configured to  -1 (infinite retention) 
+CosmosContainerProperties containerProperties = new CosmosContainerProperties("myContainer", "/myPartitionKey");
+
+containerProperties.setAnalyticalStoreTimeToLiveInSeconds(-1);
+
+container = database.createContainerIfNotExists(containerProperties, 400).block().getContainer();
 ```
 
 ### Python V3 SDK
@@ -123,7 +136,7 @@ container = client.CreateContainer(db['_self'], container_definition, options)
 
 ### <a id="update-analytical-ttl"></a> Update the analytical store time to live
 
-After the analytical store is enabled with a particular TTL value, you can update it to a different valid value later. You can update the value by using the Azure portal or SDKs. For information on the various Analytical TTL config options, see the [analytical TTL]() article.
+After the analytical store is enabled with a particular TTL value, you can update it to a different valid value later. You can update the value by using the Azure portal or SDKs. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
 
 #### Azure portal
 
