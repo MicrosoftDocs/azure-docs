@@ -1,22 +1,21 @@
 ---
-title: 'Azure Cosmos DB: Java examples for the SQL API'
+title: 'Azure Cosmos DB SQL API: Java SDK v4 examples
 description: Find Java examples on GitHub for common tasks using the Azure Cosmos DB SQL API, including CRUD operations.
-author: SnehaGunda
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: sample
-ms.date: 02/08/2019
-ms.author: sngun
+ms.date: 05/08/2020
+ms.author: anfeldma
 
 ---
-# Azure Cosmos DB: Java examples for the SQL API
+# Azure Cosmos DB SQL API: Java SDK v4 examples
 
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)
 > * [.NET V3 SDK Examples](sql-api-dotnet-v3sdk-samples.md)
-> * [Java Examples](sql-api-java-samples.md)
-> * [Async Java Examples](sql-api-async-java-samples.md)
+> * [Java V4 SDK Examples](sql-api-java-sdl-sql-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
 > * [Python Examples](sql-api-python-samples.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
