@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-# Accessing user information in Azure Static Web Apps
+# Accessing user information in Azure Static Web Apps Preview
 
 Azure Static Web Apps provides authentication-related user information via a [direct-access endpoint](#direct-access-endpoint) and to [API functions](#api-functions).
 
