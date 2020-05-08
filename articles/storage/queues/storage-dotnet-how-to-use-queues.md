@@ -4,7 +4,7 @@ description: Azure Queues provide reliable, asynchronous messaging between appli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 05/21/2019
+ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
@@ -13,13 +13,13 @@ ms.reviewer: cbrooks
 
 # Get started with Azure Queue storage using .NET
 
-[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
+<!-- [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)] -->
 
-[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
+<!-- [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)] -->
 
 ## Overview
 
-Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
+Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled so they can scale independently. Queue storage delivers asynchronous messaging between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
 
 ### About this tutorial
 
@@ -60,18 +60,38 @@ You can use the Azure Storage client libraries in any type of .NET application, 
 
 ### Use NuGet to install the required packages
 
-You need to reference the following three packages in your project to complete this tutorial:
+# [\.NET v12](#tab/dotnet)
 
-* [Microsoft Azure Storage Common Client Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): This package provides programmatic access to data resources in your storage account.
-* [Microsoft Azure Storage Queue Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): This client library enables working with the Microsoft Azure Storage Queue service for storing messages that may be accessed by a client.
-* [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
+You need to reference the following four packages in your project to complete this tutorial:
+
+- [Azure Storage Common Client Library for .NET](https://www.nuget.org/packages/Azure.Storage.Common/): This package provides programmatic access to data resources in your storage account.
+- [Azure Storage Queue Library for .NET](https://www.nuget.org/packages/Azure.Storage.Queues/): This client library enables working with the Microsoft Azure Storage Queue service for storing messages that may be accessed by a client.
+- [Azure Core library for .NET](https://www.nuget.org/packages/Azure.Core/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
+- [Configuration Manager library for .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): This package provides a class for retrieving the connection string from a configuration file.
 
 You can use NuGet to obtain these packages. Follow these steps:
 
 1. Right-click your project in **Solution Explorer**, and choose **Manage NuGet Packages**.
-2. Select **Browse**
-3. Search online for "Microsoft.Azure.Storage.Queue", and select **Install** to install the Storage client library and its dependencies. This will also install the Microsoft.Azure.Storage.Common library, which is a dependency of the queue library.
-4. Search online for "Microsoft.Azure.ConfigurationManager", and select **Install** to install the Azure Configuration Manager.
+1. Select **Browse**
+1. Search online for "Azure.Storage.Queues", and select **Install** to install the Storage client library and its dependencies. This will also install the Azure.Storage.Common and Azure.Core libraries, which are dependencies of the queue library.
+1. Search online for "System.Configuration.ConfigurationManager", and select **Install** to install the Configuration Manager.
+
+# [\.NET v11](#tab/dotnetv11)
+
+You need to reference the following three packages in your project to complete this tutorial:
+
+- [Microsoft Azure Storage Common Client Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): This package provides programmatic access to data resources in your storage account.
+- [Microsoft Azure Storage Queue Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): This client library enables working with the Microsoft Azure Storage Queue service for storing messages that may be accessed by a client.
+- [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
+
+You can use NuGet to obtain these packages. Follow these steps:
+
+1. Right-click your project in **Solution Explorer**, and choose **Manage NuGet Packages**.
+1. Select **Browse**
+1. Search online for "Microsoft.Azure.Storage.Queue", and select **Install** to install the Storage client library and its dependencies. This will also install the Microsoft.Azure.Storage.Common library, which is a dependency of the queue library.
+1. Search online for "Microsoft.Azure.ConfigurationManager", and select **Install** to install the Azure Configuration Manager.
+
+---
 
 > [!NOTE]
 > The Storage client libraries packages are also included in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/). However, we recommend that you also install the Storage client libraries from NuGet to ensure that you always have the latest versions.
@@ -82,57 +102,15 @@ You can use NuGet to obtain these packages. Follow these steps:
 
 You have two environment options for running the examples in this guide:
 
-* You can run your code against an Azure Storage account in the cloud.
-* You can run your code against the Azure storage emulator. The storage emulator is a local environment that emulates an Azure Storage account in the cloud. The emulator is a free option for testing and debugging your code while your application is under development. The emulator uses a well-known account and key. For more information, see [Use the Azure storage emulator for development and testing](../common/storage-use-emulator.md).
-
-If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure portal. For more information, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
+- You can run your code against an Azure Storage account in the cloud.
+- You can run your code against the Azurite storage emulator. Azurite is a local environment that emulates an Azure Storage account in the cloud. Azurite is a free option for testing and debugging your code while your application is under development. The emulator uses a well-known account and key. For more information, see [Use the Azurite emulator for local Azure Storage development and testing](../common/storage-use-azurite.md).
 
 > [!NOTE]
 > You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.
 
-### Configure your storage connection string
+## Configure your storage connection string
 
-The Azure Storage client libraries for .NET support using a storage connection string to configure endpoints and credentials for accessing storage services. The best way to maintain your storage connection string is in a configuration file.
-
-For more information about connection strings, see [Configure a connection string to Azure Storage](../common/storage-configure-connection-string.md).
-
-> [!NOTE]
-> Your storage account key is similar to the root password for your storage account. Always be careful to protect your storage account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your key by using the Azure portal if you believe it may have been compromised.
-
-To configure your connection string, open the **app.config** file from Solution Explorer in Visual Studio. Add the contents of the **\<appSettings\>** element shown below. Replace *account-name* with the name of your storage account, and *account-key* with your account access key:
-
-```xml
-<configuration>
-    <startup>
-        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
-    </startup>
-    <appSettings>
-        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
-    </appSettings>
-</configuration>
-```
-
-For example, your configuration setting appears similar to:
-
-```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
-```
-
-To target the storage emulator, you can use a shortcut that maps to the well-known account name and key. In that case, your connection string setting is:
-
-```xml
-<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
-```
-
-### Add using directives
-
-Add the following `using` directives to the top of the `Program.cs` file:
-
-```csharp
-using Microsoft.Azure; // Namespace for CloudConfigurationManager
-using Microsoft.Azure.Storage; // Namespace for CloudStorageAccount
-using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
-```
+The Azure Storage client libraries for .NET support using a storage connection string to configure endpoints and credentials for accessing storage services. For more information, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
 ### Copy your credentials from the Azure portal
 
@@ -145,38 +123,120 @@ The sample code needs to authorize access to your storage account. To authorize,
 
     ![Screenshot showing how to copy a connection string from the Azure portal](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
-### Parse the connection string
+For more information about connection strings, see [Configure a connection string to Azure Storage](../common/storage-configure-connection-string.md).
 
-[!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
+> [!NOTE]
+> Your storage account key is similar to the root password for your storage account. Always be careful to protect your storage account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your key by using the Azure portal if you believe it may have been compromised.
+
+The best way to maintain your storage connection string is in a configuration file. To configure your connection string, open the **app.config** file from Solution Explorer in Visual Studio. Add the contents of the **\<appSettings\>** element shown below. Replace *connection-string* with the value you copied from your storage account in the portal:
+
+```xml
+<configuration>
+    <startup>
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2" />
+    </startup>
+    <appSettings>
+        <add key="StorageConnectionString" value="connection-string" />
+    </appSettings>
+</configuration>
+```
+
+For example, your configuration setting appears similar to:
+
+```xml
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==EndpointSuffix=core.windows.net" />
+```
+
+To target the Azurite storage emulator, you can use a shortcut that maps to the well-known account name and key. In that case, your connection string setting is:
+
+```xml
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;" />
+```
+
+### Add using directives
+
+Add the following `using` directives to the top of the `Program.cs` file:
+
+# [\.NET v12](#tab/dotnet)
+
+```csharp
+using System;
+using System.Configuration; // Namespace for ConfigurationManager
+using Azure.Storage.Queues; // Namespace for Queue storage types
+using Azure.Storage.Queues.Models; // Namespace for Queue models
+```
+
+# [\.NET v11](#tab/dotnetv11)
+
+```csharp
+using System;
+using Microsoft.Azure; // Namespace for CloudConfigurationManager
+using Microsoft.Azure.Storage; // Namespace for CloudStorageAccount
+using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
+```
+
+---
 
 ### Create the Queue service client
 
-The [CloudQueueClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet) class enables you to retrieve queues stored in Queue storage. Here's one way to create the service client:
+# [\.NET v12](#tab/dotnet)
+
+The [QueueClient](/dotnet/api/azure.storage.queues.queueclient) class enables you to retrieve queues stored in Queue storage. Here's one way to create the service client:
 
 ```csharp
+// Get the connection string from app settings
+string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
+
+// Create a unique name for the queue
+string queueName = "queues-" + Guid.NewGuid().ToString();
+
+// Instantiate a QueueClient which will be
+// used to create and manipulate the queue
+QueueClient queueClient = new QueueClient(connectionString, queueName);
+```
+
+# [\.NET v11](#tab/dotnetv11)
+
+The [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy) class enables you to retrieve queues stored in Queue storage. Here's one way to create the service client:
+
+```csharp
+// Retrieve storage account from connection string
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+// Create the queue client
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 ```
+
+---
 
 Now you are ready to write code that reads data from and writes data to Queue storage.
 
 ## Create a queue
 
-This example shows how to create a queue if it does not already exist:
+This example shows how to create a queue:
+
+# [\.NET v12](#tab/dotnet)
 
 ```csharp
-// Retrieve storage account from connection string.
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    CloudConfigurationManager.GetSetting("StorageConnectionString"));
+// Create the queue
+queueClient.CreateIfNotExists();
+```
 
-// Create the queue client.
-CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+# [\.NET v11](#tab/dotnetv11)
 
-// Retrieve a reference to a container.
-CloudQueue queue = queueClient.GetQueueReference("myqueue");
+```csharp
+// Create a unique name for the queue
+string queueName = "queues-" + Guid.NewGuid().ToString();
+
+// Retrieve a reference to a container
+CloudQueue queue = queueClient.GetQueueReference(queueName);
 
 // Create the queue if it doesn't already exist
 queue.CreateIfNotExists();
 ```
+
+---
 
 ## Insert a message into a queue
 
