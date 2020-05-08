@@ -80,7 +80,7 @@
           href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Maintenance schedule
       href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Backup and restore
+    - name: Back up and restore
       href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Monitoring 
     items:
@@ -412,6 +412,12 @@
          href: data-integration/data-integration-data-lake.md
   - name: Transform & analyze data
     items:
+    - name: Synapse Link
+      items:
+      - name: Connect to Synapse Link for Cosmos DB
+        href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
+      - name: Query analytical store with Spark
+        href: ./synapse-link/how-to-query-analytical-store-spark.md
     - name: Synapse SQL
       items:
       - name: Query data in storage
