@@ -1,6 +1,6 @@
 ---
 title: Publisher verification overview
-description: Provides an overview of the publisher verification program for the Microsoft identity platform. Lists the benefits, program requirements, and frequently asked questions.
+description: Provides an overview of the publisher verification program for the Microsoft identity platform. Lists the benefits, program requirements, and frequently asked questions. When an application is marked as publisher verified, it means that the publisher has verified their identity using a Microsoft Partner Network account that has completed the verification process and has associated this MPN account with their application registration.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -19,7 +19,7 @@ ms.reviewer: jesakowi
 Publisher verification (preview) helps admins and end users understand the authenticity of application developers integrating with the Microsoft identity platform. In other words, is the publisher a known source or a bad actor disguising themselves as a well-known publisher? When an application is marked as publisher verified, it means that the publisher has verified their identity using a [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process and has associated this MPN account with their application registration. 
 
 A blue "verified" badge appears on the Azure AD consent prompt and other screens:
-![Consent prompt][./media/publisher-verification-overview/consent-prompt.png]
+![Consent prompt](./media/publisher-verification-overview/consent-prompt.png)
 
 This feature is primarily for developers building multi-tenant apps that leverage [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md) with the [Microsoft identity platform](v2-overview.md). These apps can sign users in using OpenID Connect, or they may use OAuth 2.0 to request access to data using APIs like [Microsoft Graph](https://developer.microsoft.com/graph/).
 
@@ -53,10 +53,6 @@ There are a few pre-requisites for publisher verification, some of which will ha
 
 Developers who have already met these pre-requisites can get verified in a matter of minutes. If the requirements have not been met, getting set up is free. 
 
-## Next steps
-* Learn how to [mark an app as publisher verified](mark-app-as-publisher-verified.md)
-* [Troubleshoot](troubleshoot-publisher-verification.md) publisher verification
-
 ## Frequently Asked Questions 
 Below are some frequently asked questions regarding the Publisher Verification program. For FAQs related to the requirements and the process, see [mark an app as publisher verified](mark-app-as-publisher-verified.md).
 
@@ -66,6 +62,10 @@ Below are some frequently asked questions regarding the Publisher Verification p
 
 - **How does this relate to Microsoft 365 Publisher Attestation? What about Microsoft 365 App Certification?** These are complementary programs that developers can use to create trustworthy apps that can be confidently adopted by customers. Publisher verification is the first step in this process, and should be completed by all developers creating apps that meet the above criteria. 
 
-Developers who are also integrating with Microsoft 365 can receive additional benefits from these programs. For more information please refer to [Microsoft 365 Publisher Attestation](/microsoft-365-app-certification/docs/attestation) and [Microsoft 365 App Certification](/microsoft-365-app-certification/docs/certification). 
+Developers who are also integrating with Microsoft 365 can receive additional benefits from these programs. For more information, refer to [Microsoft 365 Publisher Attestation](/microsoft-365-app-certification/docs/attestation) and [Microsoft 365 App Certification](/microsoft-365-app-certification/docs/certification). 
 
-- **Is this the same thing as the Azure AD Application Gallery?** No- publisher verification is a complementary but separate program to the [Azure Active Directory application gallery](/azure/active-directory/azuread-dev/howto-app-gallery-listing). Developers who fit the above criteria should to complete the publisher verification process independently of participation in that program. 
+- **Is this the same thing as the Azure AD Application Gallery?** No- publisher verification is a complementary but separate program to the [Azure Active Directory application gallery](/azure/active-directory/azuread-dev/howto-app-gallery-listing). Developers who fit the above criteria should complete the publisher verification process independently of participation in that program. 
+
+## Next steps
+* Learn how to [mark an app as publisher verified](mark-app-as-publisher-verified.md).
+* [Troubleshoot](troubleshoot-publisher-verification.md) publisher verification.

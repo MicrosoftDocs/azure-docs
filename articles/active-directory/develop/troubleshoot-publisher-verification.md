@@ -15,7 +15,7 @@ ms.reviewer: jesakowi
 ---
 
 # Troubleshoot publisher verification (preview)
-If you are unable to complete the process or are experienceing unexpected behavior with [Publisher verification](publisher-verification-overview.md), you should start by doing the following if you are receiving errors or seeing unexpected behavior: 
+If you are unable to complete the process or are experiencing unexpected behavior with [Publisher verification](publisher-verification-overview.md), you should start by doing the following if you are receiving errors or seeing unexpected behavior: 
 
 1. Review the [requirements](publisher-verification-overview.md#requirements) and ensure they have all been met
 
@@ -34,7 +34,7 @@ Below are some common issues that may occur during the process.
 1. If an MPN account already exists, this will be recognized and you will be added to the account 
 1. Navigate to the [partner profile page](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) where the MPN ID and primary account contact will be listed
 
-- **I don’t know who my Azure AD Global Admin (aka Company Admin or Tenant Admin) is, how do I find them? What about the App Administrator, or a different admin role?**
+- **I don’t know who my Azure AD Global Admin (also known as Company Admin or Tenant Admin) is, how do I find them? What about the App Administrator, or a different admin role?**
 1. Sign in to the [Azure AD Portal](https://aad.portal.azure.com) using a user account in your organization's primary tenant
 1. Navigate to [Role Management](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)
 1. Click “Global Administrator”, or the desired admin role
@@ -50,8 +50,8 @@ Below are some common issues that may occur during the process.
 1. Go to the [MPN tenant management page](https://partner.microsoft.com/en-us/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you are signing with a user account from is on the list of associated tenants.
 1. Go to the [MPN User Management page](https://partner.microsoft.com/en-us/pcv/users) and confirm the user you are signing in as is either a Global Admin, MPN Admin, or Accounts Admin.
 
-- **When I sign into the Azure AD portal I do not see any apps registered. Why?** 
-Your app registrations may have been created using a different user account, or in a different tenant. Please ensure you are signed in with the correct account in the tenant where your app registrations were created.
+- **When I sign into the Azure AD portal, I do not see any apps registered. Why?** 
+Your app registrations may have been created using a different user account, or in a different tenant. Ensure you are signed in with the correct account in the tenant where your app registrations were created.
 
 -**How do I know who the owner of an app registration in Azure AD is?** 
 When signed into a tenant where the app is registered, navigate to the App Registrations blade, click an app, and then click Owners.
@@ -202,7 +202,7 @@ This feature is not supported for Microsoft consumer accounts. Only applications
 
 ## Next steps
 
-If you have reviewed all of the above information and are still receiving an error from Microsoft Graph, gather as much of the following information as possible related to the failing request and contact Microsoft support.
+If you have reviewed all of the previous information and are still receiving an error from Microsoft Graph, gather as much of the following information as possible related to the failing request and [contact Microsoft support](developer-support-help-options.md#open-a-support-request).
 
 - Timestamp 
 - CorrelationId 
