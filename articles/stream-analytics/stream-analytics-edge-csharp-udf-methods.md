@@ -137,7 +137,7 @@ Expand the **User-Defined Code Configuration** section, and fill out the configu
    |Custom Code Assembly Source|UserCustomCode.zip|
 
 ## User logging
-The logging mechanism allows you to capture custom information while a job is running. You can use log data to debug or assess the correctness of the custom code in real-time.
+The logging mechanism allows you to capture custom information while a job is running. You can use log data to debug or assess the correctness of the custom code in real time.
 
 The `StreamingContext` class lets you publish diagnostic information using the `StreamingDiagnostics.WriteError` function. The code below shows the interface exposed by Azure Stream Analytics.
 
@@ -165,7 +165,7 @@ public static long MyUdfMethod(long data, StreamingContext context)
 }
 ```
 
-The `StreamingContext` value doesn't need to be passed in by the SQL query. Azure Stream Analytics provides a context object automatically if an input parameter is present. The use of the `MyUdfMethod` does not change as shown in the query below.
+The `StreamingContext` value doesn't need to be passed in by the SQL query. Azure Stream Analytics provides a context object automatically if an input parameter is present. The use of the `MyUdfMethod` does not change, as shown in the following query:
 
 ```sql
 SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
