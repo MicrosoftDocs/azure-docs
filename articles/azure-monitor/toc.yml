@@ -62,6 +62,9 @@
   items:
   - name: Azure PowerShell
     href: platform/powershell-samples.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: What can you monitor?
@@ -109,8 +112,6 @@
       href: platform/alerts-unified-log.md
     - name: Activity log alerts
       href: platform/activity-log-alerts.md  
-    - name: Change analysis
-      href: app/change-analysis.md 
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
@@ -524,7 +525,9 @@
         displayname: Diagnostic settings
         href: platform/resource-logs-blob-format.md
     - name: Stream data to Event Hubs
-      href: platform/stream-monitoring-data-event-hubs.md 
+      href: platform/stream-monitoring-data-event-hubs.md
+    - name: Change analysis
+      href: app/change-analysis.md 
   - name: Monitor VMs and guest OS
     items: 
     - name: Monitor Azure virtual machines
@@ -748,8 +751,6 @@
       href: insights/containers.md
   - name: Monitor other resources
     items:
-    - name: Key Vault
-      href: insights/key-vault-insights-overview.md
     - name: Storage
       items:
       - name: Azure Monitor for Storage
