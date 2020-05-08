@@ -107,7 +107,7 @@ Security defaults allow registration and use of Azure Multi-Factor Authenticatio
 |   | Security defaults | Conditional Access |
 | --- | --- | --- |
 | Notification through mobile app | X | X |
-| Verification code from mobile app or hardware token |   | X |
+| Verification code from mobile app or hardware token | X | X |
 | Text message to phone |   | X |
 | Call to phone |   | X |
 | App passwords |   | X** |
