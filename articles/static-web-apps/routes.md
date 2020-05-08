@@ -176,7 +176,7 @@ The following example shows how to build route rules for static content and APIs
       "route": "/admin/*",
       "allowedRoles": ["administrator"]
     },
-{
+    {
       "route": "/api/admin",
       "allowedRoles": ["administrator"]
     },
