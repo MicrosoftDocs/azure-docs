@@ -19,8 +19,14 @@
     href: tutorial-sync-data-factory.md
   - name: Sync data with SQL Data Sync
     href: tutorial-sync-data-sync.md
-  - name: Build an end-to-end machine learning solution
-    href: onnx-demo.md
+  - name: Build an end-to-end IoT solution with SQL Edge
+    items: 
+    - name: Set up resources for the tutorial
+      href: deploy-azure-resources.md
+    - name: Set up IoT Edge Modules and connections
+      href: set-up-iot-edge-modules.md
+    - name: Deploy ML model on SQL Edge using ONNX 
+      href: run-ml-model-on-sql-edge.md
 - name: How to
   items:
   - name: DAC packages and Stream Analytics jobs
