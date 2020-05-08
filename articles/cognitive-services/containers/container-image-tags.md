@@ -20,15 +20,13 @@ Azure Cognitive Services offers many container images. The container registries 
 
 ## Anomaly Detector
 
-The [Anomaly Detector][ad-containers] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-anomaly-detector`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector`.
+The [Anomaly Detector][ad-containers] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `anomaly-detector`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/anomaly-detector`.
 
 This container image has the following tags available:
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
 | `latest`                      |       |
-| `1.1.009301-amd64-preview`    |       |
-| `1.1.008500001-amd64-preview` |       |
 
 ## Computer Vision
 
