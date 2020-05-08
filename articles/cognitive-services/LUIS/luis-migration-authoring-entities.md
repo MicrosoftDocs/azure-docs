@@ -132,7 +132,7 @@ The following table demonstrates the migration:
 
 ## API change constraint replaced with required feature
 
-This change was made in May 2020 at the //Build conference.
+This change was made in May 2020 at the //Build conference and only applies to the v3 authoring APIs where an app is using a constrained feature. If you are migrating from v2 authoring to v3 authoring, or have not used v3 constrained features, skip this section.
 
 **Functionality** - ability to require an existing entity as a feature to another model and only extract that model if the entity is detected. The functionality has not changed but the API and terminology have changed.
 
