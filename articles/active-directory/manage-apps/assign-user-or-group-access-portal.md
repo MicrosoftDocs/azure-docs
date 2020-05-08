@@ -33,7 +33,7 @@ With the following types of applications, you have the option of requiring users
 - Application Proxy applications that use Azure Active Directory Pre-Authentication
 - Applications built on the Azure AD application platform that use OAuth 2.0 / OpenID Connect Authentication after a user or admin has consented to that application.
 
-When user assignment is required, only those users you explicitly assign to the application (direct as user or based on a group membership) will be able to sign in. They can access the app on their My Apps page or by using a direct link. 
+When user assignment is required, only those users you explicitly assign to the application (either through direct user assignment or based on group membership) will be able to sign in. They can access the app on their My Apps page or by using a direct link. 
 
 When assignment is *not required*, either because you've set this option to **No** or because the application uses another SSO mode, any user will be able to access the application if they have a direct link to the application or the **User Access URL** in the application’s **Properties** page. 
 
