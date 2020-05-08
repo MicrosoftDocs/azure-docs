@@ -195,7 +195,8 @@ The `RecognitionStatus` field may contain these values:
 > [!NOTE]
 > If the audio consists only of profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result.
 
-The `detailed` format includes the same data as the `simple` format, along with `NBest`, an alternative interpretation of the same recognition result. When using the `detailed` format, `DisplayText` is provided as `Display` for each result in the `NBest` list.
+The `detailed` format includes additional forms of recognized results.
+When using the `detailed` format, `DisplayText` is provided as `Display` for each result in the `NBest` list.
 
 The object in the `NBest` list can include:
 
