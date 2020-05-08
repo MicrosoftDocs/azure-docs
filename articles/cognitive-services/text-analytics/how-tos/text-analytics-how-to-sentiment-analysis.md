@@ -158,7 +158,7 @@ Responses from Sentiment Analysis v3 contain sentiment labels and scores for eac
     },
     "sentences": [{
       "sentiment": "positive",
-      "sentenceScores": {
+      "confidenceScores": {
         "positive": 1.0,
         "neutral": 0.0,
         "negative": 0.0
