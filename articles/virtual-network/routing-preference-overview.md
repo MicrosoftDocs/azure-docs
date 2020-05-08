@@ -49,7 +49,7 @@ The new routing choice *Internet routing* minimizes travel on the Microsoft glob
 
 ## Supported services
 
-Public IP with Routing preference choice “Microsoft Global Network” can be associated with any Azure services. However, Public IP with Routing preference choice **Internet** can be associated with the following azure resources:
+Public IP with Routing preference choice “Microsoft Global Network” can be associated with any Azure services. However, Public IP with Routing preference choice **Internet** can be associated with the following Azure resources:
 
 * Virtual machine
 * Virtual machine scale set
