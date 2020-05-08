@@ -1,5 +1,5 @@
 ---
-title: Mark an app as publisher verified
+title: Mark an app as publisher verified | Azure
 description: Describes how to mark an app as publisher verified. When an application is marked as publisher verified, it means that the publisher has verified their identity using a Microsoft Partner Network account that has completed the verification process and has associated this MPN account with their application registration.
 services: active-directory
 author: rwike77
@@ -37,9 +37,9 @@ Make sure you have met the [pre-requisites](publisher-verification-overview.md#r
 
 1. Ensure you are signed in with an organizational (Azure AD) account that is authorized to make changes to the app(s) you want to mark as Publisher Verified and on the MPN Account in Partner Center. 
 
-    1. In Azure AD this user must either be the Owner of the app or have one of the following roles: Application Admin, Cloud Application Admin, Global Admin. 
+    - In Azure AD this user must either be the Owner of the app or have one of the following roles: Application Admin, Cloud Application Admin, Global Admin. 
 
-    1. In Partner Center this user must have of the following roles: MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD). 
+    - In Partner Center this user must have of the following roles: MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD). 
 
 1. Navigate to the preview version of the App Registration portal:  
 
@@ -47,17 +47,17 @@ Make sure you have met the [pre-requisites](publisher-verification-overview.md#r
 
 1. Ensure the app’s Publisher Domain is set appropriately. This domain must be: 
 
-    1. Be added to the Azure AD tenant as a DNS-verified custom domain,  
+    - Be added to the Azure AD tenant as a DNS-verified custom domain,  
 
-    1. Match the domain of the email address used during the verification process for your MPN account. 
+    - Match the domain of the email address used during the verification process for your MPN account. 
 
 1. Click **Add MPN ID to verify publisher** near the bottom of the page. 
 
 1. Enter your **MPN ID**. This MPN ID must be for: 
 
-    1. A valid Microsoft Partner Network account that has completed the verification process.  
+    - A valid Microsoft Partner Network account that has completed the verification process.  
 
-    1. The Partner global account (PGA) for your organization. 
+    - The Partner global account (PGA) for your organization. 
 
 1. Click **Verify and save**. 
 

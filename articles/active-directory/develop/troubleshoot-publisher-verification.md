@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot publisher verification 
+title: Troubleshoot publisher verification | Azure
 description: Describes how to troubleshoot publisher verification (preview) for Microsoft identity platform by calling Microsoft Graph APIs.
 services: active-directory
 author: rwike77
@@ -17,11 +17,11 @@ ms.reviewer: jesakowi
 # Troubleshoot publisher verification (preview)
 If you are unable to complete the process or are experiencing unexpected behavior with [publisher verification (preview)](publisher-verification-overview.md), you should start by doing the following if you are receiving errors or seeing unexpected behavior: 
 
-1. Review the [requirements](publisher-verification-overview.md#requirements) and ensure they have all been met
+1. Review the [requirements](publisher-verification-overview.md#requirements) and ensure they have all been met.
 
-1. Review the instructions to [mark an app as publisher verified](mark-app-as-publisher-verified.md) and ensure all steps have been performed successfully
+1. Review the instructions to [mark an app as publisher verified](mark-app-as-publisher-verified.md) and ensure all steps have been performed successfully.
 
-1. Review the list of [common issues](#common-issues)
+1. Review the list of [common issues](#common-issues).
 
 1. Reproduce the request using [Graph Explorer](#making-microsoft-graph-api-calls) to gather additional info and rule out any issues in the UI.
 
@@ -29,32 +29,32 @@ If you are unable to complete the process or are experiencing unexpected behavio
 Below are some common issues that may occur during the process. 
 
 - **I don’t know my Microsoft Partner Network ID (MPN ID) or I don’t who the primary contact for the account is** 
-1. Navigate to the [MPN enrollment page](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
-1. Sign in with a user account in the org's primary Azure AD tenant 
-1. If an MPN account already exists, this will be recognized and you will be added to the account 
-1. Navigate to the [partner profile page](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) where the MPN ID and primary account contact will be listed
+    1. Navigate to the [MPN enrollment page](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
+    1. Sign in with a user account in the org's primary Azure AD tenant 
+    1. If an MPN account already exists, this will be recognized and you will be added to the account 
+    1. Navigate to the [partner profile page](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) where the MPN ID and primary account contact will be listed
 
 - **I don’t know who my Azure AD Global Admin (also known as Company Admin or Tenant Admin) is, how do I find them? What about the App Administrator, or a different admin role?**
-1. Sign in to the [Azure AD Portal](https://aad.portal.azure.com) using a user account in your organization's primary tenant
-1. Navigate to [Role Management](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)
-1. Click “Global Administrator”, or the desired admin role
-1. The list of users assigned that role will be displayed
+    1. Sign in to the [Azure AD Portal](https://aad.portal.azure.com) using a user account in your organization's primary tenant
+    1. Navigate to [Role Management](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)
+    1. Click “Global Administrator”, or the desired admin role
+    1. The list of users assigned that role will be displayed
 
 - **I don't know who the admin(s) for my MPN account are**
-1. Go to the [MPN User Management page](https://partner.microsoft.com/en-us/pcv/users) and filter the user list to see what users are in various admin roles.
+    Go to the [MPN User Management page](https://partner.microsoft.com/en-us/pcv/users) and filter the user list to see what users are in various admin roles.
 
 - **I am getting an error saying that my MPN ID is invalid or that I do not have access to it.**
-1. Go to your [partner profile](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) and verify that: 
-    1. The MPN ID is correct. 
-    1. There are no errors or “pending actions” shown, and the verification status under Legal business profile and Partner info both say “authorized” or “success”.
-1. Go to the [MPN tenant management page](https://partner.microsoft.com/en-us/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you are signing with a user account from is on the list of associated tenants.
-1. Go to the [MPN User Management page](https://partner.microsoft.com/en-us/pcv/users) and confirm the user you are signing in as is either a Global Admin, MPN Admin, or Accounts Admin.
+    1. Go to your [partner profile](https://partner.microsoft.com/en-us/pcv/accountsettings/connectedpartnerprofile) and verify that: 
+        - The MPN ID is correct. 
+        - There are no errors or “pending actions” shown, and the verification status under Legal business profile and Partner info both say “authorized” or “success”.
+    1. Go to the [MPN tenant management page](https://partner.microsoft.com/en-us/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you are signing with a user account from is on the list of associated tenants.
+    1. Go to the [MPN User Management page](https://partner.microsoft.com/en-us/pcv/users) and confirm the user you are signing in as is either a Global Admin, MPN Admin, or Accounts Admin.
 
 - **When I sign into the Azure AD portal, I do not see any apps registered. Why?** 
-Your app registrations may have been created using a different user account, or in a different tenant. Ensure you are signed in with the correct account in the tenant where your app registrations were created.
+    Your app registrations may have been created using a different user account, or in a different tenant. Ensure you are signed in with the correct account in the tenant where your app registrations were created.
 
 - **How do I know who the owner of an app registration in Azure AD is?** 
-When signed into a tenant where the app is registered, navigate to the App Registrations blade, click an app, and then click Owners.
+    When signed into a tenant where the app is registered, navigate to the App Registrations blade, click an app, and then click Owners.
 
 ## Making Microsoft Graph API calls 
 

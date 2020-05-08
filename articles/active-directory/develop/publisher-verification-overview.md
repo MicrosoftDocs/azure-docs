@@ -1,5 +1,5 @@
 ---
-title: Publisher verification overview
+title: Publisher verification overview | Azure
 description: Provides an overview of the publisher verification program (preview) for the Microsoft identity platform. Lists the benefits, program requirements, and frequently asked questions. When an application is marked as publisher verified, it means that the publisher has verified their identity using a Microsoft Partner Network account that has completed the verification process and has associated this MPN account with their application registration.
 services: active-directory
 author: rwike77
@@ -36,19 +36,19 @@ Publisher verification provides the following benefits:
 ## Requirements
 There are a few pre-requisites for publisher verification, some of which will have already been completed by many Microsoft partners. They are: 
 
-1. An MPN ID for a valid [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process. This MPN account must be the [Partner global account (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) for your organization. 
+-  An MPN ID for a valid [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process. This MPN account must be the [Partner global account (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) for your organization. 
 
-1. An Azure AD tenant with a DNS-verified [custom domain](/azure/active-directory/fundamentals/add-custom-domain). The custom domain must match the domain of the email address used during verification in the previous step. 
+-  An Azure AD tenant with a DNS-verified [custom domain](/azure/active-directory/fundamentals/add-custom-domain). The custom domain must match the domain of the email address used during verification in the previous step. 
 
-1. An app registered in an Azure AD tenant, with a [Publisher Domain](howto-configure-publisher-domain.md) configured using the same domain as previously used. 
+-  An app registered in an Azure AD tenant, with a [Publisher Domain](howto-configure-publisher-domain.md) configured using the same domain as previously used. 
 
-1. The user performing verification must be authorized to make changes to both the app registration in Azure AD and the MPN account in Partner Center. 
+-  The user performing verification must be authorized to make changes to both the app registration in Azure AD and the MPN account in Partner Center. 
 
-    1. In Azure AD this user must either be the Owner of the app or have one of the following [roles](/azure/active-directory/users-groups-roles/directory-assign-admin-roles): Application Admin, Cloud Application Admin, Global Admin. 
+    -  In Azure AD this user must either be the Owner of the app or have one of the following [roles](/azure/active-directory/users-groups-roles/directory-assign-admin-roles): Application Admin, Cloud Application Admin, Global Admin. 
 
-    1. In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD).
+    -  In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD).
     
-1. The publisher agrees to the [Microsoft identity platform for developers Terms of Use]
+-  The publisher agrees to the [Microsoft identity platform for developers Terms of Use]
 (/legal/microsoft-identity-platform/terms-of-use)
 
 Developers who have already met these pre-requisites can get verified in a matter of minutes. If the requirements have not been met, getting set up is free. 
