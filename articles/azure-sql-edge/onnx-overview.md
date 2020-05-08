@@ -4,7 +4,7 @@ description: Machine learning in Azure SQL Edge (Preview) supports models in the
 keywords: deploy SQL Edge
 services: sql-database-edge
 ms.service: sql-database-edge
-ms.subservice: machine-learning
+ms.subservice:
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
