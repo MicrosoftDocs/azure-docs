@@ -226,7 +226,19 @@
       href: stream-analytics-job-diagnostic-logs.md
     - name: Data errors
       href: data-errors.md
-  - name: Integrate with machine learning
+    - name: Error codes
+      items:
+      - name: Configuration errors
+        href: configuration-error-codes.md
+      - name: Data errors
+        href: data-error-codes.md
+      - name: External availability errors
+        href: external-availability-error-codes.md
+      - name: External errors
+        href: external-error-codes.md
+      - name: Internal errors
+        href: internal-error-codes.md
+  - name: Integrate with machine learnings
     items:
     - name: Sentiment analysis with ML models
       href: stream-analytics-machine-learning-integration-tutorial.md
