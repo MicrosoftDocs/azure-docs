@@ -43,7 +43,7 @@ For a list of Azure Digital Twins limits during this public preview, see [Refere
 
 ## Next steps
 
-Next dive into working with Azure Digital Twins in the quickstart:
+Next, dive into working with Azure Digital Twins with the first tutorial:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Get started with Azure Digital Twins](quickstart.md)
+> [Tutorial: Code a client app](tutorial-code.md)

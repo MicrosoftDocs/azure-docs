@@ -94,7 +94,7 @@ For a list of Azure Digital Twins limits during public preview, see [Reference: 
 If you have worked with the previous preview release of Azure Digital Twins, learn what has changed:
 * [Overview: Differences from previous release](overview-differences.md)
 
-Or, go ahead and dive into working with Azure Digital Twins in the quickstart:
+Or, go ahead and dive into working with Azure Digital Twins with the first tutorial:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Get started with Azure Digital Twins](quickstart.md)
+> [Tutorial: Code a client app](tutorial-code.md)

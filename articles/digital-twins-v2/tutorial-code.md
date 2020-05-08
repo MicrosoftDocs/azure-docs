@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Coding with the Azure Digital Twins APIs
 
-It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the C# service SDK. It walks you through writing a basic client application from scratch.
+It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the C# service SDK. It walks you through writing a C# console client app step by step, starting from scratch.
 
 ## Prerequisites
 
@@ -548,10 +548,10 @@ namespace minimal
 
 In this tutorial, you created a .NET console client application from scratch. You wrote code for this client app to perform the basic actions on an Azure Digital Twins instance.
 
-Next, continue to the next tutorial to connect a sample Azure Digital Twins solution to other Azure services to complete a data-driven, end-to-end scenario: 
+Continue to the next tutorial to explore the things you can do with such a sample client app: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build an end-to-end solution](tutorial-end-to-end.md)
+> [Tutorial: Explore with a command-line tool](tutorial-command-line-tool.md)
 
 You can also add to the code you wrote in this tutorial by learning more management operations in the how-to articles, or start looking at the concept documentation to learn more about elements you worked with in the tutorial.
 * [How-to: Manage a twin model](how-to-manage-model.md)
