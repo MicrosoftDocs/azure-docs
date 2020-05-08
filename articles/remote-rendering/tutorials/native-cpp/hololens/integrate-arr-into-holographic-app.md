@@ -26,10 +26,10 @@ This tutorial focuses on adding the necessary bits to a native `Holographic App`
 
 For this tutorial you need:
 
-* Your account information (account ID, account key, subscription ID). If you don't have an account, [create an account](../../how-tos/create-an-account.md).
+* Your account information (account ID, account key, subscription ID). If you don't have an account, [create an account](../../../how-tos/create-an-account.md).
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* Windows Mixed Reality App Templates for Visual Studio -> download link (Visual Studio Marketplace)
+* The Windows Mixed Reality App Templates for Visual Studio [(download)](https://marketplace.visualstudio.com/items?itemName=WindowsMixedRealityteam.WindowsMixedRealityAppTemplatesVSIX)
 
 ## Create a new Holographic App sample
 
@@ -38,7 +38,7 @@ As a first step, we create a stock sample that is the basis for the Remote Rende
 ![Create new project](media/new-project-wizard.png)
 
 Type in a project name of your choice, choose the path and select the "Create" button.
-In the new project, switch the configuration to **"Release / ARM64"**. You should now be able to compile and deploy it to a connected HoloLens 2 device. If you run it on HoloLens, you should see a rotating cube in front of you.
+In the new project, switch the configuration to **"Debug / ARM64"**. You should now be able to compile and deploy it to a connected HoloLens 2 device. If you run it on HoloLens, you should see a rotating cube in front of you.
 
 ## Add Remote Rendering dependencies through NuGet
 
@@ -439,6 +439,7 @@ For proper status display with a text panel, refer to the pre-canned version of 
 ## Next steps
 
 In this tutorial, you learned all the steps necessary to add Remote Rendering to a stock **Holographic App** C++/DirectX11 sample.
+To convert your own model, refer to the following quickstart:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Working with remote entities in Unity](working-with-remote-entities.md)
+> [Quickstart: Convert a model for rendering](../../../quickstarts/convert-model.md)

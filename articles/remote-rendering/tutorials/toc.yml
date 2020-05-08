@@ -1,6 +1,8 @@
-- name: Setting up a Unity project from scratch
+- name: Unity/Setting up a Unity project from scratch
   href: unity/project-setup.md
-- name: Working with remote entities in Unity
+- name: Unity/Working with remote entities in Unity
   href: unity/working-with-remote-entities.md
-- name: Changing environment and materials
+- name: Unity/Changing environment and materials
   href: unity/changing-environment-and-materials.md
+- name: Native C++/Integrate Remote Rendering into a Hololens app
+  href: native-cpp/integrate-arr-into-holographic-app.md
