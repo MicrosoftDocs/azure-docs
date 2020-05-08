@@ -177,7 +177,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## View output files in the Azure portal
 
-The Azure portal displays task output files and logs that are persisted to a linked Azure Storage account using the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). You can implement these conventions yourself in the a language of your choice, or you can use the File Conventions library in your .NET applications.
+The Azure portal displays task output files and logs that are persisted to a linked Azure Storage account using the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). You can implement these conventions yourself in the a language of your choice, or you can use the File Conventions library in your .NET applications.
 
 To enable the display of your output files in the portal, you must satisfy the following requirements:
 

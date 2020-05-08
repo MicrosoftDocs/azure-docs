@@ -16,8 +16,9 @@ Azure Automation allows you to import PowerShell modules to enable cmdlets in ru
 
 * [Azure PowerShell Az.Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)
 * [Azure PowerShell AzureRM.Automation](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0)
-* Internal `Orchestrator.AssetManagement.Cmdlets` module for the Log Analytics agent for Windows
 * Other PowerShell modules
+* Internal `Orchestrator.AssetManagement.Cmdlets` module
+* Python 2 modules
 * Custom modules that you create 
 
 When you create an Automation account, Azure Automation imports some modules by default. See [Default modules](#default-modules).
@@ -72,7 +73,7 @@ For Az.Automation, the majority of the cmdlets have the same names as for the Az
 
 ## Internal cmdlets
 
-The following table defines the internal cmdlets supported by the `Orchestrator.AssetManagement.Cmdlets` module. Use these cmdlets in your runbooks and DSC configurations to interact with Azure assets within the Automation account. The cmdlets are designed to be used instead of Azure PowerShell cmdlets to retrieve secrets from encrypted variables, credentials, and encrypted connections. 
+Azure Automation supports the internal `Orchestrator.AssetManagement.Cmdlets` module for the Log Analytics agent for Windows, installed by default. The following table defines the internal cmdlets. These cmdlets are designed to be used instead of Azure PowerShell cmdlets to interact with shared resources. They can retrieve secrets from encrypted variables, credentials, and encrypted connections.
 
 >[!NOTE]
 >The internal cmdlets are only available when you're executing runbooks in the Azure sandbox environment or on a Windows Hybrid Runbook Worker. 
@@ -91,9 +92,15 @@ Note that the internal cmdlets differ in naming from the Az and AzureRM cmdlets.
 
 We recommend that you use Az or AzureRM cmdlets for manipulating Azure Automation resources outside the context of a runbook. 
 
-## Module supporting Get-AutomationPSCredential
+## Python modules
 
-The `Get-AutomationPSCredential` cmdlet is part of the module `Orchestrator.AssetManagement.Cmdlets`. This cmdlet returns a `PSCredential` object, which is expected by most PowerShell cmdlets that work with credentials. To find out more about the use of credentials in Azure Automation, see [Credential assets in Azure Automation](credentials.md).
+You can create Python 2 runbooks in Azure Automation. For Python module information, see [Manage Python 2 packages in Azure Automation](../python-packages.md).
+
+## Custom modules
+
+Azure Automation supports custom PowerShell modules that you create to use with your runbooks and DSC configurations. One type of custom module is an integration module that optionally contains a file of metadata to define the custom functionality for the module cmdlets. An example of the use of an integration module is provided in [Adding a connection type](../automation-connections.md#adding-a-connection-type).
+
+Azure Automation can import a custom module to make its cmdlets available. Behind the scenes, it stores the module and uses it in the Azure sandboxes, just like it does other modules.
 
 ## Migrating to Az modules
 
@@ -112,7 +119,7 @@ Importing an Az module into your Automation account doesn't automatically import
 * When a runbook invokes a cmdlet from a module
 * When a runbook imports the module explicitly with the [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7) cmdlet
 * When a runbook imports another dependent module
-    
+
 #### Testing for your runbooks and DSC configurations prior to module migration
 
 Be sure to test all runbooks and DSC configurations carefully in a separate Automation account before migrating to the Az modules. 
@@ -152,11 +159,13 @@ Once you've imported the Az modules into the Automation account, you can start e
 
 ## Authoring modules
 
-We recommend that you follow the considerations in this section when you author a PowerShell module for use in Azure Automation.
+We recommend that you follow the considerations in this section when you author a custom PowerShell module for use in Azure Automation. To prepare your module for import, you must create at least a psd1, psm1, or PowerShell module **.dll** file with the same name as the module folder. Then you zip up the module folder so that Azure Automation can import it as a single file. The **.zip** package should have the same name as the contained module folder. 
+
+To learn more about authoring a PowerShell module, see [How to Write a PowerShell Script Module](https://docs.microsoft.com/powershell/scripting/developer/module/how-to-write-a-powershell-script-module?view=powershell-7).
 
 ### Version folder
 
-Do NOT include a version folder in the **.zip** package for your module.  This issue is less of a concern for runbooks but does cause an issue with the State Configuration (DSC) service. Azure Automation creates the version folder automatically when the module is distributed to nodes managed by DSC. If a version folder exists, you end up with two instances. Here is an example folder structure for a DSC module:
+Do NOT include a version folder in the **.zip** package for your module. This issue is less of a concern for runbooks but does cause an issue with the State Configuration (DSC) service. Azure Automation creates the version folder automatically when the module is distributed to nodes managed by State Configuration. If a version folder exists, you end up with two instances. Here is an example folder structure for a DSC module:
 
 ```powershell
 myModule
@@ -215,7 +224,11 @@ Include a synopsis, description, and help URI for every cmdlet in your module. I
 
 ### Connection type
 
-If the module connects to an external service, define a [connection type](#adding-a-connection-type-to-your-module). Each cmdlet in the module should accept a connection object (an instance of that connection type) as a parameter. Users map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet. The following runbook example, based on the example in the previous section, uses a Contoso connection asset called `ContosoConnection` to access Contoso resources and return data from the external service. In this example, the fields are mapped to the `UserName` and `Password` properties of a `PSCredential` object and then passed to the cmdlet.
+If the module connects to an external service, define a connection type using a [custom integration module](#custom-modules). Each cmdlet in the module should accept an instance of that connection type (connection object) as a parameter. Users map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet. 
+
+![Use a custom connection in the Azure portal](../media/modules/connection-create-new.png)
+
+The following runbook example uses a Contoso connection asset called `ContosoConnection` to access Contoso resources and return data from the external service. In this example, the fields are mapped to the `UserName` and `Password` properties of a `PSCredential` object and then passed to the cmdlet.
 
   ```powershell
   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
@@ -225,7 +238,7 @@ If the module connects to an external service, define a [connection type](#addin
   }
   ```
 
-  An easier and better way to approach this behavior is by directly passing the connection object to the cmdlet:
+An easier and better way to approach this behavior is by directly passing the connection object to the cmdlet:
 
   ```powershell
   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
@@ -234,7 +247,7 @@ If the module connects to an external service, define a [connection type](#addin
   }
   ```
 
-  You can enable similar behavior for your cmdlets by allowing them to accept a connection object directly as a parameter, instead of just connection fields for parameters. Usually you want a parameter set for each, so that a user not using Azure Automation can call your cmdlets without constructing a hashtable to act as the connection object. The parameter set `UserAccount` is used to pass the connection field properties. `ConnectionObject` lets you pass the connection straight through.
+You can enable similar behavior for your cmdlets by allowing them to accept a connection object directly as a parameter, instead of just connection fields for parameters. Usually you want a parameter set for each, so that a user not using Azure Automation can call your cmdlets without constructing a hashtable to act as the connection object. The parameter set `UserAccount` is used to pass the connection field properties. `ConnectionObject` lets you pass the connection straight through.
 
 ### Output type
 
@@ -360,35 +373,6 @@ To remove a module through PowerShell, run the following command:
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name <moduleName> -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName>
-```
-
-## Adding a connection type to your module
-
-You can provide a custom [connection type](../automation-connections.md) to use in your Automation account by adding an optional metadata file to your module. This file specifies an Azure Automation connection type to be used with the module's cmdlets in your Automation account. To learn more about authoring a PowerShell module, see [How to Write a PowerShell Script Module](https://docs.microsoft.com/powershell/scripting/developer/module/how-to-write-a-powershell-script-module?view=powershell-7).
-
-![Use a custom connection in the Azure portal](../media/modules/connection-create-new.png)
-
-The file specifying connection type properties is named **&lt;ModuleName&gt;-Automation.json** and is found in the module folder of your compressed **.zip** file. This file contains the fields of a connection that are required to connect to the system or service the module represents. The configuration allows creation of a connection type in Azure Automation. Using this file you can set the field names, types, and whether the fields are encrypted or optional for the connection type of the module. The following example is a template in the **.json** file format that defines user name and password properties:
-
-```json
-{
-   "ConnectionFields": [
-   {
-      "IsEncrypted":  false,
-      "IsOptional":  true,
-      "Name":  "Username",
-      "TypeName":  "System.String"
-   },
-   {
-      "IsEncrypted":  true,
-      "IsOptional":  false,
-      "Name":  "Password",
-      "TypeName":  "System.String"
-   }
-   ],
-   "ConnectionTypeName":  "MyModuleConnection",
-   "IntegrationModuleName":  "MyModule"
-}
 ```
 
 ## Next steps

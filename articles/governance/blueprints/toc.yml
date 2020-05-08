@@ -35,6 +35,11 @@
     - name: Control mapping
       displayName: standards, azure, benchmark
       href: ./samples/azure-security-benchmark/control-mapping.md
+  - name: Australian Government ISM PROTECTED
+    items:
+    - name: Control mapping
+      displayName: standards, Australian, Government, ISM, PROTECTED
+      href: ./samples/ism-protected/control-mapping.md
   - name: Canada Federal PBMM
     items:
     - name: Overview

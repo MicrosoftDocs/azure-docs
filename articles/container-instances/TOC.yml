@@ -51,6 +51,8 @@
     href: container-instances-orchestrator-relationship.md
   - name: Security considerations
     href: container-instances-image-security.md
+  - name: Virtual networking
+    href: container-instances-virtual-network-concepts.md
 - name: How-to guides
   items:
   - name: Deploy

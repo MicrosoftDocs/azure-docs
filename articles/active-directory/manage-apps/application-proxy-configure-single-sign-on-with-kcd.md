@@ -97,11 +97,13 @@ The Active Directory configuration varies, depending on whether your Application
 
 ## SSO for non-Windows apps
 
-The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). In the next phase, a request is sent to the backend application with this Kerberos ticket. 
+The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). 
 
-There are several protocols that define how to send such requests. Most non-Windows servers expect to negotiate with SPNEGO. This protocol is supported on Azure AD Application Proxy, but is disabled by default. A server can be configured for SPNEGO or standard KCD, but not both.
+In the next phase, a request is sent to the backend application with this Kerberos ticket. 
 
-If you configure a connector machine for SPNEGO, make sure that all other connectors in that Connector group are also configured with SPNEGO. Applications expecting standard KCD should be routed through other connectors that are not configured for SPNEGO.
+There are several mechanisms that define how to send the Kerberos ticket in such requests. Most non-Windows servers expect to receive it in form of SPNEGO token. This mechanism is supported on Azure AD Application Proxy, but is disabled by default. A connector can be configured for SPNEGO or standard Kerberos token, but not both.
+
+If you configure a connector machine for SPNEGO, make sure that all other connectors in that Connector group are also configured with SPNEGO. Applications expecting standard Kerberos token should be routed through other connectors that are not configured for SPNEGO.
  
 
 To enable SPNEGO:

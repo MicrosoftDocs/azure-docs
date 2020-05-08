@@ -4,14 +4,13 @@ description: This article describes the deployment process of integrating cloud 
 services: active-directory
 author: martincoetzer
 manager: CelesteDG
-tags: azuread
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
-ms.reviewer: arvindha
+ms.reviewer: arvindha, celested
 ---
 
 # Plan cloud HR application to Azure Active Directory user provisioning

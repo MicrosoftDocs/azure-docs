@@ -18,9 +18,9 @@ Labeling voluminous data in machine learning projects is often a headache. Proje
  
 [Azure Machine Learning](https://ml.azure.com/) gives you a central place to create, manage, and monitor labeling projects (public preview). Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning supports image classification, either multi-label or multi-class, and object identification with bounded boxes.
 
-Machine Learning tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't need an Azure account to participate. After they are authenticated with your Microsoft account or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much labeling as their time allows.
+Azure Machine Learning tracks progress and maintains the queue of incomplete labeling tasks.
 
-You start and stop the project, add and remove labelers and teams, and monitor the labeling progress. You can export labeled data in COCO format or as an Azure Machine Learning dataset.
+You are able to start and stop the project and monitor the labeling progress. You can export labeled data in COCO format or as an Azure Machine Learning dataset.
 
 > [!Important]
 > Only image classification and object identification labeling projects are currently supported. Additionally, the data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload images during project creation.)
@@ -30,7 +30,6 @@ In this article, you'll learn how to:
 > [!div class="checklist"]
 > * Create a project
 > * Specify the project's data and structure
-> * Manage the teams and people who work on the project
 > * Run and monitor the project
 > * Export the labels
 
@@ -46,7 +45,7 @@ In this article, you'll learn how to:
 
 ## Create a labeling project
 
-Labeling projects are administered from Azure Machine Learning. You use the **Labeling projects** page to manage your projects and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it.
+Labeling projects are administered from Azure Machine Learning. You use the **Labeling projects** page to manage your projects.
 
 If your data is already in Azure Blob storage, you should make it available as a datastore before you create the labeling project. For an example of using a datastore, see [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
 

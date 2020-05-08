@@ -57,8 +57,8 @@ Before you can start managing groups using Azure AD PowerShell cmdlets, you must
 The cmdlet prompts you for the credentials you want to use to access your directory. In this example, we are using karen@drumkit.onmicrosoft.com to access the demonstration directory. The cmdlet returns a confirmation to show the session was connected successfully to your directory:
 
 ```powershell
-    Account                       Environment Tenant
-    -------                       ----------- ------
+    Account                       Environment Tenant ID
+    -------                       ----------- ---------
     Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
 ```
 

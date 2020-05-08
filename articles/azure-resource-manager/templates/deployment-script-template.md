@@ -14,7 +14,6 @@ ms.author: jgao
 Learn how to use deployment scripts in Azure Resource templates. With a new resource type called `Microsoft.Resources/deploymentScripts`, users can execute deployment scripts in template deployments and review execution results. These scripts can be used for performing custom steps such as:
 
 - add users to a directory
-- create an app registration
 - perform data plane operations, for example, copy blobs or seed database
 - look up and validate a license key
 - create a self-signed certificate

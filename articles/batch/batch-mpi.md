@@ -176,9 +176,7 @@ The following environment variables are created by the Batch service for use by 
 For full details on these and the other Batch compute node environment variables, including their contents and visibility, see [Compute node environment variables][msdn_env_var].
 
 > [!TIP]
-> The Batch Linux MPI code sample contains an example of how several of these environment variables can be used. The [coordination-cmd][coord_cmd_example] Bash script downloads common application and input files from Azure Storage, enables a Network File System (NFS) share on the master node, and configures the other nodes allocated to the multi-instance task as NFS clients.
->
->
+> The Batch Linux MPI code sample contains an example of how several of these environment variables can be used.
 
 ## Resource files
 There are two sets of resource files to consider for multi-instance tasks: **common resource files** that *all* tasks download (both primary and subtasks), and the **resource files** specified for the multi-instance task itself, which *only the primary* task downloads.
