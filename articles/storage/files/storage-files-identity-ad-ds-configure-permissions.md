@@ -15,6 +15,8 @@ Before you begin this article, make sure you completed the previous article, [As
 
 After you assign share-level permissions with RBAC, you must assign proper NTFS permissions at the root, directory, or file level. Think of share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While NTFS permissions act at a more granular level to determine what operations the user can do at the directory or file level.
 
+## Example header
+
 Azure Files supports the full set of basic and advanced NTFS permissions. You can view and configure NTFS permissions on directories and files in an Azure file share by mounting the share and then using Windows File Explorer, running the Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) command, or the [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) command. 
 
 To configure NTFS with superuser permissions, you must mount the share by using your storage account key from your domain-joined VM. Follow the instructions in the next section to mount an Azure file share from the command prompt and to configure NTFS permissions.
