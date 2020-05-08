@@ -36,7 +36,7 @@ The reported properties node is where you need to look to determine the status o
 
 The reported properties provide data for the edgeAgent and edgeHub modules, the `systemModules`, as well as the values for your custom modules. The following properties are first ones to examine for troubleshooting. See [EdgeAgent reported properties] for details for a complete listing.
 
-*  , which can be one of the following values:
+* `runtimeStatus` , which can be one of the following values:
 
     | runtimeStatus value | Description |
     | --- | --- |
@@ -55,11 +55,13 @@ The reported properties provide data for the edgeAgent and edgeHub modules, the 
 
 ### Monitor edgeHub
 
-### Monitor custom module twins
+## Monitor custom module twins
 
 The data in provided in the module twins for custom modules (other than edgeAgent and edgeHub) is pertinent to the deployment of the modules and the performances of their applications as opposed to connectivity and health. See [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md) for readily accessing this information.
 
 ## Access the module twins
+
+### Monitor in Azure IoT Hub
 
 To view the JSON for the module twin:
 
@@ -68,15 +70,13 @@ To view the JSON for the module twin:
 1. On the **IoT Edge devices** tab, select the **Device ID** of device with the modules you want to monitor.
 1. Select the module name from the **Modules** tab and then select **Module Identity Twin** from the upper menu bar.
 
-        ![Select Module Twin from the module details page](media/how-to-monitor-module-twins/select-module-twin.png)
+If you see the message "A module identity does not exist for this module", this error indicates that the back-end solution is no longer available that originally created the identity.
 
-    If you see the message "A module identity does not exist for this module", this error indicates that the back-end solution is no longer available that originally created the identity.
-
-## Monitor module twins in Visual Studio Code
+### Monitor module twins in Visual Studio Code
 
 In Visual Studio Code, use the following commands in the **View** > **Command Palette** to view the JSON for the device and module twins:
 
-## Monitor module twins in Azure CLI
+### Monitor module twins in Azure CLI
 
 ## Next steps
 
