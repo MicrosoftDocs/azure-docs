@@ -17,13 +17,12 @@ Synapse Link for Azure Cosmos DB is a cloud native hybrid transactional and anal
 
 Use the following steps to run analytical queries with the Synapse Link for Azure Cosmos DB:
 
-* [Enable Synapse Link for your Azure Cosmos accounts]()
-* [Create an analytical store enabled Azure Cosmos container]()
-* [Connect your Azure Cosmos database to a Synapse workspace]()
-* [Query analytical store using Synapse Spark]()
+* [Enable Synapse Link for your Azure Cosmos accounts](#enable-synapse-link)
+* [Create an analytical store enabled Azure Cosmos container](#reate-analytical-ttl)
+* [Connect your Azure Cosmos database to a Synapse workspace](connect-to-cosmos-database)
+* [Query analytical store using Synapse Spark](#query-analytical-store)
 
-
-## Enable Azure Synapse Link for Azure Cosmos DB accounts
+## <a id="enable-synapse-link"></a>Enable Azure Synapse Link for Azure Cosmos DB accounts
 
 ### Azure portal
 
@@ -47,7 +46,7 @@ Use the following steps to run analytical queries with the Synapse Link for Azur
 
 The [Azure Resource Manager template]() creates a Synapse Link enabled Azure Cosmos account for SQL API. The account is configured with two regions and options to select consistency level, automatic failover, and multi-master. To deploy this template, click on Deploy to Azure on the readme page, Create Azure Cosmos account.
 
-## Create an Azure Cosmos container with analytical store
+## <a id="create-analytical-ttl"></a> Create an Azure Cosmos container with analytical store
 
 You can turn on analytical store on an Azure Cosmos container while creating the container. You can use the Azure portal or configure the `analyticalTTL` property during container creation by using the Azure Cosmos DB SDKs.
 
@@ -68,7 +67,6 @@ You can turn on analytical store on an Azure Cosmos container while creating the
 
 1. Select **OK**, to create an analytical store enabled Azure Cosmos container.
 
-
 ### .NET SDK
 
 The following code creates a container with analytical store by using the .NET SDK. Set the analyticalTTL property to the required value. For the list of allowed values, see the analytical TTL supported values article.
@@ -86,7 +84,7 @@ AnalyticalStorageTimeToLiveInSeconds = analyticalTtlInSec,
  await this. cosmosClient.GetDatabase("myDatabase").CreateContainerAsync(cpInput);
 ```
 
-Python V3 SDK
+### Python V3 SDK
 
 The following code creates a container with analytical store by using the Python SDK:
 
@@ -123,11 +121,11 @@ container_definition = {
 container = client.CreateContainer(db['_self'], container_definition, options)
 ```
 
-## Update the analytical store time to live
+### <a id="update-analytical-ttl"></a> Update the analytical store time to live
 
 After the analytical store is enabled with a particular TTL value, you can update it to a different valid value later. You can update the value by using the Azure portal or SDKs. For information on the various Analytical TTL config options, see the [analytical TTL]() article.
 
-### Azure portal
+#### Azure portal
 
 If you created an analytical store enabled container through the Azure portal, it contains a default analytical TTL of -1. Use the following steps to update this value:
 
@@ -142,7 +140,7 @@ If you created an analytical store enabled container through the Azure portal, i
   * Select **On (no default)** or select **On** and set a TTL value
   * Click **Save** to save the changes.
 
-### .NET SDK
+#### .NET SDK
 
 The following code shows how to update the TTL for analytical store by using the .NET SDK:
 
@@ -154,11 +152,11 @@ containerResponse.Resource. AnalyticalStorageTimeToLiveInSeconds = 60 * 60 * 24 
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-## Connect a Cosmos DB database to a Synapse workspace
+## <a id="connect-to-cosmos-database"></a> Connect a Cosmos DB database to a Synapse workspace
 
 Use the instructions in [Connect to Azure Synapse Link](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md) on how to access an Azure Cosmos DB database from Azure Synapse Analytics Studio with Azure Synapse Link.
 
-## Query analytical store using Synapse Spark
+## <a id="query-analytical-store"></a> Query analytical store using Synapse Spark
 
 Use the instructions in the [Query Azure Cosmos DB analytical store](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) article on how to query with Synapse Spark. That article gives some examples on how you can interact with the analytical store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
 
