@@ -494,6 +494,8 @@
       - name: Trigger Azure Functions
         displayName: change feed
         href: change-feed-functions.md
+      - name: Change feed pull model
+        href: change-feed-pull-model.md
     - name: Globally distributed analytics and AI
       items:
       - name: Analytics use cases
