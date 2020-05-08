@@ -142,15 +142,15 @@ The logging mechanism allows you to capture custom information while a job is ru
 The `StreamingContext` class lets you publish diagnostic information using the `StreamingDiagnostics.WriteError` function. The code below shows the interface exposed by Azure Stream Analytics.
 
 ```csharp
-    public abstract class StreamingContext
-    {
-        public abstract StreamingDiagnostics Diagnostics { get; }
-    }
-    
-    public abstract class StreamingDiagnostics
-    {
-        public abstract void WriteError(string briefMessage, string detailedMessage);
-    }
+public abstract class StreamingContext
+{
+    public abstract StreamingDiagnostics Diagnostics { get; }
+}
+
+public abstract class StreamingDiagnostics
+{
+    public abstract void WriteError(string briefMessage, string detailedMessage);
+}
 ```
 
 `StreamingContext` is passed as an input parameter to the UDF method and can be used within the UDF to publish custom log information. In the example below, `MyUdfMethod` defines a **data** input, which is provided by the query, and a **context** input as the `StreamingContext`, provided by the runtime engine. 
