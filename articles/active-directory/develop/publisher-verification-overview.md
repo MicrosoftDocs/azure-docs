@@ -19,7 +19,7 @@ ms.reviewer: jesakowi
 Publisher verification (preview) helps admins and end users understand the authenticity of application developers integrating with the Microsoft identity platform. In other words, is the publisher a known source or a bad actor disguising themselves as a well-known publisher? When an application is marked as publisher verified, it means that the publisher has verified their identity using their Microsoft Partner Network (MPN) account and has associated this MPN account with their application registration.
 
 A blue "verified" badge appears on the Azure AD consent prompt and other screens:
-![Consent prompt][./media/publisher-verification-overview/consent-prompt.png]
+![Consent prompt](./media/publisher-verification-overview/consent-prompt.png)
 
 This feature is primarily for developers building multi-tenant apps that leverage [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md) with the [Microsoft identity platform](v2-overview.md). These apps can sign users in using OpenID Connect, or they may use OAuth to request access to data using APIs like [Microsoft Graph](https://developer.microsoft.com/graph/).
 
