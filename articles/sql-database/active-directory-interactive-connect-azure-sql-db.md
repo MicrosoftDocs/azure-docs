@@ -20,7 +20,7 @@ For more information about Multi-Factor Authentication support for SQL tools, se
 
 ## Multi-Factor Authentication for Azure SQL Database
 
-Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value: `ActiveDirectoryInteractive`. In a client C# program, the enum value directs the system to use the Azure Active Directory (Azure AD) interactive mode that supports Multi-Factor Authentication to connect to an Azure SQL database. The user who runs the program sees the following dialog boxes:
+Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value: `ActiveDirectoryInteractive`. In a client C# program, the enum value directs the system to use the Azure Active Directory (Azure AD) interactive mode that supports Multi-Factor Authentication to connect to Azure SQL Database. The user who runs the program sees the following dialog boxes:
 
 * A dialog box that displays an Azure AD user name and asks for the user's password.
 
@@ -77,7 +77,7 @@ To register and set necessary permissions for your application:
 
 For your C# program to run, a [logical SQL server](sql-database-servers.md) admin needs to assign an Azure AD admin for your server.
 
-On the **SQL Server** page, select **Active Directory admin** > **Set admin**.
+On the **SQL server** page, select **Active Directory admin** > **Set admin**.
 
 For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-database).
 

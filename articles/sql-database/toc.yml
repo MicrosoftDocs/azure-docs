@@ -858,7 +858,7 @@
   - name: Resource Manager templates for SQL
     displayName: ARM
     href: /azure/templates/microsoft.sql/allversions
-  - name: SQL Server tools
+  - name: SQL tools
     href: /sql/tools/overview-sql-tools
   - name: SQL Server Management Studio (SSMS)
     href: /sql/ssms/download-sql-server-management-studio-ssms

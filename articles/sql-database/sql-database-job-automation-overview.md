@@ -132,7 +132,7 @@ RECONFIGURE
 ```
 
 You can notify the operator that something happened with your SQL Agent jobs. An operator defines contact information for an individual responsible for the maintenance of one or more Managed Instances. Sometimes, operator responsibilities are assigned to one individual.
-In systems with multiple Managed Instance or SQL Servers, many individuals can share operator responsibilities. An operator does not contain security information, and does not define a security principal.
+In systems with multiple Azure SQL Managed Instances or SQL Server instances, many individuals can share operator responsibilities. An operator does not contain security information, and does not define a security principal.
 
 You can create operators using SSMS or the Transact-SQL script shown in the following example:
 

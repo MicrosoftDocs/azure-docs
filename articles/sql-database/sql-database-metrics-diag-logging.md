@@ -449,8 +449,8 @@ Refer to the following table for details about advanced metrics.
 
 |**Metric**|**Metric Display Name**|**Description**|
 |---|---|---|
-|sqlserver_process_core_percent<sup>1</sup>|SQL Server process core percent|CPU usage percentage for the SQL Server process, as measured by the operating system.|
-|sqlserver_process_memory_percent<sup>1</sup> |SQL Server process memory percent|Memory usage percentage for the SQL Server process, as measured by the operating system.|
+|sqlserver_process_core_percent<sup>1</sup>|SQL process core percent|CPU usage percentage for the SQL process, as measured by the operating system.|
+|sqlserver_process_memory_percent<sup>1</sup> |SQL process memory percent|Memory usage percentage for the SQL  process, as measured by the operating system.|
 |tempdb_data_size<sup>2</sup>| Tempdb Data File Size Kilobytes |Tempdb Data File Size Kilobytes.|
 |tempdb_log_size<sup>2</sup>| Tempdb Log File Size Kilobytes |Tempdb Log File Size Kilobytes.|
 |tempdb_log_used_percent<sup>2</sup>| Tempdb Percent Log Used |Tempdb Percent Log Used.|
@@ -604,7 +604,7 @@ Learn more about [Query Store wait statistics data](https://docs.microsoft.com/s
 |query_hash_s|Query hash of the failed query, if available |
 |query_plan_hash_s|Query plan hash of the failed query, if available |
 
-Learn more about [SQL Server error messages](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15).
+Learn more about [SQL error messages](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15).
 
 #### Database wait statistics dataset
 

@@ -1,6 +1,6 @@
 ---
 title: Query Performance Insight
-description: Query performance monitoring identifies the most CPU-consuming and long-running queries for single and pooled databases in Azure SQL database.
+description: Query performance monitoring identifies the most CPU-consuming and long-running queries for single and pooled databases in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance

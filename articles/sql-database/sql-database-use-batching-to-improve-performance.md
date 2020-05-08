@@ -1,6 +1,6 @@
 ---
 title: How to use batching to improve application performance
-description: The topic provides evidence that batching database operations greatly improves the speed and scalability of your Azure SQL Database and Azure SQL Managed Instance applications. Although these batching techniques work for any SQL Server database, the focus of the article is on Azure.
+description: The topic provides evidence that batching database operations greatly improves the speed and scalability of your Azure SQL Database and Azure SQL Managed Instance applications. Although these batching techniques work for any SQL database, the focus of the article is on Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -205,7 +205,7 @@ For more information on table-valued parameters, see [Table-Valued Parameters](/
 
 ### SQL bulk copy
 
-SQL bulk copy is another way to insert large amounts of data into a target database. .NET applications can use the **SqlBulkCopy** class to perform bulk insert operations. **SqlBulkCopy** is similar in function to the command-line tool, **Bcp.exe**, or the Transact-SQL statement, **BULK INSERT**. The following code example shows how to bulk copy the rows in the source **DataTable**, table, to the destination table in SQL Server, MyTable.
+SQL bulk copy is another way to insert large amounts of data into a target database. .NET applications can use the **SqlBulkCopy** class to perform bulk insert operations. **SqlBulkCopy** is similar in function to the command-line tool, **Bcp.exe**, or the Transact-SQL statement, **BULK INSERT**. The following code example shows how to bulk copy the rows in the source **DataTable**, table, to the destination table, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -239,7 +239,7 @@ The following ad hoc test results show the performance of batching with **SqlBul
 
 In smaller batch sizes, the use table-valued parameters outperformed the **SqlBulkCopy** class. However, **SqlBulkCopy** performed 12-31% faster than table-valued parameters for the tests of 1,000 and 10,000 rows. Like table-valued parameters, **SqlBulkCopy** is a good option for batched inserts, especially when compared to the performance of non-batched operations.
 
-For more information on bulk copy in ADO.NET, see [Bulk Copy Operations in SQL Server](/dotnet/framework/data/adonet/sql/bulk-copy-operations-in-sql-server).
+For more information on bulk copy in ADO.NET, see [Bulk Copy Operations](/dotnet/framework/data/adonet/sql/bulk-copy-operations-in-sql-server).
 
 ### Multiple-row Parameterized INSERT statements
 

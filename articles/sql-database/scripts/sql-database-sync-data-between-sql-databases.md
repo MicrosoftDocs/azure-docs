@@ -1,6 +1,6 @@
 ﻿---
-title: "PowerShell: Sync between multiple Azure SQL Databases"
-description: Azure PowerShell example script to sync between multiple Azure SQL Databases
+title: "PowerShell: Sync between multiple Azure SQL databases"
+description: Azure PowerShell example script to sync between multiple Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement

@@ -39,7 +39,7 @@ Automatic tuning mechanisms are mature and have been perfected on several millio
 
 ![How does automatic tuning work](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
-Azure SQL Database and Azure SQL Managed Instance  automatic tuning is sharing its core logic with the SQL Server automatic tuning engine. For additional technical information on the built-in intelligence mechanism, see [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
+Azure SQL Database and Azure SQL Managed Instance automatic tuning is sharing its core logic with the SQL Server automatic tuning feature in the database engine. For additional technical information on the built-in intelligence mechanism, see [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 For an overview of how automatic tuning works and for typical usage scenarios, see the embedded video:
 

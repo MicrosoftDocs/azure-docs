@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Auditing 
-description: Use Azure SQL database auditing to track database events into an audit log.
+description: Use Azure SQL Database auditing to track database events into an audit log.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -251,7 +251,7 @@ Extended policy with WHERE clause support for additional filtering:
 
 ### Using Azure Resource Manager templates
 
-You can manage Azure SQL database auditing using [Azure Resource Manager](../azure-resource-manager/management/overview.md) templates, as shown in these examples:
+You can manage Azure SQL Database auditing using [Azure Resource Manager](../azure-resource-manager/management/overview.md) templates, as shown in these examples:
 
 - [Deploy an Azure SQL Database with Auditing enabled to write audit logs to Azure Blob storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Deploy an Azure SQL Database with Auditing enabled to write audit logs to Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)

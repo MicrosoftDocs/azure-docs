@@ -36,7 +36,7 @@ You can use these backups to:
 To perform a restore, see [Restore database from backups](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
-> In Azure Storage, the term *replication* refers to copying files from one location to another. SQL Server *database replication* refers to keeping multiple secondary databases synchronized with a primary database.
+> In Azure Storage, the term *replication* refers to copying files from one location to another. In SQL, *database replication* refers to keeping multiple secondary databases synchronized with a primary database.
 
 You can try some of these operations by using the following examples:
 

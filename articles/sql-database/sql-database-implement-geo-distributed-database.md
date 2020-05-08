@@ -14,7 +14,7 @@ ms.date: 03/12/2019
 ---
 # Tutorial: Implement a geo-distributed database (Azure SQL Database)
 
-Configure an Azure SQL Database and application for failover to a remote region and test a failover plan. You learn how to:
+Configure an Azure SQL database and application for failover to a remote region and test a failover plan. You learn how to:
 
 > [!div class="checklist"]
 >

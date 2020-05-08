@@ -58,14 +58,14 @@ For more information, see the following article, [Configure public endpoint in A
 
 ## Create an Azure AD server principal (login) using SSMS
 
-The first Azure AD server principal (login) can be created by the standard SQL Server account (non-azure AD) that is a `sysadmin`, or the Azure AD admin for the SQL Managed Instance created during the provisioning process. For more information, see [Provision an Azure Active Directory administrator for your SQL Managed Instance](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
+The first Azure AD server principal (login) can be created by the standard SQL admin account (non-azure AD) that is a `sysadmin`, or the Azure AD admin for the SQL Managed Instance created during the provisioning process. For more information, see [Provision an Azure Active Directory administrator for your SQL Managed Instance](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 See the following articles for examples of connecting to your SQL Managed Instance:
 
 - [Quickstart: Configure Azure VM to connect to a SQL Managed Instance](sql-database-managed-instance-configure-vm.md)
 - [Quickstart: Configure a point-to-site connection to a SQL Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md)
 
-1. Log into your SQL Managed Instance using a standard SQL Server account (non-azure AD) that is a `sysadmin` or an Azure AD admin for MI, using [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#connect-with-ssms).
+1. Log into your SQL Managed Instance using a standard SQL login account (non-azure AD) that is a `sysadmin` or an Azure AD admin for MI, using [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#connect-with-ssms).
 
 2. In **Object Explorer**, right-click the server and choose **New Query**.
 

@@ -106,7 +106,7 @@ To setup a database-level firewall rule:
 
 ## Create an Azure AD admin
 
-Make sure you're using the appropriate Azure Active Directory (AD) managed domain. To select the AD domain, use the upper-right corner of the Azure portal. This process confirms the same subscription is used for both Azure AD and the SQL Server hosting your Azure SQL database or data warehouse.
+Make sure you're using the appropriate Azure Active Directory (AD) managed domain. To select the AD domain, use the upper-right corner of the Azure portal. This process confirms the same subscription is used for both Azure AD and the logical SQL server hosting your Azure SQL database or data warehouse.
 
    ![choose-ad](./media/sql-database-security-tutorial/8choose-ad.png)
 
@@ -131,7 +131,7 @@ To set the Azure AD administrator:
     The process of changing an administrator may take several minutes. The new administrator will appear in the **Active Directory admin** box.
 
 > [!NOTE]
-> When setting an Azure AD admin, the new admin name (user or group) cannot exist as a SQL Server authentication user in the *master* database. If present, the setup will fail and roll back changes, indicating that such an admin name already exists. Since the SQL Server authentication user is not part of Azure AD, any effort to connect the user using Azure AD authentication fails.
+> When setting an Azure AD admin, the new admin name (user or group) cannot exist as a SQL Server login or user in the *master* database. If present, the setup will fail and roll back changes, indicating that such an admin name already exists. Since the SQL Server login or user is not part of Azure AD, any effort to connect the user using Azure AD authentication fails.
 
 For information about configuring Azure AD, see:
 
