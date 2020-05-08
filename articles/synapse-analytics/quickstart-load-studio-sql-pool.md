@@ -39,7 +39,7 @@ You can now easily bulk load data using SQL pools with a simple right-click on t
 
 2. Select the file format settings including the storage account where you want to write rejected rows (error file). Currently only CSV and Parquet files are supported.
 
-![Selecting file format settings](./sql/media/bulk-load/bulk_load_file_format_settings.png)
+	![Selecting file format settings](./sql/media/bulk-load/bulk_load_file_format_settings.png)
 
 3. You can click on "Preview data" to see how the COPY statement will parse the file to help you configure the file format settings. Click on "Preview data" every time you change a file format setting to see how the COPY statement will parse the file with the updated setting:
    ![Previewing data](./sql/media/bulk-load/bulk_load_file_format_settings_preview_data.png)
