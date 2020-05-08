@@ -98,8 +98,11 @@ You can use various tools to connect to Synapse SQL to query data.
 | Synapse Studio | Yes, SQL scripts | Yes, SQL scripts |
 | Power BI | Yes | [Yes](tutorial-connect-power-bi-desktop.md) |
 | Azure Analysis Service | Yes | Yes |
-| Azure Data Studio | Yes | Yes, version 1.14 or higher. SQL scripts and SQL Notebooks are supported. |
-| SQL Server Management Studio | Yes | Yes, version 18.4 or higher |
+| Azure Data Studio | Yes | Yes, version 1.18 or higher. SQL scripts and SQL Notebooks are supported. |
+| SQL Server Management Studio | Yes | Yes, version 18.5 or higher |
+
+> [!NOTE]
+> You can use SSMS to connect to SQL on-demand (preview) and query. It is partially supported starting from version 18.5, you can use it to connect and query only.
 
 Most of the applications use standard Transact-SQL language can query both provisioned and serverless consumption models of Synapse SQL.
 
