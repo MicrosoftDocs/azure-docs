@@ -1,7 +1,7 @@
 ---
 title: Configure routing preference for a public IP address - Azure PowerShell
 titlesuffix: Azure Virtual Network
-description: Learn how to create a public IP with an Internet traffic routing preference using Azure PowerShell.
+description: Learn how to Configure routing preference for a public IP address using Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: KumudD

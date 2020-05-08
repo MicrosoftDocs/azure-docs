@@ -27,9 +27,9 @@ This article shows you how to create a virtual machine with a public IP that is 
 
 ## Register the feature for your subscription
 The Routing Preference feature is currently in preview. You must register the feature for your subscription using Azure PowerShell as follows:
-    ```azurepowershell
-    Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNamespace Microsoft.Network
-    ```
+```azurepowershell
+Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNamespace Microsoft.Network
+```
 
 ## Sign in to Azure
 
