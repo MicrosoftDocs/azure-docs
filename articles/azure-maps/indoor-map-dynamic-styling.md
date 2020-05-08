@@ -63,10 +63,10 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Use the [Feature Update States API](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) to update the state. Pass the stateset ID, dataset ID, and `UNIT26` for one of the two units. Append your Azure Maps subscription key. Here's the URL of a **POST** request to update the state:
+2. Use the [Feature Update States API](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) to update the state. Pass the stateset ID, and `UNIT26` for one of the two units. Append your Azure Maps subscription key. Here's the URL of a **POST** request to update the state:
 
     ```http
-    https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&datasetID={datasetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **BODY** of the **POST** request, write the following JSON with the feature updates. The update will be saved only if the posted time stamp is after the time stamp used in previous feature state update requests for the same feature `ID`. Pass the "occupied" `keyName` to update its value.

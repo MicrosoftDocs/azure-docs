@@ -353,10 +353,10 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 4. Copy the `statesetId` from the response body.
 
-5. Create a **POST** request to update the state: Pass the statesetId, datasetId, and feature `ID` with your Azure Maps subscription key. The request should look like the following URL:
+5. Create a **POST** request to update the state: Pass the statesetId and feature `ID` with your Azure Maps subscription key. The request should look like the following URL:
 
     ```http
-    https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&datasetID={datasetId}&featureID={featureId}&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID={featureId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 6. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **BODY** of the **POST** request, copy and paste the JSON in the sample below.
