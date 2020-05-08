@@ -78,9 +78,7 @@ Using long-term backup retention with an Azure SQL Managed Instance has the foll
 - **Limited public preview** - This preview is only available to EA and CSP subscriptions and is subject to limited availability.  
 - [**PowerShell only**](sql-database-managed-instance-long-term-backup-retention-configure.md) - There is currently no Azure portal support. LTR must be enabled using PowerShell. 
 
-To request enrollment, create an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/) under the support topic **Backup, Restore, and Business continuity / Long-term backup retention**.
-
-## Configure LTR & restore backup
+To request enrollment, create an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For issue type select technical issue, for service choose SQL Database Managed Instance and for the problem type select **Backup, Restore, and Business continuity / Long-term backup retention**. In your request, please state you would like to be enrolled into limited public preview of LTR for managed instance.
 
 ## Configure long-term backup retention
 
@@ -90,6 +88,7 @@ To learn how to configure long-term retention or restore a database from backup 
 
 To learn how to configure long-term retention or restore a database from  backup for an Azure SQL Managed Instance using PowerShell, see [Manage Azure SQL Managed Instance long-term backup retention](sql-database-managed-instance-long-term-backup-retention-configure.md). 
 
+To restore a database from the LTR storage, you can select a specific backup based on its timestamp. The database can be restored to any existing server under the same subscription as the original database. To learn how to restore your database from an LTR backup, using the Azure portal, or PowerShell, see [Manage Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md). In your request, please state you would like to be enrolled in the limited public preview of LTR for managed instance.
 
 ## Next steps
 

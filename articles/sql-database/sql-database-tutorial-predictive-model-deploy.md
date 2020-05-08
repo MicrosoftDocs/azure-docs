@@ -27,6 +27,7 @@ You'll create a stored procedure with an embedded R script that makes prediction
 In this article, using the R scripts you developed in parts one and two, you'll learn how to:
 
 > [!div class="checklist"]
+>
 > * Create a stored procedure that generates the machine learning model
 > * Store the model in a database table
 > * Create a stored procedure that makes predictions using the model
@@ -106,11 +107,11 @@ Create a table in the TutorialDB database and then save the model to the table.
     ```sql
     -- Save model to table
     TRUNCATE TABLE rental_rx_models;
-    
+
     DECLARE @model VARBINARY(MAX);
-    
+
     EXECUTE generate_rental_rx_model @model OUTPUT;
-    
+
     INSERT INTO rental_rx_models (
           model_name
         , model
@@ -119,7 +120,7 @@ Create a table in the TutorialDB database and then save the model to the table.
          'rxDTree'
         , @model
         );
-    
+
     SELECT *
     FROM rental_rx_models;
     ```
@@ -197,7 +198,7 @@ You have successfully created, trained, and deployed a model in an Azure SQL dat
 
 ## Clean up resources
 
-When you've finished using the TutorialDB database, delete it from your Azure SQL Database server.
+When you've finished using the TutorialDB database, delete it from your server.
 
 From the Azure portal, follow these steps:
 

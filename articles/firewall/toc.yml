@@ -23,6 +23,9 @@
   - name: Deploy with multiple addresses
     displayName: Resource Manager
     href: quick-create-multiple-ip-template.md
+  - name: Deploy with Availability Zones
+    displayName: Resource Manager
+    href: deploy-template.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -61,8 +64,6 @@
       href: tutorial-hybrid-ps.md
     - name: Deploy using Azure CLI
       href: deploy-cli.md
-    - name: Deploy using a template
-      href: deploy-template.md
     - name: Deploy with multiple public IP
       href: deploy-multi-public-ip-powershell.md
     - name: Deploy with Availability Zones

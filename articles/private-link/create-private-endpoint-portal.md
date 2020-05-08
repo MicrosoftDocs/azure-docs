@@ -15,7 +15,7 @@ ms.author: allensu
 # Quickstart: Create a Private Endpoint using Azure portal
 
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. 
-In this Quickstart, you will learn how to create a VM on an Azure Virtual Network, a SQL Database Server with an Azure private endpoint using the Azure portal. Then, you can securely access the SQL Database Server from the VM.
+In this Quickstart, you will learn how to create a VM on an Azure Virtual Network, a logical SQL server with an Azure private endpoint using the Azure portal. Then, you can securely access SQL Database from the VM.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -92,8 +92,9 @@ In this section you'll need to replace the following parameters in the steps wit
 
 1. When you see the **Validation passed** message, select **Create**.
 
-## Create a SQL database server
-In this section, you will create a SQL database server in Azure. 
+## Create a logical SQL server
+
+In this section, you will create a logical SQL server in Azure. 
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Databases** > **SQL database**.
 
@@ -192,7 +193,7 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 1. Once the VM desktop appears, minimize it to go back to your local desktop.  
 
-## Access the SQL database server privately from the VM
+## Access SQL Database privately from the VM
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 
@@ -232,4 +233,4 @@ When you're done using the private endpoint, SQL server, and the VM, delete the 
 
 ## Next steps
 
-In this quickstart, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).
+In this quickstart, you created a VM on a virtual network, a logical SQL server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to SQL Database using Private Link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).

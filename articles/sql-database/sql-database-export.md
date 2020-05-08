@@ -14,7 +14,7 @@ ms.topic: conceptual
 ---
 # Export to a BACPAC file - Azure SQL Database & SQL Managed Instance
 
-When you need to export a database for archiving or for moving to another platform, you can export the database schema and data to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file. A BACPAC file is a ZIP file with an extension of BACPAC containing the metadata and data from a SQL Server database. A BACPAC file can be stored in Azure Blob storage or in local storage in an on-premises location and later imported back into Azure SQL Database, Azure SQL Managed Instance, or a SQL Server on-premises installation.
+When you need to export a database for archiving or for moving to another platform, you can export the database schema and data to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file. A BACPAC file is a ZIP file with an extension of BACPAC containing the metadata and data from the database. A BACPAC file can be stored in Azure Blob storage or in local storage in an on-premises location and later imported back into Azure SQL Database, Azure SQL Managed Instance, or a SQL Server on-premises installation.
 
 ## Considerations
 
@@ -42,13 +42,13 @@ Exporting a BACPAC of a database from an [Azure SQL Managed Instance](sql-databa
 
    ![Database export](./media/sql-database-export/database-export1.png)
 
-2. Specify the BACPAC filename, select an existing Azure storage account and container for the export, and then provide the appropriate credentials for access to the source database. A SQL **Server admin login** is needed here even if you are the Azure admin, as being an Azure admin does not equate to having SQL Server admin permissions.
+2. Specify the BACPAC filename, select an existing Azure storage account and container for the export, and then provide the appropriate credentials for access to the source database. A SQL **Server admin login** is needed here even if you are the Azure admin, as being an Azure admin does not equate to having admin permissions in Azure SQL Database or Azure SQL Managed Instance.
 
     ![Database export](./media/sql-database-export/database-export2.png)
 
 3. Click **OK**.
 
-4. To monitor the progress of the export operation, open the page for the SQL Database server containing the database being exported. Under to **Settings** and then click **Import/Export history**.
+4. To monitor the progress of the export operation, open the page for the server containing the database being exported. Under to **Settings** and then click **Import/Export history**.
 
    ![export history](./media/sql-database-export/export-history.png)
 
@@ -64,9 +64,9 @@ This example shows how to export a database using SqlPackage.exe with Active Dir
 SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
-##  SQL Server Management Studio (SSMS)
+## SQL Server Management Studio (SSMS)
 
-The newest versions of SQL Server Management Studio provides a wizard to export an Azure SQL Database or SQL Managed Instance database to a BACPAC file. See the [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
+The newest versions of SQL Server Management Studio provide a wizard to export an Azure SQL Database or SQL Managed Instance database to a BACPAC file. See the [Export a Data-tier Application](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
 
 ## PowerShell
 

@@ -20,7 +20,7 @@ For more information about Multi-Factor Authentication support for SQL tools, se
 
 ## Multi-Factor Authentication for Azure SQL Database
 
-Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value: `ActiveDirectoryInteractive`. In a client C# program, the enum value directs the system to use the Azure Active Directory (Azure AD) interactive mode that supports Multi-Factor Authentication to connect to an Azure SQL database. The user who runs the program sees the following dialog boxes:
+Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value: `ActiveDirectoryInteractive`. In a client C# program, the enum value directs the system to use the Azure Active Directory (Azure AD) interactive mode that supports Multi-Factor Authentication to connect to Azure SQL Database. The user who runs the program sees the following dialog boxes:
 
 * A dialog box that displays an Azure AD user name and asks for the user's password.
 
@@ -43,7 +43,7 @@ For screenshots of these dialog boxes, see [Configure multi-factor authenticatio
 
 ## Configure your C# application in the Azure portal
 
-Before you begin, you should have an [Azure SQL Database server](sql-database-get-started-portal.md) created and available.
+Before you begin, you should have a [logical SQL server](sql-database-servers.md) created and available.
 
 ### Register your app and set permissions
 
@@ -77,13 +77,13 @@ To register and set necessary permissions for your application:
 
 For your C# program to run, a [logical SQL server](sql-database-servers.md) admin needs to assign an Azure AD admin for your server.
 
-On the **SQL Server** page, select **Active Directory admin** > **Set admin**.
+On the **SQL server** page, select **Active Directory admin** > **Set admin**.
 
 For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-database).
 
 ### Add a non-admin user to a specific database (optional)
 
-An Azure AD admin for an Azure SQL Database server can run the C# example program. An Azure AD user can run the program if they are in the database. An Azure AD SQL admin or an Azure AD user who exists already in the database and has the `ALTER ANY USER` permission on the database can add a user.
+An Azure AD admin for a [logical SQL server](sql-database-servers.md) can run the C# example program. An Azure AD user can run the program if they are in the database. An Azure AD SQL admin or an Azure AD user who exists already in the database and has the `ALTER ANY USER` permission on the database can add a user.
 
 You can add a user to the database with the SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) command. An example is `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
@@ -93,15 +93,15 @@ For more information, see [Use Azure Active Directory Authentication for authent
 
 The C# example relies on the [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) namespace. Of special interest for Multi-Factor Authentication is the enum `SqlAuthenticationMethod`, which has the following values:
 
-- `SqlAuthenticationMethod.ActiveDirectoryInteractive`
+* `SqlAuthenticationMethod.ActiveDirectoryInteractive`
 
    Use this value with an Azure AD user name to implement Multi-Factor Authentication. This value is the focus of the present article. It produces an interactive experience by displaying dialog boxes for the user password, and then for Multi-Factor Authentication validation if Multi-Factor Authentication is imposed on this user. This value is available starting with .NET Framework version 4.7.2.
 
-- `SqlAuthenticationMethod.ActiveDirectoryIntegrated`
+* `SqlAuthenticationMethod.ActiveDirectoryIntegrated`
 
   Use this value for a *federated* account. For a federated account, the user name is known to the Windows domain. This authentication method doesn't support Multi-Factor Authentication.
 
-- `SqlAuthenticationMethod.ActiveDirectoryPassword`
+* `SqlAuthenticationMethod.ActiveDirectoryPassword`
 
   Use this value for authentication that requires an Azure AD user name and password. Azure SQL Database does the authentication. This method doesn't support Multi-Factor Authentication.
 
@@ -125,9 +125,9 @@ For the C# program to successfully run, you need to assign proper values to stat
 
 Before you run the C# program, it's a good idea to check that your setup and configurations are correct in SQL Server Management Studio (SSMS). Any C# program failure can then be narrowed to source code.
 
-### Verify SQL Database firewall IP addresses
+### Verify server-level firewall IP addresses
 
-Run SSMS from the same computer, in the same building, where you plan to run the C# program. For this test, any **Authentication** mode is OK. If there's any indication that the database server firewall isn't accepting your IP address, see [Azure SQL Database server-level and database-level firewall rules](sql-database-firewall-configure.md) for help.
+Run SSMS from the same computer, in the same building, where you plan to run the C# program. For this test, any **Authentication** mode is OK. If there's any indication that the server isn't accepting your IP address, see [server-level and database-level firewall rules](sql-database-firewall-configure.md) for help.
 
 ### Verify Azure Active Directory Multi-Factor Authentication
 
@@ -167,7 +167,7 @@ namespace ADInteractive5
     class Program
     {
         // ASSIGN YOUR VALUES TO THESE STATIC FIELDS !!
-        static public string Az_SQLDB_svrName = "<Your SQL DB server>";
+        static public string Az_SQLDB_svrName = "<Your server>";
         static public string AzureAD_UserID = "<Your User ID>";
         static public string Initial_DatabaseName = "<Your Database>";
         // Some scenarios do not need values for the following two fields:
@@ -244,9 +244,9 @@ namespace ADInteractive5
     /// <summary>
     /// SqlAuthenticationProvider - Is a public class that defines 3 different Azure AD
     /// authentication methods.  The methods are supported in the new .NET 4.7.2.
-    ///  . 
+    ///  .
     /// 1. Interactive,  2. Integrated,  3. Password
-    ///  . 
+    ///  .
     /// All 3 authentication methods are based on the Azure
     /// Active Directory Authentication Library (ADAL) managed library.
     /// </summary>
@@ -319,7 +319,7 @@ namespace ADInteractive5
 
 This is an example of the C# test output.
 
-```
+```C#
 [C:\Test\VSProj\ADInteractive5\ADInteractive5\bin\Debug\]
 >> ADInteractive5.exe
 In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
@@ -337,4 +337,4 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
-- [Get-AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)
+& [Get-AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)

@@ -32,9 +32,9 @@ The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticS
 
 ## Prerequisites
 
-1. Create an Azure SQL DB database that will be used as the split-merge status database. Go to the [Azure portal](https://portal.azure.com). Create a new **SQL Database**. Give the database a name and create a new administrator and password. Be sure to record the name and password for later use.
+1. Create an Azure SQL Database database that will be used as the split-merge status database. Go to the [Azure portal](https://portal.azure.com). Create a new **SQL Database**. Give the database a name and create a new administrator and password. Be sure to record the name and password for later use.
 
-1. Ensure that your Azure SQL DB server allows Azure Services to connect to it. In the portal, in the **Firewall Settings**, ensure the **Allow access to Azure Services** setting is set to **On**. Click the "save" icon.
+1. Ensure that your server allows Azure Services to connect to it. In the portal, in the **Firewall Settings**, ensure the **Allow access to Azure Services** setting is set to **On**. Click the "save" icon.
 
 1. Create an Azure Storage account for diagnostics output.
 
@@ -53,7 +53,7 @@ The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticS
    > [!IMPORTANT]
    > At this time, the status database must use the Latin  collation (SQL\_Latin1\_General\_CP1\_CI\_AS). For more information, see [Windows Collation Name (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
 
-   With Azure SQL DB, the connection string typically is of the form:
+   With Azure SQL Database, the connection string typically is of the form:
 
       `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<userId>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
@@ -150,12 +150,12 @@ If your worker role fails to come online, but your web role succeeds, it is most
 
 - Make sure that the connection string in your cscfg is accurate.
 - Check that the server and database exist, and that the user id and password are correct.
-- For Azure SQL DB, the connection string should be of the form:
+- For Azure SQL Database, the connection string should be of the form:
 
    `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<user>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
 - Ensure that the server name does not begin with **https://**.
-- Ensure that your Azure SQL DB server allows Azure Services to connect to it. To do this, open your database in the portal and ensure that the **Allow access to Azure Services** setting is set to **On****.
+- Ensure that your server allows Azure Services to connect to it. To do this, open your database in the portal and ensure that the **Allow access to Azure Services** setting is set to **On****.
 
 ## Test the service deployment
 
@@ -174,7 +174,7 @@ The script files included are:
 3. *GetMappings.ps1* - top-level sample script that prints out the current state of the shard mappings.
 4. *ShardManagement.psm1*  - helper script that wraps the ShardManagement API
 5. *SqlDatabaseHelpers.psm1* - helper script for creating and managing SQL databases
-   
+
    <table style="width:100%">
      <tr>
        <th>PowerShell file</th>
@@ -216,19 +216,19 @@ The script files included are:
        <td>4. Polls the web frontend for the merge request status and waits until the request completes.</td>
      </tr>
    </table>
-   
+
 ## Use PowerShell to verify your deployment
 
 1. Open a new PowerShell window and navigate to the directory where you downloaded the Split-Merge package, and then navigate into the “powershell” directory.
 
-2. Create an Azure SQL Database server (or choose an existing server) where the shard map manager and shards will be created.
+2. Create a server (or choose an existing server) where the shard map manager and shards will be created.
 
    > [!NOTE]
    > The *SetupSampleSplitMergeEnvironment.ps1* script creates all these databases on the same server by default to keep the script simple. This is not a restriction of the Split-Merge Service itself.
 
    A SQL authentication login with read/write access to the DBs will be needed for the Split-Merge service to move data and update the shard map. Since the Split-Merge Service runs in the cloud, it does not currently support Integrated Authentication.
 
-   Make sure the Azure SQL server is configured to allow access from the IP address of the machine running these scripts. You can find this setting under the Azure SQL server / configuration / allowed IP addresses.
+   Make sure the server is configured to allow access from the IP address of the machine running these scripts. You can find this setting under SQL server / Firewalls and virtual networks / Client IP addresses.
 
 3. Execute the *SetupSampleSplitMergeEnvironment.ps1* script to create the sample environment.
 
@@ -250,56 +250,56 @@ The script files included are:
 
 5. Execute the *ExecuteSampleSplitMerge.ps1* script to execute a split operation (moving half the data on the first shard to the second shard) and then a merge operation (moving the data back onto the first shard). If you configured TLS and left the http endpoint disabled, ensure that you use the https:// endpoint instead.
 
-   Sample command line:
+    Sample command line:
 
-   ```cmd
-   .\ExecuteSampleSplitMerge.ps1
-    -UserName 'mysqluser' -Password 'MySqlPassw0rd' 
-    -ShardMapManagerServerName 'abcdefghij.database.windows.net' 
-    -SplitMergeServiceEndpoint 'https://mysplitmergeservice.cloudapp.net' 
+    ```cmd
+    .\ExecuteSampleSplitMerge.ps1
+    -UserName 'mysqluser' -Password 'MySqlPassw0rd'
+    -ShardMapManagerServerName 'abcdefghij.database.windows.net'
+    -SplitMergeServiceEndpoint 'https://mysplitmergeservice.cloudapp.net'
     -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
-   ```
+    ```
 
-   If you receive the below error, it is most likely a problem with your Web endpoint’s certificate. Try connecting to the Web endpoint with your favorite Web browser and check if there is a certificate error.
+    If you receive the below error, it is most likely a problem with your Web endpoint’s certificate. Try connecting to the Web endpoint with your favorite Web browser and check if there is a certificate error.
 
-     `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.`
+    `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.`
 
-   If it succeeded, the output should look like the below:
+    If it succeeded, the output should look like the below:
 
-   ```output
-   > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' -CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
-   > Sending split request
-   > Began split operation with id dc68dfa0-e22b-4823-886a-9bdc903c80f3
-   > Polling split-merge request status. Press Ctrl-C to end
-   > Progress: 0% | Status: Queued | Details: [Informational] Queued request
-   > Progress: 5% | Status: Starting | Details: [Informational] Starting split-merge state machine for request.
-   > Progress: 5% | Status: Starting | Details: [Informational] Performing data consistency checks on target     shards.
-   > Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
-   > Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Waiting for reference tables copy     completion.
-   > Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
-   > Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Moving key range [100:110) of     Sharded tables
-   > Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Successfully copied key range     [100:110) for table [dbo].[MyShardedTable]
-   > ...
-   > ...
-   > Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
-   > Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
-   > Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
-   > Sending merge request
-   > Began merge operation with id 6ffc308f-d006-466b-b24e-857242ec5f66
-   > Polling request status. Press Ctrl-C to end
-   > Progress: 0% | Status: Queued | Details: [Informational] Queued request
-   > Progress: 5% | Status: Starting | Details: [Informational] Starting split-merge state machine for request.
-   > Progress: 5% | Status: Starting | Details: [Informational] Performing data consistency checks on target     shards.
-   > Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
-   > Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Moving key range [100:110) of     Sharded tables
-   > Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Successfully copied key range     [100:110) for table [dbo].[MyShardedTable]
-   > ...
-   > ...
-   > Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
-   > Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
-   > Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
-   > 
-   ```
+    ```output
+    > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' -CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
+    > Sending split request
+    > Began split operation with id dc68dfa0-e22b-4823-886a-9bdc903c80f3
+    > Polling split-merge request status. Press Ctrl-C to end
+    > Progress: 0% | Status: Queued | Details: [Informational] Queued request
+    > Progress: 5% | Status: Starting | Details: [Informational] Starting split-merge state machine for request.
+    > Progress: 5% | Status: Starting | Details: [Informational] Performing data consistency checks on target     shards.
+    > Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
+    > Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Waiting for reference tables copy     completion.
+    > Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
+    > Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Moving key range [100:110) of     Sharded tables
+    > Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Successfully copied key range     [100:110) for table [dbo].[MyShardedTable]
+    > ...
+    > ...
+    > Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
+    > Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
+    > Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
+    > Sending merge request
+    > Began merge operation with id 6ffc308f-d006-466b-b24e-857242ec5f66
+    > Polling request status. Press Ctrl-C to end
+    > Progress: 0% | Status: Queued | Details: [Informational] Queued request
+    > Progress: 5% | Status: Starting | Details: [Informational] Starting split-merge state machine for request.
+    > Progress: 5% | Status: Starting | Details: [Informational] Performing data consistency checks on target     shards.
+    > Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
+    > Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Moving key range [100:110) of     Sharded tables
+    > Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Successfully copied key range     [100:110) for table [dbo].[MyShardedTable]
+    > ...
+    > ...
+    > Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
+    > Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
+    > Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
+    >
+    ```
 
 6. Experiment with other data types! All of these scripts take an optional -ShardKeyType parameter that allows you to specify the key type. The default is Int32, but you can also specify Int64, Guid, or Binary.
 

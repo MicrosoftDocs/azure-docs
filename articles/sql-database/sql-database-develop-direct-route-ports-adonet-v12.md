@@ -30,14 +30,14 @@ Port 1433 is the only port that must be open on your desktop computer that hosts
 
 ### *Inside:* Client runs on Azure
 
-When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no Azure SQL Database Gateway.
+When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with SQL Database. After a connection is established, further interactions between the client and database involve no Azure SQL Database Gateway.
 
 The sequence is as follows:
 
 1. ADO.NET 4.5 (or later) initiates a brief interaction with the Azure cloud, and receives a dynamically identified port number.
 
    * The dynamically identified port number is in the range of 11000-11999.
-2. ADO.NET then connects to the SQL Database server directly, with no middleware in between.
+2. ADO.NET then connects to SQL Database directly, with no middleware in between.
 3. Queries are sent directly to the database, and results are returned directly to the client.
 
 Ensure that the port ranges of 11000-11999 on your Azure client machine are left available for ADO.NET 4.5 client interactions with SQL Database.
@@ -66,9 +66,9 @@ This section clarifies the monikers that refer to product versions. It also list
 
 ## Related links
 
-* ADO.NET 4.6 was released on July 20, 2015. A blog announcement from the .NET team is available [here](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 was released on August 15, 2012. A blog announcement from the .NET team is available [here](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
-  * A blog post about ADO.NET 4.5.1 is available [here](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx).
+* ADO.NET 4.6 was released on July 20, 2015. A blog announcement from the .NET team is available [here](https://devblogs.microsoft.com/dotnet/announcing-net-framework-4-6/).
+* ADO.NET 4.5 was released on August 15, 2012. A blog announcement from the .NET team is available [here](https://devblogs.microsoft.com/dotnet/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code/).
+  * A blog post about ADO.NET 4.5.1 is available [here](https://devblogs.microsoft.com/dotnet/announcing-the-net-framework-4-5-1-preview/).
 
 * Microsoft® ODBC Driver 17 for SQL Server® - Windows, Linux, & macOS
 https://www.microsoft.com/download/details.aspx?id=56567
@@ -80,5 +80,3 @@ https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12
 * [SQL Database Development Overview](sql-database-develop-overview.md)
 * [Azure SQL Database firewall](sql-database-firewall-configure.md)
 * [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)
-
-

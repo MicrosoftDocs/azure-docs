@@ -22,7 +22,7 @@ ms.custom: "seo-lt-2019"
 
 # Tutorial: Configure availability group on Azure SQL Server VM manually
 
-This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines. The complete tutorial creates an Availability Group with a database replica on two SQL Servers.
+This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines. The complete tutorial creates an Availability Group with a database replica on two SQL Server instances.
 
 **Time estimate**: Takes about 30 minutes to complete once the prerequisites are met.
 
@@ -38,13 +38,13 @@ The following table lists the prerequisites that you need to complete before sta
 
 |  |Requirement |Description |
 |----- |----- |----- |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Two SQL Servers | - In an Azure availability set <br/> - In a single domain <br/> - With Failover Clustering feature installed |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | File share for cluster witness |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server service account | Domain account |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Agent service account | Domain account |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Firewall ports open | - SQL Server: **1433** for default instance <br/> - Database mirroring endpoint: **5022** or any available port <br/> - Availability group load balancer IP address health probe: **59999** or any available port <br/> - Cluster core load balancer IP address health probe: **58888** or any available port |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Add Failover Clustering Feature | Both SQL Servers require this feature |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Installation domain account | - Local administrator on each SQL Server <br/> - Member of SQL Server sysadmin fixed server role for each instance of SQL Server  |
+|![Square](./media/portal-availability-group-tutorial/square.png) | Two SQL Server instances | - In an Azure availability set <br/> - In a single domain <br/> - With Failover Clustering feature installed |
+|![Square](./media/portal-availability-group-tutorial/square.png)| Windows Server | File share for cluster witness |  
+|![Square](./media/portal-availability-group-tutorial/square.png)|SQL Server service account | Domain account |
+|![Square](./media/portal-availability-group-tutorial/square.png)|SQL Server Agent service account | Domain account |  
+|![Square](./media/portal-availability-group-tutorial/square.png)|Firewall ports open | - SQL Server: **1433** for default instance <br/> - Database mirroring endpoint: **5022** or any available port <br/> - Availability group load balancer IP address health probe: **59999** or any available port <br/> - Cluster core load balancer IP address health probe: **58888** or any available port |
+|![Square](./media/portal-availability-group-tutorial/square.png)|Add Failover Clustering Feature | Both SQL Server instances require this feature |
+|![Square](./media/portal-availability-group-tutorial/square.png)|Installation domain account | - Local administrator on each SQL Server <br/> - Member of SQL Server sysadmin fixed server role for each instance of SQL Server  |
 
 
 Before you begin the tutorial, you need to [Complete prerequisites for creating Always On Availability Groups in Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). If these prerequisites are completed already, you can jump to [Create Cluster](#CreateCluster).
@@ -60,7 +60,7 @@ Before you begin the tutorial, you need to [Complete prerequisites for creating 
 
 After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Severs and a witness server.
 
-1. RDP to the first SQL Server using a domain account that is an administrator on both SQL Servers and the witness server.
+1. RDP to the first SQL Server using a domain account that is an administrator on both SQL Server instances and the witness server.
 
    >[!TIP]
    >If you followed the [prerequisites document](virtual-machines-windows-portal-sql-availability-group-prereq.md), you created an account called **CORP\Install**. Use this account.
@@ -183,7 +183,7 @@ The cluster core resources are configured with a file share witness.
 
 ## Enable Availability Groups
 
-Next, enable the **AlwaysOn Availability Groups** feature. Do these steps on both SQL Servers.
+Next, enable the **AlwaysOn Availability Groups** feature. Do these steps on both SQL Server instances.
 
 1. From the **Start** screen, launch **SQL Server Configuration Manager**.
 2. In the browser tree, click **SQL Server Services**, then right-click the **SQL Server (MSSQLSERVER)** service and click **Properties**.
@@ -202,7 +202,7 @@ Repeat these steps on the other SQL Server.
 
 Each instance of SQL Server that participates in an Availability Group requires a database mirroring endpoint. This endpoint is a TCP port for the instance of SQL Server that is used to synchronize the database replicas in the Availability Groups on that instance.
 
-On both SQL Servers, open the firewall for the TCP port for the database mirroring endpoint.
+On both SQL Server instances, open the firewall for the TCP port for the database mirroring endpoint.
 
 1. On the first SQL Server **Start** screen, launch **Windows Firewall with Advanced Security**.
 2. In the left pane, select **Inbound Rules**. On the right pane, click **New Rule**.
@@ -348,7 +348,7 @@ On Azure virtual machines, a SQL Server Availability Group requires a load balan
 
 An Azure Load Balancer can be either a Standard Load Balancer or a Basic Load Balancer. Standard Load Balancer has more features than the Basic Load Balancer. For an availability group, the Standard Load Balancer is required if you use an Availability Zone (instead of an Availability Set). For details on the difference between the load balancer SKUs, see [Load Balancer SKU comparison](../../../load-balancer/skus.md).
 
-1. In the Azure portal, go to the resource group where your SQL Servers are and click **+ Add**.
+1. In the Azure portal, go to the resource group where your SQL Server instances are and click **+ Add**.
 1. Search for **Load Balancer**. Choose the load balancer published by Microsoft.
 
    ![AG in Failover Cluster Manager](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
@@ -520,7 +520,7 @@ To test the connection:
 The SQLCMD connection automatically connects to whichever instance of SQL Server hosts the primary replica.
 
 > [!TIP]
-> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](https://technet.microsoft.com/library/cc753558.aspx).
+> Make sure that the port you specify is open on the firewall of both SQL Server instances. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](https://technet.microsoft.com/library/cc753558.aspx).
 
 ## Next steps
 

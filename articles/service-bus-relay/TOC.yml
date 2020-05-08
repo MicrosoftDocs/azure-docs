@@ -8,11 +8,11 @@
   items:
   - name: Hybrid Connections
     items:
-    - name: Send and receive messages - .NET Websockets
+    - name: Send and receive messages - .NET WebSockets
       href: relay-hybrid-connections-dotnet-get-started.md
     - name: Send and receive messages - .NET HTTP
       href: relay-hybrid-connections-http-requests-dotnet-get-started.md
-    - name: Send and receive messages - Node Websockets
+    - name: Send and receive messages - Node WebSockets
       href: relay-hybrid-connections-node-get-started.md
     - name: Send and receive messages - Node HTTP
       href: relay-hybrid-connections-http-requests-node-get-started.md    
@@ -38,6 +38,8 @@
       href: relay-authentication-and-authorization.md
     - name: Built-in security controls
       href: service-bus-relay-security-controls.md
+    - name: Network security
+      href: network-security.md      
   - name: Hybrid Connections protocol
     href: relay-hybrid-connections-protocol.md
 - name: How To
@@ -59,10 +61,18 @@
         href: relay-hybrid-connections-dotnet-api-overview.md
       - name: Node
         href: relay-hybrid-connections-node-ws-api-overview.md
-  - name: Manage
+  - name: Secure
+    items: 
+    - name: Configure IP firewall (preview)
+      href: ip-firewall-virtual-networks.md
+    - name: Configure private endpoints (preview)
+      href: private-link-service.md        
+  - name: Manage and monitor
     items:
     - name: Monitor Azure Relay with Azure Monitoring
       href: relay-metrics-azure-monitor.md
+    - name: Set up diagnostic logs
+      href: diagnostic-logs.md
 - name: Reference
   items:
   - name: .NET

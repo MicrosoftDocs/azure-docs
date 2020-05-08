@@ -31,7 +31,7 @@ Azure Private Endpoint is a network interface that connects you privately and se
 Here are some key details about private endpoints: 
 - Private endpoint enables connectivity between the consumers from the same VNet, regionally peered VNets, globally peered VNets and on premises using [VPN](https://azure.microsoft.com/services/vpn-gateway/) or [Express Route](https://azure.microsoft.com/services/expressroute/) and services powered by Private Link.
  
-- When creating a private endpoint, a network interface is also created for the lifecycle of the resource. The interface is assigned a private IP address from the subnet that maps to the Private Link Service.
+- When creating a private endpoint, a read-only network interface is also created for the lifecycle of the resource. The interface is assigned a private IP address from the subnet that maps to the private link resource.
  
 - The private endpoint must be deployed in the same region as the virtual network. 
  
@@ -117,9 +117,9 @@ The following table includes a list of known limitations when using private endp
 
 
 ## Next steps
-- [Create a Private Endpoint for SQL Database Server using Portal ](create-private-endpoint-portal.md)
-- [Create a Private Endpoint for SQL Database Server using PowerShell ](create-private-endpoint-powershell.md)
-- [Create a Private Endpoint for SQL Database Server using CLI ](create-private-endpoint-cli.md)
+- [Create a Private Endpoint for SQL Database using Portal ](create-private-endpoint-portal.md)
+- [Create a Private Endpoint for SQL Database using PowerShell ](create-private-endpoint-powershell.md)
+- [Create a Private Endpoint for SQL Database using CLI ](create-private-endpoint-cli.md)
 - [Create a Private Endpoint for Storage account using Portal ](create-private-endpoint-storage-portal.md)
 - [Create a Private Endpoint for Azure Cosmos account using Portal ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)

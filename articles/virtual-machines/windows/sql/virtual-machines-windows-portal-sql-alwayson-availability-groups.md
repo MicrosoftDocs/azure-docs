@@ -170,7 +170,7 @@ On **SQL Server settings**, review and modify the SQL Server virtual machine nam
 * **SQL Server version** is the version of SQL Server. For this tutorial use **SQL Server 2014**. You can also choose **SQL Server 2012** or **SQL Server 2016**.
 * **SQL Server service account user name** is the domain account name for the SQL Server service. For this tutorial, use **sqlservice**.
 * **Password** is the password for the SQL Server service account.  Use a complex password. Confirm the password.
-* **SQL Auto Patching maintenance schedule** identifies the day of the week that Azure automatically patches the SQL Servers. For this tutorial, type **Sunday**.
+* **SQL Auto Patching maintenance schedule** identifies the day of the week that Azure automatically patches the SQL Server instances. For this tutorial, type **Sunday**.
 * **SQL Auto Patching maintenance start hour** is the time of day for the Azure region when automatic patching begins.
 
 > [!NOTE]

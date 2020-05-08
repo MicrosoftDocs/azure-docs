@@ -14,7 +14,7 @@ ms.date: 01/08/2020
 ---
 # Import or export an Azure SQL Database without allowing Azure services to access the server
 
-This article shows you how to import or export an Azure SQL Database when *Allow Azure Services* is set to *OFF* on the Azure SQL Database server. The workflow uses an Azure virtual machine to run SqlPackage to perform the import or export operation.
+This article shows you how to import or export an Azure SQL Database when *Allow Azure Services* is set to *OFF* on the server. The workflow uses an Azure virtual machine to run SqlPackage to perform the import or export operation.
 
 ## Sign in to the Azure portal
 
@@ -78,7 +78,7 @@ The following steps create a server-level IP firewall rule for your virtual mach
 
    ![server name](./media/sql-database-get-started-portal/server-name.png)
 
-3. Select **Set server firewall** on the toolbar. The **Firewall settings** page for the database server opens.
+3. Select **Set server firewall** on the toolbar. The **Firewall settings** page for the server opens.
 
    ![server-level IP firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png)
 

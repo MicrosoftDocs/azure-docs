@@ -28,7 +28,7 @@ Use Azure Automation to process events with automated runbooks.
 
 Use Azure Functions for serverless response to events.
 
-When using Azure Functions as the handler, use the Event Grid trigger instead of generic HTTP triggers. Event Grid automatically validates Event Grid Function triggers. With generic HTTP triggers, you must implement the [validation response](security-authentication.md#webhook-event-delivery).
+When using Azure Functions as the handler, use the Event Grid trigger instead of generic HTTP triggers. Event Grid automatically validates Event Grid Function triggers. With generic HTTP triggers, you must implement the [validation response](webhook-event-delivery.md).
 
 |Title  |Description  |
 |---------|---------|

@@ -1,6 +1,6 @@
 ---
 title: Query Performance Insight
-description: Query performance monitoring identifies the most CPU-consuming and long-running queries for single and pooled databases in Azure SQL database.
+description: Query performance monitoring identifies the most CPU-consuming and long-running queries for single and pooled databases in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -185,7 +185,7 @@ A user application that uses the database might get slow, even though a high num
 
 In some cases, a high execution count can lead to more network round trips. Round trips affect performance. They're subject to network latency and to downstream server latency.
 
-For example, many data-driven websites heavily access the database for every user request. Although connection pooling helps, the increased network traffic and processing load on the database server can slow performance. In general, keep round trips to a minimum.
+For example, many data-driven websites heavily access the database for every user request. Although connection pooling helps, the increased network traffic and processing load on the server can slow performance. In general, keep round trips to a minimum.
 
 To identify frequently executed ("chatty") queries:
 

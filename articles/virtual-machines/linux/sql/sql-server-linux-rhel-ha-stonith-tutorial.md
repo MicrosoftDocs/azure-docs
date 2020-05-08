@@ -680,7 +680,7 @@ GO
 
 ### Create a SQL Server login for Pacemaker
 
-On all SQL Servers, create a SQL login for Pacemaker. The following Transact-SQL creates a login.
+On all SQL Server instances, create a SQL login for Pacemaker. The following Transact-SQL creates a login.
 
 - Replace `<password>` with your own complex password.
 
@@ -695,7 +695,7 @@ ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin];
 GO
 ```
 
-On all SQL Servers, save the credentials used for the SQL Server login. 
+On all SQL Server instances, save the credentials used for the SQL Server login. 
 
 1. Create the file:
 
@@ -978,7 +978,7 @@ For more information on testing a fence device, see the following [Red Hat](http
 
 ## Next steps
 
-In order to utilize an Availability Group Listener for your SQL Servers, you will need to create and configure a load balancer.
+In order to utilize an Availability Group Listener for your SQL Server instances, you will need to create and configure a load balancer.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Configure availability group listener for SQL Server on RHEL virtual machines in Azure](sql-server-linux-rhel-ha-listener-tutorial.md)

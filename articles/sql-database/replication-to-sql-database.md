@@ -21,7 +21,7 @@ You can configure an Azure SQL Database as the push subscriber in a one-way tran
 
 ## Supported Configurations
   
-- The Azure SQL database can only be the push subscriber of a SQL Server publisher and distributor.  
+- Azure SQL Database can only be the push subscriber of a SQL Server publisher and distributor.  
 - The SQL Server acting as publisher and/or distributor can be an instance of [SQL Server running on-premises](https://www.microsoft.com/sql-server/sql-server-downloads), an [Azure SQL Managed Instance](sql-database-managed-instance-get-started.md), or an instance of [SQL Server running on an Azure virtual machine in the cloud](/virtual-machines/windows/quickstart-sql-vm-create-portal.md). 
 - The distribution database and the replication agents cannot be placed on an Azure SQL database.  
 - [Snapshot](/sql/relational-databases/replication/snapshot-replication) and [one-way transactional](/sql/relational-databases/replication/transactional/transactional-replication) replication are supported. Peer-to-peer transactional replication and merge replication are not supported.
@@ -61,12 +61,12 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 
 - Only push subscriptions to Azure SQL Database are supported.  
 - Replication can be configured by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or by executing Transact-SQL statements on the publisher. You cannot configure replication by using the Azure portal.  
-- Replication can only use SQL Server authentication logins to connect to an Azure SQL database.
+- Replication can only use SQL Server authentication logins to connect to Azure SQL Database.
 - Replicated tables must have a primary key.  
 - You must have an existing Azure subscription.  
 - The Azure SQL Database subscriber can be in any region.  
 - A single publication on SQL Server can support both Azure SQL Database and SQL Server (on-premises and SQL Server in an Azure virtual machine) subscribers.  
-- Replication management, monitoring, and troubleshooting must be performed from the SQL Server.  
+- Replication management, monitoring, and troubleshooting must be performed from SQL Server rather than Azure SQL Database.  
 - Only `@subscriber_type = 0` is supported in **sp_addsubscription** for SQL Database.  
 - Azure SQL Database does not support bi-directional, immediate, updatable, or peer-to-peer replication.
 
@@ -122,7 +122,7 @@ The following options are not supported for Azure SQL Database subscriptions:
 Create a publication and a push subscription. For more information, see:
   
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) by using the Azure SQL Database server name as the subscriber (for example **N'azuresqldbdns.database.windows.net'**) and the Azure SQL Database name as the destination database (for example **AdventureWorks**).  
+- [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) by using the server name as the subscriber (for example **N'azuresqldbdns.database.windows.net'**) and the Azure SQL Database name as the destination database (for example **AdventureWorks**).  
 
 ## See Also  
 

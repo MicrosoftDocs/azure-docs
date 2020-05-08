@@ -153,7 +153,7 @@ Your attempt to delete a sync group fails. Any of the following scenarios might 
 
 - **Cause**. A database is offline.
 
-- **Resolution**. Ensure that your SQL databases and SQL Server databases are all online.
+- **Resolution**. Ensure that your databases are all online.
 
 - **Cause**. The sync group is provisioning or syncing.
 

@@ -29,7 +29,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | |  |
 |---|---|
 |**Create and configure single databases, and elastic pools**||
-| [Create a single database and configure a database server firewall rule](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates a single database and configures a server-level ip firewall rule. |
+| [Create a single database and configure a server-level firewall rule](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates a single database and configures a server-level ip firewall rule. |
 | [Create elastic pools and move pooled databases](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates elastic pools, and moves pooled databases, and changes compute sizes.|
 |**Configure geo-replication and failover**||
 | [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures active geo-replication for a single database and fails it over to the secondary replica. |

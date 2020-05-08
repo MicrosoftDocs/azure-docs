@@ -22,7 +22,7 @@ Transact-SQL (T-SQL) is used to create, configure, execute, and manage jobs. Cre
 
 ## Create a credential for job execution
 
-The credential is used to connect to your target databases for script execution. The credential needs appropriate permissions, on the databases specified by the target group, to successfully execute the script. When using a server and/or pool target group member, it is highly suggested to create a master credential for use to refresh the credential prior to expansion of the server and/or pool at time of job execution. The database scoped credential is created on the job agent database. The same credential must be used to *Create a Login* and *Create a User from Login to grant the Login Database Permissions* on the target databases.
+The credential is used to connect to your target databases for script execution. The credential needs appropriate permissions, on the databases specified by the target group, to successfully execute the script. When using a [logical SQL server](sql-database-servers.md) and/or pool target group member, it is highly suggested to create a master credential for use to refresh the credential prior to expansion of the server and/or pool at time of job execution. The database scoped credential is created on the job agent database. The same credential must be used to *Create a Login* and *Create a User from Login to grant the Login Database Permissions* on the target databases.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -56,7 +56,7 @@ EXEC jobs.sp_add_target_group 'ServerGroup1'
 EXEC jobs.sp_add_target_group_member
 'ServerGroup1',
 @target_type = 'SqlServer',
-@refresh_credential_name='mymastercred', --credential required to refresh the databases in server
+@refresh_credential_name='mymastercred', --credential required to refresh the databases in a server
 @server_name='server1.database.windows.net'
 
 --View the recently created target group and target group members
@@ -66,7 +66,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 
 ## Exclude an individual database
 
-The following example shows how to execute a job against all databases in a server, except for the database named *MappingDB*.  
+The following example shows how to execute a job against all databases in an server, except for the database named *MappingDB*.  
 Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
@@ -80,7 +80,7 @@ GO
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in server
+@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in a server
 @server_name=N'London.database.windows.net'
 GO
 
@@ -88,7 +88,7 @@ GO
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in server
+@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in a server
 @server_name='server2.database.windows.net'
 GO
 
@@ -121,7 +121,7 @@ EXEC jobs.sp_add_target_group 'PoolGroup'
 EXEC jobs.sp_add_target_group_member
 'PoolGroup',
 @target_type = 'SqlElasticPool',
-@refresh_credential_name='mymastercred', --credential required to refresh the databases in server
+@refresh_credential_name='mymastercred', --credential required to refresh the databases in a server
 @server_name='server1.database.windows.net',
 @elastic_pool_name='ElasticPool-1'
 
@@ -1023,10 +1023,10 @@ Specifies if the target group member will be included or excluded. target_group_
 The type of target database or collection of databases including all databases in a server, all databases in an Elastic pool, all databases in a shard map, or an individual database. target_type is nvarchar(128), with no default. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’, or ‘SqlShardMap’.
 
 [ **\@refresh_credential_name =** ] 'refresh_credential_name'  
-The name of the SQL Database server. refresh_credential_name is nvarchar(128), with no default.
+The name of the server. refresh_credential_name is nvarchar(128), with no default.
 
 [ **\@server_name =** ] 'server_name'  
-The name of the SQL Database server that should be added to the specified target group. server_name should be specified when target_type is ‘SqlServer’. server_name is nvarchar(128), with no default.
+The name of the server that should be added to the specified target group. server_name should be specified when target_type is ‘SqlServer’. server_name is nvarchar(128), with no default.
 
 [ **\@database_name =** ] 'database_name'  
 The name of the database that should be added to the specified target group. database_name should be specified when target_type is ‘SqlDatabase’. database_name is nvarchar(128), with no default.
@@ -1044,7 +1044,7 @@ Return Code Values
 
 #### Remarks
 
-A job executes on all single databases within a SQL Database server or in an elastic pool at time of execution, when a SQL Database server or Elastic pool is included in the target group.
+A job executes on all single databases within a server or in an elastic pool at time of execution, when a server or elastic pool is included in the target group.
 
 #### Permissions
 
@@ -1233,7 +1233,7 @@ Shows job execution history.
 |**target_type** | nvarchar(128) | Type of target database or collection of databases including all databases in a server, all databases in an Elastic pool or a database. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’ or ‘SqlDatabase’. NULL indicates this is the parent job execution.
 |**target_id** | uniqueidentifier | Unique ID of the target group member.  NULL indicates this is the parent job execution.
 |**target_group_name** | nvarchar(128) | Name of the target group. NULL indicates this is the parent job execution.
-|**target_server_name** | nvarchar(256)  | Name of the SQL Database server contained in the target group. Specified only if target_type is ‘SqlServer’. NULL indicates this is the parent job execution.
+|**target_server_name** | nvarchar(256)  | Name of the server contained in the target group. Specified only if target_type is ‘SqlServer’. NULL indicates this is the parent job execution.
 |**target_database_name** | nvarchar(128) | Name of the database contained in the target group. Specified only when target_type is ‘SqlDatabase’. NULL indicates this is the parent job execution.
 
 ### jobs view
@@ -1332,7 +1332,7 @@ Shows all members of all target groups.
 |**refresh_credential_name**|nvarchar(128)|Name of the database scoped credential used to connect to the target group member.|
 |**subscription_id**|uniqueidentifier|Unique ID of the subscription.|
 |**resource_group_name**|nvarchar(128)|Name of the resource group in which the target group member resides.|
-|**server_name**|nvarchar(128)|Name of the SQL Database server contained in the target group. Specified only if target_type is ‘SqlServer’. |
+|**server_name**|nvarchar(128)|Name of the server contained in the target group. Specified only if target_type is ‘SqlServer’. |
 |**database_name**|nvarchar(128)|Name of the database contained in the target group. Specified only when target_type is ‘SqlDatabase’.|
 |**elastic_pool_name**|nvarchar(128)|Name of the Elastic pool contained in the target group. Specified only when target_type is ‘SqlElasticPool’.|
 |**shard_map_name**|nvarchar(128)|Name of the shard maps contained in the target group. Specified only when target_type is ‘SqlShardMap’.|
@@ -1344,4 +1344,4 @@ Shows all members of all target groups.
 ## Next steps
 
 - [Create and manage Elastic Jobs using PowerShell](elastic-jobs-powershell.md)
-- [Authorization and Permissions SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
+- [Authorization and Permissions](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)

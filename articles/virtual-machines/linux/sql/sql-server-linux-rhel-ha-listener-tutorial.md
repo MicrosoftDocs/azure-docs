@@ -16,7 +16,7 @@ ms.date: 03/11/2020
 >
 > We use SQL Server 2017 with RHEL 7.6 in this tutorial, but it is possible to use SQL Server 2019 in RHEL 7 or RHEL 8 to configure HA. The commands to configure availability group resources has changed in RHEL 8, and you'll want to look at the article, [Create availability group resource](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) and RHEL 8 resources for more information on the correct commands.
 
-This tutorial will go over steps on how to create an availability group listener for your SQL Servers on RHEL virtual machines in Azure. You will learn how to:
+This tutorial will go over steps on how to create an availability group listener for your SQL Server instances on RHEL virtual machines in Azure. You will learn how to:
 
 > [!div class="checklist"]
 > - Create a load balancer in the Azure portal
