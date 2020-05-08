@@ -16,13 +16,14 @@ Navigate to the downloaded folder on your machine and unzip it. Inside the unzip
 >[!IMPORTANT]
 > For the rest of this article, paths to specific sample files will be given relative to this starting point.
 
-From here, open _DigitalTwinsMetadata/DigitalTwinsSample/**Program.cs**_ in an editor of your choice. Change `AdtInstanceUrl` to your Azure Digital Twins instance *hostName*, `ClientId` to your *Application ID*, and `TenantId` to your *Directory ID*.
+From here, navigate into _AdtSampleApp/SampleClientApp_. Copy the contents of *serviceConfig.json.TEMPLATE* into a new file, called *serviceConfig.json*. Within that new file, use an editor of your choice to change the `tenantId` to your *Directory ID*, `clientId` to your *Application ID*, and instanceUrl to your Azure Digital Twins instance *hostName* URL.
 
-```csharp
-private const string ClientId = "<your-application-ID>";
-private const string TenantId = "<your-directory-ID>";
-//...
-const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"
+```json
+{
+  "tenantId": "<your-directory-ID>",
+  "clientId": "<your-application-ID>",
+  "instanceUrl": "https://<your-Azure-Digital-Twins-instance-hostName>"
+}
 ```
 
 Save the file.
