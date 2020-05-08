@@ -15,7 +15,7 @@ In this tutorial, you will be predicting iron ore impurities as a % of Silica in
 
 ## Pre-requisite software to be installed 
 1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-2. Install [Visual Studio Professions/Enterprise](https://visualstudio.microsoft.com/vs/)
+2. Install [Visual Studio Professional/Enterprise](https://visualstudio.microsoft.com/vs/)
 3. Install [PowerShell 3.6.8](https://www.python.org/downloads/release/python-368/)
       * Windows x86-x64 Executable Installer
       * Ensure to add python path to the PATH environment variables
