@@ -5,4 +5,4 @@
 - name: Unity/Changing environment and materials
   href: unity/changing-environment-and-materials.md
 - name: Native C++/Integrate Remote Rendering into a Hololens app
-  href: native-cpp/integrate-arr-into-holographic-app.md
+  href: native-cpp/hololens/integrate-arr-into-holographic-app.md
