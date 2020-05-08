@@ -59,6 +59,11 @@
     href: tutorial-kubernetes-app-update.md
   - name: 7 - Upgrade cluster
     href: tutorial-kubernetes-upgrade-cluster.md
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Clusters and workloads
@@ -252,7 +257,7 @@
     - name: View container data real-time
       href: ../azure-monitor/insights/container-insights-livedata-overview.md
       maintainContext: true
-  - name: Use Windows Server containers (preview)
+  - name: Use Windows Server containers
     items:
     - name: Create an AKS cluster
       href: windows-container-cli.md

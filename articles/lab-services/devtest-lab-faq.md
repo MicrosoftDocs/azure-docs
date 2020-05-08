@@ -207,6 +207,9 @@ To copy your existing VMs to DevTest Labs:
 
 Yes, you can attach multiple disks to your VMs.
 
+### Are Gen 2 images supported by DevTest Labs?
+No. The DevTest Labs service doesn't support [Gen 2 images](../virtual-machines/windows/generation-2.md). If both Gen 1 and Gen 2 versions are available for an image, DevTest Labs shows only the Gen 1 version of the image when creating a VM. You won't see an image if there is only Gen 2 version of it available. 
+
 ### If I want to use a Windows OS image for my testing, do I have to purchase an MSDN subscription?
 To use Windows client OS images (Windows 7 or a later version) for your development or testing in Azure, take one of the following steps:
 

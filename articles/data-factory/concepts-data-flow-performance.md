@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 04/14/2020
+ms.date: 04/27/2020
 ---
 
 # Mapping data flows performance and tuning guide
@@ -146,7 +146,13 @@ Setting throughput and batch properties on CosmosDB sinks only take effect durin
 
 ## Join performance
 
-Managing the performance of joins in your data flow is a very common operation that you will perform throughout the lifecycle of your data transformations. In ADF, data flows do not require data to be sorted prior to joins as these operations are performed as hash joins in Spark. However, you can benefit from improved performance with the "Broadcast" Join optimization. This will avoid shuffles by pushing down the contents of either side of your join relationship into the Spark node. This works well for smaller tables that are used for reference lookups. Larger tables that may not fit into the node's memory are not good candidates for broadcast optimization.
+Managing the performance of joins in your data flow is a very common operation that you will perform throughout the lifecycle of your data transformations. In ADF, data flows do not require data to be sorted prior to joins as these operations are performed as hash joins in Spark. However, you can benefit from improved performance with the "Broadcast" Join optimization that applies to Joins, Exists, and Lookup transformations.
+
+This will avoid on-the-fly shuffles by pushing down the contents of either side of your join relationship into the Spark node. This works well for smaller tables that are used for reference lookups. Larger tables that may not fit into the node's memory are not good candidates for broadcast optimization.
+
+The recommended configuration for data flows with many join operations is to keep the optimization set to "Auto" for "Broadcast" and use a Memory Optimized Azure Integration Runtime configuration. If you are experiencing out of memory errors or broadcast timeouts during data flow executions, you can switch off the broadcast optimization. However, this will result in slower performing data flows. Optionally, you can instruct data flow to pushdown only the left or right side of the join, or both.
+
+![Broadcast Settings](media/data-flow/newbroad.png "Broadcast Settings")
 
 Another Join optimization is to build your joins in such a way that it avoids Spark's tendency to implement cross joins. For example, when you include literal values in your join conditions, Spark may see that as a requirement to perform a full cartesian product first, then filter out the joined values. But if you ensure that you have column values on both sides of your join condition, you can avoid this Spark-induced cartesian product and improve the performance of your joins and data flows.
 

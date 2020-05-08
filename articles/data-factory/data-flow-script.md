@@ -6,7 +6,7 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/13/2020
+ms.date: 05/06/2020
 ---
 
 # Data flow script (DFS)
@@ -172,6 +172,21 @@ Use this code in your data flow script to create a new derived column called ```
 
 ```
 derive(DWhash = sha1(Name,ProductNumber,Color))
+```
+
+You can also use this script below to generate a row hash using all columns that are present in your stream, without needing to name each column:
+
+```
+derive(DWhash = sha1(columns()))
+```
+
+### String_agg equivalent
+This code will act like the T-SQL ```string_agg()``` function and will aggregate string values into an array. You can then cast that array into a string to use with SQL destinations.
+
+```
+source1 aggregate(groupBy(year),
+	string_agg = collect(title)) ~> Aggregate1
+Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
 ```
 
 ## Next steps

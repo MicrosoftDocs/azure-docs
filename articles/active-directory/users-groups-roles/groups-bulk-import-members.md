@@ -1,11 +1,11 @@
 ---
-title: Bulk import upload to add members to a group - Azure Active Directory | Microsoft Docs
+title: Bulk upload to add or create members of a group - Azure Active Directory | Microsoft Docs
 description: Add group members in bulk in the Azure Active Directory admin center. 
 services: active-directory 
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/16/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -18,6 +18,27 @@ ms.collection: M365-identity-device-management
 # Bulk import group members in Azure Active Directory
 
 Using Azure Active Directory (Azure AD) portal, you can add a large number of members to a group by using a comma-separated values (CSV) file to bulk import group members.
+
+## Understand the CSV template
+
+Download and fill in the bulk upload CSV template to successfully add Azure AD group members in bulk. Your CSV template might look like this example:
+
+![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/groups-bulk-import-members/template-with-callouts.png)
+
+### CSV template structure
+
+The rows in a downloaded CSV template are as follows:
+
+- **Version number**: The first row containing the version number must be included in the upload CSV.
+- **Column headings**: The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Some older versions of the template might have slight variations. For group membership changes, you have the option of which identifier to use: member object ID or user principal name.
+- **Examples row**: We have included in the template a row of examples of acceptable values for each column. You must remove the examples row and replace it with your own entries.
+
+### Additional guidance
+
+- The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
+- The required columns are listed first.
+- We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
+- We recommend that you download the latest version of the CSV template as often as possible.
 
 ## To bulk import group members
 
