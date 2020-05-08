@@ -15,7 +15,7 @@ Azure Cache for Redis provides fully managed [open-source Redis](https://redis.i
 
 ## Prerequisites
 
-You'll need an Azure subscription before you begin. If you don't have one, create a free account [create one for free](https://azure.microsoft.com/free/) first.
+You'll need an Azure subscription before you begin. If you don't have one, create a [free account](https://azure.microsoft.com/free/) first.
 
 ## Create a cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]

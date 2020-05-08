@@ -19,7 +19,7 @@ There isn't any cost for joining the preview. Register through the [Azure Market
 
 ## Prerequisites
 
-You'll need an Azure subscription before you begin. If you don't have one, create a free account [create one for free](https://azure.microsoft.com/free/) first.
+You'll need an Azure subscription before you begin. If you don't have one, create a [free account](https://azure.microsoft.com/free/) first.
 
 ## Create a cache
 1. To create a cache, sign in to the Azure portal using the link in your preview invitation and select **Create a resource**.
