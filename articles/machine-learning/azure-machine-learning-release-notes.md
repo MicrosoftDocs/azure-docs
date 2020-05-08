@@ -25,6 +25,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + [Insert new features below. Reference articles and/or doc pages]
   
   + **Preview features**
+    + **azureml-contrib-reinforcementlearning**
+        + Azure Machine Learning is releasing preview support for reinforcement learning using the [Ray](https://ray.io) framework. The `ReinforcementLearningEstimator` enables training of reinforcement learning agents across GPU and CPU compute targets in Azure Machine Learning.
     + [Contrib features below] 
 
 + **Breaking changes**
