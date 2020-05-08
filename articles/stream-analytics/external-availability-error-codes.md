@@ -8,6 +8,8 @@ ms.date: 05/07/2020
 ms.service: stream-analytics
 ---
 
+# Azure Stream Analytics external availability error codes
+
 You can use activity logs and resource logs to help debug unexpected behaviors from your Azure Stream Analytics job. This article lists the description for every external availability error code. External availability errors occur when a dependent service is unavailable.
 
 ## ExternalServiceUnavailable

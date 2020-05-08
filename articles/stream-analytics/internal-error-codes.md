@@ -8,7 +8,7 @@ ms.date: 05/07/2020
 ms.service: stream-analytics
 ---
 
-# Troubleshoot with Azure Stream Analytics error codes
+# Azure Stream Analytics internal error codes
 
 You can use activity logs and resource logs to help debug unexpected behaviors from your Azure Stream Analytics job. This article lists the description for every internal error code. Internal errors are generic errors that are thrown within the Stream Analytics platform when Stream Analytics can't distinguish if the error is an Internal Availability error or a bug in the system.
 

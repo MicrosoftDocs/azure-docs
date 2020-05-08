@@ -8,6 +8,8 @@ ms.date: 05/07/2020
 ms.service: stream-analytics
 ---
 
+# Azure Stream Analytics external error codes
+
 You can use activity logs and resource logs to help debug unexpected behaviors from your Azure Stream Analytics job. This article lists the description for every external error code. External errors are generic errors thrown by an upstream or downstream service that Stream Analytics can't distinguish as a data error, configuration error, or external availability error.
 
 ## AdapterInitializationError
