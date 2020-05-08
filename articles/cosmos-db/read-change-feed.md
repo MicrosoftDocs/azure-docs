@@ -32,7 +32,7 @@ With the SDK, you get a low-level control of the change feed. You can manage the
 
 ## Using the change feed pull model
 
-The [change feed pull model](change-feed-pull-model.md) allows you to parallelize processing of changes with FeedRanges. A FeedRange can span range of partition key values or even a single partition key value. This makes it easy to process changes for a specific partition key or achieve better parallelization of processing changes than with the change feed processor. The change feed pull model is currently in [preview] in the .NET SDK(https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.9.0-preview) only. The preview is not yet available for other SDK versions.
+The [change feed pull model](change-feed-pull-model.md) allows you to consume the change feed at your own pace and parallelize processing of changes with FeedRanges. A FeedRange spans a range of partition key values. Using the change feed pull model, it is also easy to process changes for a specific partition key.
 
 > [!NOTE]
 > The change feed pull model is currently in [preview in the Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.9.0-preview) only. The preview is not yet available for other SDK versions.
