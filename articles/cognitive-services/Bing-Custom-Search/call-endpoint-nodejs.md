@@ -29,7 +29,7 @@ Use this quickstart to learn how to request search results from your Bing Custom
 
 ## Create and initialize the application
 
-1. Create a new JavaScript file in your favorite IDE or editor, and add a `require()` statement for the requests library. Create variables for your subscription key, custom configuration ID, and search term. 
+- Create a new JavaScript file in your favorite IDE or editor, and add a `require()` statement for the requests library. Create variables for your subscription key, custom configuration ID, and search term.
 
     ```javascript
     var request = require("request");

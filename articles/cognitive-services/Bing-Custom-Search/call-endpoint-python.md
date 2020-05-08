@@ -27,7 +27,7 @@ Use this quickstart to learn how to request search results from your Bing Custom
 
 ## Create and initialize the application
 
-1. Create a new Python file in your favorite IDE or editor, and add the following import statements. Create variables for your subscription key, custom configuration ID, and search term.
+- Create a new Python file in your favorite IDE or editor, and add the following import statements. Create variables for your subscription key, custom configuration ID, and search term.
 
     ```python
     import json
