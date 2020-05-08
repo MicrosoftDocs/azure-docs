@@ -136,7 +136,7 @@ Expand the **User-Defined Code Configuration** section, and fill out the configu
    |Custom Code Assembly Source|Existing assembly packages from the cloud|
    |Custom Code Assembly Source|UserCustomCode.zip|
 
-## User Logging
+## User logging
 The logging mechanism allow users to capture custom information during job run. Log data can be used to debug or assess the correctness of the custom code at real time.
 
 The `StreamingContext` class provides a mechanism for publishing diagnostics information using the `StreamingDiagnostics.WriteError` function. The code below shows the interface exposed by Azure Stream Analytics.
