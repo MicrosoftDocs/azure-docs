@@ -53,7 +53,7 @@ Below are some common issues that may occur during the process.
 - **When I sign into the Azure AD portal, I do not see any apps registered. Why?** 
 Your app registrations may have been created using a different user account, or in a different tenant. Ensure you are signed in with the correct account in the tenant where your app registrations were created.
 
--**How do I know who the owner of an app registration in Azure AD is?** 
+- **How do I know who the owner of an app registration in Azure AD is?** 
 When signed into a tenant where the app is registered, navigate to the App Registrations blade, click an app, and then click Owners.
 
 ## Making Microsoft Graph API calls 
