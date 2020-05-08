@@ -156,7 +156,9 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 3. Run the following cmdlet to download the createazurelogicapp.ps1 script file on your local machine.
 
      ```powershell
-     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazurelogicapp.ps1" -OutFile "your local machine path\ createazurelogicapp.ps1"
+     Set-Location -Path "c:\temp"
+     $uri = "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazurelogicapp.ps1"
+     Invoke-WebRequest -Uri $uri -OutFile ".\createazurelogicapp.ps1"
      ```
 
 4. Run the following cmdlet to sign into Windows Virtual Desktop with an account that has RDS Owner or RDS Contributor permissions.
