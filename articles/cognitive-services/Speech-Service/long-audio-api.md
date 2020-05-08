@@ -87,7 +87,7 @@ The Long audio API is available in multiple regions with unique endpoints.
 
 ## Audio output formats
 
-We support flexible audio output formats. You can generate audio outputs per paragraph or concatenate the audios into one output by setting the 'concatenateResult' parameter. The following audio output formats are supported by the Long Audio API:
+We support flexible audio output formats. You can generate audio outputs per paragraph or concatenate the audio outputs into a single output by setting the 'concatenateResult' parameter. The following audio output formats are supported by the Long Audio API:
 
 > [!NOTE]
 > The default audio format is riff-16khz-16bit-mono-pcm.
