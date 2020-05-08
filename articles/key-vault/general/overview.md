@@ -15,7 +15,7 @@ ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Key Vault is and if it offers anything that could be used in my organization.
 
 ---
-# What is Azure Key Vault?
+# About Azure Key Vault
 
 Azure Key Vault helps solve the following problems:
 
@@ -77,4 +77,7 @@ Key Vault itself can integrate with storage accounts, event hubs, and log analyt
 
 ## Next steps
 
+- Learn more about [keys, secrets, and certificates](about-keys-secrets-certificates.md)
 - [Quickstart: Create an Azure Key Vault using the CLI](../secrets/quick-create-cli.md)
+- [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
+- [Key Vault Developer's Guide](../general/developers-guide.md)

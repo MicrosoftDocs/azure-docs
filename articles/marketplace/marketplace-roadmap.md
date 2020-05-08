@@ -22,14 +22,14 @@ We welcome your suggestions! Join the conversation in the [Microsoft Partner Com
 
 Once a capability is live, it will be removed from the roadmap. Functionality that has been added to the marketplace can be found in the following documentation.
 
-* [Marketplace + CSP Update Blog](https://aka.ms/marketplacemarchupdateblog)
-* [Publish offerings into CSP channel (ISV)](https://aka.ms/publishtocsp)
-* [Resell Marketplace offerings (CSP)](https://aka.ms/marketplaceincsp)
-* [Standard Contract](https://aka.ms/standardcontract)
-* [SaaS Fulfillment API](https://aka.ms/saasapiv2)
-* [Marketplace Geos and Currencies](https://aka.ms/marketplacegeos)
-* [Seller Insights](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
-* [Microsoft Build Marketplace Blog](https://aka.ms/marketplacebuildblog)
+* [Marketplace + CSP Update Blog](https://azure.microsoft.com/blog/azure-marketplace-and-cloud-solution-provider-updates-march-2019/)
+* [Publish offerings into CSP channel (ISV)](./cloud-solution-providers.md)
+* [Resell Marketplace offerings (CSP)](https://docs.microsoft.com/partner-center/sell-marketplace-products)
+* [Standard Contract for the Microsoft commercial marketplace](./standard-contract.md)
+* [SaaS Fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-apis.md)
+* [Geographic availability and currency support for commercial marketplace](./marketplace-geo-availability-currencies.md)
+* [Analytics for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md)
+* [Microsoft Build Marketplace Blog](https://azure.microsoft.com/blog/announcing-new-marketplace-revenue-opportunities/)
 * [Marketplace May Updates Blog](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
 * Partner Center: [Create Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [Manage Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [Migration from CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)
 * Partner Center: [Create SaaS Offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) / [Publishing Status](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status

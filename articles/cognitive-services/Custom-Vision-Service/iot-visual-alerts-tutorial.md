@@ -17,7 +17,7 @@ ms.author: pafarley
 
 This sample app illustrates how to use Custom Vision to train a device with a camera to detect visual states. You can run this detection scenario on an IoT device by using an exported ONNX model.
 
-A visual state describes the content of an image: an empty room or a room with people, an empty driveway with a truck, and so on. In the image below, you can see the app detect when a banana or an apple is placed in front of the camera.
+A visual state describes the content of an image: an empty room or a room with people, an empty driveway or a driveway with a truck, and so on. In the image below, you can see the app detect when a banana or an apple is placed in front of the camera.
 
 ![Animation of a UI labeling fruit in front of the camera](./media/iot-visual-alerts-tutorial/scoring.gif)
 
@@ -58,7 +58,7 @@ The following files handle the main functionality of the app.
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | This code controls the behavior of the XAML UI. It contains the state machine processing code.|
 | [CustomVision\CustomVisionServiceWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionServiceWrapper.cs) | This class is a wrapper that handles integration with the Custom Vision Service.|
 | [CustomVision\CustomVisionONNXModel.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionONNXModel.cs) | This class is a wrapper that handles integration with Windows ML for loading the ONNX model and scoring images against it.|
-| [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IotHubWrapper.cs) | This class is a wrapper that handles integration with IoT Hub for uploading scoring results to Azure.|
+| [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IoTHubWrapper.cs) | This class is a wrapper that handles integration with IoT Hub for uploading scoring results to Azure.|
 
 ## Set up the Visual Alerts app
 
@@ -86,7 +86,7 @@ When you run the app for the first time, it won't have any knowledge of visual s
 
 To set up a model, you need to put the app in the **Capturing Training Images** state. Take one of the following steps:
 * If you're running the app on PC, use the button on the top-right corner of the UI.
-* If you're running the app on an IoT device, call the `EnterLearningMode` method on the device through the IoT Hub. You can call it through the device entry in the IoT Hub menu on the Azure portal, or with a tool such as [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+* If you're running the app on an IoT device, call the `EnterLearningMode` method on the device through the IoT Hub. You can call it through the device entry in the IoT Hub menu on the Azure portal, or with a tool such as [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp).
  
 When the app enters the **Capturing Training Images** state, it will capture about two images every second until it has reached the target number of images. By default, the target is 30 images, but you can set this parameter by passing the desired number as an argument to the `EnterLearningMode` IoT Hub method. 
 

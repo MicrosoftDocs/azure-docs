@@ -213,7 +213,7 @@ New-AzPrivateDnsRecordSet `
 If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described [here](storage-files-networking-dns.md), you can test that your private endpoint has been setup correctly with the following commands:
 
 ```PowerShell
-$storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.File) | `
+$storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
     Select-Object -ExpandProperty Host
 
 Resolve-DnsName -Name $storageAccountHostName
@@ -388,7 +388,7 @@ If you have a virtual machine inside of your virtual network, or you've configur
 httpEndpoint=$(az storage account show \
         --resource-group $storageAccountResourceGroupName \
         --name $storageAccountName \
-        --query "primaryEndpoints.File" | \
+        --query "primaryEndpoints.file" | \
     tr -d '"')
 
 hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/")

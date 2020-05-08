@@ -6,11 +6,10 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 04/15/2020
+ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
-
 # Query storage files using SQL on-demand (preview) resources within Synapse SQL
 
 SQL on-demand (preview) enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries.
@@ -57,7 +56,7 @@ Refer to [Query folders and multiple files](query-folders-multiple-csv-files.md)
 
 To query Parquet source data, use FORMAT = 'PARQUET'
 
-```sql
+```syntaxsql
 OPENROWSET
 (
     { BULK 'data_file' ,
@@ -119,14 +118,17 @@ By omitting the WITH clause from OPENROWSET statement, you can instruct the serv
 ```sql
 OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
-
 ```
+
+Make sure [appropriate inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) are used for optimal performance. 
 
 ### Filename function
 
-This function returns the file name that the row originates from.
+This function returns the file name that the row originates from. 
 
 To query specific files, read the Filename section in the [Query specific files](query-specific-files.md#filename) article.
+
+Return data type is nvarchar(1024). For optimal performance, always cast result of filename function to appropriate data type. If you use character data type, make sure appropriate length is used.
 
 ### Filepath function
 
@@ -136,6 +138,8 @@ This function returns a full path or a part of path:
 - When called with parameter, it returns part of path that matches the wildcard on position specified in the parameter. For example, parameter value 1 would return part of path that matches the first wildcard.
 
 For additional information, read the Filepath section of the [Query specific files](query-specific-files.md#filepath) article.
+
+Return data type is nvarchar(1024). For optimal performance, always cast result of filepath function to appropriate data type. If you use character data type, make sure appropriate length is used.
 
 ### Work with complex types and nested or repeated data structures
 
@@ -161,7 +165,7 @@ To access nested elements from a nested column, such as Struct, use "dot notatio
 
 The syntax fragment example is as follows:
 
-```sql
+```syntaxsql
     OPENROWSET
     (   BULK 'unstructured_data_path' ,
         FORMAT = 'PARQUET' )
@@ -195,7 +199,7 @@ To access non-scalar elements from a repeated column, use the [JSON_QUERY](/sql/
 
 See syntax fragment below:
 
-```sql
+```syntaxsql
     SELECT
        { JSON_VALUE (column_name, path_to_sub_element), }
        { JSON_QUERY (column_name [ , path_to_sub_element ]), )

@@ -20,7 +20,7 @@ This guide provides key concepts and instructions for Java developers using in A
 
 ## Deploying your app
 
-You can use [Azure Web App Plugin for Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy your .war files. Deployment with popular IDEs is also supported with [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) or [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
+You can use [Azure Web App Plugin for Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy your .war files. Deployment with popular IDEs is also supported with [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) or [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 Otherwise, your deployment method will depend on your archive type:
 
@@ -314,7 +314,7 @@ Azure's supported Java Development Kit (JDK) is [Zulu](https://www.azul.com/down
 
 Major version updates will be provided through new runtime options in Azure App Service for Windows. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 
-Supported JDKs are automatically patched on a quarterly basis in January, April, July, and October of each year. For more information on Java on Azure, please see [this support document](https://docs.microsoft.com/azure/java/jdk/).
+Supported JDKs are automatically patched on a quarterly basis in January, April, July, and October of each year. For more information on Java on Azure, please see [this support document](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 ### Security updates
 

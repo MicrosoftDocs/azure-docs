@@ -16,7 +16,7 @@ ms.date: 04/15/2020
 
 # Customize the setup for an Azure-SSIS Integration Runtime
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The custom setup for an Azure-SQL Server Integration Services Integration Runtime (Azure-SSIS IR) provides an interface for adding your own steps during the setup or reconfiguration of your Azure-SSIS IR. 
 

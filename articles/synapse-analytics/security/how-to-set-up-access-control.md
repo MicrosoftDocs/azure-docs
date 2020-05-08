@@ -45,8 +45,8 @@ Create and populate three security groups for your workspace:
 - **WS1\_WSAdmins** – for users who need complete control over the workspace
 - **WS1\_SparkAdmins** – for those users who need complete control over the Spark aspects of the workspace
 - **WS1\_SQLAdmins** – for users who need complete control over the SQL aspects of the workspace
-- Add **WS1\_Admins** to **WS1\_SQLAdmins**
-- Add **WS1\_Admins** to **WS1\_SparkAdmins**
+- Add **WS1\_WSAdmins** to **WS1\_SQLAdmins**
+- Add **WS1\_WSAdmins** to **WS1\_SparkAdmins**
 
 ## STEP 2: Prepare your Data Lake Storage Gen2 account
 
@@ -83,7 +83,7 @@ The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and 
 - Open the Azure portal
 - Locate STG1
 - Navigate to CNT1
-- Ensure that the MSI for WS1 is assigned to the **Azure Blob Data Contributor** role on CNT1
+- Ensure that the MSI (Managed Service Identity) for WS1 is assigned to the **Azure Blob Data Contributor** role on CNT1
   - If you don't see it assigned, assign it.
   - The MSI has the same name as the workspace. In this case, it would be &quot;WS1&quot;.
 
@@ -139,7 +139,7 @@ Synapse Studio will behave differently based on user roles. Some items may be hi
 | Open Synapse Studio | YES | YES | YES |
 | View Home hub | YES | YES | YES |
 | View Data Hub | YES | YES | YES |
-| Data Hub / See linked ADLSGen2 accounts and containers | YES [1] | YES[1] | YES[1] |
+| Data Hub / See linked ADLS Gen2 accounts and containers | YES [1] | YES[1] | YES[1] |
 | Data Hub / See Databases | YES | YES | YES |
 | Data Hub / See objects in databases | YES | YES | YES |
 | Data Hub / Access data in SQL pool databases | YES   | NO   | YES   |
@@ -159,10 +159,22 @@ Synapse Studio will behave differently based on user roles. Some items may be hi
 | Manage Hub / Linked services | YES | YES | YES |
 | Manage Hub / Access Control (assign users to Synapse workspace roles) | YES | NO | NO |
 | Manage Hub / Integration runtimes | YES | YES | YES |
+| Use the Monitor Hub | YES | YES | YES |
+| Monitor Hub / Orchestration / Pipeline runs  | YES | NO | NO |
+| Monitor Hub / Orchestration / Trigger runs  | YES | NO | NO |
+| Monitor Hub / Orchestration / Integration runtimes  | YES | YES | YES |
+| Monitor Hub / Activities / Spark applications | YES | YES | NO  |
+| Monitor Hub / Activities / SQL requests | YES | NO | YES |
+| Monitor Hub / Activities / Spark pools | YES | YES | NO  |
+| Monitor Hub / Triggers | YES | NO | NO |
+| Manage Hub / Linked services | YES | YES | YES |
+| Manage Hub / Access Control (assign users to Synapse workspace roles) | YES | NO | NO |
+| Manage Hub / Integration runtimes | YES | YES | YES |
+
 
 > [!NOTE]
-> [1] Access to data in containers depends on the access control in ADLSGen2
-> [2] SQL OD tables and Spark tables store their data in ADLSGen2 and access requires the appropriate permissions on ADLSGen2.
+> [1] Access to data in containers depends on the access control in ADLS Gen2. </br>
+> [2] SQL OD tables and Spark tables store their data in ADLS Gen2 and access requires the appropriate permissions on ADLS Gen2.
 
 ## Next steps
 

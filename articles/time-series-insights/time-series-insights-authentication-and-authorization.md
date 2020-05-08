@@ -10,8 +10,8 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/14/2020 
-ms.custom: seodec18
+ms.date: 04/14/2020
+ms.custom: seodec18, has-adal-ref
 ---
 
 # Authentication and authorization for Azure Time Series Insights API
@@ -88,7 +88,7 @@ Per **step 3**, separating your application's and your user credentials allows y
 
    1. The token can then be passed in the `Authorization` header when the application calls the Time Series Insights API.
 
-* Alternatively, developers may choose to authenticate using MSAL. Read about [migrating to MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) and see our [Manage GA reference data for an Azure Time Series Insights environment using C#](time-series-insights-manage-reference-data-csharp.md) article to learn more. 
+* Alternatively, developers may choose to authenticate using MSAL. Read about [migrating to MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) and see our [Manage GA reference data for an Azure Time Series Insights environment using C#](time-series-insights-manage-reference-data-csharp.md) article to learn more.
 
 ## Common headers and parameters
 
@@ -99,7 +99,7 @@ This section describes common HTTP request headers and parameters used to make q
 
 ### Authentication
 
-To perform authenticated queries against the [Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth 2.0 bearer token must be passed in the [Authorization header](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) using a REST client of your choice (Postman, JavaScript, C#). 
+To perform authenticated queries against the [Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth 2.0 bearer token must be passed in the [Authorization header](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) using a REST client of your choice (Postman, JavaScript, C#).
 
 > [!TIP]
 > Read the hosted Azure Time Series Insights [client SDK sample visualization](https://tsiclientsample.azurewebsites.net/) to learn how to authenticate with the Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) along with charts and graphs.
@@ -110,7 +110,7 @@ Required request headers are described below.
 
 | Required request header | Description |
 | --- | --- |
-| Authorization | To authenticate with Time Series Insights, a valid OAuth 2.0 Bearer token must be passed in the **Authorization** header. | 
+| Authorization | To authenticate with Time Series Insights, a valid OAuth 2.0 Bearer token must be passed in the **Authorization** header. |
 
 > [!IMPORTANT]
 > The token must be issued exactly to the `https://api.timeseries.azure.com/` resource (also known as the "audience" of the token).

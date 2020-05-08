@@ -12,7 +12,7 @@ ms.date: 09/06/2019
 
 # Mapping data flow Debug Mode
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## Overview
 

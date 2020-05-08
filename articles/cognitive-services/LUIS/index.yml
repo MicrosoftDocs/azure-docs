@@ -129,7 +129,7 @@ landingContent:
           - text: Developer resources
             url: developer-reference-resource.md
           - text: App limitations
-            url: luis-boundaries.md
+            url: luis-limits.md
           - text: Prebuilt entities
             url: luis-reference-prebuilt-entities.md
           - text: Custom Entities

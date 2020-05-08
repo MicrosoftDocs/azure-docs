@@ -13,10 +13,11 @@ ms.custom: seoapril2019
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-<br>
 
 # Use an Azure Resource Manager template to create a workspace for Azure Machine Learning
+
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+<br>
 
 In this article, you learn several ways to create an Azure Machine Learning workspace using Azure Resource Manager templates. A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
 
@@ -77,7 +78,9 @@ The following example template demonstrates how to create a workspace with three
 
 * Enable high confidentiality settings for the workspace
 * Enable encryption for the workspace
-* Uses an existing Azure Key Vault
+* Uses an existing Azure Key Vault to retrieve customer-managed keys
+
+For more information, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
 
 ```json
 {
@@ -117,7 +120,7 @@ The following example template demonstrates how to create a workspace with three
         "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
       }
     },
-    "hbi_workspace":{
+    "high_confidentiality":{
       "type": "string",
       "defaultValue": "false",
       "allowedValues": [
@@ -252,27 +255,31 @@ The following example template demonstrates how to create a workspace with three
                     "keyIdentifier": "[parameters('resource_cmk_uri')]"
                   }
             },
-        "hbiWorkspace": "[parameters('hbi_workspace')]"
+        "hbiWorkspace": "[parameters('high_confidentiality')]"
       }
     }
   ]
 }
 ```
 
-To get the ID of the Key Vault, and the key URI needed by this template, you can use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID and URI:
+To get the ID of the Key Vault, and the key URI needed by this template, you can use the Azure CLI. The following command gets the Key Vault ID:
 
 ```azurecli-interactive
-az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id, properties.vaultUri]"
+az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
 ```
 
-This command returns a value similar to the following text. The first value is the ID and the second is the URI:
+This command returns a value similar to `"/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault"`.
 
-```text
-[
-  "/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault",
-  "https://mykeyvault.vault.azure.net/"
-]
+To get the URI for the customer managed key, use the following command:
+
+```azurecli-interactive
+az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
 ```
+
+This command returns a value similar to `"https://mykeyvault.vault.azure.net/keys/mykey/{guid}"`.
+
+> [!IMPORTANT]
+> Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
 ## Use the Azure portal
 

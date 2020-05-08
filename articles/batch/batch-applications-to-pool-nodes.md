@@ -1,17 +1,8 @@
 ---
 title: Copying applications and data to pool nodes
 description: Learn how to copy applications and data to pool nodes.
-services: batch
-author: LauraBrenner
-manager: evansma
-
-ms.assetid: 
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
 ms.date: 02/17/2020
-ms.author: labrenne
 ---
 
 # Copying applications and data to pool nodes
