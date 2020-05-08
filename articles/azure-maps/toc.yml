@@ -53,12 +53,12 @@
     href: choose-pricing-tier.md
   - name: Creator
     items:
-    -name: Indoor maps
-     href: creator-for-indoor-maps.md
-    -name: Indoor Maps module
-     href: how-to-use-indoor-module.md
-    -name: Drawing conversion errors and warnings
-     href: drawing-conversion-error-codes.md  
+    - name: Indoor maps
+      href: creator-for-indoor-maps.md
+    - name: Indoor Maps module
+      href: how-to-use-indoor-module.md
+    - name: Drawing conversion errors and warnings
+      href: drawing-conversion-error-codes.md  
   - name: Coverage
     items:
     - name: Geocoding coverage
