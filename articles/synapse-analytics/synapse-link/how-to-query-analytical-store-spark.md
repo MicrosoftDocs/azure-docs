@@ -13,7 +13,6 @@ ms.reviewer: jrasnick
 
 # Query Azure Cosmos DB Analytical Store with Synapse Spark
 
-<<<<<<< HEAD
 This article gives some examples on how you can interact with the analytical store from Synapse gestures. Gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tailor it to your needs. Gestures are also perfect for discovering data with a single click.
 
 ## Load to DataFrame
@@ -21,13 +20,6 @@ This article gives some examples on how you can interact with the analytical sto
 In this step, you'll read data from Azure Cosmos DB analytical store in a Spark DataFrame. It will display 10 rows from the DataFrame called ***df***. Once your data is into dataframe, you can perform additional analysis. 
 
 This operation doesn't impact the transactional store.
-=======
-This article gives some examples on how you can interact with the Analytical Store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
-
-## Load to DataFrame
-
-In this step, you will read data from Azure Cosmos DB Analytical Store in a Spark DataFrame. It will display 10 rows from the DataFrame called ***df***. Once your data is in a dataframe, you can perform additional analysis. This operation does not impact the transactional store.
->>>>>>> a72a67c843c85b268d781aa2bf780e4f89f646aa
 
 ```python
 # To select a preferred list of regions in a multi-region Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
@@ -52,13 +44,9 @@ val df_olap = spark.read.format("cosmos.olap").
 
 ## Create Spark table
 
-<<<<<<< HEAD
 In this gesture, you'll create a Spark table pointing to the container you selected. That operation doesn't incur any data movement. If you decide to delete that table, the underlying container (and corresponding analytical store) won't be impacted. 
 
 This scenario is convenient to reuse tables through third-party tools and provide accessibility to the data for the run-time.
-=======
-In this gesture, you will create a Spark table pointing to the container you selected. This operation does not incur any data movement. If you decide to delete the table, the underlying container (and corresponding Analytical Store) won't be impacted. This scenario is convenient to reuse tables through third-party tools and provide accessibility to the data at run-time.
->>>>>>> a72a67c843c85b268d781aa2bf780e4f89f646aa
 
 ```sql
 %%sql
