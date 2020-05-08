@@ -104,6 +104,8 @@ Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ...
 ```
 
+> [!WARNING] Azure Ad Groups does not support Managed Identities. Only service and user principals are supported.
+
 #### Users
 
 You can also add an individual user to an key vault's access control policy. **We do not recommend this.** We instead encourage you to add users to an Azure AD group, and add the group on the policies.
