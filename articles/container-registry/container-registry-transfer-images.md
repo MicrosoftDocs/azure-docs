@@ -50,7 +50,7 @@ Storage authentication uses SAS tokens, managed as secrets in key vaults. The pi
 
 * **[ExportPipeline](#create-exportpipeline-with-resource-manager)** - Long-lasting resource that contains high-level information about the *source* registry and storage account. This information includes the source storage blob container URI and the key vault managing the source SAS token. 
 * **[ImportPipeline](#create-importpipeline-with-resource-manager)** - Long-lasting resource that contains high-level information about the *target* registry and storage account. This information includes the target storage blob container URI and the key vault managing the target SAS token. An import trigger is enabled by default, so the pipeline runs automatically when an artifact blob lands in the target storage container. 
-* **[PipelineRun](#create-pipelinerun-with-resource-manager)** - Resource used to invoke either an ExportPipeline or ImportPipeline resource.  
+* **[PipelineRun](#create-pipelinerun-for-export-with-resource-manager)** - Resource used to invoke either an ExportPipeline or ImportPipeline resource.  
   * You run the ExportPipeline manually by creating a PipelineRun resource and specify the artifacts to export.  
   * If an import trigger is enabled, the ImportPipeline runs automatically. It can also be run manually using a PipelineRun. 
   * Currently a maximum of **10 artifacts** can be transferred with each PipelineRun.
