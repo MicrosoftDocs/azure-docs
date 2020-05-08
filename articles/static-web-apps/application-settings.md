@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ---
 
-# Configure application settings for Azure Static Web Apps
+# Configure application settings for Azure Static Web Apps Preview
 
 Application settings hold configuration settings for values that may change, such as database connection strings. Adding application settings allows you to modify the configuration input to your app, without having to change application code.
 

@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: chnwamba
 ---
 
-# Deploy server-rendered Nuxt.js websites on Azure Static Web Apps
+# Deploy server-rendered Nuxt.js websites on Azure Static Web Apps Preview
 
 In this tutorial, you learn to deploy a [Nuxt.js](https://nuxtjs.org) generated static website to [Azure Static Web Apps](overview.md). To begin, you learn to set up, configure, and deploy a Nuxt.js app. During this process, you also learn to deal with common challenges often faced when generating static pages with Nuxt.js
 
@@ -110,7 +110,7 @@ Azure Static Web Apps deploys your app from a GitHub repository and keeps doing 
 
 The following steps show how to link the app you just pushed to GitHub to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
 
-### Create an Azure Static Web Apps resource
+### Create an Azure Static Web Apps Preview resource
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Click **Create a Resource** then search for **Static Web Apps** and select the matching result.
