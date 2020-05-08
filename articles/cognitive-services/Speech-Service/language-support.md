@@ -105,12 +105,12 @@ For more information about regional availability, see [regions](regions.md#stand
 | `ja-JP` | Japanese            | Female |  "ja-JP-NanamiNeural" | Yes. English (US) | General |
 | `ko-KR` | Korean              | Female |  "ko-KR-SunHiNeural" | Yes. English (US) | General |
 | `nb-NO` | Norwegian           | Female | "nb-NO-IselinNeural" | No | General |
-| `pt-BR` | Portuguese (Brazil) | Female |  "pt-BR-FranciscaNeural" | No | General, multiple voice styles available |
+| `pt-BR` | Portuguese (Brazil) | Female |  "pt-BR-FranciscaNeural" | No | General |
 | `tr-TR` | Turkish             | Female | "tr-TR-EmelNeural" | No | General |
 | `zh-CN` | Chinese (Mandarin, simplified)  | Female |  "zh-CN-XiaoxiaoNeural"  | Yes. English (US) | General, multiple voice styles available |
 |  |  | Female |  "zh-CN-XiaoyouNeural"  | Yes. English (US) | Kid voice, optimized for story narrating |
 |  |  | Male |  "zh-CN-YunyangNeural"  | Yes. English (US) | Optimized for news reading,  multiple voice styles available |
-|  |  | Male |  "zh-CN-YunyeNeural"  | No | Optimized for story narrating, multiple voice styles available |
+|  |  | Male |  "zh-CN-YunyeNeural"  | No | Optimized for story narrating |
 
 > [!IMPORTANT]
 > The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert over to "Aria".
