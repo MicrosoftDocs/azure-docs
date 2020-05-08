@@ -5,7 +5,7 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 05/08/2020
 ms.author: anfeldma
 
 ---
