@@ -25,7 +25,7 @@ If you are unable to complete the process or are experiencing unexpected behavio
 
 1. Reproduce the request using [Graph Explorer](#making-microsoft-graph-api-calls) to gather additional info and rule out any issues in the UI.
 
-# Common Issues
+## Common Issues
 Below are some common issues that may occur during the process. 
 
 - **I don’t know my Microsoft Partner Network ID (MPN ID) or I don’t who the primary contact for the account is** 
