@@ -166,9 +166,9 @@ The following list describes the limits for custom roles.
 
 For more information about custom roles and management groups, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
 
-## Custom role formats
+## Input and output formats
 
-To create a custom role using the command line, you typically use JSON to specify the properties you want for the custom role. Depending on the tools you use, the JSON format will look slightly different. The following shows the JSON format depending on the tool.
+To create a custom role using the command line, you typically use JSON to specify the properties you want for the custom role. Depending on the tools you use, the input and output formats will look slightly different. This section lists the input and output formats depending on the tool.
 
 ### Azure PowerShell
 
