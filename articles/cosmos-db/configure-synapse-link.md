@@ -158,7 +158,5 @@ await client.GetContainer("database", "container").ReplaceContainerAsync(contain
 
 ## Query analytical store using Synapse Spark
 
-
 ## Next steps
-
 
