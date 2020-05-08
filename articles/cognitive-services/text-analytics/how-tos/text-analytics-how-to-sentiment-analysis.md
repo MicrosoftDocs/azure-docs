@@ -144,7 +144,7 @@ Output is returned immediately. You can stream the results to an application tha
 
 ### Sentiment Analysis v3.0 example response
 
-Responses from Sentiment Analysis v3 contain sentiment labels and scores for each analyzed sentence and document. `documentScores` is not returned if the document sentiment label is `mixed`.
+Responses from Sentiment Analysis v3 contain sentiment labels and scores for each analyzed sentence and document.
 
 ```json
 {
