@@ -1,5 +1,5 @@
 ---
-title: Create a VM with a public IP address with routing preference choice - Azure CLI
+title: Configure routing preference for a VM - Azure CLI
 description: Learn how to create a VM with a public IP address with routing preference choice using the Azure command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
@@ -14,9 +14,9 @@ ms.date: 05/18/2020
 ms.author: mnayak
 
 ---
-# Configure a virtual machine to route traffic with the routing preference type Internet using Azure CLI
+# Configure routing preference for a VM using Azure CLI
 
-You can create a virtual machine with a public IP address with a routing preference choice. Internet bound traffic from the VM will be routed to and from internet via respective network based on the routing preference selection. The default routing is via Microsoft global network.
+This article shows you how to configure routing preference for a virtual machine. Internet bound traffic from the VM will be routed via the ISP network when you choose **Internet** as your routing preference option . The default routing is via the Microsoft global network.
 
 This article shows you how to create a virtual machine with a public IP that is set to route traffic via the public internet using Azure CLI.
 
@@ -25,6 +25,11 @@ This article shows you how to create a virtual machine with a public IP that is 
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## Register the feature for your subscription
+The Routing Preference feature is currently in preview. Register the feature for your subscription as follows:
+```azurecli
+az feature register --namespace Microsoft.Network --name AllowRoutingPreferenceFeature
+```
 ## Create a resource group
 1. If using the Cloud Shell, skip to step 2. Open a command session and sign into Azure with `az login`.
 2. Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the East US Azure region:
@@ -122,7 +127,6 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 
-- Learn more about [Public IP with routing preference](routing-preference-overview.md).
 - Learn more about [routing preference in public IP addresses](routing-preference-overview.md).
 - Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
 - Learn more about [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
