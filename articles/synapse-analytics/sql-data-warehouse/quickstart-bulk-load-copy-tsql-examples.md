@@ -107,7 +107,7 @@ WITH (
 
 2. Configure Azure AD authentication by going through the following [documentation](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
 
-Connect to your SQL pool using Active Directory where you can now run the COPY statement without specifying any credentials:
+3. Connect to your SQL pool using Active Directory where you can now run the COPY statement without specifying any credentials:
 
 ```sql
 COPY INTO dbo.target_table
