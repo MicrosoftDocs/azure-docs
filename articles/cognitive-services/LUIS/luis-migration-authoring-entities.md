@@ -130,7 +130,7 @@ The following table demonstrates the migration:
 |Parent - Component entity named `Order`|Parent - Machine-learned entity named `Order`|
 |Child - Hierarchical entity with original and final pizza topping|* Add role to `Order` for each topping.|
 
-## API change - constraint replaced with required feature
+## API change constraint replaced with required feature
 
 This change was made in May 2020 at the //Build conference.
 
@@ -140,7 +140,7 @@ This change was made in May 2020 at the //Build conference.
 |--|--|
 |`constrained feature`<br>`constraint`<br>`instanceOf`|`required feature`<br>`isRequired`|
 
-#### Automatic migration - no action required
+#### Automatic migration
 
 Starting **June 19 2020**, you won’t be allowed to create constraints programmatically using the previous authoring API that exposed this functionality.
 
