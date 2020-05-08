@@ -118,17 +118,6 @@ conceptualContent:
       footerLink:
         text: See more
         url: index-voice-assistants.yml
-    - title: Tools
-      links:
-        - itemType: overview
-          text: About SPX - use the Speech service with no code
-          url: spx-overview.md
-        - itemType: how-to-guide
-          text: SPX basics
-          url: spx-basics.md
-        - itemType: overview
-          text: About Speech Studio - no-code Speech service customization
-          url: https://speech.microsoft.com
     - title: Hosting
       links:
         - itemType: how-to-guide
