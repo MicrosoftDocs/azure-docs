@@ -354,7 +354,10 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ## Use custom lexicon to improve pronunciation
 
-Sometimes TTS cannot accurately pronounce a word, for example, a company or foreign name. Developers can define the reading of these entities in SSML using `phoneme` and `sub` tag, or define the reading of multiple entities by referring to a custom lexicon file using `lexicon` tag.
+Sometimes the text-to-speech service cannot accurately pronounce a word. For example, the name of a company, or a medical term. Developers can define how single entities are read in SSML using the `phoneme` and `sub` tags. However, if you need to define how multiple entities are read, you can create a custom lexicon using the `lexicon` tag.
+
+> [!NOTE]
+> Custom lexicon currently supports UTF-8 encoding. 
 
 **Syntax**
 
@@ -370,11 +373,7 @@ Sometimes TTS cannot accurately pronounce a word, for example, a company or fore
 
 **Usage**
 
-Step 1: Define custom lexicon 
-
-You can define the reading of entities by a list of custom lexicon items, stored as an .xml or .pls file.
-
-**Example**
+To define how multiple entities are read, you can create a custom lexicon, which is stored as an .xml or .pls file. The following is a sample .xml file.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -395,11 +394,9 @@ You can define the reading of entities by a list of custom lexicon items, stored
 </lexicon>
 ```
 
-Each `lexeme` element is a lexicon item. `grapheme` contains text describing the orthograph of `lexeme`. Readout form can be provided as `alias`. Phone string could be provided in `phoneme` element.
+The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text describing the <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"></span></a>. The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced.
 
-The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alais`, and `phoneme` elements. The `grapheme` element contains text describing the <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"></span></a>. The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced.
-
-Custom lexicon does not support set pronunciation for a phrase  directly. If you need you could set a single alias for the phrase and then provide pronunciation for the single alias. For example:
+It's important to note, that you cannot directly set the pronunciation of a word using the custom lexicon. If you need to set the pronunciation for an, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
 
 ```xml
   <lexeme>
@@ -411,18 +408,18 @@ Custom lexicon does not support set pronunciation for a phrase  directly. If you
     <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
   </lexeme>
 ```
-Besides, `phoneme` element cannot contain whitespaces when use IPA.
 
-For more information about custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/) on the W3C website.
+> [!IMPORTANT]
+> The `phoneme` element cannot contain white spaces when using IPA.
+
+For more information about custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/).
+
+Next, publish your custom lexicon file. While we don't have restrictions on where this file can be stored, we do recommend using [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+After you've published your custom lexicon, you can reference it from your SSML.
 
 > [!NOTE]
-> Custom lexicon only support UTF-8 encoding now. 
-
-Step 2: Upload custom lexicon file created in step 1 online, you could store it anywhere, and we suggest you to store it in Microsoft Azure, for example [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
-
-Step 3: Refer to custom lexicon file in SSML
-
-`lexicon` element should be inside the `voice` element.
+> The `lexicon` element must be inside the `voice` element.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
@@ -435,9 +432,10 @@ Step 3: Refer to custom lexicon file in SSML
     </voice>
 </speak>
 ```
-"BTW" will be read as "By the way". "Benigni" will be read with provided IPA "bɛˈniːnji".  
 
-**Limitation**
+When using this custom lexicon, "BTW" will be read as "By the way". "Benigni" will be read with the provided IPA "bɛˈniːnji".  
+
+**Limitations**
 - File size: custom lexicon file size maximum limit is 100KB, if beyond this size, synthesis request will fail.
 - Lexicon cache refresh: custom lexicon will be cached with URI as key on TTS Service when it's first loaded. Lexicon with same URI won't be reloaded within 15 mins, so custom lexicon change needs to wait at most 15 mins to take effect.
 
