@@ -67,11 +67,11 @@ You can then close the browser tab or window.
 
 The command line sample tool will show up as follows:
 
-:::image type="content" source="media/tutorial-explore-adt-with-a-command-line-tool/CLITool-01.png" alt-text="Welcome message from the command line tool":::
+:::image type="content" source="media/tutorial-command-line-tool/CLITool-01.png" alt-text="Welcome message from the command line tool":::
 
 Type help in the command line and press return. You will see a list of all supported commands:
 
-:::image type="content" source="media/tutorial-explore-adt-with-a-command-line-tool/CLITool-02.png" alt-text="Help message from the command line tool":::
+:::image type="content" source="media/tutorial-command-line-tool/CLITool-02.png" alt-text="Help message from the command line tool":::
 
 
 ## Use the command line tool to explore Azure DIgital Twins
@@ -99,7 +99,7 @@ Type:
 GetModels
 ```
 
-:::image type="content" source="media/tutorial-explore-adt-with-a-command-line-tool/CLITool-03.png" alt-text="Output message from the command getModels":::
+:::image type="content" source="media/tutorial-command-line-tool/CLITool-03.png" alt-text="Output message from the command getModels":::
 
 Without any further options, the GetModels API only returns a list of model metadata. This can be useful, for example, to create UI that displays available models. To get the full model text try:
 
