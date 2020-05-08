@@ -26,7 +26,7 @@ Dynamics 365 uses the [Common Data Service](https://docs.microsoft.com/powerapps
 > that increase reliability. For information about using the Common Data Service connector in logic apps, see 
 > [Create and manage Common Data Service records by using Azure Logic Apps](../connectors/connect-common-data-service.md).
 
-## Next steps
+For more information about Common Data Service, see these topics:
 
 * [Learn: Get started with Common Data Service](https://docs.microsoft.com/learn/modules/get-started-with-powerapps-common-data-service/)
 * [Learn: Connect and analyze your Dynamics 365 data by using the Power Platform and Common Data Service](https://docs.microsoft.com/learn/wwl/connect-analyze-dynamics-365-data/)
