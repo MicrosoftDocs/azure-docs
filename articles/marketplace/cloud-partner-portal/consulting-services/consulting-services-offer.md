@@ -11,4 +11,4 @@ ms.date: 05/08/2020
 
 # Consulting services offer
 
-[Cloud Partner portal](https://cloudpartner.azure.com/) no longer supports the creation and management of consulting services offers. This functionality has been moved to Microsoft [Partner Center](https://partner.microsoft.com/pcv/). For more information, see [Consulting service prerequisites](../../partner-center-portal/create-consulting-service-offer.md).
+[Cloud Partner portal](https://cloudpartner.azure.com/) no longer supports the creation and management of consulting services offers. This functionality has been moved to Microsoft [Partner Center](https://partner.microsoft.com/pcv/). For more information, see [Consulting service prerequisites](../../partner-center-portal/consulting-service-prerequisites.md).
