@@ -1,24 +1,24 @@
 ---
 title: Microsoft AppSource and Azure Marketplace consulting services 
-description: This article describes the eligibility criteria and publishing requirements for new consulting-service offerings in Microsoft AppSource and Azure Marketplace.
+description: This article describes the eligibility criteria and publishing requirements for new consulting-service offers in Microsoft AppSource and Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 05/08/2020
 ms.author: dsindona
 ---
 
 # Consulting services for Microsoft AppSource and Azure Marketplace
 
-Microsoft AppSource and Azure Marketplace consulting services offer Microsoft system-integrator partners the benefit of connecting their customers with services that support and extend their use of Azure. These consulting services help customers assess, evaluate, and deploy the business solutions that further their business objectives and goals.  
+Microsoft AppSource and Azure Marketplace consulting services give Microsoft system-integrator partners the benefit of connecting their customers with services that support and extend their use of Azure. These consulting services help customers assess, evaluate, and deploy the business solutions that further their business objectives and goals.  
 
-The consulting-service offerings are customer-specific engagements. Publishers have the option to determine the listing type, scope, duration, and pricing structure (fixed-price or free). The offerings have a defined agenda for deliverables to the customer. Leads are received through a notification in partners' CRM systems, and partners aim to respond to customers within 48 hours.
+Consulting service offers are customer-specific engagements. Publishers have the option to determine the listing type, scope, duration, and pricing structure (fixed-price or free). Offers have a defined agenda for deliverables to the customer. Leads are received through a notification in partners' CRM systems, and partners aim to respond to customers within 48 hours.
 
 ## Compare consulting services
 
-The marketplace storefronts are aligned with audiences and cloud products to help customers find what they need. Each storefront offers specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
+The marketplace storefronts are aligned with audiences and cloud products to help customers find what they need. Each storefront has specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
 
 |         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
@@ -34,9 +34,9 @@ Consulting services offers that are based on Dynamics 365, Power Apps, and Power
 Consulting services and managed services offers that are based on Microsoft Azure are eligible to be listed on Azure Marketplace. For more information, see [Publish an Azure consulting service offer](./partner-center-portal/create-consulting-service-offer.md) and [Publish a managed services offer to Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
-> Consulting services in Azure Marketplace should focus on offerings for a technical audience and emphasize Azure technical solutions and services.
+> Consulting services in Azure Marketplace should focus on offers for a technical audience and emphasize Azure technical solutions and services.
 >
-> Consulting services in AppSource should focus on offerings for users with expertise in delivering quality solutions for Dynamics 365, Power BI, or Power Apps.
+> Consulting services in AppSource should focus on offers for users with expertise in delivering quality solutions for Dynamics 365, Power BI, or Power Apps.
  
 > [!TIP]
 > To publish to the Azure Marketplace storefront, in the Partner Center **Primary Product** drop-down list, select **Azure**.
@@ -75,7 +75,7 @@ Additional resources and support:
 
 For more information about competencies, go to the [Microsoft Partner Network Competencies](https://partner.microsoft.com/membership/competencies) page.
 
-System-integrator partners can submit consulting-service offerings for the following 21 countries/regions:
+System-integrator partners can submit consulting-service offers for the following 21 countries/regions:
 
 |   |   |   |   |
 |---------|----------|----------|----------|
@@ -126,11 +126,11 @@ Before you register, you can start collecting and preparing the content that wil
 Listing your consulting-service offer on Microsoft AppSource and Azure Marketplace involves the following stages:
 
 1. **Listing** – Start drafting a new offer listing by signing in to your [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) account. In the drop-down list, select **New Offer**, and then select **Consulting Services**. Enter your listing artifact and publish.
-2. **Validation** – Your request is reviewed to ensure that you meet the eligibility criteria. We then send you instructions for listing your consulting services offering.
+2. **Validation** – Your request is reviewed to ensure that you meet the eligibility criteria. We then send you instructions for listing your consulting services offer.
 3. **Submit** – Provide the required information that's listed in the instructions. All content and supporting material must be submitted in English.
 4. **Review** – Our marketing and editorial team reviews your submission and optimizes it for readability, grammar, and effectiveness.
 5. **Staging** – Your submission is staged for your review.
-6. **Publishing** – When you and Microsoft are satisfied with the staged content, your listing is ready to go live on the marketplace. The go-live date for your listing depends on the country/region that's specified in your offering. If the catalog for your selected country/region is already live on Azure Marketplace or AppSource, your listing appears within a few hours. Otherwise, the listing appears as soon as the catalog goes live.
+6. **Publishing** – When you and Microsoft are satisfied with the staged content, your listing is ready to go live on the marketplace. The go-live date for your listing depends on the country/region that's specified in your offer. If the catalog for your selected country/region is already live on Azure Marketplace or AppSource, your listing appears within a few hours. Otherwise, the listing appears as soon as the catalog goes live.
 
 Offers must be of least one of the following five service types:
 
@@ -141,7 +141,7 @@ Offers must be of least one of the following five service types:
 * **Workshop** – An interactive engagement that's conducted on a customer's premises. It can involve training, briefings, assessments, or demos that are built on the customer's data or environment.
 
 > [!NOTE]
-> The *Briefing* service type must be offered *in person*. You can offer the other four consulting services in either of two ways:
+> The *Briefing* service type must be provided *in person*. You can provide the other four consulting services in either of two ways:
 
 > * **In person** – Onsite at a customer's location or a partner's facility.
 > * **Virtually** – Via teleconferencing, web conferencing, or remote implementation.
@@ -168,10 +168,10 @@ After the content review team reviews your offer descriptions and offer summarie
 |Offer type  |Required |Recommended  |
 |---------|---------|---------|
 |**Assessment**    |   Include a detailed agenda for multi-day or multi-week assessments, and articulate what deliverable the customer can expect.      |    Optimize your offer summary with your top SEO keywords.     |
-|**Briefing**    |   Articulate what deliverable the customer can expect. Remember, *Briefing* must be offered in person. If you're providing a virtual service, choose a different offer type.    |  Optimize your offer summary with your top SEO keywords.       |
+|**Briefing**    |   Articulate what deliverable the customer can expect. Remember, *Briefing* must be provided in person. If you're providing a virtual service, choose a different offer type.    |  Optimize your offer summary with your top SEO keywords.       |
 |**Implementation**    |  Include a detailed agenda for multi-day or multi-week implementations, and articulate what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement.       |    Optimize your offer summary with your top SEO keywords.     |
 |**Proof of concept**    |    Articulate what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement.     | Optimize your offer summary with your top SEO keywords.        |
-|**Workshop**    |   Include a detailed agenda daily, weekly, or monthly, depending on the duration of your offering. Articulate the learning goals or other deliverables of your workshop.     |   Optimize your offer summary with your top SEO keywords.      |
+|**Workshop**    |   Include a detailed agenda daily, weekly, or monthly, depending on the duration of your offer. Articulate the learning goals or other deliverables of your workshop.     |   Optimize your offer summary with your top SEO keywords.      |
 ||
 
 Within Partner Center, you can add formatting to your listing by using [Markdown](/contribute/markdown-reference), a lightweight design language that helps add polish to your listing.
