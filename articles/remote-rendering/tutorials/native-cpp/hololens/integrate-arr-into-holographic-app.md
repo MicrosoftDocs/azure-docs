@@ -1,6 +1,6 @@
 ---
-title: Integrate Remote Rendering into a HoloLens Holographic App
-description: Explains how to integrate Remote Rendering into a plain HoloLens Holographic App as created with Visual Studio project wizard
+title: Integrate Remote Rendering into a C++/DirectX11 Holographic App
+description: Explains how to integrate Remote Rendering into a plain C++/DirectX11 Holographic App as created with Visual Studio project wizard
 author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
