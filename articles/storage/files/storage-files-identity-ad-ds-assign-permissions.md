@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 05/08/2020
 ms.author: rogarana
 ---
 
@@ -13,7 +13,11 @@ ms.author: rogarana
 
 Before you begin this article, make sure you've completed the previous article, [Enable AD DS authentication for your account](storage-files-identity-ad-ds-enable.md).
 
-To access Azure Files resources with identity based authentication, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. This article demonstrates how to assign read, write, or delete permissions for a file share to an identity. 
+Once you've enabled AD DS authentication on your storage account, you must configure permissions in order to get the benefits of controlling access with identity-based authentication. You can configure permissions for your identities (a user, group, or service principal) at the share level. This process is similar to the process for Windows share permissions, where you specify the type of access that a particular user has to a file share. This article demonstrates how to assign read, write, or delete permissions for a file share to an identity. 
+
+## Share-level permissions
+
+Generally, we recommend using share level permission for high level access management to an AD group representing a group of users and identities, then leveraging NTFS permissions for granular access control to the directory/file level. 
 
 There are three Azure built-in roles for granting share-level permissions to users:
 
@@ -28,8 +32,6 @@ You can use the Azure portal, Azure PowerShell, or Azure CLI to assign the built
 
 > [!NOTE]
 > Remember to [sync your AD DS credentials to Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) if you plan to use your on-premises AD DS for authentication. Password hash sync from AD DS to Azure AD is optional. Share level permission will be granted to the Azure AD identity that is synced from your on-premises AD DS.
-
-Generally, we recommend using share level permission for high level access management to an AD group representing a group of users and identities, then leveraging NTFS permissions for granular access control to the directory/file level. 
 
 ## Azure portal
 
