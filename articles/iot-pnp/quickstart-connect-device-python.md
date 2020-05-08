@@ -53,7 +53,7 @@ Please go to https://aka.ms/PythonDevicePnP0508 and download the wheel (.whl) fi
 pip install azure_iot_device-2.1.0-preview-pnp-py2.py3-none-any.whl 
 ```
 ---
-Clone the Python IoT SDK repo:
+Clone the python SDK IoT repo and check out the specific branch "digitaltwins-preview":
 
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-python -b digitaltwins-preview 
