@@ -39,7 +39,7 @@ The output from this command looks something like this.
 
 Take note of the `appId` value from the output. This is your *Application (client) ID*, and you will use it later.
 
-Next, run this command to take note of your *Directory (tenant) ID*.
+Next, run this command to take note of your *Directory (tenant) ID*. The ID is the value within quotation marks in the output (the quotation marks aren't part of the value).
 
 ```azurecli
 az account show --query tenantId
