@@ -18,7 +18,7 @@ There are a couple of ways to create a LUIS app. You can create a LUIS app in th
 
 ## Using the LUIS portal
 
-You can create a new app in the preview portal in several ways:
+You can create a new app in the portal in several ways:
 
 * Start with an empty app and create intents, utterances, and entities.
 * Start with an empty app and add a [prebuilt domain](luis-how-to-use-prebuilt-domains.md).

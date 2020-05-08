@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: extract structured data with machine-learned entity - LUIS"
-description: Extract structured data from an utterance using the machine-learned entity. To increase the extraction accuracy, add subentities with features and constraints.
+description: Extract structured data from an utterance using the machine-learned entity. To increase the extraction accuracy, add subentities with features.
 ms.topic: tutorial
 ms.date: 04/30/2020
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
@@ -136,7 +136,7 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
 The order information should also include how many of an item are in the order, such as how many pizzas. To extract this data, a new machine-learned subentity needs to be added to `Order` and that subentity needs a required feature of a prebuilt number. By using a feature of a prebuilt entity the entity to a prebuilt number, the entity will find and extract numbers whether the text is a digit, `2`, or text, `two`.
 
 ## Add prebuilt number entity to app
-The order information should also include how many items are in the order, such as how many pizzas. To extract this data, a new machine-learned subcomponent needs to be added to `Order` and that component needs a constraint of a prebuilt number. By constraining the entity to a prebuilt number, the entity will find and extract numbers whether the text is a digit, `2`, or text, `two`.
+The order information should also include how many items are in the order, such as how many pizzas. To extract this data, a new machine-learned subcomponent needs to be added to `Order` and that component needs a required feature of a prebuilt number. By constraining the entity to a prebuilt number, the entity will find and extract numbers whether the text is a digit, `2`, or text, `two`.
 
 Begin by adding the prebuilt number entity to the app.
 
@@ -146,7 +146,7 @@ Begin by adding the prebuilt number entity to the app.
 
     ![Add prebuilt entity](media/tutorial-machine-learned-entity/add-prebuilt-entity-as-constraint-to-quantity-subcomponent.png)
 
-    The prebuilt entity is added to the app but isn't a constraint yet.
+    The prebuilt entity is added to the app but isn't a feature yet.
 
 ## Create subentity entity with required feature to help extract data
 
@@ -165,7 +165,7 @@ By using a non-machine-learned entity as a feature, only text that matches is ex
 
     The `Quantity` entity is applied when text matches the prebuilt number entity.
 
-    The entity with the constraint is created but not yet applied to the example utterances.
+    The entity with the required feature is created but not yet applied to the example utterances.
 
     > [!NOTE]
     > A subentity can be nested within a subentity up to 5 levels. While this isn't shown in this article, it is available from the portal and the API.
