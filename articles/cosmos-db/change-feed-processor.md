@@ -6,7 +6,7 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 4/29/2020
+ms.date: 05/06/2020
 ms.reviewer: sngun
 ---
 
@@ -97,6 +97,7 @@ You are charged for RUs consumed, since data movement in and out of Cosmos conta
 You can now proceed to learn more about change feed processor in the following articles:
 
 * [Overview of change feed](change-feed.md)
+* [Change feed pull model](change-feed-pull-model.md)
 * [How to migrate from the change feed processor library](how-to-migrate-from-change-feed-library.md)
 * [Using the change feed estimator](how-to-use-change-feed-estimator.md)
 * [Change feed processor start time](how-to-configure-change-feed-start-time.md)
