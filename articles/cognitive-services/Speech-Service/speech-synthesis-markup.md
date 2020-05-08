@@ -186,11 +186,14 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > The adjustment of speaking styles will only work with neural voices.
 
-By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express cheerfulness, empathy, or sentiment with the `<mstts:express-as>` element. This is an optional element unique to the Speech service.
+By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm, or optimize the voice for different scenarios like custom service, newscasting and voice assistant, using the <mstts:express-as> element. This is an optional element unique to the Speech service.
 
 Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-AriaNeural`
+* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
+* `zh-CN-YunyangNeural`
+* `zh-CN-YunyeNeural`
 
 Changes are applied at the sentence level, and style vary by voice. If a style isn't supported, the service will return speech in the default neutral speaking style.
 
@@ -215,10 +218,15 @@ Use this table to determine which speaking styles are supported for each neural 
 |                         | `style="chat"`            | Expresses a casual and relaxed tone                         |
 |                         | `style="cheerful"`        | Expresses a positive and happy tone                         |
 |                         | `style="empathetic"`      | Expresses a sense of caring and understanding               |
+|   `pt-BR-FranciscaNeural`| `style="calm"`      | Express a calm tone               |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
 |                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
-|                         | `style="lyrical"`         | Expresses emotions in a melodic and sentimental way         |
+|                         | `style="lyrical"`         | Expresses emotions in a melodic and sentimental way         |   
+| `zh-CN-YunyangNeural`  | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
+| `zh-CN-YunyeNeural`  | `style="calm"`      | Express a calm tone               |  
+|                         | `style="sad"`       | Expresses an unhappy and upset tone    |
+|                         | `style="serious"`         | Express a serious and tough tone        |   
 
 **Example**
 
