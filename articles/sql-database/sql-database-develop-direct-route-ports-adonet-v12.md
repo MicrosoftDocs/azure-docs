@@ -30,14 +30,14 @@ Port 1433 is the only port that must be open on your desktop computer that hosts
 
 ### *Inside:* Client runs on Azure
 
-When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no Azure SQL Database Gateway.
+When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with SQL Database. After a connection is established, further interactions between the client and database involve no Azure SQL Database Gateway.
 
 The sequence is as follows:
 
 1. ADO.NET 4.5 (or later) initiates a brief interaction with the Azure cloud, and receives a dynamically identified port number.
 
    * The dynamically identified port number is in the range of 11000-11999.
-2. ADO.NET then connects to the SQL Database server directly, with no middleware in between.
+2. ADO.NET then connects to SQL Database directly, with no middleware in between.
 3. Queries are sent directly to the database, and results are returned directly to the client.
 
 Ensure that the port ranges of 11000-11999 on your Azure client machine are left available for ADO.NET 4.5 client interactions with SQL Database.

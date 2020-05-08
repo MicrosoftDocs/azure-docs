@@ -102,7 +102,7 @@ When Telnet connects successfully, you'll see a blank screen at the command wind
 
 [Psping](/sysinternals/downloads/psping) can be used as follows to check that the Private endpoint connection(PEC) is listening for connections on port 1433.
 
-Run psping as follows by providing the FQDN for your SQL Database server and port 1433:
+Run psping as follows by providing the FQDN for logical SQL server and port 1433:
 
 ```
 >psping.exe mysqldbsrvr.database.windows.net:1433

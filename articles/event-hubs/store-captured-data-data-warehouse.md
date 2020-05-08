@@ -52,7 +52,7 @@ Use Azure PowerShell or Azure CLI to deploy the infrastructure needed for this t
 - Storage account for the captured event data
 - Azure app service plan for hosting the Functions app
 - Function app for processing captured event files
-- Logical server for hosting the Data Warehouse
+- Logical SQL server for hosting the Data Warehouse
 - SQL Data Warehouse for storing the migrated data
 
 The following sections provide Azure CLI and Azure PowerShell commands for deploying the infrastructure required for the tutorial. Update names of the following objects before running the commands: 

@@ -293,7 +293,7 @@ Now let's imagine the outage is resolved and run the repatriation script.
 ## Designing the application to ensure app and database are colocated 
 The application is designed so that it always connects from an instance in the same region as the tenant database. This design reduces latency between the application and the database. This optimization assumes the app-to-database interaction is chattier than the user-to-app interaction.  
 
-Tenant databases may be spread across recovery and original regions for some time during repatriation. For each database, the app looks up the region in which the database is located by doing a DNS lookup on the tenant server name. In SQL Database, the server name is an alias. The aliased server name contains the region name. If the application isn't in the same region as the database, it redirects to the instance in the same region as the database server.  Redirecting to instance in the same region as the database minimizes latency between app and database. 
+Tenant databases may be spread across recovery and original regions for some time during repatriation. For each database, the app looks up the region in which the database is located by doing a DNS lookup on the tenant server name. In SQL Database, the server name is an alias. The aliased server name contains the region name. If the application isn't in the same region as the database, it redirects to the instance in the same region as the server. Redirecting to instance in the same region as the database minimizes latency between app and database. 
 
 ## Next steps
 

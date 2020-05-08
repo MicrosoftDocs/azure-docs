@@ -78,7 +78,7 @@ The following steps create a server-level IP firewall rule for your virtual mach
 
    ![server name](./media/sql-database-get-started-portal/server-name.png)
 
-3. Select **Set server firewall** on the toolbar. The **Firewall settings** page for the database server opens.
+3. Select **Set server firewall** on the toolbar. The **Firewall settings** page for the server opens.
 
    ![server-level IP firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png)
 

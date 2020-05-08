@@ -165,8 +165,8 @@ If you need to implement an NSG for the subnet used by your Azure-SSIS IR, allow
 |---|---|---|---|---|---|---|
 | Outbound | TCP | VirtualNetwork | * | AzureCloud | 443 | The nodes of your Azure-SSIS IR in the virtual network use this port to access Azure services, such as Azure Storage and Azure Event Hubs. |
 | Outbound | TCP | VirtualNetwork | * | Internet | 80 | (Optional) The nodes of your Azure-SSIS IR in the virtual network use this port to download a certificate revocation list from the internet. If you block this traffic, you might experience performance downgrade when start IR and lose capability to check certificate revocation list for certificate usage. If you want to further narrow down destination to certain FQDNs, please refer to **Use Azure ExpressRoute or UDR** section|
-| Outbound | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | (Optional) This rule is only required when the nodes of your Azure-SSIS IR in the virtual network access an SSISDB hosted by your SQL Database server. If your SQL Database server connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed. <br/><br/> This outbound security rule isn't applicable to an SSISDB hosted by your SQL Managed instance in the virtual network or Azure Database server configured with private endpoint. |
-| Outbound | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | (Optional) This rule is only required when the nodes of your Azure-SSIS IR in the virtual network access an SSISDB hosted by your SQL Managed instance in the virtual network or Azure Database server configured with private endpoint. If your SQL Database server connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed. |
+| Outbound | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | (Optional) This rule is only required when the nodes of your Azure-SSIS IR in the virtual network access an SSISDB hosted by your server. If your server connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed. <br/><br/> This outbound security rule isn't applicable to an SSISDB hosted by your SQL Managed instance in the virtual network or Azure Database server configured with private endpoint. |
+| Outbound | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | (Optional) This rule is only required when the nodes of your Azure-SSIS IR in the virtual network access an SSISDB hosted by your SQL Managed instance in the virtual network or Azure Database server configured with private endpoint. If your server connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed. |
 | Outbound | TCP | VirtualNetwork | * | Storage | 445 | (Optional) This rule is only required when you want to execute SSIS package stored in Azure Files. |
 ||||||||
 
@@ -253,7 +253,7 @@ For firewall appliance to allow outbound traffic, you need to allow outbound to 
 
     If you disallow this traffic, you might experience performance downgrade when start Azure-SSIS IR and lose capability to check certificate revocation list for certificate usage which is not recommended from security point of view.
 
--   Port 1433, 11000-11999 with destination as Azure SQL (only required when the nodes of your Azure-SSIS IR in the virtual network access an SSISDB hosted by your SQL Database server).
+-   Port 1433, 11000-11999 with destination as Azure SQL Database (only required when the nodes of your Azure-SSIS IR in the virtual network access an SSISDB hosted by your server).
 
     If you use Azure Firewall, you can specify network rule with Azure SQL Service Tag, otherwise you might allow destination as specific azure sql url in firewall appliance.
 

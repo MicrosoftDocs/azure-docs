@@ -90,7 +90,7 @@ Before you start the recovery process, review the normal healthy state of the ap
 
 3. In the [Azure portal](https://portal.azure.com), review and open the resource group in which you deployed the app.
 
-   Notice the resources and the region in which the app service components and SQL Database logical servers are deployed.
+   Notice the resources and the region in which the app service components and SQL Database is deployed.
 
 ## Sync the tenant configuration into the catalog
 
@@ -355,7 +355,7 @@ After cleaning up the scripts, the application is back where it started. At this
 ## Designing the application to ensure that the app and the database are co-located 
 The application is designed to always connect from an instance in the same region as the tenant's database. This design reduces latency between the application and the database. This optimization assumes the app-to-database interaction is chattier than the user-to-app interaction.  
 
-Tenant databases might be spread across recovery and original regions for some time during repatriation. For each database, the app looks up the region in which the database is located by doing a DNS lookup on the tenant server name. The server name is an alias. The aliased server name contains the region name. If the application isn't in the same region as the database, it redirects to the instance in the same region as the database server. Redirecting to the instance in the same region as the database minimizes latency between the app and the database.  
+Tenant databases might be spread across recovery and original regions for some time during repatriation. For each database, the app looks up the region in which the database is located by doing a DNS lookup on the tenant server name. The server name is an alias. The aliased server name contains the region name. If the application isn't in the same region as the database, it redirects to the instance in the same region as the server. Redirecting to the instance in the same region as the database minimizes latency between the app and the database.  
 
 ## Next steps
 

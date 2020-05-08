@@ -79,7 +79,7 @@ To achieve real business continuity, adding database redundancy between datacent
   A unique ID that is automatically generated when a new SQL Managed Instance is created. A multi-domain (SAN) certificate for this instance is provisioned to authenticate the client connections to any instance in the same DNS zone. The two managed instances in the same failover group must share the DNS zone.
   
   > [!NOTE]
-  > A DNS zone ID is not required for failover groups created for SQL Database servers.
+  > A DNS zone ID is not required for failover groups created for SQL Database.
 
 - **Failover group read-write listener**
 

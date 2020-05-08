@@ -77,7 +77,7 @@ If an auto-failover group is not configured, then your application needs to acti
 
 In summary, the traditional on-premises SQL Server setup required you to actively manage your Availability by using features such as Failover Clustering, Database Mirroring, Transaction Replication, or Log Shipping and maintain and manage backups to ensure Business Continuity. With SQL Database, the platform manages these for you, so you can focus on developing and optimizing your database application and not worry about disaster management as much. You can have backup and disaster recovery plans configured and working with just a few clicks on the Azure portal (or a few commands using the PowerShell APIs).
 
-To learn more about Disaster recovery, see: [Azure SQL Db Disaster Recovery 101](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/)
+To learn more about Disaster recovery, see: [Azure SQL Database Disaster Recovery 101](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/)
 
 ## Security and compliance
 
@@ -163,7 +163,7 @@ For protecting your sensitive data in-flight and at rest, SQL Database provides 
 |**Characteristics**|**Always Encrypted**|**Transparent Data Encryption**|
 |---|---|---|
 |**Encryption span**|End-to-end|At-rest data|
-|**Database server can access sensitive data**|No|Yes, since encryption is for the data at rest|
+|**Server can access sensitive data**|No|Yes, since encryption is for the data at rest|
 |**Allowed T-SQL operations**|Equality comparison|All T-SQL surface area is available|
 |**App changes required to use the feature**|Minimal|Very Minimal|
 |**Encryption granularity**|Column level|Database level|

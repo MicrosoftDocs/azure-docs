@@ -22,7 +22,7 @@ Azure Active Directory authentication is a mechanism of connecting to [Azure SQL
 With Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Benefits include the following:
 
 - It provides an alternative to SQL Server authentication
-- Helps stop the proliferation of user identities across database servers
+- Helps stop the proliferation of user identities across servers
 - Allows password rotation in a single place
 - Customers can manage database permissions using external (Azure AD) groups
 - It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory

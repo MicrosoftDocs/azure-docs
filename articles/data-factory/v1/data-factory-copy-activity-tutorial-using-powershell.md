@@ -214,7 +214,7 @@ In this step, you link your Azure SQL database to your data factory.
 	ProvisioningState : Succeeded
     ```
 
-   Confirm that **Allow access to Azure services** setting is turned on for your SQL database server. To verify and turn it on, do the following steps:
+   Confirm that **Allow access to Azure services** setting is turned on for your server. To verify and turn it on, do the following steps:
 
 	1. Log in to the [Azure portal](https://portal.azure.com)
 	1. Click **More services >** on the left, and click **SQL servers** in the **DATABASES** category.

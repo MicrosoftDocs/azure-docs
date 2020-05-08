@@ -22,7 +22,7 @@ You can use the bcp command-line utility to import data from a CSV file into Azu
 
 To complete the steps in this article, you need:
 
-* An Azure SQL Database server and database
+* A database in Azure SQL Database
 * The bcp command-line utility installed
 * The sqlcmd command-line utility installed
 

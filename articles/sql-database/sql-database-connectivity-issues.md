@@ -166,7 +166,7 @@ The connection string that's necessary to connect to SQL Database is slightly di
 
 ### Connection: IP address
 
-You must configure the SQL Database server to accept communication from the IP address of the computer that hosts your client program. To set up this configuration, edit the firewall settings through the [Azure portal](https://portal.azure.com/).
+You must configure SQL Database to accept communication from the IP address of the computer that hosts your client program. To set up this configuration, edit the firewall settings through the [Azure portal](https://portal.azure.com/).
 
 If you forget to configure the IP address, your program fails with a handy error message that states the necessary IP address.
 
@@ -237,7 +237,7 @@ On Linux, the following utilities might be helpful:
 - `netstat -nap`
 - `nmap -sS -O 127.0.0.1`: Change the example value to be your IP address.
 
-On Windows, the [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) utility might be helpful. Here's an example execution that queried the port situation on a SQL Database server and that was run on a laptop computer:
+On Windows, the [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) utility might be helpful. Here's an example execution that queried the port situation on SQL Database and that was run on a laptop computer:
 
 ```cmd
 [C:\Users\johndoe\]
