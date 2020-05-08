@@ -225,6 +225,33 @@ Please experiment with the commands and explore. Most importantly, look at the i
 * The file Program.cs contains the authentication logic
 * The file CommandLoop.cs contains all the interesting commands
 
+Here is an example - creating a twin:
+```csharp
+Dictionary<string, object> meta = new Dictionary<string, object>()
+{
+    { "$model", model_id},
+    { "$kind", "DigitalTwin" }
+};
+Dictionary<string, object> twinData = new Dictionary<string, object>()
+{
+    { "$metadata", meta },
+};
+try
+{
+    await client.CreateDigitalTwinAsync(twin_id, 
+                    JsonConvert.SerializeObject(twinData));
+    Log.Ok($"Twin '{twin_id}' created successfully!");
+}
+catch (RequestFailedException e)
+{
+    Log.Error($"Error {e.Status}: {e.Message}");
+}
+catch (Exception ex)
+{
+    Log.Error($"Error: {ex}");
+}
+```
+
 In the next tutorial, we will use the sample command line tool as the centerpiece of an end to end application of Azure Digital Twins. 
 
 ## Next steps
