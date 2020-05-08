@@ -191,7 +191,6 @@ The following table shows the permission required on a SAS to delete a blob vers
 
 Blob versioning is available in preview in the following regions:
 
-- France South
 - France Central
 - Canada East
 - Canada Central
