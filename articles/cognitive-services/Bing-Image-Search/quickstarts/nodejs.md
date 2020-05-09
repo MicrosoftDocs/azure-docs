@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Search for images using the Bing Image Search REST API and Node.js"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to send image search requests to the Bing Image Search REST API using JavaScript, and receive a JSON response.
+description: Use this quickstart to send image search requests to the Bing Image Search REST API using JavaScript, and JSON responses.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -71,16 +71,18 @@ For more information, see [Cognitive Services Pricing - Bing Search API](https:/
 
 ## Handle and parse the response
 
-1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. Do the following steps within this function:
+1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. 
 
-2. Within this function, define a variable to contain the body of the JSON response.  
+2. Within this function, define a variable to contain the body of the JSON response. 
+
     ```javascript
     let response_handler = function (response) {
         let body = '';
     };
     ```
 
-3. Store the body of the response when the `data` flag is called
+3. Store the body of the response when the `data` flag is called.
+
     ```javascript
     response.on('data', function (d) {
         body += d;
@@ -100,7 +102,7 @@ For more information, see [Cognitive Services Pricing - Bing Search API](https:/
 
 ## Example JSON response
 
-Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result:
+Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result.
 
 ```json
 {
@@ -154,8 +156,8 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 ## See also
 
 * [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
-* [Pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) for the Bing Search APIs. 
-* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
+* [Pricing details for the Bing Search APIs](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
+* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
+* [Azure Cognitive Services documentation](https://docs.microsoft.com/azure/cognitive-services).
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

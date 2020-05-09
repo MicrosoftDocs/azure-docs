@@ -23,7 +23,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* [PHP 5.6.x or later](https://php.net/downloads.php).
+* [PHP 5.6.x or later](https://php.net/downloads.php)
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -79,7 +79,7 @@ $headers = array();
 
 ## Example JSON response
 
-Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result:
+Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result.
 
 ```json
 {
@@ -133,8 +133,8 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 ## See also
 
 * [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
-* [Pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) for the Bing Search APIs. 
-* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/). 
+* [Pricing details for the Bing Search APIs](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
+* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
+* [Azure Cognitive Services documentation](https://docs.microsoft.com/azure/cognitive-services).
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
