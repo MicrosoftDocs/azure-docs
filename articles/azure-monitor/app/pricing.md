@@ -4,7 +4,7 @@ description: Manage telemetry volumes and monitor costs in Application Insights.
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 5/9/2020
+ms.date: 5/7/2020
 
 ms.reviewer: mbullwin
 ---
