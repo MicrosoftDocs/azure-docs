@@ -429,6 +429,8 @@ CloudQueueMessage retrievedMessage = queue.GetMessage();
 queue.DeleteMessage(retrievedMessage);
 ```
 
+---
+
 ## Use Async-Await pattern with common Queue storage APIs
 
 This example shows how to use the Async-Await pattern with common Queue storage APIs. The sample calls the asynchronous version of each of the given methods, as indicated by the *Async* suffix of each method. When an async method is used, the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work, which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
@@ -494,6 +496,8 @@ await queue.DeleteMessageAsync(retrievedMessage);
 Console.WriteLine("Deleted message");
 ```
 
+---
+
 ## Leverage additional options for de-queuing messages
 
 There are two ways you can customize message retrieval from a queue. First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message.
@@ -550,6 +554,8 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 }
 ```
 
+---
+
 ## Get the queue length
 
 # [\.NET v12](#tab/dotnet)
@@ -600,6 +606,8 @@ int cachedMessageCount = queue.ApproximateMessageCount;
 Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
+---
+
 ## Delete a queue
 
 # [\.NET v12](#tab/dotnet)
@@ -638,6 +646,8 @@ CloudQueue queue = queueClient.GetQueueReference("myqueue");
 // Delete the queue.
 queue.Delete();
 ```
+
+---
 
 ## Next steps
 
