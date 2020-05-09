@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 05/12/2020
+ms.date: 05/09/2020
 ---
 
 # Encode and decode flat files in Azure Logic Apps by using the Enterprise Integration Pack
