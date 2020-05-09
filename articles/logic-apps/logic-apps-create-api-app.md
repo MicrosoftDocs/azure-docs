@@ -260,7 +260,7 @@ Here are some other tips and notes:
 
 * To pass in the callback URL, you can use the `@listCallbackUrl()` workflow function in any of the previous fields as necessary.
 
-* If you own both the logic app and the subscribed service, the Logic Apps engine doesn't have to call the `unsubscribe` endpoint after calling the callback URL. Otherwise, the Logic Apps engine needs to call the `unsubscribe` endpoint to signal that no more calls are expected and to allow for resource clean up on the server side.
+* If you own both the logic app and the subscribed service, you don't have to call the `unsubscribe` endpoint after the callback URL is called. Otherwise, the Logic Apps runtime needs to call the `unsubscribe` endpoint to signal that no more calls are expected and to allow for resource clean up on the server side.
 
 <a name="triggers"></a>
 
@@ -353,7 +353,7 @@ Here are some other tips and notes:
 
 * To prevent processing the same data multiple times, your trigger should clean up data that was already read and passed to the logic app.
 
-* If you own both the logic app and the subscribed service, the Logic Apps engine doesn't have to call the `unsubscribe` endpoint after calling the callback URL. Otherwise, the Logic Apps engine needs to call the `unsubscribe` endpoint to signal that no more calls are expected and to allow for resource clean up on the server side.
+* If you own both the logic app and the subscribed service, you don't have to call the `unsubscribe` endpoint after the callback URL is called. Otherwise, the Logic Apps runtime needs to call the `unsubscribe` endpoint to signal that no more calls are expected and to allow for resource clean up on the server side.
 
 ## Improve security for calls to your APIs from logic apps
 
