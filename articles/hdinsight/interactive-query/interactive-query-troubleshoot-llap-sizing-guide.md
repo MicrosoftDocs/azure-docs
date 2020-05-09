@@ -32,8 +32,8 @@ specific tuning.
 | yarn.scheduler.maximum-allocation-vcores | 12 |The maximum number of CPU cores for every container request at the Resource Manager. Requests higher than this value won't take effect. |
 | yarn.nodemanager.resource.cpu-vcores | 12 | Number of CPU cores per NodeManager that can be allocated for containers. |
 | yarn.scheduler.capacity.root.llap.capacity | 80 (%) | YARN capacity allocation for llap queue  |
-| hive.server2.tez.sessions.per.default.queue | <number_of_worker_nodes> |The number of sessions for each queue named in the hive.server2.tez.default.queues. This number corresponds to number of query coordinators(Tez AMs) |
 | tez.am.resource.memory.mb | 4096 (MB) | The amount of memory in MB to be used by the tez AppMaster |
+| hive.server2.tez.sessions.per.default.queue | <number_of_worker_nodes> |The number of sessions for each queue named in the hive.server2.tez.default.queues. This number corresponds to number of query coordinators(Tez AMs) |
 | hive.tez.container.size | 4096 (MB) | Specified Tez container size in MB |
 | hive.llap.daemon.num.executors | 12 | Number of executors per LLAP daemon | 
 | hive.llap.io.threadpool.size | 12 | Thread pool size for executors |
