@@ -22,12 +22,13 @@ Sign in to the [Azure portal](https://portal.azure.com), and create an Applicati
 
    | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Unique value | Name that identifies the app you are monitoring. |
-   | **Resource Group**     | myResourceGroup      | Name for the new or existing resource group to host App Insights data. |
-   | **Location** | East US | Choose a location near you, or near where your app is hosted. |
+   | **Name**      | `Unique value` | Name that identifies the app you are monitoring. |
+   | **Resource Group**     | `myResourceGroup`      | Name for the new or existing resource group to host App Insights data. |
+   | **Region** | `East US` | Choose a location near you, or near where your app is hosted. |
+   | **Resource Mode** | `Classic` or `Workspace-based` | Workspace-based resources are currently in public preview and allow you to send your Application Insights telemetry to a common Log Analytics workspace. For more information see the [article on workspace-based resources]().
 
 > [!NOTE]
-> While you can use the same resource name across different resource groups, it can be beneficial to use a globally unique name. This can be useful if you plan to [perform cross resource queries](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) as it simplifies the required syntax.
+> While you can use the same resource name across different resource groups, it can be beneficial to use a globally unique name.
 
 Enter the appropriate values into the required fields, and then select **Review + create**.
 
