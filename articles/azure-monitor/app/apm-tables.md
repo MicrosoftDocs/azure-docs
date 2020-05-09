@@ -1,15 +1,41 @@
 ---
-title: Release annotations for Application Insights | Microsoft Docs
-description: Add deployment or build markers to your metrics explorer charts in Application Insights.
+title: Azure Monitor Application Insights workspace-based resource schema
+description: Learn about the new table structure and schema for Azure Monitor Application Insights workspace-based resources.
 ms.topic: conceptual
-ms.date: 07/01/2019
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 05/09/2020
 
 ---
 
-# T
+# Workspace-based resource changes (preview)
 
+Prior to the introduction of [workspace-based Application Insights resources](create-workspace-resource.md), Application Insights data was stored separate from other log data in Azure Monitor. Both are based on Azure Data Explorer and use the same Kusto Query Language (KQL). This is described in [Logs in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
 
-## AppAvailabilityResults
+With workspace-based Application Insights resources data is stored in a Log Analytics workspace with other monitoring data and application data. This simplifies your configuration by allowing you to more easily analyze data across multiple solutions and to leverage the capabilities of workspaces.
+
+## Table structure
+
+| Legacy table name | New table name | Description |
+|:---|:---|:---|
+| availabilityResults | AppAvailabilityResults |  Summary data from availability tests.|
+| browserTimings | AppBrowserTimings | Data about client performance, such as the time taken to process the incoming data.|
+| dependencies | AppDependencies | Calls from the application to other components (including external components) recorded via TrackDependency() – for example, calls to REST API, database or a file system.  |
+| customEvents | AppEvents | Custom events created by your application. |
+| customMetrics | AppMetrics | Custom metrics created by your application. |
+| pageViews | AppPageViews| Data about each website view with browser information. |
+| performanceCounters | AppPerformanceCounters | Performance measurements from the compute resources supporting the application, for example, Windows performance counters. |
+| requests | AppRequests | Requests received by your application. For example, a separate request record is logged for each HTTP request that your web app receives.  |
+| exceptions | AppSystemEvents | Exceptions thrown by the application runtime, captures both server side and client-side (browsers) exceptions. |
+| traces | AppTraces | Detailed logs (traces) emitted through application code/logging frameworks recorded via TrackTrace(). |
+
+## Table schemas
+
+The following sections show the mapping between the classic property names and the new workspace-based Application Insights property names.  Use this information to convert any queries using legacy tables.
+
+Most of the columns have the same name with different capitalization. Since KQL is case-sensitive, you will need to change each column name along with the table names in existing queries. Columns with changes in addition to capitalization are highlighted. You can still use your classic Application Insights queries within the **Logs** pane of your Application Insights resource, even if it is a workspace-based resource. The new property names are required for when querying from within the context of the Log Analytics workspace experience.
+
+### AppAvailabilityResults
 
 Legacy table: availability
 
@@ -31,7 +57,7 @@ Legacy table: availability
 |customDimensions|dynamic|Properties|Dynamic|
 |customMeasurements|dynamic|Measurements|Dynamic|
 |duration|real|DurationMs|real|
-|id|string|Id|string|
+|`id`|string|`Id`|string|
 |iKey|string|IKey|string|
 |itemCount|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
@@ -53,9 +79,7 @@ Legacy table: availability
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
 
-
-
-## AppBrowserTimings
+### AppBrowserTimings
 
 Legacy table: browserTimings
 
@@ -99,9 +123,7 @@ Legacy table: browserTimings
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
 
-
-
-## AppDependencies
+### AppDependencies
 
 Legacy table: dependencies
 
@@ -124,7 +146,7 @@ Legacy table: dependencies
 |customMeasurements|dynamic|Measurements|Dynamic|
 |data|string|Data|string|
 |duration|real|DurationMs|real|
-|id|string|Id|string|
+|`id`|string|`Id`|string|
 |iKey|string|IKey|string|
 |itemCount|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
@@ -146,8 +168,7 @@ Legacy table: dependencies
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
 
-
-## AppEvents
+### AppEvents
 
 Legacy table: customEvents
 
@@ -184,8 +205,7 @@ Legacy table: customEvents
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
 
-
-## AppMetrics
+### AppMetrics
 
 Legacy table: customMetrics
 
@@ -226,8 +246,7 @@ Legacy table: customMetrics
 |valueStdDev|real|ValueStdDev|real|
 |valueSum|real|ValueSum|real|
 
-
-## AppPageViews
+### AppPageViews
 
 Legacy table: pageViews
 
@@ -249,7 +268,7 @@ Legacy table: pageViews
 |customDimensions|dynamic|Properties|Dynamic|
 |customMeasurements|dynamic|Measurements|Dynamic|
 |duration|real|DurationMs|real|
-|id|string|Id|string|
+|`id`|string|`Id`|string|
 |iKey|string|IKey|string|
 |itemCount|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
@@ -268,8 +287,7 @@ Legacy table: pageViews
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
 
-
-## AppPerformanceCounters
+### AppPerformanceCounters
 
 Legacy table: performanceCounters
 
@@ -308,8 +326,7 @@ Legacy table: performanceCounters
 |user_Id|string|UserId|string|
 |value|real|Value|real|
 
-
-## AppRequests
+### AppRequests
 
 Legacy table: requests
 
@@ -331,7 +348,7 @@ Legacy table: requests
 |customDimensions|dynamic|Properties|Dynamic|
 |customMeasurements|dynamic|Measurements|Dynamic|
 |duration|real|DurationMs|Real|
-|id|string|Id|String|
+|`id`|string|`Id`|String|
 |iKey|string|IKey|string|
 |itemCount|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
@@ -353,8 +370,7 @@ Legacy table: requests
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
 
-
-## AppSystemEvents
+### AppSystemEvents
 
 Legacy table: exceptions
 
@@ -406,8 +422,7 @@ Legacy table: exceptions
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
 
-
-## AppTraces
+### AppTraces
 
 Legacy table: traces
 
@@ -445,9 +460,7 @@ Legacy table: traces
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|UserId|string|
 
-
-
 ## Next steps
 
-* [Create work items](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automation with PowerShell](../../azure-monitor/app/powershell.md)
+* [Explore metrics](../../azure-monitor/platform/metrics-charts.md)
+* [Write Analytics queries](../../azure-monitor/app/analytics.md)

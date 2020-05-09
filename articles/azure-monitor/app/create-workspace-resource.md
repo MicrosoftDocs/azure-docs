@@ -1,6 +1,6 @@
 ---
-title: Create a new Azure Application Insights resource | Microsoft Docs
-description: Manually set up Application Insights monitoring for a new live application.
+title: Create a new Azure Monitor Application Insights workspace-based resource | Microsoft Docs
+description: Learn about the steps required to enable the new Azure Monitor Application Insights workspace-based resources. 
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
@@ -32,7 +32,7 @@ Once your resource is created, you will see the corresponding workspace info in 
 Clicking the blue link text will take you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
 
 > [!NOTE]
-> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the new workspace-based table structure/schema you must first navigate to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience.
+> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the [new workspace-based table structure/schema](apm-tables.md) you must first navigate to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience.
 
 ## Copy the connection string
 
@@ -42,7 +42,7 @@ The [connection string]() identifies the resource that you want to associate you
 
 ## Monitoring configuration
 
-Once a workspace-based Application Insights resource has been created, configuring monitoring is relatively straightforward. 
+Once a workspace-based Application Insights resource has been created, configuring monitoring is relatively straightforward.
 
 ### Code-based application monitoring
 
@@ -65,7 +65,7 @@ For codeless monitoring of services like Azure Functions and Azure App Services,
 
 While these services offer the option to create a new Application Insights resource within their own resource creation process, resources created via these UI options are currently restricted to the classic Application Insights experience.
 
-The same applies to the resource creation experience in Visual Studio. You must select an existing workspace-based resource from with the Visual Studio monitoring enablement UI. Selecting create new resource from within Visual Studio will create a classic Application Insights resource.
+The same applies to the Application Insights resource creation experience in Visual Studio for ASP.NET and ASP.NET Core. You must select an existing workspace-based resource from with the Visual Studio monitoring enablement UI. Selecting create new resource from within Visual Studio will limit you to creating a classic Application Insights resource.
 
 ## Creating a resource automatically
 
