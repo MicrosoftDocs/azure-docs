@@ -130,7 +130,7 @@
     href: reference-powershell-module.md
 - name: Resources
   items:
-  - name: Azure Lab Service Blog
+  - name: Azure Lab Services Blog
     href: https://aka.ms/azlabs-blog
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?product=lab-services
