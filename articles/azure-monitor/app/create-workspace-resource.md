@@ -8,7 +8,7 @@ ms.date: 12/02/2019
 
 ---
 
-## Workspace-based Application Insights resources (preview)
+# Workspace-based Application Insights resources (preview)
 
 Workspace-based resources support full integration between Application Insights and Log Analytics. You can now choose to send your Application Insights telemetry to a common Log Analytics workspace, which allows you full access to all the features of Log Analytics while keeping application, infrastructure, and platform logs in a single consolidated location.
 
@@ -57,7 +57,7 @@ For detailed documentation on setting up an Application Insights SDK for code-ba
 - [Java ](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started?tabs=maven)
 - [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
 - [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs)
-- [Python](https://docs.microsoft.com/en-us/azure/azure-monitor/app/opencensus-python)
+- [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
 
 ### Codeless monitoring and Visual Studio resource creation
 
