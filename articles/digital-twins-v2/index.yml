@@ -20,7 +20,7 @@ landingContent:
         links:
           - text: What is Azure Digital Twins?
             url: overview.md
-  - title: About Azure Digital Twins
+  - title: Azure Digital Twins tutorials
     linkLists:
       - linkListType: tutorial
         links:
