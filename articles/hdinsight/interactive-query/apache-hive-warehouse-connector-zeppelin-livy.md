@@ -9,17 +9,29 @@ ms.topic: conceptual
 ms.date: 01/05/2020
 ---
 
-# Use Apache Zeppelin with Hive Warehouse Connector on Azure HDInsight
+# Integrate Apache Zeppelin with Hive Warehouse Connector on Azure HDInsight
 
 HDInsight Spark clusters include Apache Zeppelin notebooks with different interpreters. In this article, we will focus only on the Livy interpreter to access Hive tables from Spark using Hive Warehouse Connector.
 
-## Prerequisites
+## Prerequisite
 
-1. Create an HDInsight Spark **4.0** cluster with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
+Complete the [Hive Warehouse Connector setup](apache-hive-warehouse-connector.md#hive-warehouse-connector-setup) steps.
 
-1. Create an HDInsight Interactive Query (LLAP) **4.0** cluster with the same storage account and Azure virtual network as the Spark cluster.
+## Getting started
 
-1. Setup up both Spark and Hive clusters with HWC using this document. See [Setup HDInsight clusters with Hive Warehouse Connector](./apache-hive-warehouse-connector.md#configure-hwc-settings)
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Apache Spark cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
+
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+
+1. From your ssh session, execute the following command to note the versions for `hive-warehouse-connector-assembly` and `pyspark_hwc`:
+
+    ```bash
+    ls /usr/hdp/current/hive_warehouse_connector
+    ```
+
+    Save the output for later use when configuring Apache Zeppelin.
 
 ## Configure Livy
 
@@ -68,12 +80,9 @@ Following configurations are required to be able to access hive tables from Zepp
 | livy.spark.submit.pyFiles | file:///usr/hdp/current/hive_warehouse_connector/pyspark_hwc-<STACK_VERSION>.zip |
 | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<headnode-FQDN>@<AAD-Domain>` (Needed only for ESP clusters) |
 | livy.spark.sql.hive.hiveserver2.jdbc.url | Set it to the HiveServer2 JDBC connection string of the Interactive Query cluster. REPLACE `LLAPCLUSTERNAME` with the name of your Interactive Query cluster |
-| zeppelin.livy.url | http://{headnode-FQDN}:8998 |
 | spark.security.credentials.hiveserver2.enabled | true |
 
 In `hive/<headnode-FQDN>@<AAD-Domain>` service principal, Replace `<headnode-FQDN>` with the Fully Qualified Domain Name of the head node host of the Interactive Query cluster. Replace `<AAD-DOMAIN>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential won't be found. Check /etc/krb5.conf for the realm names if needed.
-
-For `zeppelin.livy.url` configuration, `headnode-FQDN` denotes the Fully Qualified Domain Name of the head node host of the Spark cluster.
 
 * Save the changes and restart the Livy interpreter.
 

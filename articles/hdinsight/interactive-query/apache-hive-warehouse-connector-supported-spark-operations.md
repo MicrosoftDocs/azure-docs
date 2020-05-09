@@ -38,7 +38,7 @@ Spark doesn't natively support writing to Hive's managed ACID tables. However,us
 1. Filter the table `hivesampletable` where the column `state` equals `Colorado`. This hive query returns a Spark DataFrame ans sis saved in the Hive table `sampletable_colorado` using the `write` function.
 
     ```scala
-    hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
+    hive.table("hivesampletable").filter("state = 'Colorado'").write.format("com.hortonworks.spark.sql.hive.llap.HiveWarehouseConnector").mode("append").option("table","sampletable_colorado").save()
     ```
 
 1. View the results with the following command:
@@ -76,7 +76,7 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
 1. Then write the streaming data to the newly created table using the following command:
 
     ```scala
-    lines.filter("value = 'HiveSpark'").writeStream.format(HiveWarehouseSession.STREAM_TO_STREAM).option("database", "default").option("table","stream_table").option("metastoreUri",spark.conf.get("spark.datasource.hive.warehouse.metastoreUri")).option("checkpointLocation","/tmp/checkpoint1").start()
+    lines.filter("value = 'HiveSpark'").writeStream.format("com.hortonworks.spark.sql.hive.llap.streaming.HiveStreamingDataSource").option("database", "default").option("table","stream_table").option("metastoreUri",spark.conf.get("spark.datasource.hive.warehouse.metastoreUri")).option("checkpointLocation","/tmp/checkpoint1").start()
     ```
 
     >[!Important]
@@ -97,6 +97,8 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
     ```
 
 Use **Ctrl + C** to stop netcat on the second SSH session. Use `:q` to exit spark-shell on the first SSH session.
+
+**NOTE:** In ESP enabled Spark 4.0 clusters, structured streaming writes are not supported.
 
 ## Next steps
 

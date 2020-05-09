@@ -43,21 +43,36 @@ Hive Warehouse Connector needs separate clusters for Spark and Interactive Query
 
 ### Configure HWC settings
 
-* From Ambari web UI of Spark cluster, navigate to **Spark2** > **CONFIGS** > **Custom spark2-defaults**.
+#### Gather preliminary information
 
-![Apache Ambari Spark2 configuration](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+1. From a web browser, navigate to `https://LLAPCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/configs` where LLAPCLUSTERNAME is the name of your Interactive Query cluster.
 
-* Select **Add Property...** as needed to add/update the following.
+1. Navigate to **Advanced** > **General** > **hive.metastore.uris** and note the value. The value may be similar to: `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 
-| Configuration | Value |
-|----|----|
-|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`. Set it to the HiveServer2 JDBC connection string of the Interactive Query cluster. REPLACE `LLAPCLUSTERNAME` with the name of your Interactive Query cluster. |
-|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. Set to a suitable HDFS-compatible staging directory. If you have two different clusters, the staging directory should be a folder in the staging directory of the LLAP cluster's storage account so that HiveServer2 has access to it.  Replace `STORAGE_ACCOUNT_NAME` with the name of the storage account being used by the cluster, and `STORAGE_CONTAINER_NAME` with the name of the storage container. |
-|`spark.datasource.hive.warehouse.metastoreUri`| The value of **hive.metastore.uris** Interactive Query cluster |
-|`spark.security.credentials.hiveserver2.enabled`|`true` for YARN cluster mode and `false` for YARN client mode |
-|`spark.hadoop.hive.zookeeper.quorum`| The value of **hive.zookeeper.quorum** of Interactive Query cluster |
+1. Navigate to **Advanced** > **Advanced hive-site** > **hive.zookeeper.quorum** and note the value. The value may be similar to: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
 
-* Save changes and restart components as needed.
+1. Navigate to **Advanced** > **Advanced hive-interactive-site** > **hive.llap.daemon.service.hosts** and note the value. The value may be similar to: `@llap0`.
+
+#### Configure Spark cluster settings
+
+1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs` where CLUSTERNAME is the name of your Apache Spark cluster.
+
+1. Expand **Custom spark2-defaults**.
+
+    ![Apache Ambari Spark2 configuration](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+
+1. Select **Add Property...** to add the following configurations:
+
+    | Configuration | Value |
+    |----|----|
+    |`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`. <br>Replace `LLAPCLUSTERNAME` with the name of your Interactive Query cluster. Replace `PWD` with the actual password.|
+    |`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. <br> Set to a suitable HDFS-compatible staging directory. If you have two different clusters, the staging directory should be a folder in the staging directory of the LLAP cluster's storage account so that HiveServer2 has access to it.  Replace `STORAGE_ACCOUNT_NAME` with the name of the storage account being used by the cluster, and `STORAGE_CONTAINER_NAME` with the name of the storage container. |
+    |`spark.datasource.hive.warehouse.metastoreUri`| The value you obtained earlier from **hive.metastore.uris**. |
+    |`spark.security.credentials.hiveserver2.enabled`|`true` for YARN cluster mode and `false` for YARN client mode. |
+    |`spark.hadoop.hive.zookeeper.quorum`| The value you obtained earlier from **hive.zookeeper.quorum**. |
+    |`spark.hadoop.hive.llap.daemon.service.hosts`| The value you obtained earlier from **hive.llap.daemon.service.hosts**. |
+
+1. Save changes and restart all affected components.
 
 ### Configure HWC for Enterprise Security Package (ESP) clusters
 
@@ -85,7 +100,7 @@ You can choose between a few different methods to connect to your Interactive Qu
 
 * [Spark-shell / PySpark](../spark/apache-spark-shell.md)
 * [Spark-submit](#spark-submit)
-* [Zeppelin](../spark/apache-spark-zeppelin-notebook.md)
+* [Zeppelin](./apache-hive-warehouse-connector-zeppelin-livy.md)
 
 
 Below are some examples to connect to HWC from Spark.
@@ -145,7 +160,7 @@ Firstly, SSH into the headnode of the Apache Spark cluster. For more information
 To learn about the spark operations supported by HWC, please follow this [document](./apache-hive-warehouse-connector-supported-spark-operations.md).
 
 
-#### Run queries on Enterprise Security Package (ESP) clusters
+## Run queries on Enterprise Security Package (ESP) clusters
 
 * Before initiating the spark-shell or spark-submit, execute the following command.
 
@@ -190,9 +205,9 @@ To learn about the spark operations supported by HWC, please follow this [docume
 
 ## Next steps
 
-* [Spark Operations Supported By Hive Warehouse Connector](./apache-hive-warehouse-connector-supported-spark-operations.md)
+* [Apache Spark Operations Supported By Hive Warehouse Connector](./apache-hive-warehouse-connector-supported-spark-operations.md)
 * [Use Interactive Query with HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
-* [Use Apache Zeppelin with Hive Warehouse Connector on Azure HDInsight](./apache-hive-warehouse-connector-zeppelin-livy.md)
+* [Integrate Apache Zeppelin with Hive Warehouse Connector on Azure HDInsight](./apache-hive-warehouse-connector-zeppelin-livy.md)
 * [Examples of interacting with Hive Warehouse Connector using Zeppelin, Livy, spark-submit, and pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
