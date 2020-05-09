@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
 ms.workload: identity
-ms.date: 05/06/2020
+ms.date: 05/08/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -32,13 +32,23 @@ The network location is determined by the public IPV4 address a client provides 
  > [!NOTE]
  > IPv6 address ranges cannot currently be included in a named location. This means IPv6 ranges cannot be excluded from a Conditional Access policy.
 
-## Locations
+## Named locations
 
 Locations are designated in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
 
 To configure a location, you will need to provide at least a **Name** and the IP range. 
 
 ![Create a new named location in the Azure portal](./media/location-condition/new-named-location.png)
+
+You can configure locations based on of the following limitations:
+
+- 195 Named locations
+- 2000 IP Ranges per named location
+- No subnet mask shorter than /8 or 255.0.0.0
+- No private IP ranges (For example: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16)
+
+> [!TIP]
+> IPV6 ranges are only supported in the **Named location (preview)** interface. 
 
 ### Trusted locations
 
@@ -48,49 +58,15 @@ This option can factor in to Conditional Access policies where you may, for exam
 
 ### Countries and regions
 
-Some organizations may choose to define entire countries or regions IP boundaries as named locations for Conditional Access policies. They may use these when blocking unnecessary traffic when they know valid users will never come from a location such as North Korea. These IP to country mappings are updated periodically. 
+Some organizations may choose to define entire countries or regions IP boundaries as named locations for Conditional Access policies. They may use these locations when blocking unnecessary traffic when they know valid users will never come from a location such as North Korea. These mappings of IP address to country are updated periodically. 
 
-![Create a new counrty or region based location in the Azure portal](./media/location-condition/new-named-location-country-region.png)
+![Create a new country or region-based location in the Azure portal](./media/location-condition/new-named-location-country-region.png)
 
 #### Include unknown areas
 
-Some IP addresses are not mapped to a specific country or region. To capture these IP locations check the box **Include unknown areas** when defining a location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
+Some IP addresses are not mapped to a specific country or region. To capture these IP locations, check the box **Include unknown areas** when defining a location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
-## Named locations
-
-With named locations, you can create logical groupings of IP address ranges or countries and regions.
-
-You can access your named locations in the **Manage** section of the Conditional Access page.
-
-![Named locations in Conditional Access](./media/location-condition/02.png)
-
-A named location has the following components:
-
-![Create a new named location](./media/location-condition/42.png)
-
-- **Name** - The display name of a named location.
-- **IP ranges** - One or more IPv4 address ranges in CIDR format. Specifying an IPv6 address range is not supported.
-
-   > [!NOTE]
-   > IPv6 address ranges cannot currently be included in a named location. This means IPv6 ranges cannot be excluded from a Conditional Access policy.
-
-- **Mark as trusted location** - A flag you can set for a named location to indicate a trusted location. Typically, trusted locations are network areas that are controlled by your IT department. In addition to Conditional Access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce [false positives](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
-- **Countries/Regions** - This option enables you to select one or more country or region to define a named location.
-- **Include unknown areas** - Some IP addresses are not mapped to a specific country or region. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
-
-The number of named locations you can configure is constrained by the size of the related object in Azure AD. You can configure locations based on of the following limitations:
-
-- One named location with up to 1200 IP ranges.
-- A maximum of 90 named locations with one IP range assigned to each of them.
-
-Conditional Access policy applies to IPv4 and IPv6 traffic. Currently named locations do not allow IPv6 ranges to be configured. This limitation causes the following situations:
-
-- Conditional Access policy cannot be targeted to specific IPv6 ranges
-- Conditional Access policy cannot exclude specific IPV6 ranges
-
-If a policy is configured to apply to “Any location”, it will apply to IPv4 and IPv6 traffic. Named locations configured for specified countries and regions only support IPv4 addresses. IPv6 traffic is only included if the option to “include unknown areas” selected.
-
-## Trusted IPs
+### Configure MFA trusted IPs
 
 You can also configure IP address ranges representing your organization's local intranet in the [multi-factor authentication service settings](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). This feature enables you to configure up to 50 IP address ranges. The IP address ranges are in CIDR format. For more information, see [Trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
@@ -105,11 +81,11 @@ After checking this option, including the named location **MFA Trusted IPS** wil
 For mobile and desktop applications, which have long lived session lifetimes, Conditional Access is periodically reevaluated. The default is once an hour. When the inside corporate network claim is only issued at the time of the initial authentication, Azure AD may not have a list of trusted IP ranges. In this case, it is more difficult to determine if the user is still on the corporate network:
 
 1. Check if the user’s IP address is in one of the trusted IP ranges.
-2. Check whether the first three octets of the user’s IP address match the first three octets of the IP address of the initial authentication. The IP address is compared with the initial authentication when the inside corporate network claim was originally issued and the user location was validated.
+1. Check whether the first three octets of the user’s IP address match the first three octets of the IP address of the initial authentication. The IP address is compared with the initial authentication when the inside corporate network claim was originally issued and the user location was validated.
 
 If both steps fail, a user is considered to be no longer on a trusted IP.
 
-## Location condition configuration
+## Location condition in policy
 
 When you configure the location condition, you have the option to distinguish between:
 
@@ -151,12 +127,9 @@ By default, Azure AD issues a token on an hourly basis. After moving off the cor
 
 The IP address that is used in policy evaluation is the public IP address of the user. For devices on a private network, this IP address is not the client IP of the user’s device on the intranet, it is the address used by the network to connect to the public internet.
 
-> [!WARNING]
-> If your device has only an IPv6 address, configuring the location condition is not supported.
-
 ### Bulk uploading and downloading of named locations
 
-When you create or update named locations, for bulk updates, you can upload or download a CSV file with the IP ranges. An upload replaces the IP ranges in the list with those from the file. Each row of the file contains one IP Address range in CIDR format.
+When you create or update named locations, for bulk updates, you can upload or download a CSV file with the IP ranges. An upload replaces the IP ranges in the list with those ranges from the file. Each row of the file contains one IP Address range in CIDR format.
 
 ### Cloud proxies and VPNs
 
@@ -166,9 +139,9 @@ When a cloud proxy is in place, a policy that is used to require a domain joined
 
 ### API support and PowerShell
 
-API and PowerShell is not yet supported for named locations, or for Conditional Access policies.
+API and PowerShell is not yet supported for named locations.
 
 ## Next steps
 
-- If you want to know how to configure a Conditional Access policy, see [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
-- If you are ready to configure Conditional Access policies for your environment, see the [best practices for Conditional Access in Azure Active Directory](best-practices.md).
+- If you want to know how to configure a Conditional Access policy, see the article [Building a Conditional Access policy](concept-conditional-access-policies.md).
+- Looking for an example policy using the location condition? See the article, [Conditional Access: Block access by location](howto-conditional-access-policy-location.md)
