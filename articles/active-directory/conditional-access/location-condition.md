@@ -93,8 +93,6 @@ When you configure the location condition, you have the option to distinguish be
 - All trusted locations
 - Selected locations
 
-![Location condition configuration](./media/location-condition/01.png)
-
 ### Any location
 
 By default, selecting **Any location** causes a policy to be applied to all IP addresses, which means any address on the Internet. This setting is not limited to IP addresses you have configured as named location. When you select **Any location**, you can still exclude specific locations from a policy. For example, you can apply a policy to all locations except trusted locations to set the scope to all locations, except the corporate network.
