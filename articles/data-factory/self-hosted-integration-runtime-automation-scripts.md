@@ -10,7 +10,7 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 05/06/2020
+ms.date: 05/09/2020
 ---
 
 # Automating self-hosted integration runtime installation using local PowerShell scripts
@@ -29,10 +29,10 @@ To automate installation of Self-hosted Integration Runtime on local machines (o
 > These scripts are created using the [documented command line utility](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#set-up-an-existing-self-hosted-ir-via-local-powershell) in the self-hosted integration runtime. If needed one can customize these scripts accordingly to cater to their automation needs.
 > The scripts need to be applied per node, so make sure to run it across all nodes in case of high availability setup (2 or more nodes).
 
-1. For automating setup:
+* For automating setup:
 Install and register a new self-hosted integration runtime node using **[InstallGatewayOnLocalMachine.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/InstallGatewayOnLocalMachine.ps1)** -  The script can be used to install self-hosted integration runtime node and register it with an authentication key. The script accepts two arguments, **first** specifying the location of the [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717) on a local disk, **second** specifying the **authentication key** (for registering self-hosted IR node).
 
-2. For automating manual updates:
+* For automating manual updates:
 Update the self-hosted IR node with a specific version or to the latest version **[script-update-gateway.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/script-update-gateway.ps1)** - This is also supported in case you have turned off the auto-update, or want to have more control over updates. The script can be used to update the self-hosted integration runtime node to the latest version or to a specified higher version (downgrade doesn’t work). It accepts an argument for specifying version number (example: -version 3.13.6942.1). When no version is specified, it always updates the self-hosted IR to the latest version found in the [downloads](https://www.microsoft.com/download/details.aspx?id=39717).
     > [!NOTE]
     > Only last 3 versions can be specified. Ideally this is used to update an existing node to the latest version. **IT ASSUMES THAT YOU HAVE A REGISTERED SELF HOSTED IR**. 
@@ -53,10 +53,10 @@ Update the self-hosted IR node with a specific version or to the latest version 
     > Specify the location of the "InstallGatewayOnLocalMachine.ps1" file when running the script. In this example we stored it on Desktop.
 
 1. If there is one pre-installed self-hosted IR on your machine, the script automatically uninstalls it and then configures a new one. You'll see following window popped out:
-    ![configure integration runtime](media/self-hosted-integration-runtime-automation-scripts/integration-runtime-configure.png)
+        ![configure integration runtime](media/self-hosted-integration-runtime-automation-scripts/integration-runtime-configure.png)
 
 1. When the installation and key registration completes, you'll see *Succeed to install gateway* and *Succeed to register gateway* results in your local PowerShell.
-    [![script 1 run result](media/self-hosted-integration-runtime-automation-scripts/script-1-run-result.png)](media/self-hosted-integration-runtime-automation-scripts/script-1-run-result.png#lightbox)
+        [![script 1 run result](media/self-hosted-integration-runtime-automation-scripts/script-1-run-result.png)](media/self-hosted-integration-runtime-automation-scripts/script-1-run-result.png#lightbox)
 
 ### For automating manual updates
 This script is used to update/install + register latest self-hosted integration runtime. The script run performs the following steps:
