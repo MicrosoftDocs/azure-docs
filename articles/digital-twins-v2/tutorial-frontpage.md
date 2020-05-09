@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Introduction to samples and tutorials
 
-We have a few tutorials for Azure Digital Twins prepared for you. The tutorials are designed to progressively introduce Azure Digital Twins for you.
+The following tutorials progressively introduce you to the core features of Azure Digital Twins. They also show you in a simple example how to connect Azure Digital Twins with other services for and end-to-end solution. 
 
 * The [Coding with the Azure Digital Twins APIs](./tutorial-code)  tutorial walks you through writing a simple C# console client app step by step, starting from scratch. You will use the command line and any code editor of your choice. 
 * The [Explore Azure Digital Twins using a command line tool](./tutorial-explore-adt-with-a-command-line-tool.md) tutorial introduces a simple sample application that implements a command line tool to interact with an Azure Digital Twins instance. You can use this tool to perform essential Azure Digital Twins actions such as uploading and listing models, creating and modifying twins and relationships or manage event routes. You can learn the Azure Digital Twins APIs by looking at the code implementing the commands and modifying it as you desire.
