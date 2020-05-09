@@ -75,22 +75,22 @@ A well-defined schema for analytics is defined with the following considerations
 
 * A property always has the same type across multiple items
 
-  * For example, {"a":123} {"a": "str"} does not have a well-defined schema because "a" is sometimes a string and sometimes a number. This condition does not apply for null properties. For example, {"a":123} {"a":null} is still well-defined.
+  * For example, `{"a":123} {"a": "str"}` does not have a well-defined schema because `"a"` is sometimes a string and sometimes a number. This condition does not apply for null properties. For example, `{"a":123} {"a":null}` is still well-defined.
 
 * Array types must contain a single repeated type
 
-  * For example, {"a": ["str",12]} is not a well-defined schema because the array contains a mix of integer and string types
+  * For example, `{"a": ["str",12]}` is not a well-defined schema because the array contains a mix of integer and string types
 
 * There is a maximum of 200 properties at any nesting level of a schema and a maximum nesting depth of 5
 
   * An item with 201 properties at the top level doesn't have a well-defined schema.
 
-  * An item with more than five levels in the schema also doesn't has a well-defined schema. For example, {"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}
+  * An item with more than five levels in the schema also doesn't has a well-defined schema. For example, `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
 
 * Property names are unique when compared in a case insensitive manner
 
   * For example, the following items do not have a well-defined schema
-{"Name": "fred"} {"name": "john"} – "Name" and "name" are the same when compared in a case insensitive manner
+`{"Name": "fred"} {"name": "john"}` – `"Name"` and `"name"` are the same when compared in a case insensitive manner
 
 ### Cost-effective archival of historical data
 
@@ -106,7 +106,7 @@ If you have a globally distributed Azure Cosmos account, after you enable analyt
 
 Authentication with the analytical store is the same as the transactional store for a given database. You can use master or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available to anyone who has access into the workspace.
 
-### Support for multiple Synapse Analytics runtimes
+### Support for multiple Azure Synapse Analytics runtimes
 
 The analytical store is optimized to provide scalability, elasticity, and performance for analytical workloads without any dependency on the compute run-times. The storage technology is self-managed to optimize your analytics workloads without manual efforts.
 
@@ -136,7 +136,7 @@ In order to get a high-level cost estimate to enable analytical store on an Azur
 
 Analytical TTL indicates how long data should be retained in your analytical store, for a container. 
 
-Analytical Time to Live on a container  is set using the `AnalyticalStoreTimeToLiveInSeconds` property:
+Analytical TTL on a container is set using the `AnalyticalStoreTimeToLiveInSeconds` property:
 
 * If the value is set to "0", missing (or set to null), the analytical store is disabled and no data is replicated from transactional store to analytical store.
 
