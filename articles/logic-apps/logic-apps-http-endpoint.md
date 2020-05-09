@@ -136,17 +136,19 @@ By default, the Request trigger expects a POST request. You can specify a differ
 
    ![Select request method expected by the trigger](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
-## Accept parameters in endpoint URL
+<a name="endpoint-url-parameters"></a>
 
-When you want your endpoint URL to accept parameter values through the endpoint's URL, you have these options:
+## Pass parameters through endpoint URL
+
+When you want to accept parameter values through the endpoint's URL, you have these options:
 
 * [Accept values through GET parameters](#get-parameters) or URL parameters.
 
-  These values are passed as name-value pairs when sending the request to the endpoint's URL. For this option, you need to use the GET method in your Request trigger. In a subsequent action, you can get the parameter values as trigger outputs by using the `triggerOutputs()` function in an expression.
+  These values are passed as name-value pairs in the endpoint's URL. For this option, you need to use the GET method in your Request trigger. In a subsequent action, you can get the parameter values as trigger outputs by using the `triggerOutputs()` function in an expression.
 
 * [Accept values through a relative path](#relative-path) for parameters in your Request trigger.
 
-  These values are passed when sending the request to the endpoint's URL. You also need to explicitly [select the method](#select-method) that the trigger expects. In a subsequent action, you can get the parameter values as trigger outputs by referencing those outputs directly.
+  These values are passed through a relative path in the endpoint's URL. You also need to explicitly [select the method](#select-method) that the trigger expects. In a subsequent action, you can get the parameter values as trigger outputs by referencing those outputs directly.
 
 <a name="get-parameters"></a>
 
@@ -204,9 +206,9 @@ When you want your endpoint URL to accept parameter values through the endpoint'
 
    This example shows the callback URL with the sample parameter name and value `postalCode=123456` in different positions within the URL:
 
-   * 1st position: `https://prod-07.westus.logic.azure.com:433/workflows/XXXXXXXXXXXXXXXXXXXXXX/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZ`
+   * 1st position: `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   * 2nd position: `https://prod-07.westus.logic.azure.com:433/workflows/XXXXXXXXXXXXXXXXXXXXXX/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZ`
+   * 2nd position: `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
 <a name="relative-path"></a>
 

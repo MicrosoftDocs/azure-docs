@@ -199,19 +199,7 @@
       - name: Update existing offer
         href: ./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md
     - name: Consulting services
-      href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
-      items:
-      - name: Prerequisites
-        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
-      - name: Create a consulting service offer
-        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
-        items:
-        - name: Offer settings tab
-          href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md
-        - name: Storefront details tab
-          href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md
-      - name: Publish consulting service offer
-        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md
+      href: ./cloud-partner-portal/consulting-services/consulting-services-offer.md
     - name: Containers offer
       href: ./cloud-partner-portal/containers/cpp-containers-offer.md
       items:
