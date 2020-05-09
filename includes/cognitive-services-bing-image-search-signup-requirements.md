@@ -7,7 +7,7 @@ ms.date: 05/08/2020
 ---
 ## Create an Azure resource
 
-Start using the Bing Image Search API by creating one of the following Azure resources:
+Start using the Bing Image Search API by creating one of the following Azure resources.
 
 ### [Trial resource](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
    * No Azure subscription is needed.
