@@ -32,23 +32,10 @@ Before you send XML content to a business partner in a business-to-business (B2B
 
 1. Under the trigger or action in your logic app, select **New step** > **Add an action**. This example uses the Request trigger, which is named **When a HTTP request is received**, and handles inbound requests from outside the logic app.
 
-   This example uses the following JSON schema that describes the payload from the inbound request:
-
-   ```json
-   {
-      "type": "object",
-       "properties": {
-          "member": {
-             "type": "string"
-          }
-      }
-   }
-   ```
-
-   ```xml
-   {
-      "member": "<member><firstName>Sophia</firstName><lastName>Owen</lastName><address><street>123456 Any Street</street><city>Any Town</city><state>Any State</state><postalCode>10000</postalCode></address></member>"
-   }
+   > [!TIP]
+   > Providing a JSON schema is optional. If you have a sample payload from the inbound request, 
+   > select **Use sample payload to generate schema**, enter the sample payload, and select **Done**. 
+   > The schema appears in the **Request Body JSON Schema** box.
 
 1. Under **Choose an action**, enter `flat file`. From the actions list, select this action: **Flat File Encoding**
 
@@ -61,8 +48,9 @@ Before you send XML content to a business partner in a business-to-business (B2B
    > [!TIP]
    > If you don't see the **Body** property in the dynamic content list, 
    > select **See more** next to the **When a HTTP request is received** section label.
+   > You can also directly enter the content to decode in the **Content** box.
 
-1. From the **Schema Name** list, select the schema that's in your linked integration account to use for encoding.
+1. From the **Schema Name** list, select the schema that's in your linked integration account to use for encoding, for example:
 
    ![Select schema to use for encoding](./media/logic-apps-enterprise-integration-flatfile/select-schema-for-encoding.png)
 
@@ -70,42 +58,46 @@ Before you send XML content to a business partner in a business-to-business (B2B
    > If no schema appears in the list, your integration account doesn't contain any schema files to use for encoding. 
    > Upload the schema that you want to use to your integration account.
 
-1. Save your logic app. To test your connector, make a request to the HTTPS endpoint, which appears in the Request trigger's **HTTP POST URL** property, and include XML content in the body of the request.
+1. Save your logic app. To test your connector, make a request to the HTTPS endpoint, which appears in the Request trigger's **HTTP POST URL** property, and include the XML content that you want to encode in the request body.
 
 You're now done with setting up your flat file encoding action. In a real world app, you might want to store the encoded data in a line-of-business (LOB) app, such as Salesforce. Or, you can send the encoded data to a trading partner. To send the output from the encoding action to Salesforce or to your trading partner, use the other [connectors available in Azure Logic Apps](../connectors/apis-list.md).
 
 ## Add flat file decode action
 
-1. In the Logic App Designer, add the **When an HTTP request is received** trigger to your logic app.
+1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
-1. Add the flat file decoding action, as follows:
+1. Under the trigger or action in your logic app, select **New step** > **Add an action**. This example uses the Request trigger, which is named **When a HTTP request is received**, and handles inbound requests from outside the logic app.
 
-   a. Select the **plus** sign.
+   > [!TIP]
+   > Providing a JSON schema is optional. If you have a sample payload from the inbound request, 
+   > select **Use sample payload to generate schema**, enter the sample payload, and select **Done**. 
+   > The schema appears in the **Request Body JSON Schema** box.
 
-   b. Select the **Add an action** link (appears after you have selected the plus sign).
+1. Under **Choose an action**, enter `flat file`. From the actions list, select this action: **Flat File Decoding**
 
-   c. In the search box, enter *Flat* to filter all the actions to the one that you want to use.
+   ![Select "Flat File Decoding" action](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-decoding.png)
 
-   d. Select the **Flat File Decoding** option from the list.   
+1. Click inside the **Content** box so that the dynamic content list appears. From the list, in the **When a HTTP request is received** section, select the **Body** property, which contains the request body output from the trigger and the content to decode.
 
-      ![Screenshot of Flat File Decoding option](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
+   ![Select content to decode from dynamic content list](./media/logic-apps-enterprise-integration-flatfile/select-content-to-decode.png)
 
-1. Select the **Content** control. This produces a list of the content from earlier steps that you can use as the content to decode. Notice that the *Body* from the incoming HTTP request is available to be used as the content to decode. You can also enter the content to decode directly into the **Content** control.
+   > [!TIP]
+   > If you don't see the **Body** property in the dynamic content list, 
+   > select **See more** next to the **When a HTTP request is received** section label. 
+   > You can also directly enter the content to decode in the **Content** box.
 
-1. Select the *Body* tag. Notice the body tag is now in the **Content** control.
+1. From the **Schema Name** list, select the schema that's in your linked integration account to use for decoding, for example:
 
-1. Select the name of the schema that you want to use to decode the content. The following screenshot shows that *OrderFile* is the selected schema name. This schema name had been uploaded into the integration account previously.
+   ![Select schema to use for decoding](./media/logic-apps-enterprise-integration-flatfile/select-schema-for-decoding.png)
 
-   ![Screenshot of Flat File Decoding dialog box](media/logic-apps-enterprise-integration-flatfile/flatfile-decode-1.png) 
+   > [!NOTE]
+   > If no schema appears in the list, your integration account doesn't contain any schema files to use for decoding. 
+   > Upload the schema that you want to use to your integration account.
 
-1. Save your work.
+1. Save your logic app. To test your connector, make a request to the HTTPS endpoint, which appears in the Request trigger's **HTTP POST URL** property, and include the XML content that you want to decode in the request body.
 
-   ![Screenshot of Save icon](media/logic-apps-enterprise-integration-flatfile/flatfile-6.png)    
-
-You're now finished with setting up your flat file decoding connector. In a real world app, you might want to store the decoded data in a line-of-business application such as Salesforce. You can easily add an action to send the output of the decoding action to Salesforce.
-
-You can now test your connector by making a request to the HTTP endpoint and including the XML content you want to decode in the body of the request.  
+You're now done with setting up your flat file decoding action. In a real world app, you might want to store the decoded data in a line-of-business (LOB) app, such as Salesforce. Or, you can send the decoded data to a trading partner. To send the output from the decoding action to Salesforce or to your trading partner, use the other [connectors available in Azure Logic Apps](../connectors/apis-list.md).
 
 ## Next steps
 
-* [Learn about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+* Learn more about the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
