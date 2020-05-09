@@ -56,31 +56,29 @@ Open *Room.json*, and change it in the following ways:
 
 * **Update the version number**, to indicate that you are providing a more-updated version of this model. Do this by changing the *1* at the end of the `@id` value to a *2*. Any number greater than the current version number will also work.
 * **Edit a property**. Change the name of the `Humidity` property to *HumidityLevel* (or something different if you'd like. If you use something different than *HumidityLevel*, remember what you used and continue using that instead of *HumidityLevel* throughout this quickstart).
-* **Add a property**. After the `HumidityLevel` property that ends on line 15, paste the following code to add a `DisplayName` property to the room:
+* **Add a property**. After the `HumidityLevel` property that ends on line 15, paste the following code to add a `RoomName` property to the room:
 
     ```json
     ,
     {
       "@type": "Property",
-      "name": "DisplayName",
+      "name": "RoomName",
       "schema": "string"
     }
     ```
-* **Add a relationship**. After the `DisplayName` property that ends on line 20, paste the following code to add the ability for this type of twin to form *contains* relationships with other twins:
+* **Add a relationship**. After the `RoomName` property that ends on line 20, paste the following code to add the ability for this type of twin to form *contains* relationships with other twins:
 
     ```json
     ,
     {
       "@type": "Relationship",
-      "@id": "urn:contosocom:DigitalTwins:contains:1",
       "name": "contains",
-      "target": "*"
     }
     ```
 
 When you are finished, the updated model should look like this:
 
-:::image type="content" source="media/quickstart/room-model.png" alt-text="Edited Room.json with updated version number, HumidityLevel and DisplayName properties, and contains relationship" border="false":::
+:::image type="content" source="media/quickstart/room-model.png" alt-text="Edited Room.json with updated version number, HumidityLevel and RoomName properties, and contains relationship" border="false":::
 
 Make sure to save the file before moving on.
 
@@ -119,10 +117,10 @@ To create a digital twin, you use the `addTwin` command. You must reference the 
 Run this code in the running project console to create several twins based on the *Floor* and *Room* models. Recall that *Room* has three properties, so you can provide arguments with the initial values for these.
 
 ```cmd
-addTwin urn:example:Floor:1 floor0
-addTwin urn:example:Floor:1 floor1
-addTwin urn:example:Room:2 room0 DisplayName string Room0 Temperature double 70 HumidityLevel double 30
-addTwin urn:example:Room:2 room1 DisplayName string Room1 Temperature double 80 HumidityLevel double 60
+addTwin dtmi:example:Floor;1 floor0
+addTwin dtmi:example:Floor;1 floor1
+addTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
+addTwin dtmi:example:Room;2 room1 RoomName string Room1 Temperature double 80 HumidityLevel double 60
 ```
 
 > [!TIP]
@@ -187,7 +185,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 * **What are all the rooms in my environment?** (query by model)
 
     ```cmd
-    queryTwins SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'urn:example:Room:2')
+    queryTwins SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')
     ```
 
     You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows *room0* and *room1*, but does **not** show *floor0* or *floor1* (since they are floors, not rooms).
@@ -217,7 +215,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 * **What are all the rooms on *floor0* with a temperature above 75?** (compound query)
 
     ```cmd
-    queryTwins SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'urn:example:Room:2') AND room.Temperature > 75
+    queryTwins SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75
     ```
 
     You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on *floor0*—which in this case, is none of them.
