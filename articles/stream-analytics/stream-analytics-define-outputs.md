@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 05/8/2020
 ---
 
 # Understand outputs from Azure Stream Analytics
@@ -60,6 +60,33 @@ The following table lists the property names and their description for creating 
 | Table | The table name where the output is written. The table name is case-sensitive. The schema of this table should exactly match the number of fields and their types that your job output generates. |
 |Inherit partition scheme| An option for inheriting the partitioning scheme of your previous query step, to enable fully parallel topology with multiple writers to the table. For more information, see [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Max batch count| The recommended upper limit on the number of records sent with every bulk insert transaction.|
+
+There are two adapters that enable output from Azure Stream Analytics to Azure Synapse Analytics (formerly SQL Data Warehouse): SQL Database and Azure Synapse. We recommend that you choose the Azure Synapse Analytics adapter instead of the SQL Database adapter if any of the following conditions hold true:
+
+* **Throughput**: If your expected throughput now or in the future is greater than 10MB/sec, use the Azure Synapse output option for better performance.
+
+* **Input Partitions**: If you have eight or more input partitions, use the Azure Synapse output option for better scale-out.
+
+## Azure Synapse Analytics (Preview)
+
+[Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) (formerly SQL Data Warehouse) is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. 
+
+Azure Stream Analytics jobs can output to a SQL pool table in Azure Synapse Analytics and can process throughput rates up to 200MB/sec. This supports the most demanding real-time analytics and hot-path data processing needs for workloads such as reporting and dashboarding.  
+
+The SQL pool table must exist before you can add it as output to your Stream Analytics job. The table's schema must match the fields and their types in your job's output. 
+
+To use Azure Synapse as output, you need to ensure that you have the storage account configured. Navigate to Storage account settings to configure the storage account. Only the storage account types that support tables are permitted: General-purpose V2 and General-purpose V1.   
+
+The following table lists the property names and their descriptions for creating am Azure Synapse Analytics output.
+
+|Property name|Description|
+|-|-|
+|Output alias |A friendly name used in queries to direct the query output to this database. |
+|Database |SQL pool name where you're sending your output. |
+|Server name |Azure Synapse server name.  |
+|Username |The username that has write access to the database. Stream Analytics supports only SQL authentication. |
+|Password |The password to connect to the database. |
+|Table  | The table name where the output is written. The table name is case-sensitive. The schema of this table should exactly match the number of fields and their types that your job output generates.|
 
 ## Blob storage and Azure Data Lake Gen2
 
