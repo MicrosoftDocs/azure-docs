@@ -1,11 +1,11 @@
 ---
 title: Real-time analytics use cases with Azure Synapse Link for Azure Cosmos DB
 description: Learn how Azure Synapse Link for Azure Cosmos DB is used in Supply chain analytics, forecasting, reporting, real-time personalization, and IOT predictive maintenance.
-author: AnithaAdusumilli
+author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: anithaa
+ms.author: ramkris
 ---
 
 # Azure Synapse Link for Azure Cosmos DB: Near real-time analytics use cases
@@ -125,10 +125,14 @@ Let us take the example of an e-commerce company CompanyXYZ with global operatio
 
 To learn more, see the following docs:
 
-* [Azure Synapse Link](synapse-link.md) for Azure Cosmos DB.
+* [Azure Synapse Link for Azure Cosmos DB.](synapse-link.md) 
 
-* [Frequently asked questions](synapse-link-frequently-asked-questions.md) about Synapse Link for Azure Cosmos DB.
+* [Azure Cosmos DB Analytical Store.](analytical-store-introduction.md)
 
-* [Apache Spark in Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
+* [Working with Azure Synapse Link for Azure Cosmos DB.](configure-synapse-link.md)
 
-* [SQL serverless/on-demand in Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).
+* [Frequently asked questions about Synapse Link for Azure Cosmos DB.](synapse-link-frequently-asked-questions.md)
+
+* [Apache Spark in Azure Synapse Analytics.](../synapse-analytics/spark/apache-spark-concepts.md)
+
+* [SQL serverless/on-demand in Azure Synapse Analytics.](../synapse-analytics/sql/on-demand-workspace-overview.md)
