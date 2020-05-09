@@ -5,12 +5,15 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/18/2019
+ms.date: 05/01/2020
 
 ---
 
 # Standard properties in Azure Monitor Logs
 Data in Azure Monitor Logs is [stored as a set of records in either a Log Analytics workspace or Application Insights application](../log-query/logs-structure.md), each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
+
+> [!IMPORTANT]
+> If you are using APM 2.1, then Application Insights applications are stored in a Log Analytics workspace with all other log data. The tables have been renamed and restructured but have the same information as the tables in the Application Insights application. These new tables have the same standard properties as other tables in the Log Analytics workspace.
 
 > [!NOTE]
 > Some of the standard properties will not show in the schema view or intellisense in Log Analytics, and they won't show in query results unless you explicitly specify the property in the output.
