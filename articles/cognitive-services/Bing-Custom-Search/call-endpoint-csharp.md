@@ -26,8 +26,8 @@ Use this quickstart to learn how to request search results from your Bing Custom
 - The [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/2.0.0) NuGet package. 
 
    To install this package in Visual Studio: 
-      1. Right-click your project in **Solution Explorer**, and then select **Manage NuGet Packages**. 
-      2. Search for and select *Microsoft.Azure.CognitiveServices.Search.CustomSearch*, and then install the package.
+     1. Right-click your project in **Solution Explorer**, and then select **Manage NuGet Packages**. 
+     2. Search for and select *Microsoft.Azure.CognitiveServices.Search.CustomSearch*, and then install the package.
 
    When you install the Bing Custom Search NuGet package, Visual Studio also installs the following packages:
      - **Microsoft.Rest.ClientRuntime**
