@@ -14,7 +14,7 @@ automatic remediation for new resources.
 
 Common use cases for Azure Policy include implementing governance for resource consistency,
 regulatory compliance, security, cost, and management. Policy definitions for these common use cases
-are already available in your Azure environment as built-ins to help easily get started.
+are already available in your Azure environment as built-ins to help you get started.
 
 ## Overview
 

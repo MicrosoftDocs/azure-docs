@@ -23,7 +23,7 @@ Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-b
 Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series VMs). Azure now offers generation 2 support for the following selected VM series:
 
 * [B-series](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
-* [DC-series](../dcv2-series.md)
+* [DCsv2-series](../dcv2-series.md)
 * [DSv2-series](../dv2-dsv2-series.md) and [Dsv3-series](../dv3-dsv3-series.md)
 * [Dasv4-series](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)
 * [Esv3-series](../ev3-esv3-series.md)
@@ -33,13 +33,13 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 * [HB-series](../hb-series.md)
 * [HC-series](../hc-series.md)
 * [Ls-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) and [Lsv2-series](../lsv2-series.md)
-* [Mv2-series](../mv2-series.md)
+* [M-series](../m-series.md)
+* [Mv2-series](../mv2-series.md)<sup>1</sup>
 * [NCv2-series](../ncv2-series.md) and [NCv3-series](../ncv3-series.md)
 * [ND-series](../nd-series.md)
 * [NVv3-series](../nvv3-series.md)
 
-> [!NOTE]
-> The usage of generation 2 VM images for Mv2-series VMs is generally available since the Mv2-series works with generation 2 VM images exclusively. Generation 1 VM images are not supported on Mv2-series VMs. 
+<sup>1</sup> Mv2-series does not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](https://docs.microsoft.com/azure/virtual-machines/mv2-series) for details.
 
 ## Generation 2 VM images in Azure Marketplace
 
@@ -53,6 +53,9 @@ Generation 2 VMs support the following Marketplace images:
 * RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
 * Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
 * Oracle Linux 7.7, 7.7-CI
+
+> [!NOTE]
+> Specific Virtual machine sizes like Mv2-Series may only support a subset of these images - please look at the relevant virtual machine size documentation for complete details.
 
 ## On-premises vs. Azure generation 2 VMs
 
