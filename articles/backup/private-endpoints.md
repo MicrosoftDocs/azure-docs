@@ -41,7 +41,7 @@ This section talks about the steps involved in creating and using private endpoi
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-See [this section](#create-a-recovery-services-vault-using-the-azure-resource-manager-arm-client) to learn how to create a vault using the ARM client . This creates a vault with its managed identity already enabled. Learn more about Recovery Services vaults [here](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview).
+See [this section](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) to learn how to create a vault using the Azure Resource Manager client. This creates a vault with its managed identity already enabled. Learn more about Recovery Services vaults [here](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview).
 
 ## Enable Managed Identity for your vault
 
@@ -177,7 +177,7 @@ This section describes the process of creating a private endpoint for your vault
 
 If the user creating the private endpoint is also the owner of the Recovery Services vault, the private endpoint created above will be auto-approved. Otherwise, the owner of the vault must approve the private endpoint before being able to use it. This section discusses manual approval of private endpoints through the Azure portal.
 
-See [Manual approval of private endpoints using the ARM Client](#manual-approval-of-private-endpoints-using-the-arm-client) to use the ARM client for approving private endpoints.
+See [Manual approval of private endpoints using the Azure Resource Manager Client](#manual-approval-of-private-endpoints-using-the-azure-resource-manager-client) to use the Azure Resource Manager client for approving private endpoints.
 
 1. In your Recovery Services vault, navigate to **Private endpoint connections** on the left bar.
 1. Select the private endpoint connection you wish to approve.
@@ -259,9 +259,9 @@ However, if you remove private endpoints for the vault after a MARS agent has be
 
 ## Additional topics
 
-### Create a Recovery Services vault using the Azure Resource Manager (ARM) client
+### Create a Recovery Services vault using the Azure Resource Manager client
 
-You can create the Recovery Services Vault and enable its Managed Identity (enabling the Managed Identity is required, as we'll later see) using the ARM client. A sample for doing this is shared below:
+You can create the Recovery Services Vault and enable its Managed Identity (enabling the Managed Identity is required, as we'll later see) using the Azure Resource Manager client. A sample for doing this is shared below:
 
 ```rest
 armclient PUT /subscriptions/<subscriptionid>/resourceGroups/<rgname>/providers/Microsoft.RecoveryServices/Vaults/<vaultname>?api-version=2017-07-01-preview @C:\<filepath>\MSIVault.json
@@ -322,19 +322,19 @@ Response JSON:
 ```
 
 >[!NOTE]
->The vault created in this example through the ARM client is already created with a system-assigned managed identity.
+>The vault created in this example through the Azure Resource Manager client is already created with a system-assigned managed identity.
 
 ### Managing permissions on Resource Groups
 
 The Managed Identity for the vault needs to have the following permissions in the resource group and virtual network where the private endpoints will be created:
 
-1. `Microsoft.Network/privateEndpoints/*`
+- `Microsoft.Network/privateEndpoints/*`
 This is required to perform CRUD on private endpoints in the resource group. It should be assigned on the resource group.
-1. `Microsoft.Network/virtualNetworks/subnets/join/action`
+- `Microsoft.Network/virtualNetworks/subnets/join/action`
 This is required on the virtual network where private IP is getting attached with the private endpoint.
-1. `Microsoft.Network/networkInterfaces/read`
+- `Microsoft.Network/networkInterfaces/read`
 This is required on the resource group to get the network interface created for the private endpoint.
-1. Private DNS Zone Contributor Role
+- Private DNS Zone Contributor Role
 This role already exists and can be used to provide `Microsoft.Network/privateDnsZones/A/*` and `Microsoft.Network/privateDnsZones/virtualNetworkLinks/read` permissions.
 
 You can use one of the following methods to create roles with required permissions:
@@ -454,7 +454,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
         -Force
 ```
 
-### Manual approval of private endpoints using the ARM Client
+### Manual approval of private endpoints using the Azure Resource Manager Client
 
 1. Use **GetVault** to get the Private Endpoint Connection ID for your private endpoint.
 
@@ -466,7 +466,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
     `privateendpointconnectionid = {peName}.{vaultId}.backup.{guid}`
 
-1. Get the **Private Endpoint Connection ID** (and the **Private Endpoint Name**, wherever required) from the response and replace it in the following JSON and ARM URI and try changing the Status to “Approved/Rejected/Disconnected”, as demonstrated in the sample below:
+1. Get the **Private Endpoint Connection ID** (and the **Private Endpoint Name**, wherever required) from the response and replace it in the following JSON and Azure Resource Manager URI and try changing the Status to “Approved/Rejected/Disconnected”, as demonstrated in the sample below:
 
     ```rest
     armclient PUT /subscriptions/<subscriptionid>/resourceGroups/<rgname>/providers/Microsoft.RecoveryServices/Vaults/<vaultname>/privateEndpointConnections/<privateendpointconnectionid>?api-version=2020-02-02-preview @C:\<filepath>\BackupAdminApproval.json
@@ -504,7 +504,7 @@ You need to create three private DNS zones and link them to your virtual network
 >[!NOTE]
 >In the text above, *geo* refers to  the region code. For example, *wcus* and *ne* for West Central US and North Europe respectively.
 
-Please refer to [this list](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) for region codes.
+Refer to [this list](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) for region codes.
 
 #### Adding DNS records for custom DNS servers
 
