@@ -55,9 +55,9 @@ The following JSON shows the schema for the extension.
     "[concat('Microsoft.Compute/virtualMachines/', <myVM>)]"
   ],
   "properties": {
-    "publisher": "Microsoft.HpcCompute.Edp",
-    "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "publisher": "Microsoft.HpcCompute",
+    "type": "AmdGpuDriverWindows",
+    "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -71,8 +71,8 @@ The following JSON shows the schema for the extension.
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.2 | int |
+| type | AmdGpuDriverWindows | string |
+| typeHandlerVersion | 1.0 | int |
 
 
 ## Deployment
@@ -112,7 +112,7 @@ Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "southcentralus" `
-    -Publisher "Microsoft.HpcCompute.Edp" `
+    -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "AmdGpuDriverWindows" `
     -ExtensionType "AmdGpuDriverWindows" `
     -TypeHandlerVersion 1.0 `
@@ -127,7 +127,7 @@ az vm extension set `
   --resource-group myResourceGroup `
   --vm-name myVM `
   --name AmdGpuDriverWindows `
-  --publisher Microsoft.HpcCompute.Edp `
+  --publisher Microsoft.HpcCompute `
   --version 1.0 `
   --settings '{ `
   }'
