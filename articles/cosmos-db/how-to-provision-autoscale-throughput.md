@@ -1,6 +1,6 @@
 ---
 title: Provision autoscale throughput in Azure Cosmos DB
-description: Learn how to provision autoscale throughput at the container and database level in Azure Cosmos DB using Azure portal, CLI, PowerShell and various other SDKs. 
+description: Learn how to provision autoscale throughput at the container and database level in Azure Cosmos DB using Azure portal, CLI, PowerShell, and various other SDKs. 
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ ms.date: 05/05/2020
 
 # Provision autoscale throughput on database or container in Azure Cosmos DB
 
-This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database. You can configure autoscale for new databases and containers using Azure Portal, ARM, or Azure Cosmos DB .NET V3 SDK.
+This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database. You can configure autoscale for new databases and containers using Azure portal, Azure Resource Manager (ARM) template, or Azure Cosmos DB .NET V3 SDK.
 
 ## Azure portal
 
@@ -76,7 +76,7 @@ await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThrou
 ```
 
 ## Azure Resource Manager (ARM)
-You can use ARM to provision autoscale throughput on a database or container. See this [article](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput) for a sample.
+You can use an ARM template to provision autoscale throughput on a database or container. See this [article](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput) for a sample.
 
 ## Next steps
 * Learn about the [benefits of provisioned throughput with autoscale](provision-throughput-autoscale.md#benefits-of-autoscale).

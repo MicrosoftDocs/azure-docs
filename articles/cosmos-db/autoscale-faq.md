@@ -32,7 +32,7 @@ Yes, autoscale is supported for multi-master accounts. The max RU/s are availabl
 Refer to the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for details. 
 
 ### How do I enable autoscale for my containers or databases?
-Autoscale can be currently be enabled on new containers and databases created using the Azure portal, the Azure Cosmos DB [.NET V3 SDK](how-to-provision-autoscale-throughput.md#azure-cosmos-db-net-v3-sdk), version 3.9 or higher, or through an [ARM template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput).
+Autoscale can be currently enabled on new containers and databases created using the Azure portal, the Azure Cosmos DB [.NET V3 SDK](how-to-provision-autoscale-throughput.md#azure-cosmos-db-net-v3-sdk), version 3.9 or higher, or through a [Resource Manager template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput).
 
 ### Is there Azure CLI or PowerShell support to create containers or databases with autoscale?
 Currently, you can only create resources with autoscale from the Azure portal and .NET V3 SDK. Support in Azure CLI, PowerShell, and other SDKs is not yet available.
@@ -61,13 +61,13 @@ For example, if you start with a max RU/s of 50,000 RU/s (scales between 5000 - 
 ### How quickly will autoscale up and down based on spikes in traffic?
 With autoscale, the system instantaneously scales up or down the RU/s within the minimum and maximum RU/s range, based on incoming traffic. Billing is done at a 1-hour granularity, where you are charged for the highest RU/s the system scaled to in a particular hour.
 
-### How does TTL work with autocale?
+### How does TTL work with autoscale?
 With autoscale, TTL operations do not affect the scaling of RU/s. Any RUs consumed due to TTL are not part of the billed RU/s of the autoscale container. 
 
 For example, suppose you have an autoscale container with 400 – 4000 RU/s:
 - Hour 1: T=0: The container has no usage (no TTL or workload requests). The billable RU/s is 400 RU/s.
 - Hour 1: T=1: TTL is enabled.
-- Hour 1: T=2: The container starts getting requests,which consume 1000 RU in 1 second. There are also 200 RUs worth of TTL that need to happen. 
+- Hour 1: T=2: The container starts getting requests, which consume 1000 RU in 1 second. There are also 200 RUs worths of TTL that need to happen. 
 The billable RU/s is still 1000 RU/s. Regardless of when the TTLs occur, they will not affect the autopilot scaling logic.
 
 ### Can I specify a custom max throughput (RU/s) value for autoscale?
@@ -95,11 +95,11 @@ Example #1: Suppose you have an autoscale container with max RU/s of 20,000 RU/s
 
 Example #2: Suppose you have an autoscale container with max RU/s of 100,000 RU/s and 100 GB of storage. Now, you scale max RU/s up to 150,000 RU/s (scales between 15,000 - 150,000 RU/s). The lowest, minimum value you can now set max RU/s to is: 10 * MAX(400, **150,000 / 100**, 100 * 10) = 15,000 RU/s (scales between 1500 - 15,000 RU/s). 
 
-Note that the above examples relate to the minimum autoscale max RU/s you can set, and is distinct from the `0.1 * Tmax` to `Tmax` range the system automatically scales between. No matter what the max RU/s is, the system will always scale between `0.1 * Tmax` to `Tmax`. 
+The above examples relate to the minimum autoscale max RU/s you can set, and is distinct from the `0.1 * Tmax` to `Tmax` range the system automatically scales between. No matter what the max RU/s is, the system will always scale between `0.1 * Tmax` to `Tmax`. 
 
 
 ### What is the mapping between the max RU/s and physical partitions?
-When you first select the max RU/s, Azure Cosmos DB will provision: Max RU/s / 10,000 RU/s = # of physical partitions. Each [physical partition](partition-data.md#physical-partitions) can support up to 10,000 RU/s and 50 GB storage. As storage size grows, Azure Cosmos DB will automatically split the partitions to add more physical partitions to handle the storage increase, or increase the max RU/s if storage [exceeds the associated limit](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
+When you first select the max RU/s, Azure Cosmos DB will provision: Max RU/s / 10,000 RU/s = # of physical partitions. Each [physical partition](partition-data.md#physical-partitions) can support up to 10,000 RU/s and 50 GB of storage. As storage size grows, Azure Cosmos DB will automatically split the partitions to add more physical partitions to handle the storage increase, or increase the max RU/s if storage [exceeds the associated limit](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
 
 The Max RU/s of the database or container is divided evenly across all physical partitions. So, the total throughput any single physical partition can scale to is: Max RU/s of database or container / # physical partitions. 
 

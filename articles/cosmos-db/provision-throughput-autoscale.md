@@ -15,7 +15,7 @@ Azure Cosmos DB allows you to set either manual or autoscale provisioned through
 > [!NOTE]
 > You can [enable autoscale for new databases and containers](how-to-provision-autoscale-throughput.md) only. It is not available for existing databases and containers.
 
-Autoscale provisioned throughput is well-suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. 
+Autoscale provisioned throughput is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. 
 
 With autoscale, Azure Cosmos DB **automatically and instantly scales the throughput (RU/s)** of your database or container based on usage, without impacting the availability, latency, throughput, or performance of the workload. 
 
@@ -25,7 +25,7 @@ Azure Cosmos databases and containers that are configured with autoscale provisi
 
 * **Simple:** Autoscale removes the complexity of managing RU/s with custom scripting or manually scaling capacity. 
 
-* **Scalable:** Databases and containers automatically scale the provisioned throughput as needed. There is no disruption to client connections, applications or impact to Azure Cosmos DB SLAs.
+* **Scalable:** Databases and containers automatically scale the provisioned throughput as needed. There is no disruption to client connections, applications, or impact to Azure Cosmos DB SLAs.
 
 * **Cost-effective:** Autoscale helps optimize your RU/s usage and cost usage by scaling down when not in use. You only pay for the resources that your workloads need on a per-hour basis.
 
