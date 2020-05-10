@@ -103,11 +103,6 @@ Applications that call Blob APIs will likely work.
 
 If [anonymous read access](storage-manage-access-to-resources.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
 
-<<<<<<< HEAD
-## Windows Azure Storage Blob (WASB) driver
-
-Currently, there are several issues associated with using the WASB driver along with accounts that have a hierarchical namespace. We recommend that you use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your workloads. 
-
 ## Premium-performance block blob storage accounts
 
 ### Diagnostic logs
@@ -141,13 +136,7 @@ When you create a n HDInsight cluster, you can't yet select a block blob storage
 
 Dremio doesn't yet connect to a block blob storage account that has the hierarchical namespace feature enabled on it. 
 
-
-
-
-
-=======
 ## Windows Azure Storage Blob (WASB) driver (unsupported with Data Lake Storage Gen2)
->>>>>>> 695801682a112dc3567c17b9525abbc5d1cd5549
 
 Currently, the WASB driver, which was designed to work with the Blob API only, encounters problems in a few common scenarios. Specifically, when it is a client to a hierarchical namespace-enabled storage account. Multi-protocol access on Data Lake Storage won't mitigate these issues. 
 
