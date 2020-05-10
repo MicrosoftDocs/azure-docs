@@ -26,17 +26,19 @@ Learn more about [monitoring DDoS attacks in Azure](https://docs.microsoft.com/a
 
 - You must have read and write permissions on the Azure Sentinel workspace.
 
-## Connect to Azure Firewall
+## Connect to Azure DDoS Protection
 	
 1. From the Azure Sentinel navigation menu, select **Data connectors**.
 
-1. From the Data connectors list, click **Azure Firewall**, and then click the **Open Connector Page** button on the lower right.
+1. From the Data connectors list, click **Azure DDoS Protection**, and then click the **Open Connector Page** button on the lower right.
 
 1. Enable **Diagnostic logs** on all the firewalls whose logs you wish to connect:
 
-    1. Click the [Open Azure Firewall resource >](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FazureFirewalls) link.
+    1. Click the [Open Azure Public IP Address resource >](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Network%2FPublicIPAddresses) link, and click an entry in the resource list.
 
-    1. From the **Firewalls** navigation menu, click **Diagnostic settings**.
+    1. From the resource navigation menu, click **Activity log**.
+    
+    1. Click **Diagnostics settings** at the top of the **Activity log** screen.
 
     1. Click **+ Add diagnostic setting** at the bottom of the list.​
 
@@ -44,13 +46,13 @@ Learn more about [monitoring DDoS attacks in Azure](https://docs.microsoft.com/a
     
     1. Click the **Send to Log Analytics** check box. Two new fields will be displayed below it. Choose the relevant **Subscription** and **Log Analytics Workspace** (where Azure Sentinel resides).​
 
-    1. Click the check boxes of the rule types whose logs you want to ingest. We recommend **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule**.​
+    1. Click the check boxes of the rule types whose logs you want to ingest. We recommend **????** and **????**.​
 
     1. Click **Save** at the top of the screen.
 
-1. To use the relevant schema in Log Analytics for Azure Firewall alerts, search for **AzureDiagnostics**.
+1. To use the relevant schema in Log Analytics for Azure DDoS Protection alerts, search for **AzureDiagnostics**.
 
 ## Next steps
-In this document, you learned how to connect Azure Firewall logs to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this document, you learned how to connect Azure DDoS Protection logs to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
