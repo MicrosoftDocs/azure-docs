@@ -57,16 +57,16 @@ container = await database.CreateContainerAsync(autoscaleContainerProperties, au
 ### Read the current throughput (RU/s)
 ```csharp
 // Get a reference to the resource
-Container container = await cosmosClient.GetDatabase("DatabaseName").GetContainer("ContainerName");
+Container container = cosmosClient.GetDatabase("DatabaseName").GetContainer("ContainerName");
 
 // Read the throughput on a resource
-ThroughputResponse autoscaleContainerThroughput = await container.ReadThroughputAsync(requestOptions: null); 
+ThroughputProperties autoscaleContainerThroughput = await container.ReadThroughputAsync(requestOptions: null); 
 
 // The autoscale max throughput (RU/s) of the resource
-int? autoscaleMaxThroughput = autoscaleContainerThroughput.Resource.AutoscaleMaxThroughput;
+int? autoscaleMaxThroughput = autoscaleContainerThroughput.AutoscaleMaxThroughput;
 
 // The throughput (RU/s) the resource is currently scaled to
-int? currentThroughput = autoscaleContainerThroughput.Resource.Throughput;
+int? currentThroughput = autoscaleContainerThroughput.Throughput;
 ```
 
 ### Change the autoscale max throughput (RU/s)
