@@ -47,7 +47,9 @@ Building a custom solution to these problems not only requires an enormous amoun
 
 ## How autoscale provisioned throughput works
 
-When configuring containers and databases with autoscale, you specify the maximum throughput `Tmax` required. Azure Cosmos DB scales the throughput `T` such `0.1*Tmax <= T <= Tmax`. For example, if you set the maximum throughput to 20,000 RU/s, the throughput will scale between 2000 to 20,000 RU/s. Each hour, you will be billed for the highest throughput the system scaled to within the hour.
+When configuring containers and databases with autoscale, you specify the maximum throughput `Tmax` required. Azure Cosmos DB scales the throughput `T` such `0.1*Tmax <= T <= Tmax`. For example, if you set the maximum throughput to 20,000 RU/s, the throughput will scale between 2000 to 20,000 RU/s. Because scaling is automatic and instantaneous, at any point in time, you can consume up to the provisioned `Tmax` with no delay. 
+
+Each hour, you will be billed for the highest throughput `T` the system scaled to within the hour.
 
 The entry point for autoscale maximum throughput `Tmax` starts at 4000 RU/s, which scales between 400 - 4000 RU/s. You can set `Tmax` in increments of 1000 RU/s and change the value at any time.  
 
