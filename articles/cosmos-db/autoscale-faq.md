@@ -22,6 +22,9 @@ Resources that were created with the previous tier model are automatically suppo
 
 For example, if you previously selected the tier that scaled between 400 to 4000 RU/s, the database or container will now show as having a maximum RU/s of 4000 RU/s, which scales between 400 to 4000 RU/s. From here, you can change the maximum RU/s to a custom value to suit your workload. 
 
+### How quickly will autoscale scale up and down based on spikes in traffic?
+With autoscale, the system scales the throughput (RU/s) `T` up or down within the `0.1 * Tmax` and `Tmax` range, based on incoming traffic. Because the scaling is automatic and instantaneous, at any point in time, you can consume up to the provisioned `Tmax` with no delay. 
+
 ### Is autoscale supported for all APIs?
 Yes, autoscale is supported for all APIs: Core (SQL), Gremlin, Table, Cassandra, and API for MongoDB.
 
@@ -58,25 +61,9 @@ If the storage limit associated with the max throughput of the database or conta
 
 For example, if you start with a max RU/s of 50,000 RU/s (scales between 5000 - 50,000 RU/s), you can store up to 500 GB of data. If you exceed 500 GB - e.g. storage is now 600 GB, the new maximum RU/s will be 60,000 RU/s (scales between 6000 - 60,000 RU/s).
 
-### How quickly will autoscale up and down based on spikes in traffic?
-With autoscale, the system instantaneously scales up or down the RU/s within the minimum and maximum RU/s range, based on incoming traffic. Billing is done at a 1-hour granularity, where you are charged for the highest RU/s the system scaled to in a particular hour.
-
-### How does TTL work with autoscale?
-With autoscale, TTL operations do not affect the scaling of RU/s. Any RUs consumed due to TTL are not part of the billed RU/s of the autoscale container. 
-
-For example, suppose you have an autoscale container with 400 – 4000 RU/s:
-- Hour 1: T=0: The container has no usage (no TTL or workload requests). The billable RU/s is 400 RU/s.
-- Hour 1: T=1: TTL is enabled.
-- Hour 1: T=2: The container starts getting requests, which consume 1000 RU in 1 second. There are also 200 RUs worths of TTL that need to happen. 
-The billable RU/s is still 1000 RU/s. Regardless of when the TTLs occur, they will not affect the autopilot scaling logic.
-
+Billing is done at a 1-hour granularity, where you are billed for the highest throughput `T` the system scaled to within the hour. 
 ### Can I specify a custom max throughput (RU/s) value for autoscale?
 Yes. See this [documentation](provision-throughput-autopilot.md#how-autoscale-provisioned-throughput-works) describing how autoscale provisioned throughput works.
-
-### How quickly will autoscale scale up and down based on spikes in traffic?
-With autoscale, the system scales the throughput (RU/s) `T` up or down within the `0.1 * Tmax` and `Tmax` range, based on incoming traffic. Because the scaling is automatic and instantaneous, at any point in time, you can consume up to the provisioned `Tmax` with no delay. 
-
-Billing is done at a 1-hour granularity, where you are billed for the highest throughput `T` the system scaled to within the hour. 
 
 ### Can I change the max RU/s on the database or container? 
 Yes. See this [article](how-to-provision-autoscale-throughput.md) on how to change the max RU/s.
@@ -97,6 +84,14 @@ Example #2: Suppose you have an autoscale container with max RU/s of 100,000 RU/
 
 The above examples relate to the minimum autoscale max RU/s you can set, and is distinct from the `0.1 * Tmax` to `Tmax` range the system automatically scales between. No matter what the max RU/s is, the system will always scale between `0.1 * Tmax` to `Tmax`. 
 
+### How does TTL work with autoscale?
+With autoscale, TTL operations do not affect the scaling of RU/s. Any RUs consumed due to TTL are not part of the billed RU/s of the autoscale container. 
+
+For example, suppose you have an autoscale container with 400 – 4000 RU/s:
+- Hour 1: T=0: The container has no usage (no TTL or workload requests). The billable RU/s is 400 RU/s.
+- Hour 1: T=1: TTL is enabled.
+- Hour 1: T=2: The container starts getting requests, which consume 1000 RU in 1 second. There are also 200 RUs worths of TTL that need to happen. 
+The billable RU/s is still 1000 RU/s. Regardless of when the TTLs occur, they will not affect the autopilot scaling logic.
 
 ### What is the mapping between the max RU/s and physical partitions?
 When you first select the max RU/s, Azure Cosmos DB will provision: Max RU/s / 10,000 RU/s = # of physical partitions. Each [physical partition](partition-data.md#physical-partitions) can support up to 10,000 RU/s and 50 GB of storage. As storage size grows, Azure Cosmos DB will automatically split the partitions to add more physical partitions to handle the storage increase, or increase the max RU/s if storage [exceeds the associated limit](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
@@ -115,6 +110,7 @@ Yes. It is possible to see 429s in two scenarios. First, when the overall consum
 Second, if there is a hot partition, i.e. a logical partition key value that has a disproportionately higher amount of requests compared to other partition key values, it is possible for the underlying physical partition to exceed its RU/s budget. As a best practice, to avoid hot partitions, [choose a good partition key](partitioning-overview.md#choose-partitionkey) that results in an even distribution of both storage and throughput. 
 
 For example, if you select the 20,000 RU/s max throughput option and have 200 GB of storage, with four physical partitions, each physical partition can be autoscaled up to 5000 RU/s. If there was a hot partition on a particular logical partition key, you will see 429s when the underlying physical partition it resides in exceeds 5000 RU/s, i.e. exceeds 100% normalized utilization.
+
 
 ## Next steps
 
