@@ -34,14 +34,14 @@ Yes, autoscale is supported for multi-master accounts. The max RU/s are availabl
 ### What is the pricing for autoscale?
 Refer to the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for details. 
 
-### How do I enable autoscale for my containers or databases?
-Autoscale can be currently enabled on new containers and databases created using the Azure portal, the Azure Cosmos DB [.NET V3 SDK](how-to-provision-autoscale-throughput.md#azure-cosmos-db-net-v3-sdk), version 3.9 or higher, or through a [Resource Manager template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput).
+### How do I enable autoscale for my databases or containers?
+Autoscale can be currently enabled on new databases and containers created using the Azure portal, the Azure Cosmos DB [.NET V3 SDK](how-to-provision-autoscale-throughput.md#azure-cosmos-db-net-v3-sdk), version 3.9 or higher, or through a [Resource Manager template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput).
 
-### Is there Azure CLI or PowerShell support to create containers or databases with autoscale?
-Currently, you can only create resources with autoscale from the Azure portal and .NET V3 SDK. Support in Azure CLI, PowerShell, and other SDKs is not yet available.
+### Is there Azure CLI or PowerShell support to manage databases or containers with autoscale?
+Currently, you can only create and manage resources with autoscale from the Azure portal and .NET V3 SDK. Support in Azure CLI, PowerShell, and other SDKs is not yet available.
 
-### Can I enable autoscale on an existing container or a database?
-Currently, you can enable autoscale on new containers and databases when creating them. Support to enable autoscale on existing containers and databases is not yet available. You can migrate existing containers to a new container using [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) or [change feed](change-feed.md). 
+### Can I enable autoscale on an existing database or a container?
+Currently, you can enable autoscale on new databases and containers when creating them. Support to enable autoscale on existing databases and containers is not yet available. You can migrate existing containers to a new container using [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) or [change feed](change-feed.md). 
 
 ### Can I turn off autoscale on a database or container?
 Yes, you can turn off autoscale by switching to the 'Standard (Manual)' option for the provisioned throughput. In the current release, after switching from autoscale to standard (manual) provisioned throughput, you cannot enable autoscale again for the same resource. 
