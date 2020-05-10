@@ -27,7 +27,7 @@ When you copy data from source to destination store, Azure Data Factory copy act
 - You can abort the copy activity when the first failure is encountered. 
 - You can continue to copy the rest by enabling fault tolerance to skip the incompatible data. For example, skip the duplicated row in this case. In addition, you can log the skipped data by enabling session log in copy activity. 
 
-## Fault tolerance for copying binary files (Preview) 
+## Fault tolerance for copying binary files 
 
 ### Configuration 
 When you copy binary files between storage stores, you can enable fault tolerance as followings: 

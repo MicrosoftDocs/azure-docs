@@ -20,6 +20,12 @@ ms.author: yexu
 
 When you move data from source to destination store, Azure Data Factory copy activity provides data consistency verification to ensure the data is not only successfully copied from source to destination store, but also verified to be consistent between source and destination store. Once inconsistent data have been found during the data movement, you can either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent data. You can get the skipped object names by enabling session log setting in copy activity. 
 
+> [!IMPORTANT]
+> This feature is currently in preview due to the limitations below:
+> 1. Data consistency verification is available only for binary files copy between file-based stores with 'PreserveHierarchy' behavior in copy activity.
+> 2. When you get the skipped inconsistent file names by enabling session log setting in copy activity, the completeness of log file can not be 100% guaranteed if copy activity failed.
+> 3. The session log contains inconsistent files names only, where the successfully copied files are not logged.
+
 ## Supported data stores
 
 ### Source data stores
@@ -82,7 +88,6 @@ linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-b
 path | The path of the log file. | Specify the path that you want to store the log file. If you do not provide a path, the service creates a container for you. | No
 
 >[!NOTE]
->- Only binary copy between file-based stores with PreserveHierarchy copy behavior supports data consistency verification in copy activity now. 
 >- Data consistency is not supported in staging copy scenario. 
 >- When copying binary files to Azure Blob Storage or Azure Data Lake Storage Gen2, copy activity does both file size and MD5 checksum verification to ensure the data consistency between source and destination stores. For copying binary files to other storage stores, copy activity does file size verification to ensure the data consistency between source and destination store.
 
@@ -113,7 +118,7 @@ After the copy activity run completes, you can get the result of data consistenc
 Value for **VerificationResult**: 
 -   **Verified**:  Your copied data has been verified to be consistent between source and destination store. 
 -   **NotVerified**: Your copied data has not been verified to be consistent because you have not enabled the validateDataConsistency setting. 
--   **Unsupported**: Your copied data has not been verified to be consistent because data consistency verification is not supported in this copy activity run. 
+-   **Unsupported**: Your copied data has not been verified to be consistent because data consistency verification is not supported for this copy pairs. 
 
 Value for **InconsistentData**: 
 -   **Found**: ADF copy activity has found Inconsistent data. 
