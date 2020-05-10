@@ -28,7 +28,7 @@ This article explains how to provision autoscale throughput on a database or con
 You can create a shared throughput database with autoscale by selecting the **Provision database throughput** option.
 
 ## Azure Cosmos DB .NET V3 SDK
-
+You can use [version 3.9 or higher](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK for SQL API to manage autoscale resources.
 ### Create database
 ```csharp
 // Create instance of CosmosClient
