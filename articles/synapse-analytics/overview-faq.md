@@ -89,9 +89,9 @@ A: Data flow allows data engineers to develop graphical data transformation logi
 
 A: End-to-end single sign-on experience is an important authentication process in Synapse Analytics. Managing and passing the identity  through via a full AAD integration is a must.
 
-### Q: How do I get access to files and folders in the ADLSg2
+### Q: How do I get access to files and folders in the ADLS Gen2
 
-A: Access to files and folders is currently managed through ADLSg2. For more information, see [Data Lake storage access control](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+A: Access to files and folders is currently managed through ADLS Gen2. For more information, see [Data Lake storage access control](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### Q: Can I use third-party business intelligence tools to access Azure Synapse Analytics
 
