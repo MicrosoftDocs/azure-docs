@@ -10,7 +10,7 @@ ms.date: 04/28/2020
 
 # Frequently asked questions about autoscale provisioned throughput in Azure Cosmos DB
 
-With provisioned throughput in autoscale mode, Azure Cosmos DB will automatically manage and scale the RU/s of your container or database based on usage. This article answers commonly asked questions about autoscale.
+With autoscale provisioned throughput, Azure Cosmos DB will automatically manage and scale the RU/s of your container or database based on usage. This article answers commonly asked questions about autoscale.
 
 ## Frequently asked questions
 
@@ -22,32 +22,32 @@ Resources that were created with the previous tier model are automatically suppo
 
 For example, if you previously selected the tier that scaled between 400 to 4000 RU/s, the database or container will now show as having a maximum RU/s of 4000 RU/s, which scales between 400 to 4000 RU/s. From here, you can change the maximum RU/s to a custom value to suit your workload. 
 
-### Is autoscale mode supported for all APIs?
-Yes, autoscale mode is supported for all APIs: Core (SQL), Gremlin, Table, Cassandra, and API for MongoDB.
+### Is autoscale supported for all APIs?
+Yes, autoscale is supported for all APIs: Core (SQL), Gremlin, Table, Cassandra, and API for MongoDB.
 
-### Is autoscale mode supported for multi-master accounts?
-Yes, autoscale mode is supported for multi-master accounts. The max RU/s are available in each region that is added to the Azure Cosmos DB account. 
+### Is autoscale  supported for multi-master accounts?
+Yes, autoscale is supported for multi-master accounts. The max RU/s are available in each region that is added to the Azure Cosmos DB account. 
 
 ### What is the pricing for autoscale?
 Refer to the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for details. 
 
 ### How do I enable autoscale for my containers or databases?
-Autoscale mode can be currently be enabled on new containers and databases created using the Azure portal, the Azure Cosmos DB [.NET V3 SDK](how-to-provision-autoscale-throughput.md#azure-cosmos-db-net-v3-sdk), version 3.9 or higher, or through an [ARM template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput). See this article 
+Autoscale can be currently be enabled on new containers and databases created using the Azure portal, the Azure Cosmos DB [.NET V3 SDK](how-to-provision-autoscale-throughput.md#azure-cosmos-db-net-v3-sdk), version 3.9 or higher, or through an [ARM template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput). See this article 
 
-### Is there CLI or SDK support to create containers or databases with autoscale mode?
-Currently, you can only create resources with autoscale mode from the Azure portal and .NET V3 SDK. Support for CLI and other SDKs is not yet available.
+### Is there CLI or SDK support to create containers or databases with autoscale?
+Currently, you can only create resources with autoscale from the Azure portal and .NET V3 SDK. Support for CLI and other SDKs is not yet available.
 
 ### Can I enable autoscale on an existing container or a database?
-Currently, you can enable autoscale on new containers and databases when creating them. Support to enable autoscale mode on existing containers and databases is not yet available. You can migrate existing containers to a new container using [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) or [change feed](change-feed.md). 
+Currently, you can enable autoscale on new containers and databases when creating them. Support to enable autoscale on existing containers and databases is not yet available. You can migrate existing containers to a new container using [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) or [change feed](change-feed.md). 
 
-### Can I turn off autoscale mode on a container or database?
-Yes, you can turn off autoscale by switching to the 'Manual' option for the provisioned throughput. In the current release, after switching from autoscale mode to manual mode, you cannot enable autoscale again for the same resource. 
+### Can I turn off autoscale on a container or database?
+Yes, you can turn off autoscale by switching to the 'Standard (Manual)' option for the provisioned throughput. In the current release, after switching from autoscale to standard (manual) provisioned throughput, you cannot enable autoscale again for the same resource. 
 
-### Is autoscale mode supported for shared throughput databases?
-Yes, autoscale mode is supported for shared throughput databases. To enable this feature, select autoscale mode and the **Provision throughput** option when creating the database. 
+### Is autoscale supported for shared throughput databases?
+Yes, autoscale is supported for shared throughput databases. To enable this feature, select autoscale and the **Provision throughput** option when creating the database. 
 
 ### What is the number of allowed collections per shared throughput database when autoscale is enabled?
-For shared throughput databases with autoscale mode enabled, the number of allowed collections is: MIN(25, Max RU/s of database / 1000). For example, if the max throughput of the database is 20,000 RU/s, the database can have MIN(25, 20,000 RU/s / 1000) = 20 collections. 
+For shared throughput databases with autoscale enabled, the number of allowed collections is: MIN(25, Max RU/s of database / 1000). For example, if the max throughput of the database is 20,000 RU/s, the database can have MIN(25, 20,000 RU/s / 1000) = 20 collections. 
 
 ### What is the storage limit associated with each max RU/s option?  
 The storage limit in GB for each max RU/s is: Max RU/s of database or container / 100. For example, if the max RU/s is 20,000 RU/s, the resource can support 200 GB of storage. 
@@ -59,7 +59,7 @@ If the storage limit associated with the max throughput of the database or conta
 For example, if you start with a max RU/s of 50,000 RU/s (scales between 5000 - 50,000 RU/s), you can store up to 500 GB of data. If you exceed 500 GB - e.g. storage is now 600 GB, the new maximum RU/s will be 60,000 RU/s (scales between 6000 - 60,000 RU/s).
 
 ### How quickly will autoscale up and down based on spikes in traffic?
-In autoscale mode, the system instantaneously scales up or down the RU/s within the minimum and maximum RU/s range, based on incoming traffic. Billing is done at a 1-hour granularity, where you are charged for the highest RU/s the system scaled to in a particular hour.
+With autoscale, the system instantaneously scales up or down the RU/s within the minimum and maximum RU/s range, based on incoming traffic. Billing is done at a 1-hour granularity, where you are charged for the highest RU/s the system scaled to in a particular hour.
 
 ### How does TTL work with autocale?
 With autoscale, TTL operations do not affect the scaling of RU/s. Any RUs consumed due to TTL are not part of the billed RU/s of the autoscale container. 
@@ -70,7 +70,7 @@ For example, suppose you have an autoscale container with 400 – 4000 RU/s:
 - Hour 1: T=2: The container starts getting requests,which consume 1000 RU in 1 second. There are also 200 RUs worth of TTL that need to happen. 
 The billable RU/s is still 1000 RU/s. Regardless of when the TTLs occur, they will not affect the autopilot scaling logic.
 
-### Can I specify a custom max throughput (RU/s) value for autoscale mode?
+### Can I specify a custom max throughput (RU/s) value for autoscale?
 Yes. See this [documentation](provision-throughput-autopilot.md#how-autoscale-provisioned-throughput-works) describing how autoscale provisioned throughput works.
 
 ### Can I change the max RU/s on the database or container? 
