@@ -25,14 +25,14 @@ For example, if you previously selected the tier that scaled between 400 to 4000
 ### How quickly will autoscale scale up and down based on spikes in traffic?
 With autoscale, the system scales the throughput (RU/s) `T` up or down within the `0.1 * Tmax` and `Tmax` range, based on incoming traffic. Because the scaling is automatic and instantaneous, at any point in time, you can consume up to the provisioned `Tmax` with no delay. 
 
+### What is the pricing for autoscale?
+Each hour, you will be billed for the highest throughput `T` the system scaled to within the hour. If your resource had no requests during the hour or did not scale beyond `0.1 * Tmax`, you will be billed for the minimum of `0.1 * Tmax`. Refer to the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for details. 
+
 ### Is autoscale supported for all APIs?
 Yes, autoscale is supported for all APIs: Core (SQL), Gremlin, Table, Cassandra, and API for MongoDB.
 
 ### Is autoscale  supported for multi-master accounts?
 Yes, autoscale is supported for multi-master accounts. The max RU/s are available in each region that is added to the Azure Cosmos DB account. 
-
-### What is the pricing for autoscale?
-Refer to the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for details. 
 
 ### How do I enable autoscale for my databases or containers?
 Autoscale can be currently enabled on new databases and containers created using the Azure portal, the Azure Cosmos DB [.NET V3 SDK](how-to-provision-autoscale-throughput.md#azure-cosmos-db-net-v3-sdk), version 3.9 or higher, or through a [Resource Manager template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-autoscale-throughput).
