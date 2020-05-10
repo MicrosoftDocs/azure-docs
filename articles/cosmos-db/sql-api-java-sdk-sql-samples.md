@@ -22,22 +22,28 @@ ms.author: anfeldma
 > 
 > 
 
-The latest sample applications that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) GitHub repository. This article provides:
+> [!IMPORTANT]  
+> To learn more about Java SDK v4, please see the Azure Cosmos DB Java SDK v4 Release notes, [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [performance tips](performance-tips-java-sdk-v4-sql.md), and Azure Cosmos DB Java SDK v4 [troubleshooting guide](troubleshoot-java-sdk-v4-sql.md) for more information. If you are currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
+>
+
+> [!IMPORTANT]  
+>[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+>  
+>- You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
+>
+>[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+>
+
+The latest sample applications that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-cosmos-java-sql-api-samples](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) GitHub repository. This article provides:
 
 * Links to the tasks in each of the example Java project files. 
 * Links to the related API reference content.
 
 **Prerequisites**
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-  
-- You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
-
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
 You need the following to run this sample application:
 
-* Java Development Kit 7
+* Java Development Kit 8
 * Microsoft Azure DocumentDB Java SDK
 
 You can optionally use Maven to get the latest Microsoft Azure DocumentDB Java SDK binaries for use in your project. Maven automatically adds any necessary dependencies. Otherwise, you can directly download the dependencies listed in the pom.xml file and add them to your build path.
