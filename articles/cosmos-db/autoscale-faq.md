@@ -5,7 +5,7 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/10/2020
 ---
 
 # Frequently asked questions about autoscale provisioned throughput in Azure Cosmos DB

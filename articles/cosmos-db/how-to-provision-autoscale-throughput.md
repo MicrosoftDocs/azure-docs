@@ -5,7 +5,7 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 05/10/2020
 ---
 
 # Provision autoscale throughput on database or container in Azure Cosmos DB
