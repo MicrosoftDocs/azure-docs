@@ -37,4 +37,17 @@ Select the specific subscription that is to be reviewed.
  > [!div class="mx-imgBorder"]
 > ![Subscription cost analysis](../media/cost-management-guide/subscription-cost-analysis.png)
 
-This dashboard will allow in-depth cost analysis. 
+This dashboard will allow in-depth cost analysis, including the ability to export to different file types on a schedule.  The Cost Management has numerous capabilities for more information see > ![Cost Management Billing Overview]()
+
+Filtering by the resource type: microsoft.labservices/labaccounts will show only the cost associated with Lab services.
+
+# Understanding the usage
+
+Below is a sample of the cost analysis 
+
+ > [!div class="mx-imgBorder"]
+> ![Subscription cost analysis](../media/cost-management-guide/cost-analysis.png)
+
+There are six columns: Resource, Resource Type, Location, Resource group name, Tags, Cost.  The Resource column contains the information about the Lab account, Lab Name, and the VM.  The rows with Lab account / Lab Name / default is the overall cost for the lab, excluding any VMs started by the Lab owner, which can be seen on the second and third rows.  The VMs started by the Lab owner will have a cost under the Lab account / Lab Name / default / VM name.  In this example summing the first row with second row, both starting with "aaalab / dockerlab" will give you the total cost for the different labs.  The other individual VMs are rolled into the overall lab cost and show a cost of zero.  The Tags column can be useful as a place to add additional data to the specific lab, like cost centers.  
+
+ To get Shared image gallery information, change the resource type to XXXXX which will give you the overall cost for the image gallery which can then be equally divided by the number of labs connected to the Image gallery.
