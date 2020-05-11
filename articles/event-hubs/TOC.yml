@@ -205,7 +205,7 @@
       href: event-hubs-ip-filtering.md
     - name: Configure virtual network service endpoints
       href: event-hubs-service-endpoints.md
-    - name: Configure private endpoints (preview)
+    - name: Configure private endpoints
       href: private-link-service.md
     - name: Configure customer-managed keys
       href: configure-customer-managed-key.md

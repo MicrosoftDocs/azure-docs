@@ -10,7 +10,7 @@ ms.topic: article
 
 ---
 
-# Integrate Azure Service Bus with Azure Private Link (Preview)
+# Integrate Azure Service Bus with Azure Private Link
 
 Azure Private Link Service enables you to access Azure services (for example, Azure Service Bus, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a **private endpoint** in your virtual network.
 
@@ -34,8 +34,6 @@ For more information, see [What is Azure Private Link?](../private-link/private-
 
 > [!IMPORTANT]
 > This feature is supported with the **premium** tier of Azure Service Bus. For more information about the premium tier, see the [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md) article.
->
-> This feature is currently in **preview**. 
 
 
 ## Add a private endpoint using Azure portal
@@ -59,7 +57,7 @@ If you already have an existing namespace, you can create a private endpoint by 
 2. In the search bar, type in **Service Bus**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 4. Select the **Networking** tab under **Settings**.
-5. Select the **Private endpoint connections (preview)** tab at the top of the page
+5. Select the **Private endpoint connections** tab at the top of the page
 6. Select the **+ Private Endpoint** button at the top of the page.
 
     ![Add private endpoint button](./media/private-link-service/private-link-service-3.png)
@@ -266,7 +264,7 @@ Aliases:  <your-service-bus-namespace-name>.servicebus.windows.net
 
 **Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitations**:  Private Endpoint for Azure Service Bus is in public preview. This feature is available in all Azure public regions.
+**Limitations**:  This feature is available in all Azure public regions.
 
 **Maximum number of private endpoints per Service Bus namespace**: 120.
 
