@@ -72,16 +72,15 @@ A registry hive corruption could be due to:
 - The Hive fails
 - The Hive mounts, but is empty
 - The Hive was not closed properly
-
 ## Solution
 
 ### Process Overview
 
 1. Create and access a Repair VM.
 1. Select a Solution:
-- [Repair the System File](#repair-the-system-file)
-- [Add the OSDevice Variable](#add-the-osdevice-variable)
-- [Create a Support Ticket](#contact-support)
+   - [Repair the System File](#repair-the-system-file)
+   - [Add the OSDevice Variable](#add-the-osdevice-variable)
+   - [Create a Support Ticket](#contact-support)
 1. Enable serial console and memory dump collection.
 1. Rebuild the VM.
 
@@ -111,7 +110,7 @@ A registry hive corruption could be due to:
 
    For the image in the step above, the file **cng.sys** would be renamed to **cng.sys.old**
 
-   > ![NOTE]
+   > [!NOTE]
    > If you try to rename the file and receive the message "The file is corrupted and unreadable", [contact support for assistance](https://azure.microsoft.com/support/create-ticket/), as this solution will not work.
 
 1. Now that the corrupt file is renamed, fix the file by restoring it from its internal repository.
@@ -130,7 +129,7 @@ A registry hive corruption could be due to:
 
       `copy <drive>:\Windows\WinSxS\<DIRECTORY WHERE FILE IS>\<BINARY WITH ".SYS" EXTENSION> <DRIVE>:\Windows\System32\Drivers\`
 
-      > ![NOTE]
+      > [!NOTE]
       > If the latest binary didn’t work, try a version before that one, or any of which you know there is a stable file, such as a version before a patch.
 
       For example, if the binary you are looking for is **cmimcext.sys**, the faulty drive is drive **F:**, and you just ran a search for the latest version, you would see the following image, where a query in command prompt of `dir cmim* /s` locates the latest version of the cmimcext.sys file.
@@ -141,7 +140,7 @@ A registry hive corruption could be due to:
 
       The resulting command to copy the file would be: `copy F:\Windows\WinSxS\amd64_xxxxxx\cmimcext.sys F:\Windows\System32\Drivers`.
 
-Once this task is complete, continue to the next task.
+Once this task is complete, continue to Enable Serial Console and memory dump collection.
 
 ### Add the OSDEVICE Variable
 
@@ -244,7 +243,7 @@ If this information collection gives an error where there's no **\boot\bcd** fil
 
    `bcdedit /store <LETTER OF EFI FOLDER>:EFI\Microsoft\boot\bcd /set {< IDENTIFIER>} OSDEVICE partition=<LETTER OF WINDOWS FOLDER>:`
 
-Once this task is complete, continue to the next task.
+Once this task is complete, continue to Enable Serial Console and memory dump collection.
 
 ### Contact Support
 
@@ -254,7 +253,6 @@ The **Registry File** error has a solution, but you will need to [create a suppo
 
 **Recommended**: Before you rebuild the VM, enable the Serial Console and memory dump collection by running the following script:
 
-To enable memory dump collection and the Serial Console, run the following script:
 1. Open an elevated command prompt session as an Administrator.
 1. Run the following commands:
 
@@ -290,7 +288,7 @@ To enable memory dump collection and the Serial Console, run the following scrip
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
-   REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump / t REG_DWORD /d 1 /f 
+   REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
    ```
 
    **Unload Broken OS Disk:**

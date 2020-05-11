@@ -40,7 +40,7 @@ In this situation, the operating system (OS) is unable to complete a Windows Upd
 1. Enable serial console and memory dump collection.
 1. Rebuild the VM.
 
-   > [NOTE]
+   > [!NOTE]
    > When encountering this error, the Guest OS is not operational. Troubleshoot this issue in offline mode to resolve this issue.
 
 ### Create and Access a Repair VM
@@ -73,7 +73,6 @@ Depending upon the level of fragmentation, de-fragmentation could take several h
 
 **Recommended**: Before you rebuild the VM, enable the Serial Console and memory dump collection by running the following script:
 
-To enable memory dump collection and the Serial Console, run the following script:
 1. Open an elevated command prompt session as an Administrator.
 1. Run the following commands:
 
