@@ -42,6 +42,21 @@ There are several limitations when using customer managed keys for encrypting sh
 
 ## PowerShell
 
+For the public preview, you first need to register the feature.
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Compute
+```
+
+It takes a few minutes for the registration to complete. Use Get-AzProviderFeature to check on the status of the feature registration.
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Compute
+```
+
+When RegistrationState returns Registered, you can move on to the next step.
+
+
 To specify a disk encryption set to for an image version, use  [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) with the `-TargetRegion` parameter. 
 
 ```azurepowershell-interactive
@@ -83,6 +98,21 @@ For data disks, You need to add  the `-DiskEncryptionSetId $setID` parameter whe
 
 
 ## CLI 
+
+For the public preview, you first need to register the feature.
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name SIGEncryption
+```
+
+Check the status of the feature registration.
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name SIGEncryption | grep state
+```
+
+When this returns `"state": "Registered"`, you can move on to the next step.
+
 
 To specify a disk encryption set to for an image version, use  [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) with the `--target-region-encryption` parameter. The format for `--target-region-encryption` is a space-separated list of keys for encrypting the OS and data disks. It should look like this: `<encyption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>`. 
 
