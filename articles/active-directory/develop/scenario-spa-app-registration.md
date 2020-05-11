@@ -44,12 +44,11 @@ Follow the [tutorial](https://docs.microsoft.com/azure/active-directory/develop/
 #### Register a **new** redirect URI 
 
 1. Go to your app registration and select the **Authentication** blade. 
-![add platform](media/scenario-spa-app-registration/add_platform.png)
 
 2. Select the "Add a platform" button at the top of the page. (If you do not see this, click "switch to new experience" at the top of the page.)
-[Screenshot TODO]
+![add platform](media/scenario-spa-app-registration/add_platform.png)
 3. Select the "Single Page Application" platform tile.
-[Screenshot TODO]
+![add SPA](/media/scenario-spa-app-registration/configure-platform.png)
 4.Enter your redirect URI [Docs on what is a redirect URI?]. If you are using MSAL 2.0, you should not have to select any implicit grant settings. Click configure. 
 [Screenshot]
 5.You have now registered your SPA redirect URI. 
