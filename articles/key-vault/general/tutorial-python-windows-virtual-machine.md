@@ -152,7 +152,7 @@ The code presents a two-step process:
     # Step 1: Fetch an access token from a Managed Identity enabled azure resource.
     # Resources with an MSI configured recieve an AAD access token by using the Azure Instance Metadata Service (IMDS)
     # IMDS provides an endpoint accessible to all IaaS VMs using a non-routable well-known IP Address
-    # To learn more about IMDS and MSI Authentication see the following [Link](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+    # To learn more about IMDS and MSI Authentication see the following link: https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service
     # Note that the resource here is https://vault.azure.net for public cloud and api-version is 2018-02-01
     MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
     r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"}) 
