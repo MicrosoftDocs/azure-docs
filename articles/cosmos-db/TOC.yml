@@ -1179,7 +1179,7 @@
     - name: Java bulk executor library
       href: sql-api-sdk-bulk-executor-java.md
     - name: Java SDK v4 for Core
-      href: sql-api-java-sdk-v4.md
+      href: sql-api-sdk-java-v4.md
     - name: Older Java SDKs for Core
       items:
       - name: Async Java SDK v2

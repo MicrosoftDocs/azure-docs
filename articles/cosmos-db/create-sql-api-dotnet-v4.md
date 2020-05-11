@@ -1,20 +1,20 @@
 ---
 title: Manage Azure Cosmos DB SQL API resources using .Net V4 SDK
 description: Quickstart to build a console app using .Net V4 SDK  to manage Azure Cosmos DB SQL API account resources.
-author: ealsur
-ms.author: maquaran
+author: anfeldma-ms
+ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/10/2020
+ms.date: 05/11/2020
 ---
 # Quickstart: Build a console app using the .Net V4 SDK to manage Azure Cosmos DB SQL API account resources.
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
+> * [Java SDK v4](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
