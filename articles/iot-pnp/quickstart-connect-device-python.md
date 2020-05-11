@@ -43,83 +43,78 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
 
 ## Set up your environment
----
-**Installation for Bug Bash 5/8** 
 
-For this bug bash, we'll use a private package. This will be published to pip for the public preview refresh.
-Please go to https://aka.ms/PythonDevicePnP0508 and download the wheel (.whl) file. Once downloaded, in your local python environment please install the file. 
+**Installation for Bug Bash 5/11** 
+
+For the bug bash, use a private package. This package will be published as a PIP for the public preview refresh.
+
+Go to https://aka.ms/PythonDevicePnP0508 and download the wheel (.why) file. Once downloaded, in your local python environment install the file as follows:
 
 ```cmd/sh
-pip install azure_iot_device-2.1.0-preview-pnp-py2.py3-none-any.whl 
+pip install azure_iot_device-2.1.0-preview-pnp-py2.py3-none-any.whl
 ```
----
-Clone the python SDK IoT repo and check out the specific branch "digitaltwins-preview":
+
+Clone the Python SDK IoT repository and check out the preview branch called **digitaltwins-preview**:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-python -b digitaltwins-preview 
+git clone https://github.com/Azure/azure-iot-sdk-python -b digitaltwins-preview
 ```
 
 ## Run the sample device
 
-The `azure-iot-sdk-python\azure-iot-device\samples\pnp` folder contains the sample code for the IoT Plug and Play device. There are three files in this folder:
+The `azure-iot-sdk-python\azure-iot-device\samples\pnp` folder contains the sample code for the IoT Plug and Play device. There are three Python files in this folder:
 
-1. pnp_sample_device.py 
+1. pnp_sample_device.py
 1. pnp_helper.py  
-1. pnp_methods.py 
+1. pnp_methods.py
 
-The sample file is “pnp_sample_device.py”. Notice that the sample uses methods from “pnp_methods.py”. This “pnp_methods.py” file uses our “azure-iot-device" SDK functionality to provide PNP compatible functionality. It uses certain helper functions that are present in the “pnp_helper.py” file.   
+The sample file is **pnp_sample_device.py**. This sample code uses methods from **pnp_methods.py**. The **pnp_methods.py** file uses Azure IoT Python SDK functionality to provide IoT Plug and Play compatible functionality. The **pnp_methods.py** file uses  helper functions in the **pnp_helper.py** file.
 
-Use the IoT Hub you've created for this bug bash and create a device. Copy its connection string in an environment variable named: IOTHUB_DEVICE_CONNECTION_STRING in the pnp_sample_device.py 
+Use the IoT Hub you created previously and create a device. Use the device connection string to create an environment variable named **IOTHUB_DEVICE_CONNECTION_STRING**. The **pnp_sample_device.py** file uses this environment variable.
 
-Look at “pnp_sample_device.py” closely. Notice how: 
+Open the **pnp_sample_device.py** file in a text editor. Notice how it:
 
-1. pnp_methods have been imported to enable utilization of their functions. 
+1. Imports **pnp_methods** to enable access to these methods.
 
-2. There are 3 digital twin model identifiers (DTMIs) defined at the top that uniquely represent 3 different interfaces. These 3 interfaces would be used as components in this sample to provide full functionality of the device being implemented. These 3 interfaces have already been published in a central repository. These DTMIs must be known to the user and will vary dependent on the scenario of device implementation. For the current sample these 3 DTMIs represent
+1. Defines three digital twin model identifiers (DTMIs) that uniquely represent three different interfaces. The components in a real device should implement these three interfaces. These three interfaces are already published in a central repository. These DTMIs must be known to the user and vary dependent on the scenario of device implementation. For the current sample, these three interfaces represent:
+    - An environmental sensor developed by Contoso.
+    - Device information developed by Azure.
+    - SDK information that relates to the SDK in use.
 
-    1. An environmental sensor developed by contoso 
+1. Defines the DTMI for the device that's being implemented. This DTMI is user-defined and  reflects the name for the device and the name of the user's organization. In this sample, the DTMI shows that the name of the device is **SampleDevice** and that it belongs to **my_company**.
 
-    1. Device information developed by azure 
+1. Defines some component names from the existing DTMIs. The device information and SDK information component names are fixed and are present once for each device. The only user-defined component name is the name for the environmental sensor. This name is user-defined because you can have multiple sensors in your device and each must have a unique name. In the current sample, there's only one environmental sensor named **sensor**.
 
-    1. SDK information pertaining to the SDK being used. 
+1. Has functions to define command handler implementations. You write these handlers to define how the device responds to command requests. The current sample has handlers for four commands.
 
-1. The DTMI for the device that is being implemented is defined right after. Please note that this DTMI is user choice and will reflect the name choice for the device and the name of the company that the user belongs to. This must be created by the user. For the purposes of the sample this has been created and it shows that the device being implemented is “sample_device” and it belongs to “my_company” 
+1. Has a function to define a command response. You create command response functions if a command needs to send a custom response back to your IoT hub. If you don't provide a response function for a command, a generic response is sent instead. In the current sample, only the **blink** command has a custom response.
 
-1. After this the sample retrieves some component names from the existing DTMIs. The component names for device information and SDK information are the ones which can be retrieved as they will not change and will be present only once per device. The only component name that can be user choice is the name for the environmental sensor. This is simply because the user can choose to use multiple sensors in his device and all of them must be named uniquely. In the current sample there is only 1 environmental sensor is used and it has been named to be just “sensor”. 
+1. Defines an input keyboard listener function to let you quit the application.
 
-1. Next comes the section for command handlers. These are user written handlers and functionality can be changed according to what the user wants to do after receiving command requests. In the current sample we can see handlers for 4 command requests.  
+1. Has a **main** function. The **main** function:
 
-1. A response creator function is written after this. This is also a user written function only to be written if the user wants to respond with any special response back to the hub. Unless this is provided, a generic response will be sent back to the hub. In the current sample, the user only wants to create response for the “blink” command. 
+    1. Uses the device SDK to create a device client and connect to your IoT hub.
 
-1. Next an input keyboard listener is written. This is only to quit the application. 
+    1. Updates properties for three components. The **main** function uses the **pnp_update_property** function defined in the pnp_methods.py file to update the properties. You pass the client, the component name, and the properties as key value pairs to this function. The property update task for the SDK information interface has a key called **version** that's a constant imported from the device SDK.  
 
-1. After that the main functionality starts. The main functionality includes creation of the client, executing listeners for command requests, some update property tasks and a send telemetry task. 
+    1. Starts listening for command requests using the **execute_listener** function from the pnp_methods.py file. You pass the client, the component name, the method name, and the user handler as parameters. If the command needs to send a custom response, you also pass the user-defined command response function as a parameter.  
+        - The user handler function defines what the device should do when it receives a command.
+        - A response is sent to your IoT hub when a command executes successfully. You can view this response in the portal.
+        - In this sample, only the **blink** command sends a custom response to your IoT hub.  
 
-    1. The first section deals with the creation and connection of the device client using the device SDK supplying the connection string. The device is then connected. 
+    1. Starts sending telemetry. The **pnp_send_telemetry** is defined in the pnp_methods.py file. The sample code uses a loop to call this function every eight seconds.
 
-    1. The next section deals with the updating properties. There are 3 tasks that will update properties for 3 different components. The “pnp_update_property” is defined in pnp_methods which is used for this purpose. The user needs to pass the client, the corresponding component name and the properties in key value pairs. One thing to note would be that the property update task for the SDK information has a key named “version” whose value is a constant that is imported from the azure-iot-device SDK.  
+    1. Disables all the listeners and tasks, and exist the loop when you press **Q** or **q**.
 
-    1. The next section deals with listening for command requests. For this there are couple of “execute_listener” calls. This method is defined in pnp_methods which listens to command requests. All the user needs to pass as parameters are the client, component name, the method name and the user handler and sometimes the user defined function that would create user tailored command responses.  
+Now that you've seen the code, use the following command to run the sample:
 
-        1. The user handler contains the functionality that the user wants to execute upon reception of command request.  
-
-        1. A response is also sent to the Hub upon successful execution of any command request. This can be viewed on the portal. 
-
-        1. Please observe that the “blink” is the only command request that has a special response creator function.  
-
-1. The next section deals with sending telemetry continuously. The “pnp_send_telemetry” also defined in pnp_methods have been used for this purpose. The user needs to use this one in a loop to send telemetry at certain interval (8 secs in sample) 
-
-Once all the functionality is done, all the listeners and tasks are disabled. 
-
- 
-
-After you have a feel for the code, go ahead and run the sample with: 
-
-> python pnp_sample_device.py 
+```cmd/sh
+python pnp_sample_device.py
+```
 
 The sample device sends telemetry messages every eight seconds to your IoT hub.
 
-You see the following output, that indicates the device is sending telemetry data to the hub, and is now ready to receive commands and property updates.
+You see the following output, which indicates the device is sending telemetry data to the hub, and is now ready to receive commands and property updates.
 
 ![Device confirmation messages](media/quickstart-connect-device-node/device-confirmation-node.png)
 
