@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -121,9 +121,8 @@ There are four main objects in the setting. Only three of these objects are curr
 
 To update the role setting, you will need to first define a setting object as follows:
 
-    $setting = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedRuleSetting 
-    $setting.RuleIdentifier = "JustificationRule"
-    $setting.Setting = "{'required':false}"
+    $setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
+    $setting.userMemberSetting.justificationRule = "{'required':false}"
 
 You can then go ahead and apply the setting to one of the objects for a particular role as shown below. The ID here is the role setting ID that can be retrieved from the result of the list role settings cmdlet.
 
