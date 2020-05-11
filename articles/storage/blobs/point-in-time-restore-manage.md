@@ -102,11 +102,11 @@ Keep in mind the following rules when specifying a range of blobs to restore:
 - The container pattern specified for the start range and end range must include a minimum of three characters. The forward slash (/) that is used to separate a container name from a blob name does not count toward this minimum.
 - Only one range can be specified per restore operation.
 - Wildcard characters are not supported. They are treated as standard characters.
-- You can restore blobs in the `$root` and `$web` containers by explicitly specifying them in a range pass to a restore operation. The `$root` and `$web` containers are not restored unless they are explicitly specified, so they are not restored when a restore operation restores all containers in the storage account. Other system containers cannot restored.
+- You can restore blobs in the `$root` and `$web` containers by explicitly specifying them in a range passed to a restore operation. The `$root` and `$web` containers are restored only if they are explicitly specified. Other system containers cannot restored.
 
 ### Restore all containers in the account
 
-To restore all containers and blobs in the storage account, call the Restore-AzStorageBlobRange command, omitting the -BlobRestoreRange parameter. The following example restores containers in the storage account to their state 12 hours before the present moment:
+To restore all containers and blobs in the storage account, call the Restore-AzStorageBlobRange command, omitting the `-BlobRestoreRange` parameter. The following example restores containers in the storage account to their state 12 hours before the present moment:
 
 ```powershell
 # Specify -TimeToRestore as a UTC value
@@ -119,13 +119,13 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 To restore a range of blobs, call the Restore-AzStorageBlobRange command and specify a lexicographical range of container and blob names for the `-BlobRestoreRange` parameter. The start of the range is in inclusive, and the end of the range is exclusive.
 
-For example, to restore the blobs in a single container named *sample-container*, you can specify a range that starts with *sample-container* and ends with *sample-container1*. There is no requirement for the containers named in the start and end ranges to exist. Because the end of the range is exclusive, even if the storage account includes a container named *sample-container1*, only the container named *sample-container* will be restored by the restore operation:
+For example, to restore the blobs in a single container named *sample-container*, you can specify a range that starts with *sample-container* and ends with *sample-container1*. There is no requirement for the containers named in the start and end ranges to exist. Because the end of the range is exclusive, even if the storage account includes a container named *sample-container1*, only the container named *sample-container* will be restored:
 
 ```powershell
 $range = New-AzStorageBlobRangeToRestore -StartRange sample-container -EndRange sample-container1
 ```
 
-To specify a subset of blobs in a container to restore, use a forward slash (/) to separate the container name from the blob pattern. For example, the following range selects blobs in the container whose names begin with the letters *d* through *f*:
+To specify a subset of blobs in a container to restore, use a forward slash (/) to separate the container name from the blob pattern. For example, the following range selects blobs in a single container whose names begin with the letters *d* through *f*:
 
 ```powershell
 $range = New-AzStorageBlobRangeToRestore -StartRange sample-container/d -EndRange sample-container/g
