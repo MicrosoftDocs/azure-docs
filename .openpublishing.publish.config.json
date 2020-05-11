@@ -497,7 +497,7 @@
     },
     {
       "path_to_root": "azure-cosmosdb-java-v4",
-      "url": "https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/",
+      "url": "https://github.com/Azure/azure-sdk-for-java",
       "branch": "master"
     },    
     {
