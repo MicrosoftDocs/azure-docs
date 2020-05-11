@@ -23,7 +23,7 @@
     href: quickstart-create-data-factory-python.md
   - name: Create data factory - REST
     href: quickstart-create-data-factory-rest-api.md
-  - name: Create data factory - Resource Manager Template
+  - name: Create data factory - Resource Manager template
     href: quickstart-create-data-factory-resource-manager-template.md
   - name: Security - Enable Customer Managed Key Encryption
     href: quickstart-enable-customer-managed-key.md
