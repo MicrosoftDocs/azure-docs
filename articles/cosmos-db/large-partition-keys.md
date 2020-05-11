@@ -30,7 +30,7 @@ To create a container with large partition key support see,
 
 To create a container with a large partition key using the .NET SDK, specify the `PartitionKeyDefinitionVersion.V2` property. The following example shows how to specify the Version property within the PartitionKeyDefinition object and set it to PartitionKeyDefinitionVersion.V2.
 
-### v3 .NET SDK
+# [.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 await database.CreateContainerAsync(
@@ -40,7 +40,7 @@ await database.CreateContainerAsync(
     })
 ```
 
-### v2 .NET SDK
+# [.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 DocumentCollection collection = await newClient.CreateDocumentCollectionAsync(
@@ -56,6 +56,7 @@ database,
          },
       new RequestOptions { OfferThroughput = 400 });
 ```
+---
 
 ## Supported SDK versions
 

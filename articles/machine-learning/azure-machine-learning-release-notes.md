@@ -20,7 +20,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ## 2020-05-04
 **New Notebook Experience**
 
-Azure ML Studio Notebooks  allows users to create, edit and share machine learning notebooks and files directly in Studio UI. Azure ML Studio Notebooks offers a first-in-class authoring for notebook files and support all operation available in the Azure ML Python SDK.
+You can now create, edit, and share machine learning notebooks and files directly inside the studio web experience of Azure Machine Learning. You can use all the classes and methods available in [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) from inside these notebooks
+Get started [here](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks)
 
 **New Features Introduced:**
 
@@ -579,7 +580,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
 
 ### Azure Machine Learning integration with Event Grid 
 
-Azure Machine Learning is now a resource provider for Event Grid, you can configure machine learning events through the Azure portal or Azure CLI. Users can create events for run completion, model registration, model deployment and data drift detected. These events can be routed to event handlers supported by Event Grid for consumption. See machine learning event [schema](https://docs.microsoft.com/azure/event-grid/event-schema-machine-learning), [concepts](https://docs.microsoft.com/azure/machine-learning/concept-event-grid-integration) and [tutorial](https://docs.microsoft.com/azure/machine-learning/how-to-use-event-grid) articles for more details.
+Azure Machine Learning is now a resource provider for Event Grid, you can configure machine learning events through the Azure portal or Azure CLI. Users can create events for run completion, model registration, model deployment and data drift detected. These events can be routed to event handlers supported by Event Grid for consumption. See machine learning event [schema](https://docs.microsoft.com/azure/event-grid/event-schema-machine-learning) and [tutorial](how-to-use-event-grid.md) articles for more details.
 
 ## 2019-10-31
 

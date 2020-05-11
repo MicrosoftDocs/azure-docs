@@ -7,7 +7,7 @@ ms.date: 05/04/2020
 
 # Support matrix for VMware assessment 
 
-This article summarizes prerequisites and support requirements when you assess VMware VMs for migration to Azure, using the Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. If you want to migrate VMware VMs to Azure, review the [migration support matrix](migrate-support-matrix-vmware-migration.md).
+This article summarizes prerequisites and support requirements when you assess VMware VMs for migration to Azure, using the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. If you want to migrate VMware VMs to Azure, review the [migration support matrix](migrate-support-matrix-vmware-migration.md).
 
 To assess VMware VMs, you create an Azure Migrate project, and then add the Server Assessment tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. After discovery is complete, you gather discovered machines into groups, and run an assessment for a group.
 
@@ -48,7 +48,7 @@ In addition to discovering machines, Server Assessment can discover apps, role, 
 **vCenter Server** | Machines you want to discovery and assess must be managed by vCenter Server version 5.5, 6.0, 6.5, or 6.7.
 **Permissions (assessment)** | vCenter Server read-only account.
 **Permissions (app-discovery)** | vCenter Server account with read-only access, and privileges enabled for **Virtual machines > Guest Operations**.
-**Permissions (dependency visualization)** | Center Server account with read-only access, and privileges enabled for **Virtual machines** > **Guest Operations**.
+**Permissions (dependency visualization)** | vCenter Server account with read-only access, and privileges enabled for **Virtual machines** > **Guest Operations**.
 
 
 ## Azure Migrate appliance requirements

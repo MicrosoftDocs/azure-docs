@@ -9,20 +9,21 @@ ms.author: baanders
 
 ## Configure the sample project
 
-Next, set up a sample client application that will interact with your Azure Digital Twins instance. If you haven't downloaded the sample project yet, get it now by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip). 
+Next, set up a sample client application that will interact with your Azure Digital Twins instance. If you haven't already downloaded the sample project, get it now by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip). 
 
-Navigate to the downloaded folder on your machine and unzip it. Inside the unzipped folder, the samples for this project are located in _**digital-twins-samples-master\buildingScenario**_. 
+Navigate to the downloaded folder on your machine and unzip it. Inside the unzipped folder, the samples for this project are located in _**digital-twins-samples-master\buildingScenario**_. Navigate here.
 
 >[!IMPORTANT]
 > For the rest of this article, paths to specific sample files will be given relative to this starting point.
 
-From here, open _DigitalTwinsMetadata/DigitalTwinsSample/**Program.cs**_ in an editor of your choice. Change `AdtInstanceUrl` to your Azure Digital Twins instance *hostName*, `ClientId` to your *Application ID*, and `TenantId` to your *Directory ID*.
+From here, navigate into _AdtSampleApp/SampleClientApp_. Copy the contents of *serviceConfig.json.TEMPLATE* into a new file, and name the new file *serviceConfig.json*. Within the new file, use an editor of your choice to change the `tenantId` to your *Directory ID*, `clientId` to your *Application ID*, and instanceUrl to your Azure Digital Twins instance *hostName* URL.
 
-```csharp
-private const string ClientId = "<your-application-ID>";
-private const string TenantId = "<your-directory-ID>";
-//...
-const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"
+```json
+{
+  "tenantId": "<your-directory-ID>",
+  "clientId": "<your-application-ID>",
+  "instanceUrl": "https://<your-Azure-Digital-Twins-instance-hostName>"
+}
 ```
 
-Save the file.
+Save and close the file.
