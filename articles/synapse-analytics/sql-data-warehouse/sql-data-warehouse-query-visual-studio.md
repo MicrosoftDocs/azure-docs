@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # Connect to Azure Synapse Analytics with Visual Studio and SSDT
 > [!div class="op_single_selector"]
-> * [Azure Data Studio](get-started-azure-data-studio.md)
+> * [Azure Data Studio](../sql/get-started-azure-data-studio.md)
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md) 
