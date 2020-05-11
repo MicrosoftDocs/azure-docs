@@ -50,7 +50,7 @@ For more information, see [Cognitive Services Pricing - Bing Search API](https:/
 
 ## Construct the search request and query.
 
-1. Use the variables from the last step to format a search URL for the API request. URL-encoded your search term before you send it to the API.
+1. Use the variables from the last step to format a search URL for the API request. URL-encode your search term before you send it to the API.
 
     ```javascript
     let request_params = {
