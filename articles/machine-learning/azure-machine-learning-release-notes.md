@@ -70,6 +70,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + RCranPackage now supports "version" parameter for the CRAN package version.
     + Bug fix: inform clients about partial failure during profiling
     + Added European-style float handling for azureml-core.
+    + Enabled workspace private link features in azure ml sdk.
   + **azureml-datadrift**
     + Data Drift results query from the SDK had a bug that didn't differentiate the minimum, maximum, and mean feature metrics, resulting in duplicate values. We have fixed this bug by prefixing target or baseline to the metric names. Before: duplicate min, max, mean. After: target_min, target_max, target_mean, baseline_min, baseline_max, baseline_mean.
   + **azureml-dataprep**
