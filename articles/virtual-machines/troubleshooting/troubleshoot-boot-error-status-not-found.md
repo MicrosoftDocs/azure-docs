@@ -45,7 +45,7 @@ In the following image, Windows Boot Manager states "Windows failed to start. A 
 
 ### Registry File
 
-If it refers to any of the registry files, such as \windows\system32\config\system, follow the steps under the section [Create a Support Ticket](#create-a-support-ticket).
+If it refers to any of the registry files, such as \windows\system32\config\system, follow the steps under the section [Create a Support Ticket](#contact-support).
  
 In the following image, Windows Boot Manager states "Windows failed to start. A recent hardware or software change might be the cause." The image also shows the Status as "0xc0000225", the File as `\windows\System32\config\system`, and **Info:** as "The operating system couldn’t be loaded because the system registry file is missing or contains errors."
 
@@ -81,7 +81,7 @@ A registry hive corruption could be due to:
 1. Select a Solution:
 - [Repair the System File](#repair-the-system-file)
 - [Add the OSDevice Variable](#add-the-osdevice-variable)
-- [Create a Support Ticket](#create-a-support-ticket)
+- [Create a Support Ticket](#contact-support)
 1. Enable serial console and memory dump collection.
 1. Rebuild the VM.
 
@@ -97,7 +97,7 @@ A registry hive corruption could be due to:
 
 - [Repair the System File](#repair-the-system-file)
 - [Add the OSDevice Variable](#add-the-osdevice-variable)
-- [Create a Support Ticket](#create-a-support-ticket)
+- [Create a Support Ticket](#contact-support)
 
 ### Repair the System File
 
