@@ -79,26 +79,22 @@ The term **Log Alert** describes alerts where a log query in [Log Analytics work
 
 1. Define a name for your alert in the **Alert rule name** field along with a **Description** detailing specifics for the alert and **Severity** value from the options provided. These details are reused in all alert emails, notifications, or pushes done by Azure Monitor. Additionally, you can choose to immediately activate the alert rule on creation by clicking **Enable rule upon creation**.
 
-    **************STOPPED *******************
-
-    For **Log Alerts** only, some additional functionality is available in Alert details:
-
-    - **Suppress Alerts**: When you turn on suppression for the alert rule, actions for the rule are disabled for a defined length of time after creating a new alert. The rule is still running and creates alert records provided the criteria is met. Allowing you time to correct the problem without running duplicate actions.
+1. Choose if you want to **Suppress Alerts** for a period of time.  When you turn on suppression for the alert rule, actions for the rule are disabled for a defined length of time after creating a new alert. The rule still runs and creates alert records provided the criteria is met. This setting allows you time to correct the problem without running duplicate actions.
 
         ![Suppress Alerts for Log Alerts](media/alerts-log/AlertsPreviewSuppress.png)
 
         > [!TIP]
         > Specify an suppress alert value greater than frequency of alert to ensure notifications are stopped without overlap
 
-1. As the third and final step, specify if any **Action Group** needs to be triggered for the alert rule when alert condition is met. You can choose any existing Action Group with alert or create a new Action Group. According to selected Action Group, when alert is trigger Azure will: send email(s), send SMS(s), call Webhook(s), remediate using Azure Runbooks, push to your ITSM tool, etc. Learn more about [Action Groups](action-groups.md).
+1. As the third and final step, specify if the alert rule should trigger one or more **Action Group** when alert condition is met. You can choose any existing Action Group or create a new one. With action groups, you can send perform a number of actions such as send email(s), send SMS(s), call Webhook(s), remediate using Azure Runbooks, push to your ITSM tool, and more. Learn more about [Action Groups](action-groups.md).
 
     > [!NOTE]
-    > Refer to the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) for limits on Runbook payloads triggered for log alerts via Azure action groups
+    > Refer to the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) for limits on the actions that can be performed.  
 
-    For **Log Alerts** some additional functionality is available to override the default Actions:
+    Some additional functionality is available to override the default Actions:
 
-    - **Email Notification**: Overrides *e-mail subject* in the email, sent via Action Group; if one or more email actions exist in the said Action Group. You cannot modify the body of the mail and this field is **not** for email address.
-    - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups; if one or more webhook actions exist in the said Action Group. User can specify format of JSON to be used for all webhooks configured in associated Action Group; for more information on webhook formats, see [webhook action for Log Alerts](../../azure-monitor/platform/alerts-log-webhook.md). View Webhook option is provided to check format using sample JSON data.
+    - **Email Notification**: Overrides *e-mail subject* in the email sent via the Action Group. You cannot modify the body of the mail and this field is **not** for email address.
+    - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups assuming the action group contains a webhook type. For more information on webhook formats, see [webhook action for Log Alerts](../../azure-monitor/platform/alerts-log-webhook.md). View Webhook option is provided to check format using sample JSON data.
 
         ![Action Overrides for Log Alerts](media/alerts-log/AlertsPreviewOverrideLog.png)
 
