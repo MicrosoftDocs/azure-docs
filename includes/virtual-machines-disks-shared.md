@@ -48,7 +48,7 @@ Linux clusters can leverage cluster managers such as [Pacemaker](https://wiki.cl
 
 #### Ubuntu
 
-For details on how to set up Ubuntu High Availability with Corosync & Pacemaker on Azure Shared Disk please refer to the [Ubuntu Community Discourse] (https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874).
+For information about how to set up Ubuntu high availability with Corosync and Pacemaker on Azure Shared Disks, see [Ubuntu Community Discourse](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874).
 
 ## Persistent reservation flow
 
