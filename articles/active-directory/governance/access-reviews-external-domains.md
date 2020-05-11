@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/24/2020
+ms.date: 05/11/2020
 ms.author: barclayn
 ---
 
@@ -46,14 +46,14 @@ You can use Azure AD dynamic groups to build groups that structure external iden
 
 Administrators create a new dynamic group that contains external identities in Azure AD with the following steps. In this example, all external users from the “microsoft.com” domain are used:
 
-1. Open the Azure AD Portal – 
-2. Select **Azure Active Directory**
-3. Select **Groups**
+1. Open the Azure AD Portal.
+2. Select **Azure Active Directory**.
+3. Select **Groups**.
 4. Select **+ New Group** in the top menu.
 5. In the **New Group** blade, select **Security** as the Group Type.
-6. Specify a group name, (in this example “EXTERNALS_FROM_MICROSOFT”).
-7. Select **Security** and Membership type of **Dynamic User**
-8. In **Owners**, choose the rightful owner for this dynamic group. This can be someone who owns the business relationship with the partner company.
+6. Specify a group name,
+7. Select **Security** and Membership type of **Dynamic User**.
+8. In **Owners**, choose the rightful owner for this dynamic group. The person you specify as the owner should be someone who owns the business relationship with the partner company.
 9. Click **Add dynamic query**.
 10. In **Dynamic membership rules**, use the following query to scope the group to contain all external identities in your tenant from the “microsoft.com” domain. Click the **Edit** link on the Rule syntax box to enter the following filter:
 
@@ -87,7 +87,7 @@ In the “Create an access review” setup page, you define the settings of a ne
       - **Selected users** – if you want to specify specific users in your organization that should review the partners from that external company.
       - **Members (self)** – if you want to allow all external partners to self-attest whether they need continued access to your company’s resources.
 
-7. In “Upon completion settings”, specify that you do not want to take any actions once the review is completed. This will allow to review the results and take manual actions.
+7. In “Upon completion settings”, specify that you do not want to take any actions once the review is completed. Choosing this option allows you to review the results and take manual actions.
 8. Click “Start” to create the Access Review. The review will automatically start at the specified start date – and notify reviewers.
 
 ![Create an access review](media\access-reviews-external-domains\create-access-review.png)
