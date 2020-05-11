@@ -57,7 +57,7 @@ A connection string encapsulates the information required to connect to an endpo
 
 ## Device model
 
-A device model describes an [IoT Plug and Play device](#iot-plug-and-play-device) and defines the set of [interfaces](#interface) implemented by the device. A device model typically corresponds to a physical device, product, or SKU. You use the [Digital Twins Definition Language](#digital-twin-definition-language) to define a device model.
+A device model describes an [IoT Plug and Play device](#iot-plug-and-play-device) and defines the set of [interfaces](#interface) implemented by the device. A device model typically corresponds to a physical device, product, or SKU. You use the [Digital Twins Definition Language](#digital-twins-definition-language) to define a device model.
 
 ## Device developer
 
@@ -65,7 +65,7 @@ A device developer uses a [device model](#device-model), [interfaces](#interface
 
 ## Device modeling
 
-A [device developer](#device-developer) uses the [Digital Twins Definition Language](#digital-twin-definition-language) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). The model can be shared using the model repository. A [solution developer](#solution-developer) can configure an IoT solution from the model.
+A [device developer](#device-developer) uses the [Digital Twins Definition Language](#digital-twins-definition-language) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). The model can be shared using the model repository. A [solution developer](#solution-developer) can configure an IoT solution from the model.
 
 ## Device Provisioning Service
 
@@ -77,7 +77,7 @@ Before an [IoT Plug and Play device](#iot-plug-and-play-device) can connect to a
 
 ## Digital twin
 
-A digital twin is a model of an [IoT Plug and Play device](#iot-plug-and-play-device). A digital twin is modeled using the [Digital Twins Definition Language](#digital-twin-definition-language). You can use the [Azure IoT device SDKs](#azure-iot-device-sdk) to interact with digital twins at run time. For example, you can set a property value in a digital twin on a device and the SDK communicates this change to your IoT solution in the cloud.
+A digital twin is a model of an [IoT Plug and Play device](#iot-plug-and-play-device). A digital twin is modeled using the [Digital Twins Definition Language](#digital-twins-definition-language). You can use the [Azure IoT device SDKs](#azure-iot-device-sdk) to interact with digital twins at run time. For example, you can set a property value in a digital twin on a device and the SDK communicates this change to your IoT solution in the cloud.
 
 ## Digital twin change events
 
