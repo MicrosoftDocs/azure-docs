@@ -161,12 +161,12 @@ If pairing between primary and secondary namespace already exists, private endpo
 > While we allow read-only access to the secondary namespace, updates to the private endpoint configurations are permitted. 
 
 ### Virtual networks
-When creating a disaster recovery configuration for your application and Service Bus, you must create private endpoints for both primary and secondary Service Bus namespaces against virtual networks hosting both primary and secondary instances of your application. You need to create private endpoints for both networks on primary and secondary namespaces before you can pair these namespaces.
+When creating a disaster recovery configuration for your application and Service Bus, you should create private endpoints for both primary and secondary Service Bus namespaces against virtual networks hosting both primary and secondary instances of your application.
 
 Let's say you have two virtual networks: VNET-1, VNET-2 and these primary and second namespaces: ServiceBus-Namespace1-Primary, ServiceBus-Namespace2-Secondary. You need to do the following steps: 
 
 - On ServiceBus-Namespace1-Primary, create two private endpoints that use subnets from VNET-1 and VNET-2
-- On ServiceBus-Namespace2-Secondary, create two private endpoints that use subnets from VNET-1 and VNET-2 
+- On ServiceBus-Namespace2-Secondary, create two private endpoints that use the same subnets from VNET-1 and VNET-2 
 
 ![Private endpoints and virtual networks](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
 

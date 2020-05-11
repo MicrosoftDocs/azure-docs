@@ -148,12 +148,12 @@ If pairing between primary and secondary namespace already exists, private endpo
 > While we allow read-only access to the secondary namespace, updates to the private endpoint configurations are permitted. 
 
 ### Virtual networks
-When creating a disaster recovery configuration for your application and Event Hubs namespaces, you must create private endpoints for both primary and secondary Event Hubs namespaces against virtual networks hosting both primary and secondary instances of your application. You need to create private endpoints for both networks on primary and secondary namespaces before you can pair these namespaces.
+When creating a disaster recovery configuration for your application and Event Hubs namespaces, you should create private endpoints for both primary and secondary Event Hubs namespaces against virtual networks hosting both primary and secondary instances of your application. 
 
-Let's say you have two virtual networks: VNET-1, VNET-2 and these primary and second namespaces: EventHubs-Namespace1-Primary, EventHubs-Namespace2-Secondary. You need to do the following steps: 
+Let's say you have two virtual networks: VNET-1, VNET-2 and these primary and secondary namespaces: EventHubs-Namespace1-Primary, EventHubs-Namespace2-Secondary. You need to do the following steps: 
 
 - On EventHubs-Namespace1-Primary, create two private endpoints that use subnets from VNET-1 and VNET-2
-- On EventHubs-Namespace2-Secondary, create two private endpoints that use subnets from VNET-1 and VNET-2 
+- On EventHubs-Namespace2-Secondary, create two private endpoints that use the same subnets from VNET-1 and VNET-2 
 
 ![Private endpoints and virtual networks](./media/event-hubs-geo-dr/private-endpoints-virtual-networks.png)
 
