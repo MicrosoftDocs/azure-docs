@@ -1,21 +1,20 @@
 ---
-title: 'Tutorial: Deploy ASP.NET apps to Azure Functions with Azure DevOps Projects'
-description: Azure DevOps Projects makes it easy to get started on Azure. With DevOps Projects, you can deploy your ASP.NET app to Azure Functions in a few quick steps.
+title: 'Tutorial: Deploy ASP.NET apps to Azure Functions with Azure DevOps Starter'
+description: Azure DevOps Starter makes it easy to get started on Azure. With DevOps Starter, you can deploy your ASP.NET app to Azure Functions in a few quick steps.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 03/24/2020
 author: mlearned
-monikerRange: 'vsts'
 ---
 
-# Continuously deploy to Azure Functions with DevOps Projects
+# Deploy to Azure Functions with DevOps Starter
 
-Azure DevOps Projects presents a simplified experience where you can bring your existing code and Git repo or choose a sample application to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
+Azure DevOps Starter presents a simplified experience where you can bring your existing code and Git repo or choose a sample application to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
 
-DevOps Projects also:
+DevOps Starter also:
 
 * Automatically creates Azure resources, such as Azure Functions
 
@@ -24,7 +23,7 @@ DevOps Projects also:
 In this tutorial, you will:
 
 > [!div class="checklist"]
->* Use DevOps Projects to deploy an ASP.NET app to Azure Function
+>* Use DevOps Starter to deploy an ASP.NET app to Azure Function
 >* Configure Azure DevOps and an Azure subscription
 >* Examine the Azure Function
 >* Examine the CI pipeline
@@ -38,17 +37,15 @@ Currently the supported runtimes for functions are **.NET** and **Node.js**. We 
 
 * An Azure subscription. You can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
 
-## Use DevOps Projects to deploy an ASP.NET app to Azure Functions
+## Use DevOps Starter to deploy an ASP.NET app to Azure Functions
 
-DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources, such as an IoTHub, in the Azure subscription of your choice.
+DevOps Starter creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources, such as an IoTHub, in the Azure subscription of your choice.
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 
-1. In the left pane, select **Create a resource**.
+1. In the search box, type **DevOps Starter**, and then select. Click on **Add** to create a new one.
 
-1. In the search box, type **DevOps Projects**, and then click **Add**.
-
-   ![DevOps Projects](_img/azure-devops-project-functions/devops-project.png)
+    ![The DevOps Starter dashboard](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. Select **.NET**, and then select **Next**. Under **Choose an application framework**, select **ASP.NET** and click **Next**.
 
@@ -62,23 +59,23 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 1. Select your Azure subscription.
 
-1. To view additional Azure configuration settings and to identify the pricing tier and location, click on Additional settings. This pane displays various options for configuring the pricing tier and location of Azure services.
+1. To view additional Azure configuration settings and to identify the pricing tier and location, click on **Additional settings**. This pane displays various options for configuring the pricing tier and location of Azure services.
 
-1. Exit the Azure configuration area, and then select Done.
+1. Exit the Azure configuration area, and then select **Done**.
 
-1. After a few minutes, the process is completed. A sample ASP.NET app is set up in a Git repo in your Azure DevOps organization, a Function App, and Application Insights is created, a CI/CD pipeline is executed, and your app is deployed to Azure.
+1. After few minutes, the process is completed. A sample ASP.NET app is set up in a Git repo in your Azure DevOps organization, a Function App, and Application Insights is created, a CI/CD pipeline is executed, and your app is deployed to Azure.
 
-   After all this is completed, the Azure DevOps Project dashboard is displayed in the Azure portal. You can also go to the DevOps Projects dashboard directly from **All resources** in the Azure portal.
+   After all this is completed, the Azure DevOps Starter dashboard is displayed in the Azure portal. You can also go to the DevOps Starter dashboard directly from **All resources** in the Azure portal.
 
    This dashboard provides visibility into your Azure DevOps code repository, your CI/CD pipeline, and your Azure Function. You can configure additional CI/CD options in your Azure DevOps pipeline. At the right, select **Function App** to view.
 
 ## Examine the Function App
 
-DevOps Projects automatically configures function app, which you can explore and customize. To get to know the function app, do the following:
+DevOps Starter automatically configures function app, which you can explore and customize. To get to know the function app, do the following:
 
-1. Go to the DevOps Projects dashboard.
+1. Go to the DevOps Starter dashboard.
 
-    ![DevOps Projects Dashboard](_img/azure-devops-project-functions/devops-projects-dashboard.png)
+    ![DevOps Projects Dashboard](_img/azure-devops-project-functions/fapp-dashboard.png)
 
 1. At the right, select the function app. A pane opens for the function app. From this view you can perform various actions such as operations monitoring, searching logs.
 
@@ -86,9 +83,9 @@ DevOps Projects automatically configures function app, which you can explore and
 
 ## Examine the CI pipeline
 
-DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps organization. You can explore and customize the pipeline. To familiarize yourself with it, do the following:
+DevOps Starter automatically configures a CI/CD pipeline in your Azure DevOps organization. You can explore and customize the pipeline. To familiarize yourself with it, do the following:
 
-1. Go to the DevOps Projects dashboard.
+1. Go to the DevOps Starter dashboard.
 
 1. Click on the hyperlink under **Build**. A browser tab displays the build pipeline for your new project.
 
@@ -96,7 +93,7 @@ DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps o
 
 1. Select **Edit**. In this pane, you can examine the various tasks for your build pipeline. The build performs various tasks, such as fetching source code from the Git repo, building the application, running unit tests, and publishing outputs that are used for deployments.
 
-1. Select **Triggers**. DevOps Projects automatically creates a CI trigger, and every commit to the repo starts a new build. Optionally, you can choose to include or exclude branches from the CI process.
+1. Select **Triggers**. DevOps Starter automatically creates a CI trigger, and every commit to the repo starts a new build. Optionally, you can choose to include or exclude branches from the CI process.
 
 1. Select **Retention**. Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
 
@@ -108,7 +105,7 @@ DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps o
 
 ## Examine the CD release pipeline
 
-DevOps Projects automatically creates and configures the necessary steps to deploy from your Azure DevOps organization to your Azure subscription. These steps include configuring an Azure service connection to authenticate Azure DevOps to your Azure subscription. The automation also creates a release pipeline, which provides the CD to Azure. To learn more about the release pipeline, do the following:
+DevOps Starter automatically creates and configures the necessary steps to deploy from your Azure DevOps organization to your Azure subscription. These steps include configuring an Azure service connection to authenticate Azure DevOps to your Azure subscription. The automation also creates a release pipeline, which provides the CD to Azure. To learn more about the release pipeline, do the following:
 
 1. Navigate to the **Pipelines | Releases**.
 
@@ -137,26 +134,26 @@ You're now ready to collaborate with a team on your app by using a CI/CD process
 
 1. The repository already contains code called **SampleFunctionApp** based on the application language that you chose in the creation process. Open the **Application/SampleFunctionApp/Function1.cs** file.
 
-1. Select **Edit**, and then make a change to **line number 31** . For example, you can update it to **Hello there! Welcome to Azure Functions using DevOps Projects**
+1. Select **Edit**, and then make a change to **line number 31** . For example, you can update it to **Hello there! Welcome to Azure Functions using DevOps Starter**
 
 1. At the top right, select **Commit**, and then select **Commit** again to push your change.
 
 1. Open the **Application/SampleFunctionApp.Test/Function1TestRunner.cs** file. 
 
-1. Select **Edit**, and then make a change to **line number 21**. For example, you can update it to **Hello there! Welcome to Azure Functions using Azure DevOps Projects**.
+1. Select **Edit**, and then make a change to **line number 21**. For example, you can update it to **Hello there! Welcome to Azure Functions using Azure DevOps Starter**.
 
-     After a few moments, a build starts in Azure DevOps and a release executes to deploy the changes. Monitor the build status on the DevOps Projects dashboard or in the browser with your Azure DevOps organization.
+     After a few moments, a build starts in Azure DevOps and a release executes to deploy the changes. Monitor the build status on the DevOps Starter dashboard or in the browser with your Azure DevOps organization.
 
 ## Clean up resources
 
-You can delete the related resources that you created when you don't need them anymore. Use the **Delete** functionality on the DevOps Projects dashboard.
+You can delete the related resources that you created when you don't need them anymore. Use the **Delete** functionality on the DevOps Starter dashboard.
 
 ## Next steps
 
 You can optionally modify these build and release pipelines to meet the needs of your team. You can also use this CI/CD pattern as a template for your other pipelines. In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Use DevOps Projects to deploy an ASP.NET Core app to Azure Function
+> * Use DevOps Starter to deploy an ASP.NET Core app to Azure Function
 > * Configure Azure DevOps and an Azure subscription 
 > * Examine the Azure Function
 > * Examine the CI pipeline

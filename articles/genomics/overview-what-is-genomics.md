@@ -3,7 +3,6 @@ title: What is Microsoft Genomics?
 titleSuffix: Microsoft Genomics
 description: Learn how Microsoft Genomics can power genome sequencing, using a cloud implementation of Burrows-Wheeler Aligner (BWA) and Genome Analysis Toolkit (GATK).
 services: genomics
-description: Learn how to use Microsoft Genomics to run the BWA-GATK workflow for genomic analysis.
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh

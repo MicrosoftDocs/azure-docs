@@ -5,9 +5,11 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/10/2019
+ ms.date: 03/19/2020
  ms.author: cherylmc
  ms.custom: include file
+
+# this include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
 ---
 
 ## <a name="rootcert"></a>Create a self-signed root certificate
@@ -23,6 +25,7 @@ Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificat
    -HashAlgorithm sha256 -KeyLength 2048 `
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
+ 3. Leave the PowerShell console open if you want to create a client certificate right after creating this root certificate.
 
 ## <a name="clientcert"></a>Generate a client certificate
 
@@ -32,7 +35,7 @@ The following steps walk you through generating a client certificate from a self
 
 The examples use the New-SelfSignedCertificate cmdlet to generate a client certificate that expires in one year. For additional parameter information, such as setting a different expiration value for the client certificate, see [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-### Example 1
+### Example 1 - PowerShell console session still open
 
 Use this example if you have not closed your PowerShell console after creating the self-signed root certificate. This example continues from the previous section and uses the declared '$cert' variable. If you closed the PowerShell console after creating the self-signed root certificate, or are creating additional client certificates in a new PowerShell console session, use the steps in [Example 2](#ex2).
 
@@ -46,7 +49,7 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 ```
 
-### <a name="ex2"></a>Example 2
+### <a name="ex2"></a>Example 2 - New PowerShell console session
 
 If you are creating additional client certificates, or are not using the same PowerShell session that you used to create your self-signed root certificate, use the following steps:
 

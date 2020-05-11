@@ -1,14 +1,14 @@
 ---
 title: Modify an Azure virtual machine scale set
 description: Learn how to modify and update an Azure virtual machine scale set with the REST APIs, Azure PowerShell, and Azure CLI
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 02/14/2018
-ms.author: manayar
+ms.date: 03/10/2020
+ms.author: mimckitt
 
 ---
 # Modify a virtual machine scale set
@@ -307,7 +307,7 @@ To update existing VMs, you must do a "manual upgrade" of each existing VM. You 
 >[!NOTE]
 > Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
-There is one type of modification to global scale set properties that does not follow the upgrade policy. Changes to the scale set OS Profile (such as admin username and password) can only be changed in API version *2017-12-01* or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage via:
+There is one type of modification to global scale set properties that does not follow the upgrade policy. Changes to the scale set OS and Data disk Profile (such as admin username and password) can only be changed in API version *2017-12-01* or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage via:
 
 - REST API with [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage) as follows:
 

@@ -1,19 +1,9 @@
 ---
 title: Optimize your Linux VM on Azure 
 description: Learn some optimization tips to make sure you have set up your Linux VM for optimal performance on Azure
-keywords: linux virtual machine,virtual machine linux,ubuntu virtual machine
-services: virtual-machines-linux
-documentationcenter: ''
 author: rickstercdn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
@@ -132,5 +122,4 @@ Remember, as with all optimization discussions, you need to perform tests before
 Some useful links to additional resources:
 
 * [Azure Linux Agent User Guide](../extensions/agent-linux.md)
-* [Optimizing MySQL Performance on Azure Linux VMs](classic/optimize-mysql.md)
 * [Configure Software RAID on Linux](configure-raid.md)

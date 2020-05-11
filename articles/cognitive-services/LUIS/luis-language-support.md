@@ -30,18 +30,25 @@ LUIS understands utterances in the following languages:
 | American English |`en-US` | ✔ | ✔  |✔|✔|
 | Arabic (preview - modern standard Arabic) |`ar-AR`|-|-|-|-|
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Dutch |`nl-NL` |✔|  -   |-|✔|
+| Dutch |`nl-NL` |✔|-|-|✔|
 | French (France) |`fr-FR` |✔| ✔ |✔ |✔|
-| French (Canada) |`fr-CA` |-|   -   |-|✔|
+| French (Canada) |`fr-CA` |-|-|-|✔|
 | German |`de-DE` |✔| ✔ |✔ |✔|
-| Hindi | `hi-IN`|-|-|-|-|
+| Gujarati | `gu-IN`|-|-|-|-|
+| Hindi | `hi-IN`|-|✔|-|-|
 | Italian |`it-IT` |✔| ✔ |✔|✔|
 | *[Japanese](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Key phrase only|
-| Korean |`ko-KR` |✔|   -   |-|Key phrase only|
+| Korean |`ko-KR` |✔|-|-|Key phrase only|
+| Marathi | `mr-IN`|-|-|-|-|
 | Portuguese (Brazil) |`pt-BR` |✔| ✔ |✔ |not all sub-cultures|
 | Spanish (Spain) |`es-ES` |✔| ✔ |✔|✔|
-| Spanish (Mexico)|`es-MX` |-|  -   |✔|✔|
-| Turkish | `tr-TR` |✔|-|-|Sentiment only|
+| Spanish (Mexico)|`es-MX` |-|-|✔|✔|
+| Tamil | `ta-IN`|-|-|-|-|
+| Telugu | `te-IN`|-|-|-|-|
+| Turkish | `tr-TR` |✔|✔|-|Sentiment only|
+
+
+
 
 Language support varies for [prebuilt entities](luis-reference-prebuilt-entities.md) and [prebuilt domains](luis-reference-prebuilt-domains.md).
 
@@ -56,7 +63,7 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
 [!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
 ### Speech API supported languages
-See Speech [Supported languages](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) for Speech dictation mode languages.
+See Speech [Supported languages](../speech-service/speech-to-text.md) for Speech dictation mode languages.
 
 ### Bing Spell Check supported languages
 See Bing Spell Check [Supported languages](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) for a list of supported languages and status.
@@ -72,22 +79,28 @@ Hybrid languages combine words from two cultures such as English and Chinese. Th
 ## Tokenization
 To perform machine learning, LUIS breaks an utterance into [tokens](luis-glossary.md#token) based on culture.
 
-|Language|  every space or special character | character level|compound words|[tokenized entity returned](luis-concept-data-extraction.md#tokenized-entity-returned)
-|--|:--:|:--:|:--:|:--:|
-|Arabic|||||
-|Chinese||✔||✔|
-|Dutch|||✔|✔|
-|English (en-us)|✔ ||||
-|French (fr-FR)|✔||||
-|French (fr-CA)|✔||||
-|German|||✔|✔|
-| Hindi |✔|-|-|-|-|
-|Italian|✔||||
-|Japanese||||✔|
-|Korean||✔||✔|
-|Portuguese (Brazil)|✔||||
-|Spanish (es-ES)|✔||||
-|Spanish (es-MX)|✔||||
+|Language|  every space or special character | character level|compound words
+|--|:--:|:--:|:--:|
+|Arabic|✔|||
+|Chinese||✔||
+|Dutch|✔||✔|
+|English (en-us)|✔ |||
+|French (fr-FR)|✔|||
+|French (fr-CA)|✔|||
+|German|✔||✔|
+|Gujarati|✔|||
+|Hindi|✔|||
+|Italian|✔|||
+|Japanese|||✔
+|Korean||✔||
+|Marathi|✔|||
+|Portuguese (Brazil)|✔|||
+|Spanish (es-ES)|✔|||
+|Spanish (es-MX)|✔|||
+|Tamil|✔|||
+|Telugu|✔|||
+|Turkish|✔|||
+
 
 ### Custom tokenizer versions
 
@@ -96,7 +109,10 @@ The following cultures have custom tokenizer versions:
 |Culture|Version|Purpose|
 |--|--|--|
 |German<br>`de-de`|1.0.0|Tokenizes words by splitting them using a machine learning-based tokenizer that tries to break down composite words into their single components.<br>If a user enters `Ich fahre einen krankenwagen` as an utterance, it is turned to `Ich fahre einen kranken wagen`. Allowing the marking of `kranken` and `wagen` independently as different entities.|
-|German<br>`de-de`|1.0.2|Tokenizes words by splitting them on spaces.<br> if a user enters `Ich fahre einen krankenwagen` as an utterance, it remains a single token. Thus `krankenwagen` is marked as a single entity. |
+|German<br>`de-de`|1.0.2|Tokenizes words by splitting them on spaces.<br> If a user enters `Ich fahre einen krankenwagen` as an utterance, it remains a single token. Thus `krankenwagen` is marked as a single entity. |
+|Dutch<br>`de-de`|1.0.0|Tokenizes words by splitting them using a machine learning-based tokenizer that tries to break down composite words into their single components.<br>If a user enters `Ik ga naar de kleuterschool` as an utterance, it is turned to `Ik ga naar de kleuter school`. Allowing the marking of `kleuter` and `school` independently as different entities.|
+|Dutch<br>`de-de`|1.0.1|Tokenizes words by splitting them on spaces.<br> If a user enters `Ik ga naar de kleuterschool` as an utterance, it remains a single token. Thus `kleuterschool` is marked as a single entity. |
+
 
 ### Migrating between tokenizer versions
 <!--

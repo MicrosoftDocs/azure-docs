@@ -25,7 +25,7 @@ This document provides guidance for configuring Azure infrastructure and operati
 
 - [SAP administration guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [SAP installation guides](https://service.sap.com/instguides)
-- [SAP notes](https://sservice.sap.com/notes)
+- [SAP notes](https://service.sap.com/notes)
 
 ## Prerequisites
 To use this guide, you need basic knowledge of the following Azure components:
@@ -66,7 +66,7 @@ You also can deploy a complete installed SAP HANA platform on the Azure VM servi
 
 >[!IMPORTANT]
 > In order to use M208xx_v2 VMs, you need to be careful selecting your 
->  Linux image from the Azure VM image gallery. In order to read the details, read the article [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series). 
+>  Linux image from the Azure VM image gallery. In order to read the details, read the article [Memory optimized virtual machine sizes](../../mv2-series.md).
 > 
 
 

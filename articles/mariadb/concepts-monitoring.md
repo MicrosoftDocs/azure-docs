@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 # Monitoring in Azure Database for MariaDB
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MariaDB provides various metrics that give insight into the behavior of your server.
@@ -50,13 +50,28 @@ You can enable slow query logging on your server. These logs are also available 
 
 The [Performance Recommendations](concepts-performance-recommendations.md) feature identifies opportunities to improve workload performance. Performance Recommendations provides you with recommendations for creating new indexes that have the potential to improve the performance of your workloads. To produce index recommendations, the feature takes into consideration various database characteristics, including its schema and the workload as reported by Query Store. After implementing any performance recommendation, customers should test performance to evaluate the impact of those changes.
 
-## Service health
-[Azure Service health](../service-health/overview.md) provides a view of all service health notifications in your subscription. You can set up Service Health alerts to notify you via your preferred communication channels when there are issues or changes that may affect the Azure services and regions you use.
+## Planned maintenance notification
 
-You can view scheduled maintenance events for Azure Database for MariaDB by using the **planned maintenance** event type. To learn how to create **service health alerts**, visit the [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
+**Planned maintenance notifications** allow you to receive alerts for upcoming planned maintenance to your Azure Database for MariaDB. These notifications are integrated with [Service Health's](../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 hours before the event.
+
+> [!Note]
+> We will make every attempt to provide **Planned maintenance notification** 72 hours notice for all events. However, in cases of critical or security patches, notifications might be sent closer to the event or be omitted.
+
+### To receive planned maintenance notification
+
+1. In the [portal](https://portal.azure.com), select **Service Health**.
+2. In the **Alerts** section, select **Health alerts**.
+3. Select **+ Add service health alert** and fill in the fields.
+4. Fill out the required fields. 
+5. Choose the **Event type**, select **Planned maintenance** or **Select all**
+6. In **Action groups** define how you would like to receive the alert (get an email, trigger a logic app etc.)  
+7. Ensure Enable rule upon creation is set to Yes.
+8. Select **Create alert rule** to complete your alert
+
+For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
-> The planned maintenance notifications is available in preview for EAST US and UK South only.
+> Planned maintenance notifications are currently in preview
 
 ## Next steps
 

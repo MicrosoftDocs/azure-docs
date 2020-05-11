@@ -30,7 +30,7 @@ In this article, you learn the following tasks:
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning](https://aka.ms/AMLFree).
+* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning](https://aka.ms/AMLFree).
 
 * For a guided quickstart, complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine. 
 
@@ -81,7 +81,7 @@ Now you need to configure data inputs and outputs, including:
 - The directory that contains the labels.
 - The directory for output.
 
-`Dataset` is a class for exploring, transforming, and managing data in Azure Machine Learning. This class has two types: `TabularDataset` and `FileDataset`. In this example, you'll use `FileDataset` as the inputs to the batch inference pipeline step. 
+[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) is a class for exploring, transforming, and managing data in Azure Machine Learning. This class has two types: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) and [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py). In this example, you'll use `FileDataset` as the inputs to the batch inference pipeline step. 
 
 > [!NOTE] 
 > `FileDataset` support in batch inference is restricted to Azure Blob storage for now. 
@@ -90,7 +90,7 @@ You can also reference other datasets in your custom inference script. For examp
 
 For more information about Azure Machine Learning datasets, see [Create and access datasets (preview)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
-`PipelineData` objects are used for transferring intermediate data between pipeline steps. In this example, you use it for inference outputs.
+[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) objects are used for transferring intermediate data between pipeline steps. In this example, you use it for inference outputs.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -180,13 +180,13 @@ model = Model.register(model_path="models/",
 ## Write your inference script
 
 >[!Warning]
->The following code is only a sample that the [sample notebook](https://aka.ms/batch-inference-notebooks) uses. You’ll need to create your own script for your scenario.
+>The following code is only a sample that the [sample notebook](https://aka.ms/batch-inference-notebooks) uses. You'll need to create your own script for your scenario.
 
 The script *must contain* two functions:
 - `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
 -  `run(mini_batch)`: The function will run for each `mini_batch` instance.
     -  `mini_batch`: Parallel run step will invoke run method and pass either a list or Pandas DataFrame as an argument to the method. Each entry in min_batch will be - a file path if input is a FileDataset, a Pandas DataFrame if input is a TabularDataset.
-    -  `response`: run() method should return a Pandas DataFrame or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. User should make sure that enough data is included in run result to map input to run result. Run output will be written in output file and not guaranteed to be in order, user should use some key in the output to map it to input.
+    -  `response`: run() method should return a Pandas DataFrame or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. You should make sure that enough data is included in run result to map input to run result. Run output will be written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
 
 ```python
 # Snippets from a sample script.
@@ -325,9 +325,9 @@ parallelrun_step = ParallelRunStep(
 >[!Note]
 > The above step depends on `azureml-contrib-pipeline-steps`, as described in [Prerequisites](#prerequisites). 
 
-### Run the pipeline
+### Submit the pipeline
 
-Now, run the pipeline. First, create a `Pipeline` object by using your workspace reference and the pipeline step that you created. The `steps` parameter is an array of steps. In this case, there's only one step for batch scoring. To build pipelines that have multiple steps, place the steps in order in this array.
+Now, run the pipeline. First, create a [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) object by using your workspace reference and the pipeline step that you created. The `steps` parameter is an array of steps. In this case, there's only one step for batch scoring. To build pipelines that have multiple steps, place the steps in order in this array.
 
 Next, use the `Experiment.submit()` function to submit the pipeline for execution.
 

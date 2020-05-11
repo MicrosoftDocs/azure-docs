@@ -2,15 +2,17 @@
 title: Register single-page apps - Microsoft identity platform | Azure
 description: Learn how to build a single-page application (app registration)
 services: active-directory
+<<<<<<< HEAD
 documentationcenter: dev-center-name
 author: hahamil
+=======
+author: navyasric
+>>>>>>> 172922287bad1e64f156ef4857b5fa7accfd9fca
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2020
 ms.author: hahamil

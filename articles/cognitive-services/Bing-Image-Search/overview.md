@@ -29,7 +29,7 @@ While the Bing Image Search API provides image-only search results, you can comb
 | [Filter and restrict image results](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)                       | Filter the images that Bing returns by editing query parameters.                                                                                                       |
 | [Crop, resize, and display thumbnails](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails)                                                | Edit and display thumbnail previews for the images returned by Bing Image Search.                                                                                      |
 | [Pivot & expand user search queries](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)               | Expand your search capabilities by including and displaying Bing-suggested search terms to queries.                                                                    |
-| [Get trending images](https://review.docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images)                                                                     | Customize a search for trending images from around the world.                                                                                                          |
+| [Get trending images](trending-images.md)                                                                     | Customize a search for trending images from around the world.                                                                                                          |
 
 ## Workflow
 

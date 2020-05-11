@@ -27,21 +27,22 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 First, create a virtual network. Next, create an internal load balancer to use with the Private Link service.
 
-### Create the virtual network
+## Virtual network and parameters
 
 In this section, you create a virtual network. You also create the subnet to host the load balancer that accesses your Private Link service.
 
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Virtual network**.
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-1. On the **Create virtual network** pane, enter or select these values:
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | East US 2      |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0\24          |
 
-   - **Name**: Enter **myVNet**.
-   - **ResourceGroup**: Select **Create new**, enter **myResourceGroupLB**, and select **OK**.
-   - **Subnet** > **Name**: Enter **myBackendSubnet**.
-
-1. Select **Create**.
-
-   ![Create a virtual network](../load-balancer/media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### Create a standard load balancer
 

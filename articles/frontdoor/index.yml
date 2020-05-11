@@ -1,45 +1,104 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Front Door Service Documentation
+### YamlMime:Landing
+
+title: Azure Front Door documentation
+summary: Azure Front Door is a scalable and secure entry point for fast delivery of your global web applications.
+
 metadata:
-  title: Azure Front Door Service Documentation
-  meta.description: Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
+  title: Azure Front Door Documentation
+  description: Azure Front Door provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
   services: frontdoor
-  author: dlepow
   ms.service: frontdoor
   ms.topic: landing-page
-  ms.date: 9/14/2018
-  ms.author: danlep
-abstract:
-  description: Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Create a Front Door for a highly available global web application.'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
-      href: quickstart-create-front-door.md
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to configure Azure Front Door Service for your needs.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="front-door-custom-domain.md">Add a custom domain to your Front Door</a>
-    - html: <a href="front-door-custom-domain-https.md">Enable HTTPS for a custom domain</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/cli/azure/ext/front-door">Azure CLI</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2020942">Azure PowerShell</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/frontdoor">REST API</a></p>
+  author: vhorne
+  ms.author: victorh
+  ms.date: 03/03/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Learn about Azure Front Door
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Front Door?
+            url: front-door-overview.md
+          - text: What's new?
+            url: front-door-whats-new.md      
+
+       
+  # Card
+  - title: Create a Front Door
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Front Door
+            url: quickstart-create-front-door.md
+
+  # Card
+  - title: Add a custom domain
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Add a custom domain to your Front Door
+            url: front-door-custom-domain.md
+      - linkListType: how-to-guide
+        links:
+          - text: Onboard a root or apex domain on your Front Door
+            url: front-door-how-to-onboard-apex-domain.md
+
+  # Card
+  - title: Learn about geo-filtering
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is geo-filtering on a domain?
+            url: front-door-geo-filtering.md
+      - linkListType: tutorial
+        links:
+          - text: Set up a geo-filtering WAF policy
+            url: front-door-tutorial-geo-filtering.md
+
+  # Card
+  - title:  Configure HTTPS
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Configure HTTPS on a Front Door custom domain
+            url: front-door-custom-domain-https.md
+
+# Card
+  - title: Troubleshoot Azure Front Door
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Common routing issues
+            url: front-door-troubleshoot-routing.md
+          - text: Allowed certificate authorities
+            url: front-door-troubleshoot-allowed-ca.md
+
+# Card
+  - title: Learn about Azure load balancing
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure load balancing
+            url: front-door-lb-with-azure-app-delivery-suite.md
+
+# Card
+  - title: Configure a Rules Engine
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Rules Engine?
+            url: front-door-rules-engine.md
+          - text: Rules Engine Match Conditions
+            url: front-door-rules-engine-match-conditions.md
+          - text: Rules Engine Actions
+            url: front-door-rules-engine-actions.md
+      - linkListType: tutorial
+        links:
+          - text: Set up a Rules Engine configuration
+            url: front-door-tutorial-rules-engine.md

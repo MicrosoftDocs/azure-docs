@@ -745,7 +745,7 @@ The authenticated user is available via [HTTP Headers](../app-service/app-servic
 
 ## Authorization keys
 
-Functions lets you use keys to make it harder to access your HTTP function endpoints during development.  A standard HTTP trigger may require such an API key be present in the request. 
+Functions lets you use keys to make it harder to access your HTTP function endpoints during development.  Unless the HTTP authorization level on an HTTP triggered function is set to `anonymous`, requests must include an API key in the request. 
 
 > [!IMPORTANT]
 > While keys may help obfuscate your HTTP endpoints during development, they are not intended as a way to secure an HTTP trigger in production. To learn more, see [Secure an HTTP endpoint in production](#secure-an-http-endpoint-in-production).
@@ -753,14 +753,19 @@ Functions lets you use keys to make it harder to access your HTTP function endpo
 > [!NOTE]
 > In the Functions 1.x runtime, webhook providers may use keys to authorize requests in a variety of ways, depending on what the provider supports. This is covered in [Webhooks and keys](#webhooks-and-keys). The Functions runtime in version 2.x and higher does not include built-in support for webhook providers.
 
-There are two types of keys:
+#### Authorization scopes (function-level)
 
-* **Host keys**: These keys are shared by all functions within the function app. When used as an API key, these allow access to any function within the function app.
-* **Function keys**: These keys apply only to the specific functions under which they are defined. When used as an API key, these only allow access to that function.
+There are two authorization scopes for function-level keys:
+
+* **Function**: These keys apply only to the specific functions under which they are defined. When used as an API key, these only allow access to that function.
+
+* **Host**: Keys with a host scope can be used to access all functions within the function app. When used as an API key, these allow access to any function within the function app. 
 
 Each key is named for reference, and there is a default key (named "default") at the function and host level. Function keys take precedence over host keys. When two keys are defined with the same name, the function key is always used.
 
-Each function app also has a special **master key**. This key is a host key named `_master`, which provides administrative access to the runtime APIs. This key cannot be revoked. When you set an authorization level of `admin`, requests must use the master key; any other key results in authorization failure.
+#### Master key (admin-level) 
+
+Each function app also has an admin-level host key named `_master`. In addition to providing host-level access to all functions in the app, the master key also provides administrative access to the runtime REST APIs. This key cannot be revoked. When you set an authorization level of `admin`, requests must use the master key; any other key results in authorization failure.
 
 > [!CAUTION]  
 > Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in native client applications. Use caution when choosing the admin authorization level.

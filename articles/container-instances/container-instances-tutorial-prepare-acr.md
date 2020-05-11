@@ -41,8 +41,7 @@ az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 
 Here's example output for a new Azure container registry named *mycontainerregistry082* (shown here truncated):
 
-```console
-$ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic
+```output
 ...
 {
   "creationDate": "2018-03-16T21:54:47.297875+00:00",
@@ -73,10 +72,15 @@ You must log in to your Azure Container Registry instance before pushing images 
 az acr login --name <acrName>
 ```
 
+For example:
+
+```azurecli
+az acr login --name mycontainerregistry082
+```
+
 The command returns `Login Succeeded` once completed:
 
-```console
-$ az acr login --name mycontainerregistry082
+```output
 Login Succeeded
 ```
 
@@ -92,8 +96,11 @@ az acr show --name <acrName> --query loginServer --output table
 
 For example, if your registry is named *mycontainerregistry082*:
 
-```console
-$ az acr show --name mycontainerregistry082 --query loginServer --output table
+```azurecli
+az acr show --name mycontainerregistry082 --query loginServer --output table
+```
+
+```output
 Result
 ------------------------
 mycontainerregistry082.azurecr.io
@@ -160,8 +167,11 @@ az acr repository list --name <acrName> --output table
 
 For example:
 
-```console
-$ az acr repository list --name mycontainerregistry082 --output table
+```azurecli
+az acr repository list --name mycontainerregistry082 --output table
+```
+
+```output
 Result
 ----------------
 aci-tutorial-app
@@ -176,7 +186,7 @@ az acr repository show-tags --name <acrName> --repository aci-tutorial-app --out
 You should see output similar to the following:
 
 ```console
-$ az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
+az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
 Result
 --------
 v1

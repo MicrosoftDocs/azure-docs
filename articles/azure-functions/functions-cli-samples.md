@@ -26,6 +26,7 @@ The following table includes links to bash scripts for Azure Functions that use 
 |---|---|
 | [Create a function app and connect to a storage account](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Create a function app and connect it to a storage account. |
 | [Create a function app and connect to an Azure Cosmos DB](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Create a function app and connect it to an Azure Cosmos DB. |
+| [Create a Python function app and mount a Azure Files share](scripts/functions-cli-mount-files-storage-linux.md) | By mounting a share to your Linux function app, you can leverage existing machine learning models or other data in your functions. | 
 
 | Continuous deployment | Description|
 |---|---|

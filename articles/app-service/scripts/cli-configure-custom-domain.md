@@ -7,9 +7,9 @@ ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
+
 # Map a custom domain to an App Service app using CLI
 
 This sample script creates an app in App Service with its related resources, and then maps `www.<yourdomain>` to it.

@@ -1,13 +1,13 @@
 ---
-title: 'Tutorial: Java application development tutorial using Azure Cosmos DB'
+title: 'Tutorial: Build a Java web app using Azure Cosmos DB and the SQL API'
 description: 'Tutorial: This Java web application tutorial shows you how to use the Azure Cosmos DB and the SQL API to store and access data from a Java application hosted on Azure Websites.'
-author: tknandu
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/05/2019
-ms.author: ramkris
+ms.author: anfeldma
 
 ---
 # Tutorial: Build a Java web application using Azure Cosmos DB and the SQL API
@@ -41,11 +41,11 @@ Before you begin this application development tutorial, you must have the follow
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks).
+* [Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable).
 * [Eclipse IDE for Java EE Developers.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [An Azure Web Site with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](../app-service/app-service-web-get-started-java.md)
 
-If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the Quick Start section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) article.
+If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the quickstart section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) article.
 
 ## <a id="CreateDB"></a>Step 1: Create an Azure Cosmos DB account
 Let's start by creating an Azure Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create the Java JSP application](#CreateJSP).
@@ -57,7 +57,7 @@ Let's start by creating an Azure Cosmos DB account. If you already have an accou
 ## <a id="CreateJSP"></a>Step 2: Create the Java JSP application
 To create the JSP application:
 
-1. First, we’ll start off by creating a Java project. Start Eclipse, then click **File**, click **New**, and then click **Dynamic Web Project**. If you don’t see **Dynamic Web Project** listed as an available project, do the following: click **File**, click **New**, click **Project**…, expand **Web**, click **Dynamic Web Project**, and click **Next**.
+1. First, we'll start off by creating a Java project. Start Eclipse, then click **File**, click **New**, and then click **Dynamic Web Project**. If you don't see **Dynamic Web Project** listed as an available project, do the following: click **File**, click **New**, click **Project**…, expand **Web**, click **Dynamic Web Project**, and click **Next**.
    
     ![JSP Java Application Development](./media/sql-api-java-application/image10.png)
 2. Enter a project name in the **Project name** box, and in the **Target Runtime** drop-down menu, optionally select a value (e.g. Apache Tomcat v7.0), and then click **Finish**. Selecting a target runtime enables you to run your project locally through Eclipse.
@@ -93,7 +93,7 @@ To do this, you will need to convert your project to a maven project by completi
      
    ![Install SQL Java Application SDK](./media/sql-api-java-application/image13.png)
      
-   * Or add the dependency XML for Group Id and Artifact Id directly to the pom.xml via a text editor:
+   * Or add the dependency XML for Group ID and Artifact ID directly to the pom.xml via a text editor:
         ```xml
         <dependency>
             <groupId>com.microsoft.azure</groupId>
@@ -245,7 +245,7 @@ To do this, you will need to convert your project to a maven project by completi
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. Like Azure Cosmos databases and collections, documents are also referenced by self-links. The following helper function lets us retrieve documents by another attribute (e.g. "id") rather than self-link:
+5. Like Azure Cosmos databases and collections, documents are also referenced by self-links. The following helper function lets us retrieve documents by another attribute (e.g. "ID") rather than self-link:
    
         private Document getDocumentById(String id) {
             // Retrieve the document using the DocumentClient.
@@ -260,7 +260,7 @@ To do this, you will need to convert your project to a maven project by completi
                 return null;
             }
         }
-6. We can use the helper method in step 5 to retrieve a TodoItem JSON document by id and then deserialize it to a POJO:
+6. We can use the helper method in step 5 to retrieve a TodoItem JSON document by ID and then deserialize it to a POJO:
    
         @Override
         public TodoItem readTodoItem(String id) {

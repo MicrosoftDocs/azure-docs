@@ -215,7 +215,7 @@ The specific effects of extended sessions on orchestrator and entity functions a
 
 ### Orchestrator function replay
 
-As mentioned previously, orchestrator functions are replayed using the contents of the **History** table. By default, the orchestrator function code is replayed every time a batch of messages are dequeued from a control queue. When extended sessions are enabled, orchestrator function instances are held in memory longer and new messages can be processed without a full history replay.
+As mentioned previously, orchestrator functions are replayed using the contents of the **History** table. By default, the orchestrator function code is replayed every time a batch of messages are dequeued from a control queue. Even if you are using the fan-out, fan-in pattern and are awaiting for all tasks to complete (for example, using `Task.WhenAll` in .NET or `context.df.Task.all` in JavaScript), there will be replays that occur as batches of task responses are processed over time. When extended sessions are enabled, orchestrator function instances are held in memory longer and new messages can be processed without a full history replay.
 
 The performance improvement of extended sessions is most often observed in the following situations:
 

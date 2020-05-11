@@ -143,7 +143,7 @@ For information about configuring Azure AD, see:
 
 ## Manage database access
 
-Manage database access by adding users to the database, or allowing user access with secure connection strings. Connection strings are useful for external applications. To learn more, see [Azure SQL access control](sql-database-control-access.md) and [AD authentication](sql-database-aad-authentication.md).
+Manage database access by adding users to the database, or allowing user access with secure connection strings. Connection strings are useful for external applications. To learn more, see [Manage logins and user accounts](sql-database-manage-logins.md) and [AD authentication](sql-database-aad-authentication.md).
 
 To add users, choose the database authentication type:
 

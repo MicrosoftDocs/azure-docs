@@ -4,7 +4,7 @@
   items:
   - name: What is Data Catalog?
     href: overview.md
-- name: Quickstart
+- name: Quickstarts
   items:
   - name: Create an Azure Data Catalog
     href: data-catalog-get-started.md

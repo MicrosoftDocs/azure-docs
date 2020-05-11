@@ -61,7 +61,7 @@ Azure Marketplace is an online applications and services marketplace where you c
    > [!NOTE]
    > Please do not change or update the **Image URI** or the **ACCEPT_EULA** settings on the module.
 
-6. On the **IoT Edge Custom Modules** pane, update the container create options desired value for the **Host Port** and the **Target** for the Mount points. The mount point target is where the SQL database files would be stored on the host IoT Edge device.
+6. On the **IoT Edge Custom Modules** pane, update the container create options desired value for the **Host Port**. If you need to deploy more than one SQL DB Edge module, please make sure to update the mounts option to create a new source & target pair for the persistent volume. For more information on mounts and volume, refer [Use volumes](https://docs.docker.com/storage/volumes/) on docker documentation. 
 
    ```json
        {

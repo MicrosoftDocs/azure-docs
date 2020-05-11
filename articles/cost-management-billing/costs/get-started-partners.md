@@ -1,10 +1,9 @@
 ---
 title: Get started with Azure Cost Management for partners
 description: This article explains how partners use Azure Cost Management features and how they enable Cost Management access for their customers.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
@@ -135,18 +134,14 @@ When the cost policy is set to **Yes**, subscription users associated to the cus
 
 When the cost visibility policy is enabled, all services that have subscription usage show costs at pay-as-you-go rates. Reservation usage appears with zero charges for actual and amortized costs. Purchases and entitlements are not associated to a specific subscription. So, purchases aren't displayed at the subscription scope.
 
-To view costs for the customer tenant, open **Cost Management + Billing** and select the relevant Microsoft Partner Agreement billing account.
 
-![Select a billing account](./media/get-started-partners/select-billing-account.png)
+### View customer costs
 
-Under **Billing**, select **Azure subscriptions**, and then select a customer.
-
-![Select an Azure subscription customer](./media/get-started-partners/subscriptions-select-customer.png)
-
-select **Cost analysis** and start reviewing costs.
-Cost analysis, budgets, and alerts are available for the subscription and resource group RBAC scopes at pay-as-you-go rate-based costs.
+To view costs for the customer tenant, open **Cost Management + Billing**. Select **Cost analysis** and then change the scope to the customer tenant subscription to start reviewing costs.
 
 ![View cost analysis as a customer ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+
+Cost analysis, budgets, and alerts are available for the subscription and resource group RBAC scopes at pay-as-you-go rate-based costs.
 
 Amortized views and actual costs for reserved instances in the RBAC scopes show zero charges. Reserved instance costs are only showing in billing scopes where the purchases were made.
 

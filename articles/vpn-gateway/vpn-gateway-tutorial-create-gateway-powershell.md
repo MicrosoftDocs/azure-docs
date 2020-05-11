@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 03/11/2020
 ms.author: cherylmc
 #Customer intent: I want to create a VPN gateway for my virtual network so that I can connect to my VNet and communicate with resources remotely.
 ---
@@ -25,9 +25,7 @@ The following diagram shows the virtual network and the VPN gateway created as p
 
 ![VNet and VPN gateway](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
-### Azure Cloud Shell and Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+### Working with Azure Cloud Shell and Azure PowerShell
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 

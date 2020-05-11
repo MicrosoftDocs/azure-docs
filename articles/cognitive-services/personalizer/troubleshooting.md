@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting - Personalizer
 description: This article contains answers to frequently asked troubleshooting questions about Personalizer.
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/26/2020
 ms.author: diberry
 ---
@@ -57,7 +57,7 @@ If you are unsure about how your learning loop is currently behaving, run an [of
 
 **Answer**: Personalizer returns the same probabilities in a Rank API result when it has just started and has an _empty_ model, or when you reset the Personalizer Loop, and your model is still within your **Model update frequency** period.
 
-When the new update period begins, the updated model is used, and you’ll see the probabilities change.
+When the new update period begins, the updated model is used, and you'll see the probabilities change.
 
 </details>
 
@@ -88,7 +88,7 @@ When the new update period begins, the updated model is used, and you’ll see t
 </details>
 
 <details>
-<summary><b>I created an offline evaluation and it succeeded almost instantly. Why is that? I don’t see any results?</b></summary>
+<summary><b>I created an offline evaluation and it succeeded almost instantly. Why is that? I don't see any results?</b></summary>
 
 **Answer**: The offline evaluation uses the trained model data from the events in that time period. If you did not send any data in the time period between start and end time of the evaluation, it will complete without any results. Submit a new offline evaluation by selecting a time range with events you know were sent to Personalizer.
 

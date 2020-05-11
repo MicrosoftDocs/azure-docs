@@ -1,5 +1,5 @@
 ---
-title: User retention analysis for web applications with Azure Application Insights | Microsoft docs
+title: Analyze web app user retention with Azure Application Insights
 description: How many users return to your app?
 ms.topic: conceptual
 author: NumberByColors

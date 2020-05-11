@@ -3,9 +3,9 @@ title: Azure Virtual Machine Agent Overview
 description: Azure Virtual Machine Agent Overview
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594

@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # Provision throughput on a database in Azure Cosmos DB
 
-This article explains how to provision throughput on a database in Azure Cosmos DB. You can provision throughput for a single [container](how-to-provision-container-throughput.md), or for a database and share the throughput among the containers within it. To learn when to use container-level and database-level throughput, see the [Use cases for provisioning throughput on containers and databases](set-throughput.md) article. You can provision database level throughput by using the Azure portal or Azure Cosmos DB SDKs.
+This article explains how to provision throughput on a database in Azure Cosmos DB. You can provision throughput for a single [container](how-to-provision-container-throughput.md), or for a database and share the throughput among the containers within it. To learn when to use container level and database level throughput, see the [Use cases for provisioning throughput on containers and databases](set-throughput.md) article. You can provision database level throughput by using the Azure portal or Azure Cosmos DB SDKs.
 
 ## Provision throughput using Azure portal
 
@@ -43,7 +43,7 @@ To create a database with shared throughput see,
 
 ### <a id="dotnet-all"></a>All APIs
 
-### .Net V2 SDK
+# [.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 //set the throughput for the database
@@ -58,12 +58,16 @@ await client.CreateDatabaseIfNotExistsAsync(
     options);
 ```
 
-### .Net V3 SDK
+# [.NET SDK V3](#tab/dotnetv3)
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs" id="DatabaseCreateWithThroughput":::
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
+
+---
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
-Similar command can be executed through any CQL compliant driver. 
+
+Similar command can be executed through any CQL compliant driver.
+
 ```csharp
 // Create a Cassandra keyspace and provision throughput of 400 RU/s
 session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");

@@ -11,6 +11,8 @@ ms.date: 10/21/2019
 
 # Using column patterns in mapping data flow
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Several mapping data flow transformations allow you to reference template columns based on patterns instead of hard-coded column names. This matching is known as *column patterns*. You can define patterns to match columns based on name, data type, stream, or position instead of requiring exact field names. There are two scenarios where column patterns are useful:
 
 * If incoming source fields change often such as the case of changing columns in text files or NoSQL databases. This scenario is known as [schema drift](concepts-data-flow-schema-drift.md).
@@ -38,23 +40,35 @@ To verify your matching condition is correct, you can validate the output schema
 
 ## Rule-based mapping in select and sink
 
-When mapping columns in source and select transformations, you can add either fixed mapping or rule-based mappings. If you know the schema of your data and expect specific columns from the source dataset to always match specific static names, use fixed mapping. If you're working with flexible schemas, use rule-based mapping to build a pattern match based on the `name`, `type`, `stream`, and `position` of columns. You can have any combination of fixed and rule-based mappings. 
+When mapping columns in source and select transformations, you can add either fixed mapping or rule-based mappings. Match based on the `name`, `type`, `stream`, and `position` of columns. You can have any combination of fixed and rule-based mappings. By default, all projections with greater than 50 columns will default to a rule-based mapping that matches on every column and outputs the inputted name. 
 
 To add a rule-based mapping, click **Add mapping** and select **Rule-based mapping**.
 
 ![rule-based mapping](media/data-flow/rule2.png "Rule-based mapping")
 
-In the left expression box, enter your boolean match condition. In the right expression box, specify what the matched column will be mapped to. Use `$$` to reference the existing name of the matched field.
+Each rule-based mapping requires two inputs: the condition on which to match by and what to name each mapped column. Both values are inputted via the [expression builder](concepts-data-flow-expression-builder.md). In the left expression box, enter your boolean match condition. In the right expression box, specify what the matched column will be mapped to.
 
-If you click the downward chevron icon, you can specify a regex mapping condition.
+![rule-based mapping](media/data-flow/rule-based-mapping.png "Rule-based mapping")
 
-Click the eyeglasses icon next to a rule-based mapping to view which defined columns are matched and what they're mapped to.
+Use `$$` syntax to reference the input name of a matched column. Using the above image as an example, say a user wants to match on all string columns whose names are shorter than six characters. If one incoming column was named `test`, the expression `$$ + '_short'` will rename the column `test_short`. If that's the only mapping that exists, all columns that don't meet the condition will be dropped from the outputted data.
 
-![rule-based mapping](media/data-flow/rule1.png "Rule-based mapping")
+Patterns match both drifted and defined columns. To see which defined columns are mapped by a rule, click the eyeglasses icon next to the rule. Verify your output using data preview.
 
-In the above example, two rule-based mappings are created. The first takes all columns not named 'movie' and maps them to their existing values. The second rule uses regex to match all columns that start with 'movie' and maps them to column 'movieId'.
+### Regex mapping
 
-If your rule results in multiple identical mappings, enable **Skip duplicate inputs** or **Skip duplicate outputs** to prevent duplicates.
+If you click the downward chevron icon, you can specify a regex-mapping condition. A regex-mapping condition matches all column names that match the specified regex condition. This can be used in combination with standard rule-based mappings.
+
+![rule-based mapping](media/data-flow/regex-matching.png "Rule-based mapping")
+
+The above example matches on regex pattern `(r)` or any column name that contains a lower case r. Similar to standard rule-based mapping, all matched columns are altered by the condition on the right using `$$` syntax.
+
+### Rule-based hierarchies
+
+If your defined projection has a hierarchy, you can use rule-based mapping to map the hierarchies subcolumns. Specify a matching condition and the complex column whose subcolumns you wish to map. Every matched subcolumn will be outputted using the 'Name as' rule specified on the right.
+
+![rule-based mapping](media/data-flow/rule-based-hierarchy.png "Rule-based mapping")
+
+The above example matches on all subcolumns of complex column `a`. `a` contains two subcolumns `b` and `c`. The output schema will include two columns `b` and `c` as the 'Name as' condition is `$$`.
 
 ## Pattern matching expression values.
 

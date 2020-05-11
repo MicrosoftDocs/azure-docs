@@ -14,6 +14,10 @@ ms.author: raynew
 
 Read this article for a quick overview of how the [Azure Site Recovery](site-recovery-overview.md) service helps you to migrate machines. 
 
+> [!TIP]
+> You should now use the Azure Migrate service to migrate VMs and servers to Azure, instead of the Azure Site Recovery service. [Learn more](../migrate/migrate-services-overview.md).
+
+
 Here's what you can migrate using Site Recovery:
 
 - **Migrate from on-premises to Azure**: Migrate on-premises Hyper-V VMs, VMware VMs, and physical servers to Azure. After the migration, workloads running on the on-premises machines will be running on Azure VMs. 

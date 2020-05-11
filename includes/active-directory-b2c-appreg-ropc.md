@@ -1,10 +1,10 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
+ms.author: mimart
 # Used by the ROPC configuration articles for both user flows and custom policies
 ---
 To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the new experience](https://aka.ms/b2cappregintro).
@@ -32,4 +32,10 @@ To register an application in your Azure AD B2C tenant, you can use the current 
 1. Under **Manage**, select **Authentication**.
 1. Select **Try out the new experience** (if shown).
 1. Under **Default client type**, select **Yes** to treat the application as a public client. This setting is required for the ROPC flow.
+1. Select **Save**.
+1. In the left menu, select **Manifest** to open the manifest editor. 
+1. Set the **oauth2AllowImplicitFlow** attribute to *true*:
+    ```json
+    "oauth2AllowImplicitFlow": true,
+    ```
 1. Select **Save**.

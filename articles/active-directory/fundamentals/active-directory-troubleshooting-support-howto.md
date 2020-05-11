@@ -44,15 +44,26 @@ If you are unable to find answers by using self-help resources, you can open an 
 2. Scroll down to **Troubleshooting + Support** and select **New support request**.
    
 3. On the **Basics** blade, for **Issue type**, select **Technical**.
-   
-4. For **Service**, select **Azure Active Directory**, and then select **Next**.
 
-5. On the **Problem** blade, select a [Severity](https://azure.microsoft.com/support/plans/response/).
+4. Select your **Subscription**.
+
+5. For **Service**, select **Azure Active Directory**.
+
+6. Create a **Summary** for the request. The summary must be under 140 characters.
   
-6. Select a **Problem type**, and then select a **Category** for that type. At this point, you are also offered self-help information for your problem category.
+7. Select a **Problem type**, and then select a category for that type. At this point, you are also offered self-help information for your problem category.
   
-7. Add the rest of your problem information and click **Next**.
-  
+7. Add the rest of your problem information and click **Next**. 
+
+8. At this point, you are offered self-help solutions and documentation in the **Solutions** blade. If none of the solutions there resolve your problem, click **Next**. 
+
+9. On the **Details** blade, fill out the required details and select a [Severity](https://azure.microsoft.com/support/plans/response/). 
+ 
+![image](https://user-images.githubusercontent.com/13383753/76565580-1c284900-6468-11ea-8c0f-85af98097b6f.png)
+ 
+10. Provide your contact information and select **Next**. 
+
+
 8. Provide your contact information and select **Create**.
   ![Problem category self-help screenshot](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 

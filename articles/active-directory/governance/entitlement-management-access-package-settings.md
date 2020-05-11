@@ -39,7 +39,7 @@ As long as the catalog for the access package is [enabled for external users](en
 
     ![Access package overview - My Access portal link](./media/entitlement-management-shared/my-access-portal-link.png)
 
-    It is important that you copy the entire My Access portal link when sending it to an internal business partner. This ensures that the partner will get access to your directory's portal to make their request. The link starts with `myaccess`, includes a directory hint, and ends with an access package ID.
+    It is important that you copy the entire My Access portal link when sending it to an internal business partner. This ensures that the partner will get access to your directory's portal to make their request. The link starts with `myaccess`, includes a directory hint, and ends with an access package ID.  (For US Government, the domain in the My Access portal link will be `myaccess.microsoft.us`.)
 
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

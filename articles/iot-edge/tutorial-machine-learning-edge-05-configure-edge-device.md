@@ -8,6 +8,7 @@ ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
+ms.custom:  amqp
 ---
 # Tutorial: Configure an IoT Edge device
 
@@ -20,7 +21,7 @@ The steps in this article are typically performed by a cloud developer.
 
 ## Create certificates
 
-For a device to function as a gateway it needs to be able to securely connect to downstream devices. Azure IoT Edge allows you to use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we’re allowing a downstream IoT device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the IoT Edge device. For more information about how IoT Edge devices use certificates, see [Azure IoT Edge certificate usage details](iot-edge-certs.md).
+For a device to function as a gateway it needs to be able to securely connect to downstream devices. Azure IoT Edge allows you to use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we're allowing a downstream IoT device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the IoT Edge device. For more information about how IoT Edge devices use certificates, see [Azure IoT Edge certificate usage details](iot-edge-certs.md).
 
 In this section, we create the self-signed certificates using a Docker image that we then build and run. We chose to use a Docker image to complete this step because it significantly reduces the number of steps needed to create the certificates on the Windows development machine. See [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md) to understand what we automated with the Docker image.
 
@@ -159,7 +160,7 @@ Next, run the script to create the virtual machine for your IoT Edge device.
 
     * Create the resource group if it does not exist already
     * Create the virtual machine
-    * Add NSG exceptions for the VM for ports 22 (SSH), 5671 (AMQP), 5672 (AMPQ), and 443 (SSL)
+    * Add NSG exceptions for the VM for ports 22 (SSH), 5671 (AMQP), 5672 (AMPQ), and 443 (TLS)
     * Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest))
 
 7. The script outputs the SSH connection string for connecting to the VM. Copy the connection string for the next step.
@@ -190,7 +191,7 @@ We will deal with the leaf device later in the tutorial. In this section, downlo
 
 1. From the SSH session on the Linux virtual machine, sign in to Azure with the Azure CLI.
 
-    ```bash
+    ```azurecli
     az login
     ```
 
@@ -200,7 +201,7 @@ We will deal with the leaf device later in the tutorial. In this section, downlo
 
 1. Set the Azure subscription that you want to use for Azure CLI commands.
 
-    ```bash
+    ```azurecli
     az account set --subscription <subscriptionId>
     ```
 
@@ -212,7 +213,7 @@ We will deal with the leaf device later in the tutorial. In this section, downlo
 
 1. Download the certificates that you stored in the key vault: new-edge-device-full-chain.cert.pem, new-edge-device.key.pem, and azure-iot-test-only.root.ca.cert.pem
 
-    ```bash
+    ```azurecli
     key_vault_name="<key vault name>"
     sudo az keyvault secret download --vault-name $key_vault_name --name new-edge-device-full-chain-cert-pem -f /edgeMlCertificates/new-edge-device-full-chain.cert.pem
     sudo az keyvault secret download --vault-name $key_vault_name --name new-edge-device-key-pem -f /edgeMlCertificates/new-edge-device.key.pem
@@ -276,13 +277,13 @@ Next we will update the certificates and hostname by directly editing the config
     sudo systemctl restart iotedge
     ```
 
-7. Check the status of the IoT Edge Daemon (after the command, type “:q” to exit).
+7. Check the status of the IoT Edge Daemon (after the command, type ":q" to exit).
 
     ```bash
     systemctl status iotedge
     ```
 
-8. If you see errors (colored text prefixed with “\[ERROR\]”) in the status Examine daemon logs for detailed error information.
+8. If you see errors (colored text prefixed with "\[ERROR\]") in the status Examine daemon logs for detailed error information.
 
     ```bash
     journalctl -u iotedge --no-pager --no-full
@@ -290,7 +291,7 @@ Next we will update the certificates and hostname by directly editing the config
 
 ## Next steps
 
-We just completed configuring an Azure VM as Azure IoT Edge Transparent Gateway. We started by generating test certificates that we uploaded to Azure Key Vault. Next, we used a script and Resource Manager template to deploy the VM with the “Ubuntu Server 16.04 LTS + Azure IoT Edge runtime” image from the Azure Marketplace. With the VM up and running we connected via SSH, we signed into Azure and downloaded certificates from Key Vault. We made several updates to the configuration of the IoT Edge Runtime by updating the config.yaml file.
+We just completed configuring an Azure VM as Azure IoT Edge Transparent Gateway. We started by generating test certificates that we uploaded to Azure Key Vault. Next, we used a script and Resource Manager template to deploy the VM with the "Ubuntu Server 16.04 LTS + Azure IoT Edge runtime" image from the Azure Marketplace. With the VM up and running we connected via SSH, we signed into Azure and downloaded certificates from Key Vault. We made several updates to the configuration of the IoT Edge Runtime by updating the config.yaml file.
 
 For more information see [How an IoT Edge device can be used as a gateway](iot-edge-as-gateway.md) and [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
 

@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -31,7 +31,6 @@ Azure virtual machines (VMs) use disks to store the operating system, applicatio
 > * Standard and Premium disks
 > * Disk performance
 > * Attaching and preparing data disks
-> * Resizing disks
 > * Disk snapshots
 
 
@@ -115,7 +114,7 @@ Once a disk has been attached to the virtual machine, the operating system needs
 
 Create an SSH connection with the virtual machine. Replace the example IP address with the public IP of the virtual machine.
 
-```azurecli-interactive
+```console
 ssh 10.101.10.10
 ```
 
@@ -264,7 +263,6 @@ In this tutorial, you learned about VM disks topics such as:
 > * Standard and Premium disks
 > * Disk performance
 > * Attaching and preparing data disks
-> * Resizing disks
 > * Disk snapshots
 
 Advance to the next tutorial to learn about automating VM configuration.

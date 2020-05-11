@@ -25,7 +25,7 @@ This article first describes the setup for SSH (using port 22) and then describe
 
 The following figure illustrates how the device-local and service-local proxy applications in this sample enable end-to-end connectivity between the SSH client and SSH daemon processes. Here, we assume that the daemon is running on the same device as the device-local proxy application.
 
-![Local proxy application setup](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
+![Local proxy application setup](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.png)
 
 1. The service-local proxy application connects to the IoT hub and initiates a device stream to the target device.
 
@@ -40,7 +40,7 @@ The following figure illustrates how the device-local and service-local proxy ap
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -64,8 +64,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * Run the following command to add the Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS)-specific commands to the Azure CLI.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
+
+   ```azurecli-interactive
+   az extension add --name azure-iot
+   ```
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 * [Download the Azure IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip), and extract the ZIP archive.
 

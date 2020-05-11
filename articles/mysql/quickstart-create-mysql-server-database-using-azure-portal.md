@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 3/20/2020
 ---
 
 # Create an Azure Database for MySQL server by using the Azure portal
@@ -52,7 +52,7 @@ Follow these steps to create an Azure Database for MySQL server:
 
    ![Create server - pricing tier window](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
 
-4. Select **Create** to provision the server. Provisioning can take up to 20 minutes.
+4. Select **Review + create** to provision the server. Provisioning can take up to 20 minutes.
    
 5. Select **Notifications** on the toolbar (the bell icon) to monitor the deployment process.
    
@@ -166,7 +166,7 @@ Now you have connected to the Azure Database for MySQL server and created a blan
 ## Connect to the server by using the MySQL Workbench GUI tool
 To connect to the server by using the GUI tool MySQL Workbench, take the following steps:
 
-1.	Open the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
+1.    Open the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
 2. Create a new connection. Select the plus (+) icon beside the **MySQL Connections** heading.
 
@@ -197,9 +197,9 @@ You can clean up the resources that you created in the Quickstart in two ways. Y
 
 To delete the entire resource group including the newly created server, take the following steps:
 
-1.	Locate your resource group in the Azure portal. On the menu on the left, select **Resource groups**, and then select the name of your resource group (such as our example, **myresourcegroup**).
+1.    Locate your resource group in the Azure portal. On the menu on the left, select **Resource groups**, and then select the name of your resource group (such as our example, **myresourcegroup**).
 
-2.	On your resource group page, select **Delete**. Then enter the name of your resource group (such as our example **myresourcegroup**) in the box to confirm deletion, and select **Delete**.
+2.    On your resource group page, select **Delete**. Then enter the name of your resource group (such as our example **myresourcegroup**) in the box to confirm deletion, and select **Delete**.
 
 To delete only the newly created server, take the following steps:
 

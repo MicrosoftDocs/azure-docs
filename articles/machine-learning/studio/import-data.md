@@ -14,6 +14,8 @@ ms.date: 02/01/2019
 ---
 # Import your training data into Azure Machine Learning Studio (classic) from various data sources
 
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 To use your own data in Machine Learning Studio (classic) to develop and train a predictive analytics solution, you can use data from: 
 
 * **Local file** - Load local data ahead of time from your hard drive to create a dataset module in your workspace

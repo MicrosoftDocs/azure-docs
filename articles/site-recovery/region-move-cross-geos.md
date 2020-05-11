@@ -95,7 +95,7 @@ The Mobility service must be installed on each server you want to replicate. Sit
     - [Load balancers](https://docs.microsoft.com/azure/load-balancer)
     - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     
-    For any other networking components, refer to the networking [documentation.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
+    For any other networking components, refer to the networking [documentation](https://docs.microsoft.com/azure/?pivot=products&panel=network).
 
 4. Manually [create a non-production network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) in the target region if you wish to test the configuration before you perform the final cut over to the target region. This will create minimal interference with the production and is recommended.
 

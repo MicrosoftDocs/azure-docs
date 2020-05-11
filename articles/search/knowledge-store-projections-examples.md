@@ -668,7 +668,13 @@ When defining a projection, there are a few common issues that can cause unantic
 
 The examples in this article demonstrate common patterns on how to create projections. Now that you have a good understanding of the concepts, you are better equipped to build projections for your specific scenario.
 
-As you iterate over knowledge store definitions, consider incremental enrichment as your next step. Incremental enrichment is based on caching, which lets you reuse any enrichments that are not otherwise affected by a skillset modification. This is especially useful for pipelines that include OCR and image analysis.
+As you explore new features, consider incremental enrichment as your next step. Incremental enrichment is based on caching, which lets you reuse any enrichments that are not otherwise affected by a skillset modification. This is especially useful for pipelines that include OCR and image analysis.
 
 > [!div class="nextstepaction"]
 > [Introduction to incremental enrichment and caching](cognitive-search-incremental-indexing-conceptual.md)
+
+For an overview on projections, learn more about capabilities like groups and slicing, and how you [define them in a skillset](knowledge-store-projection-overview.md)
+
+> [!div class="nextstepaction"]
+> [Projections in a knowledge store](knowledge-store-projection-overview.md)
+

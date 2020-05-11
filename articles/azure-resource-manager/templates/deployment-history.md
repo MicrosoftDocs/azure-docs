@@ -27,7 +27,7 @@ You can view details about a deployment through the Azure portal, PowerShell, Az
 
    ![Select deployment](./media/deployment-history/select-details.png)
 
-1. A summary of the deployment is displayed, including the correlation ID. 
+1. A summary of the deployment is displayed, including the correlation ID.
 
     ![Deployment summary](./media/deployment-history/show-correlation-id.png)
 
@@ -53,27 +53,27 @@ To get the correlation ID, use:
 
 # [Azure CLI](#tab/azure-cli)
 
-To list the deployment for a resource group, use [az group deployment list](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-list).
+To list the deployment for a resource group, use [az deployment group list](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list).
 
 ```azurecli-interactive
-az group deployment list --resource-group ExampleGroup
+az deployment group list --resource-group ExampleGroup
 ```
 
-To get a specific deployment, use the [az group deployment show](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-show).
+To get a specific deployment, use the [az deployment group show](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-show).
 
 ```azurecli-interactive
-az group deployment show --resource-group ExampleGroup --name ExampleDeployment
+az deployment group show --resource-group ExampleGroup --name ExampleDeployment
 ```
-  
+
 To get the correlation ID, use:
 
 ```azurecli-interactive
-az group deployment show --resource-group ExampleGroup --name ExampleDeployment --query properties.correlationId
+az deployment group show --resource-group ExampleGroup --name ExampleDeployment --query properties.correlationId
 ```
 
 # [HTTP](#tab/http)
 
-To list the deployments for a resource group, use the following operation. For the latest API version number to use in the request, see  [Deployments - List By Resource Group](/rest/api/resources/deployments/listbyresourcegroup). 
+To list the deployments for a resource group, use the following operation. For the latest API version number to use in the request, see  [Deployments - List By Resource Group](/rest/api/resources/deployments/listbyresourcegroup).
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
@@ -139,22 +139,22 @@ To get the status message of failed operations, use the following command:
 
 # [Azure CLI](#tab/azure-cli)
 
-To view the deployment operations for deployment to a resource group, use the [az group deployment operation list](/cli/azure/group/deployment/operation?view=azure-cli-latest#az-group-deployment-operation-list) command.
+To view the deployment operations for deployment to a resource group, use the [az deployment group operation list](/cli/azure/group/deployment/operation?view=azure-cli-latest#az-deployment-group-operation-list) command.
 
 ```azurecli-interactive
-az group deployment operation list --resource-group ExampleGroup --name ExampleDeployment
+az deployment group operation list --resource-group ExampleGroup --name ExampleDeployment
 ```
 
 To view failed operations, filter operations with **Failed** state.
 
 ```azurecli-interactive
-az group deployment operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
+az deployment group operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
 ```
 
 To get the status message of failed operations, use the following command:
 
 ```azurecli-interactive
-az group deployment operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
+az deployment group operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
 ```
 
 # [HTTP](#tab/http)
