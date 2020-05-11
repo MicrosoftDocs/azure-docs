@@ -119,9 +119,9 @@ Diagnostic events are sent to Log Analytics when completed.
 
 Log Analytics only reports in these intermediate states for connection activities:
 
-- Started
-- Connected
-- Completed
+- Started: indicates when a user has selected the app or desktop in the remote desktop client to connect too.
+- Connected: when the user has landed on the VM where the application or desktop is hosted they are entitled to connect.
+- Completed: when either user or server disconnected the session for the started activity.
 
 ## Example queries
 
