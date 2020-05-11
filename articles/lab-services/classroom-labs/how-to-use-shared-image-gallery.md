@@ -19,7 +19,7 @@ ms.author: spelluru
 # Use a shared image gallery in Azure Lab Services
 This article shows how teachers/lab admin can save a template virtual machine image to a [shared image gallery](../../virtual-machines/windows/shared-image-galleries.md) so that it can be used by others to create labs. 
 
->## Scenarios
+## Scenarios
 Here are the couple of scenarios supported by this feature: 
 
 - A lab account admin attaches a shared image gallery to the lab account, and uploads an image to the shared image gallery outside the context of a lab. Then, lab creators can use that image from the shared image gallery to create labs. 
