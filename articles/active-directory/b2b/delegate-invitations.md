@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 05/11/2020
 
 ms.author: mimart
 author: msmimart
@@ -37,7 +37,7 @@ By default, all users, including guests, can invite guest users.
 2. Select **Azure Active Directory** > **Users** > **User settings**.
 3. Under **External users**, select **Manage external collaboration settings**.
    > [!NOTE]
-   > The **External collaboration settings** are also available from the **Organizational relationships** page. In Azure Active Directory, under **Manage**, go to **Organizational relationships** > **Settings**.
+   > The **External collaboration settings** are also available from the **Organizational relationships** page (soon to be renamed **External Identities**). In Azure Active Directory, under **Manage**, go to **Organizational relationships** > **Settings**.
 4. On the **External collaboration settings** page, choose the policies you want to enable.
 
    ![External collaboration settings](./media/delegate-invitations/control-who-to-invite.png)
