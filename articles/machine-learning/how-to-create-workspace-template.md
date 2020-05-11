@@ -98,7 +98,7 @@ __To add the Azure Machine Learning app as a contributor__, use the following co
     az login
     ```
     
-    [!INCLUDE [subscription-login](../../includes/machine-learning-cli-subscriptions.md)]
+    [!INCLUDE [subscription-login](../../includes/machine-learning-cli-subscription.md)]
 
 1. To get the object ID of the Azure Machine Learning app, use the following command. The value may be different for each of your Azure subscriptions:
 
@@ -132,7 +132,7 @@ __To add an access policy to the key vault, use the following commands__:
     az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
     ```
 
-__To enable customer-managed keys for Azure Cosmos DB__, send mail to [azurecosmosdbcmk@service.microsoft.com](azurecosmosdbcmk@service.microsoft.com) with your Azure subscription ID. For more information, see [Configure customer-managed keys for your Azure Cosmos account](..//cosmos-db/how-to-setup-cmk.md).
+__To enable customer-managed keys for Azure Cosmos DB__, send mail to azurecosmosdbcmk@service.microsoft.com with your Azure subscription ID. For more information, see [Configure customer-managed keys for your Azure Cosmos account](..//cosmos-db/how-to-setup-cmk.md).
 
 __To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `resource_cmk_uri` (key URI) parameters needed by this template, use the following steps:
 
