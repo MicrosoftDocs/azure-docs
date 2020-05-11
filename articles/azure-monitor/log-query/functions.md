@@ -1,28 +1,15 @@
 ---
 title: Functions in Azure Monitor log queries | Microsoft Docs
 description: This article describes how to use functions to call a query from another log query in Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/15/2018
+author: bwren
 ms.author: bwren
+ms.date: 11/15/2018
+
 ---
 
-
 # Using functions in Azure Monitor log queries
-
-> [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 
 To use a log query with another query you can save it as a function. This allows you to simplify complex queries by breaking them into parts and allows you to reuse common code with multiple queries.
 
@@ -40,8 +27,6 @@ Create a function with Log Analytics in the Azure portal by clicking **Save** an
 > [!NOTE]
 > A function in Azure Monitor cannot contain another function.
 
-> [!NOTE]
-> Saving a function is possible in Azure Monitor log queries, but currently not for Application Insights queries.
 
 
 

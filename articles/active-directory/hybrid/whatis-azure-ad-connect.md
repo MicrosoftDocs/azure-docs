@@ -7,22 +7,21 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
-ms.topic: conceptual
 ms.collection: M365-identity-device-management
 ---
 
 # What is Azure AD Connect?
 
 Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals.  It provides the following features:
- 	
+     
 - [Password hash synchronization](whatis-phs.md) - A sign-in method that synchronizes a hash of a users on-premises AD password with Azure AD.
 - [Pass-through authentication](how-to-connect-pta.md) - A sign-in method that allows users to use the same password on-premises and in the cloud, but doesn't require the additional infrastructure of a federated environment.
 - [Federation integration](how-to-connect-fed-whatis.md) - Federation is an optional part of Azure AD Connect and can be used to configure a hybrid environment using an on-premises AD FS infrastructure. It also provides AD FS management capabilities such as certificate renewal and additional AD FS server deployments.
 - [Synchronization](how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects.  As well as, making sure identity information for your on-premises users and groups is matching the cloud.  This synchronization also includes password hashes.
--  	[Health Monitoring](whatis-hybrid-identity-health.md) - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
+- [Health Monitoring](whatis-hybrid-identity-health.md) - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
 
 
 ![What is Azure AD Connect](./media/whatis-hybrid-identity/arch.png)
@@ -64,8 +63,8 @@ Rich [usage metrics](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|To
 
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
-
-
+## License requirements for using Azure AD Connect Health
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-p1-license.md)]
 
 ## Next steps
 

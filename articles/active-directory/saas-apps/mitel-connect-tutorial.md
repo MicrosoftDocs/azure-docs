@@ -8,7 +8,8 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 204f540b-09f1-452b-a52f-78143710ef76
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -197,7 +198,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 In this section, you create a user named Britta Simon on your MiCloud Connect account. Users must be created and activated before using single sign-on.
 
-For details about adding users in the Mitel Account portal, see the [Adding a User](https://docs.shoretel.com/connectcloud/Account/Users/AddUser) article in the Mitel Knowledge Base.
+For details about adding users in the Mitel Account portal, see the [Adding a User](https://oneview.mitel.com/s/article/Adding-a-User-092815) article in the Mitel Knowledge Base.
 
 Create a user on your MiCloud Connect account with the following details:
 
@@ -206,7 +207,7 @@ Create a user on your MiCloud Connect account with the following details:
 * **Business Email Address:** `brittasimon@<yourcompanydomain>.<extension>`   
 (Example: [brittasimon@contoso.com](mailto:brittasimon@contoso.com))
 
-* **Username:** `brittasimon@<yourcompanydomain>.<extension> `  
+* **Username:** `brittasimon@<yourcompanydomain>.<extension>`  
 (Example: [brittasimon@contoso.com](mailto:brittasimon@contoso.com); the user’s username is typically the same as the user’s business email address)
 
 **NOTE:** The user’s MiCloud Connect username must be identical to the user’s email address in Azure.
@@ -223,4 +224,4 @@ When you click the Mitel Connect tile in the Access Panel, you should be automat
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

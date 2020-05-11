@@ -1,13 +1,14 @@
 ---
 title: Install Office on a master VHD image - Azure
-description: How to install and customize Office on a Windows Virtual Desktop preview master image to Azure.
+description: How to install and customize Office on a Windows Virtual Desktop master image to Azure.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: v-chjenk
+ms.author: helohr
+manager: lizross
 ---
 # Install Office on a master VHD image
 
@@ -15,32 +16,31 @@ This article tells you how to install Office 365 ProPlus, OneDrive, and other co
 
 This article assumes you've already created a virtual machine (VM). If not, see [Prepare and customize a master VHD image](set-up-customize-master-image.md#create-a-vm)
 
-This article also assumes you have elevated access on the VM, whether it's provisioned in Azure or Hyper-V Manager. If not, see [Elevate access to manage all Azure subscription and management groups](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+This article also assumes you have elevated access on the VM, whether it's provisioned in Azure or Hyper-V Manager. If not, see [Elevate access to manage all Azure subscription and management groups](../role-based-access-control/elevate-access-global-admin.md).
 
 >[!NOTE]
->These instructions are for a Windows Virtual Desktop Preview-specific configuration that can be used with your organization's existing processes.
+>These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
 ## Install Office in shared computer activation mode
 
-Shared computer activation lets you to deploy Office 365 ProPlus to a computer in your organization that is accessed by multiple users. For more information about shared computer activation, see [Overview of shared computer activation for Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
+Shared computer activation lets you to deploy Office 365 ProPlus to a computer in your organization that is accessed by multiple users. For more information about shared computer activation, see [Overview of shared computer activation for Office 365 ProPlus](/deployoffice/overview-of-shared-computer-activation-for-office-365-proplus/).
 
 Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10 Enterprise multi-session only supports the following versions of Office:
 - Office 365 ProPlus
 - Office 365 Business that comes with a Microsoft 365 Business subscription
 
-The Office Deployment Tool requires a configuration XML file. To customize the following sample, see the [Configuration Options for the Office Deployment Tool](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
+The Office Deployment Tool requires a configuration XML file. To customize the following sample, see the [Configuration Options for the Office Deployment Tool](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/).
 
 This sample configuration XML we've provided will do the following things:
 
-- Install Office from the Insiders Channel and deliver updates from the Insiders Channel when they’re executed.
+- Install Office from the monthly channel and deliver updates from the monthly channel when they're executed.
 - Use the x64 architecture.
 - Disable automatic updates.
-- Install Visio and Project.
 - Remove any existing installations of Office and migrate their settings.
 - Enable shared computer activation.
 
 >[!NOTE]
->Stencil search feature in Visio does not operate in Windows Virtual Desktop during preview configuration.
+>Visio's stencil search feature may not work as expected in Windows Virtual Desktop.
 
 Here's what this sample configuration XML won't do:
 
@@ -58,40 +58,26 @@ Setup.exe /configure configuration.xml
 
 #### Sample configuration.xml
 
-The following XML sample will install the Insiders release.
+The following XML sample will install the monthly release.
 
 ```xml
 <Configuration>
-    <Add OfficeClientEdition="64" SourcePath="http://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
-        <Product ID="O365ProPlusRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Groove" />
-            <ExcludeApp ID="Lync" />
-            <ExcludeApp ID="OneDrive" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-        <Product ID="VisioProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" /> 
-        </Product>
-        <Product ID="ProjectProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-    </Add>
-    <RemoveMSI All="True" />
-    <Updates Enabled="FALSE" UpdatePath="http://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
-    <Display Level="None" AcceptEULA="TRUE" />
-    <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
-    <Property Value="TRUE" Name="FORCEAPPSHUTDOWN"/>
-    <Property Value="1" Name="SharedComputerLicensing"/>
-    <Property Value="TRUE" Name="PinIconsToTaskbar"/>
+  <Add OfficeClientEdition="64" Channel="Monthly">
+    <Product ID="O365ProPlusRetail">
+      <Language ID="en-US" />
+      <Language ID="MatchOS" />
+      <ExcludeApp ID="Groove" />
+      <ExcludeApp ID="Lync" />
+      <ExcludeApp ID="OneDrive" />
+      <ExcludeApp ID="Teams" />
+    </Product>
+  </Add>
+  <RemoveMSI/>
+  <Updates Enabled="FALSE"/>
+  <Display Level="None" AcceptEULA="TRUE" />
+  <Logging Level=" Standard" Path="%temp%\WVDOfficeInstall" />
+  <Property Name="FORCEAPPSHUTDOWN" Value="TRUE"/>
+  <Property Name="SharedComputerLicensing" Value="1"/>
 </Configuration>
 ```
 
@@ -125,7 +111,7 @@ OneDrive is normally installed per-user. In this environment, it should be insta
 
 Here's how to install OneDrive in per-machine mode:
 
-1. First, create a location to stage the OneDrive installer. A local disk folder or [\\\\unc](file://unc) location is fine.
+1. First, create a location to stage the OneDrive installer. A local disk folder or [\\\\unc] (file://unc) location is fine.
 
 2. Download OneDriveSetup.exe to your staged location with this link: <https://aka.ms/OneDriveWVD-Installer>
 

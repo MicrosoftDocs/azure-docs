@@ -1,20 +1,21 @@
 ---
-title: Bulk copy from a database by using a control table with Azure Data Factory | Microsoft Docs
+title: Bulk copy from a database using control table
 description: Learn how to use a solution template to copy bulk data from a database by using an external control table to store a partition list of source tables by using Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 12/14/2018
 ---
+
 # Bulk copy from a database with a control table
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 To copy data from a data warehouse in Oracle Server, Netezza, Teradata, or SQL Server to Azure SQL Data Warehouse, you have to load huge amounts of data from multiple tables. Usually, the data has to be partitioned in each table so that you can load rows with multiple threads in parallel from a single table. This article describes a template to use in these scenarios.
 
@@ -30,12 +31,16 @@ The template contains three activities:
 - **ForEach** gets the partition list from the Lookup activity and iterates each partition to the Copy activity.
 - **Copy** copies each partition from the source database store to the destination store.
 
-The template defines five parameters:
+The template defines following parameters:
 - *Control_Table_Name* is your external control table, which stores the partition list for the source database.
 - *Control_Table_Schema_PartitionID* is the name of the column name in your external control table that stores each partition ID. Make sure that the partition ID is unique for each partition in the source database.
 - *Control_Table_Schema_SourceTableName* is your external control table that stores each table name from the source database.
 - *Control_Table_Schema_FilterQuery* is the name of the column in your external control table that stores the filter query to get the data from each partition in the source database. For example, if you partitioned the data by year, the query that's stored in each row might be similar to ‘select * from datasource where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999'''.
-- *Data_Destination_Folder_Path* is the path where the data is copied into your destination store. This parameter is only visible if the destination that you choose is file-based storage. If you choose SQL Data Warehouse as the destination store, this parameter is not required. But the table names and the schema in SQL Data Warehouse must be the same as the ones in the source database.
+- *Data_Destination_Folder_Path* is the path where the data is copied into your destination store (applicable when the destination that you choose is "File System" or "Azure Data Lake Storage Gen1"). 
+- *Data_Destination_Container* is the root folder path where the data is copied to in your destination store. 
+- *Data_Destination_Directory* is the directory path under the root where the data is copied into your destination store. 
+
+The last three parameters, which define the path in your destination store are only visible if the destination that you choose is file-based storage. If you choose "Azure Synapse Analytics (formerly SQL DW)" as the destination store, these parameters are not required. But the table names and the schema in SQL Data Warehouse must be the same as the ones in the source database.
 
 ## How to use this solution template
 
@@ -65,7 +70,7 @@ The template defines five parameters:
 
 3. Create a **New** connection to the source database that you're copying data from.
 
-     ![Create a new connection to the source database](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
+    ![Create a new connection to the source database](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
 	
 4. Create a **New** connection to the destination data store that you're copying the data to.
 
@@ -73,8 +78,6 @@ The template defines five parameters:
 
 5. Select **Use this template**.
 
-    ![Use this template](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
-	
 6. You see the pipeline, as shown in the following example:
 
     ![Review the pipeline](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
@@ -87,7 +90,7 @@ The template defines five parameters:
 
     ![Review the result](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (Optional) If you chose SQL Data Warehouse as the data destination, you must enter a connection to Azure Blob storage for staging, as required by SQL Data Warehouse Polybase. Make sure that the container in Blob storage has already been created.
+9. (Optional) If you chose "Azure Synapse Analytics (formerly SQL DW)" as the data destination, you must enter a connection to Azure Blob storage for staging, as required by SQL Data Warehouse Polybase. The template will automatically generate a container path for your Blob storage. Check if the container has been created after the pipeline run.
 	
 	![Polybase setting](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
 	   

@@ -1,13 +1,13 @@
 ---
-title: 'Create a zone-redundant virtual network gateway in Azure Availability Zones | Microsoft Docs'
+title: 'Create a zone-redundant virtual network gateway in Azure Availability Zones'
 description: Deploy VPN Gateway and ExpressRoute gateways in Availability Zones
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 02/10/2020
 ms.author: cherylmc
 
 ---
@@ -17,27 +17,11 @@ You can deploy VPN and ExpressRoute gateways in Azure Availability Zones. This b
 
 ## Before you begin
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-You can use either PowerShell installed locally on your computer, or the Azure Cloud Shell. If you choose to install and use the PowerShell locally, this feature requires the latest version of the PowerShell module.
-
-[!INCLUDE [Cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
-
-### To use PowerShell locally
-
-If you are using PowerShell locally on your computer, rather than using Cloud Shell, you must install PowerShell module 1.0.0 or higher. To check the version of PowerShell that you have installed, use the following command:
-
-```azurepowershell
-Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
-```
-
-If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
-
-[!INCLUDE [PowerShell login](../../includes/vpn-gateway-ps-login-include.md)]
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## <a name="variables"></a>1. Declare your variables
 
-The values used for the example steps are listed below. Additionally, some of the examples use declared variables within the steps. If you are using these steps in your own environment, be sure to replace these values with your own. When specifying location, verify that the region you specify is supported. For more information, see the [FAQ](#faq).
+Declare the variables that you want to use. Use the following sample, substituting the values for your own when necessary. If you close your PowerShell/Cloud Shell session at any point during the exercise, just copy and paste the values again to re-declare the variables. When specifying location, verify that the region you specify is supported. For more information, see the [FAQ](#faq).
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"
@@ -150,7 +134,7 @@ Yes, you can use the Azure portal to deploy the new SKUs. However, you will see 
 
 ### What regions are available for me to use the new SKUs?
 
-See [Availability Zones](../availability-zones/az-overview.md#services-support-by-region) for the latest list of available regions.
+See [Availability Zones](../availability-zones/az-region.md) for the latest list of available regions.
 
 ### Can I change/migrate/upgrade my existing virtual network gateways to zone-redundant or zonal gateways?
 

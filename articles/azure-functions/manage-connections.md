@@ -1,13 +1,8 @@
 ---
 title: Manage connections in Azure Functions
 description: Learn how to avoid performance problems in Azure Functions by using static connection clients.
-services: functions
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
-ms.author: glenga
 #Customer intent: As a developer, I want to know how to write my Azure Functions code so that I efficiently use connections and avoid potential bottlenecks.
 ---
 
@@ -112,15 +107,15 @@ public static async Task Run(string input)
 ```javascript
 const cosmos = require('@azure/cosmos');
 const endpoint = process.env.COSMOS_API_URL;
-const masterKey = process.env.COSMOS_API_KEY;
+const key = process.env.COSMOS_API_KEY;
 const { CosmosClient } = cosmos;
 
-const client = new CosmosClient({ endpoint, auth: { masterKey } });
+const client = new CosmosClient({ endpoint, key });
 // All function invocations also reference the same database and container.
 const container = client.database("MyDatabaseName").container("MyContainerName");
 
 module.exports = async function (context) {
-    const { result: itemArray } = await container.items.readAll().toArray();
+    const { resources: itemArray } = await container.items.readAll().fetchAll();
     context.log(itemArray);
 }
 ```

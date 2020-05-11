@@ -1,23 +1,20 @@
 ---
-title: 'Tutorial: Build a Java app with the Async Java SDK to manage a SQL API account in Azure Cosmos DB'
+title: 'Tutorial: Build a Java app with Azure Cosmos DB Async Java SDK to manage data in SQL API account'
 description: This tutorial shows you how to store and access data within a SQL API account in Azure Cosmos DB by using an Async Java application. 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 12/15/2018
+ms.date: 11/05/2019
 ms.author: sngun
-Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
+#Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 
 ---
 # Tutorial: Build a Java app with the Async Java SDK to manage data stored in a SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET (Preview)](sql-api-dotnet-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET Core (Preview)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -42,7 +39,7 @@ Make sure you have the following resources:
 
 * [Git](https://git-scm.com/downloads).
 
-* [Java Development Kit (JDK) 8+](https://aka.ms/azure-jdks).
+* [Java Development Kit (JDK) 8+](/java/azure/jdk/?view=azure-java-stable).
 
 * [Maven](https://maven.apache.org/download.cgi).
 
@@ -112,7 +109,7 @@ client = new AsyncDocumentClient.Builder()
 
 ## <a id="CreateDatabase"></a>Create a database
 
-Create your Azure Cosmos DB database by using the `createDatabaseIfNotExists()` method of the DocumentClient class. A database is the logical container of JSON document storage partitioned across collections.
+Create your Azure Cosmos database by using the `createDatabaseIfNotExists()` method of the DocumentClient class. A database is the logical container of JSON document storage partitioned across collections.
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 

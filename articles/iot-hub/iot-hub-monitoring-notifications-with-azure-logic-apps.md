@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/19/2019
+ms.date: 07/18/2019
 ms.author: robinsh
 #I think this is out of date. I changed 'click' to select. --RobinShahan
 ---
@@ -26,7 +26,25 @@ You learn how to create a logic app that connects your IoT hub and your mailbox 
 
 The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above 30 C, it sets this property to `true`; otherwise, it sets the property to `false`.
 
-In this topic, you set up routing on your IoT hub to send messages in which `temperatureAlert = true` to a Service Bus endpoint, and you set up a logic app that triggers on the messages arriving at the Service Bus endpoint and sends you an email notification.
+Messages arriving at your IoT hub look similar to the following, with the telemetry data contained in the body and the `temperatureAlert` property contained in the application properties (system properties are not shown):
+
+```json
+{
+  "body": {
+    "messageId": 18,
+    "deviceId": "Raspberry Pi Web Client",
+    "temperature": 27.796111770668457,
+    "humidity": 66.77637926438427
+  },
+  "applicationProperties": {
+    "temperatureAlert": "false"
+  }
+}
+```
+
+To learn more about IoT Hub message format, see [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md).
+
+In this topic, you set up routing on your IoT hub to send messages in which the `temperatureAlert` property is `true` to a Service Bus endpoint. You then set up a logic app that triggers on the messages arriving at the Service Bus endpoint and sends you an email notification.
 
 ## What you do
 
@@ -190,7 +208,7 @@ In the preceding section, you set up your IoT hub to route messages containing a
       Get the SMTP information for [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en), and [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
 
       > [!NOTE]
-      > You may need to disable SSL to establish the connection. If this is the case and you want to re-enable SSL after the connection has been established, see the optional step at the end of this section.
+      > You may need to disable TLS/SSL to establish the connection. If this is the case and you want to re-enable TLS after the connection has been established, see the optional step at the end of this section.
 
    1. From the **Add new parameter** drop-down on the **Send Email** step, select **From**, **To**, **Subject** and **Body**. Click or tap anywhere on the screen to close the selection box.
 
@@ -202,7 +220,7 @@ In the preceding section, you set up your IoT hub to route messages containing a
 
    1. Select **Save** to save the SMTP connection.
 
-1. (Optional) If you had to disable SSL to establish a connection with your email provider and want to re-enable it, follow these steps:
+1. (Optional) If you had to disable TLS to establish a connection with your email provider and want to re-enable it, follow these steps:
 
    1. On the **Logic app** pane, under **Development Tools**, select **API connections**.
 

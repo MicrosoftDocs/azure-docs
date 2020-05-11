@@ -1,5 +1,6 @@
 ---
-title: Tutorial to copy data to Azure Data Box device via data copy service | Microsoft Docs
+title: "Tutorial: Use data copy service to copy to your device"
+titleSuffix: Azure Data Box
 description: In this tutorial, you learn how to copy data to your Azure Data Box device via the data copy service
 services: databox
 author: alkohli
@@ -7,7 +8,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -23,6 +24,7 @@ Use the data copy service:
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Copy data to Data Box
 
 ## Prerequisites
@@ -38,9 +40,13 @@ Before you begin, make sure that:
 
 After you're connected to the NAS device, the next step is to copy your data. Before you begin the data copy, review the following considerations:
 
-- While copying data, make sure that the data size conforms to the size limits described in the article [Azure storage and Data Box limits](data-box-limits.md).
-- If data uploaded by Data Box is concurrently uploaded by other applications outside Data Box, upload-job failures and data corruption might result.
-- If the data is being modified as the data copy service is reading it, you might see failures or corruption of data.
+* While copying data, make sure that the data size conforms to the size limits described in the article [Azure storage and Data Box limits](data-box-limits.md).
+
+* If data uploaded by Data Box is concurrently uploaded by other applications outside Data Box, upload-job failures and data corruption might result.
+
+* If the data is being modified as the data copy service is reading it, you might see failures or corruption of data.
+
+* Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
 
 To copy data by using the data copy service, you need to create a job:
 
@@ -55,7 +61,7 @@ To copy data by using the data copy service, you need to create a job:
     |-------------------------------|---------|
     |**Job name**                       |A unique name fewer than 230 characters for the job. These characters aren't allowed in the job name: \<, \>, \|, \?, \*, \\, \:, \/, and \\\.         |
     |**Source location**                |Provide the SMB path to the data source in the format: `\\<ServerIPAddress>\<ShareName>` or `\\<ServerName>\<ShareName>`.        |
-    |**Username**                       |Username in `\\<DomainName><UserName>` format to access the data source.        |
+    |**Username**                       |Username in `\\<DomainName><UserName>` format to access the data source. If a local administrator is connecting, they will need explicit security permissions. Right-click the folder, select **Properties** and then select **Security**. This should add the local administrator in the **Security** tab.       |
     |**Password**                       |Password to access the data source.           |
     |**Destination storage account**    |Select the target storage account to upload data to from the list.         |
     |**Destination type**       |Select the target storage type from the list: **Block Blob**, **Page Blob**, or **Azure Files**.        |

@@ -1,9 +1,9 @@
-﻿---
-title: Azure PowerShell Script Sample - Update the RDP username and password | Microsoft Docs
+---
+title: Update the RDP username and password in PowerShell
 description: Azure PowerShell Script Sample - Update the RDP username and password for all Service Fabric cluster nodes of a specific node type.
 services: service-fabric
 documentationcenter: 
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: 
 tags: azure-service-management
@@ -11,10 +11,9 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
 ---
 
@@ -39,6 +38,10 @@ This script uses the following commands: Each command in the table links to comm
 | [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | Gets the properties of a cluster node type (a virtual machine scale set).   |
 | [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)| Adds an extension to the virtual machine scale set.|
 | [Update-AzVmss](/powershell/module/az.compute/update-azvmss)|Updates the state of a virtual machine scale set to the state of a local VMSS object.|
+
+## Duration
+
+A single node type with five nodes, for example, has a duration of 45 to 60 minutes to change the username or password. 
 
 ## Next steps
 

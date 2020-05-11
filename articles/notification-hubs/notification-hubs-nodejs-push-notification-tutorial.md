@@ -4,9 +4,9 @@ description: Learn how to use Notification Hubs to send push notifications from 
 keywords: push notification,push notifications,node.js push,ios push
 services: notification-hubs
 documentationcenter: nodejs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
@@ -14,8 +14,10 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/04/2019
-ms.author: jowargo
+ms.date: 04/29/2020
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
 # Sending push notifications with Azure Notification Hubs and Node.js
@@ -103,7 +105,7 @@ The `GcmService` object provides a `send` method that can be used to send push n
 - **Payload** - the message's JSON or raw string payload.
 - **Callback** - the callback function.
 
-For more information on the payload format, see the **Payload** section of the [Implementing GCM Server](https://developers.google.com/cloud-messaging/) document.
+For more information on the payload format, see the [Payload documentation](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
 
 The following code uses the `GcmService` instance exposed by the `NotificationHubService` to send a push notification to all registered clients.
 
@@ -128,7 +130,7 @@ Same as with Android applications described above, the `ApnsService` object prov
 - **Payload** - the message's JSON or string payload.
 - **Callback** - the callback function.
 
-For more information the payload format, see The **Notification Payload** section of the [Local and Push Notification Programming Guide](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) document.
+For more information the payload format, see The **Notification Content** section of the [UserNotifications guide](https://developer.apple.com/documentation/usernotifications).
 
 The following code uses the `ApnsService` instance exposed by the `NotificationHubService` to send an alert message to all clients:
 

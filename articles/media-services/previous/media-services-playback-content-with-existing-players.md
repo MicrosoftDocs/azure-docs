@@ -1,6 +1,6 @@
 ---
 title: Use existing players to playback your content - Azure | Microsoft Docs
-description: This topic lists existing players that you can use to playback your content.
+description: This article lists existing players that you can use to playback your content.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -27,12 +27,13 @@ Click on the desired video (make sure it was [published](media-services-portal-p
 
 Some considerations apply:
 
-* The **MEDIA SERVICES CONTENT PLAYER** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, use another player. For example, [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* The **MEDIA SERVICES CONTENT PLAYER** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, use another player. For example, [Azure Media Player](https://aka.ms/azuremediaplayer).
 
 ![AMSPlayer][AMSPlayer]
 
 ### Azure Media Player
-Use [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) to playback your content (clear or protected) in any of the following formats:
+
+Use [Azure Media Player](https://aka.ms/azuremediaplayer) to playback your content (clear or protected) in any of the following formats:
 
 * Smooth Streaming
 * MPEG DASH
@@ -40,15 +41,13 @@ Use [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.ht
 * Progressive MP4
 
 ### Flash Player
-#### AES-encrypted with Token
-[https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
-
-### Silverlight Players
 
 #### PlayReady with Token
+
 [https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
 ### DASH Players
+
 [https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
 
 [https://dashif.org](https://dashif.org)
@@ -58,9 +57,6 @@ To test HLS URLs you can also use:
 
 * **Safari** on an iOS device or
 * **3ivx HLS Player** on Windows.
-
-## Developing video players
-For information about how to develop your own players, see [Developing video players](media-services-develop-video-players.md)
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

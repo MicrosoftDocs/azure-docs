@@ -1,17 +1,16 @@
 ---
-title: "Create and manage Azure SQL Elastic Database Jobs using Transact-SQL (T-SQL) | Microsoft Docs"
+title: Create and manage Elastic Database Jobs with Transact-SQL (T-SQL)
 description: Run scripts across many databases with Elastic Database Job agent using Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/07/2020
 ---
 # Use Transact-SQL (T-SQL) to create and manage Elastic Database Jobs
 
@@ -184,10 +183,13 @@ For example, to group all results from the same job execution together, use the 
 
 The following example creates a new job to collect performance data from multiple databases.
 
-By default the job agent will look to create the table to store the returned results in. As a result the login associated with the credential used for the output credential will need to have sufficient permissions to perform this. If you want to manually create the table ahead of time then it needs to have the following properties:
+By default, the job agent will create the output table to store returned results. Therefore, the database principal associated with the output credential must at a minimum have the following permissions: `CREATE TABLE` on the database, `ALTER`, `SELECT`, `INSERT`, `DELETE` on the output table or its schema, and `SELECT` on the [sys.indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql) catalog view.
+
+If you want to manually create the table ahead of time then it needs to have the following properties:
 1. Columns with the correct name and data types for the result set.
 2. Additional column for internal_execution_id with the data type of uniqueidentifier.
 3. A nonclustered index named `IX_<TableName>_Internal_Execution_ID` on the internal_execution_id column.
+4. All permissions listed above except for `CREATE TABLE` permission on the database.
 
 Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following commands:
 
@@ -420,14 +422,14 @@ The following stored procedures are in the [jobs database](sql-database-job-auto
 
 
 
-### sp_add_job
+### <a name="sp_add_job"></a>sp_add_job
 
 Adds a new job. 
   
 #### Syntax  
   
 
-```sql
+```syntaxsql
 [jobs].sp_add_job [ @job_name = ] 'job_name'  
 	[ , [ @description = ] 'description' ]   
 	[ , [ @enabled = ] enabled ]
@@ -486,13 +488,13 @@ By default, members of the sysadmin fixed server role can execute this stored pr
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
-### sp_update_job
+### <a name="sp_update_job"></a>sp_update_job
 
 Updates an existing job.
 
 #### Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_update_job [ @job_name = ] 'job_name'  
 	[ , [ @new_name = ] 'new_name' ]
 	[ , [ @description = ] 'description' ]   
@@ -549,13 +551,13 @@ For details about the permissions of these roles, see the Permission section in 
 
 
 
-### sp_delete_job
+### <a name="sp_delete_job"></a>sp_delete_job
 
 Deletes an existing job.
 
 #### Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_delete_job [ @job_name = ] 'job_name'
 	[ , [ @force = ] force ]
 ```
@@ -581,14 +583,14 @@ For details about the permissions of these roles, see the Permission section in 
 
 
 
-### sp_add_jobstep
+### <a name="sp_add_jobstep"></a>sp_add_jobstep
 
 Adds a step to a job.
 
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_add_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
      [ , [ @step_name = ] step_name ]   
@@ -707,13 +709,13 @@ For details about the permissions of these roles, see the Permission section in 
 
 
 
-### sp_update_jobstep
+### <a name="sp_update_jobstep"></a>sp_update_jobstep
 
 Updates a job step.
 
 #### Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_update_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
      [ , [ @step_name = ] 'step_name' ]   
@@ -832,14 +834,14 @@ For details about the permissions of these roles, see the Permission section in 
 
 
 
-### sp_delete_jobstep
+### <a name="sp_delete_jobstep"></a>sp_delete_jobstep
 
 Removes a job step from a job.
 
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]
      [ , [ @step_name = ] 'step_name' ]   
@@ -878,14 +880,14 @@ For details about the permissions of these roles, see the Permission section in 
 
 
 
-### sp_start_job
+### <a name="sp_start_job"></a>sp_start_job
 
 Starts executing a job.
 
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_start_job [ @job_name = ] 'job_name'   
      [ , [ @job_execution_id = ] job_execution_id OUTPUT ]   
 ```
@@ -909,14 +911,14 @@ By default, members of the sysadmin fixed server role can execute this stored pr
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
-### sp_stop_job
+### <a name="sp_stop_job"></a>sp_stop_job
 
 Stops a job execution.
 
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_stop_job [ @job_execution_id = ] ' job_execution_id '
 ```
 
@@ -938,14 +940,14 @@ By default, members of the sysadmin fixed server role can execute this stored pr
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
 
-### sp_add_target_group
+### <a name="sp_add_target_group"></a>sp_add_target_group
 
 Adds a target group.
 
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_add_target_group [ @target_group_name = ] 'target_group_name'   
      [ , [ @target_group_id = ] target_group_id OUTPUT ]
 ```
@@ -970,14 +972,14 @@ By default, members of the sysadmin fixed server role can execute this stored pr
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
-### sp_delete_target_group
+### <a name="sp_delete_target_group"></a>sp_delete_target_group
 
 Deletes a target group.
 
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_target_group [ @target_group_name = ] 'target_group_name'
 ```
 
@@ -998,13 +1000,13 @@ By default, members of the sysadmin fixed server role can execute this stored pr
 
 For details about the permissions of these roles, see the Permission section in this document. Only members of sysadmin can use this stored procedure to edit the attributes of jobs that are owned by other users.
 
-### sp_add_target_group_member
+### <a name="sp_add_target_group_member"></a>sp_add_target_group_member
 
 Adds a database or group of databases to a target group.
 
 #### Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
          [ @membership_type = ] 'membership_type' ]   
         [ , [ @target_type = ] 'target_type' ]   
@@ -1088,14 +1090,14 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name= N'Servers Mai
 GO
 ```
 
-### sp_delete_target_group_member
+### <a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
 
 Removes a target group member from a target group.
 
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_target_group_member [ @target_group_name = ] 'target_group_name'
      	[ , [ @target_id = ] 'target_id']
 ```
@@ -1140,14 +1142,14 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-### sp_purge_jobhistory
+### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
 Removes the history records for a job.
 
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_purge_jobhistory [ @job_name = ] 'job_name'   
       [ , [ @job_id = ] job_id ]
       [ , [ @oldest_date = ] oldest_date []
@@ -1194,18 +1196,18 @@ The following views are available in the [jobs database](sql-database-job-automa
 
 |View  |Description  |
 |---------|---------|
-|[jobs_executions](#jobs_executions-view)     |  Shows job execution history.      |
+|[job_executions](#job_executions-view)     |  Shows job execution history.      |
 |[jobs](#jobs-view)     |   Shows all jobs.      |
 |[job_versions](#job_versions-view)     |   Shows all job versions.      |
 |[jobsteps](#jobsteps-view)     |     Shows all steps in the current version of each job.    |
 |[jobstep_versions](#jobstep_versions-view)     |     Shows all steps in all versions of each job.    |
 |[target_groups](#target_groups-view)     |      Shows all target groups.   |
-|[target_group_members](#target_groups_members-view)     |   Shows all members of all target groups.      |
+|[target_group_members](#target_group_members-view)     |   Shows all members of all target groups.      |
 
 
-### jobs_executions view
+### <a name="job_executions-view"></a>job_executions view
 
-[jobs].[jobs_executions]
+[jobs].[job_executions]
 
 Shows job execution history.
 
@@ -1250,7 +1252,7 @@ Shows all jobs.
 |**schedule_end_time**|	datetime2(7)|	Date and time the job was last completed execution.|
 
 
-### job_versions view
+### <a name="job_versions-view"></a>job_versions view
 
 [jobs].[job_versions]
 
@@ -1298,13 +1300,13 @@ Shows all steps in the current version of each job.
 |**max_parallelism**|	int|	The maximum number of databases per elastic pool that the job step will be run on at a time. The default is NULL, meaning no limit. |
 
 
-### jobstep_versions view
+### <a name="jobstep_versions-view"></a>jobstep_versions view
 
 [jobs].[jobstep_versions]
 
 Shows all steps in all versions of each job. The schema is identical to [jobsteps](#jobsteps-view).
 
-### target_groups view
+### <a name="target_groups-view"></a>target_groups view
 
 [jobs].[target_groups]
 
@@ -1315,9 +1317,9 @@ Lists all target groups.
 |**target_group_name**|	nvarchar(128)	|The name of the target group, a collection of databases. 
 |**target_group_id**	|uniqueidentifier	|Unique ID of the target group.
 
-### target_groups_members view
+### <a name="target_group_members-view"></a>target_group_members view
 
-[jobs].[target_groups_members]
+[jobs].[target_group_members]
 
 Shows all members of all target groups.
 

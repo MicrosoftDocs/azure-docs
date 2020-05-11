@@ -1,11 +1,10 @@
 ---
-title: "Migrate your classic alerts in Azure Monitor by using the voluntary migration tool"
+title: Migrate Azure Monitor alert rules
 description: Learn how to use the voluntary migration tool to migrate your classic alert rules.
-author: snehithm
-ms.service: azure-monitor
+author: yanivlavi
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: snmuvva
 ms.subservice: alerts
 ---
 # Use the voluntary migration tool to migrate your classic alert rules
@@ -32,7 +31,7 @@ The migration process converts classic alert rules to new, equivalent alert rule
 
 - Both the notification payload format and the APIs to create and manage new alert rules are different from those of the classic alert rules because they support more features. [Learn how to prepare for the migration](alerts-prepare-migration.md).
 
-- Some classic alert rules cannot be migrated by using the tool. [Learn which rules cannot be migrated and what to do with them](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated).
+- Some classic alert rules cannot be migrated by using the tool. [Learn which rules cannot be migrated and what to do with them](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
 
     > [!NOTE]
     > The migration process won't impact the evaluation of your classic alert rules. They'll continue to run and send alerts until they're migrated and the new alert rules take effect.

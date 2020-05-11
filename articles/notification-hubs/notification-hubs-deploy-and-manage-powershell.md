@@ -1,11 +1,11 @@
 ---
-title: Deploy and Manage Notification Hubs using PowerShell
-description: How to Create and Manage Notification Hubs Using PowerShell for Automation
+title: Deploy and manage Notification Hubs using PowerShell
+description: How to create and manage Notification Hubs using PowerShell for Automation
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: 7c58f2c8-0399-42bc-9e1e-a7f073426451
 ms.service: notification-hubs
@@ -14,7 +14,9 @@ ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
 # Deploy and manage notification hubs using PowerShell
@@ -72,7 +74,7 @@ catch [System.Exception]
 
 ## Create the `NamespaceManager` class
 
-To provision Notification Hubs, create an instance of the [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) class from the SDK.
+To provision Notification Hubs, create an instance of the [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) class from the SDK.
 
 You can use the [Get-AzureSBAuthorizationRule] cmdlet included with Azure PowerShell to retrieve an authorization rule that's used to provide a connection string. A reference to the `NamespaceManager` instance is stored in the `$NamespaceManager` variable. `$NamespaceManager` is used to provision a notification hub.
 
@@ -145,8 +147,8 @@ else
 ## Additional Resources
 
 - [Manage Service Bus with PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-- [How to create Service Bus queues, topics and subscriptions using a PowerShell script](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-- [How to create a Service Bus Namespace and an Event Hub using a PowerShell script](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+- [How to create Service Bus queues, topics and subscriptions using a PowerShell script](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+- [How to create a Service Bus Namespace and an Event Hub using a PowerShell script](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 
 Some ready-made scripts are also available for download:
 

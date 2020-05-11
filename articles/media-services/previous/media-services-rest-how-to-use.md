@@ -1,6 +1,6 @@
 ---
 title: Media Services operations REST API overview | Microsoft Docs
-description: Media Services REST API overview
+description: The "Media Services Operations REST" API is used for creating Jobs, Assets, Live Channels and other resources in a Media Services account. This article provides an Azure Media Services v2 REST API overview.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: juliako;johndeu
+ms.author: juliako
+ms.reviewer: johndeu
 
 ---
 # Media Services operations REST API overview 
@@ -40,7 +41,7 @@ The following considerations apply when using REST.
         Accept: application/json;odata=verbose
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
-        x-ms-version: 2.17
+        x-ms-version: 2.19
         Authorization: Bearer <ENCODED JWT TOKEN> 
         Host: media.windows.net
   

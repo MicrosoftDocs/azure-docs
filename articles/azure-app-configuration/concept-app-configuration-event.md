@@ -1,11 +1,11 @@
 ---
-title: Reacting to Azure App Configuration key-value events | Microsoft Docs
+title: Reacting to Azure App Configuration key-value events
 description: Use Azure Event Grid to subscribe to App Configuration events. 
 services: azure-app-configuration,event-grid 
 author: jimmyca
 
 ms.author: jimmyca
-ms.date: 05/30/2019
+ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
 
@@ -13,11 +13,11 @@ ms.service: azure-app-configuration
 
 # Reacting to Azure App Configuration events
 
-Azure App Configuration events enable applications to react to changes in key-values. This is done without the need for complicated code or expensive and inefficient polling services. Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), or even to your own custom http listener, and you only pay for what you use.
+Azure App Configuration events enable applications to react to changes in key-values. This is done without the need for complicated code or expensive and inefficient polling services. Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), or even to your own custom http listener. Critically, you only pay for what you use.
 
 Azure App Configuration events are sent to the Azure Event Grid which provides reliable delivery services to your applications through rich retry policies and dead-letter delivery. To learn more, see [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
-Common app configuration event scenarios include refreshing application configuration, triggering deployments, or any configuration-oriented workflow. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
+Common App Configuration event scenarios include refreshing application configuration, triggering deployments, or any configuration-oriented workflow. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
 Take a look at [Route Azure App Configuration events to a custom web endpoint - CLI](./howto-app-configuration-event.md) for a quick example. 
 
@@ -32,11 +32,11 @@ Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscripti
 > |`Microsoft.AppConfiguration.KeyValueDeleted`|Fired when a key-value is deleted|
 
 ## Event schema
-Azure App Configuration events contain all the information you need to respond to changes in your data. You can identify an app configuration event because the eventType property starts with "Microsoft.AppConfiguration". Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema](../event-grid/event-schema.md).  
+Azure App Configuration events contain all the information you need to respond to changes in your data. You can identify an App Configuration event because the eventType property starts with "Microsoft.AppConfiguration". Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema](../event-grid/event-schema.md).  
 
 > |Property|Type|Description|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |topic|string|Full Azure Resource Manager id of the app configuration that emits the event.|
+> |topic|string|Full Azure Resource Manager id of the App Configuration that emits the event.|
 > |subject|string|The URI of the key-value that is the subject of the event.|
 > |eventTime|string|The date/time that the event was generated, in ISO 8601 format.|
 > |eventType|string|"Microsoft.AppConfiguration.KeyValueModified" or "Microsoft.AppConfiguration.KeyValueDeleted".|
@@ -70,11 +70,12 @@ Here is an example of a KeyValueModified event:
 For more information, see [Azure App Configuration events schema](../event-grid/event-schema-app-configuration.md).
 
 ## Practices for consuming events
-Applications that handle app configuration events should follow a few recommended practices:
+Applications that handle App Configuration events should follow these recommended practices:
 > [!div class="checklist"]
-> * As multiple subscriptions can be configured to route events to the same event handler, it is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the app configuration you are expecting.
-> * Similarly, check that the eventType is one you are prepared to process, and do not assume that all events you receive will be the types you expect.
-> * As messages can arrive out of order and after some delay, use the etag fields to understand if your information about objects is still up-to-date.  Also, use the sequencer fields to understand the order of events on any particular object.
+> * Multiple subscriptions can be configured to route events to the same event handler, so do not assume events are from a particular source. Instead, check the topic of the message to ensure the App Configuration instance sending the event.
+> * Check the eventType and do not assume that all events you receive will be the types you expect.
+> * Use the etag fields to understand if your information about objects is still up-to-date.  
+> * Use the sequencer fields to understand the order of events on any particular object.
 > * Use the subject field to access the key-value that was modified.
 
 

@@ -1,15 +1,13 @@
 ---
-title: Decode EDIFACT messages - Azure Logic Apps | Microsoft Docs
+title: Decode EDIFACT messages
 description: Validate EDI and generate acknowledgements with the EDIFACT message decoder for Azure Logic Apps with Enterprise Integration Pack 
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
-ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
-ms.date: 01/27/2017
+ms.date: 04/22/2020
 ---
 
 # Decode EDIFACT messages for Azure Logic Apps with the Enterprise Integration Pack
@@ -31,6 +29,10 @@ that are already defined in your integration account
 that's already defined in your integration account
 
 ## Decode EDIFACT messages
+
+> [!IMPORTANT]
+> The EDIFACT connector supports only UTF-8 characters.
+> If your output contains unexpected characters, check that your EDIFACT messages use the UTF-8 character set. 
 
 1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
 

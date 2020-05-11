@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric Platform Level Monitoring | Microsoft Docs
+title: Azure Service Fabric Platform Level Monitoring 
 description: Learn about platform level events and logs used to monitor and diagnose Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-
 ---
 
 # Monitoring the cluster
@@ -84,7 +74,7 @@ If you need to contact Microsoft support for help with your Azure Service Fabric
 
 ## Measuring performance
 
-Measure performance of your cluster will help you understand how it is able to handle load and drive decisions around scaling your cluster (see more about scaling a cluster [on Azure](service-fabric-cluster-scale-up-down.md), or [on-premises](service-fabric-cluster-windows-server-add-remove-nodes.md)). Performance data is also useful when compared to actions you or your applications and services may have taken, when analyzing logs in the future. 
+Measure performance of your cluster will help you understand how it is able to handle load and drive decisions around scaling your cluster (see more about scaling a cluster [on Azure](service-fabric-cluster-scale-in-out.md), or [on-premises](service-fabric-cluster-windows-server-add-remove-nodes.md)). Performance data is also useful when compared to actions you or your applications and services may have taken, when analyzing logs in the future. 
 
 For a list of performance counters to collect when using Service Fabric, see [Performance Counters in Service Fabric](service-fabric-diagnostics-event-generation-perf.md)
 

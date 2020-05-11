@@ -1,9 +1,9 @@
 ---
-title: Handling of transient connectivity errors for Azure Database for PostgreSQL - Single Server
-description: Learn how to handle  transient connectivity errors for Azure Database for PostgreSQL - Single Server.
+title: Handle transient connectivity errors - Azure Database for PostgreSQL - Single Server
+description: Learn how to handle transient connectivity errors for Azure Database for PostgreSQL - Single Server.
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
-author: jan-eng
-ms.author: janeng
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
@@ -31,7 +31,7 @@ The first and second case are fairly straight forward to handle. Try to open the
 * For each following retry, the increase the wait exponentially, up to 60 seconds.
 * Set a max number of retries at which point your application considers the operation failed.
 
-When a connection with an active transaction fails, it is more difficult to handle the recovery correctly. There are two cases: If the transaction was read-only in nature, it is safe to reopen the connection and to retry the transaction. If however if the transaction was also writing to the database, you must determine if the transaction was rolled back, or if it succeeded before the transient error happened. In that case, you might just not have received the commit acknowledgement from the database server.
+When a connection with an active transaction fails, it is more difficult to handle the recovery correctly. There are two cases: If the transaction was read-only in nature, it is safe to reopen the connection and to retry the transaction. If however if the transaction was also writing to the database, you must determine if the transaction was rolled back, or if it succeeded before the transient error happened. In that case, you might just not have received the commit acknowledgment from the database server.
 
 One way of doing this, is to generate a unique ID on the client that is used for all the retries. You pass this unique ID as part of the transaction to the server and to store it in a column with a unique constraint. This way you can safely retry the transaction. It will succeed if the previous transaction was rolled back and the client generated unique ID does not yet exist in the system. It will fail indicating a duplicate key violation if the unique ID was previously stored because the previous transaction completed successfully.
 

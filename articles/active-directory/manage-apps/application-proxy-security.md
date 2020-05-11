@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 03/13/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
@@ -39,13 +39,13 @@ Azure AD Application Proxy relies on the Azure AD security token service (STS) f
 
 If you choose Passthrough as your preauthentication method, you don't get this benefit. 
 
-### Conditional access
+### Conditional Access
 
 Apply richer policy controls before connections to your network are established.
 
-With [conditional access](../conditional-access/overview.md), you can define restrictions on what traffic is allowed to access your back-end applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
+With [Conditional Access](../conditional-access/overview.md), you can define restrictions on what traffic is allowed to access your back-end applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
 
-You can also use conditional access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. Additionally, your applications can also be routed to Microsoft Cloud App Security via Azure AD conditional access to provide real-time monitoring and controls, via [access](https://docs.microsoft.com/cloud-app-security/access-policy-aad) and [session](https://docs.microsoft.com/cloud-app-security/session-policy-aad) policies
+You can also use Conditional Access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. Additionally, your applications can also be routed to Microsoft Cloud App Security via Azure AD Conditional Access to provide real-time monitoring and controls, via [access](https://docs.microsoft.com/cloud-app-security/access-policy-aad) and [session](https://docs.microsoft.com/cloud-app-security/session-policy-aad) policies
 
 ### Traffic termination
 
@@ -77,13 +77,9 @@ Unpatched software still accounts for a large number of attacks. Azure AD Applic
 
 To improve the security of applications published by Azure AD Application Proxy, we block web crawler robots from indexing and archiving your applications. Each time a web crawler robot tries to retrieve the robot's settings for a published app, Application Proxy replies with a robots.txt file that includes `User-agent: * Disallow: /`.
 
-### DDOS prevention
+#### Azure DDoS protection service
 
-Applications published through Application Proxy are protected against Distributed Denial of Service (DDOS) attacks.
-
-The Application Proxy service monitors the amount of traffic attempting to reach your applications and network. If the number of devices requesting remote access to your applications spikes, Microsoft throttles access to your network. 
-
-Microsoft watches traffic patterns for individual applications and for your subscription as a whole. If one application receives higher than normal requests, then requests to access that application are denied for a short period of time. If you receive higher than normal requests across your whole subscription, then requests to access any of your apps are denied. This preventative measure keeps your application servers from being overloaded by remote access requests, so that your on-premises users can keep accessing their apps. 
+Applications published through Application Proxy are protected against Distributed Denial of Service (DDoS) attacks. **Azure DDoS protection** is a service offered with the Azure platform to protect your Azure resources from denial of service attacks. The **Basic** service tier is automatically enabled, providing always-on traffic monitoring and real-time mitigation of common network-level attacks. A **Standard** tier is also available, offering additional mitigation capabilities that are tuned specifically to Azure Virtual Network resources. For details, see [Azure DDoS Protection Standard overview](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## Under the hood
 
@@ -99,7 +95,7 @@ A flow between the connector and the Application Proxy service is established wh
 * A user accesses a published application.
 
 >[!NOTE]
->All communications occur over SSL, and they always originate at the connector to the Application Proxy service. The service is outbound only.
+>All communications occur over TLS, and they always originate at the connector to the Application Proxy service. The service is outbound only.
 
 The connector uses a client certificate to authenticate to the Application Proxy service for nearly all calls. The only exception to this process is the initial setup step, where the client certificate is established.
 
@@ -140,7 +136,7 @@ If you configured the app to use Passthrough as its preauthentication method, th
 
 If you configured the app to preauthenticate with Azure AD, users are redirected to the Azure AD STS to authenticate, and the following steps take place:
 
-1. Application Proxy checks for any conditional access policy requirements for the specific application. This step ensures that the user has been assigned to the application. If two-step verification is required, the authentication sequence prompts the user for a second authentication method.
+1. Application Proxy checks for any Conditional Access policy requirements for the specific application. This step ensures that the user has been assigned to the application. If two-step verification is required, the authentication sequence prompts the user for a second authentication method.
 
 2. After all checks have passed, the Azure AD STS issues a signed token for the application and redirects the user back to the Application Proxy service.
 

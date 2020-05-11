@@ -1,18 +1,12 @@
 ---
 title: Monitor Surface Hubs with Azure Monitor | Microsoft Docs
 description: Use the Surface Hub solution to track the health of your Surface Hubs and understand how they are being used.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 01/16/2018
-ms.author: magoedte
+
 ---
 
 # Monitor Surface Hubs with Azure Monitor to track their health

@@ -1,20 +1,8 @@
 ---
-title: Design efficient list queries - Azure Batch | Microsoft Docs
+title: Design efficient list queries
 description: Increase performance by filtering your queries when requesting information on Batch resources like pools, jobs, tasks, and compute nodes.
-services: batch
-documentationcenter: .net
-author: laurenhughes
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
-ms.service: batch
-ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: lahugh
 ms.custom: seodec18
 ---
 
@@ -85,7 +73,7 @@ The expand string reduces the number of API calls that are required to obtain ce
 * This example expand string specifies that statistics information should be returned for each item in the list: `stats`.
 
 > [!NOTE]
-> When constructing any of the three query string types (filter, select, and expand), you must ensure that the property names and case match that of their REST API element counterparts. For example, when working with the .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#Microsoft_Azure_Batch_CloudTask) class, you must specify **state** instead of **State**, even though the .NET property is [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). See the tables below for property mappings between the .NET and REST APIs.
+> When constructing any of the three query string types (filter, select, and expand), you must ensure that the property names and case match that of their REST API element counterparts. For example, when working with the .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) class, you must specify **state** instead of **State**, even though the .NET property is [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). See the tables below for property mappings between the .NET and REST APIs.
 > 
 > 
 

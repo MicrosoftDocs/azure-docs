@@ -1,22 +1,21 @@
 ---
-title: Validation activity in Azure Data Factory | Microsoft Docs
+title: Validation activity in Azure Data Factory 
 description: The Validation activity does not continue execution of the pipeline until it validates the attached dataset with certain criteria the user specifies.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.author: shlo
-
 ---
+
 # Validation activity in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 You can use a Validation in a pipeline to ensure the pipeline only continues execution once it has validated the attached dataset reference exists, that it meets the specified criteria, or timeout has been reached.
 
 

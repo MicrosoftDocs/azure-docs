@@ -1,10 +1,9 @@
 ---
 title: Azure Service Bus to Event Grid integration overview | Microsoft Docs
-description: Description of Service Bus messaging and Event Grid integration
+description: This article provides a description of how Azure Service Bus messaging integrates with Azure Event Grid. 
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
-manager: timlt
 editor: spelluru
 
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
@@ -13,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 01/27/2020
 ms.author: aschhab
 
 ---
@@ -142,12 +141,14 @@ Execute the following code:
  ```azurecli-interactive
 az login
 
-az account set -s “THE SUBSCRIPTION YOU WANT TO USE”
+az account set -s "<Azure subscription name>"
 
-$namespaceid=(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name “<yourNamespace>“--resource-group “<Your Resource Group Name>” --query id --output tsv)
+namespaceid=$(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name "<service bus namespace>" --resource-group "<resource group that contains the service bus namespace>" --query id --output tsv
 
-az eventgrid event-subscription create --resource-id $namespaceid --name “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” --endpoint “<your_function_url>” --subject-ends-with “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
+az eventgrid event-subscription create --resource-id $namespaceid --name "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" --endpoint "<your_function_url>" --subject-ends-with "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
+
+If you are using BASH 
 
 ## PowerShell instructions
 
@@ -164,7 +165,7 @@ Install-Module Az.ServiceBus
 $NSID = (Get-AzServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
 mespaceName "<YOUR NAMESPACE NAME>").Id
 
-New-AzEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
+New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
 
 From here, you can explore the other setup options or test that events are flowing.

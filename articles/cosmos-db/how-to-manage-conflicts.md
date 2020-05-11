@@ -1,10 +1,10 @@
 ---
-title: Learn how to manage conflicts between regions in Azure Cosmos DB
-description: Learn how to manage conflicts in Azure Cosmos DB
+title: Manage conflicts between regions in Azure Cosmos DB
+description: Learn how to manage conflicts in Azure Cosmos DB by creating the last-writer-wins or a custom conflict resolution policy
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 05/23/2019
+ms.topic: conceptual
+ms.date: 12/03/2019
 ms.author: mjbrown
 ---
 
@@ -14,9 +14,11 @@ With multi-region writes, when multiple clients write to the same item, conflict
 
 ## Create a last-writer-wins conflict resolution policy
 
-These samples show how to set up a container with a last-writer-wins conflict resolution policy. The default path for last-writer-wins is the timestamp field or the `_ts` property. This may also be set to a user-defined path for a numeric type. In a conflict, the highest value wins. If the path isn't set or it's invalid, it defaults to `_ts`. Conflicts resolved with this policy do not show up in the conflict feed. This policy can be used by all APIs.
+These samples show how to set up a container with a last-writer-wins conflict resolution policy. The default path for last-writer-wins is the timestamp field or the `_ts` property. For SQL API, this may also be set to a user-defined path with a numeric type. In a conflict, the highest value wins. If the path isn't set or it's invalid, it defaults to `_ts`. Conflicts resolved with this policy do not show up in the conflict feed. This policy can be used by all APIs.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
+
+# [.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -31,7 +33,24 @@ DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-### <a id="create-custom-conflict-resolution-policy-lww-java-async"></a>Java Async SDK
+# [.NET SDK V3](#tab/dotnetv3)
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.lwwCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.LastWriterWins,
+            ResolutionPath = "/myCustomId",
+        }
+    });
+```
+---
+
+### <a id="create-custom-conflict-resolution-policy-lww-java"></a>Java SDK
+
+# [Java Async SDK](#tab/async)
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -41,7 +60,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-### <a id="create-custom-conflict-resolution-policy-lww-java-sync"></a>Java Sync SDK
+# [Java sync SDK](#tab/sync)
 
 ```java
 DocumentCollection lwwCollection = new DocumentCollection();
@@ -50,6 +69,7 @@ ConflictResolutionPolicy lwwPolicy = ConflictResolutionPolicy.createLastWriterWi
 lwwCollection.setConflictResolutionPolicy(lwwPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, lwwCollection);
 ```
+---
 
 ### <a id="create-custom-conflict-resolution-policy-lww-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -70,13 +90,14 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 
 ```python
 udp_collection = {
-                'id': self.udp_collection_name,
-                'conflictResolutionPolicy': {
-                    'mode': 'LastWriterWins',
-                    'conflictResolutionPath': '/myCustomId'
-                    }
-                }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'LastWriterWins',
+        'conflictResolutionPath': '/myCustomId'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 ## Create a custom conflict resolution policy using a stored procedure
@@ -94,7 +115,6 @@ Custom conflict resolution stored procedures must be implemented using the funct
 
 > [!IMPORTANT]
 > Just as with any stored procedure, a custom conflict resolution procedure can access any data with the same partition key and can perform any insert, update or delete operation to resolve conflicts.
-
 
 This sample stored procedure resolves conflicts by selecting the lowest value from the `/myCustomId` path.
 
@@ -154,6 +174,8 @@ function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
+# [.NET SDK V2](#tab/dotnetv2)
+
 ```csharp
 DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
   UriFactory.CreateDatabaseUri(this.databaseName), new DocumentCollection
@@ -175,7 +197,28 @@ UriFactory.CreateStoredProcedureUri(this.databaseName, this.udpCollectionName, "
 });
 ```
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Async SDK
+# [.NET SDK V3](#tab/dotnetv3)
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.udpCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.Custom,
+            ResolutionProcedure = string.Format("dbs/{0}/colls/{1}/sprocs/{2}", this.databaseName, this.udpCollectionName, "resolver")
+        }
+    });
+
+await container.Scripts.CreateStoredProcedureAsync(
+    new StoredProcedureProperties("resolver", File.ReadAllText(@"resolver.js"))
+);
+```
+---
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-java"></a>Java SDK
+
+# [Java Async SDK](#tab/async)
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -187,7 +230,7 @@ DocumentCollection createdCollection = client.createCollection(databaseUri, coll
 
 After your container is created, you must create the `resolver` stored procedure.
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java Sync SDK
+# [Java sync SDK](#tab/sync)
 
 ```java
 DocumentCollection udpCollection = new DocumentCollection();
@@ -197,6 +240,7 @@ ConflictResolutionPolicy udpPolicy = ConflictResolutionPolicy.createCustomPolicy
 udpCollection.setConflictResolutionPolicy(udpPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
 ```
+---
 
 After your container is created, you must create the `resolver` stored procedure.
 
@@ -223,23 +267,25 @@ After your container is created, you must create the `resolver` stored procedure
 
 ```python
 udp_collection = {
-  'id': self.udp_collection_name,
-  'conflictResolutionPolicy': {
-      'mode': 'Custom',
-      'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
-      }
-  }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom',
+        'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 After your container is created, you must create the `resolver` stored procedure.
-
 
 ## Create a custom conflict resolution policy
 
 These samples show how to set up a container with a custom conflict resolution policy. These conflicts show up in the conflict feed.
 
 ### <a id="create-custom-conflict-resolution-policy-dotnet"></a>.NET SDK
+
+# [.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 DocumentCollection manualCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -253,7 +299,23 @@ DocumentCollection manualCollection = await createClient.CreateDocumentCollectio
   });
 ```
 
-### <a id="create-custom-conflict-resolution-policy-java-async"></a>Java Async SDK
+# [.NET SDK V3](#tab/dotnetv3)
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.manualCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.Custom
+        }
+    });
+```
+---
+
+### <a id="create-custom-conflict-resolution-policy-java"></a>Java SDK
+
+# [Java Async SDK](#tab/async)
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -263,7 +325,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-### <a id="create-custom-conflict-resolution-policy-java-sync"></a>Java Sync SDK
+# [Java sync SDK](#tab/sync)
 
 ```java
 DocumentCollection manualCollection = new DocumentCollection();
@@ -272,6 +334,7 @@ ConflictResolutionPolicy customPolicy = ConflictResolutionPolicy.createCustomPol
 manualCollection.setConflictResolutionPolicy(customPolicy);
 DocumentCollection createdCollection = client.createCollection(database.getSelfLink(), collection, null).getResource();
 ```
+---
 
 ### <a id="create-custom-conflict-resolution-policy-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -292,11 +355,11 @@ const {
 ```python
 database = client.ReadDatabase("dbs/" + self.database_name)
 manual_collection = {
-                    'id': self.manual_collection_name,
-                    'conflictResolutionPolicy': {
-                          'mode': 'Custom'
-                        }
-                    }
+    'id': self.manual_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom'
+    }
+}
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
@@ -306,11 +369,38 @@ These samples show how to read from a container's conflict feed. Conflicts show 
 
 ### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
 
+# [.NET SDK V2](#tab/dotnetv2)
+
 ```csharp
 FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.collectionUri);
 ```
 
-### <a id="read-from-conflict-feed-java-async"></a>Java Async SDK
+# [.NET SDK V3](#tab/dotnetv3)
+
+```csharp
+FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictQueryIterator();
+while (conflictFeed.HasMoreResults)
+{
+    FeedResponse<ConflictProperties> conflicts = await conflictFeed.ReadNextAsync();
+    foreach (ConflictProperties conflict in conflicts)
+    {
+        // Read the conflicted content
+        MyClass intendedChanges = container.Conflicts.ReadConflictContent<MyClass>(conflict);
+        MyClass currentState = await container.Conflicts.ReadCurrentAsync<MyClass>(conflict, new PartitionKey(intendedChanges.MyPartitionKey));
+
+        // Do manual merge among documents
+        await container.ReplaceItemAsync<MyClass>(intendedChanges, intendedChanges.Id, new PartitionKey(intendedChanges.MyPartitionKey));
+
+        // Delete the conflict
+        await container.Conflicts.DeleteAsync(conflict, new PartitionKey(intendedChanges.MyPartitionKey));
+    }
+}
+```
+---
+
+### <a id="read-from-conflict-feed-java"></a>Java SDK
+
+# [Java Async SDK](#tab/async)
 
 ```java
 FeedResponse<Conflict> response = client.readConflicts(this.manualCollectionUri, null)
@@ -319,8 +409,7 @@ for (Conflict conflict : response.getResults()) {
     /* Do something with conflict */
 }
 ```
-
-### <a id="read-from-conflict-feed-java-sync"></a>Java Sync SDK
+# [Java Async SDK](#tab/sync)
 
 ```java
 Iterator<Conflict> conflictsIterator = client.readConflicts(this.collectionLink, null).getQueryIterator();
@@ -329,6 +418,7 @@ while (conflictsIterator.hasNext()) {
     /* Do something with conflict */
 }
 ```
+---
 
 ### <a id="read-from-conflict-feed-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -354,10 +444,10 @@ while conflict:
 
 Learn about the following Azure Cosmos DB concepts:
 
-* [Global distribution - under the hood](global-dist-under-the-hood.md)
-* [How to configure multi-master in your applications](how-to-multi-master.md)
-* [Configure clients for multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
-* [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [How to configure multi-master in your applications](how-to-multi-master.md).
-* [Partitioning and data distribution](partition-data.md)
-* [Indexing in Azure Cosmos DB](indexing-policies.md)
+- [Global distribution - under the hood](global-dist-under-the-hood.md)
+- [How to configure multi-master in your applications](how-to-multi-master.md)
+- [Configure clients for multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [How to configure multi-master in your applications](how-to-multi-master.md).
+- [Partitioning and data distribution](partition-data.md)
+- [Indexing in Azure Cosmos DB](indexing-policies.md)

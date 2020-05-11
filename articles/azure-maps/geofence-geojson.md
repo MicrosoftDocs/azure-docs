@@ -1,8 +1,8 @@
 ---
-title: Geofence GeoJSON data format in Azure Maps | Microsoft Docs
-description: Learn about Geofence GeoJSON data format in Azure Maps 
-author: walsehgal
-ms.author: v-musehg
+title: GeoJSON data format for geofence | Microsoft Azure Maps
+description: In this article, you will learn about how to prepare the geofence data that can be used in the Microsoft Azure Maps GET and POST Geofence API.
+author: philmea
+ms.author: philmea
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -33,7 +33,7 @@ The data for geofence or set of geofences is represented by `Feature` Object and
 | businessDayOnly | Boolean | false |  Indicate whether the data is only valid during business days. Default value is `false`.|
 
 
-* All coordinate values are represented as [latitude, longitude] defined in `WGS84`.
+* All coordinate values are represented as [longitude, latitude] defined in `WGS84`.
 * For each Feature, which contains `MultiPoint`, `MultiLineString`, `MultiPolygon` , or `GeometryCollection`, the properties are applied to all the elements. for example: All the points in `MultiPoint` will use same radius to form a multiple circle geofence.
 * In point-circle scenario, a circle geometry can be represented using a `Point` geometry object with properties elaborated in [Extending GeoJSON geometries](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
 

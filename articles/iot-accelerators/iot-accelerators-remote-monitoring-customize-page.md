@@ -139,7 +139,7 @@ npm install
 npm start
 ```
 
-The previous command runs the UI locally at [http://localhost:3000/dashboard](http://localhost:3000/dashboard).
+The previous command runs the UI locally at `http://localhost:3000/dashboard`.
 
 Without connecting your local instance of the web UI to a deployed instance of the solution accelerator, you see errors on the dashboard. These errors don't affect your ability to test your new page.
 
@@ -153,15 +153,15 @@ Optionally, you can connect your local running copy of the web UI to the Remote 
 
 1. Use the Azure portal or the [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to enable SSH access to the virtual machine that hosts the microservices in your solution. For example:
 
-    ```sh
+    ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    You should only enable SSH access during test and development. If you enable SSH, [you should disable it again as soon as possible](../security/azure-security-network-security-best-practices.md).
+    You should only enable SSH access during test and development. If you enable SSH, [you should disable it again as soon as possible](../security/fundamentals/network-best-practices.md).
 
 1. Use the Azure portal or the [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to find the name and public IP address of your virtual machine. For example:
 
-    ```sh
+    ```azurecli
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```

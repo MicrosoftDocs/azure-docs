@@ -139,13 +139,13 @@ To configure Azure AD single sign-on with InsideView, take these steps:
 
 	1. Open the Raw certificate that you downloaded from the Azure portal. Copy the contents of the certificate to the clipboard, and then paste the contents into the **STS Certificate** box.
 
-	1. In the **Crm User Id Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+	1. In the **Crm User Id Mapping** box, enter **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
-	1. In the **Crm Email Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+	1. In the **Crm Email Mapping** box, enter **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
-	1. In the **Crm First Name Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+	1. In the **Crm First Name Mapping** box, enter **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`**.
 
-	1. In the **Crm lastName Mapping** box, enter **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.  
+	1. In the **Crm lastName Mapping** box, enter **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`**.  
 
 	1. Select **Save**.
 
@@ -220,4 +220,4 @@ When you select the InsideView tile in the Access Panel, you should be automatic
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

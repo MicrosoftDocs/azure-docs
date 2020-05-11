@@ -1,5 +1,5 @@
 ---
-title: Ports beyond 1433 for SQL Database | Microsoft Docs
+title: Ports beyond 1433
 description: Client connections from ADO.NET to Azure SQL Database can bypass the proxy and interact directly with the database using ports other than 1433.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 04/03/2019
 ---
 # Ports beyond 1433 for ADO.NET 4.5
@@ -67,9 +66,9 @@ This section clarifies the monikers that refer to product versions. It also list
 
 ## Related links
 
-* ADO.NET 4.6 was released on July 20, 2015. A blog announcement from the .NET team is available [here](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 was released on August 15, 2012. A blog announcement from the .NET team is available [here](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
-  * A blog post about ADO.NET 4.5.1 is available [here](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx).
+* ADO.NET 4.6 was released on July 20, 2015. A blog announcement from the .NET team is available [here](https://devblogs.microsoft.com/dotnet/announcing-net-framework-4-6/).
+* ADO.NET 4.5 was released on August 15, 2012. A blog announcement from the .NET team is available [here](https://devblogs.microsoft.com/dotnet/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code/).
+  * A blog post about ADO.NET 4.5.1 is available [here](https://devblogs.microsoft.com/dotnet/announcing-the-net-framework-4-5-1-preview/).
 
 * Microsoft® ODBC Driver 17 for SQL Server® - Windows, Linux, & macOS
 https://www.microsoft.com/download/details.aspx?id=56567
@@ -77,7 +76,7 @@ https://www.microsoft.com/download/details.aspx?id=56567
 * Connect to Azure SQL Database V12 via Redirection
 https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
-* [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
+* [TDS protocol version list](https://www.freetds.org/userguide/tdshistory.htm)
 * [SQL Database Development Overview](sql-database-develop-overview.md)
 * [Azure SQL Database firewall](sql-database-firewall-configure.md)
 * [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)

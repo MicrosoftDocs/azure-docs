@@ -1,23 +1,25 @@
 ---
 title: Publish an offer | Azure Marketplace
 description: API to publish the specified offer.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
-ms.author: pabutler
+ms.date: 04/08/2020
+ms.author: dsindona
 ---
 
 
-Publish an offer
-================
+# Publish an offer
+
+> [!NOTE]
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
 
 Starts the publishing process for the specified offer. This call is a long running operation.
 
   `POST  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/publish?api-version=2017-10-31`
 
-URI parameters
+## URI parameters
 --------------
 
 |  **Name**      |    **Description**                               |  **Data type** |
@@ -27,8 +29,7 @@ URI parameters
 |  api-version   | Latest version of the API                        |   Date         |
 |  |  |
 
-
-Header
+## Header
 ------
 
 |  **Name**        |    **Value**          |
@@ -38,7 +39,7 @@ Header
 |  |  |
 
 
-Body example
+## Body example
 ------------
 
 ### Request
@@ -62,14 +63,20 @@ Body example
 
 ### Response
 
-   `Operation-Location: /api/operations/contoso$56615b67-2185-49fe-80d2-c4ddf77bb2e8$2$preview?api-version=2017-10-31`
+#### Migrated offers
+
+`Location: /api/publishers/contoso/offers/contoso-offer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8?api-version=2017-10-31`
+
+#### Non-migrated offers
+
+`Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
 
 ### Response Header
 
 |  **Name**             |    **Value**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
-| Operation-Location    | URL that can be queried to determine the current status of the operation.    |
+| Location    | The relative path to retrieve this operation's status     |
 |  |  |
 
 

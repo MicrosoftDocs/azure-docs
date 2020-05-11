@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) Pass-through Authentication allows your users 
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-This feature is an alternative to [Azure AD Password Hash Synchronization](how-to-connect-password-hash-synchronization.md), which provides the same benefit of cloud authentication to organizations. However, certain organizations wanting to enforce their on-premises Active Directory security and password policies, can choose to use Pass-through Authentication instead. Review [this guide](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) for a comparison of the various Azure AD sign-in methods and how to choose the right sign-in method for your organization.
+This feature is an alternative to [Azure AD Password Hash Synchronization](how-to-connect-password-hash-synchronization.md), which provides the same benefit of cloud authentication to organizations. However, certain organizations wanting to enforce their on-premises Active Directory security and password policies, can choose to use Pass-through Authentication instead. Review [this guide](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) for a comparison of the various Azure AD sign-in methods and how to choose the right sign-in method for your organization.
 
 ![Azure AD Pass-through Authentication](./media/how-to-connect-pta/pta1.png)
 
@@ -44,7 +44,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](h
   - No management overhead. The agent automatically receives improvements and bug fixes.
 - *Secure*
   - On-premises passwords are never stored in the cloud in any form.
-  - Protects your user accounts by working seamlessly with [Azure AD Conditional Access policies](../active-directory-conditional-access-azure-portal.md), including Multi-Factor Authentication (MFA), [blocking legacy authentication](../conditional-access/conditions.md) and by [filtering out brute force password attacks](../authentication/howto-password-smart-lockout.md).
+  - Protects your user accounts by working seamlessly with [Azure AD Conditional Access policies](../active-directory-conditional-access-azure-portal.md), including Multi-Factor Authentication (MFA), [blocking legacy authentication](../conditional-access/concept-conditional-access-conditions.md) and by [filtering out brute force password attacks](../authentication/howto-password-smart-lockout.md).
   - The agent only makes outbound connections from within your network. Therefore, there is no requirement to install the agent in a perimeter network, also known as a DMZ.
   - The communication between an agent and Azure AD is secured using certificate-based authentication. These certificates are automatically renewed every few months by Azure AD.
 - *Highly available*
@@ -54,7 +54,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](h
 
 - Supports user sign-in into all web browser-based applications and into Microsoft Office client applications that use [modern authentication](https://aka.ms/modernauthga).
 - Sign-in usernames can be either the on-premises default username (`userPrincipalName`) or another attribute configured in Azure AD Connect (known as `Alternate ID`).
-- The feature works seamlessly with [conditional access](../active-directory-conditional-access-azure-portal.md) features such as Multi-Factor Authentication (MFA) to help secure your users.
+- The feature works seamlessly with [Conditional Access](../active-directory-conditional-access-azure-portal.md) features such as Multi-Factor Authentication (MFA) to help secure your users.
 - Integrated with cloud-based [self-service password management](../authentication/active-directory-passwords-overview.md), including password writeback to on-premises Active Directory and password protection by banning commonly used passwords.
 - Multi-forest environments are supported if there are forest trusts between your AD forests and if name suffix routing is correctly configured.
 - It is a free feature, and you don't need any paid editions of Azure AD to use it.
@@ -65,7 +65,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](h
 
 ## Next steps
 
-- [Quick Start](how-to-connect-pta-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
+- [Quickstart](how-to-connect-pta-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
 - [Migrate from AD FS to Pass-through Authentication](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md) - Configure Smart Lockout capability on your tenant to protect user accounts.
 - [Current limitations](how-to-connect-pta-current-limitations.md) - Learn which scenarios are supported and which ones are not.

@@ -1,36 +1,150 @@
 ---
-title: Limitations in Azure Database for MariaDB
+title: Limitations - Azure Database for MariaDB
 description: This article describes limitations in Azure Database for MariaDB, such as number of connection and storage engine options.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 4/1/2020
 ---
 # Limitations in Azure Database for MariaDB
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service.
 
-## Maximum connections
-The maximum number of connections per pricing tier and vCores are as follows:
+## Server parameters
 
-|**Pricing Tier**|**vCore(s)**| **Max Connections**|
-|---|---|---|
-|Basic| 1| 50|
-|Basic| 2| 100|
-|General Purpose| 2| 300|
-|General Purpose| 4| 625|
-|General Purpose| 8| 1250|
-|General Purpose| 16| 2500|
-|General Purpose| 32| 5000|
-|General Purpose| 64| 10000|
-|Memory Optimized| 2| 600|
-|Memory Optimized| 4| 1250|
-|Memory Optimized| 8| 2500|
-|Memory Optimized| 16| 5000|
-|Memory Optimized| 32| 10000|
+The minimum and maximum values of several popular server parameters are determined by the pricing tier and vCores. Refer to the below tables for limits.
+
+### max_connections
+
+|**Pricing Tier**|**vCore(s)**|**Default value**|**Min value**|**Max value**|
+|---|---|---|---|---|
+|Basic|1|50|10|50|
+|Basic|2|100|10|100|
+|General Purpose|2|300|10|600|
+|General Purpose|4|625|10|1250|
+|General Purpose|8|1250|10|2500|
+|General Purpose|16|2500|10|5000|
+|General Purpose|32|5000|10|10000|
+|General Purpose|64|10000|10|20000|
+|Memory Optimized|2|600|10|800|
+|Memory Optimized|4|1250|10|2500|
+|Memory Optimized|8|2500|10|5000|
+|Memory Optimized|16|5000|10|10000|
+|Memory Optimized|32|10000|10|20000|
 
 When connections exceed the limit, you may receive the following error:
 > ERROR 1040 (08004): Too many connections
+
+> [!IMPORTANT]
+> For best experience, we recommend that you use a connection pooler like ProxySQL to efficiently manage connections.
+
+Creating new client connections to MariaDB takes time and once established, these connections occupy database resources, even when idle. Most applications request many short-lived connections, which compounds this situation. The result is fewer resources available for your actual workload leading to decreased performance. A connection pooler that decreases idle connections and reuses existing connections will help avoid this. To learn about setting up ProxySQL, visit our [blog post](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
+
+### query_cache_size
+
+The query cache is turned off by default. To enable the query cache, configure the `query_cache_type` parameter. 
+
+Review the [MariaDB documentation](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) to learn more about this parameter.
+
+|**Pricing Tier**|**vCore(s)**|**Default value**|**Min value**|**Max value**|
+|---|---|---|---|---|
+|Basic|1|Not configurable in Basic tier|N/A|N/A|
+|Basic|2|Not configurable in Basic tier|N/A|N/A|
+|General Purpose|2|0|0|16777216|
+|General Purpose|4|0|0|33554432|
+|General Purpose|8|0|0|67108864|
+|General Purpose|16|0|0|134217728|
+|General Purpose|32|0|0|134217728|
+|General Purpose|64|0|0|134217728|
+|Memory Optimized|2|0|0|33554432|
+|Memory Optimized|4|0|0|67108864|
+|Memory Optimized|8|0|0|134217728|
+|Memory Optimized|16|0|0|134217728|
+|Memory Optimized|32|0|0|134217728|
+
+### sort_buffer_size
+
+Review the [MariaDB documentation](https://mariadb.com/kb/en/server-system-variables/#sort_buffer_size) to learn more about this parameter.
+
+|**Pricing Tier**|**vCore(s)**|**Default value**|**Min value**|**Max value**|
+|---|---|---|---|---|
+|Basic|1|Not configurable in Basic tier|N/A|N/A|
+|Basic|2|Not configurable in Basic tier|N/A|N/A|
+|General Purpose|2|524288|32768|4194304|
+|General Purpose|4|524288|32768|8388608|
+|General Purpose|8|524288|32768|16777216|
+|General Purpose|16|524288|32768|33554432|
+|General Purpose|32|524288|32768|33554432|
+|General Purpose|64|524288|32768|33554432|
+|Memory Optimized|2|524288|32768|8388608|
+|Memory Optimized|4|524288|32768|16777216|
+|Memory Optimized|8|524288|32768|33554432|
+|Memory Optimized|16|524288|32768|33554432|
+|Memory Optimized|32|524288|32768|33554432|
+
+### join_buffer_size
+
+Review the [MariaDB documentation](https://mariadb.com/kb/en/server-system-variables/#join_buffer_size) to learn more about this parameter.
+
+|**Pricing Tier**|**vCore(s)**|**Default value**|**Min value**|**Max value**|
+|---|---|---|---|---|
+|Basic|1|Not configurable in Basic tier|N/A|N/A|
+|Basic|2|Not configurable in Basic tier|N/A|N/A|
+|General Purpose|2|262144|128|268435455|
+|General Purpose|4|262144|128|536870912|
+|General Purpose|8|262144|128|1073741824|
+|General Purpose|16|262144|128|2147483648|
+|General Purpose|32|262144|128|4294967295|
+|General Purpose|64|262144|128|4294967295|
+|Memory Optimized|2|262144|128|536870912|
+|Memory Optimized|4|262144|128|1073741824|
+|Memory Optimized|8|262144|128|2147483648|
+|Memory Optimized|16|262144|128|4294967295|
+|Memory Optimized|32|262144|128|4294967295|
+
+### max_heap_table_size
+
+Review the [MariaDB documentation](https://mariadb.com/kb/en/server-system-variables/#max_heap_table_size) to learn more about this parameter.
+
+|**Pricing Tier**|**vCore(s)**|**Default value**|**Min value**|**Max value**|
+|---|---|---|---|---|
+|Basic|1|Not configurable in Basic tier|N/A|N/A|
+|Basic|2|Not configurable in Basic tier|N/A|N/A|
+|General Purpose|2|16777216|16384|268435455|
+|General Purpose|4|16777216|16384|536870912|
+|General Purpose|8|16777216|16384|1073741824|
+|General Purpose|16|16777216|16384|2147483648|
+|General Purpose|32|16777216|16384|4294967295|
+|General Purpose|64|16777216|16384|4294967295|
+|Memory Optimized|2|16777216|16384|536870912|
+|Memory Optimized|4|16777216|16384|1073741824|
+|Memory Optimized|8|16777216|16384|2147483648|
+|Memory Optimized|16|16777216|16384|4294967295|
+|Memory Optimized|32|16777216|16384|4294967295|
+
+### tmp_table_size
+
+Review the [MariaDB documentation](https://mariadb.com/kb/en/server-system-variables/#tmp_table_size) to learn more about this parameter.
+
+|**Pricing Tier**|**vCore(s)**|**Default value**|**Min value**|**Max value**|
+|---|---|---|---|---|
+|Basic|1|Not configurable in Basic tier|N/A|N/A|
+|Basic|2|Not configurable in Basic tier|N/A|N/A|
+|General Purpose|2|16777216|1024|67108864|
+|General Purpose|4|16777216|1024|134217728|
+|General Purpose|8|16777216|1024|268435456|
+|General Purpose|16|16777216|1024|536870912|
+|General Purpose|32|16777216|1024|1073741824|
+|General Purpose|64|16777216|1024|1073741824|
+|Memory Optimized|2|16777216|1024|134217728|
+|Memory Optimized|4|16777216|1024|268435456|
+|Memory Optimized|8|16777216|1024|536870912|
+|Memory Optimized|16|16777216|1024|1073741824|
+|Memory Optimized|32|16777216|1024|1073741824|
+
+### time_zone
+
+The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](howto-server-parameters.md#working-with-the-time-zone-parameter) or [Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
 
 ## Storage engine support
 
@@ -87,5 +201,5 @@ Requires super privileges to create and is restricted. If importing data using a
 - MariaDB server instance displays the incorrect server version after connection is established. To get the correct server instance engine version, use the `select version();` command.
 
 ## Next steps
-- [What’s available in each service tier](concepts-pricing-tiers.md)
+- [What's available in each service tier](concepts-pricing-tiers.md)
 - [Supported MariaDB database versions](concepts-supported-versions.md)

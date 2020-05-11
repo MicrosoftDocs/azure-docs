@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -84,7 +84,7 @@ When an Application Developer creates a new application registration, they are a
 
 For even finer-grained app access delegation, you can assign ownership to individual enterprise applications. This complements the existing support for assigning application registration owners. Ownership is assigned on a per-enterprise application basis in the Enterprise Applications blade. The benefit is owners can manage only the enterprise applications they own. For example, you can assign an owner for the Salesforce application, and that owner can manage access to and configuration for Salesforce, and no other applications. An enterprise application can have many owners, and a user can be the owner for many enterprise applications. There are two app owner roles:
 
-* The **Enterprise Application Owner** role grants the ability to manage the ‘enterprise applications that the user owns, including single sign-on settings, user and group assignments, and adding additional owners. It doesn't grant the ability to manage Application Proxy settings or conditional access.
+* The **Enterprise Application Owner** role grants the ability to manage the ‘enterprise applications that the user owns, including single sign-on settings, user and group assignments, and adding additional owners. It doesn't grant the ability to manage Application Proxy settings or Conditional Access.
 * The **Application Registration Owner** role grants the ability to manage application registrations for app that the user owns, including the application manifest and adding additional owners.
 
 ## Develop a security plan
@@ -97,12 +97,12 @@ To maintain access to your identity management store when issue arises, prepare 
 
 ## Secure your administrator roles
 
-Attackers who get control of privileged accounts can do tremendous damage, so protect these accounts first, using the [baseline access policy](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/22/baseline-security-policy-for-azure-ad-admin-accounts-in-public-preview/) that is available by default to all Azure AD tenants (in public preview). The policy enforces multi-factor authentication on privileged Azure AD accounts. The following Azure AD roles are covered by the Azure AD baseline policy:
+Attackers who get control of privileged accounts can do tremendous damage, so protect these accounts first, using the [baseline access policy](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/22/baseline-security-policy-for-azure-ad-admin-accounts-in-public-preview/) that is available by default to all Azure AD organizations (in public preview). The policy enforces multi-factor authentication on privileged Azure AD accounts. The following Azure AD roles are covered by the Azure AD baseline policy:
 
 * Global administrator
 * SharePoint administrator
 * Exchange administrator
-* Conditional access administrator
+* Conditional Access administrator
 * Security administrator
 
 ## Elevate privilege temporarily

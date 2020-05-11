@@ -1,13 +1,10 @@
 ---
-title: Azure Active Directory integration for Azure Red Hat OpenShift | Microsoft Docs
+title: Azure Active Directory integration for Azure Red Hat OpenShift
 description:  Learn how to create an Azure AD security group and user for testing apps on your Microsoft Azure Red Hat OpenShift cluster.
 author: jimzim
 ms.author: jzim
-ms.service: openshift
-manager: jeconnoc
+ms.service: container-service
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/13/2019
 ---
 
@@ -22,15 +19,15 @@ Microsoft Azure Red Hat OpenShift needs permissions to perform tasks on behalf o
 In the [Azure portal](https://portal.azure.com), ensure that your tenant appears under your user name in the top right of the portal:
 
 ![Screenshot of portal with tenant listed in top right](./media/howto-create-tenant/tenant-callout.png)
-If the wrong tenant is displayed, click on your user name in the top right, then click **Switch Directory**, and select the correct tenant from the **All Directories** list.
+If the wrong tenant is displayed, click your user name in the top right, then click **Switch Directory**, and select the correct tenant from the **All Directories** list.
 
-Create a new Azure Active Directory global administrator user to sign in to your Azure Red Hat OpenShift cluster.
+Create a new Azure Active Directory 'Owner' user to sign in to your Azure Red Hat OpenShift cluster.
 
 1. Go to the [Users-All users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) blade.
 2. Click **+New user** to open the **User** pane.
 3. Enter a **Name** for this user.
 4. Create a **User name** based on the name of the tenant you created, with  `.onmicrosoft.com` appended at the end. For example, `yourUserName@yourTenantName.onmicrosoft.com`. Write down this user name. You'll need it to sign in to your cluster.
-5. Click **Directory role** to open the directory role pane, and select **Global administrator** and then click **Ok** at the bottom of the pane.
+5. Click **Directory role** to open the directory role pane, and select **Owner** and then click **Ok** at the bottom of the pane.
 6. In the **User** pane, click **Show Password** and record the temporary password. After you sign in the first time, you'll be prompted to reset it.
 7. At the bottom of the pane, click **Create** to create the user.
 
@@ -39,7 +36,7 @@ Create a new Azure Active Directory global administrator user to sign in to your
 To grant cluster admin access, the memberships in an Azure AD security group are synced into the OpenShift group "osa-customer-admins". If not specified, no cluster admin access will be granted.
 
 1. Open the [Azure Active Directory groups](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups) blade.
-2. Click **+New Group**
+2. Click **+New Group**.
 3. Provide a group name and description.
 4. Set **Group type** to **Security**.
 5. Set **Membership type** to **Assigned**.
@@ -50,10 +47,13 @@ To grant cluster admin access, the memberships in an Azure AD security group are
 7. In the members list, select the Azure AD user that you created above.
 8. At the bottom of the portal, click on **Select** and then **Create** to create the security group.
 
-    Write down the Group ID value
+    Write down the Group ID value.
 
 9. When the group is created, you will see it in the list of all groups. Click on the new group.
 10. On the page that appears, copy down the **Object ID**. We will refer to this value as `GROUPID` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
+
+> [!IMPORTANT]
+> To sync this group with the osa-customer-admins OpenShift group, create the cluster by using the Azure CLI. The Azure portal currently lacks a field to set this group.
 
 ## Create an Azure AD app registration
 
@@ -79,17 +79,39 @@ Generate a client secret for authenticating your app to Azure Active Directory.
 4. Set **Expires** to the duration you prefer, for example **In 2 Years**.
 5. Click **Add** and the key value will appear in the **Client secrets** section of the page.
 6. Copy down the key value. We will refer to this value as `SECRET` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
- 
+
 ![Screenshot of the certificates and secrets pane](./media/howto-create-tenant/create-key.png)
- 
-For more info on Azure Application Objects, see [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+
+For more information about Azure Application Objects, see [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 
 For details on creating a new Azure AD application, see [Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
 
+## Add API permissions
+
+[//]: # (Do not change to Microsoft Graph. It does not work with Microsoft Graph.)
+1. In the **Manage** section click **API permissions**
+2. Click **Add permission** and select **Azure Active Directory Graph** then **Delegated permissions**.
+> [!NOTE]
+> Make sure you selected the "Azure Active Directory Graph" and not the "Microsoft Graph" tile.
+
+3. Expand **User** on the list below and enable the **User.Read** permission. If **User.Read** is enabled by default, ensure that it is the **Azure Active Directory Graph** permission **User.Read**.
+4. Scroll up and select **Application permissions**.
+5. Expand **Directory** on the list below and enable **Directory.ReadAll**.
+6. Click **Add permissions** to accept the changes.
+7. The API permissions panel should now show both *User.Read* and *Directory.ReadAll*. Please note the warning in **Admin consent required** column next to *Directory.ReadAll*.
+8. If you are the *Azure Subscription Administrator*, click **Grant admin consent for *Subscription Name*** below. If you are not the *Azure Subscription Administrator*, request the consent from your administrator.
+
+![Screenshot of the API permissions panel. User.Read and Directory.ReadAll permissions added, admin consent required for Directory.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
+
+> [!IMPORTANT]
+> Synchronization of the cluster administrators group will work only after consent has been granted. You will see a green circle with a checkmark and a message "Granted for *Subscription Name*" in the *Admin consent required* column.
+
+For details on managing administrators and other roles, see [Add or change Azure subscription administrators](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+
 ## Resources
 
-* [Applications and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)  
-* [Quickstart: Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)  
+* [Applications and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+* [Quickstart: Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
 ## Next steps
 

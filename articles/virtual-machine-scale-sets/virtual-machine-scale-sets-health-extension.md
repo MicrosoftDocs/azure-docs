@@ -1,25 +1,16 @@
 ---
-title: Use Application Health extension with Azure virtual machine scale sets | Microsoft Docs
+title: Use Application Health extension with Azure virtual machine scale sets
 description: Learn how to use the Application Health extension to monitor the health of your applications deployed on virtual machine scale sets.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: drewm
-editor: ''
+author: mimckitt
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/30/2019
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 05/06/2020
+ms.author: mimckitt
 
 ---
 # Using Application Health extension with virtual machine scale sets
-Monitoring your application health is an important signal for managing and upgrading your deployment. Azure virtual machine scale sets provide support for [rolling upgrades](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) including [automatic OS-image upgrades](virtual-machine-scale-sets-automatic-upgrade.md), which rely on health monitoring of the individual instances to upgrade your deployment.
+Monitoring your application health is an important signal for managing and upgrading your deployment. Azure virtual machine scale sets provide support for [rolling upgrades](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) including [automatic OS-image upgrades](virtual-machine-scale-sets-automatic-upgrade.md), which rely on health monitoring of the individual instances to upgrade your deployment. You can also use health extension to monitor the application health of each instance in your scale set and perform instance repairs using [automatic instance repairs](virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 This article describes how you can use the Application Health extension to monitor the health of your applications deployed on virtual machine scale sets.
 
@@ -35,7 +26,7 @@ As the extension reports health from within a VM, the extension can be used in s
 
 ## Extension schema
 
-The following JSON shows the schema for the Application Health extension. The extension requires at a minimum either a "tcp" or "http" request with an associated port or request path respectively.
+The following JSON shows the schema for the Application Health extension. The extension requires at a minimum either a "tcp", "http" or "https" request with an associated port or request path respectively.
 
 ```json
 {
@@ -70,9 +61,9 @@ The following JSON shows the schema for the Application Health extension. The ex
 
 | Name | Value / Example | Data Type
 | ---- | ---- | ----
-| protocol | `http` or `tcp` | string |
-| port | Optional when protocol is `http`, mandatory when protocol is `tcp` | int |
-| requestPath | Mandatory when protocol is `http`, not allowed when protocol is `tcp` | string |
+| protocol | `http` or `https` or `tcp` | string |
+| port | Optional when protocol is `http` or `https`, mandatory when protocol is `tcp` | int |
+| requestPath | Mandatory when protocol is `http` or `https`, not allowed when protocol is `tcp` | string |
 
 ## Deploy the Application Health extension
 There are multiple ways of deploying the Application Health extension to your scale sets as detailed in the examples below.
@@ -145,16 +136,25 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 
 Use [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) to add the Application Health extension to the scale set model definition.
 
-The following example adds the Application Health extension to the scale set model of a Windows-based scale set.
+The following example adds the Application Health extension to the scale set model of a Linux-based scale set.
 
 ```azurecli-interactive
 az vmss extension set \
-  --name ApplicationHealthWindows \
+  --name ApplicationHealthLinux \
   --publisher Microsoft.ManagedServices \
   --version 1.0 \
   --resource-group <myVMScaleSetResourceGroup> \
   --vmss-name <myVMScaleSet> \
   --settings ./extension.json
+```
+The extension.json file content.
+
+```json
+{
+  "protocol": "<protocol>",
+  "port": "<port>",
+  "requestPath": "</requestPath>"
+}
 ```
 
 

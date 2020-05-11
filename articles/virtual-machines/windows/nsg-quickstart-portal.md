@@ -1,17 +1,9 @@
 ---
-title: Open ports to a VM using the Azure portal | Microsoft Docs
-description: Learn how to open a port / create an endpoint to your Windows VM using the resource manager deployment model in the Azure Portal
-services: virtual-machines-windows
-documentationcenter: ''
+title: Open ports to a VM using the Azure portal 
+description: Learn how to open a port / create an endpoint to your Windows VM using the Azure Portal
 author: cynthn
-manager: jeconnoc
-editor: ''
-
-ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
@@ -82,5 +74,5 @@ For highly available web applications, consider placing your VMs behind an Azure
 In this article, you created a network security group, created an inbound rule that allows HTTP traffic on port 80, and then associated that rule with a subnet. 
 
 You can find information on creating more detailed environments in the following articles:
-- [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)
+- [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md)
 - [Security groups](../../virtual-network/security-overview.md)

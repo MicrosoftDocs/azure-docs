@@ -157,9 +157,9 @@ IdPAttributeProfile = azure
 SSOInitiated = IdPAndSP
 ```
 
-Store your **Server Address** in the `Server.Address` value, and the **App Federation Metadata Url** in the `SAML.IdPMetaData` value.
+Store your **Server Address** in the `Server.Address` value, and the **App Federation Metadata Url** in the `SAML.IdPMetaData` value. Note that this sample configuration uses an unencrypted HTTP connection, while Azure AD requires the use of an encrypted HTTPS connection. You can either use a [reverse proxy](https://docs.rstudio.com/connect/admin/proxy/) in front of RStudio Connect or configure RStudio Connect to [use HTTPS directly](https://docs.rstudio.com/connect/admin/appendix/configuration/#HTTPS). 
 
-If you have trouble with configuration, you can read the [RStudio Connect Admin Guide](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) or email the [RStudio support team](mailto:support@rstudio.com) for help.
+If you have trouble with configuration, you can read the [RStudio Connect Admin Guide](https://docs.rstudio.com/connect/admin/authentication/saml/) or email the [RStudio support team](mailto:support@rstudio.com) for help.
 
 ### Create an Azure AD test user 
 
@@ -227,5 +227,5 @@ When you click the RStudio Connect tile in the Access Panel, you should be autom
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

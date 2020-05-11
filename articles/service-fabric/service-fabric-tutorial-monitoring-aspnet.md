@@ -1,22 +1,12 @@
 ---
-title: Monitor and diagnose ASP.NET Core services on Service Fabric in Azure | Microsoft Docs
+title: Monitor and diagnose ASP.NET Core services
 description: In this tutorial, you learn how to set up monitoring and diagnostics for an Azure Service Fabric ASP.NET Core application.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 3/21/2019
+ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-
 ---
 # Tutorial: Monitor and diagnose an ASP.NET Core application on Service Fabric using Application Insights
 
@@ -42,7 +32,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Install Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
+* [Install Visual Studio 2019](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 ## Download the Voting sample application
@@ -70,7 +60,7 @@ Once you've filled out the required information, click **Create** to provision t
 
 ## Add Application Insights to the application's services
 
-Launch Visual Studio 2017 with elevated privileges by right-clicking the Visual Studio icon in the Start Menu and choosing **Run as administrator**. Click **File** > **Open** > **Project/Solution** and navigate to the Voting application (either created in part one of the tutorial or git cloned). Open *Voting.sln*. If prompted to restore the application's NuGet packages, click **Yes**.
+Launch Visual Studio 2019 with elevated privileges by right-clicking the Visual Studio icon in the Start Menu and choosing **Run as administrator**. Click **File** > **Open** > **Project/Solution** and navigate to the Voting application (either created in part one of the tutorial or git cloned). Open *Voting.sln*. If prompted to restore the application's NuGet packages, click **Yes**.
 
 Follow these steps to configure Application Insights for both the VotingWeb and VotingData services:
 
@@ -173,7 +163,7 @@ At this point, you are ready to deploy the application. Click **Start** at the t
 >[!NOTE]
 >You may get a build error if you do not have an up-to-date version of the .NET Core SDK installed.
 
-Once the application is done deploying, head over to [localhost:8080](localhost:8080), where you should be able to see the Voting Sample single page application. Vote for a few different items of your choice to create some sample data and telemetry - I went for desserts!
+Once the application is done deploying, head over to `localhost:8080`, where you should be able to see the Voting Sample single page application. Vote for a few different items of your choice to create some sample data and telemetry - I went for desserts!
 
 ![AI sample votes](./media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png)
 
@@ -258,7 +248,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-Once you're done making these changes, **Start** the application so that it builds and deploys the latest version of it. Once the application is done deploying, head over to [localhost:8080](localhost:8080), and add and delete some voting options. Then, go back to your Application Insights resource to see the traces for the latest run (as before, traces can take 1-2 min to show up in Application Insights). For all the votes you added and deleted, you should now see a "Custom Event* along with all the response telemetry.
+Once you're done making these changes, **Start** the application so that it builds and deploys the latest version of it. Once the application is done deploying, head over to `localhost:8080`, and add and delete some voting options. Then, go back to your Application Insights resource to see the traces for the latest run (as before, traces can take 1-2 min to show up in Application Insights). For all the votes you added and deleted, you should now see a "Custom Event* along with all the response telemetry.
 
 ![custom events](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 
