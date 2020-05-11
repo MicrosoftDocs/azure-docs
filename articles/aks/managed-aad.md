@@ -10,13 +10,13 @@ ms.date: 03/24/2020
 # Integrate Azure AD in Azure Kubernetes Service (Preview)
 
 > [!Note]
-> Existing AKS clusters with AAD (Azure Active Directory) integration are not affected by the new AKS managed AAD experience.
+> Existing AKS clusters with AAD (Azure Active Directory) integration are not affected by the new AKS-managed AAD experience.
 
-Azure AD integration with AKS managed AAD is designed to simplify the Azure AD integration experience, where users were previously required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
+Azure AD integration with AKS-managed AAD is designed to simplify the Azure AD integration experience, where users were previously required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
 
 ## Limitations
 
-* You can't currently upgrade an existing AKS AAD Integrated cluster to the new AKS managed AAD experience.
+* You can't currently upgrade an existing AKS AAD Integrated cluster to the new AKS-managed AAD experience.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
@@ -104,7 +104,7 @@ Alternatively, if you first create a group and add members, you can enable the A
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 
-A successful creation of an AKS Managed AAD cluster has the following section in the response body
+A successful creation of an AKS-managed AAD cluster has the following section in the response body
 ```
 "Azure ADProfile": {
     "adminGroupObjectIds": null,
@@ -148,7 +148,7 @@ The user above gets an error because the user is not a part of a group that has 
 
 ## Next steps
 
-Learn about [Azure AD Role Based Access Control][azure-ad-rbac].
+Learn about [Azure AD Role-Based Access Control][azure-ad-rbac].
 Use [kubelogin][https://github.com/Azure/kubelogin] to use features for azure authentication that are not available in kubectl
 
 <!-- LINKS - Internal -->
