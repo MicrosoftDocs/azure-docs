@@ -148,8 +148,8 @@ The user above gets an error because the user is not a part of a group that has 
 
 ## Next steps
 
-Learn about [Azure AD Role-Based Access Control][azure-ad-rbac].
-Use [kubelogin](https://github.com/Azure/kubelogin) to use features for azure authentication that are not available in kubectl
+* Learn about [Azure AD Role-Based Access Control][azure-ad-rbac].
+* Use [kubelogin](https://github.com/Azure/kubelogin) to use features for azure authentication that are not available in kubectl
 
 <!-- LINKS - Internal -->
 [azure-ad-rbac]: azure-ad-rbac.md
