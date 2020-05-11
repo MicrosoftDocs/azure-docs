@@ -289,8 +289,166 @@ This results in a chart like the following;
 
 Finally if you want to understand more details about what happened when you were running the Spark SQL and PySpark code select the monitoring view or the Spark UI view highlighted in red.
 
-<!--### Analyze with SQL script--->
-<!--- Josh 
+### Analyze with SQL script
+These same Parquet files can be analyzed using T-SQL with the Synapse SQL Serverless preview. Use the same SQL script that you created in the **Discover and Explore Data** section of this article. You can now extend that query to some more interesting like below.
+
+```sql
+%%sql
+SELECT
+    DateId
+    ,PickupGeographyID
+    ,sum(PassengerCount) as TotalPassengerCount
+    ,sum(TotalAmount) as TotalFareAmount
+    ,count(*) as NumberOfTrips
+FROM
+    OPENROWSET(
+        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/Trip.parquet',
+        FORMAT='PARQUET'
+    ) AS [t]
+WHERE
+    TripDistanceMiles > 0 AND PassengerCount > 0
+GROUP BY
+    DateId
+    ,PickupGeographyID
+ORDER BY
+    DateId
+```
+
+If you are a user of T-SQL, this syntax will be identical to what you are used to using. This query selects three aggregations from the **Trip** Parquet file and groups them by DateId and PickupGeographyId. After running the query, you should see and output like this;
+![Simple aggregation query](./media/get-started-synapse-analytics/sql-simple-agg-output.PNG)
+
+You can make the results easier to read, by replacing DateId and PickupGeographyId with the actual date and pickup city. This values can be obtained by joining to the **Date** and **Geography** files. 
+
+```sql
+%%sql
+SELECT
+    d.[Date]
+    ,g.City
+    ,sum(PassengerCount) as TotalPassengerCount
+    ,sum(TotalAmount) as TotalFareAmount
+    ,count(*) as NumberOfTrips
+FROM
+    OPENROWSET(
+        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/Trip.parquet',
+        FORMAT='PARQUET'
+    ) AS [t]
+        JOIN OPENROWSET(
+            BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/dimDate.parquet',
+            FORMAT='PARQUET'
+        ) AS [d]
+            ON t.DateId = d.dateId
+        JOIN OPENROWSET(
+            BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/dimGeography.parquet',
+            FORMAT='PARQUET'
+        ) AS [g]
+            ON t.PickupGeographyID = g.GeographyId
+WHERE
+    TripDistanceMiles > 0 AND PassengerCount > 0
+GROUP BY
+    d.[Date]
+    ,g.City
+ORDER BY
+    d.[Date]
+    ,g.City
+
+```
+After running this query, your output should look like this;
+![Aggregation query with joins](./media/get-started-synapse-analytics/sql-joins-agg-output.PNG)
+
+As you can see, multiple Parquet files can be joined almost as if they were actual SQL views. If you find the **OPENROWSET** syntax a little harder to user to use than regular SQL views, you can solve this by creating a virtual SQL database with SQL views.
+## Create a virtual SQL database.
+
+On the **Develop** hub click the **+** to add a new SQL **script**.
+![Create new SQL script](./media/get-started-synapse-analytics/sql-new-script.PNG)
+
+To create the database run the following script;
+
+```sql
+
+%%sql
+CREATE DATABASE NYCTaxiVirtual;
+
+```
+
+Now, if you flip to the data hub, you will see the newly created database.
+![See created database](./media/get-started-synapse-analytics/sql-data-see-db.PNG)
+
+## Create SQL views
+
+Create a new SQL script which uses the NYCTaxiVirtual database by right clicking on the database name and selecting **New SQL script**. 
+![Create new SQL script from database](./media/get-started-synapse-analytics/sql-new-script-from-db.PNG)
+
+Run SQL statements like the following for each view that you wish to create.
+
+```sql
+%%sql
+CREATE VIEW Trips AS
+SELECT
+    *
+FROM
+    OPENROWSET(
+        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/Trip.parquet',
+        FORMAT='PARQUET'
+    ) AS [r];
+```
+
+```sql
+%%sql
+CREATE VIEW dimDate AS
+SELECT
+     *
+FROM
+    OPENROWSET(
+        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/dimDate.parquet',
+        FORMAT='PARQUET'
+    ) AS [r];
+```
+
+```sql
+%%sql
+CREATE VIEW dimGeography AS
+SELECT
+     *
+FROM
+    OPENROWSET(
+        BULK 'https://{StorageAccount}.dfs.core.windows.net/{Container}/nyctaxismall/dimGeography.parquet',
+        FORMAT='PARQUET'
+    ) AS [r];
+```
+
+After the views are created, you can expand the NYCTaxiVirtual database in the data hub to see the views and their schema.
+![View database schema](./media/get-started-synapse-analytics/sql-expand-db.PNG)
+
+## Query views
+
+Your original queries can now be updated to use the views instead of **OPENROWSET** to each file.
+
+```sql
+%%sql
+SELECT
+    d.[Date]
+    ,g.City
+    ,sum(PassengerCount) as TotalPassengerCount
+    ,sum(TotalAmount) as TotalFareAmount
+    ,count(*) as NumberOfTrips
+FROM
+    Trips [t]
+        JOIN dimDate [d]
+            ON t.DateId = d.dateId
+        JOIN dimGeography [g]
+            ON t.PickupGeographyID = g.GeographyId
+WHERE
+    TripDistanceMiles > 0 AND PassengerCount > 0
+GROUP BY
+    d.[Date]
+    ,g.City
+ORDER BY
+    d.[Date]
+    ,g.City
+```
+
+Ensure that when you run the query, that you are running it using the NYCTaxiVirtual database.
+![Run updated query in correct database](./media/get-started-synapse-analytics/sql-run-query-in-db.PNG)
 
 <!--### Analyze with Power BI--->
 <!--- Josh 
