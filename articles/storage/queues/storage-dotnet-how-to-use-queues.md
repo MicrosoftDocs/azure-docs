@@ -155,12 +155,7 @@ Add the following `using` directives to the top of the `Program.cs` file:
 
 # [\.NET v12](#tab/dotnet)
 
-```csharp
-using System; // Namespace for Console output
-using System.Configuration; // Namespace for ConfigurationManager
-using Azure.Storage.Queues; // Namespace for Queue storage types
-using Azure.Storage.Queues.Models; // Namespace for PeekedMessage
-```
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_UsingStatements":::
 
 # [\.NET v11](#tab/dotnetv11)
 
@@ -179,13 +174,7 @@ using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
 
 The [QueueClient](/dotnet/api/azure.storage.queues.queueclient) class enables you to retrieve queues stored in Queue storage. Here's one way to create the service client:
 
-```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-```
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_CreateClient":::
 
 # [\.NET v11](#tab/dotnetv11)
 
@@ -210,16 +199,7 @@ This example shows how to create a queue:
 
 # [\.NET v12](#tab/dotnet)
 
-```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-// Create the queue
-queueClient.CreateIfNotExists();
-```
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_CreateQueue":::
 
 # [\.NET v11](#tab/dotnetv11)
 
@@ -246,19 +226,7 @@ queue.CreateIfNotExists();
 
 To insert a message into an existing queue, call the [SendMessage](/dotnet/api/azure.storage.queues.queueclient.sendmessage) method. A can be either a `string` (in UTF-8 format) or a `byte` array. Here is code which creates a queue (if it doesn't exist) and inserts the message "Hello, World":
 
-```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-if (queueClient.Exists())
-{
-    // Send a message to the queue
-    queueClient.SendMessage("Hello, World");
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_InsertMessage":::
 
 # [\.NET v11](#tab/dotnetv11)
 
@@ -291,22 +259,7 @@ queue.AddMessage(message);
 
 You can peek at the messages in the queue without removing them from the queue by calling the [PeekMessages](/dotnet/api/azure.storage.queues.queueclient.peekmessages) method. If you don't pass a value for the *maxResults* parameter, the default is to peek at one message.
 
-```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-if (queueClient.Exists())
-{ 
-    // Peek at the next message
-    PeekedMessage[] peekedMessage = queueClient.PeekMessages();
-
-    // Display the message
-    Console.WriteLine(peekedMessage[0].MessageText);
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_PeekMessage":::
 
 # [\.NET v11](#tab/dotnetv11)
 
@@ -338,26 +291,7 @@ You can change the contents of a message in-place in the queue. If the message r
 
 # [\.NET v12](#tab/dotnet)
 
-```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-if (queueClient.Exists())
-{
-    // Get the message from the queue
-    QueueMessage[] message = queueClient.ReceiveMessages();
-
-    // Update the message contents
-    queueClient.UpdateMessage(message[0].MessageId, 
-            message[0].PopReceipt, 
-            "Updated contents.",
-            TimeSpan.FromSeconds(60.0)  // Make it invisible for another 60 seconds
-        );
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_UpdateMessage":::
 
 # [\.NET v11](#tab/dotnetv11)
 
@@ -386,26 +320,9 @@ queue.UpdateMessage(message,
 
 # [\.NET v12](#tab/dotnet)
 
-Your code de-queues a message from a queue in two steps. When you call [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages), you get the next message in a queue. A message returned from `ReceiveMessages` becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call [DeleteMessage](/dotnet/api/azure.storage.queues.queueclient.deletemessage). This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls `DeleteMessage` right after the message has been processed.
+De-queue a message from a queue in two steps. When you call [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages), you get the next message in a queue. A message returned from `ReceiveMessages` becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call [DeleteMessage](/dotnet/api/azure.storage.queues.queueclient.deletemessage). This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls `DeleteMessage` right after the message has been processed.
 
-```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-if (queueClient.Exists())
-{
-    // Get the next message
-    QueueMessage[] retrievedMessage = queueClient.ReceiveMessages();
-
-    //Process the message in less than 30 seconds, and then...
-
-    // Delete the message
-    queueClient.DeleteMessage(retrievedMessage[0].MessageId, retrievedMessage[0].PopReceipt);
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DequeueMessage":::
 
 # [\.NET v11](#tab/dotnetv11)
 
@@ -437,35 +354,7 @@ This example shows how to use the Async-Await pattern with common Queue storage 
 
 # [\.NET v12](#tab/dotnet)
 
-```csharp
-// Create the queue if it doesn't already exist
-await queueClient.CreateIfNotExistsAsync();
-
-if (await queueClient.ExistsAsync())
-{
-    Console.WriteLine("Queue '{0}' Created", queueClient.Name);
-}
-else
-{
-    Console.WriteLine("Queue '{0}' Exists", queueClient.Name);
-}
-
-// Async enqueue the message
-await queueClient.SendMessageAsync("Hello, World");
-Console.WriteLine("Message added");
-
-// Async receive the message
-QueueMessage[] retrievedMessage = await queueClient.ReceiveMessagesAsync();
-Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage[0].MessageText);
-
-// Async delete the message
-await queueClient.DeleteMessageAsync(retrievedMessage[0].MessageId, retrievedMessage[0].PopReceipt);
-Console.WriteLine("Deleted message");
-
-// Async delete the queue
-await queueClient.DeleteAsync();
-Console.WriteLine("Deleted queue");
-```
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_AsyncQueue":::
 
 # [\.NET v11](#tab/dotnetv11)
 
@@ -506,30 +395,7 @@ There are two ways you can customize message retrieval from a queue. First, you 
 
 The following code example uses the [ReceiveMessages](/dotnet/api/azure.storage.queues.queueclient.receivemessages) method to get 20 messages in one call. Then it processes each message using a `foreach` loop. It also sets the invisibility timeout to five minutes for each message. Note that the 5 minutes starts for all messages at the same time, so after 5 minutes have passed since the call to `ReceiveMessages`, any messages which have not been deleted will become visible again.
 
-```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-if (queueClient.Exists())
-{
-    // Receive and process 20 messages
-    QueueMessage[] receivedMessages = queueClient.ReceiveMessages(20, TimeSpan.FromMinutes(5));
-
-    foreach (QueueMessage message in receivedMessages)
-    {
-        // Display the message
-        Console.WriteLine(message.MessageText);
-
-        //Process the message in less than 30 seconds, and then...
-
-        // Delete the message
-        queueClient.DeleteMessage(message.MessageId, message.PopReceipt);
-    }
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DequeueMessages":::
 
 # [\.NET v11](#tab/dotnetv11)
 
@@ -562,24 +428,7 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 
 You can get an estimate of the number of messages in a queue. The [GetProperties](/dotnet/api/azure.storage.queues.queueclient.getproperties) method asks the Queue service to retrieve the queue properties, including the message count. The [ApproximateMessagesCount](/dotnet/api/azure.storage.queues.models.queueproperties.approximatemessagescount) property contains the approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
 
-```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-if (queueClient.Exists())
-{
-    QueueProperties properties = queueClient.GetProperties();
-
-    // Retrieve the cached approximate message count.
-    int cachedMessagesCount = properties.ApproximateMessagesCount;
-
-    // Display number of messages.
-    Console.WriteLine("Number of messages in queue: " + cachedMessagesCount);
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_GetQueueLength":::
 
 # [\.NET v11](#tab/dotnetv11)
 
@@ -614,19 +463,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 To delete a queue and all the messages contained in it, call the [Delete](/dotnet/api/azure.storage.queues.queueclient.delete) method on the queue object.
 
-```csharp
-// Get the connection string from app settings
-string connectionString = ConfigurationManager.AppSettings["StorageConnectionString"];
-
-// Instantiate a QueueClient which will be used to create and manipulate the queue
-QueueClient queueClient = new QueueClient(connectionString, "myqueue");
-
-if (queueClient.Exists())
-{
-    // Delete the queue
-    queueClient.Delete();
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_DeleteQueue":::
 
 # [\.NET v11](#tab/dotnetv11)
 
