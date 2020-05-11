@@ -44,14 +44,14 @@ The latest sample applications that perform CRUD operations and other common ope
 You need the following to run this sample application:
 
 * Java Development Kit 8
-* Microsoft Azure DocumentDB Java SDK
+* Azure Cosmos DB Java SDK v4
 
-You can optionally use Maven to get the latest Microsoft Azure DocumentDB Java SDK binaries for use in your project. Maven automatically adds any necessary dependencies. Otherwise, you can directly download the dependencies listed in the pom.xml file and add them to your build path.
+You can optionally use Maven to get the latest Azure Cosmos DB Java SDK v4 binaries for use in your project. Maven automatically adds any necessary dependencies. Otherwise, you can directly download the dependencies listed in the pom.xml file and add them to your build path.
 
 ```bash
 <dependency>
-	<groupId>com.microsoft.azure</groupId>
-	<artifactId>azure-documentdb</artifactId>
+	<groupId>com.azure</groupId>
+	<artifactId>azure-cosmos</artifactId>
 	<version>LATEST</version>
 </dependency>
 ```
@@ -60,12 +60,12 @@ You can optionally use Maven to get the latest Microsoft Azure DocumentDB Java S
 
 Clone the sample repo:
 ```bash
-$ git clone https://github.com/Azure/azure-documentdb-java.git
+$ git clone https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples.git
 
-$ cd azure-documentdb-java
+$ cd azure-cosmos-java-sql-api-samples
 ```
 
-You can run the samples either using Eclipse or from the command line using Maven.
+You can run the samples using either an IDE (Eclipse, IntelliJ, or VSCODE) or from the command line using Maven.
 
 To run from Eclipse:
 * Load the main parent project pom.xml file in Eclipse; it should automatically load documentdb-examples.
