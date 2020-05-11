@@ -60,34 +60,35 @@ Before you enable and configure point-in-time restore, enable its prerequisites:
 - [Enable and disable the change feed](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Enable and manage blob versioning](versioning-enable.md)
 
-To configure Azure point-in-time restore with PowerShell, call the Enable-AzStorageBlobRestorePolicy command. The following example enables soft delete and sets the soft-delete retention period, enables change feed, and then enables point-in-time restore. Note that the retention period for point-in-time restore must be less than that set for soft delete.
+To configure Azure point-in-time restore with PowerShell, call the Enable-AzStorageBlobRestorePolicy command. The following example enables soft delete and sets the soft-delete retention period, enables change feed, and then enables point-in-time restore. Before running the example, use the Azure portal or an Azure Resource Manager template to also enable blob versioning.
 
 When running the example, remember to replace the values in angle brackets with your own values:
 
 ```powershell
-# Sign in to your Azure account
+# Sign in to your Azure account.
 Connect-AzAccount
 
-# Set resource group and account variables
+# Set resource group and account variables.
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 
-# Enable soft delete with a retention of 6 days
+# Enable soft delete with a retention of 6 days.
 Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RetentionDays 6
 
-# Enable change feed
+# Enable change feed.
 Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -EnableChangeFeed $true
 
-# Enable point-in-time restore with a retention period of 5 days
+# Enable point-in-time restore with a retention period of 5 days.
+# The retention period for point-in-time restore must be at least one day less than that set for soft delete.
 Enable-AzStorageBlobRestorePolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RestoreDays 5
 
-# View the service settings
+# View the service settings.
 Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName
 ```
