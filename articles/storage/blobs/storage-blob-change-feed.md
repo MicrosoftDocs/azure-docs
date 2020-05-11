@@ -206,6 +206,12 @@ The change feed files contain a series of change event records. Each change even
 
 Change feed files are stored in the `$blobchangefeed/log/` virtual directory as [append blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). The first change feed file under each path will have `00000` in the file name (For example `00000.avro`). The name of each subsequent log file added to that path will increment by 1 (For example: `00001.avro`).
 
+The following eventTypes are captured in the Change feed recods:
+- BlobCreated
+- BlobDeleted
+- BlobPropertiesUpdated
+- BlobSnapshotCreated
+
 Here's an example of change event record from change feed file converted to Json.
 
 ```json
@@ -235,7 +241,7 @@ Here's an example of change event record from change feed file converted to Json
 }
 ```
 
-For a description of each property, see [Azure Event Grid event schema for Blob Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
+For a description of each property, see [Azure Event Grid event schema for Blob Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). The BlobPropertiesUpdated and BlobSnapshotCreated events are currently exclusive to Change feed and not yet supported for Blob Storage Events.
 
 > [!NOTE]
 > The change feed files for a segment don't immediately appear after a segment is created. The length of delay is within the normal interval of publishing latency of the change feed which is within a few minutes of the change.
@@ -310,10 +316,10 @@ This section describes known issues and conditions in the current public preview
 - For preview, you must first [register your subscription](#register) before you can enable change feed for your storage account in the West Central US, West US 2, France Central, France South, Canada Central, and Canada East regions. 
 - The change feed captures only create, update, delete, and copy operations. Blob property and metadata changes are also captured. However the access tier property is not currently captured. 
 - Change event records for any single change might appear more than once in your change feed.
-- You can't yet manage the lifetime of change feed log files by setting time-based retention policy on them and you cannot delete the blobs 
+- You can't yet manage the lifetime of change feed log files by setting time-based retention policy on them and you cannot delete the blobs.
 - The `url` property of the log file is currently always empty.
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
-- You currently cannot see the **$blobchangefeed** container when you call ListContainers API and the container does not show up on Azure portal or Storage Explorer
+- You currently cannot see the **$blobchangefeed** container when you call ListContainers API and the container does not show up on Azure portal or Storage Explorer. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
 - Storage accounts that have previously initiated an [account failover](../common/storage-disaster-recovery-guidance.md) may have issues with the log file not appearing. Any future account failovers may also impact the log file during preview.
 
 ## FAQ
