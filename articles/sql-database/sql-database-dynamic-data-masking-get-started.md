@@ -51,8 +51,28 @@ The DDM recommendations engine, flags certain fields from your database as poten
 
 ## Set up dynamic data masking for your database using PowerShell cmdlets
 
-See [Azure SQL Database Cmdlets](https://docs.microsoft.com/powershell/module/az.sql).
+### Data Masking Policy
+
+- [Get-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
+- [Set-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
+
+### Data Masking Rules
+
+- [Get-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
+- [New-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
+- [Remove-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
+- [Set-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
 ## Set up dynamic data masking for your database using REST API
 
-See [Operations for Azure SQL Database](https://docs.microsoft.com/rest/api/sql/).
+You can use the REST API to programmatically manage data masking policy and rules. The published REST API supports the following operations:
+
+### Data Masking Policies
+
+- [Create Or Update](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): Creates or updates the sensitivity label of the specified column.
+- [Get](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): Gets a database data masking policy. 
+
+### Data Masking Rules
+
+- [Create Or Update](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate): Creates or updates a database data masking rule.
+- [List By Database](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase): Gets a list of database data masking rules.
