@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Data Factory Connectors
-description: Learn how to troubleshoot connector issues in Azure Data Factory.
+description: Learn how to troubleshoot connector issues in Azure Data Factory. 
 services: data-factory
 author: linda33wj
 ms.service: data-factory
@@ -16,7 +16,7 @@ ms.custom: has-adal-ref
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article explores common troubleshooting methods for connectors in Azure Data Factory.
-
+  
 
 ## Azure Blob Storage
 
@@ -59,8 +59,8 @@ This article explores common troubleshooting methods for connectors in Azure Dat
 - **Symptoms**: When copying data into Cosmos DB, you hit the following error:
 
     ```
-    Message=Partition range id 0 | Failed to import mini-batch.
-    Exception was Message: {"Errors":["Encountered exception while executing function. Exception = Error: {\"Errors\":[\"Unique index constraint violation.\"]}...
+    Message=Partition range id 0 | Failed to import mini-batch. 
+    Exception was Message: {"Errors":["Encountered exception while executing function. Exception = Error: {\"Errors\":[\"Unique index constraint violation.\"]}... 
     ```
 
 - **Cause**: There are two possible causes:
@@ -69,7 +69,7 @@ This article explores common troubleshooting methods for connectors in Azure Dat
 
     - If you use **Upsert** as write behavior and you set another unique key to the container, this error means you source data have rows/objects with different IDs but same value for the defined unique key.
 
-- **Resolution**:
+- **Resolution**: 
 
     - For cause1, set **Upsert** as write behavior.
     - For cause 2, make sure each document has different value for defined unique key.
@@ -88,13 +88,13 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Resolution**: Here are two solutions:
 
-    1. **Increase the container RU** to bigger value in Cosmos DB, which will improve the copy activity performance, though incur more cost in Cosmos DB.
+    1. **Increase the container RU** to bigger value in Cosmos DB, which will improve the copy activity performance, though incur more cost in Cosmos DB. 
 
     2. Decrease **writeBatchSize** to smaller value (such as 1000) and set **parallelCopies** to smaller value such as 1, which will make copy run performance worse than current but will not incur more cost in Cosmos DB.
 
 ### Column missing in column mapping
 
-- **Symptoms**: When you import schema for Cosmos DB for column mapping, some columns are missing.
+- **Symptoms**: When you import schema for Cosmos DB for column mapping, some columns are missing. 
 
 - **Cause**: ADF infers the schema from the first 10 Cosmos DB documents. If some columns/properties don't have value in those documents, they won't be detected by ADF thus won't show up.
 
@@ -117,7 +117,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Cause**: There are two ways to represent UUID in BSON - UuidStardard and UuidLegacy. By default, UuidLegacy is used to read data. You will hit error if your UUID data in MongoDB is UuidStandard.
 
 - **Resolution**: In MongoDB connection string, add option "**uuidRepresentation=standard**". For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
-
+			
 
 ## Azure Data Lake Storage Gen2
 
@@ -162,10 +162,10 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 ### Error message: The remote server returned an error: (403) Forbidden
 
-- **Symptoms**: Copy activity fail with the following error:
+- **Symptoms**: Copy activity fail with the following error: 
 
     ```
-    Message: The remote server returned an error: (403) Forbidden..
+    Message: The remote server returned an error: (403) Forbidden.. 
     Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....
     ```
 
@@ -178,15 +178,15 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Symptoms**: Copy activity fail with the following error:
 
     ```
-    Failed to get access token by using service principal.
+    Failed to get access token by using service principal. 
     ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.
     ```
 
 - **Cause**: When the Service Token Server (STS) owned by Azure Active Directory is not unavailable, i.e., too
-busy to handle requests, it returns an HTTP error 503.
+busy to handle requests, it returns an HTTP error 503. 
 
 - **Resolution**: Rerun the copy activity after several minutes.
-
+			      
 
 ## Azure SQL Data Warehouse/Azure SQL Database/SQL Server
 
@@ -361,7 +361,7 @@ busy to handle requests, it returns an HTTP error 503.
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
     Message=Error happened when loading data into SQL Data Warehouse.,
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
-    Message=Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 415 rows processed. (/file_name.txt)
+    Message=Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 415 rows processed. (/file_name.txt) 
     Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..
     ```
 
@@ -374,9 +374,9 @@ busy to handle requests, it returns an HTTP error 503.
 - **Symptoms**: You copy data into Azure SQL Data Warehouse using PolyBase, and hit the following error:
 
     ```
-    Message=110802;An internal DMS error occurred that caused this operation to fail.
-    Details: Exception: Microsoft.SqlServer.DataWarehouse.DataMovement.Common.ExternalAccess.HdfsAccessException,
-    Message: Java exception raised on call to HdfsBridge_CreateRecordReader.
+    Message=110802;An internal DMS error occurred that caused this operation to fail. 
+    Details: Exception: Microsoft.SqlServer.DataWarehouse.DataMovement.Common.ExternalAccess.HdfsAccessException, 
+    Message: Java exception raised on call to HdfsBridge_CreateRecordReader. 
     Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....
     ```
 
@@ -413,7 +413,7 @@ busy to handle requests, it returns an HTTP error 503.
 - **Cause**: Azure SQL Data Warehouse hit issue querying the external table in Azure Storage.
 
 - **Resolution**: Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure SQL Data Warehouse and provide your SQL DW server and database name to further troubleshoot.
-
+            
 
 ## Delimited Text Format
 
@@ -678,3 +678,4 @@ For more troubleshooting help, try these resources:
 *  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+            

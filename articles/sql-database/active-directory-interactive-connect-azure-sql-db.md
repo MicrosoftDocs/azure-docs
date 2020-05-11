@@ -1,5 +1,5 @@
 ---
-title: ActiveDirectoryInteractive connects to SQL
+title: ActiveDirectoryInteractive connects to SQL 
 description: "C# Code example, with explanations, for connecting to Azure SQL Database by using SqlAuthenticationMethod.ActiveDirectoryInteractive mode."
 services: sql-database
 ms.service: sql-database
@@ -75,7 +75,7 @@ To register and set necessary permissions for your application:
 
 ### Set an Azure AD admin for your SQL Database server
 
-For your C# program to run, an Azure SQL server admin needs to assign an Azure AD admin for your SQL Database server.
+For your C# program to run, an Azure SQL server admin needs to assign an Azure AD admin for your SQL Database server. 
 
 On the **SQL Server** page, select **Active Directory admin** > **Set admin**.
 
@@ -238,9 +238,9 @@ namespace ADInteractive5
     /// <summary>
     /// SqlAuthenticationProvider - Is a public class that defines 3 different Azure AD
     /// authentication methods.  The methods are supported in the new .NET 4.7.2.
-    ///  .
+    ///  . 
     /// 1. Interactive,  2. Integrated,  3. Password
-    ///  .
+    ///  . 
     /// All 3 authentication methods are based on the Azure
     /// Active Directory Authentication Library (ADAL) managed library.
     /// </summary>
