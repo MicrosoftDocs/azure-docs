@@ -27,11 +27,22 @@ What you need to begin:
 * Any code editor
 * .NET Core 3.1 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
+## Set up an Azure Digital Twins instance
+
+To develop the app in this tutorial, you'll need an Azure Digital Twins service instance to program against. 
+
+If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip to the next section.
+
+Otherwise, you can run [this shell script](https://github.com/Azure-Samples/digital-twins-samples) to run through the setup automatically. Take note of the `appId` that is printed out by the script; this is your *Application (client) ID*. Also note the `hostName`. You will use these values later.
+
+> [!TIP]
+> To see the steps for setting up an Azure Digital Twins instance in more detail, you can visit [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md).
+
 ## Set up project
 
-The first step is to set up a project. 
+Next, set up the app project. 
 
-Open a command prompt or shell window on your machine, and create an empty project directory where you would like to store your work during this tutorial. Name the directory whatever you would like (for example, *DigitalTwinsCodeTutorial*).
+Open a command prompt or other console window on your machine, and create an empty project directory where you would like to store your work during this tutorial. Name the directory whatever you would like (for example, *DigitalTwinsCodeTutorial*).
 
 Navigate into the new directory.
 
@@ -54,17 +65,6 @@ The first dependency is the Azure Digital Twins SDK for .NET.
 The second dependency provides tools to help with authentication against Azure.
 
 Keep the command window open, as you'll continue to use it throughout the tutorial.
-
-## Set up an Azure Digital Twins instance
-
-To continue with the tutorial's development steps, you need to create an Azure Digital Twins service instance to program against. 
-
-If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip to the next section.
-
-Otherwise, you can run [this shell script](https://github.com/Azure-Samples/digital-twins-samples) to run through the setup automatically. Take note of the `appId` that is printed out by the script; this is your *Application (client) ID*. Also note the `hostName`. You will use these values later.
-
-> [!TIP]
-> To see the steps for setting up an Azure Digital Twins instance in more detail, you can visit [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md).
 
 ## Get started with project code
 
