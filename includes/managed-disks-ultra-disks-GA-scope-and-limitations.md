@@ -5,7 +5,7 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 05/11/2020
 ms.author: rogarana
 ms.custom: include file
 ---
@@ -20,6 +20,9 @@ The following table outlines the regions ultra disks are available in, as well a
 
 |Regions  |No infrastructure redundancy  |Availability zones  |
 |---------|---------|---------|
+|US Gov Virginia     |Yes         |No         |
+|South Central US     |Yes         |No         |
+|Central US     |No         |Yes         |
 |West US     |Yes         |No         |
 |West US 2    |No         |Yes         |
 |East US     |No         |Yes         |
@@ -28,11 +31,15 @@ The following table outlines the regions ultra disks are available in, as well a
 |North Europe     |No         |Yes         |
 |West Europe     |No         |Yes         |
 |UK South     |No         |Yes         |
+|Japan East     |No         |Yes         |
+
+
 
 - Are only supported on the following VM series:
-    - [ESv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
-    - [DSv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
-    - FSv2
+    - [ESv3](../articles/virtual-machines/ev3-esv3-series.md)
+    - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md)
+    - [FSv2](../articles/virtual-machines/fsv2-series.md)
+    - [LSv2](../articles/virtual-machines/lsv2-series.md)
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Not every VM size is available in every supported region with ultra disks
