@@ -2,14 +2,8 @@
 title: Register single-page apps - Microsoft identity platform | Azure
 description: Learn how to build a single-page application (app registration)
 services: active-directory
-<<<<<<< HEAD
-documentationcenter: dev-center-name
 author: hahamil
-=======
-author: navyasric
->>>>>>> 172922287bad1e64f156ef4857b5fa7accfd9fca
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
@@ -50,7 +44,8 @@ Follow the [tutorial](https://docs.microsoft.com/azure/active-directory/develop/
 #### Register a **new** redirect URI 
 
 1. Go to your app registration and select the **Authentication** blade. 
-[Screenshot TODO]
+![add platform](media/scenario-spa-app-registration/add_platform.png)
+
 2. Select the "Add a platform" button at the top of the page. (If you do not see this, click "switch to new experience" at the top of the page.)
 [Screenshot TODO]
 3. Select the "Single Page Application" platform tile.
