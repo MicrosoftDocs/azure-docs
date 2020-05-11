@@ -1,4 +1,4 @@
-- name: Service Bus Relay Documentation
+- name: Azure Relay Documentation
   href: index.yml
 - name: Overview
   items:
