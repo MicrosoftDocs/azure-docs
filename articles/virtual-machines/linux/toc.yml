@@ -67,6 +67,9 @@
     href: cli-samples.md
   - name: Azure PowerShell
     href: powershell-samples.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-samples.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Images
@@ -702,8 +705,6 @@
       href: disks-shared-enable.md
     - name: Upload a vhd to a disk - CLI
       href: disks-upload-vhd-to-managed-disk-cli.md
-    - name: Resize OS disk with a GPT partition
-      href: resize-os-disk-gpt-partition.md
     - name: Resize a disk
       href: expand-disks.md
     - name: Use Storage Explorer to manage disks
