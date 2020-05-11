@@ -83,7 +83,7 @@ options.Add(
 
 ## Enable offline mode
 
-To enable offline mode, create a custom StreamingPolicy and use its name when creating a StreamingLocator in [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563).
+To enable offline mode, create a custom StreamingPolicy and use its name when creating a StreamingLocator in [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L561).
  
 ```csharp
 CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
@@ -92,23 +92,24 @@ CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
     {
         FairPlay = new StreamingPolicyFairPlayConfiguration()
         {
-            AllowPersistentLicense = true  //this enables offline mode
+            AllowPersistentLicense = true // This enables offline mode
         }
     },
     EnabledProtocols = new EnabledProtocols()
     {
         Hls = true,
-        Dash = true //Even though DASH under CBCS is not supported for either CSF or CMAF, HLS-CMAF-CBCS uses DASH-CBCS fragments in its HLS playlist
+        Dash = true // Even though DASH under CBCS is not supported for either CSF or CMAF, HLS-CMAF-CBCS uses DASH-CBCS fragments in its HLS playlist
     },
 
     ContentKeys = new StreamingPolicyContentKeys()
     {
-        //Default key must be specified if keyToTrackMappings is present
+        // Default key must be specified if keyToTrackMappings is present
         DefaultKey = new DefaultKey()
         {
             Label = "CBCS_DefaultKeyLabel"
         }
     }
+}
 
 ```
 
