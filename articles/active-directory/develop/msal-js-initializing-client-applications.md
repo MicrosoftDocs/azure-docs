@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 05/12/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -115,7 +115,7 @@ Below is the total set of configurable options that are supported currently in t
     * In Azure AD B2C, it is of the form `https://<instance>/tfp/<tenant>/<policyName>/`, where instance is the Azure AD B2C domain i.e. {your-tenant-name}.b2clogin.com, tenant is the name of the Azure AD B2C tenant i.e. {your-tenant-name}.onmicrosoft.com, policyName is the name of the B2C policy to apply.
 
 
-- **validateAuthority**: Optional.  Validate the issuer of tokens. Default is `true`. For B2C applications, since the authority value is known and can be different per policy, the authority validation will not work and has to be set to `false`.
+- **validateAuthority**: Optional.  Validate the issuer of tokens. Default is `true`.
 
 - **redirectUri**: Optional.  The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal. Defaults to `window.location.href`.
 

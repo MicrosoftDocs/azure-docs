@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -85,16 +85,18 @@ For migrating Azure API Management APIs protected by Azure AD B2C, see the [Migr
 
 ## Microsoft Authentication Library (MSAL)
 
-### ValidateAuthority property
+### MSAL.NET ValidateAuthority property
 
-If you're using [MSAL.NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` on client instantiation to allow redirects to *b2clogin.com*. This setting is not required for MSAL.NET v3 and above.
+If you're using [MSAL.NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` on client instantiation to allow redirects to *b2clogin.com*. Setting this value to `false` is not required for MSAL.NET v3 and above.
 
 ```csharp
 ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
 client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
 ```
 
-If you're using [MSAL for JavaScript][msal-js]:
+### MSAL for JavaScript validateAuthority property
+
+If you're using [MSAL for JavaScript][msal-js] v1.2.1 or earlier, set the **validateAuthority** property to `false`. Setting this value to `false` is not required for MSAL for JavaScript v1.3.0 and above.
 
 ```JavaScript
 this.clientApplication = new UserAgentApplication(
@@ -102,7 +104,7 @@ this.clientApplication = new UserAgentApplication(
   env.auth.loginAuthority,
   this.authCallback.bind(this),
   {
-    validateAuthority: false
+    validateAuthority: false // MSAL.js v1.2.1 and earlier **ONLY**
   }
 );
 ```
