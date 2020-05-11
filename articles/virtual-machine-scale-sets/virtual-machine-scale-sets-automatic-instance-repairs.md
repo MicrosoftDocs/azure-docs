@@ -2,15 +2,13 @@
 title: Automatic instance repairs with Azure virtual machine scale sets
 description: Learn how to configure automatic repairs policy for VM instances in a scale set
 author: avirishuv
-manager: vashan
-tags: azure-resource-manager
-
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: conceptual
-ms.date: 02/28/2020
 ms.author: avverma
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
+ms.date: 02/28/2020
+ms.reviewer: jushiman
+ms.custom: avverma
 
 ---
 # Automatic instance repairs for Azure virtual machine scale sets
