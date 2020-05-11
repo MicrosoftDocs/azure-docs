@@ -33,9 +33,6 @@ The following AI and Cognitive Services are generally available in Azure Governm
 - Personalizer
 - Azure Bot Service
 
-> [!IMPORTANT]
-> Billing for Computer Vision, Face, Translator, Content Moderator, and Language Understanding will begin on 11/1/2018.
-
 ## Vision
 
 ### Computer Vision
