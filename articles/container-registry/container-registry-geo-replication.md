@@ -3,7 +3,7 @@ title: Geo-replicate a registry
 description: Get started creating and managing a geo-replicated Azure container registry, which enables the registry to serve multiple regions with multi-master regional replicas.
 author: stevelas
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 05/11/2020
 ms.author: stevelas
 ---
 # Geo-replication in Azure Container Registry
@@ -86,9 +86,11 @@ ACR begins syncing images across the configured replicas. Once complete, the por
 ## Considerations for using a geo-replicated registry
 
 * Each region in a geo-replicated registry is independent once set up. Azure Container Registry SLAs apply to each geo-replicated region.
-* When you push or pull images from a geo-replicated registry, Azure Traffic Manager in the background sends the request to the registry located in the region closest to you.
+* When you push or pull images from a geo-replicated registry, Azure Traffic Manager in the background sends the request to the registry located in the region that is closest to you in terms of network latency.
 * After you push an image or tag update to the closest region, it takes some time for Azure Container Registry to replicate the manifests and layers to the remaining regions you opted into. Larger images take longer to replicate than smaller ones. Images and tags are synchronized across the replication regions with an eventual consistency model.
-* To manage workflows that depend on push updates to a geo-replicated , we recommend that you configure [webhooks](container-registry-webhook.md) to respond to the push events. You can set up regional webhooks within a geo-replicated registry to track push events as they complete across the geo-replicated regions.
+* To manage workflows that depend on push updates to a geo-replicated registry, we recommend that you configure [webhooks](container-registry-webhook.md) to respond to the push events. You can set up regional webhooks within a geo-replicated registry to track push events as they complete across the geo-replicated regions.
+* To serve blobs representing content layers, Azure Container Registy uses data endpoints. You can enable [dedicated data endpoints](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints-preview) for your registry in each of your registry's geo-replicated regions. These endpoints simplify configuration of firewall access rules.
+* If you configure a [private link](container-registry-private-link.md) for your registry using private endpoints in a virtual network, dedicated data endpoints in each of the geo-replicated regions are enabled by default. 
 
 ## Delete a replica
 
@@ -99,8 +101,11 @@ To delete a replica in the Azure portal:
 1. Navigate to your Azure Container Registry, and select **Replications**.
 1. Select the name of a replica, and select **Delete**. Confirm that you want to delete the replica.
 
-> [!NOTE]
-> You can't delete the registry replica in the *home region* of the registry, that is, the location where you created the registry. You can only delete the home replica by deleting the registry itself.
+To use the Azure CLI to delete a replica of *myregistry* in the East US region:
+
+```azurecli
+az acr replication delete --name eastus --registry myregistry
+```
 
 ## Geo-replication pricing
 
