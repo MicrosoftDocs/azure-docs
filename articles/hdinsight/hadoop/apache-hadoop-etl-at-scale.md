@@ -53,7 +53,7 @@ Source data files are typically loaded into a location on Azure Storage or Azure
 
 ### Azure Storage
 
-Azure Storage has specific adaptability targets. See [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md) for more information. For most analytic nodes, Azure Storage scales best when dealing with many smaller files. As long as you're within your account limits, Azure Storage guarantees the same performance, no matter how large the files are. You can store terabytes of data and still get consistent performance. This is true whether you're using a subset or all of the data.
+Azure Storage has specific adaptability targets. See [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md) for more information. For most analytic nodes, Azure Storage scales best when dealing with many smaller files. As long as you're within your account limits, Azure Storage guarantees the same performance, no matter how large the files are. You can store terabytes of data and still get consistent performance. This statement is true whether you're using a subset or all of the data.
 
 Azure Storage has several different types of blobs. An *append blob* is a great option for storing web logs or sensor data.
 
@@ -83,7 +83,7 @@ For uploading datasets in the terabyte range, network latency can be a major pro
 
 Azure SQL Data Warehouse is a great choice to store prepared results. Azure HDInsight can be used to perform those services for SQL Data Warehouse.
 
-Azure SQL Data Warehouse is a relational database store optimized for analytic workloads. It scales based on partitioned tables. Tables can be partitioned across multiple nodes. The nodes are selected at the time of creation. They can scale after the fact, but that's an active process which might require data movement. For more information, see [SQL Data Warehouse - Manage Compute](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+Azure SQL Data Warehouse is a relational database store optimized for analytic workloads. It scales based on partitioned tables. Tables can be partitioned across multiple nodes. The nodes are selected at the time of creation. They can scale after the fact, but that's an active process that might require data movement. For more information, see [SQL Data Warehouse - Manage Compute](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
 ### Apache HBase
 
@@ -91,7 +91,7 @@ Apache HBase is a key-value store available in Azure HDInsight. It's an open-sou
 
 Because HBase is a schemaless database, columns and data types don't need to be defined before using them. Data is stored in the rows of a table, and is grouped by column family.
 
-The open-source code scales linearly to handle petabytes of data on thousands of nodes. HBase can rely on data redundancy, batch processing, and other features which are provided by distributed applications in the Hadoop environment.
+The open-source code scales linearly to handle petabytes of data on thousands of nodes. HBase can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop environment.
 
 HBase is an excellent destination for sensor and log data for future analysis.
 
