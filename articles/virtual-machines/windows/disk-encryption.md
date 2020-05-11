@@ -73,12 +73,8 @@ For now, customer-managed keys have the following restrictions:
 - All resources related to your customer-managed keys (Azure Key Vaults, disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another subscription.
 - If you use the Azure portal to create your disk encryption set, you cannot use snapshots for now.
-<<<<<<< HEAD
-- Managed disks encrypted using customer-managed keys cannot also be encrypted with Azure Disk Encryption.
-- For information about using customer-managed keys with shared image galleries, see [Preview: Use customer-managed keys for encrypting images](../image-version-encryption.md).
-=======
 - Managed disks encrypted using server-side encryption with customer-managed keys cannot also be encrypted with Azure Disk Encryption and vice versa
->>>>>>> 00c86c3ab017cf982d98cb002006a5f07c20bad2
+- For information about using customer-managed keys with shared image galleries, see [Preview: Use customer-managed keys for encrypting images](../image-version-encryption.md).
 
 ### PowerShell
 
