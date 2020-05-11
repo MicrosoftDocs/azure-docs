@@ -28,13 +28,13 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18871).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21765).
 
 **Guidance**: Azure Virtual Network provides secure, private networking for your Azure and on-premises resources. If using a cloud-based private registry like Azure container registry with Azure Container Instances, you can limit access to your private registry from an Azure virtual network by ensuring that only resources in the virtual network access the registry. For cross-premises scenarios, you can also configure firewall rules to allow registry access only from specific IP addresses. From behind a firewall, configure firewall access rules and service tags to access your container registry.
 
-Restrict access to an Azure container registry using an Azure virtual network or firewall rules: https://docs.microsoft.com/azure/container-registry/container-registry-vnet
+* [Restrict access to an Azure container registry using an Azure virtual network or firewall rules](https://docs.microsoft.com/azure/container-registry/container-registry-vnet)
 
-Configure rules to access an Azure container registry behind a firewall: https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules
+* [Configure rules to access an Azure container registry behind a firewall](https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules)
 
 **Azure Security Center monitoring**: Yes
 
@@ -43,13 +43,13 @@ Configure rules to access an Azure container registry behind a firewall: https:/
 ### 1.2: Monitor and log the configuration and traffic of Vnets, Subnets, and NICs
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18872).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21766).
 
 **Guidance**: Use Azure Security Center and remediate network protection recommendations to help protect your network resources in Azure. Enable NSG flow logs and send logs into a Storage Account for traffic audit.
 
-How to enable NSG Flow Logs: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+* [How to enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
-Protect your network resources: https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
+* [Protect your network resources](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
 
 **Azure Security Center monitoring**: Yes
 
@@ -58,7 +58,7 @@ Protect your network resources: https://docs.microsoft.com/azure/security-center
 ### 1.3: Protect critical web applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18873).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21767).
 
 **Guidance**: Not applicable. Benchmark is intended for Azure App Service or compute resources hosting web applications.
 
@@ -69,21 +69,21 @@ Protect your network resources: https://docs.microsoft.com/azure/security-center
 ### 1.4: Deny communications with known malicious IP addresses
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18874).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21768).
 
-**Guidance**: Enable DDoS Standard protection on your virtual networks for protections from DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.  Deploy Azure Firewall at each of the organization's network boundaries with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic.
+**Guidance**: Enable DDoS Standard protection on your virtual networks for protections from DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses. Deploy Azure Firewall at each of the organization's network boundaries with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic.
 
 You may use Azure Security Center Just In Time Network access to configure NSGs to limit exposure of endpoints to approved IP addresses for a limited period. Also , use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit Ports and Source IPs based on actual traffic and threat intelligence.
 
-How to configure DDoS protection:  https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+* [How to configure DDoS protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
 
-How to deploy Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
+* [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
 
-Understand Azure Security Center Integrated Threat Intelligence: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
+* [Understand Azure Security Center Integrated Threat Intelligence](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
 
-Understand Azure Security Center Adaptive Network Hardening: https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
+* [Understand Azure Security Center Adaptive Network Hardening](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
 
-Azure Security Center Just In Time Network Access Control: https://docs.microsoft.com/azure/security-center/security-center-just-in-time
+* [Azure Security Center Just In Time Network Access Control](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 
 **Azure Security Center monitoring**: Yes
 
@@ -92,13 +92,13 @@ Azure Security Center Just In Time Network Access Control: https://docs.microsof
 ### 1.5: Record network packets and flow logs
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18875).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21769).
 
 **Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, you can enable network security group (NSG) flow logs for the NSG attached to the subnet being used to protect your Azure container registry. You can record the NSG flow logs into a Azure Storage Account to generate flow records. If required for investigating anomalous activity, enable Azure Network Watcher packet capture.
 
-How to enable NSG Flow Logs: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+* [How to enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
-How to enable Network Watcher: https://docs.microsoft.com/azure/network-watcher/network-watcher-create
+* [How to enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
 
 **Azure Security Center monitoring**: Yes
 
@@ -107,17 +107,17 @@ How to enable Network Watcher: https://docs.microsoft.com/azure/network-watcher/
 ### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18876).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21770).
 
 **Guidance**: Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities. If intrusion detection and/or prevention based on payload inspection is not a requirement, Azure Firewall with Threat Intelligence can be used. Azure Firewall Threat intelligence-based filtering can alert and deny traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
 
 Deploy the firewall solution of your choice at each of your organization's network boundaries to detect and/or deny malicious traffic.
 
-Azure Marketplace: https://azuremarketplace.microsoft.com/marketplace/?term=Firewall
+* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-How to deploy Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
+* [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
 
-How to configure alerts with Azure Firewall: https://docs.microsoft.com/azure/firewall/threat-intel
+* [How to configure alerts with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -126,7 +126,7 @@ How to configure alerts with Azure Firewall: https://docs.microsoft.com/azure/fi
 ### 1.7: Manage traffic to web applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18877).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21771).
 
 **Guidance**: Not applicable. Benchmark is intended for web applications running on Azure App Service or compute resources.
 
@@ -137,11 +137,11 @@ How to configure alerts with Azure Firewall: https://docs.microsoft.com/azure/fi
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18878).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21772).
 
 **Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, for resources that need access to your container registry, use virtual network service tags for the Azure Container Registry service to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name "AzureContainerRegistry" in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-Allow access by service tag: https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules#allow-access-by-service-tag
+* [Allow access by service tag](https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules#allow-access-by-service-tag)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -150,15 +150,15 @@ Allow access by service tag: https://docs.microsoft.com/azure/container-registry
 ### 1.9: Maintain standard security configurations for network devices
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18879).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21773).
 
 **Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, define and implement standard security configurations for network resources associated with your Azure container registries with Azure Policy. Use Azure Policy aliases in the "Microsoft.ContainerRegistry" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your container registries.
 
 You may use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and fine-tune control and management through versioning.
 
-Audit compliance of Azure container registries using Azure Policy: https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
+* [Audit compliance of Azure container registries using Azure Policy](https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy)
 
-How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+* [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -167,11 +167,11 @@ How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/bl
 ### 1.10: Document traffic configuration rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18880).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21774).
 
 **Guidance**: Customer may use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and fine-tune control and management through versioning.
 
-How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
+* [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -180,13 +180,13 @@ How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/bl
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18881).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21775).
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your container registries. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-How to view and retrieve Azure Activity Log events: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
+* [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
 
-How to create alerts in Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+* [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
 **Azure Security Center monitoring**: Yes
 
@@ -199,11 +199,11 @@ How to create alerts in Azure Monitor: https://docs.microsoft.com/azure/azure-mo
 ### 2.1: Use approved time synchronization sources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18882).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21776).
 
 **Guidance**: Microsoft maintains time sources for Azure resources, however, you have the option to manage the time synchronization settings for your compute resources.
 
-How to configure time synchronization for Azure compute resources: https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
+* [How to configure time synchronization for Azure compute resources](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -212,11 +212,11 @@ How to configure time synchronization for Azure compute resources: https://docs.
 ### 2.2: Configure central security log management
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18883).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21777).
 
 **Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, ingest logs via Azure Monitor to aggregate security data generated by an Azure container registry. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage.
 
-Azure Container Registry logs for diagnostic evaluation and auditing: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
+* [Azure Container Registry logs for diagnostic evaluation and auditing](https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -225,11 +225,11 @@ Azure Container Registry logs for diagnostic evaluation and auditing: https://do
 ### 2.3: Enable audit logging for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18884).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21778).
 
 **Guidance**: Azure Monitor collects resource logs (formerly called diagnostic logs) for user-driven events in your registry. Collect and consume this data to audit registry authentication events and provide a complete activity trail on registry artifacts such as pull and push events so you can diagnose security issues with your registry.
 
-Azure Container Registry logs for diagnostic evaluation and auditing: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
+* [Azure Container Registry logs for diagnostic evaluation and auditing](https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -238,7 +238,7 @@ Azure Container Registry logs for diagnostic evaluation and auditing: https://do
 ### 2.4: Collect security logs from operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18885).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21779).
 
 **Guidance**: Not applicable. Benchmark is intended for compute resources.
 
@@ -249,11 +249,11 @@ Azure Container Registry logs for diagnostic evaluation and auditing: https://do
 ### 2.5: Configure security log storage retention
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18886).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21780).
 
 **Guidance**: Within Azure Monitor, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-How to set log retention parameters for Log Analytics Workspaces: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+* [How to set log retention parameters for Log Analytics Workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -262,15 +262,15 @@ How to set log retention parameters for Log Analytics Workspaces: https://docs.m
 ### 2.6: Monitor and review Logs
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18887).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21781).
 
 **Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, analyze and monitor Azure Container Registry logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data.
 
-Azure Container Registry logs for diagnostic evaluation and auditing: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
+* [Azure Container Registry logs for diagnostic evaluation and auditing](https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs)
 
-Understand Log Analytics Workspace: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+* [Understand Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
 
-How to perform custom queries in Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+* [How to perform custom queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -279,13 +279,13 @@ How to perform custom queries in Azure Monitor: https://docs.microsoft.com/azure
 ### 2.7: Enable alerts for anomalous activity
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18888).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21782).
 
 **Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, use Azure Log Analytics workspace for monitoring and alerting on anomalous activities in security logs and events related to your Azure container registry.
 
-Azure Container Registry logs for diagnostic evaluation and auditing: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
+* [Azure Container Registry logs for diagnostic evaluation and auditing](https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs)
 
-How to alert on log analytics log data: https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
+* [How to alert on log analytics log data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -294,10 +294,9 @@ How to alert on log analytics log data: https://docs.microsoft.com/azure/azure-m
 ### 2.8: Centralize anti-malware logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18889).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21783).
 
 **Guidance**: Not applicable. If using a cloud-based private registry like Azure container registry with Azure Container Instances, Azure container registry does not process or produce anti-malware related logs.
-
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -306,10 +305,9 @@ How to alert on log analytics log data: https://docs.microsoft.com/azure/azure-m
 ### 2.9: Enable DNS query logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18890).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21784).
 
 **Guidance**: Not applicable. If using a cloud-based private registry like Azure container registry with Azure Container Instances, Azure container registry is an endpoint and does not initiate communication, and the service does not query DNS.
-
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -318,7 +316,7 @@ How to alert on log analytics log data: https://docs.microsoft.com/azure/azure-m
 ### 2.10: Enable command-line audit logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18891).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21785).
 
 **Guidance**: Not applicable. Benchmark is intended for compute resources.
 
@@ -333,16 +331,17 @@ How to alert on log analytics log data: https://docs.microsoft.com/azure/azure-m
 ### 3.1: Maintain an inventory of administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18892).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21786).
 
 **Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
+
 If using a cloud-based private registry like Azure container registry with Azure Container Instances, for each Azure container registry, track whether the built-in admin account is enabled or disabled. Disable the account when not in use.
 
-How to get a directory role in Azure AD with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+* [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-How to get members of a directory role in Azure AD with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+* [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-Azure Container Registry admin account: https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account
+* [Azure Container Registry admin account](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
 
 **Azure Security Center monitoring**: Yes
 
@@ -351,13 +350,13 @@ Azure Container Registry admin account: https://docs.microsoft.com/azure/contain
 ### 3.2: Change default passwords where applicable
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18893).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21787).
 
 **Guidance**: Azure Active Directory (Azure AD) does not have the concept of default passwords. Other Azure resources requiring a password force a password to be created with complexity requirements and a minimum password length, which differ depending on the service. You are responsible for third-party applications and Marketplace services that may use default passwords.
 
 If using a cloud-based private registry like Azure container registry with Azure Container Instances, if the default admin account of an Azure container registry is enabled, complex passwords are automatically created and should be rotated. Disable the account when not in use.
 
-Azure Container Registry admin account: https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account
+* [Azure Container Registry admin account](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -366,15 +365,15 @@ Azure Container Registry admin account: https://docs.microsoft.com/azure/contain
 ### 3.3: Use dedicated administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18894).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21788).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
 
 If using a cloud-based private registry like Azure container registry with Azure Container Instances, create procedures to enable the built-in admin account of a container registry. Disable the account when not in use.
 
-Understand Azure Security Center Identity and Access: https://docs.microsoft.com/azure/security-center/security-center-identity-access
+* [Understand Azure Security Center Identity and Access](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
-Azure Container Registry admin account: https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account
+* [Azure Container Registry admin account](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -383,15 +382,15 @@ Azure Container Registry admin account: https://docs.microsoft.com/azure/contain
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18895).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21789).
 
 **Guidance**: Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
 If using a cloud-based private registry like Azure container registry with Azure Container Instances, for individual access to the container registry, use individual login integrated with Azure Active Directory.
 
-Understand SSO with Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+* [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-Individual login to a container registry: https://docs.microsoft.com/azure/container-registry/container-registry-authentication#individual-login-with-azure-ad
+* [Individual login to a container registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#individual-login-with-azure-ad)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -400,13 +399,13 @@ Individual login to a container registry: https://docs.microsoft.com/azure/conta
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18896).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21790).
 
 **Guidance**: Enable Azure Active Directory (Azure AD) multi-factor authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations.
 
-How to enable MFA in Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+* [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
-How to monitor identity and access within Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
+* [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
 **Azure Security Center monitoring**: Yes
 
@@ -415,13 +414,13 @@ How to monitor identity and access within Azure Security Center: https://docs.mi
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18897).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21791).
 
 **Guidance**: Use PAWs (privileged access workstations) with MFA configured to log into and configure Azure resources.
 
-Learn about Privileged Access Workstations: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+* [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-How to enable MFA in Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+* [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -430,13 +429,13 @@ How to enable MFA in Azure: https://docs.microsoft.com/azure/active-directory/au
 ### 3.7: Log and alert on suspicious activity from administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18898).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21792).
 
 **Guidance**: Use Azure Active Directory (Azure AD) security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
-How to identify Azure AD users flagged for risky activity: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
+* [How to identify Azure AD users flagged for risky activity](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
-How to monitor users' identity and access activity in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
+* [How to monitor users' identity and access activity in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -445,11 +444,11 @@ How to monitor users' identity and access activity in Azure Security Center: htt
 ### 3.8: Manage Azure resources from only approved locations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18899).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21793).
 
 **Guidance**: Use Conditional Access Named Locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
 
-How to configure Named Locations in Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+* [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -458,11 +457,11 @@ How to configure Named Locations in Azure: https://docs.microsoft.com/azure/acti
 ### 3.9: Use Azure Active Directory
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18900).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21794).
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
-How to create and configure an Azure AD instance: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
+* [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -471,13 +470,13 @@ How to create and configure an Azure AD instance: https://docs.microsoft.com/azu
 ### 3.10: Regularly review and reconcile user access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18901).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21795).
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
-Understand Azure AD reporting: https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+* [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
 
-How to use Azure identity access reviews: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+* [How to use Azure identity access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -486,13 +485,13 @@ How to use Azure identity access reviews: https://docs.microsoft.com/azure/activ
 ### 3.11: Monitor attempts to access deactivated accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18902).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21796).
 
 **Guidance**: You have access to Azure Active Directory (Azure AD) Sign-in Activity, Audit and Risk Event log sources, which allow you to integrate with any Security Information and Event Management (SIEM) /Monitoring tool.
 
 You can streamline this process by creating Diagnostic Settings for Azure Active Directory user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
 
-How to integrate Azure Activity Logs into Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+* [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -501,13 +500,13 @@ How to integrate Azure Activity Logs into Azure Monitor: https://docs.microsoft.
 ### 3.12: Alert on account login behavior deviation
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18903).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21797).
 
 **Guidance**: Use Azure Active Directory (Azure AD) Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities.
 
-How to view Azure AD risky sign-ins: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
+* [How to view Azure AD risky sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-How to configure and enable Identity Protection risk policies: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+* [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -516,11 +515,11 @@ How to configure and enable Identity Protection risk policies: https://docs.micr
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18904).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21798).
 
 **Guidance**: Not available; Customer Lockbox not currently supported for Azure Container Instances.
 
-List of Customer Lockbox supported services: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+* [List of Customer Lockbox supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -533,17 +532,17 @@ List of Customer Lockbox supported services: https://docs.microsoft.com/azure/se
 ### 4.1: Maintain an inventory of sensitive Information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18905).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21799).
 
 **Guidance**: Use resource tags to assist in tracking Azure container registries that store or process sensitive information.
 
 Tag and version container images or other artifacts in a registry, and lock images or repositories, to assist in tracking images that store or process sensitive information.
 
-How to create and use tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-Recommendations for tagging and versioning container images: https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version
+* [Recommendations for tagging and versioning container images](https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version)
 
-Lock a container image in an Azure container registry: https://docs.microsoft.com/azure/container-registry/container-registry-image-lock
+* [Lock a container image in an Azure container registry](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -552,25 +551,25 @@ Lock a container image in an Azure container registry: https://docs.microsoft.co
 ### 4.2: Isolate systems storing or processing sensitive information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18906).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21800).
 
 **Guidance**: Implement separate container registries, subscriptions, and/or management groups for development, test, and production. Resources storing or processing sensitive data should be sufficiently isolated.
 
 Resources should be separated by virtual network or subnet, tagged appropriately, and secured by an network security group (NSG) or Azure Firewall.
 
-How to create additional Azure subscriptions: https://docs.microsoft.com/azure/billing/billing-create-subscription
+* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
-How to create management groups: https://docs.microsoft.com/azure/governance/management-groups/create
+* [How to create management groups](https://docs.microsoft.com/azure/governance/management-groups/create)
 
-How to create and use tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-Restrict access to an Azure container registry using an Azure virtual network or firewall rules: https://docs.microsoft.com/azure/container-registry/container-registry-vnet
+* [Restrict access to an Azure container registry using an Azure virtual network or firewall rules](https://docs.microsoft.com/azure/container-registry/container-registry-vnet)
 
-How to create an NSG with a security config: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
+* [How to create an NSG with a security config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
-How to deploy Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
+* [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
 
-How to configure alert or alert and deny with Azure Firewall: https://docs.microsoft.com/azure/firewall/threat-intel
+* [How to configure alert or alert and deny with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -579,13 +578,13 @@ How to configure alert or alert and deny with Azure Firewall: https://docs.micro
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18907).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21801).
 
 **Guidance**: Deploy an automated tool on network perimeters that monitors for unauthorized transfer of sensitive information and blocks such transfers while alerting information security professionals.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-Understand customer data protection in Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -594,13 +593,13 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 ### 4.4: Encrypt all sensitive information in transit
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18908).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21802).
 
 **Guidance**: Ensure that any clients connecting to your Azure Container Registry are able to negotiate TLS 1.2 or greater. Microsoft Azure resources negotiate TLS 1.2 by default.
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-Understand encryption in transit with Azure: https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit
+* [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
 **Azure Security Center monitoring**: Yes
 
@@ -609,15 +608,15 @@ Understand encryption in transit with Azure: https://docs.microsoft.com/azure/se
 ### 4.5: Use an active discovery tool to identify sensitive data
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18909).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21803).
 
 **Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, data identification, classification, and loss prevention features are not yet available for Azure Container Registry. Implement third-party solution if required for compliance purposes.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-Encrypt deployment data with Azure Container Instances: https://docs.microsoft.com/azure/container-instances/container-instances-encrypt-data
+* [Encrypt deployment data with Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-encrypt-data)
 
-Understand customer data protection in Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -626,13 +625,13 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 ### 4.6: Use Azure RBAC to control access to resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18910).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21804).
 
 **Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, use Azure Active Directory (Azure AD) RBAC to control access to data and resources in an Azure container registry.
 
-How to configure RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+* [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-Azure Container Registry roles and permissions: https://docs.microsoft.com/azure/container-registry/container-registry-roles
+* [Azure Container Registry roles and permissions](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -641,13 +640,13 @@ Azure Container Registry roles and permissions: https://docs.microsoft.com/azure
 ### 4.7: Use host-based data loss prevention to enforce access control
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18911).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21805).
 
 **Guidance**: If required for compliance on compute resources, implement a third-party tool, such as an automated host-based data loss prevention solution, to enforce access controls to data even when data is copied off a system.
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-Understand customer data protection in Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -656,13 +655,13 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 ### 4.8: Encrypt sensitive information at rest
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18912).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21806).
 
 **Guidance**: Use encryption at rest on all Azure resources. If using a cloud-based private registry like Azure container registry with Azure Container Instances, by default, all data in an Azure container registry is encrypted at rest using Microsoft-managed keys.
 
-Understand encryption at rest in Azure: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
+* [Understand encryption at rest in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 
-Customer-managed keys in Azure Container Registry: https://aka.ms/acr/cmk
+* [Customer-managed keys in Azure Container Registry](https://aka.ms/acr/cmk)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -671,13 +670,11 @@ Customer-managed keys in Azure Container Registry: https://aka.ms/acr/cmk
 ### 4.9: Log and alert on changes to critical Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18913).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21807).
 
-**Guidance**: 
-Log Analytics workspaces provide a centralized location for storing and querying log data not only from Azure resources, but also on-premises resources and resources in other clouds. Azure Container Instances includes built-in support for sending logs and event data to Azure Monitor logs.
+**Guidance**: Log Analytics workspaces provide a centralized location for storing and querying log data not only from Azure resources, but also on-premises resources and resources in other clouds. Azure Container Instances includes built-in support for sending logs and event data to Azure Monitor logs.
 
-Container group and instance logging with Azure Monitor logs: https://docs.microsoft.com/azure/container-instances/container-instances-log-analytics
-
+* [Container group and instance logging with Azure Monitor logs](https://docs.microsoft.com/azure/container-instances/container-instances-log-analytics)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -690,15 +687,15 @@ Container group and instance logging with Azure Monitor logs: https://docs.micro
 ### 5.1: Run automated vulnerability scanning tools
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18914).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21808).
 
 **Guidance**: Take advantage of solutions to scan container images in a private registry and identify potential vulnerabilities. It’s important to understand the depth of threat detection that the different solutions provide. Follow recommendations from Azure Security Center on performing vulnerability assessments on your container images. Optionally deploy third-party solutions from Azure Marketplace to perform image vulnerability assessments.
 
-Container monitoring and scanning security recommendations for Azure Container Instances: https://docs.microsoft.com/azure/container-instances/container-instances-image-security
+* [Container monitoring and scanning security recommendations for Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-image-security)
 
-How to implement Azure Security Center vulnerability assessment recommendations: https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations
+* [How to implement Azure Security Center vulnerability assessment recommendations](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
 
-Azure Container Registry integration with Security Center: https://docs.microsoft.com/azure/security-center/azure-container-registry-integration
+* [Azure Container Registry integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
 
 **Azure Security Center monitoring**: Yes
 
@@ -707,13 +704,13 @@ Azure Container Registry integration with Security Center: https://docs.microsof
 ### 5.2: Deploy automated operating system patch management solution
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18915).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21809).
 
 **Guidance**: Microsoft performs patch management on the underlying systems that support running containers.
 
 Automate container image updates when updates to base images from operating system and other patches are detected.
 
-About base image updates for Azure Container Registry tasks: https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images
+* [About base image updates for Azure Container Registry tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -722,11 +719,11 @@ About base image updates for Azure Container Registry tasks: https://docs.micros
 ### 5.3: Deploy automated third-party software patch management solution
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18916).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21810).
 
 **Guidance**: You can use a third party solution to patch application images. Also, you can run Azure Container Registry tasks to automate updates to application images in a container registry based on security patches or other updates in base images.
 
-About base image updates for ACR Tasks: https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images
+* [About base image updates for ACR Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-base-images)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -735,11 +732,11 @@ About base image updates for ACR Tasks: https://docs.microsoft.com/azure/contain
 ### 5.4: Compare back-to-back vulnerability scans
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18917).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21811).
 
 **Guidance**: Integrate Azure Container Registry (ACR) with Azure Security Center to enable periodic scanning of container images for vulnerabilities. Optionally deploy third-party solutions from Azure Marketplace to perform periodic image vulnerability scans.
 
-Azure Container Registry integration with Security Center (Preview): https://docs.microsoft.com/azure/security-center/azure-container-registry-integration
+* [Azure Container Registry integration with Security Center (Preview)](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
 
 **Azure Security Center monitoring**: Yes
 
@@ -748,11 +745,11 @@ Azure Container Registry integration with Security Center (Preview): https://doc
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18918).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21812).
 
 **Guidance**: Integrate Azure Container Registry (ACR) with Azure Security Center to enable periodic scanning of container images for vulnerabilities and to classify risks. Optionally deploy third-party solutions from Azure Marketplace to perform periodic image vulnerability scans and risk classification.
 
-Azure Container Registry integration with Security Center (Preview): https://docs.microsoft.com/azure/security-center/azure-container-registry-integration
+* [Azure Container Registry integration with Security Center (Preview)](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -765,17 +762,17 @@ Azure Container Registry integration with Security Center (Preview): https://doc
 ### 6.1: Use Azure Asset Discovery
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18919).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21813).
 
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
-How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+* [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
+* [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -784,13 +781,13 @@ Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-contro
 ### 6.2: Maintain asset metadata
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18920).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21814).
 
 **Guidance**: Azure Container Registry maintains metadata including tags and manifests for images in a registry. Follow recommended practices for tagging artifacts.
 
-About registries, repositories, and images: https://docs.microsoft.com/azure/container-registry/container-registry-concepts
+* [About registries, repositories, and images](https://docs.microsoft.com/azure/container-registry/container-registry-concepts)
 
-Recommendations for tagging and versioning container images: https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version
+* [Recommendations for tagging and versioning container images](https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -799,13 +796,13 @@ Recommendations for tagging and versioning container images: https://docs.micros
 ### 6.3: Delete unauthorized Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18921).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21815).
 
 **Guidance**: Azure Container Registry maintains metadata including tags and manifests for images in a registry. Follow recommended practices for tagging artifacts.
 
-About registries, repositories, and images: https://docs.microsoft.com/azure/container-registry/container-registry-concepts
+* [About registries, repositories, and images](https://docs.microsoft.com/azure/container-registry/container-registry-concepts)
 
-Recommendations for tagging and versioning container images: https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version
+* [Recommendations for tagging and versioning container images](https://docs.microsoft.com/azure/container-registry/container-registry-image-tag-version)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -814,7 +811,7 @@ Recommendations for tagging and versioning container images: https://docs.micros
 ### 6.4: Maintain an inventory of approved Azure resources and software titles
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18922).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21816).
 
 **Guidance**: You will need to create an inventory of approved Azure resources as per your organizational needs.
 
@@ -825,17 +822,17 @@ Recommendations for tagging and versioning container images: https://docs.micros
 ### 6.5: Monitor for unapproved Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18923).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21817).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s).
 
 Use Azure Resource Graph to query/discover resources within their subscription(s). Ensure that all Azure resources present in the environment are approved.
 
-Audit compliance of Azure container registries using Azure Policy: https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
+* [Audit compliance of Azure container registries using Azure Policy](https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy)
 
-How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+* [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -844,15 +841,15 @@ How to create queries with Azure Graph: https://docs.microsoft.com/azure/governa
 ### 6.6: Monitor for unapproved software applications within compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18924).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21818).
 
 **Guidance**: Analyze and monitor Azure Container Registry logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data.
 
-Azure Container Registry logs for diagnostic evaluation and auditing: https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
+* [Azure Container Registry logs for diagnostic evaluation and auditing](https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs)
 
-Understand Log Analytics Workspace: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+* [Understand Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
 
-How to perform custom queries in Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+* [How to perform custom queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -861,11 +858,11 @@ How to perform custom queries in Azure Monitor: https://docs.microsoft.com/azure
 ### 6.7: Remove unapproved Azure resources and software applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18925).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21819).
 
-**Guidance**: Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. You can implement your own solution for removing unauthorized Azure resources. 
+**Guidance**: Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. You can implement your own solution for removing unauthorized Azure resources.
 
-An introduction to Azure Automation: https://docs.microsoft.com/azure/automation/automation-intro
+* [An introduction to Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -874,7 +871,7 @@ An introduction to Azure Automation: https://docs.microsoft.com/azure/automation
 ### 6.8: Use only approved applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18926).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21820).
 
 **Guidance**: Not applicable. Benchmark is designed for compute resources.
 
@@ -885,15 +882,15 @@ An introduction to Azure Automation: https://docs.microsoft.com/azure/automation
 ### 6.9: Use only approved Azure services
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18927).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21821).
 
 **Guidance**: Leverage Azure Policy to restrict which services you can provision in your environment.
 
-Audit compliance of Azure container registries using Azure Policy: https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
+* [Audit compliance of Azure container registries using Azure Policy](https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy)
 
-How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-How to deny a specific resource type with Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+* [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -902,7 +899,7 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 ### 6.10: Implement approved application list
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18928).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21822).
 
 **Guidance**: Not applicable. Benchmark is designed for compute resources.
 
@@ -913,11 +910,11 @@ How to deny a specific resource type with Azure Policy: https://docs.microsoft.c
 ### 6.11: Limit users' ability to interact with AzureResources Manager via scripts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18929).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21823).
 
 **Guidance**: Use operating system-specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
 
-How to configure Conditional Access to block access to Azure Resources Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+* [How to configure Conditional Access to block access to Azure Resources Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -926,11 +923,11 @@ How to configure Conditional Access to block access to Azure Resources Manager: 
 ### 6.12: Limit users' ability to execute scripts within compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18930).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21824).
 
 **Guidance**: Use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.
 
-For example, how to control PowerShell script execution in Windows Environments: https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
+* [For example, how to control PowerShell script execution in Windows Environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -939,13 +936,13 @@ For example, how to control PowerShell script execution in Windows Environments:
 ### 6.13: Physically or logically segregate high risk applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18931).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21825).
 
 **Guidance**: Software that is required for business operations, but may incur higher risk for the organization, should be isolated within its own virtual machine and/or virtual network and sufficiently secured with either an Azure Firewall or Network Security Group.
 
-How to create a virtual network: https://docs.microsoft.com/azure/virtual-network/quick-create-portal
+* [How to create a virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
-How to create an NSG with a security config: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
+* [How to create an NSG with a security config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -958,13 +955,13 @@ How to create an NSG with a security config: https://docs.microsoft.com/azure/vi
 ### 7.1: Establish secure configurations for all Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18932).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21826).
 
 **Guidance**: Use Azure Policy or Azure Security Center to maintain security configurations for all Azure Resources.
 
-How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-Audit compliance of Azure container registries using Azure Policy: https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
+* [Audit compliance of Azure container registries using Azure Policy](https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -973,13 +970,13 @@ Audit compliance of Azure container registries using Azure Policy: https://docs.
 ### 7.2: Establish secure operating system configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18933).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21827).
 
 **Guidance**: Utilize Azure Security Center recommendation "Remediate Vulnerabilities in Security Configurations on your Virtual Machines" to maintain security configurations on all compute resources.
 
-How to monitor Azure Security Center recommendations:  https://docs.microsoft.com/azure/security-center/security-center-recommendations
+* [How to monitor Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
 
-How to remediate Azure Security Center recommendations:  https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
+* [How to remediate Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -988,15 +985,15 @@ How to remediate Azure Security Center recommendations:  https://docs.microsoft.
 ### 7.3: Maintain secure Azure resource configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18934).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21828).
 
 **Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
-Audit compliance of Azure container registries using Azure Policy: https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
+* [Audit compliance of Azure container registries using Azure Policy](https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy)
 
-How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-Understand Azure Policy effects: https://docs.microsoft.com/azure/governance/policy/concepts/effects
+* [Understand Azure Policy effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1005,7 +1002,7 @@ Understand Azure Policy effects: https://docs.microsoft.com/azure/governance/pol
 ### 7.4: Maintain secure operating system configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18935).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21829).
 
 **Guidance**: Not applicable. Benchmark is intended for compute resources.
 
@@ -1016,13 +1013,13 @@ Understand Azure Policy effects: https://docs.microsoft.com/azure/governance/pol
 ### 7.5: Securely store configuration of Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18936).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21830).
 
 **Guidance**: If using custom Azure policy definitions, use Azure Repos to securely store and manage your code.
 
-How to store code in Azure DevOps:  https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-Azure Repos Documentation:  https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+* [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1031,7 +1028,7 @@ Azure Repos Documentation:  https://docs.microsoft.com/azure/devops/repos/index?
 ### 7.6: Securely store custom operating system images
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18937).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21831).
 
 **Guidance**: Not applicable. Benchmark applies to compute resources.
 
@@ -1042,13 +1039,13 @@ Azure Repos Documentation:  https://docs.microsoft.com/azure/devops/repos/index?
 ### 7.7: Deploy system configuration management tools
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18938).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21832).
 
 **Guidance**: Use Azure Policy to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
-Audit compliance of Azure container registries using Azure Policy: https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
+* [Audit compliance of Azure container registries using Azure Policy](https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy)
 
-How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1057,7 +1054,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 ### 7.8: Deploy system configuration management tools for operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18939).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21833).
 
 **Guidance**: Not applicable. Benchmark applies to compute resources.
 
@@ -1068,15 +1065,15 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 ### 7.9: Implement automated configuration monitoring for Azure services
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18940).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21834).
 
 **Guidance**: Use Azure Security Center to perform baseline scans for your Azure Resources.
 
 Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s).
 
-How to remediate recommendations in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
+* [How to remediate recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
 
-Audit compliance of Azure container registries using Azure Policy: https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy
+* [Audit compliance of Azure container registries using Azure Policy](https://docs.microsoft.com/azure/container-registry/container-registry-azure-policy)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1085,7 +1082,7 @@ Audit compliance of Azure container registries using Azure Policy: https://docs.
 ### 7.10: Implement automated configuration monitoring for operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18941).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21835).
 
 **Guidance**: Not applicable. Benchmark applies to compute resources.
 
@@ -1096,17 +1093,17 @@ Audit compliance of Azure container registries using Azure Policy: https://docs.
 ### 7.11: Manage Azure secrets securely
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18942).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21836).
 
 **Guidance**: Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications.
 
-How to integrate with Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+* [How to integrate with Azure Managed Identities](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
 
-How to create a Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+* [How to create a Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-How to provide Key Vault authentication with a managed identity: https://docs.microsoft.com/azure/key-vault/managed-identity
+* [How to provide Key Vault authentication with a managed identity](https://docs.microsoft.com/azure/key-vault/managed-identity)
 
-Use an Azure-managed identity in Azure Container Registry tasks: https://docs.microsoft.com/azure/container-registry/container-registry-tasks-authentication-managed-identity
+* [Use an Azure-managed identity in Azure Container Registry tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-authentication-managed-identity)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1115,13 +1112,13 @@ Use an Azure-managed identity in Azure Container Registry tasks: https://docs.mi
 ### 7.12: Manage identities securely and automatically
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18943).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21837).
 
 **Guidance**: Use Managed Identities to provide Azure services with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
-How to configure Managed Identities: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+* [How to configure Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
 
-Use a managed identity to authenticate to an Azure container registry: https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity
+* [Use a managed identity to authenticate to an Azure container registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1130,11 +1127,11 @@ Use a managed identity to authenticate to an Azure container registry: https://d
 ### 7.13: Eliminate unintended credential exposure
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18944).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21838).
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
-How to setup Credential Scanner: https://secdevtools.azurewebsites.net/helpcredscan.html
+* [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1147,11 +1144,11 @@ How to setup Credential Scanner: https://secdevtools.azurewebsites.net/helpcreds
 ### 8.1: Use centrally managed anti-malware software
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18945).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21839).
 
 **Guidance**: Use Microsoft Antimalware for Azure Cloud Services and Virtual Machines to continuously monitor and defend your resources. For Linux, use third party antimalware solution.
 
-How to configure Microsoft Antimalware for Cloud Services and Virtual Machines: https://docs.microsoft.com/azure/security/fundamentals/antimalware
+* [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1160,7 +1157,7 @@ How to configure Microsoft Antimalware for Cloud Services and Virtual Machines: 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18946).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21840).
 
 **Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure Container Registry), however it does not run on customer content.
 
@@ -1173,7 +1170,7 @@ Pre-scan any files being uploaded to non-compute Azure resources, such as App Se
 ### 8.3: Ensure anti-malware software and signatures are updated
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18947).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21841).
 
 **Guidance**: Not applicable. Benchmark is intended for compute resources. Microsoft handles anti-malware for underlying platform, Container Instances.
 
@@ -1188,13 +1185,13 @@ Pre-scan any files being uploaded to non-compute Azure resources, such as App Se
 ### 9.1: Ensure regular automated back ups
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18948).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21842).
 
 **Guidance**: The data in your Microsoft Azure container registry is always automatically replicated to ensure durability and high availability. Azure Container Registry copies your data so that it is protected from planned and unplanned events.
 
 Optionally geo-replicate a container registry to maintain registry replicas in multiple Azure regions.
 
-Geo-replication in Azure Container Registry: https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication
+* [Geo-replication in Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1203,15 +1200,15 @@ Geo-replication in Azure Container Registry: https://docs.microsoft.com/azure/co
 ### 9.2: Perform complete system backups and backup any customer managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18949).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21843).
 
 **Guidance**: Optionally back up container images by importing from one registry to another.
 
 Back up customer-managed keys in Azure Key Vault using Azure command-line tools or SDKs.
 
-Import container images to a container registry: https://docs.microsoft.com/azure/container-registry/container-registry-import-images
+* [Import container images to a container registry](https://docs.microsoft.com/azure/container-registry/container-registry-import-images)
 
-How to backup key vault keys in Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+* [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1220,11 +1217,11 @@ How to backup key vault keys in Azure: https://docs.microsoft.com/powershell/mod
 ### 9.3: Validate all backups including customer managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18950).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21844).
 
 **Guidance**: Test restoration of backed up customer managed keys in Azure Key Vault using Azure command-line tools or SDKs.
 
-How to restore Azure Key Vault keys in Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+* [How to restore Azure Key Vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1233,11 +1230,11 @@ How to restore Azure Key Vault keys in Azure: https://docs.microsoft.com/powersh
 ### 9.4: Ensure protection of backups and customer managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18951).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21845).
 
 **Guidance**: You may enable Soft-Delete in Azure Key Vault to protect keys against accidental or malicious deletion.
 
-How to enable Soft-Delete in Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+* [How to enable Soft-Delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1250,17 +1247,17 @@ How to enable Soft-Delete in Key Vault: https://docs.microsoft.com/azure/storage
 ### 10.1: Create an incident response guide
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18952).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21846).
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
-How to configure Workflow Automations within Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+* [How to configure Workflow Automations within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
-Guidance on building your own security incident response process: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+* [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-Microsoft Security Response Center's Anatomy of an Incident: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+* [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
+* [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1269,7 +1266,7 @@ Customer may also leverage NIST's Computer Security Incident Handling Guide to a
 ### 10.2: Create an incident scoring and prioritization procedure
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18953).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21847).
 
 **Guidance**: Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
@@ -1282,11 +1279,11 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 ### 10.3: Test security response procedures
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18958).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21852).
 
 **Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
-Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+* [Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1295,11 +1292,11 @@ Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18954).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21848).
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
-How to set the Azure Security Center security contact: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
+* [How to set the Azure Security Center security contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1308,13 +1305,13 @@ How to set the Azure Security Center security contact: https://docs.microsoft.co
 ### 10.5: Incorporate security alerts into your incident response system
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18955).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21849).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
 
-How to configure continuous export: https://docs.microsoft.com/azure/security-center/continuous-export
+* [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
 
-How to stream alerts into Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
+* [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1323,11 +1320,11 @@ How to stream alerts into Azure Sentinel: https://docs.microsoft.com/azure/senti
 ### 10.6: Automate the response to security alerts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18956).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21850).
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
-How to configure Workflow Automation and Logic Apps: https://docs.microsoft.com/azure/security-center/workflow-automation
+* [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1340,11 +1337,11 @@ How to configure Workflow Automation and Logic Apps: https://docs.microsoft.com/
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/18957).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/21851).
 
-**Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
+**Guidance**: * [Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-You can find more information on Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+* [You can find more information on Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center monitoring**: Not Applicable
 
