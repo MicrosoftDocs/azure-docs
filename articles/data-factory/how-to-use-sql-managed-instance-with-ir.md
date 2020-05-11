@@ -19,13 +19,13 @@ ms.date: 4/15/2020
 
 You can now move your SQL Server Integration Services (SSIS) projects, packages, and workloads to the Azure cloud. Deploy, run, and manage SSIS projects and packages on Azure SQL Database or SQL Database Managed Instance with familiar tools such as SQL Server Management Studio (SSMS). This article highlights the following specific areas when using Azure SQL Database Managed Instance with Azure-SSIS integration runtime (IR):
 
-- [Provision an Azure-SSIS IR with SSIS catalog (SSISDB) hosted by Azure SQL Database managed instance](#provision-azure-ssis-integration-runtime-with-ssisdb-hosted-by-azure-sql-database-managed-instance).
-- [Execute SSIS packages by Azure SQL Managed Instance Agent job](how-to-invoke-ssis-package-managed-instance-agent.md).
-- [Clean up SSISDB logs by Azure SQL Managed Instance Agent job](#clean-up-ssisdb-logs).
-- [Azure-SSIS IR failover with Azure SQL Database Managed Instance](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-azure-sql-database-managed-instance).
-- [Migrate on-premises SSIS workloads to SSIS in ADF with Azure SQL Database managed instance as database workload destination](scenario-ssis-migration-overview.md#azure-sql-database-managed-instance-as-database-workload-destination).
+- [Provision an Azure-SSIS IR with SSIS catalog (SSISDB) hosted by Azure SQL Database managed instance](#provision-azure-ssis-integration-runtime-with-ssisdb-hosted-by-azure-sql-database-managed-instance)
+- [Execute SSIS packages by Azure SQL Managed Instance Agent job](how-to-invoke-ssis-package-managed-instance-agent.md)
+- [Clean up SSISDB logs by Azure SQL Managed Instance Agent job](#clean-up-ssisdb-logs)
+- [Azure-SSIS IR failover with Azure SQL Database Managed Instance](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-azure-sql-database-managed-instance)
+- [Migrate on-premises SSIS workloads to SSIS in ADF with Azure SQL Database managed instance as database workload destination](scenario-ssis-migration-overview.md#azure-sql-database-managed-instance-as-database-workload-destination)
 
-## Provision Azure-SSIS Integration Runtime with SSISDB hosted by Azure SQL Database managed instance
+## Provision Azure-SSIS IR with SSISDB hosted by Azure SQL Database managed instance
 
 ### Prerequisites
 
