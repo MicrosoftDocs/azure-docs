@@ -30,9 +30,9 @@ For these scenarios and more, you can now use the preview for Azure AD user sign
 | Alternate email authentication for users is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-## Overview of Unique Principal Names (UPNs)
+## Overview of User Principal Names (UPNs)
 
-Unique Principal Names (UPNs) act as a unique identifier for a user account. Each user account must be represented in a directory by this UPN, and is typically used during sign-in events.
+User Principal Names (UPNs) act as a unique identifier for a user account. Each user account must be represented in a directory by this UPN, and is typically used during sign-in events.
 
 For some scenarios, the UPN isn't employee-friendly and an organization may want to enable sign in with an alternate ID. The following examples outline some of these scenarios:
 
