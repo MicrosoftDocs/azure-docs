@@ -56,7 +56,7 @@ The objectId for an applications corresponds with its associated service princip
 
 There are two ways to obtain an objectId for an application.  The first is to register your application with Azure Active Directory. To do so, follow the steps in the quickstart [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md). When registration is complete, the objectID will be listed as the "Application (client) ID".
 
-The second is to create a service principal in a terminal window. With the Azure CLI, use the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command, and provide a unique service principle name to the -n flag in the format "http://<my-unique-service-principle-name>".
+The second is to create a service principal in a terminal window. With the Azure CLI, use the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command, and provide a unique service principle name to the -n flag in the format "http://&lt;my-unique-service-principle-name&gt;".
 
 ```azurecli-interactive
 az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
@@ -103,6 +103,9 @@ In the output, the objectId is listed as `Id`:
 Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ...
 ```
+
+> [!WARNING]
+> Azure Ad Groups does not support Managed Identities. Only service and user principals are supported.
 
 #### Users
 
