@@ -71,16 +71,15 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Bug fix: inform clients about partial failure during profiling
     + Added European-style float handling for azureml-core.
     + Enabled workspace private link features in azure ml sdk.
+    + When creating a TabularDataset using `from_delimited_files`, you can specify whether empty values should be loaded as None or as empty string by setting the boolean argument `empty_as_string`.
+    + Added European-style float handling for datasets.
+    + Improved error messages on dataset mount failures.
   + **azureml-datadrift**
     + Data Drift results query from the SDK had a bug that didn't differentiate the minimum, maximum, and mean feature metrics, resulting in duplicate values. We have fixed this bug by prefixing target or baseline to the metric names. Before: duplicate min, max, mean. After: target_min, target_max, target_mean, baseline_min, baseline_max, baseline_mean.
   + **azureml-dataprep**
-    + When creating a TabularDataset using `from_delimited_files`, you can specify whether empty values should be loaded as None or as empty string by setting the boolean argument `empty_as_string`.
     + Improve handling of write restricted python environments when ensuring .NET Dependencies required for data delivery.
-    + Fixed a documentation bug in the "add-column-from-expression" Dataprep how-to-guide.
     + Fixed Dataflow creation on file with leading empty records.
-    + Added error handling options for `to_partition_iterator` similar to `to_pandas_dataframe`
-    + Added European-style float handling for azureml-core.
-    + Improved error messaging on dataset mount failures.
+    + Added error handling options for `to_partition_iterator` similar to `to_pandas_dataframe`.
   + **azureml-interpret**
     + Reduced explanation path length limits to reduce likelihood of going over Windows limit
     + Bugfix for sparse explanations created with the mimic explainer using a linear surrogate model.
