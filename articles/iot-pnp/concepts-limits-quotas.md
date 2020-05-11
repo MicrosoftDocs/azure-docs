@@ -45,7 +45,7 @@ The following limits and quotas apply to a model repository:
 
 ## Parser library
 
-The parser library follows the limits that apply to the [Digital Twin Definition Language](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+The parser library follows the limits that apply to the [Digital Twins Definition Language](https://aka.ms/DTDL).
 
 ## Next steps
 
