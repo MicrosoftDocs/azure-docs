@@ -157,7 +157,7 @@ vi helloImageTemplateWin.json
 
 > [!NOTE]
 > For the source image, you must always [specify a version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), you cannot use `latest`.
-> If you add or change the resource group where the image is distributed to, you must make the [permissions are set](#set-permissions-on-the-resource-group) on the resource group.
+> If you add or change the resource group where the image is distributed to, you must make the [permissions are set](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) on the resource group.
  
 ## Create the image
 
