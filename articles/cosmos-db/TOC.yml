@@ -166,15 +166,15 @@
         - name: OFFSET LIMIT
           displayName: offset limit
           href: sql-query-offset-limit.md
+      - name: Working with JSON
+        displayName: alias, JSON, projection
+        href: sql-query-working-with-json.md
       - name: Subquery
         displayName: subquery, exists
         href: sql-query-subquery.md
       - name: Joins
         displayName: join
         href: sql-query-join.md
-      - name: Aliasing
-        displayName: alias, aliasing
-        href: sql-query-aliasing.md
       - name: Arrays and objects
         displayName: object and array creation, object and array
         href: sql-query-object-array.md
@@ -492,6 +492,8 @@
       - name: Trigger Azure Functions
         displayName: change feed
         href: change-feed-functions.md
+      - name: Change feed pull model
+        href: change-feed-pull-model.md
     - name: Globally distributed analytics and AI
       items:
       - name: Analytics use cases
@@ -663,6 +665,8 @@
           href: create-mongodb-xamarin.md
         - name: Golang
           href: create-mongodb-golang.md
+        - name: Go
+          href: create-mongodb-go.md
       - name: Tutorials
         items:
         - name: 1 - Create and manage data
@@ -994,6 +998,10 @@
           href: troubleshoot-java-async-sdk.md
       - name: Troubleshoot .NET SDK
         href: troubleshoot-dot-net-sdk.md
+    - name: Migrate to newer SDKs
+      items:
+      - name: Migrate to Java V4 SDK
+        href: migrate-java-v4-sdk.md
     - name: Change Feed
       items:
       - name: Azure Cosmos DB Trigger logs
