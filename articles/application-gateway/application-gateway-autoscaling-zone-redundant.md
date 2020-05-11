@@ -167,7 +167,9 @@ The following table compares the features available with each SKU.
 > [!NOTE]
 > The autoscaling v2 SKU now supports [default health probes](application-gateway-probe-overview.md#default-health-probe) to automatically monitor the health of all resources in its back-end pool and highlight those backend members that are considered unhealthy. The default health probe is automatically configured for backends that don't have any custom probe configuration. To learn more, see [health probes in application gateway](application-gateway-probe-overview.md).
 
-## Differences with v1 SKU
+## Differences from v1 SKU
+
+This section describes features and limitations of the v2 SKU that differ from the v1 SKU.
 
 |Difference|Details|
 |--|--|
