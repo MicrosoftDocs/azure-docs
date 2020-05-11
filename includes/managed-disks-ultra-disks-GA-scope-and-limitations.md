@@ -36,8 +36,8 @@ The following table outlines the regions ultra disks are available in, as well a
 
 
 - Are only supported on the following VM series:
-    - [ESv3](../articles/virtual-machines/ev3-esv3-series.md)
-    - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md)
+    - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
+    - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
