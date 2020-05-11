@@ -24,7 +24,7 @@ Azure Search is now renamed to **Azure Cognitive Search** to reflect the expande
 
 ### May 2020
 
-+ Debug sessions feature is now in preview. [Sign up to request access](http://aka.ms/DebugSessions).
++ Debug sessions feature is now in preview. [Sign up to request access](https://aka.ms/DebugSessions).
 
 ### March 2020
 
