@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Explore Azure Digital Twins with a command-line tool
+title: Explore Azure Digital Twins with a command-line app
 titleSuffix: Azure Digital Twins
 description: Tutorial that shows a command-line application to explore Azure Digital Twins SDKs in depth
 author: baanders
@@ -15,14 +15,14 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Explore Azure Digital Twins with a command-line tool
+# Explore Azure Digital Twins with a command-line app
 
-This tutorial introduces a sample application that implements a command-line tool for interacting with an Azure Digital Twins instance. You can use this tool to perform essential Azure Digital Twins actions such as uploading and listing models, creating and modifying twins and relationships or manage event routes. You can learn the Azure Digital Twins APIs by looking at the code, implementing the commands, and modifying it how you would like.
+This tutorial introduces a sample application that implements a command-line app for interacting with an Azure Digital Twins instance. You can use this tool to perform essential Azure Digital Twins actions such as uploading and listing models, creating and modifying twins and relationships or manage event routes. You can learn the Azure Digital Twins APIs by looking at the code, implementing the commands, and modifying it how you would like.
 
 In this tutorial, you will...
 * Set up an Azure Digital Twins instance
-* Explore Azure Digital Twins using a command-line tool
-* Explore the code behind the command-line tool and extend it
+* Explore Azure Digital Twins using a command-line app
+* Explore the code behind the command-line app and extend it
 
 The tutorial is driven by a sample project written in C#. Get the sample project on your machine by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip).
 
@@ -40,7 +40,7 @@ The tutorial is driven by a sample project written in C#. Get the sample project
 
 * Visual Studio 2019
 
-## Get started with the command-line tool
+## Get started with the command-line app
 
 In your cloned sample repo, navigate to the folder digital-twins-samples/buildingScenario/AdtSampleApp.
 
@@ -68,14 +68,14 @@ You can then close the browser tab or window.
 
 The command-line sample tool will show up as follows:
 
-:::image type="content" source="media/tutorial-command-line-tool/command-line-tool-1.png" alt-text="Welcome message from the command-line tool":::
+:::image type="content" source="media/tutorial-command-line-tool/command-line-tool-1.png" alt-text="Welcome message from the command-line app":::
 
 Enter `help` in the command line, and press return. You will see a list of all the possible commands:
 
-:::image type="content" source="media/tutorial-command-line-tool/command-line-tool-2.png" alt-text="Help message from the command-line tool":::
+:::image type="content" source="media/tutorial-command-line-tool/command-line-tool-2.png" alt-text="Help message from the command-line app":::
 
 
-## Use the command-line tool to explore Azure Digital Twins
+## Use the command-line app to explore Azure Digital Twins
 
 In this section, yo will try out a few commands. 
 
@@ -193,7 +193,7 @@ GetDigitalTwin twin1
 
 As you will see, the twin property data has been updated.
 
-Note that the underlying REST API uses JSON Patch to define updates to a twin. The command-line tool reflects this format, so that you can experiment with what the underlying APIs actually expect.
+Note that the underlying REST API uses JSON Patch to define updates to a twin. The command-line app reflects this format, so that you can experiment with what the underlying APIs actually expect.
 
 ### Errors
 
@@ -255,7 +255,7 @@ catch (Exception ex)
 
 ## Next steps
 
-Continue to the next tutorial to use the sample command-line tool in combination with other Azure services to complete a data-driven, end-to-end scenario: 
+Continue to the next tutorial to use the sample command-line app in combination with other Azure services to complete a data-driven, end-to-end scenario: 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Build an end-to-end solution](tutorial-end-to-end.md)

@@ -10,8 +10,8 @@
   items:
   - name: Code a client app
     href: tutorial-code.md
-  - name: Explore with a command-line tool
-    href: tutorial-command-line-tool.md
+  - name: Explore with a command-line app
+    href: tutorial-command-line-app.md
   - name: Build an end-to-end solution
     href: tutorial-end-to-end.md
 - name: Concepts

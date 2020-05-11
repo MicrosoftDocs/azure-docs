@@ -551,7 +551,7 @@ In this tutorial, you created a .NET console client application from scratch. Yo
 Continue to the next tutorial to explore the things you can do with such a sample client app: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Explore with a command-line tool](tutorial-command-line-tool.md)
+> [Tutorial: Explore with a command-line app](tutorial-command-line-app.md)
 
 You can also add to the code you wrote in this tutorial by learning more management operations in the how-to articles, or start looking at the concept documentation to learn more about elements you worked with in the tutorial.
 * [How-to: Manage a twin model](how-to-manage-model.md)
