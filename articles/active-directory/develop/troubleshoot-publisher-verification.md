@@ -84,7 +84,8 @@ Response
 ```
 204 No Content 
 ```
-Note: verifiedPublisherID is your MPN ID. 
+> [!NOTE]
+> *verifiedPublisherID* is your MPN ID. 
 
 ### Unset Verified Publisher 
 

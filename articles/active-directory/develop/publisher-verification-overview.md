@@ -48,8 +48,7 @@ There are a few pre-requisites for publisher verification, some of which will ha
 
     -  In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD).
     
--  The publisher agrees to the [Microsoft identity platform for developers Terms of Use]
-(/legal/microsoft-identity-platform/terms-of-use)
+-  The publisher agrees to the [Microsoft identity platform for developers Terms of Use](/legal/microsoft-identity-platform/terms-of-use).
 
 Developers who have already met these pre-requisites can get verified in a matter of minutes. If the requirements have not been met, getting set up is free. 
 
