@@ -612,114 +612,122 @@ The following sample adds collection of [custom logs](../platform/data-sources-c
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "workspaceName": {
-            "type": "string",
-            "metadata": {
-              "description": "Name of the workspace."
-            }
-        },
-        "location": {
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "workspaceName": {
           "type": "string",
           "metadata": {
-            "description": "Specifies the location in which to create the workspace."
+            "description": "Name of the workspace."
+          }
+      },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Specifies the location in which to create the workspace."
+        }
+      }
+  },
+  "resources": [
+  {
+      "apiVersion": "2020-03-01-preview",
+      "type": "Microsoft.OperationalInsights/workspaces",
+      "name": "[parameters('workspaceName')]",
+      "location": "[parameters('location')]",
+      "resources": [
+        {
+            "apiVersion": "2020-03-01-preview",
+            "type": "dataSources",
+            "name": "[concat(parameters('workspaceName'), 'armlog_timedelimited')]",
+            "dependsOn": [
+                "[concat('Microsoft.OperationalInsights/workspaces/', '/', parameters('workspaceName'))]"
+            ],
+            "kind": "CustomLog",
+            "properties": {
+                "customLogName": "arm_log_timedelimited",
+                "description": "this is a description",
+                "inputs": [
+                  {
+                      "location": {
+                        "fileSystemLocations": {
+                            "linuxFileTypeLogPaths": [ "/var/logs" ],
+                            "windowsFileTypeLogPaths": ["c:\\Windows\\Logs\\*.txt"]
+                        }
+                      },
+                      "recordDelimiter": {
+                        "regexDelimiter": {
+                          "matchIndex": 0,
+                          "numberdGroup": null,
+                          "pattern": "(^.*((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9].*$)"
+                        }
+                      }
+                  }
+                ],
+                "extractions": [
+                {
+                    "extractionName": "TimeGenerated",
+                    "extractionProperties": {
+                    "dateTimeExtraction": {
+                        "regex": [
+                          {
+                              "matchIndex": 0,
+                              "numberdGroup": null,
+                              "pattern": "((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]"
+                          }
+                        ]
+                    }
+                    },
+                    "extractionType": "DateTime"
+                }
+                ]
+            }
+        },
+        {
+          "apiVersion": "2020-03-01-preview",
+          "type": "dataSources",
+          "name": "[concat(parameters('workspaceName'), 'armlog_newline')]",
+          "dependsOn": [
+              "[concat('Microsoft.OperationalInsights/workspaces/', '/', parameters('workspaceName'))]"
+          ],
+          "kind": "CustomLog",
+          "properties": {
+              "customLogName": "armlog_newline",
+              "description": "this is a description",
+              "extractions": [],
+              "inputs": [
+                {
+                    "location": {
+                      "fileSystemLocations": {
+                          "linuxFileTypeLogPaths": [ "/var/logs" ],
+                          "windowsFileTypeLogPaths": ["c:\\Windows\\Logs\\*.txt"]
+                      }
+                    },
+                    "recordDelimiter": {
+                      "regexDelimiter": {
+                        "pattern": "\\n",
+                        "matchIndex": 0,
+                        "numberdGroup": null
+                      }
+                    }
+                }
+              ],
+              "extractions": [
+                {
+                  "extractionName": "TimeGenerated",
+                  "extractionType": "DateTime",
+                  "extractionProperties": {
+                    "dateTimeExtraction": {
+                        "regex": null,
+                        "joinStringRegex": null
+                    }
+                  }
+                }
+              ]
           }
         }
-    },
-    "resources": [
-    {
-        "apiVersion": "2020-03-01-preview",
-        "type": "Microsoft.OperationalInsights/workspaces",
-        "name": "[parameters('workspaceName')]",
-        "location": "[parameters('location')]",
-        "resources": [
-            {
-                "apiVersion": "2020-03-01-preview",
-                "type": "dataSources",
-                "name": "[concat(parameters('workspaceName'), 'armlog_timedelimited')]",
-                "dependsOn": [
-                    "[concat('Microsoft.OperationalInsights/workspaces/', '/', parameters('workspaceName'))]"
-                ],
-                "kind": "CustomLog",
-                "properties": {
-                    "customLogName": "arm_log_timedelimited",
-                    "description": "this is a description",
-                    "extractions": [
-                    {
-                        "extractionName": "TimeGenerated",
-                        "extractionProperties": {
-                        "dateTimeExtraction": {
-                            "regex": [
-                            {
-                                "matchIndex": 0,
-                                "numberdGroup": null,
-                                "pattern": "((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]"
-                            }
-                            ]
-                        }
-                        },
-                        "extractionType": "DateTime"
-                    }
-                    ],
-                    "inputs": [
-                    {
-                        "location": {
-                        "fileSystemLocations": {
-                            "linuxFileTypeLogPaths": null,
-                            "windowsFileTypeLogPaths": [
-                            "c:\\Windows\\Logs\\*.txt"
-                            ]
-                        }
-                        },
-                        "recordDelimiter": {
-                        "regexDelimiter": {
-                                "matchIndex": 0,
-                                "numberdGroup": null,
-                                "pattern": "(^.*((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9].*$)"
-                            }
-                        }
-                    }
-                    ]
-                }
-            },
-            {
-                "apiVersion": "2020-03-01-preview",
-                "type": "dataSources",
-                "name": "[concat(parameters('workspaceName'), 'armlog_newline')]",
-                "dependsOn": [
-                    "[concat('Microsoft.OperationalInsights/workspaces/', '/', parameters('workspaceName'))]"
-                ],
-                "kind": "CustomLog",
-                "properties": {
-                    "customLogName": "armlog_newline",
-                    "description": "this is a description",
-                    "extractions": [],
-                    "inputs": [
-                    {
-                        "location": {
-                        "fileSystemLocations": {
-                            "linuxFileTypeLogPaths": null,
-                            "windowsFileTypeLogPaths": [
-                            "c:\\Windows\\Logs\\*.txt"
-                            ]
-                        }
-                        },
-                        "recordDelimiter": {
-                        "regexDelimiter": {
-                                "matchIndex": 0,
-                                "numberdGroup": null,
-                                "pattern": "\n"
-                            }
-                        }
-                    }
-                    ]
-                }
-            }
-        ]
-      }
-    ]
+      ]
+    }
+  ]
 }
 
 ```
