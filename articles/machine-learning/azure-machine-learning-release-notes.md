@@ -22,15 +22,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### Azure Machine Learning SDK for Python v1.5.0
 
 + **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
-  
   + **Preview features**
     + **azureml-contrib-reinforcementlearning**
         + Azure Machine Learning is releasing preview support for reinforcement learning using the [Ray](https://ray.io) framework. The `ReinforcementLearningEstimator` enables training of reinforcement learning agents across GPU and CPU compute targets in Azure Machine Learning.
-    + [Contrib features below] 
-
-+ **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
 
 + **Bug fixes and improvements**
   + **azure-cli-ml**
