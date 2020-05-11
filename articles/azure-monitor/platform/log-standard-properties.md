@@ -47,7 +47,7 @@ exceptions
 ## \_TimeReceived
 The **\_TimeReceived** property contains the date and time that the record was received by the Azure Monitor ingestion point in the Azure cloud. This can be useful for identifying latency issues between the data source and the cloud. An example would be a networking issue causing a delay with data being sent from an agent. See [Log data ingestion time in Azure Monitor](data-ingestion-time.md) for more details.
 
-The following query gives the average latency by hour for event records from an agent. This includes the time from the agent to the cloud and and the total time for the record to be available for log queries.
+The following query gives the average latency by hour for event records from an agent. This includes the time from the agent to the cloud and the total time for the record to be available for log queries.
 
 ```Kusto
 Event
@@ -59,7 +59,7 @@ Event
 ``` 
 
 ## Type and itemType
-The **Type** (Log Analytics workspace) and **itemType** (Application Insights application) properties hold the name of the table that the record was retrieved from which can also be thought of as the record type. This property is useful in queries that combine records from multiple table, such as those that use the `search` operator, to distinguish between records of different types. **$table** can be used in place of **Type** in some places.
+The **Type** (Log Analytics workspace) and **itemType** (Application Insights application) properties hold the name of the table that the record was retrieved from which can also be thought of as the record type. This property is useful in queries that combine records from multiple tables, such as those that use the `search` operator, to distinguish between records of different types. **$table** can be used in place of **Type** in some places.
 
 ### Examples
 The following query returns the count of records by type collected over the past hour.
@@ -121,7 +121,7 @@ union withsource = tt *
 Use these `union withsource = tt *` queries sparingly as scans across data types are expensive to execute.
 
 ## \_IsBillable
-The **\_IsBillable** property specifies whether ingested data is billable. Data with **\_IsBillable** equal to _false_ are collected for free and not billed to your Azure account.
+The **\_IsBillable** property specifies whether ingested data is billable. Data with **\_IsBillable** equal to `false` are collected for free and not billed to your Azure account.
 
 ### Examples
 To get a list of computers sending billed data types, use the following query:

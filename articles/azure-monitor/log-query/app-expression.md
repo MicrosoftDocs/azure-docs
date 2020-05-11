@@ -27,7 +27,7 @@ The `app` expression is used in an Azure Monitor query to retrieve data from a s
 
 | Identifier | Description | Example
 |:---|:---|:---|
-| Resource Name | Human readable name of the app (AKA "component name") | app("fabrikamapp") |
+| Resource Name | Human readable name of the app (Also known as "component name") | app("fabrikamapp") |
 | Qualified Name | Full name of the app in the form: "subscriptionName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |
 | ID | GUID of the app | app("988ba129-363e-4415-8fe7-8cbab5447518") |
 | Azure Resource ID | Identifier for the Azure resource |app("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
