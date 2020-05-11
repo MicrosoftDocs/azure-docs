@@ -12,6 +12,17 @@ ms.date: 10/8/2019
 
 Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to augment your data streams. For example, in an IoT scenario, you could store metadata about sensors (which don’t change often) in reference data and join it with real time IoT data streams. Azure Stream Analytics loads reference data in memory to achieve low latency stream processing. To make use of reference data in your Azure Stream Analytics job, you will generally use a [Reference Data Join](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) in your query. 
 
+## Example  
+ If a commercial vehicle is registered with the Toll Company, they can pass through the toll booth without being stopped for inspection. We will use a commercial vehicle registration lookup table to identify all commercial vehicles with expired registration.  
+  
+```SQL  
+SELECT I1.EntryTime, I1.LicensePlate, I1.TollId, R.RegistrationId  
+FROM Input1 I1 TIMESTAMP BY EntryTime  
+JOIN Registration R  
+ON I1.LicensePlate = R.LicensePlate  
+WHERE R.Expired = '1'
+```  
+
 Stream Analytics supports Azure Blob storage and Azure SQL Database as the storage layer for Reference Data. You can also transform and/or copy reference data to Blob storage from Azure Data Factory to use [any number of cloud-based and on-premises data stores](../data-factory/copy-activity-overview.md).
 
 ## Azure Blob storage
@@ -28,7 +39,7 @@ To configure your reference data, you first need to create an input that is of t
 |Storage Account   | The name of the storage account where your blobs are located. If it’s in the same subscription as your Stream Analytics Job, you can select it from the drop-down.   |
 |Storage Account Key   | The secret key associated with the storage account. This gets automatically populated if the storage account is in the same subscription as your Stream Analytics job.   |
 |Storage Container   | Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob.   |
-|Path Pattern   | The path used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 2 variables:<BR>{date}, {time}<BR>Example 1: products/{date}/{time}/product-list.csv<BR>Example 2: products/{date}/product-list.csv<BR>Example 3: product-list.csv<BR><br> If the blob doesn't exist in the specified path, the Stream Analytics job will wait indefinitely for the blob to become available.   |
+|Path Pattern   | This is a required property that is used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 2 variables:<BR>{date}, {time}<BR>Example 1: products/{date}/{time}/product-list.csv<BR>Example 2: products/{date}/product-list.csv<BR>Example 3: product-list.csv<BR><br> If the blob doesn't exist in the specified path, the Stream Analytics job will wait indefinitely for the blob to become available.   |
 |Date Format [optional]   | If you have used {date} within the Path Pattern that you specified, then you can select the date format in which your blobs are organized from the drop-down of supported formats.<BR>Example: YYYY/MM/DD, MM/DD/YYYY, etc.   |
 |Time Format [optional]   | If you have used {time} within the Path Pattern that you specified, then you can select the time format in which your blobs are organized from the drop-down of supported formats.<BR>Example: HH, HH/mm, or HH-mm.  |
 |Event Serialization Format   | To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format you're using for incoming data streams. For Reference Data, the supported formats are CSV and JSON.  |
@@ -104,7 +115,24 @@ Stream Analytics supports reference data with **maximum size of 300 MB**. The 30
 
 Increasing number of Streaming Units of a job beyond 6 does not increase the maximum supported size of reference data.
 
-Support for compression is not available for reference data. 
+Support for compression is not available for reference data.
+
+## Joining multiple reference datasets in a job
+You can join only one stream input with one reference data input in a single step of your query. However, you can join multiple reference datasets by breaking down your query into multiple steps. An example is shown below.
+
+```SQL  
+With Step1 as (
+    --JOIN input stream with reference data to get 'Desc'
+    SELECT streamInput.*, refData1.Desc as Desc
+    FROM    streamInput
+    JOIN    refData1 ON refData1.key = streamInput.key 
+)
+--Now Join Step1 with second reference data
+SELECT *
+INTO    output 
+FROM    Step1
+JOIN    refData2 ON refData2.Desc = Step1.Desc 
+``` 
 
 ## Next steps
 > [!div class="nextstepaction"]

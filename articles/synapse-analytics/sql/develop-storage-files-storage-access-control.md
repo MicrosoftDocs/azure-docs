@@ -159,11 +159,14 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 ### Examples
 
 Depending on the [authorization type](#supported-storage-authorization-types), you can create credentials using the T-SQL syntax below.
+- Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage.
+- Database-scoped credentials are used when any principal calls `OPENROWSET` function with `DATA_SOURCE` or selects data from external table that don't access public files. The database scoped credential don't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
 
-**Server-level 
-with Shared Access Signature for Blob Storage**
+**Server-scoped credential with Shared Access Signature for Blob Storage**
 
-The following script creates a server-level credential that can be used to access any file on Azure storage using SAS token. Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
+The following script creates a server-level credential that can be used to access any file on Azure storage using SAS token. Create this credential to enable SQL principal that executes `OPENROWSET` function to read files protected with SAS key on the Azure storage that matches URL in credential name.
+
+Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
 
 ```sql
 CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
@@ -172,7 +175,40 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-**Database scoped credential with Managed Identity**
+**Server-scoped credential that allows access to public storage**
+
+The following script creates a server-level credential that can be used to access any file on publicly available Azure storage. Create this credential to enable SQL principal that executes `OPENROWSET` function to read publicly available files on Azure storage that matches URL in credential name.
+
+You would need to have  Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
+
+```sql
+CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
+WITH IDENTITY='SHARED ACCESS SIGNATURE'
+, SECRET = '';
+GO
+```
+
+**Database-scoped credential with SAS token**
+
+The following script creates a credential that is used to access files on storage using SAS token specified in the credential.
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL [SasToken]
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
+GO
+```
+
+**Database-scoped credential with Azure AD Identity**
+
+The following script creates a credential that is used by external tables and `OPENROWSET` functions that use data source with credential to access storage files using their own Azure AD identity.
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL [AzureAD]
+WITH IDENTITY = 'User Identity';
+GO
+```
+
+**Database-scoped credential with Managed Identity**
 
 The following script creates a credential that can be used to impersonate current Azure AD user as Managed Identity of service. 
 
