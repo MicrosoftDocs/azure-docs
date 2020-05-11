@@ -34,8 +34,7 @@ Security Center includes an optional feature to protect the management ports of 
 
 This update brings the following changes to this feature:
 
-- The recommendation that advises you to enable JIT on a VM has been renamed. Formerly, "Just-in-time network access control should be applied on virtual machines" it's now:
-"**Management ports should be protected with just-in-time network access control**"
+- The recommendation that advises you to enable JIT on a VM has been renamed. Formerly, "Just-in-time network access control should be applied on virtual machines" it's now: "Management ports of virtual machines should be protected with just-in-time network access control".
 
 - The recommendation has been set to be triggered only if there are open management ports.
 
@@ -73,5 +72,20 @@ Security controls are logical groups of related security recommendations. They r
 To immediately see how well your organization is securing each individual attack surface, review the scores for each security control.
 
 By default, your recommendations are shown in the security controls, but from this update you can display them as a list. To view them as simple list sorted by the health status of the affected resources, use the new toggle 'Group by controls' at the top of the list in the portal.
+
+Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
+
+
+### Account security recommendations moved to "Security best practices" security control
+
+One of the security controls introduced with the enhanced secure score was "Security best practices". 
+
+With this update, three recommendations have moved out of the controls in which they were originally placed, and into this best practices control.
+
+The recommendations are:
+
+- MFA should be enabled on accounts with read permissions on your subscription (this was originally in the "Enable MFA" control)
+- External accounts with read permissions should be removed from your subscription (this was originally in the "Manage access and permissions" control)
+- A maximum of 3 owners should be designated for your subscription (this was originally in the "Manage access and permissions" control)
 
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
