@@ -28,7 +28,7 @@ In this article, you'll learn how to isolate experimentation/training jobs and i
 > - UI for data sets
 > - Notebooks
 > 
->  If you try, you will receive a message similar to the following error:: `__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
+> If you try, you will receive a message similar to the following error: `__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
 
 ## What is a VNET?
 
