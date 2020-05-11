@@ -4,7 +4,7 @@ description: How to interpret device twins and module twins to determine connect
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/8/2020
+ms.date: 05/11/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -12,15 +12,15 @@ services: iot-edge
 ---
 # Monitor module twins
 
-The Azure IoT Hub provides reporting on the data collected from the module twins on the various states of their deployment, as described in [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md). This information helps you monitor which devices received a deployment according to your target conditions.
+The module twins in the Azure IoT Hub provide pertinent information for monitoring the connectivity and health of your IoT Edge deployments. These module twins include the [IoT Edge agent](iot-edge-runtime.md#iot-edge-agent) and [IoT Edge hub](iot-edge-runtime.md#iot-edge-hub) runtime modules, as well as module twins for the custom modules in your deployment.
 
-You also need to connectivity and health status information by examining the JSON for the [IoT Edge agent](iot-edge-runtime.md#iot-edge-agent) and [IoT Edge hub](iot-edge-runtime.md#iot-edge-hub) runtime modules. This article describes what pertinent information to look for in the JSON files, followed by how you can review and edit their JSON in the Azure portal, Azure CLI, and Visual Studio Code.
+The JSON in the module twins contains the pertinent information that you need to look for to monitor connectivity and health status. This article describes how to review them in the Azure portal, Azure CLI, and Visual Studio Code.
 
-For in-depth overviews on these twins, see [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
+For guidance how to monitor which devices received a deployment according to your target conditions, see [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md). For in-depth overviews on module twins, see [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
 ## Monitor runtime module twins
 
-To troubleshoot deployment connectivity issues, review the Edge Agent and Edge Hub runtime module twins first and then drill down into other modules. The IoT Edge Agent is responsible for deploying the modules, monitoring them, and reporting connection status to the IoT Hub. To monitor that data, examine the edgeAgent module twin.
+To troubleshoot deployment connectivity issues, review the IoT Edge Agent and IoT Edge Hub runtime module twins first and then drill down into other modules. The IoT Edge Agent is responsible for deploying the modules, monitoring them, and reporting connection status to IoT Hub. To monitor that data, examine the edgeAgent module twin.
 
 The IoT Edge hub is responsible for processing the communications between the Azure IoT Hub and the IoT Edge devices and modules. To monitor that data, examine the edgeHub module twin.
 
@@ -28,13 +28,13 @@ The IoT Edge hub is responsible for processing the communications between the Az
 
 The following illustration shows the edgeAgent module twin in Visual Studio code with most of the JSON sections collapsed so that we can review its major nodes.
 
-The top of the file contains metadata populated by the IoT Hub and the connection status of the Edge Agent itself. Interestingly, when you examine the module identity twin for the edgeAgent runtime module, the connection is always in a disconnected state: `"connectionState": "Disconnected"`. The reason is that the connection state pertains to device to cloud (D2C) messages and the edgeAgent does not send D2C messages. However, you can run the [ping](how-to-edgeagent-direct-method.md#ping) built-in direct method to get the edgeAgent status.
+The top of the file contains metadata populated by IoT Hub and the connection status of the Edge Agent itself. Interestingly, the connection state is always in a disconnected state: `"connectionState": "Disconnected"`. The reason is that the connection state pertains to device to cloud (D2C) messages and the edgeAgent does not send D2C messages. However, you can run the [ping](how-to-edgeagent-direct-method.md#ping) built-in direct method to get the edgeAgent status.
 
 The reported properties node is where you need to look to determine the status of the modules currently running on the device, as reported by the IoT Edge agent. You can compare these property values to their expected values in the desired properties node.  
 
 ![edgeAgent JSON file in Visual Studio Code with sections collapsed](media/how-to-monitor-module-twins/edgeAgent.png)
 
-The reported properties provide data for the edgeAgent and edgeHub modules, the `systemModules`, as well as the values for your custom modules. The following properties are first ones to examine for troubleshooting. See [EdgeAgent reported properties] for details for a complete listing.
+The reported properties provide data for the edgeAgent and edgeHub modules (`systemModules`) as well as the values for your custom modules. The following properties are the first ones to examine for troubleshooting. See [EdgeAgent reported properties](module-edgeagent-edgehub.md#edgeagent-reported-properties) for details for a complete listing.
 
 * `runtimeStatus` , which can be one of the following values:
 
@@ -45,9 +45,9 @@ The reported properties provide data for the edgeAgent and edgeHub modules, the 
     | running | Indicates that module is currently running. |
     | unhealthy | Indicates a health-probe check failed or timed out. |
     | stopped | Indicates that the module exited successfully (with a zero exit code). |
-    | failed | Indicates that the module exited with a failure exit code (non-zero). The module can transition back to backoff from this state depending on the restart policy in effect. This state can indicate that the module has experienced an unrecoverable error. This happens when the MMA has given up on trying to resuscitate the module and user action is required to update its configuration in order for it to work again that would mean that a new deployment is required. |
+    | failed | Indicates that the module exited with a failure exit code (non-zero). The module can transition back to backoff from this state depending on the restart policy in effect. This state can indicate that the module has experienced an unrecoverable error. This happens when the Microsoft Monitoring Agent (MMA) has given up on trying to resuscitate the module and user action is required to update its configuration in order for it to work again that would mean that a new deployment is required. |
 
-* `exitcode` - This value is zero whether the module is running or not. If not zero, it indicates that the module stopped with a failure. There are two codes that are not actually failures, but they are reported as failures at the moment: 137 or 143 that are used when a module was set to stopped status because this failure will trigger SIGKILL or SIGTERM.
+* `exitcode` - Any value other than zero indicates that the module stopped with a failure. However, error codes 137 or 143 are used when a module was set to stopped status because otherwise the failure will trigger SIGKILL or SIGTERM.
 
 * `lastStartTimeUtc` Shows the **DateTime** that the container was last started. This value is 0001-01-01T00:00:00Z if the container was not started.
 
@@ -57,9 +57,15 @@ The reported properties provide data for the edgeAgent and edgeHub modules, the 
 
 ## Monitor custom module twins
 
-The data in provided in the module twins for custom modules (other than edgeAgent and edgeHub) is pertinent to the deployment of the modules and the performances of their applications as opposed to connectivity and health. See [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md) for readily accessing this information.
+The JSON for the module twins for your custom code modules does not provide connectivity and health data but is vital for determining if the code in your custom code modules is operating as expected. The desired properties that you define in your deployment.template.json file are reflected in the module twin in IoT Hub for your custom module.
+
+You can monitor how the reported properties for your module compare with the desired properties reported in IoT Hub by defining custom metrics, such as described in [Monitor a deployment in the Azure portal](how-to-monitor-iot-edge-deployments.md#monitor-a-deployment-in-the-azure-portal). 
+
+You can also programmatically edit the module twin based on your code. For an example, see [Edit the twin module](tutorial-csharp-module-windows.md#edit-the-module-twin).
 
 ## Access the module twins
+
+You can review the JSON for module twins in the Azure IoT Hub, in Visual Studio Code, and with Azure CLI.
 
 ### Monitor in Azure IoT Hub
 
