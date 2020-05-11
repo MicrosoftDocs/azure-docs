@@ -95,7 +95,7 @@ Typical properties inside the connection string:
     "properties": {
         "type": "Db2",
         "typeProperties": {
-            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; password=<password>; packageCollection=<packagecollection>;certificateCommonName=<certname>;"
+            "connectionString": "server=<server:port>;database=<database>;authenticationType=Basic;username=<username>;password=<password>;packageCollection=<packagecollection>;certificateCommonName=<certname>;"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -112,7 +112,7 @@ Typical properties inside the connection string:
     "properties": {
         "type": "Db2",
         "typeProperties": {
-            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; packageCollection=<packagecollection>;certificateCommonName=<certname>;",
+            "connectionString": "server=<server:port>;database=<database>;authenticationType=Basic;username=<username>;packageCollection=<packagecollection>;certificateCommonName=<certname>;",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
