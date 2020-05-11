@@ -213,7 +213,7 @@ In this tutorial, you take the following steps:
 
 ## Set up the backend
 
-1. Download the [.NET Backend Sample from GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers).
+1. Download the [.NET Backend Sample from GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 2. Once the download completes, open the `NotifyUsers` folder, and then open `NotifyUsers.sln` file in Visual Studio.
 3. Set the `AppBackend` project as the **StartUp Project** and launch it.
 

@@ -78,7 +78,7 @@ Note that if you have Private Endpoints attached to your storage account, you ca
 
 **Guidance**: Network Watcher packet capture allows you to create capture sessions to track traffic between Storage account and a virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps to diagnose network anomalies, both reactively, and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communication, and much more. Being able to remotely trigger packet captures, eases the burden of running a packet capture manually on a desired virtual machine, which saves valuable time. 
 
-- [Manage packet captures with Azure Network Watcher using the portal](https://docs.microsoft.comazure/network-watcher/network-watcher-packet-capture-manage-portal)
+- [Manage packet captures with Azure Network Watcher using the portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal)
 
 **Azure Security Center monitoring**: Yes
 
@@ -137,7 +137,7 @@ Storage Accounts should use a virtual network service endpoint
 
 ### 1.10: Document Traffic Configuration Rules
 
-**Guidance**: Use tags for network security groups (NSG) and other resources related to network security and traffic flow. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network. Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources. You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags. 
+**Guidance**: Use tags for network security groups (NSG) and other resources related to network security and traffic flow. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network. Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources. You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags. 
 
 - [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -684,7 +684,7 @@ Also, use Advanced Threat Protection for Azure Storage to detect unauthorized Az
 
 ### 6.5: Monitor for Unapproved Azure Resources
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: 
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: 
 
  - Not allowed resource types 
  - Allowed resource types 
@@ -727,7 +727,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 6.9: Use only approved Azure Services
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: 
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: 
 
 - Not allowed resource types 
 - Allowed resource types 
@@ -780,7 +780,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 7.1: Establish Secure Configurations for all Azure Resources
 
-**Guidance**: Use Azure Policy aliases in the "Microsoft.Storage" namespace to create custom policies to audit or enforce the configuration of your Storage account instances. You may also use built-in Azure policy definitions for Azure Storage account such as: 
+**Guidance**: Use Azure Policy aliases in the "Microsoft.Storage" namespace to create custom policies to audit or enforce the configuration of your Storage account instances. You may also use built-in Azure Policy definitions for Azure Storage account such as: 
 
 Audit unrestricted network access to storage accounts 
 Deploy Advanced Threat Protection on Storage Accounts 
@@ -807,7 +807,7 @@ Use recommendations from Azure Security Center as a secure configuration baselin
 
 ### 7.3: Maintain Secure Configurations for all Azure Resources
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Storage account resources. 
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Storage account resources. 
 
 - [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 

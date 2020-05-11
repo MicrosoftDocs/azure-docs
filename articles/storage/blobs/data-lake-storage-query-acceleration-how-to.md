@@ -239,7 +239,7 @@ class ErrorHandler : IBlobQueryErrorReceiver
 {
     public void ReportError(BlobQueryError err)
     {
-        Console.Error.WriteLine(String.Format("Error: {1}:{2}", err.Name, err.Description));
+        Console.Error.WriteLine($"Error: {err.Name}:{ err.Description }");
     }
 }
 
@@ -362,7 +362,6 @@ static void QueryMysteryBooks(BlobClient blobClient)
 
 ## Next steps
 
-- [Query acceleration enrollment form](https://aka.ms/adls/queryaccelerationpreview)    
+- [Query acceleration enrollment form](https://aka.ms/adls/qa-preview-signup)    
 - [Azure Data Lake Storage query acceleration (preview)](data-lake-storage-query-acceleration.md)
 - [Query acceleration SQL language reference (preview)](query-acceleration-sql-reference.md)
-- Query acceleration REST API reference

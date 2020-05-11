@@ -7,7 +7,7 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
-ms.date: 04/23/2020
+ms.date: 05/11/2020
 ---
 
 # Quickstart: Create a geo-replicated container registry by using a Resource Manager template
@@ -28,7 +28,7 @@ None.
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
+The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication). The template sets up a registry and an additional regional replica.
 
 [!code-json[<Azure Resource Manager template create geo-replicated registry>](~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json)]
 
@@ -41,7 +41,7 @@ More Azure Container Registry template samples can be found in the [quickstart t
 
 ### Deploy the template
 
- 1. Select the following image to sign in to Azure and open a template. The template creates a registry and a replica in another location.
+ 1. Select the following image to sign in to Azure and open a template.
 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 

@@ -50,7 +50,7 @@ The thumbprint of the current TDE protector of the database, and the database ID
 SELECT [database_id],
        [encryption_state],
        [encryptor_type], /*asymmetric key means AKV, certificate means service-managed keys*/
-       [encryptor_thumbprint],
+       [encryptor_thumbprint]
  FROM [sys].[dm_database_encryption_keys]
 ```
 

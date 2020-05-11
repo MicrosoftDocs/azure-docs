@@ -72,6 +72,9 @@
   items:
   - name: Service Bus samples
     href: service-bus-samples.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Premium messaging
@@ -187,7 +190,7 @@
       href: service-bus-metrics-azure-monitor.md
     - name: Service Bus management libraries
       href: service-bus-management-libraries.md
-    - name: Diagnostic logs
+    - name: Resource logs
       href: service-bus-diagnostic-logs.md
     - name: Suspend and reactivate messaging entities
       href: entity-suspend.md

@@ -241,7 +241,7 @@ The following policies generally impact cluster creation:
 
 ### Resolution
 
-Delete or Disable the subscription-based Azure policy while creating HDInsight Cluster.
+Delete or Disable the subscription-based Azure Policy assignment while creating HDInsight Cluster.
 
 ---
 

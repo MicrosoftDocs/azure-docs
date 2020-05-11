@@ -4,7 +4,7 @@ description: Learn how to audit the control plane operations such as add a regio
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 04/23/2020
 ms.author: sngun
 
 ---
@@ -23,7 +23,9 @@ The following are some example scenarios where auditing control plane operations
 
 ## Disable key based metadata write access
 
-Before you audit the control plane operations in Azure Cosmos DB, disable the key-based metadata write access on your account. When key based metadata write access is disabled, clients connecting to the Azure Cosmos account through account keys are prevented from accessing the account. You can disable write access by setting the `disableKeyBasedMetadataWriteAccess` property to true. After you set this property, changes to any resource can happen from a user with the proper Role-based access control(RBAC) role and credentials. To learn more on how to set this property, see the [Preventing changes from SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk) article. After you disable write access, the SDK-based changes to throughput, index will continue to work.
+Before you audit the control plane operations in Azure Cosmos DB, disable the key-based metadata write access on your account. When key based metadata write access is disabled, clients connecting to the Azure Cosmos account through account keys are prevented from accessing the account. You can disable write access by setting the `disableKeyBasedMetadataWriteAccess` property to true. After you set this property, changes to any resource can happen from a user with the proper Role-based access control(RBAC) role and credentials. To learn more on how to set this property, see the [Preventing changes from SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk) article. 
+
+After the `disableKeyBasedMetadataWriteAccess` is turned on, if the SDK based clients run create or update operations, an error *"Operation 'POST' on resource 'ContainerNameorDatabaseName' is not allowed through Azure Cosmos DB endpoint* is returned. You have to turn on access to such operations for your account, or perform the create/update operations through Azure Resource Manager, Azure CLI or Azure Powershell. To switch back, set the disableKeyBasedMetadataWriteAccess to **false** by using Azure CLI as described in the [Preventing changes from Cosmos SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) article. Make sure to change the value of `disableKeyBasedMetadataWriteAccess` to false instead of true.
 
 Consider the following points when turning off the metadata write access:
 
@@ -61,7 +63,7 @@ After you turn on logging, use the following steps to track down operations for 
    | where TimeGenerated >= ago(1h)
    ```
 
-The following screenshots capture logs when a VNET is added to an Azure Cosmos account:
+The following screenshots capture logs when a consistency level is changed for an Azure Cosmos account:
 
 ![Control plane logs when a VNet is added](./media/audit-control-plane-logs/add-ip-filter-logs.png)
 
@@ -145,8 +147,25 @@ For API-specific operations, the operation is named with the following format:
 
 * CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
 * CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
+* SqlContainersUpdateStart, SqlContainersUpdateComplete
 
 The *ResourceDetails* property contains the entire resource body as a request payload and it contains all the properties requested to update
+
+## Diagnostic log queries for control plane operations
+
+The following are some examples to get diagnostic logs for control plane operations:
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdateStart"
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdateStart"
+```
 
 ## Next steps
 
