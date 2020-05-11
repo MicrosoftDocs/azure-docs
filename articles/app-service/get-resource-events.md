@@ -1,5 +1,5 @@
 ---
-title: Get Resource Events in Azure App Service
+title: Get resource events in Azure App Service
 description: Learn how to get resource events through Activity Logs and Event Grid on your App Service app.
 ms.topic: article
 ms.date: 04/24/2020
@@ -15,7 +15,7 @@ Azure App Service provides built-in tools to monitor the status and health of yo
 >
 
 ## View Azure Activity Logs
-Azure Activity Logs contain resource events emitted by operations taken on the resources in your subscription. Both the user actions in the Azure Portal and Azure Resource Manager templates contribute to the events captured by the Activity log. 
+Azure Activity Logs contain resource events emitted by operations taken on the resources in your subscription. Both the user actions in the Azure portal and Azure Resource Manager templates contribute to the events captured by the Activity log. 
 
 Azure Activity Logs for App Service details such as:
 - what operations were taken on the resources (ex: App Service Plans)
@@ -26,7 +26,7 @@ Azure Activity Logs for App Service details such as:
 
 ### What can you do with Azure Activity Logs?
 
-Azure Activity Logs can be queried using the Azure Portal, PowerShell, REST API, or CLI. You can send the logs to a storage account, Event Hub, and Log Analytics. You can also analyze them in PowerBI or create alerts to stay updated on resource events.
+Azure Activity Logs can be queried using the Azure portal, PowerShell, REST API, or CLI. You can send the logs to a storage account, Event Hub, and Log Analytics. You can also analyze them in Power BI or create alerts to stay updated on resource events.
 
 [View and retrieve Azure Activity log events.](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
 
