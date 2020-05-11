@@ -371,6 +371,7 @@ Now, if you flip to the data hub, you will see the newly created database.
 ## Create SQL views
 
 Create a new SQL script which uses the NYCTaxiVirtual database by right clicking on the database name and selecting **New SQL script**. 
+
 ![Create new SQL script from database](./media/get-started-synapse-analytics/sql-new-script-from-db.PNG)
 
 Run SQL statements like the following for each view that you wish to create.
