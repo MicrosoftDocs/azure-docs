@@ -12,20 +12,20 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
 ---
 # Tutorial: Configure certificate auto-rotation in Key Vault
 
-You can easily provision, manage, and deploy digital certificates using Azure Key Vault. The certificates can be public and private Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates signed by a Certificate Authority (CA), or a self-signed certificate. Key Vault can also request and renew certificates through partnerships with CAs, providing a robust solution for certificate lifecycle management. In this tutorial, you will update a certificate's validity period, auto-rotation frequency, and CA attributes. For more information on Key Vault, review the [Overview](../general/overview.md).
+You can easily provision, manage, and deploy digital certificates by using Azure Key Vault. The certificates can be public and private Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates signed by a certificate authority (CA), or a self-signed certificate. Key Vault can also request and renew certificates through partnerships with CAs, providing a robust solution for certificate lifecycle management. In this tutorial, you will update a certificate's validity period, auto-rotation frequency, and CA attributes.
 
 The tutorial shows you how to:
 
 > [!div class="checklist"]
-> * Manage a certificate using the Azure portal.
+> * Manage a certificate by using the Azure portal.
 > * Add a CA provider account.
 > * Update the certificate's validity period.
 > * Update the certificate's auto-rotation frequency.
-> * Update the certificate's attributes using Azure PowerShell.
+> * Update the certificate's attributes by using Azure PowerShell.
 
 Before you begin, read [Key Vault basic concepts](../general/basic-concepts.md).
 
@@ -37,13 +37,13 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a vault
 
-Create a Key Vault or select your existing Key Vault to  perform operations (see [Steps to create a Key vault](../quick-create-portal.md)). In the example, the Vault name is **Example-Vault**. 
+Create a key vault or select your existing vault to  perform operations (see [Steps to create a key vault](../quick-create-portal.md)). In the example, the key vault name is **Example-Vault**.
 
-![Output after Key Vault creation finishes](../media/certificates/tutorial-import-cert/vault-properties.png)
+![Output after key vault creation finishes](../media/certificates/tutorial-import-cert/vault-properties.png)
 
 ## Create a certificate in Key Vault
 
-Create a certificate or import a certificate into the vault (see [Steps to create a certificate in Key vault](../quick-create-portal.md)). In this case, you'll work on a certificate called **ExampleCertificate**.
+Create a certificate or import a certificate into the key vault (see [Steps to create a certificate in Key Vault](../quick-create-portal.md)). In this case, you'll work on a certificate called **ExampleCertificate**.
 
 ## Update certificate lifecycle attributes
 
@@ -57,10 +57,10 @@ A certificate created in Key Vault can be:
 
 The following CAs are currently partnered providers with Key Vault:
 
-- DigiCert - Key Vault offers OV TLS/SSL certificates with DigiCert.
-- GlobalSign - Key Vault offers OV TLS/SSL certificates with GlobalSign.
+- DigiCert: Key Vault offers OV TLS/SSL certificates.
+- GlobalSign: Key Vault offers OV TLS/SSL certificates.
 
-Key Vault auto-rotates certificates through established partnerships with CAs. Because Key Vault automatically requests and renews certificates through the partnership, **auto-rotation capability is not applicable for certificates created with CAs that are not partnered with Key Vault.**
+Key Vault auto-rotates certificates through established partnerships with CAs. Because Key Vault automatically requests and renews certificates through the partnership, auto-rotation capability is not applicable for certificates created with CAs that are not partnered with Key Vault.
 
 > [!NOTE]
 > An account admin for a CA provider creates credentials that Key Vault uses to create, renew, and use TLS/SSL certificates.
@@ -74,7 +74,7 @@ Key Vault auto-rotates certificates through established partnerships with CAs. B
 1. On the **Create a certificate** screen, update the following values:
 
    - **Validity Period**: Enter the value (in  months). Creating short-lived certificates is a recommended security practice. By default, the validity value of a newly created certificate is 12 months.
-   - **Lifetime Action Type**: Select the certificate's auto-renewal and alerting action and then update **percentage lifetime** or **Number of days before expiry**. By default, a certificate's auto-renewal is set at 80 percent of its lifetime. From the drop down menu, select one of the following options.
+   - **Lifetime Action Type**: Select the certificate's auto-renewal and alerting action and then update **percentage lifetime** or **Number of days before expiry**. By default, a certificate's auto-renewal is set at 80 percent of its lifetime. From the drop-down menu, select one of the following options.
 
         |  Automatically renew at a given time| Email all contacts at a given time |
         |-----------|------|
@@ -82,11 +82,11 @@ Key Vault auto-rotates certificates through established partnerships with CAs. B
 
 1. Select **Create**.
 
-![Certificate Life cycle](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)
+![Certificate lifecycle](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)
 
 ### Update lifecycle attributes of a stored certificate
 
-1. Select the Key Vault.
+1. Select the key vault.
 1. On the Key Vault properties pages, select **Certificates**.
 1. Select the certificate you want to update. In this case, you'll work on a certificate called **ExampleCertificate**.
 1. Select **Issuance Policy** from the top menu bar.
@@ -106,7 +106,7 @@ Key Vault auto-rotates certificates through established partnerships with CAs. B
 > Changing the Lifetime Action Type for a certificate will record modifications for the existing certificates immediately.
 
 
-### Update certificate attributes using PowerShell
+### Update certificate attributes by using PowerShell
 
 ```azurepowershell
 
@@ -135,10 +135,10 @@ To learn more about the parameters, see [az keyvault certificate](https://docs.m
 
 ## Clean up resources
 
-Other Key Vault quickstarts and tutorials build upon this quickstart. If you plan to work with these quickstarts and tutorials, you might want to leave these existing resources in place.
-When you no longer need them, delete the resource group, which deletes the Key Vault and related resources.
+Other Key Vault tutorials build upon this tutorial. If you plan to work with these tutorials, you might want to leave these existing resources in place.
+When you no longer need them, delete the resource group, which deletes the key vault and related resources.
 
-### Delete the resource group using the portal
+To delete the resource group by using the portal:
 
 1. Enter the name of your resource group in the **Search** box at the top of the portal. When the resource group used in this quickstart appears in the search results, select it.
 1. Select **Delete resource group**.
@@ -147,7 +147,7 @@ When you no longer need them, delete the resource group, which deletes the Key V
 
 ## Next steps
 
-In this tutorial, you updated a certificate's lifecycle attributes. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below:
+In this tutorial, you updated a certificate's lifecycle attributes. To learn more about Key Vault and how to integrate it with your applications, continue on to the following articles:
 
 - Read more about [Managing certificate creation in Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios).
 - Review the [Key Vault Overview](../general/overview.md).
