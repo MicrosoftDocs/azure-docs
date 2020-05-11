@@ -231,7 +231,6 @@ AzCopy is the preferred tool to move your data over. It's optimized for performa
 
 You can also use Azure Data Factory to move your data over. It provides an intuitive user interface. To use Azure Data Factory, see any of these links:. 
 
-  See these links:
   - [Copy data to or from Azure Blob storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
   - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
   - [Copy data from or to Azure File Storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
