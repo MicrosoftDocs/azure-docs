@@ -15,7 +15,7 @@ ms.author: babanisa
 This article provides information on the following scenarios:  
 
 - Authenticate clients that publish events to Azure Event Grid topics using Shared Access Signature (SAS) or key. 
-- Secure a webhook endpoint that's used to receive events from Event Grid using Azure Active Directory (Azure AD) or a shared secret.
+- Secure the webhook endpoint that's used to receive events from Event Grid using Azure Active Directory (Azure AD) or a shared secret.
 
 ## Authenticate publishing clients using SAS or key
 Custom topics use either Shared Access Signature (SAS) or key authentication. We recommend SAS, but key authentication provides simple programming, and is compatible with many existing webhook publishers.
