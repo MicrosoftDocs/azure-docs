@@ -23,7 +23,7 @@ IoT Plug and Play Preview enables solution developers to integrate devices with 
 
 You can reuse interfaces across models to make collaboration easier and to speed up development.
 
-To make IoT Plug and Play work seamlessly with [Azure Digital Twins](../digital-twins/about-digital-twins.md), you define models and interfaces using the [Digital Twin Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enables easier adoption across services and tooling.
+To make IoT Plug and Play work seamlessly with [Azure Digital Twins](../digital-twins/about-digital-twins.md), you define models and interfaces using the [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enables easier adoption across services and tooling.
 
 There's no extra cost for using IoT Plug and Play and DTDL. Standard rates for [Azure IoT Hub](../iot-hub/about-iot-hub.md) and other Azure services remain the same.
 
@@ -44,15 +44,15 @@ IoT Plug and Play is useful for two types of developers:
 
 As a solution developer, you can develop a cloud-hosted IoT solution that uses IoT Plug and Play devices. Use [IoT Hub](../iot-hub/about-iot-hub.md) - a managed cloud service, that acts as a message hub for secure, bi-directional communication between your IoT application and your devices.
 
-When you connect an IoT Plug and Play device to an IoT hub, you can view the interfaces included in the model, and the telemetry, properties, and commands defined in those interfaces.
+When you connect an IoT Plug and Play device to an IoT hub, you can use the [Azure IoT explorer](./howto-install-iot-explorer.md) tool to view the interfaces included in the model, and the telemetry, properties, and commands defined in those interfaces.
 
 ## Develop an IoT device application
 
 As a device developer, you can develop an IoT hardware product that supports IoT Plug and Play. The process includes two key steps:
 
-1. Define the device model and interfaces. You author a set of JSON files that define your device's capabilities using the [DTDL](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). A model describes a complete entity such as a physical product, and defines the set of interfaces implemented by that entity. Interfaces are shared contracts that uniquely identify the telemetry, properties, and commands supported by a device. Interfaces can be reused across different models.
+1. Define the device model and interfaces. You author a set of JSON files that define your device's capabilities using the [DTDL](https://aka.ms/DTDL). A model describes a complete entity such as a physical product, and defines the set of interfaces implemented by that entity. Interfaces are shared contracts that uniquely identify the telemetry, properties, and commands supported by a device. Interfaces can be reused across different models.
 
-1. Author device software or firmware that implements the capabilities declared in the interfaces. The Azure IoT SDK includes APIs to help you implement device models.
+1. Author device software or firmware that implements the capabilities declared in the interfaces. The Azure IoT SDK includes preview Iot Plug and Play APIs to help you implement device models.
 
 ## Regional availability
 
@@ -66,4 +66,6 @@ During public preview, IoT Plug and Play devices send separate messages per inte
 
 Now that you have an overview of IoT Plug and Play, the suggested next step is to try out one of the quickstarts:
 
-- [Connect a device to IoT Hub](./quickstart-connect-device-c.md)
+- [Connect a device to IoT Hub (C)](./quickstart-connect-device-c.md)
+- [Connect a device to IoT Hub (Node.js)](./quickstart-connect-device-node.md)
+- [Connect a device to IoT Hub (Python)](./quickstart-connect-device-python.md)

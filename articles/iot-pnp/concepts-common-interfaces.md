@@ -32,6 +32,6 @@ You can log into [Plug and Play Model Repository (Preview)](https://iotmodels.az
 
 Now that you've learned about common interfaces, here are some additional resources:
 
-- [Digital Twin Definition Language (DTDL)](https://aka.ms/DTDL)
+- [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL)
 - [C device SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
