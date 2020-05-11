@@ -2437,6 +2437,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/sql-api-java-get-started.md",
+      "redirect_url": "/azure/cosmos-db/create-sql-api-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-async-java-get-started.md",
+      "redirect_url": "/azure/cosmos-db/create-sql-api-java",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/create-sql-api-dotnet-preview.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-dotnet",
       "redirect_document_id": false
@@ -15088,7 +15098,7 @@
     {
       "source_path": "articles/cosmos-db/create-documentdb-java.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-java",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/create-documentdb-nodejs.md",
@@ -15167,7 +15177,7 @@
     },
     {
       "source_path": "articles/cosmos-db/documentdb-java-get-started.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-java-get-started",
+      "redirect_url": "/azure/cosmos-db/create-sql-api-java",
       "redirect_document_id": true
     },
     {
