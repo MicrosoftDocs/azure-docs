@@ -78,7 +78,7 @@ To allow Azure VM Image Builder to distribute images to either the managed image
 
 Initially you must [create Azure user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) documentation on how to create an identity.
 
-Once you have the identity you need to grant it permissions, to do this, you can use an Azure Custom Role Defintion, and then assign the user-assigned managed identity to use the Custom Role Definition.
+Once you have the identity you need to grant it permissions, to do this, you can use an Azure Custom Role Definition, and then assign the user-assigned managed identity to use the Custom Role Definition.
 
 Permissions are explained in more detail [here](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements), and the examples show how this is implemented.
 
