@@ -20,7 +20,7 @@ ms.reviewer: jrasnick
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 > 
->  
+> 
 
 You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to and query Synapse SQL in Azure Synapse Analytics through either SQL on-demand (preview) or SQL pool resources. 
 
