@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 11/29/2019
+ms.date: 05/12/2020
 ms.author: aahi
 ---
 # Quickstart: Send a query to the Bing Local Business Search API in Python
 
-Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service. While this simple application is written in Python, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
+Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service. Although this simple application is written in Python, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
 
-This example application gets local response data from the API for the search query `hotel in Bellevue`.
+This example application gets local response data from the API for a search query.
 
 ## Prerequisites
 
@@ -25,15 +25,15 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Run the complete application
 
-The following code gets localized results. It is implemented in the following steps:
+The following code gets localized results, which are implemented in the following steps:
 1. Declare variables to specify the endpoint by host and path.
 2. Specify the query parameter. 
-3. Define the Search function that creates the request and adds the Ocp-Apim-Subscription-Key header.
-4. Set the Ocp-Apim-Subscription-Key header. 
+3. Define the search function that creates the request and adds the `Ocp-Apim-Subscription-Key` header.
+4. Set the `Ocp-Apim-Subscription-Key` header. 
 5. Make the connection and send the request.
 6. Print the JSON results.
 
-The complete code for this demo follows:
+The complete code for this demo is as follows:
 
 ```python
 import http.client, urllib.parse
@@ -62,6 +62,6 @@ print (json.dumps(json.loads(result), indent=4))
 ```
 
 ## Next steps
-- [Local Business Search Java Quickstart](local-search-java-quickstart.md)
-- [Local Business Search C# Quickstart](local-quickstart.md)
-- [Local Business Search Node Quickstart](local-search-node-quickstart.md)
+- [Local Business Search Java quickstart](local-search-java-quickstart.md)
+- [Local Business Search C# quickstart](local-quickstart.md)
+- [Local Business Search Node.js quickstart](local-search-node-quickstart.md)
