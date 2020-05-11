@@ -293,7 +293,6 @@ Finally if you want to understand more details about what happened when you were
 These same Parquet files can be analyzed using T-SQL with the Synapse SQL Serverless preview. Use the same SQL script that you created in the **Discover and Explore Data** section of this article. You can now extend that query to some more interesting like below.
 
 ```sql
-%%sql
 SELECT
     DateId
     ,PickupGeographyID
@@ -320,7 +319,6 @@ If you are a user of T-SQL, this syntax will be identical to what you are used t
 You can make the results easier to read, by replacing DateId and PickupGeographyId with the actual date and pickup city. This values can be obtained by joining to the **Date** and **Geography** files. 
 
 ```sql
-%%sql
 SELECT
     d.[Date]
     ,g.City
@@ -364,10 +362,7 @@ On the **Develop** hub click the **+** to add a new SQL **script**.
 To create the database run the following script;
 
 ```sql
-
-%%sql
 CREATE DATABASE NYCTaxiVirtual;
-
 ```
 
 Now, if you flip to the data hub, you will see the newly created database.
@@ -381,7 +376,6 @@ Create a new SQL script which uses the NYCTaxiVirtual database by right clicking
 Run SQL statements like the following for each view that you wish to create.
 
 ```sql
-%%sql
 CREATE VIEW Trips AS
 SELECT
     *
@@ -393,7 +387,6 @@ FROM
 ```
 
 ```sql
-%%sql
 CREATE VIEW dimDate AS
 SELECT
      *
@@ -405,7 +398,6 @@ FROM
 ```
 
 ```sql
-%%sql
 CREATE VIEW dimGeography AS
 SELECT
      *
@@ -419,12 +411,11 @@ FROM
 After the views are created, you can expand the NYCTaxiVirtual database in the data hub to see the views and their schema.
 ![View database schema](./media/get-started-synapse-analytics/sql-expand-db.PNG)
 
-## Query views
+## Query the SQL views
 
 Your original queries can now be updated to use the views instead of **OPENROWSET** to each file.
 
 ```sql
-%%sql
 SELECT
     d.[Date]
     ,g.City
