@@ -56,6 +56,17 @@ Get-AzProviderFeature -FeatureName SIGEncryption -ProviderNamespace Microsoft.Co
 
 When RegistrationState returns Registered, you can move on to the next step.
 
+Check your provider registration. Make sure it returns `Registered`.
+
+```azurepowershell-interactive
+Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState
+```
+
+If it doesn't return `Registered`, use the following to register the providers:
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+```
 
 To specify a disk encryption set to for an image version, use  [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) with the `-TargetRegion` parameter. 
 
@@ -76,6 +87,7 @@ $encryption1 = @{OSDiskImage=$osDiskImageEncryption;DataDiskImages=$dataDiskImag
 $region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS;Encryption=$encryption1}
 
 $targetRegion = @{$region1}
+
 
 # Create the VM
 New-AzGalleryImageVersion `
@@ -112,6 +124,18 @@ az feature show --namespace Microsoft.Compute --name SIGEncryption | grep state
 ```
 
 When this returns `"state": "Registered"`, you can move on to the next step.
+
+Check your registration.
+
+```azurecli-interactive
+az provider show -n Microsoft.Compute | grep registrationState
+```
+
+If it doesn't say registered, run the following:
+
+```azurecli-interactive
+az provider register -n Microsoft.Compute
+```
 
 
 To specify a disk encryption set to for an image version, use  [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) with the `--target-region-encryption` parameter. The format for `--target-region-encryption` is a space-separated list of keys for encrypting the OS and data disks. It should look like this: `<encyption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>`. 
