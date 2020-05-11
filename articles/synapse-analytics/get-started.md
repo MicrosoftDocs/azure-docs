@@ -64,7 +64,6 @@ Here are the steps to provision a SQL pool using the Azure portal:
 Once the deployment completes successfully, the SQL pool will be available and ready to use in the workspace.
 
 ### Provisioning an Apache Spark pool
-
 Here are the steps to provision an Apache Spark pool using the Azure portal:
 
 1. Navigate to the Azure portal.
@@ -155,7 +154,6 @@ To copy data towards that storage account and container, follow the directions:
    12. Once the process to copy the data is over, you should see the data under the storage account **Contosolake** and the path **datasets/nyctaxismall**.
 
 ## Discover and Explore data
-
 After ingesting some data, it is possible to use the  **Data** pillar to discover, browse, and explore Synapse databases and external data stores, connected through linked services.
 
    1. Go to **Data** to access the Orchestrate section
@@ -163,18 +161,88 @@ After ingesting some data, it is possible to use the  **Data** pillar to discove
    3. Select the container named **datasets** and use the storage explorer view to browse within that container
    4. Select the folder called **nyctaxismall**
    5. Select a parquet file in that folder and right click on this parquet file. There are two ways to explore the file:
+       * **New SQL script - Select TOP 100**: it lets you use SQL on-demand to explore the file without defining schema or table (it is in Parquet)
+       * **New notebook**: it will open a notebook in PySpark to load that file into a dataframe
+   6. Right click on the selected parquet file and pick ***New SQL script - Select TOP 100***:
+       * Select Run as in the following picture
+       ![SQL OD](./media/get-started-synapse-analytics/run-sqlod.png)
+       * Because you never ran a SQL on-demand query before it might take more time than usual. Try another time to run SQL on-demand on the same or a different file. It should take a couple of seconds for the results to come.
+       * The exploration of multiple files with SQL on-demand is possible by just holding the **Ctrl** key on the keyboard and doing multiple selections
+   7. Now, right click on the selected parquet file and pick ***New notebook***:
+       * Attach a Spark pool, created in the earlier part of the tutorial
+       * Select ***Run all***
+       ![Spark](./media/get-started-synapse-analytics/run-spark.png)
+       * Because Spark pool is probably not running yet, it will take up to 3 minutes to get the Spark pool running and the notebook to be executed. This time to spin-up pool from a cold stage is an industry-leading benchmark in the Big Data space.
+
+## Prep and Transform
+<!--- Euan --->
+
+## Create tables
+<!--- Euan --->
+
+## Analyze
+### Analyze with a notebook
+<!--- Euan --->
+
+### Analyze with SQL script
+<!--- Josh --->
+
+### Analyze with Power BI
+<!--- Josh --->
+
+## Serve via Power BI
+<!--- Josh --->
+
+## Serve via SQL pool
+<!--- Matthew --->
+
+## Orchestrate using a pipeline
+After ingesting, exploring, analyzing, and serving your data, you can schedule these activities to automatically run using pipeline orchestration.
+
+   1. Go to **Develop** and find the Spark notebook you used to analyze your data.
+   
+   2. Open your **Spark notebook**.
+   
+   3. Click the **Add to pipeline** button at the upper right of the view.
+   
+   4. Select **Existing pipeline**. All of your workspace's pipelines will be listed.
+   
+   5. Select the pipeline you created during the **data ingestion step**.
+   
+   6. Click **Add** to open an authoring view of that pipeline, with the Spark notebook activity added.
+   
+   7. Click and drag the **green box** next to the **Copy activity**, and connect it to the **new Spark notebook activity**.
+   
+   8. Publish your modified pipeline by clicking **Publish all** in the upper left of the view.
+   
+   9. To manually trigger the pipeline, click **Add trigger**, then **Trigger now**.
+   
+         Your pipeline is now running the data ingestion step, followed by the Spark notebook analysis step.
+         
+   10. Click **Add trigger**, **New/Edit**.
+   
+   11. Click **Choose trigger...**, then **New**.
+   
+   12. For **Recurrence**, enter **Every 1 hour**. For **End on**, enter a date-time soon in the future to make sure this tutorial pipeline doesn't continue running.
+   
+   13. Click **OK**, then **OK** to go back to the pipeline authoring view.
+   
+   14. Publish your new trigger by clicking **Publish all** in the upper left of the view.
+   
+          Your pipeline will now run every week until your chosen end date.
+
+## Monitor
+After setting up a pipeline that lets you ingest and analyze your data automatically, you can monitor the progress and history of your pipeline runs.
+
+   1. Click **Monitor** and open **Pipeline runs**.
+   
+   2. You should see your tutorial pipeline's runs listed. If you see other more recent pipeline runs instead, you can **filter** the list by pipeline name to just see runs of your pipeline.
+   
+   3. Open **the most recent run of your pipeline** to see the details of when each activity ran within your pipeline. The **pipeline run details view** will open.
+   
        - **New SQL script - Select TOP 100**: it lets you use SQL on-demand to explore the file without defining schema or table (it is in Parquet)
        - **New notebook**: it will open a notebook in PySpark to load that file into a dataframe
-   6. Right click on the selected parquet file and pick ***New SQL script - Select TOP 100***:
-       - Select Run as in the following picture
-       ![SQL OD](./media/get-started-synapse-analytics/run-sqlod.png)
-       - Because you never ran a SQL on-demand query before it might take more time than usual. Try another time to run SQL on-demand on the same or a different file. It should take a couple of seconds for the results to come.
-       - The exploration of multiple files with SQL on-demand is possible by just holding the **Ctrl** key on the keyboard and doing multiple selections
-   7. Now, right click on the selected parquet file and pick ***New notebook***:
-       - Attach a Spark pool, created in the earlier part of the tutorial
-       - Select ***Run all***
-       ![Spark](./media/get-started-synapse-analytics/run-spark.png)
-       - Because Spark pool is probably not running yet, it will take up to 3 minutes to get the Spark pool running and the notebook to be executed. This time to spin-up pool from a cold stage is an industry-leading benchmark in the Big Data space.
+
 
 ## Prep and Transform
 
