@@ -146,18 +146,6 @@ For information about using T-SQL for classifications, see the following referen
 - To remove the classification from one or more columns: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - To view all classifications on the database: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### Use the Rest API
-
-You can use the REST API to programmatically manage classifications and recommendations. The published REST API supports the following operations:
-
-- [Create Or Update](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): Creates or updates the sensitivity label of the specified column.
-- [Delete](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): Deletes the sensitivity label of the specified column.
-- [Disable Recommendation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): Disables sensitivity recommendations on the specified column.
-- [Enable Recommendation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation): Enables sensitivity recommendations on the specified column. (Recommendations are enabled by default on all columns.)
-- [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): Gets the sensitivity label of the specified column.
-- [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): Gets the current sensitivity labels of the specified database.
-- [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Gets the recommended sensitivity labels of the specified database.
-
 ### Use PowerShell cmdlets
 You can use PowerShell to manage classifications and recommendations for Azure SQL Database and managed instances.
 
@@ -179,6 +167,17 @@ You can use PowerShell to manage classifications and recommendations for Azure S
 - [Enable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
 - [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
+### Use the Rest API
+
+You can use the REST API to programmatically manage classifications and recommendations. The published REST API supports the following operations:
+
+- [Create Or Update](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): Creates or updates the sensitivity label of the specified column.
+- [Delete](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): Deletes the sensitivity label of the specified column.
+- [Disable Recommendation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): Disables sensitivity recommendations on the specified column.
+- [Enable Recommendation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation): Enables sensitivity recommendations on the specified column. (Recommendations are enabled by default on all columns.)
+- [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): Gets the sensitivity label of the specified column.
+- [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): Gets the current sensitivity labels of the specified database.
+- [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Gets the recommended sensitivity labels of the specified database.
 
 ## <a id="next-steps"></a>Next steps
 
