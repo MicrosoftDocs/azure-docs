@@ -16,7 +16,7 @@ Azure AD integration with AKS-managed AAD is designed to simplify the Azure AD i
 
 ## Limitations
 
-* You can't currently upgrade an existing AKS AAD Integrated cluster to the new AKS-managed AAD experience.
+* You can't currently upgrade an existing AKS AAD-Integrated cluster to the new AKS-managed AAD experience.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
