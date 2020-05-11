@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 11/05/2020
+ms.date: 05/11/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -136,7 +136,7 @@ To configure single sign-on on **insuiteX** side, you need to send the downloade
 
 ### Create insuiteX test user
 
-In this section, a user called Britta Simon is created in insuiteX.This application supports automatic user provisioning, which enables automatic provisioning and deprovisioning based on your business rules.  Microsoft recommends using automatic provisioning whenever possible. See how to enable auto provisioning for [insuiteX]([ProvisioningLink]).
+In this section, a user called Britta Simon is created in insuiteX. insuiteX supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in insuiteX, a new one is created after authentication.
 
 ## Test SSO 
 
