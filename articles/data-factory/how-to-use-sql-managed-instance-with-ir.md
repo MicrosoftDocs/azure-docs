@@ -15,6 +15,8 @@ ms.date: 4/15/2020
 ---
 # Use Azure SQL Database Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
+
 You can now move your SQL Server Integration Services (SSIS) projects, packages, and workloads to the Azure cloud. Deploy, run, and manage SSIS projects and packages on Azure SQL Database or SQL Database Managed Instance with familiar tools such as SQL Server Management Studio (SSMS). This article highlights the following specific areas when using Azure SQL Database Managed Instance with Azure-SSIS integration runtime (IR):
 
 - [Provision an Azure-SSIS IR with SSIS catalog (SSISDB) hosted by Azure SQL Database managed instance](#provision-azure-ssis-integration-runtime-with-ssisdb-hosted-by-azure-sql-database-managed-instance).
@@ -134,7 +136,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     Public endpoint host name comes in the format <mi_name>.public.<dns_zone>.database.windows.net and that the port used for the connection is 3342.  
 
-    ![catalog-public-endpoint](./media/how-to-host-ssisdb-sql-managed-instance/catalog-public-endpoint.png)
+    ![catalog-public-endpoint](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
 
 1. Select Azure AD authentication when applies.
 
