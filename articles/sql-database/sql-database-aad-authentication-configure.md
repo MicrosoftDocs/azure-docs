@@ -4,8 +4,8 @@ description: Learn how to connect to SQL Database, managed instance, and Azure S
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse
-ms.devlang: 
+ms.custom: azure-synapse, has-adal-ref
+ms.devlang:
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
@@ -19,7 +19,7 @@ This article shows you how to create and populate Azure AD, and then use Azure A
 > [!NOTE]
 > This article applies to Azure SQL server, and to both SQL Database and Azure Synapse. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Connecting to SQL Server running on an Azure VM is not supported using an Azure Active Directory account. Use a domain Active Directory account instead.
 
 ## Azure AD authentication methods
@@ -184,7 +184,7 @@ As a best practice for existing Azure AD admins for MI created before GA, and st
 - If an Azure AD login exists in the master database for MI, created using the T-SQL command `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER`,
 it can't be set up as an Azure AD admin for MI. You'll experience an error setting the login as an Azure AD admin using the Azure portal, PowerShell, or CLI commands to create the Azure AD login.
   - The login must be dropped in the master database using the command `DROP LOGIN [myaadaccount]`, before the account can be created as an Azure AD admin.
-  - Set up the Azure AD admin account in the Azure portal after the `DROP LOGIN` succeeds. 
+  - Set up the Azure AD admin account in the Azure portal after the `DROP LOGIN` succeeds.
   - If you can't set up the Azure AD admin account, check in the master database of the managed instance for the login. Use the following command: `SELECT * FROM sys.server_principals`
   - Setting up an Azure AD admin for MI will automatically create a login in the master database for this account. Removing the Azure AD admin will automatically drop the login from the master database.
 
@@ -271,11 +271,11 @@ The following two procedures show you how to provision an Azure Active Directory
 
 4. In the **Active Directory admin** page, select **Set admin**.
 
-    ![SQL servers set Active Directory admin](./media/sql-database-aad-authentication/sql-servers-set-active-directory-admin.png)  
+    ![SQL servers set Active Directory admin](./media/sql-database-aad-authentication/sql-servers-set-active-directory-admin.png)
 
 5. In the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**. (The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](sql-database-aad-authentication.md).) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
 
-    ![Select Azure Active Directory admin](./media/sql-database-aad-authentication/select-azure-active-directory-admin.png)  
+    ![Select Azure Active Directory admin](./media/sql-database-aad-authentication/select-azure-active-directory-admin.png)
 
 6. At the top of the **Active Directory admin** page, select **SAVE**.
 
@@ -437,7 +437,7 @@ A federated domain user account that is imported into a managed domain as an ext
 > [!NOTE]
 > Azure AD users are marked in the database metadata with type E (EXTERNAL_USER) and for groups with type X (EXTERNAL_GROUPS). For more information, see [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
-## Connect to the user database or Azure Synapse by using SSMS or SSDT  
+## Connect to the user database or Azure Synapse by using SSMS or SSDT
 
 To confirm the Azure AD administrator is properly set up, connect to the **master** database using the Azure AD administrator account.
 To provision an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity that has access to the database.
@@ -447,7 +447,7 @@ To provision an Azure AD-based contained database user (other than the server ad
 
 ## Using an Azure AD identity to connect using SSMS or SSDT
 
-The following procedures show you how to connect to a SQL database with an Azure AD identity using SQL Server Management Studio or SQL Server Database Tools. 
+The following procedures show you how to connect to a SQL database with an Azure AD identity using SQL Server Management Studio or SQL Server Database Tools.
 
 ### Active Directory integrated authentication
 
@@ -457,7 +457,7 @@ Use this method if you are logged into Windows using your Azure Active Directory
 
     ![Select AD Integrated Authentication][11]
 
-2. Select the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. For more information, see the article [Multi-factor AAD auth](sql-database-ssms-mfa-authentication.md#azure-ad-domain-name-or-tenant-id-parameter) on the differences between the Connection Properties for SSMS 17.x and 18.x. 
+2. Select the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. For more information, see the article [Multi-factor AAD auth](sql-database-ssms-mfa-authentication.md#azure-ad-domain-name-or-tenant-id-parameter) on the differences between the Connection Properties for SSMS 17.x and 18.x.
 
     ![Select the database name][13]
 
@@ -547,7 +547,7 @@ The following statements, connect using version 13.1 of sqlcmd, which is availab
 > `sqlcmd` with the `-G` command does not work with system identities, and requires a user principal login.
 
 ```cmd
-sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G  
+sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
 
