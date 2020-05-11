@@ -98,7 +98,7 @@ Next, add configuration details specific to your preferred front-end framework.
 
 # [Angular](#tab/angular)
 
-- Enter **src** in the _App location_ box
+- Enter **/** in the _App location_ box
 - Clear the default value from the _Api location_ box
 - Enter **dist/angular-basic** in the _App artifact location_ box
 
