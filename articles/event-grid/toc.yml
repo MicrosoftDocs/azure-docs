@@ -106,6 +106,8 @@
       items:
       - name: Azure App Configuration
         href: event-schema-app-configuration.md
+      - name: Azure App Service
+        href: event-schema-app-service.md
       - name: Azure Blob Storage
         href: event-schema-blob-storage.md
       - name: Azure Container Registry
