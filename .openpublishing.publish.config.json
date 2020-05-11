@@ -496,11 +496,6 @@
       "branch": "master"
     },
     {
-      "path_to_root": "azure-cosmosdb-java-v4",
-      "url": "https://github.com/Azure/azure-sdk-for-java",
-      "branch": "master"
-    },    
-    {
       "path_to_root": "azure-cosmosdb-graph-dotnet",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started",
       "branch": "master"
