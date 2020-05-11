@@ -238,39 +238,26 @@ You should validate that the resources within the same subnet of the private end
 
 First, create a virtual machine by following the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
-In the **Networking** tab:
+In the **Networking** tab: 
 
-1. Specify **Virtual network** and **subnet**. You can create a new virtual network or select an existing one. If selecting an existing one, make sure the region matches.
-1. Specify a **public IP** resource.
-1. In the **NIC network security group**, select **None**.
-1. In the **Load balancing**, select **No**.
+1. Specify **Virtual network** and **Subnet**. You must select the Virtual Network on which you deployed the private endpoint.
+2. Specify a **public IP** resource.
+3. For **NIC network security group**, select **None**.
+4. For **Load balancing**, select **No**.
 
-Open the command line and run the following command:
+Connect to the VM and open the command line and run the following command:
 
 ```console
-nslookup <your-event-hubs-namespace-name>.servicebus.windows.net
+nslookup <event-hubs-namespace-name>.servicebus.windows.net
 ```
 
-If you run the ns lookup command to resolve the IP address of an Event Hubs namespace over a public endpoint, you will see a result that looks like this:
+You should see a result that looks like the following. 
 
 ```console
-c:\ >nslookup <your-event-hubs-namespae-name>.servicebus.windows.net
-
 Non-authoritative answer:
-Name:    
-Address:  (public IP address)
-Aliases:  <your-event-hubs-namespace-name>.servicebus.windows.net
-```
-
-If you run the ns lookup command to resolve the IP address of an Event Hubs namespace over a private endpoint, you will see a result that looks like this:
-
-```console
-c:\ >nslookup your_event-hubs-namespace-name.servicebus.windows.net
-
-Non-authoritative answer:
-Name:    
-Address:  10.1.0.5 (private IP address)
-Aliases:  <your-event-hub-name>.servicebus.windows.net
+Name:    <event-hubs-namespace-name>.privatelink.servicebus.windows.net
+Address:  10.0.0.4 (private IP address associated with the private endpoint)
+Aliases:  <event-hubs-namespace-name>.servicebus.windows.net
 ```
 
 ## Limitations and design considerations
