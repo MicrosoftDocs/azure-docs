@@ -45,7 +45,7 @@ Azure AD supports the following authentication methods:
 
 For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD-based resources, we recommend the default password hash synchronization option.
  
-For detailed information on choosing an authentication method, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../../security/azure-ad-choose-authn.md)
+For detailed information on choosing an authentication method, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../../security/fundamentals/choose-ad-authn.md)
 
 ### Password hash synchronization
 With password hash synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new password hashes are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password hash synchronization together with password write-back to enable self-service password reset in Azure AD.
@@ -81,7 +81,7 @@ If you're deploying a new farm, you need:
 
 * A Windows Server 2012 R2 server for the federation server.
 * A Windows Server 2012 R2 server for the Web Application Proxy.
-* A .pfx file with one SSL certificate for your intended federation service name. For example: fs.contoso.com.
+* A .pfx file with one TLS/SSL certificate for your intended federation service name. For example: fs.contoso.com.
 
 If you're deploying a new farm or using an existing farm, you need:
 

@@ -1,28 +1,27 @@
 ---
-title: How to schedule indexers - Azure Search
-description: Schedule Azure Search indexers to index content periodically or at specific times.
+title: Schedule indexer execution
+titleSuffix: Azure Cognitive Search
+description: Schedule Azure Cognitive Search indexers to index content periodically or at specific times.
 
-ms.date: 05/31/2019
-author: RobDixon22
-manager: HeidiSteen
-ms.author: v-rodixo
-services: search
-ms.service: search
-ms.devlang: rest-api
+author: HeidiSteen
+manager: nitinme
+ms.author: heidist
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
+ms.date: 11/04/2019
 ---
 
-# How to schedule indexers for Azure Search
+# How to schedule indexers in Azure Cognitive Search
+
 An indexer normally runs once, immediately after it is created. You can run it again on demand using the portal, the REST API, or the .NET SDK. You can also configure an indexer to run periodically on a schedule.
 
 Some situations where indexer scheduling is useful:
 
-* Source data will change over time, and you want the Azure Search indexers to automatically process the changed data.
+* Source data will change over time, and you want the Azure Cognitive Search indexers to automatically process the changed data.
 * The index will be populated from multiple data sources and you want to make sure the indexers run at different times to reduce conflicts.
-* The source data is very large and you want to spread the indexer processing over time. For more information about indexing large volumes of data, see [How to index large data sets in Azure Search](search-howto-large-index.md).
+* The source data is very large and you want to spread the indexer processing over time. For more information about indexing large volumes of data, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
 
-The scheduler is a built-in feature of Azure Search. You can't use an external scheduler to control search indexers.
+The scheduler is a built-in feature of Azure Cognitive Search. You can't use an external scheduler to control search indexers.
 
 ## Define schedule properties
 
@@ -40,9 +39,12 @@ Let’s consider an example to make this more concrete. Suppose we configure an 
 * The second execution starts at or around June 1, 2019 9:00 AM UTC. Suppose that this execution takes 70 minutes - more than an hour – and it will not complete until 10:10 AM UTC.
 * The third execution is scheduled to start at 10:00 AM UTC, but at that time the previous execution is still running. This scheduled execution is then skipped. The next execution of the indexer will not start until 11:00 AM UTC.
 
+> [!NOTE]
+> If an indexer is set to a certain schedule but repeatedly fails on the same document over and over again each time it runs, the indexer will begin running on a less frequent interval (up to the maximum of at least once every 24 hours) until it successfully makes progress again.  If you believe you have fixed whatever the issue that was causing the indexer to be stuck at a certain point, you can perform an on demand run of the indexer, and if that successfully makes progress, the indexer will return to its set schedule interval again.
+
 <a name="portal"></a>
 
-## Define a schedule in the portal
+## Schedule in the portal
 
 The Import Data wizard in the portal lets you define the schedule for an indexer at creation time. The default Schedule setting is **Hourly**, which means the indexer runs once after it is created, and runs again every hour afterwards.
 
@@ -58,7 +60,7 @@ After an indexer has been created, you can change the schedule settings using th
 
 <a name="restApi"></a>
 
-## Define a schedule using the REST API
+## Schedule using REST APIs
 
 You can define the schedule for an indexer using the REST API. To do this, include the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update an existing indexer:
 
@@ -80,9 +82,9 @@ You can also run an indexer on demand at any time using the Run Indexer call. Fo
 
 <a name="dotNetSdk"></a>
 
-## Define a schedule using the .NET SDK
+## Schedule using the .NET SDK
 
-You can define the schedule for an indexer using the Azure Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
+You can define the schedule for an indexer using the Azure Cognitive Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
 
 The following C# example creates an indexer, using a predefined data source and index, and sets its schedule to run once every day starting 30 minutes from now:
 

@@ -1,14 +1,13 @@
 ---
 title: Manage Azure HDInsight clusters using Azure CLI
 description: Learn how to use the Azure CLI to manage Azure HDInsight clusters. Cluster types include Apache Hadoop, Spark, HBase, Storm, Kafka, Interactive Query, and ML Services.
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-author: tylerfox
-
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.author: tyfox
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 02/26/2020
 ---
 
 # Manage Azure HDInsight clusters using Azure CLI
@@ -27,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Connect to Azure
 
-Sign in to your Azure subscription. If you plan to use Azure Cloud Shell then simply select **Try it** in the upper-right corner of the code block. Else, enter the command below:
+Sign in to your Azure subscription. If you plan to use Azure Cloud Shell, then select **Try it** in the upper-right corner of the code block. Else, enter the command below:
 
 ```azurecli-interactive
 az login
@@ -78,15 +77,15 @@ az group delete --name RESOURCE_GROUP_NAME
 
 ## Scale clusters
 
-Use [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) to resize the specified HDInsight cluster to the specified size. Edit the command below by replacing `RESOURCE_GROUP_NAME`, and `CLUSTER_NAME` with the relevant information. Replace `TARGET_INSTANCE_COUNT` with the desired number of worker nodes for your cluster. For more information about scaling clusters, see [Scale HDInsight clusters](./hdinsight-scaling-best-practices.md). Enter the command:
+Use [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) to resize the specified HDInsight cluster to the specified size. Edit the command below by replacing `RESOURCE_GROUP_NAME`, and `CLUSTER_NAME` with the relevant information. Replace `WORKERNODE_COUNT` with the desired number of worker nodes for your cluster. For more information about scaling clusters, see [Scale HDInsight clusters](./hdinsight-scaling-best-practices.md). Enter the command:
 
 ```azurecli-interactive
-az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --target-instance-count TARGET_INSTANCE_COUNT
+az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --workernode-count WORKERNODE_COUNT
 ```
 
 ## Next steps
 
-In this article, you have learned how to perform different HDInsight cluster administrative tasks. To learn more, see the following articles:
+In this article, you've learned how to perform different HDInsight cluster administrative tasks. To learn more, see the following articles:
 
 * [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md)
 * [Administer HDInsight by using Azure PowerShell](hdinsight-administer-use-powershell.md)

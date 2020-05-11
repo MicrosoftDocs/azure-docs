@@ -1,11 +1,11 @@
 ---
-title: Azure CLI Script Sample - Create a Linux VM with Azure Monitor | Microsoft Docs
+title: Azure CLI Script Sample - Create a Linux VM with Azure Monitor 
 description: Azure CLI Script Sample - Create a Linux VM with Azure Monitor
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
+
 tags: azure-service-management
 
 ms.assetid:

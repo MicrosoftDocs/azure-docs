@@ -5,9 +5,11 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 02/13/2019
+ ms.date: 03/19/2020
  ms.author: cherylmc
  ms.custom: include file
+
+ # this include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
 ---
 After creating a self-signed root certificate, export the root certificate public key .cer file (not the private key). You will later upload this file to Azure. The following steps help you export the .cer file for your self-signed root certificate:
 

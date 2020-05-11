@@ -109,7 +109,7 @@ To configure Azure AD single sign-on with ITRP, take these steps:
        `https://<tenant-name>.itrp.com`
 
 	> [!NOTE]
-	> These values are placeholders. You need to use the actual sign-on URL and identifier. Contact the [ITRP support team](https://www.itrp.com/support) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
+	> These values are placeholders. You need to use the actual sign-on URL and identifier. Contact the [ITRP support team](https://www.4me.com/support/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
 
 5. In the **SAML Signing Certificate** section, select the **Edit** icon to open the **SAML Signing Certificate** dialog box:
 
@@ -149,9 +149,9 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
 	1. Select **Enabled**.
 
-	1. In the **Remote logout URL** box, paste the **Logout URL** value that you copied from the Azure portal.
+	1. In the **Remote logout URL** box, paste the **Logout URL** value that you copied from the Azure portal.
 
-	1. In the **SAML SSO URL** box, paste the **Login URL** value that you copied from the Azure portal.
+	1. In the **SAML SSO URL** box, paste the **Login URL** value that you copied from the Azure portal.
 
 	1. In the **Certificate fingerprint** box, paste the **Thumbprint** value of the certificate, which you copied from the Azure portal.
 

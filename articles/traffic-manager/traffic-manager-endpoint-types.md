@@ -3,7 +3,7 @@ title: Traffic Manager Endpoint Types | Microsoft Docs
 description: This article explains different types of endpoints that can be used with Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
-ms.author: allensu
+ms.author: rohink
 ---
 
 # Traffic Manager endpoints
@@ -86,6 +86,17 @@ For details, see [Traffic Manager endpoint monitoring](traffic-manager-monitorin
 
 If all endpoints in a profile are disabled, or if the profile itself is disabled, then Traffic Manager sends an 'NXDOMAIN' response to a new DNS query.
 
+## FAQs
+
+* [Can I use Traffic Manager with endpoints from multiple subscriptions?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
+
+* [Can I use Traffic Manager with Cloud Service 'Staging' slots?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-cloud-service-staging-slots)
+
+* [Does Traffic Manager support IPv6 endpoints?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-ipv6-endpoints)
+
+* [Can I use Traffic Manager with more than one Web App in the same region?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
+
+* [How do I move my Traffic Manager profile’s Azure endpoints to a different resource group?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## Next steps
 

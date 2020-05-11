@@ -1,18 +1,17 @@
 ---
-title: Register a SaaS application | Azure Marketplace 
-description: Explains how to register a SaaS application using the Azure portal.
-services: Azure, Marketplace, Cloud Partner Portal, Azure portal
-author: v-miclar
+title: Register a SaaS application - Azure Marketplace 
+description: Learn how to use the Azure portal to register a SaaS application and receive an Azure Active Directory security token.
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.author: evansma
+ms.author: dsindona
 ---
 
 # Register a SaaS application
 
 This article explains how to register a SaaS application using the Microsoft [Azure portal](https://portal.azure.com/).  After a successful registration, you will receive an Azure Active Directory (Azure AD) security token that you can use to access the SaaS Fulfillment APIs.  For more information about Azure AD, see [What is authentication?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
-
 
 ## Service-to-service authentication flow
 
@@ -21,7 +20,6 @@ The following diagram shows the subscription flow of a new customer and when the
 ![SaaS offer API flow](./media/saas-offer-publish-api-flow-v1.png)
 
 Azure does not impose any constraints on the authentication that the SaaS service exposes to its end users. However, authentication with the SaaS Fulfillment APIs is performed with an Azure AD security token, typically obtained by registering the SaaS app through the Azure portal. 
-
 
 ## Register an Azure AD-secured app
 
@@ -56,7 +54,6 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 >[!Note]
 >By default, the newly registered application is configured to allow only users from the same tenant to sign in to your application.
 
-
 ## Using the Azure AD security token
 
 Once you have registered your application, you can programmatically request an Azure AD security token.  The publisher is expected to use this token, and make a request to resolve it.  When using the various Fulfillment APIs, the token query parameter is in the URL when the user is redirected to SaaS website from Azure.  This token is only valid for one hour.  Additionally, you should URL decode the token value from the browser before using it.
@@ -68,7 +65,7 @@ For more information about these tokens, see [Azure Active Directory access toke
 
 HTTP Method
 
-`GET`
+`POST`
 
 *Request URL*
 
@@ -123,7 +120,6 @@ Sample response token:
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
   }               
 ```
-
 
 ## Next steps
 

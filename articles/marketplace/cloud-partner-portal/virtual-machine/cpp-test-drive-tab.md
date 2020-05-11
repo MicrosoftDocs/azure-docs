@@ -1,15 +1,18 @@
 ---
 title: Virtual machine Test Drive tab in the Cloud Partner Portal for the Azure Marketplace
 description: Describes the Test Drive tab used in creating an Azure Marketplace VM offer.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: dsindona
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Virtual machine Test Drive tab
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) to manage your migrated offers.
 
 The **Test Drive** tab of the **New Offer** page enables you to provide your prospective customers with a hands-on, self-guided demonstration of your product's key features and benefits, demonstrated in a standardized scenario.  Test Drive is an optional feature for the offer types that support Test Drive.  Test Drive requires supporting assets to be properly implemented.  For more information, see the article [Azure Marketplace Test Drive](https://azure.microsoft.com/blog/azure-marketplace-test-drive/).  <!--TD: Replace with migrated version of Test Drive article! -->
 
@@ -35,7 +38,7 @@ The following table describes the purpose and content of these fields.  Required
 |**Test Drive ARM Template\***| Upload the Azure Resource Manager template associated with this Test Drive. For more information, see [Transforming Virtual Machine Deployment Template for Test Drive](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive). |
 | **Access Information\***    | Azure Resource Manager access and trial login information, written as plain text or simple HTML. |
 | *Test Drive Deployment Subscription Details* |  |
-| **Azure Subscription Id\*** | Can be obtained by signing into the [Microsoft Azure portal](https://ms.portal.azure.com) and clicking **Subscriptions** on the left menubar. (Example: “a83645ac-1234-5ab6-6789-1h234g764ghty”)    This identifier should be a GUID of the form  `a83645ac-1234-5ab6-6789-1h234g764ghty`.|
+| **Azure Subscription Id\*** | Can be obtained by signing into the [Microsoft Azure portal](https://ms.portal.azure.com) and clicking **Subscriptions** on the left menubar. (Example: "a83645ac-1234-5ab6-6789-1h234g764ghty")    This identifier should be a GUID of the form  `a83645ac-1234-5ab6-6789-1h234g764ghty`.|
 | **Azure AD Tenant Id\***    | Azure Active Directory tenant ID.  Can be obtained by signing into the [Microsoft Azure portal](https://ms.portal.azure.com) and clicking **Azure Active Directory** on the left menubar, then clicking **Properties** in the middle menubar, then copying the **Directory ID** from the form.  This identifier should also be a GUID.  If blank, then you must create a tenant ID for your organization. |
 | **Azure AD App Id\***       | Identifier for your registered Azure VM solution  |
 | **Azure AD App Key\***      | Authentication key for your registered solution |

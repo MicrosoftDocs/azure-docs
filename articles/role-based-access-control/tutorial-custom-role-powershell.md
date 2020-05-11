@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create a custom role for Azure resources using Azure PowerShell | Microsoft Docs
-description: Get started creating a custom role for Azure resources using Azure PowerShell.
+title: "Tutorial: Create an Azure custom role with Azure PowerShell - Azure RBAC"
+description: Get started creating an Azure custom role using Azure PowerShell and Azure role-based access control (Azure RBAC) in this tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -18,9 +18,9 @@ ms.author: rolyon
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant custom permissions because the current built-in roles do not meet my permission needs.
 
 ---
-# Tutorial: Create a custom role for Azure resources using Azure PowerShell
+# Tutorial: Create an Azure custom role using Azure PowerShell
 
-If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure PowerShell. The custom role allows the user to view everything in the management plane of a subscription and also open support tickets.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure PowerShell. The custom role allows the user to view everything in the management plane of a subscription and also open support tickets.
 
 In this tutorial, you learn how to:
 
@@ -71,7 +71,7 @@ The easiest way to create a custom role is to start with a built-in role, edit i
 
 1. Open the **ReaderSupportRole.json** file in an editor.
 
-    The following shows the JSON output. For information about the different properties, see [Custom roles](custom-roles.md).
+    The following shows the JSON output. For information about the different properties, see [Azure custom roles](custom-roles.md).
 
     ```json
     {
@@ -275,4 +275,4 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create custom roles for Azure resources using Azure PowerShell](custom-roles-powershell.md)
+> [Create or update Azure custom roles using Azure PowerShell](custom-roles-powershell.md)

@@ -1,21 +1,12 @@
 ﻿---
-title: Create a zoned Windows VM - Azure PowerShell | Microsoft Docs
+title: Create a zoned Windows VM using Azure PowerShell 
 description: Create a Windows virtual machine in an availability zone with Azure PowerShell
-services: virtual-machines-windows
-documentationcenter: virtual-machines
-author: dlepow
-manager: jeconnoc
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
+author: cynthn
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/27/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: 
 ---
 
@@ -23,9 +14,9 @@ ms.custom:
 
 This article details using Azure PowerShell to create an Azure virtual machine running Windows Server 2016 in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
-To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#services-support-by-region).
+To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-region.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Sign in to Azure
 
@@ -86,7 +77,7 @@ $vnet = New-AzVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus
 
 # Create a public IP address in an availability zone and specify a DNS name
 $pip = New-AzPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus2 -Zone 2 `
-    -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
+    -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)" -Sku Standard
 ```
 
 ### Create a network security group and a network security group rule 
@@ -174,4 +165,4 @@ Tags               : {}
 
 ## Next steps
 
-In this article, you learned how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability.md) for Azure VMs.
+In this article, you learned how to create a VM in an availability zone. Learn more about [availability](availability.md) for Azure VMs.

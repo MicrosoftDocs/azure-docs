@@ -1,18 +1,14 @@
 ---
 title: Write code to track requests with Azure Application Insights | Microsoft Docs
 description: Write code to track requests with Application Insights so you can get profiles for your requests.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
+ms.date: 08/06/2018
+
+ms.reviewer: mbullwin
 ---
+
 # Write code to track requests with Application Insights
 
 To view profiles for your application on the Performance page, Azure Application Insights needs to track requests for your application. Application Insights can automatically track requests for applications that are built on already-instrumented frameworks. Two examples are ASP.NET and ASP.NET Core. 

@@ -2,8 +2,8 @@
 title: High availability - Azure Dedicated HSM | Microsoft Docs
 description: Azure Dedicated HSM high availability example and basic considerations
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: barclayn
+ms.author: mbaldwin
 
 ---
 # Azure Dedicated HSM high availability
@@ -20,7 +20,7 @@ Azure Dedicated HSM is underpinned by Microsoft’s highly available datacenters
 
 ## High availability example
 
-Information on how to configure HSM devices for high availability at the software level is in the 'Gemalto Luna Network HSM Administration Guide'. This document is available on the  [Gemalto Customer Support Portal](https://supportportal.gemalto.com/csm/).
+Information on how to configure HSM devices for high availability at the software level is in the 'Gemalto Luna Network HSM Administration Guide'. This document is available at the  [Gemalto HSM Page](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).
 
 The following diagram shows a highly available architecture. It uses multiple devices in region and multiple devices paired in a separate region. This architecture uses a minimum of four HSM devices and virtual networking components.
 

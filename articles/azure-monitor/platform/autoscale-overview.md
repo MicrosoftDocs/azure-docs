@@ -1,22 +1,19 @@
 ---
-title: "Overview of autoscale in Virtual Machines, Cloud Services, and Web Apps"
-description: "Autoscale in Microsoft Azure. Applies to Virtual Machines, Virtual machine Scale sets, Cloud Services and Web Apps."
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
+title: Autoscale in Microsoft Azure
+description: "Autoscale in Microsoft Azure"
+ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: robb
-ms.subservice: autoscale
+
 ---
-# Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps
+
+# Overview of autoscale in Microsoft Azure
 This article describes what Microsoft Azure autoscale is, its benefits, and how to get started using it.  
 
-Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts), and [Azure Data Explorer Clusters](https://docs.microsoft.com/azure/data-explorer/).
 
 > [!NOTE]
 > Azure has two autoscale methods. An older version of autoscale applies to Virtual Machines (availability sets). This feature has limited support and we recommend migrating to virtual machine scale sets for faster and more reliable autoscale support. A link on how to use the older technology is included in this article.  
->
 >
 
 ## What is autoscale?
@@ -85,8 +82,6 @@ Autoscale only scales horizontally, which is an increase ("out") or decrease ("i
 
 In contrast, vertical scaling is different. It keeps the same number of VMs, but makes the VMs more ("up") or less ("down") powerful. Power is measured in memory, CPU speed, disk space, etc.  Vertical scaling has more limitations. It's dependent on the availability of larger hardware, which quickly hits an upper limit and can vary by region. Vertical scaling also usually requires a VM to stop and restart.
 
-For more information, see [Vertically scale Azure virtual machine with Azure Automation](../../virtual-machines/linux/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 ## Methods of access
 You can set up autoscale via
 
@@ -105,7 +100,9 @@ You can set up autoscale via
 | Virtual Machines: Linux Scale Sets |[Scaling virtual machine scale sets in Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Virtual Machines: Windows Example |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
 | API Management service|[Automatically scale an Azure API Management instance](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
-
+| Azure Data Explorer Clusters|[Manage Azure Data Explorer clusters scaling to accommodate changing demand](https://docs.microsoft.com/azure/data-explorer/manage-cluster-horizontal-scaling)|
+| Azure App Service |[Scale up an app in Azure App service](https://docs.microsoft.com/azure/app-service/manage-scale-up)|
+| Logic Apps |[Adding integration service environment (ISE) capacity](https://docs.microsoft.com/azure/logic-apps/ise-manage-integration-service-environment#add-ise-capacity)|
 ## Next steps
 To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources:
 

@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Service Bus messaging queues, topics, and subscriptions | Microsoft Docs
-description: Overview of Service Bus messaging entities.
+title: Azure Service Bus messaging - queues, topics, and subscriptions
+description: This article provides an overview of Azure Service Bus messaging entities (queue, topics, and subscriptions).
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -9,7 +9,7 @@ editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/16/2020
 ms.author: aschhab
 
 ---
@@ -37,7 +37,7 @@ For a working sample, see the [BasicSendReceiveUsingQueueClient sample](https://
 
 ### Receive modes
 
-You can specify two different modes in which Service Bus receives messages: *ReceiveAndDelete* or *PeekLock*. In the [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) mode, the receive operation is single-shot; that is, when Service Bus receives the request, it marks the message as being consumed and returns it to the application. **ReceiveAndDelete** mode is the simplest model and works best for scenarios in which the application can tolerate not processing a message if a failure occurs. To understand this scenario, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus marks the message as being consumed, when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
+You can specify two different modes in which Service Bus receives messages: *ReceiveAndDelete* or *PeekLock*. In the [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) mode, the receive operation is single-shot; that is, when Service Bus receives the request from the consumer, it marks the message as being consumed and returns it to the consumer application. **ReceiveAndDelete** mode is the simplest model and works best for scenarios in which the application can tolerate not processing a message if a failure occurs. To understand this scenario, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus marks the message as being consumed, when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
 
 In [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) mode, the receive operation becomes two-stage, which makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives the request, it finds the next message to be consumed, locks it to prevent other consumers from receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by calling [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) on the received message. When Service Bus sees the **CompleteAsync** call, it marks the message as being consumed.
 

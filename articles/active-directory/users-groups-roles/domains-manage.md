@@ -38,7 +38,7 @@ When your directory is created, the initial domain name, such as ‘contoso.onmi
 
 You can change the primary domain name for your directory to be any verified custom domain that isn't federated. Changing the primary domain for your directory won't change the user name for any existing users.
 
-## Add custom domain names to your Azure AD tenant
+## Add custom domain names to your Azure AD organization
 
 You can add up to 900 managed domain names. If you're configuring all your domains for federation with on-premises Active Directory, you can add up to 450 domain names in each directory.
 
@@ -69,7 +69,7 @@ You can **ForceDelete** a domain name in the [Azure AD Admin Center](https://aad
 To call **ForceDelete** in the Azure portal, you must ensure that there are fewer than 1000 references to the domain name, and any references where Exchange is the provisioning service must be updated or removed in the [Exchange Admin Center](https://outlook.office365.com/ecp/). This includes Exchange Mail-Enabled Security Groups and distributed lists; for more information, see [Removing mail-enabled security groups](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). Also, the **ForceDelete** operation won't succeed if either of the following is true:
 
 * You purchased a domain via Office 365 domain subscription services
-* You are a partner administering on behalf of another customer tenant
+* You are a partner administering on behalf of another customer organization
 
 The following actions are performed as part of the **ForceDelete** operation:
 
@@ -99,12 +99,12 @@ An error is returned when:
 
 If you find that any of the conditions haven’t been met, manually clean up the references and try to delete the domain again.
 
-## Use PowerShell or Graph API to manage domain names
+## Use PowerShell or the Microsoft Graph API to manage domain names
 
-Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using Azure AD Graph API.
+Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using the Microsoft Graph API.
 
-* [Using PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-* [Using Graph API to manage domain names in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
+* [Using PowerShell to manage domain names in Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
+* [Domain resource type](https://docs.microsoft.com/graph/api/resources/domain?view=graph-rest-1.0)
 
 ## Next steps
 

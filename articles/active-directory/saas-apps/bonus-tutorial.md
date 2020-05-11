@@ -145,7 +145,7 @@ To configure Azure AD single sign-on with Bonusly, perform the following steps:
 
     c. In the **IdP Issuer** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
     
-    d. Paste the **Thumbprint** value copied from Azure portal into the **Cert Fingerprint** textbox.
+    d. Paste the **Thumbprint** value copied from Azure portal into the **Cert Fingerprint** textbox.
     
     e. Click **Save**.
 
@@ -204,7 +204,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In order to enable Azure AD users to sign in to Bonusly, they must be provisioned into Bonusly. In the case of Bonusly, provisioning is a manual task.
 
 > [!NOTE]
-> You can use any other Bonusly user account creation tools or APIs provided by Bonusly to provision AAD user accounts. 
+> You can use any other Bonusly user account creation tools or APIs provided by Bonusly to provision Azure AD user accounts. 
 
 **To configure user provisioning, perform the following steps:**
 

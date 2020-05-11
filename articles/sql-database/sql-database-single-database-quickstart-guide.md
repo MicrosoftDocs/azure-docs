@@ -1,5 +1,5 @@
 ---
-title: Quickstart - single databases in Azure SQL Database | Microsoft Docs
+title: Quickstart - single databases
 description: 'Learn how to quickly get started with single databases in Azure SQL Database'
 services: sql-database
 ms.service: sql-database
@@ -10,8 +10,7 @@ ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
-ms.date: 02/04/2019
+ms.date: 07/29/2019
 ---
 # Getting started with single databases in Azure SQL Database
 
@@ -29,14 +28,20 @@ In this section, you will see an overview of available articles that can help yo
 
 You can use PowerShell or the Azure CLI to create, configure, and scale your database.
 
-- [Create and configure a single database using PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
-- [Create and configure a single database using Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
-- [Update your single database and scale resources using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md)
-- [Update your single database and scale resources using Azure CLI](scripts/sql-database-monitor-and-scale-database-cli.md)
+- [Create and configure a single database using PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) or [Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
+- [Update your single database and scale resources using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md) or [Azure CLI](scripts/sql-database-monitor-and-scale-database-cli.md)
 
 ## Migrating to a single database with minimal downtime
 
 These quickstarts enable you to quickly create or import your database to Azure using a `.bacpac` file. However, `.bacpac` and `.dacpac` files are designed to quickly move databases across different versions of SQL Server and deployment options within Azure SQL Database, or to implement continuous integration in your DevOps pipeline. However, this method is not designed for migration of your production databases with minimal downtime, because you would need to stop adding new data, wait for the export of the source database to a `.bacpac` file to complete, and then wait for the import into Azure SQL Database to complete. All of this waiting results in downtime of your application, especially for large databases. To move your production database, you need a better way to migrate that guarantees minimal downtime of migration. For this, use the [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql?toc=/azure/sql-database/toc.json) to migrate your database with the minimal downtime.. DMS accomplishes this by incrementally pushing the changes made in your source database to the single database being restored. This way, you can quickly switch your application from source to target database with the minimal downtime.
+
+## Hands-on learning modules
+
+The following Microsoft Learn modules help you learn for free about Azure SQL Database.
+
+- [Provision an Azure SQL database to store application data](https://docs.microsoft.com/learn/modules/provision-azure-sql-db/)
+- [Develop and configure an ASP.NET application that queries an Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+- [Secure your Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)
 
 ## Next steps
 
@@ -45,3 +50,4 @@ These quickstarts enable you to quickly create or import your database to Azure 
 - Find more advanced how-to's in [how to use a single database in Azure SQL Database](sql-database-howto-single-database.md).
 - Find more sample scripts written in [PowerShell](sql-database-powershell-samples.md) and [Azure CLI](sql-database-cli-samples.md).
 - Learn more about the [management API](sql-database-single-databases-manage.md) that you can use to configure your databases.
+- [Identify the right Azure SQL Database/Managed Instance SKU for your on-premises database](/sql/dma/dma-sku-recommend-sql-db/).

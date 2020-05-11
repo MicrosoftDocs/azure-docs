@@ -1,21 +1,19 @@
 ---
-title: How to integrate the common alert schema with Logic Apps 
+title: How to integrate the common alert schema with Logic Apps
 description: Learn how to create a logic app that leverages the common alert schema to handle all your alerts.
-author: ananthradhakrishnan
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/27/2019
-ms.author: anantr
 ms.subservice: alerts
+ms.date: 05/27/2019
+
 ---
+
 # How to integrate the common alert schema with Logic Apps
 
 This article shows you how to create a logic app that leverages the common alert schema to handle all your alerts.
 
 ## Overview
 
-The [common alert schema](https://aka.ms/commonAlertSchemaDocs) provides a standardized and extensible JSON schema across all your different alert types. The common alert schema is most useful when leveraged programmatically – through webhooks, runbooks, and logic apps. In this article, we demonstrate how a single logic app can be authored to handle all your alerts. The same principles can be applied to other programmatic methods. The logic app described in this article creates well-defined variables for the ['essential' fields](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields), and also describes how you can handle [alert type](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) specific logic.
+The [common alert schema](https://aka.ms/commonAlertSchemaDocs) provides a standardized and extensible JSON schema across all your different alert types. The common alert schema is most useful when leveraged programmatically – through webhooks, runbooks, and logic apps. In this article, we demonstrate how a single logic app can be authored to handle all your alerts. The same principles can be applied to other programmatic methods. The logic app described in this article creates well-defined variables for the ['essential' fields](alerts-common-schema-definitions.md#essentials), and also describes how you can handle [alert type](alerts-common-schema-definitions.md#alert-context) specific logic.
 
 
 ## Prerequisites 
@@ -119,7 +117,7 @@ This article assumes that the reader is familiar with
 
     ![Logic app expression](media/alerts-common-schema-integrations/logic-app-expressions.png "Logic app expression")
     
-     The ['monitoringService' field](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) allows you to uniquely identify the alert type, based on which you can create the conditional logic.
+     The ['monitoringService' field](alerts-common-schema-definitions.md#alert-context) allows you to uniquely identify the alert type, based on which you can create the conditional logic.
 
     
     For example, the below snippet checks if the alert is a Application Insights based log alert, and if so prints the search results. Else, it prints 'NA'.

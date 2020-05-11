@@ -1,20 +1,8 @@
 ---
-title: High availability and disaster recovery - Azure Batch | Microsoft Docs
-description: Learn how to design your Batch application for a regional outage
-services: batch
-documentationcenter: ''
-author: laurenhughes
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
-ms.service: batch
-ms.workload: 
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: High availability and disaster recovery - Azure Batch
+description: Learn how to design your Batch application for a regional outage. Workloads should failover to another region or be split between two or more regions.
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: lahugh
 ---
 
 # Design your application for high availability
@@ -46,5 +34,5 @@ Consider the following points when designing a solution that can failover:
 
 ## Next steps
 
-- Learn more about creating Batch accounts with the [Azure portal](batch-account-create-portal.md), the [Azure CLI](cli-samples.md), [Powershell](batch-powershell-cmdlets-get-started.md), or the [Batch management API](batch-management-dotnet.md).
+- Learn more about creating Batch accounts with the [Azure portal](batch-account-create-portal.md), the [Azure CLI](cli-samples.md), [PowerShell](batch-powershell-cmdlets-get-started.md), or the [Batch management API](batch-management-dotnet.md).
 - Default quotas are associated with a Batch account; [this article](batch-quota-limit.md) details the default quota values and describes how the quotas can be increased.

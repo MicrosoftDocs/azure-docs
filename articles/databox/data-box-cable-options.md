@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
 ---
@@ -70,7 +70,7 @@ Do the following steps to cable your device.
 
 Do the following steps to cable your device.
 
-1. Use an RJ45 Ethernet cable from the server directly to the MGMT port for configuration.
+1. Use an RJ45 Ethernet cable from the separate computer directly to the MGMT port for configuration.
 2. Use an RJ45 for DATA 3 or SFP+ cables to connect DATA 1 or DATA 2 to the server. We recommend that you use 10-GbE DATA 1 or DATA 2 ports for good performance. The data ports are connected via a 10-GbE switch to the server with data.
 3. Configure the Ethernet adapter of the laptop you're using to connect to the device with:
 

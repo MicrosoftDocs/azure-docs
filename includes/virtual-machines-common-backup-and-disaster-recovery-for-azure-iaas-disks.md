@@ -10,7 +10,7 @@ ms.author: rogarana
 ms.custom: "include file"
 ---
 
-# Backup and disaster recovery for Azure IaaS disks
+
 
 This article explains how to plan for backup and disaster recovery (DR) of IaaS virtual machines (VMs) and disks in Azure. This document covers both managed and unmanaged disks.
 
@@ -100,7 +100,7 @@ If you use [premium SSDs](../articles/virtual-machines/windows/disks-types.md), 
 For unmanaged disks, you can use the locally redundant storage type for IaaS disks, but ensure that Azure Backup is enabled with the geo-redundant storage option for the recovery services vault.
 
 > [!NOTE]
-> If you use the [geo-redundant storage](../articles/storage/common/storage-redundancy-grs.md) or [read-access geo-redundant storage](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) option for your unmanaged disks, you still need consistent snapshots for backup and DR. Use either [Azure Backup](https://azure.microsoft.com/services/backup/) or [consistent snapshots](#alternative-solution-consistent-snapshots).
+> If you use the [geo-redundant storage](../articles/storage/common/storage-redundancy-grs.md) or [read-access geo-redundant storage](../articles/storage/common/storage-redundancy.md) option for your unmanaged disks, you still need consistent snapshots for backup and DR. Use either [Azure Backup](https://azure.microsoft.com/services/backup/) or [consistent snapshots](#alternative-solution-consistent-snapshots).
 
  The following table is a summary of the solutions available for DR.
 
@@ -110,7 +110,7 @@ For unmanaged disks, you can use the locally redundant storage type for IaaS dis
 | Managed disks | Local ([locally redundant storage](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Unmanaged locally redundant storage disks | Local ([locally redundant storage](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Unmanaged geo-redundant storage disks | Cross region ([geo-redundant storage](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
-| Unmanaged read-access geo-redundant storage disks | Cross region ([read-access geo-redundant storage](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
+| Unmanaged read-access geo-redundant storage disks | Cross region ([read-access geo-redundant storage](../articles/storage/common/storage-redundancy.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Consistent snapshots](#alternative-solution-consistent-snapshots) |
 
 High availability is best met by using managed disks in an availability set along with Azure Backup. If you use unmanaged disks, you can still use Azure Backup for DR. If you are unable to use Azure Backup, then taking [consistent snapshots](#alternative-solution-consistent-snapshots), as described in a later section, is an alternative solution for backup and DR.
 
@@ -125,7 +125,7 @@ Your choices for high availability, backup, and DR at application or infrastruct
 
 [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) can back up your VMs running Windows or Linux to the Azure recovery services vault. Backing up and restoring business-critical data is complicated by the fact that business-critical data must be backed up while the applications that produce the data are running. 
 
-To address this issue, Azure Backup provides application-consistent backups for Microsoft workloads. It uses the volume shadow service to ensure that data is written correctly to storage. For Linux VMs, only file-consistent backups are possible, because Linux does not have functionality equivalent to the volume shadow service.
+To address this issue, Azure Backup provides application-consistent backups for Microsoft workloads. It uses the volume shadow service to ensure that data is written correctly to storage. For Linux VMs, the default backup consistency mode is file-consistent backups, because Linux does not have functionality equivalent to the volume shadow service as in the case of Windows. For Linux machines, see [Application-consistent backup of Azure Linux VMs](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
 ![Azure Backup flow][1]
 
@@ -148,8 +148,6 @@ Use the following steps to enable backups of your VMs by using the [Azure portal
 1.	Configure the backup policy and select the VM from the same UI.
 
 1.	Make sure the Backup Agent is installed on the VM. If your VM is created by using an Azure gallery image, then the Backup Agent is already installed. Otherwise (that is, if you use a custom image), use the instructions to [install the VM agent on a virtual machine](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-
-1.	Make sure that the VM allows network connectivity for the backup service to function. Follow the instructions for [network connectivity](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 1.	After the previous steps are completed, the backup runs at regular intervals as specified in the backup policy. If necessary, you can trigger the first backup manually from the vault dashboard on the Azure portal.
 

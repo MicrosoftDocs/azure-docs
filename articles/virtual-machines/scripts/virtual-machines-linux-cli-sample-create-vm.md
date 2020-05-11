@@ -1,11 +1,11 @@
 ---
-title: Azure CLI Script Sample - Create a Linux VM | Microsoft Docs
+title: Azure CLI Script Sample - Create a Linux VM 
 description: Azure CLI Script Sample - Create a Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
+
 tags: azure-service-management
 
 ms.assetid:

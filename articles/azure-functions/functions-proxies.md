@@ -1,13 +1,8 @@
 ---
-title: Work with proxies in Azure Functions | Microsoft Docs
+title: Work with proxies in Azure Functions 
 description: Overview of how to use Azure Functions Proxies
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
 
-ms.assetid: 
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
@@ -62,7 +57,7 @@ You can use `localhost` to reference a function inside the same function app dir
 
  
 >[!Note]  
->If your function uses *function, admin or sys* authorization levels, you will need to provide the code and clientId, as per the original function URL. In this case the reference would look like: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
+>If your function uses *function, admin or sys* authorization levels, you will need to provide the code and clientId, as per the original function URL. In this case the reference would look like: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` We recommend storing these keys in [application settings] and referencing those in your proxies. This avoids storing secrets in your source code. 
 
 ### <a name="request-parameters"></a>Reference request parameters
 
@@ -185,8 +180,8 @@ Proxies read all strings out of a JSON file, using \ as an escape symbol. Proxie
 The requestOverrides object defines changes made to the request when the back-end resource is called. The object is defined by the following properties:
 
 * **backend.request.method**: The HTTP method that's used to call the back-end.
-* **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back-end. Replace *\<ParameterName\>* with the name of the parameter that you want to set. If the empty string is provided, the parameter is not included on the back-end request.
-* **backend.request.headers.\<HeaderName\>**: A header that can be set for the call to the back-end. Replace *\<HeaderName\>* with the name of the header that you want to set. If you provide the empty string, the header is not included on the back-end request.
+* **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back-end. Replace *\<ParameterName\>* with the name of the parameter that you want to set. Note that if an empty string is provided, the parameter is still included on the back-end request.
+* **backend.request.headers.\<HeaderName\>**: A header that can be set for the call to the back-end. Replace *\<HeaderName\>* with the name of the header that you want to set. Note that if an empty string is provided, the parameter is still included on the back-end request.
 
 Values can reference application settings and parameters from the original client request.
 

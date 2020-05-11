@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus management libraries| Microsoft Docs
-description: Manage Service Bus namespaces and messaging entities from .NET.
+description: This article explains how to use Azure Service Bus management libraries to dynamically provision Service Bus namespaces and entities.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
@@ -37,7 +37,7 @@ To get started using the Service Bus management libraries, you must authenticate
 * [Use Azure PowerShell to create a service principal to access resources](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Use Azure CLI to create a service principal to access resources](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (authentication key), all of which are used for authentication by the management libraries. You must have **Owner** permissions for the resource group on which you wish to run.
+These tutorials provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (authentication key), all of which are used for authentication by the management libraries. You must have at-least [**Azure Service Bus Data Owner**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) or [**Contributor**](/azure/role-based-access-control/built-in-roles#contributor) permissions for the resource group on which you wish to run.
 
 ## Programming pattern
 
@@ -47,7 +47,7 @@ The pattern to manipulate any Service Bus resource follows a common protocol:
    ```csharp
    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
-   var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
+   var result = await context.AcquireTokenAsync("https://management.azure.com/", new ClientCredential(clientId, clientSecret));
    ```
 2. Create the `ServiceBusManagementClient` object:
 
@@ -136,7 +136,7 @@ namespace SBusADApp
                 var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
                 var result = await context.AcquireTokenAsync(
-                    "https://management.core.windows.net/",
+                    "https://management.azure.com/",
                     new ClientCredential(clientId, clientSecret)
                 );
 

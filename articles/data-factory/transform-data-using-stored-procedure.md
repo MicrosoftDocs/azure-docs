@@ -1,15 +1,16 @@
 ---
-title: Transform data by using the Stored Procedure activity in Azure Data Factory | Microsoft Docs
+title: Transform data by using the Stored Procedure activity
 description: Explains how to use SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database/Data Warehouse from a Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/27/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: shwang
+ms.custom: seo-lt-2019
+ms.date: 11/27/2018
 ---
 
 
@@ -17,6 +18,8 @@ manager: craigg
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-stored-proc-activity.md)
 > * [Current version](transform-data-using-stored-procedure.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 You use data transformation activities in a Data Factory [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that Data Factory supports. This article builds on the [transform data](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities in Data Factory.
 
@@ -69,6 +72,17 @@ The following table describes these JSON properties:
 | linkedServiceName         | Reference to the **Azure SQL Database** or **Azure SQL Data Warehouse** or **SQL Server** registered as a linked service in Data Factory. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
 | storedProcedureName       | Specify the name of the stored procedure to invoke. | Yes      |
 | storedProcedureParameters | Specify the values for stored procedure parameters. Use `"param1": { "value": "param1Value","type":"param1Type" }` to pass parameter values and their type supported by the data source. If you need to pass null for a parameter, use `"param1": { "value": null }` (all lower case). | No       |
+
+## Parameter data type mapping
+The data type you specify for the parameter is the Azure Data Factory type that maps to the data type in the data source you are using. You can find the data type mappings for your data source in the connectors area. Some examples are
+
+| Data Source          | Data Type Mapping |
+| ---------------------|-------------------|
+| Azure SQL Data Warehouse | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Azure SQL Database   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
+| Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
+| SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
+
 
 ## Error info
 

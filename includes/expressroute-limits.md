@@ -5,11 +5,11 @@
  author: cherylmc
  ms.service: expressroute
  ms.topic: include
- ms.date: 05/28/2019
+ ms.date: 07/25/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
-| Resource | Default/maximum limit |
+| Resource | Limit |
 | --- | --- |
 | ExpressRoute circuits per subscription |10 |
 | ExpressRoute circuits per region per subscription, with Azure Resource Manager |10 |
@@ -36,4 +36,7 @@
 | 40 Gbps* |10 |100 |
 | 100 Gbps* |10 |100 |
 
-*ExpressRoute Direct Only
+**100 Gbps ExpressRoute Direct Only*
+
+> [!NOTE]
+> Global Reach connections count against the limit of virtual network connections per ExpressRoute Circuit. For example, a 10 Gbps Premium Circuit would allow for 5 Global Reach connections and 95 connections to the ExpressRoute Gateways or 95 Global Reach connections and 5 connections to the ExpressRoute Gateways or any other combination up to the limit of 100 connections for the circuit.

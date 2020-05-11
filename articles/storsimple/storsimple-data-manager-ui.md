@@ -1,25 +1,16 @@
 ---
-title: Microsoft Azure StorSimple Data Manager UI | Microsoft Docs
+title: Microsoft Azure StorSimple Data Manager UI
 description: Describes how to use StorSimple Data Manager service UI
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ---
 
 # Manage the StorSimple Data Manager service in Azure portal
 
-This article explains how you can use the StorSimple Data Manager UI to transform the data residing on the StorSimple 8000 series devices. The transformed data can then be consumed by other Azure services such as Azure Media Services, Azure HDInsight, Azure Machine Learning, and Azure Search.
+This article explains how you can use the StorSimple Data Manager UI to transform the data residing on the StorSimple 8000 series devices. The transformed data can then be consumed by other Azure services such as Azure Media Services, Azure HDInsight, Azure Machine Learning, and Azure Cognitive Search.
 
 
 ## Use StorSimple Data Transformation
@@ -106,7 +97,7 @@ Perform the following steps to create a job definition.
 
    3. In the **Filter** subsection, enter the root directory that contains your data of interest in _\MyRootDirectory\Data_ format. Drive letters such _\C:\Data_ are not supported. You can also add any file filters here.
 
-   4. The data transformation service works on the data that is pushed up to the Azure via snapshots. When you run this job, you can choose to take a backup every time this job is run (to work on latest data) or use the last existing backup in the cloud (if you are working on some archived data).
+   4. The data transformation service only works on the latest snapshot of the data that is pushed up to Azure.
 
    5. Click **OK**.
 
@@ -154,6 +145,11 @@ Whenever you need to move data from StorSimple to the storage account that you h
 4. To monitor this job, go to **Jobs** in your StorSimple Data Manager. In addition to monitoring in the **Jobs** blade, you can also listen on the storage queue where a message is added every time a file is moved from StorSimple to the storage account.
 
     ![Start job run 4](./media/storsimple-data-manager-ui/start-job-run4.png)
+
+### View logs after job completion
+
+After completion of a job, you can view the status of the job. Job status can be **Succeeded**, **Partially Succeeded** and **Failed**. You can view the list of files that were successfully copied and files that failed to be copied. These lists are available in a container called **"storsimple-data-manager-joblogs"** within your target storage account. Within this container, you can look for a folder with the same name as your job definition. Within this, a folder will be created for every job run which will contain your lists. The name of this folder will be the GUID of the job, which you can get from the job details page. Alternatively, in most cases you will see a link for the copy logs within the jobs page itself.
+There are 2 set of csv files that you will see in this folder. All files that start with **copiedfilelist...** will contain the list of successfully copied files. All files that start with **failedfilelist...** contain files that were not able to be copied, along with an error message.
 
 
 ## Next steps

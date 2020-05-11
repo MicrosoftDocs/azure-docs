@@ -69,7 +69,7 @@ To add an attribute in the Azure AD configuration that will be sent in the Azure
 
 Signing in to the app fails because the SAML response is missing an attribute such as a role. Or it fails because the app expects a different format or value for the **NameID** (User Identifier) attribute.
 
-If you're using [Azure AD automated user provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) to create, maintain, and remove users in the app, verify that the user has been provisioned to the SaaS app. For more information, see [No users are being provisioned to an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned).
+If you're using [Azure AD automated user provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) to create, maintain, and remove users in the app, verify that the user has been provisioned to the SaaS app. For more information, see [No users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
 
 ## Add an attribute to the Azure AD app configuration
 
@@ -96,9 +96,9 @@ To change the User Identifier value, follow these steps:
 
 ## Change the NameID format
 
-If the application expects another format for the **NameID** (User Identifier) attribute, see [Editing nameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization.md#editing-nameid) to change the NameID format.
+If the application expects another format for the **NameID** (User Identifier) attribute, see [Editing nameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) to change the NameID format.
 
-Azure AD selects the format for the **NameID** attribute (User Identifier) based on the value that's selected or the format that's requested by the app in the SAML AuthRequest. For more information, see the "NameIDPolicy" section of [Single sign-on SAML protocol](https://docs.microsoft.com/en-us/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy).
+Azure AD selects the format for the **NameID** attribute (User Identifier) based on the value that's selected or the format that's requested by the app in the SAML AuthRequest. For more information, see the "NameIDPolicy" section of [Single sign-on SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy).
 
 ## The app expects a different signature method for the SAML response
 

@@ -1,12 +1,12 @@
 ---
 title: Understand the Azure IoT Hub query language | Microsoft Docs
 description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device/module twins and jobs from your IoT hub.
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: rezas
+ms.author: robinsh
 ---
 
 # IoT Hub query language for device and module twins, jobs, and message routing
@@ -228,7 +228,7 @@ The query object exposes multiple **Next** values, depending on the deserializat
 ### Limitations
 
 > [!IMPORTANT]
-> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the retrieve device twin API. This API always contains the latest values and has higher throttling limits.
+> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the [get twin REST API](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
 
@@ -323,8 +323,8 @@ SELECT <select_list>
 
 The **FROM <from_specification>** clause can assume only three values: **FROM devices** to query device twins, **FROM devices.modules** to query module twins, or **FROM devices.jobs** to query job per-device details.
 
-
 ## WHERE clause
+
 The **WHERE <filter_condition>** clause is optional. It specifies one or more conditions that the JSON documents in the FROM collection must satisfy to be included as part of the result. Any JSON document must evaluate the specified conditions to "true" to be included in the result.
 
 The allowed conditions are described in section [Expressions and conditions](iot-hub-devguide-query-language.md#expressions-and-conditions).
@@ -361,6 +361,7 @@ SELECT [TOP <max number>] <projection list>
 Currently, selection clauses different than **SELECT*** are only supported in aggregate queries on device twins.
 
 ## GROUP BY clause
+
 The **GROUP BY <group_specification>** clause is an optional step that executes after the filter specified in the WHERE clause, and before the projection specified in the SELECT. It groups documents based on the value of an attribute. These groups are used to generate aggregated values as specified in the SELECT clause.
 
 An example of a query using GROUP BY is:
@@ -388,9 +389,9 @@ Currently, the GROUP BY clause is only supported when querying device twins.
 > [!IMPORTANT]
 > The term `group` is currently treated as a special keyword in queries. In case, you use `group` as your property name, consider surrounding it with double brackets to avoid errors, e.g., `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
->
 
 ## Expressions and conditions
+
 At a high level, an *expression*:
 
 * Evaluates to an instance of a JSON type (such as Boolean, number, string, array, or object).
@@ -434,10 +435,11 @@ To understand what each symbol in the expressions syntax stands for, refer to th
 | binary_operator | Any binary operator listed in the [Operators](#operators) section. |
 | function_name| Any function listed in the [Functions](#functions) section. |
 | decimal_literal |A float expressed in decimal notation. |
-| hexadecimal_literal |A number expressed by the string ‘0x’ followed by a string of hexadecimal digits. |
+| hexadecimal_literal |A number expressed by the string '0x' followed by a string of hexadecimal digits. |
 | string_literal |String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes or double quotes. Allowed escapes: `\'`, `\"`, `\\`, `\uXXXX` for Unicode characters defined by 4 hexadecimal digits. |
 
 ### Operators
+
 The following operators are supported:
 
 | Family | Operators |
@@ -447,6 +449,7 @@ The following operators are supported:
 | Comparison |=, !=, <, >, <=, >=, <> |
 
 ### Functions
+
 When querying twins and jobs the only supported function is:
 
 | Function | Description |
@@ -460,7 +463,7 @@ In routes conditions, the following math functions are supported:
 | ABS(x) | Returns the absolute (positive) value of the specified numeric expression. |
 | EXP(x) | Returns the exponential value of the specified numeric expression (e^x). |
 | POWER(x,y) | Returns the value of the specified expression to the specified power (x^y).|
-| SQUARE(x)	| Returns the square of the specified numeric value. |
+| SQUARE(x)    | Returns the square of the specified numeric value. |
 | CEILING(x) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
 | FLOOR(x) | Returns the largest integer less than or equal to the specified numeric expression. |
 | SIGN(x) | Returns the positive (+1), zero (0), or negative (-1) sign of the specified numeric expression.|
@@ -473,7 +476,7 @@ In routes conditions, the following type checking and casting functions are supp
 | AS_NUMBER | Converts the input string to a number. `noop` if input is a number; `Undefined` if string does not represent a number.|
 | IS_ARRAY | Returns a Boolean value indicating if the type of the specified expression is an array. |
 | IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
-| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. |
+| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. This is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types and arrays are not supported. |
 | IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
 | IS_NUMBER | Returns a Boolean value indicating if the type of the specified expression is a number. |
 | IS_OBJECT | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |

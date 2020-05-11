@@ -1,18 +1,17 @@
 ---
-title: Provision a device using Azure IoT Hub Device Provisioning Service (.NET) | Microsoft Docs
-description: Provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service (.NET)
+title: Tutorial - Provision device using Azure IoT Hub Device Provisioning Service (.NET)
+description: This tutorial shows how you can provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service (DPS) using .NET.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 09/05/2017
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
 ---
 
-# Enroll the device to an IoT hub using the Azure IoT Hub Provisioning Service Client (.NET)
+# Tutorial: Enroll the device to an IoT hub using the Azure IoT Hub Provisioning Service Client (.NET)
 
 In the previous tutorial, you learned how to set up a device to connect to your Device Provisioning service. In this tutorial, you learn how to use this service to provision your device to a single IoT hub, using both **_Individual Enrollment_** and **_Enrollment Groups_**. This tutorial shows you how to:
 
@@ -118,13 +117,13 @@ There are two ways to enroll the device to the Device Provisioning Service:
         SetRegistrationDataAsync().GetAwaiter().GetResult();
             
         Console.WriteLine("Done, hit enter to exit.");
-        Console.ReadLine();
     }
     catch (Exception ex)
     {
         Console.WriteLine();
         Console.WriteLine("Error in sample: {0}", ex.Message);
     }
+    Console.ReadLine();
     ```
         
 1. In the Visual Studio Solution Explorer, right-click your solution, and then click **Set StartUp Projects...**. Select **Single startup project**, and then select the **DeviceProvisioning** project in the dropdown menu.  

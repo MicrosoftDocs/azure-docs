@@ -1,18 +1,20 @@
 ---
 title: Configure the Microsoft Azure-hosted VM for the Azure Marketplace 
 description: Explains how to size, update, and generalize a VM hosted on Azure.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Configure the Azure-hosted VM
 
-This article explains how to size, update, and generalize a virtual machine (VM) hosted on Azure.  These steps are necessary to prepare your VM to be deployed from the Azure Marketplace.
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin the moving management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create your Azure Virtual Machine technical assets](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) to manage your migrated offers.
 
+This article explains how to size, update, and generalize a virtual machine (VM) hosted on Azure.  These steps are necessary to prepare your VM to be deployed from the Azure Marketplace.
 
 ## Sizing the VHDs
 
@@ -61,11 +63,11 @@ Windows OS disks are generalized with the [sysprep tool](https://docs.microsoft.
 > [!WARNING]
 >  Because updates may run automatically, once you run sysprep, you should to turn off the VM until it is deployed.  This shutdown will avoid subsequent updates from making instance-specific changes to the VHD OS or installed services.
 
-For more information about running sysprep, see [Steps to generalize a VHD](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+For more information about running sysprep, see [Steps to generalize a VHD](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
 
 ### Linux
 
-Following two-step process will generalize a Linux VM and redeploy it as a separate VM.  For more information, see [How to create an image of a virtual machine or VHD](../../../virtual-machines/linux/capture-image.md). 
+The following two-step process generalizes a Linux VM and redeploys it as a separate VM. These two steps are just the essentials of the process. For more information about these two steps and why they must be done, see [How to create an image of a virtual machine or VHD](../../../virtual-machines/linux/capture-image.md). For the purposes of creating the VHD for your Azure Marketplace offer, you can stop when you reach the section "Create a VM from the captured image".
 
 #### Remove the Azure Linux agent
 1.  Connect to your Linux VM using an SSH client.
@@ -90,4 +92,4 @@ Creating copies of VM is often useful for backup, testing, customized fail-over 
 
 ## Next steps
 
-After your VM is configured, you are ready to [deploy a virtual machine from a virtual hard disk](./cpp-deploy-vm-vhd.md).
+After your VM is generalized, has been deallocated, and you have created an image of the VM, you are ready to [deploy a virtual machine from a virtual hard disk](./cpp-deploy-vm-vhd.md).

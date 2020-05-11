@@ -4,11 +4,11 @@ description: Learn how to troubleshoot the "0x0000005A-CRITICAL SERVICE FAILED" 
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -19,15 +19,12 @@ ms.author: genli
 # Windows shows "CRITICAL SERVICE FAILED" on blue screen when booting an Azure VM
 This article describes the "CRITICAL SERVICE FAILED" error that you may experience when you boot a Windows Virtual Machine (VM) in Microsoft Azure. It provides troubleshooting steps to help resolve the issues. 
 
-> [!NOTE] 
-> Azure has two different deployment models for creating and working with resources: 
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article describes using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
 
 ## Symptom 
 
 A Windows VM doesn't start. When you check the boot screenshots in [Boot diagnostics](./boot-diagnostics.md), you see one of the following error messages on a blue screen:
 
-- "Your PC ran into a problem and needs to restart. You can restart. For more information about this issue and possible fixes, visit http://windows.com/stopcode. If you call a support person, give them this info: Stop code: CRITICAL SERVICE FAILED" 
+- "Your PC ran into a problem and needs to restart. You can restart. For more information about this issue and possible fixes, visit https://windows.com/stopcode. If you call a support person, give them this info: Stop code: CRITICAL SERVICE FAILED" 
 - "Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you. 
 If you'd like to know more, you can search online later for this error: CRITICAL_SERVICE_FAILED"
 

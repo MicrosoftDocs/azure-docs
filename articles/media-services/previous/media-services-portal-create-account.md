@@ -42,16 +42,12 @@ To complete this tutorial, you need an Azure account. For details, see [Azure Fr
 The steps in this section show how to create an AMS account.
 
 1. Sign in at the [Azure portal](https://portal.azure.com/).
-2. Click **+New** > **Web + Mobile** > **Media Services**.
-   
-    ![Media Services Create](./media/media-services-create-account/media-services-new1.png)
+2. Click **+Create a resource** > **Media** > **Media Services**.
 3. In **CREATE MEDIA SERVICES ACCOUNT** enter required values.
-   
-    ![Media Services Create](./media/media-services-create-account/media-services-new3.png)
-   
+
    1. In **Account Name**, enter the name of the new AMS account. A Media Services account name is all lowercase letters or numbers with no spaces, and is 3 to 24 characters in length.
    2. In Subscription, select among the different Azure subscriptions that you have access to.
-   3. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](../../azure-resource-manager/resource-group-overview.md#resource-groups).
+   3. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](../../azure-resource-manager/management/overview.md#resource-groups).
    4. In **Location**,  select the geographic region that will be used to store the media and metadata records for your Media Services account. This  region will be used to process and stream your media. Only the available Media Services regions appear in the drop-down list box. 
    5. In **Storage Account**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Media Services accounts.
       
@@ -67,7 +63,6 @@ The steps in this section show how to create an AMS account.
 ## To manage your AMS account
 
 To manage your AMS account (for example, connect to the AMS API programmatically, upload videos, encode assets, configure content protection, monitor job progress) select **Settings** on the left side of the portal. From the **Settings**, navigate to one of the available blades (for example: **API access**, **Assets**, **Jobs**, **Content protection**).
-
 
 ## Next steps
 

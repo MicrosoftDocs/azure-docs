@@ -1,11 +1,7 @@
 ---
-title: Send Azure service health alerts with ServiceNow using webhooks
+title: Send Azure service health alerts with ServiceNow
 description: Get personalized notifications about service health events to your ServiceNow instance.
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
-ms.topic: article
 ms.date: 06/10/2019
 
 ---

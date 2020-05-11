@@ -1,5 +1,5 @@
 ---
-title: "Multi-tenant apps with RLS and elastic database tools | Microsoft Docs"
+title: Multi-tenant apps with RLS and elastic database tools
 description: Use elastic database tools with row-level security to build an application with a highly scalable data tier.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
 ---
 # Multi-tenant applications with elastic database tools and row-level security
@@ -248,7 +247,7 @@ GO
 ```
 
 > [!TIP]
-> In a complex project you might need to add the predicate on hundreds of tables, which could be tedious. There is a helper stored procedure that automatically generates a security policy, and adds a predicate on all tables in a schema. For more information, see the blog post at [Apply Row-Level Security to all tables - helper script (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-to-all-tables-helper-script).
+> In a complex project you might need to add the predicate on hundreds of tables, which could be tedious. There is a helper stored procedure that automatically generates a security policy, and adds a predicate on all tables in a schema. For more information, see the blog post at [Apply Row-Level Security to all tables - helper script (blog)](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360).
 
 Now if you run the sample application again, tenants see only rows that belong to them. In addition, the application cannot insert rows that belong to tenants other than the one currently connected to the shard database. Also, the app cannot update the TenantId in any rows it can see. If the app attempts to do either, a DbUpdateException is raised.
 
@@ -336,7 +335,7 @@ GO
 ### Maintenance
 
 - **Adding new shards**: Execute the T-SQL script to enable RLS on any new shards, otherwise queries on these shards are not be filtered.
-- **Adding new tables**: Add a FILTER and BLOCK predicate to the security policy on all shards whenever a new table is created. Otherwise queries on the new table are not be filtered. This addition can be automated by using a DDL trigger, as described in [Apply Row-Level Security automatically to newly created tables (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Adding new tables**: Add a FILTER and BLOCK predicate to the security policy on all shards whenever a new table is created. Otherwise queries on the new table are not be filtered. This addition can be automated by using a DDL trigger, as described in [Apply Row-Level Security automatically to newly created tables (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## Summary
 

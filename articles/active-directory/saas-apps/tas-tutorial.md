@@ -149,7 +149,7 @@ To configure Azure AD single sign-on with TAS, perform the following steps:
 
 	c. In the **Enter URL** textbox, paste the value of **Login URL** which you have copied from the Azure portal.
 
-	d. In Notepad, open the base-64 encoded certificate that you downloaded from the Azure portal, copy its content, and then paste it into the **Enter Certification** box.
+	d. In Notepad, open the base-64 encoded certificate that you downloaded from the Azure portal, copy its content, and then paste it into the **Enter Certification** box.
 
 	e. In the **Enter New IP** textbox, type the IP Address.
 
@@ -215,7 +215,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create TAS test user
 
-In this section, you create a user called Britta Simon in TAS. Work with [TAS support team](mailto:support@combtas.com) to add the users in the TAS platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in TAS. Work with [TAS support team](mailto:support@combtas.com) to add the users in the TAS platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 

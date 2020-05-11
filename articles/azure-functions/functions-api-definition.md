@@ -1,13 +1,8 @@
 ---
-title: OpenAPI metadata in Azure Functions | Microsoft Docs
+title: OpenAPI metadata in Azure Functions 
 description: Overview of OpenAPI support in Azure Functions
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
 
-ms.assetid:
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
@@ -61,7 +56,7 @@ The following table represents the Azure portal settings and corresponding data 
 > [!NOTE]
 > The x-ms-summary extension provides a display name in Logic Apps, PowerApps, and Flow.
 >
-> To learn more, see [Customize your Swagger definition for PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/).
+> To learn more, see [Customize your Swagger definition for PowerApps](https://docs.microsoft.com/connectors/custom-connectors/openapi-extensions).
 
 ## <a name="CICD"></a>Use CI/CD to set an API definition
 
@@ -71,7 +66,7 @@ The following table represents the Azure portal settings and corresponding data 
    1. Set **API definition source** to **Function**.
    1. Click **Generate API definition template** and then **Save** to create a template definition for modifying later.
    1. Note your API definition URL and key.
-1. [Set up continuous integration/continuous deployment (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
+1. [Set up continuous integration/continuous deployment (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#requirements-for-continuous-deployment).
 2. Modify swagger.json in source control at \site\wwwroot\.azurefunctions\swagger\swagger.json.
 
 Now, changes to swagger.json in your repository are hosted by your function app at the API definition URL and key that you noted in step 1.c.

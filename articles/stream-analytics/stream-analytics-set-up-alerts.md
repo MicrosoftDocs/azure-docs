@@ -1,13 +1,12 @@
 ---
 title: Set up monitoring alerts for Azure Stream Analytics jobs
 description: This article describes how to use the Azure portal to set up monitoring and alerts for Azure Stream Analytics jobs.
-services: stream-analytics
 author: jseb225
-ms.author: jeanb
+ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 06/21/2019
 ---
 # Set up alerts for Azure Stream Analytics jobs
 
@@ -16,6 +15,7 @@ It's important to monitor your Azure Stream Analytics job to ensure the job is r
 You can define rules on metrics from Operation Logs data through the portal, as well as [programmatically](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## Set up alerts in the Azure portal
+### Get alerted when a job stops unexpectedly
 
 The following example demonstrates how to set up alerts for when your job enters a failed state. This alert is recommended for all jobs.
 
@@ -54,13 +54,13 @@ The following alerts are recommended for monitoring the performance of your Stre
 |Metric|Condition|Time Aggregation|Threshold|Corrective Actions|
 |-|-|-|-|-|
 |SU% Utilization|Greater than|Maximum|80|There are multiple factors that increase SU% Utilization. You can scale with query parallelization or increase the number of streaming units. For more information, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).|
-|Runtime errors|Greater than|Total|0|Examine the activity or diagnostic logs and make appropriate changes to the inputs, query, or outputs.|
+|Runtime errors|Greater than|Total|0|Examine the activity or resource logs and make appropriate changes to the inputs, query, or outputs.|
 |Watermark delay|Greater than|Maximum|When average value of this metric over the last 15 minutes is greater than late arrival tolerance (in seconds). If you have not modified the late arrival tolerance, the default is set to 5 seconds.|Try increasing the number of SUs or parallelizing your query. For more information on SUs, see [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). For more information on parallelizing your query, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).|
-|Input deserialization errors|Greater than|Total|0|Examine the activity or diagnostic logs and make appropriate changes to the input. For more information on diagnostic logs, see [Troubleshoot Azure Stream Analytics using diagnostics logs](stream-analytics-job-diagnostic-logs.md)|
+|Input deserialization errors|Greater than|Total|0|Examine the activity or resource logs and make appropriate changes to the input. For more information on resource logs, see [Troubleshoot Azure Stream Analytics using resource logs](stream-analytics-job-diagnostic-logs.md)|
 
 ## Get help
 
-For more detail on configuring alerts in the Azure portal, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).  
+For more detail on configuring alerts in the Azure portal, see [Receive alert notifications](../azure-monitor/platform/alerts-overview.md).  
 
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
@@ -68,6 +68,6 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

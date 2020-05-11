@@ -1,12 +1,10 @@
 ---
 title: (DEPRECATED) Monitor an Azure Kubernetes cluster with CoScale
 description: Monitor a Kubernetes cluster in Azure Container Service using CoScale
-services: container-service
 author: fryckbos
-manager: jeconnoc
 
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
@@ -60,7 +58,7 @@ az acs kubernetes install-cli
 [DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) are used by Kubernetes to run a single instance of a container on each host in the cluster.
 They're perfect for running monitoring agents such as the CoScale agent.
 
-After you log in to CoScale, go to the [agent page](https://app.coscale.com/)
+After you log in to CoScale, go to the [agent page](https://developer.newrelic.com/)
 to install CoScale agents on your cluster using a DaemonSet. The CoScale UI provides guided configuration steps to create an agent and start monitoring your complete Kubernetes cluster.
 
 ![CoScale agent configuration](./media/container-service-kubernetes-coscale/installation.png)
@@ -70,7 +68,7 @@ To start the agent on the cluster, run the supplied command:
 ![Start the CoScale agent](./media/container-service-kubernetes-coscale/agent_script.png)
 
 That's it! Once the agents are up and running, you should see data in the console in a few minutes. Visit
-the [agent page](https://app.coscale.com/) to see a summary of your cluster, perform additional configuration steps, and see dashboards such as the **Kubernetes cluster overview**.
+the [agent page](https://developer.newrelic.com/) to see a summary of your cluster, perform additional configuration steps, and see dashboards such as the **Kubernetes cluster overview**.
 
 ![Kubernetes cluster overview](./media/container-service-kubernetes-coscale/dashboard_clusteroverview.png)
 

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04-08-2019
+ms.date: 04/08/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -199,7 +199,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 To enable Azure Active Directory users to sign in to SpringCM, they must be provisioned into SpringCM. In the case of SpringCM, provisioning is a manual task.
 
 > [!NOTE]
-> For more information, see [Create and Edit a SpringCM User](https://knowledge.springcm.com/create-and-edit-a-springcm-user). 
+> For more information, see [Create and Edit a SpringCM User](http://community.springcm.com/s/article/Create-and-Edit-a-SpringCM-User-1619481053). 
 
 **To provision a user account to SpringCM, perform the following steps:**
 
@@ -222,7 +222,7 @@ To enable Azure Active Directory users to sign in to SpringCM, they must be prov
 1. Click **Save**.
 
    > [!NOTE]
-   > You can use any other SpringCM user account creation tools or APIs provided by SpringCM to provision AAD user accounts.
+   > You can use any other SpringCM user account creation tools or APIs provided by SpringCM to provision Azure AD user accounts.
 
 ### Test single sign-on 
 

@@ -1,12 +1,12 @@
 ---
-title: Integrate Azure DNS with your Azure resources
-description: Learn how to use Azure DNS along to provide DNS for your Azure resources.
+title: Integrate Azure DNS with your Azure resources - Azure DNS
+description: In this article, learn how to use Azure DNS along to provide DNS for your Azure resources.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 1/18/2019
-ms.author: victorh
+ms.date: 7/13/2019
+ms.author: rohink
 ---
 
 # Use Azure DNS to provide custom domain settings for an Azure service
@@ -106,6 +106,8 @@ Once the process is complete, run **nslookup** to validate name resolution is wo
 
 To learn more about mapping a custom domain to App Service, visit [Map an existing custom DNS name to Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
+To learn how to migrate an active DNS name, see [Migrate an active DNS name to Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
+
 If you need to purchase a custom domain, visit [Buy a custom domain name for Azure Web Apps](../app-service/manage-custom-dns-buy-domain.md) to learn more about App Service domains.
 
 ## Blob storage
@@ -127,7 +129,7 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 |TTL unit     | Hours        | Hours are used as the time measurement         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | The DNS name you are creating the alias for, in this example it is the asverify.adatumfunctiona9ed.blob.core.windows.net DNS name provided by default to the storage account.        |
 
-Navigate back to your storage account by clicking **Storage** > **Storage Accounts**, select your storage account and click **Custom domain**. Type in the alias you created without the asverify prefix in the text box, check **Use indirect CNAME validation, and click **Save**. Once this step is complete, return to your DNS zone and create a CNAME record without the asverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix.
+Navigate back to your storage account by clicking **Storage** > **Storage Accounts**, select your storage account and click **Custom domain**. Type in the alias you created without the asverify prefix in the text box, check **Use indirect CNAME validation**, and click **Save**. Once this step is complete, return to your DNS zone and create a CNAME record without the asverify prefix.  After that point, you are safe to delete the CNAME record with the cdnverify prefix.
 
 ![blob storage custom domain](./media/dns-custom-domain/indirectvalidate.png)
 

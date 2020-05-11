@@ -1,5 +1,5 @@
 ---
-title: Use PHP to query Azure SQL database | Microsoft Docs
+title: Use PHP to query
 description: How to use PHP to create a program that connects to an Azure SQL database and query it using T-SQL statements.
 services: sql-database
 ms.service: sql-database
@@ -9,7 +9,6 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 02/12/2019
 ---
 # Quickstart: Use PHP to query an Azure SQL database
