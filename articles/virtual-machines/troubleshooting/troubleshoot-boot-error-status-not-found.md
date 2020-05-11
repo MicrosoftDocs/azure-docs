@@ -29,7 +29,7 @@ The file associated with this error code will inform you which steps to take in 
 
 ### Drivers, OS Related or Third Party
 
-If the file is present but refers to a driver (as is shown) or is OS related or third party, follow the steps under the section [Repair the System File](repair-the-system-file).
+If the file is present but refers to a driver (as is shown) or is OS related or third party, follow the steps under the section [Repair the System File](#repair-the-system-file).
  
 In the following image, Windows Boot Manager states "Windows failed to start. A recent hardware or software change might be the cause." The image also shows the Status as "0xc0000225", **File:** as `\windows\System32\drivers\atapi.sys`, and **Info:** as "The operating system couldn’t be loaded because a critical system driver is missing or contains errors."
 
@@ -37,7 +37,7 @@ In the following image, Windows Boot Manager states "Windows failed to start. A 
 
 ### No File
 
-If presented with the Status code, but no file is shown, follow the steps under the section [Add the OSDEVICE Variable](add-the-osdevice-variable).
+If presented with the Status code, but no file is shown, follow the steps under the section [Add the OSDEVICE Variable](#add-the-osdevice-variable).
 
 In the following image, Windows Boot Manager states "Windows failed to start. A recent hardware or software change might be the cause." The image also shows the Status as "0xc0000225", and **Info:** as "The boot selection failed because a required device is inaccessible."
 
@@ -45,7 +45,7 @@ In the following image, Windows Boot Manager states "Windows failed to start. A 
 
 ### Registry File
 
-If it refers to any of the registry files, such as \windows\system32\config\system, follow the steps under the section [Create a Support Ticket](create-a-support-ticket).
+If it refers to any of the registry files, such as \windows\system32\config\system, follow the steps under the section [Create a Support Ticket](#create-a-support-ticket).
  
 In the following image, Windows Boot Manager states "Windows failed to start. A recent hardware or software change might be the cause." The image also shows the Status as "0xc0000225", the File as `\windows\System32\config\system`, and **Info:** as "The operating system couldn’t be loaded because the system registry file is missing or contains errors."
 
@@ -79,9 +79,9 @@ A registry hive corruption could be due to:
 
 1. Create and access a Repair VM.
 1. Select a Solution:
-- [Repair the System File](repair-the-system-file)
-- [Add the OSDevice Variable](add-the-osdevice-variable)
-- [Create a Support Ticket](create-a-support-ticket)
+- [Repair the System File](#repair-the-system-file)
+- [Add the OSDevice Variable](#add-the-osdevice-variable)
+- [Create a Support Ticket](#create-a-support-ticket)
 1. Enable serial console and memory dump collection.
 1. Rebuild the VM.
 
@@ -95,9 +95,9 @@ A registry hive corruption could be due to:
 1. Open an elevated command prompt.
 1. Based on the symptom that you identified earlier, follow the steps in the corresponding solution. You may skip the steps in the other solutions, as they won’t apply to your issue:
 
-- [Repair the System File](repair-the-system-file)
-- [Add the OSDevice Variable](add-the-osdevice-variable)
-- [Create a Support Ticket](create-a-support-ticket)
+- [Repair the System File](#repair-the-system-file)
+- [Add the OSDevice Variable](#add-the-osdevice-variable)
+- [Create a Support Ticket](#create-a-support-ticket)
 
 ### Repair the System File
 
