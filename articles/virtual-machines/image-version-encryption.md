@@ -89,7 +89,7 @@ $region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS;Encry
 $targetRegion = @{$region1}
 
 
-# Create the VM
+# Create the image
 New-AzGalleryImageVersion `
    -ResourceGroupName $rgname `
    -GalleryName $galleryName `
