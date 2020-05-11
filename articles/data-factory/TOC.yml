@@ -609,10 +609,10 @@
       href: configure-azure-ssis-integration-runtime-performance.md
     - name: Configure disaster recovery for Azure-SSIS IR
       href: configure-bcdr-azure-ssis-integration-runtime.md
-    - name: Use Azure SQL Managed Instance with Azure-SSIS IR
-      href: how-to-use-sql-managed-instance-with-ir.md
     - name: Clean up SSISDB logs with Elastic Database Jobs
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+    - name: Use Azure SQL Managed Instance with Azure-SSIS IR
+      href: how-to-use-sql-managed-instance-with-ir.md
     - name: Migrate SSIS jobs with SSMS
       href: how-to-migrate-ssis-job-ssms.md
   - name: Create triggers
