@@ -356,7 +356,7 @@ Not always the most visible changes, but they help our team ship better code, fa
 * Fixes issue [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Dedicated HTTPS Agent: Avoid modifying the global agent for Azure Cosmos DB purposes. Use a dedicated agent for all of the lib's requests.
 
 ### <a name="1.5.3"/>1.5.3</a>
-* Fixes issue [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - Properly handle dashes in media ids.
+* Fixes issue [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - Properly handle dashes in media IDs.
 
 ### <a name="1.5.2"/>1.5.2</a>
 * Fixes issue [#95](https://github.com/Azure/azure-documentdb-node/issues/95) - EventEmitter listener leak warning.
@@ -383,7 +383,7 @@ Not always the most visible changes, but they help our team ship better code, fa
 
 ### <a name="1.2.0"/>1.2.0</a>
 * Added support for GeoSpatial index.
-* Validates id property for all resources. IDs for resources cannot contain ?, /, #, &#47;&#47;, characters or end with a space.
+* Validates ID property for all resources. IDs for resources cannot contain ?, /, #, &#47;&#47;, characters or end with a space.
 * Adds new header "index transformation progress" to ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0</a>
