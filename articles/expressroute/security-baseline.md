@@ -4,7 +4,7 @@ description: Azure security baseline for Azure ExpressRoute
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -1018,7 +1018,8 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 **Guidance**: You can use MACsec to encrypt the physical links between your network devices and Microsoft's network devices when you connect to Microsoft via ExpressRoute Direct. MACsec is disabled on ExpressRoute Direct ports by default. You bring your own MACsec key for encryption and store it in Azure Key Vault. You decide when to rotate the key. 
 
-How to create a Key Vault instance to store MACsec secrets in a new resource group. https://docs.microsoft.com/azure/expressroute/expressroute-howto-macsec
+How to create a Key Vault instance to store MACsec secrets in a new resource group: https://docs.microsoft.com/azure/expressroute/expressroute-howto-macsec
+
 
 **Azure Security Center monitoring**: Not applicable
 
