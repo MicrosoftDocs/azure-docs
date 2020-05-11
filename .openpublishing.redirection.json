@@ -40292,6 +40292,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/governance/policy/concepts/rego-for-aks.md",
+      "redirect_url": "/azure/governance/policy/concepts/policy-for-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/concepts/aks-engine.md",
+      "redirect_url": "/azure/governance/policy/concepts/policy-for-kubernetes",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-stack/azure-stack-tools-paas-services.md",
       "redirect_url": "/azure/azure-stack/azure-stack-offer-services-overview",
       "redirect_document_id": false

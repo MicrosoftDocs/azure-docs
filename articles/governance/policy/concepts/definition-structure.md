@@ -105,9 +105,10 @@ The following Resource Provider modes are currently supported during preview:
 
 - `Microsoft.ContainerService.Data` for managing admission controller rules on
   [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Policies using this Resource
-  Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect.
-- `Microsoft.Kubernetes.Data` for managing self-managed AKS Engine Kubernetes clusters on Azure.
-  Policies using this Resource Provider mode **must** use the
+  Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect. This
+  mode is being _deprecated_.
+- `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Policies using
+  this Resource Provider mode **must** use the
   [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md).
