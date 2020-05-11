@@ -224,7 +224,7 @@ queue.CreateIfNotExists();
 
 # [\.NET v12](#tab/dotnet)
 
-To insert a message into an existing queue, call the [SendMessage](/dotnet/api/azure.storage.queues.queueclient.sendmessage) method. A can be either a `string` (in UTF-8 format) or a `byte` array. Here is code which creates a queue (if it doesn't exist) and inserts the message "Hello, World":
+To insert a message into an existing queue, call the [SendMessage](/dotnet/api/azure.storage.queues.queueclient.sendmessage) method. A message can be either a `string` (in UTF-8 format) or a `byte` array. The following code creates a queue (if it doesn't exist) and inserts a message:
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_InsertMessage":::
 
@@ -257,7 +257,7 @@ queue.AddMessage(message);
 
 # [\.NET v12](#tab/dotnet)
 
-You can peek at the messages in the queue without removing them from the queue by calling the [PeekMessages](/dotnet/api/azure.storage.queues.queueclient.peekmessages) method. If you don't pass a value for the *maxResults* parameter, the default is to peek at one message.
+You can peek at the messages in the queue without removing them from the queue by calling the [PeekMessages](/dotnet/api/azure.storage.queues.queueclient.peekmessages) method. If you don't pass a value for the *maxMessages* parameter, the default is to peek at one message.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_PeekMessage":::
 
