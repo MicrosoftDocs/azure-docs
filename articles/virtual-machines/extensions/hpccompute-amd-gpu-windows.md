@@ -18,12 +18,7 @@ ms.author: vikancha
 ---
 # AMD GPU Driver Extension for Windows
 
-This article provides an overview of the VM extension to deploy AMD GPU drivers on [NVv4-series](https://docs.microsoft.com/azure/virtual-machines/nvv4-series) VMs.
-
-
-## Overview
-
-This extension installs AMD GPU drivers on Windows NVv4-series VMs. When you install AMD drivers using this extension, you are accepting and agreeing to the terms of the [AMD End-User License Agreement](https://amd.com/radeonsoftwarems). During the installation process, the VM may reboot to complete the driver setup.
+This article provides an overview of the VM extension to deploy AMD GPU drivers on Windows [NVv4-series](https://docs.microsoft.com/azure/virtual-machines/nvv4-series) VMs. When you install AMD drivers using this extension, you are accepting and agreeing to the terms of the [AMD End-User License Agreement](https://amd.com/radeonsoftwarems). During the installation process, the VM may reboot to complete the driver setup.
 
 Instructions on manual installation of the drivers and the current supported versions are available [here](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup).
 
