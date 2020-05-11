@@ -210,4 +210,4 @@ Kubernetes clusters created with AKS Engine support both the [kubenet][kubenet] 
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
-[system-node-pools]: use-system-pools
+[system-node-pools]: use-system-pools.md
