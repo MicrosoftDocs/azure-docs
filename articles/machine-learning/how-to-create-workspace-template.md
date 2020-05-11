@@ -108,7 +108,7 @@ __To add the Azure Machine Learning app as a contributor__, use the following co
 
     This command returns the object ID, which is a GUID.
 
-2. To add the object ID as a contributor to your subscription, use the following command. Replace `<object-ID>` with the GUID from the previous step. Replace `<subscription-ID>` with the name or ID of your Azure subscription:
+1. To add the object ID as a contributor to your subscription, use the following command. Replace `<object-ID>` with the GUID from the previous step. Replace `<subscription-ID>` with the name or ID of your Azure subscription:
 
     ```azurecli-interactive
     az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
@@ -138,19 +138,19 @@ __To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `reso
 
 1. To get the Key Vault ID, use the following command:
 
-  ```azurecli-interactive
-  az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
-  ```
+    ```azurecli-interactive
+    az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
+    ```
 
-  This command returns a value similar to `/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault`.
+    This command returns a value similar to `/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault`.
 
 1. To get the value for the URI for the customer managed key, use the following command:
 
-  ```azurecli-interactive
-  az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
-  ```
+    ```azurecli-interactive
+    az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
+    ```
 
-  This command returns a value similar to `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`.
+    This command returns a value similar to `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`.
 
 __Example template__
 
