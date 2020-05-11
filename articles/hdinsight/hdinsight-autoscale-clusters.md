@@ -18,6 +18,10 @@ Azure HDInsight's free Autoscale feature can automatically increase or decrease 
 
 The Autoscale feature uses two types of conditions to trigger scaling events: thresholds for various cluster performance metrics (called *load-based scaling*) and time-based triggers (called *schedule-based scaling*). Load-based scaling changes the number of nodes in your cluster, within a range that you set, to ensure optimal CPU usage and minimize running cost. Schedule-based scaling changes the number of nodes in your cluster based on operations that you associate with specific dates and times.
 
+The following video provides an overview of the challenges which Autoscale solves and how it can help you to control costs with HDInsight.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Drive-higher-utilization-of-Azure-HDInsight-clusters-with-Autoscale?WT.mc_id=dataexposed-c9-niner]
+
 ### Choosing load-based or schedule-based scaling
 
 Consider the following factors when choosing a scaling type:

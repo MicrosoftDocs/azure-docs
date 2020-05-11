@@ -530,6 +530,8 @@
       href: platform/stream-monitoring-data-event-hubs.md
     - name: Change analysis
       href: app/change-analysis.md 
+    - name: Azure Cache for Redis (preview)
+      href: insights/redis-cache-insights-overview.md
   - name: Monitor VMs and guest OS
     items: 
     - name: Monitor Azure virtual machines
