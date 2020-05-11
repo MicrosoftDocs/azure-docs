@@ -1,0 +1,34 @@
+- name: Live Video Analytics on IoT Edge documentation
+  href: index.yml
+- name: Switch to Azure Media Services v3 documentation
+  href: ../latest/index.yml
+- name: Overview
+  items:
+  - name: About Live Video Analytics on IoT Edge
+    href: overview.md
+  - name: Terminology
+    href: terminology.md
+  - name: What's new
+    items:
+    - name: Release notes
+      href: release-notes.md  
+- name: Tutorials
+  items:
+  - name: Continuous video recording  
+    href: continuous-video-recording-tutorial.md
+- name: Concepts
+  items:
+  - name: Media Graph
+    href: media-graph-concept.md
+  - name: Video recording 
+    href: video-recording-concept.md
+  - name: Video playback
+    href: video-playback-concept.md
+  - name: Scenarios 
+    items:
+    - name: Continuous video recording 
+      href: continuous-video-recording-concept.md
+    - name: Event-based video recording 
+      href: event-based-video-recording-concept.md
+    - name: Live video analytics without video recording
+      href: analyze-live-video-concept.md
