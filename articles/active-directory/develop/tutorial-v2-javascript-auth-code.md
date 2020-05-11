@@ -5,12 +5,11 @@ services: active-directory
 documentationcenter: dev-center-name
 author: hahamil
 manager: CelesteDG
-ROBOTS: NOINDEX
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 04/22/2020
+ms.date: 05/11/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
 ---
@@ -324,7 +323,7 @@ Create a new .js file named *authConfig.js* to contain your configuration parame
    - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
    - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
    - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**.
-- *\Enter_the_Redirect_Uri_Here>* is the port you registered in the portal (*`http://localhost:3000/`*)
+- *\<Enter_the_Redirect_Uri_Here>* is the port you registered in the portal (*`http://localhost:3000/`*)
 
 
 Create a new .js file named `graphConfig.js`, which will contain your configuration parameters calling Microsoft Graph API, and add the following code:
@@ -337,7 +336,7 @@ const graphConfig = {
 ```
 - *\<Enter_the_Graph_Endpoint_Here>* is the instance of MS Graph API. For the global MS Graph API endpoint, simply replace this string with `https://graph.microsoft.com`. For national cloud deployments, please refer to [Graph API Documentation](https://docs.microsoft.com/graph/deployments).
 
-## Use the Microsoft Authentication Library (MSAL) to sign in the user
+## Use MSAL to sign in the user
 
 ### PopUp
 Create a new .js file named `authPopup.js`, which will contain your authentication and token acquisition logic for login popUp, and add the following code:
@@ -508,7 +507,7 @@ The `acquireTokenSilent` method handles token acquisition and renewal without an
 > [!NOTE]
 > This quickstart uses the `loginPopup` and `acquireTokenPopup` methods by default. If you are using Internet Explorer as your browser, it is recommended to use `loginRedirect` and `acquireTokenRedirect` methods, due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to the way Internet Explorer handles pop-up windows. If you would like to see how to achieve the same result using redirect methods, please see [*authRedirect.js*](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js).
 
-## Call the Microsoft Graph API by using the token you just acquired
+## Call the Microsoft Graph API 
 
 
  Create a .js file named *graph.js* that will make a REST call to Microsoft Graph API, and add the following code:
