@@ -4,7 +4,7 @@ description: Learn how to use the Azure CLI to create and deploy a highly availa
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
-services: virtual-machine-scale-sets
+ms.service: virtual-machine-scale-sets
 ms.subservice: linux
 ms.date: 06/01/2018
 ms.reviewer: mimckitt
