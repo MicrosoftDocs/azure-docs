@@ -59,13 +59,13 @@ Variations in Azure Government:
 
 **Endpoints**:
 
-* [Virginia] https://usgovvirginia.stt.speech.azure.us
-* [Arizona] https://usgovarizona.stt.speech.azure.us
+* Virginia: https://usgovvirginia.stt.speech.azure.us
+* Arizona: https://usgovarizona.stt.speech.azure.us
 
 **Auth Token Service**:
 
-* [Virginia] https://usgovvirginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
-* [Arizona] https://usgovarizona.api.cognitive.microsoft.us/sts/v1.0/issueToken
+* Virginia: https://usgovvirginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
+* Arizona: https://usgovarizona.api.cognitive.microsoft.us/sts/v1.0/issueToken
 
 **Custom Speech Portal**:
 
