@@ -192,7 +192,7 @@ The following steps show how to use the developer tools in Firefox. For more inf
 
     ![Screenshot of browser trace results](media/capture-browser-trace/firefox-browser-trace-results.png)
 
-1. After you have reproduced the unexpected portal behavior, select **Export HAR** and save the file.
+1. After you have reproduced the unexpected portal behavior, select **HAR Export/Import** then **Save All As HAR**.
 
     ![Screenshot of "Export HAR"](media/capture-browser-trace/firefox-network-export-har.png)
 
