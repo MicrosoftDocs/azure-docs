@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/10/2019
+ms.date: 03/19/2020
 ms.author: ejarvi
 
 ---
@@ -31,7 +31,7 @@ For a full list of prerequisites, see [Azure Disk Encryption for Linux VMs](../l
 - [Networking requirements](../linux/disk-encryption-overview.md#networking-requirements)
 - [Encryption key storage requirements](../linux/disk-encryption-overview.md#encryption-key-storage-requirements)
 
-## Extension schemata
+## Extension Schema
 
 There are two versions of extension schema for Azure Disk Encryption (ADE):
 - v1.1 - A newer recommended schema that does not use Azure Active Directory (AAD) properties.
@@ -51,18 +51,18 @@ The v1.1 schema is recommended and does not require Azure Active Directory (AAD)
   "location": "[location]",
   "properties": {
         "publisher": "Microsoft.Azure.Security",
-	"type": "AzureDiskEncryptionForLinux",
-        "typeHandlerVersion": "[extensionVersion]",
-	"autoUpgradeMinorVersion": true,
+        "type": "AzureDiskEncryptionForLinux",
+        "typeHandlerVersion": "1.1",
+        "autoUpgradeMinorVersion": true,
         "settings": {
           "DiskFormatQuery": "[diskFormatQuery]",
           "EncryptionOperation": "[encryptionOperation]",
-	  "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-	  "KeyVaultURL": "[keyVaultURL]",
-	  "KeyVaultResourceId": "[KeyVaultResourceId]",
-	  "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-	  "KekVaultResourceId": "[KekVaultResourceId",
-	  "SequenceVersion": "sequenceVersion]",
+          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+          "KeyVaultURL": "[keyVaultURL]",
+          "KeyVaultResourceId": "[KeyVaultResourceId]",
+          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+          "KekVaultResourceId": "[KekVaultResourceId",
+          "SequenceVersion": "sequenceVersion]",
           "VolumeType": "[volumeType]"
         }
   }
@@ -83,23 +83,23 @@ Using `AADClientSecret`:
   "apiVersion": "2019-07-01",
   "location": "[location]",
   "properties": {
-	"protectedSettings": {
-	  "AADClientSecret": "[aadClientSecret]",
-	  "Passphrase": "[passphrase]"
-	},
-	"publisher": "Microsoft.Azure.Security",
-	"type": "AzureDiskEncryptionForLinux",
-	"typeHandlerVersion": "[extensionVersion]",
-	"settings": {
-	  "AADClientID": "[aadClientID]",
-	  "DiskFormatQuery": "[diskFormatQuery]",
-	  "EncryptionOperation": "[encryptionOperation]",
-	  "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-	  "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-	  "KeyVaultURL": "[keyVaultURL]",
-	  "SequenceVersion": "sequenceVersion]",
-	  "VolumeType": "[volumeType]"
-	}
+    "protectedSettings": {
+      "AADClientSecret": "[aadClientSecret]",
+      "Passphrase": "[passphrase]"
+    },
+    "publisher": "Microsoft.Azure.Security",
+    "type": "AzureDiskEncryptionForLinux",
+    "typeHandlerVersion": "0.1",
+    "settings": {
+      "AADClientID": "[aadClientID]",
+      "DiskFormatQuery": "[diskFormatQuery]",
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    }
   }
 }
 ```
@@ -113,23 +113,23 @@ Using `AADClientCertificate`:
   "apiVersion": "2019-07-01",
   "location": "[location]",
   "properties": {
-	"protectedSettings": {
-	  "AADClientCertificate": "[aadClientCertificate]",
-	  "Passphrase": "[passphrase]"
-	},
-	"publisher": "Microsoft.Azure.Security",
-	"type": "AzureDiskEncryptionForLinux",
-	"typeHandlerVersion": "[extensionVersion]",
-	"settings": {
-	  "AADClientID": "[aadClientID]",
-	  "DiskFormatQuery": "[diskFormatQuery]",
-	  "EncryptionOperation": "[encryptionOperation]",
-	  "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-	  "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-	  "KeyVaultURL": "[keyVaultURL]",
-	  "SequenceVersion": "sequenceVersion]",
-	  "VolumeType": "[volumeType]"
-	}
+    "protectedSettings": {
+      "AADClientCertificate": "[aadClientCertificate]",
+      "Passphrase": "[passphrase]"
+    },
+    "publisher": "Microsoft.Azure.Security",
+    "type": "AzureDiskEncryptionForLinux",
+    "typeHandlerVersion": "0.1",
+    "settings": {
+      "AADClientID": "[aadClientID]",
+      "DiskFormatQuery": "[diskFormatQuery]",
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    }
   }
 }
 ```
@@ -142,7 +142,7 @@ Using `AADClientCertificate`:
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 0.1, 1.1 | int |
+| typeHandlerVersion | 1.1, 0.1 | int |
 | (0.1 schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
 | (0.1 schema) AADClientSecret | password | string |
 | (0.1 schema) AADClientCertificate | thumbprint | string |
@@ -169,7 +169,7 @@ For an example of template deployment based on schema v0.1, see the Azure Quicks
 > - Disabling encryption on Linux VMs is only supported for data volumes. It is not supported on data or OS volumes if the OS volume has been encrypted. 
 
 >[!NOTE]
-> Also if `VolumeType` parameter is set to Data or All, data disks will be encrypted only if they are properly mounted.
+> Also if `VolumeType` parameter is set to All, data disks will be encrypted only if they are properly mounted.
 
 ## Troubleshoot and support
 

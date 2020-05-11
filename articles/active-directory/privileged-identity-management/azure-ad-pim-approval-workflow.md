@@ -13,7 +13,6 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.subservice: pim
 ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim

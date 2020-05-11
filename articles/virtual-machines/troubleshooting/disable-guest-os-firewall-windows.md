@@ -1,6 +1,6 @@
 ﻿---
 title: Disable the guest OS Firewall in Azure VM | Microsoft Docs
-description: 
+description: Learn a workaround method for troubleshooting situations where a guest operating system firewall is filtering partial or complete traffic to a VM.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -97,7 +97,7 @@ Follow these steps to use [Remote Registry](https://support.microsoft.com/help/3
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile\EnableFirewall         -->        0
     ```
 
-3.	Restart the service. Because you cannot do that by using the remote registry, you must use Remove Service Console.
+3.	Restart the service. Because you cannot do that by using the remote registry, you must use Remote Service Console.
 
 4.	Open an instance of **Services.msc**.
 

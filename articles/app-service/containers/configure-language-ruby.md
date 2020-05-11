@@ -4,9 +4,7 @@ description: Learn how to configure a pre-built Ruby container for your app. Thi
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, seodec18
 ---
 
 # Configure a Linux Ruby app for Azure App Service

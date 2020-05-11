@@ -1,19 +1,9 @@
 ---
 title: Use compute-intensive Azure VMs with Batch
 description: How to take advantage of HPC and GPU virtual machine sizes in Azure Batch pools. Learn about OS dependencies and see several scenario examples.
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: 
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
-
-
 ---
 # Use RDMA or GPU instances in Batch pools
 
@@ -72,7 +62,7 @@ To configure a specialized VM size for your Batch pool, you have several options
 
 * For pools in the virtual machine configuration, choose a preconfigured [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) VM image that has drivers and software preinstalled. Examples: 
 
-  * [CentOS-based 7.4 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview) - includes RDMA drivers and Intel MPI 5.1
+  * [CentOS-based 7.4 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) - includes RDMA drivers and Intel MPI 5.1
 
   * [Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md) for Linux or Windows - includes NVIDIA CUDA drivers
 
@@ -152,7 +142,7 @@ To run Windows MPI applications on a pool of Azure H16r VM nodes, you need to co
 
 ## Example: Intel MPI on a Linux H16r VM pool
 
-To run MPI applications on a pool of Linux H-series nodes, one option is to use the [CentOS-based 7.4 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview) image from the Azure Marketplace. Linux RDMA drivers and Intel MPI are preinstalled. This image also supports Docker container workloads.
+To run MPI applications on a pool of Linux H-series nodes, one option is to use the [CentOS-based 7.4 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) image from the Azure Marketplace. Linux RDMA drivers and Intel MPI are preinstalled. This image also supports Docker container workloads.
 
 Using the Batch APIs or Azure portal, create a pool using this image and with the desired number of nodes and scale. The following table shows sample pool settings:
 

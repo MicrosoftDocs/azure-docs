@@ -62,7 +62,7 @@ A scope is a node in a billing account that you use to view and manage billing. 
 ## Understand Azure Cost Management
 Cost management is the process of effectively planning and controlling costs involved in your business. Cost management tasks are normally performed by finance, management, and app teams. Azure Cost Management + Billing helps organizations plan with cost in mind. It also helps to analyze costs effectively and take action to optimize cloud spending. To learn more about how to approach cost management as an organization, take a look at the [Azure Cost Management best practices](./costs/cost-mgt-best-practices.md) article.
 
-Watch the [Azure Cost Management overview video](https://www.youtube.com/watch?v=el4yN5cHsJ0) for a quick overview about how Azure Cost Management can help you save money in Azure.
+Watch the [Azure Cost Management overview video](https://www.youtube.com/watch?v=el4yN5cHsJ0) for a quick overview about how Azure Cost Management can help you save money in Azure. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
@@ -84,13 +84,13 @@ Recommendations show how you can optimize and improve efficiency by identifying 
 
 If you use external systems to access or review cost management data, you can easily export the data from Azure. And you can set a daily scheduled export in CSV format and store the data files in Azure storage. Then, you can access the data from your external system.
 
-### Consider Cloudyn
+### Cloudyn deprecation
 
-[Cloudyn](./cloudyn/overview.md) is an Azure service related to Cost Management. With Cloudyn, you can track cloud usage and expenditures for your Azure resources. It also supports other cloud providers including AWS and Google. Easy-to-understand dashboard reports help with cost allocation and showbacks/chargebacks as well. Currently, Cost Management doesn't support showback/chargeback or other cloud service providers. However, Cloudyn is an option that _does_ support them. Currently, Cost Management doesn't support Microsoft Cloud Service Provider (CSP) accounts but Cloudyn does. If you have CSP accounts or if you want to use showback/chargeback, you can use Cloudyn to help manage your costs.
-
-Watch the [Azure Cost Management and Cloudyn video](https://www.youtube.com/watch?v=PmwFWwSluh8) to see recommendations when you should use either Azure Cost Management or Cloudyn, based on your business needs.
-
->[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
+[Cloudyn](./cloudyn/overview.md) is an Azure service related to Cost Management that is being deprecated by the end of 2020. Existing Cloudyn features are being integrated directly into the Azure portal wherever possible. No new customers are being onboarded at this time, but support will remain for the product until it is fully deprecated.
+ 
+Watch the [Azure Cost Management and Cloudyn video](https://www.youtube.com/watch?v=15DzKPMBRxM) to learn more about when you should use either Azure Cost Management or Cloudyn, based on your business needs. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+ 
+>[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 
 ### Additional Azure tools
 

@@ -3,13 +3,13 @@ title: Audio Content Creation - Speech service
 titleSuffix: Azure Cognitive Services
 description: Audio Content Creation is an online tool that allows you to customize and fine-tune Microsoft's text-to-speech output for your apps and products.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 # Improve synthesis with Audio Content creation
@@ -76,7 +76,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 ```xml
 <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="en-US">
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)">
     Welcome to use Audio Content Creation <break time="10ms" />to customize audio output for your products.
     </voice>
 </speak>

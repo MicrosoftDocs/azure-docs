@@ -5,7 +5,7 @@ summary: Azure SQL Database provides tools to help you collect metrics and diagn
 
 metadata:
   title: Azure SQL Database monitoring and tuning documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure SQL Database provides tools to help you collect metrics and diagnostic information to monitor your database and improve its performance. # Required; article description that is displayed in search results. < 160 chars.
+  description: Learn about Azure SQL Database monitoring and performance tuning tools that help you collect metrics and diagnostics and improve database performance.
   ms.service: sql-database #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: performance # Optional; Remove if no subservice is used.
   ms.topic: landing-page # Required

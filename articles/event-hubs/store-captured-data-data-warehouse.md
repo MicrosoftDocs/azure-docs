@@ -89,7 +89,7 @@ New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri ht
 
 
 ### Create a table in SQL Data Warehouse 
-Create a table in your SQL data warehouse by running the [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) script using [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), [SQL Server Management Studio](../sql-data-warehouse/sql-data-warehouse-query-ssms.md), or the Query Editor in the portal. 
+Create a table in your SQL data warehouse by running the [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) script using [Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), [SQL Server Management Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md), or the Query Editor in the portal. 
 
 ```sql
 CREATE TABLE [dbo].[Fact_WindTurbineMetrics] (

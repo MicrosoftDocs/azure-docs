@@ -69,8 +69,8 @@ to generate MOF files
 and
 [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Then register your servers from either
-[on-premises](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)
-or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)
+[on-premises](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances)
+or [in Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms)
 to pull configurations.
 The latest update to the project has also published
 [runbooks](https://www.powershellgallery.com/packages?q=DscGallerySamples)

@@ -1,5 +1,5 @@
 ---
-title: Graphical Authoring in Azure Automation
+title: Graphical authoring in Azure Automation
 description: Graphical authoring allows you to create runbooks for Azure Automation without working with code. This article provides an introduction to graphical authoring and all the details needed to start creating a graphical runbook.
 services: automation
 ms.subservice: process-automation
@@ -52,7 +52,7 @@ The Test control is not displayed when the graphical editor is first started. It
 
 Activities are the building blocks of a runbook. An activity can be a PowerShell cmdlet, a child runbook, or a workflow. You can add an activity to the runbook by right-clicking it in the Library control and selecting **Add to canvas**. You can then click and drag the activity to place it anywhere on the canvas that you like. The location of the activity on the canvas does not affect the operation of the runbook. You can lay out your runbook any way you find most suitable to visualize its operation.
 
-![Add to canvas](media/automation-graphical-authoring-intro/add-to-canvas-revised20165.png)
+![Add to canvas](media/automation-graphical-authoring-intro/add-to-canvas-cmdlet.png)
 
 Select an activity on the canvas to configure its properties and parameters in the Configuration blade. You can change the label of the activity to a name that you find descriptive. The runbook still runs the original cmdlet. You are simply changing the display name that the graphical editor uses. Note that the label must be unique within the runbook.
 
@@ -62,7 +62,7 @@ A parameter set defines the mandatory and optional parameters that accept values
 
 In the following example, the [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm?view=azps-3.5.0) cmdlet has three parameter sets. The example uses one set called **ListVirtualMachineInResourceGroupParamSet**, with a single optional parameter, for returning all virtual machines in a resource group. The example also uses the **GetVirtualMachineInResourceGroupParamSet** parameter set for specifying the virtual machine to return. This set has two mandatory parameters and one optional parameter.
 
-![Parameter set](media/automation-graphical-authoring-intro/get-azurermvm-parameter-sets.png)
+![Parameter set](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
 #### Parameter values
 
@@ -146,7 +146,7 @@ A link in a graphical runbook connects two activities. It is displayed on the ca
 
 You can create a link between two activities by selecting the source activity and clicking the circle at the bottom of the shape. Drag the arrow to the destination activity and release.
 
-![Create a link](media/automation-graphical-authoring-intro/create-link-revised20165.png)
+![Create a link](media/automation-graphical-authoring-intro/create-link-options.png)
 
 Select the link to configure its properties in the Configuration blade. Properties include the link type, which is described in the following table.
 
@@ -389,7 +389,7 @@ The next activity, `Connect-AzAccount`, adds the authenticated Run As account fo
 >[!NOTE]
 >For PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for `Connect-AzAccount`. Note that these aliases are not available for your graphical runbooks. A graphical runbook can only use `Connect-AzAccount` itself.
 
-For the parameter fields **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID**, specify the name of the property for the Field path, since the activity outputs an object with multiple properties. Otherwise, when the runbook executes, it fails while attempting to authenticate. This is what you need at a minimum to authenticate your runbook with the Run As account.
+For the parameter fields **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID**, specify the name of the property for the field path, since the activity outputs an object with multiple properties. Otherwise, when the runbook executes, it fails while attempting to authenticate. This is what you need at a minimum to authenticate your runbook with the Run As account.
 
 Some subscribers create an Automation account using an [Azure AD user account](automation-create-aduser-account.md) to manage Azure classic deployment or for Azure Resource Manager resources. To maintain backward compatibility for these subscribers, the authentication mechanism to use in your runbook is the `Add-AzureAccount` cmdlet with a [credential asset](automation-credentials.md). The asset represents an Active Directory user with access to the Azure account.
 
@@ -407,7 +407,7 @@ You can only export the published version of a graphical runbook. If the runbook
 
 You can import a graphical or graphical PowerShell Workflow runbook file by selecting the **Import** option when adding a runbook. When you select the file to import, you can keep the same name or provide a new one. The **Runbook Type** field displays the type of runbook after it assesses the file selected. If you attempt to select a different type that is not correct, the graphical editor presents a message noting that there are potential conflicts and there might be syntax errors during conversion.
 
-![Import runbook](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
+![Import runbook](media/automation-graphical-authoring-intro/runbook-import.png)
 
 ## Testing a graphical runbook
 
@@ -435,3 +435,5 @@ You have the option to revert to the Published version of a runbook. This operat
 * To get started with graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md).
 * To know more about runbook types and their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md).
 * To understand how to authenticate using the Automation Run As account, see [Configure Azure Run As Account](automation-sec-configure-azure-runas-account.md).
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

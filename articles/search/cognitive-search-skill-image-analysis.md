@@ -50,10 +50,11 @@ Parameters are case-sensitive.
             "context": "/document/normalized_images/*",
             "defaultLanguageCode": "en",
             "visualFeatures": [
-                "Tags",
-                "Categories",
-                "Description",
-                "Faces"
+                "tags",
+                "categories",
+                "description",
+                "faces",
+                "brands"
             ],
             "inputs": [
                 {
@@ -73,6 +74,9 @@ Parameters are case-sensitive.
                 },
                 {
                     "name": "faces"
+                },
+                {
+                    "name": "brands"
                 }
             ]
         }
@@ -307,6 +311,10 @@ Parameters are case-sensitive.
         {
             "sourceFieldName": "/document/normalized_images/*/faces/*",
             "targetFieldName": "faces"
+        },
+        {
+            "sourceFieldName": "/document/normalized_images/*/brands/*/name",
+            "targetFieldName": "brands"
         }
 ```
 ### Variation on output field mappings (nested properties)
@@ -480,6 +488,7 @@ You can define output field mappings to lower-level properties, such as just lan
         "brands":[  
            {  
               "name":"Microsoft",
+              "confidence": 0.903,
               "rectangle":{  
                  "x":20,
                  "y":97,

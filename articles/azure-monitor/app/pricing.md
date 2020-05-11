@@ -4,7 +4,7 @@ description: Manage telemetry volumes and monitor costs in Application Insights.
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 11/27/2019
+ms.date: 5/7/2020
 
 ms.reviewer: mbullwin
 ---
@@ -23,6 +23,8 @@ If you have questions about how pricing works for Application Insights, you can 
 The pricing for [Azure Application Insights][start] is a **Pay-As-You-Go** model based on data volume ingested and optionally for longer data retention. Each Application Insights resource is charged as a separate service and contributes to the bill for your Azure subscription. Data volume is measured as the size of the uncompressed JSON data package that's received by Application Insights from your application. There is no data volume charge for using the [Live Metrics Stream](../../azure-monitor/app/live-stream.md).
 
 [Multi-step web tests](../../azure-monitor/app/availability-multistep.md) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions. There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
+
+The Application Insights option to [Enable alerting on custom metric dimensions](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) can also generate in additional costs because this can result in the creation of additional pre-aggregation metrics. [Learn more](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics) about log-based and pre-aggregated metrics in Application Insights and about [pricing](https://azure.microsoft.com/pricing/details/monitor/) for Azure Monitor custom metrics.
 
 ## Estimating the costs to manage your application
 
@@ -56,7 +58,7 @@ E. Set the daily data volume cap.
 
 To investigate your Application Insights usage more deeply, open the **Metrics** page, add the metric named "Data point volume", and then select the *Apply splitting* option to split the data by "Telemetry item type".
 
-Application Insights charges are added to your Azure bill. You can see details of your Azure bill in the **Billing** section of the Azure portal, or in the [Azure billing portal](https://account.windowsazure.com/Subscriptions).
+Application Insights charges are added to your Azure bill. You can see details of your Azure bill in the **Cost Management + Billing** section of the Azure portal, or in the [Azure billing portal](https://account.windowsazure.com/Subscriptions).  [See below](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) for details on using this for Application Insights. 
 
 ![In the left menu, select Billing](./media/pricing/02-billing.png)
 
@@ -123,7 +125,7 @@ dependencies
 
 ## Viewing Application Insights usage on your Azure bill
 
-Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. Adding a filter by resource type (to microsoft.insights/components for Application Insights) will allow you to track your spending.
+Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. Adding a filter by resource type (to microsoft.insights/components for Application Insights) will allow you to track your spending. Then for "Group by" select "Meter category" or "Meter".  For Application Insights resources on the current pricing plans, most usage will show up as Log Analytics for the Meter category since there is a single logs backend for all Azure Monitor components. 
 
 More understanding of your usage can be gained by [downloading your usage from the Azure portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal).
 In the downloaded spreadsheet, you can see usage per Azure resource per day. In this Excel spreadsheet, usage from your Application Insights resources can be found by first filtering on the "Meter Category" column to show "Application Insights" and "Log Analytics", and then adding a filter on the "Instance ID" column which is "contains microsoft.insights/components".  Most Application Insights usage is reported on meters with the Meter Category of Log Analytics, since there is a single logs backend for all Azure Monitor components.  Only Application Insights resources on legacy pricing tiers and multi-step web tests are reported with a Meter Category of Application Insights.  The usage is shown in the "Consumed Quantity" column and the unit for each entry is shown in the "Unit of Measure" column.  More details are available to help you [understand your Microsoft Azure bill](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
@@ -172,7 +174,7 @@ To [change the daily cap via Azure Resource Manager](../../azure-monitor/app/pow
 
 ### Create alerts for the Daily Cap
 
-The Application Insights Daily Cap creates an event in the Azure activity kog when the ingested data volumes hits the warning level or the daily cap level.  You can [create an alert based on these activity log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). The signal names for these events are:
+The Application Insights Daily Cap creates an event in the Azure activity log when the ingested data volumes hits the warning level or the daily cap level.  You can [create an alert based on these activity log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). The signal names for these events are:
 
 * Application Insights component daily cap warning threshold reached
 
@@ -206,13 +208,15 @@ In each retained record, `itemCount` indicates the number of original records th
 
 ## Change the data retention period
 
-The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days.
+The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about pricing for longer data retention. 
 
 To change the retention, from your Application Insights resource, go to the **Usage and Estimated Costs** page and select the **Data Retention** option:
 
 ![Adjust the daily telemetry volume cap](./media/pricing/pricing-005.png)
 
-The retention can also be [set programatically using PowerShell](powershell.md#set-the-data-retention) using the `retentionInDays` parameter. Additionally, if you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This purge functionality is only exposed via Azure Resource Manager and should be used with extreme care. The daily reset time for the data volume cap can be configured using Azure Resource Manager to set the `dailyQuotaResetTime` parameter.
+When the retention is lowered, there is a several day grace period before the oldest data is removed.
+
+The retention can also be [set programatically using PowerShell](powershell.md#set-the-data-retention) using the `retentionInDays` parameter. If you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This purge functionality is only exposed via Azure Resource Manager and should be used with extreme care. The daily reset time for the data volume cap can be configured using Azure Resource Manager to set the `dailyQuotaResetTime` parameter.
 
 ## Data transfer charges using Application Insights
 
@@ -224,7 +228,7 @@ Sending data to Application Insights might incur data bandwidth charges. As desc
 
 ## Disable daily cap e-mails
 
-To disable the daily volume cap e-mails, under the **Configure** section of your Application Insights resource, in the **Usage and estimated costs** pane, select  **Daily Cap**. There are settings to send e-mail when the cap is reached, as well as when an adjustable warning level has been reached. If you wish to disable all daily cap volume-related emails uncheck both boxes.
+To disable the daily volume cap e-mails, under the **Configure** section of your Application Insights resource, in the **Usage and estimated costs** pane, select  **Daily Cap**. There are settings to send e-mail when the cap is reached, as well as when an adjustable warning level has been reached. If you wish to disable all daily cap volume-related emails, uncheck both boxes.
 
 ## Legacy Enterprise (Per Node) pricing tier
 

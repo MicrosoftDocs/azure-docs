@@ -54,6 +54,7 @@ Hybrid Azure AD join supports a broad range of Windows devices. Because the conf
 
 - Windows 10
 - Windows Server 2016
+  - **Note**: Azure National cloud customers require version 1809
 - Windows Server 2019
 
 For devices running the Windows desktop operating system, supported version are listed in this article [Windows 10 release information](/windows/release-information/). As a best practice, Microsoft recommends you upgrade to the latest version of Windows 10.
@@ -90,7 +91,7 @@ As a first planning step, you should review your environment and determine wheth
 If your Windows 10 domain joined devices are [Azure AD registered](overview.md#getting-devices-in-azure-ad) to your tenant, it could lead to a dual state of Hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or above to automatically address this scenario. In pre-1803 releases, you will need to remove the Azure AD registered state manually before enabling Hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
 
 - Any existing Azure AD registered state for a user would be automatically removed <i>after the device is Hybrid Azure AD joined and the same user logs in</i>. For example, if User A had an Azure AD registered state on the device, the dual state for User A is cleaned up only when User A logs in to the device. if there are multiple users on the same device, the dual state is cleaned up individually when those users log in.
-- You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
+- You can prevent your domain joined device from being Azure AD registered by adding the following registry value to HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001.
 - In Windows 10 1803, if you have Windows Hello for Business configured, the user needs to re-setup Windows Hello for Business after the dual state clean up.This issue has been addressed with KB4512509
 
 > [!NOTE]
@@ -99,7 +100,9 @@ If your Windows 10 domain joined devices are [Azure AD registered](overview.md#g
 ### Additional considerations
 - If your environment uses virtual desktop infrastructure (VDI), see [Device identity and desktop virtualization](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
-- Hybrid Azure AD join is supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support. Starting from Windows 10 1903 release, TPMs 1.2 are not used for hybrid Azure AD join and devices with those TPMs will be considered as if they don't have a TPM.
+- Hybrid Azure AD join is supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support. 
+
+- Starting from Windows 10 1903 release, TPMs 1.2 are not used with hybrid Azure AD join and devices with those TPMs will be considered as if they don't have a TPM.
 
 ## Review controlled validation of hybrid Azure AD join
 

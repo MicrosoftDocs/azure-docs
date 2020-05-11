@@ -26,7 +26,7 @@ Consider the following data ingestion workflow:
 
 ![data-ingestion-pipeline](media/how-to-cicd-data-ingestion/data-ingestion-pipeline.png)
 
-In this approach, the training data is stored in an Azure blob storage. An Azure Data Factory pipeline fetches the data from an input blob container, transforms it and saves the data to the output blob container. This container serves as a [data storage](https://docs.microsoft.com/azure/machine-learning/concept-data#access-data-in-storage) for the Azure Machine Learning service. Having the data prepared, the Data Factory pipeline invokes a training Machine Learning pipeline to train a model. In this specific example the data transformation is performed by a Python notebook, running on an Azure Databricks cluster. 
+In this approach, the training data is stored in an Azure blob storage. An Azure Data Factory pipeline fetches the data from an input blob container, transforms it and saves the data to the output blob container. This container serves as a [data storage](concept-data.md) for the Azure Machine Learning service. Having the data prepared, the Data Factory pipeline invokes a training Machine Learning pipeline to train a model. In this specific example the data transformation is performed by a Python notebook, running on an Azure Databricks cluster. 
 
 ## What we are building
 
@@ -101,28 +101,28 @@ It's important to make sure that the generated Azure Resource Manager templates 
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"factoryName": {
-			"value": "devops-ds-adf"
-		},
-		"AzureMLService_servicePrincipalKey": {
-			"value": ""
-		},
-		"AzureMLService_properties_typeProperties_subscriptionId": {
-			"value": "0fe1c235-5cfa-4152-17d7-5dff45a8d4ba"
-		},
-		"AzureMLService_properties_typeProperties_resourceGroupName": {
-			"value": "devops-ds-rg"
-		},
-		"AzureMLService_properties_typeProperties_servicePrincipalId": {
-			"value": "6e35e589-3b22-4edb-89d0-2ab7fc08d488"
-		},
-		"AzureMLService_properties_typeProperties_tenant": {
-			"value": "72f988bf-86f1-41af-912b-2d7cd611db47"
-		}
-	}
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "value": "devops-ds-adf"
+        },
+        "AzureMLService_servicePrincipalKey": {
+            "value": ""
+        },
+        "AzureMLService_properties_typeProperties_subscriptionId": {
+            "value": "0fe1c235-5cfa-4152-17d7-5dff45a8d4ba"
+        },
+        "AzureMLService_properties_typeProperties_resourceGroupName": {
+            "value": "devops-ds-rg"
+        },
+        "AzureMLService_properties_typeProperties_servicePrincipalId": {
+            "value": "6e35e589-3b22-4edb-89d0-2ab7fc08d488"
+        },
+        "AzureMLService_properties_typeProperties_tenant": {
+            "value": "72f988bf-86f1-41af-912b-2d7cd611db47"
+        }
+    }
 }
 ```
 
@@ -165,17 +165,17 @@ Doing so will force the Azure Data Factory workspace to add the variables to the
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"factoryName": {
-			"value": "devops-ds-adf"
-		},
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "value": "devops-ds-adf"
+        },
         ...
         "data-ingestion-pipeline_properties_variables_data_file_name_defaultValue": {
-			"value": "driver_prediction_train.csv"
-		}        
-	}
+            "value": "driver_prediction_train.csv"
+        }        
+    }
 }
 ```
 

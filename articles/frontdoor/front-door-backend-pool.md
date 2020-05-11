@@ -38,7 +38,7 @@ Front Door backends refer to the host name or public IP of your app, which can s
 
 Requests forwarded by Front Door to a backend include a host header field that the backend uses to retrieve the targeted resource. The value for this field typically comes from the backend URI and has the host and port.
 
-For example, a request made for www.contoso.com will have the host header www.contoso.com. If you use Azure portal to configure your backend, the default value for this field is the host name of the backend. If your backend is contoso-westus.azurewebsites.net, in the Azure portal, the autopopulated value for the backend host header will be contoso-westus.azurewebsites.net. However, if you use Azure Resource Manager templates or another method without explicitly setting this field, Front Door will send the incoming host name as the value for the host header. If the request was made for www\.contoso.com, and your backend is contoso-westus.azurewebsites.net that has an empty header field, Front Door will set the host header as www\.contoso.com.
+For example, a request made for `www.contoso.com` will have the host header www.contoso.com. If you use Azure portal to configure your backend, the default value for this field is the host name of the backend. If your backend is contoso-westus.azurewebsites.net, in the Azure portal, the autopopulated value for the backend host header will be contoso-westus.azurewebsites.net. However, if you use Azure Resource Manager templates or another method without explicitly setting this field, Front Door will send the incoming host name as the value for the host header. If the request was made for www\.contoso.com, and your backend is contoso-westus.azurewebsites.net that has an empty header field, Front Door will set the host header as www\.contoso.com.
 
 Most app backends (Azure Web Apps, Blob storage, and Cloud Services) require the host header to match the domain of the backend. However, the frontend host that routes to your backend will use a different hostname such as www.contoso.net.
 
@@ -62,14 +62,18 @@ A backend pool defines how the different backends should be evaluated via health
 ### Health probes
 Front Door sends periodic HTTP/HTTPS probe requests to each of your configured backends. Probe requests determine the proximity and health of each backend to load balance your end-user requests. Health probe settings for a backend pool define how we poll the health status of app backends. The following settings are available for load-balancing configuration:
 
-- **Path**. The URL used for probe requests for all the backends in the backend pool. For example, if one of your backends is contoso-westus.azurewebsites.net and the path is set to /probe/test.aspx, then Front Door environments, assuming the protocol is set to HTTP, will send health probe requests to http\://contoso-westus.azurewebsites.net/probe/test.aspx.
+- **Path**: The URL used for probe requests for all the backends in the backend pool. For example, if one of your backends is contoso-westus.azurewebsites.net and the path is set to /probe/test.aspx, then Front Door environments, assuming the protocol is set to HTTP, will send health probe requests to http\://contoso-westus.azurewebsites.net/probe/test.aspx.
 
-- **Protocol**. Defines whether to send the health probe requests from Front Door to your backends with HTTP or HTTPS protocol.
+- **Protocol**: Defines whether to send the health probe requests from Front Door to your backends with HTTP or HTTPS protocol.
 
-- **Interval (seconds)**. Defines the frequency of health probes to your backends, or the intervals in which each of the Front Door environments sends a probe.
+- **Method**:The HTTP method to be used for sending health probes. Options include GET or HEAD (default).
+    > [!NOTE]
+    > For lower load and cost on your backends, Front Door recommends using HEAD requests for health probes.
+
+- **Interval (seconds)**: Defines the frequency of health probes to your backends, or the intervals in which each of the Front Door environments sends a probe.
 
     >[!NOTE]
-    >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your backends receive. For example, if the interval is set to 30 seconds with 90 Front Door environments or POPs globally, each backend will receive about 3-5 probe requests per second.
+    >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your backends receive. For example, if the interval is set to 30 seconds with say, 100 Front Door POPs globally, each backend will receive about 200 probe requests per minute.
 
 For more information, see [Health probes](front-door-health-probes.md).
 

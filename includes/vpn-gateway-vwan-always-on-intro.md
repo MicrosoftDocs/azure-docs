@@ -14,7 +14,7 @@
 
 A new feature of the Windows 10 VPN client, Always On, is the ability to maintain a VPN connection. With Always On, the active VPN profile can connect automatically and remain connected based on triggers, such as user sign-in, network state change, or device screen active.
 
-You can use Azure virtual network gateways with Windows 10 Always On to establish persistent user tunnels and device tunnels to Azure. This article helps you configure an Always On VPN user tunnel.
+You can use gateways with Windows 10 Always On to establish persistent user tunnels and device tunnels to Azure. This article helps you configure an Always On VPN user tunnel.
 
 Always On VPN connections include either of two types of tunnels:
 

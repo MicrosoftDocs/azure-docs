@@ -6,8 +6,7 @@ ms.author: routlaw
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: mvc
-ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 
 # Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
@@ -164,7 +163,7 @@ bash-3.2$ mvn package spring-boot:run
 [INFO] TodoApplication - Started TodoApplication in 45.573 seconds (JVM running for 76.534)
 ```
 
-You can access Spring TODO App locally using this link once the app is started: [http://localhost:8080/](http://localhost:8080/).
+You can access Spring TODO App locally using this link once the app is started: `http://localhost:8080/`.
 
  ![Access Spring TODO app locally](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 

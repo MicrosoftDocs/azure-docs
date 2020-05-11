@@ -268,7 +268,8 @@ Below is a list of standard metrics that are currently sent:
 - Process CPU Usage (percentage)
 - Process Private Bytes (bytes)
 
-You should be able to see these metrics in `performanceCounters`. Incoming request rate would be under `customMetrics`.
+You should be able to see these metrics in `performanceCounters`. Incoming request rate would be under `customMetrics`. For more information, see [performance counters](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters).
+
 #### Modify telemetry
 
 For details on how to modify tracked telemetry before it is sent to Azure Monitor, see OpenCensus Python [telemetry processors](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
@@ -385,13 +386,33 @@ For details on how to modify tracked telemetry before it is sent to Azure Monito
 
     # Use properties in logging statements
     logger.warning('action', extra=properties)
+    ```
+
+#### Sending exceptions
+
+OpenCensus Python does not automatically track and send `exception` telemetry. They are sent through the `AzureLogHandler` by using exceptions through the Python logging library. You can add custom properties just like with normal logging.
+
+    ```python
+    import logging
+    
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    logger.addHandler(AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    )
+
+    properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
 
     # Use properties in exception logs
     try:
         result = 1 / 0  # generate a ZeroDivisionError
     except Exception:
-    logger.exception('Captured an exception.', extra=properties)
+        logger.exception('Captured an exception.', extra=properties)
     ```
+Since you must log exceptions explicitly, it is up to the user in how they want to log unhandled exceptions. OpenCensus does not place restrictions in how a user wants to do this, as long as they explicitly log an exception telemetry.
+
 #### Sampling
 
 For information on sampling in OpenCensus, take a look at [sampling in OpenCensus](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications).

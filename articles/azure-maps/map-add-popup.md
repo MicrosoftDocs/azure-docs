@@ -1,7 +1,7 @@
 ---
 title: Add a popup to a point on a map |Microsoft Azure Maps
 description: In this article, you will learn how to add a popup to a point using the Microsoft Azure Maps Web SDK.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 02/27/2020
 ms.topic: conceptual
@@ -17,7 +17,7 @@ This article shows you how to add a popup to a point on a map.
 
 ## Understand the code
 
-The following code adds a point feature, that has `name` and `description` properties, to the map using a symbol layer. An instance of the [Popup class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) is created but not displayed. Mouse events are added to the symbol layer to trigger opening and closing the popup. When the marker symbol is hovered, the popup's `position` property is updated with position of the marker, and the `content` option is updated with some HTML that wraps the  `name` and `description` properties of the point feature being hovered. The popup is then displayed on the map using its `open` function.
+The following code adds a point feature, that has `name` and `description` properties, to the map using a symbol layer. An instance of the [Popup class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup) is created but not displayed. Mouse events are added to the symbol layer to trigger opening and closing the popup. When the marker symbol is hovered, the popup's `position` property is updated with position of the marker, and the `content` option is updated with some HTML that wraps the  `name` and `description` properties of the point feature being hovered. The popup is then displayed on the map using its `open` function.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -120,20 +120,26 @@ The `numberFormat` option specifies the format of the number to display. If the 
 > There's only one way in which the String template can render images. First, the String template needs to have an image tag in it. The value being passed to the image tag should be a URL to an image. Then, the String template needs to have `isImage` set to true in the `HyperLinkFormatOptions`. The `isImage` option specifies that the hyperlink is for an image, and the hyperlink will be loaded into an image tag. When the hyperlink is clicked, the image will open.
 
 ```javascript
-new atlas.data.Feature(new atlas.data.Point([-20, -20]), {
+var templateOptions = {
+  content: 'This template uses a string template with placeholders.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
+  numberFormat: {
+    maximumFractionDigits: 2
+  }
+};
+
+var feature = new atlas.data.Feature(new atlas.data.Point([0, 0]), {
     title: 'Template 1 - String template',
     value1: 1.2345678,
     value2: {
-    	subValue: 'Pizza'
+        subValue: 'Pizza'
     },
-    arrayValue: [3, 4, 5, 6],
-    popupTemplate: {
-    	content: 'This template uses a string template with placeholders.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
-    	numberFormat: {
-            maximumFractionDigits: 2
-    	}
-    }
-}),
+    arrayValue: [3, 4, 5, 6]
+});
+
+var popup = new atlas.Popup({
+  content: atlas.PopupTemplate.applyTemplate(feature.properties, templateOptions),
+  position: feature.geometry.coordinates
+});
 ```
 
 ### PropertyInfo template
@@ -143,51 +149,57 @@ The PropertyInfo template displays available properties of the feature. The `lab
 Before the PropertyInfo template display the properties to the end user, it recursively checks that the properties are indeed defined for that feature. It also ignores displaying style and title properties. For example, it won't display `color`, `size`, `anchor`, `strokeOpacity`, and `visibility`. So, once property path checking is complete in the back-end, the PropertyInfo template shows the content in a table format.
 
 ```javascript
-new atlas.data.Feature(new atlas.data.Point([20, -20]), {
+var templateOptions = {
+  content: [
+    {
+        propertyPath: 'createDate',
+        label: 'Created Date'
+    },
+    {
+        propertyPath: 'dateNumber',
+        label: 'Formatted date from number',
+        dateFormat: {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          timeZone: 'UTC',
+          timeZoneName: 'short'
+        }
+    },
+    {
+        propertyPath: 'url',
+        label: 'Code samples',
+        hideLabel: true,
+        hyperlinkFormat: {
+          lable: 'Go to code samples!',
+          target: '_blank'
+        }
+    },
+    {
+        propertyPath: 'email',
+        label: 'Email us',
+        hideLabel: true,
+        hyperlinkFormat: {
+          target: '_blank',
+          scheme: 'mailto:'
+        }
+    }
+  ]
+};
+
+var feature = new atlas.data.Feature(new atlas.data.Point([0, 0]), {
     title: 'Template 2 - PropertyInfo',
     createDate: new Date(),
     dateNumber: 1569880860542,
     url: 'https://aka.ms/AzureMapsSamples',
-    email: 'info@microsoft.com',
-    popupTemplate: {
-    	content: [{
-    propertyPath: 'createDate',
-    label: 'Created Date'
-    },
-    {
-    propertyPath: 'dateNumber',
-    label: 'Formatted date from number',
-    dateFormat: {
-    	weekday: 'long',
-    	year: 'numeric',
-    	month: 'long',
-    	day: 'numeric',
-    	timeZone: 'UTC',
-    	timeZoneName: 'short'
-    }
-    },
-    {
-    propertyPath: 'url',
-    label: 'Code samples',
-    hideLabel: true,
-    hyperlinkFormat: {
-    	lable: 'Go to code samples!',
-    	target: '_blank'
-    }
-    },
-    {
-    propertyPath: 'email',
-    label: 'Email us',
-    hideLabel: true,
-    hyperlinkFormat: {
-    	target: '_blank',
-    	scheme: 'mailto:'
-        }
-    }
-    	]
-    }
+    email: 'info@microsoft.com'
 }),
 
+var popup = new atlas.Popup({
+  content: atlas.PopupTemplate.applyTemplate(feature.properties, templateOptions),
+  position: feature.geometry.coordinates
+});
 ```
 
 ### Multiple content templates
@@ -195,32 +207,37 @@ new atlas.data.Feature(new atlas.data.Point([20, -20]), {
 A feature may also display content using a combination of the String template and the PropertyInfo template. In this case, the String template renders placeholders values on a white background.  And, the PropertyInfo template renders a full width image inside a table. The properties in this sample are similar to the properties we explained in the previous samples.
 
 ```javascript
-new atlas.data.Feature(new atlas.data.Point([0, 0]), {
+var templateOptions = {
+  content: [
+    'This template has two pieces of content; a string template with placeholders and a array of property info which renders a full width image.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
+    [{
+      propertyPath: 'imageLink',
+      label: 'Image',
+      hideImageLabel: true,
+      hyperlinkFormat: {
+        isImage: true
+      }
+    }]
+  ],
+  numberFormat: {
+    maximumFractionDigits: 2
+  }
+};
+
+var feature = new atlas.data.Feature(new atlas.data.Point([0, 0]), {
     title: 'Template 3 - Multiple content template',
     value1: 1.2345678,
     value2: {
     subValue: 'Pizza'
     },
     arrayValue: [3, 4, 5, 6],
-    imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg',
-    popupTemplate: {
-    content: [
-      'This template has two pieces of content; a string template with placeholders and a array of property info which renders a full width image.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
-      [{
-        propertyPath: 'imageLink',
-        label: 'Image',
-        hideImageLabel: true,
-        hyperlinkFormat: {
-          isImage: true
-        }
-      }]
-    ],
-    numberFormat: {
-      maximumFractionDigits: 2
-    }
-    }
-    }),
-]);
+    imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg'
+});
+
+var popup = new atlas.Popup({
+  content: atlas.PopupTemplate.applyTemplate(feature.properties, templateOptions),
+  position: feature.geometry.coordinates
+});
 ```
 
 ### Points without a defined template
@@ -259,10 +276,13 @@ Popups can be opened, closed, and dragged. The popup class provides events to he
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
 
 > [!div class="nextstepaction"]
-> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)
+> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions)
+
+> [!div class="nextstepaction"]
+> [PopupTemplate](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popuptemplate)
 
 See the following great articles for full code samples:
 

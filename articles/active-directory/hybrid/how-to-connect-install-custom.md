@@ -241,16 +241,16 @@ Configuring AD FS with Azure AD Connect is simple and only requires a few clicks
 
 * A Windows Server 2012 R2 or later server for the federation server with remote management enabled
 * A Windows Server 2012 R2 or later server for the Web Application Proxy server with remote management enabled
-* An SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
+* A TLS/SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
 
 >[!NOTE]
->You can update SSL certificate for your AD FS farm using Azure AD Connect even if you do not use it to manage your federation trust.
+>You can update a TLS/SSL certificate for your AD FS farm using Azure AD Connect even if you do not use it to manage your federation trust.
 
 ### AD FS configuration pre-requisites
 To configure your AD FS farm using Azure AD Connect, ensure WinRM is enabled on the remote servers. Make sure you have completed the other tasks in [federation prerequisites](how-to-connect-install-prerequisites.md#prerequisites-for-federation-installation-and-configuration). In addition, go through the ports requirement listed in [Table 3 - Azure AD Connect and Federation Servers/WAP](reference-connect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
 
 ### Create a new AD FS farm or use an existing AD FS farm
-You can use an existing AD FS farm or you can choose to create a new AD FS farm. If you choose to create a new one, you are required to provide the SSL certificate. If the SSL certificate is protected by a password, you are prompted for the password.
+You can use an existing AD FS farm or you can choose to create a new AD FS farm. If you choose to create a new one, you are required to provide the TLS/SSL certificate. If the TLS/SSL certificate is protected by a password, you are prompted for the password.
 
 ![AD FS Farm](./media/how-to-connect-install-custom/adfs1.png)
 
@@ -316,7 +316,7 @@ When you select the domain to be federated, Azure AD Connect provides you with n
 ## Configuring federation with PingFederate
 Configuring PingFederate with Azure AD Connect is simple and only requires a few clicks. However, the following prerequisites are required.
 - PingFederate 8.4 or higher.  For more information see [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
-- An SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
+- A TLS/SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
 
 ### Verify the domain
 After selecting Federation with PingFederate, you will be asked to verify the domain you want to federate.  Select the domain from the drop-down box.

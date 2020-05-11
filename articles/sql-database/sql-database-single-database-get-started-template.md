@@ -4,7 +4,7 @@ description: Create a single database in Azure SQL Database using the Azure Reso
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom:
+ms.custom: subject-armqs
 ms.devlang:
 ms.topic: quickstart
 author: mumian
@@ -15,17 +15,39 @@ ms.date: 06/28/2019
 
 # Quickstart: Create a single database in Azure SQL Database using the Azure Resource Manager template
 
-Creating a [single database](sql-database-single-database.md) is the quickest and simplest deployment option for creating a database in Azure SQL Database. This quickstart shows you how to create a single database using the Azure Resource Manager template. For more information, see [Azure Resource Manager documentation](/azure/azure-resource-manager/).
+Creating a [single database](sql-database-single-database.md) is the quickest and simplest deployment option for creating a database in Azure SQL Database. This quickstart shows you how to create a single database using the Azure Resource Manager template.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+
+## Prerequisites
+
+None
 
 ## Create a single database
 
 A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing models](sql-database-purchase-models.md). When you create a single database, you also define a [SQL Database server](sql-database-servers.md) to manage it and place it within [Azure resource group](../azure-resource-manager/management/overview.md) in a specified region.
 
-The following JSON file is the template that is used in this article. The template is stored in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/SQLServerAndDatabase/azuredeploy.json). More Azure SQL database template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
+### Review the template
 
-[!code-json[create-azure-sql-database-server-and-database](~/resourcemanager-templates/SQLServerAndDatabase/azuredeploy.json)]
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-sql-logical-server/).
+
+:::code language="json" source="~/quickstart-templates/101-sql-logical-server/azuredeploy.json" range="1-163" highlight="63-132":::
+
+These resources are defined in the template:
+
+- [**Microsoft.Sql/servers**](/azure/templates/microsoft.sql/servers)
+- [**Microsoft.Sql/servers/firewallRules**](/azure/templates/microsoft.sql/servers/firewallrules)
+- [**Microsoft.Sql/servers/securityAlertPolicies**](/azure/templates/microsoft.sql/servers/securityalertpolicies)
+- [**Microsoft.Sql/servers/vulnerabilityAssessments**](/azure/templates/microsoft.sql/servers/vulnerabilityassessments)
+- [**Microsoft.Sql/servers/connectionPolicies**](/azure/templates/microsoft.sql/servers/connectionpolicies)
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts)
+- [**Microsoft.Storage/storageAccounts/providers/roleAssignments**](/azure/templates/microsoft.authorization/roleassignments)
+
+More Azure SQL database template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
+
+### Deploy the template
 
 Select **Try it** from the following PowerShell code block to open Azure Cloud Shell.
 
@@ -40,7 +62,7 @@ $adminPassword = Read-Host -Prompt "Enter the SQl server administrator password"
 $resourceGroupName = "${projectName}rg"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "D:\GitHub\azure-docs-json-samples\SQLServerAndDatabase\azuredeploy.json" -projectName $projectName -adminUser $adminUser -adminPassword $adminPassword
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-sql-logical-server/azuredeploy.json" -administratorLogin $adminUser -administratorLoginPassword $adminPassword
 
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
@@ -59,15 +81,15 @@ az group create --location $location --name $resourceGroupName
 
 az group deployment create -g $resourceGroupName --template-uri "D:\GitHub\azure-docs-json-samples\SQLServerAndDatabase\azuredeploy.json" `
     --parameters 'projectName=' + $projectName \
-                 'adminUser=' + $adminUser \
-                 'adminPassword=' + $adminPassword
+                 'administratorLogin=' + $adminUser \
+                 'administratorLoginPassword=' + $adminPassword
 
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
 * * *
 
-## Query the database
+## Validate the deployment
 
 To query the database, see [Query the database](./sql-database-single-database-get-started.md#query-the-database).
 
@@ -102,3 +124,4 @@ az group delete --name $resourceGroupName
   - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - To create a single database using Azure CLI, see [Azure CLI samples](sql-database-cli-samples.md).
 - To create a single database using Azure PowerShell, see [Azure PowerShell samples](sql-database-powershell-samples.md).
+- To learn how to create Resource Manager templates, see [Create your first template](../azure-resource-manager/templates/template-tutorial-create-first-template.md).

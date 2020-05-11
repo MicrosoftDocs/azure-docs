@@ -157,7 +157,7 @@ Azure FarmBeats APIs can be accessed by a user or an app registration in Azure A
     - Go back to **Overview**, and select the link next to **Manage Application in local directory**.
     - Go to **Properties** to capture the **Object ID**.
 
-4. Go to your [Datahub Swagger](https://<yourdatahub>.azurewebsites.net/swagger/index.html) and do the following:
+4. Go to your Datahub Swagger (https://<yourdatahub>.azurewebsites.net/swagger/index.html) and do the following:
     - Go to the **RoleAssignment API**.
     - Perform a POST to create a **RoleAssignment** object for the **Object ID** you just created.
 

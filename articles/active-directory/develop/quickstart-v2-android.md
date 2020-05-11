@@ -63,7 +63,7 @@ Applications must be represented by an app object in Azure Active Directory so t
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 > ## Step 1: Get the sample app
@@ -490,8 +490,3 @@ Read more information about MSAL library for Android:
 > [MSAL for Android library wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

@@ -13,7 +13,10 @@ ms.author: daperlov
 manager: anandsub
 ---
 
-# Monitor an integration runtime in Azure Data Factory  
+# Monitor an integration runtime in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+  
 **Integration runtime** is the compute infrastructure used by Azure Data Factory to provide various data integration capabilities across different network environments. There are three types of integration runtimes offered by Data Factory:
 
 - Azure integration runtime

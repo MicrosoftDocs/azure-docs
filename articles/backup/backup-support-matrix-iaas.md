@@ -110,7 +110,6 @@ Recovery points on DPM/MABS disk | 64 for file servers, and 448 for app servers.
 **Restore** | **Supported**
 --- | ---
 Restoring files across operating systems | You can restore files on any machine that has the same (or compatible) OS as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements).
-Restoring files on classic VMs | Not supported.
 Restoring files from encrypted VMs | Not supported.
 Restoring files from network-restricted storage accounts | Not supported.
 Restoring files on VMs using Windows Storage Spaces | Restore not supported on same VM.<br/><br/> Instead, restore the files on a compatible VM.
@@ -154,7 +153,7 @@ Gen2 VMs | Supported <br> Azure Backup supports backup and restore of [Gen2 VMs]
 
 **Component** | **Support**
 --- | ---
-Azure VM data disks | Back up a VM with 16 or fewer data disks.<BR> To sign up for the private preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com
+Azure VM data disks | Back up a VM with 16 or fewer data disks.<BR> To sign up for the limited preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com
 Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.

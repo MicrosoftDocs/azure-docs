@@ -5,7 +5,7 @@ description: Get started with Azure MFA and the user portal.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 
 ms.author: iainfou
@@ -44,7 +44,7 @@ In either scenario, if the Azure Multi-Factor Authentication Web Service SDK is 
 
 If you have questions about configuring a TLS/SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
-The Web Service SDK must be secured with a TLS/SSL certificate. A self-signed certificate is okay for this purpose. Import the certificate into the “Trusted Root Certification Authorities” store of the Local Computer account on the User Portal web server so that it trusts that certificate when initiating the TLS connection.
+The Web Service SDK must be secured with a TLS/SSL certificate. A self-signed certificate is okay for this purpose. Import the certificate into the "Trusted Root Certification Authorities" store of the Local Computer account on the User Portal web server so that it trusts that certificate when initiating the TLS connection.
 
 ![MFA Server configuration setup Web Service SDK](./media/howto-mfaserver-deploy-userportal/sdk.png)
 
@@ -66,7 +66,7 @@ To deploy the user portal, follow these steps:
    > [!NOTE]
    > This TLS/SSL Certificate is usually a publicly signed TLS/SSL Certificate.
 
-4. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: https://mfa.contoso.com/MultiFactorAuth). Ensure that no certificate warnings or errors are displayed.
+4. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: `https://mfa.contoso.com/MultiFactorAuth`). Ensure that no certificate warnings or errors are displayed.
 
 ![MFA Server User Portal installation](./media/howto-mfaserver-deploy-userportal/install.png)
 
@@ -105,7 +105,7 @@ Installing the user portal on a server other than the Azure Multi-Factor Authent
     * Find the value **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** and change this placeholder URL to the Web Service SDK URL we installed in step 2.
     * Save the Web.Config file and close Notepad.
 
-6. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: https://mfa.contoso.com/MultiFactorAuth). Ensure that no certificate warnings or errors are displayed.
+6. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: `https://mfa.contoso.com/MultiFactorAuth`). Ensure that no certificate warnings or errors are displayed.
 
 If you have questions about configuring a TLS/SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
@@ -159,9 +159,9 @@ If they select the Voice Call verification method or have been pre-configured to
 
 ![Register primary and backup phone numbers](./media/howto-mfaserver-deploy-userportal/backupphone.png)
 
-If the user is required to use a PIN when they authenticate, the page prompts them to create a PIN. After entering their phone number(s) and PIN (if applicable), the user clicks the **Call Me Now to Authenticate** button. Azure Multi-Factor Authentication performs a phone call verification to the user’s primary phone number. The user must answer the phone call and enter their PIN (if applicable) and press # to move on to the next step of the self-enrollment process.
+If the user is required to use a PIN when they authenticate, the page prompts them to create a PIN. After entering their phone number(s) and PIN (if applicable), the user clicks the **Call Me Now to Authenticate** button. Azure Multi-Factor Authentication performs a phone call verification to the user's primary phone number. The user must answer the phone call and enter their PIN (if applicable) and press # to move on to the next step of the self-enrollment process.
 
-If the user selects the Text Message verification method or has been pre-configured to use that method, the page prompts the user for their mobile phone number. If the user is required to use a PIN when they authenticate, the page also prompts them to enter a PIN.  After entering their phone number and PIN (if applicable), the user clicks the **Text Me Now to Authenticate** button. Azure Multi-Factor Authentication performs an SMS verification to the user’s mobile phone. The user receives the text message with a one-time-passcode (OTP), then replies to the message with that OTP plus their PIN (if applicable).
+If the user selects the Text Message verification method or has been pre-configured to use that method, the page prompts the user for their mobile phone number. If the user is required to use a PIN when they authenticate, the page also prompts them to enter a PIN.  After entering their phone number and PIN (if applicable), the user clicks the **Text Me Now to Authenticate** button. Azure Multi-Factor Authentication performs an SMS verification to the user's mobile phone. The user receives the text message with a one-time-passcode (OTP), then replies to the message with that OTP plus their PIN (if applicable).
 
 ![User portal verification using SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
@@ -172,7 +172,7 @@ If the user selects the Mobile App verification method, the page prompts the use
 
 The page then displays an activation code and a URL along with a barcode picture. If the user is required to use a PIN when they authenticate, the page additionally prompts them to enter a PIN. The user enters the activation code and URL into the Microsoft Authenticator app or uses the barcode scanner to scan the barcode picture and clicks the Activate button.
 
-After the activation is complete, the user clicks the **Authenticate Me Now** button. Azure Multi-Factor Authentication performs a verification to the user’s mobile app. The user must enter their PIN (if applicable) and press the Authenticate button in their mobile app to move on to the next step of the self-enrollment process.
+After the activation is complete, the user clicks the **Authenticate Me Now** button. Azure Multi-Factor Authentication performs a verification to the user's mobile app. The user must enter their PIN (if applicable) and press the Authenticate button in their mobile app to move on to the next step of the self-enrollment process.
 
 If the administrators have configured the Azure Multi-Factor Authentication Server to collect security questions and answers, the user is then taken to the Security Questions page. The user must select four security questions and provide answers to their selected questions.
 

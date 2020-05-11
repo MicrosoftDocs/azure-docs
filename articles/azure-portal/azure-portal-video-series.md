@@ -5,7 +5,7 @@ services: azure-portal
 keywords: 
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/20/2019
+ms.date: 04/06/2020
 ms.topic: conceptual
 
 ms.service: azure-portal
@@ -17,18 +17,18 @@ The Azure portal how-to video series showcases how to work with Azure services i
 
 ## Featured video
 
-In this featured video, we explore how to troubleshoot common issues with virtual machines.
+In this featured video, we show you how to save money in Azure using Azure Advisor cost recommendations.
 
-> [!VIDEO https://www.youtube.com/embed/MAJrN-2IPY8]
+> [!VIDEO https://www.youtube.com/embed/ky2WS3KWuYs]
 
-[Troubleshoot common problems with virtual machines](https://www.youtube.com/watch?v=MAJrN-2IPY8)
+[How to use cost recommendations on Azure Advisor](https://www.youtube.com/watch?v=ky2WS3KWuYs)
 
 Catch up on these recent videos you may have missed:
 
 |   |   |   |
 | ------| ------ | ------ |
-| [![Image of YouTube video about how to create a function app](https://i.ytimg.com/vi/BEIZKCDElMs/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=BEIZKCDElMs) | [![Image of YouTube video about how to use the new Azure home screen](https://i.ytimg.com/vi/Ddo__jkzgVo/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=Ddo__jkzgVo) | [![Image of YouTube video about making the most of Azure Advisor](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
-| [How to create a function app](https://www.youtube.com/watch?v=BEIZKCDElMs) | [How to use the new Azure home](https://www.youtube.com/watch?v=Ddo__jkzgVo) | [How to make the most of Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
+| [![Image of YouTube video about using Azure Monitor workbooks](https://i.ytimg.com/vi/Z5xRyy3HB8U/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=Z5xRyy3HB8U) | [![Image of YouTube video about filtering your resource list view in the Azure portal](https://i.ytimg.com/vi/L3I-xOZKWcg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=L3I-xOZKWcg) | [![Image of YouTube video about using auto-refresh for dashboards](https://i.ytimg.com/vi/tVoDXygZzWM/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=tVoDXygZzWM) |
+| [Using Azure Monitor workbooks](https://www.youtube.com/watch?v=Z5xRyy3HB8U) | [Filtering your resource list view in the Azure portal](https://www.youtube.com/watch?v=L3I-xOZKWcg) | [Using auto-refresh for dashboards](https://www.youtube.com/watch?v=tVoDXygZzWM) |
 
 ## Video playlist
 

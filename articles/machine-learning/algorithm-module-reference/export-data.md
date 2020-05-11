@@ -47,7 +47,7 @@ Before exporting your data, you need to first register a datastore in your Azure
 
 1. For **File format**, select the format in which data should be stored.
  
-1. Run the pipeline.
+1. Submit the pipeline.
 
 ## Next steps
 

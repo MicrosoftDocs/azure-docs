@@ -1,0 +1,6 @@
+- name: Setting up a Unity project from scratch
+  href: unity/project-setup.md
+- name: Working with remote entities in Unity
+  href: unity/working-with-remote-entities.md
+- name: Changing environment and materials
+  href: unity/changing-environment-and-materials.md

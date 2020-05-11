@@ -8,91 +8,83 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Add REST API claims exchanges to custom policies in Azure Active Directory B2C
+# Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-You can add interaction with a RESTful API to your [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C). This article shows you how to create an Azure AD B2C user journey that interacts with RESTful services.
+Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in a user journey. At the end of this walkthrough, you'll be able to create an Azure AD B2C user journey that interacts with [RESTful services](custom-policy-rest-api-intro.md).
 
-The interaction includes a claims exchange of information between the REST API claims and Azure AD B2C. Claims exchanges have the following characteristics:
+In this scenario, we enrich the user's token data by integrating with a corporate line-of-business workflow. During sign-up or sign-in with local or federated account, Azure AD B2C invokes a REST API to get the user's extended profile data from a remote data source. In this sample, Azure AD B2C sends the user's unique identifier, the objectId. The REST API then returns the user's account balance (a random number). Use this sample as a starting point to integrate with your own CRM system, marketing database, or any line-of-business workflow.
 
-- Can be designed as an orchestration step.
-- Can trigger an external action. For instance, it can log an event in an external database.
-- Can be used to fetch a value and then store it in the user database.
-- Can change the flow of execution.
-
-The scenario that is represented in this article includes the following actions:
-
-1. Look up the user in an external system.
-2. Get the city where that user is registered.
-3. Return that attribute to the application as a claim.
+You can also design the interaction as a validation technical profile. This is suitable when the REST API will be validating data on screen and returning claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey to validate user input](custom-policy-rest-api-claims-validation.md).
 
 ## Prerequisites
 
-- Complete the steps in [Get started with custom policies](custom-policy-get-started.md).
-- A REST API endpoint to interact with. This article uses a simple Azure function as an example. To create the Azure function, see [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
+- Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
+- Learn how to [Integrate REST API claims exchanges in your Azure AD B2C custom policy](custom-policy-rest-api-intro.md).
 
-## Prepare the API
+## Prepare a REST API endpoint
 
-In this section, you prepare the Azure function to receive a value for `email`, and then return the value for `city` that can be used by Azure AD B2C as a claim.
+For this walkthrough, you should have a REST API that validates whether a user's Azure AD B2C objectId is registered in your back-end system. 
+If registered, the REST API returns the user account balance. Otherwise, the REST API registers the new account in the directory and returns the starting balance `50.00`.
 
-Change the run.csx file for the Azure function that you created to use the following code:
+The following JSON code illustrates the data Azure AD B2C will send to your REST API endpoint. 
 
-```csharp
-#r "Newtonsoft.Json"
-
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using Newtonsoft.Json;
-
-public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+```json
 {
-  log.LogInformation("C# HTTP trigger function processed a request.");
-  string email = req.Query["email"];
-  string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-  dynamic data = JsonConvert.DeserializeObject(requestBody);
-  email = email ?? data?.email;
-
-  return email != null
-    ? (ActionResult)new OkObjectResult(
-      new ResponseContent
-      {
-        version = "1.0.0",
-        status = (int) HttpStatusCode.OK,
-        city = "Redmond"
-      })
-      : new BadRequestObjectResult("Please pass an email on the query string or in the request body");
-}
-
-public class ResponseContent
-{
-    public string version { get; set; }
-    public int status { get; set; }
-    public string city {get; set; }
+    "objectId": "User objectId",
+    "language": "Current UI language"
 }
 ```
 
-## Configure the claims exchange
+Once your REST API validates the data, it must return an HTTP 200 (Ok), with the following JSON data:
 
-A technical profile provides the configuration for the claim exchange.
+```json
+{
+    "balance": "760.50"
+}
+```
 
-Open the *TrustFrameworkExtensions.xml* file and add the following **ClaimsProvider** XML element inside the **ClaimsProviders** element.
+The setup of the REST API endpoint is outside the scope of this article. We have created an [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) sample. You can access the complete Azure function code at [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
-```XML
+## Define claims
+
+A claim provides temporary storage of data during an Azure AD B2C policy execution. You can declare claims within the [claims schema](claimsschema.md) section. 
+
+1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
+1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
+1. Add the following claims to the **ClaimsSchema** element.  
+
+```xml
+<ClaimType Id="balance">
+  <DisplayName>Your Balance</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+<ClaimType Id="userLanguage">
+  <DisplayName>User UI language (used by REST API to return localized error messages)</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+```
+
+## Configure the RESTful API technical profile 
+
+A [Restful technical profile](restful-technical-profile.md) provides support for interfacing with your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element in your <em>**`TrustFrameworkExtensions.xml`**</em> file and add a new claims provider as follows:
+
+```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="AzureFunctions-WebHook">
-      <DisplayName>Azure Function Web Hook</DisplayName>
+    <TechnicalProfile Id="REST-GetProfile">
+      <DisplayName>Get user extended profile Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
-        <Item Key="ServiceUrl">https://myfunction.azurewebsites.net/api/HttpTrigger1?code=bAZ4lLy//ZHZxmncM8rI7AgjQsrMKmVXBpP0vd9smOzdXDDUIaLljA==</Item>
+        <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/GetProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
         <Item Key="AuthenticationType">None</Item>
@@ -100,10 +92,13 @@ Open the *TrustFrameworkExtensions.xml* file and add the following **ClaimsProvi
         <Item Key="AllowInsecureAuthInProduction">true</Item>
       </Metadata>
       <InputClaims>
-        <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
+        <!-- Claims sent to your REST API -->
+        <InputClaim ClaimTypeReferenceId="objectId" />
+        <InputClaim ClaimTypeReferenceId="userLanguage" PartnerClaimType="lang" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
       </InputClaims>
       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="city" PartnerClaimType="city" />
+        <!-- Claims parsed from your REST API -->
+        <OutputClaim ClaimTypeReferenceId="balance" />
       </OutputClaims>
       <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
     </TechnicalProfile>
@@ -111,153 +106,114 @@ Open the *TrustFrameworkExtensions.xml* file and add the following **ClaimsProvi
 </ClaimsProvider>
 ```
 
-The **InputClaims** element defines the claims that are sent to the REST service. In this example, the value of the claim `givenName` is sent to the REST service as the claim `email`. The **OutputClaims** element defines the claims that are expected from the REST service.
+In this example, the `userLanguage` will be sent to the REST service as `lang` within the JSON payload. The value of the `userLanguage` claim contains the current user language ID. For more information, see [claim resolver](claim-resolver-overview.md).
 
-The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful APIs with basic auth](secure-rest-api-dotnet-basic-auth.md) and [Secure RESTful APIs with certificate auth](secure-rest-api-dotnet-certificate-auth.md).
-
-## Add the claim definition
-
-Add a definition for `city` inside the **BuildingBlocks** element. You can find this element at the beginning of the TrustFrameworkExtensions.xml file.
-
-```XML
-<BuildingBlocks>
-  <ClaimsSchema>
-    <ClaimType Id="city">
-      <DisplayName>City</DisplayName>
-      <DataType>string</DataType>
-      <UserHelpText>Your city</UserHelpText>
-      <UserInputType>TextBox</UserInputType>
-    </ClaimType>
-  </ClaimsSchema>
-</BuildingBlocks>
-```
+The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful API](secure-rest-api.md).
 
 ## Add an orchestration step
 
-There are many use cases where the REST API call can be used as an orchestration step. As an orchestration step, it can be used as an update to an external system after a user has successfully completed a task like first-time registration, or as a profile update to keep information synchronized. In this case, it's used to augment the information provided to the application after the profile edit.
+[User journeys](userjourneys.md) specify explicit paths through which a policy allows a relying party application to obtain the desired claims for a user. A user journey is represented as an orchestration sequence that must be followed through for a successful transaction. You can add or subtract orchestration steps. In this case, you will add a new orchestration step that is used to augment the information provided to the application after the user sign-up or sign-in via the REST API call.
 
-Add a step to the profile edit user journey. After the user is authenticated (orchestration steps 1-4 in the following XML), and the user has provided the updated profile information (step 5). Copy the profile edit user journey XML code from the *TrustFrameworkBase.xml* file to your *TrustFrameworkExtensions.xml* file inside the **UserJourneys** element. Then make the modification as step 6.
+1. Open the base file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>.
+1. Search for the `<UserJourneys>` element. Copy the entire element, and then delete it.
+1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+1. Paste the `<UserJourneys>` into the extensions file, after the close of the `<ClaimsProviders>` element.
+1. Locate the `<UserJourney Id="SignUpOrSignIn">`, and add the following orchestration step before the last one.
 
-```XML
-<OrchestrationStep Order="6" Type="ClaimsExchange">
-  <ClaimsExchanges>
-    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
-  </ClaimsExchanges>
-</OrchestrationStep>
+    ```XML
+    <OrchestrationStep Order="7" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    ```
+
+1. Refactor the last orchestration step by changing the `Order` to `8`. Your final two orchestration steps should look like the following:
+
+    ```XML
+    <OrchestrationStep Order="7" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+
+    <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+    ```
+
+1. Repeat the last two steps for the **ProfileEdit** and **PasswordReset** user journeys.
+
+
+## Include a claim in the token 
+
+To return the `balance` claim back to the relying party application, add an output claim to the <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> file. Adding an output claim will issue the claim into the token after a successful user journey, and will be sent to the application. Modify the technical profile element within the relying party section to add `balance` as an output claim.
+ 
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <OutputClaim ClaimTypeReferenceId="balance" DefaultValue="" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
 ```
 
-The final XML for the user journey should look like this example:
+Repeat this step for the **ProfileEdit.xml**, and **PasswordReset.xml** user journeys.
 
-```XML
-<UserJourney Id="ProfileEdit">
-  <OrchestrationSteps>
-    <OrchestrationStep Order="1" Type="ClaimsProviderSelection" ContentDefinitionReferenceId="api.idpselections">
-      <ClaimsProviderSelections>
-        <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
-        <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
-      </ClaimsProviderSelections>
-    </OrchestrationStep>
-    <OrchestrationStep Order="2" Type="ClaimsExchange">
-      <ClaimsExchanges>
-        <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
-        <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="3" Type="ClaimsExchange">
-      <Preconditions>
-        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-          <Value>authenticationSource</Value>
-          <Value>localAccountAuthentication</Value>
-          <Action>SkipThisOrchestrationStep</Action>
-        </Precondition>
-      </Preconditions>
-      <ClaimsExchanges>
-        <ClaimsExchange Id="AADUserRead" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="4" Type="ClaimsExchange">
-      <Preconditions>
-        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-          <Value>authenticationSource</Value>
-          <Value>socialIdpAuthentication</Value>
-          <Action>SkipThisOrchestrationStep</Action>
-        </Precondition>
-      </Preconditions>
-      <ClaimsExchanges>
-        <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="5" Type="ClaimsExchange">
-      <ClaimsExchanges>
-        <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <!-- Add a step 6 to the user journey before the JWT token is created-->
-    <OrchestrationStep Order="6" Type="ClaimsExchange">
-      <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-  </OrchestrationSteps>
-  <ClientDefinition ReferenceId="DefaultWeb" />
-</UserJourney>
-```
+Save the files you changed: *TrustFrameworkBase.xml*, and *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, and *PasswordReset.xml*. 
 
-## Add the claim
+## Test the custom policy
 
-Edit the *ProfileEdit.xml* file and add `<OutputClaim ClaimTypeReferenceId="city" />` to the **OutputClaims** element.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
+1. Select **Identity Experience Framework**.
+1. Select **Upload Custom Policy**, and then upload the policy files that you changed: *TrustFrameworkBase.xml*, and *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, and *PasswordReset.xml*. 
+1. Select the sign-up or sign-in policy that you uploaded, and click the **Run now** button.
+1. You should be able to sign up using an email address or a Facebook account.
+1. The token sent back to your application includes the `balance` claim.
 
-After you add the new claim, the technical profile looks like this example:
-
-```XML
-<TechnicalProfile Id="PolicyProfile">
-  <DisplayName>PolicyProfile</DisplayName>
-  <Protocol Name="OpenIdConnect" />
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
-    <OutputClaim ClaimTypeReferenceId="city" />
-  </OutputClaims>
-  <SubjectNamingInfo ClaimType="sub" />
-</TechnicalProfile>
-```
-
-## Upload your changes and test
-
-1. (Optional:) Save the existing version (by downloading) of the  files before you proceed.
-2. Upload the *TrustFrameworkExtensions.xml* and *ProfileEdit.xml* and select to overwrite the existing file.
-3. Select **B2C_1A_ProfileEdit**.
-4. For **Select application** on the overview page of the custom policy, select the web application named *webapp1* that you previously registered. Make sure that the **Reply URL** is `https://jwt.ms`.
-4. Select **Run Now**. Sign in with your account credentials, and click **Continue**.
-
-If everything is set up correctly, the token includes the new claim `city`, with the value `Redmond`.
-
-```JSON
+```json
 {
-  "exp": 1493053292,
-  "nbf": 1493049692,
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "X5eXk4xyojNFum1kl2Ytv8dlNP4-c57dO6QGTVBwaNk"
+}.{
+  "exp": 1584961516,
+  "nbf": 1584957916,
   "ver": "1.0",
   "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
-  "sub": "a58e7c6c-7535-4074-93da-b0023fbaf3ac",
-  "aud": "4e87c1dd-e5f5-4ac8-8368-bc6a98751b8b",
-  "acr": "b2c_1a_profileedit",
+  "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
+  "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",
-  "iat": 1493049692,
-  "auth_time": 1493049692,
-  "city": "Redmond"
+  "iat": 1584957916,
+  "auth_time": 1584957916,
+  "name": "Emily Smith",
+  "email": "emily@outlook.com",
+  "given_name": "Emily",
+  "family_name": "Smith",
+  "balance": "202.75"
+  ...
 }
 ```
 
 ## Next steps
 
-You can also design the interaction as a validation profile. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input](custom-policy-rest-api-claims-validation.md).
 
-[Modify the profile edit to gather additional information from your users](custom-policy-custom-attributes.md)
+## Next steps
 
-[Reference: RESTful technical profile](restful-technical-profile.md)
+To learn how to secure your APIs, see the following articles:
 
-To learn out how to secure your APIs, see the following articles:
-
-* [Secure your RESTful API with basic authentication (username and password)](secure-rest-api-dotnet-basic-auth.md)
-* [Secure your RESTful API with client certificates](secure-rest-api-dotnet-certificate-auth.md)
+- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md)
+- [Secure your RESTful API](secure-rest-api.md)
+- [Reference: RESTful technical profile](restful-technical-profile.md)

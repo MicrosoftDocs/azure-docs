@@ -14,7 +14,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/06/2020
+ms.date: 04/07/2020
 ms.author: radeltch
 
 ---
@@ -299,7 +299,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    [...]
    <b>SBD_STARTMODE="always"</b>
    [...]
-   <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
    Create the `softdog` configuration file
@@ -364,6 +363,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 1. **[A]** Configure cloud-netconfig-azure for HA Cluster
+
+   >[!NOTE]
+   > Check the installed version of package **cloud-netconfig-azure** by running **zypper info cloud-netconfig-azure**. If the version in your environment is 1.3 or higher, it is no longer necessary to suppress the management of network interfaces by the cloud network plugin. If the version is lower than 1.3, we suggest to update package **cloud-netconfig-azure** to the latest available version.  
 
    Change the configuration file for the network interface as shown below to prevent the cloud network plugin from removing the virtual IP address (Pacemaker must control the VIP assignment). For more information, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
 

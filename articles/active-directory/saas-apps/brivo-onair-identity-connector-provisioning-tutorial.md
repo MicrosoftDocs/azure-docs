@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Br
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant
-* [A Brivo Onair Identity Connector tenant](https://www.brivo.com/quote)
+* [A Brivo Onair Identity Connector tenant](https://www.brivo.com/lp/quote)
 * A user account in Brivo Onair Identity Connector with Senior Administrator permissions.
 
 ## Assigning users to Brivo Onair Identity Connector
@@ -50,17 +50,17 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup Brivo Onair Identity Connector for provisioning
 
-1.	Sign in to your [Brivo Onair Identity Connector Admin Console](https://acs.brivo.com/login/). Navigate to **Account > Account Settings**.
+1.    Sign in to your [Brivo Onair Identity Connector Admin Console](https://acs.brivo.com/login/). Navigate to **Account > Account Settings**.
 
-	![Brivo Onair Identity Connector Admin Console](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
+    ![Brivo Onair Identity Connector Admin Console](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
 
 2.  Click on **Azure AD** tab. On the **Azure AD** details page re-enter the password of your senior administrator account. Click on **Submit**.
 
-	![Brivo Onair Identity Connector azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
+    ![Brivo Onair Identity Connector azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
 
-3.	Click on **Copy Token** button and save the **Secret Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Brivo Onair Identity Connector application in the Azure portal.
+3.    Click on **Copy Token** button and save the **Secret Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Brivo Onair Identity Connector application in the Azure portal.
 
-	![Brivo Onair Identity Connector token](media/brivo-onair-identity-connector-provisioning-tutorial/token.png)
+    ![Brivo Onair Identity Connector token](media/brivo-onair-identity-connector-provisioning-tutorial/token.png)
 
 ## Add Brivo Onair Identity Connector from the gallery
 
@@ -70,19 +70,19 @@ Before configuring Brivo Onair Identity Connector for automatic user provisionin
 
 1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Go to **Enterprise applications**, and then select **All applications**.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add a new application, select the **New application** button at the top of the pane.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, enter **Brivo Onair Identity Connector**, select **Brivo Onair Identity Connector** in the results panel, and then click the **Add** button to add the application.
 
-	![Brivo Onair Identity Connector in the results list](common/search-new-app.png)
+    ![Brivo Onair Identity Connector in the results list](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to Brivo Onair Identity Connector 
 
@@ -92,59 +92,59 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Brivo Onair Identity Connector**.
 
-	![The Brivo Onair Identity Connector link in the Applications list](common/all-applications.png)
+    ![The Brivo Onair Identity Connector link in the Applications list](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+    ![Provisioning tab](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+    ![Provisioning tab](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://scim.brivo.com/ActiveDirectory/v2/` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Brivo Onair Identity Connector. If the connection fails, ensure your Brivo Onair Identity Connector account has Admin permissions and try again.
 
-	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
-	![Notification Email](common/provisioning-notification-email.png)
+    ![Notification Email](common/provisioning-notification-email.png)
 
 7. Click **Save**.
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Brivo Onair Identity Connector**.
 
-	![Brivo Onair Identity Connector User Mappings](media/brivo-onair-identity-connector-provisioning-tutorial/user-mappings.png )
+    ![Brivo Onair Identity Connector User Mappings](media/brivo-onair-identity-connector-provisioning-tutorial/user-mappings.png )
 
 9. Review the user attributes that are synchronized from Azure AD to Brivo Onair Identity Connector in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Brivo Onair Identity Connector for update operations. Select the **Save** button to commit any changes.
 
-	![Brivo Onair Identity Connector User Attributes](media/brivo-onair-identity-connector-provisioning-tutorial/user-attributes.png)
+    ![Brivo Onair Identity Connector User Attributes](media/brivo-onair-identity-connector-provisioning-tutorial/user-attributes.png)
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Brivo Onair Identity Connector**.
 
-	![Brivo Onair Identity Connector Group Mappings](media/brivo-onair-identity-connector-provisioning-tutorial/group-mappings.png)
+    ![Brivo Onair Identity Connector Group Mappings](media/brivo-onair-identity-connector-provisioning-tutorial/group-mappings.png)
 
 11. Review the group attributes that are synchronized from Azure AD to Brivo Onair Identity Connector in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Brivo Onair Identity Connector for update operations. Select the **Save** button to commit any changes.
 
-	![Brivo Onair Identity Connector Group Attributes](media/brivo-onair-identity-connector-provisioning-tutorial/group-attributes.png)
+    ![Brivo Onair Identity Connector Group Attributes](media/brivo-onair-identity-connector-provisioning-tutorial/group-attributes.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. To enable the Azure AD provisioning service for Brivo Onair Identity Connector, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+    ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
 14. Define the users and/or groups that you would like to provision to Brivo Onair Identity Connector by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Provisioning Scope](common/provisioning-scope.png)
+    ![Provisioning Scope](common/provisioning-scope.png)
 
 15. When you are ready to provision, click **Save**.
 
-	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+    ![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Brivo Onair Identity Connector.
 

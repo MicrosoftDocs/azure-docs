@@ -6,35 +6,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
 ---
 
 <a name="HOLTop"></a>
 
-[Reference documentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Reference documentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) with version 8 or above
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. 
-    * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll do this later in the quickstart.
-    * You can use the free pricing tier to try the service, and upgrade later to a paid tier for production.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
 
 ### Add the client library
 
-Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.3) online.
+Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) online.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>1.0.0-beta.3</version>
+        <version>1.0.0-beta.4</version>
     </dependency>
 </dependencies>
 ```
@@ -45,6 +45,7 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 Create a Java file named `TextAnalyticsSamples.java`. Open the file and add the following `import` statements:
 
 ```java
+import com.azure.core.credential.AzureKeyCredential;
 import com.azure.ai.textanalytics.models.*;
 import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
 import com.azure.ai.textanalytics.TextAnalyticsClient;
@@ -71,7 +72,6 @@ public static void main(String[] args) {
     sentimentAnalysisExample(client);
     detectLanguageExample(client);
     recognizeEntitiesExample(client);
-    recognizePIIEntitiesExample(client);
     recognizeLinkedEntitiesExample(client);
     extractKeyPhrasesExample(client);
 }
@@ -97,7 +97,7 @@ Create a method to instantiate the `TextAnalyticsClient` object with the key and
 ```java
 static TextAnalyticsClient authenticateClient(String key, String endpoint) {
     return new TextAnalyticsClientBuilder()
-        .apiKey(new TextAnalyticsApiKeyCredential(key))
+        .apiKey(new AzureKeyCredential(key))
         .endpoint(endpoint)
         .buildClient();
 }
@@ -199,34 +199,6 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 ```console
 Recognized entity: Seattle, entity category: Location, entity sub-category: GPE, score: 0.92.
 Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8.
-```
-
-## Using NER to recognize personal information
-
-Create a new function called `recognizePIIEntitiesExample()` that takes the client that you created earlier, and call its `recognizePiiEntities()` function. The returned `RecognizePiiEntitiesResult` object will contain a list of `NamedEntity` if successful, or an `errorMessage` if not. 
-
-```java
-static void recognizePIIEntitiesExample(TextAnalyticsClient client)
-{
-    // The text that need be analyzed.
-    String text = "Insurance policy for SSN on file 123-12-1234 is here by approved.";
-
-    for (PiiEntity entity : client.recognizePiiEntities(text)) {
-        System.out.printf(
-            "Recognized personal identifiable information entity: %s, entity category: %s, %nentity sub-category: %s, score: %s.%n",
-            entity.getText(),
-            entity.getCategory(),
-            entity.getSubCategory(),
-            entity.getConfidenceScore());
-    }
-}
-```
-
-### Output
-
-```console
-Recognized personal identifiable information entity: 123-12-1234, entity category: U.S. Social Security Number (SSN), 
-entity sub-category: null, score: 0.85.
 ```
 
 ## Entity linking

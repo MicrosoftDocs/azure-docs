@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 05/07/2020
 ---
 
 # Create resource groups and resources at the subscription level
@@ -15,15 +15,22 @@ To deploy templates at the subscription level, use Azure CLI, PowerShell, or RES
 
 You can deploy the following resource types at the subscription level:
 
+* [blueprints](/azure/templates/microsoft.blueprint/blueprints)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
 * [deployments](/azure/templates/microsoft.resources/deployments) - for nested templates that deploy to resource groups.
-* [peerAsns](/azure/templates/microsoft.peering/peerasns)
+* [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
+* [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+* [remediations](/azure/templates/microsoft.policyinsights/2019-07-01/remediations)
 * [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+* [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
+* [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
+* [tags](/azure/templates/microsoft.resources/tags)
+* [workspacesettings](/azure/templates/microsoft.security/workspacesettings)
 
 ### Schema
 
@@ -85,11 +92,11 @@ For subscription-level deployments, there are some important considerations when
 * Use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function to get the resource ID for resources that are deployed at subscription level.
 
   For example, to get the resource ID for a policy definition, use:
-  
+
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
-  
+
   The returned resource ID has the following format:
 
   ```json
@@ -221,8 +228,8 @@ The following example creates a resource group, and deploys a storage account to
               "location": "[parameters('rgLocation')]",
               "sku": {
                 "name": "Standard_LRS"
-              }
-              "kind": "StorageV2",
+              },
+              "kind": "StorageV2"
             }
           ],
           "outputs": {}
@@ -234,11 +241,11 @@ The following example creates a resource group, and deploys a storage account to
 }
 ```
 
-## Create policies
+## Azure Policy
 
-### Assign policy
+### Assign policy definition
 
-The following example assigns an existing policy definition to the subscription. If the policy takes parameters, provide them as an object. If the policy doesn't take parameters, use the default empty object.
+The following example assigns an existing policy definition to the subscription. If the policy definition takes parameters, provide them as an object. If the policy definition doesn't take parameters, use the default empty object.
 
 ```json
 {
@@ -275,7 +282,7 @@ The following example assigns an existing policy definition to the subscription.
 To deploy this template with Azure CLI, use:
 
 ```azurecli-interactive
-# Built-in policy that accepts parameters
+# Built-in policy definition that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
 az deployment sub create \
@@ -302,9 +309,9 @@ New-AzSubscriptionDeployment `
   -policyParameters $policyParams
 ```
 
-### Define and assign policy
+### Create and assign policy definitions
 
-You can [define](../../governance/policy/concepts/definition-structure.md) and assign a policy in the same template.
+You can [define](../../governance/policy/concepts/definition-structure.md) and assign a policy definition in the same template.
 
 ```json
 {
@@ -347,7 +354,7 @@ You can [define](../../governance/policy/concepts/definition-structure.md) and a
 }
 ```
 
-To create the policy definition in your subscription, and apply it to the subscription, use the following CLI command:
+To create the policy definition in your subscription, and assign it to the subscription, use the following CLI command:
 
 ```azurecli
 az deployment sub create \
@@ -363,6 +370,32 @@ New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
+```
+
+## Azure Blueprints
+
+### Create blueprint definition
+
+You can [create](../../governance/blueprints/tutorials/create-from-sample.md) a blueprint definition from a template.
+
+:::code language="json" source="~/quickstart-templates/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json":::
+
+To create the blueprint definition in your subscription, use the following CLI command:
+
+```azurecli
+az deployment sub create \
+  --name demoDeployment \
+  --location centralus \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
+```
+
+To deploy this template with PowerShell, use:
+
+```azurepowershell
+New-AzSubscriptionDeployment `
+  -Name demoDeployment `
+  -Location centralus `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
 ```
 
 ## Template samples

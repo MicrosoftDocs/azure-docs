@@ -2,7 +2,7 @@
 title: Usage analysis with Azure Application Insights | Microsoft docs
 description: Understand your users and what they do with your app.
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 03/25/2019
 
 ---
 
@@ -125,10 +125,14 @@ To do this, [set up a telemetry initializer](../../azure-monitor/app/api-filteri
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (ITelemetry telemetry)
-        {
-            telemetry.Properties["AppVersion"] = "v2.1";
-        }
+        public void Initialize(ITelemetry item)
+            {
+                var itemProperties = item as ISupportProperties;
+                if (itemProperties != null && !itemProperties.Properties.ContainsKey("AppVersion"))
+                {
+                    itemProperties.Properties["AppVersion"] = "v2.1";
+                }
+            }
     }
 ```
 

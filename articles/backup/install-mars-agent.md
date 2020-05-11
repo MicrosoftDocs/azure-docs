@@ -32,6 +32,7 @@ The data that's available for backup depends on where the agent is installed.
 * Review [what's supported and what you can back up](backup-support-matrix-mars-agent.md) by the MARS agent.
 * Make sure that you have an Azure account if you need to back up a server or client to Azure. If you don't have an account, you can create a [free one](https://azure.microsoft.com/free/) in just a few minutes.
 * Verify internet access on the machines that you want to back up.
+* Ensure the user performing the installation and configuration of the MARS agent has local administrator privileges on the server to be protected.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

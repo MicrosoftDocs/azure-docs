@@ -10,13 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: laobri
 ms.date: 03/11/2020
+ms.custom: contperfq4 
 ---
 
 # Tutorial: Build an Azure Machine Learning pipeline for batch scoring
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to build a pipeline in Azure Machine Learning to run a batch scoring job. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation. After you build and publish a pipeline, you configure a REST endpoint that you can use to trigger the pipeline from any HTTP library on any platform. 
+In this advanced tutorial, you learn how to build a pipeline in Azure Machine Learning to run a batch scoring job. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation. After you build and publish a pipeline, you configure a REST endpoint that you can use to trigger the pipeline from any HTTP library on any platform. 
 
 The example uses a pretrained [Inception-V3](https://arxiv.org/abs/1512.00567) convolutional neural network model implemented in Tensorflow to classify unlabeled images. [Learn more about machine learning pipelines](concept-ml-pipelines.md).
 
@@ -320,7 +321,7 @@ batch_score_step = ParallelRunStep(
 
 For a list of all the classes you can use for different step types, see the [steps package](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py).
 
-## Run the pipeline
+## Submit the pipeline
 
 Now, run the pipeline. First, create a `Pipeline` object by using your workspace reference and the pipeline step you created. The `steps` parameter is an array of steps. In this case, there's only one step for batch scoring. To build pipelines that have multiple steps, place the steps in order in this array.
 

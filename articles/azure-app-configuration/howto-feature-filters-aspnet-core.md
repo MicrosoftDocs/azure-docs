@@ -4,12 +4,9 @@ titleSuffix: Azure App Configuration
 description: Learn how to use feature filters to enable a feature for a subset of users
 ms.service: azure-app-configuration
 author: lisaguthrie
-
-ms.service: azure-app-configuration
+ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.author: lcozzens
-
 ---
 # Use feature filters to enable a feature for a subset of users
 
