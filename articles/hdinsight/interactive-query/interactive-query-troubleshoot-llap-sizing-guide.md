@@ -91,7 +91,7 @@ For D14v2 worker nodes, the recommended value for llap queue is **80**.
 Configuration: ***hive.llap.daemon.yarn.container.mb***  
    
 LLAP daemon is run as a YARN container on each worker node. The total memory size for LLAP daemon container depends on following factors,    
-1. Configurations of YARN container size (yarn.scheduler.maximum-allocation-mb, yarn.scheduler.maximum-allocation-mb, yarn.nodemanager.resource.memory-mb)
+1. Configurations of YARN container size (yarn.scheduler.minimum-allocation-mb, yarn.scheduler.maximum-allocation-mb, yarn.nodemanager.resource.memory-mb)
 2. Number of Tez AMs on a node
 3. Total memory configured for all containers on a node and LLAP queue capacity  
 
