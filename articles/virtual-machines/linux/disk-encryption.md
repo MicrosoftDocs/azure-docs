@@ -144,7 +144,7 @@ az vm create -g $rgName -n $vmName -l $location --image $image --size $vmSize --
 ```
 
 
-#### Encrypt existing unattached managed disks 
+#### Encrypt existing managed disks 
 
 Your existing disks must not be attached to a running VM in order for you to encrypt them using the following script:
 

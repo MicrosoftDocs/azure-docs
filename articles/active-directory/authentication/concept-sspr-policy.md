@@ -98,7 +98,7 @@ This guidance applies to other providers, such as Intune and Office 365, which a
 
 ## Set or check the password policies by using PowerShell
 
-To get started, [download and install the Azure AD PowerShell module](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). After the module is installed, use the following steps to configure each field.
+To get started, [download and install the Azure AD PowerShell module](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0) and [connect it to your Azure AD tenant](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0#examples). After the module is installed, use the following steps to configure each field.
 
 ### Check the expiration policy for a password
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD consent framework 
+title: Azure AD consent framework
 titleSuffix: Microsoft identity platform
 description: Learn about the consent framework in Azure Active Directory and how it makes it easy to develop multi-tenant web and native client applications.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ---
 
 # Azure Active Directory consent framework

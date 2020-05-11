@@ -1,5 +1,5 @@
 ---
-title: Azure Automation Configure Start/Stop VMs during off hours solution
+title: Azure Automation Configure Start/Stop VMs during off-hours solution
 description: This article describes how to configure the Start/Stop VMs during off-hours solution to support different use cases or scenarios.
 services: automation
 ms.subservice: process-automation
@@ -7,9 +7,9 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ---
 
-# How to configure Start/Stop VMs during off hours solution
+# How to configure Start/Stop VMs during off-hours solution
 
-With the **Start/Stop VMs during off hours** solution, you can:
+With the **Start/Stop VMs during off-hours** solution, you can:
 
 - [Schedule VMs to start and stop](#schedule).
 - Schedule VMs to start and stop in ascending order by [using Azure Tags](#tags) (not supported for classic VMs).
@@ -120,7 +120,7 @@ When you run the **AutoStop_CreateAlert_Parent** runbook, it verifies that the t
 
 ### To target the autostop action to a list of VMs
 
-1. Create a new [Schedule](shared-resources/schedules.md#creating-a-schedule) and link it to the **AutoStop_CreateAlert_Parent** runbook, adding a comma-separated list of VM names to the `VMList` parameter.
+1. Create a new [Schedule](shared-resources/schedules.md#create-a-schedule) and link it to the **AutoStop_CreateAlert_Parent** runbook, adding a comma-separated list of VM names to the `VMList` parameter.
 
 2. Optionally, if you want to exclude some VMs from the auto shutdown, you can add a comma-separated list of VM names to the `External_ExcludeVMNames` variable.
 

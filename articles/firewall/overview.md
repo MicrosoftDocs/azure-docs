@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/23/2020
+ms.date: 05/06/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -35,12 +35,12 @@ You can also associate Azure Firewall to a specific zone just for proximity reas
 
 There's no additional cost for a firewall deployed in an Availability Zone. However, there are additional costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [What are Availability Zones in Azure?](../availability-zones/az-overview.md#services-support-by-region)
+Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Regions that support Availability Zones in Azure](../availability-zones/az-region.md)
 
 > [!NOTE]
 > Availability Zones can only be configured during deployment. You can't configure an existing firewall to include Availability Zones.
 
-For more information about Availability Zones, see [What are Availability Zones in Azure?](../availability-zones/az-overview.md)
+For more information about Availability Zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md)
 
 ## Unrestricted cloud scalability
 
@@ -78,12 +78,12 @@ Inbound Internet network traffic to your firewall public IP address is translate
 
 ## Multiple public IP addresses
 
-You can associate multiple public IP addresses (up to 100) with your firewall.
+You can associate multiple public IP addresses (up to 250) with your firewall.
 
 This enables the following scenarios:
 
 - **DNAT** - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
-- **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall.
+- **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall. Consider using a [public IP address prefix](../virtual-network/public-ip-address-prefix.md) to simplify this configuration.
 
 ## Azure Monitor logging
 
@@ -117,6 +117,7 @@ Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work 
 |DNAT isn't supported with Forced Tunneling enabled|Firewalls deployed with Forced Tunneling enabled can't support inbound access from the Internet because of asymmetric routing.|This is by design because of asymmetric routing. The return path for inbound connections goes via the on-premises firewall, which hasn't seen the connection established.
 |Outbound Passive FTP doesn't work for Firewalls with multiple public IP addresses.|Passive FTP establishes different connections for control and data channels. When a Firewall with multiple public IP addresses sends data outbound, it randomly selects one of its public IP addresses for the source IP address. FTP fails when data and control channels use different source IP addresses.|An explicit SNAT configuration is planned. In the meantime, consider using a single IP address in this situation.|
 |NetworkRuleHit metric is missing a protocol dimension|The ApplicationRuleHit metric allows filtering based protocol, but this capability is missing in the corresponding NetworkRuleHit metric.|A fix is being investigated.|
+|NAT rules with ports between 64000 and 65535 are unsupported|Azure Firewall allows any port in the 1-65535 range in network and application rules, however NAT rules only support ports in the 1-63999 range.|This is a current limitation.
 |Configuration updates may take five minutes on average.|An Azure Firewall configuration update can take three to five minutes on average, and parallel updates aren't supported.|A fix is being investigated.
 
 ## Next steps

@@ -123,7 +123,7 @@ When onboarding multiple machines, there may be machines that show as `Cannot en
 
 **Cause:** The solution is not supported for all Linux distributions or all versions of Windows.
 
-**Solution:** Refer to the [list of supported clients](automation-update-management.md#clients) for the solution.
+**Solution:** Refer to the [list of supported clients](automation-update-management.md#supported-client-types).
 
 ### Classic VMs cannot be enabled
 

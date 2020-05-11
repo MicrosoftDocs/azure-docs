@@ -121,7 +121,7 @@ For more information about using deployment slots, see [Set up a staging environ
 
 To review WebJob logs:
 
-1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Sign in to your **Kudu website** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Select the WebJob.
 3. Select the **Toggle Output** button.
 4. To download the output file, select the **Download** link.
