@@ -42,7 +42,7 @@ You can now easily bulk load data using SQL pools with a simple right-click on t
 	![Selecting file format settings](./sql/media/bulk-load/bulk-load-file-format-settings.png)
 
 3. You can click on "Preview data" to see how the COPY statement will parse the file to help you configure the file format settings. Click on "Preview data" every time you change a file format setting to see how the COPY statement will parse the file with the updated setting:
-   ![Previewing data](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png)
+   ![Previewing data](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
 4. Select the SQL pool you are using to load including whether the load will be for an existing table or new table:
    ![Selecting target location](./sql/media/bulk-load/bulk-load-target-location.png)
