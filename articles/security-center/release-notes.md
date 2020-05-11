@@ -91,6 +91,17 @@ The recommendations are:
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
 
+### Custom policies with custom metadata generally available
+
+Custom policies are now part of the Security Center recommendations experience, secure score, and the regulatory compliance standards dashboard. This feature is now generally available and allows you to extend your organization's security assessment coverage in Security Center. 
+
+Create a custom initiative in Azure policy, add it as a policy in Azure Security Center, and visualize it as recommendations.
+
+We've now also added the ability to edit the custom recommendation metadata such as severity, remediation steps, threats information, and more.  
+
+[Learn more about enhancing your custom recommendations with detailed information](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
+
+
 ## April 2020
 
 ### Dynamic compliance packages now generally available
