@@ -206,7 +206,7 @@ The change feed files contain a series of change event records. Each change even
 
 Change feed files are stored in the `$blobchangefeed/log/` virtual directory as [append blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). The first change feed file under each path will have `00000` in the file name (For example `00000.avro`). The name of each subsequent log file added to that path will increment by 1 (For example: `00001.avro`).
 
-The following eventTypes are captured in the Change feed recods:
+The following event types are captured in the Change feed records:
 - BlobCreated
 - BlobDeleted
 - BlobPropertiesUpdated
