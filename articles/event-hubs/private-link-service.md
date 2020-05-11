@@ -245,7 +245,7 @@ In the **Networking** tab:
 3. For **NIC network security group**, select **None**.
 4. For **Load balancing**, select **No**.
 
-Connect to the VM and open the command line and run the following command:
+Connect to the VM, open the command line, and run the following command:
 
 ```console
 nslookup <event-hubs-namespace-name>.servicebus.windows.net
