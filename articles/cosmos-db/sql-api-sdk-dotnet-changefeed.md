@@ -58,7 +58,7 @@ ms.author: anfeldma
 ### <a name="2.2.7"/>2.2.7
 * Improved load balancing strategy for scenario when getting all leases takes longer than lease expiration interval, e.g. due to network issues:
   * In this scenario load balancing algorithm used to falsely consider leases as expired, causing stealing leases from active owners. This could trigger unnecessary re-balancing a lot of leases.
-  * This issue is fixed in this release by avoiding retry on conflict while acquiring expired lease which owner hasn't changed and posponing acquiring expired lease to next load balancing iteration.
+  * This issue is fixed in this release by avoiding retry on conflict while acquiring expired lease which owner hasn't changed and postponing acquiring expired lease to next load balancing iteration.
 
 ### <a name="2.2.6"/>2.2.6
 * Improved handling of Observer exceptions.
