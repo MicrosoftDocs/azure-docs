@@ -59,7 +59,7 @@ ms.author: anfeldma
 
 ### <a name="2.1.0-preview2"/>2.1.0-preview2
 
-* Added BulkDelete support for SQL API accounts to accept partition key, document id tuples to delete. This change makes it functionally equivalent to 1.4.0 release.
+* Added BulkDelete support for SQL API accounts to accept partition key, document ID tuples to delete. This change makes it functionally equivalent to 1.4.0 release.
 
 ### <a name="2.0.0-preview2"/>2.0.0-preview2
 
@@ -113,7 +113,7 @@ ms.author: anfeldma
 
 ### <a name="1.4.0"/>1.4.0
 
-* Added BulkDelete support for SQL API accounts to accept partition key, document id tuples to delete.
+* Added BulkDelete support for SQL API accounts to accept partition key, document ID tuples to delete.
 
 ### <a name="1.3.0"/>1.3.0
 
