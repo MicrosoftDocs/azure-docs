@@ -589,8 +589,6 @@
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
-    - name: Host SSISDB by Azure SQL managed instance
-      href: how-to-host-ssisdb-sql-managed-instance.md
     - name: Join Azure-SSIS IR to a virtual network
       href: join-azure-ssis-integration-runtime-virtual-network.md
     - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
@@ -611,6 +609,8 @@
       href: configure-azure-ssis-integration-runtime-performance.md
     - name: Configure disaster recovery for Azure-SSIS IR
       href: configure-bcdr-azure-ssis-integration-runtime.md
+    - name: Use Azure SQL Managed Instance with Azure-SSIS IR
+      href: how-to-use-sql-managed-instance-with-ir.md
     - name: Clean up SSISDB logs with Elastic Database Jobs
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
     - name: Migrate SSIS jobs with SSMS
