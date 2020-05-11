@@ -252,7 +252,7 @@ There are limitations that exist when using custom roles on management groups.
 
 ## Moving management groups and subscriptions 
 
-To a management group or subscription to be a child of another management group, three rules need to
+To move a management group or subscription to be a child of another management group, three rules need to
 be evaluated as true.
 
 If you're doing the move action, you need: 
