@@ -30,6 +30,8 @@
     href: tutorial-url-redirect-cli.md
   - name: Autoscaling and zone redundant
     href: tutorial-autoscale-ps.md
+  - name: Ingress for AKS
+    href: tutorial-ingress-controller-add-on.md
 - name: Samples
   items:
   - name: Azure PowerShell
