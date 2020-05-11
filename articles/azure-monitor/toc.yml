@@ -123,6 +123,7 @@
       href: insights/monitor-azure-resource.md
     - name: Monitor Azure virtual machines
       href: insights/monitor-vm-azure.md
+      displayname: VM
   - name: Manage and configure
     items:
     - name: Roles permissions and security
@@ -130,6 +131,14 @@
     - name: IP addresses
       href: app/ip-addresses.md
       displayname: firewall, firewall exceptions, whitelist
+    - name: Usage and cost
+      items:
+      - name: Usage and estimated costs
+        href: platform/usage-estimated-costs.md
+      - name: Application usage and costs
+        href: app/pricing.md
+      - name: Log data usage and costs
+        href: platform/manage-cost-storage.md
     - name: Log Analytics workspaces
       items:
       - name: Design a workspace deployment
@@ -140,8 +149,8 @@
           href: learn/quick-create-workspace.md 
         - name: Use Azure CLI
           href: learn/quick-create-workspace-cli.md
-        - name: Use Azure PowerShell
-          href: learn/quick-create-workspace-posh.md
+        - name: Use PowerShell
+          href: platform/powershell-workspace-configuration.md
       - name: Delete and recover a workspace
         href: platform/delete-workspace.md
       - name: Move a workspace
@@ -150,14 +159,6 @@
         href: platform/service-providers.md
       - name: Manage access
         href: platform/manage-access.md
-    - name: Usage and cost
-      items:
-      - name: Usage and estimated costs
-        href: platform/usage-estimated-costs.md
-      - name: Application usage and costs
-        href: app/pricing.md
-      - name: Log data usage and costs
-        href: platform/manage-cost-storage.md
     - name: Agents
       items:
       - name: Agents overview
@@ -275,28 +276,24 @@
       - name: Export (legacy)
         displayname: Activity log
         href: platform/activity-log-export.md
-    - name: Send to destinations
-      items:
-      - name: Log Analytics workspace
-        displayname: Resource logs, Activity log, Platform logs
-        href: platform/resource-logs-collect-workspace.md
-      - name: Azure storage
-        displayname: Resource logs, Activity log, Platform logs
-        href: platform/resource-logs-collect-storage.md
-      - name: Event Hubs
-        displayname: Resource logs, Activity log, Platform logs
-        href: platform/resource-logs-stream-event-hubs.md
-    - name: Diagnostic settings
-      items: 
-      - name: Create diagnostic setting
-        displayName: Platform logs, Resource logs, Activity log
-        href: platform/diagnostic-settings.md
-      - name: Create with Resource Manager
-        displayName: diagnostic setting, Platform logs, Resource logs, Activity log
-        href: platform/diagnostic-settings-template.md
-      - name: Change to blob storage format
-        displayname: Diagnostic settings
-        href: platform/resource-logs-blob-format.md
+    - name: Send to Log Analytics workspace
+      displayname: Resource logs, Activity log, Platform logs
+      href: platform/resource-logs-collect-workspace.md
+    - name: Send to Azure storage
+      displayname: Resource logs, Activity log, Platform logs
+      href: platform/resource-logs-collect-storage.md
+    - name: Send to Event Hubs
+      displayname: Resource logs, Activity log, Platform logs
+      href: platform/resource-logs-stream-event-hubs.md
+    - name: Create diagnostic setting
+      displayName: Platform logs, Resource logs, Activity log
+      href: platform/diagnostic-settings.md
+    - name: Create diagnostic setting with Resource Manager
+      displayName: diagnostic setting, Platform logs, Resource logs, Activity log
+      href: platform/diagnostic-settings-template.md
+    - name: Change to blob storage format
+      displayname: Diagnostic settings
+      href: platform/resource-logs-blob-format.md
     - name: Stream data to Event Hubs
       href: platform/stream-monitoring-data-event-hubs.md 
   - name: Log queries
@@ -953,7 +950,7 @@
           href: insights/container-insights-optout-hybrid.md
     - name: Troubleshooting
       href: insights/container-insights-troubleshoot.md
-  - name: Insights
+  - name: Other insights
     items: 
     - name: Resource groups
       href: insights/resource-group-insights.md
@@ -972,24 +969,16 @@
       href: insights/solutions.md
     - name: Target solutions
       href: insights/solution-targeting.md
-    - name: Docker and Windows Container monitoring
-      href: insights/containers.md
+    - name: AD health assessment
+      href: insights/ad-assessment.md
+    - name: AD Replication Status
+      href: insights/ad-replication-status.md
     - name: Capacity and performance solution
       href: insights/capacity-performance.md
-    - name: VMware Analytics solution
-      href: insights/vmware.md
-    - name: Wire Data solution
-      href: insights/wire-data.md
-    - name: Service Map solution
-      href: insights/service-map.md
-    - name: Service Map and Operations Manager
-      href: insights/service-map-scom.md
-    - name: Databases
-      items:
-      - name: Azure SQL
-        href: insights/azure-sql.md
-      - name: SQL Server
-        href: insights/sql-assessment.md
+    - name: Docker and Windows Container monitoring
+      href: insights/containers.md
+    - name: Key Vault Analytics
+      href: insights/azure-key-vault.md
     - name: Networks
       items:
       - name: Networking Analytics
@@ -1010,16 +999,22 @@
           href: insights/network-performance-monitor-pricing-faq.md
         - name: FAQ
           href: insights/network-performance-monitor-faq.md
-      - name: Assess AD Health
-        href: insights/ad-assessment.md
-      - name: AD Replication Status
-        href: insights/ad-replication-status.md
-      - name: Key Vault Analytics
-        href: insights/azure-key-vault.md
-      - name: Office 365
-        href: insights/solution-office-365.md
-      - name: Surface Hub
-        href: insights/surface-hubs.md
+    - name: Office 365
+      href: insights/solution-office-365.md
+    - name: Service Map solution
+      href: insights/service-map.md
+    - name: Service Map and Operations Manager
+      href: insights/service-map-scom.md
+    - name: Azure SQL
+      href: insights/azure-sql.md
+    - name: SQL Server
+      href: insights/sql-assessment.md
+    - name: Surface Hub
+      href: insights/surface-hubs.md
+    - name: VMware Analytics solution
+      href: insights/vmware.md
+    - name: Wire Data solution
+      href: insights/wire-data.md
   - name: Workbooks
     items:
     - name: Overview
@@ -1113,8 +1108,6 @@
         href: platform/powershell-quickstart-samples.md
       - name: Create alerts
         href: app/powershell-alerts.md  
-      - name: Manage Log Analytics
-        href: platform/powershell-workspace-configuration.md
       - name: Application Insights
         items:
         - name: Manage Application Insights
