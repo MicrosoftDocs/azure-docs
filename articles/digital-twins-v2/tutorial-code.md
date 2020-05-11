@@ -27,11 +27,21 @@ What you need to begin:
 * Any code editor
 * .NET Core 3.1 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
+## Set up an Azure Digital Twins instance
+
+To develop the app in this tutorial, you'll need an Azure Digital Twins service instance to program against. 
+
+If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip to the next section.
+
+Otherwise, you can either:
+* Follow the steps to set up an instance, using the instructions in [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md). Also, set up an Azure Active Directory app registration for your instance with the *Create an app registration* section of [How-to: Authenticate a client application](how-to-authenticate-client.md).
+* Or, run [this shell script](https://github.com/Azure-Samples/digital-twins-samples) to run through the setup automatically. Take note of the `appId` that is printed out by the script; this is your *Application (client) ID*. Also note the `hostName`. You will use these values later.
+
 ## Set up project
 
-The first step is to set up a project. 
+Next, set up the client app project. 
 
-Open a command prompt or shell window on your machine, and create an empty project directory where you would like to store your work during this tutorial. Name the directory whatever you would like (for example, *DigitalTwinsCodeTutorial*).
+Open a command prompt or other console window on your machine, and create an empty project directory where you would like to store your work during this tutorial. Name the directory whatever you would like (for example, *DigitalTwinsCodeTutorial*).
 
 Navigate into the new directory.
 
@@ -41,7 +51,7 @@ Once in the project directory, create an empty .NET console app project. In the 
 dotnet new console
 ```
 
-This will create several files inside your directory, including one called *Program.cs*.
+This will create several files inside your directory, including one called *Program.cs* where you will write most of your code.
 
 Next, to use this project for developing against Azure Digital Twins, use the following commands to add two necessary dependencies:
 
@@ -54,17 +64,6 @@ The first dependency is the Azure Digital Twins SDK for .NET.
 The second dependency provides tools to help with authentication against Azure.
 
 Keep the command window open, as you'll continue to use it throughout the tutorial.
-
-## Set up an Azure Digital Twins instance
-
-To continue with the tutorial's development steps, you need to create an Azure Digital Twins service instance to program against. 
-
-If you already have an Azure Digital Twins instance set up from previous work, you can use that instance, and skip to the next section.
-
-Otherwise, you can run [this shell script](https://github.com/Azure-Samples/digital-twins-samples) to run through the setup automatically. Take note of the `appId` that is printed out by the script; this is your *Application (client) ID*. Also note the `hostName`. You will use these values later.
-
-> [!TIP]
-> To see the steps for setting up an Azure Digital Twins instance in more detail, you can visit [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md).
 
 ## Get started with project code
 
@@ -421,7 +420,7 @@ In your command window, run the program with `dotnet run`. You should see all th
 
 ## Complete code example
 
-At this point in the tutorial, you have a complete client app, capable of performing basic actions against Azure Digital Twins. For reference, the full code of the program is listed below:
+At this point in the tutorial, you have a complete client app, capable of performing basic actions against Azure Digital Twins. For reference, the full code of the program in *Program.cs* is listed below:
 
 ```csharp
 using System;
@@ -551,7 +550,7 @@ In this tutorial, you created a .NET console client application from scratch. Yo
 Continue to the next tutorial to explore the things you can do with such a sample client app: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Explore with a command-line tool](tutorial-command-line-tool.md)
+> [Tutorial: Explore with a command-line app](tutorial-command-line-app.md)
 
 You can also add to the code you wrote in this tutorial by learning more management operations in the how-to articles, or start looking at the concept documentation to learn more about elements you worked with in the tutorial.
 * [How-to: Manage a twin model](how-to-manage-model.md)
