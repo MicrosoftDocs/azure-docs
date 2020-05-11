@@ -26,11 +26,14 @@ Azure AD integration with AKS managed AAD is designed to simplify the Azure AD i
 
 ## Before you begin
 
+> [!Important]
+> You must use Kubectl with a minimum version of 1.18
+
 You must have the following resources installed:
 
-- The Azure CLI, version 2.2.0 or later
+- The Azure CLI, version 2.5.1 or later
 - The aks-preview 0.4.38 extension
-- Kubectl with a minimum version of [1.18 beta](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#client-binaries)
+- Kubectl with a minimum version of [1.18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180)
 
 To install/update the aks-preview  extension or later, use the following Azure CLI commands:
 
