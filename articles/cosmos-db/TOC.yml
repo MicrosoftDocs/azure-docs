@@ -1018,7 +1018,7 @@
         href: how-to-use-change-feed-estimator.md
       - name: Migrate from change feed processor library
         href: how-to-migrate-from-change-feed-library.md
-      - name: Create a Java SQL application with Change Feed
+      - name: Change feed - Async Java sample
         href: create-sql-api-java-changefeed.md
     - name: Built-in analytics with Apache Spark
       items:
@@ -1080,6 +1080,8 @@
           href: monitor-server-side-latency.md
         - name: Monitor request unit usage
           href: monitor-request-unit-usage.md
+        - name: Monitor normalized request unit usage
+          href: monitor-normalized-request-units.md
       - name : Use Azure monitor logs
         items:
         - name: Monitor with diagnostic logs
