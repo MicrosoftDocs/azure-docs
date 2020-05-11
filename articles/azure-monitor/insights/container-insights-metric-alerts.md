@@ -50,7 +50,7 @@ This section walks through enabling Azure Monitor for containers metric alert (p
 
     ![Recommended alerts properties pane](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
 
-After clicking on the enable radio button the alert rule is created, and the rule name updates to include a link to the actual alert resource. 
+After selecting the **Enable/Disable** radio button to enable the alert, an alert rule is created and the rule name updates to include a link to the actual alert resource.
 
 ## Edit alert rules
 
@@ -63,5 +63,5 @@ You can view and manage Azure Monitor for containers alert rules, to edit its th
     * To modify the alert rule threshold, select the **Condition**.
     * To specify an existing or create an action group, select **Add** or **Create** under **ACION GROUPS**
 
-## View fired alerts
+To view alerts created for the enabled rules, in the **Recommended alerts** pane select **View in alerts**. This redirects you to the alert menu for the AKS cluster, where you can see all the alerts currently created for your cluster. 
 
