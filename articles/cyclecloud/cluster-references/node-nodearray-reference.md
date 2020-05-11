@@ -66,12 +66,24 @@ Credentials | String | Name of the Cloud Provider account.
 
 ## Additional Attributes
 
+::: moniker range="=cyclecloud-7"
 Attribute | Type | Definition
 ------ | ----- | ----------
 ComputerName | String | Computer name for VM. If specified, overrides the system-generated name.
 ComputerNamePrefix | String | Prefix pre-pended to system-generated computer names
 Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
 KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+Attribute | Type | Definition
+------ | ----- | ----------
+ComputerName | String | Computer name for VM. If specified, overrides the system-generated name.
+ComputerNamePrefix | String | Prefix pre-pended to system-generated computer names
+EphemeralOSDisk | boolean | Use ephemeral boot disk for VM, if supported
+Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
+KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
+::: moniker-end
 
 ### Image Attributes
 
