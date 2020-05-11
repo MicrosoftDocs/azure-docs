@@ -39,7 +39,7 @@ The **Normalized RU Consumption** metric is also used to see which partition key
 
    ![Choose an Azure Cosmos account to view metrics](./media/monitor-normalized-request-units/select-cosmos-db-account.png)
 
-4. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](../../cosmos-db/monitor-cosmos-db-reference.md) article. In this example, let’s select **Normalized RU Consumption** metric and **Max** as the aggregation value.
+4. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let’s select **Normalized RU Consumption** metric and **Max** as the aggregation value.
 
    In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter.
 
