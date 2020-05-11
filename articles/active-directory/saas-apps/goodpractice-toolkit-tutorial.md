@@ -112,7 +112,7 @@ In this section, you create a test user called B.Simon in the Azure portal:
 1. At the top of the screen, select **New user**.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter **B.Simon**.  
-   1. In the **User name** field, enter **B.Simon@**_companydomain_**.**_extension_. For example, **B.Simon@contoso.com**.
+   1. In the **User name** field, enter **B.Simon@**_companydomain_**.**_extension_. For example, B.Simon@contoso.com.
    1. Select the **Show password** check box, and then write down the value that's shown in the **Password** box.
    1. Select **Create**.
 
@@ -150,7 +150,7 @@ In this section, you test your Azure AD single sign-on configuration by using th
 
 When you select the Mind Tools Toolkit tile in the My Apps portal, you are automatically signed in to the Mind Tools Toolkit for which you set up SSO. For more information about the My Apps portal, see [Introduction to the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [Tutorials for integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
