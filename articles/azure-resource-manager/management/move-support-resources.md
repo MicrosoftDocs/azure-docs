@@ -1672,8 +1672,8 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | account | No | No |
-> | account / extension | Yes | Yes |
-> | account / project | Yes | Yes |
+> | account / extension | No | No |
+> | account / project | No | No |
 
 > [!IMPORTANT]
 > To change the subscription for Azure DevOps, see [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
@@ -1700,8 +1700,8 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | accounts | Yes | Yes |
-> | plans | Yes | Yes |
+> | accounts | No | No |
+> | plans | No | No |
 
 ## Microsoft.Web
 
