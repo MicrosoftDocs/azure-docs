@@ -207,3 +207,5 @@ additionalContent:
           url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
         - text: Stack Overflow
           url: https://aka.ms/SOspeechquestions
+        - text: UserVoice
+          url: https://cognitive.uservoice.com/forums/912208-speech-service
