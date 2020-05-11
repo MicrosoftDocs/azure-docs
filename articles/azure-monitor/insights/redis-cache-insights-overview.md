@@ -29,7 +29,7 @@ This feature does not require you to enable or configure anything, these Azure C
 >[!NOTE]
 >There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
 
-## View utilization and performance metrics for Azure Cosmos DB
+## View utilization and performance metrics for Azure Cache for Redis
 
 To view the utilization and performance of your storage accounts across all of your subscriptions, perform the following steps.
 
@@ -39,9 +39,7 @@ To view the utilization and performance of your storage accounts across all of y
 
     ![Search box with the word "Monitor" and a dropdown that says Services "Monitor" with a speedometer style image](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. Select **Redis Cache (preview)**.
-
-    ![Screenshot of Insights pane](./media/redis-cache-insights-overview/redis-cache.png)
+3. Select **Azure Cache for Redis (preview)**.
 
 If this option is not present click **More** and select **Azure Cache for Redis**.
 
@@ -51,7 +49,7 @@ On **Overview**, the table displays interactive Azure Cache for Redis metrics. Y
 
 * **Subscriptions** - only subscriptions that have an Azure Cache for Redis resource are listed.  
 
-* **Redis caches** - You can select all, a subset, or single Azure Redis cache resource.
+* **Azure Cache for Redis** - You can select all, a subset, or single Azure Cache for Redis resource.
 
 * **Time Range** - by default, displays the last 4 hours of information based on the corresponding selections made.
 
@@ -81,22 +79,7 @@ Select **Failures** at the top of the page and the **Failures** portion of the w
 
 ### Metric definitions
 
-This represents the subset of metrics displayed in the prebuilt workbooks. For a full list see [available metrics and reporting intervals](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
-
-| Metric |  Definitions       |
-|-----------|:--------------------|
-| `Cache Hits`| The number of successful key lookups during the specified reporting interval. This number maps to `keyspace_hits` from the Redis [INFO command](https://redis.io/commands/info).|
-| `Cache Misses` | The number of failed key lookups during the specified reporting interval. This number maps to keyspace_misses from the Redis INFO command. Cache misses do not necessarily mean there is an issue with the cache. For example, when using the cache-aside programming pattern, an application looks first in the cache for an item. If the item is not there (cache miss), the item is retrieved from the database and added to the cache for next time. Cache misses are normal behavior for the cache-aside programming pattern. If the number of cache misses is higher than expected, examine the application logic that populates and reads from the cache. If items are being evicted from the cache due to memory pressure, then there may be some cache misses, but a better metric to monitor for memory pressure would be `Used Memory` or `Evicted Keys`.|
-| `Cache Read` | The amount of data read from the cache during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server-side network bandwidth limits, then create it using this Cache Read counter. See [this table](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.|
-|`Cache Write`| The amount of data written to the cache during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client.
-|`CPU` | The CPU utilization of the Azure Cache for Redis server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter.|
-| `Errors` | Specific failures and performance issues that the cache could be experiencing during a specified reporting interval. This metric has eight dimensions representing different error types, but could have more added in the future. The error types represented now are as follows: <br/><ul><li>**Failover** – when a cache fails over (subordinate promotes to master)</li><li>**Dataloss** – when there is data loss on the cache</li><li>**UnresponsiveClients** – when the clients are not reading data from the server fast enough</li><li>**AOF** – when there is an issue related to AOF persistence</li><li>**RDB** – when there is an issue related to RDB persistence</li><li>**Import** – when there is an issue related to Import RDB</li><li>**Export** – when there is an issue related to Export RDB</li></ul> |
-| `Gets` |The number of get operations from the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, and `cmdstat_getrange`, and is equivalent to the sum of cache hits and misses during the reporting interval. |
-| `Operations per Second` | The total number of commands processed per second by the cache server during the specified reporting interval.  This value maps to "instantaneous_ops_per_sec" from the Redis INFO command. |
-| `Sets` |The number of set operations to the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`, and `cmdstat_setnx`. |
-| `Total Operations` |The total number of commands processed by the cache server during the specified reporting interval. This value maps to `total_commands_processed` from the Redis INFO command. When Azure Cache for Redis is used purely for pub/sub there will be no metrics for `Cache Hits`, `Cache Misses`, `Gets`, or `Sets`, but there will be `Total Operations` metrics that reflect the cache usage for pub/sub operations. |
-| `Used Memory` |The amount of cache memory used for key/value pairs in the cache in MB during the specified reporting interval. This value maps to `used_memory` from the Redis INFO command. This value does not include metadata or fragmentation. |
-| `Used Memory Percentage` | The % of total memory that is being used during the specified reporting interval.  This value references the `used_memory` value from the Redis INFO command to calculate the percentage. |
+For a full list of the metric definitions that comprise these workbooks check out the [available metrics and reporting intervals article](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
 
 ## Pin, export, and expand
 
