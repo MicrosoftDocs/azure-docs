@@ -136,7 +136,7 @@ To add this external data store and make it visible in the **Data** section, fol
    9. Select **Create**
    10. The external data store you connected to the workspace should be visible once you select the **refresh** icon
 
-## Ingest data to the lake
+## Ingest data into the lake
 
 Now we want to ingest some data into the lake. In this exercise, a stripped down version of the New York Taxi Cab will be ingested into the data lake called **Contosolake** and the path called **datasets/nyctaxismall**.
 
